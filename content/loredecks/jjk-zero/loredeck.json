@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "id": "jjk-zero",
+  "type": "bundled",
+  "title": "Jujutsu Kaisen 0",
+  "description": "Prequel Loredeck for Yuta Okkotsu, Rika Orimoto, Tokyo Jujutsu High first-year dynamics, Suguru Geto's pre-mainline faction state, and the Night Parade climax.",
+  "fandom": "Jujutsu Kaisen",
+  "era": "Jujutsu Kaisen 0 Prequel",
+  "contentKind": "fandom",
+  "author": "Saga",
+  "version": "0.1.0",
+  "defaultLocale": "en",
+  "tags": [
+    "fandom:jjk",
+    "continuity:jjk-zero",
+    "adaptation:manga",
+    "arc:jjk-zero",
+    "quality:draft-reference"
+  ],
+  "source": {
+    "kind": "bundled",
+    "url": ""
+  },
+  "update": {
+    "checkForUpdates": false,
+    "url": "",
+    "lastCheckedAt": 0
+  },
+  "registries": {
+    "taxonomy": "taxonomy.json",
+    "tags": "tags.json",
+    "entities": "entities.json",
+    "timeline": "timeline.json",
+    "gateTypes": "gate-types.json",
+    "scoring": "scoring.json"
+  },
+  "resolver": "resolver.json",
+  "continuity": {
+    "continuityId": "jjk-zero",
+    "canonTier": "primary",
+    "adaptation": "manga",
+    "medium": "manga",
+    "sourceBoundary": "Jujutsu Kaisen 0 manga prequel material, treated as manga-primary pre-mainline context for the Jujutsu Kaisen Loredeck family.",
+    "notes": "Mainline manga outcomes after the prequel should remain in later arc decks unless explicitly needed as bridge metadata."
+  },
+  "runtimeDefaults": {
+    "scanDepth": null,
+    "recursiveTriggers": false,
+    "tokenBudget": null
+  },
+  "files": [
+    "zero/yuta_and_rika.json",
+    "zero/tokyo_jujutsu_high.json",
+    "zero/geto_and_night_parade.json"
+  ],
+  "compatibility": {
+    "sagaSchemaMin": 3,
+    "sagaSchemaMax": 3
+  },
+  "dependencies": [
+    {
+      "packId": "jjk-core",
+      "versionMin": "0.1.0",
+      "versionMax": "",
+      "required": false,
+      "reason": "Uses core Jujutsu Kaisen cursed energy, jujutsu society, and spoiler-gate tags and assumptions."
+    }
+  ],
+  "stats": {
+    "entryCount": 10,
+    "categoryCounts": {
+      "character": 1,
+      "event": 1,
+      "faction": 2,
+      "knowledge": 1,
+      "relationship": 1,
+      "rule": 1,
+      "secret": 3
+    },
+    "timelineAnchorCount": 7,
+    "timelineWindowCount": 3
+  },
+  "license": {
+    "name": "Draft fan reference data",
+    "notes": "For local testing. Requires human canon review before reference release."
+  },
+  "health": {
+    "status": "good",
+    "notes": "Initial Jujutsu Kaisen 0 scaffold passes local structural health checks; not a substitute for human canon review."
+  },
+  "library": {
+    "suggestedPath": [
+      "Jujutsu Kaisen",
+      "Manga Main"
+    ],
+    "familyOrder": 20
+  },
+  "entrySchemaVersion": 3,
+  "updatedAt": 1781136000000
+}

@@ -1,0 +1,464 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "jjk_shibuya_toji_revival_creates_uncontrolled_variable",
+      "title": "Toji Revival Creates An Uncontrolled Variable",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "medium",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "secret",
+      "revealPolicy": "spoiler_guard",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.shibuya.toji-revival",
+        "validToAnchor": "jjk.shibuya.sukuna-mahoraga-devastation",
+        "sortKeyFrom": 6900,
+        "sortKeyTo": 7600,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Toji revival in Shibuya"
+      },
+      "coordinates": [
+        {
+          "axis": "incident_state",
+          "id": "post-seal-chaos",
+          "label": "Shibuya has entered post-seal chaos",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:toji-fushiguro",
+          "jjk:megumi-fushiguro"
+        ],
+        "characters": [
+          "Toji Fushiguro",
+          "Megumi Fushiguro"
+        ],
+        "locations": [
+          "Shibuya"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Toji revival",
+          "uncontrolled variable",
+          "Megumi encounter"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:shibuya-incident",
+        "character:toji-fushiguro",
+        "character:megumi-fushiguro"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Toji Fushiguro",
+            "Megumi Fushiguro"
+          ],
+          "topicsAny": [
+            "Toji revived",
+            "Shibuya Toji",
+            "Megumi encounter"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath."
+      },
+      "content": {
+        "fact": "Toji's revival in Shibuya introduces an uncontrolled battlefield variable that cuts across the planned sorcerer-versus-curse-user structure.",
+        "injection": "After the Toji revival anchor, let him function as an unstable third pressure on the battlefield rather than a loyal piece of either side's plan.",
+        "constraints": [
+          "Use Hidden Inventory for Toji's earlier mission history; keep this card focused on Shibuya's revived-body anomaly."
+        ],
+        "antiLore": [
+          "Do not write revived Toji as following ordinary chain-of-command logic."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Shibuya Incident",
+        "chapterRange": "Toji revival",
+        "confidence": 0.78,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-shibuya-incident",
+          "status": "initial_shibuya_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_shibuya_dagon_and_station_battles_expose_sorcerer_losses",
+      "title": "Station Battles Expose Sorcerer Losses",
+      "kind": "event",
+      "category": "event",
+      "relevance": "medium",
+      "canon": "canon",
+      "lorePurpose": "event",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.shibuya.station-battles-escalate",
+        "validToAnchor": "jjk.shibuya.mahito-final-phase",
+        "sortKeyFrom": 7100,
+        "sortKeyTo": 7900,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Escalating Shibuya station battles"
+      },
+      "coordinates": [
+        {
+          "axis": "incident_state",
+          "id": "post-seal-chaos",
+          "label": "Shibuya has entered post-seal chaos",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:nanami-kento",
+          "jjk:megumi-fushiguro",
+          "jjk:jujutsu-society"
+        ],
+        "characters": [
+          "Kento Nanami",
+          "Megumi Fushiguro"
+        ],
+        "locations": [
+          "Shibuya station"
+        ],
+        "objects": [],
+        "factions": [
+          "Jujutsu society",
+          "Disaster curses"
+        ],
+        "topics": [
+          "station battles",
+          "sorcerer losses",
+          "battlefield attrition"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:shibuya-incident",
+        "character:nanami-kento",
+        "character:megumi-fushiguro",
+        "faction:jujutsu-society",
+        "faction:disaster-curses"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Kento Nanami",
+            "Megumi Fushiguro"
+          ],
+          "topicsAny": [
+            "Shibuya station battle",
+            "Dagon battle",
+            "sorcerer losses"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath."
+      },
+      "content": {
+        "fact": "The station battles after Gojo's sealing expose the sorcerer side to heavy injury, exhaustion, and fractured tactical control.",
+        "injection": "During post-seal station battles, write the sorcerer side as pressured and attrited instead of smoothly containing each localized fight.",
+        "constraints": [
+          "Keep exact late-arc status outcomes tied to their own Shibuya anchors."
+        ],
+        "antiLore": [
+          "Do not make post-seal Shibuya feel like a stable sequence of isolated wins."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Shibuya Incident",
+        "chapterRange": "Station battle escalation",
+        "confidence": 0.78,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-shibuya-incident",
+          "status": "initial_shibuya_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_shibuya_sukuna_control_returns_after_finger_flood",
+      "title": "Sukuna Control Returns After Finger Flood",
+      "kind": "rule",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "power_rule",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "secret",
+      "revealPolicy": "spoiler_guard",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.shibuya.sukuna-finger-flood",
+        "validToAnchor": "jjk.shibuya.aftermath",
+        "sortKeyFrom": 7350,
+        "sortKeyTo": 8200,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Sukuna controls Yuji during late Shibuya"
+      },
+      "coordinates": [
+        {
+          "axis": "yuji_state",
+          "id": "sukuna-aftermath-burden",
+          "label": "Yuji carries Sukuna's Shibuya aftermath burden",
+          "required": false
+        },
+        {
+          "axis": "incident_state",
+          "id": "late-devastation",
+          "label": "Shibuya has entered late devastation",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:ryomen-sukuna",
+          "jjk:itadori-yuji"
+        ],
+        "characters": [
+          "Ryomen Sukuna",
+          "Yuji Itadori"
+        ],
+        "locations": [
+          "Shibuya"
+        ],
+        "objects": [
+          "Sukuna fingers"
+        ],
+        "factions": [],
+        "topics": [
+          "Sukuna control",
+          "finger flood",
+          "Yuji vessel trauma"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:shibuya-incident",
+        "character:ryomen-sukuna",
+        "character:itadori-yuji",
+        "secret:sukuna-control"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Ryomen Sukuna",
+            "Yuji Itadori"
+          ],
+          "topicsAny": [
+            "Sukuna takes over",
+            "finger flood",
+            "Sukuna control"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath."
+      },
+      "content": {
+        "fact": "After Yuji is force-fed many Sukuna fingers, Sukuna takes control in Shibuya and creates consequences Yuji must carry afterward.",
+        "injection": "After the finger-flood anchor, treat Sukuna's actions as a traumatic loss of control for Yuji rather than a normal power-up."
+      ,
+        "constraints": [
+          "Do not apply this Shibuya control state to earlier arcs or to later vessel developments without the matching deck Context."
+        ],
+        "antiLore": [
+          "Do not write late-Shibuya Sukuna activity as Yuji consciously choosing the destruction."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Shibuya Incident",
+        "chapterRange": "Sukuna finger flood",
+        "confidence": 0.84,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-shibuya-incident",
+          "status": "initial_shibuya_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_shibuya_sukuna_mahoraga_devastates_civilians_and_city",
+      "title": "Sukuna And Mahoraga Devastate Civilians And City",
+      "kind": "event",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "secret",
+      "revealPolicy": "spoiler_guard",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.shibuya.sukuna-mahoraga-devastation",
+        "validToAnchor": "jjk.shibuya.aftermath",
+        "sortKeyFrom": 7600,
+        "sortKeyTo": 8200,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "After Sukuna and Mahoraga devastation"
+      },
+      "coordinates": [
+        {
+          "axis": "incident_state",
+          "id": "late-devastation",
+          "label": "Shibuya has entered late devastation",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:ryomen-sukuna",
+          "jjk:megumi-fushiguro",
+          "jjk:itadori-yuji"
+        ],
+        "characters": [
+          "Ryomen Sukuna",
+          "Megumi Fushiguro",
+          "Yuji Itadori"
+        ],
+        "locations": [
+          "Shibuya"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Mahoraga",
+          "civilian casualties",
+          "Shibuya devastation"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:shibuya-incident",
+        "character:ryomen-sukuna",
+        "character:megumi-fushiguro",
+        "character:itadori-yuji",
+        "topic:mahoraga",
+        "topic:civilian-casualties",
+        "secret:sukuna-control"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Ryomen Sukuna",
+            "Megumi Fushiguro",
+            "Yuji Itadori"
+          ],
+          "topicsAny": [
+            "Mahoraga",
+            "Sukuna devastation",
+            "Shibuya casualties"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath."
+      },
+      "content": {
+        "fact": "Sukuna's battle involving Mahoraga causes catastrophic destruction in Shibuya and becomes part of Yuji's post-incident burden.",
+        "injection": "After the Mahoraga devastation anchor, make Shibuya's destruction concrete and morally heavy for Yuji instead of background spectacle.",
+        "constraints": [
+          "Do not turn this into later Shinjuku Mahoraga mechanics unless a later deck is active."
+        ],
+        "antiLore": [
+          "Do not minimize the civilian and city-scale consequences of late Shibuya."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Shibuya Incident",
+        "chapterRange": "Sukuna and Mahoraga",
+        "confidence": 0.84,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-shibuya-incident",
+          "status": "initial_shibuya_slice"
+        }
+      }
+    }
+  ]
+}

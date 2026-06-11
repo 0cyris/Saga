@@ -1,0 +1,324 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "jjk_zero_geto_leads_pre_mainline_curse_user_faction",
+      "title": "Geto Leads A Pre-Mainline Curse User Faction",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.zero.geto-faction-active",
+        "validToAnchor": "jjk.zero.geto-defeated",
+        "sortKeyFrom": 250,
+        "sortKeyTo": 920,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Geto faction prequel window"
+      },
+      "coordinates": [
+        {
+          "axis": "faction_state",
+          "id": "geto-family-active",
+          "label": "Geto's curse-user faction is active",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:geto-suguru",
+          "jjk:geto-family"
+        ],
+        "characters": [
+          "Suguru Geto"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Geto's faction"
+        ],
+        "topics": [
+          "curse user faction",
+          "Geto pre-mainline",
+          "JJK 0 antagonist pressure"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-zero",
+        "character:geto-suguru",
+        "faction:geto-family",
+        "status:geto-pre-mainline"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Suguru Geto",
+            "Geto"
+          ],
+          "topicsAny": [
+            "Geto faction",
+            "curse user faction",
+            "prequel antagonist"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-zero",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen 0 manga prequel material."
+      },
+      "content": {
+        "fact": "Suguru Geto acts as the central antagonist of Jujutsu Kaisen 0, leading a curse-user faction with goals hostile to jujutsu society and ordinary humans.",
+        "injection": "During JJK 0, write Geto as an active faction leader and ideological threat, not as a vague background rumor.",
+        "constraints": [
+          "Keep later mainline implications separate unless the Context explicitly bridges past the prequel."
+        ],
+        "antiLore": [
+          "Do not replace JJK 0 Geto's faction role with later arc mechanics."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen 0",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen 0",
+        "chapterRange": "Prequel antagonist setup",
+        "confidence": 0.82,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-zero",
+          "status": "initial_prequel_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_zero_night_parade_is_prequel_climax",
+      "title": "Night Parade Is The Prequel Climax",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.zero.night-parade-declared",
+        "validToAnchor": "jjk.zero.geto-defeated",
+        "sortKeyFrom": 820,
+        "sortKeyTo": 920,
+        "precision": "anchor_window",
+        "label": "Night Parade climax"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "night-parade",
+          "label": "Night Parade climax",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:geto-suguru",
+          "jjk:geto-family"
+        ],
+        "characters": [
+          "Suguru Geto"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Geto's faction",
+          "Tokyo Jujutsu High"
+        ],
+        "topics": [
+          "Night Parade",
+          "prequel climax",
+          "curse-user attack"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-zero",
+        "character:geto-suguru",
+        "faction:geto-family",
+        "topic:night-parade"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Suguru Geto"
+          ],
+          "topicsAny": [
+            "Night Parade",
+            "Geto attack",
+            "prequel climax"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-zero",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen 0 manga prequel material."
+      },
+      "content": {
+        "fact": "The Night Parade of a Hundred Demons functions as the major Jujutsu Kaisen 0 climax, pulling Geto's faction conflict into open action.",
+        "injection": "When the Context reaches the Night Parade, escalate from school-training pressure to coordinated curse-user conflict and prequel climax stakes.",
+        "constraints": [
+          "Do not treat the Night Parade as an ordinary school mission."
+        ],
+        "antiLore": [
+          "Do not import later Culling Game or Shibuya structures into this prequel event."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen 0",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen 0",
+        "chapterRange": "Prequel climax",
+        "confidence": 0.82,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-zero",
+          "status": "initial_prequel_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_zero_geto_defeat_is_a_pre_mainline_bridge",
+      "title": "Geto Defeat Is A Pre-Mainline Bridge",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "secret",
+      "revealPolicy": "spoiler_guard",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "jjk.zero.geto-defeated",
+        "validToAnchor": "jjk.zero.geto-defeated",
+        "sortKeyFrom": 920,
+        "sortKeyTo": 920,
+        "precision": "anchor",
+        "label": "Geto defeated after Night Parade"
+      },
+      "coordinates": [
+        {
+          "axis": "faction_state",
+          "id": "geto-pre-mainline-defeated",
+          "label": "Geto's prequel faction push is defeated",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:geto-suguru"
+        ],
+        "characters": [
+          "Suguru Geto"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Geto's faction"
+        ],
+        "topics": [
+          "Geto defeat",
+          "prequel aftermath",
+          "mainline bridge"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-zero",
+        "character:geto-suguru",
+        "secret:prequel-aftermath",
+        "status:geto-pre-mainline",
+        "topic:prequel-knowledge-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Suguru Geto",
+            "Geto"
+          ],
+          "topicsAny": [
+            "Geto defeat",
+            "prequel aftermath",
+            "mainline bridge"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-zero",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen 0 manga prequel material."
+      },
+      "content": {
+        "fact": "Geto's defeat after the Night Parade is a pre-mainline bridge state; later mainline consequences should be handled by later arc decks rather than assumed throughout JJK 0.",
+        "injection": "Only after the prequel climax should scenes reflect Geto's JJK 0 defeat. Keep later mainline implications gated to their own Context.",
+        "constraints": [
+          "Use this as a bridge guard, not a full mainline explanation."
+        ],
+        "antiLore": [
+          "Do not reveal later Geto-related mainline twists inside ordinary JJK 0 scenes."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen 0",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen 0",
+        "chapterRange": "Prequel aftermath",
+        "confidence": 0.8,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-zero",
+          "status": "initial_prequel_slice"
+        }
+      }
+    }
+  ]
+}

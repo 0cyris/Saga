@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve Jujutsu Kaisen Shibuya Incident Context from the curtain setup through immediate aftermath.",
+  "preferredFields": [
+    "arc",
+    "chapter",
+    "beforeAfter",
+    "majorEvent",
+    "gojoState",
+    "yujiState",
+    "incidentState"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer Shibuya Incident event, seal, Sukuna, Mahito, and aftermath anchors. Do not infer Post-Shibuya, Culling Game, Shinjuku, or final-arc outcomes from this deck.",
+  "localPatterns": [
+    {
+      "pattern": "during shibuya",
+      "result": {
+        "anchorFrom": "jjk.shibuya.curtains-descend",
+        "anchorTo": "jjk.shibuya.aftermath",
+        "label": "Shibuya Incident"
+      }
+    },
+    {
+      "pattern": "before gojo is sealed",
+      "result": {
+        "anchorFrom": "jjk.shibuya.curtains-descend",
+        "anchorTo": "jjk.shibuya.gojo-sealed",
+        "label": "Before Gojo is sealed"
+      }
+    },
+    {
+      "pattern": "after gojo is sealed",
+      "result": {
+        "anchorFrom": "jjk.shibuya.gojo-sealed",
+        "anchorTo": "jjk.shibuya.sukuna-finger-flood",
+        "label": "After Gojo is sealed"
+      }
+    },
+    {
+      "pattern": "during sukuna in shibuya",
+      "result": {
+        "anchorFrom": "jjk.shibuya.sukuna-finger-flood",
+        "anchorTo": "jjk.shibuya.sukuna-mahoraga-devastation",
+        "label": "Sukuna in Shibuya"
+      }
+    },
+    {
+      "pattern": "post-shibuya",
+      "result": {
+        "anchorFrom": "jjk.shibuya.aftermath",
+        "label": "Shibuya aftermath"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "sceneDate": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "label": "string",
+    "branchId": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

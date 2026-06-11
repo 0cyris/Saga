@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "entities": {
+    "jjk:gojo-satoru": {
+      "type": "character",
+      "label": "Satoru Gojo",
+      "aliases": [
+        "Gojo",
+        "Satoru Gojo"
+      ],
+      "canonicalNames": [
+        "Satoru Gojo"
+      ],
+      "tags": [
+        "character:gojo-satoru",
+        "status:gojo-status"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline, including Jujutsu Kaisen 0 as prequel context and main series chapters 1-271."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    },
+    "jjk:itadori-yuji": {
+      "type": "character",
+      "label": "Yuji Itadori",
+      "aliases": [
+        "Yuji",
+        "Itadori"
+      ],
+      "canonicalNames": [
+        "Yuji Itadori"
+      ],
+      "tags": [
+        "character:itadori-yuji",
+        "secret:sukuna-vessel"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline, including Jujutsu Kaisen 0 as prequel context and main series chapters 1-271."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    },
+    "jjk:jujutsu-society": {
+      "type": "faction",
+      "label": "Jujutsu society",
+      "aliases": [
+        "jujutsu society",
+        "sorcerer society"
+      ],
+      "canonicalNames": [
+        "Jujutsu society"
+      ],
+      "tags": [
+        "topic:jujutsu-society"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline, including Jujutsu Kaisen 0 as prequel context and main series chapters 1-271."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "jjk:ryomen-sukuna": {
+      "type": "character",
+      "label": "Ryomen Sukuna",
+      "aliases": [
+        "Sukuna",
+        "Ryomen Sukuna"
+      ],
+      "canonicalNames": [
+        "Ryomen Sukuna"
+      ],
+      "tags": [
+        "character:ryomen-sukuna",
+        "secret:sukuna-vessel"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline, including Jujutsu Kaisen 0 as prequel context and main series chapters 1-271."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    }
+  }
+}

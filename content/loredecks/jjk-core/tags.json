@@ -1,0 +1,204 @@
+{
+  "schemaVersion": 1,
+  "tags": {
+    "adaptation:manga": {
+      "label": "Manga",
+      "color": "#5b677a",
+      "textColor": "#ffffff",
+      "description": "Manga-primary continuity tag for Jujutsu Kaisen Loredeck retrieval and filtering.",
+      "aliases": [
+        "manga"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:gojo-satoru": {
+      "label": "Satoru Gojo",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Satoru Gojo character tag for status and spoiler-gated retrieval.",
+      "aliases": [
+        "Gojo",
+        "Satoru Gojo"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:itadori-yuji": {
+      "label": "Yuji Itadori",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Yuji Itadori character tag for Jujutsu Kaisen retrieval.",
+      "aliases": [
+        "Yuji",
+        "Itadori"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:ryomen-sukuna": {
+      "label": "Ryomen Sukuna",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Ryomen Sukuna character tag for vessel-state and spoiler-gated retrieval.",
+      "aliases": [
+        "Sukuna",
+        "Ryomen Sukuna"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "continuity:jjk-manga-main": {
+      "label": "JJK Manga Main",
+      "color": "#4c5c68",
+      "textColor": "#ffffff",
+      "description": "Primary Jujutsu Kaisen manga continuity.",
+      "aliases": [
+        "JJK manga main"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "fandom:jjk": {
+      "label": "Jujutsu Kaisen",
+      "color": "#4c5c68",
+      "textColor": "#ffffff",
+      "description": "Jujutsu Kaisen fandom tag.",
+      "aliases": [
+        "JJK",
+        "Jujutsu Kaisen"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "knowledge:spoiler-guard": {
+      "label": "Spoiler Guard",
+      "color": "#922b21",
+      "textColor": "#ffffff",
+      "description": "Knowledge boundary tag for future or dangerous reveals.",
+      "aliases": [
+        "spoiler guard"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:sukuna-vessel": {
+      "label": "Sukuna Vessel",
+      "color": "#922b21",
+      "textColor": "#ffffff",
+      "description": "Sukuna host and vessel-state spoiler tag.",
+      "aliases": [
+        "Sukuna vessel"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "status:death-state": {
+      "label": "Death State",
+      "color": "#922b21",
+      "textColor": "#ffffff",
+      "description": "Death, survival, injury, or apparent-death status tag.",
+      "aliases": [
+        "death state"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "status:gojo-status": {
+      "label": "Gojo Status",
+      "color": "#922b21",
+      "textColor": "#ffffff",
+      "description": "Satoru Gojo availability and story-status tag.",
+      "aliases": [
+        "Gojo status"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:binding-vows": {
+      "label": "Binding Vows",
+      "color": "#2e86c1",
+      "textColor": "#ffffff",
+      "description": "Binding Vow rule tag.",
+      "aliases": [
+        "Binding Vow"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:cursed-energy": {
+      "label": "Cursed Energy",
+      "color": "#2e86c1",
+      "textColor": "#ffffff",
+      "description": "Cursed energy rule tag.",
+      "aliases": [
+        "cursed energy"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:cursed-techniques": {
+      "label": "Cursed Techniques",
+      "color": "#2e86c1",
+      "textColor": "#ffffff",
+      "description": "Cursed technique rule tag.",
+      "aliases": [
+        "cursed technique"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:domain-expansion": {
+      "label": "Domain Expansion",
+      "color": "#2e86c1",
+      "textColor": "#ffffff",
+      "description": "Domain Expansion rule tag.",
+      "aliases": [
+        "Domain Expansion"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:jujutsu-society": {
+      "label": "Jujutsu Society",
+      "color": "#7d3c98",
+      "textColor": "#ffffff",
+      "description": "Jujutsu institutions, secrecy, and faction-state tag.",
+      "aliases": [
+        "jujutsu society"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    }
+  }
+}

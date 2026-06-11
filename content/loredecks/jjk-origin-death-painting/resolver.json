@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve Jujutsu Kaisen early-mainline Context from Yuji's vessel origin through Death Painting aftermath.",
+  "preferredFields": [
+    "arc",
+    "chapter",
+    "beforeAfter",
+    "majorEvent",
+    "yujiState",
+    "schoolState",
+    "sukunaVesselState"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer early mainline arc, event, and before/after anchors. Do not infer Shibuya, Culling Game, or Shinjuku outcomes from this deck.",
+  "localPatterns": [
+    {
+      "pattern": "after yuji eats the finger",
+      "result": {
+        "anchorFrom": "jjk.main.yuji-eats-sukuna-finger",
+        "label": "After Yuji becomes Sukuna's vessel"
+      }
+    },
+    {
+      "pattern": "during detention center",
+      "result": {
+        "anchorId": "jjk.main.detention-center-sukuna-emerges",
+        "label": "Detention center Sukuna emergence"
+      }
+    },
+    {
+      "pattern": "while yuji is presumed dead",
+      "result": {
+        "anchorFrom": "jjk.main.yuji-private-training",
+        "anchorTo": "jjk.main.mahito-junpei-incident",
+        "label": "Yuji presumed dead and training"
+      }
+    },
+    {
+      "pattern": "during goodwill",
+      "result": {
+        "anchorFrom": "jjk.main.kyoto-goodwill-event",
+        "anchorTo": "jjk.main.hanami-goodwill-attack",
+        "label": "Kyoto Goodwill Event"
+      }
+    },
+    {
+      "pattern": "after death painting",
+      "result": {
+        "anchorFrom": "jjk.main.death-painting-aftermath",
+        "label": "After Death Painting"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "sceneDate": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "label": "string",
+    "branchId": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

@@ -1,0 +1,223 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "sortKeyScale": "pack_local",
+  "anchors": [
+    {
+      "id": "jjk.main.yuji-eats-sukuna-finger",
+      "label": "Yuji becomes Sukuna's vessel",
+      "sortKey": 1000,
+      "aliases": [
+        "Yuji eats Sukuna finger",
+        "Yuji becomes vessel"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen"
+      }
+    },
+    {
+      "id": "jjk.main.execution-suspended",
+      "label": "Yuji's execution is suspended",
+      "sortKey": 1150,
+      "aliases": [
+        "execution suspended",
+        "Yuji sentence delayed"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen"
+      }
+    },
+    {
+      "id": "jjk.main.tokyo-first-years-form",
+      "label": "Tokyo first-year core forms",
+      "sortKey": 1250,
+      "aliases": [
+        "Yuji Megumi Nobara",
+        "Tokyo first-years"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen"
+      }
+    },
+    {
+      "id": "jjk.main.detention-center-sukuna-emerges",
+      "label": "Detention center Sukuna emergence",
+      "sortKey": 1600,
+      "aliases": [
+        "detention center",
+        "cursed womb detention center"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen"
+      }
+    },
+    {
+      "id": "jjk.main.yuji-private-training",
+      "label": "Yuji hidden private training",
+      "sortKey": 1900,
+      "aliases": [
+        "Yuji presumed dead",
+        "Yuji private training"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen"
+      }
+    },
+    {
+      "id": "jjk.main.mahito-junpei-incident",
+      "label": "Junpei and Mahito incident",
+      "sortKey": 2300,
+      "aliases": [
+        "Junpei incident",
+        "Mahito and Junpei"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen"
+      }
+    },
+    {
+      "id": "jjk.main.kyoto-goodwill-event",
+      "label": "Kyoto Goodwill Event",
+      "sortKey": 3100,
+      "aliases": [
+        "Goodwill Event",
+        "Tokyo Kyoto exchange"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen"
+      }
+    },
+    {
+      "id": "jjk.main.hanami-goodwill-attack",
+      "label": "Goodwill Event curse attack",
+      "sortKey": 3350,
+      "aliases": [
+        "Hanami attack",
+        "Goodwill emergency"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen"
+      }
+    },
+    {
+      "id": "jjk.main.death-painting-aftermath",
+      "label": "Death Painting aftermath",
+      "sortKey": 3800,
+      "aliases": [
+        "Death Painting aftermath",
+        "after Eso and Kechizu"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen"
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "jjk.origin.window.full-origin-through-death-painting",
+      "label": "Origin through Death Painting",
+      "anchorFrom": "jjk.main.yuji-eats-sukuna-finger",
+      "anchorTo": "jjk.main.death-painting-aftermath",
+      "sortKeyFrom": 1000,
+      "sortKeyTo": 3800,
+      "aliases": [
+        "early JJK",
+        "origin through death painting"
+      ]
+    },
+    {
+      "id": "jjk.origin.window.origin-and-cursed-womb",
+      "label": "Origin and Cursed Womb",
+      "anchorFrom": "jjk.main.yuji-eats-sukuna-finger",
+      "anchorTo": "jjk.main.detention-center-sukuna-emerges",
+      "sortKeyFrom": 1000,
+      "sortKeyTo": 1600,
+      "aliases": [
+        "origin arc",
+        "detention center arc"
+      ]
+    },
+    {
+      "id": "jjk.origin.window.hidden-training-junpei",
+      "label": "Hidden Training and Junpei",
+      "anchorFrom": "jjk.main.yuji-private-training",
+      "anchorTo": "jjk.main.mahito-junpei-incident",
+      "sortKeyFrom": 1900,
+      "sortKeyTo": 2300,
+      "aliases": [
+        "Yuji private training",
+        "Junpei arc"
+      ]
+    },
+    {
+      "id": "jjk.origin.window.goodwill-through-death-painting",
+      "label": "Goodwill through Death Painting",
+      "anchorFrom": "jjk.main.kyoto-goodwill-event",
+      "anchorTo": "jjk.main.death-painting-aftermath",
+      "sortKeyFrom": 3100,
+      "sortKeyTo": 3800,
+      "aliases": [
+        "Goodwill and Death Painting",
+        "early school escalation"
+      ]
+    }
+  ],
+  "coordinateAxes": [
+    {
+      "axis": "arc",
+      "label": "Arc",
+      "values": [
+        "origin",
+        "cursed-womb",
+        "junpei-mahito",
+        "kyoto-goodwill",
+        "death-painting"
+      ]
+    },
+    {
+      "axis": "yuji_state",
+      "label": "Yuji State",
+      "values": [
+        "new-vessel",
+        "execution-suspended",
+        "presumed-dead-training",
+        "returned-to-classmates"
+      ]
+    },
+    {
+      "axis": "school_state",
+      "label": "School State",
+      "values": [
+        "tokyo-first-years-early",
+        "goodwill-rivalries",
+        "goodwill-emergency"
+      ]
+    },
+    {
+      "axis": "sukuna_vessel_state",
+      "label": "Sukuna Vessel State",
+      "values": [
+        "yuji-vessel-early",
+        "early-control-risk"
+      ]
+    }
+  ]
+}

@@ -23,7 +23,7 @@ Implemented in the current removal pass.
 
 The original audit found history storage in defaults:
 
-- `constants.js`
+- `src/state/constants.js`
   - `DEFAULT_SETTINGS.maxSnapshots`
   - default state `memoHistory`
   - default state `stateHistory`
@@ -32,7 +32,7 @@ These fields should be removed from defaults and no longer written to chat metad
 
 ### Removable State Manager Functions
 
-`state-manager.js` contained the old undo/history implementation:
+`src/state/state-manager.js` contained the old undo/history implementation:
 
 - `pushStateSnapshot(state, summary, maxSnapshots)`
 - `undoLastChange(state)`
@@ -54,18 +54,18 @@ All of these references should be removed or changed so exported state is the ac
 
 Direct `pushStateSnapshot()` imports and calls existed in:
 
-- `continuity-panel.js`
-- `continuity-scanner.js`
-- `canon-lore-db.js`
-- `lore-panel.js`
+- `src/continuity/continuity-panel.js`
+- `src/continuity/continuity-scanner.js`
+- `src/context/canon-lore-db.js`
+- `src/runtime/lore-panel.js`
 
 Snapshot option plumbing existed in:
 
-- `context-panel.js`
-- `lore-generator.js`
-- `lorecards-panel.js`
-- `saga-tool-registry.js`
-- `state-manager.js` via `appendPendingLoreEntries()`
+- `src/context/context-panel.js`
+- `src/lorecards/lore-generator.js`
+- `src/lorecards/lorecards-panel.js`
+- `src/extension/saga-tool-registry.js`
+- `src/state/state-manager.js` via `appendPendingLoreEntries()`
 
 The recent smoke assertion that expects optimized snapshot cloning should also be removed and replaced with absence assertions.
 
@@ -74,9 +74,9 @@ The recent smoke assertion that expects optimized snapshot cloning should also b
 Some similarly named concepts are not this feature:
 
 - Lore Timeline entry history in `lore-timeline.js`. This is current lore audit/recovery behavior.
-- `sceneSnapshot` in `continuity-scanner.js`. This is model output structure for recent scene observations.
+- `sceneSnapshot` in `src/continuity/continuity-scanner.js`. This is model output structure for recent scene observations.
 - Scroll-position snapshots in Library and Health Center overlays.
-- Live smoke metadata/settings snapshots in `scripts/smoke-live-st-cdp.mjs`.
+- Live smoke metadata/settings snapshots in `tools/scripts/smoke-live-st-cdp.mjs`.
 - Documentation references to chat history or audit history unless they explicitly describe the removed `stateHistory`/`memoHistory` feature.
 
 ## Target Behavior
@@ -116,7 +116,7 @@ Update the file header from "snapshot history and undo" language to current stat
 
 ### 3. Remove History Normalization and Preservation
 
-In `state-manager.js`:
+In `src/state/state-manager.js`:
 
 - Stop initializing `memoHistory` and `stateHistory` in `getState()`.
 - Remove `stateHistory` sanitization from `sanitizeLoreArraysForStorage()`.
@@ -131,10 +131,10 @@ Because there are no users yet, no formal migration is needed. For local develop
 
 Delete `pushStateSnapshot()` imports and calls from:
 
-- `continuity-panel.js`
-- `continuity-scanner.js`
-- `canon-lore-db.js`
-- `lore-panel.js`
+- `src/continuity/continuity-panel.js`
+- `src/continuity/continuity-scanner.js`
+- `src/context/canon-lore-db.js`
+- `src/runtime/lore-panel.js`
 
 Do not replace them with another history mechanism. The mutation should proceed directly to applying the change and saving state.
 
@@ -148,10 +148,10 @@ In `appendPendingLoreEntries()`:
 
 Then remove `snapshot` / `snapshotLabel` arguments from:
 
-- `context-panel.js`
-- `lore-generator.js`
-- `lorecards-panel.js`
-- `saga-tool-registry.js`
+- `src/context/context-panel.js`
+- `src/lorecards/lore-generator.js`
+- `src/lorecards/lorecards-panel.js`
+- `src/extension/saga-tool-registry.js`
 
 ### 6. Update Reset and Export Semantics
 
@@ -185,29 +185,29 @@ Keep the existing Lore Timeline tests.
 Run syntax checks for touched modules:
 
 ```powershell
-node --check state-manager.js
-node --check lore-panel.js
-node --check canon-lore-db.js
-node --check continuity-panel.js
-node --check continuity-scanner.js
-node --check context-panel.js
-node --check lore-generator.js
-node --check lorecards-panel.js
-node --check saga-tool-registry.js
+node --check src/state/state-manager.js
+node --check src/runtime/lore-panel.js
+node --check src/context/canon-lore-db.js
+node --check src/continuity/continuity-panel.js
+node --check src/continuity/continuity-scanner.js
+node --check src/context/context-panel.js
+node --check src/lorecards/lore-generator.js
+node --check src/lorecards/lorecards-panel.js
+node --check src/extension/saga-tool-registry.js
 ```
 
 Run focused contract tests:
 
 ```powershell
-node scripts\test-visual-smoke-harness.mjs
-node scripts\test-lore-timeline.mjs
-node scripts\test-loredeck-library-folders.mjs
+node tools\scripts\test-visual-smoke-harness.mjs
+node tools\scripts\test-lore-timeline.mjs
+node tools\scripts\test-loredeck-library-folders.mjs
 ```
 
 Run source absence checks:
 
 ```powershell
-rg -n "stateHistory|memoHistory|pushStateSnapshot|undoLastChange|saveStateWithSnapshot|maxSnapshots|snapshotLabel" -S constants.js state-manager.js lore-panel.js canon-lore-db.js continuity-panel.js continuity-scanner.js context-panel.js lore-generator.js lorecards-panel.js saga-tool-registry.js scripts\test-visual-smoke-harness.mjs
+rg -n "stateHistory|memoHistory|pushStateSnapshot|undoLastChange|saveStateWithSnapshot|maxSnapshots|snapshotLabel" -S src\state\constants.js src\state\state-manager.js src\runtime\lore-panel.js src\context\canon-lore-db.js src\continuity\continuity-panel.js src\continuity\continuity-scanner.js src\context\context-panel.js src\lorecards\lore-generator.js src\lorecards\lorecards-panel.js src\extension\saga-tool-registry.js tools\scripts\test-visual-smoke-harness.mjs
 ```
 
 Expected result: no matches, except intentional unrelated documentation if the search scope is broadened.

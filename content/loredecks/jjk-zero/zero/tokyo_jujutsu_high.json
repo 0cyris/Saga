@@ -1,0 +1,345 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "jjk_zero_tokyo_school_pre_mainline_roster",
+      "title": "Tokyo School Pre-Mainline Roster",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.zero.yuta-enters-tokyo-jujutsu-high",
+        "validToAnchor": "jjk.zero.rika-released",
+        "sortKeyFrom": 500,
+        "sortKeyTo": 950,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Jujutsu Kaisen 0 school window"
+      },
+      "coordinates": [
+        {
+          "axis": "school_roster",
+          "id": "pre-mainline-first-years",
+          "label": "Pre-mainline first-year roster",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:tokyo-jujutsu-high",
+          "jjk:maki-zenin",
+          "jjk:toge-inumaki",
+          "jjk:panda"
+        ],
+        "characters": [
+          "Maki Zenin",
+          "Toge Inumaki",
+          "Panda"
+        ],
+        "locations": [
+          "Tokyo Jujutsu High"
+        ],
+        "objects": [],
+        "factions": [
+          "Tokyo Jujutsu High"
+        ],
+        "topics": [
+          "pre-mainline roster",
+          "first-year students",
+          "Tokyo school"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-zero",
+        "arc:jjk-zero",
+        "faction:tokyo-jujutsu-high",
+        "character:maki-zenin",
+        "character:toge-inumaki",
+        "character:panda"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Maki Zenin",
+            "Toge Inumaki",
+            "Panda"
+          ],
+          "topicsAny": [
+            "Tokyo Jujutsu High",
+            "prequel class",
+            "first-year roster"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-zero",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen 0 manga prequel material."
+      },
+      "content": {
+        "fact": "In the Jujutsu Kaisen 0 prequel window, Maki Zenin, Toge Inumaki, and Panda are Yuta's key Tokyo Jujutsu High classmates.",
+        "injection": "For JJK 0 school scenes, use Maki, Inumaki, and Panda as Yuta's primary classmate frame rather than the later Yuji-era roster.",
+        "constraints": [
+          "Keep later mainline student dynamics out of the prequel unless the scene is explicitly post-prequel."
+        ],
+        "antiLore": [
+          "Do not place Yuji's mainline class structure into JJK 0 school scenes."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen 0",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen 0",
+        "chapterRange": "Prequel school setup",
+        "confidence": 0.82,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-zero",
+          "status": "initial_prequel_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_zero_classmate_trust_is_yutas_school_arc",
+      "title": "Classmate Trust Is Yuta's School Arc",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.zero.yuta-enters-tokyo-jujutsu-high",
+        "validToAnchor": "jjk.zero.rika-released",
+        "sortKeyFrom": 500,
+        "sortKeyTo": 950,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Yuta classmate trust arc"
+      },
+      "coordinates": [
+        {
+          "axis": "relationship_state",
+          "id": "yuta-classmate-trust",
+          "label": "Yuta earns classmate trust",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:yuta-okkotsu",
+          "jjk:maki-zenin",
+          "jjk:toge-inumaki",
+          "jjk:panda"
+        ],
+        "characters": [
+          "Yuta Okkotsu",
+          "Maki Zenin",
+          "Toge Inumaki",
+          "Panda"
+        ],
+        "locations": [
+          "Tokyo Jujutsu High"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "classmate trust",
+          "Yuta growth",
+          "prequel relationships"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-zero",
+        "character:yuta-okkotsu",
+        "character:maki-zenin",
+        "character:toge-inumaki",
+        "character:panda",
+        "relationship:zero-classmates"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Yuta Okkotsu",
+            "Maki Zenin",
+            "Toge Inumaki",
+            "Panda"
+          ],
+          "topicsAny": [
+            "classmate trust",
+            "Yuta and classmates",
+            "prequel relationships"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-zero",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen 0 manga prequel material."
+      },
+      "content": {
+        "fact": "A major Jujutsu Kaisen 0 school-state arc is Yuta moving from isolation toward trust and mutual protection with Maki, Inumaki, and Panda.",
+        "injection": "In prequel school scenes, let Yuta's classmate relationships develop through trust, fear, protection, and earned confidence.",
+        "constraints": [
+          "Use specific scene Context before assuming the classmates fully trust Yuta."
+        ],
+        "antiLore": [
+          "Do not write their bond as static from the opening."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen 0",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen 0",
+        "chapterRange": "Prequel school body",
+        "confidence": 0.78,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-zero",
+          "status": "initial_prequel_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_zero_gojo_guides_yuta_without_mainline_status_leakage",
+      "title": "Gojo Guides Yuta Without Mainline Status Leakage",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "spoiler_guard",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.zero.yuta-enters-tokyo-jujutsu-high",
+        "validToAnchor": "jjk.zero.rika-released",
+        "sortKeyFrom": 500,
+        "sortKeyTo": 950,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Gojo's JJK 0 role"
+      },
+      "coordinates": [
+        {
+          "axis": "gojo_status",
+          "id": "pre-mainline-active",
+          "label": "Gojo is active in prequel role",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:gojo-satoru",
+          "jjk:yuta-okkotsu"
+        ],
+        "characters": [
+          "Satoru Gojo",
+          "Yuta Okkotsu"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Tokyo Jujutsu High"
+        ],
+        "topics": [
+          "Gojo mentor role",
+          "pre-mainline status",
+          "spoiler guard"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-zero",
+        "character:gojo-satoru",
+        "character:yuta-okkotsu",
+        "topic:prequel-knowledge-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Satoru Gojo",
+            "Yuta Okkotsu"
+          ],
+          "topicsAny": [
+            "Gojo mentor",
+            "Gojo status",
+            "prequel Gojo"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-zero",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen 0 manga prequel material."
+      },
+      "content": {
+        "fact": "In Jujutsu Kaisen 0, Satoru Gojo is active as the adult who brings Yuta into Tokyo Jujutsu High and frames his path through jujutsu society.",
+        "injection": "For JJK 0 scenes, write Gojo as active and involved with Yuta's case, but do not leak later mainline Gojo status changes.",
+        "constraints": [
+          "Later Shibuya, Culling Game, and Shinjuku status facts belong in their own arc decks."
+        ],
+        "antiLore": [
+          "Do not foreshadow later Gojo outcomes unless the scene explicitly asks for future knowledge."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen 0",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen 0",
+        "chapterRange": "Prequel school setup",
+        "confidence": 0.8,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-zero",
+          "status": "initial_prequel_slice"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,255 @@
+{
+  "schemaVersion": 1,
+  "entities": {
+    "jjk:geto-family": {
+      "type": "faction",
+      "label": "Geto's faction",
+      "aliases": [
+        "Geto faction",
+        "curse-user faction"
+      ],
+      "canonicalNames": [
+        "Geto's faction"
+      ],
+      "tags": [
+        "faction:geto-family"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-zero",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen 0 manga prequel material."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen 0",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "jjk:geto-suguru": {
+      "type": "character",
+      "label": "Suguru Geto",
+      "aliases": [
+        "Geto",
+        "Suguru Geto"
+      ],
+      "canonicalNames": [
+        "Suguru Geto"
+      ],
+      "tags": [
+        "character:geto-suguru",
+        "status:geto-pre-mainline"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-zero",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen 0 manga prequel material."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen 0",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    },
+    "jjk:gojo-satoru": {
+      "type": "character",
+      "label": "Satoru Gojo",
+      "aliases": [
+        "Gojo",
+        "Satoru Gojo"
+      ],
+      "canonicalNames": [
+        "Satoru Gojo"
+      ],
+      "tags": [
+        "character:gojo-satoru"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-zero",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen 0 manga prequel material."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen 0",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    },
+    "jjk:maki-zenin": {
+      "type": "character",
+      "label": "Maki Zenin",
+      "aliases": [
+        "Maki",
+        "Maki Zenin"
+      ],
+      "canonicalNames": [
+        "Maki Zenin"
+      ],
+      "tags": [
+        "character:maki-zenin",
+        "relationship:zero-classmates"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-zero",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen 0 manga prequel material."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen 0",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    },
+    "jjk:panda": {
+      "type": "character",
+      "label": "Panda",
+      "aliases": [
+        "Panda"
+      ],
+      "canonicalNames": [
+        "Panda"
+      ],
+      "tags": [
+        "character:panda",
+        "relationship:zero-classmates"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-zero",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen 0 manga prequel material."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen 0",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    },
+    "jjk:rika-orimoto": {
+      "type": "character",
+      "label": "Rika Orimoto",
+      "aliases": [
+        "Rika",
+        "Rika Orimoto"
+      ],
+      "canonicalNames": [
+        "Rika Orimoto"
+      ],
+      "tags": [
+        "character:rika-orimoto",
+        "secret:rika-curse",
+        "relationship:yuta-rika"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-zero",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen 0 manga prequel material."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen 0",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    },
+    "jjk:toge-inumaki": {
+      "type": "character",
+      "label": "Toge Inumaki",
+      "aliases": [
+        "Inumaki",
+        "Toge Inumaki"
+      ],
+      "canonicalNames": [
+        "Toge Inumaki"
+      ],
+      "tags": [
+        "character:toge-inumaki",
+        "relationship:zero-classmates"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-zero",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen 0 manga prequel material."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen 0",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    },
+    "jjk:tokyo-jujutsu-high": {
+      "type": "faction",
+      "label": "Tokyo Jujutsu High",
+      "aliases": [
+        "Tokyo school",
+        "Tokyo Jujutsu High"
+      ],
+      "canonicalNames": [
+        "Tokyo Jujutsu High"
+      ],
+      "tags": [
+        "faction:tokyo-jujutsu-high"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-zero",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen 0 manga prequel material."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen 0",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    },
+    "jjk:yuta-okkotsu": {
+      "type": "character",
+      "label": "Yuta Okkotsu",
+      "aliases": [
+        "Yuta",
+        "Yuta Okkotsu"
+      ],
+      "canonicalNames": [
+        "Yuta Okkotsu"
+      ],
+      "tags": [
+        "character:yuta-okkotsu",
+        "secret:rika-curse",
+        "relationship:yuta-rika"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-zero",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen 0 manga prequel material."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen 0",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    }
+  }
+}

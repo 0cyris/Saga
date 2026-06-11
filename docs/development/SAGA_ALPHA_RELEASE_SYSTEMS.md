@@ -33,15 +33,15 @@ loaded Loredecks
 
 The detailed test prework lives in [SAGA_CORE_INTEGRATION_TESTING.md](SAGA_CORE_INTEGRATION_TESTING.md).
 
-The first deterministic HP Year 6 harness now exists at `scripts/test-core-integration-hp-year6.mjs`. It validates stack loading, date-based Context resolution, Context-gated suggestions, Pending Review acceptance, pin/mute behavior, and final lore memo output without live model calls.
+The first deterministic HP Year 6 harness now exists at `tools/scripts/test-core-integration-hp-year6.mjs`. It validates stack loading, date-based Context resolution, Context-gated suggestions, Pending Review acceptance, pin/mute behavior, and final lore memo output without live model calls.
 
-The next progression harness, `scripts/test-core-integration-hp-year6-progression.mjs`, validates Context movement from post-Christmas Year 6 to Ron's poisoning, suggestion-set changes, accepted Lorecards across checkpoints, Auto-Relevance tier changes, and final injection output.
+The next progression harness, `tools/scripts/test-core-integration-hp-year6-progression.mjs`, validates Context movement from post-Christmas Year 6 to Ron's poisoning, suggestion-set changes, accepted Lorecards across checkpoints, Auto-Relevance tier changes, and final injection output.
 
-The accepted-injection harness, `scripts/test-core-integration-hp-year6-accepted-context.mjs`, validates that accepted Lorecards are still checked against active Loredeck Context before prompt injection. A stale accepted Year 6 Lorecard remains accepted after Context advances, but is omitted from memo output and audited as `context_blocked`; current matching lore still injects.
+The accepted-injection harness, `tools/scripts/test-core-integration-hp-year6-accepted-context.mjs`, validates that accepted Lorecards are still checked against active Loredeck Context before prompt injection. A stale accepted Year 6 Lorecard remains accepted after Context advances, but is omitted from memo output and audited as `context_blocked`; current matching lore still injects.
 
 The expanded HP harness family now covers `hp-core` plus Year 1, Year 2, Year 3, Year 4, Year 5, Year 7, and Epilogue/Post-War split decks. These harnesses validate Context progression, suggestion-set changes, accepted stale-lore Context blocking, and current-lore injection across early-school, mystery, tournament, Ministry, late-war, and post-war/epilogue story structures.
 
-The HP reference-deck conformance check now exists at `scripts/test-hp-reference-deck-conformance.mjs`. It verifies the bundled HP defaults, `Loredecks/index.json`, duplicated manifests, Deck Health summaries, deck-local covers, tag registries, file lists, empty active-stack defaults, and absence of the legacy monolithic `hp-golden-trio` deck from runtime defaults.
+The HP reference-deck conformance check now exists at `tools/scripts/test-hp-reference-deck-conformance.mjs`. It verifies the bundled HP defaults, `content/loredecks/index.json`, duplicated manifests, Deck Health summaries, deck-local covers, tag registries, file lists, empty active-stack defaults, and absence of the legacy monolithic `hp-golden-trio` deck from runtime defaults.
 
 ## Key Systems
 
@@ -49,7 +49,7 @@ The HP reference-deck conformance check now exists at `scripts/test-hp-reference
 
 The shelf, tabs, fullscreen workbenches, reset behavior, settings routing, and overall Saga runtime surface. This includes removing or hiding stale Saga UI and ensuring major windows open, close, reset, and preserve scroll state correctly.
 
-`lore-panel.js` has grown into a monolithic runtime/controller file. The decomposition roadmap lives in [SAGA_LORE_PANEL_DECOMPOSITION_PLAN.md](SAGA_LORE_PANEL_DECOMPOSITION_PLAN.md) and should be followed as a cross-system hardening effort rather than a UI redesign pass.
+`src/runtime/lore-panel.js` has grown into a monolithic runtime/controller file. The decomposition roadmap lives in [SAGA_LORE_PANEL_DECOMPOSITION_PLAN.md](SAGA_LORE_PANEL_DECOMPOSITION_PLAN.md) and should be followed as a cross-system hardening effort rather than a UI redesign pass.
 
 ### 2. Settings System
 
@@ -170,7 +170,7 @@ These can remain incomplete for alpha if the underlying architecture is stable:
 The highest-value path toward alpha is:
 
 1. Update the development docs so historical MVP notes, current alpha systems, and near-term testing plans agree.
-2. Keep the deterministic HP harness family passing. Years 1, 2, 3, 4, 5, 7, and Epilogue/Post-War now have Context progression/injection harnesses, accepted-Lorecard Context gate behavior is covered by `scripts/test-core-integration-hp-year6-accepted-context.mjs`, and the known Jan. 25 / `before Apparition lessons` resolver edge is covered in `scripts/test-context-resolver.mjs`.
+2. Keep the deterministic HP harness family passing. Years 1, 2, 3, 4, 5, 7, and Epilogue/Post-War now have Context progression/injection harnesses, accepted-Lorecard Context gate behavior is covered by `tools/scripts/test-core-integration-hp-year6-accepted-context.mjs`, and the known Jan. 25 / `before Apparition lessons` resolver edge is covered in `tools/scripts/test-context-resolver.mjs`.
 3. Keep HP reference-deck conformance passing so `hp-core`, Years 1-7, and Epilogue/Post-War remain the clean bundled example.
 4. Stabilize remaining Loredeck Library and stack behavior at scale, especially folders, drag/drop, selection, and active-stack persistence.
 5. Keep running local and live SillyTavern smoke passes after each major slice to catch UI regressions, console errors, and interaction lag.

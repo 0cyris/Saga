@@ -1,0 +1,471 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "jjk_shibuya_curtains_turn_city_into_mission_zone",
+      "title": "Curtains Turn Shibuya Into A Mission Zone",
+      "kind": "event",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.shibuya.curtains-descend",
+        "validToAnchor": "jjk.shibuya.aftermath",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 8200,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Shibuya Incident mission zone"
+      },
+      "coordinates": [
+        {
+          "axis": "incident_state",
+          "id": "curtains-active",
+          "label": "Curtains are active over Shibuya",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:curse-users",
+          "jjk:disaster-curses",
+          "jjk:jujutsu-society"
+        ],
+        "characters": [],
+        "locations": [
+          "Shibuya"
+        ],
+        "objects": [],
+        "factions": [
+          "Curse users",
+          "Disaster curses",
+          "Jujutsu society"
+        ],
+        "topics": [
+          "Shibuya curtains",
+          "civilian containment",
+          "mission zone"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:shibuya-incident",
+        "faction:curse-users",
+        "faction:disaster-curses",
+        "faction:jujutsu-society",
+        "topic:shibuya-curtain"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "Shibuya curtains",
+            "Shibuya Incident begins",
+            "mission zone"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath."
+      },
+      "content": {
+        "fact": "The Shibuya Incident begins as curtains and coordinated enemy plans turn a civilian district into a trapped mission zone for sorcerers.",
+        "injection": "During Shibuya scenes, treat the area as a live sealed mission zone with civilians, barriers, and coordinated enemy pressure, not as an ordinary open battlefield.",
+        "constraints": [
+          "Do not import post-Shibuya legal or Culling Game consequences before the aftermath anchor."
+        ],
+        "antiLore": [
+          "Do not write Shibuya as a clean sorcerer-only arena."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Shibuya Incident",
+        "chapterRange": "Incident opening",
+        "confidence": 0.82,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-shibuya-incident",
+          "status": "initial_shibuya_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_shibuya_disaster_curses_coordinate_to_seal_gojo",
+      "title": "Disaster Curses Coordinate To Seal Gojo",
+      "kind": "faction_pressure",
+      "category": "faction",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "faction_pressure",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.shibuya.curtains-descend",
+        "validToAnchor": "jjk.shibuya.gojo-sealed",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 6500,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Pre-seal Shibuya operation"
+      },
+      "coordinates": [
+        {
+          "axis": "gojo_state",
+          "id": "active-in-shibuya",
+          "label": "Gojo is active in Shibuya",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:disaster-curses",
+          "jjk:curse-users",
+          "jjk:gojo-satoru"
+        ],
+        "characters": [
+          "Satoru Gojo"
+        ],
+        "locations": [
+          "Shibuya"
+        ],
+        "objects": [
+          "Prison Realm"
+        ],
+        "factions": [
+          "Disaster curses",
+          "Curse users"
+        ],
+        "topics": [
+          "Gojo sealing plan",
+          "Prison Realm",
+          "Shibuya operation"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:shibuya-incident",
+        "character:gojo-satoru",
+        "faction:disaster-curses",
+        "faction:curse-users",
+        "topic:prison-realm",
+        "topic:shibuya-curtain",
+        "secret:gojo-sealed"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Satoru Gojo"
+          ],
+          "topicsAny": [
+            "seal Gojo",
+            "Prison Realm",
+            "disaster curses"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath."
+      },
+      "content": {
+        "fact": "The enemy side's Shibuya plan is coordinated around neutralizing Gojo, with the Prison Realm as the decisive sealing tool.",
+        "injection": "Before the sealing anchor, let enemy movement in Shibuya feel organized around isolating and sealing Gojo rather than simply fighting sorcerers at random.",
+        "constraints": [
+          "Do not state that Gojo is already sealed before the sealing anchor."
+        ],
+        "antiLore": [
+          "Do not write the disaster curses as attacking without a specific anti-Gojo objective."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Shibuya Incident",
+        "chapterRange": "Pre-seal operation",
+        "confidence": 0.84,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-shibuya-incident",
+          "status": "initial_shibuya_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_shibuya_gojo_sealing_changes_every_battlefield_priority",
+      "title": "Gojo's Sealing Changes Every Battlefield Priority",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "secret",
+      "revealPolicy": "spoiler_guard",
+      "priority": 96,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.shibuya.gojo-sealed",
+        "validToAnchor": "jjk.shibuya.aftermath",
+        "sortKeyFrom": 6500,
+        "sortKeyTo": 8200,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "After Gojo is sealed"
+      },
+      "coordinates": [
+        {
+          "axis": "gojo_state",
+          "id": "sealed",
+          "label": "Gojo is sealed",
+          "required": false
+        },
+        {
+          "axis": "incident_state",
+          "id": "post-seal-chaos",
+          "label": "Shibuya has entered post-seal chaos",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:gojo-satoru",
+          "jjk:suguru-geto",
+          "jjk:jujutsu-society"
+        ],
+        "characters": [
+          "Satoru Gojo",
+          "Suguru Geto"
+        ],
+        "locations": [
+          "Shibuya"
+        ],
+        "objects": [
+          "Prison Realm"
+        ],
+        "factions": [
+          "Jujutsu society"
+        ],
+        "topics": [
+          "Gojo sealed",
+          "Prison Realm",
+          "battlefield priority"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:shibuya-incident",
+        "character:gojo-satoru",
+        "character:geto-suguru",
+        "faction:jujutsu-society",
+        "topic:prison-realm",
+        "secret:gojo-sealed"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Satoru Gojo",
+            "Suguru Geto"
+          ],
+          "topicsAny": [
+            "Gojo sealed",
+            "Prison Realm",
+            "after Gojo is sealed"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath."
+      },
+      "content": {
+        "fact": "Once Gojo is sealed in the Prison Realm, Shibuya's tactical priority shifts from relying on him to surviving without the strongest sorcerer available.",
+        "injection": "After the Gojo sealing anchor, write sorcerer decisions around the shock and practical vacuum of Gojo being unavailable.",
+        "constraints": [
+          "Before the sealing anchor, do not treat Gojo as unavailable.",
+          "Do not import later unsealing outcomes from Culling Game or Shinjuku decks."
+        ],
+        "antiLore": [
+          "Do not let Gojo freely resolve post-seal Shibuya scenes."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Shibuya Incident",
+        "chapterRange": "Gojo sealing",
+        "confidence": 0.86,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-shibuya-incident",
+          "status": "initial_shibuya_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_shibuya_mechamaru_contingency_guides_yuji_after_seal",
+      "title": "Mechamaru Contingency Guides Yuji After The Seal",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "medium",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.shibuya.mechamaru-contingency",
+        "validToAnchor": "jjk.shibuya.aftermath",
+        "sortKeyFrom": 6650,
+        "sortKeyTo": 8200,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Mechamaru contingency after Gojo seal"
+      },
+      "coordinates": [
+        {
+          "axis": "yuji_state",
+          "id": "responding-to-gojo-seal",
+          "label": "Yuji is responding after Gojo's seal",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:mechamaru",
+          "jjk:itadori-yuji",
+          "jjk:jujutsu-society"
+        ],
+        "characters": [
+          "Mechamaru",
+          "Yuji Itadori"
+        ],
+        "locations": [
+          "Shibuya"
+        ],
+        "objects": [],
+        "factions": [
+          "Jujutsu society"
+        ],
+        "topics": [
+          "Mechamaru contingency",
+          "Gojo sealed alert",
+          "Yuji coordination"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:shibuya-incident",
+        "character:mechamaru",
+        "character:itadori-yuji",
+        "faction:jujutsu-society",
+        "topic:mechamaru-contingency",
+        "secret:gojo-sealed"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Mechamaru",
+            "Yuji Itadori"
+          ],
+          "topicsAny": [
+            "Mechamaru contingency",
+            "Gojo sealed alert",
+            "Yuji Shibuya"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath."
+      },
+      "content": {
+        "fact": "After Gojo's sealing, Mechamaru's contingency helps communicate the emergency and guide Yuji through the Shibuya chaos.",
+        "injection": "When the Mechamaru contingency is in Context, use it as a narrow post-seal coordination aid rather than making every sorcerer omniscient about Shibuya.",
+        "constraints": [
+          "Do not let the contingency erase confusion or communication breakdown across the whole incident."
+        ],
+        "antiLore": [
+          "Do not treat post-seal Shibuya coordination as clean or centrally controlled."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Shibuya Incident",
+        "chapterRange": "Post-seal coordination",
+        "confidence": 0.78,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-shibuya-incident",
+          "status": "initial_shibuya_slice"
+        }
+      }
+    }
+  ]
+}

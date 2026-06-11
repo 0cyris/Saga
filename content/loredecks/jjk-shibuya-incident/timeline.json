@@ -1,0 +1,232 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "sortKeyScale": "pack_local",
+  "anchors": [
+    {
+      "id": "jjk.shibuya.curtains-descend",
+      "label": "Curtains descend on Shibuya",
+      "sortKey": 5000,
+      "aliases": [
+        "Shibuya curtains descend",
+        "Shibuya Incident begins"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Shibuya Incident"
+      }
+    },
+    {
+      "id": "jjk.shibuya.gojo-enters-station",
+      "label": "Gojo enters the Shibuya station battlefield",
+      "sortKey": 5200,
+      "aliases": [
+        "Gojo enters Shibuya",
+        "Gojo station fight"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Shibuya Incident"
+      }
+    },
+    {
+      "id": "jjk.shibuya.gojo-sealed",
+      "label": "Gojo is sealed in the Prison Realm",
+      "sortKey": 6500,
+      "aliases": [
+        "Gojo sealed",
+        "Prison Realm seals Gojo"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Shibuya Incident"
+      }
+    },
+    {
+      "id": "jjk.shibuya.mechamaru-contingency",
+      "label": "Mechamaru contingency guides Yuji",
+      "sortKey": 6650,
+      "aliases": [
+        "Mechamaru contingency activates",
+        "Mechamaru guides Yuji"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Shibuya Incident"
+      }
+    },
+    {
+      "id": "jjk.shibuya.toji-revival",
+      "label": "Toji is revived as an uncontrolled variable",
+      "sortKey": 6900,
+      "aliases": [
+        "Toji revived in Shibuya",
+        "Shibuya Toji anomaly"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Shibuya Incident"
+      }
+    },
+    {
+      "id": "jjk.shibuya.station-battles-escalate",
+      "label": "Station battles escalate",
+      "sortKey": 7100,
+      "aliases": [
+        "Dagon station battle",
+        "Shibuya battles escalate"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Shibuya Incident"
+      }
+    },
+    {
+      "id": "jjk.shibuya.sukuna-finger-flood",
+      "label": "Sukuna takes control after finger flood",
+      "sortKey": 7350,
+      "aliases": [
+        "Sukuna finger flood",
+        "Sukuna takes over in Shibuya"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Shibuya Incident"
+      }
+    },
+    {
+      "id": "jjk.shibuya.sukuna-mahoraga-devastation",
+      "label": "Sukuna and Mahoraga devastate Shibuya",
+      "sortKey": 7600,
+      "aliases": [
+        "Sukuna versus Mahoraga",
+        "Shibuya devastation"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Shibuya Incident"
+      }
+    },
+    {
+      "id": "jjk.shibuya.mahito-final-phase",
+      "label": "Mahito final phase and status losses",
+      "sortKey": 7900,
+      "aliases": [
+        "Mahito final phase",
+        "Nanami and Nobara Shibuya status"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Shibuya Incident"
+      }
+    },
+    {
+      "id": "jjk.shibuya.aftermath",
+      "label": "Shibuya aftermath begins",
+      "sortKey": 8200,
+      "aliases": [
+        "post-Shibuya",
+        "Shibuya aftermath"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Shibuya Incident"
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "jjk.shibuya.window.full-incident",
+      "label": "Full Shibuya Incident",
+      "anchorFrom": "jjk.shibuya.curtains-descend",
+      "anchorTo": "jjk.shibuya.aftermath",
+      "sortKeyFrom": 5000,
+      "sortKeyTo": 8200,
+      "aliases": [
+        "Shibuya Incident",
+        "full Shibuya"
+      ]
+    },
+    {
+      "id": "jjk.shibuya.window.pre-seal-operation",
+      "label": "Pre-Seal Operation",
+      "anchorFrom": "jjk.shibuya.curtains-descend",
+      "anchorTo": "jjk.shibuya.gojo-sealed",
+      "sortKeyFrom": 5000,
+      "sortKeyTo": 6500,
+      "aliases": [
+        "before Gojo is sealed",
+        "Shibuya pre-seal"
+      ]
+    },
+    {
+      "id": "jjk.shibuya.window.post-seal-chaos",
+      "label": "Post-Seal Chaos",
+      "anchorFrom": "jjk.shibuya.gojo-sealed",
+      "anchorTo": "jjk.shibuya.sukuna-finger-flood",
+      "sortKeyFrom": 6500,
+      "sortKeyTo": 7350,
+      "aliases": [
+        "after Gojo is sealed",
+        "Shibuya post-seal"
+      ]
+    },
+    {
+      "id": "jjk.shibuya.window.sukuna-through-aftermath",
+      "label": "Sukuna Through Aftermath",
+      "anchorFrom": "jjk.shibuya.sukuna-finger-flood",
+      "anchorTo": "jjk.shibuya.aftermath",
+      "sortKeyFrom": 7350,
+      "sortKeyTo": 8200,
+      "aliases": [
+        "Sukuna Shibuya aftermath",
+        "late Shibuya"
+      ]
+    }
+  ],
+  "coordinateAxes": [
+    {
+      "axis": "arc",
+      "label": "Arc",
+      "values": [
+        "shibuya-incident"
+      ]
+    },
+    {
+      "axis": "gojo_state",
+      "label": "Gojo State",
+      "values": [
+        "active-in-shibuya",
+        "sealed"
+      ]
+    },
+    {
+      "axis": "yuji_state",
+      "label": "Yuji State",
+      "values": [
+        "responding-to-gojo-seal",
+        "sukuna-aftermath-burden"
+      ]
+    },
+    {
+      "axis": "incident_state",
+      "label": "Incident State",
+      "values": [
+        "curtains-active",
+        "post-seal-chaos",
+        "late-devastation",
+        "aftermath"
+      ]
+    }
+  ]
+}

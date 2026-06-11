@@ -1,0 +1,332 @@
+{
+  "schemaVersion": 1,
+  "entities": {
+    "jjk:geto-family": {
+      "type": "faction",
+      "label": "Geto family",
+      "aliases": [
+        "Geto followers",
+        "Geto's group"
+      ],
+      "canonicalNames": [
+        "Geto family"
+      ],
+      "tags": [
+        "faction:geto-family"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Hidden Inventory and Premature Death manga pre-mainline material."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "jjk:gojo-satoru": {
+      "type": "character",
+      "label": "Satoru Gojo",
+      "aliases": [
+        "Gojo",
+        "student Gojo"
+      ],
+      "canonicalNames": [
+        "Satoru Gojo"
+      ],
+      "tags": [
+        "character:gojo-satoru",
+        "relationship:gojo-geto-students"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Hidden Inventory and Premature Death manga pre-mainline material."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    },
+    "jjk:haibara-yu": {
+      "type": "character",
+      "label": "Yu Haibara",
+      "aliases": [
+        "Haibara"
+      ],
+      "canonicalNames": [
+        "Yu Haibara"
+      ],
+      "tags": [
+        "character:haibara-yu",
+        "topic:sorcerer-attrition"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Hidden Inventory and Premature Death manga pre-mainline material."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "jjk:jujutsu-society": {
+      "type": "faction",
+      "label": "Jujutsu society",
+      "aliases": [
+        "jujutsu society",
+        "sorcerer society"
+      ],
+      "canonicalNames": [
+        "Jujutsu society"
+      ],
+      "tags": [
+        "faction:jujutsu-society"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Hidden Inventory and Premature Death manga pre-mainline material."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    },
+    "jjk:q-group": {
+      "type": "faction",
+      "label": "Q group",
+      "aliases": [
+        "Q",
+        "Q organization"
+      ],
+      "canonicalNames": [
+        "Q group"
+      ],
+      "tags": [
+        "faction:q-group"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Hidden Inventory and Premature Death manga pre-mainline material."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.76
+      },
+      "extensions": {}
+    },
+    "jjk:riko-amanai": {
+      "type": "character",
+      "label": "Riko Amanai",
+      "aliases": [
+        "Riko",
+        "Star Plasma Vessel"
+      ],
+      "canonicalNames": [
+        "Riko Amanai"
+      ],
+      "tags": [
+        "character:riko-amanai",
+        "topic:star-plasma-vessel",
+        "secret:riko-fate"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Hidden Inventory and Premature Death manga pre-mainline material."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    },
+    "jjk:shoko-ieiri": {
+      "type": "character",
+      "label": "Shoko Ieiri",
+      "aliases": [
+        "Shoko",
+        "student Shoko"
+      ],
+      "canonicalNames": [
+        "Shoko Ieiri"
+      ],
+      "tags": [
+        "character:shoko-ieiri"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Hidden Inventory and Premature Death manga pre-mainline material."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "jjk:suguru-geto": {
+      "type": "character",
+      "label": "Suguru Geto",
+      "aliases": [
+        "Geto",
+        "student Geto"
+      ],
+      "canonicalNames": [
+        "Suguru Geto"
+      ],
+      "tags": [
+        "character:geto-suguru",
+        "relationship:gojo-geto-students",
+        "secret:geto-defection"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Hidden Inventory and Premature Death manga pre-mainline material."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    },
+    "jjk:tengen": {
+      "type": "character",
+      "label": "Tengen",
+      "aliases": [
+        "Master Tengen"
+      ],
+      "canonicalNames": [
+        "Tengen"
+      ],
+      "tags": [
+        "topic:tengen-merger"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Hidden Inventory and Premature Death manga pre-mainline material."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "jjk:time-vessel-association": {
+      "type": "faction",
+      "label": "Time Vessel Association",
+      "aliases": [
+        "Star Religious Group"
+      ],
+      "canonicalNames": [
+        "Time Vessel Association"
+      ],
+      "tags": [
+        "faction:time-vessel-association"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Hidden Inventory and Premature Death manga pre-mainline material."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "jjk:toji-fushiguro": {
+      "type": "character",
+      "label": "Toji Fushiguro",
+      "aliases": [
+        "Toji",
+        "Sorcerer Killer"
+      ],
+      "canonicalNames": [
+        "Toji Fushiguro"
+      ],
+      "tags": [
+        "character:toji-fushiguro",
+        "topic:heavenly-restriction"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Hidden Inventory and Premature Death manga pre-mainline material."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    },
+    "jjk:yuki-tsukumo": {
+      "type": "character",
+      "label": "Yuki Tsukumo",
+      "aliases": [
+        "Yuki"
+      ],
+      "canonicalNames": [
+        "Yuki Tsukumo"
+      ],
+      "tags": [
+        "character:yuki-tsukumo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Hidden Inventory and Premature Death manga pre-mainline material."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    }
+  }
+}

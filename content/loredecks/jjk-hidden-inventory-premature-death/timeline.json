@@ -1,0 +1,193 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "sortKeyScale": "pack_local",
+  "anchors": [
+    {
+      "id": "jjk.hidden.gojo-geto-student-baseline",
+      "label": "Gojo and Geto student baseline",
+      "sortKey": 100,
+      "aliases": [
+        "Gojo and Geto students",
+        "student-era strongest duo"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Hidden Inventory"
+      }
+    },
+    {
+      "id": "jjk.hidden.star-plasma-vessel-mission",
+      "label": "Star Plasma Vessel mission begins",
+      "sortKey": 200,
+      "aliases": [
+        "Star Plasma Vessel mission",
+        "Riko escort mission"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Hidden Inventory"
+      }
+    },
+    {
+      "id": "jjk.hidden.riko-amanai-targeted",
+      "label": "Riko Amanai is targeted",
+      "sortKey": 300,
+      "aliases": [
+        "Riko targeted",
+        "Amanai bounty pressure"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Hidden Inventory"
+      }
+    },
+    {
+      "id": "jjk.hidden.toji-assassin-intervention",
+      "label": "Toji disrupts the escort mission",
+      "sortKey": 450,
+      "aliases": [
+        "Toji attacks",
+        "sorcerer killer enters"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Hidden Inventory"
+      }
+    },
+    {
+      "id": "jjk.hidden.gojo-awakens-rct",
+      "label": "Gojo awakens reverse cursed technique",
+      "sortKey": 650,
+      "aliases": [
+        "Gojo awakens RCT",
+        "Gojo rematch with Toji"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Hidden Inventory"
+      }
+    },
+    {
+      "id": "jjk.hidden.riko-death-and-mission-collapse",
+      "label": "Riko dies and the mission collapses",
+      "sortKey": 720,
+      "aliases": [
+        "Riko death",
+        "Star Plasma Vessel mission fails"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Hidden Inventory"
+      }
+    },
+    {
+      "id": "jjk.hidden.haibara-death-and-geto-strain",
+      "label": "Haibara's death intensifies Geto's strain",
+      "sortKey": 900,
+      "aliases": [
+        "Haibara death",
+        "Geto strain deepens"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Premature Death"
+      }
+    },
+    {
+      "id": "jjk.hidden.geto-defection",
+      "label": "Geto defects from jujutsu society",
+      "sortKey": 1100,
+      "aliases": [
+        "Geto defects",
+        "Premature Death defection"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Premature Death"
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "jjk.hidden.window.hidden-inventory-mission",
+      "label": "Hidden Inventory Mission",
+      "anchorFrom": "jjk.hidden.gojo-geto-student-baseline",
+      "anchorTo": "jjk.hidden.riko-death-and-mission-collapse",
+      "sortKeyFrom": 100,
+      "sortKeyTo": 720,
+      "aliases": [
+        "Hidden Inventory mission",
+        "Riko escort arc"
+      ]
+    },
+    {
+      "id": "jjk.hidden.window.premature-death-slide",
+      "label": "Premature Death Slide",
+      "anchorFrom": "jjk.hidden.riko-death-and-mission-collapse",
+      "anchorTo": "jjk.hidden.geto-defection",
+      "sortKeyFrom": 720,
+      "sortKeyTo": 1100,
+      "aliases": [
+        "Premature Death slide",
+        "Geto downward spiral"
+      ]
+    },
+    {
+      "id": "jjk.hidden.window.full-hidden-through-defection",
+      "label": "Hidden Inventory Through Defection",
+      "anchorFrom": "jjk.hidden.gojo-geto-student-baseline",
+      "anchorTo": "jjk.hidden.geto-defection",
+      "sortKeyFrom": 100,
+      "sortKeyTo": 1100,
+      "aliases": [
+        "Hidden Inventory and Premature Death",
+        "Gojo Geto flashback"
+      ]
+    }
+  ],
+  "coordinateAxes": [
+    {
+      "axis": "arc",
+      "label": "Arc",
+      "values": [
+        "hidden-inventory",
+        "premature-death"
+      ]
+    },
+    {
+      "axis": "gojo_state",
+      "label": "Gojo State",
+      "values": [
+        "student-strongest",
+        "rct-awakened"
+      ]
+    },
+    {
+      "axis": "geto_state",
+      "label": "Geto State",
+      "values": [
+        "student-idealist",
+        "strained",
+        "defected"
+      ]
+    },
+    {
+      "axis": "mission_state",
+      "label": "Mission State",
+      "values": [
+        "escort-active",
+        "assassin-disrupted",
+        "collapsed"
+      ]
+    }
+  ]
+}

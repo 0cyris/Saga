@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve broad Jujutsu Kaisen Context against manga-primary core story states.",
+  "preferredFields": [
+    "arc",
+    "chapter",
+    "beforeAfter",
+    "majorEvent",
+    "knowledgeState",
+    "gojoStatus",
+    "sukunaVesselState"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer known arc, chapter, incident, and before/after anchors over invented exact dates.",
+  "localPatterns": [
+    {
+      "pattern": "before yuji eats the finger",
+      "result": {
+        "anchorTo": "jjk.main.yuji-eats-sukuna-finger",
+        "label": "Before Yuji becomes Sukuna's vessel"
+      }
+    },
+    {
+      "pattern": "after yuji becomes sukuna's vessel",
+      "result": {
+        "anchorFrom": "jjk.main.yuji-eats-sukuna-finger",
+        "label": "After Yuji becomes Sukuna's vessel"
+      }
+    },
+    {
+      "pattern": "post-shibuya",
+      "result": {
+        "anchorFrom": "jjk.shibuya.gojo-sealed",
+        "label": "Post-Shibuya"
+      }
+    },
+    {
+      "pattern": "while gojo is sealed",
+      "result": {
+        "anchorFrom": "jjk.shibuya.gojo-sealed",
+        "anchorTo": "jjk.culling.gojo-unsealed",
+        "label": "Gojo Sealed Window"
+      }
+    },
+    {
+      "pattern": "after gojo is unsealed",
+      "result": {
+        "anchorFrom": "jjk.culling.gojo-unsealed",
+        "label": "After Gojo is unsealed"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "sceneDate": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "label": "string",
+    "branchId": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

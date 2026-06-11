@@ -1,0 +1,458 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "jjk_hidden_geto_spiral_begins_after_hidden_inventory",
+      "title": "Geto's Spiral Begins After Hidden Inventory",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "secret",
+      "revealPolicy": "spoiler_guard",
+      "priority": 90,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.hidden.riko-death-and-mission-collapse",
+        "validToAnchor": "jjk.hidden.geto-defection",
+        "sortKeyFrom": 720,
+        "sortKeyTo": 1100,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Geto's strain before defection"
+      },
+      "coordinates": [
+        {
+          "axis": "geto_state",
+          "id": "strained",
+          "label": "Geto's ideology is destabilizing",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:suguru-geto",
+          "jjk:yuki-tsukumo"
+        ],
+        "characters": [
+          "Suguru Geto",
+          "Yuki Tsukumo"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Jujutsu society"
+        ],
+        "topics": [
+          "Geto's spiral",
+          "sorcerer burden",
+          "non-sorcerer ideology"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:premature-death",
+        "character:geto-suguru",
+        "character:yuki-tsukumo",
+        "topic:sorcerer-attrition",
+        "secret:geto-defection"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Suguru Geto",
+            "Yuki Tsukumo"
+          ],
+          "topicsAny": [
+            "Geto spiral",
+            "Premature Death",
+            "sorcerer attrition"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Hidden Inventory and Premature Death manga pre-mainline material."
+      },
+      "content": {
+        "fact": "After Hidden Inventory, Geto's strain builds around sorcerer suffering, non-sorcerer violence, and the moral logic of protecting people who generate curses.",
+        "injection": "During Premature Death scenes before the break, write Geto as deteriorating under cumulative ideological pressure rather than instantly transformed.",
+        "constraints": [
+          "Do not write Geto as publicly defected until the defection anchor has passed."
+        ],
+        "antiLore": [
+          "Do not make Geto's break feel like a single unexplained mood swing."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Premature Death",
+        "chapterRange": "Post-Hidden Inventory strain",
+        "confidence": 0.82,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-hidden-inventory-premature-death",
+          "status": "initial_premature_death_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_hidden_haibara_death_deepens_sorcerer_attrition_pressure",
+      "title": "Haibara's Death Deepens Sorcerer Attrition Pressure",
+      "kind": "event",
+      "category": "event",
+      "relevance": "medium",
+      "canon": "canon",
+      "lorePurpose": "event",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.hidden.haibara-death-and-geto-strain",
+        "validToAnchor": "jjk.hidden.geto-defection",
+        "sortKeyFrom": 900,
+        "sortKeyTo": 1100,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Haibara death and Geto strain"
+      },
+      "coordinates": [
+        {
+          "axis": "geto_state",
+          "id": "strained",
+          "label": "Geto's ideology is destabilizing",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:haibara-yu",
+          "jjk:suguru-geto"
+        ],
+        "characters": [
+          "Yu Haibara",
+          "Suguru Geto"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Jujutsu society"
+        ],
+        "topics": [
+          "sorcerer attrition",
+          "mission death",
+          "Geto strain"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:premature-death",
+        "character:haibara-yu",
+        "character:geto-suguru",
+        "faction:jujutsu-society",
+        "topic:sorcerer-attrition"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Yu Haibara",
+            "Suguru Geto"
+          ],
+          "topicsAny": [
+            "Haibara death",
+            "sorcerer attrition",
+            "Premature Death"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Hidden Inventory and Premature Death manga pre-mainline material."
+      },
+      "content": {
+        "fact": "Haibara's death is part of the attrition pressure that makes Geto's view of sorcerer labor and non-sorcerer protection more brittle.",
+        "injection": "After Haibara's death is in Context, let sorcerer attrition feel personal and cumulative around Geto rather than abstract institutional background.",
+        "constraints": [
+          "Keep this as pressure toward Geto's break, not proof that every sorcerer shares his eventual ideology."
+        ],
+        "antiLore": [
+          "Do not make Haibara's death consequence-free for the Premature Death emotional track."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Premature Death",
+        "chapterRange": "Premature Death buildup",
+        "confidence": 0.78,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-hidden-inventory-premature-death",
+          "status": "initial_premature_death_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_hidden_geto_defection_creates_the_geto_family_boundary",
+      "title": "Geto's Defection Creates The Geto Family Boundary",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "secret",
+      "revealPolicy": "spoiler_guard",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.hidden.geto-defection",
+        "validToAnchor": "jjk.hidden.geto-defection",
+        "sortKeyFrom": 1100,
+        "sortKeyTo": 1100,
+        "precision": "anchor_exact",
+        "windowKind": "point",
+        "label": "Geto defects"
+      },
+      "coordinates": [
+        {
+          "axis": "geto_state",
+          "id": "defected",
+          "label": "Geto has defected",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:suguru-geto",
+          "jjk:geto-family",
+          "jjk:jujutsu-society"
+        ],
+        "characters": [
+          "Suguru Geto"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Geto family",
+          "Jujutsu society"
+        ],
+        "topics": [
+          "Geto defection",
+          "curse user break",
+          "anti-non-sorcerer ideology"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:premature-death",
+        "character:geto-suguru",
+        "faction:geto-family",
+        "faction:jujutsu-society",
+        "secret:geto-defection",
+        "topic:non-sorcerer-hatred"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Suguru Geto"
+          ],
+          "topicsAny": [
+            "Geto defects",
+            "Geto family",
+            "non-sorcerer hatred"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Hidden Inventory and Premature Death manga pre-mainline material."
+      },
+      "content": {
+        "fact": "Geto's defection marks the boundary where he leaves jujutsu society and begins acting from an anti-non-sorcerer ideology with followers around him.",
+        "injection": "After the defection anchor, treat Geto as separated from jujutsu society and moving into his own factional lane; before it, keep the break unrevealed or in buildup.",
+        "constraints": [
+          "Use the Jujutsu Kaisen 0 deck for Night Parade-specific faction details."
+        ],
+        "antiLore": [
+          "Do not place Geto's follower group or mature anti-non-sorcerer campaign before the defection boundary."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Premature Death",
+        "chapterRange": "Geto defection boundary",
+        "confidence": 0.84,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-hidden-inventory-premature-death",
+          "status": "initial_premature_death_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_hidden_future_guard_keeps_student_era_from_mainline_leaks",
+      "title": "Future Guard Keeps Student Era From Mainline Leaks",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "never_before_context",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.hidden.gojo-geto-student-baseline",
+        "validToAnchor": "jjk.hidden.geto-defection",
+        "sortKeyFrom": 100,
+        "sortKeyTo": 1100,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Hidden Inventory future-leak guard"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "hidden-inventory",
+          "label": "Hidden Inventory",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "premature-death",
+          "label": "Premature Death",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:gojo-satoru",
+          "jjk:suguru-geto",
+          "jjk:jujutsu-society"
+        ],
+        "characters": [
+          "Satoru Gojo",
+          "Suguru Geto"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Jujutsu society"
+        ],
+        "topics": [
+          "future spoilers",
+          "student-era boundary",
+          "mainline fallout"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:hidden-inventory",
+        "arc:premature-death",
+        "character:gojo-satoru",
+        "character:geto-suguru",
+        "faction:jujutsu-society"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Satoru Gojo",
+            "Suguru Geto"
+          ],
+          "topicsAny": [
+            "Hidden Inventory future guard",
+            "Premature Death spoilers",
+            "student-era boundary"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Hidden Inventory and Premature Death manga pre-mainline material."
+      },
+      "content": {
+        "fact": "Hidden Inventory and Premature Death explain important later states, but their deck should not automatically reveal Shibuya, Culling Game, Shinjuku, or Jujutsu Kaisen 0 scene outcomes.",
+        "injection": "When this deck is active, use student-era and defection context without importing later mainline event outcomes unless those later decks are also loaded.",
+        "constraints": [
+          "Let Jujutsu Kaisen 0 handle Night Parade details.",
+          "Let Shibuya and later decks handle adult Gojo/Geto fallout beyond this boundary."
+        ],
+        "antiLore": [
+          "Do not use Hidden Inventory Context as permission to spoil all later Gojo, Geto, Kenjaku, Tengen, or Shibuya developments."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Hidden Inventory / Premature Death",
+        "chapterRange": "Deck-level future guard",
+        "confidence": 0.78,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-hidden-inventory-premature-death",
+          "status": "initial_premature_death_slice"
+        }
+      }
+    }
+  ]
+}

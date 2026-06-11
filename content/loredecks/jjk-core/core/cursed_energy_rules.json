@@ -1,0 +1,391 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "jjk_core_cursed_energy_comes_from_negative_emotion",
+      "title": "Cursed Energy Comes From Negative Emotion",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.core.jujutsu-society-baseline",
+        "validToAnchor": "jjk.shinjuku.final-aftermath",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 15000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "JJK manga main continuity"
+      },
+      "coordinates": [
+        {
+          "axis": "power_system",
+          "id": "jjk.power.cursed-energy",
+          "label": "Cursed energy rules",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "cursed energy",
+          "negative emotion",
+          "jujutsu power system"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "topic:cursed-energy"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "cursed energy",
+            "negative emotions",
+            "jujutsu power"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline, including Jujutsu Kaisen 0 as prequel context and main series chapters 1-271."
+      },
+      "content": {
+        "fact": "Cursed energy is generated from negative human emotion and is the baseline fuel for jujutsu techniques, curse reinforcement, barriers, and many supernatural effects in Jujutsu Kaisen.",
+        "injection": "When a scene uses the JJK power system, treat cursed energy as emotion-derived supernatural fuel. Do not write it as generic mana, science, or harmless aura.",
+        "constraints": [
+          "Keep the explanation compact unless the scene is explicitly about training or technique mechanics."
+        ],
+        "antiLore": [
+          "Do not let ordinary non-sorcerers understand cursed energy mechanics without a scene-specific reason."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen",
+        "chapterRange": "Core power-system premise",
+        "confidence": 0.82,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-core",
+          "status": "initial_core_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_core_innate_techniques_are_personalized",
+      "title": "Innate Techniques Are Personalized",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.core.jujutsu-society-baseline",
+        "validToAnchor": "jjk.shinjuku.final-aftermath",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 15000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "JJK manga main continuity"
+      },
+      "coordinates": [
+        {
+          "axis": "power_system",
+          "id": "jjk.power.cursed-techniques",
+          "label": "Cursed technique rules",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "cursed techniques",
+          "innate technique",
+          "ability limits"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "topic:cursed-techniques"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "cursed technique",
+            "innate technique",
+            "sorcerer ability"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline, including Jujutsu Kaisen 0 as prequel context and main series chapters 1-271."
+      },
+      "content": {
+        "fact": "Many sorcerer abilities are innate cursed techniques with personal rules, inherited traits, or user-specific conditions rather than freely interchangeable spell lists.",
+        "injection": "When writing sorcerer abilities, keep cursed techniques specific to the user and their established rules. Do not hand out unrelated techniques casually.",
+        "constraints": [
+          "Use separate arc or character Lorecards for exact technique reveals, mastery changes, and special exceptions."
+        ],
+        "antiLore": [
+          "Do not treat every trained sorcerer as able to learn any named technique."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen",
+        "chapterRange": "Core power-system premise",
+        "confidence": 0.82,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-core",
+          "status": "initial_core_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_core_domain_expansion_changes_battlefield_rules",
+      "title": "Domain Expansion Changes Battlefield Rules",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 87,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.core.jujutsu-society-baseline",
+        "validToAnchor": "jjk.shinjuku.final-aftermath",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 15000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "JJK manga main continuity"
+      },
+      "coordinates": [
+        {
+          "axis": "power_system",
+          "id": "jjk.power.domain-expansion",
+          "label": "Domain Expansion rules",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Domain Expansion",
+          "barriers",
+          "sure-hit effect"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "topic:domain-expansion"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "Domain Expansion",
+            "domain battle",
+            "sure-hit"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline, including Jujutsu Kaisen 0 as prequel context and main series chapters 1-271."
+      },
+      "content": {
+        "fact": "Domain Expansion is an advanced cursed technique expression that imposes a constructed domain and usually changes combat through sure-hit or domain-specific rules.",
+        "injection": "Treat Domain Expansion as a major escalation with battlefield rules, counters, and severe tactical consequences. Do not use it as a casual visual flourish.",
+        "constraints": [
+          "Exact domains, counters, and exceptions belong in character or arc decks."
+        ],
+        "antiLore": [
+          "Do not make every sorcerer domain-capable."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen",
+        "chapterRange": "Core power-system premise",
+        "confidence": 0.82,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-core",
+          "status": "initial_core_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_core_binding_vows_trade_limits_for_power",
+      "title": "Binding Vows Trade Limits For Power",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.core.jujutsu-society-baseline",
+        "validToAnchor": "jjk.shinjuku.final-aftermath",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 15000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "JJK manga main continuity"
+      },
+      "coordinates": [
+        {
+          "axis": "power_system",
+          "id": "jjk.power.binding-vows",
+          "label": "Binding Vow rules",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Binding Vow",
+          "restriction",
+          "tradeoff"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "topic:binding-vows"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "Binding Vow",
+            "vow",
+            "restriction tradeoff"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline, including Jujutsu Kaisen 0 as prequel context and main series chapters 1-271."
+      },
+      "content": {
+        "fact": "Binding Vows are binding restrictions, exchanges, or promises that can shape cursed energy outcomes and punish broken terms.",
+        "injection": "Use Binding Vows as consequential tradeoffs. A vow should create a real condition, cost, or restriction rather than free power.",
+        "constraints": [
+          "Keep vow effects tied to the stated condition and scene Context."
+        ],
+        "antiLore": [
+          "Do not use Binding Vows as unlimited loopholes."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen",
+        "chapterRange": "Core power-system premise",
+        "confidence": 0.8,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-core",
+          "status": "initial_core_slice"
+        }
+      }
+    }
+  ]
+}

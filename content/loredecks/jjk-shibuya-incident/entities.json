@@ -1,0 +1,388 @@
+{
+  "schemaVersion": 1,
+  "entities": {
+    "jjk:curse-users": {
+      "type": "faction",
+      "label": "Curse users",
+      "aliases": [
+        "Shibuya curse users"
+      ],
+      "canonicalNames": [
+        "Curse users"
+      ],
+      "tags": [
+        "faction:curse-users"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "jjk:disaster-curses": {
+      "type": "faction",
+      "label": "Disaster curses",
+      "aliases": [
+        "disaster curse coalition"
+      ],
+      "canonicalNames": [
+        "Disaster curses"
+      ],
+      "tags": [
+        "faction:disaster-curses"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "jjk:gojo-satoru": {
+      "type": "character",
+      "label": "Satoru Gojo",
+      "aliases": [
+        "Gojo",
+        "sealed Gojo"
+      ],
+      "canonicalNames": [
+        "Satoru Gojo"
+      ],
+      "tags": [
+        "character:gojo-satoru",
+        "secret:gojo-sealed"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.84
+      },
+      "extensions": {}
+    },
+    "jjk:itadori-yuji": {
+      "type": "character",
+      "label": "Yuji Itadori",
+      "aliases": [
+        "Yuji",
+        "Shibuya Yuji"
+      ],
+      "canonicalNames": [
+        "Yuji Itadori"
+      ],
+      "tags": [
+        "character:itadori-yuji"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.84
+      },
+      "extensions": {}
+    },
+    "jjk:jujutsu-society": {
+      "type": "faction",
+      "label": "Jujutsu society",
+      "aliases": [
+        "jujutsu society",
+        "sorcerer society"
+      ],
+      "canonicalNames": [
+        "Jujutsu society"
+      ],
+      "tags": [
+        "faction:jujutsu-society"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    },
+    "jjk:kenjaku": {
+      "type": "character",
+      "label": "Kenjaku",
+      "aliases": [
+        "Kenjaku",
+        "Geto body controller"
+      ],
+      "canonicalNames": [
+        "Kenjaku"
+      ],
+      "tags": [
+        "character:kenjaku",
+        "secret:geto-body-controller"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "jjk:kugisaki-nobara": {
+      "type": "character",
+      "label": "Nobara Kugisaki",
+      "aliases": [
+        "Nobara",
+        "Shibuya Nobara"
+      ],
+      "canonicalNames": [
+        "Nobara Kugisaki"
+      ],
+      "tags": [
+        "character:kugisaki-nobara",
+        "secret:nobara-status"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "jjk:mahito": {
+      "type": "character",
+      "label": "Mahito",
+      "aliases": [
+        "Mahito"
+      ],
+      "canonicalNames": [
+        "Mahito"
+      ],
+      "tags": [
+        "character:mahito",
+        "topic:idle-transfiguration"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.84
+      },
+      "extensions": {}
+    },
+    "jjk:mechamaru": {
+      "type": "character",
+      "label": "Mechamaru",
+      "aliases": [
+        "Kokichi Muta",
+        "Mechamaru"
+      ],
+      "canonicalNames": [
+        "Mechamaru"
+      ],
+      "tags": [
+        "character:mechamaru",
+        "topic:mechamaru-contingency"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "jjk:megumi-fushiguro": {
+      "type": "character",
+      "label": "Megumi Fushiguro",
+      "aliases": [
+        "Megumi",
+        "Shibuya Megumi"
+      ],
+      "canonicalNames": [
+        "Megumi Fushiguro"
+      ],
+      "tags": [
+        "character:megumi-fushiguro",
+        "topic:mahoraga"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    },
+    "jjk:nanami-kento": {
+      "type": "character",
+      "label": "Kento Nanami",
+      "aliases": [
+        "Nanami",
+        "Shibuya Nanami"
+      ],
+      "canonicalNames": [
+        "Kento Nanami"
+      ],
+      "tags": [
+        "character:nanami-kento"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    },
+    "jjk:ryomen-sukuna": {
+      "type": "character",
+      "label": "Ryomen Sukuna",
+      "aliases": [
+        "Sukuna",
+        "Shibuya Sukuna"
+      ],
+      "canonicalNames": [
+        "Ryomen Sukuna"
+      ],
+      "tags": [
+        "character:ryomen-sukuna",
+        "secret:sukuna-control"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.84
+      },
+      "extensions": {}
+    },
+    "jjk:suguru-geto": {
+      "type": "character",
+      "label": "Suguru Geto",
+      "aliases": [
+        "Geto",
+        "Geto's body"
+      ],
+      "canonicalNames": [
+        "Suguru Geto"
+      ],
+      "tags": [
+        "character:geto-suguru",
+        "secret:geto-body-controller"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "jjk:toji-fushiguro": {
+      "type": "character",
+      "label": "Toji Fushiguro",
+      "aliases": [
+        "Toji",
+        "Shibuya Toji"
+      ],
+      "canonicalNames": [
+        "Toji Fushiguro"
+      ],
+      "tags": [
+        "character:toji-fushiguro"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    }
+  }
+}

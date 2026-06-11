@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Saga Visual Smoke Harness</title>
+    <link rel="stylesheet" href="../../styles/saga.css">
+    <style>
+        html,
+        body {
+            min-height: 100%;
+            margin: 0;
+            background: #111;
+            color: #f1ead8;
+            font-family: Arial, sans-serif;
+        }
+
+        .saga-smoke-stage {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            background:
+                linear-gradient(135deg, rgba(18, 12, 18, 0.96), rgba(9, 12, 18, 0.96)),
+                radial-gradient(circle at 20% 20%, rgba(185, 139, 54, 0.16), transparent 32%);
+        }
+
+        .saga-smoke-note {
+            position: fixed;
+            left: 24px;
+            bottom: 18px;
+            max-width: 520px;
+            color: #cfc5ad;
+            font-size: 13px;
+            line-height: 1.45;
+            opacity: 0.85;
+        }
+    </style>
+</head>
+<body>
+    <div class="saga-smoke-stage" aria-hidden="true"></div>
+    <div class="saga-smoke-note">
+        Local harness for Saga visual smoke checks. It stubs the SillyTavern context and renders the real runtime shelf.
+    </div>
+
+    <script>
+        const smokeContext = {
+            extensionSettings: {},
+            chatMetadata: {},
+            chatName: 'Saga Smoke Harness Chat',
+            chatId: 'Saga Smoke Harness Chat.jsonl',
+            chat: [
+                { is_user: true, mes: '### Context: Harry Potter, 1991-09-01. Harry arrives at Hogwarts.' },
+                { is_user: false, mes: 'The Great Hall is bright with candles while first-years wait to be sorted.' },
+            ],
+            characters: [],
+            groups: [],
+            name1: 'User',
+            name2: 'Narrator',
+            saveMetadata() {},
+            saveSettingsDebounced() {},
+            setExtensionPrompt() {},
+            eventSource: { on() {} },
+            event_types: {
+                GENERATE_BEFORE_COMBINE_PROMPTS: 'generate_before_combine_prompts',
+                GENERATION_STARTED: 'generation_started',
+                GENERATION_ENDED: 'generation_ended',
+                CHAT_CHANGED: 'chat_changed',
+            },
+            getPresetManager() {
+                return {
+                    getAllPresets: () => [],
+                    getCompletionPresetByName: () => null,
+                    readPresetExtensionField: () => null,
+                    savePreset: async () => {},
+                    getSelectedPreset: () => '',
+                    getSelectedPresetName: () => '',
+                    selectPreset: () => {},
+                };
+            },
+        };
+
+        window.SillyTavern = {
+            getContext: () => smokeContext,
+            setExtensionPrompt: () => {},
+        };
+        window.toastr = {
+            success: (message) => console.log('[toastr:success]', message),
+            info: (message) => console.log('[toastr:info]', message),
+            warning: (message) => console.warn('[toastr:warning]', message),
+            error: (message) => console.error('[toastr:error]', message),
+        };
+        window.registerSlashCommand = () => {};
+        window.__sagaSmokeContext = smokeContext;
+    </script>
+    <script type="module">
+        import { DEFAULT_SETTINGS, getDefaultState } from '../../src/state/constants.js';
+        import { showLorePanel } from '../../src/runtime/lore-panel.js';
+
+        const smokeParams = new URLSearchParams(window.location.search);
+        const smokeActiveTab = ['loredecks', 'context', 'lore', 'continuity', 'injection', 'settings', 'session']
+            .includes(smokeParams.get('tab'))
+            ? smokeParams.get('tab')
+            : 'loredecks';
+        const smokeMode = smokeParams.get('mode') === 'basic' ? 'basic' : 'advanced';
+        const smokeAutoOpenContextProposals = smokeParams.get('review') === 'context-proposals';
+
+        const customPack = {
+            packId: 'smoke-arlong-park',
+            type: 'custom',
+            title: 'Smoke Test: Arlong Park',
+            description: 'Editable Custom Loredeck seeded for Library and Creator smoke tests.',
+            fandom: 'One Piece',
+            era: 'Arlong Park Arc',
+            author: 'Saga Smoke Harness',
+            version: '1.0.0',
+            entrySchemaVersion: 3,
+            manifest: '',
+            source: {
+                kind: 'custom',
+                installedFrom: 'visual-smoke-fixture',
+                originalPackId: 'smoke-arlong-park',
+                importedAt: Date.now(),
+            },
+            tags: ['fandom:one-piece', 'arc:arlong-park', 'origin:custom', 'smoke:test'],
+            stats: {
+                entryCount: 2,
+                categoryCounts: {
+                    character: 1,
+                    faction: 1,
+                },
+            },
+            healthStatus: 'needs_review',
+            localModified: true,
+            installedAt: Date.now(),
+            updatedAt: Date.now(),
+            manifestData: {
+                schemaVersion: 3,
+                id: 'smoke-arlong-park',
+                type: 'custom',
+                title: 'Smoke Test: Arlong Park',
+                description: 'Editable Custom Loredeck seeded for visual smoke testing.',
+                fandom: 'One Piece',
+                era: 'Arlong Park Arc',
+                entrySchemaVersion: 3,
+                files: [],
+                stats: { entryCount: 2 },
+            },
+            entryOverrides: {
+                smoke_arlong: {
+                    id: 'smoke_arlong',
+                    schemaVersion: 3,
+                    title: 'Arlong Pressure',
+                    category: 'character',
+                    canon: 'canon',
+                    relevance: 'high',
+                    priority: 90,
+                    tags: ['character:arlong', 'arc:arlong-park'],
+                    content: {
+                        fact: 'Arlong rules Cocoyasi Village through intimidation, debt, and violence.',
+                        injection: 'Arlong should feel coercive, cruel, and certain that fear keeps the village obedient.',
+                    },
+                    context: {
+                        type: 'anchor_window',
+                        anchorsAny: ['op_arlong_park_start'],
+                    },
+                    retrieval: {
+                        cuesAny: ['Arlong', 'Cocoyasi', 'Nami'],
+                    },
+                },
+                smoke_arlong_pirates: {
+                    id: 'smoke_arlong_pirates',
+                    schemaVersion: 3,
+                    title: 'Arlong Pirates Control',
+                    category: 'faction',
+                    canon: 'canon',
+                    relevance: 'normal',
+                    priority: 75,
+                    tags: ['faction:arlong-pirates', 'arc:arlong-park'],
+                    content: {
+                        fact: 'The Arlong Pirates exploit Cocoyasi Village and enforce obedience through displays of power.',
+                        injection: 'Use the Arlong Pirates as a pressure system around Nami, Cocoyasi, and tribute demands.',
+                    },
+                    context: {
+                        type: 'anchor_window',
+                        anchorsAny: ['op_arlong_park_start'],
+                    },
+                    retrieval: {
+                        cuesAny: ['Arlong Pirates', 'tribute', 'Cocoyasi'],
+                    },
+                },
+            },
+            pendingChanges: [
+                {
+                    changeId: 'smoke_pending_1',
+                    type: 'entry_patch',
+                    title: 'Pending smoke Lorecard revision',
+                    summary: 'Proposed change seeded so Pending Review has visible content.',
+                    createdAt: Date.now(),
+                    patch: {
+                        entryId: 'smoke_arlong',
+                        entry: {
+                            id: 'smoke_arlong',
+                            schemaVersion: 3,
+                            title: 'Arlong Pressure',
+                            category: 'character',
+                            canon: 'canon',
+                            relevance: 'high',
+                            priority: 95,
+                            tags: ['character:arlong', 'arc:arlong-park', 'tone:cruel'],
+                            content: {
+                                fact: 'Arlong rules Cocoyasi Village through intimidation, debt, and violence.',
+                                injection: 'Arlong should feel openly cruel, coercive, and contemptuous.',
+                            },
+                            context: { type: 'anchor_window', anchorsAny: ['op_arlong_park_start'] },
+                            retrieval: { cuesAny: ['Arlong', 'Cocoyasi', 'Nami'] },
+                        },
+                    },
+                },
+            ],
+            timelineRegistry: {
+                schemaVersion: 1,
+                timelineMode: 'arc',
+                defaultContextType: 'anchor_window',
+                anchors: [
+                    {
+                        id: 'op_arlong_park_start',
+                        label: 'Arlong Park begins',
+                        aliases: ['Arlong Park Arc', 'Cocoyasi Village'],
+                        sortKey: 1,
+                    },
+                ],
+                windows: [
+                    {
+                        id: 'op_arlong_park',
+                        label: 'Arlong Park Arc',
+                        anchorFrom: 'op_arlong_park_start',
+                        anchorTo: 'op_arlong_park_start',
+                        sortKeyFrom: 1,
+                        sortKeyTo: 10,
+                    },
+                ],
+            },
+            tagRegistry: {
+                schemaVersion: 1,
+                tags: [
+                    { id: 'character:arlong', label: 'Arlong', group: 'character' },
+                    { id: 'arc:arlong-park', label: 'Arlong Park', group: 'arc' },
+                ],
+            },
+        };
+
+        const settings = {
+            ...DEFAULT_SETTINGS,
+            experienceMode: smokeMode,
+            loredeckLibrary: {
+                schemaVersion: 1,
+                packs: {
+                    ...(DEFAULT_SETTINGS.loredeckLibrary?.packs || {}),
+                    [customPack.packId]: customPack,
+                },
+            },
+        };
+
+        const state = getDefaultState();
+        state.lorePanel = {
+            ...state.lorePanel,
+            isOpen: true,
+            collapsed: false,
+            railMode: 'expanded',
+            drawerOpen: true,
+            drawerWidth: 720,
+            drawerHeight: 720,
+            railX: 24,
+            railY: 24,
+            activeTab: smokeActiveTab,
+            selectedLoredeckId: customPack.packId,
+            contextResolutionProposals: [
+                {
+                    packId: customPack.packId,
+                    candidateId: 'window:op_arlong_park',
+                    candidateType: 'window',
+                    label: 'Arlong Park Arc',
+                    summary: 'Smoke fixture proposal for setting the active One Piece Context window.',
+                    confidence: 0.91,
+                    patch: {
+                        schemaVersion: 1,
+                        packId: customPack.packId,
+                        contextType: 'anchor_window',
+                        label: 'Arlong Park Arc',
+                        arc: 'Arlong Park',
+                        anchorFrom: 'op_arlong_park_start',
+                        anchorTo: 'op_arlong_park_start',
+                        contextSortKeyFrom: 1,
+                        contextSortKeyTo: 10,
+                        branchId: 'main',
+                        confidence: 0.91,
+                        source: 'model',
+                        coordinates: { saga: 'East Blue', island: 'Cocoyasi Village' },
+                    },
+                },
+            ],
+            contextResolutionProposalMeta: {
+                createdAt: Date.now(),
+                source: 'manual_reasoner',
+                contextLabel: 'Arlong Park Arc',
+                cached: false,
+            },
+            contextResolutionAudit: {
+                source: 'visual_smoke_fixture',
+                status: 'proposed',
+                reason: 'smoke_fixture',
+                createdAt: Date.now(),
+                counts: {
+                    proposed: 1,
+                    localApplied: 0,
+                    skippedLocked: 0,
+                    skippedLowConfidence: 0,
+                    unresolved: 0,
+                },
+            },
+            contextAutomationAudit: {
+                source: 'visual_smoke_fixture',
+                status: 'skipped',
+                reason: 'context_manual_mode',
+                mode: 'manual',
+                message: 'Visual smoke fixture: background Context automation is in Manual mode.',
+                createdAt: Date.now(),
+                cadence: {
+                    turns: 0,
+                    minTurns: 8,
+                    newChars: 0,
+                    characterThreshold: 8000,
+                },
+            },
+        };
+        state.contextBrief = {
+            schemaVersion: 1,
+            summary: 'The scene is during Arlong Park in Cocoyasi Village.',
+            source: 'visual_smoke_fixture',
+            updatedAt: Date.now(),
+            signals: {
+                fandom: 'One Piece',
+                arc: 'Arlong Park',
+                chapter: '82',
+                positionPhrases: ['during Arlong Park', 'Cocoyasi Village'],
+                coordinates: { saga: 'East Blue', island: 'Cocoyasi Village' },
+            },
+            evidence: [
+                { quote: 'Arlong has leverage over the village.', signal: 'arc' },
+                { quote: 'Cocoyasi Village', signal: 'location' },
+            ],
+            uncertainty: {
+                level: 'low',
+                notes: ['Seeded visual smoke Context Brief.'],
+            },
+            status: {
+                state: 'detected',
+                message: 'Visual smoke Context Brief ready.',
+                fallbackUsed: false,
+            },
+        };
+        state.loreContext = {
+            sceneDate: '',
+            canonBoundary: 'during Arlong Park',
+            branchId: 'main',
+            source: 'visual_smoke_fixture',
+            lastDetectedAt: Date.now(),
+        };
+        state.loredeckStack = [
+            { packId: 'smoke-arlong-park', enabled: true, priority: 100, locked: false, addedAt: Date.now() },
+            { type: 'folder', folderId: 'folder_harry-potter__golden-trio', enabled: true, includeNested: true, collapsed: false, priority: 90, locked: false, addedAt: 0 },
+        ];
+        state.loredeckContexts = {
+            ...state.loredeckContexts,
+            'smoke-arlong-park': {
+                schemaVersion: 1,
+                packId: 'smoke-arlong-park',
+                contextType: 'arc',
+                label: 'Arlong Park Arc',
+                arc: 'Arlong Park',
+                anchorId: 'op_arlong_park_start',
+                branchId: 'main',
+                confidence: 1,
+                manualLock: true,
+                source: 'manual',
+                updatedAt: Date.now(),
+            },
+        };
+        state.loreMatrix = [
+            {
+                id: 'smoke_story_lore',
+                title: 'Nami is hiding fear',
+                category: 'character',
+                canon: 'au',
+                relevance: 'high',
+                priority: 90,
+                tags: ['character:nami', 'arc:arlong-park'],
+                fact: 'Nami is trying to keep her panic hidden while Arlong has leverage over the village.',
+                content: {
+                    fact: 'Nami is trying to keep her panic hidden while Arlong has leverage over the village.',
+                    injection: 'Nami should deflect questions about Arlong while visibly managing fear and anger.',
+                },
+            },
+        ];
+        state.pendingLoreEntries = [
+            {
+                id: 'smoke_pending_story_lore',
+                title: 'Usopp heard the tribute demand',
+                category: 'event',
+                canon: 'au',
+                relevance: 'normal',
+                priority: 60,
+                tags: ['character:usopp', 'arc:arlong-park'],
+                fact: 'Usopp overheard villagers discussing tribute payments to Arlong.',
+                content: {
+                    fact: 'Usopp overheard villagers discussing tribute payments to Arlong.',
+                    injection: 'Usopp can mention the tribute demand nervously if pressed.',
+                },
+                isPending: true,
+            },
+        ];
+
+        window.__sagaSmokeContext.extensionSettings.saga = settings;
+        window.__sagaSmokeContext.chatMetadata.saga = state;
+        showLorePanel();
+        if (smokeAutoOpenContextProposals) {
+            requestAnimationFrame(() => {
+                const button = [...document.querySelectorAll('button')]
+                    .find(candidate => (candidate.textContent || '').includes('Review Proposals'));
+                button?.click();
+            });
+        }
+        window.__sagaContextSmoke = {
+            mode: smokeMode,
+            activeTab: smokeActiveTab,
+            proposalCount: state.lorePanel.contextResolutionProposals.length,
+            autoOpenContextProposals: smokeAutoOpenContextProposals,
+        };
+        window.__sagaSmokeMode = smokeMode;
+        window.__sagaSmokeActiveTab = smokeActiveTab;
+        window.__sagaSmokeReady = true;
+    </script>
+</body>
+</html>

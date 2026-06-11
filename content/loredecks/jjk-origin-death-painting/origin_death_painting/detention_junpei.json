@@ -1,0 +1,450 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "jjk_origin_detention_center_exposes_yuji_to_sukuna_consequences",
+      "title": "Detention Center Exposes Yuji To Sukuna Consequences",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "jjk.main.detention-center-sukuna-emerges",
+        "validToAnchor": "jjk.main.detention-center-sukuna-emerges",
+        "sortKeyFrom": 1600,
+        "sortKeyTo": 1600,
+        "precision": "anchor",
+        "label": "Detention center Sukuna emergence"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "cursed-womb",
+          "label": "Cursed Womb detention center",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:itadori-yuji",
+          "jjk:ryomen-sukuna",
+          "jjk:fushiguro-megumi"
+        ],
+        "characters": [
+          "Yuji Itadori",
+          "Ryomen Sukuna",
+          "Megumi Fushiguro"
+        ],
+        "locations": [
+          "Detention center"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "detention center",
+          "Sukuna emergence",
+          "early mission trauma"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:cursed-womb",
+        "character:itadori-yuji",
+        "character:ryomen-sukuna",
+        "character:fushiguro-megumi",
+        "topic:sukuna-control"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuji Itadori",
+            "Megumi Fushiguro",
+            "Sukuna"
+          ],
+          "topicsAny": [
+            "detention center",
+            "cursed womb",
+            "Sukuna emerges"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath."
+      },
+      "content": {
+        "fact": "The detention center mission shows how quickly Yuji's vessel status can become catastrophic when Sukuna takes control.",
+        "injection": "After the detention center event, let early characters carry the consequences of Sukuna's danger and the mission's trauma.",
+        "constraints": [
+          "Keep the event's consequences tied to early mainline Context."
+        ],
+        "antiLore": [
+          "Do not treat the detention center as a routine first mission."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen",
+        "chapterRange": "Cursed Womb / detention center",
+        "confidence": 0.82,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-origin-death-painting",
+          "status": "initial_mainline_opening_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_origin_yuji_is_presumed_dead_during_private_training",
+      "title": "Yuji Is Presumed Dead During Private Training",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "secret",
+      "revealPolicy": "spoiler_guard",
+      "priority": 90,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.main.yuji-private-training",
+        "validToAnchor": "jjk.main.mahito-junpei-incident",
+        "sortKeyFrom": 1900,
+        "sortKeyTo": 2300,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Yuji presumed dead and training"
+      },
+      "coordinates": [
+        {
+          "axis": "yuji_state",
+          "id": "presumed-dead-training",
+          "label": "Yuji is hidden during private training",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:itadori-yuji",
+          "jjk:gojo-satoru",
+          "jjk:tokyo-jujutsu-high"
+        ],
+        "characters": [
+          "Yuji Itadori",
+          "Satoru Gojo"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Tokyo Jujutsu High"
+        ],
+        "topics": [
+          "presumed death",
+          "private training",
+          "classmate knowledge"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "character:itadori-yuji",
+        "character:gojo-satoru",
+        "faction:tokyo-jujutsu-high",
+        "secret:yuji-presumed-dead"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Yuji Itadori",
+            "Satoru Gojo"
+          ],
+          "topicsAny": [
+            "Yuji presumed dead",
+            "private training",
+            "hidden survival"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath."
+      },
+      "content": {
+        "fact": "After the detention center consequences, Yuji is hidden from many classmates while Gojo trains him privately.",
+        "injection": "During this window, do not let all Tokyo students know Yuji is alive and training unless the scene establishes that reveal.",
+        "constraints": [
+          "Use this as a classmate-knowledge and reunion gate."
+        ],
+        "antiLore": [
+          "Do not have Nobara or Megumi casually talk to Yuji as present if the Context is before the reveal."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen",
+        "chapterRange": "Post-detention training window",
+        "confidence": 0.82,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-origin-death-painting",
+          "status": "initial_mainline_opening_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_origin_junpei_incident_reveals_mahito_cruelty",
+      "title": "Junpei Incident Reveals Mahito's Cruelty",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "spoiler_guard",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "jjk.main.mahito-junpei-incident",
+        "validToAnchor": "jjk.main.mahito-junpei-incident",
+        "sortKeyFrom": 2300,
+        "sortKeyTo": 2300,
+        "precision": "anchor",
+        "label": "Junpei and Mahito incident"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "junpei-mahito",
+          "label": "Junpei and Mahito incident",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:itadori-yuji",
+          "jjk:mahito",
+          "jjk:yoshino-junpei"
+        ],
+        "characters": [
+          "Yuji Itadori",
+          "Mahito",
+          "Junpei Yoshino"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Cursed spirits"
+        ],
+        "topics": [
+          "Junpei incident",
+          "Mahito cruelty",
+          "transfiguration"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:junpei",
+        "character:itadori-yuji",
+        "character:mahito",
+        "character:yoshino-junpei",
+        "faction:cursed-spirits"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuji Itadori",
+            "Mahito",
+            "Junpei Yoshino"
+          ],
+          "topicsAny": [
+            "Junpei",
+            "Mahito",
+            "transfiguration"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath."
+      },
+      "content": {
+        "fact": "The Junpei incident gives Yuji a personal view of Mahito's cruelty and the emotional cost of curse manipulation.",
+        "injection": "After the Junpei incident, Yuji's reactions to Mahito and human transfiguration should carry personal anger, grief, and urgency.",
+        "constraints": [
+          "Before this Context, keep Yuji's relationship to Mahito less personally defined."
+        ],
+        "antiLore": [
+          "Do not turn Junpei's arc into a minor side note if the scene is about Yuji's early trauma."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen",
+        "chapterRange": "Junpei and Mahito incident",
+        "confidence": 0.82,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-origin-death-painting",
+          "status": "initial_mainline_opening_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_origin_mahito_is_learning_through_human_experimentation",
+      "title": "Mahito Learns Through Human Experimentation",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "spoiler_guard",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.main.mahito-junpei-incident",
+        "validToAnchor": "jjk.main.death-painting-aftermath",
+        "sortKeyFrom": 2300,
+        "sortKeyTo": 3800,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Mahito early antagonist state"
+      },
+      "coordinates": [
+        {
+          "axis": "curse_faction_state",
+          "id": "mahito-experimentation",
+          "label": "Mahito experimentation pressure",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:mahito",
+          "jjk:cursed-spirits"
+        ],
+        "characters": [
+          "Mahito"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Cursed spirits"
+        ],
+        "topics": [
+          "Mahito",
+          "human experimentation",
+          "curse faction"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:junpei",
+        "character:mahito",
+        "faction:cursed-spirits",
+        "topic:mahito-experimentation"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Mahito"
+          ],
+          "topicsAny": [
+            "Mahito experiments",
+            "human transfiguration",
+            "curse faction"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath."
+      },
+      "content": {
+        "fact": "Mahito's early antagonist role centers on curiosity, cruelty, and experiments with human souls and bodies.",
+        "injection": "When Mahito is active in this early window, write him as playful, cruel, and experimental rather than a conventional brawler.",
+        "constraints": [
+          "Keep later antagonist developments in later arc decks."
+        ],
+        "antiLore": [
+          "Do not soften Mahito's threat into generic curse hostility."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen",
+        "chapterRange": "Junpei and Mahito through early curse faction activity",
+        "confidence": 0.8,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-origin-death-painting",
+          "status": "initial_mainline_opening_slice"
+        }
+      }
+    }
+  ]
+}

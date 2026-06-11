@@ -1,0 +1,364 @@
+{
+  "schemaVersion": 1,
+  "entities": {
+    "jjk:culling-game-players": {
+      "type": "faction",
+      "label": "Culling Game players",
+      "aliases": [
+        "Culling Game participants"
+      ],
+      "canonicalNames": [
+        "Culling Game players"
+      ],
+      "tags": [
+        "faction:culling-game-players",
+        "topic:culling-game-setup"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen post-Shibuya aftermath through Perfect Preparation and Culling Game setup."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "jjk:gojo-satoru": {
+      "type": "character",
+      "label": "Satoru Gojo",
+      "aliases": [
+        "Gojo",
+        "sealed Gojo"
+      ],
+      "canonicalNames": [
+        "Satoru Gojo"
+      ],
+      "tags": [
+        "character:gojo-satoru",
+        "topic:prison-realm"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen post-Shibuya aftermath through Perfect Preparation and Culling Game setup."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.84
+      },
+      "extensions": {}
+    },
+    "jjk:itadori-yuji": {
+      "type": "character",
+      "label": "Yuji Itadori",
+      "aliases": [
+        "Yuji",
+        "post-Shibuya Yuji"
+      ],
+      "canonicalNames": [
+        "Yuji Itadori"
+      ],
+      "tags": [
+        "character:itadori-yuji",
+        "secret:yuji-execution"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen post-Shibuya aftermath through Perfect Preparation and Culling Game setup."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.84
+      },
+      "extensions": {}
+    },
+    "jjk:jujutsu-society": {
+      "type": "faction",
+      "label": "Jujutsu society",
+      "aliases": [
+        "jujutsu society",
+        "sorcerer society"
+      ],
+      "canonicalNames": [
+        "Jujutsu society"
+      ],
+      "tags": [
+        "faction:jujutsu-society"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen post-Shibuya aftermath through Perfect Preparation and Culling Game setup."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    },
+    "jjk:kenjaku": {
+      "type": "character",
+      "label": "Kenjaku",
+      "aliases": [
+        "Kenjaku",
+        "Culling Game architect"
+      ],
+      "canonicalNames": [
+        "Kenjaku"
+      ],
+      "tags": [
+        "character:kenjaku",
+        "topic:culling-game-setup"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen post-Shibuya aftermath through Perfect Preparation and Culling Game setup."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    },
+    "jjk:mai-zenin": {
+      "type": "character",
+      "label": "Mai Zenin",
+      "aliases": [
+        "Mai",
+        "Perfect Preparation Mai"
+      ],
+      "canonicalNames": [
+        "Mai Zenin"
+      ],
+      "tags": [
+        "character:mai-zenin",
+        "secret:maki-mai-sacrifice"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen post-Shibuya aftermath through Perfect Preparation and Culling Game setup."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    },
+    "jjk:maki-zenin": {
+      "type": "character",
+      "label": "Maki Zenin",
+      "aliases": [
+        "Maki",
+        "Perfect Preparation Maki"
+      ],
+      "canonicalNames": [
+        "Maki Zenin"
+      ],
+      "tags": [
+        "character:maki-zenin",
+        "topic:zenin-collapse"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen post-Shibuya aftermath through Perfect Preparation and Culling Game setup."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.84
+      },
+      "extensions": {}
+    },
+    "jjk:megumi-fushiguro": {
+      "type": "character",
+      "label": "Megumi Fushiguro",
+      "aliases": [
+        "Megumi",
+        "post-Shibuya Megumi"
+      ],
+      "canonicalNames": [
+        "Megumi Fushiguro"
+      ],
+      "tags": [
+        "character:megumi-fushiguro"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen post-Shibuya aftermath through Perfect Preparation and Culling Game setup."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    },
+    "jjk:naoya-zenin": {
+      "type": "character",
+      "label": "Naoya Zenin",
+      "aliases": [
+        "Naoya",
+        "Perfect Preparation Naoya"
+      ],
+      "canonicalNames": [
+        "Naoya Zenin"
+      ],
+      "tags": [
+        "character:naoya-zenin",
+        "faction:zenin-clan"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen post-Shibuya aftermath through Perfect Preparation and Culling Game setup."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "jjk:tengen": {
+      "type": "character",
+      "label": "Tengen",
+      "aliases": [
+        "Master Tengen"
+      ],
+      "canonicalNames": [
+        "Tengen"
+      ],
+      "tags": [
+        "character:tengen",
+        "topic:tengen-briefing"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen post-Shibuya aftermath through Perfect Preparation and Culling Game setup."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    },
+    "jjk:tsumiki-fushiguro": {
+      "type": "character",
+      "label": "Tsumiki Fushiguro",
+      "aliases": [
+        "Tsumiki",
+        "Culling Game Tsumiki"
+      ],
+      "canonicalNames": [
+        "Tsumiki Fushiguro"
+      ],
+      "tags": [
+        "character:tsumiki-fushiguro",
+        "topic:culling-game-setup"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen post-Shibuya aftermath through Perfect Preparation and Culling Game setup."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "jjk:yuta-okkotsu": {
+      "type": "character",
+      "label": "Yuta Okkotsu",
+      "aliases": [
+        "Yuta",
+        "post-Shibuya Yuta"
+      ],
+      "canonicalNames": [
+        "Yuta Okkotsu"
+      ],
+      "tags": [
+        "character:okkotsu-yuta",
+        "secret:yuta-revival"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen post-Shibuya aftermath through Perfect Preparation and Culling Game setup."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.84
+      },
+      "extensions": {}
+    },
+    "jjk:zenin-clan": {
+      "type": "faction",
+      "label": "Zenin clan",
+      "aliases": [
+        "Zenin family"
+      ],
+      "canonicalNames": [
+        "Zenin clan"
+      ],
+      "tags": [
+        "faction:zenin-clan",
+        "topic:zenin-collapse"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen post-Shibuya aftermath through Perfect Preparation and Culling Game setup."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    }
+  }
+}

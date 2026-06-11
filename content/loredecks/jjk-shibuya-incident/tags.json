@@ -1,0 +1,370 @@
+{
+  "schemaVersion": 1,
+  "tags": {
+    "adaptation:manga": {
+      "label": "Manga",
+      "color": "#5b677a",
+      "textColor": "#ffffff",
+      "description": "Manga-primary continuity tag for Jujutsu Kaisen retrieval and filtering.",
+      "aliases": [
+        "manga"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "arc:shibuya-incident": {
+      "label": "Shibuya Incident",
+      "color": "#7b3f00",
+      "textColor": "#ffffff",
+      "description": "Shibuya Incident arc tag.",
+      "aliases": [
+        "Shibuya Incident arc"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:geto-suguru": {
+      "label": "Suguru Geto",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Suguru Geto body-context tag for Shibuya.",
+      "aliases": [
+        "Geto body Shibuya"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:gojo-satoru": {
+      "label": "Satoru Gojo",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Satoru Gojo Shibuya status tag.",
+      "aliases": [
+        "Gojo Shibuya"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:itadori-yuji": {
+      "label": "Yuji Itadori",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Yuji Itadori Shibuya state tag.",
+      "aliases": [
+        "Yuji Shibuya"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:kenjaku": {
+      "label": "Kenjaku",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Kenjaku Shibuya reveal tag.",
+      "aliases": [
+        "Kenjaku Shibuya reveal"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:kugisaki-nobara": {
+      "label": "Nobara Kugisaki",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Nobara Kugisaki Shibuya status tag.",
+      "aliases": [
+        "Nobara Shibuya status"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:mahito": {
+      "label": "Mahito",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Mahito Shibuya battle tag.",
+      "aliases": [
+        "Mahito Shibuya"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:mechamaru": {
+      "label": "Mechamaru",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Mechamaru contingency tag.",
+      "aliases": [
+        "Mechamaru contingency"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:megumi-fushiguro": {
+      "label": "Megumi Fushiguro",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Megumi Fushiguro Shibuya state tag.",
+      "aliases": [
+        "Megumi Shibuya"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:nanami-kento": {
+      "label": "Kento Nanami",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Kento Nanami Shibuya status tag.",
+      "aliases": [
+        "Nanami Shibuya status"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:ryomen-sukuna": {
+      "label": "Ryomen Sukuna",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Sukuna Shibuya control tag.",
+      "aliases": [
+        "Sukuna Shibuya"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:toji-fushiguro": {
+      "label": "Toji Fushiguro",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Toji Fushiguro Shibuya revival tag.",
+      "aliases": [
+        "Toji Shibuya revival"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "continuity:jjk-manga-main": {
+      "label": "JJK Manga Main",
+      "color": "#4c5c68",
+      "textColor": "#ffffff",
+      "description": "Primary Jujutsu Kaisen manga continuity.",
+      "aliases": [
+        "JJK manga main"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:curse-users": {
+      "label": "Curse Users",
+      "color": "#7d3c98",
+      "textColor": "#ffffff",
+      "description": "Curse user faction pressure in Shibuya.",
+      "aliases": [
+        "Shibuya curse users"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:disaster-curses": {
+      "label": "Disaster Curses",
+      "color": "#7d3c98",
+      "textColor": "#ffffff",
+      "description": "Disaster curse coalition pressure in Shibuya.",
+      "aliases": [
+        "Shibuya disaster curses"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:jujutsu-society": {
+      "label": "Jujutsu Society",
+      "color": "#7d3c98",
+      "textColor": "#ffffff",
+      "description": "Jujutsu society state during and after Shibuya.",
+      "aliases": [
+        "Shibuya jujutsu society"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "fandom:jjk": {
+      "label": "Jujutsu Kaisen",
+      "color": "#4c5c68",
+      "textColor": "#ffffff",
+      "description": "Jujutsu Kaisen fandom tag.",
+      "aliases": [
+        "JJK",
+        "Jujutsu Kaisen"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:geto-body-controller": {
+      "label": "Geto Body Controller",
+      "color": "#922b21",
+      "textColor": "#ffffff",
+      "description": "Spoiler tag for the body-controller reveal involving Geto's body.",
+      "aliases": [
+        "Geto body controller spoiler"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:gojo-sealed": {
+      "label": "Gojo Sealed",
+      "color": "#922b21",
+      "textColor": "#ffffff",
+      "description": "Spoiler tag for Gojo's Prison Realm sealing.",
+      "aliases": [
+        "Gojo sealing spoiler"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:nobara-status": {
+      "label": "Nobara Status",
+      "color": "#922b21",
+      "textColor": "#ffffff",
+      "description": "Spoiler tag for Nobara's Shibuya status uncertainty.",
+      "aliases": [
+        "Nobara status spoiler"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:sukuna-control": {
+      "label": "Sukuna Control",
+      "color": "#922b21",
+      "textColor": "#ffffff",
+      "description": "Spoiler tag for Sukuna taking control during Shibuya.",
+      "aliases": [
+        "Sukuna control spoiler"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:civilian-casualties": {
+      "label": "Civilian Casualties",
+      "color": "#2e86c1",
+      "textColor": "#ffffff",
+      "description": "Civilian harm and city-scale devastation in Shibuya.",
+      "aliases": [
+        "Shibuya civilian casualties"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:idle-transfiguration": {
+      "label": "Idle Transfiguration",
+      "color": "#2e86c1",
+      "textColor": "#ffffff",
+      "description": "Mahito's Idle Transfiguration and soul-level threat.",
+      "aliases": [
+        "Shibuya Idle Transfiguration"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:mahoraga": {
+      "label": "Mahoraga",
+      "color": "#2e86c1",
+      "textColor": "#ffffff",
+      "description": "Mahoraga Shibuya summoning and Sukuna battle tag.",
+      "aliases": [
+        "Shibuya Mahoraga"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:mechamaru-contingency": {
+      "label": "Mechamaru Contingency",
+      "color": "#2e86c1",
+      "textColor": "#ffffff",
+      "description": "Mechamaru's posthumous Shibuya contingency support.",
+      "aliases": [
+        "posthumous Mechamaru support"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:prison-realm": {
+      "label": "Prison Realm",
+      "color": "#2e86c1",
+      "textColor": "#ffffff",
+      "description": "Prison Realm sealing object and Shibuya plan tag.",
+      "aliases": [
+        "Shibuya Prison Realm"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:shibuya-curtain": {
+      "label": "Shibuya Curtain",
+      "color": "#2e86c1",
+      "textColor": "#ffffff",
+      "description": "Curtain/barrier setup for the Shibuya Incident.",
+      "aliases": [
+        "Shibuya curtain barrier"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    }
+  }
+}

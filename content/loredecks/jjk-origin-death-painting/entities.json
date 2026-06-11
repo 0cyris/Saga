@@ -1,0 +1,336 @@
+{
+  "schemaVersion": 1,
+  "entities": {
+    "jjk:cursed-spirits": {
+      "type": "faction",
+      "label": "Cursed spirits",
+      "aliases": [
+        "cursed spirits",
+        "curse faction"
+      ],
+      "canonicalNames": [
+        "Cursed spirits"
+      ],
+      "tags": [
+        "faction:cursed-spirits"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "jjk:fushiguro-megumi": {
+      "type": "character",
+      "label": "Megumi Fushiguro",
+      "aliases": [
+        "Megumi",
+        "Fushiguro"
+      ],
+      "canonicalNames": [
+        "Megumi Fushiguro"
+      ],
+      "tags": [
+        "character:fushiguro-megumi",
+        "relationship:tokyo-first-years"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    },
+    "jjk:gojo-satoru": {
+      "type": "character",
+      "label": "Satoru Gojo",
+      "aliases": [
+        "Gojo",
+        "Satoru Gojo"
+      ],
+      "canonicalNames": [
+        "Satoru Gojo"
+      ],
+      "tags": [
+        "character:gojo-satoru"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    },
+    "jjk:itadori-yuji": {
+      "type": "character",
+      "label": "Yuji Itadori",
+      "aliases": [
+        "Yuji",
+        "Itadori"
+      ],
+      "canonicalNames": [
+        "Yuji Itadori"
+      ],
+      "tags": [
+        "character:itadori-yuji",
+        "secret:sukuna-vessel"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    },
+    "jjk:jujutsu-society": {
+      "type": "faction",
+      "label": "Jujutsu society",
+      "aliases": [
+        "jujutsu society",
+        "sorcerer society"
+      ],
+      "canonicalNames": [
+        "Jujutsu society"
+      ],
+      "tags": [
+        "faction:jujutsu-society"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "jjk:kugisaki-nobara": {
+      "type": "character",
+      "label": "Nobara Kugisaki",
+      "aliases": [
+        "Nobara",
+        "Kugisaki"
+      ],
+      "canonicalNames": [
+        "Nobara Kugisaki"
+      ],
+      "tags": [
+        "character:kugisaki-nobara",
+        "relationship:tokyo-first-years"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    },
+    "jjk:kyoto-jujutsu-high": {
+      "type": "faction",
+      "label": "Kyoto Jujutsu High",
+      "aliases": [
+        "Kyoto school",
+        "Kyoto Jujutsu High"
+      ],
+      "canonicalNames": [
+        "Kyoto Jujutsu High"
+      ],
+      "tags": [
+        "faction:kyoto-jujutsu-high"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "jjk:mahito": {
+      "type": "character",
+      "label": "Mahito",
+      "aliases": [
+        "Mahito"
+      ],
+      "canonicalNames": [
+        "Mahito"
+      ],
+      "tags": [
+        "character:mahito",
+        "topic:mahito-experimentation"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "jjk:ryomen-sukuna": {
+      "type": "character",
+      "label": "Ryomen Sukuna",
+      "aliases": [
+        "Sukuna",
+        "Ryomen Sukuna"
+      ],
+      "canonicalNames": [
+        "Ryomen Sukuna"
+      ],
+      "tags": [
+        "character:ryomen-sukuna",
+        "secret:sukuna-vessel",
+        "topic:sukuna-control"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    },
+    "jjk:todo-aoi": {
+      "type": "character",
+      "label": "Aoi Todo",
+      "aliases": [
+        "Todo",
+        "Aoi Todo"
+      ],
+      "canonicalNames": [
+        "Aoi Todo"
+      ],
+      "tags": [
+        "character:todo-aoi",
+        "topic:black-flash"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "jjk:tokyo-jujutsu-high": {
+      "type": "faction",
+      "label": "Tokyo Jujutsu High",
+      "aliases": [
+        "Tokyo school",
+        "Tokyo Jujutsu High"
+      ],
+      "canonicalNames": [
+        "Tokyo Jujutsu High"
+      ],
+      "tags": [
+        "faction:tokyo-jujutsu-high"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    },
+    "jjk:yoshino-junpei": {
+      "type": "character",
+      "label": "Junpei Yoshino",
+      "aliases": [
+        "Junpei",
+        "Junpei Yoshino"
+      ],
+      "canonicalNames": [
+        "Junpei Yoshino"
+      ],
+      "tags": [
+        "character:yoshino-junpei",
+        "arc:junpei"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    }
+  }
+}

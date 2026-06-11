@@ -1,0 +1,440 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "jjk_zero_yuta_begins_as_haunted_special_grade_case",
+      "title": "Yuta Begins As A Haunted Special Grade Case",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.zero.yuta-and-rika-curse-baseline",
+        "validToAnchor": "jjk.zero.rika-released",
+        "sortKeyFrom": 100,
+        "sortKeyTo": 950,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Jujutsu Kaisen 0 prequel"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "jjk-zero",
+          "label": "Jujutsu Kaisen 0",
+          "required": false
+        },
+        {
+          "axis": "yuta_state",
+          "id": "haunted-by-rika",
+          "label": "Yuta is bound to Rika",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:yuta-okkotsu",
+          "jjk:rika-orimoto"
+        ],
+        "characters": [
+          "Yuta Okkotsu",
+          "Rika Orimoto"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Rika curse",
+          "special grade case",
+          "Yuta isolation"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-zero",
+        "adaptation:manga",
+        "arc:jjk-zero",
+        "character:yuta-okkotsu",
+        "character:rika-orimoto",
+        "secret:rika-curse"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Yuta Okkotsu",
+            "Rika Orimoto"
+          ],
+          "topicsAny": [
+            "Rika curse",
+            "special grade",
+            "haunted by Rika"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-zero",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen 0 manga prequel material."
+      },
+      "content": {
+        "fact": "At the start of Jujutsu Kaisen 0, Yuta Okkotsu is isolated and endangered by the powerful cursed spirit state connected to Rika Orimoto.",
+        "injection": "During early JJK 0 scenes, write Yuta as frightened, socially isolated, and dangerous because Rika's curse can violently react around him.",
+        "constraints": [
+          "Do not write Yuta as a confident mainline veteran during this prequel window."
+        ],
+        "antiLore": [
+          "Do not import later Yuta competence or post-prequel status unless the Context has moved past the prequel resolution."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen 0",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen 0",
+        "chapterRange": "Prequel opening",
+        "confidence": 0.82,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-zero",
+          "status": "initial_prequel_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_zero_rika_is_bound_to_yuta_as_a_vengeful_spirit",
+      "title": "Rika Is Bound To Yuta As A Vengeful Spirit",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "secret",
+      "revealPolicy": "spoiler_guard",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.zero.yuta-and-rika-curse-baseline",
+        "validToAnchor": "jjk.zero.rika-released",
+        "sortKeyFrom": 100,
+        "sortKeyTo": 950,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Rika-bound prequel window"
+      },
+      "coordinates": [
+        {
+          "axis": "relationship_state",
+          "id": "yuta-rika-bound",
+          "label": "Yuta and Rika are curse-bound",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:yuta-okkotsu",
+          "jjk:rika-orimoto"
+        ],
+        "characters": [
+          "Yuta Okkotsu",
+          "Rika Orimoto"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Rika curse",
+          "vengeful spirit",
+          "Yuta and Rika bond"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-zero",
+        "character:yuta-okkotsu",
+        "character:rika-orimoto",
+        "relationship:yuta-rika",
+        "secret:rika-curse",
+        "topic:cursed-spirit-control"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Yuta Okkotsu",
+            "Rika Orimoto"
+          ],
+          "topicsAny": [
+            "Rika curse",
+            "vengeful spirit",
+            "Yuta and Rika"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-zero",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen 0 manga prequel material."
+      },
+      "content": {
+        "fact": "Rika's cursed spirit state is bound to Yuta and reacts as a dangerous protective force through most of the prequel.",
+        "injection": "When Rika is relevant in JJK 0, treat her as an overwhelming cursed presence tied to Yuta's fear, grief, and protection, not as an ordinary summoned companion.",
+        "constraints": [
+          "Keep the exact emotional and curse-resolution details gated until the end of the prequel."
+        ],
+        "antiLore": [
+          "Do not flatten Rika into a generic monster; the Yuta-Rika bond is the point of the prequel arc."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen 0",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen 0",
+        "chapterRange": "Prequel body",
+        "confidence": 0.82,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-zero",
+          "status": "initial_prequel_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_zero_yuta_training_is_about_control_and_connection",
+      "title": "Yuta Training Is About Control And Connection",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.zero.yuta-enters-tokyo-jujutsu-high",
+        "validToAnchor": "jjk.zero.night-parade-declared",
+        "sortKeyFrom": 500,
+        "sortKeyTo": 820,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Yuta training window"
+      },
+      "coordinates": [
+        {
+          "axis": "training_state",
+          "id": "yuta-early-training",
+          "label": "Yuta early training",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:yuta-okkotsu",
+          "jjk:tokyo-jujutsu-high"
+        ],
+        "characters": [
+          "Yuta Okkotsu"
+        ],
+        "locations": [
+          "Tokyo Jujutsu High"
+        ],
+        "objects": [],
+        "factions": [
+          "Tokyo Jujutsu High"
+        ],
+        "topics": [
+          "training",
+          "curse control",
+          "classmate trust"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-zero",
+        "character:yuta-okkotsu",
+        "faction:tokyo-jujutsu-high",
+        "topic:cursed-spirit-control"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Yuta Okkotsu"
+          ],
+          "topicsAny": [
+            "Yuta training",
+            "curse control",
+            "Tokyo Jujutsu High"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-zero",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen 0 manga prequel material."
+      },
+      "content": {
+        "fact": "Yuta's early training is about surviving school, learning control, and building trust rather than already understanding the jujutsu world.",
+        "injection": "During Yuta's training window, write his growth through control, fear management, and classmate connection instead of instant mastery.",
+        "constraints": [
+          "Keep power leaps tied to prequel Context and emotional stakes."
+        ],
+        "antiLore": [
+          "Do not skip directly to later confident Yuta characterization."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen 0",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen 0",
+        "chapterRange": "Training window",
+        "confidence": 0.78,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-zero",
+          "status": "initial_prequel_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_zero_rika_release_is_prequel_resolution",
+      "title": "Rika Release Is The Prequel Resolution",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "secret",
+      "revealPolicy": "spoiler_guard",
+      "priority": 92,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "jjk.zero.rika-released",
+        "validToAnchor": "jjk.zero.rika-released",
+        "sortKeyFrom": 950,
+        "sortKeyTo": 950,
+        "precision": "anchor",
+        "label": "Rika release"
+      },
+      "coordinates": [
+        {
+          "axis": "relationship_state",
+          "id": "yuta-rika-release",
+          "label": "Yuta and Rika resolve the curse bond",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:yuta-okkotsu",
+          "jjk:rika-orimoto"
+        ],
+        "characters": [
+          "Yuta Okkotsu",
+          "Rika Orimoto"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Rika release",
+          "prequel resolution",
+          "curse bond"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-zero",
+        "relationship:yuta-rika",
+        "secret:rika-curse",
+        "secret:prequel-aftermath"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuta Okkotsu",
+            "Rika Orimoto"
+          ],
+          "topicsAny": [
+            "Rika release",
+            "prequel ending",
+            "curse resolved"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-zero",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen 0 manga prequel material."
+      },
+      "content": {
+        "fact": "The prequel resolves through the truth and release of Rika's cursed state, changing Yuta's status after Jujutsu Kaisen 0.",
+        "injection": "Only after the prequel resolution should the scene treat Rika's curse bond as resolved and Yuta's status as changed by that release.",
+        "constraints": [
+          "Earlier prequel scenes should still treat Rika as bound and dangerous."
+        ],
+        "antiLore": [
+          "Do not reveal the resolution before the ending Context."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen 0",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen 0",
+        "chapterRange": "Prequel resolution",
+        "confidence": 0.8,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-zero",
+          "status": "initial_prequel_slice"
+        }
+      }
+    }
+  ]
+}

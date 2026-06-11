@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve Jujutsu Kaisen 0 prequel Context against Yuta, Rika, Tokyo Jujutsu High, Geto, and Night Parade states.",
+  "preferredFields": [
+    "arc",
+    "chapter",
+    "beforeAfter",
+    "majorEvent",
+    "yutaState",
+    "relationshipState",
+    "factionState"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer Jujutsu Kaisen 0 prequel anchors and before/after states; do not infer mainline outcomes unless a later deck is loaded.",
+  "localPatterns": [
+    {
+      "pattern": "early jjk 0",
+      "result": {
+        "anchorFrom": "jjk.zero.yuta-and-rika-curse-baseline",
+        "anchorTo": "jjk.zero.yuta-enters-tokyo-jujutsu-high",
+        "label": "Early Jujutsu Kaisen 0"
+      }
+    },
+    {
+      "pattern": "during yuta training",
+      "result": {
+        "anchorFrom": "jjk.zero.yuta-enters-tokyo-jujutsu-high",
+        "anchorTo": "jjk.zero.night-parade-declared",
+        "label": "Yuta Training Window"
+      }
+    },
+    {
+      "pattern": "during night parade",
+      "result": {
+        "anchorFrom": "jjk.zero.night-parade-declared",
+        "anchorTo": "jjk.zero.rika-released",
+        "label": "Night Parade Climax"
+      }
+    },
+    {
+      "pattern": "after rika is released",
+      "result": {
+        "anchorFrom": "jjk.zero.rika-released",
+        "label": "After Rika is released"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "sceneDate": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "label": "string",
+    "branchId": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

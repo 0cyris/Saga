@@ -1,6 +1,6 @@
 # Saga Alpha Repository Restructure Plan
 
-Status: Draft.
+Status: Direct nested manifest layout verified in the active SillyTavern install; reconstruction committed for alpha review.
 
 Date: 2026-06-11.
 
@@ -32,9 +32,9 @@ Because Saga is still pre-alpha, this pass should update the repo in place to th
 - Do not split every large module at once. Folder ownership is the first alpha cleanup. Decomposition can continue in follow-up passes.
 - Do not keep broad legacy loaders for old root data paths. If the path is internal to this repo, update it everywhere.
 
-## Current Root Snapshot
+## Initial Root Snapshot
 
-Current root folders:
+Initial root folders before reconstruction:
 
 ```text
 .codex/
@@ -49,31 +49,28 @@ scripts/
 tests/
 ```
 
-Current root runtime files include `index.js`, `style.css`, `settings.html`, `constants.js`, `state-manager.js`, `lore-panel.js`, `loredeck-loader.js`, `loredeck-library-panel.js`, `context-index.js`, `context-resolver.js`, `continuity-scanner.js`, and many other modules.
+Initial root runtime files included `index.js`, `style.css`, `settings.html`, `constants.js`, `state-manager.js`, `lore-panel.js`, `loredeck-loader.js`, `loredeck-library-panel.js`, `context-index.js`, `context-resolver.js`, `continuity-scanner.js`, and many other modules.
 
-Important current contracts:
+Important initial contracts:
 
 - `manifest.json` points at `index.js` and `style.css`.
 - `settings.html` is loaded through SillyTavern's `renderExtensionTemplateAsync(folder, 'settings')`.
-- Runtime icon and branding paths currently use `Images/...`.
-- Bundled Loredeck loading currently uses `Loredecks/index.json` and per-deck folders.
-- Provider preset constants currently point at `./Presets/Provider-1.2.json`.
-- `.saga-loredeck.zip` packages currently mirror `Loredecks/`.
-- The local visual smoke harness imports `../style.css`, `../constants.js`, and `../lore-panel.js`.
-- Many scripts import root JS modules through paths like `../context-index.js`.
+- Runtime icon and branding paths used `Images/...`.
+- Bundled Loredeck loading used `Loredecks/index.json` and per-deck folders.
+- Provider preset constants pointed at `./Presets/Provider-1.2.json`.
+- `.saga-loredeck.zip` packages mirrored `Loredecks/`.
+- The local visual smoke harness imported `../style.css`, `../constants.js`, and `../lore-panel.js`.
+- Many scripts imported root JS modules through paths like `../context-index.js`.
 
 ## Target Root
 
-The production-alpha root should be limited to release metadata, loader shims if needed, and durable top-level domains:
+The production-alpha root should be limited to release metadata and durable top-level domains. The SillyTavern loader source supports nested JS/CSS manifest paths, and `renderExtensionTemplateAsync` can request a path-like template ID, so root entrypoint shims are not required.
 
 ```text
 Saga/
   manifest.json
   README.md
   LICENSE
-  index.js
-  style.css
-  settings.html
   src/
   styles/
   content/
@@ -83,9 +80,7 @@ Saga/
   tools/
 ```
 
-Root `index.js`, `style.css`, and `settings.html` are allowed only if SillyTavern requires root entrypoints. They should be thin loader/template files, not implementation homes.
-
-If a Phase 0 loader probe proves SillyTavern accepts nested `manifest.json` paths and nested extension templates, the cleaner target is:
+Resolved manifest target:
 
 ```json
 {
@@ -94,12 +89,11 @@ If a Phase 0 loader probe proves SillyTavern accepts nested `manifest.json` path
 }
 ```
 
-If nested paths do not work reliably, keep:
+Resolved settings template target:
 
 ```text
-index.js      imports ./src/extension/index.js
-style.css     imports ./styles/saga.css
-settings.html root template shell
+src/extension/settings.html
+renderExtensionTemplateAsync(folder, 'src/extension/settings')
 ```
 
 ## Target Structure
@@ -108,17 +102,16 @@ settings.html root template shell
 src/
   extension/
     index.js
-    settings-template.js
-    tool-registry.js
+    saga-tool-registry.js
   runtime/
-    panel.js
-    shell.js
-    navigation.js
-    experience-mode.js
-    basic-readiness.js
-    guide-content.js
-    tour.js
-    formatters.js
+    lore-panel.js
+    runtime-shell.js
+    runtime-navigation.js
+    runtime-experience-mode.js
+    runtime-basic-readiness.js
+    runtime-guide-content.js
+    runtime-tour.js
+    runtime-formatters.js
   state/
     state-manager.js
     constants.js
@@ -134,21 +127,21 @@ src/
     pending-lore-preprocessor.js
     retrieval-audit.js
   loredecks/
-    assistant.js
-    creator-panel.js
-    creator-projects.js
-    defaults.js
-    health-panel.js
-    library-drag.js
-    library-index.js
-    library-panel.js
-    library-service.js
-    library-view.js
-    loader.js
-    package-service.js
-    package-zip.js
-    tab-panel.js
-    workbench-panel.js
+    loredeck-assistant.js
+    loredeck-creator-panel.js
+    loredeck-creator-projects.js
+    loredeck-defaults.js
+    loredeck-health-panel.js
+    loredeck-library-drag.js
+    loredeck-library-index.js
+    loredeck-library-panel.js
+    loredeck-library-service.js
+    loredeck-library-view.js
+    loredeck-loader.js
+    loredeck-package-service.js
+    loredeck-package-zip.js
+    loredecks-tab-panel.js
+    loredeck-workbench-panel.js
   context/
     auto-relevance.js
     canon-lore-db.js
@@ -209,7 +202,7 @@ tools/
   doc-renderer/
 ```
 
-`shared/context-resolver-adapters.js` is a placeholder name for cross-domain glue only if needed. Avoid creating broad shared modules unless a moved import truly belongs to no domain.
+The first alpha pass keeps descriptive filenames after moving them into domain folders. Shorter filenames such as `panel.js` or `loader.js` can be considered later during module decomposition, but they are not part of the path move. `shared/context-resolver-adapters.js` is a placeholder name for cross-domain glue only if needed. Avoid creating broad shared modules unless a moved import truly belongs to no domain.
 
 ## Path Map
 
@@ -217,12 +210,12 @@ tools/
 
 | Current | Target |
 | --- | --- |
-| `index.js` | `src/extension/index.js` plus optional root shim |
-| `saga-tool-registry.js` | `src/extension/tool-registry.js` |
-| `settings.html` | root shim, or `src/extension/settings.html` if SillyTavern supports nested templates |
+| `index.js` | removed; `manifest.json` points to `src/extension/index.js` |
+| `saga-tool-registry.js` | `src/extension/saga-tool-registry.js` |
+| `settings.html` | `src/extension/settings.html` |
 | `ui.js` | `src/ui/ui.js` |
-| `style.css` | `styles/saga.css` plus optional root shim |
-| `runtime-*.js` | `src/runtime/*.js` |
+| `style.css` | removed; `manifest.json` points to `styles/saga.css` |
+| `runtime-*.js` | `src/runtime/runtime-*.js` |
 | `runtime-ui-kit.js` | `src/ui/runtime-ui-kit.js` |
 | `runtime-theme.js` | `src/theme/runtime-theme.js` |
 
@@ -242,14 +235,14 @@ tools/
 
 | Current | Target |
 | --- | --- |
-| `lore-panel.js` | `src/runtime/panel.js` |
+| `lore-panel.js` | `src/runtime/lore-panel.js` |
 | `lorecards-panel.js` | `src/lorecards/lorecards-panel.js` |
 | `lore-generator.js` | `src/lorecards/lore-generator.js` |
 | `lore-matrix.js` | `src/lorecards/lore-matrix.js` |
 | `lore-relevance.js` | `src/lorecards/lore-relevance.js` |
 | `lore-timeline*.js` | `src/lorecards/lore-timeline*.js` |
-| `loredeck-*.js` | `src/loredecks/*.js` with shorter file names where obvious |
-| `loredecks-tab-panel.js` | `src/loredecks/tab-panel.js` |
+| `loredeck-*.js` | `src/loredecks/loredeck-*.js` |
+| `loredecks-tab-panel.js` | `src/loredecks/loredecks-tab-panel.js` |
 | `canon-lore-db.js` | `src/context/canon-lore-db.js` |
 | `context-*.js` | `src/context/*.js` |
 | `auto-relevance.js` | `src/context/auto-relevance.js` |
@@ -280,7 +273,7 @@ tools/
 | `tests/fixtures/...` | `tests/fixtures/...` |
 | `.saga-doc-renderer/` | `tools/doc-renderer/` if it becomes tracked; otherwise ignored local tooling |
 | `.tmp/` | ignored local temp folder, not part of release structure |
-| `tmp-visual-smoke-server.all.log` | `.tmp/visual-smoke-server.all.log` or remove |
+| `tmp-visual-smoke-server.all.log` | removed; root `tmp-*.log` files are ignored |
 
 ## Runtime Path Strategy
 
@@ -300,8 +293,8 @@ Suggested helper ownership:
 ```text
 src/state/constants.js
 src/theme/runtime-theme.js
-src/loredecks/loader.js
-src/loredecks/package-service.js
+src/loredecks/loredeck-loader.js
+src/loredecks/loredeck-package-service.js
 ```
 
 Rules:
@@ -314,7 +307,7 @@ Rules:
 
 ## Loredeck Package Format Impact
 
-The current `.saga-loredeck.zip` plan mirrors `Loredecks/`. The alpha restructure should intentionally update this before alpha locks the package contract.
+The earlier `.saga-loredeck.zip` plan mirrored root `Loredecks/`. The alpha contract now uses a lowercase package root before the format is locked.
 
 Target package archive layout:
 
@@ -360,17 +353,36 @@ Do not rewrite historical planning sections purely for style. Update references 
 
 ## Implementation Phases
 
+Progress as of 2026-06-11:
+
+- Phase 1 is complete: `manifest.json` points directly at `src/extension/index.js` and `styles/saga.css`, root `index.js`/`style.css` shims are removed, and settings render through `src/extension/settings.html`.
+- Phase 2 is complete for the first alpha pass: root implementation modules moved into `src/` domain folders and scripts/tests import the new paths.
+- Phase 3 is complete for passive assets: root `Images/` moved to `assets/`, runtime asset paths now use `./assets/...`, README/smoke docs point at `assets/documentation/renders/...`, and shared asset helpers resolve both `./assets`/`assets` and `./content`/`content` as extension-root asset paths.
+- Phase 4 is complete for bundled repository data: root `Loredecks/` moved to `content/loredecks/`, root `Presets/` moved to `content/presets/`, and bundled loader/default/script paths now resolve against `content/`.
+- Phase 5 is complete: developer scripts now live under `tools/scripts/`, and the browser smoke harness now lives under `tests/browser/visual-smoke.html`.
+- Phase 6 is complete for the alpha package contract: `.saga-loredeck.zip` archives now use `loredecks/index.json`, the parser requires the lowercase package root, and package docs/tests reject the old uppercase archive root.
+- Phase 7 is complete for the first alpha cleanup pass: old root folders are absent, the tracked root temp log was removed, root temp logs are ignored, copied validation commands use moved paths, old `Images/`/`Loredecks/`/`Presets/` runtime path allowances were removed, Provider-1.0/1.1 compatibility lookup was removed, and `tools/scripts/test-repository-layout.mjs` enforces the new layout.
+
+Verification checkpoint as of 2026-06-11:
+
+- `node tools\scripts\test-repository-layout.mjs` passes.
+- `node tools\scripts\serve-visual-smoke.mjs --check --port 0` passes.
+- All 46 `tools/scripts/test-*.mjs` scripts pass.
+- Visible repo-local guide smoke passes with `SAGA_SMOKE_TARGET=guide-harness` and `SAGA_SMOKE_HEADLESS=0`; it writes 8 screenshots under `assets/documentation/renders/saga-smoke/` and reports no findings, console errors, or dialogs.
+- Visible repo-local context smoke passes with `SAGA_SMOKE_TARGET=context-harness` and `SAGA_SMOKE_HEADLESS=0`; it writes 2 screenshots under `assets/documentation/renders/saga-smoke/` and reports no findings, console errors, or dialogs.
+- Visible live-install smoke passes against `http://127.0.0.1:8000/` with `SAGA_SMOKE_TARGET=live-st` and `SAGA_SMOKE_HEADLESS=0`; it reports no findings, console errors, or dialogs after the active SillyTavern extension checkout is mirrored to the nested manifest layout.
+- Runtime source and current-path conformance scripts no longer contain old escaped root path fallbacks such as `Images\/`, `Loredecks\/`, or `Presets\/`. The package ZIP test still constructs an uppercase `Loredecks/index.json` fixture only to verify that the old archive root is rejected.
+
 ### Phase 0: Loader Probe And Inventory
 
 Objective: prove which root files must remain.
 
 Tasks:
 
-- Test whether `manifest.json` can load nested JS and CSS paths.
-- Test whether `renderExtensionTemplateAsync(folder, 'settings')` can load a nested settings template or only root `settings.html`.
+- Read the installed SillyTavern loader source to confirm `manifest.js`, `manifest.css`, and `renderExtensionTemplateAsync` support nested paths.
 - Generate a current import graph for root JS modules.
 - Generate a path-reference inventory for `Loredecks/`, `Presets/`, `Images/`, `scripts/`, `tests/`, `index.js`, `style.css`, and `settings.html`.
-- Decide whether root `index.js`, `style.css`, and `settings.html` are shims or direct manifest targets.
+- Decide whether root `index.js`, `style.css`, and `settings.html` are shims or direct manifest/template targets.
 
 Exit criteria:
 
@@ -378,7 +390,7 @@ Exit criteria:
 - The migration path map is final enough to edit.
 - No large file move has happened yet.
 
-### Phase 1: Add Path Constants And Root Shims
+### Phase 1: Add Path Constants And Entry Targets
 
 Objective: create a stable landing pad before moving files.
 
@@ -386,13 +398,13 @@ Tasks:
 
 - Add or update path constants for content, bundled Loredecks, presets, and assets.
 - Convert obvious asset/data hardcodes to those constants where the owning module is clear.
-- Convert root `index.js` to a thin import shim if nested manifest JS is not used.
-- Convert root `style.css` to a thin CSS import shim if nested manifest CSS is not used.
-- Keep root `settings.html` only if the template loader requires it.
+- Point `manifest.json` at `src/extension/index.js`.
+- Point `manifest.json` at `styles/saga.css`.
+- Render the nested settings template at `src/extension/settings.html`.
 
 Exit criteria:
 
-- Saga still loads from the current root.
+- Saga still loads from the manifest entry targets.
 - Path constants exist.
 - Existing tests still pass.
 
@@ -525,20 +537,12 @@ Exit criteria:
 Minimum local checks after each major phase:
 
 ```powershell
-node --check index.js
+node --check src\extension\index.js
 node tools\scripts\test-visual-smoke-harness.mjs
 node tools\scripts\serve-visual-smoke.mjs --check --port 0
 node tools\scripts\test-hp-reference-deck-conformance.mjs
 node tools\scripts\test-loredeck-zip-package.mjs
-```
-
-Until `scripts/` is moved, use the current paths:
-
-```powershell
-node scripts\test-visual-smoke-harness.mjs
-node scripts\serve-visual-smoke.mjs --check --port 0
-node scripts\test-hp-reference-deck-conformance.mjs
-node scripts\test-loredeck-zip-package.mjs
+node tools\scripts\test-repository-layout.mjs
 ```
 
 Core integration checks to keep green after bundled data moves:
@@ -569,11 +573,18 @@ Browser smoke after the full move:
 - Theme/icon assets render from `assets/`.
 - README image paths render from `assets/documentation/renders`.
 
+Repo-local browser smoke commands:
+
+```powershell
+$env:SAGA_SMOKE_TARGET='guide-harness'; $env:SAGA_SMOKE_HEADLESS='0'; node tools\scripts\smoke-live-st-cdp.mjs
+$env:SAGA_SMOKE_TARGET='context-harness'; $env:SAGA_SMOKE_HEADLESS='0'; node tools\scripts\smoke-live-st-cdp.mjs
+```
+
 ## Risk Areas
 
 ### SillyTavern Loader Paths
 
-The manifest and template loader may require root files. Keep root shims if needed. This is not compatibility clutter if the host requires it.
+The installed SillyTavern loader source builds extension JS and CSS URLs as `/scripts/extensions/${name}/${manifest.js}` and `/scripts/extensions/${name}/${manifest.css}`, so nested manifest paths are supported. `renderExtensionTemplateAsync` delegates to `renderTemplateAsync` with a full extension path, so `src/extension/settings` resolves to `src/extension/settings.html`. Keep this source-derived probe in mind when updating SillyTavern versions.
 
 ### ESM Relative Imports
 
@@ -593,7 +604,9 @@ README and docs use direct relative image paths. After `Images/` moves, broken s
 
 ### Smoke Harness Routes
 
-The visual smoke server currently assumes `tests/visual-smoke.html`. Moving the harness requires route updates and docs updates.
+The visual smoke server previously assumed `tests/visual-smoke.html`. Phase 5 updates the route to `tests/browser/visual-smoke.html`; if a smoke check fails here, first verify the static server root and harness URL.
+
+In the current desktop sandbox, headless Chrome can attach but may stop responding to CDP page commands before runtime evaluation. Use visible mode with `SAGA_SMOKE_HEADLESS=0` as the verified fallback for repo-local browser smoke. The repo-local static servers return 204 for `/favicon.ico` so missing favicon requests do not fail an otherwise clean smoke pass.
 
 ## Alpha Release Definition For This Plan
 
@@ -612,20 +625,79 @@ This restructure is alpha-ready when:
 
 ## Open Decisions
 
-- Can `manifest.json` safely point to nested JS and CSS files in the installed SillyTavern extension?
-- Can `renderExtensionTemplateAsync` load nested templates, or must `settings.html` remain root?
-- Should `tools/scripts/` be adopted in one pass, or should `scripts/` remain top-level until after the runtime/data/asset move?
-- Should package archives use lowercase `loredecks/` before alpha, or should they mirror repo `content/loredecks/`?
-- Should `docs/development/SAGA_PREPRODUCTION.md` be updated broadly during this pass, or only where stale paths block implementation?
+- Resolved: `manifest.json` points to nested `src/extension/index.js` and `styles/saga.css`.
+- Resolved: `renderExtensionTemplateAsync` loads nested `src/extension/settings.html` through template ID `src/extension/settings`.
+- Resolved: `tools/scripts/` was adopted after the runtime, asset, and data moves.
+- Resolved: package archives use lowercase `loredecks/` before alpha instead of mirroring repo `content/loredecks/`.
+- Resolved: `docs/development/SAGA_PREPRODUCTION.md` received a targeted broad refresh for stale implementation guidance. Historical migration notes stay, but the old root `Lore/` checklist is marked historical and the current restructure completion is recorded.
 
-## First Implementation Slice
+## Reconstruction Log
 
-The safest first implementation slice is:
+### 2026-06-11 Direct Install Smoke
 
-1. Run the Phase 0 loader probe.
-2. Add path constants.
-3. Create root shims if needed.
-4. Move a low-risk module cluster into `src/runtime/` or `src/ui/`.
-5. Update imports and smoke.
+The restructured workspace was mirrored into the active local SillyTavern extension checkout at:
 
-Do not start by moving `content/loredecks/` or `assets/`. Those are broader blast-radius moves and should happen after the module path strategy is proven.
+```text
+F:\SillyTavern\SillyTavern\data\default-user\extensions\Saga
+```
+
+Installed manifest verification:
+
+```json
+{
+  "js": "src/extension/index.js",
+  "css": "styles/saga.css"
+}
+```
+
+Installed layout verification:
+
+- Old root runtime and data entries are absent: `index.js`, `style.css`, `settings.html`, `Images/`, `Loredecks/`, `Presets/`, `scripts/`, and `tests/visual-smoke.html`.
+- New runtime and content entries are present: `src/extension/index.js`, `src/extension/settings.html`, `styles/saga.css`, `content/loredecks/`, `content/presets/`, `assets/`, and `tools/scripts/`.
+
+Live smoke command:
+
+```powershell
+$env:SAGA_SMOKE_TARGET='live-st'; $env:SAGA_SMOKE_HEADLESS='0'; node tools\scripts\smoke-live-st-cdp.mjs
+```
+
+Live smoke result:
+
+- `ok: true`
+- `findings: []`
+- `errors: []`
+- `dialogEvents: []`
+- Screenshots captured for runtime load, Loredecks drawer, Library, Pack Health, and Settings Theme Pack.
+- `creatorAvailable: false` and `injectionTabAvailable: false` because the live profile is in Basic Experience mode; repo-local guide smoke remains the Advanced-mode coverage for those surfaces.
+
+Implementation notes from this smoke:
+
+- The live profile had persisted bundled Library records from the old flat layout. They tried to load deck covers from `src/theme/Loredecks/...` after the module move.
+- `normalizeLoredeckRegistry()` now treats shipped bundled pack IDs as current bundled defaults, so saved bundled records cannot keep stale `Loredecks/...` manifest or asset paths. This is an alpha in-place cleanup and does not add old root loader fallbacks.
+- `tools/scripts/smoke-live-st-cdp.mjs` now understands the folderized Library selection path and treats Basic-mode hidden Advanced surfaces as optional live-smoke branches.
+
+### 2026-06-11 Commit Checkpoint
+
+The restructure was committed as a rename-heavy review set. Pre-commit staged status by class:
+
+```text
+A 74
+D 1
+M 26
+R 757
+```
+
+No unstaged files or untracked non-ignored files remained before commit. Ignored `.tmp/saga-live-smoke-*` directories were left intact as local smoke evidence.
+
+Staged verification:
+
+- `git diff --cached --check`
+- `node tools/scripts/test-repository-layout.mjs`
+- `node tools/scripts/test-visual-smoke-harness.mjs`
+- `node tools/scripts/serve-visual-smoke.mjs --check --port 0`
+
+## Remaining Follow-Up
+
+The first alpha restructure pass has executed and committed the original implementation slice. Remaining work before release staging:
+
+1. Continue large-module decomposition after this folder ownership pass, especially around `src/runtime/lore-panel.js`, without mixing that refactor into the path move.

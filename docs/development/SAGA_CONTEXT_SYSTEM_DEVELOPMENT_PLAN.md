@@ -525,7 +525,7 @@ Status: in progress, first audit complete. See [SAGA_CONTEXT_SYSTEM_CURRENT_AUDI
 Current baseline script:
 
 ```powershell
-node scripts\test-context-current-contract.mjs
+node tools\scripts\test-context-current-contract.mjs
 ```
 
 The baseline started by recording the pre-upgrade limitations intentionally. After Slice 4 started, it now asserts the Context Brief detector contract, the compatibility projection into legacy `loreContext`, Loredeck Context `stardate`/`coordinates`, rich timeline windows, resolver candidate payloads, and stardate/coordinate gates.
@@ -550,7 +550,7 @@ Status: done for the runtime resolver contract. Richer window normalization and 
 Current media-scoring script:
 
 ```powershell
-node scripts\test-context-media-scoring.mjs
+node tools\scripts\test-context-media-scoring.mjs
 ```
 
 The synthetic fixture covers:
@@ -570,7 +570,7 @@ Status: mostly implemented. The model prompt now requests a Context Brief instea
 Current local-extraction script:
 
 ```powershell
-node scripts\test-context-local-extraction.mjs
+node tools\scripts\test-context-local-extraction.mjs
 ```
 
 Remaining Slice 4 work:
@@ -591,9 +591,9 @@ Status: done for the current runtime contract. `context-resolver.js` now owns th
 Slice 5 test coverage now includes:
 
 ```powershell
-node scripts\test-context-resolver.mjs
-node scripts\test-context-model-resolver.mjs
-node scripts\test-visual-smoke-harness.mjs
+node tools\scripts\test-context-resolver.mjs
+node tools\scripts\test-context-model-resolver.mjs
+node tools\scripts\test-visual-smoke-harness.mjs
 ```
 
 These tests cover local lock protection, model lock protection, low-confidence local skips, cache reuse, in-flight audit records, bounded model proposals, invented-candidate rejection, and source-smoke coverage for automatic/manual proposal persistence.
@@ -612,7 +612,7 @@ Status: in progress, with the first runtime redesign slices complete. The compac
 Current UI contract script:
 
 ```powershell
-node scripts\test-visual-smoke-harness.mjs
+node tools\scripts\test-visual-smoke-harness.mjs
 ```
 
 Remaining Slice 6 work:
@@ -659,13 +659,13 @@ Status: implemented for deterministic coverage. Existing HP Year 6 integration s
 - Smoke Reasoner proposal review with mocked data.
 - Smoke locked Context behavior.
 
-Status: in progress, with repo-local harness coverage and a live installed SillyTavern Context-tab smoke now available. `tests/visual-smoke.html` supports `?tab=context` and `?review=context-proposals`, seeds a rich Context Brief, loaded Loredeck Context, resolver/automation audit rows, and a bounded Reasoner proposal. This gives a current-repo Context visual target without depending on the installed SillyTavern extension copy.
+Status: in progress, with repo-local harness coverage and a live installed SillyTavern Context-tab smoke now available. `tests/browser/visual-smoke.html` supports `?tab=context` and `?review=context-proposals`, seeds a rich Context Brief, loaded Loredeck Context, resolver/automation audit rows, and a bounded Reasoner proposal. This gives a current-repo Context visual target without depending on the installed SillyTavern extension copy.
 
 Automated repo-local Context visual smoke now runs through the CDP helper:
 
 ```powershell
 $env:SAGA_SMOKE_TARGET='context-harness'
-node scripts\smoke-live-st-cdp.mjs
+node tools\scripts\smoke-live-st-cdp.mjs
 ```
 
 The helper starts the local harness, opens the Context proposal review, applies the seeded bounded proposal, opens the Context Workbench, captures `context-harness-01-proposal-review.png` and `context-harness-02-workbench.png`, and fails on findings or browser console errors. This pass caught and fixed a Context Workbench `Current Window` layout overlap in the waypoint browser.
@@ -674,7 +674,7 @@ Live installed SillyTavern Context smoke now runs through the same CDP helper af
 
 ```powershell
 $env:SAGA_SMOKE_TARGET='live-context'
-node scripts\smoke-live-st-cdp.mjs
+node tools\scripts\smoke-live-st-cdp.mjs
 ```
 
 The latest live pass against `http://127.0.0.1:8000/` produced `live-context-01-context-tab.png` with no findings, no console errors, and no browser dialogs. The active ST chat had no enabled Loredeck stack, so `Browse Context` and `Review Proposals` correctly exercised guard states instead of opening populated overlays. It also verified that the old date/canon-boundary-first Context tooltip and primary fields were absent from the installed shelf.
@@ -683,7 +683,7 @@ Loaded-stack live Context smoke is also available:
 
 ```powershell
 $env:SAGA_SMOKE_TARGET='live-context-loaded'
-node scripts\smoke-live-st-cdp.mjs
+node tools\scripts\smoke-live-st-cdp.mjs
 ```
 
 The latest loaded-stack pass temporarily added `hp-year-6-half-blood-prince` through the real Loredeck Library UI, opened the Context Browser, verified the casual alias `Ron dates the blonde girl` resolves to `Ron Lavender Start`, applied `Post Christmas Return` as the after-bound, applied `Apparition Lessons Begin` as the before-bound, verified the saved manual locked Context window, seeded a synthetic populated Context proposal, opened proposal review, captured `live-context-loaded-01-context-tab.png`, `live-context-loaded-02-workbench.png`, and `live-context-loaded-03-proposals.png`, then restored the original Saga metadata. It passed with no findings, console errors, or dialogs.
@@ -692,7 +692,7 @@ The same loaded-stack workflow can run in a compact viewport:
 
 ```powershell
 $env:SAGA_SMOKE_TARGET='live-context-loaded-narrow'
-node scripts\smoke-live-st-cdp.mjs
+node tools\scripts\smoke-live-st-cdp.mjs
 ```
 
 The latest compact pass used the default narrow viewport, captured `live-context-loaded-narrow-01-context-tab.png`, `live-context-loaded-narrow-02-workbench.png`, and `live-context-loaded-narrow-03-proposals.png`, and passed with no findings, console errors, or dialogs. Visual inspection showed the compact Context tab and proposal overlay remain scrollable without obvious text overlap.
@@ -702,7 +702,7 @@ Live-provider Context Reasoner QA is now available as an explicit opt-in target:
 ```powershell
 $env:SAGA_SMOKE_TARGET='live-context-reasoner'
 $env:SAGA_ALLOW_PROVIDER_CALLS='1'
-node scripts\smoke-live-st-cdp.mjs
+node tools\scripts\smoke-live-st-cdp.mjs
 ```
 
 This target temporarily loads `hp-year-6-half-blood-prince`, snapshots chat metadata and extension settings, seeds a loose non-date Context Brief, raises local auto-apply confidence so ambiguous phrasing can flow to the bounded Reasoner path, clicks the real `Ask Reasoner` control, verifies reviewable proposals or provider readiness errors, captures `live-context-reasoner-01-result.png` and `live-context-reasoner-02-proposals.png` when proposals are produced, then restores the original chat metadata and settings. Without `SAGA_ALLOW_PROVIDER_CALLS=1`, the target fails fast before modifying metadata or spending provider tokens.
@@ -710,15 +710,15 @@ This target temporarily loads `hp-year-6-half-blood-prince`, snapshots chat meta
 Repo-local visual smoke URLs:
 
 ```powershell
-node scripts\serve-visual-smoke.mjs --check
-node scripts\serve-visual-smoke.mjs --port 8776
+node tools\scripts\serve-visual-smoke.mjs --check
+node tools\scripts\serve-visual-smoke.mjs --port 8776
 ```
 
 Open:
 
 ```text
-http://127.0.0.1:8776/tests/visual-smoke.html?tab=context
-http://127.0.0.1:8776/tests/visual-smoke.html?tab=context&review=context-proposals
+http://127.0.0.1:8776/tests/browser/visual-smoke.html?tab=context
+http://127.0.0.1:8776/tests/browser/visual-smoke.html?tab=context&review=context-proposals
 ```
 
 Remaining Slice 9 work:

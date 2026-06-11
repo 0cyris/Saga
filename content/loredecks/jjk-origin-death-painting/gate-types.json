@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 2,
+  "gateTypes": {
+    "knowledge_gate": {
+      "label": "Knowledge Gate",
+      "description": "Controls who knows a fact and when.",
+      "defaultPriority": 90,
+      "injectionRole": "knowledge_constraint"
+    },
+    "ability_gate": {
+      "label": "Ability Gate",
+      "description": "Controls ability availability and mastery by Context.",
+      "defaultPriority": 90,
+      "injectionRole": "ability_constraint"
+    },
+    "status_change": {
+      "label": "Status Change",
+      "description": "Tracks character, faction, or world state changes.",
+      "defaultPriority": 80,
+      "injectionRole": "state_constraint"
+    },
+    "event_anchor": {
+      "label": "Event Anchor",
+      "description": "Defines an event as active story state.",
+      "defaultPriority": 70,
+      "injectionRole": "timeline_context"
+    },
+    "relationship_state": {
+      "label": "Relationship State",
+      "description": "Constrains current relationships.",
+      "defaultPriority": 75,
+      "injectionRole": "relationship_constraint"
+    },
+    "secret": {
+      "label": "Secret",
+      "description": "Protects hidden or future knowledge.",
+      "defaultPriority": 95,
+      "injectionRole": "spoiler_guard"
+    },
+    "objective": {
+      "label": "Objective",
+      "description": "Tracks goals or mission pressures.",
+      "defaultPriority": 70,
+      "injectionRole": "objective_constraint"
+    },
+    "item_state": {
+      "label": "Item State",
+      "description": "Tracks object ownership, condition, or use.",
+      "defaultPriority": 70,
+      "injectionRole": "item_constraint"
+    },
+    "location_state": {
+      "label": "Location State",
+      "description": "Tracks place-specific conditions.",
+      "defaultPriority": 65,
+      "injectionRole": "location_constraint"
+    },
+    "rule_constraint": {
+      "label": "Rule Constraint",
+      "description": "World or system rule that should constrain writing.",
+      "defaultPriority": 75,
+      "injectionRole": "rule_constraint"
+    },
+    "behavior_constraint": {
+      "label": "Behavior Constraint",
+      "description": "Character, faction, or culture behavior guidance.",
+      "defaultPriority": 70,
+      "injectionRole": "behavior_constraint"
+    },
+    "age_gate": {
+      "label": "Age Gate",
+      "description": "Controls age, school year, or maturation state.",
+      "defaultPriority": 65,
+      "injectionRole": "age_constraint"
+    },
+    "faction_state": {
+      "label": "Faction State",
+      "description": "Tracks organization or group conditions.",
+      "defaultPriority": 70,
+      "injectionRole": "faction_constraint"
+    },
+    "timeline": {
+      "label": "Timeline",
+      "description": "Places a Lorecard at a story point, boundary, transition, or future-guard Context.",
+      "defaultPriority": 80,
+      "injectionRole": "context_anchor"
+    }
+  }
+}

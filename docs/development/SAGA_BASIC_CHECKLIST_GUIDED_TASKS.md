@@ -196,24 +196,24 @@ Implemented:
 
 ## Code Touchpoints
 
-- `runtime-basic-readiness.js`
+- `src/runtime/runtime-basic-readiness.js`
   - Keep readiness derivation here.
   - Add guided-task metadata to rows if the model should own route intent.
 
-- `lore-panel.js`
+- `src/runtime/lore-panel.js`
   - Update `getBasicReadinessAction()`.
   - Extend `navigateRuntimeTab()`.
   - Render guided task strip in Basic destination tabs.
   - Clear guided task state on return/dismiss/mode switch.
 
-- `runtime-tour.js`
+- `src/runtime/runtime-tour.js`
   - Reuse target lookup/highlighting helpers if they can be exposed without coupling guided tasks to full walkthrough state.
 
-- `runtime-guide-content.js`
+- `src/runtime/runtime-guide-content.js`
   - Do not make Basic Walkthrough the checklist action mechanism.
   - Shared target IDs can be reused by guided tasks.
 
-- `scripts/test-visual-smoke-harness.mjs`
+- `tools/scripts/test-visual-smoke-harness.mjs`
   - Add static checks for guided task metadata, return strip rendering, Basic-only visibility, and no forced full-tour launch from checklist actions.
 
 ## Acceptance Criteria

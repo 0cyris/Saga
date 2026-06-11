@@ -516,7 +516,7 @@ Out of MVP:
 Done:
 
 1. `library.suggestedPath` metadata exists on the bundled HP split Loredecks.
-2. `Loredecks/index.json` registers the bundled HP split deck family.
+2. `content/loredecks/index.json` registers the bundled HP split deck family.
 3. `loredeck-library-index.js` normalizes folders, deck placements, suggested paths, and folder stack resolution.
 4. Folder/index tests cover nested folders, suggested paths, stack flattening, and duplicate suppression.
 5. The Loredeck Library now loads the bundled index and derives folders from suggested paths.

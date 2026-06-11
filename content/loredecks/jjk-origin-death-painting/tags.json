@@ -1,0 +1,377 @@
+{
+  "schemaVersion": 1,
+  "tags": {
+    "adaptation:manga": {
+      "label": "Manga",
+      "color": "#5b677a",
+      "textColor": "#ffffff",
+      "description": "Manga-primary continuity tag for Jujutsu Kaisen retrieval and filtering.",
+      "aliases": [
+        "manga"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "arc:cursed-womb": {
+      "label": "Cursed Womb",
+      "color": "#7b3f00",
+      "textColor": "#ffffff",
+      "description": "Cursed Womb and detention center arc tag.",
+      "aliases": [
+        "cursed womb"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "arc:death-painting": {
+      "label": "Death Painting",
+      "color": "#7b3f00",
+      "textColor": "#ffffff",
+      "description": "Death Painting arc and aftermath tag.",
+      "aliases": [
+        "Death Painting"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "arc:junpei": {
+      "label": "Junpei",
+      "color": "#7b3f00",
+      "textColor": "#ffffff",
+      "description": "Junpei and Mahito incident tag.",
+      "aliases": [
+        "Junpei incident"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "arc:kyoto-goodwill": {
+      "label": "Kyoto Goodwill",
+      "color": "#7b3f00",
+      "textColor": "#ffffff",
+      "description": "Kyoto Goodwill Event tag.",
+      "aliases": [
+        "Goodwill Event"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "arc:origin": {
+      "label": "Origin",
+      "color": "#7b3f00",
+      "textColor": "#ffffff",
+      "description": "Jujutsu Kaisen mainline opening and origin setup tag.",
+      "aliases": [
+        "origin"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:fushiguro-megumi": {
+      "label": "Megumi Fushiguro",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Megumi Fushiguro character tag.",
+      "aliases": [
+        "Megumi",
+        "Fushiguro"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:gojo-satoru": {
+      "label": "Satoru Gojo",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Satoru Gojo character tag.",
+      "aliases": [
+        "Gojo",
+        "Satoru Gojo"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:itadori-yuji": {
+      "label": "Yuji Itadori",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Yuji Itadori character tag.",
+      "aliases": [
+        "Yuji",
+        "Itadori"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:kugisaki-nobara": {
+      "label": "Nobara Kugisaki",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Nobara Kugisaki character tag.",
+      "aliases": [
+        "Nobara",
+        "Kugisaki"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:mahito": {
+      "label": "Mahito",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Mahito character tag.",
+      "aliases": [
+        "Mahito"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:ryomen-sukuna": {
+      "label": "Ryomen Sukuna",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Ryomen Sukuna character tag.",
+      "aliases": [
+        "Sukuna",
+        "Ryomen Sukuna"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:todo-aoi": {
+      "label": "Aoi Todo",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Aoi Todo character tag.",
+      "aliases": [
+        "Todo",
+        "Aoi Todo"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:yoshino-junpei": {
+      "label": "Junpei Yoshino",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Junpei Yoshino character tag.",
+      "aliases": [
+        "Junpei",
+        "Junpei Yoshino"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "continuity:jjk-manga-main": {
+      "label": "JJK Manga Main",
+      "color": "#4c5c68",
+      "textColor": "#ffffff",
+      "description": "Primary Jujutsu Kaisen manga continuity.",
+      "aliases": [
+        "JJK manga main"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:cursed-spirits": {
+      "label": "Cursed Spirits",
+      "color": "#7d3c98",
+      "textColor": "#ffffff",
+      "description": "Cursed spirit faction pressure tag.",
+      "aliases": [
+        "cursed spirits"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:jujutsu-society": {
+      "label": "Jujutsu Society",
+      "color": "#7d3c98",
+      "textColor": "#ffffff",
+      "description": "Jujutsu society institutional pressure tag.",
+      "aliases": [
+        "jujutsu society"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:kyoto-jujutsu-high": {
+      "label": "Kyoto Jujutsu High",
+      "color": "#7d3c98",
+      "textColor": "#ffffff",
+      "description": "Kyoto Jujutsu High faction tag.",
+      "aliases": [
+        "Kyoto school"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:tokyo-jujutsu-high": {
+      "label": "Tokyo Jujutsu High",
+      "color": "#7d3c98",
+      "textColor": "#ffffff",
+      "description": "Tokyo Jujutsu High faction tag.",
+      "aliases": [
+        "Tokyo school"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "fandom:jjk": {
+      "label": "Jujutsu Kaisen",
+      "color": "#4c5c68",
+      "textColor": "#ffffff",
+      "description": "Jujutsu Kaisen fandom tag.",
+      "aliases": [
+        "JJK",
+        "Jujutsu Kaisen"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "relationship:tokyo-first-years": {
+      "label": "Tokyo First-Years",
+      "color": "#b04a7a",
+      "textColor": "#ffffff",
+      "description": "Early Yuji, Megumi, and Nobara team relationship tag.",
+      "aliases": [
+        "Tokyo first-years"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:sukuna-vessel": {
+      "label": "Sukuna Vessel",
+      "color": "#922b21",
+      "textColor": "#ffffff",
+      "description": "Yuji and Sukuna vessel-state spoiler tag.",
+      "aliases": [
+        "Sukuna vessel"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:yuji-presumed-dead": {
+      "label": "Yuji Presumed Dead",
+      "color": "#922b21",
+      "textColor": "#ffffff",
+      "description": "Yuji presumed dead and hidden-training knowledge gate.",
+      "aliases": [
+        "Yuji presumed dead"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "status:execution-suspended": {
+      "label": "Execution Suspended",
+      "color": "#922b21",
+      "textColor": "#ffffff",
+      "description": "Yuji execution sentence and suspended-status tag.",
+      "aliases": [
+        "execution suspended"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:black-flash": {
+      "label": "Black Flash",
+      "color": "#2e86c1",
+      "textColor": "#ffffff",
+      "description": "Black Flash combat rhythm tag.",
+      "aliases": [
+        "Black Flash"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:death-painting-wombs": {
+      "label": "Death Painting Wombs",
+      "color": "#2e86c1",
+      "textColor": "#ffffff",
+      "description": "Death Painting wombs and aftermath tag.",
+      "aliases": [
+        "Death Painting wombs"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:mahito-experimentation": {
+      "label": "Mahito Experimentation",
+      "color": "#2e86c1",
+      "textColor": "#ffffff",
+      "description": "Mahito experimentation and transfiguration pressure tag.",
+      "aliases": [
+        "Mahito experimentation"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:sukuna-control": {
+      "label": "Sukuna Control",
+      "color": "#2e86c1",
+      "textColor": "#ffffff",
+      "description": "Sukuna control and vessel-risk tag.",
+      "aliases": [
+        "Sukuna control"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    }
+  }
+}

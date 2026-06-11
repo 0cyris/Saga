@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "jjk_core_death_and_injury_states_are_spoiler_gated",
+      "title": "Death And Injury States Are Spoiler-Gated",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "secret",
+      "revealPolicy": "spoiler_guard",
+      "priority": 93,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.core.jujutsu-society-baseline",
+        "validToAnchor": "jjk.shinjuku.final-aftermath",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 15000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "JJK manga main continuity"
+      },
+      "coordinates": [
+        {
+          "axis": "status_state",
+          "id": "jjk.status.spoiler-gated",
+          "label": "Death and injury states are Context-sensitive",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "death states",
+          "injury states",
+          "spoiler guard"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "status:death-state",
+        "knowledge:spoiler-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "death",
+            "injury",
+            "survival",
+            "status after"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline, including Jujutsu Kaisen 0 as prequel context and main series chapters 1-271."
+      },
+      "content": {
+        "fact": "Major deaths, survival states, permanent injuries, and apparent deaths are high-value JJK spoiler boundaries and must be tied to the selected Context.",
+        "injection": "When writing JJK characters, keep death, survival, injury, and return states aligned to the active Context. Avoid casually revealing later status outcomes.",
+        "constraints": [
+          "Arc decks should carry exact status-change Lorecards."
+        ],
+        "antiLore": [
+          "Do not use late-series death or injury knowledge in pre-reveal scenes."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen",
+        "chapterRange": "Full mainline manga spoiler policy",
+        "confidence": 0.82,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-core",
+          "status": "initial_core_slice"
+        }
+      }
+    }
+  ]
+}

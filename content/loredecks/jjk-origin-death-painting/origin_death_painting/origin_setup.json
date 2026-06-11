@@ -1,0 +1,451 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "jjk_origin_yuji_becomes_sukuna_vessel",
+      "title": "Yuji Becomes Sukuna's Vessel",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "secret",
+      "revealPolicy": "spoiler_guard",
+      "priority": 94,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.main.yuji-eats-sukuna-finger",
+        "validToAnchor": "jjk.main.death-painting-aftermath",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 3800,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Yuji vessel state through Death Painting"
+      },
+      "coordinates": [
+        {
+          "axis": "sukuna_vessel_state",
+          "id": "yuji-vessel-early",
+          "label": "Yuji is Sukuna's early vessel",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:itadori-yuji",
+          "jjk:ryomen-sukuna"
+        ],
+        "characters": [
+          "Yuji Itadori",
+          "Ryomen Sukuna"
+        ],
+        "locations": [],
+        "objects": [
+          "Sukuna finger"
+        ],
+        "factions": [],
+        "topics": [
+          "Sukuna vessel",
+          "Yuji execution",
+          "finger consumption"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:origin",
+        "character:itadori-yuji",
+        "character:ryomen-sukuna",
+        "secret:sukuna-vessel"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Yuji Itadori",
+            "Sukuna"
+          ],
+          "topicsAny": [
+            "Sukuna vessel",
+            "finger",
+            "Yuji execution"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath."
+      },
+      "content": {
+        "fact": "Yuji Itadori becomes Sukuna's vessel after consuming a Sukuna finger, making his body and survival a jujutsu society crisis.",
+        "injection": "In early mainline scenes after the finger incident, treat Yuji as Sukuna's vessel and a dangerous special case, not as an ordinary new student.",
+        "constraints": [
+          "Use later decks for host-state changes beyond this early window."
+        ],
+        "antiLore": [
+          "Do not leak later Sukuna vessel developments into early-origin scenes."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen",
+        "chapterRange": "Opening mainline arc",
+        "confidence": 0.84,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-origin-death-painting",
+          "status": "initial_mainline_opening_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_origin_execution_is_suspended_for_finger_collection",
+      "title": "Execution Is Suspended For Finger Collection",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.main.execution-suspended",
+        "validToAnchor": "jjk.main.death-painting-aftermath",
+        "sortKeyFrom": 1150,
+        "sortKeyTo": 3800,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Execution suspended early mainline"
+      },
+      "coordinates": [
+        {
+          "axis": "yuji_state",
+          "id": "execution-suspended",
+          "label": "Yuji's execution is suspended",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:itadori-yuji",
+          "jjk:jujutsu-society"
+        ],
+        "characters": [
+          "Yuji Itadori"
+        ],
+        "locations": [],
+        "objects": [
+          "Sukuna fingers"
+        ],
+        "factions": [
+          "Jujutsu society"
+        ],
+        "topics": [
+          "execution order",
+          "finger collection",
+          "sorcerer supervision"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:origin",
+        "character:itadori-yuji",
+        "faction:jujutsu-society",
+        "status:execution-suspended"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Yuji Itadori"
+          ],
+          "topicsAny": [
+            "execution suspended",
+            "Sukuna fingers",
+            "finger collection"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath."
+      },
+      "content": {
+        "fact": "Yuji's execution is delayed because jujutsu authorities use him as a vessel capable of consuming Sukuna's fingers before the sentence is carried out.",
+        "injection": "During early mainline scenes, frame Yuji's school life and missions under a suspended execution sentence, not as ordinary enrollment.",
+        "constraints": [
+          "Most civilians and many uninvolved people should not know the full sentence mechanics."
+        ],
+        "antiLore": [
+          "Do not write Yuji's situation as legally or emotionally safe."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen",
+        "chapterRange": "Early mainline setup",
+        "confidence": 0.82,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-origin-death-painting",
+          "status": "initial_mainline_opening_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_origin_tokyo_first_years_form_early_core",
+      "title": "Tokyo First-Years Form The Early Core",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.main.tokyo-first-years-form",
+        "validToAnchor": "jjk.main.death-painting-aftermath",
+        "sortKeyFrom": 1250,
+        "sortKeyTo": 3800,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Early Tokyo first-year team"
+      },
+      "coordinates": [
+        {
+          "axis": "school_state",
+          "id": "tokyo-first-years-early",
+          "label": "Early Tokyo first-years",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:itadori-yuji",
+          "jjk:fushiguro-megumi",
+          "jjk:kugisaki-nobara",
+          "jjk:tokyo-jujutsu-high"
+        ],
+        "characters": [
+          "Yuji Itadori",
+          "Megumi Fushiguro",
+          "Nobara Kugisaki"
+        ],
+        "locations": [
+          "Tokyo Jujutsu High"
+        ],
+        "objects": [],
+        "factions": [
+          "Tokyo Jujutsu High"
+        ],
+        "topics": [
+          "first-year team",
+          "early school dynamics",
+          "mission trust"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:origin",
+        "character:itadori-yuji",
+        "character:fushiguro-megumi",
+        "character:kugisaki-nobara",
+        "faction:tokyo-jujutsu-high",
+        "relationship:tokyo-first-years"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Yuji Itadori",
+            "Megumi Fushiguro",
+            "Nobara Kugisaki"
+          ],
+          "topicsAny": [
+            "Tokyo first-years",
+            "first-year team",
+            "early school dynamics"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath."
+      },
+      "content": {
+        "fact": "The early mainline Tokyo first-year core is Yuji Itadori, Megumi Fushiguro, and Nobara Kugisaki under Tokyo Jujutsu High mission pressure.",
+        "injection": "For early mainline school scenes, use Yuji, Megumi, and Nobara as the central first-year dynamic and let trust develop through dangerous missions.",
+        "constraints": [
+          "Do not import later expanded team dynamics as if they are already settled."
+        ],
+        "antiLore": [
+          "Do not replace the early trio with later-arc rosters."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen",
+        "chapterRange": "Early mainline setup",
+        "confidence": 0.82,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-origin-death-painting",
+          "status": "initial_mainline_opening_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_origin_sukuna_control_is_unstable_early",
+      "title": "Sukuna Control Is Unstable Early",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "spoiler_guard",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.main.yuji-eats-sukuna-finger",
+        "validToAnchor": "jjk.main.detention-center-sukuna-emerges",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 1600,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Early Sukuna control window"
+      },
+      "coordinates": [
+        {
+          "axis": "sukuna_vessel_state",
+          "id": "early-control-risk",
+          "label": "Early Sukuna control risk",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:itadori-yuji",
+          "jjk:ryomen-sukuna"
+        ],
+        "characters": [
+          "Yuji Itadori",
+          "Ryomen Sukuna"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Sukuna control",
+          "vessel risk",
+          "early possession"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:origin",
+        "character:itadori-yuji",
+        "character:ryomen-sukuna",
+        "topic:sukuna-control"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Yuji Itadori",
+            "Sukuna"
+          ],
+          "topicsAny": [
+            "Sukuna control",
+            "vessel risk",
+            "possession"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath."
+      },
+      "content": {
+        "fact": "Early Yuji scenes treat Sukuna control as a volatile risk, with Sukuna's appearances carrying immediate danger and consequences.",
+        "injection": "When Sukuna surfaces in early-origin Context, write it as an emergency-level threat rather than a controlled partner dynamic.",
+        "constraints": [
+          "Later vessel-state rules belong in later decks."
+        ],
+        "antiLore": [
+          "Do not write Yuji and Sukuna as cooperative by default in this early window."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen",
+        "chapterRange": "Early mainline setup through detention center",
+        "confidence": 0.8,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-origin-death-painting",
+          "status": "initial_mainline_opening_slice"
+        }
+      }
+    }
+  ]
+}

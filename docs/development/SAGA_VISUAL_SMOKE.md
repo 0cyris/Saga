@@ -4,25 +4,25 @@ This runbook covers repeatable visual smoke passes for Saga's runtime shelf, Lor
 
 ## Local Harness
 
-The local harness renders the real `lore-panel.js` runtime shelf with a stubbed SillyTavern context. It is useful before testing inside a full SillyTavern install.
+The local harness renders the real `src/runtime/lore-panel.js` runtime shelf with a stubbed SillyTavern context. It is useful before testing inside a full SillyTavern install.
 
 Start the no-dependency local server:
 
 ```powershell
-node scripts\serve-visual-smoke.mjs
+node tools\scripts\serve-visual-smoke.mjs
 ```
 
 Open the printed URL:
 
 ```text
-http://127.0.0.1:8765/tests/visual-smoke.html
+http://127.0.0.1:8765/tests/browser/visual-smoke.html
 ```
 
 Context-specific harness URLs:
 
 ```text
-http://127.0.0.1:8765/tests/visual-smoke.html?tab=context
-http://127.0.0.1:8765/tests/visual-smoke.html?tab=context&review=context-proposals
+http://127.0.0.1:8765/tests/browser/visual-smoke.html?tab=context
+http://127.0.0.1:8765/tests/browser/visual-smoke.html?tab=context&review=context-proposals
 ```
 
 The harness seeds:
@@ -39,8 +39,8 @@ The harness seeds:
 Run:
 
 ```powershell
-node scripts\test-visual-smoke-harness.mjs
-node scripts\serve-visual-smoke.mjs --check --port 0
+node tools\scripts\test-visual-smoke-harness.mjs
+node tools\scripts\serve-visual-smoke.mjs --check --port 0
 ```
 
 These checks do not replace a browser screenshot pass. They only verify that the harness, fixture, source hooks, and CSS hooks are still wired.
@@ -51,14 +51,14 @@ Run the current-code Context smoke without depending on the installed SillyTaver
 
 ```powershell
 $env:SAGA_SMOKE_TARGET='context-harness'
-node scripts\smoke-live-st-cdp.mjs
+node tools\scripts\smoke-live-st-cdp.mjs
 ```
 
 This starts the local harness, opens the Context tab with seeded Reasoner proposals, captures:
 
 ```text
-Images/documentation/renders/saga-smoke/context-harness-01-proposal-review.png
-Images/documentation/renders/saga-smoke/context-harness-02-workbench.png
+assets/documentation/renders/saga-smoke/context-harness-01-proposal-review.png
+assets/documentation/renders/saga-smoke/context-harness-02-workbench.png
 ```
 
 It verifies the Runtime Context command center, proposal review overlay, proposal apply flow, loaded Loredeck Context rows, lock state, and Context Workbench tabs.
@@ -69,20 +69,20 @@ Run the current-code Basic and Advanced walkthrough smoke without depending on t
 
 ```powershell
 $env:SAGA_SMOKE_TARGET='guide-harness'
-node scripts\smoke-live-st-cdp.mjs
+node tools\scripts\smoke-live-st-cdp.mjs
 ```
 
 This starts the local harness, opens the Basic Session guide, then reloads the harness in Advanced mode. It captures:
 
 ```text
-Images/documentation/renders/saga-smoke/guide-harness-01-basic-card.png
-Images/documentation/renders/saga-smoke/guide-harness-02-basic-module.png
-Images/documentation/renders/saga-smoke/guide-harness-03-basic-prepared-library.png
-Images/documentation/renders/saga-smoke/guide-harness-04-basic-tour.png
-Images/documentation/renders/saga-smoke/guide-harness-05-advanced-card.png
-Images/documentation/renders/saga-smoke/guide-harness-06-advanced-module.png
-Images/documentation/renders/saga-smoke/guide-harness-07-advanced-creator-empty-project.png
-Images/documentation/renders/saga-smoke/guide-harness-08-advanced-tour.png
+assets/documentation/renders/saga-smoke/guide-harness-01-basic-card.png
+assets/documentation/renders/saga-smoke/guide-harness-02-basic-module.png
+assets/documentation/renders/saga-smoke/guide-harness-03-basic-prepared-library.png
+assets/documentation/renders/saga-smoke/guide-harness-04-basic-tour.png
+assets/documentation/renders/saga-smoke/guide-harness-05-advanced-card.png
+assets/documentation/renders/saga-smoke/guide-harness-06-advanced-module.png
+assets/documentation/renders/saga-smoke/guide-harness-07-advanced-creator-empty-project.png
+assets/documentation/renders/saga-smoke/guide-harness-08-advanced-tour.png
 ```
 
 It verifies Basic module cards, Advanced task-track cards, hidden Basic rail tabs, Advanced rail availability, focused module starts, prepared fullscreen Library targeting, no-object Creator fallback messaging, and the first full-tour popover for both walkthroughs.
@@ -92,20 +92,20 @@ It verifies Basic module cards, Advanced task-track cards, hidden Basic rail tab
 After syncing the current workspace into the active SillyTavern extension directory, run the dependency-free CDP helper:
 
 ```powershell
-node scripts\smoke-live-st-cdp.mjs
+node tools\scripts\smoke-live-st-cdp.mjs
 ```
 
 In restricted desktop contexts, headless Chromium may crash. Use visible Chrome mode instead:
 
 ```powershell
 $env:SAGA_SMOKE_HEADLESS='0'
-node scripts\smoke-live-st-cdp.mjs
+node tools\scripts\smoke-live-st-cdp.mjs
 ```
 
 The helper writes `live-st-*.png` screenshots to:
 
 ```text
-Images/documentation/renders/saga-smoke/
+assets/documentation/renders/saga-smoke/
 ```
 
 These screenshots are local generated artifacts and are ignored by Git. Do not commit them to the extension install payload.
@@ -118,13 +118,13 @@ To validate the installed Context tab specifically, run:
 
 ```powershell
 $env:SAGA_SMOKE_TARGET='live-context'
-node scripts\smoke-live-st-cdp.mjs
+node tools\scripts\smoke-live-st-cdp.mjs
 ```
 
 This target opens the live installed shelf at `http://127.0.0.1:8000/`, switches to the Context tab, captures:
 
 ```text
-Images/documentation/renders/saga-smoke/live-context-01-context-tab.png
+assets/documentation/renders/saga-smoke/live-context-01-context-tab.png
 ```
 
 It verifies:
@@ -142,15 +142,15 @@ To validate the installed Context flow with an enabled Loredeck stack, run:
 
 ```powershell
 $env:SAGA_SMOKE_TARGET='live-context-loaded'
-node scripts\smoke-live-st-cdp.mjs
+node tools\scripts\smoke-live-st-cdp.mjs
 ```
 
 This target snapshots the current Saga metadata, adds `Harry Potter Year 6: Half-Blood Prince` through the real Loredeck Library UI, opens the Context Browser, verifies casual alias search for `Ron dates the blonde girl`, applies `Post Christmas Return` as the after-bound, applies `Apparition Lessons Begin` as the before-bound, seeds a synthetic populated proposal review row, captures:
 
 ```text
-Images/documentation/renders/saga-smoke/live-context-loaded-01-context-tab.png
-Images/documentation/renders/saga-smoke/live-context-loaded-02-workbench.png
-Images/documentation/renders/saga-smoke/live-context-loaded-03-proposals.png
+assets/documentation/renders/saga-smoke/live-context-loaded-01-context-tab.png
+assets/documentation/renders/saga-smoke/live-context-loaded-02-workbench.png
+assets/documentation/renders/saga-smoke/live-context-loaded-03-proposals.png
 ```
 
 It restores the original Saga metadata before exiting. The latest pass completed with no findings, no console errors, and no browser dialogs.
@@ -159,15 +159,15 @@ For the compact loaded Context pass, run:
 
 ```powershell
 $env:SAGA_SMOKE_TARGET='live-context-loaded-narrow'
-node scripts\smoke-live-st-cdp.mjs
+node tools\scripts\smoke-live-st-cdp.mjs
 ```
 
 The narrow target uses a compact default viewport and writes:
 
 ```text
-Images/documentation/renders/saga-smoke/live-context-loaded-narrow-01-context-tab.png
-Images/documentation/renders/saga-smoke/live-context-loaded-narrow-02-workbench.png
-Images/documentation/renders/saga-smoke/live-context-loaded-narrow-03-proposals.png
+assets/documentation/renders/saga-smoke/live-context-loaded-narrow-01-context-tab.png
+assets/documentation/renders/saga-smoke/live-context-loaded-narrow-02-workbench.png
+assets/documentation/renders/saga-smoke/live-context-loaded-narrow-03-proposals.png
 ```
 
 The latest compact pass completed with no findings, no console errors, no browser dialogs, and no obvious text overlap in the Context tab or proposal overlay.
@@ -177,7 +177,7 @@ For an opt-in live Reasoning Provider Context check, run:
 ```powershell
 $env:SAGA_SMOKE_TARGET='live-context-reasoner'
 $env:SAGA_ALLOW_PROVIDER_CALLS='1'
-node scripts\smoke-live-st-cdp.mjs
+node tools\scripts\smoke-live-st-cdp.mjs
 ```
 
 This target spends one bounded Reasoning Provider call. It snapshots current chat metadata and Saga settings, loads `Harry Potter Year 6: Half-Blood Prince`, seeds a loose non-date Context Brief, clicks `Ask Reasoner`, verifies bounded proposal state, then restores metadata and settings.
@@ -185,8 +185,8 @@ This target spends one bounded Reasoning Provider call. It snapshots current cha
 Expected artifacts when proposals render:
 
 ```text
-Images/documentation/renders/saga-smoke/live-context-reasoner-01-result.png
-Images/documentation/renders/saga-smoke/live-context-reasoner-02-proposals.png
+assets/documentation/renders/saga-smoke/live-context-reasoner-01-result.png
+assets/documentation/renders/saga-smoke/live-context-reasoner-02-proposals.png
 ```
 
 Without `SAGA_ALLOW_PROVIDER_CALLS=1`, the target exits before modifying metadata or calling the provider.
@@ -290,10 +290,10 @@ After the harness pass, install or load the extension in SillyTavern and repeat 
 
 Before treating a live pass as current-code validation, verify SillyTavern is serving the current workspace build:
 
-- The served `/scripts/extensions/third-party/Saga/lore-panel.js` contains current workflow markers such as `refreshLoredeckSurfaces` and `Delete Deck`.
+- The served `/scripts/extensions/third-party/Saga/src/runtime/lore-panel.js` contains current workflow markers such as `refreshLoredeckSurfaces` and `Delete Deck`.
 - The installed extension menu is reduced to the runtime handoff and `Reset Window`; the old API/model settings dropdown is absent.
 - If those markers are missing, sync or reinstall the extension into the active SillyTavern user extension directory before capturing screenshots.
-- If the direct `settings.html` endpoint is current but the extension menu still shows old copy, restart SillyTavern or clear the extension template cache before treating branding text as validated.
+- If the direct `src/extension/settings.html` endpoint is current but the extension menu still shows old copy, restart SillyTavern or clear the extension template cache before treating branding text as validated.
 
 Additional live checks:
 
@@ -302,7 +302,7 @@ Additional live checks:
 - The runtime banner and minimized Saga mark fit their containers.
 - API/provider settings retain saved values after reload.
 - The old extension-menu API/model dropdown is absent.
-- `hp-golden-trio` loads from `Loredecks/hp-golden-trio/loredeck.json`.
+- `hp-core` loads from `content/loredecks/hp-core/loredeck.json`.
 - Canon preview/suggestion still routes through the active Loredeck stack.
 - Prompt injection sync runs without throwing.
 - Chat reload preserves the active Loredeck stack and Context state.
@@ -330,5 +330,5 @@ Capture at least:
 Store screenshots under:
 
 ```text
-Images/documentation/renders/saga-smoke/
+assets/documentation/renders/saga-smoke/
 ```

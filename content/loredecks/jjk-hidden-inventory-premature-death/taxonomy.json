@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "categories": {
+    "character": {
+      "label": "Character State",
+      "description": "Character status, capability, and identity state."
+    },
+    "event": {
+      "label": "Event",
+      "description": "Specific story turn or consequence."
+    },
+    "faction": {
+      "label": "Faction",
+      "description": "Faction pressure, institutional state, or group alignment."
+    },
+    "knowledge": {
+      "label": "Knowledge Gate",
+      "description": "Information that should be gated to the right Context."
+    },
+    "relationship": {
+      "label": "Relationship",
+      "description": "Relationship state that changes scene behavior."
+    },
+    "rule": {
+      "label": "Rule",
+      "description": "Power-system or setting rule."
+    },
+    "secret": {
+      "label": "Secret",
+      "description": "Sensitive reveal or spoiler-bearing truth."
+    }
+  },
+  "relevanceLevels": [
+    "low",
+    "medium",
+    "high"
+  ],
+  "truthStatuses": [
+    "true",
+    "hidden",
+    "secret"
+  ],
+  "revealPolicies": [
+    "contextual",
+    "spoiler_guard",
+    "never_before_context"
+  ]
+}

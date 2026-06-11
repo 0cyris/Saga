@@ -42,7 +42,7 @@ The next test-planning document is [SAGA_CORE_INTEGRATION_TESTING.md](SAGA_CORE_
 ## Current Foundation
 
 - Bundled Loredeck scaffold exists for `hp-golden-trio`.
-- Loredeck loader reads bundled decks from `Loredecks/`; root `Lore/` fallback has been removed.
+- Loredeck loader reads bundled decks from `content/loredecks/`; root `Lore/` fallback has been removed.
 - Canon lore loading routes through the active Loredeck stack.
 - Loredeck tab supports library/stack handling, detail views, Deck Health, Custom duplication, and entry overrides.
 - Context v1 exists with per-loaded-Loredeck context state, timeline index loading, manual editing, local resolver, and explicit model fallback.
@@ -56,28 +56,28 @@ The next test-planning document is [SAGA_CORE_INTEGRATION_TESTING.md](SAGA_CORE_
 
 Passed:
 
-- `node --check constants.js`
-- `node --check state-manager.js`
-- `node --check lore-panel.js`
-- `node --check loredeck-loader.js`
-- `node --check canon-lore-db.js`
-- `node --check index.js`
-- `node scripts\test-lore-timeline.mjs`
-- `node scripts\test-generated-lore-overhaul.mjs`
-- `node scripts\scan-secrets.mjs`
-- Direct Loredeck loader smoke: `hp-golden-trio` loads 417 entries.
+- `node --check src/state/constants.js`
+- `node --check src/state/state-manager.js`
+- `node --check src/runtime/lore-panel.js`
+- `node --check src/loredecks/loredeck-loader.js`
+- `node --check src/context/canon-lore-db.js`
+- `node --check src/extension/index.js`
+- `node tools\scripts\test-lore-timeline.mjs`
+- `node tools\scripts\test-generated-lore-overhaul.mjs`
+- `node tools\scripts\scan-secrets.mjs`
+- Direct Loredeck loader smoke: registered HP split-family decks load from `content/loredecks/`.
 - Missing bundled Loredeck manifests now fail through Deck Health instead of falling back to root `Lore/`.
-- Direct canon DB smoke: canon DB loads 417 entries from `hp-golden-trio`.
-- JSON parse smoke across `Loredecks`, `Presets`, and `manifest.json`.
+- Direct canon DB smoke: canon DB loads entries from the registered HP split-family stack.
+- JSON parse smoke across `content/loredecks`, `content/presets`, and `manifest.json`.
 - Local visual smoke harness contract: validates the harness, seeded Custom Loredeck, update fixture, runtime panel strings, and CSS hooks.
 - Local visual smoke server self-check: serves the harness and update fixture without external dependencies.
 - First SillyTavern smoke pass: the extension loads without console errors, the shelf opens correctly, and the Loredecks tab renders well enough for focused UX feedback.
 - Targeted current-code visual smoke harness pass: runtime shelf, fullscreen Loredeck Library, Active Stack, Deck Health Center, Creator wizard, update preview, Settings/Theme Packs, and Injection preview render without browser console errors.
-- Live SillyTavern screenshot pass after syncing the current workspace into `data/default-user/extensions/Saga`: saved `live-st-01-initial.png`, `live-st-02-loredecks.png`, `live-st-03-library.png`, `live-st-03-delete-confirm.png`, `live-st-04-health.png`, `live-st-05-creator.png`, `live-st-07-theme-pack.png`, and `live-st-08-injection.png` under `Images/documentation/renders/saga-smoke/`; the final pass reported no findings, no browser console errors, and no native dialog events.
+- Live SillyTavern screenshot pass after syncing the current workspace into `data/default-user/extensions/Saga`: saved `live-st-01-initial.png`, `live-st-02-loredecks.png`, `live-st-03-library.png`, `live-st-03-delete-confirm.png`, `live-st-04-health.png`, `live-st-05-creator.png`, `live-st-07-theme-pack.png`, and `live-st-08-injection.png` under `assets/documentation/renders/saga-smoke/`; the final pass reported no findings, no browser console errors, and no native dialog events.
 
 ## Known Non-Blockers
 
-- `scripts\audit-canon-preview.mjs --json` reports 417 entries and 296 entries missing `ui.preview` metadata. This is existing lore-quality cleanup work, not a Context blocker.
+- `tools\scripts\audit-canon-preview.mjs --json` reports 417 entries and 296 entries missing `ui.preview` metadata. This is existing lore-quality cleanup work, not a Context blocker.
 - URL/GitHub package import and update checks are deferred; the current Library workflow should expose local `.saga-loredeck.zip` import/export only.
 - The current Saga foundation is still uncommitted in the working tree.
 
@@ -127,15 +127,15 @@ Context-aware Loredeck retrieval:
 - Done: chunk Loredeck Creator full-entry drafting into resumable micro-batches. The Creator now drafts the next small approved-title set per provider call, can optionally run a bounded sequence of separate calls, and preserves successful draft batches if a later call fails.
 - Done: make accepted Lorecard injection Context-aware. Accepted Lorecards now remain in the accepted set when Context advances, but prompt memo selection and injection audit re-check active Loredeck Context gates and report stale accepted entries as `context_blocked` instead of injecting future/out-of-window lore.
 - Done: lock the Jan. 25, 1997 / `before Apparition lessons` resolver edge. Explicit `sceneDate` now remains authoritative over loose supporting boundary text, so the resolver selects the post-Christmas/pre-Apparition window instead of jumping to the upcoming Apparition anchor.
-- Done: expand deterministic core integration coverage into Year 1 with `scripts/test-core-integration-hp-year1.mjs`. The Year 1 harness validates Core + Philosopher's Stone stack loading, Sorting to Stone-aftermath Context progression, late Quirrell/Stone suggestion blocking/activation, accepted stale-lore Context blocking, and current aftermath-lore injection.
-- Done: expand deterministic core integration coverage into Year 2 with `scripts/test-core-integration-hp-year2.mjs`. The Year 2 harness validates Core + Chamber of Secrets stack loading, first-attack to Ginny-rescue Context progression, pre-reveal spoiler guard preview/blocking, active Chamber-crisis stale-lore Context blocking, and current Chamber-resolution injection.
-- Done: expand deterministic core integration coverage beyond Year 6 with `scripts/test-core-integration-hp-year3.mjs`. The Year 3 harness validates Core + Prisoner of Azkaban stack loading, winter-to-rescue Context progression, suggestion-set changes, accepted stale-lore Context blocking, and current rescue-lore injection.
-- Done: expand deterministic core integration coverage into Year 4 with `scripts/test-core-integration-hp-year4.mjs`. The Year 4 harness validates Core + Goblet of Fire stack loading, early Triwizard setup to post-graveyard Context progression, late Voldemort-return suggestion blocking/activation, accepted stale-lore Context blocking, and current aftermath-lore injection.
-- Done: expand deterministic core integration coverage into Year 5 with `scripts/test-core-integration-hp-year5.mjs`. The Year 5 harness validates Core + Order of the Phoenix stack loading, DA-formation to post-Department Context progression, late Sirius/public-return suggestion blocking/activation, accepted stale-lore Context blocking, and current aftermath-lore injection.
-- Done: expand deterministic core integration coverage into Year 7 with `scripts/test-core-integration-hp-year7.mjs`. The Year 7 harness validates Core + Deathly Hallows stack loading, locket-camping to Battle Aftermath Context progression, Battle death-state guard preview/blocking, accepted stale-lore Context blocking, and current aftermath-lore injection.
-- Done: expand deterministic core integration coverage into Epilogue/Post-War with `scripts/test-core-integration-hp-epilogue-post-war.mjs`. The Post-War harness validates Core + Post-War stack loading, 1998 rebuilding to 2014 World Cup to 2017 King's Cross Context progression, pre-epilogue guard blocking, accepted stale-lore Context blocking, and current epilogue-lore injection.
-- Done: scaffold the Harry Potter Golden Trio split-deck family. `hp-core` plus Year 1-7 folders now exist with dense first-class timelines generated from the anchor plan, including the Year 6 post-Christmas/Apparition window and a single dense Year 7 deck. These are intentionally not registered as bundled Library decks until entries are split and conformance checks pass.
-- Done: add HP reference-deck conformance coverage with `scripts/test-hp-reference-deck-conformance.mjs`. It verifies the bundled HP defaults, `Loredecks/index.json`, duplicated manifests, Deck Health summaries, deck-local covers, tag registries, file lists, empty active-stack defaults, and absence of the legacy monolithic `hp-golden-trio` deck from runtime defaults.
+- Done: expand deterministic core integration coverage into Year 1 with `tools/scripts/test-core-integration-hp-year1.mjs`. The Year 1 harness validates Core + Philosopher's Stone stack loading, Sorting to Stone-aftermath Context progression, late Quirrell/Stone suggestion blocking/activation, accepted stale-lore Context blocking, and current aftermath-lore injection.
+- Done: expand deterministic core integration coverage into Year 2 with `tools/scripts/test-core-integration-hp-year2.mjs`. The Year 2 harness validates Core + Chamber of Secrets stack loading, first-attack to Ginny-rescue Context progression, pre-reveal spoiler guard preview/blocking, active Chamber-crisis stale-lore Context blocking, and current Chamber-resolution injection.
+- Done: expand deterministic core integration coverage beyond Year 6 with `tools/scripts/test-core-integration-hp-year3.mjs`. The Year 3 harness validates Core + Prisoner of Azkaban stack loading, winter-to-rescue Context progression, suggestion-set changes, accepted stale-lore Context blocking, and current rescue-lore injection.
+- Done: expand deterministic core integration coverage into Year 4 with `tools/scripts/test-core-integration-hp-year4.mjs`. The Year 4 harness validates Core + Goblet of Fire stack loading, early Triwizard setup to post-graveyard Context progression, late Voldemort-return suggestion blocking/activation, accepted stale-lore Context blocking, and current aftermath-lore injection.
+- Done: expand deterministic core integration coverage into Year 5 with `tools/scripts/test-core-integration-hp-year5.mjs`. The Year 5 harness validates Core + Order of the Phoenix stack loading, DA-formation to post-Department Context progression, late Sirius/public-return suggestion blocking/activation, accepted stale-lore Context blocking, and current aftermath-lore injection.
+- Done: expand deterministic core integration coverage into Year 7 with `tools/scripts/test-core-integration-hp-year7.mjs`. The Year 7 harness validates Core + Deathly Hallows stack loading, locket-camping to Battle Aftermath Context progression, Battle death-state guard preview/blocking, accepted stale-lore Context blocking, and current aftermath-lore injection.
+- Done: expand deterministic core integration coverage into Epilogue/Post-War with `tools/scripts/test-core-integration-hp-epilogue-post-war.mjs`. The Post-War harness validates Core + Post-War stack loading, 1998 rebuilding to 2014 World Cup to 2017 King's Cross Context progression, pre-epilogue guard blocking, accepted stale-lore Context blocking, and current epilogue-lore injection.
+- Done: scaffold and register the Harry Potter Golden Trio split-deck family. `hp-core` plus Year 1-7 folders now exist with dense first-class timelines generated from the anchor plan, including the Year 6 post-Christmas/Apparition window and a single dense Year 7 deck. They are registered in `content/loredecks/index.json` and covered by HP reference-deck conformance.
+- Done: add HP reference-deck conformance coverage with `tools/scripts/test-hp-reference-deck-conformance.mjs`. It verifies the bundled HP defaults, `content/loredecks/index.json`, duplicated manifests, Pack Health summaries, deck-local covers, tag registries, file lists, empty active-stack defaults, and absence of the legacy monolithic `hp-golden-trio` deck from runtime defaults.
 ## Next Production Slice
 
 Loredeck Library and stack stabilization:

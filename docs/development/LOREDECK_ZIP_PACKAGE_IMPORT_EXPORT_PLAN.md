@@ -21,15 +21,15 @@ Current code paths:
 
 - `loredeck-library-panel.js` wires the Library header `Import Deck` button to `installLoredeckBundleFromFile()`.
 - `loredeck-library-panel.js` wires `Export Selected` to `exportSelectedLoredeckBundles(selectedPacks, btn)`.
-- `lore-panel.js` now exports selected Loredecks as one `.saga-loredeck.zip` package through the package staging helpers and `createLoredeckZipPackage()`.
-- `lore-panel.js` imports local `.saga-loredeck.zip` packages through `parseLoredeckZipPackage()`, opens a package preview, persists selected decks as virtual Custom Loredecks, and preserves package folder placement with folder ID remapping.
+- `src/runtime/lore-panel.js` now exports selected Loredecks as one `.saga-loredeck.zip` package through the package staging helpers and `createLoredeckZipPackage()`.
+- `src/runtime/lore-panel.js` imports local `.saga-loredeck.zip` packages through `parseLoredeckZipPackage()`, opens a package preview, persists selected decks as virtual Custom Loredecks, and preserves package folder placement with folder ID remapping.
 - Existing installer behavior already handles duplicate review, content-hash comparison, bundled-deck overwrite protection, local-modification warnings, and install-as-Custom semantics.
 - Current custom cover import stores resized passive image assets on editable deck records; bundled covers resolve from deck-relative paths such as `assets/cover.png`.
 
-Bundled Loredecks already provide the desired authoring model:
+Bundled Loredecks already provide the desired authoring model under repo content:
 
 ```text
-Loredecks/
+content/loredecks/
   index.json
   hp-core/
     loredeck.json
@@ -53,9 +53,9 @@ Current as of June 8, 2026:
 - Package planning doc created and linked from the documentation index.
 - Schema docs now identify `.saga-loredeck.zip` as the public import/export direction and `.saga-loredeck.json` as legacy interim behavior.
 - `loredeck-package-zip.js` added as a small data-only zip foundation. It can create standard store-method zip archives, read central-directory zip archives, reject unsafe paths, reject executable entry types, verify CRCs, and safely accept ordinary directory entries.
-- `loredeck-package-service.js` added as the first Loredeck package parser layer. It reads `saga-package.json`, `Loredecks/index.json`, deck manifests, manifest file references, asset references, and bundled-style compatibility indexes.
-- `scripts/test-loredeck-zip-package.mjs` added for the initial package round-trip, folder/index parsing, cover-path resolution, blocked executable path checks, unsafe path checks, and missing-file errors.
-- `Export Selected` now stages selected Loredecks into one `.saga-loredeck.zip` package instead of downloading one JSON file per deck. The package includes `saga-package.json`, `Loredecks/index.json`, one folder per deck, `loredeck.json`, materialized entry files, copied registry references, folder placement metadata, and passive cover/banner assets when available.
+- `loredeck-package-service.js` added as the first Loredeck package parser layer. It reads `saga-package.json`, `loredecks/index.json`, deck manifests, manifest file references, and asset references.
+- `tools/scripts/test-loredeck-zip-package.mjs` added for the initial package round-trip, folder/index parsing, cover-path resolution, blocked executable path checks, unsafe path checks, and missing-file errors.
+- `Export Selected` now stages selected Loredecks into one `.saga-loredeck.zip` package instead of downloading one JSON file per deck. The package includes `saga-package.json`, `loredecks/index.json`, one folder per deck, `loredeck.json`, materialized entry files, copied registry references, folder placement metadata, and passive cover/banner assets when available.
 - Editable Loredeck detail exports also validate first, then use the same `.saga-loredeck.zip` package builder instead of downloading a JSON draft bundle.
 - The Library and Loredecks tab copy now describes package export instead of JSON export.
 - The Library import path accepts `.saga-loredeck.zip` packages, parses the package, opens a package preview, and installs selected decks as editable Custom Loredecks. Legacy JSON helpers remain only as internal update/migration code until they are removed in cleanup.
@@ -90,7 +90,7 @@ Preferred package layout:
 ```text
 arlong-park.saga-loredeck.zip
   saga-package.json
-  Loredecks/
+  loredecks/
     index.json
     one-piece-arlong-park-core/
       loredeck.json
@@ -130,7 +130,7 @@ arlong-park.saga-loredeck.zip
 }
 ```
 
-`Loredecks/index.json` should describe the decks included in the package. For package exports, Saga should prefer a neutral `loredecks` array instead of the bundled-only `bundled` key:
+`loredecks/index.json` should describe the decks included in the package. Package exports use a neutral `loredecks` array:
 
 ```json
 {
@@ -164,11 +164,12 @@ arlong-park.saga-loredeck.zip
 }
 ```
 
-Importer compatibility:
+Alpha importer contract:
 
-- Accept package indexes that use `loredecks`.
-- Accept bundled-style indexes that use `bundled`, but import those records as Custom unless they are part of Saga's own shipped `Loredecks/` folder.
-- Accept packages with a single root `loredeck.json` only as a compatibility fallback, not as the preferred format.
+- Require `loredecks/index.json`.
+- Require package index records under `loredecks`.
+- Do not accept bundled-style `bundled` indexes or single root `loredeck.json` packages as public alpha package formats.
+- Install package records as Custom user content.
 
 ## Import Semantics
 
@@ -222,7 +223,7 @@ Non-goals:
 Export should include:
 
 - `saga-package.json`.
-- `Loredecks/index.json`.
+- `loredecks/index.json`.
 - One folder per exported Loredeck.
 - Each deck's `loredeck.json`.
 - Entry files grouped by category or existing manifest file layout when available.
@@ -267,7 +268,7 @@ Validation steps:
 1. Read central directory and normalize paths.
 2. Validate allowed paths and extensions before extracting content.
 3. Parse `saga-package.json` if present.
-4. Parse `Loredecks/index.json` or compatible fallback manifest.
+4. Parse `loredecks/index.json`.
 5. Validate every referenced manifest path exists inside the package.
 6. Validate every manifest and entry file as schema v3-native Saga data.
 7. Validate tag registry, timeline registry, and asset references.
@@ -309,7 +310,7 @@ Export preview, if needed:
 
 ### Phase 2: Zip Service
 
-Add a small isolated zip package service instead of mixing archive parsing into `lore-panel.js`.
+Add a small isolated zip package service instead of mixing archive parsing into `src/runtime/lore-panel.js`.
 
 Candidate module:
 
@@ -358,7 +359,7 @@ Responsibilities:
 - Resolve selected deck and folder inputs.
 - Deduplicate deck IDs.
 - Fetch or read cached manifests and entry files.
-- Write `Loredecks/index.json`.
+- Write `loredecks/index.json`.
 - Write one deck folder per deck.
 - Write deck-local assets.
 - Convert virtual custom/generated entries into physical files.
@@ -403,7 +404,8 @@ Unit-style tests:
 - Valid multi-deck package imports.
 - Folder hierarchy imports and ID collision remapping.
 - Cover image imports and missing-cover warnings.
-- Bundled-style `bundled` index imports as Custom.
+- Packages missing `loredecks/index.json` are rejected.
+- Old uppercase `Loredecks/index.json` package paths are rejected.
 - Existing deck collision installs as a new copy.
 - Editable Custom deck update works with confirmation.
 - Bundled deck update is blocked.
@@ -433,7 +435,7 @@ Visual smoke:
 
 This feature is alpha-ready when:
 
-- Users can import a `.saga-loredeck.zip` that mirrors the bundled Loredecks folder structure.
+- Users can import a `.saga-loredeck.zip` that uses the alpha `loredecks/` package structure.
 - Imported decks appear in the Library as Custom decks with titles, metadata, folders, entry counts, registries, and covers.
 - Exporting selected decks/folders creates one package zip that can be imported into a clean Saga install.
 - The Library no longer exposes `.saga-loredeck.json` import/export as the normal workflow.

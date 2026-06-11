@@ -1,0 +1,219 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "sortKeyScale": "pack_local",
+  "anchors": [
+    {
+      "id": "jjk.post.execution-reinstated",
+      "label": "Yuji's execution order is reinstated",
+      "sortKey": 8300,
+      "aliases": [
+        "Yuji execution reinstated",
+        "post-Shibuya execution order"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Itadori Extermination"
+      }
+    },
+    {
+      "id": "jjk.post.yuta-return-executioner",
+      "label": "Yuta returns as Yuji's appointed executioner",
+      "sortKey": 8450,
+      "aliases": [
+        "Yuta returns",
+        "Yuta appointed executioner"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Itadori Extermination"
+      }
+    },
+    {
+      "id": "jjk.post.yuta-yuji-confrontation",
+      "label": "Yuta confronts Yuji",
+      "sortKey": 8600,
+      "aliases": [
+        "Yuta confronts Yuji",
+        "Yuta executes and revives Yuji"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Itadori Extermination"
+      }
+    },
+    {
+      "id": "jjk.post.tengen-briefing",
+      "label": "Tengen briefing reframes Kenjaku's plan",
+      "sortKey": 8800,
+      "aliases": [
+        "Tengen briefing",
+        "meet Master Tengen"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Post-Shibuya setup"
+      }
+    },
+    {
+      "id": "jjk.post.culling-game-rules-explained",
+      "label": "Culling Game rules are explained",
+      "sortKey": 9000,
+      "aliases": [
+        "Culling Game rules explained",
+        "Culling Game setup"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Culling Game setup"
+      }
+    },
+    {
+      "id": "jjk.post.tsumiki-urgency-established",
+      "label": "Tsumiki urgency is established",
+      "sortKey": 9100,
+      "aliases": [
+        "Tsumiki Culling Game urgency",
+        "Megumi saves Tsumiki setup"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Culling Game setup"
+      }
+    },
+    {
+      "id": "jjk.post.maki-returns-zenin",
+      "label": "Maki returns to the Zenin clan",
+      "sortKey": 9250,
+      "aliases": [
+        "Maki returns to Zenin",
+        "Perfect Preparation begins"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Perfect Preparation"
+      }
+    },
+    {
+      "id": "jjk.post.mai-sacrifice",
+      "label": "Mai's sacrifice changes Maki",
+      "sortKey": 9450,
+      "aliases": [
+        "Mai sacrifice",
+        "Maki changes after Mai"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Perfect Preparation"
+      }
+    },
+    {
+      "id": "jjk.post.zenin-clan-collapse",
+      "label": "Zenin clan power structure collapses",
+      "sortKey": 9650,
+      "aliases": [
+        "Zenin clan collapse",
+        "Maki destroys Zenin clan"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Perfect Preparation"
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "jjk.post.window.full-post-shibuya-preparation",
+      "label": "Post-Shibuya Through Perfect Preparation",
+      "anchorFrom": "jjk.post.execution-reinstated",
+      "anchorTo": "jjk.post.zenin-clan-collapse",
+      "sortKeyFrom": 8300,
+      "sortKeyTo": 9650,
+      "aliases": [
+        "post-Shibuya through Perfect Preparation",
+        "post-Shibuya setup"
+      ]
+    },
+    {
+      "id": "jjk.post.window.itadori-extermination",
+      "label": "Itadori Extermination",
+      "anchorFrom": "jjk.post.execution-reinstated",
+      "anchorTo": "jjk.post.yuta-yuji-confrontation",
+      "sortKeyFrom": 8300,
+      "sortKeyTo": 8600,
+      "aliases": [
+        "Itadori Extermination",
+        "Yuta executioner window"
+      ]
+    },
+    {
+      "id": "jjk.post.window.tengen-culling-setup",
+      "label": "Tengen and Culling Game Setup",
+      "anchorFrom": "jjk.post.tengen-briefing",
+      "anchorTo": "jjk.post.tsumiki-urgency-established",
+      "sortKeyFrom": 8800,
+      "sortKeyTo": 9100,
+      "aliases": [
+        "Tengen briefing and Culling Game setup",
+        "before entering the Culling Game"
+      ]
+    },
+    {
+      "id": "jjk.post.window.perfect-preparation",
+      "label": "Perfect Preparation",
+      "anchorFrom": "jjk.post.maki-returns-zenin",
+      "anchorTo": "jjk.post.zenin-clan-collapse",
+      "sortKeyFrom": 9250,
+      "sortKeyTo": 9650,
+      "aliases": [
+        "Perfect Preparation",
+        "Zenin clan collapse"
+      ]
+    }
+  ],
+  "coordinateAxes": [
+    {
+      "axis": "arc",
+      "label": "Arc",
+      "values": [
+        "post-shibuya",
+        "itadori-extermination",
+        "perfect-preparation"
+      ]
+    },
+    {
+      "axis": "yuji_state",
+      "label": "Yuji State",
+      "values": [
+        "execution-reinstated",
+        "protected-by-yuta"
+      ]
+    },
+    {
+      "axis": "culling_setup_state",
+      "label": "Culling Game Setup State",
+      "values": [
+        "rules-explained",
+        "entry-urgent"
+      ]
+    },
+    {
+      "axis": "zenin_state",
+      "label": "Zenin State",
+      "values": [
+        "maki-returns",
+        "mai-sacrifice",
+        "clan-collapsed"
+      ]
+    }
+  ]
+}

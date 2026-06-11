@@ -1,0 +1,285 @@
+{
+  "schemaVersion": 1,
+  "tags": {
+    "adaptation:manga": {
+      "label": "Manga",
+      "color": "#5b677a",
+      "textColor": "#ffffff",
+      "description": "Manga-primary continuity tag for Jujutsu Kaisen 0 retrieval and filtering.",
+      "aliases": [
+        "manga"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "arc:jjk-zero": {
+      "label": "Jujutsu Kaisen 0",
+      "color": "#7b3f00",
+      "textColor": "#ffffff",
+      "description": "Prequel arc tag for Jujutsu Kaisen 0 material.",
+      "aliases": [
+        "JJK 0"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:geto-suguru": {
+      "label": "Suguru Geto",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Suguru Geto character tag for Jujutsu Kaisen 0.",
+      "aliases": [
+        "Geto",
+        "Suguru Geto"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:gojo-satoru": {
+      "label": "Satoru Gojo",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Satoru Gojo character tag for Jujutsu Kaisen 0.",
+      "aliases": [
+        "Gojo",
+        "Satoru Gojo"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:maki-zenin": {
+      "label": "Maki Zenin",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Maki Zenin character tag for Jujutsu Kaisen 0.",
+      "aliases": [
+        "Maki",
+        "Maki Zenin"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:panda": {
+      "label": "Panda",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Panda character tag for Jujutsu Kaisen 0.",
+      "aliases": [
+        "Panda"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:rika-orimoto": {
+      "label": "Rika Orimoto",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Rika Orimoto character tag for Jujutsu Kaisen 0.",
+      "aliases": [
+        "Rika",
+        "Rika Orimoto"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:toge-inumaki": {
+      "label": "Toge Inumaki",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Toge Inumaki character tag for Jujutsu Kaisen 0.",
+      "aliases": [
+        "Inumaki",
+        "Toge Inumaki"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:yuta-okkotsu": {
+      "label": "Yuta Okkotsu",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Yuta Okkotsu character tag for Jujutsu Kaisen 0.",
+      "aliases": [
+        "Yuta",
+        "Yuta Okkotsu"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "continuity:jjk-zero": {
+      "label": "Jujutsu Kaisen 0",
+      "color": "#4c5c68",
+      "textColor": "#ffffff",
+      "description": "Jujutsu Kaisen 0 prequel continuity.",
+      "aliases": [
+        "JJK 0 continuity"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:geto-family": {
+      "label": "Geto's Faction",
+      "color": "#7d3c98",
+      "textColor": "#ffffff",
+      "description": "Suguru Geto's Jujutsu Kaisen 0 curse-user faction.",
+      "aliases": [
+        "Geto faction"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:tokyo-jujutsu-high": {
+      "label": "Tokyo Jujutsu High",
+      "color": "#7d3c98",
+      "textColor": "#ffffff",
+      "description": "Tokyo Jujutsu High faction tag for Jujutsu Kaisen 0.",
+      "aliases": [
+        "Tokyo school"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "fandom:jjk": {
+      "label": "Jujutsu Kaisen",
+      "color": "#4c5c68",
+      "textColor": "#ffffff",
+      "description": "Jujutsu Kaisen fandom tag.",
+      "aliases": [
+        "JJK",
+        "Jujutsu Kaisen"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "relationship:yuta-rika": {
+      "label": "Yuta And Rika",
+      "color": "#b04a7a",
+      "textColor": "#ffffff",
+      "description": "Yuta and Rika relationship-state tag.",
+      "aliases": [
+        "Yuta and Rika"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "relationship:zero-classmates": {
+      "label": "JJK 0 Classmates",
+      "color": "#b04a7a",
+      "textColor": "#ffffff",
+      "description": "Yuta, Maki, Inumaki, and Panda prequel classmate relationship tag.",
+      "aliases": [
+        "JJK 0 classmates"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:prequel-aftermath": {
+      "label": "Prequel Aftermath",
+      "color": "#922b21",
+      "textColor": "#ffffff",
+      "description": "Jujutsu Kaisen 0 ending and aftermath spoiler tag.",
+      "aliases": [
+        "prequel aftermath"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:rika-curse": {
+      "label": "Rika Curse",
+      "color": "#922b21",
+      "textColor": "#ffffff",
+      "description": "Rika's cursed spirit state and resolution spoiler tag.",
+      "aliases": [
+        "Rika curse"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "status:geto-pre-mainline": {
+      "label": "Geto Pre-Mainline Status",
+      "color": "#922b21",
+      "textColor": "#ffffff",
+      "description": "Suguru Geto's Jujutsu Kaisen 0 status boundary.",
+      "aliases": [
+        "Geto pre-mainline"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:cursed-spirit-control": {
+      "label": "Cursed Spirit Control",
+      "color": "#2e86c1",
+      "textColor": "#ffffff",
+      "description": "Control, training, and danger around cursed spirit power.",
+      "aliases": [
+        "cursed spirit control"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:night-parade": {
+      "label": "Night Parade",
+      "color": "#b9770e",
+      "textColor": "#ffffff",
+      "description": "Night Parade of a Hundred Demons prequel climax tag.",
+      "aliases": [
+        "Night Parade"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:prequel-knowledge-gate": {
+      "label": "Prequel Knowledge Gate",
+      "color": "#7b7d7d",
+      "textColor": "#ffffff",
+      "description": "Spoiler and mainline leakage guard for Jujutsu Kaisen 0.",
+      "aliases": [
+        "prequel knowledge gate"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    }
+  }
+}

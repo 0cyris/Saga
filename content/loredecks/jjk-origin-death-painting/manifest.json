@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "id": "jjk-origin-death-painting",
+  "type": "bundled",
+  "title": "Jujutsu Kaisen: Origin through Death Painting",
+  "description": "Mainline opening Loredeck for Yuji becoming Sukuna's vessel, the early Tokyo first-years, detention center consequences, Junpei and Mahito, Kyoto Goodwill, and Death Painting aftermath.",
+  "fandom": "Jujutsu Kaisen",
+  "era": "Origin through Death Painting",
+  "contentKind": "fandom",
+  "author": "Saga",
+  "version": "0.1.0",
+  "defaultLocale": "en",
+  "tags": [
+    "fandom:jjk",
+    "continuity:jjk-manga-main",
+    "adaptation:manga",
+    "arc:origin",
+    "arc:death-painting",
+    "quality:draft-reference"
+  ],
+  "source": {
+    "kind": "bundled",
+    "url": ""
+  },
+  "update": {
+    "checkForUpdates": false,
+    "url": "",
+    "lastCheckedAt": 0
+  },
+  "registries": {
+    "taxonomy": "taxonomy.json",
+    "tags": "tags.json",
+    "entities": "entities.json",
+    "timeline": "timeline.json",
+    "gateTypes": "gate-types.json",
+    "scoring": "scoring.json"
+  },
+  "resolver": "resolver.json",
+  "continuity": {
+    "continuityId": "jjk-manga-main",
+    "canonTier": "primary",
+    "adaptation": "manga",
+    "medium": "manga",
+    "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath.",
+    "notes": "Jujutsu Kaisen 0 prequel context, Hidden Inventory, Shibuya, Culling Game, Shinjuku, anime-only changes, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate decks unless explicitly loaded."
+  },
+  "runtimeDefaults": {
+    "scanDepth": null,
+    "recursiveTriggers": false,
+    "tokenBudget": null
+  },
+  "files": [
+    "origin_death_painting/origin_setup.json",
+    "origin_death_painting/detention_junpei.json",
+    "origin_death_painting/goodwill_death_painting.json"
+  ],
+  "compatibility": {
+    "sagaSchemaMin": 3,
+    "sagaSchemaMax": 3
+  },
+  "dependencies": [
+    {
+      "packId": "jjk-core",
+      "versionMin": "0.1.0",
+      "versionMax": "",
+      "required": false,
+      "reason": "Uses core Jujutsu Kaisen cursed energy, jujutsu society, Sukuna vessel, and spoiler-gate assumptions."
+    }
+  ],
+  "stats": {
+    "entryCount": 12,
+    "categoryCounts": {
+      "event": 3,
+      "faction": 2,
+      "knowledge": 1,
+      "relationship": 2,
+      "rule": 2,
+      "secret": 2
+    },
+    "timelineAnchorCount": 9,
+    "timelineWindowCount": 4
+  },
+  "license": {
+    "name": "Draft fan reference data",
+    "notes": "For local testing. Requires human canon review before reference release."
+  },
+  "health": {
+    "status": "good",
+    "notes": "Initial Origin through Death Painting scaffold passes local structural health checks; not a substitute for human canon review."
+  },
+  "library": {
+    "suggestedPath": [
+      "Jujutsu Kaisen",
+      "Manga Main"
+    ],
+    "familyOrder": 30
+  },
+  "entrySchemaVersion": 3,
+  "updatedAt": 1781136000000
+}

@@ -35,13 +35,13 @@ Relevant implementation points when this feature slice started:
     - `injection.tier.low`
   - These would become hidden-target walkthrough steps after the tab is removed.
 
-- `lore-panel.js`
+- `src/runtime/lore-panel.js`
   - Header and Session Metrics already compute selected lore through `getSelectedLoreInjectionCount()`.
   - Session Metrics already compute character/token estimates through `getInjectionCharacterStats()`.
   - `renderBasicInjectionTab()` provided the simplified Injection tab. This should become Advanced-only or be retired after its useful summary pieces are moved into Lorecards.
   - `renderSessionTab()` already shows metrics, but the current copy is diagnostic, not a new-user readiness card.
 
-- `scripts/test-visual-smoke-harness.mjs`
+- `tools/scripts/test-visual-smoke-harness.mjs`
   - The harness already checks runtime navigation and major surface strings.
   - It should gain assertions for Basic hidden tabs and Advanced visible tabs.
 
@@ -119,7 +119,7 @@ Avoid Basic-first labels such as:
 Files:
 
 - `runtime-navigation.js`
-- `lore-panel.js`
+- `src/runtime/lore-panel.js`
 
 Tasks:
 
@@ -146,7 +146,7 @@ Detailed ordered coverage now lives in [Saga Walkthrough Workflow Expansion Plan
 Files:
 
 - `runtime-guide-content.js`
-- `lore-panel.js`
+- `src/runtime/lore-panel.js`
 
 Tasks:
 
@@ -173,8 +173,8 @@ Acceptance:
 
 Files:
 
-- `lore-panel.js`
-- `style.css`
+- `src/runtime/lore-panel.js`
+- `styles/saga.css`
 
 Tasks:
 
@@ -201,8 +201,8 @@ Acceptance:
 
 Files:
 
-- `lore-panel.js`
-- `style.css`
+- `src/runtime/lore-panel.js`
+- `styles/saga.css`
 
 Tasks:
 
@@ -221,7 +221,7 @@ Acceptance:
 
 Files:
 
-- `lore-panel.js`
+- `src/runtime/lore-panel.js`
 - `runtime-guide-content.js`
 
 Tasks:
@@ -241,8 +241,8 @@ Acceptance:
 
 Files:
 
-- `lore-panel.js`
-- `constants.js`
+- `src/runtime/lore-panel.js`
+- `src/state/constants.js`
 
 Tasks:
 
@@ -259,9 +259,9 @@ Acceptance:
 
 Files:
 
-- `lore-panel.js`
-- `context-panel.js`
-- `scripts/test-visual-smoke-harness.mjs`
+- `src/runtime/lore-panel.js`
+- `src/context/context-panel.js`
+- `tools/scripts/test-visual-smoke-harness.mjs`
 
 Tasks:
 
@@ -287,9 +287,9 @@ Acceptance:
 Files:
 
 - `loredecks-tab-panel.js`
-- `lore-panel.js`
+- `src/runtime/lore-panel.js`
 - `docs/user/BASIC_WORKFLOW.md`
-- `scripts/test-visual-smoke-harness.mjs`
+- `tools/scripts/test-visual-smoke-harness.mjs`
 
 Tasks:
 
@@ -314,10 +314,10 @@ Acceptance:
 
 Files:
 
-- `lore-panel.js`
-- `settings-panel.js`
-- `style.css`
-- `scripts/test-visual-smoke-harness.mjs`
+- `src/runtime/lore-panel.js`
+- `src/settings/settings-panel.js`
+- `styles/saga.css`
+- `tools/scripts/test-visual-smoke-harness.mjs`
 
 Tasks:
 
@@ -347,8 +347,8 @@ Acceptance:
 
 Files:
 
-- `scripts/test-visual-smoke-harness.mjs`
-- `tests/visual-smoke.html`
+- `tools/scripts/test-visual-smoke-harness.mjs`
+- `tests/browser/visual-smoke.html`
 - `README.md`
 - `docs/user/BASIC_WORKFLOW.md`
 - `docs/user/ADVANCED_WORKFLOW.md`
@@ -376,33 +376,33 @@ Add checks:
 Recommended commands:
 
 ```powershell
-node --check runtime-navigation.js
-node --check runtime-experience-mode.js
-node --check runtime-guide-content.js
-node --check lore-panel.js
-node --check loredecks-tab-panel.js
-node --check context-panel.js
-node --check settings-panel.js
-node --check scripts\test-visual-smoke-harness.mjs
-node --check scripts\test-basic-readiness.mjs
-node --check scripts\test-experience-modes.mjs
-node scripts\test-basic-readiness.mjs
-node scripts\test-experience-modes.mjs
-node scripts\test-visual-smoke-harness.mjs
-node scripts\serve-visual-smoke.mjs --check --port 0
+node --check src/runtime/runtime-navigation.js
+node --check src/runtime/runtime-experience-mode.js
+node --check src/runtime/runtime-guide-content.js
+node --check src/runtime/lore-panel.js
+node --check src/loredecks/loredecks-tab-panel.js
+node --check src/context/context-panel.js
+node --check src/settings/settings-panel.js
+node --check tools\scripts\test-visual-smoke-harness.mjs
+node --check tools\scripts\test-basic-readiness.mjs
+node --check tools\scripts\test-experience-modes.mjs
+node tools\scripts\test-basic-readiness.mjs
+node tools\scripts\test-experience-modes.mjs
+node tools\scripts\test-visual-smoke-harness.mjs
+node tools\scripts\serve-visual-smoke.mjs --check --port 0
 ```
 
 Optional after implementation:
 
 ```powershell
-node scripts\serve-visual-smoke.mjs
+node tools\scripts\serve-visual-smoke.mjs
 ```
 
 Then inspect:
 
 ```text
-http://127.0.0.1:8765/tests/visual-smoke.html?mode=basic
-http://127.0.0.1:8765/tests/visual-smoke.html?mode=advanced&tab=injection
+http://127.0.0.1:8765/tests/browser/visual-smoke.html?mode=basic
+http://127.0.0.1:8765/tests/browser/visual-smoke.html?mode=advanced&tab=injection
 ```
 
 ## Out Of Scope For This Slice

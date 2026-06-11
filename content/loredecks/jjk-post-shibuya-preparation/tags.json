@@ -1,0 +1,344 @@
+{
+  "schemaVersion": 1,
+  "tags": {
+    "adaptation:manga": {
+      "label": "Manga",
+      "color": "#5b677a",
+      "textColor": "#ffffff",
+      "description": "Manga-primary continuity tag for Jujutsu Kaisen retrieval and filtering.",
+      "aliases": [
+        "manga"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "arc:perfect-preparation": {
+      "label": "Perfect Preparation",
+      "color": "#7b3f00",
+      "textColor": "#ffffff",
+      "description": "Perfect Preparation and Zenin clan collapse tag.",
+      "aliases": [
+        "Perfect Preparation arc"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "arc:post-shibuya": {
+      "label": "Post-Shibuya",
+      "color": "#7b3f00",
+      "textColor": "#ffffff",
+      "description": "Post-Shibuya aftermath, Itadori Extermination, and Culling Game setup tag.",
+      "aliases": [
+        "Post-Shibuya arc"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:gojo-satoru": {
+      "label": "Satoru Gojo",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Satoru Gojo post-Shibuya unavailable-state tag.",
+      "aliases": [
+        "Gojo post-Shibuya"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:itadori-yuji": {
+      "label": "Yuji Itadori",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Yuji Itadori post-Shibuya execution-state tag.",
+      "aliases": [
+        "Yuji post-Shibuya"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:kenjaku": {
+      "label": "Kenjaku",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Kenjaku post-Shibuya plan tag.",
+      "aliases": [
+        "Kenjaku Culling Game setup"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:mai-zenin": {
+      "label": "Mai Zenin",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Mai Zenin Perfect Preparation status tag.",
+      "aliases": [
+        "Mai Perfect Preparation"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:maki-zenin": {
+      "label": "Maki Zenin",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Maki Zenin Perfect Preparation state tag.",
+      "aliases": [
+        "Maki Perfect Preparation"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:megumi-fushiguro": {
+      "label": "Megumi Fushiguro",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Megumi Fushiguro Culling Game setup motivation tag.",
+      "aliases": [
+        "Megumi post-Shibuya"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:naoya-zenin": {
+      "label": "Naoya Zenin",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Naoya Zenin Perfect Preparation conflict tag.",
+      "aliases": [
+        "Naoya Perfect Preparation"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:okkotsu-yuta": {
+      "label": "Yuta Okkotsu",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Yuta Okkotsu post-Shibuya return tag.",
+      "aliases": [
+        "Yuta post-Shibuya"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:tengen": {
+      "label": "Tengen",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Tengen exposition and Culling Game setup tag.",
+      "aliases": [
+        "Tengen briefing"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:tsumiki-fushiguro": {
+      "label": "Tsumiki Fushiguro",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Tsumiki Fushiguro Culling Game urgency tag.",
+      "aliases": [
+        "Tsumiki Culling Game setup"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "continuity:jjk-manga-main": {
+      "label": "JJK Manga Main",
+      "color": "#4c5c68",
+      "textColor": "#ffffff",
+      "description": "Primary Jujutsu Kaisen manga continuity.",
+      "aliases": [
+        "JJK manga main"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:culling-game-players": {
+      "label": "Culling Game Players",
+      "color": "#7d3c98",
+      "textColor": "#ffffff",
+      "description": "Awakened, reincarnated, and forced participants in the Culling Game setup.",
+      "aliases": [
+        "Culling Game participant pool"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:jujutsu-society": {
+      "label": "Jujutsu Society",
+      "color": "#7d3c98",
+      "textColor": "#ffffff",
+      "description": "Jujutsu society crisis and order-state tag.",
+      "aliases": [
+        "post-Shibuya jujutsu society"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:zenin-clan": {
+      "label": "Zenin Clan",
+      "color": "#7d3c98",
+      "textColor": "#ffffff",
+      "description": "Zenin clan power structure and Perfect Preparation faction tag.",
+      "aliases": [
+        "Perfect Preparation Zenin clan"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "fandom:jjk": {
+      "label": "Jujutsu Kaisen",
+      "color": "#4c5c68",
+      "textColor": "#ffffff",
+      "description": "Jujutsu Kaisen fandom tag.",
+      "aliases": [
+        "JJK",
+        "Jujutsu Kaisen"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:maki-mai-sacrifice": {
+      "label": "Maki And Mai Sacrifice",
+      "color": "#922b21",
+      "textColor": "#ffffff",
+      "description": "Spoiler tag for Mai's sacrifice and Maki's changed body state.",
+      "aliases": [
+        "Maki Mai sacrifice spoiler"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:yuta-revival": {
+      "label": "Yuta Revival",
+      "color": "#922b21",
+      "textColor": "#ffffff",
+      "description": "Spoiler tag for Yuta's concealed support and revival of Yuji.",
+      "aliases": [
+        "Yuta revives Yuji spoiler"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:yuji-execution": {
+      "label": "Yuji Execution",
+      "color": "#922b21",
+      "textColor": "#ffffff",
+      "description": "Spoiler tag for Yuji's reinstated post-Shibuya execution order.",
+      "aliases": [
+        "Yuji execution order spoiler"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:culling-game-setup": {
+      "label": "Culling Game Setup",
+      "color": "#2e86c1",
+      "textColor": "#ffffff",
+      "description": "Culling Game setup, rules, and entry pressure.",
+      "aliases": [
+        "Culling Game setup topic"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:post-shibuya-aftermath": {
+      "label": "Post-Shibuya Aftermath",
+      "color": "#2e86c1",
+      "textColor": "#ffffff",
+      "description": "Immediate political and emotional aftermath of Shibuya.",
+      "aliases": [
+        "post-Shibuya aftermath topic"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:prison-realm": {
+      "label": "Prison Realm",
+      "color": "#2e86c1",
+      "textColor": "#ffffff",
+      "description": "Prison Realm unsealing setup and Gojo unavailable state.",
+      "aliases": [
+        "post-Shibuya Prison Realm"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:tengen-briefing": {
+      "label": "Tengen Briefing",
+      "color": "#2e86c1",
+      "textColor": "#ffffff",
+      "description": "Master Tengen exposition and Kenjaku plan setup.",
+      "aliases": [
+        "Master Tengen exposition"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:zenin-collapse": {
+      "label": "Zenin Collapse",
+      "color": "#2e86c1",
+      "textColor": "#ffffff",
+      "description": "Zenin clan collapse and Maki's Perfect Preparation aftermath.",
+      "aliases": [
+        "Zenin clan collapse topic"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    }
+  }
+}

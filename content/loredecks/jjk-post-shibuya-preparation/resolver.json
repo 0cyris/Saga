@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve Jujutsu Kaisen post-Shibuya and Perfect Preparation Context from Yuji's reinstated execution through Zenin clan collapse.",
+  "preferredFields": [
+    "arc",
+    "chapter",
+    "beforeAfter",
+    "majorEvent",
+    "yujiState",
+    "cullingSetupState",
+    "zeninState"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer post-Shibuya execution, Tengen, Culling Game setup, and Perfect Preparation anchors. Do not infer colony action, Gojo unsealing, Shinjuku, or final outcomes from this deck.",
+  "localPatterns": [
+    {
+      "pattern": "after shibuya",
+      "result": {
+        "anchorFrom": "jjk.post.execution-reinstated",
+        "label": "Post-Shibuya aftermath"
+      }
+    },
+    {
+      "pattern": "during itadori extermination",
+      "result": {
+        "anchorFrom": "jjk.post.execution-reinstated",
+        "anchorTo": "jjk.post.yuta-yuji-confrontation",
+        "label": "Itadori Extermination"
+      }
+    },
+    {
+      "pattern": "during tengen briefing",
+      "result": {
+        "anchorFrom": "jjk.post.tengen-briefing",
+        "anchorTo": "jjk.post.culling-game-rules-explained",
+        "label": "Tengen briefing and Culling Game setup"
+      }
+    },
+    {
+      "pattern": "before entering culling game",
+      "result": {
+        "anchorFrom": "jjk.post.tengen-briefing",
+        "anchorTo": "jjk.post.tsumiki-urgency-established",
+        "label": "Before entering the Culling Game"
+      }
+    },
+    {
+      "pattern": "during perfect preparation",
+      "result": {
+        "anchorFrom": "jjk.post.maki-returns-zenin",
+        "anchorTo": "jjk.post.zenin-clan-collapse",
+        "label": "Perfect Preparation"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "sceneDate": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "label": "string",
+    "branchId": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

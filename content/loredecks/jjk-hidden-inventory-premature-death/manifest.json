@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "id": "jjk-hidden-inventory-premature-death",
+  "type": "bundled",
+  "title": "Jujutsu Kaisen: Hidden Inventory and Premature Death",
+  "description": "Pre-mainline Loredeck for Gojo and Geto's student-era bond, the Star Plasma Vessel mission, Toji's disruption, Riko Amanai, and Geto's Premature Death defection boundary.",
+  "fandom": "Jujutsu Kaisen",
+  "era": "Hidden Inventory / Premature Death",
+  "contentKind": "fandom",
+  "author": "Saga",
+  "version": "0.1.0",
+  "defaultLocale": "en",
+  "tags": [
+    "fandom:jjk",
+    "continuity:jjk-manga-main",
+    "adaptation:manga",
+    "arc:hidden-inventory",
+    "arc:premature-death",
+    "quality:draft-reference"
+  ],
+  "source": {
+    "kind": "bundled",
+    "url": ""
+  },
+  "update": {
+    "checkForUpdates": false,
+    "url": "",
+    "lastCheckedAt": 0
+  },
+  "registries": {
+    "taxonomy": "taxonomy.json",
+    "tags": "tags.json",
+    "entities": "entities.json",
+    "timeline": "timeline.json",
+    "gateTypes": "gate-types.json",
+    "scoring": "scoring.json"
+  },
+  "resolver": "resolver.json",
+  "continuity": {
+    "continuityId": "jjk-manga-main",
+    "canonTier": "primary",
+    "adaptation": "manga",
+    "medium": "manga",
+    "sourceBoundary": "Jujutsu Kaisen Hidden Inventory and Premature Death manga pre-mainline material.",
+    "notes": "Mainline origin, Shibuya, Culling Game, Shinjuku, Jujutsu Kaisen 0 scene details, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+  },
+  "runtimeDefaults": {
+    "scanDepth": null,
+    "recursiveTriggers": false,
+    "tokenBudget": null
+  },
+  "files": [
+    "hidden_inventory/gojo_geto_riko.json",
+    "hidden_inventory/toji_and_tengen.json",
+    "hidden_inventory/premature_death.json"
+  ],
+  "compatibility": {
+    "sagaSchemaMin": 3,
+    "sagaSchemaMax": 3
+  },
+  "dependencies": [
+    {
+      "packId": "jjk-core",
+      "versionMin": "0.1.0",
+      "versionMax": "",
+      "required": false,
+      "reason": "Uses core Jujutsu Kaisen cursed energy, jujutsu society, technique, and spoiler-gate assumptions."
+    }
+  ],
+  "stats": {
+    "entryCount": 12,
+    "categoryCounts": {
+      "character": 1,
+      "event": 3,
+      "faction": 2,
+      "knowledge": 2,
+      "relationship": 1,
+      "rule": 1,
+      "secret": 2
+    },
+    "timelineAnchorCount": 8,
+    "timelineWindowCount": 3
+  },
+  "license": {
+    "name": "Draft fan reference data",
+    "notes": "For local testing. Requires human canon review before reference release."
+  },
+  "health": {
+    "status": "good",
+    "notes": "Initial Hidden Inventory and Premature Death scaffold passes local structural health checks; not a substitute for human canon review."
+  },
+  "library": {
+    "suggestedPath": [
+      "Jujutsu Kaisen",
+      "Manga Main"
+    ],
+    "familyOrder": 40
+  },
+  "entrySchemaVersion": 3,
+  "updatedAt": 1781136000000
+}

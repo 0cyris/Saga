@@ -27,7 +27,7 @@ Opening copy should be short:
 
 Use one image here at most:
 
-- `Images/branding/saga-banner-full.png`
+- `assets/branding/saga-banner-full.png`
 
 ### 2. Current Status
 
@@ -304,7 +304,7 @@ Detailed command suites belong in development docs.
 
 The README should use about 25-30 images, matching the current renderer matrix. It should not show every tiny control when a parent screenshot already captures that UI.
 
-Current accepted image set: 30 rendered PNGs in `Images/documentation/renders`.
+Current accepted image set: 30 rendered PNGs in `assets/documentation/renders`.
 
 The two newest required captures are the module-based walkthrough cards:
 
@@ -335,12 +335,12 @@ Keep out of the README body unless a short summary is needed:
 - Use **Loredeck** and **Lorecard** for the main object model.
 - Use **Bundled Lorepack**, **Generated Lorepack**, and **Custom Lorepack** only for the three public package type labels.
 - Keep the operator's manual inline in the GitHub README for the first overhaul pass.
-- Commit the curated README screenshot PNGs under `Images/documentation/renders`, while keeping the local `.saga-doc-renderer` harness ignored.
+- Commit the curated README screenshot PNGs under `assets/documentation/renders`, while keeping the local `.saga-doc-renderer` harness ignored.
 
 ## Suggested Implementation Sequence
 
 1. Draft the new README skeleton with headings and image placements.
 2. Move excessive current README detail into linked docs where needed.
-3. Insert curated screenshot references from `Images/documentation/renders`.
+3. Insert curated screenshot references from `assets/documentation/renders`.
 4. Re-read as a first-time tester and trim repeated explanations.
 5. Run markdown link checks and a quick rendered preview pass.

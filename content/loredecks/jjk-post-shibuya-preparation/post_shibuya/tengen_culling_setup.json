@@ -1,0 +1,469 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "jjk_post_tengen_briefing_reframes_kenjaku_plan",
+      "title": "Tengen Briefing Reframes Kenjaku's Plan",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 90,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.post.tengen-briefing",
+        "validToAnchor": "jjk.post.tsumiki-urgency-established",
+        "sortKeyFrom": 8800,
+        "sortKeyTo": 9100,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Tengen briefing and Culling Game setup"
+      },
+      "coordinates": [
+        {
+          "axis": "culling_setup_state",
+          "id": "rules-explained",
+          "label": "Culling Game setup is being explained",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:tengen",
+          "jjk:kenjaku",
+          "jjk:gojo-satoru"
+        ],
+        "characters": [
+          "Tengen",
+          "Kenjaku",
+          "Satoru Gojo"
+        ],
+        "locations": [],
+        "objects": [
+          "Prison Realm"
+        ],
+        "factions": [
+          "Jujutsu society"
+        ],
+        "topics": [
+          "Tengen briefing",
+          "Kenjaku plan",
+          "Culling Game setup"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:post-shibuya",
+        "character:tengen",
+        "character:kenjaku",
+        "character:gojo-satoru",
+        "faction:jujutsu-society",
+        "topic:tengen-briefing",
+        "topic:culling-game-setup",
+        "topic:prison-realm"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Tengen",
+            "Kenjaku",
+            "Satoru Gojo"
+          ],
+          "topicsAny": [
+            "Tengen briefing",
+            "Kenjaku plan",
+            "Culling Game setup"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen post-Shibuya aftermath through Perfect Preparation and Culling Game setup."
+      },
+      "content": {
+        "fact": "The Tengen briefing reframes the post-Shibuya crisis around Kenjaku's wider plan, Gojo's sealed state, and the coming Culling Game.",
+        "injection": "After the Tengen briefing anchor, let the cast discuss Kenjaku, Tengen, Gojo's unavailable state, and the Culling Game as linked strategic problems.",
+        "constraints": [
+          "Use later decks for colony-specific Culling Game outcomes."
+        ],
+        "antiLore": [
+          "Do not treat the Culling Game as already resolved or fully understood before the briefing and rule setup."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Post-Shibuya setup",
+        "chapterRange": "Tengen briefing",
+        "confidence": 0.84,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-post-shibuya-preparation",
+          "status": "initial_culling_setup_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_post_culling_game_rules_are_setup_not_colony_resolution",
+      "title": "Culling Game Rules Are Setup, Not Colony Resolution",
+      "kind": "rule",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.post.culling-game-rules-explained",
+        "validToAnchor": "jjk.post.zenin-clan-collapse",
+        "sortKeyFrom": 9000,
+        "sortKeyTo": 9650,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Culling Game rules and entry setup"
+      },
+      "coordinates": [
+        {
+          "axis": "culling_setup_state",
+          "id": "rules-explained",
+          "label": "Culling Game setup is being explained",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:kenjaku",
+          "jjk:culling-game-players"
+        ],
+        "characters": [
+          "Kenjaku"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Culling Game players"
+        ],
+        "topics": [
+          "Culling Game rules",
+          "colonies",
+          "player setup"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:post-shibuya",
+        "character:kenjaku",
+        "faction:culling-game-players",
+        "topic:culling-game-setup"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kenjaku"
+          ],
+          "topicsAny": [
+            "Culling Game rules",
+            "colonies",
+            "Culling Game setup"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen post-Shibuya aftermath through Perfect Preparation and Culling Game setup."
+      },
+      "content": {
+        "fact": "In this post-Shibuya slice, the Culling Game is a rules-and-entry setup pressure, not yet the full colony-by-colony conflict.",
+        "injection": "When Culling Game setup is active, use the rules, colonies, and player pressure as stakes while leaving actual colony battles to later decks.",
+        "constraints": [
+          "Do not reveal Higuruma, Hakari, Sendai, Tokyo colony outcomes, or late Culling Game convergence from this deck."
+        ],
+        "antiLore": [
+          "Do not skip from rule explanation to resolved colony outcomes."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Culling Game setup",
+        "chapterRange": "Rule explanation",
+        "confidence": 0.82,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-post-shibuya-preparation",
+          "status": "initial_culling_setup_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_post_tsumiki_and_prison_realm_goals_make_entry_urgent",
+      "title": "Tsumiki And Prison Realm Goals Make Entry Urgent",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.post.tsumiki-urgency-established",
+        "validToAnchor": "jjk.post.zenin-clan-collapse",
+        "sortKeyFrom": 9100,
+        "sortKeyTo": 9650,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Culling Game entry urgency"
+      },
+      "coordinates": [
+        {
+          "axis": "culling_setup_state",
+          "id": "entry-urgent",
+          "label": "Culling Game entry is urgent",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:megumi-fushiguro",
+          "jjk:tsumiki-fushiguro",
+          "jjk:gojo-satoru",
+          "jjk:culling-game-players"
+        ],
+        "characters": [
+          "Megumi Fushiguro",
+          "Tsumiki Fushiguro",
+          "Satoru Gojo"
+        ],
+        "locations": [],
+        "objects": [
+          "Prison Realm"
+        ],
+        "factions": [
+          "Culling Game players"
+        ],
+        "topics": [
+          "Tsumiki urgency",
+          "Gojo unsealing setup",
+          "Culling Game entry"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:post-shibuya",
+        "character:megumi-fushiguro",
+        "character:tsumiki-fushiguro",
+        "character:gojo-satoru",
+        "faction:culling-game-players",
+        "topic:culling-game-setup",
+        "topic:prison-realm"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Megumi Fushiguro",
+            "Tsumiki Fushiguro",
+            "Satoru Gojo"
+          ],
+          "topicsAny": [
+            "Tsumiki",
+            "Prison Realm",
+            "enter Culling Game"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen post-Shibuya aftermath through Perfect Preparation and Culling Game setup."
+      },
+      "content": {
+        "fact": "The setup pressure for entering the Culling Game includes saving Tsumiki and pursuing a path toward Gojo's eventual unsealing.",
+        "injection": "Before the Culling Game begins in earnest, frame Megumi's urgency around Tsumiki and the group's broader need to address Gojo's sealed state.",
+        "constraints": [
+          "Do not reveal later Tsumiki twists or Gojo unsealing events from this setup card."
+        ],
+        "antiLore": [
+          "Do not treat Culling Game entry as optional sport or detached from rescue pressure."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Culling Game setup",
+        "chapterRange": "Tsumiki and Prison Realm setup",
+        "confidence": 0.8,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-post-shibuya-preparation",
+          "status": "initial_culling_setup_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_post_preparation_team_forms_around_entering_culling_game",
+      "title": "Preparation Team Forms Around Entering The Culling Game",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "medium",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.post.culling-game-rules-explained",
+        "validToAnchor": "jjk.post.zenin-clan-collapse",
+        "sortKeyFrom": 9000,
+        "sortKeyTo": 9650,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Team prepares to enter the Culling Game"
+      },
+      "coordinates": [
+        {
+          "axis": "culling_setup_state",
+          "id": "entry-urgent",
+          "label": "Culling Game entry is urgent",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:itadori-yuji",
+          "jjk:yuta-okkotsu",
+          "jjk:megumi-fushiguro",
+          "jjk:culling-game-players"
+        ],
+        "characters": [
+          "Yuji Itadori",
+          "Yuta Okkotsu",
+          "Megumi Fushiguro"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Culling Game players",
+          "Jujutsu society"
+        ],
+        "topics": [
+          "preparation team",
+          "Culling Game entry",
+          "post-Shibuya regrouping"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:post-shibuya",
+        "character:itadori-yuji",
+        "character:okkotsu-yuta",
+        "character:megumi-fushiguro",
+        "faction:culling-game-players",
+        "faction:jujutsu-society",
+        "topic:culling-game-setup"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Yuji Itadori",
+            "Yuta Okkotsu",
+            "Megumi Fushiguro"
+          ],
+          "topicsAny": [
+            "Culling Game preparation",
+            "entering the Culling Game",
+            "post-Shibuya team"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen post-Shibuya aftermath through Perfect Preparation and Culling Game setup."
+      },
+      "content": {
+        "fact": "After the Culling Game rules are explained, the surviving group shifts from post-Shibuya emergency response into preparation for entry and rescue goals.",
+        "injection": "In late setup scenes, write Yuji, Yuta, Megumi, and allies as moving toward Culling Game entry rather than lingering in ordinary school routines.",
+        "constraints": [
+          "Keep actual colony pairings and fight outcomes for the Culling Game decks."
+        ],
+        "antiLore": [
+          "Do not treat the setup team as already having solved the game's rule and colony problems."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Culling Game setup",
+        "chapterRange": "Preparation before entry",
+        "confidence": 0.78,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-post-shibuya-preparation",
+          "status": "initial_culling_setup_slice"
+        }
+      }
+    }
+  ]
+}

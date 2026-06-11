@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "gateTypes": {
+    "contextual": {
+      "label": "Contextual",
+      "description": "Inject only when the scene Context reaches the relevant post-Shibuya window."
+    },
+    "spoiler_guard": {
+      "label": "Spoiler Guard",
+      "description": "Protect reveal timing and avoid leaking later outcomes."
+    },
+    "timeline": {
+      "label": "Timeline",
+      "description": "Use timeline anchors and windows to constrain retrieval."
+    }
+  }
+}

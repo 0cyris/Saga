@@ -31,7 +31,7 @@ Can a tester load the correct Loredecks, set or resolve Context, approve useful 
 The first committed data-level integration harness is:
 
 ```powershell
-node scripts\test-core-integration-hp-year6.mjs
+node tools\scripts\test-core-integration-hp-year6.mjs
 ```
 
 It currently proves the first HP Year 6 baseline:
@@ -49,7 +49,7 @@ It currently proves the first HP Year 6 baseline:
 The script also supports a local-only SillyTavern JSONL chat path:
 
 ```powershell
-node scripts\test-core-integration-hp-year6.mjs --chat="F:\SillyTavern\SillyTavern\data\default-user\chats\Story\Story - 2026-05-12@13h18m39s841ms.jsonl" --message-counts=40,80,120,200
+node tools\scripts\test-core-integration-hp-year6.mjs --chat="F:\SillyTavern\SillyTavern\data\default-user\chats\Story\Story - 2026-05-12@13h18m39s841ms.jsonl" --message-counts=40,80,120,200
 ```
 
 That mode does not commit or copy the chat. It only reads progressive slices and reports Context signal counts such as Christmas, Lavender, Apparition, Susan Bones, Slughorn, and Dumbledore. This is the staging point for the next test: feeding progressive transcript slices into Context detection and asserting Context movement over time.
@@ -57,7 +57,7 @@ That mode does not commit or copy the chat. It only reads progressive slices and
 The second committed progression harness is:
 
 ```powershell
-node scripts\test-core-integration-hp-year6-progression.mjs
+node tools\scripts\test-core-integration-hp-year6-progression.mjs
 ```
 
 It proves the next downstream layer:
@@ -79,7 +79,7 @@ Important product boundary: current Auto-Relevance changes relevance tiers only.
 The third accepted-injection harness is:
 
 ```powershell
-node scripts\test-core-integration-hp-year6-accepted-context.mjs
+node tools\scripts\test-core-integration-hp-year6-accepted-context.mjs
 ```
 
 It proves the alpha-critical accepted Lorecard behavior:
@@ -96,7 +96,7 @@ It proves the alpha-critical accepted Lorecard behavior:
 The fourth committed harness expands coverage beyond Year 6:
 
 ```powershell
-node scripts\test-core-integration-hp-year3.mjs
+node tools\scripts\test-core-integration-hp-year3.mjs
 ```
 
 It proves the same Context-to-injection contract against `hp-core` plus `hp-year-3-prisoner-of-azkaban`:
@@ -113,7 +113,7 @@ It proves the same Context-to-injection contract against `hp-core` plus `hp-year
 The fifth committed harness expands the same contract into Year 4:
 
 ```powershell
-node scripts\test-core-integration-hp-year4.mjs
+node tools\scripts\test-core-integration-hp-year4.mjs
 ```
 
 It proves `hp-core` plus `hp-year-4-goblet-of-fire` against tournament-to-aftermath progression:
@@ -130,11 +130,11 @@ It proves `hp-core` plus `hp-year-4-goblet-of-fire` against tournament-to-afterm
 The HP split-deck family now also includes deterministic progression harnesses for Year 1, Year 2, Year 5, Year 7, and Epilogue/Post-War:
 
 ```powershell
-node scripts\test-core-integration-hp-year1.mjs
-node scripts\test-core-integration-hp-year2.mjs
-node scripts\test-core-integration-hp-year5.mjs
-node scripts\test-core-integration-hp-year7.mjs
-node scripts\test-core-integration-hp-epilogue-post-war.mjs
+node tools\scripts\test-core-integration-hp-year1.mjs
+node tools\scripts\test-core-integration-hp-year2.mjs
+node tools\scripts\test-core-integration-hp-year5.mjs
+node tools\scripts\test-core-integration-hp-year7.mjs
+node tools\scripts\test-core-integration-hp-epilogue-post-war.mjs
 ```
 
 The Epilogue/Post-War harness proves the transition from immediate 1998 rebuilding to the 2014 Quidditch World Cup/DA reunion and then to the 2017 King's Cross epilogue. It confirms that pre-epilogue next-generation guards stop appearing when epilogue Context is current, stale immediate-rebuilding lore remains accepted but becomes `context_blocked`, and current 2017 platform lore injects.
@@ -194,7 +194,7 @@ This should use deterministic fixtures first:
 
 Live model calls should not be part of default regression tests. Model-backed Context tests can exist as optional QA scripts, but the core test suite must run offline and produce stable results.
 
-Implemented resolver edge coverage: `scripts/test-context-resolver.mjs` now asserts that a clean `sceneDate` remains authoritative when supporting Context text contains loose boundary phrases such as `before Apparition lessons`. The Jan. 25, 1997 checkpoint resolves to `hp.y6.window.post_christmas_before_apparition`, not the upcoming Apparition anchor. Phrase-only inputs remain covered by `scripts/test-context-hp-phrase-fixtures.mjs`.
+Implemented resolver edge coverage: `tools/scripts/test-context-resolver.mjs` now asserts that a clean `sceneDate` remains authoritative when supporting Context text contains loose boundary phrases such as `before Apparition lessons`. The Jan. 25, 1997 checkpoint resolves to `hp.y6.window.post_christmas_before_apparition`, not the upcoming Apparition anchor. Phrase-only inputs remain covered by `tools/scripts/test-context-hp-phrase-fixtures.mjs`.
 
 ### 3. Context-Gated Retrieval
 
@@ -284,15 +284,15 @@ The family has now expanded into the main HP reference split decks. Year 1 stres
 
 The harness should exercise these modules together:
 
-- `loredeck-loader.js`
-- `context-index.js`
-- `context-resolver.js`
+- `src/loredecks/loredeck-loader.js`
+- `src/context/context-index.js`
+- `src/context/context-resolver.js`
 - `context-gating.js`
-- `canon-lore-db.js`
+- `src/context/canon-lore-db.js`
 - `lore-relevance.js`
 - `memo-builder.js`
 - `prompt-injector.js`
-- relevant state helpers from `state-manager.js`
+- relevant state helpers from `src/state/state-manager.js`
 
 UI tests should come later. The first harness should be data-level and deterministic so it runs quickly and explains failures clearly.
 
@@ -322,7 +322,7 @@ Live-provider QA should never commit API keys, provider settings, raw private ch
 Before alpha, Saga should have deterministic tests proving:
 
 - Split HP Loredecks load through the same loader path used by runtime.
-- HP bundled defaults, `Loredecks/index.json`, duplicated manifests, Deck Health summaries, covers, tag registries, file lists, and empty active-stack defaults stay aligned.
+- HP bundled defaults, `content/loredecks/index.json`, duplicated manifests, Pack Health summaries, covers, tag registries, file lists, and empty active-stack defaults stay aligned.
 - Context patches select the expected timeline windows.
 - Multiple HP years prove the Context-to-suggestion-to-injection loop, not only Year 6.
 - Future Lorecards are blocked at the right Context positions.

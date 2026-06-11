@@ -1,0 +1,333 @@
+{
+  "schemaVersion": 1,
+  "tags": {
+    "adaptation:manga": {
+      "label": "Manga",
+      "color": "#5b677a",
+      "textColor": "#ffffff",
+      "description": "Manga-primary continuity tag for Jujutsu Kaisen retrieval and filtering.",
+      "aliases": [
+        "manga"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "arc:hidden-inventory": {
+      "label": "Hidden Inventory",
+      "color": "#7b3f00",
+      "textColor": "#ffffff",
+      "description": "Hidden Inventory arc tag.",
+      "aliases": [
+        "Hidden Inventory arc"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "arc:premature-death": {
+      "label": "Premature Death",
+      "color": "#7b3f00",
+      "textColor": "#ffffff",
+      "description": "Premature Death arc tag.",
+      "aliases": [
+        "Premature Death arc"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:geto-suguru": {
+      "label": "Suguru Geto",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Suguru Geto character tag for the student-era and defection boundary.",
+      "aliases": [
+        "student Geto",
+        "Suguru Geto hidden inventory"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:gojo-satoru": {
+      "label": "Satoru Gojo",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Satoru Gojo character tag for the student-era Hidden Inventory window.",
+      "aliases": [
+        "student Gojo",
+        "Satoru Gojo hidden inventory"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:haibara-yu": {
+      "label": "Yu Haibara",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Yu Haibara character tag.",
+      "aliases": [
+        "Haibara student"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:riko-amanai": {
+      "label": "Riko Amanai",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Riko Amanai character tag.",
+      "aliases": [
+        "Riko Amanai vessel"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:shoko-ieiri": {
+      "label": "Shoko Ieiri",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Shoko Ieiri student-era character tag.",
+      "aliases": [
+        "student Shoko"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:toji-fushiguro": {
+      "label": "Toji Fushiguro",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Toji Fushiguro character tag.",
+      "aliases": [
+        "Toji assassin"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:yuki-tsukumo": {
+      "label": "Yuki Tsukumo",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Yuki Tsukumo character tag.",
+      "aliases": [
+        "Yuki conversation"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "continuity:jjk-manga-main": {
+      "label": "JJK Manga Main",
+      "color": "#4c5c68",
+      "textColor": "#ffffff",
+      "description": "Primary Jujutsu Kaisen manga continuity.",
+      "aliases": [
+        "JJK manga main"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:geto-family": {
+      "label": "Geto Family",
+      "color": "#7d3c98",
+      "textColor": "#ffffff",
+      "description": "Suguru Geto's post-defection follower group tag.",
+      "aliases": [
+        "Geto follower group"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:jujutsu-society": {
+      "label": "Jujutsu Society",
+      "color": "#7d3c98",
+      "textColor": "#ffffff",
+      "description": "Jujutsu society institutional pressure tag.",
+      "aliases": [
+        "jujutsu society"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:q-group": {
+      "label": "Q Group",
+      "color": "#7d3c98",
+      "textColor": "#ffffff",
+      "description": "Q group opposition in the Star Plasma Vessel mission.",
+      "aliases": [
+        "Q organization"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:time-vessel-association": {
+      "label": "Time Vessel Association",
+      "color": "#7d3c98",
+      "textColor": "#ffffff",
+      "description": "Religious group opposing the Star Plasma Vessel merger.",
+      "aliases": [
+        "Time Vessel Association faction"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "fandom:jjk": {
+      "label": "Jujutsu Kaisen",
+      "color": "#4c5c68",
+      "textColor": "#ffffff",
+      "description": "Jujutsu Kaisen fandom tag.",
+      "aliases": [
+        "JJK",
+        "Jujutsu Kaisen"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "relationship:gojo-geto-students": {
+      "label": "Gojo and Geto Students",
+      "color": "#b04a7a",
+      "textColor": "#ffffff",
+      "description": "Gojo and Geto's student-era bond and ideological contrast.",
+      "aliases": [
+        "Gojo Geto student bond"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:geto-defection": {
+      "label": "Geto Defection",
+      "color": "#922b21",
+      "textColor": "#ffffff",
+      "description": "Suguru Geto's break from jujutsu society.",
+      "aliases": [
+        "Geto defection spoiler"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:riko-fate": {
+      "label": "Riko Fate",
+      "color": "#922b21",
+      "textColor": "#ffffff",
+      "description": "Riko Amanai's mission outcome spoiler tag.",
+      "aliases": [
+        "Riko fate spoiler"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:heavenly-restriction": {
+      "label": "Heavenly Restriction",
+      "color": "#2e86c1",
+      "textColor": "#ffffff",
+      "description": "Heavenly Restriction and Toji's physical anomaly in the mission.",
+      "aliases": [
+        "Toji heavenly restriction"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:non-sorcerer-hatred": {
+      "label": "Non-Sorcerer Hatred",
+      "color": "#2e86c1",
+      "textColor": "#ffffff",
+      "description": "Geto's anti-non-sorcerer ideology after his break.",
+      "aliases": [
+        "Geto anti non-sorcerer ideology"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:reverse-cursed-technique": {
+      "label": "Reverse Cursed Technique",
+      "color": "#2e86c1",
+      "textColor": "#ffffff",
+      "description": "Gojo's reverse cursed technique awakening during Hidden Inventory.",
+      "aliases": [
+        "Gojo reverse cursed technique"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:sorcerer-attrition": {
+      "label": "Sorcerer Attrition",
+      "color": "#2e86c1",
+      "textColor": "#ffffff",
+      "description": "Sorcerer death, exhaustion, and institutional attrition pressure.",
+      "aliases": [
+        "sorcerer attrition pressure"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:star-plasma-vessel": {
+      "label": "Star Plasma Vessel",
+      "color": "#2e86c1",
+      "textColor": "#ffffff",
+      "description": "Star Plasma Vessel mission and role tag.",
+      "aliases": [
+        "Star Plasma Vessel role"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:tengen-merger": {
+      "label": "Tengen Merger",
+      "color": "#2e86c1",
+      "textColor": "#ffffff",
+      "description": "Master Tengen merger ritual and institutional urgency tag.",
+      "aliases": [
+        "Tengen merger ritual"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    }
+  }
+}

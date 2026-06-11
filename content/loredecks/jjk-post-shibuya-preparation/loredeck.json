@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "id": "jjk-post-shibuya-preparation",
+  "type": "bundled",
+  "title": "Jujutsu Kaisen: Post-Shibuya and Perfect Preparation",
+  "description": "Post-Shibuya setup Loredeck for Yuji's reinstated execution order, Yuta's return, Tengen exposition, Culling Game setup, Maki and Mai, Zenin clan collapse, and Perfect Preparation aftermath.",
+  "fandom": "Jujutsu Kaisen",
+  "era": "Post-Shibuya / Perfect Preparation",
+  "contentKind": "fandom",
+  "author": "Saga",
+  "version": "0.1.0",
+  "defaultLocale": "en",
+  "tags": [
+    "fandom:jjk",
+    "continuity:jjk-manga-main",
+    "adaptation:manga",
+    "arc:post-shibuya",
+    "arc:perfect-preparation",
+    "quality:draft-reference"
+  ],
+  "source": {
+    "kind": "bundled",
+    "url": ""
+  },
+  "update": {
+    "checkForUpdates": false,
+    "url": "",
+    "lastCheckedAt": 0
+  },
+  "registries": {
+    "taxonomy": "taxonomy.json",
+    "tags": "tags.json",
+    "entities": "entities.json",
+    "timeline": "timeline.json",
+    "gateTypes": "gate-types.json",
+    "scoring": "scoring.json"
+  },
+  "resolver": "resolver.json",
+  "continuity": {
+    "continuityId": "jjk-manga-main",
+    "canonTier": "primary",
+    "adaptation": "manga",
+    "medium": "manga",
+    "sourceBoundary": "Jujutsu Kaisen post-Shibuya aftermath through Perfect Preparation and Culling Game setup.",
+    "notes": "Culling Game colony action, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+  },
+  "runtimeDefaults": {
+    "scanDepth": null,
+    "recursiveTriggers": false,
+    "tokenBudget": null
+  },
+  "files": [
+    "post_shibuya/punitive_return.json",
+    "post_shibuya/tengen_culling_setup.json",
+    "post_shibuya/perfect_preparation.json"
+  ],
+  "compatibility": {
+    "sagaSchemaMin": 3,
+    "sagaSchemaMax": 3
+  },
+  "dependencies": [
+    {
+      "packId": "jjk-core",
+      "versionMin": "0.1.0",
+      "versionMax": "",
+      "required": false,
+      "reason": "Uses core Jujutsu Kaisen cursed energy, jujutsu society, Sukuna vessel, technique, and spoiler-gate assumptions."
+    }
+  ],
+  "stats": {
+    "entryCount": 12,
+    "categoryCounts": {
+      "event": 3,
+      "faction": 2,
+      "knowledge": 3,
+      "rule": 2,
+      "secret": 2
+    },
+    "timelineAnchorCount": 9,
+    "timelineWindowCount": 4
+  },
+  "license": {
+    "name": "Draft fan reference data",
+    "notes": "For local testing. Requires human canon review before reference release."
+  },
+  "health": {
+    "status": "good",
+    "notes": "Initial Post-Shibuya and Perfect Preparation scaffold passes local structural health checks; not a substitute for human canon review."
+  },
+  "library": {
+    "suggestedPath": [
+      "Jujutsu Kaisen",
+      "Manga Main"
+    ],
+    "familyOrder": 60
+  },
+  "entrySchemaVersion": 3,
+  "updatedAt": 1781136000000
+}

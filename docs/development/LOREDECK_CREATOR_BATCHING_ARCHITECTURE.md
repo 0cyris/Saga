@@ -560,7 +560,7 @@ Unit tests:
 - Completed title unit cannot append duplicate titles.
 - Completed planning unit cannot append duplicate proposals.
 - Completed entry unit cannot append duplicate draft Lorecards.
-- `scripts/test-loredeck-creator-generation-recovery.mjs` exercises Creator-specific regression paths:
+- `tools/scripts/test-loredeck-creator-generation-recovery.mjs` exercises Creator-specific regression paths:
   - duplicate unit IDs from repeated clicks run only one provider call;
   - superseded late responses do not commit;
   - interrupted reopen state clears `activeGeneration` while preserving failed unit metadata;

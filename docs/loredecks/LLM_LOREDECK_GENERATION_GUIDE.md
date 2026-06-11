@@ -22,7 +22,7 @@ That bundle explains Saga's public terms, the authoring target, the schema contr
 If the LLM is expected to match Saga's current Creator workflow or produce data that fits the app, also include:
 
 - `loredeck-assistant.js`: source of the current staged Creator prompt builders and output expectations.
-- `loredeck-loader.js`: source of runtime loading, validation, Context, tag, and Pack Health behavior.
+- `src/loredecks/loredeck-loader.js`: source of runtime loading, validation, Context, tag, and Pack Health behavior.
 - `loredeck-creator-projects.js`: source of Creator stage state, review gates, and readiness concepts.
 - `docs/development/LOREDECK_CREATOR_BATCHING_ARCHITECTURE.md`: design notes for staged generation, micro-batching, retry, partial success, and review boundaries.
 
@@ -233,7 +233,7 @@ For a new LLM starting from scratch, provide:
 For an LLM expected to match the app's current Creator behavior, add:
 
 5. `loredeck-assistant.js`
-6. `loredeck-loader.js`
+6. `src/loredecks/loredeck-loader.js`
 7. `loredeck-creator-projects.js`
 8. `docs/development/LOREDECK_CREATOR_BATCHING_ARCHITECTURE.md`
 

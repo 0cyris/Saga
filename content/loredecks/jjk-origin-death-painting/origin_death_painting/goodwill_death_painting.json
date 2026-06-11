@@ -1,0 +1,429 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "jjk_origin_goodwill_event_establishes_school_rivalries",
+      "title": "Goodwill Event Establishes School Rivalries",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.main.kyoto-goodwill-event",
+        "validToAnchor": "jjk.main.hanami-goodwill-attack",
+        "sortKeyFrom": 3100,
+        "sortKeyTo": 3350,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Kyoto Goodwill Event"
+      },
+      "coordinates": [
+        {
+          "axis": "school_state",
+          "id": "goodwill-rivalries",
+          "label": "Tokyo and Kyoto rivalry pressure",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:tokyo-jujutsu-high",
+          "jjk:kyoto-jujutsu-high"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Tokyo Jujutsu High",
+          "Kyoto Jujutsu High"
+        ],
+        "topics": [
+          "Goodwill Event",
+          "school rivalry",
+          "Yuji reveal"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:kyoto-goodwill",
+        "faction:tokyo-jujutsu-high",
+        "faction:kyoto-jujutsu-high",
+        "secret:yuji-presumed-dead"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "Goodwill Event",
+            "Tokyo Kyoto rivalry",
+            "Yuji reveal"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath."
+      },
+      "content": {
+        "fact": "The Kyoto Goodwill Event foregrounds Tokyo/Kyoto school rivalry, Yuji's return to his classmates, and political pressure around his existence.",
+        "injection": "During the Goodwill Event, write school rivalry and Yuji's revealed survival as social pressure layered over training and competition.",
+        "constraints": [
+          "Do not treat the event as a normal sports meet; jujutsu politics and Yuji's status matter."
+        ],
+        "antiLore": [
+          "Do not let everyone react as if Yuji's survival was public knowledge throughout the training window."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen",
+        "chapterRange": "Kyoto Goodwill Event",
+        "confidence": 0.8,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-origin-death-painting",
+          "status": "initial_mainline_opening_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_origin_hanami_attack_turns_goodwill_into_emergency",
+      "title": "Hanami Attack Turns Goodwill Into Emergency",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "jjk.main.hanami-goodwill-attack",
+        "validToAnchor": "jjk.main.hanami-goodwill-attack",
+        "sortKeyFrom": 3350,
+        "sortKeyTo": 3350,
+        "precision": "anchor",
+        "label": "Hanami attack during Goodwill"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "goodwill-emergency",
+          "label": "Goodwill turns into emergency",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:tokyo-jujutsu-high",
+          "jjk:kyoto-jujutsu-high",
+          "jjk:cursed-spirits"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Tokyo Jujutsu High",
+          "Kyoto Jujutsu High",
+          "Cursed spirits"
+        ],
+        "topics": [
+          "Hanami attack",
+          "Goodwill Event emergency",
+          "curse faction escalation"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:kyoto-goodwill",
+        "faction:tokyo-jujutsu-high",
+        "faction:kyoto-jujutsu-high",
+        "faction:cursed-spirits"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "topicsAny": [
+            "Hanami attack",
+            "Goodwill emergency",
+            "curse faction attack"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath."
+      },
+      "content": {
+        "fact": "The Goodwill Event is interrupted by a serious curse-faction attack, shifting the Context from student rivalry into battlefield emergency.",
+        "injection": "Once the Goodwill attack starts, escalate tone and tactics from school competition to survival, coordination, and curse-faction threat response.",
+        "constraints": [
+          "Keep school-rivalry beats subordinate once the attack is active."
+        ],
+        "antiLore": [
+          "Do not continue writing the Goodwill Event as a controlled exercise after the attack begins."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen",
+        "chapterRange": "Kyoto Goodwill Event attack",
+        "confidence": 0.8,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-origin-death-painting",
+          "status": "initial_mainline_opening_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_origin_black_flash_changes_yuji_combat_rhythm",
+      "title": "Black Flash Changes Yuji's Combat Rhythm",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.main.hanami-goodwill-attack",
+        "validToAnchor": "jjk.main.death-painting-aftermath",
+        "sortKeyFrom": 3350,
+        "sortKeyTo": 3800,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Black Flash early training payoff"
+      },
+      "coordinates": [
+        {
+          "axis": "ability_state",
+          "id": "yuji-black-flash-aware",
+          "label": "Yuji has Black Flash experience",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:itadori-yuji",
+          "jjk:todo-aoi"
+        ],
+        "characters": [
+          "Yuji Itadori",
+          "Aoi Todo"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Black Flash",
+          "combat rhythm",
+          "Yuji training"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:kyoto-goodwill",
+        "character:itadori-yuji",
+        "character:todo-aoi",
+        "topic:black-flash"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Yuji Itadori",
+            "Aoi Todo"
+          ],
+          "topicsAny": [
+            "Black Flash",
+            "combat rhythm",
+            "Todo training"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath."
+      },
+      "content": {
+        "fact": "During the Goodwill crisis, Yuji's combat growth is shaped by learning to align cursed energy timing through Black Flash experience.",
+        "injection": "After this point, Yuji can be written with improved cursed-energy timing awareness, especially when fighting beside or after guidance from Todo.",
+        "constraints": [
+          "Do not grant unrelated advanced techniques from later arcs."
+        ],
+        "antiLore": [
+          "Do not write pre-Goodwill Yuji as already having this combat rhythm."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen",
+        "chapterRange": "Kyoto Goodwill Event attack",
+        "confidence": 0.78,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-origin-death-painting",
+          "status": "initial_mainline_opening_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_origin_death_painting_aftermath_burdens_yuji_and_nobara",
+      "title": "Death Painting Aftermath Burdens Yuji And Nobara",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "spoiler_guard",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "jjk.main.death-painting-aftermath",
+        "validToAnchor": "jjk.main.death-painting-aftermath",
+        "sortKeyFrom": 3800,
+        "sortKeyTo": 3800,
+        "precision": "anchor",
+        "label": "Death Painting aftermath"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "death-painting",
+          "label": "Death Painting aftermath",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:itadori-yuji",
+          "jjk:kugisaki-nobara"
+        ],
+        "characters": [
+          "Yuji Itadori",
+          "Nobara Kugisaki"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Death Painting aftermath",
+          "shared burden",
+          "killing curses with human ties"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:death-painting",
+        "character:itadori-yuji",
+        "character:kugisaki-nobara",
+        "topic:death-painting-wombs"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuji Itadori",
+            "Nobara Kugisaki"
+          ],
+          "topicsAny": [
+            "Death Painting",
+            "Eso and Kechizu",
+            "shared burden"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath."
+      },
+      "content": {
+        "fact": "The Death Painting aftermath leaves Yuji and Nobara with a shared emotional burden after fighting incarnated cursed wombs with human ties.",
+        "injection": "After Death Painting, let Yuji and Nobara carry a more complicated sense of violence, mercy, and responsibility from that fight.",
+        "constraints": [
+          "Keep later Choso and broader family implications gated to later decks unless explicitly in Context."
+        ],
+        "antiLore": [
+          "Do not treat the Death Painting fight as consequence-free monster cleanup."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen",
+        "chapterRange": "Death Painting arc aftermath",
+        "confidence": 0.8,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-origin-death-painting",
+          "status": "initial_mainline_opening_slice"
+        }
+      }
+    }
+  ]
+}

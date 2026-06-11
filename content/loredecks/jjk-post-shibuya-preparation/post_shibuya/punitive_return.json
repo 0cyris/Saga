@@ -1,0 +1,458 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "jjk_post_yuji_execution_reinstated_after_shibuya",
+      "title": "Yuji's Execution Is Reinstated After Shibuya",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "secret",
+      "revealPolicy": "spoiler_guard",
+      "priority": 94,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.post.execution-reinstated",
+        "validToAnchor": "jjk.post.zenin-clan-collapse",
+        "sortKeyFrom": 8300,
+        "sortKeyTo": 9650,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Yuji post-Shibuya execution order"
+      },
+      "coordinates": [
+        {
+          "axis": "yuji_state",
+          "id": "execution-reinstated",
+          "label": "Yuji's execution order is reinstated",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:itadori-yuji",
+          "jjk:jujutsu-society"
+        ],
+        "characters": [
+          "Yuji Itadori"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Jujutsu society"
+        ],
+        "topics": [
+          "execution order",
+          "Shibuya responsibility",
+          "post-Shibuya punishment"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:post-shibuya",
+        "character:itadori-yuji",
+        "faction:jujutsu-society",
+        "secret:yuji-execution",
+        "topic:post-shibuya-aftermath"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Yuji Itadori"
+          ],
+          "topicsAny": [
+            "Yuji execution",
+            "post-Shibuya execution order",
+            "Itadori Extermination"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen post-Shibuya aftermath through Perfect Preparation and Culling Game setup."
+      },
+      "content": {
+        "fact": "After Shibuya, Yuji's suspended execution status collapses into a reinstated order, making him a target of jujutsu society's punitive response.",
+        "injection": "In post-Shibuya scenes, write Yuji as carrying both personal trauma and an active execution order, not as safely returned to ordinary school life.",
+        "constraints": [
+          "Do not apply this reinstated-order state before the Shibuya aftermath anchor."
+        ],
+        "antiLore": [
+          "Do not reset Yuji to the early-series suspended-execution arrangement after Shibuya."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Itadori Extermination",
+        "chapterRange": "Post-Shibuya aftermath",
+        "confidence": 0.84,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-post-shibuya-preparation",
+          "status": "initial_post_shibuya_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_post_yuta_returns_as_yuji_executioner",
+      "title": "Yuta Returns As Yuji's Executioner",
+      "kind": "event",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.post.yuta-return-executioner",
+        "validToAnchor": "jjk.post.yuta-yuji-confrontation",
+        "sortKeyFrom": 8450,
+        "sortKeyTo": 8600,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Yuta appointed as Yuji executioner"
+      },
+      "coordinates": [
+        {
+          "axis": "yuji_state",
+          "id": "execution-reinstated",
+          "label": "Yuji's execution order is reinstated",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:yuta-okkotsu",
+          "jjk:itadori-yuji",
+          "jjk:jujutsu-society"
+        ],
+        "characters": [
+          "Yuta Okkotsu",
+          "Yuji Itadori"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Jujutsu society"
+        ],
+        "topics": [
+          "Yuta return",
+          "appointed executioner",
+          "post-Shibuya order"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:post-shibuya",
+        "character:okkotsu-yuta",
+        "character:itadori-yuji",
+        "faction:jujutsu-society",
+        "secret:yuji-execution"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuta Okkotsu",
+            "Yuji Itadori"
+          ],
+          "topicsAny": [
+            "Yuta returns",
+            "Yuji executioner",
+            "Itadori Extermination"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen post-Shibuya aftermath through Perfect Preparation and Culling Game setup."
+      },
+      "content": {
+        "fact": "Yuta Okkotsu returns after Shibuya under an official role as Yuji's executioner, making his arrival look like an immediate threat to Yuji.",
+        "injection": "During the Itadori Extermination window, present Yuta's return as institutionally dangerous for Yuji until the confrontation reveals more.",
+        "constraints": [
+          "Use the Jujutsu Kaisen 0 deck for Yuta's prequel history; this card covers his post-Shibuya role."
+        ],
+        "antiLore": [
+          "Do not write Yuta's return as casual support before the confrontation context exposes the hidden arrangement."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Itadori Extermination",
+        "chapterRange": "Yuta return",
+        "confidence": 0.82,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-post-shibuya-preparation",
+          "status": "initial_post_shibuya_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_post_yuta_confrontation_conceals_support_for_yuji",
+      "title": "Yuta's Confrontation Conceals Support For Yuji",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "secret",
+      "revealPolicy": "spoiler_guard",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.post.yuta-yuji-confrontation",
+        "validToAnchor": "jjk.post.zenin-clan-collapse",
+        "sortKeyFrom": 8600,
+        "sortKeyTo": 9650,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "After Yuta and Yuji confrontation"
+      },
+      "coordinates": [
+        {
+          "axis": "yuji_state",
+          "id": "protected-by-yuta",
+          "label": "Yuji has concealed Yuta support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:yuta-okkotsu",
+          "jjk:itadori-yuji",
+          "jjk:gojo-satoru"
+        ],
+        "characters": [
+          "Yuta Okkotsu",
+          "Yuji Itadori",
+          "Satoru Gojo"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Jujutsu society"
+        ],
+        "topics": [
+          "Yuta hidden support",
+          "Yuji revival",
+          "Gojo request"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:post-shibuya",
+        "character:okkotsu-yuta",
+        "character:itadori-yuji",
+        "character:gojo-satoru",
+        "faction:jujutsu-society",
+        "secret:yuta-revival",
+        "secret:yuji-execution"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Yuta Okkotsu",
+            "Yuji Itadori",
+            "Satoru Gojo"
+          ],
+          "topicsAny": [
+            "Yuta revives Yuji",
+            "Yuta hidden support",
+            "Gojo request"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen post-Shibuya aftermath through Perfect Preparation and Culling Game setup."
+      },
+      "content": {
+        "fact": "Yuta's confrontation with Yuji masks a concealed support arrangement: he can satisfy the execution order's appearance while keeping Yuji alive.",
+        "injection": "After the Yuta-Yuji confrontation anchor, distinguish Yuta's public executioner role from his concealed support for Yuji.",
+        "constraints": [
+          "Before the confrontation anchor, preserve the threat of Yuta's official role."
+        ],
+        "antiLore": [
+          "Do not reveal Yuta's support arrangement during the initial executioner setup."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Itadori Extermination",
+        "chapterRange": "Yuta and Yuji confrontation",
+        "confidence": 0.84,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-post-shibuya-preparation",
+          "status": "initial_post_shibuya_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_post_jujutsu_society_enters_punitive_crisis_state",
+      "title": "Jujutsu Society Enters A Punitive Crisis State",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.post.execution-reinstated",
+        "validToAnchor": "jjk.post.tengen-briefing",
+        "sortKeyFrom": 8300,
+        "sortKeyTo": 8800,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Post-Shibuya punitive crisis"
+      },
+      "coordinates": [
+        {
+          "axis": "yuji_state",
+          "id": "execution-reinstated",
+          "label": "Yuji's execution order is reinstated",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:jujutsu-society",
+          "jjk:itadori-yuji",
+          "jjk:gojo-satoru"
+        ],
+        "characters": [
+          "Yuji Itadori",
+          "Satoru Gojo"
+        ],
+        "locations": [],
+        "objects": [
+          "Prison Realm"
+        ],
+        "factions": [
+          "Jujutsu society"
+        ],
+        "topics": [
+          "post-Shibuya orders",
+          "Gojo unavailable",
+          "institutional crisis"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:post-shibuya",
+        "character:itadori-yuji",
+        "character:gojo-satoru",
+        "faction:jujutsu-society",
+        "secret:yuji-execution",
+        "topic:post-shibuya-aftermath",
+        "topic:prison-realm"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuji Itadori",
+            "Satoru Gojo"
+          ],
+          "topicsAny": [
+            "post-Shibuya orders",
+            "Gojo sealed",
+            "jujutsu society crisis"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen post-Shibuya aftermath through Perfect Preparation and Culling Game setup."
+      },
+      "content": {
+        "fact": "After Shibuya, jujutsu society reacts from a punitive crisis state while Gojo is unavailable and Yuji is blamed for catastrophic outcomes.",
+        "injection": "In immediate post-Shibuya institutional scenes, write jujutsu society as brittle, punitive, and destabilized rather than measured or transparent.",
+        "constraints": [
+          "Do not skip directly to Culling Game colony action from this institutional state."
+        ],
+        "antiLore": [
+          "Do not make the post-Shibuya authorities calmly coordinate with Yuji as if the execution order is gone."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Post-Shibuya aftermath",
+        "chapterRange": "Immediate aftermath and order state",
+        "confidence": 0.82,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-post-shibuya-preparation",
+          "status": "initial_post_shibuya_slice"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "id": "jjk-core",
+  "type": "bundled",
+  "title": "Jujutsu Kaisen: Core",
+  "description": "Core cursed energy, jujutsu society, technique, Domain Expansion, Binding Vow, and spoiler-gate constraints for manga-primary Jujutsu Kaisen roleplay.",
+  "fandom": "Jujutsu Kaisen",
+  "era": "Manga Main Core",
+  "contentKind": "fandom",
+  "author": "Saga",
+  "version": "0.1.0",
+  "defaultLocale": "en",
+  "tags": [
+    "fandom:jjk",
+    "continuity:jjk-manga-main",
+    "adaptation:manga",
+    "scope:core",
+    "quality:draft-reference"
+  ],
+  "source": {
+    "kind": "bundled",
+    "url": ""
+  },
+  "update": {
+    "checkForUpdates": false,
+    "url": "",
+    "lastCheckedAt": 0
+  },
+  "registries": {
+    "taxonomy": "taxonomy.json",
+    "tags": "tags.json",
+    "entities": "entities.json",
+    "timeline": "timeline.json",
+    "gateTypes": "gate-types.json",
+    "scoring": "scoring.json"
+  },
+  "resolver": "resolver.json",
+  "continuity": {
+    "continuityId": "jjk-manga-main",
+    "canonTier": "primary",
+    "adaptation": "manga",
+    "medium": "manga",
+    "sourceBoundary": "Jujutsu Kaisen manga mainline, including Jujutsu Kaisen 0 as prequel context and main series chapters 1-271.",
+    "notes": "Anime-only changes, movies beyond Jujutsu Kaisen 0 adaptation differences, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate overlay decks unless explicitly loaded."
+  },
+  "runtimeDefaults": {
+    "scanDepth": null,
+    "recursiveTriggers": false,
+    "tokenBudget": null
+  },
+  "files": [
+    "core/cursed_energy_rules.json",
+    "core/knowledge_gates.json",
+    "core/status_and_spoiler_guards.json"
+  ],
+  "compatibility": {
+    "sagaSchemaMin": 3,
+    "sagaSchemaMax": 3
+  },
+  "stats": {
+    "entryCount": 8,
+    "categoryCounts": {
+      "faction": 1,
+      "knowledge": 1,
+      "rule": 4,
+      "secret": 2
+    },
+    "timelineAnchorCount": 6,
+    "timelineWindowCount": 3
+  },
+  "license": {
+    "name": "Draft fan reference data",
+    "notes": "For local testing. Requires human canon review before reference release."
+  },
+  "health": {
+    "status": "good",
+    "notes": "Initial core scaffold passes local structural health checks; not a substitute for human canon review."
+  },
+  "library": {
+    "suggestedPath": [
+      "Jujutsu Kaisen",
+      "Manga Main"
+    ],
+    "familyOrder": 10
+  },
+  "entrySchemaVersion": 3,
+  "updatedAt": 1781136000000
+}

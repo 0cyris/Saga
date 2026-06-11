@@ -46,27 +46,28 @@ Internal metadata may record source, derivation, update URLs, generation details
 
 ## Suggested File Layout
 
-Bundled Lorepacks should live under `Loredecks/`.
+Bundled Lorepacks should live under `content/loredecks/`.
 
 ```text
-Loredecks/
-  hp-golden-trio/
-    loredeck.json
-    assets/
-      cover.png
-      banner.png
-    taxonomy.json
-    tags.json
-    entities.json
-    timeline.json
-    resolver.json
-    gate-types.json
-    scoring.json
-    chronology/
-    characters/
-    knowledge_gates/
-    future_guards/
-    user/
+content/
+  loredecks/
+    hp-golden-trio/
+      loredeck.json
+      assets/
+        cover.png
+        banner.png
+      taxonomy.json
+      tags.json
+      entities.json
+      timeline.json
+      resolver.json
+      gate-types.json
+      scoring.json
+      chronology/
+      characters/
+      knowledge_gates/
+      future_guards/
+      user/
 ```
 
 Custom and Generated Lorepacks may eventually live in a user data location managed by SillyTavern or Saga. The loader should not assume every pack is bundled with the extension.
@@ -1838,7 +1839,7 @@ Current tag health behavior:
 
 ## Import And Export Packages
 
-Saga's public Loredeck import/export format should be a zip package that mirrors the bundled `Loredecks/` folder shape. The active development plan lives in [../development/LOREDECK_ZIP_PACKAGE_IMPORT_EXPORT_PLAN.md](../development/LOREDECK_ZIP_PACKAGE_IMPORT_EXPORT_PLAN.md).
+Saga's current public Loredeck import/export format is a zip package with a `loredecks/` root inside the archive. The active development plan lives in [../development/LOREDECK_ZIP_PACKAGE_IMPORT_EXPORT_PLAN.md](../development/LOREDECK_ZIP_PACKAGE_IMPORT_EXPORT_PLAN.md).
 
 Front-facing `.saga-loredeck.json` import/export was legacy interim behavior and should not appear in the Library UI. Public sharing should use `.saga-loredeck.zip` packages.
 
@@ -1853,7 +1854,7 @@ Preferred package shape:
 ```text
 my-pack.saga-loredeck.zip
   saga-package.json
-  Loredecks/
+  loredecks/
     index.json
     my-pack-core/
       loredeck.json
@@ -1866,7 +1867,7 @@ my-pack.saga-loredeck.zip
         core.json
 ```
 
-`Loredecks/index.json` should list the package's included Loredecks and folder metadata. Package exports should prefer a neutral `loredecks` array, while importers can accept bundled-style `bundled` indexes as compatibility input and still install those decks as Custom user content.
+`loredecks/index.json` should list the package's included Loredecks and folder metadata. Package exports use a neutral `loredecks` array, and package import installs those decks as Custom user content.
 
 Saga should reject zip entries that try to escape the package root with absolute paths, drive-letter paths, `..` traversal, NUL characters, or backslash-normalized traversal. Saga should also reject executable or active content inside Loredeck packages; packages are data-only containers.
 
@@ -1976,17 +1977,17 @@ Imported keyword-heavy packs may not have Context data. That should be allowed. 
 The old root `Lore/manifest.json` migration mapped to:
 
 ```text
-Loredecks/hp-golden-trio/loredeck.json
-Loredecks/hp-golden-trio/taxonomy.json
-Loredecks/hp-golden-trio/gate-types.json
-Loredecks/hp-golden-trio/scoring.json
-Loredecks/hp-golden-trio/chronology/
-Loredecks/hp-golden-trio/characters/
-Loredecks/hp-golden-trio/knowledge_gates/
+content/loredecks/hp-golden-trio/loredeck.json
+content/loredecks/hp-golden-trio/taxonomy.json
+content/loredecks/hp-golden-trio/gate-types.json
+content/loredecks/hp-golden-trio/scoring.json
+content/loredecks/hp-golden-trio/chronology/
+content/loredecks/hp-golden-trio/characters/
+content/loredecks/hp-golden-trio/knowledge_gates/
 ...
 ```
 
-The HP pack now lives under `Loredecks/hp-golden-trio` and should remain the source of truth for the bundled reference deck. Root `Lore/` fallback loading has been removed.
+The HP bundled family now lives under `content/loredecks/` and should remain the source of truth for bundled reference decks. Root `Lore/` fallback loading has been removed.
 
 ## Fandom Stress Test
 

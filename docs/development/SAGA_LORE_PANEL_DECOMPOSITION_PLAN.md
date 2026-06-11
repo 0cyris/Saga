@@ -42,7 +42,7 @@ Phase 3 progress:
 - Editor-specific repair planner UI remains in `lore-panel.js` until the Loredeck editor/detail surfaces are extracted.
 - Current post-extraction line count: `lore-panel.js` is 32,779 lines, `loredeck-health-panel.js` is 1,580 lines, `runtime-theme.js` is 740 lines, and `runtime-ui-kit.js` is 507 lines.
 - Validation passed with `node --check` on `loredeck-health-panel.js`, `lore-panel.js`, `index.js`, `runtime-theme.js`, and `runtime-ui-kit.js`; ES module import smoke passed for `loredeck-health-panel.js` and `lore-panel.js`; a fake-data helper smoke passed for cached health, grouped issues, and status descriptors.
-- Direct ES module import of `index.js` is not a valid Node smoke because it expects SillyTavern browser globals such as `$`; keep `node --check index.js` for this slice and use browser smoke for runtime behavior.
+- Direct ES module import of `src/extension/index.js` is not a valid Node smoke because it expects SillyTavern browser globals such as `$`; keep `node --check src/extension/index.js` for this slice and use browser smoke for runtime behavior.
 
 Phase 4 progress:
 
@@ -204,7 +204,7 @@ Responsibilities:
 - Export `refreshLorePanel`.
 - Export `resetLorePanelLayout`.
 - Import and delegate to the runtime shell.
-- Preserve existing callers from `index.js`.
+- Preserve existing callers from `src/extension/index.js`.
 
 Target size: 200-500 lines after full decomposition.
 
@@ -543,7 +543,7 @@ Tasks:
 
 - Record current line count and main section ranges.
 - Record public exports and current callers.
-- Confirm `index.js` imports only the public facade.
+- Confirm `src/extension/index.js` imports only the public facade.
 - Add this plan to docs.
 - Identify the minimum validation commands for every extraction slice.
 
@@ -842,8 +842,8 @@ Exit criteria:
 Run after every extraction slice:
 
 ```powershell
-node --check lore-panel.js
-node --check index.js
+node --check src/runtime/lore-panel.js
+node --check src/extension/index.js
 ```
 
 Also run `node --check` for each new module.
@@ -851,16 +851,16 @@ Also run `node --check` for each new module.
 Run relevant deterministic scripts when the slice touches the related system:
 
 ```powershell
-node scripts\test-core-integration-hp-year6.mjs
-node scripts\test-core-integration-hp-year6-progression.mjs
-node scripts\test-core-integration-hp-year6-accepted-context.mjs
-node scripts\test-hp-reference-deck-conformance.mjs
+node tools\scripts\test-core-integration-hp-year6.mjs
+node tools\scripts\test-core-integration-hp-year6-progression.mjs
+node tools\scripts\test-core-integration-hp-year6-accepted-context.mjs
+node tools\scripts\test-hp-reference-deck-conformance.mjs
 ```
 
 Run visual smoke when the slice touches UI surfaces:
 
 ```text
-tests/visual-smoke.html
+tests/browser/visual-smoke.html
 ```
 
 For major UI extractions, also test in live SillyTavern:

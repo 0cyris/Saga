@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve Jujutsu Kaisen Hidden Inventory and Premature Death Context from Gojo and Geto's student baseline through Geto's defection.",
+  "preferredFields": [
+    "arc",
+    "chapter",
+    "beforeAfter",
+    "majorEvent",
+    "gojoState",
+    "getoState",
+    "missionState"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer pre-mainline flashback arc, mission, and defection anchors. Do not infer mainline Shibuya, Culling Game, or Shinjuku outcomes from this deck.",
+  "localPatterns": [
+    {
+      "pattern": "during hidden inventory",
+      "result": {
+        "anchorFrom": "jjk.hidden.gojo-geto-student-baseline",
+        "anchorTo": "jjk.hidden.riko-death-and-mission-collapse",
+        "label": "Hidden Inventory mission"
+      }
+    },
+    {
+      "pattern": "during the riko escort",
+      "result": {
+        "anchorFrom": "jjk.hidden.star-plasma-vessel-mission",
+        "anchorTo": "jjk.hidden.riko-death-and-mission-collapse",
+        "label": "Riko escort mission"
+      }
+    },
+    {
+      "pattern": "after toji attacks",
+      "result": {
+        "anchorFrom": "jjk.hidden.toji-assassin-intervention",
+        "label": "After Toji disrupts the mission"
+      }
+    },
+    {
+      "pattern": "after riko dies",
+      "result": {
+        "anchorFrom": "jjk.hidden.riko-death-and-mission-collapse",
+        "label": "After Riko's death"
+      }
+    },
+    {
+      "pattern": "after geto defects",
+      "result": {
+        "anchorFrom": "jjk.hidden.geto-defection",
+        "label": "After Geto's defection"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "sceneDate": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "label": "string",
+    "branchId": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

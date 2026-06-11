@@ -1,0 +1,179 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "sortKeyScale": "pack_local",
+  "anchors": [
+    {
+      "id": "jjk.zero.yuta-and-rika-curse-baseline",
+      "label": "Yuta and Rika curse baseline",
+      "sortKey": 100,
+      "aliases": [
+        "Yuta haunted by Rika",
+        "Rika curse baseline"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen 0",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen 0"
+      }
+    },
+    {
+      "id": "jjk.zero.geto-faction-active",
+      "label": "Geto faction active",
+      "sortKey": 250,
+      "aliases": [
+        "Geto faction",
+        "Geto active in prequel"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen 0",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen 0"
+      }
+    },
+    {
+      "id": "jjk.zero.yuta-enters-tokyo-jujutsu-high",
+      "label": "Yuta enters Tokyo Jujutsu High",
+      "sortKey": 500,
+      "aliases": [
+        "Yuta starts at Tokyo school",
+        "Yuta joins Jujutsu High"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen 0",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen 0"
+      }
+    },
+    {
+      "id": "jjk.zero.yuta-field-training-with-classmates",
+      "label": "Yuta trains with classmates",
+      "sortKey": 650,
+      "aliases": [
+        "Yuta classmate training",
+        "prequel field training"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen 0",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen 0"
+      }
+    },
+    {
+      "id": "jjk.zero.night-parade-declared",
+      "label": "Night Parade is declared",
+      "sortKey": 820,
+      "aliases": [
+        "Night Parade declared",
+        "Geto declares Night Parade"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen 0",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen 0"
+      }
+    },
+    {
+      "id": "jjk.zero.geto-defeated",
+      "label": "Geto defeated after Night Parade",
+      "sortKey": 920,
+      "aliases": [
+        "Geto defeated",
+        "after Night Parade"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen 0",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen 0"
+      }
+    },
+    {
+      "id": "jjk.zero.rika-released",
+      "label": "Rika is released",
+      "sortKey": 950,
+      "aliases": [
+        "Rika released",
+        "Rika curse resolved"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen 0",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen 0"
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "jjk.zero.window.full-prequel",
+      "label": "Jujutsu Kaisen 0 Prequel",
+      "anchorFrom": "jjk.zero.yuta-and-rika-curse-baseline",
+      "anchorTo": "jjk.zero.rika-released",
+      "sortKeyFrom": 100,
+      "sortKeyTo": 950,
+      "aliases": [
+        "JJK 0",
+        "prequel"
+      ]
+    },
+    {
+      "id": "jjk.zero.window.yuta-training",
+      "label": "Yuta Training Window",
+      "anchorFrom": "jjk.zero.yuta-enters-tokyo-jujutsu-high",
+      "anchorTo": "jjk.zero.night-parade-declared",
+      "sortKeyFrom": 500,
+      "sortKeyTo": 820,
+      "aliases": [
+        "Yuta training",
+        "prequel school training"
+      ]
+    },
+    {
+      "id": "jjk.zero.window.night-parade",
+      "label": "Night Parade Climax",
+      "anchorFrom": "jjk.zero.night-parade-declared",
+      "anchorTo": "jjk.zero.rika-released",
+      "sortKeyFrom": 820,
+      "sortKeyTo": 950,
+      "aliases": [
+        "Night Parade",
+        "prequel climax"
+      ]
+    }
+  ],
+  "coordinateAxes": [
+    {
+      "axis": "arc",
+      "label": "Arc",
+      "values": [
+        "jjk-zero",
+        "night-parade"
+      ]
+    },
+    {
+      "axis": "yuta_state",
+      "label": "Yuta State",
+      "values": [
+        "haunted-by-rika",
+        "early-training",
+        "post-rika-release"
+      ]
+    },
+    {
+      "axis": "relationship_state",
+      "label": "Relationship State",
+      "values": [
+        "yuta-rika-bound",
+        "yuta-classmate-trust",
+        "yuta-rika-release"
+      ]
+    },
+    {
+      "axis": "faction_state",
+      "label": "Faction State",
+      "values": [
+        "geto-family-active",
+        "geto-pre-mainline-defeated"
+      ]
+    }
+  ]
+}

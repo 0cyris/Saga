@@ -115,16 +115,16 @@ Do not treat a deck with warnings or suggestions as a reference model. Those sta
 The current Harry Potter reference checks are:
 
 ```powershell
-node scripts\test-hp-loredeck-health.mjs
-node scripts\test-hp-loredeck-v3-conformance.mjs
-node scripts\test-hp-reference-deck-conformance.mjs
+node tools\scripts\test-hp-loredeck-health.mjs
+node tools\scripts\test-hp-loredeck-v3-conformance.mjs
+node tools\scripts\test-hp-reference-deck-conformance.mjs
 ```
 
 For Context-sensitive work, also run:
 
 ```powershell
-node scripts\test-context-hp-phrase-fixtures.mjs
-node scripts\test-context-current-contract.mjs
+node tools\scripts\test-context-hp-phrase-fixtures.mjs
+node tools\scripts\test-context-current-contract.mjs
 ```
 
 Future deck families should get equivalent health, conformance, and Context fixture checks before they are treated as reference models.

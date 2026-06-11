@@ -1,0 +1,253 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
+import { readFile } from 'node:fs/promises';
+import { fileURLToPath, pathToFileURL } from 'node:url';
+
+const ROOT = process.cwd();
+const LOREDECK_ROOT = path.join(ROOT, 'content', 'loredecks');
+
+function readJson(relativePath) {
+  return JSON.parse(fs.readFileSync(path.join(ROOT, relativePath), 'utf8'));
+}
+
+function clone(value) {
+  return JSON.parse(JSON.stringify(value));
+}
+
+function normalizeManifestRef(value = '') {
+  return String(value || '').replace(/\\/g, '/').replace(/^content\/loredecks\//, '');
+}
+
+function listEntries(deckRoot) {
+  const entries = [];
+  for (const name of fs.readdirSync(deckRoot, { withFileTypes: true })) {
+    const full = path.join(deckRoot, name.name);
+    if (name.isDirectory()) {
+      entries.push(...listEntries(full));
+      continue;
+    }
+    if (!name.isFile() || !name.name.endsWith('.json')) continue;
+    const json = JSON.parse(fs.readFileSync(full, 'utf8'));
+    if (!Array.isArray(json.entries)) continue;
+    entries.push(...json.entries);
+  }
+  return entries;
+}
+
+function categoryCounts(entries) {
+  const counts = {};
+  for (const entry of entries) {
+    const category = String(entry.category || 'other').trim() || 'other';
+    counts[category] = (counts[category] || 0) + 1;
+  }
+  return Object.fromEntries(Object.entries(counts).sort((a, b) => a[0].localeCompare(b[0])));
+}
+
+function timelineWindowLikeCount(timeline = {}) {
+  return [
+    ...(Array.isArray(timeline.windows) ? timeline.windows : []),
+    ...(Array.isArray(timeline.arcs) ? timeline.arcs : []),
+    ...(Array.isArray(timeline.phases) ? timeline.phases : []),
+  ].length;
+}
+
+function installFileFetchMock() {
+  globalThis.fetch = async function fetchLocalJson(url) {
+    const resolved = url instanceof URL
+      ? url
+      : String(url || '').startsWith('file:')
+        ? new URL(url)
+        : pathToFileURL(String(url || ''));
+    const text = await readFile(fileURLToPath(resolved), 'utf8');
+    return {
+      ok: true,
+      status: 200,
+      statusText: 'OK',
+      async json() {
+        return JSON.parse(text);
+      },
+      async text() {
+        return text;
+      },
+    };
+  };
+}
+
+installFileFetchMock();
+
+const {
+  DEFAULT_BUNDLED_LOREDECK_CONTEXTS,
+  DEFAULT_BUNDLED_LOREDECK_IDS,
+  DEFAULT_BUNDLED_LOREDECK_LIBRARY_PACKS,
+  DEFAULT_BUNDLED_LOREDECK_LIBRARY_RECORDS,
+  DEFAULT_HP_LOREDECK_CONTEXTS,
+  DEFAULT_HP_LOREDECK_ID,
+  DEFAULT_HP_LOREDECK_IDS,
+  DEFAULT_HP_LOREDECK_LIBRARY_PACKS,
+  DEFAULT_HP_LOREDECK_STACK,
+  DEFAULT_JJK_LOREDECK_IDS,
+  DEFAULT_LOTR_LOREDECK_IDS,
+  DEFAULT_MHA_LOREDECK_IDS,
+  DEFAULT_STAR_WARS_LEGENDS_LOREDECK_IDS,
+  HP_LEGACY_LOREDECK_ID,
+} = await import('../../src/loredecks/loredeck-defaults.js');
+const { DEFAULT_SETTINGS, getDefaultState } = await import('../../src/state/constants.js');
+const {
+  createFolderIdFromPath,
+  getFolderPath,
+  normalizeLoredeckLibraryIndex,
+} = await import('../../src/loredecks/loredeck-library-index.js');
+const { loadLoredeckSourceById } = await import('../../src/loredecks/loredeck-loader.js');
+
+const index = readJson('content/loredecks/index.json');
+const bundled = Array.isArray(index.bundled) ? index.bundled : [];
+const bundledIds = bundled.map(record => String(record.packId || '').trim());
+const bundledDefaultIds = Array.from(DEFAULT_BUNDLED_LOREDECK_IDS);
+const bundledDefaultRecords = Array.from(DEFAULT_BUNDLED_LOREDECK_LIBRARY_RECORDS);
+const hpDefaultIds = Array.from(DEFAULT_HP_LOREDECK_IDS);
+const lotrDefaultIds = Array.from(DEFAULT_LOTR_LOREDECK_IDS);
+const mhaDefaultIds = Array.from(DEFAULT_MHA_LOREDECK_IDS);
+const jjkDefaultIds = Array.from(DEFAULT_JJK_LOREDECK_IDS);
+const starWarsDefaultIds = Array.from(DEFAULT_STAR_WARS_LEGENDS_LOREDECK_IDS);
+const hpFolderPath = ['Harry Potter', 'Golden Trio'];
+const lotrFolderPath = ['Lord of The Rings', 'War of the Ring'];
+const mhaFolderPath = ['My Hero Academia', 'Manga Main'];
+const jjkFolderPath = ['Jujutsu Kaisen', 'Manga Main'];
+const starWarsFolderPath = ['Star Wars', 'Legends'];
+const lotrFolderId = createFolderIdFromPath(lotrFolderPath);
+const mhaFolderId = createFolderIdFromPath(mhaFolderPath);
+const jjkFolderId = createFolderIdFromPath(jjkFolderPath);
+const starWarsFolderId = createFolderIdFromPath(starWarsFolderPath);
+const defaultState = getDefaultState();
+const defaultLibraryIndex = normalizeLoredeckLibraryIndex(defaultState.loredeckRegistry, {
+  packs: defaultState.loredeckRegistry.packs,
+});
+
+assert.equal(DEFAULT_HP_LOREDECK_ID, 'hp-core', 'Default selected HP Loredeck should be hp-core.');
+assert.deepEqual(DEFAULT_HP_LOREDECK_STACK, [], 'Built-in HP active stack defaults should be empty.');
+assert.deepEqual(DEFAULT_SETTINGS.loredeckLibrary.activeStack, [], 'Settings default Loredeck active stack should be empty.');
+assert.deepEqual(defaultState.loredeckStack, [], 'State default Loredeck active stack should be empty.');
+assert.equal(defaultState.lorePanel.selectedLoredeckId, '', 'State default selected Loredeck should stay empty until the user selects one.');
+
+assert.equal(hpDefaultIds.includes(HP_LEGACY_LOREDECK_ID), false, 'Default HP deck IDs must not include legacy hp-golden-trio.');
+assert.equal(Object.hasOwn(DEFAULT_HP_LOREDECK_LIBRARY_PACKS, HP_LEGACY_LOREDECK_ID), false, 'Default HP library packs must not include legacy hp-golden-trio.');
+assert.equal(Object.hasOwn(DEFAULT_HP_LOREDECK_CONTEXTS, HP_LEGACY_LOREDECK_ID), false, 'Default HP Contexts must not include legacy hp-golden-trio.');
+assert.equal(bundledIds.includes(HP_LEGACY_LOREDECK_ID), false, 'content/loredecks/index.json must not register legacy hp-golden-trio.');
+
+assert.deepEqual(bundledIds, bundledDefaultIds, 'Bundled Loredeck index order should match default bundled Loredeck IDs.');
+assert.deepEqual(bundledDefaultRecords.map(record => record.packId), bundledDefaultIds, 'Default bundled library record order should match default bundled Loredeck IDs.');
+assert.deepEqual(Object.keys(DEFAULT_BUNDLED_LOREDECK_LIBRARY_PACKS), bundledDefaultIds, 'Default bundled library pack map keys should match default bundled Loredeck IDs.');
+assert.deepEqual(Object.keys(DEFAULT_BUNDLED_LOREDECK_CONTEXTS), bundledDefaultIds, 'Default bundled Context map keys should match default bundled Loredeck IDs.');
+assert.deepEqual(Object.keys(DEFAULT_SETTINGS.loredeckLibrary.packs), bundledDefaultIds, 'Settings default Loredeck Library packs should include every bundled deck.');
+assert.deepEqual(Object.keys(defaultState.loredeckRegistry.packs), bundledDefaultIds, 'State default Loredeck registry should include every bundled deck.');
+assert.deepEqual(Object.keys(defaultState.loredeckContexts), bundledDefaultIds, 'State default Loredeck Contexts should include every bundled deck.');
+assert.deepEqual(hpDefaultIds, bundledDefaultIds.slice(0, hpDefaultIds.length), 'HP bundled decks should remain first in bundled order.');
+assert.deepEqual(lotrDefaultIds, bundledDefaultIds.slice(hpDefaultIds.length, hpDefaultIds.length + lotrDefaultIds.length), 'LOTR bundled decks should follow HP bundled decks.');
+assert.deepEqual(mhaDefaultIds, bundledDefaultIds.slice(hpDefaultIds.length + lotrDefaultIds.length, hpDefaultIds.length + lotrDefaultIds.length + mhaDefaultIds.length), 'MHA bundled decks should follow LOTR bundled decks.');
+assert.deepEqual(jjkDefaultIds, bundledDefaultIds.slice(hpDefaultIds.length + lotrDefaultIds.length + mhaDefaultIds.length, hpDefaultIds.length + lotrDefaultIds.length + mhaDefaultIds.length + jjkDefaultIds.length), 'JJK bundled decks should follow MHA bundled decks.');
+assert.deepEqual(starWarsDefaultIds, bundledDefaultIds.slice(hpDefaultIds.length + lotrDefaultIds.length + mhaDefaultIds.length + jjkDefaultIds.length), 'Star Wars bundled decks should follow JJK bundled decks.');
+assert.deepEqual(getFolderPath(lotrFolderId, defaultLibraryIndex), lotrFolderPath, 'Default Library index should create the Lord of The Rings War of the Ring folder.');
+assert.deepEqual(getFolderPath(mhaFolderId, defaultLibraryIndex), mhaFolderPath, 'Default Library index should create the My Hero Academia Manga Main folder.');
+assert.deepEqual(getFolderPath(jjkFolderId, defaultLibraryIndex), jjkFolderPath, 'Default Library index should create the Jujutsu Kaisen Manga Main folder.');
+assert.deepEqual(getFolderPath(starWarsFolderId, defaultLibraryIndex), starWarsFolderPath, 'Default Library index should create the Star Wars Legends folder.');
+
+for (const deckId of hpDefaultIds) {
+  assert.deepEqual(DEFAULT_BUNDLED_LOREDECK_LIBRARY_PACKS[deckId].library?.suggestedPath, hpFolderPath, `${deckId} should stay in the HP Golden Trio folder.`);
+  assert.equal(DEFAULT_BUNDLED_LOREDECK_CONTEXTS[deckId].contextType, 'calendar', `${deckId} should keep calendar Context defaults.`);
+}
+
+for (const deckId of lotrDefaultIds) {
+  assert.deepEqual(DEFAULT_BUNDLED_LOREDECK_LIBRARY_PACKS[deckId].library?.suggestedPath, lotrFolderPath, `${deckId} should live under the Lord of The Rings War of the Ring folder.`);
+  assert.equal(DEFAULT_BUNDLED_LOREDECK_CONTEXTS[deckId].contextType, 'anchor_window', `${deckId} should use anchor-window Context defaults.`);
+  assert.equal(defaultLibraryIndex.deckPlacements.find(item => item.deckId === deckId)?.folderId, lotrFolderId, `${deckId} should be placed in the default Lord of The Rings folder.`);
+}
+
+for (const deckId of mhaDefaultIds) {
+  assert.deepEqual(DEFAULT_BUNDLED_LOREDECK_LIBRARY_PACKS[deckId].library?.suggestedPath, mhaFolderPath, `${deckId} should live under the My Hero Academia Manga Main folder.`);
+  assert.equal(DEFAULT_BUNDLED_LOREDECK_CONTEXTS[deckId].contextType, 'anchor_window', `${deckId} should use anchor-window Context defaults.`);
+  assert.equal(defaultLibraryIndex.deckPlacements.find(item => item.deckId === deckId)?.folderId, mhaFolderId, `${deckId} should be placed in the default My Hero Academia folder.`);
+}
+
+for (const deckId of jjkDefaultIds) {
+  assert.deepEqual(DEFAULT_BUNDLED_LOREDECK_LIBRARY_PACKS[deckId].library?.suggestedPath, jjkFolderPath, `${deckId} should live under the Jujutsu Kaisen Manga Main folder.`);
+  assert.equal(DEFAULT_BUNDLED_LOREDECK_CONTEXTS[deckId].contextType, 'anchor_window', `${deckId} should use anchor-window Context defaults.`);
+  assert.equal(defaultLibraryIndex.deckPlacements.find(item => item.deckId === deckId)?.folderId, jjkFolderId, `${deckId} should be placed in the default Jujutsu Kaisen folder.`);
+}
+
+for (const deckId of starWarsDefaultIds) {
+  assert.deepEqual(DEFAULT_BUNDLED_LOREDECK_LIBRARY_PACKS[deckId].library?.suggestedPath, starWarsFolderPath, `${deckId} should live under the Star Wars Legends folder.`);
+  assert.equal(DEFAULT_BUNDLED_LOREDECK_CONTEXTS[deckId].contextType, 'anchor_window', `${deckId} should use anchor-window Context defaults.`);
+  assert.equal(defaultLibraryIndex.deckPlacements.find(item => item.deckId === deckId)?.folderId, starWarsFolderId, `${deckId} should be placed in the default Star Wars folder.`);
+}
+
+for (const deckId of bundledDefaultIds) {
+  const deckRoot = path.join(LOREDECK_ROOT, deckId);
+  const manifestPath = path.join(deckRoot, 'loredeck.json');
+  const duplicateManifestPath = path.join(deckRoot, 'manifest.json');
+  const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+  const duplicateManifest = JSON.parse(fs.readFileSync(duplicateManifestPath, 'utf8'));
+  const indexRecord = bundled.find(record => record.packId === deckId);
+  const defaultRecord = DEFAULT_BUNDLED_LOREDECK_LIBRARY_PACKS[deckId];
+  const entries = listEntries(deckRoot);
+  const timeline = JSON.parse(fs.readFileSync(path.join(deckRoot, 'timeline.json'), 'utf8'));
+
+  assert.deepEqual(duplicateManifest, manifest, `${deckId} loredeck.json and manifest.json should stay identical.`);
+  assert.ok(indexRecord, `${deckId} should exist in content/loredecks/index.json.`);
+  assert.ok(defaultRecord, `${deckId} should exist in default bundled library packs.`);
+  assert.equal(normalizeManifestRef(defaultRecord.manifest), `${deckId}/loredeck.json`, `${deckId} default manifest reference should point to deck-local loredeck.json.`);
+  assert.equal(normalizeManifestRef(indexRecord.manifest), `${deckId}/loredeck.json`, `${deckId} index manifest reference should point to deck-local loredeck.json.`);
+
+  for (const field of ['title', 'description', 'fandom', 'era', 'author', 'version', 'entrySchemaVersion', 'updatedAt']) {
+    assert.deepEqual(indexRecord[field], manifest[field], `${deckId} index ${field} should match manifest.`);
+    assert.deepEqual(defaultRecord[field], manifest[field], `${deckId} default ${field} should match manifest.`);
+  }
+
+  assert.deepEqual(indexRecord.library, manifest.library, `${deckId} index library metadata should match manifest.`);
+  assert.deepEqual(defaultRecord.library, manifest.library, `${deckId} default library metadata should match manifest.`);
+  assert.deepEqual(indexRecord.tags, manifest.tags, `${deckId} index tags should match manifest.`);
+  assert.deepEqual(defaultRecord.tags, manifest.tags, `${deckId} default tags should match manifest.`);
+  assert.deepEqual(indexRecord.stats, manifest.stats, `${deckId} index stats should match manifest.`);
+  assert.deepEqual(defaultRecord.stats, manifest.stats, `${deckId} default stats should match manifest.`);
+  assert.deepEqual(indexRecord.assets, manifest.assets, `${deckId} index assets should match manifest.`);
+  assert.deepEqual(defaultRecord.assets, manifest.assets, `${deckId} default assets should match manifest.`);
+  if (manifest.assets?.cover?.path) {
+    const coverPath = manifest.assets.cover.path;
+    assert.match(coverPath, /^assets\/cover\.(?:png|jpe?g|webp)$/i, `${deckId} manifest should use a deck-local cover image.`);
+    assert.equal(indexRecord.assets?.cover?.path, coverPath, `${deckId} index should use the manifest cover path.`);
+    assert.equal(defaultRecord.assets?.cover?.path, coverPath, `${deckId} defaults should use the manifest cover path.`);
+    assert.ok(fs.existsSync(path.join(deckRoot, coverPath)), `${deckId} cover asset should exist.`);
+  } else {
+    assert.equal(indexRecord.assets?.cover, undefined, `${deckId} index should not invent a missing cover.`);
+    assert.equal(defaultRecord.assets?.cover, undefined, `${deckId} defaults should not invent a missing cover.`);
+  }
+
+  assert.equal(manifest.registries?.timeline, 'timeline.json', `${deckId} should expose timeline.json.`);
+  assert.equal(manifest.registries?.tags, 'tags.json', `${deckId} should expose tags.json.`);
+  assert.ok(fs.existsSync(path.join(deckRoot, 'tags.json')), `${deckId} should include tags.json.`);
+
+  assert.equal(entries.length, manifest.stats.entryCount, `${deckId} entry count should match manifest stats.`);
+  assert.deepEqual(categoryCounts(entries), manifest.stats.categoryCounts, `${deckId} category counts should match manifest stats.`);
+  assert.equal((timeline.anchors || []).length, manifest.stats.timelineAnchorCount, `${deckId} timeline anchor count should match manifest stats.`);
+  assert.equal(timelineWindowLikeCount(timeline), manifest.stats.timelineWindowCount, `${deckId} timeline window count should match manifest stats.`);
+
+  for (const file of manifest.files || []) {
+    assert.ok(fs.existsSync(path.join(deckRoot, file)), `${deckId} manifest file should exist: ${file}`);
+  }
+
+  const source = await loadLoredeckSourceById(deckId);
+  assert.equal(source.health.errors.length, 0, `${deckId} should have no Deck Health errors.`);
+  if (hpDefaultIds.includes(deckId) || mhaDefaultIds.includes(deckId) || jjkDefaultIds.includes(deckId)) {
+    assert.equal(source.health.status, 'good', `${deckId} Deck Health should be good.`);
+    assert.equal(source.health.warnings.length, 0, `${deckId} should have no Deck Health warnings.`);
+  }
+  if (hpDefaultIds.includes(deckId) || jjkDefaultIds.includes(deckId)) {
+    assert.equal(source.health.suggestions.length, 0, `${deckId} should have no Deck Health suggestions.`);
+  }
+  assert.equal(source.health.summary.entryCount, manifest.stats.entryCount, `${deckId} health entry count should match manifest.`);
+  assert.deepEqual(clone(source.health.summary.categoryCounts), manifest.stats.categoryCounts, `${deckId} health category counts should match manifest.`);
+  assert.equal(source.health.summary.timelineAnchorCount, manifest.stats.timelineAnchorCount, `${deckId} health timeline anchor count should match manifest.`);
+  assert.equal(source.health.summary.timelineWindowCount, manifest.stats.timelineWindowCount, `${deckId} health timeline window count should match manifest.`);
+}
+
+console.log('Bundled reference deck conformance tests passed.');

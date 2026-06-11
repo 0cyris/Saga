@@ -1,0 +1,174 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "sortKeyScale": "pack_local",
+  "anchors": [
+    {
+      "id": "jjk.core.jujutsu-society-baseline",
+      "label": "Jujutsu society baseline",
+      "sortKey": 0,
+      "aliases": [
+        "jujutsu society baseline",
+        "hidden jujutsu world"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen"
+      }
+    },
+    {
+      "id": "jjk.zero.yuta-enters-tokyo-jujutsu-high",
+      "label": "Yuta enters Tokyo Jujutsu High",
+      "sortKey": 500,
+      "aliases": [
+        "Jujutsu Kaisen 0",
+        "Yuta prequel"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen 0",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen 0"
+      }
+    },
+    {
+      "id": "jjk.main.yuji-eats-sukuna-finger",
+      "label": "Yuji becomes Sukuna's vessel",
+      "sortKey": 1000,
+      "aliases": [
+        "Yuji eats Sukuna finger",
+        "Yuji becomes vessel"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen",
+        "chapterRange": "Opening chapters"
+      }
+    },
+    {
+      "id": "jjk.shibuya.gojo-sealed",
+      "label": "Gojo is sealed in Shibuya",
+      "sortKey": 6500,
+      "aliases": [
+        "Gojo sealed",
+        "Prison Realm"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen",
+        "chapterRange": "Shibuya Incident"
+      }
+    },
+    {
+      "id": "jjk.culling.gojo-unsealed",
+      "label": "Gojo is unsealed",
+      "sortKey": 12600,
+      "aliases": [
+        "Gojo unsealed",
+        "after Prison Realm"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen",
+        "chapterRange": "Late Culling Game"
+      }
+    },
+    {
+      "id": "jjk.shinjuku.final-aftermath",
+      "label": "Final aftermath",
+      "sortKey": 15000,
+      "aliases": [
+        "JJK final aftermath",
+        "chapter 271 aftermath"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen",
+        "chapterRange": "Final chapters"
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "jjk.core.window.full-main-continuity",
+      "label": "JJK Manga Main Continuity",
+      "anchorFrom": "jjk.core.jujutsu-society-baseline",
+      "anchorTo": "jjk.shinjuku.final-aftermath",
+      "sortKeyFrom": 0,
+      "sortKeyTo": 15000,
+      "aliases": [
+        "JJK manga",
+        "main continuity"
+      ]
+    },
+    {
+      "id": "jjk.core.window.yuji-mainline",
+      "label": "Yuji Mainline Story",
+      "anchorFrom": "jjk.main.yuji-eats-sukuna-finger",
+      "anchorTo": "jjk.shinjuku.final-aftermath",
+      "sortKeyFrom": 1000,
+      "sortKeyTo": 15000,
+      "aliases": [
+        "Yuji mainline",
+        "main series"
+      ]
+    },
+    {
+      "id": "jjk.core.window.gojo-sealed",
+      "label": "Gojo Sealed Window",
+      "anchorFrom": "jjk.shibuya.gojo-sealed",
+      "anchorTo": "jjk.culling.gojo-unsealed",
+      "sortKeyFrom": 6500,
+      "sortKeyTo": 12600,
+      "aliases": [
+        "Gojo sealed era",
+        "post-Shibuya before Gojo unsealed"
+      ]
+    }
+  ],
+  "coordinateAxes": [
+    {
+      "axis": "arc",
+      "label": "Arc",
+      "values": [
+        "zero",
+        "origin",
+        "shibuya",
+        "culling-game",
+        "shinjuku-showdown"
+      ]
+    },
+    {
+      "axis": "knowledge_state",
+      "label": "Knowledge State",
+      "values": [
+        "hidden-jujutsu-world",
+        "sorcerer-informed",
+        "public-exposure-risk"
+      ]
+    },
+    {
+      "axis": "sukuna_vessel_state",
+      "label": "Sukuna Vessel State",
+      "values": [
+        "pre-vessel",
+        "yuji-vessel",
+        "late-series-state"
+      ]
+    },
+    {
+      "axis": "gojo_status",
+      "label": "Gojo Status",
+      "values": [
+        "active",
+        "sealed",
+        "unsealed",
+        "final-aftermath"
+      ]
+    }
+  ]
+}

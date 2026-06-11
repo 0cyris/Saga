@@ -22,7 +22,7 @@ This document records the public terminology for Saga after the Loredeck/Lore En
 
 Public copy, UI labels, tooltips, and docs should use **Loredeck**, **Lorecard**, and **Pack Health**. Use **Bundled Lorepack**, **Generated Lorepack**, and **Custom Lorepack** when describing the three public Loredeck package types.
 
-Internal identifiers may temporarily remain `loredeck`, `packId`, `loredeck.json`, and `Loredecks/` to reduce churn while Saga stabilizes. Do not rename internal files, schema keys, persisted state keys, or export bundle fields until compatibility aliases and migration tests exist.
+Internal identifiers may remain `loredeck`, `packId`, and `loredeck.json` while Saga stabilizes. Bundled repo content lives under `content/loredecks/`, and public package archives use `loredecks/`; do not introduce compatibility aliases for old root paths in pre-alpha work.
 
 When a user-facing path or code sample must reference the current on-disk format, keep the real path or field name and explain it as an internal/development name.
 

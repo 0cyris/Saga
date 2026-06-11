@@ -6,9 +6,10 @@ readme.saga
 # Local documentation render harness and temporary browser fixtures.
 .saga-doc-renderer/
 .tmp/
-Images/documentation/renders/*
-!Images/documentation/renders/
-!Images/documentation/renders/*.png
+tmp-*.log
+assets/documentation/renders/*
+!assets/documentation/renders/
+!assets/documentation/renders/*.png
 
 # Local developer secrets and scratch config.
 # Keep the extension keyring/client files tracked; these patterns are only for

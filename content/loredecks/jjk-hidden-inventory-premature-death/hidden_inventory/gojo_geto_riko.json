@@ -1,0 +1,468 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "jjk_hidden_gojo_geto_student_bond_sets_the_baseline",
+      "title": "Gojo And Geto's Student Bond Sets The Baseline",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.hidden.gojo-geto-student-baseline",
+        "validToAnchor": "jjk.hidden.riko-death-and-mission-collapse",
+        "sortKeyFrom": 100,
+        "sortKeyTo": 720,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Gojo and Geto student-era baseline"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "hidden-inventory",
+          "label": "Hidden Inventory",
+          "required": false
+        },
+        {
+          "axis": "geto_state",
+          "id": "student-idealist",
+          "label": "Geto is still a student-era idealist",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:gojo-satoru",
+          "jjk:suguru-geto",
+          "jjk:shoko-ieiri"
+        ],
+        "characters": [
+          "Satoru Gojo",
+          "Suguru Geto",
+          "Shoko Ieiri"
+        ],
+        "locations": [
+          "Tokyo Jujutsu High"
+        ],
+        "objects": [],
+        "factions": [
+          "Jujutsu society"
+        ],
+        "topics": [
+          "student-era strongest duo",
+          "sorcerer duty",
+          "ideological contrast"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:hidden-inventory",
+        "character:gojo-satoru",
+        "character:geto-suguru",
+        "character:shoko-ieiri",
+        "relationship:gojo-geto-students"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Satoru Gojo",
+            "Suguru Geto",
+            "Shoko Ieiri"
+          ],
+          "topicsAny": [
+            "Hidden Inventory",
+            "student Gojo and Geto",
+            "strongest duo"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Hidden Inventory and Premature Death manga pre-mainline material."
+      },
+      "content": {
+        "fact": "During Hidden Inventory, Gojo and Geto are student-era peers whose confidence, trust, and contrasting moral instincts frame the Star Plasma Vessel mission.",
+        "injection": "In Hidden Inventory scenes, write Gojo and Geto as close student peers with real trust and visible ideological contrast, not as their later separated adult states.",
+        "constraints": [
+          "Keep Jujutsu Kaisen 0 and mainline adult fallout gated unless the Context has moved beyond Premature Death."
+        ],
+        "antiLore": [
+          "Do not collapse student Geto into his later cult-leader posture before the Premature Death break."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Hidden Inventory",
+        "chapterRange": "Hidden Inventory opening",
+        "confidence": 0.82,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-hidden-inventory-premature-death",
+          "status": "initial_hidden_inventory_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_hidden_star_plasma_vessel_mission_requires_tengen_merger_context",
+      "title": "Star Plasma Vessel Mission Requires Tengen Merger Context",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 90,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.hidden.star-plasma-vessel-mission",
+        "validToAnchor": "jjk.hidden.riko-death-and-mission-collapse",
+        "sortKeyFrom": 200,
+        "sortKeyTo": 720,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Star Plasma Vessel mission"
+      },
+      "coordinates": [
+        {
+          "axis": "mission_state",
+          "id": "escort-active",
+          "label": "Riko escort mission is active",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:riko-amanai",
+          "jjk:tengen",
+          "jjk:jujutsu-society"
+        ],
+        "characters": [
+          "Riko Amanai",
+          "Tengen"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Jujutsu society"
+        ],
+        "topics": [
+          "Star Plasma Vessel",
+          "Tengen merger",
+          "escort mission"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:hidden-inventory",
+        "character:riko-amanai",
+        "faction:jujutsu-society",
+        "topic:star-plasma-vessel",
+        "topic:tengen-merger"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Riko Amanai",
+            "Tengen"
+          ],
+          "topicsAny": [
+            "Star Plasma Vessel",
+            "Tengen merger",
+            "Riko escort"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Hidden Inventory and Premature Death manga pre-mainline material."
+      },
+      "content": {
+        "fact": "The Star Plasma Vessel mission exists because Riko Amanai is tied to Tengen's merger, making her escort a high-stakes jujutsu society assignment.",
+        "injection": "When the Star Plasma Vessel mission is in Context, treat Riko's protection as an institutional priority tied to Tengen rather than a routine bodyguard job.",
+        "constraints": [
+          "Do not reveal the mission's final outcome before the Context reaches the mission collapse anchor."
+        ],
+        "antiLore": [
+          "Do not write Riko as merely a random civilian target with no Tengen context."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Hidden Inventory",
+        "chapterRange": "Star Plasma Vessel mission setup",
+        "confidence": 0.82,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-hidden-inventory-premature-death",
+          "status": "initial_hidden_inventory_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_hidden_riko_amanai_is_targeted_as_the_star_plasma_vessel",
+      "title": "Riko Amanai Is Targeted As The Star Plasma Vessel",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "secret",
+      "revealPolicy": "spoiler_guard",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.hidden.riko-amanai-targeted",
+        "validToAnchor": "jjk.hidden.riko-death-and-mission-collapse",
+        "sortKeyFrom": 300,
+        "sortKeyTo": 720,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Riko targeted before mission collapse"
+      },
+      "coordinates": [
+        {
+          "axis": "mission_state",
+          "id": "escort-active",
+          "label": "Riko escort mission is active",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:riko-amanai",
+          "jjk:q-group",
+          "jjk:time-vessel-association"
+        ],
+        "characters": [
+          "Riko Amanai"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Q group",
+          "Time Vessel Association"
+        ],
+        "topics": [
+          "Star Plasma Vessel target",
+          "bounty pressure",
+          "Riko protection"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:hidden-inventory",
+        "character:riko-amanai",
+        "faction:q-group",
+        "faction:time-vessel-association",
+        "topic:star-plasma-vessel",
+        "secret:riko-fate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Riko Amanai"
+          ],
+          "topicsAny": [
+            "Riko targeted",
+            "Star Plasma Vessel",
+            "Time Vessel Association"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Hidden Inventory and Premature Death manga pre-mainline material."
+      },
+      "content": {
+        "fact": "Riko Amanai is targeted because of her Star Plasma Vessel role, drawing pressure from groups opposing or exploiting the Tengen merger.",
+        "injection": "During the escort window, keep Riko's danger active and specific: she is being targeted for the Star Plasma Vessel role, not caught in unrelated violence.",
+        "constraints": [
+          "Protect the mission outcome until the Context reaches Riko's death and mission collapse."
+        ],
+        "antiLore": [
+          "Do not treat the attackers' motives as interchangeable with ordinary curse attacks."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Hidden Inventory",
+        "chapterRange": "Riko target phase",
+        "confidence": 0.82,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-hidden-inventory-premature-death",
+          "status": "initial_hidden_inventory_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_hidden_riko_accepts_human_choice_before_mission_collapse",
+      "title": "Riko's Human Choice Matters Before Mission Collapse",
+      "kind": "event",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.hidden.riko-amanai-targeted",
+        "validToAnchor": "jjk.hidden.riko-death-and-mission-collapse",
+        "sortKeyFrom": 300,
+        "sortKeyTo": 720,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Riko's choice before collapse"
+      },
+      "coordinates": [
+        {
+          "axis": "mission_state",
+          "id": "escort-active",
+          "label": "Riko escort mission is active",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:riko-amanai",
+          "jjk:gojo-satoru",
+          "jjk:suguru-geto",
+          "jjk:tengen"
+        ],
+        "characters": [
+          "Riko Amanai",
+          "Satoru Gojo",
+          "Suguru Geto",
+          "Tengen"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Jujutsu society"
+        ],
+        "topics": [
+          "Riko's agency",
+          "Tengen merger",
+          "mission collapse"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:hidden-inventory",
+        "character:riko-amanai",
+        "character:gojo-satoru",
+        "character:geto-suguru",
+        "topic:tengen-merger",
+        "secret:riko-fate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Riko Amanai",
+            "Satoru Gojo",
+            "Suguru Geto"
+          ],
+          "topicsAny": [
+            "Riko choice",
+            "Tengen merger",
+            "mission collapse"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Hidden Inventory and Premature Death manga pre-mainline material."
+      },
+      "content": {
+        "fact": "Riko's personal desire to live matters inside the mission; the escort is not only a technical merger procedure.",
+        "injection": "When writing the late escort window, give Riko human agency and emotional stakes around the merger rather than treating her only as a vessel-object.",
+        "constraints": [
+          "Keep the actual collapse and death reveal gated to the collapse anchor."
+        ],
+        "antiLore": [
+          "Do not reduce Riko to a passive ritual component in scenes where her choice is in focus."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Hidden Inventory",
+        "chapterRange": "Late Star Plasma Vessel mission",
+        "confidence": 0.8,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-hidden-inventory-premature-death",
+          "status": "initial_hidden_inventory_slice"
+        }
+      }
+    }
+  ]
+}

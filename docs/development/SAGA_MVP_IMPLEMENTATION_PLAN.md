@@ -16,7 +16,7 @@ References below to `hp-golden-trio` describe the original scaffold state, not t
 
 Historical implementation slice: build the first Saga foundation without changing Saga's existing runtime behavior.
 
-Current status: the HP database now loads as a Bundled Loredeck from `Loredecks/hp-golden-trio`, and the old root `Lore/manifest.json` fallback has been removed.
+Current status: the HP database now loads as a Bundled Loredeck from `content/loredecks/hp-golden-trio`, and the old root `Lore/manifest.json` fallback has been removed.
 
 ## Non-Goals For This Slice
 
@@ -36,18 +36,18 @@ Current status: the HP database now loads as a Bundled Loredeck from `Loredecks/
 Create:
 
 ```text
-Loredecks/hp-golden-trio/
+content/loredecks/hp-golden-trio/
   loredeck.json
   ...current Lore files...
 ```
 
-For the first implementation, the current `Lore/` database was copied into the pack while the loader was being adapted. Current development treats `Loredecks/hp-golden-trio` as the source of truth.
+For the first implementation, the current `Lore/` database was copied into the pack while the loader was being adapted. Current development treats `content/loredecks/hp-golden-trio` as the source of truth.
 
 ### 2. Add Loredeck Loader Primitives
 
 Add a small module or focused functions that can:
 
-- Load `Loredecks/hp-golden-trio/loredeck.json`.
+- Load `content/loredecks/hp-golden-trio/loredeck.json`.
 - Resolve registry paths relative to that Loredeck manifest.
 - Resolve entry file paths relative to that Loredeck manifest.
 - Annotate loaded entries with pack metadata.
@@ -101,7 +101,7 @@ Run focused checks:
 
 ## Success Criteria
 
-- `Loredecks/hp-golden-trio/loredeck.json` exists.
+- `content/loredecks/hp-golden-trio/loredeck.json` exists.
 - Current HP lore files are available under the Loredeck directory.
 - The canon database loader can load the HP Loredeck.
 - Existing canon preview/suggestion APIs still work.

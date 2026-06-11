@@ -1,0 +1,475 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "jjk_shibuya_mahito_idle_transfiguration_demands_soul_level_guard",
+      "title": "Mahito's Idle Transfiguration Demands Soul-Level Guard",
+      "kind": "rule",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "power_rule",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.shibuya.mahito-final-phase",
+        "validToAnchor": "jjk.shibuya.aftermath",
+        "sortKeyFrom": 7900,
+        "sortKeyTo": 8200,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Mahito final phase"
+      },
+      "coordinates": [
+        {
+          "axis": "incident_state",
+          "id": "late-devastation",
+          "label": "Shibuya has entered late devastation",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:mahito",
+          "jjk:itadori-yuji",
+          "jjk:kugisaki-nobara",
+          "jjk:nanami-kento"
+        ],
+        "characters": [
+          "Mahito",
+          "Yuji Itadori",
+          "Nobara Kugisaki",
+          "Kento Nanami"
+        ],
+        "locations": [
+          "Shibuya"
+        ],
+        "objects": [],
+        "factions": [
+          "Disaster curses"
+        ],
+        "topics": [
+          "Idle Transfiguration",
+          "soul damage",
+          "Mahito final phase"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:shibuya-incident",
+        "character:mahito",
+        "character:itadori-yuji",
+        "character:kugisaki-nobara",
+        "character:nanami-kento",
+        "faction:disaster-curses",
+        "topic:idle-transfiguration"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Mahito",
+            "Yuji Itadori",
+            "Nobara Kugisaki",
+            "Kento Nanami"
+          ],
+          "topicsAny": [
+            "Idle Transfiguration",
+            "Mahito final phase",
+            "soul damage"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath."
+      },
+      "content": {
+        "fact": "Mahito's Idle Transfiguration remains a soul-level threat in Shibuya, making contact and status outcomes unusually dangerous.",
+        "injection": "During Mahito's Shibuya phase, treat Idle Transfiguration as a direct soul-level danger, especially for Yuji, Nanami, and Nobara scenes.",
+        "constraints": [
+          "Do not soften Idle Transfiguration into ordinary physical injury."
+        ],
+        "antiLore": [
+          "Do not let characters shrug off Mahito contact as routine battle damage unless the scene has a canon-supported exception."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Shibuya Incident",
+        "chapterRange": "Mahito final phase",
+        "confidence": 0.84,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-shibuya-incident",
+          "status": "initial_shibuya_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_shibuya_nanami_and_nobara_statuses_are_not_safe_to_assume",
+      "title": "Nanami And Nobara Statuses Are Not Safe To Assume",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_guard",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "secret",
+      "revealPolicy": "spoiler_guard",
+      "priority": 90,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.shibuya.mahito-final-phase",
+        "validToAnchor": "jjk.shibuya.aftermath",
+        "sortKeyFrom": 7900,
+        "sortKeyTo": 8200,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Nanami and Nobara Shibuya status guard"
+      },
+      "coordinates": [
+        {
+          "axis": "incident_state",
+          "id": "late-devastation",
+          "label": "Shibuya has entered late devastation",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:nanami-kento",
+          "jjk:kugisaki-nobara",
+          "jjk:mahito",
+          "jjk:itadori-yuji"
+        ],
+        "characters": [
+          "Kento Nanami",
+          "Nobara Kugisaki",
+          "Mahito",
+          "Yuji Itadori"
+        ],
+        "locations": [
+          "Shibuya"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Nanami status",
+          "Nobara status",
+          "Yuji trauma"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:shibuya-incident",
+        "character:nanami-kento",
+        "character:kugisaki-nobara",
+        "character:mahito",
+        "character:itadori-yuji",
+        "secret:nobara-status",
+        "topic:idle-transfiguration"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Kento Nanami",
+            "Nobara Kugisaki",
+            "Mahito",
+            "Yuji Itadori"
+          ],
+          "topicsAny": [
+            "Nanami Shibuya status",
+            "Nobara Shibuya status",
+            "Mahito casualties"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath."
+      },
+      "content": {
+        "fact": "Late Shibuya leaves Nanami and Nobara in major spoiler-bearing status states that should not be assumed in earlier Contexts.",
+        "injection": "When late Shibuya status is active, handle Nanami and Nobara with explicit spoiler care; before that point, do not foreshadow or assume their late-incident outcomes.",
+        "constraints": [
+          "Use later decks for post-Shibuya follow-through on Nobara's status."
+        ],
+        "antiLore": [
+          "Do not casually mention Nanami or Nobara late-Shibuya outcomes in pre-Shibuya or early-Shibuya scenes."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Shibuya Incident",
+        "chapterRange": "Mahito final phase and aftermath",
+        "confidence": 0.82,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-shibuya-incident",
+          "status": "initial_shibuya_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_shibuya_kenjaku_reveal_reframes_geto_body_context",
+      "title": "Kenjaku Reveal Reframes Geto Body Context",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "identity_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "secret",
+      "revealPolicy": "spoiler_guard",
+      "priority": 94,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.shibuya.aftermath",
+        "validToAnchor": "jjk.shibuya.aftermath",
+        "sortKeyFrom": 8200,
+        "sortKeyTo": 8200,
+        "precision": "anchor_exact",
+        "windowKind": "point",
+        "label": "Kenjaku reveal at Shibuya aftermath"
+      },
+      "coordinates": [
+        {
+          "axis": "incident_state",
+          "id": "aftermath",
+          "label": "Shibuya aftermath has begun",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:kenjaku",
+          "jjk:suguru-geto",
+          "jjk:curse-users"
+        ],
+        "characters": [
+          "Kenjaku",
+          "Suguru Geto"
+        ],
+        "locations": [
+          "Shibuya"
+        ],
+        "objects": [],
+        "factions": [
+          "Curse users"
+        ],
+        "topics": [
+          "Geto body controller",
+          "Kenjaku reveal",
+          "identity gate"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:shibuya-incident",
+        "character:kenjaku",
+        "character:geto-suguru",
+        "faction:curse-users",
+        "secret:geto-body-controller"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Kenjaku",
+            "Suguru Geto"
+          ],
+          "topicsAny": [
+            "Kenjaku reveal",
+            "Geto body",
+            "body controller"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath."
+      },
+      "content": {
+        "fact": "The Shibuya aftermath reveal reframes the apparent Geto body context around Kenjaku rather than treating Suguru Geto's original identity as straightforwardly active.",
+        "injection": "At and after the Shibuya aftermath reveal, distinguish Kenjaku's control of Geto's body from Suguru Geto's earlier life and Jujutsu Kaisen 0 state.",
+        "constraints": [
+          "Do not reveal this identity gate before Shibuya aftermath.",
+          "Use later decks for Culling Game execution of Kenjaku's broader plan."
+        ],
+        "antiLore": [
+          "Do not call post-reveal Shibuya's body-controller state simply Geto acting with no distinction."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Shibuya Incident",
+        "chapterRange": "Shibuya aftermath reveal",
+        "confidence": 0.84,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-shibuya-incident",
+          "status": "initial_shibuya_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_shibuya_aftermath_breaks_the_preincident_status_quo",
+      "title": "Shibuya Aftermath Breaks The Pre-Incident Status Quo",
+      "kind": "event",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "aftermath_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 90,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.shibuya.aftermath",
+        "validToAnchor": "jjk.shibuya.aftermath",
+        "sortKeyFrom": 8200,
+        "sortKeyTo": 8200,
+        "precision": "anchor_exact",
+        "windowKind": "point",
+        "label": "Shibuya aftermath state"
+      },
+      "coordinates": [
+        {
+          "axis": "incident_state",
+          "id": "aftermath",
+          "label": "Shibuya aftermath has begun",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:jujutsu-society",
+          "jjk:itadori-yuji",
+          "jjk:gojo-satoru"
+        ],
+        "characters": [
+          "Yuji Itadori",
+          "Satoru Gojo"
+        ],
+        "locations": [
+          "Shibuya"
+        ],
+        "objects": [],
+        "factions": [
+          "Jujutsu society"
+        ],
+        "topics": [
+          "Shibuya aftermath",
+          "public exposure",
+          "jujutsu society crisis"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:shibuya-incident",
+        "character:itadori-yuji",
+        "character:gojo-satoru",
+        "faction:jujutsu-society",
+        "topic:civilian-casualties",
+        "secret:gojo-sealed"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Yuji Itadori",
+            "Satoru Gojo"
+          ],
+          "topicsAny": [
+            "Shibuya aftermath",
+            "post-Shibuya",
+            "jujutsu society crisis"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath."
+      },
+      "content": {
+        "fact": "The Shibuya aftermath breaks the pre-incident status quo: Gojo is unavailable, the city has suffered mass harm, and jujutsu society enters a crisis state.",
+        "injection": "At post-Shibuya Context, treat the world as politically and emotionally destabilized rather than returning to the pre-incident school-mission rhythm.",
+        "constraints": [
+          "Use the Post-Shibuya and Perfect Preparation deck for execution orders, Zenin fallout, and Culling Game setup."
+        ],
+        "antiLore": [
+          "Do not reset the cast, institutions, or city consequences to normal immediately after Shibuya."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Shibuya Incident",
+        "chapterRange": "Immediate aftermath",
+        "confidence": 0.84,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-shibuya-incident",
+          "status": "initial_shibuya_slice"
+        }
+      }
+    }
+  ]
+}

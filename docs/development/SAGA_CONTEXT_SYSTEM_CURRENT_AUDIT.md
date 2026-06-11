@@ -50,14 +50,14 @@ Important current behavior:
 
 | Module | Current Role | Current Gap |
 | --- | --- | --- |
-| `constants.js` | Defines the top-level Context detection prompt. | Prompt now asks for Context Brief; future work is prompt tuning after live provider QA. |
-| `lore-generator.js` | Runs Context detection, repair, local fallback, resolver, and canon proposal side effects. | Model output and deterministic fallback both produce Context Briefs; remaining work is live-provider prompt tuning. |
+| `src/state/constants.js` | Defines the top-level Context detection prompt. | Prompt now asks for Context Brief; future work is prompt tuning after live provider QA. |
+| `src/lorecards/lore-generator.js` | Runs Context detection, repair, local fallback, resolver, and canon proposal side effects. | Model output and deterministic fallback both produce Context Briefs; remaining work is live-provider prompt tuning. |
 | `lore-matrix.js` | Normalizes global `loreContext` and Lorecard entry Context gates. | Global `loreContext` intentionally remains a compatibility projection and still drops media fields. |
-| `state-manager.js` | Normalizes and stores per-Loredeck `loredeckContexts` and `contextBrief`. | `contextBrief` now stores coordinates, detector signals, and detector status metadata. |
-| `context-index.js` | Aggregates timeline registries into searchable anchors/windows. | Slice 2 preserves rich anchor/window media fields; Lorecard-derived event candidates are still deferred/lazy. |
-| `context-resolver.js` | Local structured resolver and bounded model resolver. | Slice 5 uses rich Context Brief signals for automatic/manual resolution, caches repeated checks, blocks duplicate in-flight model calls, and audits lock/low-confidence/proposal outcomes. |
+| `src/state/state-manager.js` | Normalizes and stores per-Loredeck `loredeckContexts` and `contextBrief`. | `contextBrief` now stores coordinates, detector signals, and detector status metadata. |
+| `src/context/context-index.js` | Aggregates timeline registries into searchable anchors/windows. | Slice 2 preserves rich anchor/window media fields; Lorecard-derived event candidates are still deferred/lazy. |
+| `src/context/context-resolver.js` | Local structured resolver and bounded model resolver. | Slice 5 uses rich Context Brief signals for automatic/manual resolution, caches repeated checks, blocks duplicate in-flight model calls, and audits lock/low-confidence/proposal outcomes. |
 | `context-gating.js` | Evaluates entry Context gates against active Loredeck Context. | Gate support is broad; Slice 2 fixed empty-stardate coercion. |
-| `lore-panel.js` | Context tab and fullscreen Context Workbench/Browser. | Slice 6 first pass now makes the command center and loaded Loredeck Context rows primary; remaining work is live visual QA and proposal-review UX refinement. |
+| `src/runtime/lore-panel.js` | Context tab and fullscreen Context Workbench/Browser. | Slice 6 first pass now makes the command center and loaded Loredeck Context rows primary; remaining work is live visual QA and proposal-review UX refinement. |
 
 ## What Works Today
 
@@ -234,7 +234,7 @@ The first automation settings slice has now:
 Phase 1 adds:
 
 ```powershell
-node scripts\test-context-current-contract.mjs
+node tools\scripts\test-context-current-contract.mjs
 ```
 
 This test now records the upgraded data-model behavior:
@@ -256,15 +256,15 @@ This test now records the upgraded data-model behavior:
 Related context tests:
 
 ```powershell
-node scripts\test-context-gating.mjs
-node scripts\test-context-resolver.mjs
-node scripts\test-context-model-resolver.mjs
-node scripts\test-context-cross-fandom-fixtures.mjs
-node scripts\test-context-hp-phrase-fixtures.mjs
-node scripts\test-lore-context-normalization.mjs
-node scripts\test-context-media-scoring.mjs
-node scripts\test-context-local-extraction.mjs
-node scripts\test-visual-smoke-harness.mjs
+node tools\scripts\test-context-gating.mjs
+node tools\scripts\test-context-resolver.mjs
+node tools\scripts\test-context-model-resolver.mjs
+node tools\scripts\test-context-cross-fandom-fixtures.mjs
+node tools\scripts\test-context-hp-phrase-fixtures.mjs
+node tools\scripts\test-lore-context-normalization.mjs
+node tools\scripts\test-context-media-scoring.mjs
+node tools\scripts\test-context-local-extraction.mjs
+node tools\scripts\test-visual-smoke-harness.mjs
 ```
 
 `test-context-cross-fandom-fixtures.mjs` covers One Piece arc/chapter Context, Star Trek TNG episode/stardate Context, Star Trek VOY two-part episode-window Context, mocked Reasoner proposal review, manual-lock protection, and Context-gate eligibility movement.
@@ -278,14 +278,14 @@ The next Context increments should focus on live-provider tuning:
 - Keep deterministic fixtures current for non-HP Context shapes, including arcs/chapters, episodes, and stardates.
 - Keep live-provider tuning as QA after the redesigned surface makes status and proposals understandable.
 
-Latest local SillyTavern Context check: after syncing the active installed extension copy from this repo, `SAGA_SMOKE_TARGET=live-context node scripts\smoke-live-st-cdp.mjs` passed against `http://127.0.0.1:8000/` with no findings, no console errors, and no browser dialogs. It produced `live-context-01-context-tab.png`, verified the Runtime Context command center, Browser/Detect/Review actions, Manual/Assisted/Automatic modes, Advanced Context Brief, absence of the old date/canon-boundary-first tooltip, and safe guard states for Browser/Proposal Review when no Loredecks are enabled.
+Latest local SillyTavern Context check: after syncing the active installed extension copy from this repo, `SAGA_SMOKE_TARGET=live-context node tools\scripts\smoke-live-st-cdp.mjs` passed against `http://127.0.0.1:8000/` with no findings, no console errors, and no browser dialogs. It produced `live-context-01-context-tab.png`, verified the Runtime Context command center, Browser/Detect/Review actions, Manual/Assisted/Automatic modes, Advanced Context Brief, absence of the old date/canon-boundary-first tooltip, and safe guard states for Browser/Proposal Review when no Loredecks are enabled.
 
-Latest loaded-stack SillyTavern Context check: `SAGA_SMOKE_TARGET=live-context-loaded node scripts\smoke-live-st-cdp.mjs` temporarily loaded `hp-year-6-half-blood-prince` through the real Loredeck Library UI, opened the Context Browser, verified `Ron dates the blonde girl` finds `Ron Lavender Start`, applied `Post Christmas Return` as After and `Apparition Lessons Begin` as Before, verified the saved manual locked Context window, opened a populated synthetic Context Proposal Review row, restored the original Saga metadata, and passed with no findings, console errors, or browser dialogs. It produced `live-context-loaded-01-context-tab.png`, `live-context-loaded-02-workbench.png`, and `live-context-loaded-03-proposals.png`.
+Latest loaded-stack SillyTavern Context check: `SAGA_SMOKE_TARGET=live-context-loaded node tools\scripts\smoke-live-st-cdp.mjs` temporarily loaded `hp-year-6-half-blood-prince` through the real Loredeck Library UI, opened the Context Browser, verified `Ron dates the blonde girl` finds `Ron Lavender Start`, applied `Post Christmas Return` as After and `Apparition Lessons Begin` as Before, verified the saved manual locked Context window, opened a populated synthetic Context Proposal Review row, restored the original Saga metadata, and passed with no findings, console errors, or browser dialogs. It produced `live-context-loaded-01-context-tab.png`, `live-context-loaded-02-workbench.png`, and `live-context-loaded-03-proposals.png`.
 
-Latest compact loaded-stack SillyTavern Context check: `SAGA_SMOKE_TARGET=live-context-loaded-narrow node scripts\smoke-live-st-cdp.mjs` ran the same loaded-stack workflow at the compact default viewport, restored the original Saga metadata, and passed with no findings, console errors, or browser dialogs. It produced `live-context-loaded-narrow-01-context-tab.png`, `live-context-loaded-narrow-02-workbench.png`, and `live-context-loaded-narrow-03-proposals.png`.
+Latest compact loaded-stack SillyTavern Context check: `SAGA_SMOKE_TARGET=live-context-loaded-narrow node tools\scripts\smoke-live-st-cdp.mjs` ran the same loaded-stack workflow at the compact default viewport, restored the original Saga metadata, and passed with no findings, console errors, or browser dialogs. It produced `live-context-loaded-narrow-01-context-tab.png`, `live-context-loaded-narrow-02-workbench.png`, and `live-context-loaded-narrow-03-proposals.png`.
 
 Opt-in live-provider Context Reasoner QA is now wired through `SAGA_SMOKE_TARGET=live-context-reasoner`. It is intentionally gated by `SAGA_ALLOW_PROVIDER_CALLS=1` so routine visual smoke runs do not spend provider tokens. When enabled, the target snapshots chat metadata and extension settings, temporarily loads HP Year 6, seeds a loose non-date Context Brief, raises local auto-apply confidence, clicks the real `Ask Reasoner` control, verifies bounded proposal state, captures `live-context-reasoner-01-result.png` plus `live-context-reasoner-02-proposals.png` when proposals render, and restores metadata/settings. This target still needs a live run against the user's configured Reasoning Provider.
 
-Repo-local visual smoke has started independently of the installed ST copy: `tests/visual-smoke.html?tab=context` opens the Context tab, and `tests/visual-smoke.html?tab=context&review=context-proposals` opens the seeded Context Proposal Review path through the local harness.
+Repo-local visual smoke has started independently of the installed ST copy: `tests/browser/visual-smoke.html?tab=context` opens the Context tab, and `tests/browser/visual-smoke.html?tab=context&review=context-proposals` opens the seeded Context Proposal Review path through the local harness.
 
-Automated repo-local Context visual smoke is now available through `SAGA_SMOKE_TARGET=context-harness node scripts\smoke-live-st-cdp.mjs`. The latest pass produced `context-harness-01-proposal-review.png` and `context-harness-02-workbench.png` with no findings or console errors, and it caught/fixed a `Current Window` overlap in the Context Workbench waypoint browser.
+Automated repo-local Context visual smoke is now available through `SAGA_SMOKE_TARGET=context-harness node tools\scripts\smoke-live-st-cdp.mjs`. The latest pass produced `context-harness-01-proposal-review.png` and `context-harness-02-workbench.png` with no findings or console errors, and it caught/fixed a `Current Window` overlap in the Context Workbench waypoint browser.

@@ -1,0 +1,327 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "jjk_core_jujutsu_society_hides_curses_from_public",
+      "title": "Jujutsu Society Hides Curses From The Public",
+      "kind": "knowledge_gate",
+      "category": "faction",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.core.jujutsu-society-baseline",
+        "validToAnchor": "jjk.shinjuku.final-aftermath",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 15000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "JJK manga main continuity"
+      },
+      "coordinates": [
+        {
+          "axis": "knowledge_state",
+          "id": "jjk.knowledge.hidden-jujutsu-world",
+          "label": "Hidden jujutsu world",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:jujutsu-society"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Jujutsu society"
+        ],
+        "topics": [
+          "public secrecy",
+          "curses",
+          "sorcerer institutions"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "topic:jujutsu-society"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "ordinary people",
+            "public knowledge",
+            "jujutsu society",
+            "curses hidden"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline, including Jujutsu Kaisen 0 as prequel context and main series chapters 1-271."
+      },
+      "content": {
+        "fact": "Jujutsu society and curse-related incidents are generally hidden from ordinary public understanding; sorcerers, curse users, and informed institutions operate with knowledge most civilians lack.",
+        "injection": "Unless the scene has already exposed the supernatural world, ordinary civilians should not speak with detailed jujutsu literacy.",
+        "constraints": [
+          "Use this as a public-knowledge boundary, not as a hard ban on witnesses or exceptional cases."
+        ],
+        "antiLore": [
+          "Do not make public society broadly fluent in cursed techniques, grades, or Domain Expansion by default."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen",
+        "chapterRange": "Core setting premise",
+        "confidence": 0.82,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-core",
+          "status": "initial_core_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_core_sukuna_vessel_state_must_follow_context",
+      "title": "Sukuna Vessel State Must Follow Context",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "secret",
+      "revealPolicy": "spoiler_guard",
+      "priority": 94,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.main.yuji-eats-sukuna-finger",
+        "validToAnchor": "jjk.shinjuku.final-aftermath",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 15000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Yuji becomes Sukuna's vessel onward"
+      },
+      "coordinates": [
+        {
+          "axis": "sukuna_vessel_state",
+          "id": "jjk.sukuna.context-sensitive",
+          "label": "Sukuna vessel state is Context-sensitive",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:itadori-yuji",
+          "jjk:ryomen-sukuna"
+        ],
+        "characters": [
+          "Yuji Itadori",
+          "Ryomen Sukuna"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Sukuna vessel",
+          "host state",
+          "spoiler boundary"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "secret:sukuna-vessel",
+        "character:itadori-yuji",
+        "character:ryomen-sukuna"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Yuji Itadori",
+            "Sukuna"
+          ],
+          "topicsAny": [
+            "Sukuna vessel",
+            "host",
+            "finger",
+            "possession"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline, including Jujutsu Kaisen 0 as prequel context and main series chapters 1-271."
+      },
+      "content": {
+        "fact": "Sukuna's host and vessel state changes are major story-state boundaries and must be gated to the current Context.",
+        "injection": "When writing Sukuna or Yuji, respect the selected Context's host state. Do not leak later vessel changes, body status, or control dynamics into earlier scenes.",
+        "constraints": [
+          "Use arc decks for exact host-state transitions and late-series reveals."
+        ],
+        "antiLore": [
+          "Do not assume late-series Sukuna conditions are true during early Yuji-focused arcs."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen",
+        "chapterRange": "Main series Context boundary",
+        "confidence": 0.82,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-core",
+          "status": "initial_core_slice"
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "jjk:itadori-yuji",
+          "jjk:ryomen-sukuna"
+        ],
+        "hiddenFromEntityIds": [],
+        "notes": "Exact knowledge boundaries vary by arc and should be refined in arc decks."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_core_gojo_status_must_follow_context",
+      "title": "Gojo Status Must Follow Context",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.core.jujutsu-society-baseline",
+        "validToAnchor": "jjk.shinjuku.final-aftermath",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 15000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "JJK manga main continuity"
+      },
+      "coordinates": [
+        {
+          "axis": "gojo_status",
+          "id": "jjk.gojo.context-sensitive",
+          "label": "Gojo status is Context-sensitive",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:gojo-satoru"
+        ],
+        "characters": [
+          "Satoru Gojo"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Gojo status",
+          "sealing",
+          "unsealing",
+          "final battle"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "character:gojo-satoru",
+        "status:gojo-status"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Satoru Gojo",
+            "Gojo"
+          ],
+          "topicsAny": [
+            "Gojo status",
+            "sealed",
+            "unsealed",
+            "Prison Realm"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline, including Jujutsu Kaisen 0 as prequel context and main series chapters 1-271."
+      },
+      "content": {
+        "fact": "Satoru Gojo's availability and status are major Context boundaries that reshape faction behavior and combat expectations.",
+        "injection": "Do not write Gojo as freely available, sealed, unsealed, or in final-battle aftermath unless the selected Context supports that state.",
+        "constraints": [
+          "Use the Shibuya, Culling Game, and Shinjuku decks for exact status transitions."
+        ],
+        "antiLore": [
+          "Do not let later Gojo status knowledge leak into early school or Shibuya-preparation scenes."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen",
+        "chapterRange": "Main series Context boundary",
+        "confidence": 0.82,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-core",
+          "status": "initial_core_slice"
+        }
+      }
+    }
+  ]
+}

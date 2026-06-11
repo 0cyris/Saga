@@ -1,0 +1,458 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "jjk_hidden_toji_disrupts_sorcerer_assumptions",
+      "title": "Toji Disrupts Sorcerer Assumptions",
+      "kind": "character_state",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "character_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 90,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.hidden.toji-assassin-intervention",
+        "validToAnchor": "jjk.hidden.riko-death-and-mission-collapse",
+        "sortKeyFrom": 450,
+        "sortKeyTo": 720,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Toji disrupts the mission"
+      },
+      "coordinates": [
+        {
+          "axis": "mission_state",
+          "id": "assassin-disrupted",
+          "label": "Toji has disrupted the mission",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:toji-fushiguro",
+          "jjk:gojo-satoru",
+          "jjk:suguru-geto"
+        ],
+        "characters": [
+          "Toji Fushiguro",
+          "Satoru Gojo",
+          "Suguru Geto"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Heavenly Restriction",
+          "Sorcerer Killer",
+          "anti-sorcerer tactics"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:hidden-inventory",
+        "character:toji-fushiguro",
+        "character:gojo-satoru",
+        "character:geto-suguru",
+        "topic:heavenly-restriction"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Toji Fushiguro",
+            "Satoru Gojo",
+            "Suguru Geto"
+          ],
+          "topicsAny": [
+            "Toji attacks",
+            "Heavenly Restriction",
+            "Sorcerer Killer"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Hidden Inventory and Premature Death manga pre-mainline material."
+      },
+      "content": {
+        "fact": "Toji Fushiguro's physical anomaly and tactical preparation let him disrupt assumptions that elite sorcerers can simply overpower the mission threat.",
+        "injection": "Once Toji enters the Context, write him as a specialized anti-sorcerer threat whose danger comes from preparation, physicality, and unusual cursed-energy assumptions.",
+        "constraints": [
+          "Avoid later Megumi-family fallout unless a later deck is active."
+        ],
+        "antiLore": [
+          "Do not frame Toji as just another curse user with ordinary cursed technique pressure."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Hidden Inventory",
+        "chapterRange": "Toji intervention",
+        "confidence": 0.84,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-hidden-inventory-premature-death",
+          "status": "initial_hidden_inventory_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_hidden_q_and_time_vessel_association_create_mission_pressure",
+      "title": "Q And Time Vessel Association Create Mission Pressure",
+      "kind": "faction_pressure",
+      "category": "faction",
+      "relevance": "medium",
+      "canon": "canon",
+      "lorePurpose": "faction_pressure",
+      "specificityScore": 76,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.hidden.star-plasma-vessel-mission",
+        "validToAnchor": "jjk.hidden.riko-death-and-mission-collapse",
+        "sortKeyFrom": 200,
+        "sortKeyTo": 720,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "External groups pressure the escort mission"
+      },
+      "coordinates": [
+        {
+          "axis": "mission_state",
+          "id": "escort-active",
+          "label": "Riko escort mission is active",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:q-group",
+          "jjk:time-vessel-association",
+          "jjk:riko-amanai"
+        ],
+        "characters": [
+          "Riko Amanai"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Q group",
+          "Time Vessel Association"
+        ],
+        "topics": [
+          "mission opposition",
+          "anti-merger pressure",
+          "Riko bounty"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:hidden-inventory",
+        "character:riko-amanai",
+        "faction:q-group",
+        "faction:time-vessel-association",
+        "topic:star-plasma-vessel"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Riko Amanai"
+          ],
+          "topicsAny": [
+            "Q group",
+            "Time Vessel Association",
+            "Star Plasma Vessel opposition"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Hidden Inventory and Premature Death manga pre-mainline material."
+      },
+      "content": {
+        "fact": "The Star Plasma Vessel mission has factional pressure from Q and the Time Vessel Association, making the escort politically and ideologically exposed.",
+        "injection": "During the Riko escort, use Q and Time Vessel Association pressure as mission context when opposition groups or bounty pressure matter.",
+        "constraints": [
+          "Keep this pressure local to the Hidden Inventory mission unless later decks explicitly connect the aftermath."
+        ],
+        "antiLore": [
+          "Do not make the escort conflict only a personal duel between Gojo, Geto, and Toji."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Hidden Inventory",
+        "chapterRange": "Mission opposition setup",
+        "confidence": 0.78,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-hidden-inventory-premature-death",
+          "status": "initial_hidden_inventory_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_hidden_gojo_awakened_rct_changes_his_power_ceiling",
+      "title": "Gojo's Awakened RCT Changes His Power Ceiling",
+      "kind": "rule",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "power_rule",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "secret",
+      "revealPolicy": "spoiler_guard",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.hidden.gojo-awakens-rct",
+        "validToAnchor": "jjk.hidden.geto-defection",
+        "sortKeyFrom": 650,
+        "sortKeyTo": 1100,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Gojo after reverse cursed technique awakening"
+      },
+      "coordinates": [
+        {
+          "axis": "gojo_state",
+          "id": "rct-awakened",
+          "label": "Gojo has awakened reverse cursed technique",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:gojo-satoru",
+          "jjk:toji-fushiguro"
+        ],
+        "characters": [
+          "Satoru Gojo",
+          "Toji Fushiguro"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "reverse cursed technique",
+          "Limitless development",
+          "power awakening"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:hidden-inventory",
+        "character:gojo-satoru",
+        "character:toji-fushiguro",
+        "topic:reverse-cursed-technique"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Satoru Gojo",
+            "Toji Fushiguro"
+          ],
+          "topicsAny": [
+            "Gojo RCT",
+            "reverse cursed technique",
+            "Gojo awakening"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Hidden Inventory and Premature Death manga pre-mainline material."
+      },
+      "content": {
+        "fact": "After Toji pushes him past his prior limit, Gojo's reverse cursed technique awakening changes his personal power ceiling and the meaning of his later strength.",
+        "injection": "After the RCT awakening anchor, write Gojo with a qualitatively changed power ceiling; before it, keep him brilliant but not yet at that post-awakening state.",
+        "constraints": [
+          "Do not use later adult Gojo feats as automatic Hidden Inventory capabilities unless this anchor has passed and the deck stack supports them."
+        ],
+        "antiLore": [
+          "Do not give pre-awakening student Gojo the same practical capability profile as post-awakening Gojo."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Hidden Inventory",
+        "chapterRange": "Gojo awakening and Toji rematch",
+        "confidence": 0.84,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-hidden-inventory-premature-death",
+          "status": "initial_hidden_inventory_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_hidden_riko_death_breaks_the_star_plasma_mission",
+      "title": "Riko's Death Breaks The Star Plasma Mission",
+      "kind": "event",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "secret",
+      "revealPolicy": "spoiler_guard",
+      "priority": 94,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.hidden.riko-death-and-mission-collapse",
+        "validToAnchor": "jjk.hidden.geto-defection",
+        "sortKeyFrom": 720,
+        "sortKeyTo": 1100,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "After Riko's death and mission collapse"
+      },
+      "coordinates": [
+        {
+          "axis": "mission_state",
+          "id": "collapsed",
+          "label": "Star Plasma Vessel mission has collapsed",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:riko-amanai",
+          "jjk:toji-fushiguro",
+          "jjk:gojo-satoru",
+          "jjk:suguru-geto",
+          "jjk:tengen"
+        ],
+        "characters": [
+          "Riko Amanai",
+          "Toji Fushiguro",
+          "Satoru Gojo",
+          "Suguru Geto",
+          "Tengen"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Time Vessel Association"
+        ],
+        "topics": [
+          "Riko's death",
+          "mission collapse",
+          "Tengen merger failure"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:hidden-inventory",
+        "character:riko-amanai",
+        "character:toji-fushiguro",
+        "character:gojo-satoru",
+        "character:geto-suguru",
+        "topic:star-plasma-vessel",
+        "topic:tengen-merger",
+        "secret:riko-fate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Riko Amanai",
+            "Toji Fushiguro",
+            "Satoru Gojo",
+            "Suguru Geto"
+          ],
+          "topicsAny": [
+            "Riko dies",
+            "mission collapse",
+            "Star Plasma Vessel failure"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Hidden Inventory and Premature Death manga pre-mainline material."
+      },
+      "content": {
+        "fact": "Riko Amanai's death breaks the Star Plasma Vessel mission and leaves Gojo and Geto with different scars from the failed protection.",
+        "injection": "After the collapse anchor, let Riko's death and the failed mission weigh on Gojo and Geto rather than treating the escort as a completed success.",
+        "constraints": [
+          "Do not leak later Shibuya or Culling Game Tengen implications from this pre-mainline card."
+        ],
+        "antiLore": [
+          "Do not write the mission as if Riko merged with Tengen successfully."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Hidden Inventory",
+        "chapterRange": "Mission collapse",
+        "confidence": 0.84,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-hidden-inventory-premature-death",
+          "status": "initial_hidden_inventory_slice"
+        }
+      }
+    }
+  ]
+}
