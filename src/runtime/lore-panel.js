@@ -160,6 +160,7 @@ import {
     startSagaTour,
 } from './runtime-tour.js';
 import {
+    formatGuideStartLabel,
     getRuntimeGuideContent,
     getRuntimeGuideSections,
     getRuntimeGuideSteps,
@@ -16982,12 +16983,6 @@ function createInstructionsCard(guideMode = normalizeExperienceMode(getSettings(
     }
 
     return wrap;
-}
-
-function formatGuideStartLabel(mode = 'basic', index = 0) {
-    const prefix = normalizeExperienceMode(mode) === 'advanced' ? 'A' : 'B';
-    const number = Math.max(1, Number(index) + 1);
-    return `${prefix}${String(number).padStart(2, '0')}`;
 }
 
 function createCompactPresetStat(label, value) {

@@ -24,6 +24,12 @@ function normalizeGuideMode(mode) {
     return String(mode || '').toLowerCase() === 'advanced' ? 'advanced' : 'basic';
 }
 
+export function formatGuideStartLabel(mode = 'basic', index = 0) {
+    const prefix = normalizeGuideMode(mode) === 'advanced' ? 'A' : 'B';
+    const number = Math.max(1, Number(index) + 1);
+    return `${prefix}${String(number).padStart(2, '0')}`;
+}
+
 function getGuideSectionId(step) {
     return String(step?.section || step?.tab || 'session').trim() || 'session';
 }
