@@ -196,6 +196,33 @@
         "confidence": 0.74
       },
       "extensions": {}
+    },
+    "jjk:jujutsu-society": {
+      "type": "faction",
+      "label": "Jujutsu society",
+      "aliases": [],
+      "canonicalNames": [
+        "Jujutsu society"
+      ],
+      "tags": [],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-modulo",
+        "canonTier": "sequel",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Modulo chapters 1-25 as a separate sequel/spinoff continuity.",
+        "notes": "Keep Modulo separate from the manga-main stack unless the user explicitly loads sequel/spinoff context. Anime-only changes, guidebook-only material, games, and light novels remain separate overlays."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.7
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_entity_stub"
+        }
+      }
     }
   }
 }

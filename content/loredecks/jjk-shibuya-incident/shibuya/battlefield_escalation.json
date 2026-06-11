@@ -7,7 +7,7 @@
       "title": "Toji Revival Creates An Uncontrolled Variable",
       "kind": "secret",
       "category": "secret",
-      "relevance": "medium",
+      "relevance": "normal",
       "canon": "canon",
       "lorePurpose": "secret",
       "specificityScore": 80,
@@ -116,9 +116,9 @@
       "title": "Station Battles Expose Sorcerer Losses",
       "kind": "event",
       "category": "event",
-      "relevance": "medium",
+      "relevance": "normal",
       "canon": "canon",
-      "lorePurpose": "event",
+      "lorePurpose": "event_anchor",
       "specificityScore": 78,
       "injectableByDefault": true,
       "truthStatus": "hidden",
@@ -233,7 +233,7 @@
       "category": "rule",
       "relevance": "high",
       "canon": "canon",
-      "lorePurpose": "power_rule",
+      "lorePurpose": "ability_gate",
       "specificityScore": 88,
       "injectableByDefault": true,
       "truthStatus": "secret",
@@ -319,8 +319,7 @@
       },
       "content": {
         "fact": "After Yuji is force-fed many Sukuna fingers, Sukuna takes control in Shibuya and creates consequences Yuji must carry afterward.",
-        "injection": "After the finger-flood anchor, treat Sukuna's actions as a traumatic loss of control for Yuji rather than a normal power-up."
-      ,
+        "injection": "After the finger-flood anchor, treat Sukuna's actions as a traumatic loss of control for Yuji rather than a normal power-up.",
         "constraints": [
           "Do not apply this Shibuya control state to earlier arcs or to later vessel developments without the matching deck Context."
         ],
@@ -352,7 +351,7 @@
       "category": "event",
       "relevance": "high",
       "canon": "canon",
-      "lorePurpose": "event",
+      "lorePurpose": "event_anchor",
       "specificityScore": 88,
       "injectableByDefault": true,
       "truthStatus": "secret",

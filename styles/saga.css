@@ -11740,8 +11740,7 @@
     grid-column: 1 / -1;
 }
 
-.saga-context-workbench-waypoint-browser,
-.saga-context-workbench-context-picker,
+.saga-context-workbench-story-position-picker,
 .saga-context-workbench-resolver {
     display: flex;
     flex-direction: column;
@@ -11752,8 +11751,7 @@
     padding: 8px;
 }
 
-.saga-context-workbench-waypoint-top,
-.saga-context-workbench-context-picker-top,
+.saga-context-workbench-story-position-top,
 .saga-context-workbench-resolver-top {
     display: grid;
     grid-template-columns: auto minmax(180px, 1fr) auto;
@@ -11761,7 +11759,7 @@
     align-items: center;
 }
 
-.saga-context-workbench-waypoint-top {
+.saga-context-workbench-story-position-top {
     grid-template-columns: auto minmax(220px, 1fr) minmax(120px, auto) auto auto;
 }
 
@@ -11815,8 +11813,7 @@
     overflow-wrap: anywhere;
 }
 
-.saga-context-workbench-waypoint-list,
-.saga-context-workbench-context-picker-list {
+.saga-context-workbench-story-position-list {
     display: flex;
     flex-direction: column;
     gap: 6px;
@@ -11834,12 +11831,11 @@
     padding-right: 2px;
 }
 
-.saga-context-workbench-waypoint-list {
+.saga-context-workbench-story-position-list {
     max-height: 320px;
 }
 
-.saga-context-workbench-waypoint-row,
-.saga-context-workbench-context-picker-row,
+.saga-context-workbench-story-position-row,
 .saga-context-workbench-resolver-row {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
@@ -11851,7 +11847,7 @@
     padding: 6px 7px;
 }
 
-.saga-context-workbench-waypoint-row-entry {
+.saga-context-workbench-story-position-row-entry {
     border-color: rgba(151, 159, 230, 0.30);
     background: linear-gradient(90deg, rgba(151, 159, 230, 0.10), rgba(10, 12, 16, 0.28) 42%);
 }
@@ -12016,18 +12012,15 @@
     }
 
     .saga-context-workbench-editor-grid,
-    .saga-context-workbench-waypoint-top,
+    .saga-context-workbench-story-position-top,
     .saga-context-workbench-window-builder,
-    .saga-context-workbench-waypoint-row,
-    .saga-context-workbench-context-picker-top,
+    .saga-context-workbench-story-position-row,
     .saga-context-workbench-resolver-top,
-    .saga-context-workbench-context-picker-row,
     .saga-context-workbench-resolver-row {
         grid-template-columns: 1fr;
     }
 
-    .saga-context-workbench-waypoint-row .saga-context-workbench-row-actions,
-    .saga-context-workbench-context-picker-row .saga-context-workbench-row-actions,
+    .saga-context-workbench-story-position-row .saga-context-workbench-row-actions,
     .saga-context-workbench-resolver-row .saga-context-workbench-row-actions {
         justify-content: flex-start;
     }

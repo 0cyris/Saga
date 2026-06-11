@@ -288,4 +288,4 @@ Opt-in live-provider Context Reasoner QA is now wired through `SAGA_SMOKE_TARGET
 
 Repo-local visual smoke has started independently of the installed ST copy: `tests/browser/visual-smoke.html?tab=context` opens the Context tab, and `tests/browser/visual-smoke.html?tab=context&review=context-proposals` opens the seeded Context Proposal Review path through the local harness.
 
-Automated repo-local Context visual smoke is now available through `SAGA_SMOKE_TARGET=context-harness node tools\scripts\smoke-live-st-cdp.mjs`. The latest pass produced `context-harness-01-proposal-review.png` and `context-harness-02-workbench.png` with no findings or console errors, and it caught/fixed a `Current Window` overlap in the Context Workbench waypoint browser.
+Automated repo-local Context visual smoke is now available through `SAGA_SMOKE_TARGET=context-harness node tools\scripts\smoke-live-st-cdp.mjs`. The latest pass produced `context-harness-01-proposal-review.png` and `context-harness-02-workbench.png` with no findings or console errors, and it caught/fixed a `Selected Range` overlap in the Context Workbench story-position picker.

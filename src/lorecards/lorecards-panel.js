@@ -186,7 +186,7 @@ function openLoreWorkbench(mode = 'accepted') {
     renderLoreWorkbench();
 }
 
-function closeLoreWorkbench() {
+export function closeLoreWorkbench() {
     flushScheduledStateSave();
     loreWorkbenchOpen = false;
     const existing = document.getElementById(LORE_WORKBENCH_ID);
@@ -748,14 +748,24 @@ export function createPendingLoreBulkControls(pendingLore, state) {
     actions.appendChild(createButton('Dismiss Selected', 'Rejects only the selected pending lore entries.', () => {
         dismissSelectedPendingLore();
     }));
-    actions.appendChild(createButton('Apply All', 'Accepts every pending lore entry in the current batch.', () => {
+    actions.appendChild(createButton('Apply All', 'Accepts every pending lore entry in the current batch after confirmation.', async () => {
+        const proceed = await confirmAction(
+            'Apply all pending Lorecards?',
+            `Apply all ${pendingIds.length} pending Lorecard${pendingIds.length === 1 ? '' : 's'} in this batch? Use Apply Selected when you only want chosen items.`
+        );
+        if (!proceed) return;
         acceptPendingLoreEntries();
         clearPendingReviewSelection();
         refreshPanelBody({ preserveScroll: false });
         refreshHeader();
         refreshLoreWorkbench();
     }));
-    actions.appendChild(createButton('Dismiss All', 'Rejects every pending lore entry in the current batch.', () => {
+    actions.appendChild(createButton('Dismiss All', 'Rejects every pending lore entry in the current batch after confirmation.', async () => {
+        const proceed = await confirmAction(
+            'Dismiss all pending Lorecards?',
+            `Dismiss all ${pendingIds.length} pending Lorecard${pendingIds.length === 1 ? '' : 's'} in this batch? Use Dismiss Selected when you only want chosen items.`
+        );
+        if (!proceed) return;
         rejectPendingLoreEntries();
         clearPendingReviewSelection();
         refreshPanelBody({ preserveScroll: false });

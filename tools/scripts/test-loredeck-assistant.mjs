@@ -113,6 +113,26 @@ const creatorBrief = parseLoredeckCreatorBriefResponse(`{
     "scope": "Arlong Park Arc",
     "granularity": "focused",
     "coverage": "Covers Nami's bargain, Arlong's control, Cocoyasi pressure, and Straw Hat intervention.",
+    "creatorCoverage": {
+      "storyShape": "single arc",
+      "storyDensity": "dense",
+      "scopeKind": "arc",
+      "status": "thin",
+      "rationale": "Arlong Park needs character, faction, village, and battle pressure coverage.",
+      "expectedCoverage": "Dense enough for arc roleplay without a fixed entry threshold.",
+      "likelyNotApplicable": ["Tournament mechanics"],
+      "dimensions": [
+        {
+          "id": "character-pressure",
+          "label": "Character pressure",
+          "kind": "characters",
+          "status": "missing",
+          "priority": 90,
+          "rationale": "Nami, Arlong, villagers, and the crew carry the playable pressure.",
+          "evidenceTargets": ["Nami secrecy", "Arlong coercion"]
+        }
+      ]
+    },
     "contextApproach": "Use arc windows plus anchors for arrival, Nami reveal, battle, and aftermath.",
     "estimatedEntryRange": { "min": 70, "max": 120, "rationale": "Focused arc with several factions and relationship states." },
     "timelinePlan": ["Draft arc start/reveal/battle/aftermath anchors."],
@@ -127,6 +147,8 @@ const creatorBrief = parseLoredeckCreatorBriefResponse(`{
 assert.equal(creatorBrief.brief.title, 'Arlong Park Arc');
 assert.equal(creatorBrief.brief.estimatedEntryRange.min, 70);
 assert.equal(creatorBrief.brief.timelinePlan[0], 'Draft arc start/reveal/battle/aftermath anchors.');
+assert.equal(creatorBrief.brief.creatorCoverage.storyDensity, 'dense');
+assert.equal(creatorBrief.brief.creatorCoverage.dimensions[0].id, 'character-pressure');
 
 const creatorClarification = parseLoredeckCreatorBriefResponse(`{
   "summary": "Scope is too broad.",
@@ -139,6 +161,7 @@ assert.equal(creatorClarification.clarifyingQuestions[0], 'Which One Piece arc s
 const creatorSystemPrompt = buildLoredeckCreatorBriefSystemPrompt();
 assert.ok(creatorSystemPrompt.includes('Do not generate Lorecards'));
 assert.ok(creatorSystemPrompt.includes('Lorecard count is derived from granularity'));
+assert.ok(creatorSystemPrompt.includes('adaptive creatorCoverage plan'));
 
 const creatorUserPrompt = buildLoredeckCreatorBriefUserPrompt({
   fandom: 'One Piece',
@@ -151,7 +174,9 @@ const creatorUserPrompt = buildLoredeckCreatorBriefUserPrompt({
 const creatorUserJson = JSON.parse(creatorUserPrompt);
 assert.equal(creatorUserJson.fandom, 'One Piece');
 assert.equal(creatorUserJson.constraints.entryCountMustBeDerived, true);
+assert.equal(creatorUserJson.constraints.adaptiveCoveragePlanRequired, true);
 assert.equal(creatorUserJson.previousBrief.packId, 'one-piece-arlong-park');
+assert.equal(creatorUserJson.previousBrief.creatorCoverage.dimensions[0].id, 'character-pressure');
 
 const creatorOutline = parseLoredeckCreatorOutlineResponse(`{
   "summary": "Arlong Park outline drafted.",
@@ -160,6 +185,26 @@ const creatorOutline = parseLoredeckCreatorOutlineResponse(`{
   "outline": {
     "label": "Arlong Park Arc outline",
     "coverageSummary": "Nami's coercion, Arlong's regime, the Straw Hats' commitment, and Cocoyashi's liberation.",
+    "creatorCoverage": {
+      "storyShape": "single arc",
+      "storyDensity": "dense",
+      "scopeKind": "arc",
+      "status": "thin",
+      "rationale": "Outline preserves coverage around characters and setting pressure.",
+      "expectedCoverage": "Title batches should cover every applicable dimension without padding.",
+      "dimensions": [
+        {
+          "id": "character-pressure",
+          "label": "Character pressure",
+          "kind": "characters",
+          "status": "thin",
+          "priority": 90,
+          "rationale": "Needs titles for Nami, Arlong, villagers, and crew commitment.",
+          "evidenceTargets": ["Nami secrecy", "Arlong coercion"],
+          "titleBatchIds": ["characters-pressure"]
+        }
+      ]
+    },
     "beats": [
       {
         "id": "nami-asks-for-help",
@@ -187,7 +232,8 @@ const creatorOutline = parseLoredeckCreatorOutlineResponse(`{
         "label": "Characters and pressure",
         "type": "title_batch",
         "order": 10,
-        "summary": "Future title slice for coercion, loyalties, and obligations."
+        "summary": "Future title slice for coercion, loyalties, and obligations.",
+        "coverageDimensionIds": ["character-pressure"]
       }
     ],
     "assumptions": ["Broad manga/anime canon blend."],
@@ -197,6 +243,8 @@ const creatorOutline = parseLoredeckCreatorOutlineResponse(`{
 assert.equal(creatorOutline.outline.beats.length, 1);
 assert.equal(creatorOutline.outline.contextMilestones[0].id, 'after-broken-deal');
 assert.equal(creatorOutline.outline.titleBatches[0].id, 'characters-pressure');
+assert.equal(creatorOutline.outline.creatorCoverage.dimensions[0].titleBatchIds[0], 'characters-pressure');
+assert.equal(creatorOutline.outline.titleBatches[0].coverageDimensionIds[0], 'character-pressure');
 
 assert.throws(
   () => parseLoredeckCreatorOutlineResponse('{"summary":"Cut off","outline":{"label":"Arlong","beats":[{"id":"nami"'),
@@ -205,6 +253,7 @@ assert.throws(
 
 const creatorOutlineSystemPrompt = buildLoredeckCreatorOutlineSystemPrompt();
 assert.ok(creatorOutlineSystemPrompt.includes('Aim for under 1600 visible JSON tokens'));
+assert.ok(creatorOutlineSystemPrompt.includes('coverageDimensionIds'));
 const creatorOutlineUserPrompt = buildLoredeckCreatorOutlineUserPrompt({
   brief: creatorBrief.brief,
   notes: 'Keep the outline compact.',
@@ -212,6 +261,7 @@ const creatorOutlineUserPrompt = buildLoredeckCreatorOutlineUserPrompt({
 const creatorOutlineUserJson = JSON.parse(creatorOutlineUserPrompt);
 assert.equal(creatorOutlineUserJson.approvedBrief.packId, 'one-piece-arlong-park');
 assert.equal(creatorOutlineUserJson.constraints.compactJson, true);
+assert.equal(creatorOutlineUserJson.constraints.titleBatchesMustReferenceCoverageDimensions, true);
 
 const creatorTitlePass = parseLoredeckCreatorTitleResponse(`{
   "summary": "Drafted character pressure titles.",
@@ -232,6 +282,7 @@ const creatorTitlePass = parseLoredeckCreatorTitleResponse(`{
       "contextHint": "From Cocoyasi arrival until Nami asks for help.",
       "tags": ["character:nami", "faction:arlong-pirates"],
       "reason": "Creates secrecy, pressure, and timing.",
+      "coverageDimensionIds": ["character-pressure"],
       "rubric": {
         "sceneUtility": "high",
         "activationClarity": "high",
@@ -250,6 +301,7 @@ const creatorTitlePass = parseLoredeckCreatorTitleResponse(`{
 assert.equal(creatorTitlePass.titleDrafts.length, 1);
 assert.equal(creatorTitlePass.titleDrafts[0].titleId, 'nami-hides-her-bargain');
 assert.equal(creatorTitlePass.titleDrafts[0].rubric.wikiSummaryRisk, 'low');
+assert.equal(creatorTitlePass.titleDrafts[0].coverageDimensionIds[0], 'character-pressure');
 assert.equal(creatorTitlePass.batch.nextBatchHint, 'Faction and setting constraints.');
 
 const truncatedCreatorTitlePass = parseLoredeckCreatorTitleResponse(`\`\`\`json
@@ -301,6 +353,7 @@ assert.ok(creatorTitleSystemPrompt.includes('Do not generate full Lorecards'));
 assert.ok(creatorTitleSystemPrompt.includes('selectedTitleDrafts'));
 assert.ok(creatorTitleSystemPrompt.includes('Generate no more than titlePassLimit titles'));
 assert.ok(creatorTitleSystemPrompt.includes('Keep the whole JSON compact'));
+assert.ok(creatorTitleSystemPrompt.includes('coverageDimensionIds'));
 
 const creatorTitleUserPrompt = buildLoredeckCreatorTitleUserPrompt({
   brief: creatorBrief.brief,
@@ -314,7 +367,25 @@ const creatorTitleUserJson = JSON.parse(creatorTitleUserPrompt);
 assert.equal(creatorTitleUserJson.approvedBrief.packId, 'one-piece-arlong-park');
 assert.equal(creatorTitleUserJson.constraints.titlesOnly, true);
 assert.equal(creatorTitleUserJson.constraints.entryCountMustBeDerived, true);
+assert.equal(creatorTitleUserJson.constraints.coverageDimensionIdsRequired, true);
 assert.equal(creatorTitleUserJson.selectedTitleDrafts[0].titleId, 'nami-hides-her-bargain');
+assert.equal(creatorTitleUserJson.selectedTitleDrafts[0].coverageDimensionIds[0], 'character-pressure');
+
+const creatorCoverageTitleUserPrompt = buildLoredeckCreatorTitleUserPrompt({
+  brief: creatorBrief.brief,
+  outline: creatorOutline.outline,
+  targetTitleBatch: {
+    id: 'coverage-character-pressure',
+    label: 'Coverage: Character pressure',
+    type: 'coverage_gap',
+    summary: 'Generate more title drafts for character-pressure coverage.',
+    coverageDimensionIds: ['character-pressure'],
+  },
+  titlePassLimit: 8,
+});
+const creatorCoverageTitleUserJson = JSON.parse(creatorCoverageTitleUserPrompt);
+assert.equal(creatorCoverageTitleUserJson.targetTitleBatch.id, 'coverage-character-pressure');
+assert.equal(creatorCoverageTitleUserJson.targetTitleBatch.coverageDimensionIds[0], 'character-pressure');
 
 const creatorPlanningSystemPrompt = buildLoredeckCreatorPlanningSystemPrompt();
 assert.ok(creatorPlanningSystemPrompt.includes('Do not generate full Lorecards'));
@@ -355,6 +426,11 @@ assert.ok(truncatedPlanningPass.warnings.some(item => item.includes('salvaged co
 const creatorPlanningUserPrompt = buildLoredeckCreatorPlanningUserPrompt({
   generatedPackId: 'one-piece-arlong-park',
   brief: creatorBrief.brief,
+  targetPlanningBatch: {
+    id: 'characters-pressure',
+    label: 'Characters and pressure',
+    coverageDimensionIds: ['character-pressure'],
+  },
   approvedTitleDrafts: creatorTitlePass.titleDrafts,
   notes: 'Draft a compact registry foundation.',
   existingTimelineIds: ['one-piece.arlong.start'],
@@ -365,7 +441,10 @@ const creatorPlanningUserJson = JSON.parse(creatorPlanningUserPrompt);
 assert.equal(creatorPlanningUserJson.generatedPackId, 'one-piece-arlong-park');
 assert.equal(creatorPlanningUserJson.constraints.timelineAndTagsOnly, true);
 assert.equal(creatorPlanningUserJson.constraints.noEntryGenerationYet, true);
+assert.equal(creatorPlanningUserJson.constraints.preserveCoverageDimensionIds, true);
+assert.equal(creatorPlanningUserJson.targetPlanningBatch.coverageDimensionIds[0], 'character-pressure');
 assert.equal(creatorPlanningUserJson.approvedTitleDrafts[0].titleId, 'nami-hides-her-bargain');
+assert.equal(creatorPlanningUserJson.approvedTitleDrafts[0].coverageDimensionIds[0], 'character-pressure');
 assert.equal(creatorPlanningUserJson.existingTagIds[0], 'character:nami');
 
 const creatorEntrySystemPrompt = buildLoredeckCreatorEntrySystemPrompt();
@@ -421,6 +500,11 @@ const creatorEntryUserPrompt = buildLoredeckCreatorEntryUserPrompt({
     ...creatorTitlePass.titleDrafts[0],
     targetEntryId: 'nami-hides-her-bargain',
   }],
+  targetPlanningBatch: {
+    id: 'characters-pressure',
+    label: 'Characters and pressure',
+    coverageDimensionIds: ['character-pressure'],
+  },
   timelineRegistry: {
     anchors: [{ id: 'one-piece.arlong.cocoyasi-arrival', label: 'Cocoyasi arrival', sortKey: 120 }],
     windows: [{ id: 'one-piece.arlong.nami-secret', label: 'Nami secret', anchorFrom: 'one-piece.arlong.cocoyasi-arrival', anchorTo: 'one-piece.arlong.nami-asks-for-help' }],
@@ -440,7 +524,10 @@ assert.equal(creatorEntryUserJson.generatedPackId, 'one-piece-arlong-park');
 assert.equal(creatorEntryUserJson.constraints.upsertEntriesOnly, true);
 assert.equal(creatorEntryUserJson.constraints.schemaVersion, 3);
 assert.equal(creatorEntryUserJson.constraints.requireContext, true);
+assert.equal(creatorEntryUserJson.constraints.preserveCoverageDimensionIds, true);
 assert.equal(creatorEntryUserJson.targetTitleDrafts[0].targetEntryId, 'nami-hides-her-bargain');
+assert.equal(creatorEntryUserJson.targetTitleDrafts[0].coverageDimensionIds[0], 'character-pressure');
+assert.equal(creatorEntryUserJson.targetPlanningBatch.coverageDimensionIds[0], 'character-pressure');
 assert.equal(creatorEntryUserJson.acceptedTagRegistry.tags['character:nami'].label, 'Nami');
 
 console.log('Loredeck assistant tests passed.');

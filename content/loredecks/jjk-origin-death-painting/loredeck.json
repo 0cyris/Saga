@@ -8,7 +8,7 @@
   "era": "Origin through Death Painting",
   "contentKind": "fandom",
   "author": "Saga",
-  "version": "0.1.0",
+  "version": "0.2.0-phase1",
   "defaultLocale": "en",
   "tags": [
     "fandom:jjk",
@@ -63,7 +63,11 @@
   "files": [
     "origin_death_painting/origin_setup.json",
     "origin_death_painting/detention_junpei.json",
-    "origin_death_painting/goodwill_death_painting.json"
+    "origin_death_painting/goodwill_death_painting.json",
+    "expanded/character_states.json",
+    "expanded/abilities.json",
+    "expanded/event_anchors.json",
+    "expanded/relationships_and_knowledge.json"
   ],
   "compatibility": {
     "sagaSchemaMin": 3,
@@ -79,13 +83,14 @@
     }
   ],
   "stats": {
-    "entryCount": 12,
+    "entryCount": 40,
     "categoryCounts": {
-      "event": 3,
+      "character": 9,
+      "event": 10,
       "faction": 2,
       "knowledge": 1,
-      "relationship": 2,
-      "rule": 2,
+      "relationship": 7,
+      "rule": 9,
       "secret": 2
     },
     "timelineAnchorCount": 9,
@@ -96,8 +101,8 @@
     "notes": "For local testing. Requires human canon review before reference release."
   },
   "health": {
-    "status": "good",
-    "notes": "Initial Origin through Death Painting scaffold passes local structural health checks; not a substitute for human canon review."
+    "status": "needs_review",
+    "notes": "Expanded phase-1 draft-reference package; generated cards require human canon review before reference release."
   },
   "library": {
     "suggestedPath": [

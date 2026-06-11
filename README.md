@@ -12,11 +12,11 @@ Saga is not a wiki viewer and not a prompt preset. It is a runtime lore system f
 
 ## Status
 
-Saga is in **pre-alpha integration hardening**.
+Saga is in **pre-alpha integration hardening**. Current extension metadata uses `0.1.0-alpha.1`, requires SillyTavern `1.12.0` or newer, and keeps `auto_update` disabled so alpha testers update deliberately.
 
 The main systems exist and are being made reliable together: the runtime shelf, Basic and Advanced experiences, Loredeck Library, Active Stack, Context, Pack Health, Loredeck Creator, Pending Review, Continuity, Injection, import/export, and theme/icon support.
 
-Expect active development, incomplete workflows, changing schemas, rough edges, and possible breakage. The recommended tester path is: start in **Basic**, get one chat working, then switch to **Advanced** when you need diagnostics, Creator workflows, Pack Health, Continuity, or full Injection controls.
+Expect active development, incomplete workflows, changing schemas, rough edges, and possible breakage. Because automatic updates are disabled for alpha, reinstall or update the extension from the repository when you want a newer build. The recommended tester path is: start in **Basic**, get one chat working, then switch to **Advanced** when you need diagnostics, Creator workflows, Pack Health, Continuity, or full Injection controls.
 
 ## Contents
 
@@ -42,7 +42,7 @@ Expect active development, incomplete workflows, changing schemas, rough edges, 
    ```
 
 2. In SillyTavern, open **Extensions** and use **Install Extension** with the copied URL. Reload the page.
-3. The Saga shelf should load on the left of the page. If it does not, open it from the **SAGA** extension dropdown: **Open SAGA Window**.
+3. Saga does not auto-open on first load. Open it from the **SAGA** extension dropdown: **Open SAGA Window**.
 4. Start in **Basic Workflow**. Go to the **Session** tab, follow the **Start Checklist**, and consider viewing the **Basic Walkthrough** below it.
 
 For guided walkthroughs, see [Basic Workflow](docs/user/BASIC_WORKFLOW.md) and [Advanced Workflow](docs/user/ADVANCED_WORKFLOW.md). The in-app walkthroughs are module-based: run the full pass, or start the exact workflow card you need.
@@ -314,6 +314,7 @@ Theme Packs and Icon Sets are passive data. They can change the shelf's appearan
 Release-facing docs:
 
 - [Documentation Index](docs/DOCUMENTATION_INDEX.md)
+- [Alpha Release Notes](docs/release/0.1.0-alpha.1.md)
 - [Basic Workflow](docs/user/BASIC_WORKFLOW.md)
 - [Advanced Workflow](docs/user/ADVANCED_WORKFLOW.md)
 - [Wandlight To Saga](docs/user/WANDLIGHT_TO_SAGA.md)
@@ -339,6 +340,7 @@ Context-sensitive checks:
 ```powershell
 node tools\scripts\test-context-hp-phrase-fixtures.mjs
 node tools\scripts\test-context-current-contract.mjs
+node tools\scripts\test-context-workbench-picker.mjs
 ```
 
 Visual smoke checks:

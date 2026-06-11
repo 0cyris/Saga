@@ -8,6 +8,10 @@ import {
     toast,
     wireOverlayBackdropClose,
 } from '../ui/runtime-ui-kit.js';
+import {
+    redactDiagnosticValue,
+    stringifyRedactedDiagnostic,
+} from '../runtime/runtime-redaction.js';
 
 let healthPanelDeps = {};
 
@@ -568,7 +572,7 @@ function createLoredeckHealthAdvancedView(context) {
     const actions = document.createElement('div');
     actions.className = 'saga-primary-actions';
     actions.appendChild(createButton('Copy Diagnostics', 'Copy the current Deck Health report JSON to clipboard.', async () => {
-        await copyTextToClipboard(JSON.stringify(context.report, null, 2), 'Deck Health diagnostics copied.');
+        await copyTextToClipboard(stringifyRedactedDiagnostic(context.report), 'Deck Health diagnostics copied.');
     }));
     actions.appendChild(createButton('Export Report', 'Download this Deck Health report as JSON.', () => exportLoredeckHealthCenterReport(context), 'saga-primary-button'));
     wrap.appendChild(actions);
@@ -1489,7 +1493,7 @@ function exportLoredeckHealthCenterReport(context = getLoredeckHealthCenterConte
         return;
     }
     const fileStem = sanitizeFileStem(context.pack?.packId || context.report.databaseId || 'saga-deck-health');
-    downloadJson(context.report, `${fileStem}.health.json`);
+    downloadJson(redactDiagnosticValue(context.report), `${fileStem}.health.json`);
 }
 
 function createLoredeckHealthMetric(label, value, tooltip) {

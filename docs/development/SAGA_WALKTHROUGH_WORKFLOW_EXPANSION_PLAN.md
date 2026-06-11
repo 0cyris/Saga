@@ -56,7 +56,7 @@ Recommended preparation actions:
 | --- | --- |
 | `openLoredeckLibrary` | Open the fullscreen Loredeck Library before targeting Library internals. |
 | `openLoredeckDetails` | Select a Library pack and open its details panel. |
-| `openContextBrowser` | Open Context Workbench before targeting timeline, waypoint, anchor, resolver, and validation choices. |
+| `openContextBrowser` | Open Context Workbench before targeting timeline, story-position, anchor, resolver, and validation choices. |
 | `openPendingLoreReview` | Bring the Pending Lorecard Review surface into view. |
 | `openAcceptedLoreDetails` | Open an accepted Lorecard detail/editor surface. |
 | `openInjectionPreview` | Bring the exact prompt preview into focus. |
@@ -122,9 +122,9 @@ The guide card should render these as workflow modules, while each module still 
 | B20 | `basic-context-loaded-rows` | Context | Each enabled Loredeck has a Context row showing whether its story position is unset, detected, manually selected, or locked. |
 | B21 | `basic-context-browse` | Context | Browse Context is the trusted manual path for choosing the exact story position. |
 | B22 | `basic-context-workbench-loredeck` | Context | In the Context Workbench, choose which loaded Lorepack you are setting before applying a story position. |
-| B23 | `basic-context-anchors-windows` | Context | Anchors are exact story points. Windows are ranges between story points. Browse Story Waypoints shows both so you can pick the right shape. |
+| B23 | `basic-context-anchors-windows` | Context | Anchors are exact story points. Windows are ranges between story points. Choose Story Position shows both so you can pick the right shape. |
 | B24 | `basic-context-start-window` | Context | Use Start Here when the chat begins at one Anchor. Use Window when a listed Window already matches the whole active story range. |
-| B25 | `basic-context-use-anchor` | Context | Use Anchor applies an exact Anchor from Select From Timeline. It is the precise-point version of Use Window. |
+| B25 | `basic-context-use-anchor` | Context | Search Choose Story Position and press Start Here to apply one exact Anchor. It is the precise-point version of Use Window. |
 | B26 | `basic-context-after-before` | Context | Use After on the lower bound and Before on the upper bound to build a custom Window. Use Timeline when you need to inspect the source row. |
 | B27 | `basic-context-phrase-resolver` | Context | Phrase Resolver tests loose story phrases against known timeline labels, aliases, dates, tags, and coordinates without calling a model. |
 | B28 | `basic-context-select-position` | Context | Confirm the correct arc, chapter, date, episode, quest, event, Anchor, or Window for the loaded Lorepack. |
@@ -243,15 +243,15 @@ This order teaches dependencies before diagnostics: source packs first, then Con
 | A33 | `advanced-session-mode-recovery` | Session And Runtime Control | Recover when switching modes hides the previously active tab or control. |
 | A34 | `advanced-context-command-center` | Context Resolution | Use Runtime Context as the status and action hub for story position. |
 | A35 | `advanced-context-loaded-rows` | Context Resolution | Inspect per-Loredeck Context rows, source, lock state, and update state. |
-| A36 | `advanced-context-browser-open` | Context Resolution | Open the Context Workbench for manual timeline, waypoint, alias, resolver, and validation workflows. |
-| A37 | `advanced-context-workbench-layout` | Context Resolution | Read the Workbench as one selected loaded Lorepack, one current Context editor, quick waypoint browsing, Phrase Resolver, and full timeline search. |
+| A36 | `advanced-context-browser-open` | Context Resolution | Open the Context Workbench for manual timeline, story-position, alias, resolver, and validation workflows. |
+| A37 | `advanced-context-workbench-layout` | Context Resolution | Read the Workbench as one selected loaded Lorepack, one current Context editor, Choose Story Position, Phrase Resolver, and full timeline inspection. |
 | A38 | `advanced-context-workbench-pack` | Context Resolution | Use the loaded-Lorepack rows or selector to choose which pack receives the next Context change. |
 | A39 | `advanced-context-anchors-windows` | Context Resolution | Anchors are exact timeline points. Windows are bounded ranges. Context eligibility changes depending on whether the current row is a point or a range. |
-| A40 | `advanced-context-start-here` | Context Resolution | Start Here applies one waypoint as the exact current starting Anchor and clears the need for a range. |
+| A40 | `advanced-context-start-here` | Context Resolution | Start Here applies one story position as the exact current starting Anchor and clears the need for a range. |
 | A41 | `advanced-context-use-window` | Context Resolution | Use Window applies a first-class Window from the Lorepack timeline when the registry already has the correct lower and upper bounds. |
-| A42 | `advanced-context-use-anchor` | Context Resolution | Use Anchor applies an exact Anchor from Select From Timeline; it is the search/table equivalent of choosing a single point. |
+| A42 | `advanced-context-use-anchor` | Context Resolution | Search Choose Story Position and press Start Here to apply an exact Anchor as the current Context. |
 | A43 | `advanced-context-after-before` | Context Resolution | After sets the lower bound and Before sets the upper bound for a custom Window when no existing Window is precise enough. |
-| A44 | `advanced-context-timeline-action` | Context Resolution | Timeline opens the selected waypoint in the Timeline tab so you can inspect IDs, coordinates, aliases, attached Lorecards, and registry state. |
+| A44 | `advanced-context-timeline-action` | Context Resolution | Timeline opens the selected story position in the Timeline tab so you can inspect IDs, coordinates, aliases, attached Lorecards, and registry state. |
 | A45 | `advanced-context-manual-select` | Context Resolution | Manually select exact or ranged Context for loaded Lorepacks when detection is not authoritative. |
 | A46 | `advanced-context-phrase-resolver` | Context Resolution | Phrase Resolver tests casual story phrasing against local Anchor labels, IDs, aliases, dates, arcs, tags, coordinates, and optional Lorecard-derived candidates. |
 | A47 | `advanced-context-phrase-debug` | Context Resolution | Review cleaned terms, ignored direction words, match reasons, weak matches, missing terms, and Load Lorecards before applying a phrase result. |
@@ -266,7 +266,7 @@ This order teaches dependencies before diagnostics: source packs first, then Con
 | A56 | `advanced-context-seed-from-brief` | Context Resolution | Seed loaded Loredeck rows from the brief when that is the fastest accurate starting point. |
 | A57 | `advanced-context-reset` | Context Resolution | Reset stale Context safely when the story position is wrong or no longer applicable. |
 | A58 | `advanced-context-index-summary` | Context Resolution | Use Context index summaries to understand which anchors and windows are available. |
-| A59 | `advanced-context-workbench-routes` | Context Resolution | Route to timeline, waypoint, alias, and validation workbenches for deeper source maintenance. |
+| A59 | `advanced-context-workbench-routes` | Context Resolution | Route to timeline, story-position, alias, and validation workbenches for deeper source maintenance. |
 | A60 | `advanced-context-eligibility-debug` | Context Resolution | Explain why Context allows or blocks a Lorecard. |
 | A61 | `advanced-lore-generation-overview` | Lorecard Generation And Review | Understand canon preview, story scan, manual add, draft review, pending review, and accepted entries. |
 | A62 | `advanced-lore-canon-preview` | Lorecard Generation And Review | Preview local Context-aware suggestions from active Lorepacks. |

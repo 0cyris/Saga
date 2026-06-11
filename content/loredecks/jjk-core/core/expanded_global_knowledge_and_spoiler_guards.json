@@ -1,0 +1,733 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "jjk_core_exp_sukuna_vessel_knowledge_is_not_universal",
+      "title": "Sukuna Vessel Knowledge Is Not Universal",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.core.jujutsu-society-baseline",
+        "validToAnchor": "jjk.shinjuku.final-aftermath",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 15000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "JJK manga main continuity"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:itadori-yuji",
+          "jjk:ryomen-sukuna"
+        ],
+        "characters": [
+          "Yuji Itadori",
+          "Ryomen Sukuna"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Sukuna vessel",
+          "knowledge gate"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "scope:core",
+        "character:itadori-yuji",
+        "character:ryomen-sukuna",
+        "topic:sukuna-vessel",
+        "topic:knowledge-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuji Itadori",
+            "Ryomen Sukuna"
+          ],
+          "topicsAny": [
+            "Sukuna vessel",
+            "knowledge gate"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline, including Jujutsu Kaisen 0 as prequel context and main series chapters 1-271.",
+        "notes": "Anime-only changes, movies beyond Jujutsu Kaisen 0 adaptation differences, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate overlay decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Yuji's vessel state is institutional and sorcerer knowledge, not casual civilian knowledge.",
+        "injection": "Gate by Context and character knowledge: Yuji's vessel state is institutional and sorcerer knowledge, not casual civilian knowledge.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Core",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_core_exp_kenjaku_identity_must_stay_late_gated",
+      "title": "Kenjaku Identity Must Stay Late-Gated",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.core.jujutsu-society-baseline",
+        "validToAnchor": "jjk.shinjuku.final-aftermath",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 15000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "JJK manga main continuity"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:kenjaku",
+          "jjk:geto-suguru"
+        ],
+        "characters": [
+          "Kenjaku",
+          "Suguru Geto"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Kenjaku identity",
+          "spoiler guard"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "scope:core",
+        "character:kenjaku",
+        "character:geto-suguru",
+        "topic:kenjaku-identity",
+        "topic:spoiler-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kenjaku",
+            "Suguru Geto"
+          ],
+          "topicsAny": [
+            "Kenjaku identity",
+            "spoiler guard"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline, including Jujutsu Kaisen 0 as prequel context and main series chapters 1-271.",
+        "notes": "Anime-only changes, movies beyond Jujutsu Kaisen 0 adaptation differences, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate overlay decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Kenjaku's identity and body-hopping history should not leak into pre-reveal Geto or early-mainline scenes.",
+        "injection": "Gate by Context and character knowledge: Kenjaku's identity and body-hopping history should not leak into pre-reveal Geto or early-mainline scenes.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Core",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_core_exp_gojo_sealing_is_a_shibuya_pivot",
+      "title": "Gojo Sealing Is A Shibuya Pivot",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.core.jujutsu-society-baseline",
+        "validToAnchor": "jjk.shinjuku.final-aftermath",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 15000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "JJK manga main continuity"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:gojo-satoru"
+        ],
+        "characters": [
+          "Satoru Gojo"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Gojo sealed",
+          "spoiler guard"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "scope:core",
+        "character:gojo-satoru",
+        "topic:gojo-sealed",
+        "topic:spoiler-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Satoru Gojo"
+          ],
+          "topicsAny": [
+            "Gojo sealed",
+            "spoiler guard"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline, including Jujutsu Kaisen 0 as prequel context and main series chapters 1-271.",
+        "notes": "Anime-only changes, movies beyond Jujutsu Kaisen 0 adaptation differences, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate overlay decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Gojo being sealed is only valid after the Shibuya Prison Realm event and should not affect earlier school or mission scenes.",
+        "injection": "Gate by Context and character knowledge: Gojo being sealed is only valid after the Shibuya Prison Realm event and should not affect earlier school or mission scenes.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Core",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_core_exp_megumi_vessel_state_is_late_game_only",
+      "title": "Megumi Vessel State Is Late-Game Only",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.core.jujutsu-society-baseline",
+        "validToAnchor": "jjk.shinjuku.final-aftermath",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 15000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "JJK manga main continuity"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:megumi-fushiguro",
+          "jjk:ryomen-sukuna"
+        ],
+        "characters": [
+          "Megumi Fushiguro",
+          "Ryomen Sukuna"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Megumi vessel",
+          "spoiler guard"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "scope:core",
+        "character:megumi-fushiguro",
+        "character:ryomen-sukuna",
+        "topic:megumi-vessel",
+        "topic:spoiler-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Megumi Fushiguro",
+            "Ryomen Sukuna"
+          ],
+          "topicsAny": [
+            "Megumi vessel",
+            "spoiler guard"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline, including Jujutsu Kaisen 0 as prequel context and main series chapters 1-271.",
+        "notes": "Anime-only changes, movies beyond Jujutsu Kaisen 0 adaptation differences, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate overlay decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Megumi's later vessel state belongs to late Culling Game and Shinjuku Context, not origin, Goodwill, or Shibuya setup scenes.",
+        "injection": "Gate by Context and character knowledge: Megumi's later vessel state belongs to late Culling Game and Shinjuku Context, not origin, Goodwill, or Shibuya setup scenes.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Core",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_core_exp_nobara_status_requires_ambiguity_until_reveal",
+      "title": "Nobara Status Requires Ambiguity Until Reveal",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.core.jujutsu-society-baseline",
+        "validToAnchor": "jjk.shinjuku.final-aftermath",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 15000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "JJK manga main continuity"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:kugisaki-nobara"
+        ],
+        "characters": [
+          "Nobara Kugisaki"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Nobara status",
+          "spoiler guard"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "scope:core",
+        "character:kugisaki-nobara",
+        "topic:nobara-status",
+        "topic:spoiler-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Nobara Kugisaki"
+          ],
+          "topicsAny": [
+            "Nobara status",
+            "spoiler guard"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline, including Jujutsu Kaisen 0 as prequel context and main series chapters 1-271.",
+        "notes": "Anime-only changes, movies beyond Jujutsu Kaisen 0 adaptation differences, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate overlay decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Nobara's post-Shibuya condition should remain uncertain until the story Context reaches the later reveal window.",
+        "injection": "Gate by Context and character knowledge: Nobara's post-Shibuya condition should remain uncertain until the story Context reaches the later reveal window.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Core",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_core_exp_final_arc_outcome_must_not_leak_backward",
+      "title": "Final Arc Outcome Must Not Leak Backward",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.core.jujutsu-society-baseline",
+        "validToAnchor": "jjk.shinjuku.final-aftermath",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 15000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "JJK manga main continuity"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:itadori-yuji",
+          "jjk:ryomen-sukuna",
+          "jjk:megumi-fushiguro"
+        ],
+        "characters": [
+          "Yuji Itadori",
+          "Ryomen Sukuna",
+          "Megumi Fushiguro"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "final arc outcome",
+          "spoiler guard"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "scope:core",
+        "character:itadori-yuji",
+        "character:ryomen-sukuna",
+        "character:megumi-fushiguro",
+        "topic:final-arc-outcome",
+        "topic:spoiler-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuji Itadori",
+            "Ryomen Sukuna",
+            "Megumi Fushiguro"
+          ],
+          "topicsAny": [
+            "final arc outcome",
+            "spoiler guard"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline, including Jujutsu Kaisen 0 as prequel context and main series chapters 1-271.",
+        "notes": "Anime-only changes, movies beyond Jujutsu Kaisen 0 adaptation differences, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate overlay decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Sukuna's final defeat, the rescue outcome, and post-battle institution state should only retrieve in Shinjuku final or aftermath Context.",
+        "injection": "Gate by Context and character knowledge: Sukuna's final defeat, the rescue outcome, and post-battle institution state should only retrieve in Shinjuku final or aftermath Context.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Core",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_core_exp_modulo_must_not_rewrite_mainline_scenes",
+      "title": "Modulo Must Not Rewrite Mainline Scenes",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.core.jujutsu-society-baseline",
+        "validToAnchor": "jjk.shinjuku.final-aftermath",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 15000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "JJK manga main continuity"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:yuka-okkotsu",
+          "jjk:tsurugi-okkotsu",
+          "jjk:maru"
+        ],
+        "characters": [
+          "Yuka Okkotsu",
+          "Tsurugi Okkotsu",
+          "Maru"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Modulo separation",
+          "sequel continuity"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "scope:core",
+        "character:yuka-okkotsu",
+        "character:tsurugi-okkotsu",
+        "character:maru",
+        "topic:modulo-separation",
+        "topic:sequel-continuity"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuka Okkotsu",
+            "Tsurugi Okkotsu",
+            "Maru"
+          ],
+          "topicsAny": [
+            "Modulo separation",
+            "sequel continuity"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline, including Jujutsu Kaisen 0 as prequel context and main series chapters 1-271.",
+        "notes": "Anime-only changes, movies beyond Jujutsu Kaisen 0 adaptation differences, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate overlay decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Modulo future-cast facts belong to the sequel deck and should not appear in ordinary Yuji-era scenes unless that deck and Context are active.",
+        "injection": "Gate by Context and character knowledge: Modulo future-cast facts belong to the sequel deck and should not appear in ordinary Yuji-era scenes unless that deck and Context are active.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Core",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    }
+  ]
+}

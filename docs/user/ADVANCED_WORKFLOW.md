@@ -28,7 +28,7 @@ Start here when you need to understand what Saga is allowed to do, whether autom
 
 Coverage: A34-A60.
 
-Use this track to resolve story position with Runtime Context, loaded Loredeck Context rows, Context Workbench layout, Anchors versus Windows, Start Here, Use Window, Use Anchor, After/Before bounds, Timeline inspection, manual selection, Phrase Resolver diagnostics, locks, Detect Context, source-message tuning, local resolver behavior, Reasoner proposals, proposal review, audits, Advanced Context Brief, reset paths, index summaries, workbench routes, and eligibility debugging.
+Use this track to resolve story position with Runtime Context, loaded Loredeck Context rows, Context Workbench layout, Anchors versus Windows, Choose Story Position, Start Here, Use Window, After/Before bounds, Timeline inspection, manual selection, Phrase Resolver diagnostics, locks, Detect Context, source-message tuning, local resolver behavior, Reasoner proposals, proposal review, audits, Advanced Context Brief, reset paths, index summaries, workbench routes, and eligibility debugging.
 
 Start here when canon suggestions, retrieval, or injection appear tied to the wrong arc, date, chapter, episode, quest, branch, or location.
 

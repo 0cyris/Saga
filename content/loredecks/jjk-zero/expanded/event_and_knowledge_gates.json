@@ -1,0 +1,533 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "jjk_zero_exp_yuta_enters_tokyo_jujutsu_high_under_execution_pressure",
+      "title": "Yuta Enters Tokyo Jujutsu High Under Execution Pressure",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.zero.yuta-enters-tokyo-jujutsu-high",
+        "validToAnchor": "jjk.zero.night-parade-declared",
+        "sortKeyFrom": 500,
+        "sortKeyTo": 820,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Yuta training window"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:yuta-okkotsu",
+          "jjk:gojo-satoru"
+        ],
+        "characters": [
+          "Yuta Okkotsu",
+          "Satoru Gojo"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Yuta enrollment",
+          "execution pressure"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:jjk-zero",
+        "character:yuta-okkotsu",
+        "character:gojo-satoru",
+        "topic:yuta-enrollment",
+        "topic:execution-pressure"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuta Okkotsu",
+            "Satoru Gojo"
+          ],
+          "topicsAny": [
+            "Yuta enrollment",
+            "execution pressure"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-zero",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen 0 manga prequel material, treated as manga-primary pre-mainline context for the Jujutsu Kaisen Loredeck family.",
+        "notes": "Mainline manga outcomes after the prequel should remain in later arc decks unless explicitly needed as bridge metadata."
+      },
+      "content": {
+        "fact": "Yuta's enrollment follows a lethal curse incident and functions as both education and containment.",
+        "injection": "Use this event state in the active window: Yuta's enrollment follows a lethal curse incident and functions as both education and containment.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen 0",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_zero_exp_field_training_tests_yutas_resolve",
+      "title": "Field Training Tests Yuta's Resolve",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.zero.yuta-enters-tokyo-jujutsu-high",
+        "validToAnchor": "jjk.zero.night-parade-declared",
+        "sortKeyFrom": 500,
+        "sortKeyTo": 820,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Yuta training window"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:yuta-okkotsu",
+          "jjk:maki-zenin",
+          "jjk:toge-inumaki",
+          "jjk:panda"
+        ],
+        "characters": [
+          "Yuta Okkotsu",
+          "Maki Zenin",
+          "Toge Inumaki",
+          "Panda"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "field training",
+          "student teamwork"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:jjk-zero",
+        "character:yuta-okkotsu",
+        "character:maki-zenin",
+        "character:toge-inumaki",
+        "character:panda",
+        "topic:field-training",
+        "topic:student-teamwork"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuta Okkotsu",
+            "Maki Zenin",
+            "Toge Inumaki",
+            "Panda"
+          ],
+          "topicsAny": [
+            "field training",
+            "student teamwork"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-zero",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen 0 manga prequel material, treated as manga-primary pre-mainline context for the Jujutsu Kaisen Loredeck family.",
+        "notes": "Mainline manga outcomes after the prequel should remain in later arc decks unless explicitly needed as bridge metadata."
+      },
+      "content": {
+        "fact": "Early missions with classmates force Yuta to act despite fear and dependence on Rika.",
+        "injection": "Use this event state in the active window: Early missions with classmates force Yuta to act despite fear and dependence on Rika.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen 0",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_zero_exp_night_parade_splits_the_battlefield",
+      "title": "Night Parade Splits The Battlefield",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.zero.night-parade-declared",
+        "validToAnchor": "jjk.zero.rika-released",
+        "sortKeyFrom": 820,
+        "sortKeyTo": 950,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Night Parade climax"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:geto-suguru",
+          "jjk:yuta-okkotsu"
+        ],
+        "characters": [
+          "Suguru Geto",
+          "Yuta Okkotsu"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Night Parade",
+          "battlefield split"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:jjk-zero",
+        "character:geto-suguru",
+        "character:yuta-okkotsu",
+        "topic:night-parade",
+        "topic:battlefield-split"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Suguru Geto",
+            "Yuta Okkotsu"
+          ],
+          "topicsAny": [
+            "Night Parade",
+            "battlefield split"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-zero",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen 0 manga prequel material, treated as manga-primary pre-mainline context for the Jujutsu Kaisen Loredeck family.",
+        "notes": "Mainline manga outcomes after the prequel should remain in later arc decks unless explicitly needed as bridge metadata."
+      },
+      "content": {
+        "fact": "The Night Parade creates a broad crisis that divides sorcerer attention while Geto pursues Yuta and Rika.",
+        "injection": "Use this event state in the active window: The Night Parade creates a broad crisis that divides sorcerer attention while Geto pursues Yuta and Rika.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen 0",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_zero_exp_yutas_climax_is_a_willing_sacrifice_offer",
+      "title": "Yuta's Climax Is A Willing Sacrifice Offer",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.zero.night-parade-declared",
+        "validToAnchor": "jjk.zero.rika-released",
+        "sortKeyFrom": 820,
+        "sortKeyTo": 950,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Night Parade climax"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:yuta-okkotsu",
+          "jjk:rika-orimoto"
+        ],
+        "characters": [
+          "Yuta Okkotsu",
+          "Rika Orimoto"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Yuta climax",
+          "sacrifice"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:jjk-zero",
+        "character:yuta-okkotsu",
+        "character:rika-orimoto",
+        "topic:yuta-climax",
+        "topic:sacrifice"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuta Okkotsu",
+            "Rika Orimoto"
+          ],
+          "topicsAny": [
+            "Yuta climax",
+            "sacrifice"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-zero",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen 0 manga prequel material, treated as manga-primary pre-mainline context for the Jujutsu Kaisen Loredeck family.",
+        "notes": "Mainline manga outcomes after the prequel should remain in later arc decks unless explicitly needed as bridge metadata."
+      },
+      "content": {
+        "fact": "Yuta's decisive Zero moment centers on willingness to give himself for others, not simple power escalation.",
+        "injection": "Use this event state in the active window: Yuta's decisive Zero moment centers on willingness to give himself for others, not simple power escalation.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen 0",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_zero_exp_rikas_release_reframes_the_curse_origin",
+      "title": "Rika's Release Reframes The Curse Origin",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.zero.night-parade-declared",
+        "validToAnchor": "jjk.zero.rika-released",
+        "sortKeyFrom": 820,
+        "sortKeyTo": 950,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Night Parade climax"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:yuta-okkotsu",
+          "jjk:rika-orimoto"
+        ],
+        "characters": [
+          "Yuta Okkotsu",
+          "Rika Orimoto"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Rika release",
+          "curse origin"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:jjk-zero",
+        "character:yuta-okkotsu",
+        "character:rika-orimoto",
+        "topic:rika-release",
+        "topic:curse-origin"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuta Okkotsu",
+            "Rika Orimoto"
+          ],
+          "topicsAny": [
+            "Rika release",
+            "curse origin"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-zero",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen 0 manga prequel material, treated as manga-primary pre-mainline context for the Jujutsu Kaisen Loredeck family.",
+        "notes": "Mainline manga outcomes after the prequel should remain in later arc decks unless explicitly needed as bridge metadata."
+      },
+      "content": {
+        "fact": "Rika's release changes the interpretation of Yuta's curse and closes the prequel's core emotional problem.",
+        "injection": "Use this event state in the active window: Rika's release changes the interpretation of Yuta's curse and closes the prequel's core emotional problem.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen 0",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    }
+  ]
+}

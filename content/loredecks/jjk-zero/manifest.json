@@ -8,7 +8,7 @@
   "era": "Jujutsu Kaisen 0 Prequel",
   "contentKind": "fandom",
   "author": "Saga",
-  "version": "0.1.0",
+  "version": "0.2.0-phase1",
   "defaultLocale": "en",
   "tags": [
     "fandom:jjk",
@@ -51,7 +51,11 @@
   "files": [
     "zero/yuta_and_rika.json",
     "zero/tokyo_jujutsu_high.json",
-    "zero/geto_and_night_parade.json"
+    "zero/geto_and_night_parade.json",
+    "expanded/characters_and_status.json",
+    "expanded/relationships_and_training.json",
+    "expanded/abilities_and_night_parade.json",
+    "expanded/event_and_knowledge_gates.json"
   ],
   "compatibility": {
     "sagaSchemaMin": 3,
@@ -67,14 +71,14 @@
     }
   ],
   "stats": {
-    "entryCount": 10,
+    "entryCount": 33,
     "categoryCounts": {
-      "character": 1,
-      "event": 1,
+      "character": 9,
+      "event": 6,
       "faction": 2,
       "knowledge": 1,
-      "relationship": 1,
-      "rule": 1,
+      "relationship": 6,
+      "rule": 6,
       "secret": 3
     },
     "timelineAnchorCount": 7,
@@ -85,8 +89,8 @@
     "notes": "For local testing. Requires human canon review before reference release."
   },
   "health": {
-    "status": "good",
-    "notes": "Initial Jujutsu Kaisen 0 scaffold passes local structural health checks; not a substitute for human canon review."
+    "status": "needs_review",
+    "notes": "Expanded phase-1 draft-reference package; generated cards require human canon review before reference release."
   },
   "library": {
     "suggestedPath": [

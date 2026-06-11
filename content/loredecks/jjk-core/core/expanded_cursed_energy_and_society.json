@@ -1,0 +1,2432 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "jjk_core_exp_non_sorcerer_leakage_feeds_curses",
+      "title": "Non-Sorcerer Leakage Feeds Curses",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.core.jujutsu-society-baseline",
+        "validToAnchor": "jjk.shinjuku.final-aftermath",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 15000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "JJK manga main continuity"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "cursed energy",
+          "curse formation",
+          "civilian perception"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "scope:core",
+        "topic:cursed-energy",
+        "topic:curse-formation",
+        "topic:civilian-perception"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "cursed energy",
+            "curse formation",
+            "civilian perception"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline, including Jujutsu Kaisen 0 as prequel context and main series chapters 1-271.",
+        "notes": "Anime-only changes, movies beyond Jujutsu Kaisen 0 adaptation differences, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate overlay decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Most ordinary humans leak cursed energy instead of controlling it, allowing collective fear, grief, and hatred to accumulate into curses.",
+        "injection": "Apply this JJK rule constraint: Most ordinary humans leak cursed energy instead of controlling it, allowing collective fear, grief, and hatred to accumulate into curses.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Core",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_core_exp_sorcerers_reduce_leakage_through_control",
+      "title": "Sorcerers Reduce Leakage Through Control",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.core.jujutsu-society-baseline",
+        "validToAnchor": "jjk.shinjuku.final-aftermath",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 15000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "JJK manga main continuity"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "cursed energy control",
+          "sorcerer training"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "scope:core",
+        "topic:cursed-energy-control",
+        "topic:sorcerer-training"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "cursed energy control",
+            "sorcerer training"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline, including Jujutsu Kaisen 0 as prequel context and main series chapters 1-271.",
+        "notes": "Anime-only changes, movies beyond Jujutsu Kaisen 0 adaptation differences, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate overlay decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Jujutsu sorcerers are trained to control cursed energy flow, reducing leakage and turning emotion-born energy into reinforcement, technique fuel, or barrier work.",
+        "injection": "Apply this JJK rule constraint: Jujutsu sorcerers are trained to control cursed energy flow, reducing leakage and turning emotion-born energy into reinforcement, technique fuel, or barrier work.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Core",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_core_exp_cursed_energy_reinforcement_is_not_a_technique",
+      "title": "Cursed Energy Reinforcement Is Not A Technique",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.core.jujutsu-society-baseline",
+        "validToAnchor": "jjk.shinjuku.final-aftermath",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 15000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "JJK manga main continuity"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "cursed energy reinforcement",
+          "combat basics"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "scope:core",
+        "topic:cursed-energy-reinforcement",
+        "topic:combat-basics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "cursed energy reinforcement",
+            "combat basics"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline, including Jujutsu Kaisen 0 as prequel context and main series chapters 1-271.",
+        "notes": "Anime-only changes, movies beyond Jujutsu Kaisen 0 adaptation differences, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate overlay decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Basic reinforcement can strengthen the body and weapons without requiring a named innate cursed technique.",
+        "injection": "Apply this JJK rule constraint: Basic reinforcement can strengthen the body and weapons without requiring a named innate cursed technique.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Core",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_core_exp_residuals_can_reveal_sorcerer_activity",
+      "title": "Residuals Can Reveal Sorcerer Activity",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.core.jujutsu-society-baseline",
+        "validToAnchor": "jjk.shinjuku.final-aftermath",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 15000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "JJK manga main continuity"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "cursed energy residuals",
+          "tracking"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "scope:core",
+        "topic:cursed-energy-residuals",
+        "topic:tracking"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "cursed energy residuals",
+            "tracking"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline, including Jujutsu Kaisen 0 as prequel context and main series chapters 1-271.",
+        "notes": "Anime-only changes, movies beyond Jujutsu Kaisen 0 adaptation differences, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate overlay decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Cursed energy traces can remain after jujutsu use and may let trained sorcerers infer that a technique, curse, or sorcerer was present.",
+        "injection": "Apply this JJK rule constraint: Cursed energy traces can remain after jujutsu use and may let trained sorcerers infer that a technique, curse, or sorcerer was present.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Core",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_core_exp_black_flash_is_a_timing_phenomenon",
+      "title": "Black Flash Is A Timing Phenomenon",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.core.jujutsu-society-baseline",
+        "validToAnchor": "jjk.shinjuku.final-aftermath",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 15000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "JJK manga main continuity"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Black Flash",
+          "cursed energy timing"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "scope:core",
+        "topic:black-flash",
+        "topic:cursed-energy-timing"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "Black Flash",
+            "cursed energy timing"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline, including Jujutsu Kaisen 0 as prequel context and main series chapters 1-271.",
+        "notes": "Anime-only changes, movies beyond Jujutsu Kaisen 0 adaptation differences, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate overlay decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Black Flash is a rare cursed-energy timing distortion, not a spell a sorcerer can guarantee at will.",
+        "injection": "Apply this JJK rule constraint: Black Flash is a rare cursed-energy timing distortion, not a spell a sorcerer can guarantee at will.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Core",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_core_exp_cursed_spirits_are_invisible_to_most_civilians",
+      "title": "Cursed Spirits Are Invisible To Most Civilians",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.core.jujutsu-society-baseline",
+        "validToAnchor": "jjk.shinjuku.final-aftermath",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 15000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "JJK manga main continuity"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "cursed spirits",
+          "civilian perception"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "scope:core",
+        "topic:cursed-spirits",
+        "topic:civilian-perception"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "cursed spirits",
+            "civilian perception"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline, including Jujutsu Kaisen 0 as prequel context and main series chapters 1-271.",
+        "notes": "Anime-only changes, movies beyond Jujutsu Kaisen 0 adaptation differences, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate overlay decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Cursed spirits and jujutsu effects are normally hidden from ordinary civilians unless stress, circumstance, or special conditions make perception possible.",
+        "injection": "Apply this JJK rule constraint: Cursed spirits and jujutsu effects are normally hidden from ordinary civilians unless stress, circumstance, or special conditions make perception possible.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Core",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_core_exp_grades_are_rough_threat_classifications",
+      "title": "Grades Are Rough Threat Classifications",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.core.jujutsu-society-baseline",
+        "validToAnchor": "jjk.shinjuku.final-aftermath",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 15000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "JJK manga main continuity"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "grade system",
+          "threat classification"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "scope:core",
+        "topic:grade-system",
+        "topic:threat-classification"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "grade system",
+            "threat classification"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline, including Jujutsu Kaisen 0 as prequel context and main series chapters 1-271.",
+        "notes": "Anime-only changes, movies beyond Jujutsu Kaisen 0 adaptation differences, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate overlay decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Jujutsu grades classify sorcerers, curses, missions, and tools by practical threat or utility, but matchups and special abilities can break simple grade comparisons.",
+        "injection": "Apply this JJK rule constraint: Jujutsu grades classify sorcerers, curses, missions, and tools by practical threat or utility, but matchups and special abilities can break simple grade comparisons.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Core",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_core_exp_special_grade_breaks_normal_scaling",
+      "title": "Special Grade Breaks Normal Scaling",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.core.jujutsu-society-baseline",
+        "validToAnchor": "jjk.shinjuku.final-aftermath",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 15000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "JJK manga main continuity"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "special grade",
+          "threat classification"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "scope:core",
+        "topic:special-grade",
+        "topic:threat-classification"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "special grade",
+            "threat classification"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline, including Jujutsu Kaisen 0 as prequel context and main series chapters 1-271.",
+        "notes": "Anime-only changes, movies beyond Jujutsu Kaisen 0 adaptation differences, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate overlay decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Special grade is a category for abnormal scale and danger, not merely a higher rung in an ordinary ranking ladder.",
+        "injection": "Apply this JJK rule constraint: Special grade is a category for abnormal scale and danger, not merely a higher rung in an ordinary ranking ladder.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Core",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_core_exp_cursed_objects_can_persist_beyond_death",
+      "title": "Cursed Objects Can Persist Beyond Death",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.core.jujutsu-society-baseline",
+        "validToAnchor": "jjk.shinjuku.final-aftermath",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 15000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "JJK manga main continuity"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "cursed objects",
+          "death persistence"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "scope:core",
+        "topic:cursed-objects",
+        "topic:death-persistence"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "cursed objects",
+            "death persistence"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline, including Jujutsu Kaisen 0 as prequel context and main series chapters 1-271.",
+        "notes": "Anime-only changes, movies beyond Jujutsu Kaisen 0 adaptation differences, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate overlay decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Powerful cursed objects can preserve dangerous supernatural influence long after the original body or owner is gone.",
+        "injection": "Apply this JJK rule constraint: Powerful cursed objects can preserve dangerous supernatural influence long after the original body or owner is gone.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Core",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_core_exp_binding_vows_trade_conditions_for_force",
+      "title": "Binding Vows Trade Conditions For Force",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.core.jujutsu-society-baseline",
+        "validToAnchor": "jjk.shinjuku.final-aftermath",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 15000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "JJK manga main continuity"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "binding vows",
+          "conditions"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "scope:core",
+        "topic:binding-vows",
+        "topic:conditions"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "binding vows",
+            "conditions"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline, including Jujutsu Kaisen 0 as prequel context and main series chapters 1-271.",
+        "notes": "Anime-only changes, movies beyond Jujutsu Kaisen 0 adaptation differences, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate overlay decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Binding vows gain force from accepted conditions, sacrifices, or wording; the exact tradeoff matters during combat and planning.",
+        "injection": "Apply this JJK rule constraint: Binding vows gain force from accepted conditions, sacrifices, or wording; the exact tradeoff matters during combat and planning.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Core",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_core_exp_revealed_technique_can_strengthen_effect",
+      "title": "Revealed Technique Can Strengthen Effect",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.core.jujutsu-society-baseline",
+        "validToAnchor": "jjk.shinjuku.final-aftermath",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 15000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "JJK manga main continuity"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "revealing techniques",
+          "binding vows"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "scope:core",
+        "topic:revealing-techniques",
+        "topic:binding-vows"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "revealing techniques",
+            "binding vows"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline, including Jujutsu Kaisen 0 as prequel context and main series chapters 1-271.",
+        "notes": "Anime-only changes, movies beyond Jujutsu Kaisen 0 adaptation differences, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate overlay decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Explaining a cursed technique can improve its effectiveness through a disclosure tradeoff, so exposition may be tactical rather than careless.",
+        "injection": "Apply this JJK rule constraint: Explaining a cursed technique can improve its effectiveness through a disclosure tradeoff, so exposition may be tactical rather than careless.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Core",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_core_exp_heavenly_restriction_reallocates_potential",
+      "title": "Heavenly Restriction Reallocates Potential",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.core.jujutsu-society-baseline",
+        "validToAnchor": "jjk.shinjuku.final-aftermath",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 15000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "JJK manga main continuity"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Heavenly Restriction",
+          "body restriction"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "scope:core",
+        "topic:heavenly-restriction",
+        "topic:body-restriction"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "Heavenly Restriction",
+            "body restriction"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline, including Jujutsu Kaisen 0 as prequel context and main series chapters 1-271.",
+        "notes": "Anime-only changes, movies beyond Jujutsu Kaisen 0 adaptation differences, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate overlay decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Heavenly Restriction imposes severe limits or losses in exchange for abnormal physical, sensory, or cursed-energy consequences.",
+        "injection": "Apply this JJK rule constraint: Heavenly Restriction imposes severe limits or losses in exchange for abnormal physical, sensory, or cursed-energy consequences.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Core",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_core_exp_reverse_cursed_technique_is_rare_and_costly",
+      "title": "Reverse Cursed Technique Is Rare And Costly",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.core.jujutsu-society-baseline",
+        "validToAnchor": "jjk.shinjuku.final-aftermath",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 15000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "JJK manga main continuity"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "reverse cursed technique",
+          "healing limits"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "scope:core",
+        "topic:reverse-cursed-technique",
+        "topic:healing-limits"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "reverse cursed technique",
+            "healing limits"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline, including Jujutsu Kaisen 0 as prequel context and main series chapters 1-271.",
+        "notes": "Anime-only changes, movies beyond Jujutsu Kaisen 0 adaptation differences, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate overlay decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Reverse Cursed Technique multiplies cursed energy into positive energy and is rare, demanding, and uneven across users.",
+        "injection": "Apply this JJK rule constraint: Reverse Cursed Technique multiplies cursed energy into positive energy and is rare, demanding, and uneven across users.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Core",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_core_exp_outputting_rct_differs_from_self_healing",
+      "title": "Outputting RCT Differs From Self-Healing",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.core.jujutsu-society-baseline",
+        "validToAnchor": "jjk.shinjuku.final-aftermath",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 15000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "JJK manga main continuity"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "reverse cursed technique output",
+          "healing others"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "scope:core",
+        "topic:reverse-cursed-technique-output",
+        "topic:healing-others"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "reverse cursed technique output",
+            "healing others"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline, including Jujutsu Kaisen 0 as prequel context and main series chapters 1-271.",
+        "notes": "Anime-only changes, movies beyond Jujutsu Kaisen 0 adaptation differences, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate overlay decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Healing oneself with RCT is not the same as outputting positive energy to heal others or damage cursed spirits.",
+        "injection": "Apply this JJK rule constraint: Healing oneself with RCT is not the same as outputting positive energy to heal others or damage cursed spirits.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Core",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_core_exp_technique_burnout_follows_domain_use",
+      "title": "Technique Burnout Follows Domain Use",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.core.jujutsu-society-baseline",
+        "validToAnchor": "jjk.shinjuku.final-aftermath",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 15000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "JJK manga main continuity"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "technique burnout",
+          "domain expansion"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "scope:core",
+        "topic:technique-burnout",
+        "topic:domain-expansion"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "technique burnout",
+            "domain expansion"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline, including Jujutsu Kaisen 0 as prequel context and main series chapters 1-271.",
+        "notes": "Anime-only changes, movies beyond Jujutsu Kaisen 0 adaptation differences, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate overlay decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "After Domain Expansion, a sorcerer may suffer temporary cursed technique burnout and cannot always resume ordinary technique use immediately.",
+        "injection": "Apply this JJK rule constraint: After Domain Expansion, a sorcerer may suffer temporary cursed technique burnout and cannot always resume ordinary technique use immediately.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Core",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_core_exp_simple_domain_counters_sure_hit_pressure",
+      "title": "Simple Domain Counters Sure-Hit Pressure",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.core.jujutsu-society-baseline",
+        "validToAnchor": "jjk.shinjuku.final-aftermath",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 15000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "JJK manga main continuity"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Simple Domain",
+          "domain counters"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "scope:core",
+        "topic:simple-domain",
+        "topic:domain-counters"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "Simple Domain",
+            "domain counters"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline, including Jujutsu Kaisen 0 as prequel context and main series chapters 1-271.",
+        "notes": "Anime-only changes, movies beyond Jujutsu Kaisen 0 adaptation differences, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate overlay decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Simple Domain can protect against a domain sure-hit effect, but it is a defensive countermeasure rather than a guaranteed victory condition.",
+        "injection": "Apply this JJK rule constraint: Simple Domain can protect against a domain sure-hit effect, but it is a defensive countermeasure rather than a guaranteed victory condition.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Core",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_core_exp_domain_amplification_interferes_with_techniques",
+      "title": "Domain Amplification Interferes With Techniques",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.core.jujutsu-society-baseline",
+        "validToAnchor": "jjk.shinjuku.final-aftermath",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 15000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "JJK manga main continuity"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Domain Amplification",
+          "domain counters"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "scope:core",
+        "topic:domain-amplification",
+        "topic:domain-counters"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "Domain Amplification",
+            "domain counters"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline, including Jujutsu Kaisen 0 as prequel context and main series chapters 1-271.",
+        "notes": "Anime-only changes, movies beyond Jujutsu Kaisen 0 adaptation differences, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate overlay decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Domain Amplification can neutralize or interfere with cursed techniques around the user, usually at the cost of using an innate technique simultaneously.",
+        "injection": "Apply this JJK rule constraint: Domain Amplification can neutralize or interfere with cursed techniques around the user, usually at the cost of using an innate technique simultaneously.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Core",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_core_exp_domain_expansion_is_a_closed_rule_space",
+      "title": "Domain Expansion Is A Closed Rule Space",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.core.jujutsu-society-baseline",
+        "validToAnchor": "jjk.shinjuku.final-aftermath",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 15000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "JJK manga main continuity"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Domain Expansion",
+          "sure-hit"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "scope:core",
+        "topic:domain-expansion",
+        "topic:sure-hit"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "Domain Expansion",
+            "sure-hit"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline, including Jujutsu Kaisen 0 as prequel context and main series chapters 1-271.",
+        "notes": "Anime-only changes, movies beyond Jujutsu Kaisen 0 adaptation differences, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate overlay decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Domain Expansion manifests an innate domain and imposes a ruleset or sure-hit pressure inside a bounded space.",
+        "injection": "Apply this JJK rule constraint: Domain Expansion manifests an innate domain and imposes a ruleset or sure-hit pressure inside a bounded space.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Core",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_core_exp_barrier_skill_shapes_domain_reliability",
+      "title": "Barrier Skill Shapes Domain Reliability",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.core.jujutsu-society-baseline",
+        "validToAnchor": "jjk.shinjuku.final-aftermath",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 15000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "JJK manga main continuity"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "barrier techniques",
+          "domain reliability"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "scope:core",
+        "topic:barrier-techniques",
+        "topic:domain-reliability"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "barrier techniques",
+            "domain reliability"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline, including Jujutsu Kaisen 0 as prequel context and main series chapters 1-271.",
+        "notes": "Anime-only changes, movies beyond Jujutsu Kaisen 0 adaptation differences, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate overlay decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Barrier technique skill affects curtains, domains, and specialized jujutsu spaces; not every strong fighter is equally strong at barriers.",
+        "injection": "Apply this JJK rule constraint: Barrier technique skill affects curtains, domains, and specialized jujutsu spaces; not every strong fighter is equally strong at barriers.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Core",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_core_exp_curtains_control_civilian_and_sorcerer_access",
+      "title": "Curtains Control Civilian And Sorcerer Access",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.core.jujutsu-society-baseline",
+        "validToAnchor": "jjk.shinjuku.final-aftermath",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 15000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "JJK manga main continuity"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "curtains",
+          "barrier techniques"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "scope:core",
+        "topic:curtains",
+        "topic:barrier-techniques"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "curtains",
+            "barrier techniques"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline, including Jujutsu Kaisen 0 as prequel context and main series chapters 1-271.",
+        "notes": "Anime-only changes, movies beyond Jujutsu Kaisen 0 adaptation differences, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate overlay decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Curtains are barrier deployments that can restrict entry, exit, visibility, or target categories depending on the caster's conditions.",
+        "injection": "Apply this JJK rule constraint: Curtains are barrier deployments that can restrict entry, exit, visibility, or target categories depending on the caster's conditions.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Core",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_core_exp_windows_and_managers_are_not_frontline_sorcerers",
+      "title": "Windows And Managers Are Not Frontline Sorcerers",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.core.jujutsu-society-baseline",
+        "validToAnchor": "jjk.shinjuku.final-aftermath",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 15000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "JJK manga main continuity"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "windows",
+          "auxiliary managers",
+          "jujutsu society"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "scope:core",
+        "topic:windows",
+        "topic:auxiliary-managers",
+        "topic:jujutsu-society"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "windows",
+            "auxiliary managers",
+            "jujutsu society"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline, including Jujutsu Kaisen 0 as prequel context and main series chapters 1-271.",
+        "notes": "Anime-only changes, movies beyond Jujutsu Kaisen 0 adaptation differences, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate overlay decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Windows and auxiliary managers support detection, logistics, transport, and administration; they should not be written as ordinary combat sorcerers by default.",
+        "injection": "Apply this JJK rule constraint: Windows and auxiliary managers support detection, logistics, transport, and administration; they should not be written as ordinary combat sorcerers by default.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Core",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_core_exp_higher_ups_represent_conservative_authority",
+      "title": "Higher-Ups Represent Conservative Authority",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.core.jujutsu-society-baseline",
+        "validToAnchor": "jjk.shinjuku.final-aftermath",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 15000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "JJK manga main continuity"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "higher-ups",
+          "jujutsu society"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "scope:core",
+        "topic:higher-ups",
+        "topic:jujutsu-society"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "higher-ups",
+            "jujutsu society"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline, including Jujutsu Kaisen 0 as prequel context and main series chapters 1-271.",
+        "notes": "Anime-only changes, movies beyond Jujutsu Kaisen 0 adaptation differences, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate overlay decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Jujutsu higher-ups operate as a conservative institutional force that can issue orders, suppress information, and target inconvenient sorcerers.",
+        "injection": "Apply this JJK rule constraint: Jujutsu higher-ups operate as a conservative institutional force that can issue orders, suppress information, and target inconvenient sorcerers.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Core",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_core_exp_tokyo_and_kyoto_schools_are_institutional_hubs",
+      "title": "Tokyo And Kyoto Schools Are Institutional Hubs",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.core.jujutsu-society-baseline",
+        "validToAnchor": "jjk.shinjuku.final-aftermath",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 15000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "JJK manga main continuity"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "jujutsu schools",
+          "Tokyo Jujutsu High",
+          "Kyoto Jujutsu High"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "scope:core",
+        "topic:jujutsu-schools",
+        "topic:tokyo-jujutsu-high",
+        "topic:kyoto-jujutsu-high"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "jujutsu schools",
+            "Tokyo Jujutsu High",
+            "Kyoto Jujutsu High"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline, including Jujutsu Kaisen 0 as prequel context and main series chapters 1-271.",
+        "notes": "Anime-only changes, movies beyond Jujutsu Kaisen 0 adaptation differences, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate overlay decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Tokyo and Kyoto Jujutsu High function as training schools, mission hubs, and political nodes inside Japanese jujutsu society.",
+        "injection": "Apply this JJK rule constraint: Tokyo and Kyoto Jujutsu High function as training schools, mission hubs, and political nodes inside Japanese jujutsu society.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Core",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_core_exp_big_three_families_carry_political_weight",
+      "title": "Big Three Families Carry Political Weight",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.core.jujutsu-society-baseline",
+        "validToAnchor": "jjk.shinjuku.final-aftermath",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 15000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "JJK manga main continuity"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Big Three families",
+          "jujutsu clans"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "scope:core",
+        "topic:big-three-families",
+        "topic:jujutsu-clans"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "Big Three families",
+            "jujutsu clans"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline, including Jujutsu Kaisen 0 as prequel context and main series chapters 1-271.",
+        "notes": "Anime-only changes, movies beyond Jujutsu Kaisen 0 adaptation differences, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate overlay decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "The Gojo, Zenin, and Kamo families carry inherited-technique prestige and political influence that can distort assignments, succession, and status.",
+        "injection": "Apply this JJK rule constraint: The Gojo, Zenin, and Kamo families carry inherited-technique prestige and political influence that can distort assignments, succession, and status.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Core",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_core_exp_cursed_technique_inheritance_shapes_clan_politics",
+      "title": "Cursed Technique Inheritance Shapes Clan Politics",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.core.jujutsu-society-baseline",
+        "validToAnchor": "jjk.shinjuku.final-aftermath",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 15000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "JJK manga main continuity"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "inherited techniques",
+          "clan politics"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "scope:core",
+        "topic:inherited-techniques",
+        "topic:clan-politics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "inherited techniques",
+            "clan politics"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline, including Jujutsu Kaisen 0 as prequel context and main series chapters 1-271.",
+        "notes": "Anime-only changes, movies beyond Jujutsu Kaisen 0 adaptation differences, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate overlay decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Inherited techniques can create family prestige and succession pressure, especially when a clan values technique lineage over individual wellbeing.",
+        "injection": "Apply this JJK rule constraint: Inherited techniques can create family prestige and succession pressure, especially when a clan values technique lineage over individual wellbeing.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Core",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_core_exp_anti_spoiler_death_states_need_context",
+      "title": "Anti-Spoiler Death States Need Context",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.core.jujutsu-society-baseline",
+        "validToAnchor": "jjk.shinjuku.final-aftermath",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 15000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "JJK manga main continuity"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "death status",
+          "spoiler guard"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "scope:core",
+        "topic:death-status",
+        "topic:spoiler-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "death status",
+            "spoiler guard"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline, including Jujutsu Kaisen 0 as prequel context and main series chapters 1-271.",
+        "notes": "Anime-only changes, movies beyond Jujutsu Kaisen 0 adaptation differences, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate overlay decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Major deaths, survival reveals, and ambiguous injuries should stay Context-gated rather than being treated as globally known facts.",
+        "injection": "Apply this JJK rule constraint: Major deaths, survival reveals, and ambiguous injuries should stay Context-gated rather than being treated as globally known facts.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Core",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    }
+  ]
+}

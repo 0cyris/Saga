@@ -55,6 +55,7 @@ function setLoredeckCreatorTitleRevisionInstruction(value) { return dep('setLore
 function appendLoredeckPendingQualityPills(meta, change) { return dep('appendLoredeckPendingQualityPills', () => null)(meta, change); }
 function createLoredeckPendingQualityList(change) { return dep('createLoredeckPendingQualityList', () => null)(change); }
 function openLoredeckCreatorTitleJsonEditor(draft) { return dep('openLoredeckCreatorTitleJsonEditor', () => null)(draft); }
+function acknowledgeLoredeckCreatorCoverageForFinalize() { return dep('acknowledgeLoredeckCreatorCoverageForFinalize', async () => false)(); }
 function getLoredeckCreatorPlanningBatchRows(cached) { return dep('getLoredeckCreatorPlanningBatchRows', () => [])(cached); }
 function getLoredeckCreatorPlanningQueuedBatchIds(cached) { return dep('getLoredeckCreatorPlanningQueuedBatchIds', () => new Set())(cached); }
 function getLoredeckCreatorNextPlanningBatch(cached) { return dep('getLoredeckCreatorNextPlanningBatch', () => null)(cached); }
@@ -79,7 +80,7 @@ function createLoredeckPendingReviewCard(pack) { return dep('createLoredeckPendi
 function getLoredeckCreatorPipelineReadinessView(pack, cached) { return dep('getLoredeckCreatorPipelineReadinessView', () => null)(pack, cached); }
 function markTourTarget(element, target) { return dep('markTourTarget', value => value)(element, target); }
 
-export function openLoredeckCreatorWorkbench() {
+export function openLoredeckCreatorWorkbench(options = {}) {
     document.querySelector('.saga-loredeck-creator-workbench-overlay')?.remove();
     recoverLoredeckCreatorCurrentActiveGenerationOnOpen({ toast: true });
     const overlay = document.createElement('div');
@@ -101,6 +102,12 @@ export function openLoredeckCreatorWorkbench() {
     markTourTarget(body, 'loredecks.creator.body');
     body.appendChild(createLoredeckCreatorCard(getState(), { embedded: true, showHeader: false }));
     shell.appendChild(body);
+    const anchor = String(options.anchor || '').trim();
+    if (anchor) {
+        const scroll = () => scrollLoredeckCreatorWorkbenchToAnchor(anchor);
+        scroll();
+        if (typeof requestAnimationFrame === 'function') requestAnimationFrame(scroll);
+    }
 }
 
 export function refreshLoredeckCreatorWorkbenchBody(options = {}) {
@@ -415,6 +422,9 @@ export function getLoredeckCreatorOutlineRows(outline = {}, key = '') {
             summary: String(row.summary || row.description || '').trim(),
             contextRole: String(row.contextRole || row.context || row.role || '').trim(),
             titleTargets: Array.isArray(row.titleTargets) ? row.titleTargets.map(item => String(item || '').trim()).filter(Boolean).slice(0, 8) : [],
+            coverageDimensionIds: Array.isArray(row.coverageDimensionIds || row.coverageDimensions || row.coverageIds)
+                ? (row.coverageDimensionIds || row.coverageDimensions || row.coverageIds).map(item => String(item || '').trim()).filter(Boolean).slice(0, 12)
+                : [],
         }));
 }
 
@@ -436,6 +446,7 @@ function createLoredeckCreatorOutlineRows(container, label, rows = []) {
         if (row.summary) parts.push(row.summary);
         if (row.contextRole) parts.push(`Context: ${row.contextRole}`);
         if (row.titleTargets?.length) parts.push(`Targets: ${row.titleTargets.join(', ')}`);
+        if (row.coverageDimensionIds?.length) parts.push(`Coverage: ${row.coverageDimensionIds.join(', ')}`);
         item.textContent = parts.join(' | ');
         section.appendChild(item);
     }
@@ -543,6 +554,7 @@ export function normalizeLoredeckCreatorTitleDrafts(value = []) {
             reason: String(raw.reason || raw.rationale || raw.description || '').trim().slice(0, 1000),
             creatorTitleBatchId: normalizeLoredeckCreatorTitleId(raw.creatorTitleBatchId || raw.batchId || raw.sourceBatchId || '', ''),
             creatorTitleBatchLabel: String(raw.creatorTitleBatchLabel || raw.batchLabel || raw.sourceBatchLabel || '').trim().slice(0, 180),
+            coverageDimensionIds: normalizeLoredeckCreatorStringList(raw.coverageDimensionIds || raw.coverageDimensions || raw.coverageIds || [], 12),
             rubric: isPlainObjectValue(raw.rubric) ? raw.rubric : null,
             warnings: Array.isArray(raw.warnings || raw.qualityWarnings)
                 ? (raw.warnings || raw.qualityWarnings).map(item => String(item || '').trim()).filter(Boolean).slice(0, 8)
@@ -594,6 +606,7 @@ export function getLoredeckCreatorTitleBatchRows(cached = {}) {
         summary: outline?.coverageSummary || brief.coverageSummary || brief.coverage || brief.scope || 'Approved Creator scope.',
         contextRole: 'Fallback title set when the outline did not define smaller title slices.',
         titleTargets: [],
+        coverageDimensionIds: [],
     }];
 }
 
@@ -637,6 +650,7 @@ export function compactLoredeckCreatorTitleDraftForRevision(draft = {}) {
         reason: truncateLoredeckCreatorText(draft.reason || '', 700),
         creatorTitleBatchId: draft.creatorTitleBatchId || '',
         creatorTitleBatchLabel: draft.creatorTitleBatchLabel || '',
+        coverageDimensionIds: Array.isArray(draft.coverageDimensionIds) ? draft.coverageDimensionIds.slice(0, 12) : [],
         rubric: isPlainObjectValue(draft.rubric) ? draft.rubric : null,
     };
 }
@@ -676,6 +690,7 @@ export function createLoredeckCreatorTitleBatchPlanner(brief = {}, cached = {}) 
         meta.appendChild(createStatusPill(`${batchDrafts.length} title${batchDrafts.length === 1 ? '' : 's'}`, 'Title drafts currently tied to this batch.'));
         if (batch.type) meta.appendChild(createStatusPill(humanizeScopeKey(batch.type), 'Outline title-batch type.'));
         if (batch.titleTargets?.length) meta.appendChild(createStatusPill(`${batch.titleTargets.length} target${batch.titleTargets.length === 1 ? '' : 's'}`, batch.titleTargets.join(', ')));
+        if (batch.coverageDimensionIds?.length) meta.appendChild(createStatusPill(`${batch.coverageDimensionIds.length} coverage`, batch.coverageDimensionIds.join(', ')));
         main.appendChild(meta);
         row.appendChild(main);
 
@@ -927,6 +942,7 @@ function createLoredeckCreatorTitleRow(draft = {}, selected = false, approved = 
     meta.appendChild(createStatusPill(`Priority ${Number.isFinite(Number(draft.priority)) ? Math.round(Number(draft.priority)) : 50}`, 'Draft priority from 0-100.'));
     if (draft.creatorTitleBatchLabel || draft.creatorTitleBatchId) meta.appendChild(createStatusPill(draft.creatorTitleBatchLabel || draft.creatorTitleBatchId, 'Creator title set that produced this draft.'));
     if (draft.contextHint) meta.appendChild(createStatusPill('Context hint', draft.contextHint));
+    if (draft.coverageDimensionIds?.length) meta.appendChild(createStatusPill(`${draft.coverageDimensionIds.length} coverage`, draft.coverageDimensionIds.join(', ')));
     for (const tag of (draft.tags || []).slice(0, 6)) {
         meta.appendChild(createStatusPill(tag, 'Suggested tag hint.'));
     }
@@ -1303,6 +1319,12 @@ export function createLoredeckCreatorPipelineReadinessCard(pack = {}, cached = n
     summary.appendChild(createStatusPill(`${pipeline.titleBatchDraftedCount || 0}/${pipeline.titleBatchCount || 0} title sets`, 'Title sets drafted from the approved Story Outline.'));
     summary.appendChild(createStatusPill(`${pipeline.acceptedPlanningBatchCount || 0}/${pipeline.eligiblePlanningBatchCount || 0} Context sets accepted`, 'Context and Tag sets accepted from Pending Review into the Generated Loredeck.'));
     summary.appendChild(createStatusPill(`${pipeline.approvedTitleAcceptedCount || 0}/${pipeline.approvedTitleCount || 0} titles accepted`, 'Approved title plan covered by accepted generated Lorecards.'));
+    if (pipeline.coverage?.available) {
+        summary.appendChild(createStatusPill(`Coverage: ${pipeline.coverage.statusLabel || 'Review'}`, 'Adaptive coverage status from the Creator plan. This is advisory and does not enforce a fixed Lorecard count.'));
+        if (pipeline.coverage.finalizeAcknowledged) {
+            summary.appendChild(createStatusPill('Coverage acknowledged', 'The current missing/thin coverage state was explicitly accepted for finalization.'));
+        }
+    }
     if (pipeline.remainingEntryCount) summary.appendChild(createStatusPill(`${pipeline.remainingEntryCount} remaining`, 'Approved titles still available for Creator entry drafting.'));
     wrap.appendChild(summary);
 
@@ -1314,6 +1336,22 @@ export function createLoredeckCreatorPipelineReadinessCard(pack = {}, cached = n
     wrap.appendChild(help);
 
     appendLoredeckCreatorReadinessItems(wrap, readiness.blockers, readiness.warnings);
+    if (pipeline.coverage?.finalizeAcknowledgementRequired) {
+        const actions = document.createElement('div');
+        actions.className = 'saga-primary-actions';
+        actions.appendChild(createButton('Open Coverage Plan', 'Review and expand missing or thin Creator Coverage rows before finalization.', () => {
+            scrollLoredeckCreatorWorkbenchToAnchor('coverage-plan');
+        }, 'saga-primary-button'));
+        actions.appendChild(createButton('Finalize Anyway', 'Record that this scope is intentionally light despite unresolved Creator Coverage rows.', async (btn) => {
+            btn.disabled = true;
+            try {
+                await acknowledgeLoredeckCreatorCoverageForFinalize();
+            } finally {
+                btn.disabled = false;
+            }
+        }, 'saga-primary-button'));
+        wrap.appendChild(actions);
+    }
     return wrap;
 }
 
@@ -1327,7 +1365,7 @@ function getLoredeckCreatorCurrentTaskTitle(cached = {}, pipeline = {}) {
     if (step.id === 'lorecards') return pipeline.draftChanges?.length ? 'Review Lorecard Drafts' : 'Draft Lorecards';
     if (step.id === 'review') return 'Clear the Review Queue';
     if (step.id === 'health') return 'Run Deck Health';
-    if (step.id === 'finalize') return 'Finalize as Custom Loredeck';
+    if (step.id === 'finalize') return pipeline.readiness?.coverageAcknowledgementRequired ? 'Acknowledge Creator Coverage' : 'Finalize as Custom Loredeck';
     return 'Continue the Creator Pipeline';
 }
 
@@ -1345,7 +1383,9 @@ function getLoredeckCreatorCurrentTaskDescription(cached = {}, pipeline = {}) {
     if (step.id === 'lorecards') return 'Draft small Lorecard batches, then edit, repair, drop, or send them to Pending Review.';
     if (step.id === 'review') return 'Pending changes are not runtime-active. Accept or reject them before Deck Health and finalization.';
     if (step.id === 'health') return 'Validate accepted data and fix blockers before this Generated Loredeck can become a Custom Loredeck.';
-    if (step.id === 'finalize') return 'Create a normal editable Custom Loredeck from the reviewed Generated draft.';
+    if (step.id === 'finalize') return pipeline.readiness?.coverageAcknowledgementRequired
+        ? 'Expand missing/thin Creator Coverage or explicitly accept the current scope as intentionally light before finalization.'
+        : 'Create a normal editable Custom Loredeck from the reviewed Generated draft.';
     return 'Complete the current stage before moving forward.';
 }
 

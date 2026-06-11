@@ -1,0 +1,565 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "jjk_zero_exp_rika_manifests_as_a_special_grade_curse",
+      "title": "Rika Manifests As A Special-Grade Curse",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.zero.yuta-and-rika-curse-baseline",
+        "validToAnchor": "jjk.zero.rika-released",
+        "sortKeyFrom": 100,
+        "sortKeyTo": 950,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Jujutsu Kaisen 0 prequel"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:yuta-okkotsu",
+          "jjk:rika-orimoto"
+        ],
+        "characters": [
+          "Yuta Okkotsu",
+          "Rika Orimoto"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Rika curse",
+          "special grade"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:jjk-zero",
+        "character:yuta-okkotsu",
+        "character:rika-orimoto",
+        "topic:rika-curse",
+        "topic:special-grade"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuta Okkotsu",
+            "Rika Orimoto"
+          ],
+          "topicsAny": [
+            "Rika curse",
+            "special grade"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-zero",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen 0 manga prequel material, treated as manga-primary pre-mainline context for the Jujutsu Kaisen Loredeck family.",
+        "notes": "Mainline manga outcomes after the prequel should remain in later arc decks unless explicitly needed as bridge metadata."
+      },
+      "content": {
+        "fact": "Rika's manifestation gives Yuta overwhelming danger and protection, but it is tied to their curse bond rather than normal shikigami use.",
+        "injection": "When Rika Curse Manifestation matters, enforce this ability constraint: Rika's manifestation gives Yuta overwhelming danger and protection, but it is tied to their curse bond rather than normal shikigami use.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen 0",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      },
+      "ability": {
+        "system": "cursed_object",
+        "name": "Rika Curse Manifestation",
+        "ownerEntityIds": [
+          "jjk:yuta-okkotsu",
+          "jjk:rika-orimoto"
+        ],
+        "constraints": [
+          "Rika's manifestation gives Yuta overwhelming danger and protection, but it is tied to their curse bond rather than normal shikigami use."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_zero_exp_cursed_speech_requires_word_discipline",
+      "title": "Cursed Speech Requires Word Discipline",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.zero.yuta-and-rika-curse-baseline",
+        "validToAnchor": "jjk.zero.rika-released",
+        "sortKeyFrom": 100,
+        "sortKeyTo": 950,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Jujutsu Kaisen 0 prequel"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:toge-inumaki"
+        ],
+        "characters": [
+          "Toge Inumaki"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Cursed Speech",
+          "speech limits"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:jjk-zero",
+        "character:toge-inumaki",
+        "topic:cursed-speech",
+        "topic:speech-limits"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Toge Inumaki"
+          ],
+          "topicsAny": [
+            "Cursed Speech",
+            "speech limits"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-zero",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen 0 manga prequel material, treated as manga-primary pre-mainline context for the Jujutsu Kaisen Loredeck family.",
+        "notes": "Mainline manga outcomes after the prequel should remain in later arc decks unless explicitly needed as bridge metadata."
+      },
+      "content": {
+        "fact": "Toge's Cursed Speech can compel targets through words, so he limits vocabulary to avoid accidental harm.",
+        "injection": "When Cursed Speech matters, enforce this ability constraint: Toge's Cursed Speech can compel targets through words, so he limits vocabulary to avoid accidental harm.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen 0",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      },
+      "ability": {
+        "system": "cursed_technique",
+        "name": "Cursed Speech",
+        "ownerEntityIds": [
+          "jjk:toge-inumaki"
+        ],
+        "constraints": [
+          "Toge's Cursed Speech can compel targets through words, so he limits vocabulary to avoid accidental harm."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_zero_exp_maki_relies_on_tools_and_physical_skill",
+      "title": "Maki Relies On Tools And Physical Skill",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.zero.yuta-and-rika-curse-baseline",
+        "validToAnchor": "jjk.zero.rika-released",
+        "sortKeyFrom": 100,
+        "sortKeyTo": 950,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Jujutsu Kaisen 0 prequel"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:maki-zenin"
+        ],
+        "characters": [
+          "Maki Zenin"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Maki combat",
+          "cursed tools"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:jjk-zero",
+        "character:maki-zenin",
+        "topic:maki-combat",
+        "topic:cursed-tools"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Maki Zenin"
+          ],
+          "topicsAny": [
+            "Maki combat",
+            "cursed tools"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-zero",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen 0 manga prequel material, treated as manga-primary pre-mainline context for the Jujutsu Kaisen Loredeck family.",
+        "notes": "Mainline manga outcomes after the prequel should remain in later arc decks unless explicitly needed as bridge metadata."
+      },
+      "content": {
+        "fact": "Zero-era Maki fights through weapons, martial skill, and tactical grit rather than a conventional innate technique.",
+        "injection": "When Cursed Tool Combat matters, enforce this ability constraint: Zero-era Maki fights through weapons, martial skill, and tactical grit rather than a conventional innate technique.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen 0",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      },
+      "ability": {
+        "system": "cursed_tool",
+        "name": "Cursed Tool Combat",
+        "ownerEntityIds": [
+          "jjk:maki-zenin"
+        ],
+        "constraints": [
+          "Zero-era Maki fights through weapons, martial skill, and tactical grit rather than a conventional innate technique."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_zero_exp_geto_uses_cursed_spirit_manipulation_strategically",
+      "title": "Geto Uses Cursed Spirit Manipulation Strategically",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.zero.yuta-and-rika-curse-baseline",
+        "validToAnchor": "jjk.zero.rika-released",
+        "sortKeyFrom": 100,
+        "sortKeyTo": 950,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Jujutsu Kaisen 0 prequel"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:geto-suguru"
+        ],
+        "characters": [
+          "Suguru Geto"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Cursed Spirit Manipulation",
+          "curse users"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:jjk-zero",
+        "character:geto-suguru",
+        "topic:cursed-spirit-manipulation",
+        "topic:curse-users"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Suguru Geto"
+          ],
+          "topicsAny": [
+            "Cursed Spirit Manipulation",
+            "curse users"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-zero",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen 0 manga prequel material, treated as manga-primary pre-mainline context for the Jujutsu Kaisen Loredeck family.",
+        "notes": "Mainline manga outcomes after the prequel should remain in later arc decks unless explicitly needed as bridge metadata."
+      },
+      "content": {
+        "fact": "Geto's Cursed Spirit Manipulation lets him deploy stored curses as assets, making numbers and curse quality part of his threat.",
+        "injection": "When Cursed Spirit Manipulation matters, enforce this ability constraint: Geto's Cursed Spirit Manipulation lets him deploy stored curses as assets, making numbers and curse quality part of his threat.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen 0",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      },
+      "ability": {
+        "system": "cursed_technique",
+        "name": "Cursed Spirit Manipulation",
+        "ownerEntityIds": [
+          "jjk:geto-suguru"
+        ],
+        "constraints": [
+          "Geto's Cursed Spirit Manipulation lets him deploy stored curses as assets, making numbers and curse quality part of his threat."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_zero_exp_yutas_copy_potential_should_stay_developmental",
+      "title": "Yuta's Copy Potential Should Stay Developmental",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.zero.yuta-and-rika-curse-baseline",
+        "validToAnchor": "jjk.zero.rika-released",
+        "sortKeyFrom": 100,
+        "sortKeyTo": 950,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Jujutsu Kaisen 0 prequel"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:yuta-okkotsu"
+        ],
+        "characters": [
+          "Yuta Okkotsu"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Yuta potential",
+          "copy technique"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:jjk-zero",
+        "character:yuta-okkotsu",
+        "topic:yuta-potential",
+        "topic:copy-technique"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuta Okkotsu"
+          ],
+          "topicsAny": [
+            "Yuta potential",
+            "copy technique"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-zero",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen 0 manga prequel material, treated as manga-primary pre-mainline context for the Jujutsu Kaisen Loredeck family.",
+        "notes": "Mainline manga outcomes after the prequel should remain in later arc decks unless explicitly needed as bridge metadata."
+      },
+      "content": {
+        "fact": "Zero-era Yuta's unusual potential should be written as emerging and unstable, not as fully mature mainline mastery.",
+        "injection": "When Yuta Copy Potential matters, enforce this ability constraint: Zero-era Yuta's unusual potential should be written as emerging and unstable, not as fully mature mainline mastery.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen 0",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      },
+      "ability": {
+        "system": "cursed_technique",
+        "name": "Yuta Copy Potential",
+        "ownerEntityIds": [
+          "jjk:yuta-okkotsu"
+        ],
+        "constraints": [
+          "Zero-era Yuta's unusual potential should be written as emerging and unstable, not as fully mature mainline mastery."
+        ],
+        "antiLore": []
+      }
+    }
+  ]
+}

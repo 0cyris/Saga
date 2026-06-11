@@ -331,6 +331,209 @@
         "confidence": 0.78
       },
       "extensions": {}
+    },
+    "jjk:aoi-todo": {
+      "type": "character",
+      "label": "Aoi Todo",
+      "aliases": [],
+      "canonicalNames": [
+        "Aoi Todo"
+      ],
+      "tags": [
+        "character:aoi-todo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath.",
+        "notes": "Jujutsu Kaisen 0 prequel context, Hidden Inventory, Shibuya, Culling Game, Shinjuku, anime-only changes, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate decks unless explicitly loaded."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.7
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_entity_stub"
+        }
+      }
+    },
+    "jjk:choso": {
+      "type": "character",
+      "label": "Choso",
+      "aliases": [],
+      "canonicalNames": [
+        "Choso"
+      ],
+      "tags": [
+        "character:choso"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath.",
+        "notes": "Jujutsu Kaisen 0 prequel context, Hidden Inventory, Shibuya, Culling Game, Shinjuku, anime-only changes, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate decks unless explicitly loaded."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.7
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_entity_stub"
+        }
+      }
+    },
+    "jjk:hanami": {
+      "type": "character",
+      "label": "Hanami",
+      "aliases": [],
+      "canonicalNames": [
+        "Hanami"
+      ],
+      "tags": [
+        "character:hanami"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath.",
+        "notes": "Jujutsu Kaisen 0 prequel context, Hidden Inventory, Shibuya, Culling Game, Shinjuku, anime-only changes, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate decks unless explicitly loaded."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.7
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_entity_stub"
+        }
+      }
+    },
+    "jjk:maki-zenin": {
+      "type": "character",
+      "label": "Maki Zenin",
+      "aliases": [],
+      "canonicalNames": [
+        "Maki Zenin"
+      ],
+      "tags": [
+        "character:maki-zenin"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath.",
+        "notes": "Jujutsu Kaisen 0 prequel context, Hidden Inventory, Shibuya, Culling Game, Shinjuku, anime-only changes, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate decks unless explicitly loaded."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.7
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_entity_stub"
+        }
+      }
+    },
+    "jjk:megumi-fushiguro": {
+      "type": "character",
+      "label": "Megumi Fushiguro",
+      "aliases": [],
+      "canonicalNames": [
+        "Megumi Fushiguro"
+      ],
+      "tags": [
+        "character:megumi-fushiguro"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath.",
+        "notes": "Jujutsu Kaisen 0 prequel context, Hidden Inventory, Shibuya, Culling Game, Shinjuku, anime-only changes, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate decks unless explicitly loaded."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.7
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_entity_stub"
+        }
+      }
+    },
+    "jjk:nanami-kento": {
+      "type": "character",
+      "label": "Kento Nanami",
+      "aliases": [],
+      "canonicalNames": [
+        "Kento Nanami"
+      ],
+      "tags": [
+        "character:nanami-kento"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath.",
+        "notes": "Jujutsu Kaisen 0 prequel context, Hidden Inventory, Shibuya, Culling Game, Shinjuku, anime-only changes, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate decks unless explicitly loaded."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.7
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_entity_stub"
+        }
+      }
+    },
+    "jjk:noritoshi-kamo": {
+      "type": "character",
+      "label": "Noritoshi Kamo",
+      "aliases": [],
+      "canonicalNames": [
+        "Noritoshi Kamo"
+      ],
+      "tags": [
+        "character:noritoshi-kamo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath.",
+        "notes": "Jujutsu Kaisen 0 prequel context, Hidden Inventory, Shibuya, Culling Game, Shinjuku, anime-only changes, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate decks unless explicitly loaded."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.7
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_entity_stub"
+        }
+      }
     }
   }
 }

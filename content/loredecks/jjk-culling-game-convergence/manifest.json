@@ -8,7 +8,7 @@
   "era": "Culling Game Convergence",
   "contentKind": "fandom",
   "author": "Saga",
-  "version": "0.1.0",
+  "version": "0.2.0-phase1",
   "defaultLocale": "en",
   "tags": [
     "fandom:jjk",
@@ -51,7 +51,11 @@
   "files": [
     "culling_convergence/sakurajima_angel.json",
     "culling_convergence/kenjaku_sukuna_tsumiki.json",
-    "culling_convergence/gojo_shinjuku_setup.json"
+    "culling_convergence/gojo_shinjuku_setup.json",
+    "expanded/convergence_events.json",
+    "expanded/status_changes.json",
+    "expanded/abilities_and_rules.json",
+    "expanded/knowledge_gates.json"
   ],
   "compatibility": {
     "sagaSchemaMin": 3,
@@ -67,13 +71,14 @@
     }
   ],
   "stats": {
-    "entryCount": 12,
+    "entryCount": 38,
     "categoryCounts": {
-      "event": 4,
+      "character": 6,
+      "event": 14,
       "faction": 1,
       "knowledge": 3,
-      "rule": 1,
-      "secret": 3
+      "rule": 7,
+      "secret": 7
     },
     "timelineAnchorCount": 9,
     "timelineWindowCount": 4
@@ -83,8 +88,8 @@
     "notes": "For local testing. Requires human canon review before reference release."
   },
   "health": {
-    "status": "good",
-    "notes": "Initial Culling Game Convergence scaffold passes local structural health checks; not a substitute for human canon review."
+    "status": "needs_review",
+    "notes": "Expanded phase-1 draft-reference package; generated cards require human canon review before reference release."
   },
   "library": {
     "suggestedPath": [

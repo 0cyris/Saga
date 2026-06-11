@@ -327,6 +327,93 @@
         "confidence": 0.78
       },
       "extensions": {}
+    },
+    "jjk:geto-suguru": {
+      "type": "character",
+      "label": "Suguru Geto",
+      "aliases": [],
+      "canonicalNames": [
+        "Suguru Geto"
+      ],
+      "tags": [
+        "character:geto-suguru"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Hidden Inventory and Premature Death manga pre-mainline material.",
+        "notes": "Mainline origin, Shibuya, Culling Game, Shinjuku, Jujutsu Kaisen 0 scene details, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.7
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_entity_stub"
+        }
+      }
+    },
+    "jjk:megumi-fushiguro": {
+      "type": "character",
+      "label": "Megumi Fushiguro",
+      "aliases": [],
+      "canonicalNames": [
+        "Megumi Fushiguro"
+      ],
+      "tags": [
+        "character:megumi-fushiguro"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Hidden Inventory and Premature Death manga pre-mainline material.",
+        "notes": "Mainline origin, Shibuya, Culling Game, Shinjuku, Jujutsu Kaisen 0 scene details, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.7
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_entity_stub"
+        }
+      }
+    },
+    "jjk:misato-kuroi": {
+      "type": "character",
+      "label": "Misato Kuroi",
+      "aliases": [],
+      "canonicalNames": [
+        "Misato Kuroi"
+      ],
+      "tags": [
+        "character:misato-kuroi"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Hidden Inventory and Premature Death manga pre-mainline material.",
+        "notes": "Mainline origin, Shibuya, Culling Game, Shinjuku, Jujutsu Kaisen 0 scene details, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.7
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_entity_stub"
+        }
+      }
     }
   }
 }

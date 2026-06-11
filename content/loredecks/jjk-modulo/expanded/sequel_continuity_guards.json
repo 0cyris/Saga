@@ -1,0 +1,429 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "jjk_modulo_exp_modulo_uses_a_future_sequel_context",
+      "title": "Modulo Uses A Future Sequel Context",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.modulo.after-mainline-gap",
+        "validToAnchor": "jjk.modulo.epilogue-state",
+        "sortKeyFrom": 20000,
+        "sortKeyTo": 20800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Jujutsu Kaisen Modulo sequel"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:yuka-okkotsu",
+          "jjk:tsurugi-okkotsu",
+          "jjk:maru"
+        ],
+        "characters": [
+          "Yuka Okkotsu",
+          "Tsurugi Okkotsu",
+          "Maru"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Modulo separation",
+          "future sequel"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-modulo",
+        "adaptation:manga",
+        "arc:jjk-modulo",
+        "character:yuka-okkotsu",
+        "character:tsurugi-okkotsu",
+        "character:maru",
+        "topic:modulo-separation",
+        "topic:future-sequel"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuka Okkotsu",
+            "Tsurugi Okkotsu",
+            "Maru"
+          ],
+          "topicsAny": [
+            "Modulo separation",
+            "future sequel"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-modulo",
+        "canonTier": "sequel",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Modulo chapters 1-25 as a separate sequel/spinoff continuity.",
+        "notes": "Keep Modulo separate from the manga-main stack unless the user explicitly loads sequel/spinoff context. Anime-only changes, guidebook-only material, games, and light novels remain separate overlays."
+      },
+      "content": {
+        "fact": "Modulo facts require the sequel timeline and should not be injected into mainline Yuji-era scenes by default.",
+        "injection": "Gate by Context and character knowledge: Modulo facts require the sequel timeline and should not be injected into mainline Yuji-era scenes by default.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen Modulo",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen Modulo",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_modulo_exp_modulos_chapter_25_resolution_is_a_late_series_spoiler",
+      "title": "Modulo's Chapter 25 Resolution Is A Late-Series Spoiler",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.modulo.final-resolution",
+        "validToAnchor": "jjk.modulo.epilogue-state",
+        "sortKeyFrom": 20700,
+        "sortKeyTo": 20800,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Modulo final resolution"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:yuka-okkotsu",
+          "jjk:tsurugi-okkotsu",
+          "jjk:maru"
+        ],
+        "characters": [
+          "Yuka Okkotsu",
+          "Tsurugi Okkotsu",
+          "Maru"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Modulo final resolution",
+          "spoiler guard"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-modulo",
+        "adaptation:manga",
+        "arc:jjk-modulo",
+        "character:yuka-okkotsu",
+        "character:tsurugi-okkotsu",
+        "character:maru",
+        "topic:modulo-final-resolution",
+        "topic:spoiler-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuka Okkotsu",
+            "Tsurugi Okkotsu",
+            "Maru"
+          ],
+          "topicsAny": [
+            "Modulo final resolution",
+            "spoiler guard"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-modulo",
+        "canonTier": "sequel",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Modulo chapters 1-25 as a separate sequel/spinoff continuity.",
+        "notes": "Keep Modulo separate from the manga-main stack unless the user explicitly loads sequel/spinoff context. Anime-only changes, guidebook-only material, games, and light novels remain separate overlays."
+      },
+      "content": {
+        "fact": "The final resolution belongs to late Modulo Context and should not appear during arrival or early coexistence scenes.",
+        "injection": "Gate by Context and character knowledge: The final resolution belongs to late Modulo Context and should not appear during arrival or early coexistence scenes.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen Modulo",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen Modulo",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_modulo_exp_okkotsu_descendant_context_is_future_only",
+      "title": "Okkotsu Descendant Context Is Future-Only",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.modulo.simurian-arrival",
+        "validToAnchor": "jjk.modulo.okkotsu-siblings-assigned",
+        "sortKeyFrom": 20200,
+        "sortKeyTo": 20400,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Modulo arrival and mission"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:yuka-okkotsu",
+          "jjk:tsurugi-okkotsu"
+        ],
+        "characters": [
+          "Yuka Okkotsu",
+          "Tsurugi Okkotsu"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Okkotsu descendants",
+          "sequel continuity"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-modulo",
+        "adaptation:manga",
+        "arc:jjk-modulo",
+        "character:yuka-okkotsu",
+        "character:tsurugi-okkotsu",
+        "topic:okkotsu-descendants",
+        "topic:sequel-continuity"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuka Okkotsu",
+            "Tsurugi Okkotsu"
+          ],
+          "topicsAny": [
+            "Okkotsu descendants",
+            "sequel continuity"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-modulo",
+        "canonTier": "sequel",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Modulo chapters 1-25 as a separate sequel/spinoff continuity.",
+        "notes": "Keep Modulo separate from the manga-main stack unless the user explicitly loads sequel/spinoff context. Anime-only changes, guidebook-only material, games, and light novels remain separate overlays."
+      },
+      "content": {
+        "fact": "Yuka and Tsurugi's Okkotsu-family context is not evidence of their presence or relevance during the mainline manga.",
+        "injection": "Gate by Context and character knowledge: Yuka and Tsurugi's Okkotsu-family context is not evidence of their presence or relevance during the mainline manga.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen Modulo",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen Modulo",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_modulo_exp_alien_jujutsu_does_not_rewrite_core_human_curse_rules",
+      "title": "Alien Jujutsu Does Not Rewrite Core Human Curse Rules",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 72,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.modulo.simurian-arrival",
+        "validToAnchor": "jjk.modulo.okkotsu-siblings-assigned",
+        "sortKeyFrom": 20200,
+        "sortKeyTo": 20400,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Modulo arrival and mission"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:maru",
+          "jjk:simurians"
+        ],
+        "characters": [
+          "Maru",
+          "Simurians"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "alien jujutsu",
+          "core rules"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-modulo",
+        "adaptation:manga",
+        "arc:jjk-modulo",
+        "character:maru",
+        "character:simurians",
+        "topic:alien-jujutsu",
+        "topic:core-rules"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Maru",
+            "Simurians"
+          ],
+          "topicsAny": [
+            "alien jujutsu",
+            "core rules"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-modulo",
+        "canonTier": "sequel",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Modulo chapters 1-25 as a separate sequel/spinoff continuity.",
+        "notes": "Keep Modulo separate from the manga-main stack unless the user explicitly loads sequel/spinoff context. Anime-only changes, guidebook-only material, games, and light novels remain separate overlays."
+      },
+      "content": {
+        "fact": "Simurian and alien-jujutsu details are sequel-specific extensions, not retroactive replacements for core JJK cursed-energy rules.",
+        "injection": "Gate by Context and character knowledge: Simurian and alien-jujutsu details are sequel-specific extensions, not retroactive replacements for core JJK cursed-energy rules.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen Modulo",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen Modulo",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    }
+  ]
+}

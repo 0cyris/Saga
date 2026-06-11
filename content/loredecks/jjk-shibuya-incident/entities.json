@@ -383,6 +383,236 @@
         "confidence": 0.78
       },
       "extensions": {}
+    },
+    "jjk:aoi-todo": {
+      "type": "character",
+      "label": "Aoi Todo",
+      "aliases": [],
+      "canonicalNames": [
+        "Aoi Todo"
+      ],
+      "tags": [
+        "character:aoi-todo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath.",
+        "notes": "Post-Shibuya preparation, Perfect Preparation, Culling Game, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.7
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_entity_stub"
+        }
+      }
+    },
+    "jjk:choso": {
+      "type": "character",
+      "label": "Choso",
+      "aliases": [],
+      "canonicalNames": [
+        "Choso"
+      ],
+      "tags": [
+        "character:choso"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath.",
+        "notes": "Post-Shibuya preparation, Perfect Preparation, Culling Game, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.7
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_entity_stub"
+        }
+      }
+    },
+    "jjk:dagon": {
+      "type": "character",
+      "label": "Dagon",
+      "aliases": [],
+      "canonicalNames": [
+        "Dagon"
+      ],
+      "tags": [
+        "character:dagon"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath.",
+        "notes": "Post-Shibuya preparation, Perfect Preparation, Culling Game, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.7
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_entity_stub"
+        }
+      }
+    },
+    "jjk:geto-suguru": {
+      "type": "character",
+      "label": "Suguru Geto",
+      "aliases": [],
+      "canonicalNames": [
+        "Suguru Geto"
+      ],
+      "tags": [
+        "character:geto-suguru"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath.",
+        "notes": "Post-Shibuya preparation, Perfect Preparation, Culling Game, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.7
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_entity_stub"
+        }
+      }
+    },
+    "jjk:jogo": {
+      "type": "character",
+      "label": "Jogo",
+      "aliases": [],
+      "canonicalNames": [
+        "Jogo"
+      ],
+      "tags": [
+        "character:jogo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath.",
+        "notes": "Post-Shibuya preparation, Perfect Preparation, Culling Game, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.7
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_entity_stub"
+        }
+      }
+    },
+    "jjk:maki-zenin": {
+      "type": "character",
+      "label": "Maki Zenin",
+      "aliases": [],
+      "canonicalNames": [
+        "Maki Zenin"
+      ],
+      "tags": [
+        "character:maki-zenin"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath.",
+        "notes": "Post-Shibuya preparation, Perfect Preparation, Culling Game, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.7
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_entity_stub"
+        }
+      }
+    },
+    "jjk:naobito-zenin": {
+      "type": "character",
+      "label": "Naobito Zenin",
+      "aliases": [],
+      "canonicalNames": [
+        "Naobito Zenin"
+      ],
+      "tags": [
+        "character:naobito-zenin"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath.",
+        "notes": "Post-Shibuya preparation, Perfect Preparation, Culling Game, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.7
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_entity_stub"
+        }
+      }
+    },
+    "jjk:zenin-clan": {
+      "type": "faction",
+      "label": "Zenin clan",
+      "aliases": [],
+      "canonicalNames": [
+        "Zenin clan"
+      ],
+      "tags": [],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath.",
+        "notes": "Post-Shibuya preparation, Perfect Preparation, Culling Game, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.7
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_entity_stub"
+        }
+      }
     }
   }
 }

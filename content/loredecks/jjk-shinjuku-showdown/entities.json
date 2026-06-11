@@ -268,6 +268,149 @@
         "confidence": 0.84
       },
       "extensions": {}
+    },
+    "jjk:aoi-todo": {
+      "type": "character",
+      "label": "Aoi Todo",
+      "aliases": [],
+      "canonicalNames": [
+        "Aoi Todo"
+      ],
+      "tags": [
+        "character:aoi-todo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shinjuku Showdown through chapter 271 manga aftermath.",
+        "notes": "Jujutsu Kaisen Modulo, anime-only changes, guidebook-only material, games, and light novels should remain separate decks unless explicitly loaded."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.7
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_entity_stub"
+        }
+      }
+    },
+    "jjk:hajime-kashimo": {
+      "type": "character",
+      "label": "Kashimo",
+      "aliases": [],
+      "canonicalNames": [
+        "Kashimo"
+      ],
+      "tags": [
+        "character:hajime-kashimo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shinjuku Showdown through chapter 271 manga aftermath.",
+        "notes": "Jujutsu Kaisen Modulo, anime-only changes, guidebook-only material, games, and light novels should remain separate decks unless explicitly loaded."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.7
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_entity_stub"
+        }
+      }
+    },
+    "jjk:hiromi-higuruma": {
+      "type": "character",
+      "label": "Higuruma",
+      "aliases": [],
+      "canonicalNames": [
+        "Higuruma"
+      ],
+      "tags": [
+        "character:hiromi-higuruma"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shinjuku Showdown through chapter 271 manga aftermath.",
+        "notes": "Jujutsu Kaisen Modulo, anime-only changes, guidebook-only material, games, and light novels should remain separate decks unless explicitly loaded."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.7
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_entity_stub"
+        }
+      }
+    },
+    "jjk:jujutsu-society": {
+      "type": "faction",
+      "label": "Jujutsu society",
+      "aliases": [],
+      "canonicalNames": [
+        "Jujutsu society"
+      ],
+      "tags": [],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shinjuku Showdown through chapter 271 manga aftermath.",
+        "notes": "Jujutsu Kaisen Modulo, anime-only changes, guidebook-only material, games, and light novels should remain separate decks unless explicitly loaded."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.7
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_entity_stub"
+        }
+      }
+    },
+    "jjk:kugisaki-nobara": {
+      "type": "character",
+      "label": "Nobara Kugisaki",
+      "aliases": [],
+      "canonicalNames": [
+        "Nobara Kugisaki"
+      ],
+      "tags": [
+        "character:kugisaki-nobara"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shinjuku Showdown through chapter 271 manga aftermath.",
+        "notes": "Jujutsu Kaisen Modulo, anime-only changes, guidebook-only material, games, and light novels should remain separate decks unless explicitly loaded."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.7
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_entity_stub"
+        }
+      }
     }
   }
 }

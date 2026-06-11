@@ -103,6 +103,7 @@ function repairLoredeckSafeHealthIssues(pack, button) { return dep('repairLorede
 function loadLoredeckManifestPreview(pack, button) { return dep('loadLoredeckManifestPreview', async () => {})(pack, button); }
 function createLoredeckManifestPreview(pack) { return dep('createLoredeckManifestPreview', () => document.createDocumentFragment())(pack); }
 function createLoredeckEntryOverrideCard(pack) { return dep('createLoredeckEntryOverrideCard', () => document.createDocumentFragment())(pack); }
+function getGeneratedLoredeckExportReadiness(pack) { return dep('getGeneratedLoredeckExportReadiness', () => ({ ready: true, blockers: [], warnings: [] }))(pack); }
 function createGeneratedLoredeckExportReadinessCard(pack) { return dep('createGeneratedLoredeckExportReadinessCard', () => document.createDocumentFragment())(pack); }
 function createLoredeckEditorField(...args) { return dep('createLoredeckEditorField', () => document.createDocumentFragment())(...args); }
 function saveLoredeckMetadataFromInputs(...args) { return dep('saveLoredeckMetadataFromInputs', () => false)(...args); }
@@ -3990,11 +3991,26 @@ function createLoredeckMetadataEditorCard(pack) {
         openDuplicateLoredeckDialog(pack);
     }));
     if (isGeneratedLoredeckPack(pack)) {
-        const finalizeButton = createButton('Finalize as Custom', 'Validate this reviewed Generated Loredeck and create a normal editable Custom copy.', async (btn) => {
+        const generatedReadiness = getGeneratedLoredeckExportReadiness(pack);
+        const readinessBlocker = generatedReadiness?.ready === false
+            ? String(generatedReadiness.blockers?.[0] || 'Resolve Generated Loredeck readiness before finalizing as Custom.')
+            : '';
+        const finalizeButton = createButton('Finalize as Custom', readinessBlocker || 'Validate this reviewed Generated Loredeck and create a normal editable Custom copy.', async (btn) => {
             await finalizeGeneratedLoredeckAsCustom(pack, btn);
         }, 'saga-primary-button');
-        finalizeButton.disabled = !editorCanValidate;
+        finalizeButton.disabled = !editorCanValidate || generatedReadiness?.ready === false;
         actions.appendChild(finalizeButton);
+        if (readinessBlocker) {
+            if (generatedReadiness.coverageAcknowledgementRequired) {
+                actions.appendChild(createButton('Open Coverage Plan', 'Open the linked Creator project at its adaptive coverage review.', () => {
+                    openLoredeckCreatorWorkbench({ generatedPackId: pack.packId, anchor: 'coverage-plan' });
+                }, 'saga-primary-button'));
+            }
+            const note = document.createElement('div');
+            note.className = 'saga-runtime-help';
+            note.textContent = `Finalization waits: ${readinessBlocker}`;
+            actions.appendChild(note);
+        }
     }
 
     if (!readOnly) {

@@ -8,7 +8,7 @@
   "era": "Manga Main Core",
   "contentKind": "fandom",
   "author": "Saga",
-  "version": "0.1.0",
+  "version": "0.2.0-phase1",
   "defaultLocale": "en",
   "tags": [
     "fandom:jjk",
@@ -62,19 +62,22 @@
   "files": [
     "core/cursed_energy_rules.json",
     "core/knowledge_gates.json",
-    "core/status_and_spoiler_guards.json"
+    "core/status_and_spoiler_guards.json",
+    "core/expanded_cursed_energy_and_society.json",
+    "core/expanded_ability_metadata.json",
+    "core/expanded_global_knowledge_and_spoiler_guards.json"
   ],
   "compatibility": {
     "sagaSchemaMin": 3,
     "sagaSchemaMax": 3
   },
   "stats": {
-    "entryCount": 8,
+    "entryCount": 51,
     "categoryCounts": {
       "faction": 1,
       "knowledge": 1,
-      "rule": 4,
-      "secret": 2
+      "rule": 40,
+      "secret": 9
     },
     "timelineAnchorCount": 6,
     "timelineWindowCount": 3
@@ -84,8 +87,8 @@
     "notes": "For local testing. Requires human canon review before reference release."
   },
   "health": {
-    "status": "good",
-    "notes": "Initial core scaffold passes local structural health checks; not a substitute for human canon review."
+    "status": "needs_review",
+    "notes": "Expanded phase-1 draft-reference package; generated cards require human canon review before reference release."
   },
   "library": {
     "suggestedPath": [

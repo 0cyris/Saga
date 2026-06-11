@@ -52,6 +52,22 @@ function setupLoreProviderPanel(container) {
     setupProviderControls(container, 'lore', 'Reasoning');
 }
 
+async function confirmDirectApiKeyStorage(kind, label) {
+    const info = getNamedApiKeyStorageInfo(secretNameForProvider(kind));
+    const storageLabel = info.webCryptoAvailable
+        ? 'Saga will use browser WebCrypto encryption at rest, but decrypted keys still live in browser memory for provider calls.'
+        : 'This browser context does not expose WebCrypto, so Saga will use fallback obfuscation, not encryption.';
+    const message = `${label} direct API key storage is intended for alpha testing. Prefer a SillyTavern Connection Profile or backend proxy when possible.\n\n${storageLabel}\n\nStore this key directly in Saga anyway?`;
+    const popup = globalThis.callGenericPopup;
+    const popupTypes = globalThis.POPUP_TYPE || {};
+    if (typeof popup === 'function') {
+        const result = await popup(message, popupTypes.CONFIRM || 'confirm');
+        return result === true || result === 'ok' || result === 'confirm' || result === 1;
+    }
+    if (typeof globalThis.confirm === 'function') return globalThis.confirm(message);
+    return true;
+}
+
 function settingPrefix(kind) {
     return kind === 'continuity' ? 'continuity' : 'lore';
 }
@@ -535,7 +551,7 @@ function setupProviderControls(container, kind, label) {
             const key = await loadApiKey(kind);
             if (key) {
                 if (info.compatibilityStorage) {
-                    openaiKeyStatus.textContent = 'Key stored with fallback encryption; use HTTPS/localhost for browser encryption';
+                    openaiKeyStatus.textContent = 'Key stored with fallback obfuscation; use HTTPS/localhost for browser encryption';
                     openaiKeyStatus.style.color = '#d6b35a';
                 } else {
                     openaiKeyStatus.textContent = 'Key stored (encrypted at rest)';
@@ -544,7 +560,7 @@ function setupProviderControls(container, kind, label) {
             } else if (info.isStored) {
                 openaiKeyStatus.textContent = info.webCryptoAvailable
                     ? 'Stored key could not be read; store it again'
-                    : 'Stored key needs browser encryption support; store it again to use fallback storage';
+                    : 'Stored key needs browser encryption support; store it again to use fallback obfuscation';
                 openaiKeyStatus.style.color = '#cc8888';
             } else {
                 openaiKeyStatus.textContent = 'No key stored';
@@ -563,15 +579,17 @@ function setupProviderControls(container, kind, label) {
                 if (typeof toastr !== 'undefined') toastr.warning('Enter an API key first.');
                 return;
             }
+            const proceed = await confirmDirectApiKeyStorage(kind, label);
+            if (!proceed) return;
             try {
                 const result = await storeNamedApiKey(secretNameForProvider(kind), raw);
                 clearCachedApiKey(kind);
                 openaiKey.value = '';
                 if (typeof toastr !== 'undefined') {
                     if (result?.encryptedAtRest === false) {
-                        toastr.warning(`${label} API key stored. Browser encryption is unavailable in this context, so Saga used fallback storage.`);
+                        toastr.warning(`${label} API key stored with fallback obfuscation, not encryption. Prefer a SillyTavern Connection Profile or backend proxy.`);
                     } else {
-                        toastr.success(`${label} API key encrypted and stored.`);
+                        toastr.success(`${label} API key encrypted and stored. Prefer a SillyTavern Connection Profile or backend proxy for stronger isolation.`);
                     }
                 }
                 await refreshKeyStatus();

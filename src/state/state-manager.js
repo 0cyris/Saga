@@ -79,6 +79,10 @@ const BUNDLED_THEME_ICON_SET_IDS = Object.freeze([
     'saga-mystic',
     'saga-relay',
 ]);
+const STATE_SAFETY_BACKUP_LIMIT = 6;
+const STATE_SAFETY_MIGRATION_LOG_LIMIT = 30;
+const SAGA_STATE_EXPORT_SCHEMA = 'saga-state-export/v1';
+const MIN_SUPPORTED_IMPORT_STATE_SCHEMA_VERSION = 20;
 const THEME_COLOR_KEYS = Object.freeze([
     'background',
     'backgroundAlt',
@@ -101,6 +105,112 @@ const THEME_COLOR_KEYS = Object.freeze([
     'text',
     'mutedText',
 ]);
+
+function cloneJsonForStateSafety(value, fallback = null) {
+    try {
+        if (value === undefined) return fallback;
+        return JSON.parse(JSON.stringify(value));
+    } catch (_) {
+        return fallback;
+    }
+}
+
+function normalizeStateSafety(value = {}) {
+    const input = value && typeof value === 'object' && !Array.isArray(value) ? value : {};
+    const backups = Array.isArray(input.backups) ? input.backups : [];
+    const migrationLog = Array.isArray(input.migrationLog) ? input.migrationLog : [];
+    return {
+        schemaVersion: 1,
+        backups: backups
+            .filter(backup => backup && typeof backup === 'object' && backup.state && typeof backup.state === 'object')
+            .map(backup => ({
+                id: String(backup.id || '').trim(),
+                reason: String(backup.reason || 'manual').trim().slice(0, 80) || 'manual',
+                label: String(backup.label || '').trim().slice(0, 120),
+                createdAt: Number.isFinite(Number(backup.createdAt)) ? Number(backup.createdAt) : 0,
+                schemaVersion: Number.isFinite(Number(backup.schemaVersion)) ? Number(backup.schemaVersion) : 0,
+                byteLength: Number.isFinite(Number(backup.byteLength)) ? Number(backup.byteLength) : 0,
+                state: backup.state,
+            }))
+            .filter(backup => backup.id && backup.createdAt)
+            .sort((a, b) => b.createdAt - a.createdAt)
+            .slice(0, STATE_SAFETY_BACKUP_LIMIT),
+        migrationLog: migrationLog
+            .filter(item => item && typeof item === 'object')
+            .map(item => ({
+                id: String(item.id || '').trim(),
+                type: String(item.type || 'migration').trim().slice(0, 80) || 'migration',
+                message: String(item.message || '').trim().slice(0, 240),
+                createdAt: Number.isFinite(Number(item.createdAt)) ? Number(item.createdAt) : 0,
+                fromVersion: Number.isFinite(Number(item.fromVersion)) ? Number(item.fromVersion) : 0,
+                toVersion: Number.isFinite(Number(item.toVersion)) ? Number(item.toVersion) : 0,
+            }))
+            .filter(item => item.id && item.createdAt)
+            .sort((a, b) => b.createdAt - a.createdAt)
+            .slice(0, STATE_SAFETY_MIGRATION_LOG_LIMIT),
+        lastBackupAt: Number.isFinite(Number(input.lastBackupAt)) ? Number(input.lastBackupAt) : 0,
+        lastBackupReason: String(input.lastBackupReason || '').trim().slice(0, 80),
+        lastRestoreAt: Number.isFinite(Number(input.lastRestoreAt)) ? Number(input.lastRestoreAt) : 0,
+        lastRestoreSource: String(input.lastRestoreSource || '').trim().slice(0, 120),
+    };
+}
+
+function stateSafetyId(prefix = 'saga') {
+    const random = Math.random().toString(36).slice(2, 8);
+    return `${prefix}-${Date.now().toString(36)}-${random}`;
+}
+
+function createStateBackupSnapshot(state = {}) {
+    const snapshot = cloneJsonForStateSafety(stripRetiredStateHistoryFields({ ...(state || {}) }), {});
+    snapshot.stateSafety = {
+        ...normalizeStateSafety(snapshot.stateSafety),
+        backups: [],
+    };
+    return snapshot;
+}
+
+function appendStateSafetyLog(state = {}, entry = {}) {
+    if (!state || typeof state !== 'object') return null;
+    const safety = normalizeStateSafety(state.stateSafety);
+    const now = Date.now();
+    const record = {
+        id: String(entry.id || stateSafetyId('log')),
+        type: String(entry.type || 'migration').trim().slice(0, 80) || 'migration',
+        message: String(entry.message || '').trim().slice(0, 240),
+        createdAt: Number.isFinite(Number(entry.createdAt)) ? Number(entry.createdAt) : now,
+        fromVersion: Number.isFinite(Number(entry.fromVersion)) ? Number(entry.fromVersion) : 0,
+        toVersion: Number.isFinite(Number(entry.toVersion)) ? Number(entry.toVersion) : 0,
+    };
+    safety.migrationLog = [record, ...safety.migrationLog]
+        .filter((item, index, list) => list.findIndex(other => other.id === item.id) === index)
+        .slice(0, STATE_SAFETY_MIGRATION_LOG_LIMIT);
+    state.stateSafety = safety;
+    return record;
+}
+
+function appendStateBackupRecord(state = {}, reason = 'manual', options = {}) {
+    if (!state || typeof state !== 'object') return null;
+    const safety = normalizeStateSafety(state.stateSafety);
+    const now = Number.isFinite(Number(options.createdAt)) ? Number(options.createdAt) : Date.now();
+    const snapshot = createStateBackupSnapshot(options.snapshotState || state);
+    const backup = {
+        id: String(options.id || stateSafetyId('backup')),
+        reason: String(reason || 'manual').trim().slice(0, 80) || 'manual',
+        label: String(options.label || '').trim().slice(0, 120),
+        createdAt: now,
+        schemaVersion: Number.isFinite(Number(snapshot._version)) ? Number(snapshot._version) : 0,
+        byteLength: safeJsonSize(snapshot),
+        state: snapshot,
+    };
+    safety.backups = [backup, ...safety.backups]
+        .filter((item, index, list) => list.findIndex(other => other.id === item.id) === index)
+        .sort((a, b) => b.createdAt - a.createdAt)
+        .slice(0, STATE_SAFETY_BACKUP_LIMIT);
+    safety.lastBackupAt = now;
+    safety.lastBackupReason = backup.reason;
+    state.stateSafety = safety;
+    return backup;
+}
 
 function disableRetiredContinuitySections(state) {
     if (!state || typeof state !== 'object') return state;
@@ -2674,7 +2784,22 @@ export function getState() {
     // Saga block, persist immediately so a poisoned chat does not keep
     // rehydrating the same megabyte-scale pending lore payload.
     const beforeSize = safeJsonSize(state);
+    const beforeVersion = Number.isFinite(Number(state._version)) ? Number(state._version) : 0;
+    if (beforeVersion < SCHEMA_VERSION) {
+        appendStateBackupRecord(state, 'before_schema_migration', {
+            label: `Schema ${beforeVersion || 'unknown'} -> ${SCHEMA_VERSION}`,
+            snapshotState: state,
+        });
+    }
     state = migrateState(state);
+    if (beforeVersion < SCHEMA_VERSION) {
+        appendStateSafetyLog(state, {
+            type: 'schema_migration',
+            message: `Saga state normalized from schema ${beforeVersion || 'unknown'} to ${SCHEMA_VERSION}.`,
+            fromVersion: beforeVersion,
+            toVersion: SCHEMA_VERSION,
+        });
+    }
     state = sanitizeLoreArraysForStorage(state);
     if (state.lastDelta === undefined) state.lastDelta = null;
     stripRetiredStateHistoryFields(state);
@@ -2712,6 +2837,7 @@ export function saveState(state, options = {}) {
     if (sanitize !== false) {
         state = sanitizeLoreArraysForStorage(state);
     }
+    state.stateSafety = normalizeStateSafety(state.stateSafety);
     stripRetiredStateHistoryFields(state);
     chatMetadata[MODULE_KEY] = state;
     removeLegacyBuckets(chatMetadata);
@@ -3559,6 +3685,7 @@ export function migrateState(state) {
     sanitizeLoreArraysForStorage(state);
 
     normalizeContinuityStructure(state);
+    state.stateSafety = normalizeStateSafety(state.stateSafety || {});
     migrateLegacyHpLoredeckState(state);
     clearDefaultHpLoredeckStackOnce(state);
     state.loredeckStack = normalizeLoredeckStack(state.loredeckStack);
@@ -3582,7 +3709,11 @@ export function migrateState(state) {
         state.lorePanel = getDefaultState().lorePanel;
     } else {
         const defaultsPanel = getDefaultState().lorePanel;
-        state.lorePanel.isOpen = state.lorePanel.isOpen !== false;
+        state.lorePanel.isOpen = state.lorePanel.isOpen === true;
+        state.lorePanel.hasOpenedRuntime = state.lorePanel.hasOpenedRuntime === true || state.lorePanel.isOpen === true;
+        state.lorePanel.launcherDismissed = state.lorePanel.launcherDismissed === true;
+        state.lorePanel.firstOpenedAt = Number.isFinite(Number(state.lorePanel.firstOpenedAt)) ? Number(state.lorePanel.firstOpenedAt) : defaultsPanel.firstOpenedAt;
+        state.lorePanel.lastOpenedAt = Number.isFinite(Number(state.lorePanel.lastOpenedAt)) ? Number(state.lorePanel.lastOpenedAt) : defaultsPanel.lastOpenedAt;
         state.lorePanel.railMode = state.lorePanel.railMode === 'expanded' ? 'expanded' : 'compact';
         state.lorePanel.drawerOpen = state.lorePanel.drawerOpen === true;
         state.lorePanel.collapsed = state.lorePanel.drawerOpen !== true;
@@ -4449,6 +4580,38 @@ function normalizeStateEntries(state) {
 
 // ── State import (validated) ────────────────────────────────────────────────────
 
+function unwrapImportedSagaState(parsed) {
+    if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return parsed;
+    if (parsed.schemaVersion === SAGA_STATE_EXPORT_SCHEMA && parsed.state && typeof parsed.state === 'object') {
+        return parsed.state;
+    }
+    if (parsed.schema === SAGA_STATE_EXPORT_SCHEMA && parsed.state && typeof parsed.state === 'object') {
+        return parsed.state;
+    }
+    if (parsed.chatState && typeof parsed.chatState === 'object') return parsed.chatState;
+    if (parsed.sagaState && typeof parsed.sagaState === 'object') return parsed.sagaState;
+    return parsed;
+}
+
+function getImportedStateSchemaError(parsed) {
+    if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return '';
+    const rawVersion = parsed._version;
+    if (rawVersion === undefined || rawVersion === null || rawVersion === '') {
+        return `Imported Saga state is missing _version. Restore from a current Saga export or reset Saga state before importing.`;
+    }
+    const version = Number(rawVersion);
+    if (!Number.isFinite(version) || version <= 0) {
+        return `Imported Saga state has unsupported schema version "${rawVersion}". Restore from a current Saga export or reset Saga state before importing.`;
+    }
+    if (version < MIN_SUPPORTED_IMPORT_STATE_SCHEMA_VERSION) {
+        return `Unsupported Saga state schema ${version}. Minimum import schema is ${MIN_SUPPORTED_IMPORT_STATE_SCHEMA_VERSION}; use a current Saga export or reset Saga state instead of partial migration.`;
+    }
+    if (version > SCHEMA_VERSION) {
+        return `Unsupported future Saga state schema ${version}. This build supports schema ${SCHEMA_VERSION}. Update Saga before importing this file.`;
+    }
+    return '';
+}
+
 /**
  * Imports state from a JSON string with validation and migration.
  * Always merges with defaults to fill missing fields.
@@ -4457,12 +4620,16 @@ function normalizeStateEntries(state) {
  */
 export function importState(json) {
     try {
-        const parsed = JSON.parse(json);
+        const parsed = unwrapImportedSagaState(JSON.parse(json));
         if (!parsed || typeof parsed !== 'object') {
             return { state: null, error: 'Imported JSON must be an object' };
         }
         if (Array.isArray(parsed)) {
             return { state: null, error: 'Imported JSON must be an object, not an array' };
+        }
+        const schemaError = getImportedStateSchemaError(parsed);
+        if (schemaError) {
+            return { state: null, error: schemaError };
         }
 
         // Merge with defaults to fill missing fields safely
@@ -4517,6 +4684,8 @@ export function importState(json) {
                 }
                 : { ...getDefaultState().loreBulkGeneration },
 
+            stateSafety: normalizeStateSafety(parsed.stateSafety || {}),
+
             loredeckCreator: normalizeLoredeckCreatorRegistry(parsed.loredeckCreator || getDefaultState().loredeckCreator),
 
             continuityScan: parsed.continuityScan && typeof parsed.continuityScan === 'object' && !Array.isArray(parsed.continuityScan)
@@ -4560,6 +4729,89 @@ export function exportState(state) {
         console.error(`${LOG_PREFIX} Failed to export state:`, e);
         return '{}';
     }
+}
+
+export function exportSagaState(state = getState()) {
+    const snapshot = createStateBackupSnapshot(state || {});
+    return JSON.stringify({
+        schemaVersion: SAGA_STATE_EXPORT_SCHEMA,
+        exportedAt: Date.now(),
+        state: snapshot,
+    }, null, 2);
+}
+
+export function createStateBackup(reason = 'manual', options = {}) {
+    const state = getState();
+    const backup = appendStateBackupRecord(state, reason, options);
+    saveState(state, { syncPrompt: options.syncPrompt === true, sanitize: options.sanitize !== false });
+    return backup;
+}
+
+export function getStateSafety(state = getState()) {
+    return normalizeStateSafety(state?.stateSafety || {});
+}
+
+export function recordStateSafetyEvent(type = 'event', message = '', options = {}) {
+    const state = getState();
+    const record = appendStateSafetyLog(state, {
+        type,
+        message,
+        fromVersion: Number(options.fromVersion) || 0,
+        toVersion: Number(options.toVersion) || SCHEMA_VERSION,
+    });
+    saveState(state, { syncPrompt: options.syncPrompt === true, sanitize: options.sanitize !== false });
+    return record;
+}
+
+export function restoreStateFromBackup(backupId) {
+    const current = getState();
+    const safety = normalizeStateSafety(current.stateSafety);
+    const backup = safety.backups.find(item => item.id === backupId);
+    if (!backup) return { ok: false, error: 'Backup not found.' };
+
+    appendStateBackupRecord(current, 'before_backup_restore', { label: 'Before restoring a saved Saga backup.' });
+    const next = migrateState(cloneJsonForStateSafety(backup.state, getDefaultState()));
+    next.stateSafety = normalizeStateSafety(current.stateSafety);
+    next.stateSafety.lastRestoreAt = Date.now();
+    next.stateSafety.lastRestoreSource = backup.id;
+    appendStateSafetyLog(next, {
+        type: 'state_restore',
+        message: `Restored Saga state backup ${backup.id}.`,
+        fromVersion: Number(next._version) || 0,
+        toVersion: SCHEMA_VERSION,
+    });
+    saveState(next);
+    return { ok: true, state: next, backup };
+}
+
+export function restoreStateFromExport(json) {
+    const current = getState();
+    appendStateBackupRecord(current, 'before_file_restore', { label: 'Before restoring Saga state from file.' });
+    saveState(current, { syncPrompt: false });
+    const preservedSafety = normalizeStateSafety(current.stateSafety);
+    const imported = importState(json);
+    if (!imported.state) {
+        appendStateSafetyLog(current, {
+            type: 'state_restore_failed',
+            message: imported.error || 'State import failed.',
+            fromVersion: Number(current._version) || 0,
+            toVersion: SCHEMA_VERSION,
+        });
+        saveState(current, { syncPrompt: false });
+        return { ok: false, error: imported.error || 'State import failed.' };
+    }
+    const next = imported.state;
+    next.stateSafety = preservedSafety;
+    next.stateSafety.lastRestoreAt = Date.now();
+    next.stateSafety.lastRestoreSource = 'file';
+    appendStateSafetyLog(next, {
+        type: 'state_restore',
+        message: 'Restored Saga state from an exported JSON file.',
+        fromVersion: Number(next._version) || 0,
+        toVersion: SCHEMA_VERSION,
+    });
+    saveState(next);
+    return { ok: true, state: next };
 }
 
 // ── Lore-specific state operations ──────────────────────────────────────────────
@@ -5282,6 +5534,10 @@ export function acceptPendingLoreEntries() {
 
     if (pending.length === 0) return state;
 
+    appendStateBackupRecord(state, 'before_accept_pending_lore', {
+        label: `Before accepting ${pending.length} pending Lorecard${pending.length === 1 ? '' : 's'}.`,
+    });
+
     const beforeTimeline = captureLoreTimelineState(state);
     const contextKey = state.pendingLoreMeta?.contextKey || buildLoreGenerationKey(state);
     const source = getPendingLoreTimelineSource(state.pendingLoreMeta, pending);
@@ -5326,6 +5582,13 @@ export function acceptPendingLoreEntries() {
 export function rejectPendingLoreEntries() {
     const state = getState();
     const contextKey = state.pendingLoreMeta?.contextKey || buildLoreGenerationKey(state);
+    const pending = normalizeLoreMatrix(state.pendingLoreEntries || []);
+
+    if (pending.length) {
+        appendStateBackupRecord(state, 'before_reject_pending_lore', {
+            label: `Before rejecting ${pending.length} pending Lorecard${pending.length === 1 ? '' : 's'}.`,
+        });
+    }
 
     state.pendingLoreEntries = [];
     state.pendingLoreMeta = null;

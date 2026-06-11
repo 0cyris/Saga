@@ -8,7 +8,7 @@
   "era": "Shibuya Incident",
   "contentKind": "fandom",
   "author": "Saga",
-  "version": "0.1.0",
+  "version": "0.2.0-phase1",
   "defaultLocale": "en",
   "tags": [
     "fandom:jjk",
@@ -62,7 +62,12 @@
   "files": [
     "shibuya/seal_and_curtains.json",
     "shibuya/battlefield_escalation.json",
-    "shibuya/aftermath_guards.json"
+    "shibuya/aftermath_guards.json",
+    "expanded/phase_events.json",
+    "expanded/status_changes.json",
+    "expanded/abilities_and_combat_rules.json",
+    "expanded/knowledge_and_spoiler_gates.json",
+    "expanded/location_states.json"
   ],
   "compatibility": {
     "sagaSchemaMin": 3,
@@ -78,13 +83,15 @@
     }
   ],
   "stats": {
-    "entryCount": 12,
+    "entryCount": 51,
     "categoryCounts": {
-      "event": 4,
+      "character": 8,
+      "event": 17,
       "faction": 2,
-      "knowledge": 2,
-      "rule": 2,
-      "secret": 2
+      "knowledge": 3,
+      "location": 4,
+      "rule": 10,
+      "secret": 7
     },
     "timelineAnchorCount": 10,
     "timelineWindowCount": 4
@@ -94,8 +101,8 @@
     "notes": "For local testing. Requires human canon review before reference release."
   },
   "health": {
-    "status": "good",
-    "notes": "Initial Shibuya Incident scaffold passes local structural health checks; not a substitute for human canon review."
+    "status": "needs_review",
+    "notes": "Expanded phase-1 draft-reference package; generated cards require human canon review before reference release."
   },
   "library": {
     "suggestedPath": [

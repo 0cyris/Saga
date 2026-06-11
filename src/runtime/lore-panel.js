@@ -19,6 +19,11 @@ import {
     getSettings,
     saveSettings,
     saveState,
+    createStateBackup,
+    exportSagaState,
+    getStateSafety,
+    restoreStateFromBackup,
+    restoreStateFromExport,
     appendPendingLoreEntries,
     restoreLoreTimelineEntriesToPending,
     setLoreContext,
@@ -256,6 +261,7 @@ import {
 } from '../loredecks/loredecks-tab-panel.js';
 import {
     configureLoredeckWorkbenchPanel,
+    closeLoredeckWorkbench,
     openLoredeckWorkbench,
 } from '../loredecks/loredeck-workbench-panel.js';
 import {
@@ -286,11 +292,12 @@ import {
     normalizeLoredeckCreatorTitleDrafts,
     normalizeLoredeckCreatorTitleId,
     normalizeLoredeckCreatorTitleIdList,
-    openLoredeckCreatorWorkbench,
+    openLoredeckCreatorWorkbench as openLoredeckCreatorWorkbenchBase,
     queueLoredeckCreatorWorkbenchRefresh,
     refreshLoredeckCreatorWorkbenchBody,
     scrollLoredeckCreatorWorkbenchToAnchor,
 } from '../loredecks/loredeck-creator-panel.js';
+import * as loredeckCreatorCoverage from '../loredecks/loredeck-creator-coverage.js';
 import {
     configureContextPanel,
     createContextAdvancedBriefSection,
@@ -302,6 +309,18 @@ import {
     getContextPackSummary,
     renderContextProposalReview,
 } from '../context/context-panel.js';
+
+function openLoredeckCreatorWorkbench(options = {}) {
+    const packId = String(options?.generatedPackId || options?.packId || '').trim();
+    if (packId) {
+        const job = getLoredeckCreatorJobForPack({ packId });
+        if (job?.jobId) {
+            const activated = activateLoredeckCreatorJob(job.jobId, { syncPrompt: false });
+            loredeckCreatorBriefCache.set('current', activated?.job || job);
+        }
+    }
+    openLoredeckCreatorWorkbenchBase(options);
+}
 import {
     formatContextBriefUpdatedAt,
 } from '../context/context-formatters.js';
@@ -339,6 +358,7 @@ import {
     getFilteredLoreEntries,
     getLoreSourceBucket,
     openNewLoreDialog,
+    closeLoreWorkbench,
     refreshLoreWorkbench,
     refreshAcceptedLoreCategoryTabs,
     refreshAcceptedLoreFilterResults,
@@ -623,6 +643,10 @@ configureLoredeckLibraryPanel({
     loadLoredeckManifestPreview,
     createLoredeckManifestPreview,
     createLoredeckEntryOverrideCard,
+    getGeneratedLoredeckExportReadiness: pack => {
+        const cachedHealth = loredeckManifestPreviewCache.get(pack?.packId)?.health || null;
+        return getGeneratedLoredeckExportReadiness(pack, cachedHealth);
+    },
     createGeneratedLoredeckExportReadinessCard,
     createLoredeckEditorField,
     saveLoredeckMetadataFromInputs,
@@ -703,6 +727,7 @@ configureLoredeckCreatorPanel({
     appendLoredeckPendingQualityPills,
     createLoredeckPendingQualityList,
     openLoredeckCreatorTitleJsonEditor,
+    acknowledgeLoredeckCreatorCoverageForFinalize,
     getLoredeckCreatorPlanningBatchRows,
     getLoredeckCreatorPlanningQueuedBatchIds,
     getLoredeckCreatorNextPlanningBatch,
@@ -828,25 +853,21 @@ configureContextWorkbenchPanel({
         contextWorkbenchQuery = String(query || '');
     },
     getContextWorkbenchSelectedKey: () => contextWorkbenchSelectedKey,
-    getContextWorkbenchWaypointQuery: () => contextWorkbenchWaypointQuery,
-    setContextWorkbenchWaypointQuery: query => {
-        contextWorkbenchWaypointQuery = String(query || '').trim();
+    getContextWorkbenchStoryPositionQuery: () => contextWorkbenchStoryPositionQuery,
+    setContextWorkbenchStoryPositionQuery: query => {
+        contextWorkbenchStoryPositionQuery = String(query || '').trim();
     },
     getContextWorkbenchTypeFilter: () => contextWorkbenchTypeFilter,
     setContextWorkbenchTypeFilter: typeFilter => {
         contextWorkbenchTypeFilter = ['all', 'anchor', 'window'].includes(typeFilter) ? typeFilter : 'all';
     },
-    getContextWorkbenchWaypointFilter: () => contextWorkbenchWaypointFilter,
-    setContextWorkbenchWaypointFilter: filter => {
-        contextWorkbenchWaypointFilter = String(filter || 'major');
+    getContextWorkbenchStoryPositionFilter: () => contextWorkbenchStoryPositionFilter,
+    setContextWorkbenchStoryPositionFilter: filter => {
+        contextWorkbenchStoryPositionFilter = String(filter || 'major');
     },
     getContextWorkbenchResolverQuery: () => contextWorkbenchResolverQuery,
     setContextWorkbenchResolverQuery: query => {
         contextWorkbenchResolverQuery = String(query || '').trim();
-    },
-    getContextWorkbenchContextQuery: () => contextWorkbenchContextQuery,
-    setContextWorkbenchContextQuery: query => {
-        contextWorkbenchContextQuery = String(query || '').trim();
     },
     resolveContextsFromContext: handleResolveContextsFromContext,
     modelResolveContexts: handleModelResolveContexts,
@@ -1070,10 +1091,9 @@ let contextWorkbenchTab = 'context';
 let contextWorkbenchPackId = '';
 let contextWorkbenchSelectedKey = '';
 let contextWorkbenchQuery = '';
-let contextWorkbenchContextQuery = '';
 let contextWorkbenchResolverQuery = '';
-let contextWorkbenchWaypointQuery = '';
-let contextWorkbenchWaypointFilter = 'major';
+let contextWorkbenchStoryPositionQuery = '';
+let contextWorkbenchStoryPositionFilter = 'major';
 let contextWorkbenchTypeFilter = 'all';
 let canonPreviewUiState = {
     contextKey: '',
@@ -1387,7 +1407,11 @@ let panelRoot = null;
 export function showLorePanel() {
     const state = getState();
     if (state?.lorePanel) {
+        const openedAt = Date.now();
         state.lorePanel.isOpen = true;
+        state.lorePanel.hasOpenedRuntime = true;
+        state.lorePanel.firstOpenedAt = Number(state.lorePanel.firstOpenedAt) || openedAt;
+        state.lorePanel.lastOpenedAt = openedAt;
         normalizePanelLayoutState(state, { persistLegacyOpenState: true });
         saveState(state);
     }
@@ -1430,13 +1454,27 @@ export function showLorePanel() {
 
 export function hideLorePanel() {
     closeSagaTour();
-    closeLoreWorkbench();
+    closeRuntimeFullscreenSurfaces();
     removeLorePanel();
     const state = getState();
     if (state?.lorePanel) {
         state.lorePanel.isOpen = false;
         saveState(state);
     }
+}
+
+function closeRuntimeFullscreenSurfaces() {
+    closeLoreWorkbench();
+    closeLoredeckWorkbench();
+    closeContextWorkbench();
+    document.querySelectorAll([
+        '.saga-loredeck-library-overlay',
+        '.saga-loredeck-creator-workbench-overlay',
+        '.saga-loredeck-health-center-overlay',
+        '.saga-context-proposal-review-overlay',
+        '.saga-loredeck-metadata-overlay',
+        '.saga-loredeck-creator-title-overlay',
+    ].join(',')).forEach(overlay => overlay.remove());
 }
 export function refreshLorePanel() {
     const existing = document.getElementById(PANEL_ID);
@@ -2521,7 +2559,22 @@ function markLoredeckCreatorRecoveryUnitSuperseded(unit = {}, replacementUnitId 
 
 function getLoredeckCreatorTitleBatchByRecoveryMeta(cached = {}, meta = {}) {
     const id = normalizeLoredeckCreatorTitleId(meta.targetTitleBatchId || meta.batchId || '', '');
+    const coverageDimensionIds = normalizeLoredeckCreatorCoverageIdList(meta.coverageDimensionIds || [], 12);
+    const reconstructed = id
+        ? {
+            id,
+            label: String(meta.targetTitleBatchLabel || meta.batchLabel || id || '').trim(),
+            type: coverageDimensionIds.length ? 'coverage_gap' : 'title_batch',
+            order: 9000,
+            summary: coverageDimensionIds.length ? 'Recovered targeted coverage title batch.' : 'Recovered title batch.',
+            contextRole: coverageDimensionIds.length ? 'Retry targeted coverage expansion.' : '',
+            titleTargets: [],
+            coverageDimensionIds,
+            coverageTarget: isPlainObjectValue(meta.coverageTarget) ? meta.coverageTarget : null,
+        }
+        : null;
     return (id ? getLoredeckCreatorTitleBatchById(cached, id) : null)
+        || reconstructed
         || getLoredeckCreatorNextTitleBatch(cached)
         || null;
 }
@@ -2652,6 +2705,279 @@ function appendLoredeckCreatorRecoveryActionButtons(actions, cached = getLoredec
     return true;
 }
 
+const LOREDECK_CREATOR_COVERAGE_FINALIZE_BLOCKER = loredeckCreatorCoverage.LOREDECK_CREATOR_COVERAGE_FINALIZE_BLOCKER;
+
+function normalizeLoredeckCreatorCoverageStatus(value = '', fallback = '') {
+    return loredeckCreatorCoverage.normalizeLoredeckCreatorCoverageStatus(value, fallback);
+}
+
+function formatLoredeckCreatorCoverageStatus(value = '', fallback = 'missing') {
+    return loredeckCreatorCoverage.formatLoredeckCreatorCoverageStatus(value, fallback);
+}
+
+function normalizeLoredeckCreatorCoverageId(value = '', fallback = '') {
+    return loredeckCreatorCoverage.normalizeLoredeckCreatorCoverageId(value, fallback);
+}
+
+function normalizeLoredeckCreatorCoverageIdList(value = [], limit = 24) {
+    return loredeckCreatorCoverage.normalizeLoredeckCreatorCoverageIdList(value, limit);
+}
+
+function mergeLoredeckCreatorCoveragePlans(base = null, incoming = null) {
+    return loredeckCreatorCoverage.mergeLoredeckCreatorCoveragePlans(base, incoming);
+}
+
+function getLoredeckCreatorCoveragePlan(cached = {}) {
+    return loredeckCreatorCoverage.getLoredeckCreatorCoveragePlan(cached);
+}
+
+function getLoredeckCreatorTitleCoverageIds(draft = {}) {
+    return normalizeLoredeckCreatorCoverageIdList(draft.coverageDimensionIds || draft.coverageDimensions || draft.coverageIds || [], 12);
+}
+
+function collectLoredeckCreatorCoverageEvidence(cached = {}, pack = null) {
+    const titleDrafts = getLoredeckCreatorTitleDrafts(cached);
+    const selectedIds = getLoredeckCreatorSelectedTitleIds(cached);
+    const approvedIds = getLoredeckCreatorApprovedTitleIds(cached);
+    const acceptedEntries = pack ? getAcceptedGeneratedLoredeckEntries(pack) : [];
+    const getEntryCoverageIds = (entry = {}) => normalizeLoredeckCreatorCoverageIdList(
+        entry.extensions?.sagaLoredeckCreator?.coverageDimensionIds
+        || entry.sagaLoredeckCreator?.coverageDimensionIds
+        || entry.coverageDimensionIds
+        || [],
+        12
+    );
+    const acceptedEntryIds = new Set(
+        acceptedEntries
+            .filter(entry => !getEntryCoverageIds(entry).length)
+            .map(entry => normalizeLoredeckEntryId(entry.id))
+            .filter(Boolean)
+    );
+    const pendingChanges = pack ? getLoredeckPendingChanges(pack) : [];
+    const draftChanges = pack ? getLoredeckAssistantDraftChanges(loredeckAssistantDraftCache.get(pack.packId) || {}) : [];
+    const getPreviewCoverageIds = (change = {}) => normalizeLoredeckCreatorCoverageIdList([
+        ...(change.preview?.creatorEntryBatch?.coverageDimensionIds || []),
+        ...Object.values(change.preview?.creatorEntryBatch?.titleCoverageMap || {}).flatMap(record => record?.coverageDimensionIds || []),
+    ], 24);
+    const pendingEntryIds = collectLoredeckCreatorChangeEntryIds(pendingChanges.filter(change => !getPreviewCoverageIds(change).length));
+    const draftEntryIds = collectLoredeckCreatorChangeEntryIds(draftChanges.filter(change => !getPreviewCoverageIds(change).length));
+    const byDimension = new Map();
+    const ensure = (id) => {
+        const clean = normalizeLoredeckCreatorCoverageId(id);
+        if (!clean) return null;
+        if (!byDimension.has(clean)) {
+            byDimension.set(clean, {
+                titleCount: 0,
+                selectedTitleCount: 0,
+                approvedTitleCount: 0,
+                pendingEntryCount: 0,
+                draftEntryCount: 0,
+                acceptedEntryCount: 0,
+            });
+        }
+        return byDimension.get(clean);
+    };
+    for (const draft of titleDrafts) {
+        const ids = getLoredeckCreatorTitleCoverageIds(draft);
+        for (const id of ids) {
+            const record = ensure(id);
+            if (!record) continue;
+            record.titleCount += 1;
+            if (selectedIds.has(draft.titleId)) record.selectedTitleCount += 1;
+            if (approvedIds.has(draft.titleId)) record.approvedTitleCount += 1;
+            const entryId = normalizeLoredeckEntryId(draft.titleId);
+            if (pendingEntryIds.has(entryId)) record.pendingEntryCount += 1;
+            if (draftEntryIds.has(entryId)) record.draftEntryCount += 1;
+            if (acceptedEntryIds.has(entryId)) record.acceptedEntryCount += 1;
+        }
+    }
+    const addChangePreviewEvidence = (changes = [], key = 'draftEntryCount') => {
+        for (const change of Array.isArray(changes) ? changes : []) {
+            const coverageIds = getPreviewCoverageIds(change);
+            if (!coverageIds.length) continue;
+            for (const id of coverageIds) {
+                const record = ensure(id);
+                if (record) record[key] += 1;
+            }
+        }
+    };
+    if (pack) {
+        addChangePreviewEvidence(getLoredeckPendingChanges(pack), 'pendingEntryCount');
+        addChangePreviewEvidence(draftChanges, 'draftEntryCount');
+        for (const entry of acceptedEntries) {
+            for (const id of getEntryCoverageIds(entry)) {
+                const record = ensure(id);
+                if (record) record.acceptedEntryCount += 1;
+            }
+        }
+    }
+    return byDimension;
+}
+
+function getLoredeckCreatorCoverageFinalizationSignature(dimensions = []) {
+    return loredeckCreatorCoverage.getLoredeckCreatorCoverageFinalizationSignature(dimensions);
+}
+
+function getLoredeckCreatorCoverageFinalizeAcknowledgement(cached = {}, signature = '') {
+    return loredeckCreatorCoverage.getLoredeckCreatorCoverageFinalizeAcknowledgement(cached, signature);
+}
+
+function buildLoredeckCreatorCoverageFinalizationProvenance(coverage = {}) {
+    return loredeckCreatorCoverage.buildLoredeckCreatorCoverageFinalizationProvenance(coverage);
+}
+
+function getLoredeckCreatorCoverageModel(cached = {}, pack = null) {
+    const evidence = collectLoredeckCreatorCoverageEvidence(cached, pack);
+    return loredeckCreatorCoverage.buildLoredeckCreatorCoverageModel(cached, evidence);
+}
+
+function isLoredeckCreatorCoverageDimensionTargetable(dimension = {}) {
+    return loredeckCreatorCoverage.isLoredeckCreatorCoverageDimensionTargetable(dimension);
+}
+
+function buildLoredeckCreatorCoverageTitleBatch(dimension = {}) {
+    return loredeckCreatorCoverage.buildLoredeckCreatorCoverageTitleBatch(dimension);
+}
+
+function setLoredeckCreatorCoverageDimensionStatus(dimension = {}, status = '', options = {}) {
+    const normalizedStatus = normalizeLoredeckCreatorCoverageStatus(status, '');
+    const dimensionId = normalizeLoredeckCreatorCoverageId(dimension.id || dimension.label || '');
+    if (!dimensionId || !normalizedStatus) return false;
+    const cached = getLoredeckCreatorBriefCache();
+    const plan = getLoredeckCreatorCoveragePlan(cached) || {
+        storyShape: cached.brief?.creatorCoverage?.storyShape || '',
+        storyDensity: cached.brief?.creatorCoverage?.storyDensity || '',
+        scopeKind: cached.brief?.creatorCoverage?.scopeKind || '',
+        dimensions: [],
+    };
+    const dimensions = [...(plan.dimensions || [])];
+    const existingIndex = dimensions.findIndex(row => row.id === dimensionId);
+    const reasonOverride = Object.prototype.hasOwnProperty.call(options || {}, 'notApplicableReason')
+        ? String(options.notApplicableReason || '').trim()
+        : null;
+    const notApplicableReason = reasonOverride !== null
+        ? reasonOverride
+        : (normalizedStatus === 'not_applicable'
+            ? 'User marked this coverage surface as not applicable.'
+            : (normalizedStatus === 'intentionally_light'
+                ? 'User accepted this coverage surface as intentionally light.'
+                : ''));
+    const nextDimension = {
+        ...(existingIndex >= 0 ? dimensions[existingIndex] : {}),
+        ...dimension,
+        id: dimensionId,
+        status: normalizedStatus,
+        notApplicableReason,
+    };
+    if (options.acknowledged === false) delete nextDimension.acknowledgedAt;
+    else nextDimension.acknowledgedAt = Date.now();
+    if (existingIndex >= 0) dimensions[existingIndex] = nextDimension;
+    else dimensions.push(nextDimension);
+    setLoredeckCreatorBriefCache({
+        ...cached,
+        creatorCoverage: {
+            ...plan,
+            status: '',
+            dimensions,
+            updatedAt: Date.now(),
+        },
+    });
+    refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+    toast(
+        options.toastMessage || (normalizedStatus === 'not_applicable'
+            ? 'Coverage row marked not applicable.'
+            : (normalizedStatus === 'intentionally_light'
+                ? 'Coverage row marked intentionally light.'
+                : 'Coverage row updated.')),
+        'success'
+    );
+    return true;
+}
+
+function reopenLoredeckCreatorCoverageDimension(dimension = {}) {
+    const dimensionId = normalizeLoredeckCreatorCoverageId(dimension.id || dimension.label || '');
+    if (!dimensionId) return false;
+    const cached = getLoredeckCreatorBriefCache();
+    const generatedPack = cached.generatedPackId ? getLoredeckDefinition(cached.generatedPackId) : null;
+    const coverage = getLoredeckCreatorCoverageModel(cached, generatedPack);
+    const current = (coverage.dimensions || []).find(row => row.id === dimensionId) || dimension;
+    const nextStatus = Number(current.acceptedEntryCount || 0)
+        ? 'adequate'
+        : (Number(current.titleCount || 0)
+            || Number(current.approvedTitleCount || 0)
+            || Number(current.pendingEntryCount || 0)
+            || Number(current.draftEntryCount || 0)
+            ? 'thin'
+            : 'missing');
+    return setLoredeckCreatorCoverageDimensionStatus({
+        ...current,
+        notApplicableReason: '',
+    }, nextStatus, {
+        acknowledged: false,
+        notApplicableReason: '',
+        toastMessage: 'Coverage row reopened for expansion.',
+    });
+}
+
+async function acknowledgeLoredeckCreatorCoverageForFinalize() {
+    const cached = getLoredeckCreatorBriefCache();
+    const generatedPack = cached.generatedPackId ? getLoredeckDefinition(cached.generatedPackId) : null;
+    const coverage = getLoredeckCreatorCoverageModel(cached, generatedPack);
+    if (!coverage.available) {
+        if (!coverage.finalizeAcknowledgementRequired) {
+            toast('Creator Coverage is not available for this job yet.', 'warning');
+            return false;
+        }
+    }
+    if (!coverage.finalizeAcknowledgementRequired) {
+        toast(coverage.finalizeAcknowledged ? 'Creator Coverage finalization acknowledgement is already current.' : 'Creator Coverage does not need finalization acknowledgement.', 'info');
+        return false;
+    }
+    const unresolved = (coverage.dimensions || [])
+        .filter(dimension => isLoredeckCreatorCoverageDimensionTargetable(dimension))
+        .slice(0, 8)
+        .map(dimension => `- ${dimension.label || dimension.id}: ${dimension.statusLabel || formatLoredeckCreatorCoverageStatus(dimension.derivedStatus || dimension.status)}`);
+    const confirmLines = coverage.available
+        ? [
+            'Creator Coverage still has missing or thin rows:',
+            ...unresolved,
+            (coverage.missingDimensionCount + coverage.thinDimensionCount) > unresolved.length
+                ? `- ...and ${(coverage.missingDimensionCount + coverage.thinDimensionCount) - unresolved.length} more`
+                : '',
+            '',
+            'This does not create filler Lorecards or set a fixed entry quota. It records that you intentionally accept the current coverage for finalization.',
+        ]
+        : [
+            'This Creator job has no adaptive coverage plan.',
+            'Redraft the Scope Brief or Story Outline for the strongest density review, or continue only if this missing coverage plan is intentional for the current alpha workflow.',
+            '',
+            'This records that you intentionally accept finalizing without a Creator Coverage plan.',
+        ];
+    const proceed = await confirmAction(
+        coverage.available ? 'Finalize Anyway with light coverage?' : 'Finalize Anyway without Creator Coverage?',
+        confirmLines.filter(Boolean).join('\n')
+    );
+    if (!proceed) return false;
+    setLoredeckCreatorBriefCache({
+        ...cached,
+        coverageFinalizeAcknowledgement: {
+            mode: 'finalize_anyway',
+            acknowledgedAt: Date.now(),
+            coverageSignature: coverage.finalizationSignature,
+            status: coverage.status,
+            missingDimensionIds: normalizeLoredeckCreatorCoverageIdList(coverage.missingDimensionIds || [], 24),
+            thinDimensionIds: normalizeLoredeckCreatorCoverageIdList(coverage.thinDimensionIds || [], 24),
+            note: coverage.available
+                ? 'User chose to finalize despite unresolved adaptive coverage rows.'
+                : 'User chose to finalize without an adaptive coverage plan.',
+        },
+    });
+    refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+    refreshLoredeckCreatorWorkbenchBody({ preserveScroll: true });
+    toast(coverage.available ? 'Creator Coverage acknowledged for finalization.' : 'Missing Creator Coverage plan acknowledged for finalization.', 'success');
+    return true;
+}
+
 function getLoredeckCreatorPipelineModel(cached = {}) {
     const outline = getLoredeckCreatorOutline(cached);
     const titleSets = getLoredeckCreatorTitleBatchRows(cached);
@@ -2667,6 +2993,7 @@ function getLoredeckCreatorPipelineModel(cached = {}) {
     const acceptedPlanningSetCount = eligiblePlanningSets.filter(batch => acceptedPlanningSetIds.has(batch.id)).length;
     const draftChanges = generatedPack ? getLoredeckAssistantDraftChanges(loredeckAssistantDraftCache.get(generatedPack.packId) || {}) : [];
     const pendingEntryCount = generatedPack ? getLoredeckPendingChanges(generatedPack).filter(change => (change.affectedEntryIds || []).length).length : 0;
+    const creatorCoverage = getLoredeckCreatorCoverageModel(cached, generatedPack);
     const pipeline = generatedPack ? getLoredeckCreatorPipelineReadiness(generatedPack, cached) : null;
     const readiness = generatedPack ? getGeneratedLoredeckExportReadiness(generatedPack, null, cached) : null;
     const titleSetTotal = titleSets.length || (outline ? 1 : 0);
@@ -2682,9 +3009,13 @@ function getLoredeckCreatorPipelineModel(cached = {}) {
     const titleReviewComplete = titleSetsComplete && approvedTitles.length > 0;
     const planningComplete = titleReviewComplete && eligiblePlanningTotal > 0 && acceptedPlanningSetCount >= eligiblePlanningTotal;
     const lorecardsComplete = !!pipeline && pipeline.approvedTitleCount > 0 && pipeline.approvedTitleAcceptedCount >= pipeline.approvedTitleCount;
-    const hasHealthBlockers = !!readiness && ((readiness.blockers || []).length > 0 || (readiness.errors || []).length > 0);
+    const readinessBlockers = Array.isArray(readiness?.blockers) ? readiness.blockers : [];
+    const hasCoverageAcknowledgementBlocker = readinessBlockers.includes(LOREDECK_CREATOR_COVERAGE_FINALIZE_BLOCKER);
+    const hasNonCoverageBlockers = readinessBlockers.some(blocker => blocker !== LOREDECK_CREATOR_COVERAGE_FINALIZE_BLOCKER);
+    const hasHealthBlockers = !!readiness && (hasNonCoverageBlockers || (readiness.errors || []).length > 0);
     const hasHealthWarnings = !!readiness && (readiness.warnings || []).length > 0;
-    const healthReady = !!readiness?.ready && !hasHealthBlockers && !draftChanges.length && !pendingChanges.length;
+    const deckHealthReady = !!readiness && !hasHealthBlockers && !draftChanges.length && !pendingChanges.length;
+    const healthReady = !!readiness?.ready && !hasHealthBlockers && !hasCoverageAcknowledgementBlocker && !draftChanges.length && !pendingChanges.length;
     const isGenerating = (...actionIds) => activeGeneration?.actionId && actionIds.includes(activeGeneration.actionId);
     const errors = Array.isArray(cached.errors) ? cached.errors : [];
     const stages = [
@@ -2747,17 +3078,19 @@ function getLoredeckCreatorPipelineModel(cached = {}) {
         {
             id: 'health',
             label: 'Deck Health',
-            status: !generatedPack ? 'not-ready' : (hasHealthBlockers ? 'blocked' : (healthReady ? 'approved' : (hasHealthWarnings || readiness ? 'needs-review' : 'ready'))),
-            detail: !generatedPack ? 'Not ready' : (healthReady ? 'Ready' : (hasHealthBlockers ? 'Blocked' : (hasHealthWarnings ? 'Warnings' : 'Run scan'))),
+            status: !generatedPack ? 'not-ready' : (hasHealthBlockers ? 'blocked' : (deckHealthReady ? 'approved' : (hasHealthWarnings || readiness ? 'needs-review' : 'ready'))),
+            detail: !generatedPack ? 'Not ready' : (deckHealthReady ? 'Ready' : (hasHealthBlockers ? 'Blocked' : (hasHealthWarnings ? 'Warnings' : 'Run scan'))),
             dependency: generatedPack ? '' : 'Deck Health is available after Saga creates the Generated Loredeck shell.',
             anchor: 'deck-health',
         },
         {
             id: 'finalize',
             label: 'Finalize',
-            status: healthReady ? 'ready' : 'locked',
-            detail: healthReady ? 'Ready' : 'Locked',
-            dependency: 'Finalize is locked until Lorecards are reviewed, Pending Review is clear, and Deck Health is ready.',
+            status: healthReady ? 'ready' : (hasCoverageAcknowledgementBlocker && deckHealthReady ? 'needs-review' : 'locked'),
+            detail: healthReady ? 'Ready' : (hasCoverageAcknowledgementBlocker && deckHealthReady ? 'Acknowledge coverage' : 'Locked'),
+            dependency: hasCoverageAcknowledgementBlocker
+                ? 'Finalize is waiting for Creator Coverage expansion or an explicit light-coverage acknowledgement.'
+                : 'Finalize is locked until Lorecards are reviewed, Pending Review is clear, and Deck Health is ready.',
             anchor: 'finalize',
         },
     ];
@@ -2783,6 +3116,7 @@ function getLoredeckCreatorPipelineModel(cached = {}) {
         pendingLorecardCount,
         repairCount,
         pendingEntryCount,
+        creatorCoverage,
         pipeline,
         readiness,
         briefComplete,
@@ -2790,6 +3124,7 @@ function getLoredeckCreatorPipelineModel(cached = {}) {
         titleReviewComplete,
         planningComplete,
         lorecardsComplete,
+        deckHealthReady,
         healthReady,
         activeGeneration,
         stages,
@@ -2926,6 +3261,19 @@ function createLoredeckCreatorCurrentTaskActions(cached = {}, pipeline = {}, con
         if (pack) actions.appendChild(createButton('Open Health Center', 'Open the fullscreen Deck Health Center for this Generated Loredeck.', () => openLoredeckHealthCenter(pack.packId)));
     } else if (step.id === 'finalize') {
         const pack = pipeline.generatedPack;
+        if (pipeline.readiness?.coverageAcknowledgementRequired) {
+            actions.appendChild(createButton('Open Coverage Plan', 'Review and expand missing or thin Creator Coverage rows before finalization.', () => {
+                scrollLoredeckCreatorWorkbenchToAnchor('coverage-plan');
+            }, 'saga-primary-button'));
+            actions.appendChild(createButton('Finalize Anyway', 'Record that this scope is intentionally light despite unresolved Creator Coverage rows.', async (btn) => {
+                btn.disabled = true;
+                try {
+                    await acknowledgeLoredeckCreatorCoverageForFinalize();
+                } finally {
+                    btn.disabled = false;
+                }
+            }));
+        }
         const finalizeButton = createButton('Finalize as Custom Loredeck', 'Validate and convert this reviewed Generated Loredeck into an editable Custom Loredeck.', async (btn) => {
             if (!pack) return;
             await finalizeGeneratedLoredeckAsCustom(pack, btn);
@@ -3071,6 +3419,156 @@ function createLoredeckCreatorAdvancedGenerationSettings(cached = {}) {
     );
 }
 
+function formatLoredeckCreatorCoverageState(coverage = {}) {
+    if (!coverage?.available) return 'No plan';
+    const issueCount = Number(coverage.missingDimensionCount || 0) + Number(coverage.thinDimensionCount || 0);
+    if (issueCount) return `${issueCount} gap${issueCount === 1 ? '' : 's'}`;
+    if (coverage.applicableDimensionCount) return coverage.statusLabel || 'Covered';
+    return 'Light scope';
+}
+
+function createLoredeckCreatorCoverageCard(cached = {}, pipeline = {}) {
+    const coverage = pipeline.creatorCoverage || getLoredeckCreatorCoverageModel(cached, pipeline.generatedPack || null);
+    const wrap = document.createElement('div');
+    wrap.className = 'saga-loredeck-creator-brief saga-loredeck-creator-coverage';
+    wrap.dataset.sagaCreatorAnchor = 'coverage-plan';
+
+    const title = document.createElement('div');
+    title.className = 'saga-runtime-card-title';
+    title.textContent = 'Adaptive Coverage Plan';
+    wrap.appendChild(title);
+
+    const summary = document.createElement('div');
+    summary.className = 'saga-loredeck-entry-summary';
+    summary.appendChild(createStatusPill(formatLoredeckCreatorCoverageState(coverage), 'Adaptive coverage status based on Creator coverage dimensions, title drafts, and accepted Lorecards. This is not a hard entry-count quota.'));
+    if (coverage.storyShape) summary.appendChild(createStatusPill(coverage.storyShape, 'Detected story shape for this Creator scope.'));
+    if (coverage.storyDensity) summary.appendChild(createStatusPill(coverage.storyDensity, 'Detected lore density for this Creator scope.'));
+    if (coverage.dimensionCount) summary.appendChild(createStatusPill(`${coverage.dimensionCount} dimension${coverage.dimensionCount === 1 ? '' : 's'}`, 'Coverage dimensions the Creator should consider.'));
+    if (coverage.missingDimensionCount) summary.appendChild(createStatusPill(`${coverage.missingDimensionCount} missing`, 'Applicable dimensions without linked title drafts yet.'));
+    if (coverage.thinDimensionCount) summary.appendChild(createStatusPill(`${coverage.thinDimensionCount} thin`, 'Applicable dimensions with title evidence but no accepted Lorecards yet.'));
+    if (coverage.intentionallyLightCount) summary.appendChild(createStatusPill(`${coverage.intentionallyLightCount} light`, 'Dimensions intentionally kept small for this source.'));
+    if (coverage.notApplicableCount) summary.appendChild(createStatusPill(`${coverage.notApplicableCount} N/A`, 'Dimensions that should not be padded for this source.'));
+    if (coverage.finalizeAcknowledgementRequired) summary.appendChild(createStatusPill('Finalize waits', 'Finalization requires targeted expansion or an explicit light-coverage acknowledgement.'));
+    if (coverage.finalizeAcknowledged) summary.appendChild(createStatusPill('Finalization acknowledged', 'The current missing/thin coverage state was explicitly accepted for finalization.'));
+    wrap.appendChild(summary);
+
+    const help = document.createElement('div');
+    help.className = 'saga-runtime-help';
+    help.textContent = coverage.available
+        ? (coverage.expectedCoverage || coverage.rationale || 'Use this as a review map for story density. Sparse sources can be intentionally light; dense arcs should show meaningful dimensions and title coverage.')
+        : 'Draft or redraft the Scope Brief to add an adaptive coverage plan before judging whether this Loredeck is dense enough.';
+    wrap.appendChild(help);
+
+    if (!coverage.available) return wrap;
+
+    if (coverage.likelyNotApplicable?.length) {
+        const note = document.createElement('div');
+        note.className = 'saga-runtime-help';
+        note.textContent = `Likely not applicable: ${coverage.likelyNotApplicable.join(', ')}`;
+        wrap.appendChild(note);
+    }
+
+    const rows = document.createElement('div');
+    rows.className = 'saga-loredeck-entry-list';
+    for (const dimension of (coverage.dimensions || []).slice(0, 12)) {
+        const row = document.createElement('div');
+        row.className = 'saga-loredeck-entry-row saga-loredeck-creator-coverage-row';
+        const main = document.createElement('div');
+        main.className = 'saga-loredeck-row-main';
+        const label = document.createElement('div');
+        label.className = 'saga-loredeck-row-title';
+        label.textContent = dimension.label || dimension.id;
+        main.appendChild(label);
+        const desc = document.createElement('div');
+        desc.className = 'saga-loredeck-row-description';
+        desc.textContent = dimension.rationale || dimension.notApplicableReason || (dimension.evidenceTargets?.length ? dimension.evidenceTargets.join(', ') : 'Coverage dimension from the Creator plan.');
+        main.appendChild(desc);
+        const meta = document.createElement('div');
+        meta.className = 'saga-loredeck-row-meta';
+        meta.appendChild(createStatusPill(dimension.statusLabel || formatLoredeckCreatorCoverageStatus(dimension.derivedStatus || dimension.status), 'Coverage state for this dimension. Missing/thin are advisory review signals, not fixed quotas.'));
+        if (dimension.kind) meta.appendChild(createStatusPill(humanizeScopeKey(dimension.kind), 'Coverage dimension kind.'));
+        meta.appendChild(createStatusPill(`Priority ${dimension.priority}`, 'Creator-assigned coverage priority from 0-100.'));
+        if (dimension.titleCount) meta.appendChild(createStatusPill(`${dimension.titleCount} title${dimension.titleCount === 1 ? '' : 's'}`, 'Title drafts linked to this dimension.'));
+        if (dimension.approvedTitleCount) meta.appendChild(createStatusPill(`${dimension.approvedTitleCount} approved`, 'Approved title drafts linked to this dimension.'));
+        if (dimension.draftEntryCount) meta.appendChild(createStatusPill(`${dimension.draftEntryCount} drafted`, 'Lorecard drafts in Draft Review linked to this dimension. This is provisional until queued and accepted.'));
+        if (dimension.pendingEntryCount) meta.appendChild(createStatusPill(`${dimension.pendingEntryCount} pending`, 'Pending Review Lorecards linked to this dimension. This is provisional until accepted.'));
+        if (dimension.acceptedEntryCount) meta.appendChild(createStatusPill(`${dimension.acceptedEntryCount} accepted`, 'Accepted Lorecards linked to this dimension through approved title IDs.'));
+        if (dimension.titleBatchIds?.length) meta.appendChild(createStatusPill(`${dimension.titleBatchIds.length} batch${dimension.titleBatchIds.length === 1 ? '' : 'es'}`, dimension.titleBatchIds.join(', ')));
+        main.appendChild(meta);
+        if (isLoredeckCreatorCoverageDimensionTargetable(dimension)) {
+            const targetBatch = buildLoredeckCreatorCoverageTitleBatch(dimension);
+            appendLoredeckCreatorGenerationStatus(main, cached, ['title_batch_draft', 'title_batch_redraft'], { batchId: targetBatch.id, compact: true });
+        }
+        row.appendChild(main);
+
+        const actions = document.createElement('div');
+        actions.className = 'saga-loredeck-row-actions';
+        if (isLoredeckCreatorCoverageDimensionTargetable(dimension)) {
+            const targetBatch = buildLoredeckCreatorCoverageTitleBatch(dimension);
+            const targetedDraftCount = getLoredeckCreatorTitleDrafts(cached)
+                .filter(draft => draft.creatorTitleBatchId === targetBatch.id).length;
+            const label = targetedDraftCount ? 'Regenerate Titles' : 'Generate Titles';
+            const titleButton = createButton(
+                label,
+                cached.outlineApproved
+                    ? `Generate a focused title batch for ${dimension.label || dimension.id}.`
+                    : 'Approve the Story Outline before generating targeted coverage titles.',
+                async (btn) => {
+                    const fresh = getLoredeckCreatorBriefCache();
+                    await handleLoredeckCreatorTitleDraft({
+                        brief: fresh.brief || cached.brief || {},
+                        notes: fresh.notes || loredeckCreatorNotes,
+                        targetTitleBatch: targetBatch,
+                        previousTitleDrafts: getLoredeckCreatorTitleDrafts(fresh).map(compactLoredeckCreatorTitleDraftForRevision),
+                        redraftTitleBatch: targetedDraftCount > 0,
+                    }, btn);
+                },
+                targetedDraftCount ? '' : 'saga-primary-button'
+            );
+            titleButton.disabled = !cached.outlineApproved;
+            actions.appendChild(applyLoredeckCreatorGenerationButtonLock(titleButton, cached, 'coverage title batch'));
+            actions.appendChild(createButton('Mark Light', 'Accept this coverage surface as intentionally light for this source.', () => {
+                setLoredeckCreatorCoverageDimensionStatus(dimension, 'intentionally_light');
+            }));
+            actions.appendChild(createButton('Mark N/A', 'Mark this coverage surface as not applicable to this source.', () => {
+                setLoredeckCreatorCoverageDimensionStatus(dimension, 'not_applicable');
+            }));
+        } else if (dimension.status === 'not_applicable') {
+            actions.appendChild(createStatusPill('N/A', dimension.notApplicableReason || 'This coverage surface does not apply to the source.'));
+            actions.appendChild(createButton('Reopen', 'Reopen this coverage surface for targeted expansion.', () => {
+                reopenLoredeckCreatorCoverageDimension(dimension);
+            }));
+        } else if (dimension.status === 'intentionally_light') {
+            actions.appendChild(createStatusPill('Light', dimension.notApplicableReason || 'This coverage surface is intentionally light for the source.'));
+            actions.appendChild(createButton('Reopen', 'Reopen this intentionally light coverage surface for targeted expansion.', () => {
+                reopenLoredeckCreatorCoverageDimension(dimension);
+            }));
+        }
+        if (actions.childElementCount) row.appendChild(actions);
+        rows.appendChild(row);
+    }
+    if ((coverage.dimensions || []).length > 12) {
+        const more = document.createElement('div');
+        more.className = 'saga-runtime-help';
+        more.textContent = `Showing 12 of ${coverage.dimensions.length} coverage dimensions.`;
+        rows.appendChild(more);
+    }
+    wrap.appendChild(rows);
+
+    if (coverage.warnings?.length) {
+        const warnings = document.createElement('div');
+        warnings.className = 'saga-loredeck-generated-readiness-list';
+        for (const warning of coverage.warnings.slice(0, 6)) {
+            const item = document.createElement('div');
+            item.className = 'saga-loredeck-generated-readiness-item saga-loredeck-generated-readiness-warning';
+            item.textContent = warning;
+            warnings.appendChild(item);
+        }
+        wrap.appendChild(warnings);
+    }
+    return wrap;
+}
+
 function createLoredeckCreatorCard(state = getState(), options = {}) {
     void state;
     const card = document.createElement('div');
@@ -3137,6 +3635,17 @@ function createLoredeckCreatorCard(state = getState(), options = {}) {
 
     if (intakeForm) card.appendChild(intakeForm);
     card.appendChild(createLoredeckCreatorCurrentTaskCard(cached, pipeline, { intakeRefs }));
+    if (cached.brief || pipeline.creatorCoverage?.available) {
+        card.appendChild(createLoredeckCreatorArtifactDisclosure(
+            'Adaptive Coverage',
+            createLoredeckCreatorCoverageCard(cached, pipeline),
+            {
+                open: !!pipeline.creatorCoverage?.warnings?.length && options.embedded === true,
+                state: formatLoredeckCreatorCoverageState(pipeline.creatorCoverage || {}),
+                anchor: 'coverage-plan',
+            }
+        ));
+    }
     card.appendChild(createLoredeckCreatorAdvancedGenerationSettings(cached));
 
     if (cached.summary || cached.questions?.length || cached.warnings?.length) {
@@ -3415,7 +3924,7 @@ function markLoredeckCreatorActionFailed(error, fallbackMessage = 'Loredeck Crea
 async function requestLoredeckCreatorBriefResponse(context = {}, requestOptionsOverride = {}) {
     const systemPrompt = buildLoredeckCreatorBriefSystemPrompt();
     const userPrompt = buildLoredeckCreatorBriefUserPrompt(context);
-    const requestOptions = { providerKind: 'lore', maxTokens: 1536, expectedOutput: 'json', ...requestOptionsOverride };
+    const requestOptions = { providerKind: 'lore', maxTokens: 2048, expectedOutput: 'json', ...requestOptionsOverride };
     try {
         return await sendLoreRequest(systemPrompt, userPrompt, requestOptions);
     } catch (error) {
@@ -3432,7 +3941,7 @@ async function requestLoredeckCreatorBriefResponse(context = {}, requestOptionsO
 
 RETRY MODE:
 - The previous attempt failed before a usable visible JSON object was returned.
-- Return only the tiny scope-brief JSON object from the schema.
+- Return only the compact scope-brief JSON object from the schema, including creatorCoverage.
 - Do not include generation plans, outline details, timeline anchors, tags, Lorecard titles, entry counts, or prose.`;
         const retryUserPrompt = `${userPrompt}
 
@@ -3446,7 +3955,7 @@ async function repairLoredeckCreatorBriefResponse(responseText = '', context = {
 
 Return JSON only. Do not include markdown.
 
-Convert the malformed or overlong response into the compact scope-brief contract. Do not preserve timeline plans, tag plans, title plans, entry counts, or Lorecard facts. If there is not enough usable information, ask 1-3 clarifyingQuestions and set brief null.`;
+Convert the malformed or overlong response into the compact scope-brief contract. Preserve adaptive creatorCoverage when possible. Do not preserve timeline plans, tag plans, title plans, entry counts, or Lorecard facts. If there is not enough usable information, ask 1-3 clarifyingQuestions and set brief null.`;
     const userPrompt = JSON.stringify({
         sourceInputs: {
             fandom: context.fandom || '',
@@ -3466,6 +3975,24 @@ Convert the malformed or overlong response into the compact scope-brief contract
                 scope: 'string',
                 granularity: 'compact|focused|dense|scene_dense',
                 coverageSummary: 'under 60 words',
+                creatorCoverage: {
+                    storyShape: 'single arc|chapter|book|episode|game slice|sparse premise',
+                    storyDensity: 'sparse|moderate|dense',
+                    scopeKind: 'arc|book|chapter|scenario|mechanic',
+                    status: 'missing|thin|adequate|rich|not_applicable|intentionally_light',
+                    rationale: 'short adaptive coverage rationale',
+                    expectedCoverage: 'short expectation without a hard count',
+                    likelyNotApplicable: [],
+                    dimensions: [{
+                        id: 'machine-safe-id',
+                        label: 'string',
+                        kind: 'characters|factions|locations|plot|mechanics|relationships|other',
+                        status: 'missing|thin|adequate|rich|not_applicable|intentionally_light',
+                        priority: 80,
+                        rationale: 'short reason',
+                        evidenceTargets: [],
+                    }],
+                },
                 assumptions: [],
                 risks: [],
             },
@@ -3480,7 +4007,7 @@ Convert the malformed or overlong response into the compact scope-brief contract
             streamSupported: requestOptionsOverride.stream === true,
         });
     }
-    return await sendLoreRequest(systemPrompt, userPrompt, { providerKind: 'lore', maxTokens: 1024, expectedOutput: 'json', ...requestOptionsOverride });
+    return await sendLoreRequest(systemPrompt, userPrompt, { providerKind: 'lore', maxTokens: 1536, expectedOutput: 'json', ...requestOptionsOverride });
 }
 
 async function requestLoredeckCreatorOutlineResponse(context = {}, requestOptionsOverride = {}) {
@@ -3519,7 +4046,7 @@ async function repairLoredeckCreatorOutlineResponse(responseText = '', context =
 
 Return JSON only. Do not include markdown.
 
-Convert the malformed, partial, or overlong response into the compact Story Outline contract. Preserve only reviewable story beats, Context milestones, title-batch slices, assumptions, risks, and warnings. Do not generate Lorecards, Lorecard titles, tag registries, timeline registry records, facts, or injection text. If there is not enough usable information, ask 1-3 clarifyingQuestions and set outline null.`;
+Convert the malformed, partial, or overlong response into the compact Story Outline contract. Preserve only reviewable story beats, Context milestones, title-batch slices, creatorCoverage, assumptions, risks, and warnings. Do not generate Lorecards, Lorecard titles, tag registries, timeline registry records, facts, or injection text. If there is not enough usable information, ask 1-3 clarifyingQuestions and set outline null.`;
     const userPrompt = JSON.stringify({
         sourceInputs: {
             approvedBrief: context.brief || null,
@@ -3534,9 +4061,28 @@ Convert the malformed, partial, or overlong response into the compact Story Outl
             outline: {
                 label: 'string',
                 coverageSummary: 'under 70 words',
-                beats: [{ id: 'machine-safe-id', label: 'string', type: 'beat', order: 10, summary: 'short sentence', contextRole: 'short sentence', titleTargets: [] }],
-                contextMilestones: [{ id: 'machine-safe-id', label: 'string', type: 'before_after', order: 10, summary: 'short sentence', contextRole: 'short sentence' }],
-                titleBatches: [{ id: 'machine-safe-id', label: 'string', type: 'title_batch', order: 10, summary: 'short sentence' }],
+                creatorCoverage: {
+                    storyShape: 'string',
+                    storyDensity: 'sparse|moderate|dense',
+                    scopeKind: 'string',
+                    status: 'missing|thin|adequate|rich|not_applicable|intentionally_light',
+                    rationale: 'short reason',
+                    expectedCoverage: 'short expectation without a hard count',
+                    likelyNotApplicable: [],
+                    dimensions: [{
+                        id: 'machine-safe-id',
+                        label: 'string',
+                        kind: 'string',
+                        status: 'missing|thin|adequate|rich|not_applicable|intentionally_light',
+                        priority: 80,
+                        rationale: 'short reason',
+                        evidenceTargets: [],
+                        titleBatchIds: [],
+                    }],
+                },
+                beats: [{ id: 'machine-safe-id', label: 'string', type: 'beat', order: 10, summary: 'short sentence', contextRole: 'short sentence', titleTargets: [], coverageDimensionIds: [] }],
+                contextMilestones: [{ id: 'machine-safe-id', label: 'string', type: 'before_after', order: 10, summary: 'short sentence', contextRole: 'short sentence', coverageDimensionIds: [] }],
+                titleBatches: [{ id: 'machine-safe-id', label: 'string', type: 'title_batch', order: 10, summary: 'short sentence', coverageDimensionIds: [] }],
                 assumptions: [],
                 risks: [],
             },
@@ -3599,7 +4145,7 @@ async function repairLoredeckCreatorTitleResponse(responseText = '', context = {
 
 Return JSON only. Do not include markdown.
 
-Convert the malformed, partial, overlong, or structurally wrong response into the compact Title Pass contract. Preserve usable title drafts from the source. Do not generate Lorecards, facts, injection text, timeline anchors, timeline windows, or tag registries. If there is not enough usable title information, ask 1-3 clarifyingQuestions and return an empty titleDrafts array.`;
+Convert the malformed, partial, overlong, or structurally wrong response into the compact Title Pass contract. Preserve usable title drafts and coverageDimensionIds from the source. Do not generate Lorecards, facts, injection text, timeline anchors, timeline windows, or tag registries. If there is not enough usable title information, ask 1-3 clarifyingQuestions and return an empty titleDrafts array.`;
     const userPrompt = JSON.stringify({
         sourceInputs: {
             approvedBrief: context.brief || null,
@@ -3627,6 +4173,7 @@ Convert the malformed, partial, overlong, or structurally wrong response into th
                 contextHint: 'short timing or activation hint',
                 tags: ['namespaced:tag'],
                 reason: 'short review rationale',
+                coverageDimensionIds: [],
                 rubric: { wikiSummaryRisk: 'low' },
                 warnings: [],
             }],
@@ -3914,6 +4461,7 @@ async function handleLoredeckCreatorBriefDraft(options = {}, button = null) {
             questions: parsed.clarifyingQuestions,
             warnings: parsed.warnings,
             brief: parsed.brief,
+            creatorCoverage: parsed.brief?.creatorCoverage || null,
             approved: false,
             outline: null,
             outlineApproved: false,
@@ -4133,6 +4681,10 @@ async function handleLoredeckCreatorOutlineDraft(options = {}, button = null) {
             outlineQuestions: parsed.clarifyingQuestions,
             outlineWarnings: parsed.warnings,
             outline: parsed.outline,
+            creatorCoverage: mergeLoredeckCreatorCoveragePlans(
+                getLoredeckCreatorCoveragePlan(getLoredeckCreatorBriefCache()),
+                parsed.outline?.creatorCoverage || null
+            ),
             outlineApproved: false,
             titleDrafts: [],
             selectedTitleDraftIds: [],
@@ -4265,10 +4817,12 @@ function getLoredeckCreatorTitleBatchLimit(brief = {}, cached = getLoredeckCreat
 function attachLoredeckCreatorTitleBatch(drafts = [], batch = {}) {
     const batchId = normalizeLoredeckCreatorTitleId(batch?.id || batch?.label || 'title-batch', 'title-batch');
     const batchLabel = String(batch?.label || batchId || 'Title Batch').trim();
+    const batchCoverageDimensionIds = normalizeLoredeckCreatorCoverageIdList(batch?.coverageDimensionIds || batch?.coverageDimensions || batch?.coverageIds || [], 12);
     return normalizeLoredeckCreatorTitleDrafts(drafts).map(draft => ({
         ...draft,
         creatorTitleBatchId: draft.creatorTitleBatchId || batchId,
         creatorTitleBatchLabel: draft.creatorTitleBatchLabel || batchLabel,
+        coverageDimensionIds: draft.coverageDimensionIds?.length ? draft.coverageDimensionIds : batchCoverageDimensionIds,
     }));
 }
 
@@ -4637,6 +5191,8 @@ async function performLoredeckCreatorTitleDraft(options = {}) {
                     actionId,
                     targetTitleBatchId: batchId,
                     targetTitleBatchLabel: batchLabel,
+                    coverageDimensionIds: normalizeLoredeckCreatorCoverageIdList(targetTitleBatch?.coverageDimensionIds || [], 12),
+                    coverageTarget: isPlainObjectValue(targetTitleBatch?.coverageTarget) ? targetTitleBatch.coverageTarget : null,
                     selectedTitleDraftIds: selectedTitleDrafts.map(draft => normalizeLoredeckCreatorTitleId(draft.titleId || draft.id || '', '')).filter(Boolean),
                     revisionInstruction,
                     titlePassLimit: effectiveTitlePassLimit,
@@ -5076,6 +5632,7 @@ function getLoredeckCreatorPlanningBatchRows(cached = {}) {
                 summary: 'Approved titles without a matching Story Outline title set.',
                 contextRole: '',
                 titleTargets: [],
+                coverageDimensionIds: [],
                 approvedTitles: [],
             });
         }
@@ -5104,6 +5661,7 @@ function compactLoredeckCreatorPlanningBatchForPrompt(batch = {}) {
         summary: batch.summary || '',
         contextRole: batch.contextRole || '',
         titleTargets: Array.isArray(batch.titleTargets) ? batch.titleTargets.slice(0, 8) : [],
+        coverageDimensionIds: Array.isArray(batch.coverageDimensionIds) ? batch.coverageDimensionIds.slice(0, 12) : [],
         approvedTitleCount: Number.isFinite(Number(batch.approvedTitleCount)) ? Math.round(Number(batch.approvedTitleCount)) : 0,
     };
 }
@@ -5111,6 +5669,7 @@ function compactLoredeckCreatorPlanningBatchForPrompt(batch = {}) {
 function markLoredeckCreatorPlanningChangeForBatch(change = {}, batch = {}) {
     const marked = markLoredeckCreatorPlanningChange(change);
     const { id, label } = getLoredeckCreatorPlanningBatchIdentity(batch);
+    const coverageDimensionIds = normalizeLoredeckCreatorCoverageIdList(batch.coverageDimensionIds || [], 12);
     if (id || label) {
         marked.description = `${marked.description || 'Loredeck Creator proposed planning metadata for review.'} Batch: ${label || id}.`;
         marked.preview = {
@@ -5118,6 +5677,7 @@ function markLoredeckCreatorPlanningChangeForBatch(change = {}, batch = {}) {
             creatorPlanningBatch: {
                 id,
                 label,
+                coverageDimensionIds,
             },
         };
     }
@@ -5730,16 +6290,46 @@ function compactLoredeckCreatorEntryTitleForPrompt(draft = {}) {
     };
 }
 
-function markLoredeckCreatorEntryChange(change = {}, pack = {}, batch = {}) {
+function getLoredeckCreatorTargetTitleCoverageMap(targetTitles = []) {
+    const map = new Map();
+    for (const draft of Array.isArray(targetTitles) ? targetTitles : []) {
+        const entryId = normalizeLoredeckEntryId(draft?.targetEntryId || draft?.titleId || draft?.id || '');
+        if (!entryId) continue;
+        map.set(entryId, {
+            titleId: normalizeLoredeckCreatorTitleId(draft.titleId || draft.id || entryId, entryId),
+            title: String(draft.title || '').trim(),
+            coverageDimensionIds: getLoredeckCreatorTitleCoverageIds(draft),
+        });
+    }
+    return map;
+}
+
+function markLoredeckCreatorEntryChange(change = {}, pack = {}, batch = {}, targetTitles = []) {
     const title = String(change.title || '')
         .replace(/Lore Assistant/gi, 'Loredeck Creator')
         .trim();
     const payload = cloneLoredeckJson(change.payload) || {};
     const batchId = normalizeLoredeckCreatorTitleId(batch?.id || batch?.label || '', '');
     const batchLabel = String(batch?.label || batchId || '').trim();
+    const batchCoverageDimensionIds = normalizeLoredeckCreatorCoverageIdList(batch?.coverageDimensionIds || [], 12);
+    const targetCoverageMap = getLoredeckCreatorTargetTitleCoverageMap(targetTitles);
+    const changedEntryIds = new Set([
+        ...(change.affectedEntryIds || []).map(id => normalizeLoredeckEntryId(id)).filter(Boolean),
+        ...Object.keys(isPlainObjectValue(payload.entryOverrides) ? payload.entryOverrides : {}).map(id => normalizeLoredeckEntryId(id)).filter(Boolean),
+    ]);
+    const coverageDimensionIds = normalizeLoredeckCreatorCoverageIdList([
+        ...batchCoverageDimensionIds,
+        ...[...changedEntryIds].flatMap(id => targetCoverageMap.get(id)?.coverageDimensionIds || []),
+    ], 12);
     const entryOverrides = isPlainObjectValue(payload.entryOverrides) ? payload.entryOverrides : {};
-    for (const entry of Object.values(entryOverrides)) {
+    for (const [rawEntryId, entry] of Object.entries(entryOverrides)) {
         if (!entry || typeof entry !== 'object' || Array.isArray(entry)) continue;
+        const entryId = normalizeLoredeckEntryId(entry.id || rawEntryId);
+        const target = targetCoverageMap.get(entryId) || null;
+        const entryCoverageDimensionIds = normalizeLoredeckCreatorCoverageIdList([
+            ...(target?.coverageDimensionIds || []),
+            ...batchCoverageDimensionIds,
+        ], 12);
         entry.source = `saga-loredeck:${pack.packId || ''}:creator`;
         entry.extensions = {
             ...(entry.extensions || {}),
@@ -5748,6 +6338,8 @@ function markLoredeckCreatorEntryChange(change = {}, pack = {}, batch = {}) {
                 source: 'loredeck_creator',
                 planningBatchId: batchId,
                 planningBatchLabel: batchLabel,
+                titleId: target?.titleId || entryId,
+                coverageDimensionIds: entryCoverageDimensionIds,
                 draftedAt: Date.now(),
             },
         };
@@ -5767,6 +6359,7 @@ function markLoredeckCreatorEntryChange(change = {}, pack = {}, batch = {}) {
             creatorEntryBatch: {
                 id: batchId,
                 label: batchLabel,
+                coverageDimensionIds,
             },
         },
     };
@@ -5802,8 +6395,15 @@ function createLoredeckCreatorEntryChangeId(change = {}, batch = {}, unitId = ''
 }
 
 function prepareLoredeckCreatorEntryChange(change = {}, pack = {}, batch = {}, unitId = '', targetTitles = [], index = 0) {
-    const marked = markLoredeckCreatorEntryChange(change, pack, batch);
+    const marked = markLoredeckCreatorEntryChange(change, pack, batch, targetTitles);
     const targetEntryIds = [...getLoredeckCreatorEntryTargetIds(targetTitles)];
+    const titleCoverageMap = Object.fromEntries(
+        [...getLoredeckCreatorTargetTitleCoverageMap(targetTitles).entries()]
+            .map(([entryId, record]) => [entryId, {
+                titleId: record.titleId,
+                coverageDimensionIds: record.coverageDimensionIds,
+            }])
+    );
     return {
         ...marked,
         changeId: createLoredeckCreatorEntryChangeId(marked, batch, unitId, index),
@@ -5813,6 +6413,7 @@ function prepareLoredeckCreatorEntryChange(change = {}, pack = {}, batch = {}, u
                 ...(marked.preview?.creatorEntryBatch || {}),
                 unitId,
                 targetEntryIds,
+                titleCoverageMap,
             },
         },
     };
@@ -7394,7 +7995,7 @@ function applyContextEntryCandidate(packId, match = {}) {
         source: 'manual',
         confidence: Math.max(0.55, Math.min(0.95, (Number(match.score) || 0) / 180)),
         notes: `Applied from Lorecard-derived resolver candidate: ${match.row?.id || entry.id || title}.`,
-    }, `Set Context from Lorecard: ${getLoredeckDisplayName(packId)}`);
+    });
 }
 
 function queueContextEntryCandidateTimelineAnchor(pack, match = {}) {
@@ -8750,6 +9351,9 @@ async function commitLoredeckPackageInstall(packageInstall = {}, installs = [], 
         button.textContent = 'Installing...';
     }
     try {
+        createStateBackup('before_loredeck_package_import', {
+            label: `Before importing ${selected.length} Loredeck package deck${selected.length === 1 ? '' : 's'}.`,
+        });
         const registry = buildLoredeckPackageRegistryForInstall(packageInstall, selected);
         const result = importLoredeckLibraryRegistry(registry, { replace: false });
         if (!result.ok) throw new Error(result.error || 'Loredeck package install failed.');
@@ -8998,6 +9602,7 @@ function getLoredeckCreatorPipelineReadiness(pack = {}, creatorJob = null) {
     const pendingEntryIds = collectLoredeckCreatorChangeEntryIds(pendingChanges);
     const draftEntryIds = collectLoredeckCreatorChangeEntryIds(draftChanges);
     const warnings = [];
+    const coverage = getLoredeckCreatorCoverageModel(job || {}, pack);
 
     if (!job) {
         warnings.push('No linked Creator job was found for this Generated Loredeck, so batch completeness cannot be verified.');
@@ -9017,6 +9622,7 @@ function getLoredeckCreatorPipelineReadiness(pack = {}, creatorJob = null) {
             acceptedPlanningBatchCount: 0,
             remainingEntryCount: 0,
             activeEntryBatchLabel: '',
+            coverage,
         };
     }
 
@@ -9060,6 +9666,16 @@ function getLoredeckCreatorPipelineReadiness(pack = {}, creatorJob = null) {
     if (approvedEntryIds.size && approvedTitleAcceptedCount < approvedEntryIds.size) {
         warnings.push(`${approvedEntryIds.size - approvedTitleAcceptedCount} approved title${approvedEntryIds.size - approvedTitleAcceptedCount === 1 ? '' : 's'} do not have accepted Lorecards yet.`);
     }
+    for (const warning of coverage.warnings || []) {
+        warnings.push(`Coverage: ${warning}`);
+    }
+    if (coverage.finalizeAcknowledgementRequired) {
+        warnings.push(coverage.available
+            ? 'Coverage: Missing or thin rows must be expanded or explicitly acknowledged before finalizing as Custom.'
+            : 'Coverage: No adaptive coverage plan exists; redraft or explicitly acknowledge before finalizing as Custom.');
+    } else if (coverage.finalizeAcknowledged) {
+        warnings.push('Coverage: Missing or thin rows were explicitly acknowledged for finalization.');
+    }
 
     const complete = !!approvedEntryIds.size
         && approvedTitleAcceptedCount >= approvedEntryIds.size
@@ -9086,6 +9702,7 @@ function getLoredeckCreatorPipelineReadiness(pack = {}, creatorJob = null) {
         acceptedPlanningBatchCount,
         remainingEntryCount: entryProgress?.remainingCount || 0,
         activeEntryBatchLabel: entryProgress?.activeBatchLabel || '',
+        coverage,
     };
 }
 
@@ -9129,6 +9746,7 @@ function getGeneratedLoredeckExportReadiness(pack = {}, health = null, creatorJo
     if (!acceptedEntries.length) blockers.push('Generated Loredeck needs at least one accepted Lorecard.');
     if (pendingChanges.length) blockers.push('Pending Review must be accepted or rejected before finalizing as Custom.');
     if (draftChanges.length) blockers.push('Creator/Assistant Draft Batch must be queued, accepted, or dropped before finalizing as Custom.');
+    if (pipeline.coverage?.finalizeAcknowledgementRequired) blockers.push(LOREDECK_CREATOR_COVERAGE_FINALIZE_BLOCKER);
     if (isLoredeckHealthStatusStale(pack)) warnings.push('Deck Health is stale; rerun validation before sharing.');
     if ((health?.errors || []).length) warnings.push('Latest Deck Health has errors.');
     if (!getLoredeckTimelineRegistryCount(pack.timelineRegistry)) warnings.push('No local timeline registry is saved yet.');
@@ -9140,6 +9758,7 @@ function getGeneratedLoredeckExportReadiness(pack = {}, health = null, creatorJo
         acceptedEntryCount: acceptedEntries.length,
         pendingChangeCount: pendingChanges.length,
         draftChangeCount: draftChanges.length,
+        coverageAcknowledgementRequired: !!pipeline.coverage?.finalizeAcknowledgementRequired,
         pipeline,
     };
 }
@@ -9148,6 +9767,7 @@ function formatGeneratedLoredeckExportNotice(message = '') {
     if (message.includes('needs at least one accepted Lorecard')) return 'No accepted Lorecards are available for export yet.';
     if (message.includes('Pending Review')) return 'Pending Review proposals are excluded from export until accepted.';
     if (message.includes('Draft Batch')) return 'Creator/Assistant draft proposals are excluded from export until accepted.';
+    if (message.includes('Creator Coverage')) return 'Creator Coverage needs expansion or explicit light-coverage acknowledgement before finalization.';
     return message;
 }
 
@@ -9178,6 +9798,12 @@ function createGeneratedLoredeckExportReadinessCard(pack = {}) {
     }
     if (readiness.pipeline?.approvedTitleCount) {
         summary.appendChild(createStatusPill(`${readiness.pipeline.approvedTitleAcceptedCount}/${readiness.pipeline.approvedTitleCount} titles covered`, 'Approved title plan covered by accepted generated Lorecards.'));
+    }
+    if (readiness.pipeline?.coverage?.available) {
+        summary.appendChild(createStatusPill(
+            `Coverage: ${readiness.pipeline.coverage.statusLabel || 'Review'}`,
+            'Adaptive Creator coverage status. This is advisory and does not enforce a fixed Lorecard count.'
+        ));
     }
     summary.appendChild(createStatusPill(`${getLoredeckTimelineRegistryCount(pack.timelineRegistry)} timeline`, 'Saved local timeline anchors/windows.'));
     summary.appendChild(createStatusPill(`${getLoredeckTagRegistryCount(pack.tagRegistry)} tags`, 'Saved local tag definitions.'));
@@ -9632,13 +10258,29 @@ function createLoredeckPendingReviewCard(pack) {
     const actions = document.createElement('div');
     actions.className = 'saga-primary-actions';
     const acceptAll = createButton('Accept All', 'Apply every pending Loredeck change to this Custom Loredeck, then refresh Deck Health if accepted changes affect validation.', async (btn) => {
+        const proceed = await confirmAction(
+            'Accept all pending Loredeck changes?',
+            `Apply all ${pending.length} pending Loredeck change${pending.length === 1 ? '' : 's'} to this Custom Loredeck?`
+        );
+        if (!proceed) return;
+        createStateBackup('before_accept_loredeck_pending_changes', {
+            label: `Before accepting ${pending.length} pending Loredeck change${pending.length === 1 ? '' : 's'}.`,
+        });
         await runBusyAction(btn, 'Accepting...', async () => {
             await acceptLoredeckPendingChanges(pack, pending.map(change => change.changeId));
         });
     }, 'saga-primary-button');
     acceptAll.disabled = !pending.length;
     actions.appendChild(acceptAll);
-    const rejectAll = createButton('Reject All', 'Discard every pending Loredeck change without applying it.', () => {
+    const rejectAll = createButton('Reject All', 'Discard every pending Loredeck change without applying it.', async () => {
+        const proceed = await confirmAction(
+            'Reject all pending Loredeck changes?',
+            `Discard all ${pending.length} pending Loredeck change${pending.length === 1 ? '' : 's'} without applying them?`
+        );
+        if (!proceed) return;
+        createStateBackup('before_reject_loredeck_pending_changes', {
+            label: `Before rejecting ${pending.length} pending Loredeck change${pending.length === 1 ? '' : 's'}.`,
+        });
         rejectLoredeckPendingChanges(pack);
     }, 'saga-danger-button');
     rejectAll.disabled = !pending.length;
@@ -13740,6 +14382,7 @@ function buildFinalizedCustomLoredeckRecordFromGenerated(sourcePack = {}, option
             version: sourcePack.version || '',
             creatorJobId: options.creatorJob?.jobId || getLoredeckCreatorJobForPack(sourcePack)?.jobId || '',
             finalizedAt,
+            ...(options.creatorCoverageProvenance ? { creatorCoverage: options.creatorCoverageProvenance } : {}),
         },
         entryOverrides,
         disabledEntryIds: Array.isArray(sourcePack.disabledEntryIds) ? [...sourcePack.disabledEntryIds] : [],
@@ -13766,7 +14409,8 @@ async function finalizeGeneratedLoredeckAsCustom(pack, button = null) {
         const validation = await validateLoredeckForEditor(fresh, null, { quiet: true, updateLibrary: true });
         if (!validation.health) throw new Error(validation.error || 'Validation failed before finalizing.');
         const validated = getFreshLoredeckLibraryPack(fresh.packId, fresh);
-        const readiness = getGeneratedLoredeckExportReadiness(validated, validation.health);
+        const creatorJob = getLoredeckCreatorJobForPack(validated);
+        const readiness = getGeneratedLoredeckExportReadiness(validated, validation.health, creatorJob);
         if (!readiness.ready) {
             throw new Error(`Generated Loredeck is not ready to finalize: ${readiness.blockers[0] || 'resolve pending generated draft state first.'}`);
         }
@@ -13785,6 +14429,11 @@ async function finalizeGeneratedLoredeckAsCustom(pack, button = null) {
         }
         const record = buildFinalizedCustomLoredeckRecordFromGenerated(validated, {
             healthStatus: validation.health.status,
+            creatorJob,
+            creatorCoverageProvenance: buildLoredeckCreatorCoverageFinalizationProvenance(readiness.pipeline?.coverage),
+        });
+        createStateBackup('before_creator_finalization', {
+            label: `Before finalizing ${validated.title || validated.packId} as Custom.`,
         });
         const result = upsertLoredeckLibraryPack(record);
         if (!result.ok) throw new Error(result.error || 'Generated Loredeck finalization failed.');
@@ -15884,6 +16533,15 @@ function renderSettingsTab(container, state) {
         createThemeSettingsCard(settings),
         { tooltip: 'Manage Theme Packs, icon sets, and color overrides.' }
     ), 'settings.themePack'));
+
+    container.appendChild(markTourTarget(createCollapsibleSection(
+        'settings.stateSafety',
+        'State Safety',
+        `${getStateSafety(state).backups.length} backup${getStateSafety(state).backups.length === 1 ? '' : 's'}`,
+        false,
+        createStateSafetyCard(state),
+        { tooltip: 'Export, restore, and inspect Saga state backups and schema-normalization logs.' }
+    ), 'settings.stateSafety'));
 }
 
 function createThemeSettingsCard(settings = getSettings()) {
@@ -16505,14 +17163,14 @@ const BASIC_CHECKLIST_TOUR_TASKS_BY_ROW = Object.freeze({
                 expected: 'The Workbench focuses the Loredeck that needs Context.',
                 when: 'Use this when the active stack has more than one Loredeck.',
             }),
-            basicChecklistTourStep('basic-checklist-context-browse', 'Browse Story Waypoints', 'Use Browse Story Waypoints to scan the Loredeck timeline. Anchors are exact story points; Windows are ranges between points.', 'context', 'context.workbench.waypoints', {
-                fallbackTarget: 'context.workbench.contextPicker',
+            basicChecklistTourStep('basic-checklist-context-browse', 'Choose Story Position', 'Use Choose Story Position to search timeline anchors, windows, aliases, and loaded story events.', 'context', 'context.workbench.storyPosition', {
+                fallbackTarget: 'context.workbench.editor',
                 prepare: 'openContextBrowser',
                 expected: 'Anchors and Windows are visible before you choose the current story position.',
                 when: 'Use this before the first roleplay message so Saga starts at the right point.',
             }),
             basicChecklistTourStep('basic-checklist-context-apply', 'Select Current Position', 'Press Start Here when the story begins at one Anchor. Press Use Window for a listed Window, or use After and Before to create your own range.', 'context', 'context.workbench.applyContext', {
-                fallbackTarget: 'context.workbench.contextPicker',
+                fallbackTarget: 'context.workbench.storyPosition',
                 prepare: 'openContextBrowser',
                 expected: 'A real Anchor, Window, date, or story position is selected for the loaded Loredeck.',
                 when: 'Use this to set a trusted manual Context.',
@@ -17010,6 +17668,106 @@ function appendSettingsResetButton(container, settingKeys, label = 'Settings') {
     container.appendChild(row);
 }
 
+function formatStateSafetyTimestamp(value) {
+    const time = Number(value) || 0;
+    return time ? new Date(time).toLocaleString() : 'never';
+}
+
+function downloadSagaStateExport() {
+    const state = getState();
+    const exported = JSON.parse(exportSagaState(state));
+    const stem = sanitizeFileStem(`saga-state-${new Date().toISOString().slice(0, 10)}`);
+    downloadJson(exported, `${stem}.json`);
+    toast('Saga state exported.', 'success');
+}
+
+function restoreSagaStateFromFile() {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = 'application/json,.json';
+    input.addEventListener('change', async () => {
+        const file = input.files?.[0];
+        if (!file) return;
+        const proceed = await confirmAction(
+            'Restore Saga state from file?',
+            'Saga will back up the current chat state before replacing it with the selected exported state JSON. Continue?'
+        );
+        if (!proceed) return;
+        try {
+            const result = restoreStateFromExport(await file.text());
+            if (!result.ok) throw new Error(result.error || 'State restore failed.');
+            refreshPanelBody({ preserveScroll: false });
+            refreshHeader();
+            toast('Saga state restored from file.', 'success');
+        } catch (e) {
+            toast(e?.message || 'Saga state restore failed.', 'error');
+        }
+    }, { once: true });
+    input.click();
+}
+
+function createStateSafetyCard(state = getState()) {
+    const safety = getStateSafety(state);
+    const card = document.createElement('div');
+    card.className = 'saga-runtime-card saga-state-safety-card';
+
+    const title = document.createElement('div');
+    title.className = 'saga-runtime-card-title';
+    title.textContent = 'State Safety';
+    addTooltip(title, 'Backup, export, restore, and schema-normalization records for the current chat Saga state.');
+    card.appendChild(title);
+
+    const summary = document.createElement('div');
+    summary.className = 'saga-loredeck-entry-summary';
+    summary.appendChild(createStatusPill(`${safety.backups.length} backup${safety.backups.length === 1 ? '' : 's'}`, 'Automatic and manual Saga state backups stored in this chat.'));
+    summary.appendChild(createStatusPill(`${safety.migrationLog.length} log${safety.migrationLog.length === 1 ? '' : 's'}`, 'Schema migration and restore log entries.'));
+    if (safety.lastBackupAt) summary.appendChild(createStatusPill(`Last backup ${formatStateSafetyTimestamp(safety.lastBackupAt)}`, `Reason: ${safety.lastBackupReason || 'unknown'}`));
+    if (safety.lastRestoreAt) summary.appendChild(createStatusPill(`Last restore ${formatStateSafetyTimestamp(safety.lastRestoreAt)}`, `Source: ${safety.lastRestoreSource || 'unknown'}`));
+    card.appendChild(summary);
+
+    const actions = document.createElement('div');
+    actions.className = 'saga-primary-actions';
+    actions.appendChild(createButton('Backup Now', 'Create a Saga state backup in this chat before testing risky alpha workflows.', () => {
+        createStateBackup('manual');
+        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+        toast('Saga state backup created.', 'success');
+    }, 'saga-primary-button'));
+    actions.appendChild(createButton('Export State', 'Download the current Saga chat state as restoreable JSON.', () => {
+        downloadSagaStateExport();
+    }));
+    actions.appendChild(createButton('Restore From File', 'Restore Saga chat state from an exported Saga state JSON file.', () => {
+        restoreSagaStateFromFile();
+    }));
+    const latest = safety.backups[0] || null;
+    const restoreLatest = createButton('Restore Latest Backup', 'Restore the newest in-chat Saga state backup. A new backup is created before restoring.', async () => {
+        if (!latest) return;
+        const proceed = await confirmAction(
+            'Restore latest Saga backup?',
+            `Restore backup ${latest.label || latest.reason || latest.id} from ${formatStateSafetyTimestamp(latest.createdAt)}? Saga will back up the current state first.`
+        );
+        if (!proceed) return;
+        const result = restoreStateFromBackup(latest.id);
+        if (!result.ok) {
+            toast(result.error || 'Saga state restore failed.', 'error');
+            return;
+        }
+        refreshPanelBody({ preserveScroll: false });
+        refreshHeader();
+        toast('Latest Saga state backup restored.', 'success');
+    }, 'saga-danger-button');
+    restoreLatest.disabled = !latest;
+    actions.appendChild(restoreLatest);
+    card.appendChild(actions);
+
+    const latestRows = document.createElement('div');
+    latestRows.className = 'saga-runtime-kv-list';
+    latestRows.appendChild(createKeyValue('Latest backup', latest ? `${latest.reason} | ${formatStateSafetyTimestamp(latest.createdAt)}` : 'none', 'Most recent automatic or manual backup.'));
+    latestRows.appendChild(createKeyValue('Latest migration log', safety.migrationLog[0]?.message || 'none', 'Most recent schema migration or restore event.'));
+    card.appendChild(latestRows);
+
+    return card;
+}
+
 function createDangerZoneCard(state) {
     const card = document.createElement('div');
     card.className = 'saga-runtime-card saga-danger-zone-card';
@@ -17030,6 +17788,7 @@ function createDangerZoneCard(state) {
     actions.appendChild(createButton('Delete All Lore', 'Deletes accepted lore, pending lore, and pin/mute selections. Lightweight continuity state is left intact.', async () => {
         const proceed = await confirmAction('Are you sure? Delete all Saga lore?', 'You are about to delete every accepted lore entry, every pending lore entry, and all pin/mute selections for this chat. Lightweight continuity state will remain. Accepted lore can be restored to Pending Review through Lore Timeline when retained. Continue?');
         if (!proceed) return;
+        createStateBackup('before_delete_all_lore');
         const current = getState();
         const beforeTimeline = captureLoreTimelineState(current);
         const deleted = normalizeLoreMatrix(current.loreMatrix || []).length;
@@ -17059,6 +17818,7 @@ function createDangerZoneCard(state) {
     actions.appendChild(createButton('Reset Generation State', 'Clears detected lore context, pending generated lore, pending deltas, and generation ledger. Accepted lore remains intact.', async () => {
         const proceed = await confirmAction('Are you sure? Reset generation state?', 'You are about to clear detected context, pending generated lore, pending continuity changes, and the lore-generation ledger. Accepted lore entries and Lore Timeline will remain. Continue?');
         if (!proceed) return;
+        createStateBackup('before_generation_reset');
         const current = getState();
         const defaults = getDefaultState();
         current.loreContext = defaults.loreContext;
@@ -17087,10 +17847,12 @@ function createDangerZoneCard(state) {
     }, 'saga-danger-button'));
 
     actions.appendChild(createButton('Total Reset', 'Resets Saga continuity state for this chat to defaults and clears Lore Timeline. Panel size and position are preserved.', async () => {
-        const proceed = await confirmAction('Are you sure? Total reset?', 'You are about to reset all Saga data for this chat: lightweight continuity state, accepted lore, pending lore, generation state, and Lore Timeline. Window position and size are preserved. Because recovery data will also be cleared, this action cannot be undone. Continue?');
+        const proceed = await confirmAction('Are you sure? Total reset?', 'You are about to reset all Saga runtime data for this chat: lightweight continuity state, accepted lore, pending lore, generation state, and Lore Timeline. Window position, size, and the State Safety backup list are preserved. Continue?');
         if (!proceed) return;
+        createStateBackup('before_total_reset');
         const current = getState();
         const defaults = getDefaultState();
+        defaults.stateSafety = getStateSafety(current);
         if (current.lorePanel) {
             defaults.lorePanel = {
                 ...defaults.lorePanel,
@@ -19847,39 +20609,43 @@ function renderInjectionTab(container, state) {
     container.appendChild(placementSection);
 
     const continuityEnabled = settings.injectContinuity !== false && settings.injectMemo !== false;
+    const continuityEmptyReason = getInjectionEmptyReason('continuity', state, settings, continuityEnabled);
     container.appendChild(createCollapsibleSection(
         'injection.preview.continuity',
         'Continuity Injection Preview',
         getInjectionPreviewSectionSummary(continuityPreview, continuityEnabled),
         true,
-        createInjectionPreviewCard('Continuity Injection', 'saga-continuity-injection-preview', continuityPreview, continuityEnabled, 'This is the actual Continuity block currently configured for prompt injection. It can be placed at a different depth because it is separated from Lore.', createContinuityHandlingDropdown(state, settings)),
+        createInjectionPreviewCard('Continuity Injection', 'saga-continuity-injection-preview', continuityPreview, continuityEnabled, 'This is the actual Continuity block currently configured for prompt injection. It can be placed at a different depth because it is separated from Lore.', createContinuityHandlingDropdown(state, settings), continuityEmptyReason),
         { tooltip: 'Read-only preview of the Continuity prompt block Saga will inject.' }
     ));
     const highEnabled = settings.injectLore !== false && settings.loreHighInjectionEnabled !== false;
+    const highEmptyReason = getInjectionEmptyReason('high', state, settings, highEnabled);
     container.appendChild(createCollapsibleSection(
         'injection.preview.loreHigh',
         'High-Relevance Lore Preview',
         getInjectionPreviewSectionSummary(loreHighPreview, highEnabled),
         true,
-        createInjectionPreviewCard('High-Relevance Lore Injection', 'saga-lore-high-injection-preview', loreHighPreview, highEnabled, 'Lore injected in the high-relevance prompt group.', createLoreTierHandlingDropdown('high', state, settings)),
+        createInjectionPreviewCard('High-Relevance Lore Injection', 'saga-lore-high-injection-preview', loreHighPreview, highEnabled, 'Lore injected in the high-relevance prompt group.', createLoreTierHandlingDropdown('high', state, settings), highEmptyReason),
         { tooltip: 'Read-only preview of the high-relevance Lore prompt block.' }
     ));
     const normalEnabled = settings.injectLore !== false && settings.loreNormalInjectionEnabled !== false;
+    const normalEmptyReason = getInjectionEmptyReason('normal', state, settings, normalEnabled);
     container.appendChild(createCollapsibleSection(
         'injection.preview.loreNormal',
         'Normal-Relevance Lore Preview',
         getInjectionPreviewSectionSummary(loreNormalPreview, normalEnabled),
         false,
-        createInjectionPreviewCard('Normal-Relevance Lore Injection', 'saga-lore-normal-injection-preview', loreNormalPreview, normalEnabled, 'Lore injected in the normal-relevance prompt group.', createLoreTierHandlingDropdown('normal', state, settings)),
+        createInjectionPreviewCard('Normal-Relevance Lore Injection', 'saga-lore-normal-injection-preview', loreNormalPreview, normalEnabled, 'Lore injected in the normal-relevance prompt group.', createLoreTierHandlingDropdown('normal', state, settings), normalEmptyReason),
         { tooltip: 'Read-only preview of the normal-relevance Lore prompt block.' }
     ));
     const lowEnabled = settings.injectLore !== false && settings.loreLowInjectionEnabled !== false;
+    const lowEmptyReason = getInjectionEmptyReason('low', state, settings, lowEnabled);
     container.appendChild(createCollapsibleSection(
         'injection.preview.loreLow',
         'Low-Relevance Lore Preview',
         getInjectionPreviewSectionSummary(loreLowPreview, lowEnabled),
         false,
-        createInjectionPreviewCard('Low-Relevance Lore Injection', 'saga-lore-low-injection-preview', loreLowPreview, lowEnabled, 'Lore injected in the low-relevance prompt group.', createLoreTierHandlingDropdown('low', state, settings)),
+        createInjectionPreviewCard('Low-Relevance Lore Injection', 'saga-lore-low-injection-preview', loreLowPreview, lowEnabled, 'Lore injected in the low-relevance prompt group.', createLoreTierHandlingDropdown('low', state, settings), lowEmptyReason),
         { tooltip: 'Read-only preview of the low-relevance Lore prompt block.' }
     ));
     const compressionSection = createCollapsibleSection(
@@ -19892,6 +20658,30 @@ function renderInjectionTab(container, state) {
     );
     markTourTarget(compressionSection, 'injection.compression');
     container.appendChild(compressionSection);
+}
+
+function getInjectionEmptyReason(kind, state, settings, enabled = true) {
+    const normalizedKind = String(kind || '').toLowerCase();
+    if (!enabled) {
+        if (normalizedKind === 'continuity') return '(Continuity injection is disabled.)';
+        if (settings.injectLore === false) return '(Lore injection is disabled.)';
+        return '(This Lore relevance tier is disabled.)';
+    }
+
+    if (normalizedKind === 'continuity') {
+        return '(Continuity injection has no scene, timeline, character, item, or goal data yet.)';
+    }
+
+    const loadedCount = getEnabledLoredeckStackPackIds(state).length;
+    if (!loadedCount) return '(No Loredecks are loaded for Lore injection.)';
+
+    const acceptedCount = [
+        ...(Array.isArray(state?.acceptedLoreEntries) ? state.acceptedLoreEntries : []),
+        ...(Array.isArray(state?.loreEntries) ? state.loreEntries : []),
+    ].length;
+    if (!acceptedCount) return '(No accepted Lorecards are available to inject.)';
+
+    return '(No accepted Lorecards match this relevance tier and current Context.)';
 }
 
 function getInjectionPreviewSectionSummary(text, enabled = true) {
@@ -20326,7 +21116,7 @@ function createPlacementNumber(labelText, settingKey, value, min, max, tooltip, 
     return label;
 }
 
-function createInjectionPreviewCard(titleText, className, text, enabled, helpText, extraContent = null) {
+function createInjectionPreviewCard(titleText, className, text, enabled, helpText, extraContent = null, emptyReason = '') {
     const previewCard = document.createElement('div');
     previewCard.className = 'saga-runtime-card saga-injection-preview-card';
     if (String(className || '').includes('continuity')) markTourTarget(previewCard, 'injection.preview.continuity');
@@ -20348,7 +21138,7 @@ function createInjectionPreviewCard(titleText, className, text, enabled, helpTex
 
     const pre = document.createElement('pre');
     pre.className = `saga-injection-preview ${className}`;
-    pre.textContent = getInjectionDisplayText(titleText, text, enabled);
+    pre.textContent = getInjectionDisplayText(titleText, text, enabled, emptyReason);
     addTooltip(pre, 'Scrollable prompt context block. This text is ephemeral and is not written into chat history.');
     previewCard.appendChild(pre);
 
@@ -20364,9 +21154,10 @@ function createInjectionPreviewCard(titleText, className, text, enabled, helpTex
     return previewCard;
 }
 
-function getInjectionDisplayText(titleText, text, enabled = true) {
+function getInjectionDisplayText(titleText, text, enabled = true, emptyReason = '') {
     const clean = String(text || '').trim();
     if (clean) return clean;
+    if (emptyReason) return emptyReason;
     const lower = String(titleText || '').toLowerCase();
     if (lower.includes('lore')) return enabled ? '(No lore data to inject.)' : '(Lore injection is disabled.)';
     if (lower.includes('continuity')) return enabled ? '(No continuity data to inject.)' : '(Continuity injection is disabled.)';
@@ -20387,15 +21178,25 @@ function refreshInjectionPreviewOnly() {
 
     const continuityPre = panelRoot?.querySelector('.saga-continuity-injection-preview');
     if (continuityPre) {
-        continuityPre.textContent = getInjectionDisplayText('Continuity Injection', continuity, settings.injectContinuity !== false && settings.injectMemo !== false);
+        const enabled = settings.injectContinuity !== false && settings.injectMemo !== false;
+        continuityPre.textContent = getInjectionDisplayText('Continuity Injection', continuity, enabled, getInjectionEmptyReason('continuity', state, settings, enabled));
     }
 
     const loreHighPre = panelRoot?.querySelector('.saga-lore-high-injection-preview');
-    if (loreHighPre) loreHighPre.textContent = getInjectionDisplayText('High-Relevance Lore Injection', loreHigh, settings.injectLore !== false && settings.loreHighInjectionEnabled !== false);
+    if (loreHighPre) {
+        const enabled = settings.injectLore !== false && settings.loreHighInjectionEnabled !== false;
+        loreHighPre.textContent = getInjectionDisplayText('High-Relevance Lore Injection', loreHigh, enabled, getInjectionEmptyReason('high', state, settings, enabled));
+    }
     const loreNormalPre = panelRoot?.querySelector('.saga-lore-normal-injection-preview');
-    if (loreNormalPre) loreNormalPre.textContent = getInjectionDisplayText('Normal-Relevance Lore Injection', loreNormal, settings.injectLore !== false && settings.loreNormalInjectionEnabled !== false);
+    if (loreNormalPre) {
+        const enabled = settings.injectLore !== false && settings.loreNormalInjectionEnabled !== false;
+        loreNormalPre.textContent = getInjectionDisplayText('Normal-Relevance Lore Injection', loreNormal, enabled, getInjectionEmptyReason('normal', state, settings, enabled));
+    }
     const loreLowPre = panelRoot?.querySelector('.saga-lore-low-injection-preview');
-    if (loreLowPre) loreLowPre.textContent = getInjectionDisplayText('Low-Relevance Lore Injection', loreLow, settings.injectLore !== false && settings.loreLowInjectionEnabled !== false);
+    if (loreLowPre) {
+        const enabled = settings.injectLore !== false && settings.loreLowInjectionEnabled !== false;
+        loreLowPre.textContent = getInjectionDisplayText('Low-Relevance Lore Injection', loreLow, enabled, getInjectionEmptyReason('low', state, settings, enabled));
+    }
 
     if (typeof globalThis.sagaSyncPromptInjection === 'function') {
         globalThis.sagaSyncPromptInjection();

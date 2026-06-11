@@ -1,0 +1,525 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "jjk_zero_exp_yuta_and_rika_are_bound_by_love_and_curse",
+      "title": "Yuta And Rika Are Bound By Love And Curse",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 74,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.zero.yuta-enters-tokyo-jujutsu-high",
+        "validToAnchor": "jjk.zero.night-parade-declared",
+        "sortKeyFrom": 500,
+        "sortKeyTo": 820,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Yuta training window"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:yuta-okkotsu",
+          "jjk:rika-orimoto"
+        ],
+        "characters": [
+          "Yuta Okkotsu",
+          "Rika Orimoto"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Yuta Rika bond",
+          "Rika curse"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:jjk-zero",
+        "character:yuta-okkotsu",
+        "character:rika-orimoto",
+        "topic:yuta-rika-bond",
+        "topic:rika-curse"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuta Okkotsu",
+            "Rika Orimoto"
+          ],
+          "topicsAny": [
+            "Yuta Rika bond",
+            "Rika curse"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-zero",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen 0 manga prequel material, treated as manga-primary pre-mainline context for the Jujutsu Kaisen Loredeck family.",
+        "notes": "Mainline manga outcomes after the prequel should remain in later arc decks unless explicitly needed as bridge metadata."
+      },
+      "content": {
+        "fact": "Yuta and Rika's bond is emotionally sincere but catastrophically expressed through a curse that endangers others.",
+        "injection": "Use this relationship state for dialogue and behavior: Yuta and Rika's bond is emotionally sincere but catastrophically expressed through a curse that endangers others.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen 0",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_zero_exp_maki_challenges_yutas_passivity",
+      "title": "Maki Challenges Yuta's Passivity",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 74,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.zero.yuta-enters-tokyo-jujutsu-high",
+        "validToAnchor": "jjk.zero.night-parade-declared",
+        "sortKeyFrom": 500,
+        "sortKeyTo": 820,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Yuta training window"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:maki-zenin",
+          "jjk:yuta-okkotsu"
+        ],
+        "characters": [
+          "Maki Zenin",
+          "Yuta Okkotsu"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Maki Yuta training",
+          "agency"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:jjk-zero",
+        "character:maki-zenin",
+        "character:yuta-okkotsu",
+        "topic:maki-yuta-training",
+        "topic:agency"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Maki Zenin",
+            "Yuta Okkotsu"
+          ],
+          "topicsAny": [
+            "Maki Yuta training",
+            "agency"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-zero",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen 0 manga prequel material, treated as manga-primary pre-mainline context for the Jujutsu Kaisen Loredeck family.",
+        "notes": "Mainline manga outcomes after the prequel should remain in later arc decks unless explicitly needed as bridge metadata."
+      },
+      "content": {
+        "fact": "Maki pushes Yuta toward agency by rejecting helplessness and forcing him to consider what he wants to become.",
+        "injection": "Use this relationship state for dialogue and behavior: Maki pushes Yuta toward agency by rejecting helplessness and forcing him to consider what he wants to become.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen 0",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_zero_exp_toge_and_yuta_build_trust_through_missions",
+      "title": "Toge And Yuta Build Trust Through Missions",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 74,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.zero.yuta-enters-tokyo-jujutsu-high",
+        "validToAnchor": "jjk.zero.night-parade-declared",
+        "sortKeyFrom": 500,
+        "sortKeyTo": 820,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Yuta training window"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:toge-inumaki",
+          "jjk:yuta-okkotsu"
+        ],
+        "characters": [
+          "Toge Inumaki",
+          "Yuta Okkotsu"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Toge Yuta trust",
+          "field training"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:jjk-zero",
+        "character:toge-inumaki",
+        "character:yuta-okkotsu",
+        "topic:toge-yuta-trust",
+        "topic:field-training"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Toge Inumaki",
+            "Yuta Okkotsu"
+          ],
+          "topicsAny": [
+            "Toge Yuta trust",
+            "field training"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-zero",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen 0 manga prequel material, treated as manga-primary pre-mainline context for the Jujutsu Kaisen Loredeck family.",
+        "notes": "Mainline manga outcomes after the prequel should remain in later arc decks unless explicitly needed as bridge metadata."
+      },
+      "content": {
+        "fact": "Toge's controlled speech and field conduct help Yuta learn trust and practical sorcerer teamwork.",
+        "injection": "Use this relationship state for dialogue and behavior: Toge's controlled speech and field conduct help Yuta learn trust and practical sorcerer teamwork.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen 0",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_zero_exp_panda_mediates_classmate_dynamics",
+      "title": "Panda Mediates Classmate Dynamics",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 74,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.zero.yuta-enters-tokyo-jujutsu-high",
+        "validToAnchor": "jjk.zero.night-parade-declared",
+        "sortKeyFrom": 500,
+        "sortKeyTo": 820,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Yuta training window"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:panda",
+          "jjk:yuta-okkotsu"
+        ],
+        "characters": [
+          "Panda",
+          "Yuta Okkotsu"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Panda Yuta",
+          "classmate dynamics"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:jjk-zero",
+        "character:panda",
+        "character:yuta-okkotsu",
+        "topic:panda-yuta",
+        "topic:classmate-dynamics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Panda",
+            "Yuta Okkotsu"
+          ],
+          "topicsAny": [
+            "Panda Yuta",
+            "classmate dynamics"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-zero",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen 0 manga prequel material, treated as manga-primary pre-mainline context for the Jujutsu Kaisen Loredeck family.",
+        "notes": "Mainline manga outcomes after the prequel should remain in later arc decks unless explicitly needed as bridge metadata."
+      },
+      "content": {
+        "fact": "Panda often acts as a blunt but socially aware classmate who helps Yuta understand the group dynamic.",
+        "injection": "Use this relationship state for dialogue and behavior: Panda often acts as a blunt but socially aware classmate who helps Yuta understand the group dynamic.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen 0",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_zero_exp_gojo_and_geto_carry_past_tension",
+      "title": "Gojo And Geto Carry Past Tension",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 74,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.zero.night-parade-declared",
+        "validToAnchor": "jjk.zero.rika-released",
+        "sortKeyFrom": 820,
+        "sortKeyTo": 950,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Night Parade climax"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:gojo-satoru",
+          "jjk:geto-suguru"
+        ],
+        "characters": [
+          "Satoru Gojo",
+          "Suguru Geto"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Gojo Geto",
+          "ideological split"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:jjk-zero",
+        "character:gojo-satoru",
+        "character:geto-suguru",
+        "topic:gojo-geto",
+        "topic:ideological-split"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Satoru Gojo",
+            "Suguru Geto"
+          ],
+          "topicsAny": [
+            "Gojo Geto",
+            "ideological split"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-zero",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen 0 manga prequel material, treated as manga-primary pre-mainline context for the Jujutsu Kaisen Loredeck family.",
+        "notes": "Mainline manga outcomes after the prequel should remain in later arc decks unless explicitly needed as bridge metadata."
+      },
+      "content": {
+        "fact": "Gojo and Geto's Zero-era confrontation carries the weight of their former friendship and ideological split.",
+        "injection": "Use this relationship state for dialogue and behavior: Gojo and Geto's Zero-era confrontation carries the weight of their former friendship and ideological split.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen 0",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    }
+  ]
+}

@@ -250,6 +250,35 @@
         "confidence": 0.82
       },
       "extensions": {}
+    },
+    "jjk:kenjaku": {
+      "type": "character",
+      "label": "Kenjaku",
+      "aliases": [],
+      "canonicalNames": [
+        "Kenjaku"
+      ],
+      "tags": [
+        "character:kenjaku"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-zero",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen 0 manga prequel material, treated as manga-primary pre-mainline context for the Jujutsu Kaisen Loredeck family.",
+        "notes": "Mainline manga outcomes after the prequel should remain in later arc decks unless explicitly needed as bridge metadata."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.7
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_entity_stub"
+        }
+      }
     }
   }
 }

@@ -457,6 +457,18 @@ function renderProviderModelOptions(select, models, filterText = '', currentMode
     if (matches.some(model => String(model.id || '') === currentModel)) select.value = currentModel;
 }
 
+async function confirmProviderDirectApiKeyStorage(kind) {
+    const cfg = getProviderUiConfig(kind);
+    const info = getNamedApiKeyStorageInfo(cfg.secretName);
+    const storageLabel = info.webCryptoAvailable
+        ? 'Saga will use browser WebCrypto encryption at rest, but decrypted keys still live in browser memory for provider calls.'
+        : 'This browser context does not expose WebCrypto, so Saga will use fallback obfuscation, not encryption.';
+    return confirmAction(
+        `Store ${cfg.shortTitle} API key directly in Saga?`,
+        `${cfg.shortTitle} direct API key storage is intended for alpha testing. Prefer a SillyTavern Connection Profile or backend proxy when possible.\n\n${storageLabel}\n\nStore this key directly in Saga anyway?`
+    );
+}
+
 function createProviderApiKeyField(kind, settings = getSettings()) {
     const cfg = getProviderUiConfig(kind);
     const prefix = getProviderPrefix(kind);
@@ -485,11 +497,17 @@ function createProviderApiKeyField(kind, settings = getSettings()) {
         await runBusyAction(btn, 'Storing...', async () => {
             const value = String(input.value || '').trim();
             if (!value) throw new Error('Enter an API key first.');
-            await storeNamedApiKey(secretName, value);
+            const proceed = await confirmProviderDirectApiKeyStorage(kind);
+            if (!proceed) return;
+            const result = await storeNamedApiKey(secretName, value);
             clearCachedApiKey(kind);
             await loadApiKey(kind);
             input.value = '';
-            toast(`${cfg.shortTitle} API key stored.`, 'success');
+            if (result?.encryptedAtRest === false) {
+                toast(`${cfg.shortTitle} API key stored with fallback obfuscation, not encryption. Prefer a SillyTavern Connection Profile or backend proxy.`, 'warning');
+            } else {
+                toast(`${cfg.shortTitle} API key encrypted and stored. Prefer a SillyTavern Connection Profile or backend proxy for stronger isolation.`, 'success');
+            }
             refreshSettingsPanel({ preserveScroll: true, preserveWindowScroll: true });
         });
     }));
@@ -515,14 +533,14 @@ function createProviderApiKeyField(kind, settings = getSettings()) {
 
 function formatProviderKeyStorageInfo(info, keySetFallback = false) {
     if (!info?.isStored && !keySetFallback) return 'Not stored.';
-    if (info?.compatibilityStorage) return 'Stored using compatibility encryption.';
+    if (info?.compatibilityStorage) return 'Stored with fallback obfuscation.';
     if (info?.encryptedAtRest) return 'Stored encrypted at rest.';
     return 'Stored.';
 }
 
 function getProviderKeyStorageTooltip(info) {
     if (!info?.isStored) return 'No local API key is currently stored for this provider role.';
-    if (info.compatibilityStorage) return 'Stored with the fallback compatibility cipher because WebCrypto was unavailable.';
+    if (info.compatibilityStorage) return 'Stored with fallback obfuscation, not encryption, because WebCrypto was unavailable.';
     return info.webCryptoAvailable ? 'Stored with browser WebCrypto AES-GCM.' : 'Stored key metadata exists, but WebCrypto is unavailable in this session.';
 }
 

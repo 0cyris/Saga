@@ -65,7 +65,7 @@ The Basic Walkthrough remains a separate module-based learning tool. The checkli
 Checklist steps should prefer actual controls over large sections:
 
 - Loredeck setup targets Library open, Library list, transfer controls, active stack, and Done.
-- Context setup targets Browse Context, the loaded-Loredeck row, story waypoints, Anchor/Window selection controls, Start Here, and loaded Context rows.
+- Context setup targets Browse Context, the loaded-Loredeck row, Choose Story Position, Anchor/Window selection controls, Start Here, and loaded Context rows.
 - Lorecard review targets Preview Canon Packs, Scan Story Lore, Add Lorecard, pending entry cards, and apply/dismiss actions.
 - Lore readiness targets Accepted Lorecards search/list/entry controls.
 - Provider setup targets Utility Provider, Reasoning Provider, Test controls, and Advanced Provider Settings handoff.
@@ -83,7 +83,7 @@ Checklist steps should prefer actual controls over large sections:
   - The retired in-panel `guidedTask` strip is not part of the runtime state.
 
 - `src/context/context-workbench-panel.js`
-  - Adds workbench tour anchors for context picker, waypoint browser, loaded Context table, editor, and resolver controls.
+  - Adds workbench tour anchors for the story-position picker, loaded Context table, editor, and resolver controls.
 
 - `src/settings/settings-panel.js`
   - Adds Basic provider anchors for Utility, Reasoning, provider test controls, and Advanced provider handoff.

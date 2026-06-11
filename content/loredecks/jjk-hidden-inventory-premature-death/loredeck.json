@@ -8,7 +8,7 @@
   "era": "Hidden Inventory / Premature Death",
   "contentKind": "fandom",
   "author": "Saga",
-  "version": "0.1.0",
+  "version": "0.2.0-phase1",
   "defaultLocale": "en",
   "tags": [
     "fandom:jjk",
@@ -63,7 +63,11 @@
   "files": [
     "hidden_inventory/gojo_geto_riko.json",
     "hidden_inventory/toji_and_tengen.json",
-    "hidden_inventory/premature_death.json"
+    "hidden_inventory/premature_death.json",
+    "expanded/character_states.json",
+    "expanded/abilities_and_items.json",
+    "expanded/mission_and_defection_events.json",
+    "expanded/knowledge_gates.json"
   ],
   "compatibility": {
     "sagaSchemaMin": 3,
@@ -79,15 +83,15 @@
     }
   ],
   "stats": {
-    "entryCount": 12,
+    "entryCount": 38,
     "categoryCounts": {
-      "character": 1,
-      "event": 3,
+      "character": 9,
+      "event": 11,
       "faction": 2,
-      "knowledge": 2,
+      "knowledge": 3,
       "relationship": 1,
-      "rule": 1,
-      "secret": 2
+      "rule": 7,
+      "secret": 5
     },
     "timelineAnchorCount": 8,
     "timelineWindowCount": 3
@@ -97,8 +101,8 @@
     "notes": "For local testing. Requires human canon review before reference release."
   },
   "health": {
-    "status": "good",
-    "notes": "Initial Hidden Inventory and Premature Death scaffold passes local structural health checks; not a substitute for human canon review."
+    "status": "needs_review",
+    "notes": "Expanded phase-1 draft-reference package; generated cards require human canon review before reference release."
   },
   "library": {
     "suggestedPath": [

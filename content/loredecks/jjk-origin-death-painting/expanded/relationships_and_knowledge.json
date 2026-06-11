@@ -1,0 +1,525 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "jjk_origin_death_painting_exp_yuji_megumi_and_nobara_become_a_practical_trio",
+      "title": "Yuji Megumi And Nobara Become A Practical Trio",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 74,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.main.yuji-eats-sukuna-finger",
+        "validToAnchor": "jjk.main.detention-center-sukuna-emerges",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 1600,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Origin and Cursed Womb"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:itadori-yuji",
+          "jjk:megumi-fushiguro",
+          "jjk:kugisaki-nobara"
+        ],
+        "characters": [
+          "Yuji Itadori",
+          "Megumi Fushiguro",
+          "Nobara Kugisaki"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "first-year trio",
+          "teamwork"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:origin-death-painting",
+        "character:itadori-yuji",
+        "character:megumi-fushiguro",
+        "character:kugisaki-nobara",
+        "topic:first-year-trio",
+        "topic:teamwork"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuji Itadori",
+            "Megumi Fushiguro",
+            "Nobara Kugisaki"
+          ],
+          "topicsAny": [
+            "first-year trio",
+            "teamwork"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath.",
+        "notes": "Jujutsu Kaisen 0 prequel context, Hidden Inventory, Shibuya, Culling Game, Shinjuku, anime-only changes, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "The Tokyo first-years quickly become a functional field trio built on irritation, trust, and shared danger.",
+        "injection": "Use this relationship state for dialogue and behavior: The Tokyo first-years quickly become a functional field trio built on irritation, trust, and shared danger.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Origin through Death Painting",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_origin_death_painting_exp_yuji_and_nanami_are_mentor_and_trainee",
+      "title": "Yuji And Nanami Are Mentor And Trainee",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 74,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.main.yuji-private-training",
+        "validToAnchor": "jjk.main.mahito-junpei-incident",
+        "sortKeyFrom": 1900,
+        "sortKeyTo": 2300,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Hidden training and Junpei"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:itadori-yuji",
+          "jjk:nanami-kento"
+        ],
+        "characters": [
+          "Yuji Itadori",
+          "Kento Nanami"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Nanami Yuji mentorship",
+          "professional boundaries"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:origin-death-painting",
+        "character:itadori-yuji",
+        "character:nanami-kento",
+        "topic:nanami-yuji-mentorship",
+        "topic:professional-boundaries"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuji Itadori",
+            "Kento Nanami"
+          ],
+          "topicsAny": [
+            "Nanami Yuji mentorship",
+            "professional boundaries"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath.",
+        "notes": "Jujutsu Kaisen 0 prequel context, Hidden Inventory, Shibuya, Culling Game, Shinjuku, anime-only changes, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Nanami treats Yuji as a junior who needs professional boundaries, not just encouragement.",
+        "injection": "Use this relationship state for dialogue and behavior: Nanami treats Yuji as a junior who needs professional boundaries, not just encouragement.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Origin through Death Painting",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_origin_death_painting_exp_yuji_and_todo_become_combat_brothers_by_tempo",
+      "title": "Yuji And Todo Become Combat Brothers By Tempo",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 74,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.main.kyoto-goodwill-event",
+        "validToAnchor": "jjk.main.death-painting-aftermath",
+        "sortKeyFrom": 3100,
+        "sortKeyTo": 3800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Goodwill through Death Painting"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:itadori-yuji",
+          "jjk:aoi-todo"
+        ],
+        "characters": [
+          "Yuji Itadori",
+          "Aoi Todo"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Todo Yuji",
+          "combat rhythm"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:origin-death-painting",
+        "character:itadori-yuji",
+        "character:aoi-todo",
+        "topic:todo-yuji",
+        "topic:combat-rhythm"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuji Itadori",
+            "Aoi Todo"
+          ],
+          "topicsAny": [
+            "Todo Yuji",
+            "combat rhythm"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath.",
+        "notes": "Jujutsu Kaisen 0 prequel context, Hidden Inventory, Shibuya, Culling Game, Shinjuku, anime-only changes, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Todo's bond with Yuji is eccentric but tactically real once they synchronize in combat.",
+        "injection": "Use this relationship state for dialogue and behavior: Todo's bond with Yuji is eccentric but tactically real once they synchronize in combat.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Origin through Death Painting",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_origin_death_painting_exp_nobara_and_maki_share_respect_through_defiance",
+      "title": "Nobara And Maki Share Respect Through Defiance",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 74,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.main.kyoto-goodwill-event",
+        "validToAnchor": "jjk.main.death-painting-aftermath",
+        "sortKeyFrom": 3100,
+        "sortKeyTo": 3800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Goodwill through Death Painting"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:kugisaki-nobara",
+          "jjk:maki-zenin"
+        ],
+        "characters": [
+          "Nobara Kugisaki",
+          "Maki Zenin"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Nobara Maki respect",
+          "self-definition"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:origin-death-painting",
+        "character:kugisaki-nobara",
+        "character:maki-zenin",
+        "topic:nobara-maki-respect",
+        "topic:self-definition"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Nobara Kugisaki",
+            "Maki Zenin"
+          ],
+          "topicsAny": [
+            "Nobara Maki respect",
+            "self-definition"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath.",
+        "notes": "Jujutsu Kaisen 0 prequel context, Hidden Inventory, Shibuya, Culling Game, Shinjuku, anime-only changes, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Nobara's admiration for Maki centers on self-definition and defiance of restrictive expectations.",
+        "injection": "Use this relationship state for dialogue and behavior: Nobara's admiration for Maki centers on self-definition and defiance of restrictive expectations.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Origin through Death Painting",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_origin_death_painting_exp_megumis_mahoraga_trump_card_should_stay_hidden",
+      "title": "Megumi's Mahoraga Trump Card Should Stay Hidden",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 74,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.main.yuji-eats-sukuna-finger",
+        "validToAnchor": "jjk.main.detention-center-sukuna-emerges",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 1600,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Origin and Cursed Womb"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:megumi-fushiguro"
+        ],
+        "characters": [
+          "Megumi Fushiguro"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Mahoraga foreshadowing",
+          "Ten Shadows"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:origin-death-painting",
+        "character:megumi-fushiguro",
+        "topic:mahoraga-foreshadowing",
+        "topic:ten-shadows"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Megumi Fushiguro"
+          ],
+          "topicsAny": [
+            "Mahoraga foreshadowing",
+            "Ten Shadows"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath.",
+        "notes": "Jujutsu Kaisen 0 prequel context, Hidden Inventory, Shibuya, Culling Game, Shinjuku, anime-only changes, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Megumi's highest-risk Ten Shadows option should remain a danger signal rather than a casual move in early scenes.",
+        "injection": "Use this relationship state for dialogue and behavior: Megumi's highest-risk Ten Shadows option should remain a danger signal rather than a casual move in early scenes.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Origin through Death Painting",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    }
+  ]
+}

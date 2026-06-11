@@ -359,6 +359,122 @@
         "confidence": 0.82
       },
       "extensions": {}
+    },
+    "jjk:choso": {
+      "type": "character",
+      "label": "Choso",
+      "aliases": [],
+      "canonicalNames": [
+        "Choso"
+      ],
+      "tags": [
+        "character:choso"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen post-Shibuya aftermath through Perfect Preparation and Culling Game setup.",
+        "notes": "Culling Game colony action, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.7
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_entity_stub"
+        }
+      }
+    },
+    "jjk:kinji-hakari": {
+      "type": "character",
+      "label": "Hakari",
+      "aliases": [],
+      "canonicalNames": [
+        "Hakari"
+      ],
+      "tags": [
+        "character:kinji-hakari"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen post-Shibuya aftermath through Perfect Preparation and Culling Game setup.",
+        "notes": "Culling Game colony action, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.7
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_entity_stub"
+        }
+      }
+    },
+    "jjk:kirara-hoshi": {
+      "type": "character",
+      "label": "Kirara Hoshi",
+      "aliases": [],
+      "canonicalNames": [
+        "Kirara Hoshi"
+      ],
+      "tags": [
+        "character:kirara-hoshi"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen post-Shibuya aftermath through Perfect Preparation and Culling Game setup.",
+        "notes": "Culling Game colony action, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.7
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_entity_stub"
+        }
+      }
+    },
+    "jjk:toji-fushiguro": {
+      "type": "character",
+      "label": "Toji Fushiguro",
+      "aliases": [],
+      "canonicalNames": [
+        "Toji Fushiguro"
+      ],
+      "tags": [
+        "character:toji-fushiguro"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen post-Shibuya aftermath through Perfect Preparation and Culling Game setup.",
+        "notes": "Culling Game colony action, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.7
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_entity_stub"
+        }
+      }
     }
   }
 }

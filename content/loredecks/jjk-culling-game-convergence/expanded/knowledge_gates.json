@@ -1,0 +1,417 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "jjk_culling_game_convergence_exp_megumi_vessel_reveal_starts_only_after_sukunas_transfer",
+      "title": "Megumi Vessel Reveal Starts Only After Sukuna's Transfer",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.convergence.sukuna-takes-megumi",
+        "validToAnchor": "jjk.convergence.shinjuku-setup",
+        "sortKeyFrom": 12600,
+        "sortKeyTo": 13200,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Sukuna turn through Shinjuku setup"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:megumi-fushiguro",
+          "jjk:ryomen-sukuna"
+        ],
+        "characters": [
+          "Megumi Fushiguro",
+          "Ryomen Sukuna"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Megumi vessel",
+          "temporal gate"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:culling-game-convergence",
+        "character:megumi-fushiguro",
+        "character:ryomen-sukuna",
+        "topic:megumi-vessel",
+        "topic:temporal-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Megumi Fushiguro",
+            "Ryomen Sukuna"
+          ],
+          "topicsAny": [
+            "Megumi vessel",
+            "temporal gate"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen late Culling Game convergence through Gojo unsealing and Shinjuku setup.",
+        "notes": "Shinjuku Showdown battle events, final Sukuna resolution, epilogue, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Do not write Megumi as Sukuna's vessel before the transfer anchor.",
+        "injection": "Gate by Context and character knowledge: Do not write Megumi as Sukuna's vessel before the transfer anchor.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Culling Game Convergence",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_culling_game_convergence_exp_gojo_unsealed_should_not_leak_into_earlier_culling_colonies",
+      "title": "Gojo Unsealed Should Not Leak Into Earlier Culling Colonies",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.convergence.sukuna-takes-megumi",
+        "validToAnchor": "jjk.convergence.shinjuku-setup",
+        "sortKeyFrom": 12600,
+        "sortKeyTo": 13200,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Sukuna turn through Shinjuku setup"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:gojo-satoru"
+        ],
+        "characters": [
+          "Satoru Gojo"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Gojo unsealed",
+          "spoiler guard"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:culling-game-convergence",
+        "character:gojo-satoru",
+        "topic:gojo-unsealed",
+        "topic:spoiler-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Satoru Gojo"
+          ],
+          "topicsAny": [
+            "Gojo unsealed",
+            "spoiler guard"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen late Culling Game convergence through Gojo unsealing and Shinjuku setup.",
+        "notes": "Shinjuku Showdown battle events, final Sukuna resolution, epilogue, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Gojo remains unavailable until the unsealing window and should not solve earlier colony problems.",
+        "injection": "Gate by Context and character knowledge: Gojo remains unavailable until the unsealing window and should not solve earlier colony problems.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Culling Game Convergence",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_culling_game_convergence_exp_tsumikis_identity_twist_is_a_convergence_spoiler",
+      "title": "Tsumiki's Identity Twist Is A Convergence Spoiler",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.convergence.sukuna-takes-megumi",
+        "validToAnchor": "jjk.convergence.shinjuku-setup",
+        "sortKeyFrom": 12600,
+        "sortKeyTo": 13200,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Sukuna turn through Shinjuku setup"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:tsumiki-fushiguro",
+          "jjk:yorozu"
+        ],
+        "characters": [
+          "Tsumiki Fushiguro",
+          "Yorozu"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Yorozu reveal",
+          "Tsumiki twist"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:culling-game-convergence",
+        "character:tsumiki-fushiguro",
+        "character:yorozu",
+        "topic:yorozu-reveal",
+        "topic:tsumiki-twist"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Tsumiki Fushiguro",
+            "Yorozu"
+          ],
+          "topicsAny": [
+            "Yorozu reveal",
+            "Tsumiki twist"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen late Culling Game convergence through Gojo unsealing and Shinjuku setup.",
+        "notes": "Shinjuku Showdown battle events, final Sukuna resolution, epilogue, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "The Tsumiki and Yorozu reveal should stay hidden until the convergence window reaches that pivot.",
+        "injection": "Gate by Context and character knowledge: The Tsumiki and Yorozu reveal should stay hidden until the convergence window reaches that pivot.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Culling Game Convergence",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_culling_game_convergence_exp_yukis_death_state_needs_post_fight_context",
+      "title": "Yuki's Death State Needs Post-Fight Context",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.convergence.military-incursion",
+        "validToAnchor": "jjk.convergence.kenjaku-gains-tengen",
+        "sortKeyFrom": 12000,
+        "sortKeyTo": 12400,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Kenjaku and Tengen"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:yuki-tsukumo",
+          "jjk:kenjaku"
+        ],
+        "characters": [
+          "Yuki Tsukumo",
+          "Kenjaku"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Yuki status",
+          "spoiler guard"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:culling-game-convergence",
+        "character:yuki-tsukumo",
+        "character:kenjaku",
+        "topic:yuki-status",
+        "topic:spoiler-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuki Tsukumo",
+            "Kenjaku"
+          ],
+          "topicsAny": [
+            "Yuki status",
+            "spoiler guard"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen late Culling Game convergence through Gojo unsealing and Shinjuku setup.",
+        "notes": "Shinjuku Showdown battle events, final Sukuna resolution, epilogue, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Yuki should not be treated as dead or absent before the Kenjaku confrontation resolves.",
+        "injection": "Gate by Context and character knowledge: Yuki should not be treated as dead or absent before the Kenjaku confrontation resolves.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Culling Game Convergence",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    }
+  ]
+}

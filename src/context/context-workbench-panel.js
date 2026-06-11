@@ -65,14 +65,12 @@ function getContextWorkbenchSelectedKey() { return dep('getContextWorkbenchSelec
 function setContextWorkbenchSelectedKey(itemKey) { return dep('setContextWorkbenchSelectedKey', () => null)(itemKey); }
 function getContextWorkbenchTypeFilter() { return dep('getContextWorkbenchTypeFilter', () => 'all')(); }
 function setContextWorkbenchTypeFilter(typeFilter) { return dep('setContextWorkbenchTypeFilter', () => null)(typeFilter); }
-function getContextWorkbenchWaypointQuery() { return dep('getContextWorkbenchWaypointQuery', () => '')(); }
-function setContextWorkbenchWaypointQuery(query) { return dep('setContextWorkbenchWaypointQuery', () => null)(query); }
-function getContextWorkbenchWaypointFilter() { return dep('getContextWorkbenchWaypointFilter', () => 'major')(); }
-function setContextWorkbenchWaypointFilter(filter) { return dep('setContextWorkbenchWaypointFilter', () => null)(filter); }
+function getContextWorkbenchStoryPositionQuery() { return dep('getContextWorkbenchStoryPositionQuery', () => '')(); }
+function setContextWorkbenchStoryPositionQuery(query) { return dep('setContextWorkbenchStoryPositionQuery', () => null)(query); }
+function getContextWorkbenchStoryPositionFilter() { return dep('getContextWorkbenchStoryPositionFilter', () => 'major')(); }
+function setContextWorkbenchStoryPositionFilter(filter) { return dep('setContextWorkbenchStoryPositionFilter', () => null)(filter); }
 function getContextWorkbenchResolverQuery() { return dep('getContextWorkbenchResolverQuery', () => '')(); }
 function setContextWorkbenchResolverQuery(query) { return dep('setContextWorkbenchResolverQuery', () => null)(query); }
-function getContextWorkbenchContextQuery() { return dep('getContextWorkbenchContextQuery', () => '')(); }
-function setContextWorkbenchContextQuery(query) { return dep('setContextWorkbenchContextQuery', () => null)(query); }
 function resolveContextsFromContext(btn) { return dep('resolveContextsFromContext', async () => null)(btn); }
 function modelResolveContexts(btn) { return dep('modelResolveContexts', async () => null)(btn); }
 function setLoredeckContextManualLock(packId, manualLock) { return dep('setLoredeckContextManualLock', () => null)(packId, manualLock); }
@@ -83,7 +81,7 @@ function applyContextTimelineItem(packId, item) { return dep('applyContextTimeli
 function applyContextAnchor(packId, anchor) { return dep('applyContextAnchor', () => null)(packId, anchor); }
 function applyContextEntryCandidate(packId, match) { return dep('applyContextEntryCandidate', () => null)(packId, match); }
 function applyContextAnchorBoundary(packId, item, mode) { return dep('applyContextAnchorBoundary', () => null)(packId, item, mode); }
-function commitLoredeckContextPatch(packId, patch, summary, options) { return dep('commitLoredeckContextPatch', () => null)(packId, patch, summary, options); }
+function commitLoredeckContextPatch(packId, patch, options) { return dep('commitLoredeckContextPatch', () => null)(packId, patch, options); }
 function validateLoredeckForEditor(pack, btn) { return dep('validateLoredeckForEditor', async () => null)(pack, btn); }
 function loadLoredeckEntriesForEditor(pack, btn) { return dep('loadLoredeckEntriesForEditor', async () => null)(pack, btn); }
 function canValidateLoredeckInEditor(pack) { return dep('canValidateLoredeckInEditor', () => false)(pack); }
@@ -590,9 +588,8 @@ function createContextWorkbenchContextEditor(state = {}, contextIndex = null) {
     summary.textContent = formatContextSummary(context);
     panel.appendChild(summary);
 
-    panel.appendChild(createContextWorkbenchWaypointBrowser(pack, context, contextIndex));
+    panel.appendChild(createContextWorkbenchStoryPositionPicker(pack, context, contextIndex));
     panel.appendChild(createContextWorkbenchResolverTester(pack, context, contextIndex));
-    panel.appendChild(createContextWorkbenchContextPicker(pack, context, contextIndex));
 
     const grid = document.createElement('div');
     grid.className = 'saga-context-workbench-editor-grid';
@@ -616,7 +613,7 @@ function createContextWorkbenchContextEditor(state = {}, contextIndex = null) {
     return panel;
 }
 
-const CONTEXT_WAYPOINT_FILTER_OPTIONS = Object.freeze([
+const CONTEXT_STORY_POSITION_FILTER_OPTIONS = Object.freeze([
     ['major', 'Major Points'],
     ['windows', 'Windows'],
     ['anchors', 'Anchors'],
@@ -625,42 +622,42 @@ const CONTEXT_WAYPOINT_FILTER_OPTIONS = Object.freeze([
     ['all', 'All'],
 ]);
 
-function createContextWorkbenchWaypointBrowser(pack, context = {}, contextIndex = null) {
+function createContextWorkbenchStoryPositionPicker(pack, context = {}, contextIndex = null) {
     const wrap = document.createElement('div');
-    wrap.className = 'saga-context-workbench-waypoint-browser';
-    markTourTarget(wrap, 'context.workbench.waypoints');
+    wrap.className = 'saga-context-workbench-story-position-picker';
+    markTourTarget(wrap, 'context.workbench.storyPosition');
 
     const top = document.createElement('div');
-    top.className = 'saga-context-workbench-waypoint-top';
+    top.className = 'saga-context-workbench-story-position-top';
     const label = document.createElement('div');
     label.className = 'saga-runtime-card-title';
-    label.textContent = 'Browse Story Waypoints';
-    addTooltip(label, 'Choose major timeline points directly. Use After and Before on two waypoints to build a Context window.');
+    label.textContent = 'Choose Story Position';
+    addTooltip(label, 'Choose the current story position directly. Use After and Before on two points to build a Context window.');
     top.appendChild(label);
 
     const search = document.createElement('input');
     search.type = 'search';
     search.className = 'saga-lore-workbench-search';
-    search.placeholder = 'Search: Christmas 6th Year, Ron Lavender, Hogsmeade...';
-    search.value = getContextWorkbenchWaypointQuery();
-    addTooltip(search, 'Search first-class timeline waypoints and, when loaded, Lorecard-derived event waypoints.');
+    search.placeholder = 'Search anchors, windows, events, aliases...';
+    search.value = getContextWorkbenchStoryPositionQuery();
+    addTooltip(search, 'Search timeline labels, IDs, aliases, tags, arcs, dates, episodes, chapters, attached Lorecard IDs, coordinates, and loaded event story positions.');
     search.addEventListener('keydown', event => {
         if (event.key !== 'Enter') return;
         event.preventDefault();
-        setContextWorkbenchWaypointQuery(search.value.trim());
+        setContextWorkbenchStoryPositionQuery(search.value.trim());
         renderContextWorkbench();
     });
     search.addEventListener('change', () => {
-        setContextWorkbenchWaypointQuery(search.value.trim());
+        setContextWorkbenchStoryPositionQuery(search.value.trim());
         renderContextWorkbench();
     });
     top.appendChild(search);
 
     const filter = document.createElement('select');
     filter.className = 'saga-lore-workbench-select';
-    addTooltip(filter, 'Control how much of the Loredeck Context map is shown.');
-    const activeFilter = getContextWorkbenchWaypointFilter();
-    for (const [value, text] of CONTEXT_WAYPOINT_FILTER_OPTIONS) {
+    addTooltip(filter, 'Control how much of the Loredeck story-position map is shown.');
+    const activeFilter = getContextWorkbenchStoryPositionFilter();
+    for (const [value, text] of CONTEXT_STORY_POSITION_FILTER_OPTIONS) {
         const option = document.createElement('option');
         option.value = value;
         option.textContent = text;
@@ -668,18 +665,18 @@ function createContextWorkbenchWaypointBrowser(pack, context = {}, contextIndex 
         filter.appendChild(option);
     }
     filter.addEventListener('change', () => {
-        setContextWorkbenchWaypointFilter(filter.value);
+        setContextWorkbenchStoryPositionFilter(filter.value);
         renderContextWorkbench();
     });
     top.appendChild(filter);
 
-    top.appendChild(createButton('Find', 'Search browser waypoints.', () => {
-        setContextWorkbenchWaypointQuery(search.value.trim());
+    top.appendChild(createButton('Find', 'Search story positions.', () => {
+        setContextWorkbenchStoryPositionQuery(search.value.trim());
         renderContextWorkbench();
     }, 'saga-primary-button'));
 
     const cachedEntries = getLoredeckEntryPreview(pack?.packId);
-    const loadEvents = createButton(cachedEntries?.loadedAt ? 'Reload Events' : 'Load Events', 'Load Lorecards so the browser can include event-level Context waypoints.', async (btn) => {
+    const loadEvents = createButton(cachedEntries?.loadedAt ? 'Reload Events' : 'Load Events', 'Load Lorecards so this picker can include event-level story positions.', async (btn) => {
         await loadLoredeckEntriesForEditor(pack, btn);
         renderContextWorkbench();
     });
@@ -689,37 +686,53 @@ function createContextWorkbenchWaypointBrowser(pack, context = {}, contextIndex 
 
     wrap.appendChild(createContextWorkbenchWindowBuilderSummary(pack, context));
 
-    const allItems = getContextWorkbenchWaypointItems(pack, contextIndex);
-    const visible = filterContextWorkbenchWaypointItems(allItems, getContextWorkbenchWaypointQuery(), getContextWorkbenchWaypointFilter());
-    const capped = visible.slice(0, 80);
+    const allItems = getContextWorkbenchStoryPositionItems(pack, contextIndex);
+    const query = getContextWorkbenchStoryPositionQuery();
+    const visible = filterContextWorkbenchStoryPositionItems(allItems, query, activeFilter);
+    const current = getContextWorkbenchCurrentTimelineItem(context, allItems);
+    const currentKey = current ? getContextTimelineItemKey(current) : '';
+    const rowItems = [];
+    const seenKeys = new Set();
+    if (!String(query || '').trim() && current) {
+        rowItems.push(current);
+        seenKeys.add(currentKey);
+    }
+    for (const item of visible) {
+        const key = getContextTimelineItemKey(item);
+        if (seenKeys.has(key)) continue;
+        rowItems.push(item);
+        seenKeys.add(key);
+        if (rowItems.length >= 80) break;
+    }
     const meta = document.createElement('div');
     meta.className = 'saga-loredeck-row-meta';
     const firstClassCount = allItems.filter(item => item.source === 'timeline').length;
     const eventCount = allItems.filter(item => item.source === 'lorecard').length;
     meta.appendChild(createStatusPill(`${firstClassCount} timeline`, 'First-class anchors/windows from the Loredeck timeline registry.'));
-    meta.appendChild(createStatusPill(cachedEntries?.loadedAt ? `${eventCount} event waypoints` : 'Events unloaded', 'Lorecard-derived Context candidates are optional and loaded on demand.'));
-    meta.appendChild(createStatusPill(`${visible.length} shown`, 'Waypoints matching the current search and filter.'));
-    if (getContextWorkbenchWaypointFilter() === 'major') {
-        meta.appendChild(createStatusPill('Major only', 'Major Points shows first-class timeline anchors/windows by default. Search or load Events for denser event selection.'));
+    meta.appendChild(createStatusPill(cachedEntries?.loadedAt ? `${eventCount} events` : 'Events unloaded', 'Lorecard-derived Context candidates are optional and loaded on demand.'));
+    meta.appendChild(createStatusPill(`${rowItems.length} shown`, 'Story positions shown after current selection pinning, search, and filtering.'));
+    if (activeFilter === 'major') {
+        meta.appendChild(createStatusPill('Major only', 'Major shows first-class timeline anchors/windows by default. Search or load Events for denser event selection.'));
     }
+    if (currentKey) meta.appendChild(createStatusPill('Current pinned', 'The current selected Context row is kept visible when possible.'));
     wrap.appendChild(meta);
 
     const list = document.createElement('div');
-    list.className = 'saga-context-workbench-waypoint-list';
+    list.className = 'saga-context-workbench-story-position-list';
     if (!allItems.length) {
-        list.appendChild(createEmptyMessage('No Context waypoints are loaded for this Loredeck yet.'));
-    } else if (!visible.length) {
-        const lines = ['No waypoints match the current search/filter.'];
-        if (!cachedEntries?.loadedAt) lines.push('Load Events to include Lorecard-derived event waypoints such as parties, lessons, battles, reveals, and relationship turns.');
+        list.appendChild(createEmptyMessage('No story positions are loaded for this Loredeck yet.'));
+    } else if (!rowItems.length) {
+        const lines = ['No story positions match the current search/filter.'];
+        if (!cachedEntries?.loadedAt) lines.push('Load Events to include Lorecard-derived moments such as parties, lessons, battles, reveals, and relationship turns.');
         list.appendChild(createContextResolverDiagnosticCard('No browser match', lines, 'warning'));
     } else {
-        for (const item of capped) {
-            list.appendChild(createContextWorkbenchWaypointRow(pack, item, context));
+        for (const item of rowItems) {
+            list.appendChild(createContextWorkbenchStoryPositionRow(pack, item, context, currentKey));
         }
-        if (visible.length > capped.length) {
+        if (visible.length > rowItems.length) {
             const note = document.createElement('div');
             note.className = 'saga-runtime-help';
-            note.textContent = `Showing ${capped.length} of ${visible.length} matching waypoints. Narrow the search for a smaller set.`;
+            note.textContent = `Showing ${rowItems.length} of ${visible.length} matching story positions. Narrow the search for a smaller set.`;
             list.appendChild(note);
         }
     }
@@ -733,8 +746,8 @@ function createContextWorkbenchWindowBuilderSummary(pack, context = {}) {
     markTourTarget(wrap, 'context.workbench.windowBuilder');
     const title = document.createElement('div');
     title.className = 'saga-context-workbench-window-builder-title';
-    title.textContent = 'Current Window';
-    addTooltip(title, 'Use After and Before on browser waypoints to define the active Context window for this Loredeck.');
+    title.textContent = 'Selected Range';
+    addTooltip(title, 'Use After and Before on story positions to define the active Context window for this Loredeck.');
     wrap.appendChild(title);
 
     const meta = document.createElement('div');
@@ -748,16 +761,16 @@ function createContextWorkbenchWindowBuilderSummary(pack, context = {}) {
     summary.className = 'saga-context-workbench-window-summary';
     summary.textContent = context.anchorFrom || context.anchorTo
         ? formatContextSummary(context)
-        : 'Select After on one waypoint and Before on another to create a bounded Context window.';
+        : 'Select After on one story position and Before on another to create a bounded Context window.';
     wrap.appendChild(summary);
 
     const actions = document.createElement('div');
     actions.className = 'saga-primary-actions';
     const lockButton = createButton(context.manualLock ? 'Unlock' : 'Lock Context', 'Toggle whether automatic Context detection may replace this selected window.', () => {
-        commitLoredeckContextPatch(pack.packId, { manualLock: !context.manualLock }, `Toggle Context lock: ${getLoredeckDisplayName(pack.packId)}`, { manual: false });
+        commitLoredeckContextPatch(pack.packId, { manualLock: !context.manualLock }, { manual: false });
     });
     actions.appendChild(lockButton);
-    const clearBounds = createButton('Clear Bounds', 'Clear only the After/Before bounds for this Loredeck Context.', () => {
+    const clearBounds = createButton('Clear Selection', 'Clear the selected Anchor or After/Before bounds for this Loredeck Context.', () => {
         commitLoredeckContextPatch(pack.packId, {
             anchorFrom: '',
             anchorTo: '',
@@ -767,7 +780,7 @@ function createContextWorkbenchWindowBuilderSummary(pack, context = {}) {
             contextSortKey: null,
             contextSortKeyFrom: null,
             contextSortKeyTo: null,
-        }, `Clear Context bounds: ${getLoredeckDisplayName(pack.packId)}`);
+        });
     });
     clearBounds.disabled = !context.anchorFrom && !context.anchorTo && !context.anchorId;
     actions.appendChild(clearBounds);
@@ -783,16 +796,16 @@ function formatContextAnchorBoundaryLabel(anchorId = '', context = {}) {
     return id;
 }
 
-function getContextWorkbenchWaypointItems(pack = null, contextIndex = null) {
+function getContextWorkbenchStoryPositionItems(pack = null, contextIndex = null) {
     const timelineItems = getContextWorkbenchTimelineItems(pack, contextIndex).map(item => ({
         ...item,
         source: 'timeline',
     }));
-    const entryItems = getContextWorkbenchEntryWaypointItems(pack);
-    return [...timelineItems, ...entryItems].sort(compareContextWaypointItems);
+    const entryItems = getContextWorkbenchEntryStoryPositionItems(pack);
+    return [...timelineItems, ...entryItems].sort(compareContextStoryPositionItems);
 }
 
-function getContextWorkbenchEntryWaypointItems(pack = {}) {
+function getContextWorkbenchEntryStoryPositionItems(pack = {}) {
     return getContextWorkbenchEntryRows(pack)
         .filter(row => row?.id && !row.disabled)
         .map(row => {
@@ -815,7 +828,7 @@ function getContextWorkbenchEntryWaypointItems(pack = {}) {
         .filter(Boolean);
 }
 
-function compareContextWaypointItems(a = {}, b = {}) {
+function compareContextStoryPositionItems(a = {}, b = {}) {
     const aSort = normalizeLoredeckTimelineNumber(a.definition?.sortKey ?? a.definition?.sortKeyFrom) ?? Number.MAX_SAFE_INTEGER;
     const bSort = normalizeLoredeckTimelineNumber(b.definition?.sortKey ?? b.definition?.sortKeyFrom) ?? Number.MAX_SAFE_INTEGER;
     if (aSort !== bSort) return aSort - bSort;
@@ -825,32 +838,32 @@ function compareContextWaypointItems(a = {}, b = {}) {
     return String(a.definition?.label || a.id || '').localeCompare(String(b.definition?.label || b.id || ''), undefined, { numeric: true, sensitivity: 'base' });
 }
 
-function filterContextWorkbenchWaypointItems(items = [], query = '', filter = 'major') {
+function filterContextWorkbenchStoryPositionItems(items = [], query = '', filter = 'major') {
     const q = String(query || '').trim();
     const analysis = analyzeContextQuery(q);
     return items.filter(item => {
-        if (!contextWaypointMatchesFilter(item, filter, Boolean(q))) return false;
+        if (!contextStoryPositionMatchesFilter(item, filter, Boolean(q))) return false;
         if (!q) return true;
-        const text = getContextWaypointSearchText(item);
+        const text = getContextStoryPositionSearchText(item);
         if (normalizeContextSearchText(text).includes(normalizeContextSearchText(q))) return true;
         return analysis.terms.every(term => contextTextIncludesTerm(text, term));
     });
 }
 
-function contextWaypointMatchesFilter(item = {}, filter = 'major', hasQuery = false) {
+function contextStoryPositionMatchesFilter(item = {}, filter = 'major', hasQuery = false) {
     if (filter === 'all') return true;
     if (filter === 'windows') return item.kind === 'window';
     if (filter === 'anchors') return item.kind === 'anchor';
-    if (filter === 'events') return item.kind === 'entry' || contextWaypointLooksEventLike(item);
+    if (filter === 'events') return item.kind === 'entry' || contextStoryPositionLooksEventLike(item);
     if (filter === 'lorecards') return item.source === 'lorecard';
     if (filter === 'major') {
         if (item.source === 'timeline') return true;
-        return hasQuery && contextWaypointLooksEventLike(item);
+        return hasQuery && contextStoryPositionLooksEventLike(item);
     }
     return true;
 }
 
-function contextWaypointLooksEventLike(item = {}) {
+function contextStoryPositionLooksEventLike(item = {}) {
     const def = item.definition || {};
     if (item.source === 'lorecard') return true;
     const tags = Array.isArray(def.tags) ? def.tags.join(' ') : '';
@@ -864,7 +877,7 @@ function contextWaypointLooksEventLike(item = {}) {
     return /\bevent\b|\bclimax\b|\bbattle\b|\bdeath\b|\breveal\b|\bincident\b|\btask\b|\bparty\b|\blesson\b/.test(haystack);
 }
 
-function getContextWaypointSearchText(item = {}) {
+function getContextStoryPositionSearchText(item = {}) {
     const def = item.definition || {};
     const entry = item.entry || {};
     const content = entry.content || {};
@@ -899,11 +912,13 @@ function getContextWaypointSearchText(item = {}) {
     ].filter(Boolean).join(' ');
 }
 
-function createContextWorkbenchWaypointRow(pack, item = {}, context = {}) {
+function createContextWorkbenchStoryPositionRow(pack, item = {}, context = {}, currentKey = '') {
     const def = item.definition || {};
+    const key = getContextTimelineItemKey(item);
     const row = document.createElement('div');
-    row.className = 'saga-context-workbench-waypoint-row';
-    if (item.source === 'lorecard') row.classList.add('saga-context-workbench-waypoint-row-entry');
+    row.className = 'saga-context-workbench-story-position-row';
+    if (item.source === 'lorecard') row.classList.add('saga-context-workbench-story-position-row-entry');
+    if (currentKey && key === currentKey) row.classList.add('saga-context-workbench-row-active');
     if (context.anchorId && normalizeLoredeckTimelineId(context.anchorId) === normalizeLoredeckTimelineId(item.id)) row.classList.add('saga-context-workbench-row-active');
     if ((context.anchorFrom && normalizeLoredeckTimelineId(context.anchorFrom) === normalizeLoredeckTimelineId(item.id))
         || (context.anchorTo && normalizeLoredeckTimelineId(context.anchorTo) === normalizeLoredeckTimelineId(item.id))) {
@@ -914,13 +929,13 @@ function createContextWorkbenchWaypointRow(pack, item = {}, context = {}) {
     main.className = 'saga-context-workbench-context-picker-main';
     const title = document.createElement('div');
     title.className = 'saga-context-workbench-context-picker-title';
-    title.textContent = def.label || item.entry?.title || item.id || 'Waypoint';
+    title.textContent = def.label || item.entry?.title || item.id || 'Story position';
     main.appendChild(title);
 
     const meta = document.createElement('div');
     meta.className = 'saga-context-workbench-context-picker-meta';
     meta.textContent = [
-        getContextWaypointKindLabel(item),
+        getContextStoryPositionKindLabel(item),
         item.id,
         getContextTimelineItemContextText(item),
         getContextTimelineItemCoordinateText(item),
@@ -939,23 +954,23 @@ function createContextWorkbenchWaypointRow(pack, item = {}, context = {}) {
         markTourTarget(useWindow, 'context.workbench.useWindow');
         actions.appendChild(useWindow);
     } else {
-        const startHere = createButton('Start Here', 'Apply this waypoint as the exact starting Context.', () => {
-            applyContextWaypointItem(pack.packId, item);
+        const startHere = createButton('Start Here', 'Apply this story position as the exact starting Context.', () => {
+            applyContextStoryPositionItem(pack.packId, item);
         }, 'saga-primary-button');
         markTourTarget(startHere, 'context.workbench.startHere');
         actions.appendChild(startHere);
-        const after = createButton('After', 'Use this waypoint as the lower bound of the current Context window.', () => {
-            applyContextWaypointBoundary(pack.packId, item, 'from');
+        const after = createButton('After', 'Use this story position as the lower bound of the current Context window.', () => {
+            applyContextStoryPositionBoundary(pack.packId, item, 'from');
         });
         markTourTarget(after, 'context.workbench.after');
         actions.appendChild(after);
-        const before = createButton('Before', 'Use this waypoint as the upper bound of the current Context window.', () => {
-            applyContextWaypointBoundary(pack.packId, item, 'to');
+        const before = createButton('Before', 'Use this story position as the upper bound of the current Context window.', () => {
+            applyContextStoryPositionBoundary(pack.packId, item, 'to');
         });
         markTourTarget(before, 'context.workbench.before');
         actions.appendChild(before);
     }
-    const timeline = createButton(item.source === 'lorecard' ? 'Lorecard' : 'Timeline', item.source === 'lorecard' ? 'Find the source Lorecard.' : 'Inspect this waypoint in the Timeline tab.', () => {
+    const timeline = createButton(item.source === 'lorecard' ? 'Lorecard' : 'Timeline', item.source === 'lorecard' ? 'Find the source Lorecard.' : 'Inspect this story position in the Timeline tab.', () => {
         if (item.source === 'lorecard') {
             openLoredeckEditorForQuery(item.row?.packId || pack.packId, item.row?.id || item.entry?.title || '', 'Loredeck editor filtered to the source Lorecard.');
             return;
@@ -970,19 +985,19 @@ function createContextWorkbenchWaypointRow(pack, item = {}, context = {}) {
     return row;
 }
 
-function getContextWaypointKindLabel(item = {}) {
+function getContextStoryPositionKindLabel(item = {}) {
     if (item.kind === 'window') return 'Window';
     if (item.source === 'lorecard') return 'Lorecard event';
     return 'Anchor';
 }
 
-function applyContextWaypointItem(packId, item = {}) {
+function applyContextStoryPositionItem(packId, item = {}) {
     if (item.source === 'lorecard') {
         applyContextEntryCandidate(packId, {
             row: item.row,
             entry: item.entry,
             context: item.context,
-            query: getContextWorkbenchWaypointQuery(),
+            query: getContextWorkbenchStoryPositionQuery(),
             score: 120,
         });
         return;
@@ -990,7 +1005,7 @@ function applyContextWaypointItem(packId, item = {}) {
     applyContextTimelineItem(packId, item);
 }
 
-function applyContextWaypointBoundary(packId, item = {}, mode = 'from') {
+function applyContextStoryPositionBoundary(packId, item = {}, mode = 'from') {
     if (item.source !== 'lorecard') {
         applyContextAnchorBoundary(packId, item, mode);
         return;
@@ -1019,9 +1034,9 @@ function applyContextWaypointBoundary(packId, item = {}, mode = 'from') {
         issue: contextGate.issue || context.issue || '',
         quest: contextGate.quest || context.quest || '',
         gameStage: contextGate.gameStage || context.gameStage || '',
-        alias: getContextWorkbenchWaypointQuery() || label,
+        alias: getContextWorkbenchStoryPositionQuery() || label,
         source: 'manual',
-        notes: `Boundary applied from Lorecard-derived waypoint: ${item.row?.id || item.entry?.id || label}.`,
+        notes: `Boundary applied from Lorecard-derived story position: ${item.row?.id || item.entry?.id || label}.`,
     };
     if (mode === 'to') {
         patch.anchorFrom = context.anchorFrom || '';
@@ -1038,7 +1053,7 @@ function applyContextWaypointBoundary(packId, item = {}, mode = 'from') {
         patch.contextSortKeyTo = Number.isFinite(Number(context.contextSortKeyTo)) ? Number(context.contextSortKeyTo) : null;
         patch.label = context.anchorTo ? `${label} to ${context.anchorTo}` : `After ${label}`;
     }
-    commitLoredeckContextPatch(packId, patch, `Set Context ${mode === 'to' ? 'upper' : 'lower'} bound: ${getLoredeckDisplayName(packId)}`);
+    commitLoredeckContextPatch(packId, patch);
 }
 
 function createContextWorkbenchResolverTester(pack, context = {}, contextIndex = null) {
@@ -1416,157 +1431,24 @@ function uniqueStrings(values = []) {
     return output;
 }
 
-function createContextWorkbenchContextPicker(pack, context = {}, contextIndex = null) {
-    const wrap = document.createElement('div');
-    wrap.className = 'saga-context-workbench-context-picker';
-    markTourTarget(wrap, 'context.workbench.contextPicker');
-
-    const top = document.createElement('div');
-    top.className = 'saga-context-workbench-context-picker-top';
-    const label = document.createElement('div');
-    label.className = 'saga-runtime-card-title';
-    label.textContent = 'Select From Timeline';
-    addTooltip(label, 'Search known anchors/windows and apply them to the selected Loredeck Context.');
-    top.appendChild(label);
-
-    const search = document.createElement('input');
-    search.type = 'search';
-    search.className = 'saga-lore-workbench-search';
-    search.placeholder = 'Search anchors, windows, aliases...';
-    search.value = getContextWorkbenchContextQuery();
-    addTooltip(search, 'Search timeline labels, IDs, aliases, tags, arcs, dates, episodes, chapters, and attached Lorecard IDs.');
-    search.addEventListener('keydown', event => {
-        if (event.key !== 'Enter') return;
-        event.preventDefault();
-        setContextWorkbenchContextQuery(search.value.trim());
-        renderContextWorkbench();
-    });
-    search.addEventListener('change', () => {
-        setContextWorkbenchContextQuery(search.value.trim());
-        renderContextWorkbench();
-    });
-    top.appendChild(search);
-    top.appendChild(createButton('Find', 'Search timeline anchors/windows for this Loredeck.', () => {
-        setContextWorkbenchContextQuery(search.value.trim());
-        renderContextWorkbench();
-    }));
-    wrap.appendChild(top);
-
-    const items = getContextWorkbenchTimelineItems(pack, contextIndex);
-    const current = getContextWorkbenchCurrentTimelineItem(context, items);
-    const currentKey = current ? getContextTimelineItemKey(current) : '';
-    const q = String(getContextWorkbenchContextQuery() || '').trim();
-    const filtered = q
-        ? filterContextWorkbenchTimelineItems(items, q, 'all')
-        : items.slice(0, 12);
-    const visible = [];
-    const seen = new Set();
-    if (current) {
-        visible.push(current);
-        seen.add(currentKey);
-    }
-    for (const item of filtered) {
-        const key = getContextTimelineItemKey(item);
-        if (seen.has(key)) continue;
-        seen.add(key);
-        visible.push(item);
-        if (visible.length >= 12) break;
-    }
-
-    const list = document.createElement('div');
-    list.className = 'saga-context-workbench-context-picker-list';
-    if (!items.length) {
-        list.appendChild(createEmptyMessage('No timeline registry rows are loaded for this Loredeck yet.'));
-    } else if (!visible.length) {
-        list.appendChild(createEmptyMessage('No timeline rows match that search.'));
-    } else {
-        for (const item of visible) {
-            list.appendChild(createContextWorkbenchContextPickerRow(pack, item, currentKey));
-        }
-    }
-    wrap.appendChild(list);
-
-    if (!q && items.length > visible.length) {
-        const note = document.createElement('div');
-        note.className = 'saga-runtime-help';
-        note.textContent = `Showing ${visible.length} of ${items.length} timeline rows. Search to narrow the registry.`;
-        wrap.appendChild(note);
-    }
-    return wrap;
-}
-
 function getContextWorkbenchCurrentTimelineItem(context = {}, items = []) {
     const anchorId = normalizeLoredeckTimelineId(context.anchorId);
     if (anchorId) {
-        const anchor = items.find(item => item.kind === 'anchor' && item.id === anchorId);
+        const anchor = items.find(item => item.kind !== 'window' && normalizeLoredeckTimelineId(item.id) === anchorId);
         if (anchor) return anchor;
     }
     const anchorFrom = normalizeLoredeckTimelineId(context.anchorFrom);
     const anchorTo = normalizeLoredeckTimelineId(context.anchorTo);
     if (anchorFrom || anchorTo) {
-        const exactWindow = items.find(item => item.kind === 'window'
-            && (!anchorFrom || item.definition?.anchorFrom === anchorFrom)
-            && (!anchorTo || item.definition?.anchorTo === anchorTo));
-        if (exactWindow) return exactWindow;
-        return items.find(item => item.kind === 'anchor' && (item.id === anchorFrom || item.id === anchorTo)) || null;
+        if (anchorFrom && anchorTo) {
+            const exactWindow = items.find(item => item.kind === 'window'
+                && normalizeLoredeckTimelineId(item.definition?.anchorFrom) === anchorFrom
+                && normalizeLoredeckTimelineId(item.definition?.anchorTo) === anchorTo);
+            if (exactWindow) return exactWindow;
+        }
+        return items.find(item => item.kind !== 'window' && [anchorFrom, anchorTo].includes(normalizeLoredeckTimelineId(item.id))) || null;
     }
     return null;
-}
-
-function createContextWorkbenchContextPickerRow(pack, item = {}, currentKey = '') {
-    const def = item.definition || {};
-    const key = getContextTimelineItemKey(item);
-    const row = document.createElement('div');
-    row.className = 'saga-context-workbench-context-picker-row';
-    if (key === currentKey) row.classList.add('saga-context-workbench-row-active');
-    if (item.disabled) row.classList.add('saga-context-workbench-row-disabled');
-
-    const main = document.createElement('div');
-    main.className = 'saga-context-workbench-context-picker-main';
-    const title = document.createElement('div');
-    title.className = 'saga-context-workbench-context-picker-title';
-    title.textContent = def.label || item.id || 'Timeline row';
-    main.appendChild(title);
-    const meta = document.createElement('div');
-    meta.className = 'saga-context-workbench-context-picker-meta';
-    meta.textContent = [
-        item.kind === 'window' ? 'Window' : 'Anchor',
-        item.id,
-        getContextTimelineItemContextText(item),
-        getContextTimelineItemCoordinateText(item),
-        def.aliases?.slice(0, 2).join(', '),
-    ].filter(Boolean).join(' | ');
-    main.appendChild(meta);
-    row.appendChild(main);
-
-    const actions = document.createElement('div');
-    actions.className = 'saga-context-workbench-row-actions';
-    markTourTarget(actions, 'context.workbench.applyContext');
-    if (item.kind === 'window') {
-        const useWindow = createButton('Use Window', 'Apply this timeline window as the selected Context.', () => {
-            applyContextTimelineItem(pack.packId, item);
-        }, 'saga-primary-button');
-        markTourTarget(useWindow, 'context.workbench.useWindow');
-        actions.appendChild(useWindow);
-    } else {
-        const useAnchor = createButton('Use Anchor', 'Apply this anchor as the exact Context.', () => {
-            applyContextTimelineItem(pack.packId, item);
-        }, 'saga-primary-button');
-        markTourTarget(useAnchor, 'context.workbench.useAnchor');
-        actions.appendChild(useAnchor);
-        const after = createButton('After', 'Use this anchor as the lower bound of the current Context window.', () => {
-            applyContextAnchorBoundary(pack.packId, item, 'from');
-        });
-        markTourTarget(after, 'context.workbench.after');
-        actions.appendChild(after);
-        const before = createButton('Before', 'Use this anchor as the upper bound of the current Context window.', () => {
-            applyContextAnchorBoundary(pack.packId, item, 'to');
-        });
-        markTourTarget(before, 'context.workbench.before');
-        actions.appendChild(before);
-    }
-    row.appendChild(actions);
-    return row;
 }
 
 export function createContextWorkbenchAliasesView(state = {}, contextIndex = null) {

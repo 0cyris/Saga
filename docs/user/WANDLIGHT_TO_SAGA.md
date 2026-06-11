@@ -9,7 +9,7 @@ Saga expresses that workflow through Loredecks, Context, Lorecards, and reviewab
 | Wandlight-era concept | Saga concept |
 | --- | --- |
 | Fandom-specific preset | Loredeck or active Loredeck stack |
-| Date-aware canon filtering | Context selected from a Loredeck timeline or waypoint browser |
+| Date-aware canon filtering | Context selected from a Loredeck timeline or Choose Story Position |
 | Lorebook-style facts | Context-gated Lorecards |
 | Prompt memo/injection controls | Advanced Injection preview and placement controls |
 | Generated memory changes | Pending Review before acceptance |

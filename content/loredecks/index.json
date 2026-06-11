@@ -1379,6 +1379,17 @@
         ],
         "familyOrder": 20
       },
+      "assets": {
+        "cover": {
+          "path": "assets/cover.png",
+          "alt": "Deck cover for Jujutsu Kaisen 0",
+          "aspect": "1:1",
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        }
+      },
       "entrySchemaVersion": 3,
       "version": "0.1.0",
       "author": "Saga",
@@ -1626,6 +1637,17 @@
         ],
         "familyOrder": 70
       },
+      "assets": {
+        "cover": {
+          "path": "assets/cover.png",
+          "alt": "Deck cover for Jujutsu Kaisen: Culling Game Colonies",
+          "aspect": "1:1",
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        }
+      },
       "entrySchemaVersion": 3,
       "version": "0.1.0",
       "author": "Saga",
@@ -1666,6 +1688,17 @@
         ],
         "familyOrder": 80
       },
+      "assets": {
+        "cover": {
+          "path": "assets/cover.png",
+          "alt": "Deck cover for Jujutsu Kaisen: Culling Game Convergence",
+          "aspect": "1:1",
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        }
+      },
       "entrySchemaVersion": 3,
       "version": "0.1.0",
       "author": "Saga",
@@ -1705,6 +1738,17 @@
         ],
         "familyOrder": 90
       },
+      "assets": {
+        "cover": {
+          "path": "assets/cover.png",
+          "alt": "Deck cover for Jujutsu Kaisen: Shinjuku Showdown and Aftermath",
+          "aspect": "1:1",
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        }
+      },
       "entrySchemaVersion": 3,
       "version": "0.1.0",
       "author": "Saga",
@@ -1743,6 +1787,17 @@
           "Modulo"
         ],
         "familyOrder": 110
+      },
+      "assets": {
+        "cover": {
+          "path": "assets/cover.png",
+          "alt": "Deck cover for Jujutsu Kaisen Modulo",
+          "aspect": "1:1",
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        }
       },
       "entrySchemaVersion": 3,
       "version": "0.1.0",

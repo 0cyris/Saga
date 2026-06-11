@@ -9,7 +9,7 @@
       "category": "event",
       "relevance": "high",
       "canon": "canon",
-      "lorePurpose": "event",
+      "lorePurpose": "event_anchor",
       "specificityScore": 86,
       "injectableByDefault": true,
       "truthStatus": "hidden",

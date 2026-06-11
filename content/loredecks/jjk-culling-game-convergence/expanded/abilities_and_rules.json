@@ -1,0 +1,681 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "jjk_culling_game_convergence_exp_makis_completed_restriction_ignores_many_jujutsu_assumptions",
+      "title": "Maki's Completed Restriction Ignores Many Jujutsu Assumptions",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.convergence.sakurajima-maki",
+        "validToAnchor": "jjk.convergence.shinjuku-setup",
+        "sortKeyFrom": 11600,
+        "sortKeyTo": 13200,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Culling Game convergence"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:maki-zenin"
+        ],
+        "characters": [
+          "Maki Zenin"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Maki",
+          "Heavenly Restriction"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:culling-game-convergence",
+        "character:maki-zenin",
+        "topic:maki",
+        "topic:heavenly-restriction"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Maki Zenin"
+          ],
+          "topicsAny": [
+            "Maki",
+            "Heavenly Restriction"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen late Culling Game convergence through Gojo unsealing and Shinjuku setup.",
+        "notes": "Shinjuku Showdown battle events, final Sukuna resolution, epilogue, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Maki's body after Sakurajima can evade assumptions based on cursed energy tracking and sorcerer-grade scaling.",
+        "injection": "When Completed Heavenly Restriction matters, enforce this ability constraint: Maki's body after Sakurajima can evade assumptions based on cursed energy tracking and sorcerer-grade scaling.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Culling Game Convergence",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      },
+      "ability": {
+        "system": "heavenly_restriction",
+        "name": "Completed Heavenly Restriction",
+        "ownerEntityIds": [
+          "jjk:maki-zenin"
+        ],
+        "constraints": [
+          "Maki's body after Sakurajima can evade assumptions based on cursed energy tracking and sorcerer-grade scaling."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_culling_game_convergence_exp_naoyas_curse_domain_preserves_projection_logic",
+      "title": "Naoya's Curse Domain Preserves Projection Logic",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.convergence.sakurajima-maki",
+        "validToAnchor": "jjk.convergence.shinjuku-setup",
+        "sortKeyFrom": 11600,
+        "sortKeyTo": 13200,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Culling Game convergence"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:naoya-zenin"
+        ],
+        "characters": [
+          "Naoya Zenin"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Naoya domain",
+          "Projection Sorcery"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:culling-game-convergence",
+        "character:naoya-zenin",
+        "topic:naoya-domain",
+        "topic:projection-sorcery"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Naoya Zenin"
+          ],
+          "topicsAny": [
+            "Naoya domain",
+            "Projection Sorcery"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen late Culling Game convergence through Gojo unsealing and Shinjuku setup.",
+        "notes": "Shinjuku Showdown battle events, final Sukuna resolution, epilogue, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Cursed Naoya's domain and speed threat remain tied to Projection Sorcery logic even after he becomes a curse.",
+        "injection": "When Time Cell Moon Palace matters, enforce this ability constraint: Cursed Naoya's domain and speed threat remain tied to Projection Sorcery logic even after he becomes a curse.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Culling Game Convergence",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      },
+      "ability": {
+        "system": "domain_expansion",
+        "name": "Time Cell Moon Palace",
+        "ownerEntityIds": [
+          "jjk:naoya-zenin"
+        ],
+        "constraints": [
+          "Cursed Naoya's domain and speed threat remain tied to Projection Sorcery logic even after he becomes a curse."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_culling_game_convergence_exp_jacobs_ladder_can_extinguish_techniques",
+      "title": "Jacob's Ladder Can Extinguish Techniques",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.convergence.sakurajima-maki",
+        "validToAnchor": "jjk.convergence.shinjuku-setup",
+        "sortKeyFrom": 11600,
+        "sortKeyTo": 13200,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Culling Game convergence"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:angel",
+          "jjk:hana-kurusu"
+        ],
+        "characters": [
+          "Angel",
+          "Hana Kurusu"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Jacob's Ladder",
+          "Angel"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:culling-game-convergence",
+        "character:angel",
+        "character:hana-kurusu",
+        "topic:jacobs-ladder",
+        "topic:angel"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Angel",
+            "Hana Kurusu"
+          ],
+          "topicsAny": [
+            "Jacob's Ladder",
+            "Angel"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen late Culling Game convergence through Gojo unsealing and Shinjuku setup.",
+        "notes": "Shinjuku Showdown battle events, final Sukuna resolution, epilogue, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Angel's Jacob's Ladder threatens cursed techniques and incarnated states, making it central to Gojo and Sukuna plans.",
+        "injection": "When Jacob's Ladder matters, enforce this ability constraint: Angel's Jacob's Ladder threatens cursed techniques and incarnated states, making it central to Gojo and Sukuna plans.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Culling Game Convergence",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      },
+      "ability": {
+        "system": "cursed_technique",
+        "name": "Jacob's Ladder",
+        "ownerEntityIds": [
+          "jjk:angel",
+          "jjk:hana-kurusu"
+        ],
+        "constraints": [
+          "Angel's Jacob's Ladder threatens cursed techniques and incarnated states, making it central to Gojo and Sukuna plans."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_culling_game_convergence_exp_star_rage_adds_virtual_mass",
+      "title": "Star Rage Adds Virtual Mass",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.convergence.sakurajima-maki",
+        "validToAnchor": "jjk.convergence.shinjuku-setup",
+        "sortKeyFrom": 11600,
+        "sortKeyTo": 13200,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Culling Game convergence"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:yuki-tsukumo"
+        ],
+        "characters": [
+          "Yuki Tsukumo"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Star Rage",
+          "Yuki Tsukumo"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:culling-game-convergence",
+        "character:yuki-tsukumo",
+        "topic:star-rage",
+        "topic:yuki-tsukumo"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuki Tsukumo"
+          ],
+          "topicsAny": [
+            "Star Rage",
+            "Yuki Tsukumo"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen late Culling Game convergence through Gojo unsealing and Shinjuku setup.",
+        "notes": "Shinjuku Showdown battle events, final Sukuna resolution, epilogue, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Yuki's technique adds virtual mass, giving her strikes and shikigami tactics abnormal force.",
+        "injection": "When Star Rage matters, enforce this ability constraint: Yuki's technique adds virtual mass, giving her strikes and shikigami tactics abnormal force.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Culling Game Convergence",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      },
+      "ability": {
+        "system": "cursed_technique",
+        "name": "Star Rage",
+        "ownerEntityIds": [
+          "jjk:yuki-tsukumo"
+        ],
+        "constraints": [
+          "Yuki's technique adds virtual mass, giving her strikes and shikigami tactics abnormal force."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_culling_game_convergence_exp_anti_gravity_system_is_kenjakus_hidden_survival_tool",
+      "title": "Anti-Gravity System Is Kenjaku's Hidden Survival Tool",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.convergence.sakurajima-maki",
+        "validToAnchor": "jjk.convergence.shinjuku-setup",
+        "sortKeyFrom": 11600,
+        "sortKeyTo": 13200,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Culling Game convergence"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:kenjaku"
+        ],
+        "characters": [
+          "Kenjaku"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Anti-Gravity System",
+          "Kenjaku"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:culling-game-convergence",
+        "character:kenjaku",
+        "topic:anti-gravity-system",
+        "topic:kenjaku"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kenjaku"
+          ],
+          "topicsAny": [
+            "Anti-Gravity System",
+            "Kenjaku"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen late Culling Game convergence through Gojo unsealing and Shinjuku setup.",
+        "notes": "Shinjuku Showdown battle events, final Sukuna resolution, epilogue, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Kenjaku's anti-gravity technique matters as a hidden countermeasure against Yuki's extreme mass tactics.",
+        "injection": "When Anti-Gravity System matters, enforce this ability constraint: Kenjaku's anti-gravity technique matters as a hidden countermeasure against Yuki's extreme mass tactics.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Culling Game Convergence",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      },
+      "ability": {
+        "system": "cursed_technique",
+        "name": "Anti-Gravity System",
+        "ownerEntityIds": [
+          "jjk:kenjaku"
+        ],
+        "constraints": [
+          "Kenjaku's anti-gravity technique matters as a hidden countermeasure against Yuki's extreme mass tactics."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_culling_game_convergence_exp_bath_ritual_suppresses_megumis_resistance",
+      "title": "Bath Ritual Suppresses Megumi's Resistance",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.convergence.sakurajima-maki",
+        "validToAnchor": "jjk.convergence.shinjuku-setup",
+        "sortKeyFrom": 11600,
+        "sortKeyTo": 13200,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Culling Game convergence"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:ryomen-sukuna",
+          "jjk:megumi-fushiguro"
+        ],
+        "characters": [
+          "Ryomen Sukuna",
+          "Megumi Fushiguro"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Megumi suppression",
+          "Sukuna vessel"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:culling-game-convergence",
+        "character:ryomen-sukuna",
+        "character:megumi-fushiguro",
+        "topic:megumi-suppression",
+        "topic:sukuna-vessel"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Ryomen Sukuna",
+            "Megumi Fushiguro"
+          ],
+          "topicsAny": [
+            "Megumi suppression",
+            "Sukuna vessel"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen late Culling Game convergence through Gojo unsealing and Shinjuku setup.",
+        "notes": "Shinjuku Showdown battle events, final Sukuna resolution, epilogue, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Sukuna's later preparation around Megumi is aimed at sinking Megumi's soul and improving vessel control.",
+        "injection": "When Bath Ritual matters, enforce this ability constraint: Sukuna's later preparation around Megumi is aimed at sinking Megumi's soul and improving vessel control.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Culling Game Convergence",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      },
+      "ability": {
+        "system": "cursed_object",
+        "name": "Bath Ritual",
+        "ownerEntityIds": [
+          "jjk:ryomen-sukuna",
+          "jjk:megumi-fushiguro"
+        ],
+        "constraints": [
+          "Sukuna's later preparation around Megumi is aimed at sinking Megumi's soul and improving vessel control."
+        ],
+        "antiLore": []
+      }
+    }
+  ]
+}

@@ -8,7 +8,7 @@
   "era": "Culling Game Colonies",
   "contentKind": "fandom",
   "author": "Saga",
-  "version": "0.1.0",
+  "version": "0.2.0-phase1",
   "defaultLocale": "en",
   "tags": [
     "fandom:jjk",
@@ -51,7 +51,12 @@
   "files": [
     "culling_game/rules_and_entry.json",
     "culling_game/tokyo_no1_sendai.json",
-    "culling_game/tokyo_no2_guards.json"
+    "culling_game/tokyo_no2_guards.json",
+    "expanded/rules_and_player_taxonomy.json",
+    "expanded/character_states.json",
+    "expanded/abilities.json",
+    "expanded/colony_event_anchors.json",
+    "expanded/knowledge_gates.json"
   ],
   "compatibility": {
     "sagaSchemaMin": 3,
@@ -67,14 +72,14 @@
     }
   ],
   "stats": {
-    "entryCount": 12,
+    "entryCount": 50,
     "categoryCounts": {
-      "character": 1,
-      "event": 6,
+      "character": 11,
+      "event": 12,
       "faction": 1,
       "knowledge": 1,
-      "rule": 2,
-      "secret": 1
+      "rule": 20,
+      "secret": 5
     },
     "timelineAnchorCount": 8,
     "timelineWindowCount": 4
@@ -84,8 +89,8 @@
     "notes": "For local testing. Requires human canon review before reference release."
   },
   "health": {
-    "status": "good",
-    "notes": "Initial Culling Game Colonies scaffold passes local structural health checks; not a substitute for human canon review."
+    "status": "needs_review",
+    "notes": "Expanded phase-1 draft-reference package; generated cards require human canon review before reference release."
   },
   "library": {
     "suggestedPath": [

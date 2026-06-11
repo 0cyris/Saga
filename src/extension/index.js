@@ -8,15 +8,19 @@
  *                    lore-matrix.js, lore-generator.js
  */
 
-import { LOG_PREFIX, DEFAULT_SETTINGS, detectExtensionFolder } from '../state/constants.js';
+import { LOG_PREFIX, DEFAULT_SETTINGS, detectExtensionFolder, getDefaultState } from '../state/constants.js';
 import {
     getSettings,
     saveSettings,
     getState,
-    exportState,
+    saveState,
+    exportSagaState,
+    createStateBackup,
+    recordStateSafetyEvent,
     acceptPendingLoreEntries,
     rejectPendingLoreEntries,
 } from '../state/state-manager.js';
+import { clearStoredSecret } from '../state/secure-keyring.js';
 import { buildMemo } from '../continuity/memo-builder.js';
 import { installInterceptor, syncPromptInjection, clearExtensionPrompts } from '../continuity/prompt-injector.js';
 import { onExtractionTriggered, onGenerationEndedAutomation, resetExtractionCounter } from '../continuity/extractor.js';
@@ -31,6 +35,129 @@ import { registerSagaToolManagerTools } from './saga-tool-registry.js';
 import { getLastLoreInjectionAudit, getLastLoredeckRetrievalAudit, searchAcceptedLorecards } from '../lorecards/retrieval-audit.js';
 
 const SETTINGS_TEMPLATE_ID = 'src/extension/settings';
+
+function canUseSagaContext() {
+    try {
+        return typeof globalThis.SillyTavern?.getContext === 'function' && !!globalThis.SillyTavern.getContext();
+    } catch (_) {
+        return false;
+    }
+}
+
+function recordLifecycleStateEvent(type, message) {
+    if (!canUseSagaContext()) return;
+    try {
+        recordStateSafetyEvent(type, message, { syncPrompt: false });
+    } catch (e) {
+        console.warn(`${LOG_PREFIX} Failed to record lifecycle state event "${type}":`, e);
+    }
+}
+
+function backupLifecycleState(reason, label) {
+    if (!canUseSagaContext()) return null;
+    try {
+        return createStateBackup(reason, { label, syncPrompt: false });
+    } catch (e) {
+        console.warn(`${LOG_PREFIX} Failed to create lifecycle backup "${reason}":`, e);
+        return null;
+    }
+}
+
+function clearSagaDirectProviderKeys() {
+    for (const secretName of ['loreOpenAI', 'continuityOpenAI']) {
+        try {
+            clearStoredSecret(secretName);
+        } catch (e) {
+            console.warn(`${LOG_PREFIX} Failed to clear ${secretName} provider key material:`, e);
+        }
+    }
+}
+
+function cloneSagaDefaultSettings() {
+    try {
+        return JSON.parse(JSON.stringify(DEFAULT_SETTINGS));
+    } catch (_) {
+        return { ...DEFAULT_SETTINGS };
+    }
+}
+
+function clearSagaPromptInjectionSafely(reason = 'clearing prompt injection') {
+    try {
+        clearExtensionPrompts();
+    } catch (e) {
+        console.warn(`${LOG_PREFIX} Failed while ${reason}:`, e);
+    }
+}
+
+export async function sagaOnInstall() {
+    recordLifecycleStateEvent('extension_install', 'Saga extension install hook completed.');
+}
+
+export async function sagaOnUpdate() {
+    backupLifecycleState('before_extension_update', 'Before applying a Saga extension update hook.');
+    if (canUseSagaContext()) {
+        try {
+            getState();
+        } catch (e) {
+            console.warn(`${LOG_PREFIX} Saga update hook could not normalize current chat state:`, e);
+        }
+    }
+    recordLifecycleStateEvent('extension_update', 'Saga extension update hook completed.');
+}
+
+export async function sagaOnEnable() {
+    recordLifecycleStateEvent('extension_enable', 'Saga extension enable hook completed.');
+    try {
+        syncPromptInjection();
+    } catch (e) {
+        console.warn(`${LOG_PREFIX} Saga enable hook could not sync prompt injection:`, e);
+        clearSagaPromptInjectionSafely('recovering from enable hook prompt sync failure');
+    }
+}
+
+export async function sagaOnDisable() {
+    handleExtensionDisabled();
+    recordLifecycleStateEvent('extension_disable', 'Saga extension disable hook cleared prompt injection and hid the runtime.');
+}
+
+export async function sagaOnDelete() {
+    handleExtensionDisabled();
+    backupLifecycleState('before_extension_delete', 'Before Saga extension delete hook.');
+    recordLifecycleStateEvent('extension_delete', 'Saga extension delete hook completed.');
+}
+
+export async function sagaOnClean() {
+    handleExtensionDisabled();
+    let previous = null;
+    if (canUseSagaContext()) {
+        try {
+            previous = getState();
+        } catch (e) {
+            console.warn(`${LOG_PREFIX} Saga clean hook could not read current chat state:`, e);
+        }
+    }
+    backupLifecycleState('before_extension_clean', 'Before cleaning Saga current-chat state and settings.');
+    if (previous) {
+        try {
+            const next = getDefaultState();
+            next.stateSafety = previous.stateSafety;
+            saveState(next, { syncPrompt: false });
+            recordStateSafetyEvent('extension_clean', 'Saga clean hook reset current-chat Saga state and preserved State Safety records.', { syncPrompt: false });
+        } catch (e) {
+            console.warn(`${LOG_PREFIX} Saga clean hook could not reset current chat state:`, e);
+        }
+    }
+    clearSagaDirectProviderKeys();
+    try {
+        saveSettings(cloneSagaDefaultSettings());
+    } catch (e) {
+        console.warn(`${LOG_PREFIX} Saga clean hook could not reset settings:`, e);
+    }
+}
+
+export async function sagaOnActivate() {
+    recordLifecycleStateEvent('extension_activate', 'Saga extension activate hook completed.');
+}
 
 // ════════════════════════════════════════════════════════════════════════════════
 // jQuery ready — this is the SillyTavern extension lifecycle entrypoint.
@@ -82,76 +209,127 @@ $(document).ready(async () => {
  * Wires GENERATION_ENDED and CHAT_CHANGED events using ST's eventSource API.
  * @param {Object} ctx - SillyTavern.getContext() result
  */
-function wireEvents(ctx) {
-    // ── Primary API: eventSource.on(event_types.EVENT_NAME, handler) ─────
-    if (ctx.eventSource && ctx.event_types) {
-        const syncBeforePrompt = () => {
-            try {
-                syncPromptInjection();
-            } catch (e) {
-                console.error(`${LOG_PREFIX} Error syncing Saga prompt injection before prompt assembly:`, e);
-            }
-        };
+function handleBeforePromptSync() {
+    try {
+        syncPromptInjection();
+    } catch (e) {
+        console.error(`${LOG_PREFIX} Error syncing Saga prompt injection before prompt assembly:`, e);
+        clearSagaPromptInjectionSafely('recovering from prompt assembly sync failure');
+    }
+}
 
-        if (ctx.event_types.GENERATE_BEFORE_COMBINE_PROMPTS) {
-            ctx.eventSource.on(ctx.event_types.GENERATE_BEFORE_COMBINE_PROMPTS, syncBeforePrompt);
-        } else if (ctx.event_types.GENERATION_STARTED) {
-            ctx.eventSource.on(ctx.event_types.GENERATION_STARTED, syncBeforePrompt);
+function handleGenerationEnded() {
+    try {
+        onGenerationEndedAutomation();
+        onGenerationEndedAutoRelevance();
+        syncPromptInjection();
+    } catch (e) {
+        console.error(`${LOG_PREFIX} Error in generation-ended handler:`, e);
+        clearSagaPromptInjectionSafely('recovering from generation-ended prompt sync failure');
+    }
+}
+
+function handleGenerationInterrupted() {
+    try {
+        clearSagaPromptInjectionSafely('clearing prompt injection after interrupted generation');
+        syncPromptInjection();
+    } catch (e) {
+        console.error(`${LOG_PREFIX} Error clearing Saga prompt injection after interrupted generation:`, e);
+        clearSagaPromptInjectionSafely('recovering from interrupted generation prompt sync failure');
+    }
+}
+
+function handleChatChanged() {
+    try {
+        resetExtractionCounter();
+        clearSagaPromptInjectionSafely('clearing prompt injection after chat switch');
+        refreshLorePanel();
+        if (typeof globalThis._sagaRefreshUI === 'function') {
+            globalThis._sagaRefreshUI();
         }
+        syncPromptInjection();
+    } catch (e) {
+        console.error(`${LOG_PREFIX} Error in chat-changed handler:`, e);
+        clearSagaPromptInjectionSafely('recovering from chat-changed prompt sync failure');
+    }
+}
 
-        ctx.eventSource.on(ctx.event_types.GENERATION_ENDED, () => {
-            try {
-                onGenerationEndedAutomation();
-                onGenerationEndedAutoRelevance();
-                syncPromptInjection();
-            } catch (e) {
-                console.error(`${LOG_PREFIX} Error in GENERATION_ENDED handler:`, e);
-            }
-        });
+function handleExtensionDisabled() {
+    clearSagaPromptInjectionSafely('disabling Saga prompt injection');
+    try {
+        hideLorePanel();
+    } catch (e) {
+        console.error(`${LOG_PREFIX} Error while hiding Saga runtime during disable:`, e);
+    }
+}
 
-        ctx.eventSource.on(ctx.event_types.CHAT_CHANGED, () => {
-            try {
-                resetExtractionCounter();
-                clearExtensionPrompts();
-                // Refresh lore panel if open
-                refreshLorePanel();
-                // Refresh state panel if visible
-                if (typeof globalThis._sagaRefreshUI === 'function') {
-                    globalThis._sagaRefreshUI();
-                }
-                syncPromptInjection();
-            } catch (e) {
-                console.error(`${LOG_PREFIX} Error in CHAT_CHANGED handler:`, e);
-            }
-        });
+function registerEventHandler(source, eventName, handler) {
+    if (!source || !eventName || typeof source.on !== 'function') return false;
+    source.on(eventName, handler);
+    return true;
+}
 
+function registerEventHandlers(source, eventNames, handler) {
+    const registered = new Set();
+    for (const eventName of eventNames) {
+        if (!eventName || registered.has(eventName)) continue;
+        if (registerEventHandler(source, eventName, handler)) {
+            registered.add(eventName);
+        }
+    }
+    return registered.size;
+}
+
+function wireEvents(ctx) {
+    if (ctx.eventSource && ctx.event_types) {
+        const events = ctx.event_types;
+        registerEventHandlers(ctx.eventSource, [
+            events.GENERATE_BEFORE_COMBINE_PROMPTS,
+            events.GENERATION_STARTED,
+        ], handleBeforePromptSync);
+        registerEventHandler(ctx.eventSource, events.GENERATION_ENDED, handleGenerationEnded);
+        registerEventHandlers(ctx.eventSource, [
+            events.GENERATION_STOPPED,
+            events.GENERATION_FAILED,
+            events.GENERATION_ABORTED,
+        ], handleGenerationInterrupted);
+        registerEventHandler(ctx.eventSource, events.CHAT_CHANGED, handleChatChanged);
+        registerEventHandlers(ctx.eventSource, [
+            events.EXTENSION_DISABLED,
+            events.EXTENSION_DISABLE,
+        ], handleExtensionDisabled);
         console.log(`${LOG_PREFIX} Events wired via eventSource`);
         return;
     }
 
-    // ── Fallback 1: eventBus ─────────────────────────────────────────────
     const bus = ctx.eventBus || (typeof eventBus !== 'undefined' ? eventBus : null);
     if (bus && bus.on) {
-        bus.on('GENERATION_ENDED', () => {
-            try { onGenerationEndedAutomation(); onGenerationEndedAutoRelevance(); } catch (e) { console.error(e); }
-        });
-        bus.on('CHAT_CHANGED', () => {
-            try { resetExtractionCounter(); } catch (e) { console.error(e); }
-        });
+        registerEventHandler(bus, 'GENERATE_BEFORE_COMBINE_PROMPTS', handleBeforePromptSync);
+        registerEventHandler(bus, 'GENERATION_STARTED', handleBeforePromptSync);
+        registerEventHandler(bus, 'GENERATION_ENDED', handleGenerationEnded);
+        registerEventHandler(bus, 'GENERATION_STOPPED', handleGenerationInterrupted);
+        registerEventHandler(bus, 'GENERATION_FAILED', handleGenerationInterrupted);
+        registerEventHandler(bus, 'GENERATION_ABORTED', handleGenerationInterrupted);
+        registerEventHandler(bus, 'CHAT_CHANGED', handleChatChanged);
+        registerEventHandler(bus, 'EXTENSION_DISABLED', handleExtensionDisabled);
         console.log(`${LOG_PREFIX} Events wired via eventBus`);
         return;
     }
 
-    // ── Fallback 2: eventTypes object (legacy) ───────────────────────────
     if (ctx.eventTypes) {
-        ctx.eventTypes['GENERATION_ENDED'] = ctx.eventTypes['GENERATION_ENDED'] || [];
-        ctx.eventTypes['GENERATION_ENDED'].push(() => {
-            try { onGenerationEndedAutomation(); onGenerationEndedAutoRelevance(); } catch (e) { console.error(e); }
-        });
-        ctx.eventTypes['CHAT_CHANGED'] = ctx.eventTypes['CHAT_CHANGED'] || [];
-        ctx.eventTypes['CHAT_CHANGED'].push(() => {
-            try { resetExtractionCounter(); } catch (e) { console.error(e); }
-        });
+        for (const [eventName, handler] of [
+            ['GENERATE_BEFORE_COMBINE_PROMPTS', handleBeforePromptSync],
+            ['GENERATION_STARTED', handleBeforePromptSync],
+            ['GENERATION_ENDED', handleGenerationEnded],
+            ['GENERATION_STOPPED', handleGenerationInterrupted],
+            ['GENERATION_FAILED', handleGenerationInterrupted],
+            ['GENERATION_ABORTED', handleGenerationInterrupted],
+            ['CHAT_CHANGED', handleChatChanged],
+            ['EXTENSION_DISABLED', handleExtensionDisabled],
+        ]) {
+            ctx.eventTypes[eventName] = ctx.eventTypes[eventName] || [];
+            ctx.eventTypes[eventName].push(handler);
+        }
         console.log(`${LOG_PREFIX} Events wired via eventTypes object`);
         return;
     }
@@ -159,7 +337,16 @@ function wireEvents(ctx) {
     console.warn(`${LOG_PREFIX} No event API found. Manual extraction via slash command is still available.`);
 }
 
-// ════════════════════════════════════════════════════════════════════════════════
+export const __sagaTestHooks = Object.freeze({
+    wireEvents,
+    handleBeforePromptSync,
+    handleGenerationEnded,
+    handleGenerationInterrupted,
+    handleChatChanged,
+    handleExtensionDisabled,
+});
+
+// -----------------------------------------------------------------------------
 // Slash commands
 // ════════════════════════════════════════════════════════════════════════════════
 
@@ -167,18 +354,63 @@ function wireEvents(ctx) {
  * Registers slash commands for manual control.
  * @param {Object} ctx - SillyTavern.getContext() result
  */
+function registerSagaSlashCommand(ctx, name, callback, helpString, category = 'Saga') {
+    const parser = ctx?.SlashCommandParser || globalThis.SlashCommandParser;
+    const commandFactory = ctx?.SlashCommand || globalThis.SlashCommand;
+
+    if (parser && typeof parser.addCommandObject === 'function') {
+        const commandProps = {
+            name,
+            callback,
+            helpString,
+            category,
+            returns: 'none',
+        };
+        const command = commandFactory && typeof commandFactory.fromProps === 'function'
+            ? commandFactory.fromProps(commandProps)
+            : commandProps;
+        parser.addCommandObject(command);
+        return true;
+    }
+
+    if (typeof registerSlashCommand === 'function') {
+        registerSlashCommand(name, callback, undefined, helpString, category);
+        return true;
+    }
+
+    return false;
+}
+
+async function confirmSlashBulkPendingAction(ctx, verb, count) {
+    if (!count) {
+        if (typeof toastr !== 'undefined') toastr.info(`No pending Lorecards to ${verb.toLowerCase()}.`);
+        return false;
+    }
+    const message = `${verb} all ${count} pending Lorecard${count === 1 ? '' : 's'}? This affects every pending item in the current chat.`;
+    const popup = ctx?.callGenericPopup || globalThis.callGenericPopup;
+    const popupTypes = ctx?.POPUP_TYPE || globalThis.POPUP_TYPE || {};
+    if (typeof popup === 'function') {
+        const result = await popup(message, popupTypes.CONFIRM || 'confirm');
+        return result === true || result === 'ok' || result === 'confirm' || result === 1;
+    }
+    if (typeof globalThis.confirm === 'function') return globalThis.confirm(message);
+    if (typeof toastr !== 'undefined') toastr.warning(`${verb} all requires confirmation, but no confirmation UI is available.`);
+    return false;
+}
+
 function registerSlashCommands(ctx) {
-    if (typeof registerSlashCommand !== 'function') {
+    const parser = ctx?.SlashCommandParser || globalThis.SlashCommandParser;
+    if (!parser?.addCommandObject && typeof registerSlashCommand !== 'function') {
         console.warn(`${LOG_PREFIX} Slash command registration unavailable`);
         return;
     }
 
-    const register = registerSlashCommand;
+    const register = (name, callback, helpString, category = 'Saga') => registerSagaSlashCommand(ctx, name, callback, helpString, category);
 
     // ── /saga-extract ───────────────────────────────────────────────────
     register('saga-extract', async () => {
         await onExtractionTriggered({ force: true });
-    }, undefined, '\uD83D\uDC41\uFE0F Manually run continuity state extraction', 'Saga');
+    }, '\uD83D\uDC41\uFE0F Manually run continuity state extraction', 'Saga');
 
     // ── /saga-memo ─────────────────────────────────────────────────────
     register('saga-memo', async () => {
@@ -193,18 +425,18 @@ function registerSlashCommands(ctx) {
                 if (typeof toastr !== 'undefined') toastr.info(`[Saga State]\n${memo}`);
             });
         }
-    }, undefined, '\uD83D\uDCCB Copy continuity memo to clipboard', 'Saga');
+    }, '\uD83D\uDCCB Copy continuity memo to clipboard', 'Saga');
 
     // ── /saga-state ────────────────────────────────────────────────────
     register('saga-state', async () => {
         const state = getState();
-        const json = exportState(state);
+        const json = exportSagaState(state);
         navigator.clipboard.writeText(json).then(() => {
-            if (typeof toastr !== 'undefined') toastr.success('Continuity state JSON copied to clipboard');
+            if (typeof toastr !== 'undefined') toastr.success('Saga state export JSON copied to clipboard');
         }).catch(() => {
             if (typeof toastr !== 'undefined') toastr.info(`State JSON (${json.length} chars) ready; clipboard unavailable`);
         });
-    }, undefined, '\uD83D\uDCC4 Export full continuity state as JSON', 'Saga');
+    }, '\uD83D\uDCC4 Export Saga state as JSON', 'Saga');
 
     // ── Lore slash commands ──────────────────────────────────────────────────
 
@@ -218,7 +450,7 @@ function registerSlashCommands(ctx) {
             console.error(`${LOG_PREFIX} Lore detection failed:`, e);
             if (typeof toastr !== 'undefined') toastr.error(`Lore detection failed: ${e.message}`);
         }
-    }, undefined, '\uD83D\uDD0D Re-run Context detection', 'Saga Lorecards');
+    }, '\uD83D\uDD0D Re-run Context detection', 'Saga Lorecards');
 
     const runManualLoreScanCommand = async () => {
         try {
@@ -233,16 +465,22 @@ function registerSlashCommands(ctx) {
     };
 
     // /saga-lore-scan — scan story lore with the bulk scan engine
-    register('saga-lore-scan', runManualLoreScanCommand, undefined, '\u2728 Scan story lorecards', 'Saga Lorecards');
+    register('saga-lore-scan', runManualLoreScanCommand, '\u2728 Scan story lorecards', 'Saga Lorecards');
 
     // /saga-lore-generate — deprecated alias retained for user macros/workflows
-    register('saga-lore-generate', runManualLoreScanCommand, undefined, '\u2728 Scan story lorecards', 'Saga Lorecards');
+    register('saga-lore-generate', runManualLoreScanCommand, '\u2728 Scan story lorecards', 'Saga Lorecards');
 
     // /saga-lore-accept — accept all pending lore entries
     register('saga-lore-accept', async () => {
         try {
+            if ((getSettings().experienceMode || 'basic') !== 'advanced') {
+                if (typeof toastr !== 'undefined') toastr.warning('/saga-lore-accept is available in Advanced mode only. Review selected Lorecards in Basic.');
+                return;
+            }
             const state = getState();
             const pendingCount = (state?.pendingLoreEntries || []).length;
+            const confirmed = await confirmSlashBulkPendingAction(ctx, 'Accept', pendingCount);
+            if (!confirmed) return;
             acceptPendingLoreEntries();
             refreshLorePanel();
             if (typeof toastr !== 'undefined') toastr.success(`Accepted ${pendingCount} pending lore entr${pendingCount === 1 ? 'y' : 'ies'}`);
@@ -250,13 +488,19 @@ function registerSlashCommands(ctx) {
             console.error(`${LOG_PREFIX} Accept lore failed:`, e);
             if (typeof toastr !== 'undefined') toastr.error(`Accept lore failed: ${e.message}`);
         }
-    }, undefined, '\u2705 Accept all pending lorecards', 'Saga Lorecards');
+    }, '\u2705 Accept all pending lorecards after confirmation', 'Saga Lorecards');
 
     // /saga-lore-reject — reject all pending lore entries
     register('saga-lore-reject', async () => {
         try {
+            if ((getSettings().experienceMode || 'basic') !== 'advanced') {
+                if (typeof toastr !== 'undefined') toastr.warning('/saga-lore-reject is available in Advanced mode only. Review selected Lorecards in Basic.');
+                return;
+            }
             const state = getState();
             const pendingCount = (state?.pendingLoreEntries || []).length;
+            const confirmed = await confirmSlashBulkPendingAction(ctx, 'Reject', pendingCount);
+            if (!confirmed) return;
             rejectPendingLoreEntries();
             refreshLorePanel();
             if (typeof toastr !== 'undefined') toastr.success(`Rejected ${pendingCount} pending lore entr${pendingCount === 1 ? 'y' : 'ies'}`);
@@ -264,7 +508,7 @@ function registerSlashCommands(ctx) {
             console.error(`${LOG_PREFIX} Reject lore failed:`, e);
             if (typeof toastr !== 'undefined') toastr.error(`Reject lore failed: ${e.message}`);
         }
-    }, undefined, '\u274C Reject all pending lorecards', 'Saga Lorecards');
+    }, '\u274C Reject all pending lorecards after confirmation', 'Saga Lorecards');
 
     // /saga-lore-panel — toggle the floating lore panel
     register('saga-lore-panel', async () => {
@@ -282,7 +526,7 @@ function registerSlashCommands(ctx) {
             console.error(`${LOG_PREFIX} Toggle lore panel failed:`, e);
             if (typeof toastr !== 'undefined') toastr.error(`Toggle lore panel failed: ${e.message}`);
         }
-    }, undefined, '\uD83D\uDCD6 Toggle the Saga runtime panel', 'Saga Lorecards');
+    }, '\uD83D\uDCD6 Toggle the Saga runtime panel', 'Saga Lorecards');
 
     console.log(`${LOG_PREFIX} Slash commands registered`);
 }
@@ -363,7 +607,7 @@ async function mountSettingsPanel(ctx) {
     // ── Auto-open lore panel if it was previously open ────────────────
     try {
         const state = getState();
-        if (state?.lorePanel?.isOpen !== false) {
+        if (state?.lorePanel?.isOpen === true) {
             showLorePanel();
         }
     } catch (_) {
@@ -389,26 +633,14 @@ function installExtensionsMenuButton() {
     const btn = document.createElement('div');
     btn.id = 'saga-extensions-menu-button';
     btn.className = 'list-group-item flex-container flexGap5 interactable';
-    btn.title = 'Open SAGA runtime window and extension settings.';
+    btn.title = 'Open the SAGA runtime window.';
 
     btn.innerHTML = `\uD83E\uDE84 <span>SAGA</span>`;
 
-    // Click opens settings panel + optionally lore panel
+    // Click opens the runtime surface. Settings stay configuration-only.
     btn.addEventListener('click', () => {
-        // Scroll/focus the settings panel
-        const panel = document.getElementById('saga_settings');
-        if (panel) {
-            panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            // Expand all inline drawers so settings are visible
-            const toggles = panel.querySelectorAll('.inline-drawer-toggle');
-            toggles.forEach(t => {
-                if (t.classList.contains('closed')) {
-                    t.click();
-                }
-            });
-        } else {
-            if (typeof toastr !== 'undefined') toastr.info('SAGA settings panel not yet mounted. It will appear shortly.');
-        }
+        showLorePanel();
+        refreshLorePanel();
     });
 
     menu.appendChild(btn);

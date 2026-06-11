@@ -8,7 +8,7 @@
   "era": "Shinjuku Showdown and Aftermath",
   "contentKind": "fandom",
   "author": "Saga",
-  "version": "0.1.0",
+  "version": "0.2.0-phase1",
   "defaultLocale": "en",
   "tags": [
     "fandom:jjk",
@@ -51,7 +51,11 @@
   "files": [
     "shinjuku/gojo_sukuna_opening.json",
     "shinjuku/rotating_plans.json",
-    "shinjuku/final_resolution.json"
+    "shinjuku/final_resolution.json",
+    "expanded/fight_phase_events.json",
+    "expanded/status_and_relationships.json",
+    "expanded/abilities_and_final_arc_rules.json",
+    "expanded/knowledge_and_aftermath_gates.json"
   ],
   "compatibility": {
     "sagaSchemaMin": 3,
@@ -67,13 +71,14 @@
     }
   ],
   "stats": {
-    "entryCount": 12,
+    "entryCount": 46,
     "categoryCounts": {
-      "event": 5,
+      "character": 8,
+      "event": 17,
       "knowledge": 2,
       "relationship": 1,
-      "rule": 2,
-      "secret": 2
+      "rule": 10,
+      "secret": 8
     },
     "timelineAnchorCount": 9,
     "timelineWindowCount": 4
@@ -83,8 +88,8 @@
     "notes": "For local testing. Requires human canon review before reference release."
   },
   "health": {
-    "status": "good",
-    "notes": "Initial Shinjuku Showdown scaffold passes local structural health checks; not a substitute for human canon review."
+    "status": "needs_review",
+    "notes": "Expanded phase-1 draft-reference package; generated cards require human canon review before reference release."
   },
   "library": {
     "suggestedPath": [

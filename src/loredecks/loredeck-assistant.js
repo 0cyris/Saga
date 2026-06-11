@@ -25,6 +25,15 @@ const ASSISTANT_RUBRIC_KEYS = Object.freeze([
     'contextFit',
 ]);
 
+const CREATOR_COVERAGE_STATUSES = Object.freeze(new Set([
+    'missing',
+    'thin',
+    'adequate',
+    'rich',
+    'not_applicable',
+    'intentionally_light',
+]));
+
 function isPlainObject(value) {
     return value && typeof value === 'object' && !Array.isArray(value);
 }
@@ -83,6 +92,100 @@ function cleanRubricLevel(value) {
     if (raw === 'minor' || raw === 'minimal') return 'low';
     if (raw === 'strong') return 'high';
     return ASSISTANT_RUBRIC_LEVELS.has(raw) ? raw : '';
+}
+
+function cleanCreatorCoverageStatus(value = '', fallback = '') {
+    const raw = cleanString(value || fallback, 60)
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '_')
+        .replace(/^_+|_+$/g, '');
+    if (!raw) return '';
+    if (raw === 'n_a' || raw === 'na' || raw === 'none' || raw === 'irrelevant') return 'not_applicable';
+    if (raw === 'intentional' || raw === 'light' || raw === 'sparse') return 'intentionally_light';
+    if (raw === 'ok' || raw === 'good' || raw === 'covered') return 'adequate';
+    if (raw === 'dense' || raw === 'complete') return 'rich';
+    if (raw === 'weak' || raw === 'partial') return 'thin';
+    if (raw === 'gap' || raw === 'absent') return 'missing';
+    return CREATOR_COVERAGE_STATUSES.has(raw) ? raw : '';
+}
+
+function normalizeCreatorCoverageDimension(raw = {}, index = 0) {
+    if (!isPlainObject(raw)) return null;
+    const label = cleanString(raw.label || raw.title || raw.name || raw.dimension, 180);
+    const fallbackId = `coverage-${index + 1}`;
+    const id = cleanPackId(raw.id || raw.key || raw.dimensionId || label || fallbackId, 140) || fallbackId;
+    const status = cleanCreatorCoverageStatus(raw.status || raw.coverageStatus || raw.state, 'missing');
+    const dimension = {
+        id,
+        label: label || id,
+        kind: cleanString(raw.kind || raw.type || raw.category, 80),
+        status: status || 'missing',
+        priority: cleanInteger(raw.priority ?? raw.weight ?? raw.rank, 50, 0, 100),
+        rationale: cleanString(raw.rationale || raw.reason || raw.summary || raw.description, 700),
+        evidenceTargets: cleanStringArray(raw.evidenceTargets || raw.expectedEvidence || raw.examples || raw.targets, 8, 180),
+        titleBatchIds: cleanStringArray(raw.titleBatchIds || raw.titleBatches || raw.batchIds, 12, 140),
+        notApplicableReason: cleanString(raw.notApplicableReason || raw.naReason || raw.exclusionReason, 500),
+    };
+    if ((dimension.status === 'not_applicable' || dimension.status === 'intentionally_light') && !dimension.notApplicableReason) {
+        dimension.notApplicableReason = cleanString(raw.rationale || raw.reason || raw.summary, 500);
+    }
+    return Object.values(dimension).some(value => Array.isArray(value) ? value.length : !!value) ? dimension : null;
+}
+
+function normalizeCreatorCoverage(raw = {}) {
+    const source = isPlainObject(raw?.creatorCoverage)
+        ? raw.creatorCoverage
+        : (isPlainObject(raw?.coveragePlan)
+            ? raw.coveragePlan
+            : (isPlainObject(raw?.coverageMatrix)
+                ? raw.coverageMatrix
+                : (isPlainObject(raw?.coverageReview)
+                    ? raw.coverageReview
+                    : (isPlainObject(raw) ? raw : {}))));
+    if (!isPlainObject(source)) return null;
+    const dimensions = (Array.isArray(source.dimensions || source.coverageDimensions || source.axes)
+        ? (source.dimensions || source.coverageDimensions || source.axes)
+        : [])
+        .map((row, index) => normalizeCreatorCoverageDimension(row, index))
+        .filter(Boolean)
+        .slice(0, 20);
+    const status = cleanCreatorCoverageStatus(source.status || source.overallStatus || source.coverageStatus);
+    const coverage = {
+        storyShape: cleanString(source.storyShape || source.shape || source.narrativeShape, 100),
+        storyDensity: cleanString(source.storyDensity || source.density || source.loreDensity, 100),
+        scopeKind: cleanString(source.scopeKind || source.scopeType || source.kind, 100),
+        status,
+        rationale: cleanString(source.rationale || source.reason || source.summary, 900),
+        expectedCoverage: cleanString(source.expectedCoverage || source.expectation || source.coverageExpectation, 900),
+        likelyNotApplicable: cleanStringArray(source.likelyNotApplicable || source.notApplicable || source.exclusions, 8, 180),
+        dimensions,
+    };
+    return Object.values(coverage).some(value => Array.isArray(value) ? value.length : !!value) ? coverage : null;
+}
+
+function compactCreatorCoverageForPrompt(raw = {}) {
+    const coverage = normalizeCreatorCoverage(raw);
+    if (!coverage) return null;
+    return {
+        storyShape: coverage.storyShape,
+        storyDensity: coverage.storyDensity,
+        scopeKind: coverage.scopeKind,
+        status: coverage.status,
+        rationale: coverage.rationale,
+        expectedCoverage: coverage.expectedCoverage,
+        likelyNotApplicable: coverage.likelyNotApplicable,
+        dimensions: coverage.dimensions.slice(0, 16).map(dimension => ({
+            id: dimension.id,
+            label: dimension.label,
+            kind: dimension.kind,
+            status: dimension.status,
+            priority: dimension.priority,
+            rationale: dimension.rationale,
+            evidenceTargets: dimension.evidenceTargets,
+            titleBatchIds: dimension.titleBatchIds,
+            notApplicableReason: dimension.notApplicableReason,
+        })),
+    };
 }
 
 function normalizeAssistantRubric(raw = {}) {
@@ -432,6 +535,16 @@ function normalizeCreatorBrief(raw = {}) {
     const min = cleanInteger(range.min ?? range.low, 0, 0, 10000);
     const max = cleanInteger(range.max ?? range.high, min, min, 10000);
     const coverageSummary = cleanString(source.coverageSummary || source.coverage || source.summary, 700);
+    const creatorCoverage = normalizeCreatorCoverage(
+        source.creatorCoverage
+        || source.coveragePlan
+        || source.coverageMatrix
+        || source.coverageReview
+        || raw.creatorCoverage
+        || raw.coveragePlan
+        || raw.coverageMatrix
+        || raw.coverageReview
+    );
     const brief = {
         title: cleanString(source.title || source.name, 180),
         packId: cleanPackId(source.packId || source.id || source.title || source.name, 140),
@@ -440,6 +553,7 @@ function normalizeCreatorBrief(raw = {}) {
         granularity: cleanString(source.granularity || source.density, 80),
         coverageSummary,
         coverage: coverageSummary,
+        creatorCoverage,
         contextApproach: cleanString(source.contextApproach || source.timelineApproach, 1000),
         estimatedEntryRange: {
             min,
@@ -471,6 +585,7 @@ function compactCreatorBriefForPrompt(raw = {}) {
         scope: brief.scope,
         granularity: brief.granularity,
         coverageSummary: brief.coverageSummary || brief.coverage,
+        creatorCoverage: compactCreatorCoverageForPrompt(brief.creatorCoverage),
         assumptions: brief.assumptions,
         risks: brief.risks,
     };
@@ -494,6 +609,7 @@ function normalizeCreatorTitleDraft(raw = {}, index = 0) {
         reason: cleanString(raw.reason || raw.rationale || raw.description, 1000),
         creatorTitleBatchId: cleanPackId(raw.creatorTitleBatchId || raw.batchId || raw.sourceBatchId, 160),
         creatorTitleBatchLabel: cleanString(raw.creatorTitleBatchLabel || raw.batchLabel || raw.sourceBatchLabel, 180),
+        coverageDimensionIds: cleanStringArray(raw.coverageDimensionIds || raw.coverageDimensions || raw.coverageIds, 12, 140),
         rubric: normalizeAssistantRubric(raw),
         warnings: cleanStringArray(raw.warnings || raw.qualityWarnings, 8, 240),
     };
@@ -505,7 +621,12 @@ export function parseLoredeckCreatorBriefResponse(text = '') {
     const parsed = coerceAssistantShape(parsedJson);
     const raw = isPlainObject(parsedJson) ? parsedJson : {};
     const brief = Object.prototype.hasOwnProperty.call(raw, 'brief')
-        ? (isPlainObject(raw.brief) ? normalizeCreatorBrief(raw.brief) : null)
+        ? (isPlainObject(raw.brief)
+            ? normalizeCreatorBrief({
+                brief: raw.brief,
+                creatorCoverage: raw.creatorCoverage || raw.coveragePlan || raw.coverageMatrix || raw.coverageReview,
+            })
+            : null)
         : normalizeCreatorBrief(raw);
     return {
         summary: cleanString(raw.summary || parsed.summary, 1000),
@@ -529,6 +650,7 @@ function normalizeCreatorOutlineRow(raw = {}, index = 0, kind = 'beat') {
         summary,
         contextRole: cleanString(raw.contextRole || raw.context || raw.use || raw.role, 300),
         titleTargets: cleanStringArray(raw.titleTargets || raw.titleTargetHints || raw.targets, 8, 120),
+        coverageDimensionIds: cleanStringArray(raw.coverageDimensionIds || raw.coverageDimensions || raw.coverageIds, 12, 140),
     };
 }
 
@@ -557,9 +679,20 @@ function normalizeCreatorOutline(raw = {}) {
         .map((row, index) => normalizeCreatorOutlineRow(row, index, 'title_batch'))
         .filter(Boolean)
         .slice(0, 12);
+    const creatorCoverage = normalizeCreatorCoverage(
+        source.creatorCoverage
+        || source.coveragePlan
+        || source.coverageMatrix
+        || source.coverageReview
+        || raw.creatorCoverage
+        || raw.coveragePlan
+        || raw.coverageMatrix
+        || raw.coverageReview
+    );
     const outline = {
         label: cleanString(source.label || source.title || source.name, 180),
         coverageSummary: cleanString(source.coverageSummary || source.coverage || source.summary, 700),
+        creatorCoverage,
         beats,
         contextMilestones,
         titleBatches,
@@ -650,6 +783,8 @@ Creator principles:
 - Do not require spoiler boundary, adaptation, continuity, or approximate entry count from the user.
 - Coverage says what the deck may contain; Context later decides what can inject.
 - Lorecard count is derived from granularity, coverage size, and story density.
+- Build an adaptive creatorCoverage plan with meaningful dimensions for this story shape; do not use a fixed entry-count threshold.
+- Mark sparse, toy-like, or low-lore content as intentionally_light or not_applicable instead of padding filler dimensions.
 - Prefer high-value roleplay/fanfic scene context over wiki completeness.
 - Flag assumptions and risks clearly.
 - If the request is too broad or ambiguous, ask 1-3 clarifying questions and leave brief null.
@@ -668,6 +803,8 @@ Field limits:
 - assumptions: at most 4 short items.
 - risks: at most 4 short items.
 - warnings: at most 4 short items.
+- creatorCoverage.dimensions: 3-10 meaningful dimensions unless the source genuinely has less lore.
+- creatorCoverage statuses: missing, thin, adequate, rich, not_applicable, intentionally_light.
 
 Output shape:
 {
@@ -681,6 +818,26 @@ Output shape:
     "scope": "Arlong Park Arc",
     "granularity": "focused",
     "coverageSummary": "What this deck should cover at approval time.",
+    "creatorCoverage": {
+      "storyShape": "single arc",
+      "storyDensity": "dense",
+      "scopeKind": "arc",
+      "status": "thin",
+      "rationale": "Why this source needs this much coverage.",
+      "expectedCoverage": "Adaptive expectation without a hard Lorecard count.",
+      "likelyNotApplicable": ["Sparse dimensions that should not be padded."],
+      "dimensions": [
+        {
+          "id": "character-pressure",
+          "label": "Character pressure and secrets",
+          "kind": "characters",
+          "status": "missing",
+          "priority": 90,
+          "rationale": "Why this dimension matters for roleplay scenes.",
+          "evidenceTargets": ["Kinds of future titles this dimension should produce."]
+        }
+      ]
+    },
     "assumptions": ["Assumption to confirm."],
     "risks": ["Known risk."]
   }
@@ -703,9 +860,12 @@ export function buildLoredeckCreatorBriefUserPrompt(context = {}) {
             noRequiredSpoilerBoundary: true,
             noRequiredAdaptationOrContinuityQuestion: true,
             entryCountMustBeDerived: true,
+            adaptiveCoveragePlanRequired: true,
+            noHardCoverageThreshold: true,
+            sparseSourcesMayBeIntentionallyLight: true,
             coverageIsNotInjectionBoundary: true,
             sagaUseCase: 'long-form fanfic and roleplay Loredecks',
-            maxVisibleJsonTokens: 700,
+            maxVisibleJsonTokens: 1200,
         },
     });
 }
@@ -727,6 +887,8 @@ Outline quality:
 - Beats should be major story phases, scene clusters, reveals, state changes, or relationship/power shifts.
 - Context milestones should be the high-value browse/select points a user might choose before/after when starting a story.
 - Title batches should describe future title-pass slices, not actual titles.
+- Preserve and refine creatorCoverage from the Scope Brief; title batches should point to coverageDimensionIds they are meant to serve.
+- Missing/thin coverage dimensions should become title batches unless they are not_applicable or intentionally_light for this source.
 - Prefer playable pressure, secrets, relationship changes, faction consequences, locations, powers, obligations, and canon timing over wiki completeness.
 
 Field limits:
@@ -738,6 +900,7 @@ Field limits:
 - assumptions/risks: at most 4 short items each.
 - Each row summary/contextRole: one short sentence.
 - titleTargets: at most 4 short strings.
+- creatorCoverage.dimensions: keep meaningful dimensions only; do not invent filler for sparse content.
 - Aim for under 1600 visible JSON tokens.
 
 Output shape:
@@ -748,6 +911,27 @@ Output shape:
   "outline": {
     "label": "Arlong Park Arc outline",
     "coverageSummary": "Reviewable story shape for the approved scope.",
+    "creatorCoverage": {
+      "storyShape": "single arc",
+      "storyDensity": "dense",
+      "scopeKind": "arc",
+      "status": "thin",
+      "rationale": "Refined coverage expectation for this outline.",
+      "expectedCoverage": "Adaptive expectation without a hard Lorecard count.",
+      "likelyNotApplicable": [],
+      "dimensions": [
+        {
+          "id": "character-pressure",
+          "label": "Character pressure and secrets",
+          "kind": "characters",
+          "status": "thin",
+          "priority": 90,
+          "rationale": "Needs title batches for playable secrets and coercion.",
+          "evidenceTargets": ["Nami secrecy", "Arlong coercion"],
+          "titleBatchIds": ["characters-pressure"]
+        }
+      ]
+    },
     "beats": [
       {
         "id": "cocoyasi-arrival",
@@ -775,7 +959,8 @@ Output shape:
         "label": "Characters and pressure",
         "type": "title_batch",
         "order": 10,
-        "summary": "Future titles for character secrets, coercion, loyalties, and obligations."
+        "summary": "Future titles for character secrets, coercion, loyalties, and obligations.",
+        "coverageDimensionIds": ["character-pressure"]
       }
     ],
     "assumptions": ["Assumption to confirm."],
@@ -799,6 +984,10 @@ export function buildLoredeckCreatorOutlineUserPrompt(context = {}) {
             noTimelineRegistryGenerationYet: true,
             noTagRegistryGenerationYet: true,
             entryCountMustBeDerivedLater: true,
+            preserveCreatorCoverage: true,
+            titleBatchesMustReferenceCoverageDimensions: true,
+            noHardCoverageThreshold: true,
+            sparseSourcesMayBeIntentionallyLight: true,
             sagaUseCase: 'long-form fanfic and roleplay Loredecks',
             compactJson: true,
             maxVisibleJsonTokens: 1600,
@@ -824,6 +1013,8 @@ Hard limits:
 Title quality rules:
 - Prefer high-value roleplay/fanfic scene context over wiki completeness.
 - Each title should imply playable pressure, constraints, relationships, secrets, powers, obligations, setting response, or context consequences.
+- Every title should include coverageDimensionIds from the target title batch or approved creatorCoverage dimensions it directly serves.
+- If a dimension is intentionally_light or not_applicable, do not generate filler titles for it.
 - Include broad/wide titles only when they are genuinely useful across a large window; mark that in contextHint.
 - Avoid duplicate titles and avoid generic biography titles.
 - Use category, priority, relevance, contextHint, tags, and reason so the user can review before Lorecard generation.
@@ -850,6 +1041,7 @@ Output shape:
       "contextHint": "From the crew's Cocoyasi arrival until Nami asks for help.",
       "tags": ["character:nami", "faction:arlong-pirates"],
       "reason": "Creates secrecy, pressure, and timing for scenes.",
+      "coverageDimensionIds": ["character-pressure"],
       "rubric": {
         "sceneUtility": "high",
         "contextFit": "high",
@@ -883,6 +1075,9 @@ export function buildLoredeckCreatorTitleUserPrompt(context = {}) {
             noTimelineGenerationYet: true,
             noTagRegistryGenerationYet: true,
             entryCountMustBeDerived: true,
+            coverageDimensionIdsRequired: true,
+            noHardCoverageThreshold: true,
+            sparseSourcesMayBeIntentionallyLight: true,
             preserveTitleIdsWhenRevising: true,
             sagaUseCase: 'long-form fanfic and roleplay Loredecks',
             compactJson: true,
@@ -917,6 +1112,7 @@ Planning guidance:
 - Use anchors for meaningful story moments, reveals, arrivals, battles, state changes, relationship pivots, or date/arc boundaries.
 - Use windows for spans where entries should be eligible between two anchors.
 - Use tag definitions for characters, factions, locations, arcs, concepts, powers, secrets, and relationship/state clusters that the approved titles imply.
+- Use targetPlanningBatch.coverageDimensionIds and approvedTitleDrafts.coverageDimensionIds to keep planning focused on the coverage surface this batch serves.
 - Prefer a compact but robust registry foundation over exhaustive wiki coverage.
 - Include confidence, risk, and reason on every proposal.
 - Rubric is optional and should be tiny. Include only wikiSummaryRisk plus one or two useful rubric keys when needed.
@@ -984,6 +1180,7 @@ export function buildLoredeckCreatorPlanningUserPrompt(context = {}) {
             noEntryFactsOrInjectionYet: true,
             pendingReviewOnly: true,
             preserveStableIds: true,
+            preserveCoverageDimensionIds: true,
             sagaUseCase: 'long-form fanfic and roleplay Loredecks',
             compactJson: true,
             noMarkdown: true,
@@ -1005,6 +1202,7 @@ Hard limits:
 - Generate one Lorecard proposal per targetTitleDraft.
 - Treat targetTitleDrafts as the entire assignment for this response. Do not continue into unlisted titles, even if the deck needs more entries.
 - Use targetPlanningBatch as the current planning context. Do not draft titles from other planning batches.
+- Use targetTitleDraft.coverageDimensionIds and targetPlanningBatch.coverageDimensionIds as authoring guidance so entries serve the intended Creator Coverage surface.
 - Use targetTitleDraft.titleId as entry.id unless it is invalid; preserve stable IDs.
 - Use only acceptedTimelineRegistry anchors/windows and acceptedTagRegistry tags. Do not invent anchor IDs or tag IDs at this stage.
 - Every entry must be schemaVersion 3 with content.fact, content.injection, context, retrieval, tags, category, canon/canonStatus, relevance, and priority.
@@ -1119,6 +1317,7 @@ export function buildLoredeckCreatorEntryUserPrompt(context = {}) {
             requireContext: true,
             requireRetrieval: true,
             requireContentFactAndInjection: true,
+            preserveCoverageDimensionIds: true,
             useAcceptedTimelineIdsOnly: true,
             useAcceptedTagIdsOnly: true,
             noWikiSummaries: true,

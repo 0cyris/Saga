@@ -43,6 +43,18 @@ The expanded HP harness family now covers `hp-core` plus Year 1, Year 2, Year 3,
 
 The HP reference-deck conformance check now exists at `tools/scripts/test-hp-reference-deck-conformance.mjs`. It verifies the bundled HP defaults, `content/loredecks/index.json`, duplicated manifests, Deck Health summaries, deck-local covers, tag registries, file lists, empty active-stack defaults, and absence of the legacy monolithic `hp-golden-trio` deck from runtime defaults.
 
+## Release Metadata And Gate
+
+The alpha manifest should stay visibly pre-1.0. Current release metadata is `0.1.0-alpha.1` with `minimum_client_version` set and `auto_update: false`. Alpha testers should update deliberately from the repository instead of receiving silent extension updates. The manifest also declares SillyTavern lifecycle hooks for install, update, delete, clean, enable, disable, and activate so Saga can create current-chat safety records, clear prompt injection, and clean direct provider key material when those extension actions run.
+
+Before tagging an alpha build, run:
+
+```powershell
+node tools/scripts/run-alpha-gate.mjs
+```
+
+The gate combines syntax checks, CSS sanity checks, release metadata checks, repository layout, Basic readiness, experience-mode walkthrough coverage, HP and Health Center Deck Health checks, Context resolver/gating/current-contract/proposal coverage, Context Workbench story-position picker coverage, Context model resolver coverage, HP reference-deck conformance, Loredeck package import/export coverage, State Safety lifecycle/import checks, diagnostic redaction checks, prompt compression cache checks, prompt-injection stale-state source checks, dynamic chat-change and generation/disable prompt-clear smokes, the repo-local Basic workflow smoke contract, the visual smoke source contract, and the high-confidence secret scanner. Live SillyTavern smoke still needs a manual or CDP pass against the installed extension after the deterministic gate passes.
+
 ## Key Systems
 
 ### 1. Saga Runtime Shell
@@ -173,4 +185,5 @@ The highest-value path toward alpha is:
 2. Keep the deterministic HP harness family passing. Years 1, 2, 3, 4, 5, 7, and Epilogue/Post-War now have Context progression/injection harnesses, accepted-Lorecard Context gate behavior is covered by `tools/scripts/test-core-integration-hp-year6-accepted-context.mjs`, and the known Jan. 25 / `before Apparition lessons` resolver edge is covered in `tools/scripts/test-context-resolver.mjs`.
 3. Keep HP reference-deck conformance passing so `hp-core`, Years 1-7, and Epilogue/Post-War remain the clean bundled example.
 4. Stabilize remaining Loredeck Library and stack behavior at scale, especially folders, drag/drop, selection, and active-stack persistence.
-5. Keep running local and live SillyTavern smoke passes after each major slice to catch UI regressions, console errors, and interaction lag.
+5. Keep `node tools/scripts/run-alpha-gate.mjs` green before release metadata changes or alpha tagging.
+6. Keep running local and live SillyTavern smoke passes after each major slice to catch UI regressions, console errors, and interaction lag.

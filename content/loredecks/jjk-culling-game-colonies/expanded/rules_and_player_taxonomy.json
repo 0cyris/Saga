@@ -1,0 +1,749 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "jjk_culling_game_colonies_exp_kogane_acts_as_rule_interface",
+      "title": "Kogane Acts As Rule Interface",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.culling.colony-entry",
+        "validToAnchor": "jjk.culling.point-transfer-added",
+        "sortKeyFrom": 10000,
+        "sortKeyTo": 10500,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Culling Game rules pressure"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Kogane",
+          "Culling Game rules"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:culling-game-colonies",
+        "topic:kogane",
+        "topic:culling-game-rules"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "Kogane",
+            "Culling Game rules"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen early and middle Culling Game colony action through Tokyo No. 2 Hakari/Kashimo material.",
+        "notes": "Late Culling Game convergence, Sakurajima, Angel, Prison Realm resolution, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Kogane function as player-facing interfaces for Culling Game rules, points, colony notices, and rule additions.",
+        "injection": "Apply this JJK rule constraint: Kogane function as player-facing interfaces for Culling Game rules, points, colony notices, and rule additions.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Culling Game Colonies",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_culling_game_colonies_exp_points_create_murder_incentive",
+      "title": "Points Create Murder Incentive",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.culling.colony-entry",
+        "validToAnchor": "jjk.culling.point-transfer-added",
+        "sortKeyFrom": 10000,
+        "sortKeyTo": 10500,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Culling Game rules pressure"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Culling Game points",
+          "player incentive"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:culling-game-colonies",
+        "topic:culling-game-points",
+        "topic:player-incentive"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "Culling Game points",
+            "player incentive"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen early and middle Culling Game colony action through Tokyo No. 2 Hakari/Kashimo material.",
+        "notes": "Late Culling Game convergence, Sakurajima, Angel, Prison Realm resolution, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "The point system pressures players toward killing or coercive negotiations unless rule changes alter the incentive structure.",
+        "injection": "Apply this JJK rule constraint: The point system pressures players toward killing or coercive negotiations unless rule changes alter the incentive structure.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Culling Game Colonies",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_culling_game_colonies_exp_rule_addition_requires_player_points",
+      "title": "Rule Addition Requires Player Points",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.culling.colony-entry",
+        "validToAnchor": "jjk.culling.point-transfer-added",
+        "sortKeyFrom": 10000,
+        "sortKeyTo": 10500,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Culling Game rules pressure"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "rule addition",
+          "Game Master"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:culling-game-colonies",
+        "topic:rule-addition",
+        "topic:game-master"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "rule addition",
+            "Game Master"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen early and middle Culling Game colony action through Tokyo No. 2 Hakari/Kashimo material.",
+        "notes": "Late Culling Game convergence, Sakurajima, Angel, Prison Realm resolution, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Adding rules requires enough points and negotiation with the Game Master system rather than simple group consent.",
+        "injection": "Apply this JJK rule constraint: Adding rules requires enough points and negotiation with the Game Master system rather than simple group consent.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Culling Game Colonies",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_culling_game_colonies_exp_colonies_restrict_movement_and_information",
+      "title": "Colonies Restrict Movement And Information",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.culling.colony-entry",
+        "validToAnchor": "jjk.culling.point-transfer-added",
+        "sortKeyFrom": 10000,
+        "sortKeyTo": 10500,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Culling Game rules pressure"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "colony barriers",
+          "movement limits"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:culling-game-colonies",
+        "topic:colony-barriers",
+        "topic:movement-limits"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "colony barriers",
+            "movement limits"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen early and middle Culling Game colony action through Tokyo No. 2 Hakari/Kashimo material.",
+        "notes": "Late Culling Game convergence, Sakurajima, Angel, Prison Realm resolution, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Culling Game colonies create barrier-contained local problems where movement, communication, and rescue logistics are constrained.",
+        "injection": "Apply this JJK rule constraint: Culling Game colonies create barrier-contained local problems where movement, communication, and rescue logistics are constrained.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Culling Game Colonies",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_culling_game_colonies_exp_modern_awakened_players_differ_from_reincarnated_sorcerers",
+      "title": "Modern Awakened Players Differ From Reincarnated Sorcerers",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.culling.colony-entry",
+        "validToAnchor": "jjk.culling.point-transfer-added",
+        "sortKeyFrom": 10000,
+        "sortKeyTo": 10500,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Culling Game rules pressure"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "awakened players",
+          "reincarnated sorcerers"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:culling-game-colonies",
+        "topic:awakened-players",
+        "topic:reincarnated-sorcerers"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "awakened players",
+            "reincarnated sorcerers"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen early and middle Culling Game colony action through Tokyo No. 2 Hakari/Kashimo material.",
+        "notes": "Late Culling Game convergence, Sakurajima, Angel, Prison Realm resolution, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "The game includes modern awakened civilians and reincarnated past sorcerers, so motives and knowledge levels vary sharply.",
+        "injection": "Apply this JJK rule constraint: The game includes modern awakened civilians and reincarnated past sorcerers, so motives and knowledge levels vary sharply.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Culling Game Colonies",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_culling_game_colonies_exp_point_transfer_changes_negotiation_options",
+      "title": "Point Transfer Changes Negotiation Options",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.culling.colony-entry",
+        "validToAnchor": "jjk.culling.point-transfer-added",
+        "sortKeyFrom": 10000,
+        "sortKeyTo": 10500,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Culling Game rules pressure"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "point transfer",
+          "nonlethal bargaining"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:culling-game-colonies",
+        "topic:point-transfer",
+        "topic:nonlethal-bargaining"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "point transfer",
+            "nonlethal bargaining"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen early and middle Culling Game colony action through Tokyo No. 2 Hakari/Kashimo material.",
+        "notes": "Late Culling Game convergence, Sakurajima, Angel, Prison Realm resolution, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Once point transfer is added, nonlethal bargaining becomes more plausible, but danger remains because hostile players can still exploit points.",
+        "injection": "Apply this JJK rule constraint: Once point transfer is added, nonlethal bargaining becomes more plausible, but danger remains because hostile players can still exploit points.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Culling Game Colonies",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_culling_game_colonies_exp_civilian_rescue_is_not_the_games_default_priority",
+      "title": "Civilian Rescue Is Not The Game's Default Priority",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.culling.colony-entry",
+        "validToAnchor": "jjk.culling.point-transfer-added",
+        "sortKeyFrom": 10000,
+        "sortKeyTo": 10500,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Culling Game rules pressure"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "civilian rescue",
+          "Culling Game rules"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:culling-game-colonies",
+        "topic:civilian-rescue",
+        "topic:culling-game-rules"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "civilian rescue",
+            "Culling Game rules"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen early and middle Culling Game colony action through Tokyo No. 2 Hakari/Kashimo material.",
+        "notes": "Late Culling Game convergence, Sakurajima, Angel, Prison Realm resolution, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "The Culling Game's system does not prioritize civilian protection, so protagonists must create rescue possibilities inside hostile rules.",
+        "injection": "Apply this JJK rule constraint: The Culling Game's system does not prioritize civilian protection, so protagonists must create rescue possibilities inside hostile rules.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Culling Game Colonies",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_culling_game_colonies_exp_player_declarations_do_not_equal_trust",
+      "title": "Player Declarations Do Not Equal Trust",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.culling.colony-entry",
+        "validToAnchor": "jjk.culling.point-transfer-added",
+        "sortKeyFrom": 10000,
+        "sortKeyTo": 10500,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Culling Game rules pressure"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "player trust",
+          "colony negotiation"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:culling-game-colonies",
+        "topic:player-trust",
+        "topic:colony-negotiation"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "player trust",
+            "colony negotiation"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen early and middle Culling Game colony action through Tokyo No. 2 Hakari/Kashimo material.",
+        "notes": "Late Culling Game convergence, Sakurajima, Angel, Prison Realm resolution, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Knowing another player's name, points, or rule role does not make them trustworthy in colony scenes.",
+        "injection": "Apply this JJK rule constraint: Knowing another player's name, points, or rule role does not make them trustworthy in colony scenes.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Culling Game Colonies",
+        "confidence": 0.74,
+        "notes": "Generated as Saga draft-reference data for granular roleplay; verify against official chapters before human-vetted release."
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        }
+      }
+    }
+  ]
+}

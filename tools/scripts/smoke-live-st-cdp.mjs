@@ -4,6 +4,7 @@ import fs from 'node:fs/promises';
 import http from 'node:http';
 import net from 'node:net';
 import path from 'node:path';
+import { redactDiagnosticText, redactDiagnosticValue } from '../../src/runtime/runtime-redaction.js';
 
 const ST_URL = process.env.SAGA_ST_URL || 'http://127.0.0.1:8000/';
 const ROOT = path.resolve(new URL('../..', import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1'));
@@ -213,7 +214,7 @@ class CdpClient {
         this.ws.onMessage(async data => {
             try {
                 const raw = await readWebSocketData(data);
-                if (process.env.SAGA_SMOKE_DEBUG_FRAME) console.error(`CDP <= ${raw.slice(0, 500)}`);
+                if (process.env.SAGA_SMOKE_DEBUG_FRAME) console.error(`CDP <= ${redactDiagnosticText(raw).slice(0, 500)}`);
                 const payload = JSON.parse(raw);
                 if (payload.id && this.pending.has(payload.id)) {
                     const { resolve, reject } = this.pending.get(payload.id);
@@ -247,7 +248,7 @@ class CdpClient {
         const payload = { id, method, params };
         if (this.sessionId && !method.startsWith('Target.')) payload.sessionId = this.sessionId;
         const message = JSON.stringify(payload);
-        if (process.env.SAGA_SMOKE_DEBUG_FRAME) console.error(`CDP => ${message.slice(0, 500)}`);
+        if (process.env.SAGA_SMOKE_DEBUG_FRAME) console.error(`CDP => ${JSON.stringify(redactDiagnosticValue(payload)).slice(0, 500)}`);
         return new Promise((resolve, reject) => {
             const timer = setTimeout(() => {
                 this.pending.delete(id);
@@ -1563,7 +1564,11 @@ async function main() {
                 return {
                     open: !!overlay,
                     hasPackTitle: text.includes(packTitle),
-                    hasContextPicker: text.includes('Select From Timeline'),
+                    hasStoryPositionPicker: text.includes('Choose Story Position'),
+                    hasOldBrowseStoryWaypoints: text.includes('Browse Story Waypoints'),
+                    hasOldSelectFromTimeline: text.includes('Select From Timeline'),
+                    oldWaypointRows: overlay?.querySelectorAll('.saga-context-workbench-waypoint-row').length || 0,
+                    oldWaypointTargets: overlay?.querySelectorAll('[data-tour-target="context.workbench.waypoints"]').length || 0,
                     hasTimeline: text.includes('Timeline'),
                     hasAliases: text.includes('Aliases'),
                     hasValidation: text.includes('Validation'),
@@ -1573,11 +1578,13 @@ async function main() {
             }, LIVE_CONTEXT_LOADED_PACK_TITLE));
             if (!workbenchState.open) findings.push('Live loaded Context Workbench did not open.');
             if (!workbenchState.hasPackTitle) findings.push('Live loaded Context Workbench did not select HP Year 6.');
-            if (!workbenchState.hasContextPicker) findings.push('Live loaded Context Workbench did not render the Context picker.');
+            if (!workbenchState.hasStoryPositionPicker) findings.push('Live loaded Context Workbench did not render the story-position picker.');
+            if (workbenchState.hasOldBrowseStoryWaypoints || workbenchState.hasOldSelectFromTimeline) findings.push('Live loaded Context Workbench still rendered a retired picker label.');
+            if (workbenchState.oldWaypointRows || workbenchState.oldWaypointTargets) findings.push('Live loaded Context Workbench still rendered retired waypoint picker selectors or targets.');
             if (!workbenchState.hasTimeline || !workbenchState.hasAliases || !workbenchState.hasValidation) findings.push('Live loaded Context Workbench tabs did not render.');
 
-            const contextPickerSearch = '#saga-context-workbench .saga-context-workbench-context-picker input[type="search"]';
-            const aliasSearch = await setInputValue(client, contextPickerSearch, 'Ron dates the blonde girl', { eventName: 'change' });
+            const storyPositionSearch = '#saga-context-workbench .saga-context-workbench-story-position-picker input[type="search"]';
+            const aliasSearch = await setInputValue(client, storyPositionSearch, 'Ron dates the blonde girl', { eventName: 'change' });
             await wait(700);
             const aliasState = await evaluate(client, script(() => {
                 const overlay = document.querySelector('#saga-context-workbench');
@@ -1585,19 +1592,21 @@ async function main() {
                 return {
                     searched: true,
                     hasRonLavender: text.includes('Ron Lavender Start'),
-                    rowCount: overlay?.querySelectorAll('.saga-context-workbench-context-picker-row').length || 0,
+                    rowCount: overlay?.querySelectorAll('.saga-context-workbench-story-position-row').length || 0,
+                    oldRowCount: overlay?.querySelectorAll('.saga-context-workbench-waypoint-row').length || 0,
                     text: text.slice(0, 1400),
                 };
             }));
             if (!aliasSearch) findings.push('Live loaded Context Workbench alias search input was not available.');
             if (!aliasState.hasRonLavender) findings.push('Live loaded Context Browser did not resolve the Ron/Lavender alias in visible results.');
+            if (aliasState.oldRowCount) findings.push('Live loaded Context Workbench alias search rendered retired waypoint rows.');
 
-            const afterSearch = await setInputValue(client, contextPickerSearch, 'Post Christmas Return', { eventName: 'change' });
+            const afterSearch = await setInputValue(client, storyPositionSearch, 'Post Christmas Return', { eventName: 'change' });
             await wait(700);
             const afterClicked = await clickButtonInRow(
                 client,
                 '#saga-context-workbench',
-                '.saga-context-workbench-context-picker-row',
+                '.saga-context-workbench-story-position-row',
                 'Post Christmas Return',
                 'After',
             );
@@ -1605,12 +1614,12 @@ async function main() {
             if (!afterClicked) findings.push('Live loaded Context Browser could not apply Post Christmas Return as the After bound.');
             await wait(800);
 
-            const beforeSearch = await setInputValue(client, contextPickerSearch, 'Apparition Lessons Begin', { eventName: 'change' });
+            const beforeSearch = await setInputValue(client, storyPositionSearch, 'Apparition Lessons Begin', { eventName: 'change' });
             await wait(700);
             const beforeClicked = await clickButtonInRow(
                 client,
                 '#saga-context-workbench',
-                '.saga-context-workbench-context-picker-row',
+                '.saga-context-workbench-story-position-row',
                 'Apparition Lessons Begin',
                 'Before',
             );

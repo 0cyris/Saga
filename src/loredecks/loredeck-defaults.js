@@ -723,7 +723,14 @@ const JJK_SPLIT_LOREDECKS = Object.freeze([
         era: 'Jujutsu Kaisen 0 Prequel',
         familyOrder: 20,
         tags: ['fandom:jjk', 'continuity:jjk-zero', 'adaptation:manga', 'arc:jjk-zero', 'quality:draft-reference'],
-        assets: null,
+        assets: {
+            cover: {
+                path: 'assets/cover.png',
+                alt: 'Deck cover for Jujutsu Kaisen 0',
+                aspect: '1:1',
+                focalPoint: { x: 0.5, y: 0.5 },
+            },
+        },
         stats: {
             entryCount: 10,
             categoryCounts: { character: 1, event: 1, faction: 2, knowledge: 1, relationship: 1, rule: 1, secret: 3 },
@@ -826,7 +833,14 @@ const JJK_SPLIT_LOREDECKS = Object.freeze([
         era: 'Culling Game Colonies',
         familyOrder: 70,
         tags: ['fandom:jjk', 'continuity:jjk-manga-main', 'adaptation:manga', 'arc:culling-game-colonies', 'quality:draft-reference'],
-        assets: null,
+        assets: {
+            cover: {
+                path: 'assets/cover.png',
+                alt: 'Deck cover for Jujutsu Kaisen: Culling Game Colonies',
+                aspect: '1:1',
+                focalPoint: { x: 0.5, y: 0.5 },
+            },
+        },
         stats: {
             entryCount: 12,
             categoryCounts: { character: 1, event: 6, faction: 1, knowledge: 1, rule: 2, secret: 1 },
@@ -841,7 +855,14 @@ const JJK_SPLIT_LOREDECKS = Object.freeze([
         era: 'Culling Game Convergence',
         familyOrder: 80,
         tags: ['fandom:jjk', 'continuity:jjk-manga-main', 'adaptation:manga', 'arc:culling-game-convergence', 'quality:draft-reference'],
-        assets: null,
+        assets: {
+            cover: {
+                path: 'assets/cover.png',
+                alt: 'Deck cover for Jujutsu Kaisen: Culling Game Convergence',
+                aspect: '1:1',
+                focalPoint: { x: 0.5, y: 0.5 },
+            },
+        },
         stats: {
             entryCount: 12,
             categoryCounts: { event: 4, faction: 1, knowledge: 3, rule: 1, secret: 3 },
@@ -856,7 +877,14 @@ const JJK_SPLIT_LOREDECKS = Object.freeze([
         era: 'Shinjuku Showdown and Aftermath',
         familyOrder: 90,
         tags: ['fandom:jjk', 'continuity:jjk-manga-main', 'adaptation:manga', 'arc:shinjuku-showdown', 'quality:draft-reference'],
-        assets: null,
+        assets: {
+            cover: {
+                path: 'assets/cover.png',
+                alt: 'Deck cover for Jujutsu Kaisen: Shinjuku Showdown and Aftermath',
+                aspect: '1:1',
+                focalPoint: { x: 0.5, y: 0.5 },
+            },
+        },
         stats: {
             entryCount: 12,
             categoryCounts: { event: 5, knowledge: 2, relationship: 1, rule: 2, secret: 2 },
@@ -872,7 +900,14 @@ const JJK_SPLIT_LOREDECKS = Object.freeze([
         familyOrder: 110,
         libraryPath: ['Jujutsu Kaisen', 'Modulo'],
         tags: ['fandom:jjk', 'continuity:jjk-modulo', 'adaptation:manga', 'arc:modulo', 'quality:draft-reference'],
-        assets: null,
+        assets: {
+            cover: {
+                path: 'assets/cover.png',
+                alt: 'Deck cover for Jujutsu Kaisen Modulo',
+                aspect: '1:1',
+                focalPoint: { x: 0.5, y: 0.5 },
+            },
+        },
         stats: {
             entryCount: 12,
             categoryCounts: { event: 3, knowledge: 3, relationship: 1, rule: 3, secret: 2 },

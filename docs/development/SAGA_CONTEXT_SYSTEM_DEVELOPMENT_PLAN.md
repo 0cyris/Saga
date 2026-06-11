@@ -202,7 +202,7 @@ Saga uses the Context Index and loaded Loredeck stack to rank candidates:
 - Aliases.
 - Dates and sort keys.
 - Arc/phase/season/episode/chapter fields.
-- Lorecard-derived event waypoints when explicitly loaded or when cheap enough.
+- Lorecard-derived story events when explicitly loaded or when cheap enough.
 
 Local matching should generate candidates, not pretend to understand every casual phrase.
 
@@ -668,7 +668,7 @@ $env:SAGA_SMOKE_TARGET='context-harness'
 node tools\scripts\smoke-live-st-cdp.mjs
 ```
 
-The helper starts the local harness, opens the Context proposal review, applies the seeded bounded proposal, opens the Context Workbench, captures `context-harness-01-proposal-review.png` and `context-harness-02-workbench.png`, and fails on findings or browser console errors. This pass caught and fixed a Context Workbench `Current Window` layout overlap in the waypoint browser.
+The helper starts the local harness, opens the Context proposal review, applies the seeded bounded proposal, opens the Context Workbench, captures `context-harness-01-proposal-review.png` and `context-harness-02-workbench.png`, and fails on findings or browser console errors. This pass caught and fixed a Context Workbench `Selected Range` layout overlap in the story-position picker.
 
 Live installed SillyTavern Context smoke now runs through the same CDP helper after the active extension copy is synced:
 

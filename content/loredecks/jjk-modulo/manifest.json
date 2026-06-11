@@ -8,7 +8,7 @@
   "era": "Modulo Sequel",
   "contentKind": "fandom",
   "author": "Saga",
-  "version": "0.1.0",
+  "version": "0.2.0-phase1",
   "defaultLocale": "en",
   "tags": [
     "fandom:jjk",
@@ -51,7 +51,11 @@
   "files": [
     "future/arrival_and_mission.json",
     "future/coexistence_and_conflict.json",
-    "future/final_resolution.json"
+    "future/final_resolution.json",
+    "expanded/sequel_continuity_guards.json",
+    "expanded/future_character_states.json",
+    "expanded/sequel_rules.json",
+    "expanded/future_event_anchors.json"
   ],
   "compatibility": {
     "sagaSchemaMin": 3,
@@ -74,13 +78,14 @@
     }
   ],
   "stats": {
-    "entryCount": 12,
+    "entryCount": 27,
     "categoryCounts": {
-      "event": 3,
-      "knowledge": 3,
+      "character": 4,
+      "event": 7,
+      "knowledge": 4,
       "relationship": 1,
-      "rule": 3,
-      "secret": 2
+      "rule": 6,
+      "secret": 5
     },
     "timelineAnchorCount": 9,
     "timelineWindowCount": 4
@@ -90,8 +95,8 @@
     "notes": "For local testing. Requires human canon review before reference release."
   },
   "health": {
-    "status": "good",
-    "notes": "Initial Modulo scaffold is designed for local structural health checks; not a substitute for human canon review."
+    "status": "needs_review",
+    "notes": "Expanded phase-1 draft-reference package; generated cards require human canon review before reference release."
   },
   "library": {
     "suggestedPath": [

@@ -8,7 +8,7 @@
   "era": "Post-Shibuya / Perfect Preparation",
   "contentKind": "fandom",
   "author": "Saga",
-  "version": "0.1.0",
+  "version": "0.2.0-phase1",
   "defaultLocale": "en",
   "tags": [
     "fandom:jjk",
@@ -63,7 +63,11 @@
   "files": [
     "post_shibuya/punitive_return.json",
     "post_shibuya/tengen_culling_setup.json",
-    "post_shibuya/perfect_preparation.json"
+    "post_shibuya/perfect_preparation.json",
+    "expanded/event_anchors.json",
+    "expanded/status_and_factions.json",
+    "expanded/abilities_and_constraints.json",
+    "expanded/knowledge_gates.json"
   ],
   "compatibility": {
     "sagaSchemaMin": 3,
@@ -79,13 +83,14 @@
     }
   ],
   "stats": {
-    "entryCount": 12,
+    "entryCount": 34,
     "categoryCounts": {
-      "event": 3,
+      "character": 6,
+      "event": 11,
       "faction": 2,
-      "knowledge": 3,
-      "rule": 2,
-      "secret": 2
+      "knowledge": 4,
+      "rule": 6,
+      "secret": 5
     },
     "timelineAnchorCount": 9,
     "timelineWindowCount": 4
@@ -95,8 +100,8 @@
     "notes": "For local testing. Requires human canon review before reference release."
   },
   "health": {
-    "status": "good",
-    "notes": "Initial Post-Shibuya and Perfect Preparation scaffold passes local structural health checks; not a substitute for human canon review."
+    "status": "needs_review",
+    "notes": "Expanded phase-1 draft-reference package; generated cards require human canon review before reference release."
   },
   "library": {
     "suggestedPath": [

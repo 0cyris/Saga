@@ -408,6 +408,7 @@ Direct injection block:
         'settings.identity': false,
         'settings.providers': false,
         'settings.themePack': true,
+        'settings.stateSafety': true,
         'injection.promptPlacement': true,
         'continuity.scan': false,
         'continuity.pendingChanges': false,
@@ -623,6 +624,16 @@ export function getDefaultState() {
             candidates: {},
         },
 
+        stateSafety: {
+            schemaVersion: 1,
+            backups: [],
+            migrationLog: [],
+            lastBackupAt: 0,
+            lastBackupReason: '',
+            lastRestoreAt: 0,
+            lastRestoreSource: '',
+        },
+
         // Resumable Loredeck Creator jobs (schema v23)
         loredeckCreator: {
             schemaVersion: 1,
@@ -707,12 +718,16 @@ export function getDefaultState() {
         // Runtime rail + drawer UI state (schema v16). Legacy x/y/width/height
         // remain as migration aliases for older saved Saga panels.
         lorePanel: {
-            isOpen: true,
-            collapsed: false,
-            railMode: 'expanded',
+            isOpen: false,
+            hasOpenedRuntime: false,
+            launcherDismissed: false,
+            firstOpenedAt: 0,
+            lastOpenedAt: 0,
+            collapsed: true,
+            railMode: 'compact',
             railX: 20,
             railY: 220,
-            drawerOpen: true,
+            drawerOpen: false,
             drawerWidth: 560,
             drawerHeight: 640,
             drawerDirection: 'auto',

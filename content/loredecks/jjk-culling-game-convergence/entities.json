@@ -431,6 +431,93 @@
         "confidence": 0.8
       },
       "extensions": {}
+    },
+    "jjk:naoya-zenin": {
+      "type": "character",
+      "label": "Naoya Zenin",
+      "aliases": [],
+      "canonicalNames": [
+        "Naoya Zenin"
+      ],
+      "tags": [
+        "character:naoya-zenin"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen late Culling Game convergence through Gojo unsealing and Shinjuku setup.",
+        "notes": "Shinjuku Showdown battle events, final Sukuna resolution, epilogue, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.7
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_entity_stub"
+        }
+      }
+    },
+    "jjk:toji-fushiguro": {
+      "type": "character",
+      "label": "Toji Fushiguro",
+      "aliases": [],
+      "canonicalNames": [
+        "Toji Fushiguro"
+      ],
+      "tags": [
+        "character:toji-fushiguro"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen late Culling Game convergence through Gojo unsealing and Shinjuku setup.",
+        "notes": "Shinjuku Showdown battle events, final Sukuna resolution, epilogue, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.7
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_entity_stub"
+        }
+      }
+    },
+    "jjk:yuki-tsukumo": {
+      "type": "character",
+      "label": "Yuki Tsukumo",
+      "aliases": [],
+      "canonicalNames": [
+        "Yuki Tsukumo"
+      ],
+      "tags": [
+        "character:yuki-tsukumo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen late Culling Game convergence through Gojo unsealing and Shinjuku setup.",
+        "notes": "Shinjuku Showdown battle events, final Sukuna resolution, epilogue, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.7
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_entity_stub"
+        }
+      }
     }
   }
 }

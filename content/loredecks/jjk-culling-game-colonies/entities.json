@@ -324,6 +324,267 @@
         "confidence": 0.84
       },
       "extensions": {}
+    },
+    "jjk:charles-bernard": {
+      "type": "character",
+      "label": "Charles Bernard",
+      "aliases": [],
+      "canonicalNames": [
+        "Charles Bernard"
+      ],
+      "tags": [
+        "character:charles-bernard"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen early and middle Culling Game colony action through Tokyo No. 2 Hakari/Kashimo material.",
+        "notes": "Late Culling Game convergence, Sakurajima, Angel, Prison Realm resolution, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.7
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_entity_stub"
+        }
+      }
+    },
+    "jjk:fumihiko-takaba": {
+      "type": "character",
+      "label": "Fumihiko Takaba",
+      "aliases": [],
+      "canonicalNames": [
+        "Fumihiko Takaba"
+      ],
+      "tags": [
+        "character:fumihiko-takaba"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen early and middle Culling Game colony action through Tokyo No. 2 Hakari/Kashimo material.",
+        "notes": "Late Culling Game convergence, Sakurajima, Angel, Prison Realm resolution, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.7
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_entity_stub"
+        }
+      }
+    },
+    "jjk:gojo-satoru": {
+      "type": "character",
+      "label": "Satoru Gojo",
+      "aliases": [],
+      "canonicalNames": [
+        "Satoru Gojo"
+      ],
+      "tags": [
+        "character:gojo-satoru"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen early and middle Culling Game colony action through Tokyo No. 2 Hakari/Kashimo material.",
+        "notes": "Late Culling Game convergence, Sakurajima, Angel, Prison Realm resolution, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.7
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_entity_stub"
+        }
+      }
+    },
+    "jjk:hajime-kashimo": {
+      "type": "character",
+      "label": "Kashimo",
+      "aliases": [],
+      "canonicalNames": [
+        "Kashimo"
+      ],
+      "tags": [
+        "character:hajime-kashimo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen early and middle Culling Game colony action through Tokyo No. 2 Hakari/Kashimo material.",
+        "notes": "Late Culling Game convergence, Sakurajima, Angel, Prison Realm resolution, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.7
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_entity_stub"
+        }
+      }
+    },
+    "jjk:hiromi-higuruma": {
+      "type": "character",
+      "label": "Higuruma",
+      "aliases": [],
+      "canonicalNames": [
+        "Higuruma"
+      ],
+      "tags": [
+        "character:hiromi-higuruma"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen early and middle Culling Game colony action through Tokyo No. 2 Hakari/Kashimo material.",
+        "notes": "Late Culling Game convergence, Sakurajima, Angel, Prison Realm resolution, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.7
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_entity_stub"
+        }
+      }
+    },
+    "jjk:kinji-hakari": {
+      "type": "character",
+      "label": "Hakari",
+      "aliases": [],
+      "canonicalNames": [
+        "Hakari"
+      ],
+      "tags": [
+        "character:kinji-hakari"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen early and middle Culling Game colony action through Tokyo No. 2 Hakari/Kashimo material.",
+        "notes": "Late Culling Game convergence, Sakurajima, Angel, Prison Realm resolution, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.7
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_entity_stub"
+        }
+      }
+    },
+    "jjk:panda": {
+      "type": "character",
+      "label": "Panda",
+      "aliases": [],
+      "canonicalNames": [
+        "Panda"
+      ],
+      "tags": [
+        "character:panda"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen early and middle Culling Game colony action through Tokyo No. 2 Hakari/Kashimo material.",
+        "notes": "Late Culling Game convergence, Sakurajima, Angel, Prison Realm resolution, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.7
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_entity_stub"
+        }
+      }
+    },
+    "jjk:ryomen-sukuna": {
+      "type": "character",
+      "label": "Ryomen Sukuna",
+      "aliases": [],
+      "canonicalNames": [
+        "Ryomen Sukuna"
+      ],
+      "tags": [
+        "character:ryomen-sukuna"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen early and middle Culling Game colony action through Tokyo No. 2 Hakari/Kashimo material.",
+        "notes": "Late Culling Game convergence, Sakurajima, Angel, Prison Realm resolution, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.7
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_entity_stub"
+        }
+      }
+    },
+    "jjk:yorozu": {
+      "type": "character",
+      "label": "Yorozu",
+      "aliases": [],
+      "canonicalNames": [
+        "Yorozu"
+      ],
+      "tags": [
+        "character:yorozu"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen early and middle Culling Game colony action through Tokyo No. 2 Hakari/Kashimo material.",
+        "notes": "Late Culling Game convergence, Sakurajima, Angel, Prison Realm resolution, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.7
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_entity_stub"
+        }
+      }
     }
   }
 }
