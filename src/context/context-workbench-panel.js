@@ -929,14 +929,15 @@ function createContextWorkbenchWaypointRow(pack, item = {}, context = {}) {
 
     const actions = document.createElement('div');
     actions.className = 'saga-context-workbench-row-actions';
+    markTourTarget(actions, 'context.workbench.applyContext');
     if (item.kind === 'window') {
-        actions.appendChild(markTourTarget(createButton('Use Window', 'Apply this whole timeline window as the current Context.', () => {
+        actions.appendChild(createButton('Use Window', 'Apply this whole timeline window as the current Context.', () => {
             applyContextTimelineItem(pack.packId, item);
-        }, 'saga-primary-button'), 'context.workbench.applyContext'));
+        }, 'saga-primary-button'));
     } else {
-        actions.appendChild(markTourTarget(createButton('Start Here', 'Apply this waypoint as the exact starting Context.', () => {
+        actions.appendChild(createButton('Start Here', 'Apply this waypoint as the exact starting Context.', () => {
             applyContextWaypointItem(pack.packId, item);
-        }, 'saga-primary-button'), 'context.workbench.applyContext'));
+        }, 'saga-primary-button'));
         actions.appendChild(createButton('After', 'Use this waypoint as the lower bound of the current Context window.', () => {
             applyContextWaypointBoundary(pack.packId, item, 'from');
         }));
@@ -1515,14 +1516,15 @@ function createContextWorkbenchContextPickerRow(pack, item = {}, currentKey = ''
 
     const actions = document.createElement('div');
     actions.className = 'saga-context-workbench-row-actions';
+    markTourTarget(actions, 'context.workbench.applyContext');
     if (item.kind === 'window') {
-        actions.appendChild(markTourTarget(createButton('Use Window', 'Apply this timeline window as the selected Context.', () => {
+        actions.appendChild(createButton('Use Window', 'Apply this timeline window as the selected Context.', () => {
             applyContextTimelineItem(pack.packId, item);
-        }, 'saga-primary-button'), 'context.workbench.applyContext'));
+        }, 'saga-primary-button'));
     } else {
-        actions.appendChild(markTourTarget(createButton('Use Anchor', 'Apply this anchor as the exact Context.', () => {
+        actions.appendChild(createButton('Use Anchor', 'Apply this anchor as the exact Context.', () => {
             applyContextTimelineItem(pack.packId, item);
-        }, 'saga-primary-button'), 'context.workbench.applyContext'));
+        }, 'saga-primary-button'));
         actions.appendChild(createButton('After', 'Use this anchor as the lower bound of the current Context window.', () => {
             applyContextAnchorBoundary(pack.packId, item, 'from');
         }));

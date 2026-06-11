@@ -1,3 +1,52 @@
+const CONTEXT_PLACEHOLDER_VALUES = Object.freeze(new Set([
+    'unset',
+    'unset.',
+    'no context set',
+    'no context set.',
+    'unknown',
+    'n/a',
+    'none',
+]));
+
+function hasContextTextValue(value) {
+    const text = String(value || '').replace(/\s+/g, ' ').trim();
+    if (!text) return false;
+    return !CONTEXT_PLACEHOLDER_VALUES.has(text.toLowerCase());
+}
+
+function hasContextNumberValue(value) {
+    if (value === null || value === undefined || value === '') return false;
+    return Number.isFinite(Number(value));
+}
+
+export function hasSelectedLoredeckContext(context = {}) {
+    if (!context || typeof context !== 'object' || Array.isArray(context)) return false;
+    if (hasContextTextValue(context.branchId) && String(context.branchId).trim() !== 'main') return true;
+    if ([
+        context.sceneDate,
+        context.subjectiveDate,
+        context.stardate,
+        context.anchorId,
+        context.anchorFrom,
+        context.anchorTo,
+        context.arc,
+        context.phase,
+        context.season,
+        context.episode,
+        context.chapter,
+        context.issue,
+        context.quest,
+        context.gameStage,
+        context.alias,
+        context.label,
+    ].some(hasContextTextValue)) return true;
+    if (hasContextNumberValue(context.contextSortKey)) return true;
+    if (hasContextNumberValue(context.contextSortKeyFrom)) return true;
+    if (hasContextNumberValue(context.contextSortKeyTo)) return true;
+    return Array.isArray(context.coordinates)
+        && context.coordinates.some(item => item && typeof item === 'object' && Object.values(item).some(hasContextTextValue));
+}
+
 export function buildBasicReadinessModel(input = {}) {
     const acceptedCount = Math.max(0, Number(input.acceptedCount) || 0);
     const contextCount = Math.max(0, Number(input.contextCount) || 0);

@@ -26,6 +26,8 @@ Basic keeps **Import Deck** available. Basic does not show **Create Deck** or in
 
 Use **Context** to set the current story position for each loaded Loredeck. **Browse Context** is the trusted manual path when you know the correct arc, chapter, date, episode, quest, or event.
 
+In the Context Workbench, **Anchors** are exact story points, **Windows** are ranges between points, and **Start Here** applies one Anchor as the chat's current starting position.
+
 Use **Detect Context** after scene jumps, time skips, chapter changes, episode changes, travel, or major plot turns. Treat uncertain detection as a proposal until you verify it.
 
 Return to Context whenever the story crosses a meaningful boundary. Correct Context is what keeps canon suggestions and Lorecard eligibility aligned with the current scene.

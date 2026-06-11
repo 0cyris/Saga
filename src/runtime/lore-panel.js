@@ -13,7 +13,7 @@ import {
     DEFAULT_SETTINGS,
 } from '../state/constants.js';
 import { applyExperienceModeSettings } from './runtime-experience-mode.js';
-import { buildBasicReadinessModel } from './runtime-basic-readiness.js';
+import { buildBasicReadinessModel, hasSelectedLoredeckContext } from './runtime-basic-readiness.js';
 import {
     getState,
     getSettings,
@@ -754,6 +754,7 @@ configureContextPanel({
     getContextTypeLabel,
     formatContextSource,
     formatContextSummary,
+    hasSelectedLoredeckContext,
     getContextAutomationModeLabel,
     getContextBriefStatusLabel,
     getContextBriefStatusTone,
@@ -16504,16 +16505,16 @@ const BASIC_CHECKLIST_TOUR_TASKS_BY_ROW = Object.freeze({
                 expected: 'The Workbench focuses the Loredeck that needs Context.',
                 when: 'Use this when the active stack has more than one Loredeck.',
             }),
-            basicChecklistTourStep('basic-checklist-context-browse', 'Browse Story Waypoints', 'Use Browse Story Waypoints to scan arcs, dates, episodes, chapters, quests, events, and other story-position anchors.', 'context', 'context.workbench.waypoints', {
+            basicChecklistTourStep('basic-checklist-context-browse', 'Browse Story Waypoints', 'Use Browse Story Waypoints to scan the Loredeck timeline. Anchors are exact story points; Windows are ranges between points.', 'context', 'context.workbench.waypoints', {
                 fallbackTarget: 'context.workbench.contextPicker',
                 prepare: 'openContextBrowser',
-                expected: 'The available story positions are visible before you choose one.',
+                expected: 'Anchors and Windows are visible before you choose the current story position.',
                 when: 'Use this before the first roleplay message so Saga starts at the right point.',
             }),
-            basicChecklistTourStep('basic-checklist-context-apply', 'Select Current Position', 'Press Start Here or Use Window for the exact point, or use After and Before to make a bounded Context window.', 'context', 'context.workbench.applyContext', {
+            basicChecklistTourStep('basic-checklist-context-apply', 'Select Current Position', 'Press Start Here when the story begins at one Anchor. Press Use Window for a listed Window, or use After and Before to create your own range.', 'context', 'context.workbench.applyContext', {
                 fallbackTarget: 'context.workbench.contextPicker',
                 prepare: 'openContextBrowser',
-                expected: 'A Context row is set for the loaded Loredeck.',
+                expected: 'A real Anchor, Window, date, or story position is selected for the loaded Loredeck.',
                 when: 'Use this to set a trusted manual Context.',
             }),
             basicChecklistTourStep('basic-checklist-context-verify', 'Verify Loaded Rows', 'Confirm the loaded Loredeck Context rows show the story position you expect.', 'context', 'context.loadedLoredecks', {
@@ -18237,31 +18238,7 @@ function getEnabledLoredeckStackPackIds(state = getState()) {
 }
 
 function hasUsableLoredeckContext(context = {}) {
-    if (!context || typeof context !== 'object' || Array.isArray(context)) return false;
-    if (String(context.branchId || '').trim() && String(context.branchId || '').trim() !== 'main') return true;
-    if ([
-        context.sceneDate,
-        context.subjectiveDate,
-        context.stardate,
-        context.anchorId,
-        context.anchorFrom,
-        context.anchorTo,
-        context.arc,
-        context.phase,
-        context.season,
-        context.episode,
-        context.chapter,
-        context.issue,
-        context.quest,
-        context.gameStage,
-        context.alias,
-        context.label,
-    ].some(value => String(value || '').trim())) return true;
-    if (Number.isFinite(Number(context.contextSortKey))) return true;
-    if (Number.isFinite(Number(context.contextSortKeyFrom))) return true;
-    if (Number.isFinite(Number(context.contextSortKeyTo))) return true;
-    return Array.isArray(context.coordinates)
-        && context.coordinates.some(item => item && typeof item === 'object' && Object.values(item).some(value => String(value || '').trim()));
+    return hasSelectedLoredeckContext(context);
 }
 
 function getCanonSuggestionContext(state = getState()) {

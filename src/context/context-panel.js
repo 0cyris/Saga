@@ -31,6 +31,7 @@ function getLoredeckDisplayName(packId) { return dep('getLoredeckDisplayName', p
 function getContextTypeLabel(value) { return dep('getContextTypeLabel', value => String(value || 'Custom'))(value); }
 function formatContextSource(value) { return dep('formatContextSource', value => String(value || 'Unknown'))(value); }
 function formatContextSummary(context) { return dep('formatContextSummary', () => 'No Context set.')(context); }
+function hasSelectedLoredeckContext(context) { return dep('hasSelectedLoredeckContext', () => false)(context); }
 function getContextAutomationModeLabel(mode) { return dep('getContextAutomationModeLabel', mode => String(mode || 'Manual'))(mode); }
 function getContextBriefStatusLabel(status) { return dep('getContextBriefStatusLabel', () => 'Idle')(status); }
 function getContextBriefStatusTone(status) { return dep('getContextBriefStatusTone', () => 'unknown')(status); }
@@ -813,6 +814,7 @@ function createLoredeckContextRow(item, state = {}, contextIndex = null, options
     const context = getLoredeckContext(state, packId);
     const packIndex = getContextPackSummary(contextIndex, packId);
     const summaryText = formatContextSummary(context);
+    const hasSelectedContext = hasSelectedLoredeckContext(context);
     const row = document.createElement('div');
     row.className = 'saga-loredeck-context-row';
     if (basic) row.classList.add('saga-loredeck-context-row-basic');
@@ -827,7 +829,7 @@ function createLoredeckContextRow(item, state = {}, contextIndex = null, options
     const chips = document.createElement('div');
     chips.className = 'saga-loredeck-row-meta';
     if (basic) {
-        chips.appendChild(createStatusPill(summaryText === 'No Context set.' ? 'No Context set' : 'Context set', summaryText === 'No Context set.' ? 'Browse Context for this Loredeck.' : 'This Loredeck has an active Context.'));
+        chips.appendChild(createStatusPill(hasSelectedContext ? 'Context selected' : 'No Context set', hasSelectedContext ? 'This Loredeck has an active Context.' : 'Browse Context for this Loredeck.'));
         chips.appendChild(createStatusPill(`Updated: ${formatLoredeckContextUpdatedAt(context)}`, 'When this Loredeck Context was last updated.'));
         if (packIndex?.hasIndex) {
             chips.appendChild(createStatusPill(`${packIndex.anchorCount || 0} anchors`, 'Timeline anchors available from this Loredeck.'));

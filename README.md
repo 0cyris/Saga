@@ -82,7 +82,7 @@ The important rule is simple: source lore, generated drafts, accepted chat lore,
 
 Basic Experience keeps the first-run path narrow. The Start Checklist is the operator's quick answer to: "Is Saga ready to influence this chat?"
 
-Use it to confirm that Saga is active, Loredecks are loaded, Context is set, Lorecards are available, and injection has something useful to send.
+Use it to confirm that Saga is active, Loredecks are loaded, Context has been browsed and selected in the Context Workbench, Lorecards are available, and injection has something useful to send.
 
 <p align="center">
   <img src="assets/documentation/renders/docs-basic-walkthrough-modules.png" alt="Saga Basic Walkthrough module cards" width="800">
@@ -202,7 +202,7 @@ Loaded Loredeck Context rows show which decks have Context, whether that Context
   <img src="assets/documentation/renders/docs-context-workbench.png" alt="Saga Context workbench" width="800">
 </p>
 
-The Context workbench supports browsing and selecting story positions from loaded Loredecks.
+The Context Workbench supports browsing loaded Loredecks, choosing the current story position, and applying a waypoint or window before the story starts.
 
 <p align="center">
   <img src="assets/documentation/renders/docs-context-proposal-review.png" alt="Saga Context proposal review" width="800">

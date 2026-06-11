@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 
-import { buildBasicReadinessModel } from '../../src/runtime/runtime-basic-readiness.js';
+import { buildBasicReadinessModel, hasSelectedLoredeckContext } from '../../src/runtime/runtime-basic-readiness.js';
 
 function row(model, id) {
     return model.rows.find(item => item.id === id);
@@ -29,6 +29,10 @@ model = assertNext(
     'missing Context'
 );
 assert.equal(row(model, 'context').missingText, 'Browse Context before starting', 'Loaded deck without Context should ask users to browse before story start.');
+
+assert.equal(hasSelectedLoredeckContext({ packId: 'hp-year-6', contextType: 'anchor_window', label: 'unset', source: 'unknown', branchId: 'main' }), false, 'Placeholder Context rows must not count as selected.');
+assert.equal(hasSelectedLoredeckContext({ packId: 'hp-year-6', contextType: 'anchor_window', anchorFrom: 'hp.y6.start', label: 'After HP Year 6 start' }), true, 'Selected anchor/window Context should count.');
+assert.equal(hasSelectedLoredeckContext({ packId: 'hp-year-6', contextType: 'calendar', sceneDate: '1996-09-01' }), true, 'Selected date Context should count.');
 
 model = assertNext(
     { enabledLoredecks: 1, contextCount: 1, acceptedCount: 0, pendingCount: 2, selectedLore: 0, providerReady: false },

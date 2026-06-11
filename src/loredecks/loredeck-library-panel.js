@@ -24,7 +24,7 @@ import {
     resolveLoredeckStackItems,
 } from './loredeck-library-index.js';
 import { resolveLoredeckLibraryDragFeedback } from './loredeck-library-drag.js';
-import { sortLoredeckLibraryFolderTreeByTitle, sortLoredeckLibraryPacks } from './loredeck-library-view.js';
+import { sortLoredeckLibraryFolderPacks, sortLoredeckLibraryFolderTreeByTitle, sortLoredeckLibraryPacks } from './loredeck-library-view.js';
 import {
     applyLoredeckLibraryFolderRemovalPlan,
     createLoredeckLibraryFolderRecord,
@@ -1446,6 +1446,7 @@ function createLoredeckLibraryHierarchyList(visiblePacks = [], stack = [], canon
     const query = String(loredeckLibraryQuery || '').trim();
     const activeViewId = getLoredeckLibraryActiveViewId();
     const folderIds = new Set((libraryIndex.folders || []).map(folder => folder.id));
+    const registry = getLoredeckLibraryRegistry(getState());
     const renderModel = buildLoredeckLibraryFolderRenderModel(library, libraryIndex, stack, canonDb, health);
     const searchModel = getLoredeckLibraryHierarchySearchModel(scopedLibrary, visiblePacks, libraryIndex, activeViewId);
     const visibleOrder = [];
@@ -1475,7 +1476,7 @@ function createLoredeckLibraryHierarchyList(visiblePacks = [], stack = [], canon
 
     const showEmptyFolders = !query && activeViewId === 'all';
     const appendFolder = (folder, depth = 0) => {
-        const visibleDirect = visibleByFolder.get(folder.id) || [];
+        const visibleDirect = sortLoredeckLibraryFolderPacks(visibleByFolder.get(folder.id) || [], { registry });
         const searchState = getLoredeckLibraryFolderSearchState(folder.id, searchModel);
         const shouldRender = showEmptyFolders || searchModel.visibleFolderIds.has(folder.id);
         if (!shouldRender) return;
@@ -1500,7 +1501,10 @@ function createLoredeckLibraryHierarchyList(visiblePacks = [], stack = [], canon
     const folders = sortLoredeckLibraryFolderTreeByTitle(buildFolderTree(libraryIndex));
     for (const folder of folders) appendFolder(folder, 0);
 
-    const unfiledVisible = unfiledPacks.length ? unfiledPacks : (showEmptyFolders ? renderModel.unfiledPacks : []);
+    const unfiledVisible = sortLoredeckLibraryPacks(
+        unfiledPacks.length ? unfiledPacks : (showEmptyFolders ? renderModel.unfiledPacks : []),
+        { sortMode: 'name', registry }
+    );
     for (const pack of unfiledVisible) appendDeck(pack, 0);
 
     if (!list.children.length) {

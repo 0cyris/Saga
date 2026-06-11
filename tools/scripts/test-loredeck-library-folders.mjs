@@ -13,6 +13,7 @@ import {
 } from '../../src/loredecks/loredeck-library-drag.js';
 import {
   sortLoredeckLibraryFolderTreeByTitle,
+  sortLoredeckLibraryFolderPacks,
   getLoredeckLibraryManualSortOrder,
   sortLoredeckLibraryPacks,
 } from '../../src/loredecks/loredeck-library-view.js';
@@ -438,6 +439,11 @@ const explorerNamePacks = [
   { packId: 'deck-2', title: 'Deck 2' },
   { packId: 'deck-1', title: 'deck 1' },
 ];
+const folderContentPacks = [
+  { packId: 'sample-arc-z', title: 'Sample: Arc Z', library: { familyOrder: 30 } },
+  { packId: 'sample-core', title: 'Sample: Core', library: { familyOrder: 90 } },
+  { packId: 'sample-arc-a', title: 'Sample: Arc A', library: { familyOrder: 20 } },
+];
 const sortRegistry = {
   deckPlacements: [
     { deckId: 'generated-c', sortOrder: 100 },
@@ -454,6 +460,11 @@ assert.deepEqual(sortLoredeckLibraryPacks(explorerNamePacks, { sortMode: 'name' 
   'deck-1',
   'deck-2',
   'deck-10',
+]);
+assert.deepEqual(sortLoredeckLibraryFolderPacks(folderContentPacks).map(pack => pack.packId), [
+  'sample-core',
+  'sample-arc-a',
+  'sample-arc-z',
 ]);
 assert.deepEqual(sortLoredeckLibraryPacks(sortPacks, { sortMode: 'type' }).map(pack => pack.packId), [
   'bundled-a',

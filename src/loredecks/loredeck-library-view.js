@@ -25,6 +25,29 @@ export function compareLoredeckLibraryFolderTitles(a = {}, b = {}) {
     || compareLoredeckLibraryTitles(a.id, b.id);
 }
 
+export function isCoreLoredeckLibraryPack(pack = {}) {
+  const id = getPackId(pack).toLowerCase();
+  const title = getPackTitle(pack).toLowerCase();
+  return id === 'core'
+    || id.endsWith('-core')
+    || id.includes('-core-')
+    || title === 'core'
+    || title.endsWith(': core')
+    || title.includes(': core ');
+}
+
+export function compareLoredeckLibraryFolderPacks(a = {}, b = {}, options = {}) {
+  const coreDiff = Number(isCoreLoredeckLibraryPack(b)) - Number(isCoreLoredeckLibraryPack(a));
+  if (coreDiff) return coreDiff;
+  const manualDiff = getLoredeckLibraryManualSortOrder(a, options.registry) - getLoredeckLibraryManualSortOrder(b, options.registry);
+  if (manualDiff) return manualDiff;
+  return compareLoredeckLibraryPackTitles(a, b);
+}
+
+export function sortLoredeckLibraryFolderPacks(packs = [], options = {}) {
+  return [...(packs || [])].sort((a, b) => compareLoredeckLibraryFolderPacks(a, b, options));
+}
+
 export function sortLoredeckLibraryFolderTreeByTitle(folders = []) {
   return [...(folders || [])]
     .sort(compareLoredeckLibraryFolderTitles)

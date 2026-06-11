@@ -63,7 +63,7 @@ The Basic Walkthrough remains a separate module-based learning tool. The checkli
 Checklist steps should prefer actual controls over large sections:
 
 - Loredeck setup targets Library open, Library list, transfer controls, active stack, and Done.
-- Context setup targets Browse Context, the loaded-Loredeck row, story waypoints, Context apply actions, and loaded Context rows.
+- Context setup targets Browse Context, the loaded-Loredeck row, story waypoints, Anchor/Window selection controls, Start Here, and loaded Context rows.
 - Lorecard review targets Preview Canon Packs, Scan Story Lore, Add Lorecard, pending entry cards, and apply/dismiss actions.
 - Lore readiness targets Accepted Lorecards search/list/entry controls.
 - Provider setup targets Utility Provider, Reasoning Provider, Test controls, and Advanced Provider Settings handoff.

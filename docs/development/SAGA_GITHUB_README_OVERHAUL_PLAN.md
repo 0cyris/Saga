@@ -53,7 +53,7 @@ Recommended steps:
 3. Open Saga shelf.
 4. Start in Basic Experience.
 5. Open Loredecks and load a Loredeck into the Active Stack.
-6. Set Context.
+6. Browse Context and select the story position in the Context Workbench.
 7. Review or add Lorecards.
 8. Confirm the Start Checklist.
 9. Continue roleplay and use Advanced only when needed.
