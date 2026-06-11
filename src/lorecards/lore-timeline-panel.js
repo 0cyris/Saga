@@ -6,6 +6,7 @@ import {
     addTooltip,
     confirmAction,
     createButton,
+    createCompactPresetStat,
     createEmptyMessage,
     createKeyValue,
     createStatusPill,
@@ -34,10 +35,6 @@ function isBasicExperience() {
 
 function markTourTarget(el, target) {
     return dep('markTourTarget', element => element)(el, target);
-}
-
-function createCompactPresetStat(label, value) {
-    return dep('createCompactPresetStat')(label, value);
 }
 
 function openNewLoreDialog() {

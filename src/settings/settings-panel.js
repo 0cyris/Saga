@@ -26,6 +26,7 @@ import {
     addTooltip,
     confirmAction,
     createButton,
+    createCompactPresetStat,
     createStatusPill,
     isPlainObjectValue,
     runBusyAction,
@@ -964,18 +965,6 @@ async function installBundledProviderPreset() {
     }
 
     return { selectionTouched: previousName !== SAGA_PROVIDER_PRESET_NAME, restored };
-}
-
-function createCompactPresetStat(label, value) {
-    const row = document.createElement('div');
-    row.className = 'saga-preset-status-stat';
-    const key = document.createElement('span');
-    key.textContent = label;
-    const val = document.createElement('strong');
-    val.textContent = value;
-    row.appendChild(key);
-    row.appendChild(val);
-    return row;
 }
 
 function cloneJson(value) {

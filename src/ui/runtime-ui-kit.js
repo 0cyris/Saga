@@ -145,6 +145,18 @@ export function createKeyValue(label, value, tooltip) {
     return row;
 }
 
+export function createCompactPresetStat(label, value) {
+    const row = document.createElement('div');
+    row.className = 'saga-preset-status-stat';
+    const key = document.createElement('span');
+    key.textContent = label;
+    const val = document.createElement('strong');
+    val.textContent = value;
+    row.appendChild(key);
+    row.appendChild(val);
+    return row;
+}
+
 export function createSectionHeader(title, description) {
     const wrap = document.createElement('div');
     wrap.className = 'saga-section-header';

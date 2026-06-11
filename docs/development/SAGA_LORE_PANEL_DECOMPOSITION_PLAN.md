@@ -1,6 +1,6 @@
 # Saga Lore Panel Decomposition Plan
 
-Status: Phase 9 Lorecards tab shell, compact/full Lore Timeline, Pending Lorecard Review wrapper/cards/bulk controls/mutation helpers, Accepted Lorecards section shell/list renderer/bulk controls/mutation helpers, New Lore dialog, Auto-Relevance card, accepted Lorecard card/tag-row rendering, accepted Lorecard edit/mutation helpers, shared Lorecard source/context badge helpers, accepted-list refresh/filter orchestration, Lorecard Workbench boundary, residual continuity delta review card extraction, and Phase 10 runtime tour/controller/guide/shell/navigation/formatter/download utility extraction plus Lorecard wrapper, shell-scroll, shell viewport-position, shell layout-normalization, shell action cleanup, shared filename/category/provider/chat formatter cleanup, guide start-label cleanup, setting-confidence clamp cleanup, and Context timestamp formatter cleanup implemented. Next queued Phase 10 slice: continue residual feature-neutral utility cleanup.
+Status: Phase 9 Lorecards tab shell, compact/full Lore Timeline, Pending Lorecard Review wrapper/cards/bulk controls/mutation helpers, Accepted Lorecards section shell/list renderer/bulk controls/mutation helpers, New Lore dialog, Auto-Relevance card, accepted Lorecard card/tag-row rendering, accepted Lorecard edit/mutation helpers, shared Lorecard source/context badge helpers, accepted-list refresh/filter orchestration, Lorecard Workbench boundary, residual continuity delta review card extraction, and Phase 10 runtime tour/controller/guide/shell/navigation/formatter/download utility extraction plus Lorecard wrapper, shell-scroll, shell viewport-position, shell layout-normalization, shell action cleanup, shared filename/category/provider/chat formatter cleanup, guide start-label cleanup, setting-confidence clamp cleanup, Context timestamp formatter cleanup, and compact preset stat helper cleanup implemented. Next queued Phase 10 slice: continue residual feature-neutral utility cleanup.
 
 Date: 2026-06-07.
 
@@ -810,6 +810,7 @@ Phase 10 progress:
 - `runtime-guide-content.js` now owns static Basic/Advanced guide steps, Session guide copy, guide-step normalization helpers, and guide start-label formatting.
 - `runtime-shell.js` now owns shell geometry constants, runtime panel layout-state normalization, rail/drawer sizing math, drawer scroll metric updates, nested scroll handoff, active scroll-element lookup, viewport centering/clamping actions, reset/tab-toggle/rail-mode actions, rail drag controller state, drawer resize controller state, and geometry persistence bridges.
 - `runtime-navigation.js` now owns runtime tab labels/icons/tooltips, automation mode definitions, Basic/Advanced tab lists, and experience/automation normalization helpers.
+- `runtime-ui-kit.js` now owns the compact preset/stat DOM helper shared by Settings and Lore Timeline surfaces.
 - `runtime-formatters.js` now owns shared text truncation, approximate token-count, filename-stem sanitizing, category-count summary, setting-confidence clamping, provider model-name, and active-chat metric-name helpers used by runtime, Theme, Library, and extracted Lorecards surfaces.
 - `runtime-downloads.js` now owns shared browser download helpers for JSON and binary exports used by runtime and Theme actions.
 - `context-formatters.js` now owns Context Brief and Loredeck Context updated-at label formatting, and `context-panel.js` no longer receives that formatter through the runtime configuration bridge.
@@ -834,6 +835,7 @@ Tasks:
 - Done: Move shared JSON and binary browser download helpers.
 - Done: Move setting-confidence clamp formatting.
 - Done: Move Context Brief and Loredeck Context updated-at formatting.
+- Done: Move compact preset/stat DOM helper and remove the Lore Timeline config bridge for it.
 - Done: Remove Lorecards-owned category and pending-batch wrapper callbacks from `lore-panel.js`.
 - Continue moving remaining feature-neutral utilities.
 - Remove dead wrappers that no extracted module uses.
