@@ -136,7 +136,9 @@ import {
 } from '../ui/runtime-ui-kit.js';
 import {
     estimateTokens,
+    formatActiveChatMetricName,
     formatCategoryCounts,
+    formatProviderRailModelName,
     sanitizeFileStem,
     truncateText,
 } from './runtime-formatters.js';
@@ -16023,13 +16025,6 @@ function createRuntimeRenderErrorCard(titleText = 'Runtime Tab', error = null) {
     return card;
 }
 
-function formatProviderRailModelName(value = '') {
-    const label = String(value || '').trim();
-    const slashIndex = label.lastIndexOf('/');
-    if (slashIndex < 0 || slashIndex >= label.length - 1) return label;
-    return label.slice(slashIndex + 1).trim() || label;
-}
-
 function getProviderRailMetricLabel(status = {}) {
     if (status.exact) return formatProviderRailModelName(status.model || status.label) || 'Model';
     if (status.provider === 'profile' && !status.exact && status.profileLabel) return status.profileLabel;
@@ -16300,13 +16295,6 @@ function getLoredeckHealthText(health) {
 }
 
 // Session tab -----------------------------------------------------------------
-
-function formatActiveChatMetricName(value = '') {
-    const raw = String(value || '').trim();
-    if (!raw) return '';
-    const normalized = raw.replace(/\\/g, '/').split('/').filter(Boolean).pop() || raw;
-    return normalized.replace(/\.(jsonl|json)$/i, '').trim() || raw;
-}
 
 function getActiveChatMetricName() {
     try {

@@ -34,3 +34,17 @@ export function formatCategoryCounts(categoryCounts = {}) {
         .map(([category, count]) => `${humanizeScopeKey(category)}: ${count}`)
         .join(', ');
 }
+
+export function formatProviderRailModelName(value = '') {
+    const label = String(value || '').trim();
+    const slashIndex = label.lastIndexOf('/');
+    if (slashIndex < 0 || slashIndex >= label.length - 1) return label;
+    return label.slice(slashIndex + 1).trim() || label;
+}
+
+export function formatActiveChatMetricName(value = '') {
+    const raw = String(value || '').trim();
+    if (!raw) return '';
+    const normalized = raw.replace(/\\/g, '/').split('/').filter(Boolean).pop() || raw;
+    return normalized.replace(/\.(jsonl|json)$/i, '').trim() || raw;
+}
