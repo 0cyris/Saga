@@ -1611,8 +1611,7 @@ function renderRail(state) {
         const metric = document.createElement('span');
         metric.className = 'saga-runtime-rail-metric';
         metric.dataset.tabId = tabId;
-        metric.textContent = metrics[tabId] || '';
-        if (metricTooltips[tabId]) addTooltip(metric, metricTooltips[tabId]);
+        renderRailMetric(metric, tabId, metrics, metricTooltips);
         tab.appendChild(metric);
 
         tab.addEventListener('click', (e) => {
@@ -1762,11 +1761,7 @@ function refreshHeader() {
 
     for (const metric of panelRoot.querySelectorAll('.saga-runtime-rail-metric[data-tab-id]')) {
         const tabId = metric.dataset.tabId;
-        metric.textContent = metrics[tabId] || '';
-        if (metricTooltips[tabId]) {
-            metric.dataset.sagaTooltip = metricTooltips[tabId];
-            metric.setAttribute('aria-label', metricTooltips[tabId]);
-        }
+        renderRailMetric(metric, tabId, metrics, metricTooltips);
     }
 
     const status = panelRoot.querySelector('.saga-runtime-drawer-status');
@@ -16043,20 +16038,61 @@ function getProviderRailMetricLabel(status = {}) {
     return status.label || 'Model';
 }
 
-function getProviderRailMetricPart(kind, settings = getSettings()) {
+function getProviderRailMetricPart(kind, settings = getSettings(), maxLength = 12) {
     const status = getProviderModelStatus(kind, settings);
     const prefix = kind === 'continuity' ? 'U' : 'R';
-    return `${prefix}:${truncateRailMetricText(getProviderRailMetricLabel(status))}`;
+    return `${prefix}:${truncateRailMetricText(getProviderRailMetricLabel(status), maxLength)}`;
 }
 
-function getSettingsProviderRailMetric(settings = getSettings()) {
-    return `${getProviderRailMetricPart('lore', settings)} ${getProviderRailMetricPart('continuity', settings)}`;
+function getSettingsProviderRailMetricLines(settings = getSettings()) {
+    return [
+        getProviderRailMetricPart('lore', settings),
+        getProviderRailMetricPart('continuity', settings),
+    ];
 }
 
 function getSettingsProviderRailTooltip(settings = getSettings()) {
     const reasoning = getProviderModelStatus('lore', settings);
     const utility = getProviderModelStatus('continuity', settings);
     return `Reasoning Provider: ${reasoning.label}. Utility Provider: ${utility.label}.`;
+}
+
+function setRailMetricTooltip(metric, tooltip = '') {
+    const text = String(tooltip || '').trim();
+    if (!text) {
+        delete metric.dataset.sagaTooltip;
+        metric.removeAttribute('aria-label');
+        return;
+    }
+    if (metric.dataset.sagaTooltip) {
+        metric.dataset.sagaTooltip = text;
+        metric.setAttribute('aria-label', text);
+    } else {
+        addTooltip(metric, text);
+    }
+}
+
+function renderRailMetric(metric, tabId, metrics = {}, metricTooltips = {}) {
+    if (!metric) return;
+    const value = metrics[tabId] || '';
+    const lines = Array.isArray(value) ? value : [];
+    metric.classList.toggle('saga-runtime-rail-metric-stack', lines.length > 0);
+    metric.textContent = '';
+    if (lines.length) {
+        const fragments = lines
+            .map(line => String(line || '').trim())
+            .filter(Boolean)
+            .map(line => {
+                const item = document.createElement('span');
+                item.className = 'saga-runtime-rail-metric-line';
+                item.textContent = line;
+                return item;
+            });
+        metric.replaceChildren(...fragments);
+    } else {
+        metric.textContent = String(value || '');
+    }
+    setRailMetricTooltip(metric, metricTooltips[tabId] || '');
 }
 
 function getRailMetrics(state, settings = getSettings()) {
@@ -16078,7 +16114,7 @@ function getRailMetrics(state, settings = getSettings()) {
         continuity: `${activeCharacters || liveItems || 0} live`,
         lore: pendingLore ? `${counts.active || 0}+${pendingLore}` : `${counts.active || 0} active`,
         injection: injectionStats.totalChars ? `${injectionStats.totalTokens} tk` : `${selectedLore} lore`,
-        settings: getSettingsProviderRailMetric(settings),
+        settings: getSettingsProviderRailMetricLines(settings),
     };
 }
 

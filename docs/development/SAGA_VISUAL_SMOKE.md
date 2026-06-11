@@ -76,12 +76,16 @@ This starts the local harness, opens the Basic Session guide, then reloads the h
 
 ```text
 Images/documentation/renders/saga-smoke/guide-harness-01-basic-card.png
-Images/documentation/renders/saga-smoke/guide-harness-02-basic-tour.png
-Images/documentation/renders/saga-smoke/guide-harness-03-advanced-card.png
-Images/documentation/renders/saga-smoke/guide-harness-04-advanced-tour.png
+Images/documentation/renders/saga-smoke/guide-harness-02-basic-module.png
+Images/documentation/renders/saga-smoke/guide-harness-03-basic-prepared-library.png
+Images/documentation/renders/saga-smoke/guide-harness-04-basic-tour.png
+Images/documentation/renders/saga-smoke/guide-harness-05-advanced-card.png
+Images/documentation/renders/saga-smoke/guide-harness-06-advanced-module.png
+Images/documentation/renders/saga-smoke/guide-harness-07-advanced-creator-empty-project.png
+Images/documentation/renders/saga-smoke/guide-harness-08-advanced-tour.png
 ```
 
-It verifies Basic module cards, Advanced task-track cards, hidden Basic rail tabs, Advanced rail availability, and the first full-tour popover for both walkthroughs.
+It verifies Basic module cards, Advanced task-track cards, hidden Basic rail tabs, Advanced rail availability, focused module starts, prepared fullscreen Library targeting, no-object Creator fallback messaging, and the first full-tour popover for both walkthroughs.
 
 ## Live ST Screenshot Helper
 

@@ -10050,7 +10050,7 @@
     display: none;
     flex: 0 1 auto;
     min-width: 0;
-    max-width: 98px;
+    max-width: 106px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -10063,6 +10063,22 @@
 .saga-runtime-rail-expanded .saga-runtime-rail-label,
 .saga-runtime-rail-expanded .saga-runtime-rail-metric {
     display: inline-block;
+}
+
+.saga-runtime-rail-expanded .saga-runtime-rail-metric-stack {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1px;
+}
+
+.saga-runtime-rail-metric-line {
+    display: block;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 1.05;
 }
 
 .saga-runtime-rail-compact .saga-runtime-rail-tab,
