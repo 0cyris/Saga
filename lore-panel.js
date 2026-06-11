@@ -16031,11 +16031,19 @@ function createRuntimeRenderErrorCard(titleText = 'Runtime Tab', error = null) {
     return card;
 }
 
+function formatProviderRailModelName(value = '') {
+    const label = String(value || '').trim();
+    const slashIndex = label.lastIndexOf('/');
+    if (slashIndex < 0 || slashIndex >= label.length - 1) return label;
+    return label.slice(slashIndex + 1).trim() || label;
+}
+
 function getProviderRailMetricLabel(status = {}) {
+    if (status.exact) return formatProviderRailModelName(status.model || status.label) || 'Model';
     if (status.provider === 'profile' && !status.exact && status.profileLabel) return status.profileLabel;
     if (status.provider === 'st' && !status.exact) return 'ST model';
     if (status.provider === 'openai_compatible' && !status.exact) return 'No model';
-    return status.label || 'Model';
+    return formatProviderRailModelName(status.label) || 'Model';
 }
 
 function getProviderRailMetricPart(kind, settings = getSettings()) {

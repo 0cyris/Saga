@@ -10174,6 +10174,7 @@
 
 .saga-runtime-rail-metric-line {
     display: inline-block;
+    width: 100%;
     max-width: 100%;
     box-sizing: border-box;
     overflow: hidden;
@@ -10187,6 +10188,22 @@
     margin-top: 1px;
     padding-top: 1px;
     border-top: 1px solid var(--saga-border-soft, rgba(185, 139, 54, 0.18));
+}
+
+.saga-runtime-rail-expanded .saga-runtime-rail-tab[data-tab-id="settings"] .saga-runtime-rail-label {
+    flex: 0 0 auto;
+}
+
+.saga-runtime-rail-expanded .saga-runtime-rail-tab[data-tab-id="settings"] .saga-runtime-rail-metric {
+    flex: 1 1 0;
+    max-width: none;
+}
+
+.saga-runtime-rail-expanded .saga-runtime-rail-tab[data-tab-id="settings"] .saga-runtime-rail-metric-stack {
+    width: auto;
+    max-width: none;
+    align-items: stretch;
+    transform: none;
 }
 
 .saga-runtime-rail-compact .saga-runtime-rail-tab,
