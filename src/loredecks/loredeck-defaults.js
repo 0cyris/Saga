@@ -39,20 +39,20 @@ const HP_SPLIT_LOREDECKS = Object.freeze([
             "structure:split-loredeck"
         ],
         "stats": {
-            "entryCount": 79,
-            "categoryCounts": {
-                "character": 47,
-                "faction": 1,
-                "item": 4,
-                "knowledge": 13,
-                "location": 4,
-                "rule": 1,
-                "secret": 1,
-                "spell": 6,
-                "timeline": 2
-            },
-            "timelineAnchorCount": 22,
-            "timelineWindowCount": 6
+                  "entryCount": 79,
+                  "categoryCounts": {
+                            "character": 47,
+                            "faction": 1,
+                            "item": 4,
+                            "knowledge": 12,
+                            "location": 4,
+                            "rule": 1,
+                            "secret": 2,
+                            "spell": 6,
+                            "timeline": 2
+                  },
+                  "timelineAnchorCount": 22,
+                  "timelineWindowCount": 6
         }
     },
     {
@@ -70,18 +70,18 @@ const HP_SPLIT_LOREDECKS = Object.freeze([
             "structure:split-loredeck"
         ],
         "stats": {
-            "entryCount": 49,
-            "categoryCounts": {
-                "character": 15,
-                "event": 18,
-                "item": 6,
-                "knowledge": 5,
-                "relationship": 3,
-                "secret": 1,
-                "timeline": 1
-            },
-            "timelineAnchorCount": 55,
-            "timelineWindowCount": 9
+                  "entryCount": 52,
+                  "categoryCounts": {
+                            "character": 15,
+                            "event": 18,
+                            "item": 6,
+                            "knowledge": 4,
+                            "relationship": 3,
+                            "secret": 5,
+                            "timeline": 1
+                  },
+                  "timelineAnchorCount": 55,
+                  "timelineWindowCount": 9
         }
     },
     {
@@ -99,18 +99,18 @@ const HP_SPLIT_LOREDECKS = Object.freeze([
             "structure:split-loredeck"
         ],
         "stats": {
-            "entryCount": 47,
-            "categoryCounts": {
-                "character": 17,
-                "event": 13,
-                "item": 1,
-                "knowledge": 10,
-                "location": 2,
-                "secret": 3,
-                "spell": 1
-            },
-            "timelineAnchorCount": 55,
-            "timelineWindowCount": 9
+                  "entryCount": 49,
+                  "categoryCounts": {
+                            "character": 17,
+                            "event": 13,
+                            "item": 1,
+                            "knowledge": 10,
+                            "location": 2,
+                            "secret": 5,
+                            "spell": 1
+                  },
+                  "timelineAnchorCount": 55,
+                  "timelineWindowCount": 9
         }
     },
     {
@@ -128,19 +128,19 @@ const HP_SPLIT_LOREDECKS = Object.freeze([
             "structure:split-loredeck"
         ],
         "stats": {
-            "entryCount": 50,
-            "categoryCounts": {
-                "character": 14,
-                "event": 13,
-                "item": 5,
-                "knowledge": 7,
-                "location": 3,
-                "relationship": 1,
-                "secret": 3,
-                "spell": 4
-            },
-            "timelineAnchorCount": 55,
-            "timelineWindowCount": 9
+                  "entryCount": 53,
+                  "categoryCounts": {
+                            "character": 14,
+                            "event": 13,
+                            "item": 5,
+                            "knowledge": 7,
+                            "location": 3,
+                            "relationship": 1,
+                            "secret": 6,
+                            "spell": 4
+                  },
+                  "timelineAnchorCount": 55,
+                  "timelineWindowCount": 9
         }
     },
     {
@@ -158,20 +158,20 @@ const HP_SPLIT_LOREDECKS = Object.freeze([
             "structure:split-loredeck"
         ],
         "stats": {
-            "entryCount": 57,
-            "categoryCounts": {
-                "character": 17,
-                "event": 19,
-                "faction": 2,
-                "knowledge": 7,
-                "location": 2,
-                "relationship": 2,
-                "secret": 2,
-                "spell": 4,
-                "timeline": 2
-            },
-            "timelineAnchorCount": 56,
-            "timelineWindowCount": 9
+                  "entryCount": 60,
+                  "categoryCounts": {
+                            "character": 17,
+                            "event": 19,
+                            "faction": 2,
+                            "knowledge": 7,
+                            "location": 2,
+                            "relationship": 2,
+                            "secret": 5,
+                            "spell": 4,
+                            "timeline": 2
+                  },
+                  "timelineAnchorCount": 56,
+                  "timelineWindowCount": 9
         }
     },
     {
@@ -189,20 +189,20 @@ const HP_SPLIT_LOREDECKS = Object.freeze([
             "structure:split-loredeck"
         ],
         "stats": {
-            "entryCount": 58,
-            "categoryCounts": {
-                "character": 21,
-                "event": 11,
-                "faction": 8,
-                "knowledge": 7,
-                "location": 4,
-                "rule": 1,
-                "secret": 1,
-                "spell": 3,
-                "timeline": 2
-            },
-            "timelineAnchorCount": 55,
-            "timelineWindowCount": 10
+                  "entryCount": 62,
+                  "categoryCounts": {
+                            "character": 21,
+                            "event": 11,
+                            "faction": 8,
+                            "knowledge": 6,
+                            "location": 4,
+                            "rule": 1,
+                            "secret": 6,
+                            "spell": 3,
+                            "timeline": 2
+                  },
+                  "timelineAnchorCount": 55,
+                  "timelineWindowCount": 10
         }
     },
     {
@@ -220,21 +220,21 @@ const HP_SPLIT_LOREDECKS = Object.freeze([
             "structure:split-loredeck"
         ],
         "stats": {
-            "entryCount": 59,
-            "categoryCounts": {
-                "character": 19,
-                "event": 13,
-                "faction": 2,
-                "item": 3,
-                "knowledge": 13,
-                "location": 1,
-                "relationship": 2,
-                "secret": 2,
-                "spell": 2,
-                "timeline": 2
-            },
-            "timelineAnchorCount": 57,
-            "timelineWindowCount": 15
+                  "entryCount": 59,
+                  "categoryCounts": {
+                            "character": 19,
+                            "event": 13,
+                            "faction": 2,
+                            "item": 3,
+                            "knowledge": 10,
+                            "location": 1,
+                            "relationship": 2,
+                            "secret": 5,
+                            "spell": 2,
+                            "timeline": 2
+                  },
+                  "timelineAnchorCount": 57,
+                  "timelineWindowCount": 15
         }
     },
     {
@@ -252,20 +252,20 @@ const HP_SPLIT_LOREDECKS = Object.freeze([
             "structure:split-loredeck"
         ],
         "stats": {
-            "entryCount": 70,
-            "categoryCounts": {
-                "character": 30,
-                "event": 16,
-                "faction": 1,
-                "item": 5,
-                "knowledge": 7,
-                "location": 3,
-                "relationship": 3,
-                "secret": 2,
-                "timeline": 3
-            },
-            "timelineAnchorCount": 70,
-            "timelineWindowCount": 18
+                  "entryCount": 76,
+                  "categoryCounts": {
+                            "character": 30,
+                            "event": 16,
+                            "faction": 1,
+                            "item": 5,
+                            "knowledge": 6,
+                            "location": 3,
+                            "relationship": 3,
+                            "secret": 9,
+                            "timeline": 3
+                  },
+                  "timelineAnchorCount": 70,
+                  "timelineWindowCount": 18
         }
     },
     {
@@ -710,9 +710,9 @@ const JJK_SPLIT_LOREDECKS = Object.freeze([
             },
         },
         stats: {
-            entryCount: 8,
-            categoryCounts: { faction: 1, knowledge: 1, rule: 4, secret: 2 },
-            timelineAnchorCount: 6,
+            entryCount: 50,
+            categoryCounts: { faction: 1, knowledge: 1, rule: 40, secret: 8 },
+            timelineAnchorCount: 7,
             timelineWindowCount: 3,
         },
     },
@@ -732,8 +732,8 @@ const JJK_SPLIT_LOREDECKS = Object.freeze([
             },
         },
         stats: {
-            entryCount: 10,
-            categoryCounts: { character: 1, event: 1, faction: 2, knowledge: 1, relationship: 1, rule: 1, secret: 3 },
+            entryCount: 33,
+            categoryCounts: { character: 9, event: 6, faction: 2, knowledge: 1, relationship: 6, rule: 6, secret: 3 },
             timelineAnchorCount: 7,
             timelineWindowCount: 3,
         },
@@ -754,8 +754,8 @@ const JJK_SPLIT_LOREDECKS = Object.freeze([
             },
         },
         stats: {
-            entryCount: 12,
-            categoryCounts: { event: 3, faction: 2, knowledge: 1, relationship: 2, rule: 2, secret: 2 },
+            entryCount: 40,
+            categoryCounts: { character: 9, event: 10, faction: 2, knowledge: 1, relationship: 7, rule: 9, secret: 2 },
             timelineAnchorCount: 9,
             timelineWindowCount: 4,
         },
@@ -776,8 +776,8 @@ const JJK_SPLIT_LOREDECKS = Object.freeze([
             },
         },
         stats: {
-            entryCount: 12,
-            categoryCounts: { character: 1, event: 3, faction: 2, knowledge: 2, relationship: 1, rule: 1, secret: 2 },
+            entryCount: 38,
+            categoryCounts: { character: 9, event: 11, faction: 2, knowledge: 3, relationship: 1, rule: 7, secret: 5 },
             timelineAnchorCount: 8,
             timelineWindowCount: 3,
         },
@@ -798,8 +798,8 @@ const JJK_SPLIT_LOREDECKS = Object.freeze([
             },
         },
         stats: {
-            entryCount: 12,
-            categoryCounts: { event: 4, faction: 2, knowledge: 2, rule: 2, secret: 2 },
+            entryCount: 51,
+            categoryCounts: { character: 8, event: 17, faction: 2, knowledge: 3, location: 4, rule: 10, secret: 7 },
             timelineAnchorCount: 10,
             timelineWindowCount: 4,
         },
@@ -820,8 +820,8 @@ const JJK_SPLIT_LOREDECKS = Object.freeze([
             },
         },
         stats: {
-            entryCount: 12,
-            categoryCounts: { event: 3, faction: 2, knowledge: 3, rule: 2, secret: 2 },
+            entryCount: 34,
+            categoryCounts: { character: 6, event: 11, faction: 2, knowledge: 4, rule: 6, secret: 5 },
             timelineAnchorCount: 9,
             timelineWindowCount: 4,
         },
@@ -842,8 +842,8 @@ const JJK_SPLIT_LOREDECKS = Object.freeze([
             },
         },
         stats: {
-            entryCount: 12,
-            categoryCounts: { character: 1, event: 6, faction: 1, knowledge: 1, rule: 2, secret: 1 },
+            entryCount: 50,
+            categoryCounts: { character: 11, event: 12, faction: 1, knowledge: 1, rule: 20, secret: 5 },
             timelineAnchorCount: 8,
             timelineWindowCount: 4,
         },
@@ -864,8 +864,8 @@ const JJK_SPLIT_LOREDECKS = Object.freeze([
             },
         },
         stats: {
-            entryCount: 12,
-            categoryCounts: { event: 4, faction: 1, knowledge: 3, rule: 1, secret: 3 },
+            entryCount: 38,
+            categoryCounts: { character: 6, event: 14, faction: 1, knowledge: 3, rule: 7, secret: 7 },
             timelineAnchorCount: 9,
             timelineWindowCount: 4,
         },
@@ -886,8 +886,8 @@ const JJK_SPLIT_LOREDECKS = Object.freeze([
             },
         },
         stats: {
-            entryCount: 12,
-            categoryCounts: { event: 5, knowledge: 2, relationship: 1, rule: 2, secret: 2 },
+            entryCount: 46,
+            categoryCounts: { character: 8, event: 17, knowledge: 2, relationship: 1, rule: 10, secret: 8 },
             timelineAnchorCount: 9,
             timelineWindowCount: 4,
         },
@@ -909,8 +909,8 @@ const JJK_SPLIT_LOREDECKS = Object.freeze([
             },
         },
         stats: {
-            entryCount: 12,
-            categoryCounts: { event: 3, knowledge: 3, relationship: 1, rule: 3, secret: 2 },
+            entryCount: 27,
+            categoryCounts: { character: 4, event: 7, knowledge: 4, relationship: 1, rule: 6, secret: 5 },
             timelineAnchorCount: 9,
             timelineWindowCount: 4,
         },
@@ -1217,7 +1217,7 @@ function buildMhaLoredeckRecord(deck) {
 function buildJjkLoredeckRecord(deck) {
     return buildBundledLoredeckRecord(deck, {
         fandom: 'Jujutsu Kaisen',
-        version: '0.1.0',
+        version: '0.2.0-phase1',
         source: JJK_SOURCE,
         libraryPath: JJK_LIBRARY_PATH,
         updatedAt: DEFAULT_JJK_LOREDECK_UPDATED_AT,

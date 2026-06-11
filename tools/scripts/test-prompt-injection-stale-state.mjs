@@ -33,12 +33,15 @@ function assertBefore(source, first, second, message) {
   assert(firstIndex < secondIndex, message);
 }
 
-const extensionIndex = await readText('src/extension/index.js');
+const extensionEvents = await readText('src/extension/events.js');
 const promptInjector = await readText('src/continuity/prompt-injector.js');
+const promptSync = await readText('src/state/prompt-sync.js');
 const runtimePanel = await readText('src/runtime/lore-panel.js');
+const injectionPanel = await readText('src/runtime/injection-preview-panel.js');
+const runtimeInjectionSource = `${runtimePanel}\n${injectionPanel}`;
 
-assert(extensionIndex.includes('function clearSagaPromptInjectionSafely'), 'Extension handlers must use a safe prompt-clear helper.');
-const safeClearBody = functionBody(extensionIndex, 'clearSagaPromptInjectionSafely');
+assert(extensionEvents.includes('function clearSagaPromptInjectionSafely'), 'Extension handlers must use a safe prompt-clear helper.');
+const safeClearBody = functionBody(extensionEvents, 'clearSagaPromptInjectionSafely');
 assert(safeClearBody.includes('clearExtensionPrompts()'), 'Safe prompt-clear helper must clear SillyTavern prompt blocks.');
 
 for (const handler of [
@@ -48,24 +51,25 @@ for (const handler of [
   'handleChatChanged',
   'handleExtensionDisabled',
 ]) {
-  assert(extensionIndex.includes(`function ${handler}`), `${handler} must be a named event handler.`);
+  assert(extensionEvents.includes(`function ${handler}`), `${handler} must be a named event handler.`);
 }
 
-const beforePromptBody = functionBody(extensionIndex, 'handleBeforePromptSync');
-assert(beforePromptBody.includes('syncPromptInjection()'), 'Before-prompt handler must sync Saga prompt blocks.');
+const beforePromptBody = functionBody(extensionEvents, 'handleBeforePromptSync');
+assert(beforePromptBody.includes("runRuntimeAction('prompt.sync')"), 'Before-prompt handler must sync Saga prompt blocks through the shared action registry.');
 assert(beforePromptBody.includes('clearSagaPromptInjectionSafely'), 'Before-prompt handler must clear prompt blocks after sync failure.');
 
-const interruptedBody = functionBody(extensionIndex, 'handleGenerationInterrupted');
-assertBefore(interruptedBody, 'clearSagaPromptInjectionSafely', 'syncPromptInjection()', 'Interrupted generation must clear stale blocks before rebuilding current prompt state.');
+const interruptedBody = functionBody(extensionEvents, 'handleGenerationInterrupted');
+assertBefore(interruptedBody, 'clearSagaPromptInjectionSafely', "runRuntimeAction('prompt.sync')", 'Interrupted generation must clear stale blocks before rebuilding current prompt state.');
 
-const chatChangedBody = functionBody(extensionIndex, 'handleChatChanged');
-assertBefore(chatChangedBody, 'clearSagaPromptInjectionSafely', 'syncPromptInjection()', 'Chat changes must clear stale prompt blocks before rebuilding.');
-assert(chatChangedBody.includes('refreshLorePanel()'), 'Chat changes must refresh the runtime preview.');
+const chatChangedBody = functionBody(extensionEvents, 'handleChatChanged');
+assertBefore(chatChangedBody, 'clearSagaPromptInjectionSafely', "runRuntimeAction('prompt.sync')", 'Chat changes must clear stale prompt blocks before rebuilding.');
+assert(chatChangedBody.includes("runRuntimeAction('runtime.refresh')"), 'Chat changes must refresh the runtime preview through the shared action registry.');
 assert(chatChangedBody.includes('_sagaRefreshUI'), 'Chat changes must refresh the settings/state UI when present.');
 
-const disabledBody = functionBody(extensionIndex, 'handleExtensionDisabled');
+const disabledBody = functionBody(extensionEvents, 'handleExtensionDisabled');
 assert(disabledBody.includes('clearSagaPromptInjectionSafely'), 'Extension disable handler must clear prompt blocks.');
-assert(disabledBody.includes('hideLorePanel()'), 'Extension disable handler must hide the Saga runtime.');
+assert(disabledBody.includes('uninstallInterceptor()'), 'Extension disable handler must uninstall prompt injection globals.');
+assert(disabledBody.includes("runRuntimeAction('runtime.hide')"), 'Extension disable handler must hide the Saga runtime through the shared action registry.');
 
 const hideLorePanelBody = functionBody(runtimePanel, 'hideLorePanel');
 assert(hideLorePanelBody.includes('closeRuntimeFullscreenSurfaces()'), 'Runtime hide must close fullscreen workbench surfaces through the shared teardown helper.');
@@ -86,21 +90,21 @@ for (const eventName of [
   'CHAT_CHANGED',
   'EXTENSION_DISABLED',
 ]) {
-  assert(extensionIndex.includes(eventName), `Event handling must cover ${eventName}.`);
+  assert(extensionEvents.includes(eventName), `Event handling must cover ${eventName}.`);
 }
 
 assert.match(
-  extensionIndex,
+  extensionEvents,
   /registerEventHandlers\(ctx\.eventSource,[\s\S]*events\.GENERATION_STOPPED[\s\S]*events\.GENERATION_FAILED[\s\S]*events\.GENERATION_ABORTED[\s\S]*handleGenerationInterrupted[\s\S]*registerEventHandler\(ctx\.eventSource,[\s\S]*events\.CHAT_CHANGED[\s\S]*handleChatChanged[\s\S]*registerEventHandlers\(ctx\.eventSource,[\s\S]*events\.EXTENSION_DISABLED[\s\S]*events\.EXTENSION_DISABLE[\s\S]*handleExtensionDisabled/,
   'Primary eventSource path must register each stale-state lifecycle event with the same named handlers.'
 );
 assert.match(
-  extensionIndex,
+  extensionEvents,
   /registerEventHandler\(bus,[\s\S]*handleChatChanged[\s\S]*registerEventHandler\(bus,[\s\S]*handleExtensionDisabled/,
   'eventBus fallback must use the same named stale-state handlers.'
 );
 assert.match(
-  extensionIndex,
+  extensionEvents,
   /ctx\.eventTypes\[eventName\]\.push\(handler\)/,
   'eventTypes fallback must push the shared named handlers.'
 );
@@ -110,11 +114,16 @@ assertBefore(syncBody, 'if (!settings.enabled)', 'clearExtensionPrompts()', 'Dis
 assert(syncBody.includes("transport: 'disabled'"), 'Disabled Saga injection should record disabled sync status.');
 assert(syncBody.includes("transport: 'interceptor'"), 'Legacy interceptor mode should clear extension prompts and record fallback status.');
 assert(syncBody.includes('clearExtensionPrompts();') && syncBody.includes('recordLoreInjectionAudit'), 'Sync path should clear stale blocks and audit the resulting prompt state.');
+assert(promptInjector.includes('globalThis.Saga') && promptInjector.includes('promptInjection.sync'), 'Prompt injector must expose sync helpers under globalThis.Saga.promptInjection.');
+assert(promptInjector.includes('export function uninstallInterceptor'), 'Prompt injector must expose an uninstall path for disable/cleanup handling.');
+assert(!promptInjector.includes('globalThis.sagaSyncPromptInjection =') && !promptInjector.includes('globalThis.sagaClearPromptInjection =') && !promptInjector.includes('globalThis.sagaGetInjectionStatus ='), 'Prompt injector must not publish scattered prompt helper globals.');
+assert(!promptSync.includes('sagaSyncPromptInjection') && !runtimeInjectionSource.includes('sagaGetInjectionStatus') && !runtimeInjectionSource.includes('sagaSyncPromptInjection'), 'Prompt sync callers must use globalThis.Saga.promptInjection instead of legacy helper globals.');
+assert(!promptInjector.includes('globalThis.sagaContinuityInterceptor ='), 'Prompt injector must not recreate the old continuity interceptor alias.');
 
-assert(runtimePanel.includes('getInjectionEmptyReason'), 'Injection preview must explain empty prompt reasons.');
-assert(runtimePanel.includes('No Loredecks are loaded for Lore injection'), 'Lore preview must explain unloaded Loredeck state.');
-assert(runtimePanel.includes('No accepted Lorecards are available to inject'), 'Lore preview must explain empty accepted Lorecard state.');
-assert(runtimePanel.includes('Continuity injection has no scene'), 'Continuity preview must explain empty continuity state.');
-assert(runtimePanel.includes('refreshInjectionPreviewOnly') && runtimePanel.includes('getInjectionEmptyReason'), 'Refresh-only path must preserve empty-reason text.');
+assert(runtimeInjectionSource.includes('getInjectionEmptyReason'), 'Injection preview must explain empty prompt reasons.');
+assert(runtimeInjectionSource.includes('No Loredecks are loaded for Lore injection'), 'Lore preview must explain unloaded Loredeck state.');
+assert(runtimeInjectionSource.includes('No accepted Lorecards are available to inject'), 'Lore preview must explain empty accepted Lorecard state.');
+assert(runtimeInjectionSource.includes('Continuity injection has no scene'), 'Continuity preview must explain empty continuity state.');
+assert(runtimeInjectionSource.includes('refreshInjectionPreviewOnly') && runtimeInjectionSource.includes('getInjectionEmptyReason'), 'Refresh-only path must preserve empty-reason text.');
 
 console.log('Prompt injection stale-state contract passed.');

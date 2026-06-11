@@ -13,22 +13,55 @@ const lorecardsPanelPath = sourcePath('lorecards', 'lorecards-panel.js');
 const creatorPanelPath = sourcePath('loredecks', 'loredeck-creator-panel.js');
 const creatorCoveragePath = sourcePath('loredecks', 'loredeck-creator-coverage.js');
 const healthPanelPath = sourcePath('loredecks', 'loredeck-health-panel.js');
+const continuityPanelPath = sourcePath('continuity', 'continuity-panel.js');
+const injectionPanelPath = sourcePath('runtime', 'injection-preview-panel.js');
 const contextPanelPath = sourcePath('context', 'context-panel.js');
 const contextWorkbenchPanelPath = sourcePath('context', 'context-workbench-panel.js');
 const settingsPanelPath = sourcePath('settings', 'settings-panel.js');
+const runtimeSettingsTabPath = sourcePath('settings', 'runtime-settings-tab.js');
 const themePanelPath = sourcePath('settings', 'theme-panel.js');
 const themeActionsPath = sourcePath('settings', 'theme-actions.js');
 const runtimeThemePath = sourcePath('theme', 'runtime-theme.js');
 const runtimeUiKitPath = sourcePath('ui', 'runtime-ui-kit.js');
+const runtimeActiveStackPanelPath = sourcePath('runtime', 'active-stack-panel.js');
+const runtimeLoredeckGeneratedExportCardPath = sourcePath('runtime', 'loredeck-generated-export-card.js');
+const runtimeLoredeckGeneratedReadinessPath = sourcePath('runtime', 'loredeck-generated-readiness.js');
+const runtimeLoredeckEditorFieldsPath = sourcePath('runtime', 'loredeck-editor-fields.js');
+const runtimeLoredeckEditorLoaderPath = sourcePath('runtime', 'loredeck-editor-loader.js');
+const runtimeLoredeckEditorValidationPath = sourcePath('runtime', 'loredeck-editor-validation.js');
+const runtimeLoredeckManifestFormattersPath = sourcePath('runtime', 'loredeck-manifest-formatters.js');
+const runtimeLoredeckManifestPreviewPath = sourcePath('runtime', 'loredeck-manifest-preview.js');
+const runtimeLoredeckManifestPath = sourcePath('runtime', 'loredeck-manifest-runtime.js');
+const runtimeLoredeckPackageExportPath = sourcePath('runtime', 'loredeck-package-export.js');
+const runtimeLoredeckPackageHelpersPath = sourcePath('runtime', 'loredeck-package-helpers.js');
+const runtimeLoredeckPackageInstallPath = sourcePath('runtime', 'loredeck-package-install.js');
+const runtimeLoredeckPackageInstallPanelPath = sourcePath('runtime', 'loredeck-package-install-panel.js');
+const runtimeLoredeckSourceSummaryPath = sourcePath('runtime', 'loredeck-source-summary.js');
+const runtimeLoredeckVirtualDataPath = sourcePath('runtime', 'loredeck-virtual-data.js');
+const runtimeCollapsiblePath = sourcePath('runtime', 'runtime-collapsible.js');
+const runtimeSafetyPanelPath = sourcePath('runtime', 'runtime-safety-panel.js');
+const runtimeFeatureProgressPath = sourcePath('runtime', 'runtime-feature-progress.js');
+const runtimeLoreRegistryPath = sourcePath('runtime', 'runtime-lore-registry.js');
+const runtimeRailMetricsPath = sourcePath('runtime', 'runtime-rail-metrics.js');
+const runtimeShellViewPath = sourcePath('runtime', 'runtime-shell-view.js');
+const runtimeTabRegistryPath = sourcePath('runtime', 'tab-registry.js');
 const runtimeNavigationPath = sourcePath('runtime', 'runtime-navigation.js');
 const runtimeBasicReadinessPath = sourcePath('runtime', 'runtime-basic-readiness.js');
+const runtimeAdvancedPanelPath = sourcePath('runtime', 'advanced-runtime-panel.js');
+const runtimeGuidePrepPath = sourcePath('runtime', 'runtime-guide-prep.js');
+const runtimeSettingControlsPath = sourcePath('runtime', 'runtime-setting-controls.js');
+const runtimeSessionBasicPanelPath = sourcePath('runtime', 'session-basic-panel.js');
 const runtimeGuideContentPath = sourcePath('runtime', 'runtime-guide-content.js');
 const runtimeTourPath = sourcePath('runtime', 'runtime-tour.js');
 const assistantPath = sourcePath('loredecks', 'loredeck-assistant.js');
 const llmClientPath = sourcePath('providers', 'lore-llm-client.js');
 const creatorProjectsPath = sourcePath('loredecks', 'loredeck-creator-projects.js');
 const stateManagerPath = sourcePath('state', 'state-manager.js');
+const loreCreatorStatePath = sourcePath('state', 'lore-creator-state.js');
+const loredeckLibraryStorePath = sourcePath('state', 'loredeck-library-store.js');
 const constantsPath = sourcePath('state', 'constants.js');
+const defaultSettingsPath = sourcePath('state', 'default-settings.js');
+const defaultStatePath = sourcePath('state', 'default-state.js');
 const stylePath = path.join(root, 'styles', 'saga.css');
 const settingsTemplatePath = sourcePath('extension', 'settings.html');
 const liveSmokePath = path.join(root, 'tools', 'scripts', 'smoke-live-st-cdp.mjs');
@@ -46,6 +79,20 @@ const hpYearOneCoverPath = path.join(root, 'content', 'loredecks', 'hp-year-1-ph
 
 function read(file) {
     return fs.readFileSync(file, 'utf8');
+}
+
+function readCssBundle(file, seen = new Set()) {
+    const resolved = path.resolve(file);
+    if (seen.has(resolved)) return '';
+    seen.add(resolved);
+    const source = read(resolved);
+    const dir = path.dirname(resolved);
+    const imports = [];
+    source.replace(/@import\s+(?:url\()?['"]([^'"]+)['"]\)?\s*;/g, (_match, importPath) => {
+        imports.push(path.resolve(dir, importPath));
+        return _match;
+    });
+    return [source, ...imports.map(importFile => readCssBundle(importFile, seen))].join('\n');
 }
 
 function assert(condition, message) {
@@ -398,23 +445,80 @@ const loredecksTabPanel = read(loredecksTabPanelPath);
 const lorecardsPanel = read(lorecardsPanelPath);
 const creatorPanel = read(creatorPanelPath);
 const creatorCoverage = read(creatorCoveragePath);
+const continuityPanel = read(continuityPanelPath);
+const injectionPanel = read(injectionPanelPath);
 const contextPanel = read(contextPanelPath);
 const contextWorkbenchPanel = read(contextWorkbenchPanelPath);
 const settingsPanel = read(settingsPanelPath);
+const runtimeSettingsTab = read(runtimeSettingsTabPath);
+const runtimeActiveStackPanel = read(runtimeActiveStackPanelPath);
+const runtimeLoredeckGeneratedExportCard = read(runtimeLoredeckGeneratedExportCardPath);
+const runtimeLoredeckGeneratedReadiness = read(runtimeLoredeckGeneratedReadinessPath);
+const runtimeLoredeckEditorFields = read(runtimeLoredeckEditorFieldsPath);
+const runtimeLoredeckEditorLoader = read(runtimeLoredeckEditorLoaderPath);
+const runtimeLoredeckEditorValidation = read(runtimeLoredeckEditorValidationPath);
+const runtimeLoredeckManifestFormatters = read(runtimeLoredeckManifestFormattersPath);
+const runtimeLoredeckManifestPreview = read(runtimeLoredeckManifestPreviewPath);
+const runtimeLoredeckManifest = read(runtimeLoredeckManifestPath);
+const runtimeLoredeckPackageExport = read(runtimeLoredeckPackageExportPath);
+const runtimeLoredeckPackageHelpers = read(runtimeLoredeckPackageHelpersPath);
+const runtimeLoredeckPackageInstall = read(runtimeLoredeckPackageInstallPath);
+const runtimeLoredeckPackageInstallPanel = read(runtimeLoredeckPackageInstallPanelPath);
+const runtimeLoredeckSourceSummary = read(runtimeLoredeckSourceSummaryPath);
+const runtimeLoredeckVirtualData = read(runtimeLoredeckVirtualDataPath);
+const runtimeAdvancedPanel = read(runtimeAdvancedPanelPath);
+const runtimeGuidePrep = read(runtimeGuidePrepPath);
+const runtimeSessionBasicPanel = read(runtimeSessionBasicPanelPath);
+const runtimeSafetyPanel = read(runtimeSafetyPanelPath);
+const runtimeFeatureProgress = read(runtimeFeatureProgressPath);
+const runtimeLoreRegistry = read(runtimeLoreRegistryPath);
+const runtimeRailMetrics = read(runtimeRailMetricsPath);
+const runtimeShellView = read(runtimeShellViewPath);
+const runtimeTabRegistry = read(runtimeTabRegistryPath);
+const runtimeSettingControls = read(runtimeSettingControlsPath);
 const runtimePanelSource = [
     panel,
+    runtimeActiveStackPanel,
+    runtimeLoredeckGeneratedExportCard,
+    runtimeLoredeckGeneratedReadiness,
+    runtimeLoredeckEditorFields,
+    runtimeLoredeckEditorLoader,
+    runtimeLoredeckEditorValidation,
+    runtimeLoredeckManifestFormatters,
+    runtimeLoredeckManifestPreview,
+    runtimeLoredeckManifest,
+    runtimeLoredeckPackageExport,
+    runtimeLoredeckPackageHelpers,
+    runtimeLoredeckPackageInstall,
+    runtimeLoredeckPackageInstallPanel,
+    runtimeLoredeckSourceSummary,
+    runtimeLoredeckVirtualData,
+    runtimeAdvancedPanel,
+    runtimeGuidePrep,
+    runtimeSessionBasicPanel,
+    runtimeSafetyPanel,
+    runtimeFeatureProgress,
+    runtimeLoreRegistry,
+    runtimeRailMetrics,
+    runtimeShellView,
+    runtimeTabRegistry,
+    runtimeSettingControls,
     lorecardsPanel,
     libraryPanel,
     loredecksTabPanel,
     read(creatorPanelPath),
     read(healthPanelPath),
+    continuityPanel,
+    injectionPanel,
     contextPanel,
     contextWorkbenchPanel,
     settingsPanel,
+    runtimeSettingsTab,
     read(themePanelPath),
     read(themeActionsPath),
     read(runtimeThemePath),
     read(runtimeUiKitPath),
+    read(runtimeCollapsiblePath),
 ].join('\n');
 const assistant = read(assistantPath);
 const llm = read(llmClientPath);
@@ -422,12 +526,18 @@ const creatorProjects = read(creatorProjectsPath);
 const loreGenerator = read(sourcePath('lorecards', 'lore-generator.js'));
 const extractor = read(sourcePath('continuity', 'extractor.js'));
 const stateManager = read(stateManagerPath);
+const loreCreatorState = read(loreCreatorStatePath);
+const loredeckLibraryStore = read(loredeckLibraryStorePath);
+const stateSource = [stateManager, loreCreatorState, loredeckLibraryStore].join('\n');
 const constants = read(constantsPath);
+const defaultSettings = read(defaultSettingsPath);
+const defaultState = read(defaultStatePath);
+const defaultSource = [constants, defaultSettings, defaultState].join('\n');
 const runtimeNavigation = read(runtimeNavigationPath);
 const runtimeBasicReadiness = read(runtimeBasicReadinessPath);
 const runtimeGuideContent = read(runtimeGuideContentPath);
 const runtimeTour = read(runtimeTourPath);
-const style = read(stylePath);
+const style = readCssBundle(stylePath);
 const settingsTemplate = read(settingsTemplatePath);
 const liveSmoke = read(liveSmokePath);
 const basicWorkflowDoc = read(basicWorkflowDocPath);
@@ -455,10 +565,10 @@ assert(!runtimePanelSource.includes("scope.textContent = 'Global'"), 'Loredecks 
 assert(style.includes('.saga-runtime-rail-tab-global') && style.includes('.saga-runtime-rail-tab-divider'), 'Loredecks shelf grouping must have dedicated accent and divider styling.');
 assert(style.includes('border-color: var(--saga-border') && style.includes('var(--saga-border-soft'), 'Loredecks shelf accent must reuse existing theme border variables.');
 assert(!style.includes('2px 0 0 rgba(215, 181, 109') && !style.includes('2px 0 0 rgba(212, 200, 168'), 'Loredecks shelf accent must not use a left inset that visually offsets the tab.');
-assert(/lorePanel:\s*\{[\s\S]*isOpen:\s*false,[\s\S]*collapsed:\s*true,[\s\S]*railMode:\s*'compact',[\s\S]*drawerOpen:\s*false,/.test(constants), 'Fresh Saga installs must not auto-open the runtime shelf or drawer.');
-assert(constants.includes('hasOpenedRuntime: false') && constants.includes('launcherDismissed: false'), 'Fresh Saga installs must track first-open/onboarding separately from panel visibility.');
+assert(/lorePanel:\s*\{[\s\S]*isOpen:\s*false,[\s\S]*collapsed:\s*true,[\s\S]*railMode:\s*'compact',[\s\S]*drawerOpen:\s*false,/.test(defaultState), 'Fresh Saga installs must not auto-open the runtime shelf or drawer.');
+assert(defaultState.includes('hasOpenedRuntime: false') && defaultState.includes('launcherDismissed: false'), 'Fresh Saga installs must track first-open/onboarding separately from panel visibility.');
 assert(runtimePanelSource.includes('state.lorePanel.hasOpenedRuntime = true') && runtimePanelSource.includes('state.lorePanel.firstOpenedAt') && runtimePanelSource.includes('state.lorePanel.lastOpenedAt'), 'Opening the runtime must stamp first-open state separately from isOpen.');
-assert(constants.includes('stateSafety:') && constants.includes("'settings.stateSafety'"), 'Default state and settings collapse map must expose State Safety.');
+assert(defaultState.includes('stateSafety:') && defaultSettings.includes("'settings.stateSafety'"), 'Default state and settings collapse map must expose State Safety.');
 assert(runtimePanelSource.includes('createStateSafetyCard') && runtimePanelSource.includes("'settings.stateSafety'"), 'Advanced settings must render the State Safety backup/export/restore card.');
 assert(runtimePanelSource.includes('before_loredeck_package_import') && runtimePanelSource.includes('before_total_reset'), 'Destructive import and reset actions must create State Safety backups.');
 assert(harness.includes('window.SillyTavern'), 'Harness must stub SillyTavern before importing modules.');
@@ -489,9 +599,9 @@ assert(runtimeGuideContent.includes("title: 'Basic Walkthrough'") && runtimeGuid
 assert(runtimeGuideContent.includes('GUIDE_SECTIONS') && runtimeGuideContent.includes("label: 'Loredecks'") && runtimeGuideContent.includes("label: 'Injection Diagnostics'"), 'Runtime guides must expose section walkthrough metadata.');
 assert(runtimeTour.includes("dep('prepareGuideStep'") && runtimeTour.includes('prepareGuideStep(step)') && runtimeTour.includes('getTourStepPrepareAction(step)'), 'Runtime tour must run optional guide prepare actions before locating targets.');
 assert(runtimeTour.includes('renderSagaTourPopover(step, target, prepareResult)') && runtimeTour.includes("appendSagaTourDetail(popover, 'Preparation'") && runtimeTour.includes('!target && !hasPrepare'), 'Prepared walkthrough steps must fall back to an explanatory centered popover instead of being skipped.');
-assert(panel.includes('function prepareRuntimeGuideStep') && panel.includes('prepareGuideStep: prepareRuntimeGuideStep'), 'Runtime tour must receive concrete prepare handlers from the lore panel.');
+assert(runtimePanelSource.includes('function prepareRuntimeGuideStep') && panel.includes('prepareGuideStep: prepareRuntimeGuideStep'), 'Runtime tour must receive concrete prepare handlers from the runtime guide prep module.');
 for (const prepare of VALID_GUIDE_PREPARES) {
-    assert(panel.includes(`case '${prepare}':`), `Runtime guide prepare action is missing a lore-panel handler: ${prepare}`);
+    assert(runtimePanelSource.includes(`case '${prepare}':`), `Runtime guide prepare action is missing a runtime handler: ${prepare}`);
 }
 assert(basicGuideSteps.length === basicGuideStepCount && advancedGuideSteps.length === advancedGuideStepCount, 'Runtime guide exports must include every source guideStep call.');
 assert(basicGuideSteps.length >= countRequiredGuideStepIds(REQUIRED_BASIC_GUIDE_STEP_IDS), 'Basic guide must include all required workflow coverage steps.');
@@ -536,10 +646,11 @@ assert(runtimePanelSource.includes('getRuntimeGuideSections') && runtimePanelSou
 assert(runtimeTour.includes('export function startSagaTourSteps') && runtimeTour.includes('progressLabel') && runtimeTour.includes('closeLabel') && runtimeTour.includes('getFinishLabel') && runtimeTour.includes('onFinish') && runtimeTour.includes('onClose'), 'Runtime tour must support custom checklist mini-tour sequences.');
 assert(runtimePanelSource.includes('formatGuideStartLabel') && runtimePanelSource.includes('guided stop'), 'Runtime guide cards must show each module starting point and guided stop count.');
 assert(!runtimePanelSource.includes('showGuideStep(item'), 'Runtime guide card must not render one Show button per walkthrough target.');
+assert(panel.includes("from './session-basic-panel.js'") && panel.includes('configureSessionBasicPanel({') && runtimePanelSource.includes('createBasicStartReadinessCard(state, settings)'), 'Runtime shell must compose the extracted Basic Session panel.');
 assert(runtimePanelSource.includes('function createBasicStartReadinessCard'), 'Basic Session must render the Start Checklist dropdown.');
 assert(/createBasicStartReadinessCard[\s\S]*createCollapsibleSection\(\s*'session\.basicReadiness'[\s\S]*true[\s\S]*'saga-basic-readiness-card'/.test(runtimePanelSource), 'Basic Session Start Checklist must be an expanded-by-default dropdown.');
 assert(runtimePanelSource.includes('function getBasicReadinessModel'), 'Basic Session readiness must derive from runtime state.');
-assert(!constants.includes('guidedTask') && !stateManager.includes('guidedTask'), 'Runtime panel state must not keep retired in-panel checklist strip state.');
+assert(!defaultSource.includes('guidedTask') && !stateManager.includes('guidedTask'), 'Runtime panel state must not keep retired in-panel checklist strip state.');
 const basicChecklistTourBlock = (runtimePanelSource.split('const BASIC_CHECKLIST_REVIEW_GENERATION_STEPS')[1] || '').split('function getBasicChecklistTourConfig')[0] || '';
 assert(runtimePanelSource.includes('BASIC_CHECKLIST_TOUR_TASKS_BY_ROW') && runtimePanelSource.includes('function launchBasicChecklistTour') && runtimePanelSource.includes('startSagaTourSteps(steps'), 'Basic Start Checklist actions must launch external checklist mini-tours.');
 assert(!/\bLorepacks?\b/.test(basicChecklistTourBlock), 'Basic Start Checklist mini-tour copy must use Loredeck terminology.');
@@ -563,7 +674,7 @@ assert(runtimeBasicReadiness.includes('export function buildBasicReadinessModel'
 assert(!runtimePanelSource.includes('function createBasicInjectionSummaryCard') && !runtimePanelSource.includes('What Saga Will Send'), 'Basic Session must not render the selected-lore prompt summary.');
 assert(!lorecardsPanel.includes('function createBasicReviewInjectionSummary') && !lorecardsPanel.includes('What Accepted Lorecards Do'), 'Basic Lorecards must not render the selected-lore prompt summary.');
 assert(runtimePanelSource.includes('function createManualLorecardPanel') && runtimePanelSource.includes('openNewLoreDialog({ basicReview: isBasicExperience(getSettings()) })'), 'Manual Lorecard creation must live in the shared Lorecard Generation card and use the compact dialog only in Basic.');
-assert(!constants.includes("'lore.basic.acceptedEntries'") && !constants.includes("'injection.basic."), 'Collapsed-section defaults must not keep retired Basic-only Lorecards or Injection section ids.');
+assert(!defaultSettings.includes("'lore.basic.acceptedEntries'") && !defaultSettings.includes("'injection.basic."), 'Collapsed-section defaults must not keep retired Basic-only Lorecards or Injection section ids.');
 assert(loredecksTabPanel.includes('function isBasicExperienceMode') && !loredecksTabPanel.includes('createBasicLoredeck'), 'Basic Loredecks must use the shared Loredecks tab with mode-gated Creator controls.');
 assert(loredecksTabPanel.includes("'Loredeck Library'") && loredecksTabPanel.includes("'In-Progress Creator Projects'"), 'Loredecks tab must keep the shared Library section and Advanced Creator Projects section.');
 assert(loredecksTabPanel.includes("createButton('Import Deck'") && basicGuideSource.includes("'loredecks.import'"), 'Basic Loredecks must keep Import Deck in the shared Library launch workflow.');
@@ -574,9 +685,9 @@ assert(!style.includes('saga-basic-loredeck-stack-card') && !style.includes('sag
 assert(settingsPanel.includes('export function createBasicProviderQuickSetupCard') && settingsPanel.includes('function createBasicProviderQuickSetupRow'), 'Basic Settings must render a simplified Providers surface.');
 assert(settingsPanel.includes('getProviderModelStatus') && settingsPanel.includes("createBasicProviderSummaryRow('Model'"), 'Basic provider setup must summarize the resolved model or fallback profile label.');
 assert(settingsPanel.includes('Open Advanced Provider Settings') && settingsPanel.includes('Use Current Model') && settingsPanel.includes('Test ${cfg.shortTitle}'), 'Basic Providers must test providers and hand off to Advanced provider controls.');
-assert(panel.includes("'settings.providers'") && panel.includes("'settings.themePack'") && !panel.includes("'settings.experienceMode'"), 'Basic Settings must expose Providers and Theme Pack without a redundant Experience Mode section.');
-assert(!panel.includes('function createBasicAppearanceSettingsCard') && /if \(basic\)[\s\S]*'settings\.themePack'[\s\S]*createThemeSettingsCard\(settings\)/.test(panel), 'Basic Settings must render the same Theme Pack section as Advanced.');
-assert(!panel.includes('function createBasicExperienceSettingsCard') && !style.includes('saga-basic-experience-switch-wrap'), 'Basic Settings must not keep a dedicated Experience Mode card.');
+assert(runtimePanelSource.includes("'settings.providers'") && runtimePanelSource.includes("'settings.themePack'") && !runtimePanelSource.includes("'settings.experienceMode'"), 'Basic Settings must expose Providers and Theme Pack without a redundant Experience Mode section.');
+assert(!runtimePanelSource.includes('function createBasicAppearanceSettingsCard') && /if \(basic\)[\s\S]*'settings\.themePack'[\s\S]*createThemeSettingsCard\(settings\)/.test(runtimePanelSource), 'Basic Settings must render the same Theme Pack section as Advanced.');
+assert(!runtimePanelSource.includes('function createBasicExperienceSettingsCard') && !style.includes('saga-basic-experience-switch-wrap'), 'Basic Settings must not keep a dedicated Experience Mode card.');
 assert(panel.includes('function openAdvancedSettingsTab') && panel.includes('openAdvancedSettings: openAdvancedSettingsTab'), 'Basic Settings advanced handoffs must switch to the Advanced settings surface.');
 assert(style.includes('saga-settings-basic-provider-card') && !style.includes('saga-basic-theme-swatches') && !style.includes('saga-basic-experience-switch-wrap'), 'Basic Settings must not keep retired Basic-only theme or Experience Mode styling.');
 assert(!panel.includes('function renderBasicInjectionTab') && !panel.includes('function createBasicLoreTierInjectionCard') && !panel.includes("'injection.basic'"), 'Basic Experience must not keep a dedicated Basic Injection tab implementation.');
@@ -633,7 +744,7 @@ assert(!runtimePanelSource.includes('entryCount: Number(report.summary?.entryCou
 assert(runtimePanelSource.includes('function refreshLoredeckLibrarySelectionSurfaces'), 'Loredeck Library card selection must support in-place surface refreshes.');
 assert(runtimePanelSource.includes('function refreshLoredeckLibrarySelectionHighlights'), 'Loredeck Library folder selection must update highlights before rebuilding heavier surfaces.');
 assert(runtimePanelSource.includes('function scheduleLoredeckLibrarySelectionSurfaceRefresh'), 'Loredeck Library folder selection must schedule in-place surface refreshes.');
-assert(constants.includes("selectedLoredeckId: ''"), 'New Saga installs must not preselect a Loredeck in the Library details panel.');
+assert(defaultState.includes("selectedLoredeckId: ''"), 'New Saga installs must not preselect a Loredeck in the Library details panel.');
 assert(runtimePanelSource.includes('No Loredecks or Folders Selected'), 'Loredeck Library details must show an explicit empty-selection state.');
 assert(runtimePanelSource.includes('function clearLoredeckLibrarySelection'), 'Loredeck Library must provide a shared empty-space selection clear helper.');
 assert(runtimePanelSource.includes('function wireLoredeckLibraryBlankSelectionClear'), 'Loredeck Library columns must clear selection when their blank space is clicked.');
@@ -682,8 +793,8 @@ assert(runtimePanelSource.includes('Dismiss All'), 'Context proposal review must
 assert(runtimePanelSource.includes('createContextProposalReviewRow'), 'Context proposal review must render per-proposal rows.');
 assert(runtimePanelSource.includes('formatContextPatchSummary'), 'Context proposal review must summarize proposed Context patches.');
 assert(runtimePanelSource.includes('createContextAdvancedBriefSection'), 'Context tab must move legacy global fields into an advanced brief section.');
-assert(/function renderContextTab[\s\S]*const basic = isBasicExperience\(settings\);[\s\S]*if \(!basic\) container\.appendChild\(createContextAdvancedBriefSection\(state\)\);/.test(panel), 'Basic Context must hide the Advanced Context Brief section.');
-assert(panel.includes("'Set and audit where this chat sits inside each loaded Loredeck.'"), 'Basic Context header must use the shared Advanced Context header copy.');
+assert(/function renderContextTab[\s\S]*const basic = isBasicExperienceMode\(\);[\s\S]*if \(!basic\) container\.appendChild\(createContextAdvancedBriefSection\(state\)\);/.test(runtimePanelSource), 'Basic Context must hide the Advanced Context Brief section.');
+assert(runtimePanelSource.includes("'Set and audit where this chat sits inside each loaded Loredeck.'"), 'Basic Context header must use the shared Advanced Context header copy.');
 assert(contextPanel.includes('function isBasicExperienceMode') && panel.includes('isBasicExperience: () => isBasicExperience(getSettings())'), 'Context panel must receive the active experience mode.');
 assert(contextPanel.includes("'Runtime Context'") && contextPanel.includes('Browse Context'), 'Basic Context command center must use shared Advanced Context labels.');
 assert(contextPanel.includes('Reasoner Proposals') && contextPanel.includes('Context Proposal Review') && contextPanel.includes('Review Proposals'), 'Basic Context proposals must use shared Advanced proposal labels.');
@@ -735,7 +846,7 @@ assert(extractor.includes('context_provider_not_configured'), 'Context automatio
 assert(extractor.includes('context_all_loredecks_locked'), 'Context automation must audit all-locked-stack skips.');
 assert(extractor.includes('context_no_loaded_loredecks'), 'Context automation must audit no-loaded-Loredeck skips.');
 assert(stateManager.includes('contextBrief'), 'State manager must preserve Context Brief state.');
-assert(constants.includes('contextAutomationAudit'), 'Default state must preserve Context automation audit state.');
+assert(defaultState.includes('contextAutomationAudit'), 'Default state must preserve Context automation audit state.');
 assert(style.includes('saga-context-command-card'), 'Context command center must have dedicated layout styling.');
 assert(style.includes('saga-context-automation-audit'), 'Context automation audit must have dedicated styling.');
 assert(style.includes('saga-context-proposal-review-shell'), 'Context proposal review overlay must have dedicated shell styling.');
@@ -840,7 +951,7 @@ assert(llm.includes('options.forceVisibleOutput === true'), 'Lore LLM client mus
 assert(runtimePanelSource.includes('titleRunRemainingLimit'), 'Creator title Generate Remaining must use a configurable run limit.');
 assert(runtimePanelSource.includes('entryRunRemainingLimit'), 'Creator Lorecard auto-draft must use a configurable run limit.');
 assert(runtimePanelSource.includes('retryAttempts: Number.isFinite(Number(config.retryAttempts))'), 'Creator runner calls must support configured retry attempts.');
-assert(stateManager.includes('generationSettings'), 'Creator project persistence must preserve generation settings.');
+assert(stateSource.includes('generationSettings'), 'Creator project persistence must preserve generation settings.');
 assert(runtimePanelSource.includes('unitMeta'), 'Creator generation units must persist compact retry metadata.');
 assert(runtimePanelSource.includes('getLoredeckCreatorLatestRecoverableUnit'), 'Creator recovery must locate the latest failed or interrupted unit.');
 assert(runtimePanelSource.includes('retryLoredeckCreatorRecoverableUnit'), 'Creator recovery must retry failed generation units.');
@@ -861,8 +972,8 @@ assert(runtimePanelSource.includes('const freshPack = getFreshLoredeckLibraryPac
 assert(runtimePanelSource.includes('else next.pendingChanges = [];'), 'Loredeck pending acceptance must pass an explicit empty pendingChanges field through persistence.');
 assert(runtimePanelSource.includes("generated_shell_without_entries"), 'Generated Loredeck planning accepts must skip health rerun while the shell has no accepted Lorecards.');
 assert(!runtimePanelSource.includes('no valid manifest or accepted embedded data yet'), 'Generated Loredeck planning accepts must not warn about missing embedded data after each proposal.');
-assert(stateManager.includes('clearableOptionalFields'), 'Loredeck library upsert must track optional fields that were intentionally supplied.');
-assert(stateManager.includes('delete nextPack[key]'), 'Loredeck library upsert must clear optional fields that normalize to empty.');
+assert(stateSource.includes('clearableOptionalFields'), 'Loredeck library upsert must track optional fields that were intentionally supplied.');
+assert(stateSource.includes('delete nextPack[key]'), 'Loredeck library upsert must clear optional fields that normalize to empty.');
 assert(runtimePanelSource.includes('Finalize as Custom'), 'Generated Loredecks must expose reviewed Generated-to-Custom finalization.');
 assert(libraryPanel.includes('getGeneratedLoredeckExportReadiness'), 'Loredeck Library finalization controls must read Generated readiness.');
 assert(libraryPanel.includes('finalizeButton.disabled = !editorCanValidate || generatedReadiness?.ready === false'), 'Loredeck Library finalize button must disable when Generated readiness blocks finalization.');
@@ -1126,7 +1237,7 @@ for (const token of [
     'planningBatchQueuedIds',
     'planningBatchAcceptedIds',
 ]) {
-    assert(stateManager.includes(token), `State manager is missing expected Creator job token: ${token}`);
+    assert(stateSource.includes(token), `State manager is missing expected Creator job token: ${token}`);
 }
 
 for (const token of [

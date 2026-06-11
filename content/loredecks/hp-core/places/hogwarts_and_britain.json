@@ -133,7 +133,16 @@
           "splitAt": "2026-06-05"
         }
       },
-      "lorePurpose": "knowledge_gate"
+      "lorePurpose": "knowledge_gate",
+      "ui": {
+        "preview": {
+          "primaryPack": "all_active",
+          "suggestionRole": "reference_only",
+          "detailLevel": "standard",
+          "suggestByDefault": false,
+          "activeUse": "reference_only"
+        }
+      }
     },
     {
       "schemaVersion": 3,
@@ -247,7 +256,16 @@
           "splitAt": "2026-06-05"
         }
       },
-      "lorePurpose": "knowledge_gate"
+      "lorePurpose": "knowledge_gate",
+      "ui": {
+        "preview": {
+          "primaryPack": "all_active",
+          "suggestionRole": "reference_only",
+          "detailLevel": "standard",
+          "suggestByDefault": false,
+          "activeUse": "reference_only"
+        }
+      }
     },
     {
       "schemaVersion": 3,
@@ -387,7 +405,16 @@
           "splitAt": "2026-06-05"
         }
       },
-      "lorePurpose": "knowledge_gate"
+      "lorePurpose": "knowledge_gate",
+      "ui": {
+        "preview": {
+          "primaryPack": "all_active",
+          "suggestionRole": "reference_only",
+          "detailLevel": "standard",
+          "suggestByDefault": false,
+          "activeUse": "reference_only"
+        }
+      }
     }
   ]
 }

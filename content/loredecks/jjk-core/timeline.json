@@ -62,6 +62,21 @@
       }
     },
     {
+      "id": "jjk.culling.sukuna-takes-megumi",
+      "label": "Sukuna takes Megumi as vessel",
+      "sortKey": 12120,
+      "aliases": [
+        "Megumi becomes Sukuna vessel",
+        "Sukuna possesses Megumi"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen",
+        "chapterRange": "Late Culling Game"
+      }
+    },
+    {
       "id": "jjk.culling.gojo-unsealed",
       "label": "Gojo is unsealed",
       "sortKey": 12600,

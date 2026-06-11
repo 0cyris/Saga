@@ -493,6 +493,1208 @@
           "status": "initial_shinjuku_slice"
         }
       }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_shinjuku_showdown_exp_yujis_final_push_targets_the_soul_boundary",
+      "title": "Yuji's Final Push Targets The Soul Boundary",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.shinjuku.yuji-megumi-final-push",
+        "validToAnchor": "jjk.shinjuku.epilogue-state",
+        "sortKeyFrom": 14600,
+        "sortKeyTo": 14800,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Final resolution and aftermath"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:itadori-yuji",
+          "jjk:ryomen-sukuna",
+          "jjk:megumi-fushiguro"
+        ],
+        "characters": [
+          "Yuji Itadori",
+          "Ryomen Sukuna",
+          "Megumi Fushiguro"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "soul boundary",
+          "Megumi rescue"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:shinjuku-showdown",
+        "character:itadori-yuji",
+        "character:ryomen-sukuna",
+        "character:megumi-fushiguro",
+        "topic:soul-boundary",
+        "topic:megumi-rescue"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuji Itadori",
+            "Ryomen Sukuna",
+            "Megumi Fushiguro"
+          ],
+          "topicsAny": [
+            "soul boundary",
+            "Megumi rescue"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shinjuku Showdown through chapter 271 manga aftermath.",
+        "notes": "Jujutsu Kaisen Modulo, anime-only changes, guidebook-only material, games, and light novels should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Yuji's late fight objective centers on separating Sukuna from Megumi by attacking the soul boundary, not merely beating Sukuna's body.",
+        "injection": "Use this event state in the active window: Yuji's late fight objective centers on separating Sukuna from Megumi by attacking the soul boundary, not merely beating Sukuna's body.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Shinjuku Showdown and Aftermath",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Yuji and Megumi final separation push"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-shinjuku-showdown",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_shinjuku_showdown_exp_nobaras_late_resonance_creates_a_final_opening",
+      "title": "Nobara's Late Resonance Creates A Final Opening",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.shinjuku.yuji-megumi-final-push",
+        "validToAnchor": "jjk.shinjuku.epilogue-state",
+        "sortKeyFrom": 14600,
+        "sortKeyTo": 14800,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Final resolution and aftermath"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:kugisaki-nobara",
+          "jjk:ryomen-sukuna",
+          "jjk:itadori-yuji"
+        ],
+        "characters": [
+          "Nobara Kugisaki",
+          "Ryomen Sukuna",
+          "Yuji Itadori"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Nobara return",
+          "Resonance"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:shinjuku-showdown",
+        "character:kugisaki-nobara",
+        "character:ryomen-sukuna",
+        "character:itadori-yuji",
+        "topic:nobara-return",
+        "topic:resonance"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Nobara Kugisaki",
+            "Ryomen Sukuna",
+            "Yuji Itadori"
+          ],
+          "topicsAny": [
+            "Nobara return",
+            "Resonance"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shinjuku Showdown through chapter 271 manga aftermath.",
+        "notes": "Jujutsu Kaisen Modulo, anime-only changes, guidebook-only material, games, and light novels should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Nobara's late intervention through Resonance on Sukuna's remaining finger creates an opening for Yuji's final push.",
+        "injection": "Use this event state in the active window: Nobara's late intervention through Resonance on Sukuna's remaining finger creates an opening for Yuji's final push.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Shinjuku Showdown and Aftermath",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Yuji and Megumi final separation push"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-shinjuku-showdown",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_shinjuku_showdown_exp_megumis_will_matters_to_the_rescue",
+      "title": "Megumi's Will Matters To The Rescue",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.shinjuku.yuji-megumi-final-push",
+        "validToAnchor": "jjk.shinjuku.epilogue-state",
+        "sortKeyFrom": 14600,
+        "sortKeyTo": 14800,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Final resolution and aftermath"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:megumi-fushiguro",
+          "jjk:itadori-yuji",
+          "jjk:ryomen-sukuna"
+        ],
+        "characters": [
+          "Megumi Fushiguro",
+          "Yuji Itadori",
+          "Ryomen Sukuna"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Megumi will",
+          "rescue objective"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:shinjuku-showdown",
+        "character:megumi-fushiguro",
+        "character:itadori-yuji",
+        "character:ryomen-sukuna",
+        "topic:megumi-will",
+        "topic:rescue-objective"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Megumi Fushiguro",
+            "Yuji Itadori",
+            "Ryomen Sukuna"
+          ],
+          "topicsAny": [
+            "Megumi will",
+            "rescue objective"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shinjuku Showdown through chapter 271 manga aftermath.",
+        "notes": "Jujutsu Kaisen Modulo, anime-only changes, guidebook-only material, games, and light novels should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Megumi's internal response is part of the rescue outcome; the allies cannot treat him as an inert object.",
+        "injection": "Use this event state in the active window: Megumi's internal response is part of the rescue outcome; the allies cannot treat him as an inert object.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Shinjuku Showdown and Aftermath",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Yuji and Megumi final separation push"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-shinjuku-showdown",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_shinjuku_showdown_exp_sukuna_defeat_ends_the_vessel_crisis",
+      "title": "Sukuna Defeat Ends The Vessel Crisis",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.shinjuku.yuji-megumi-final-push",
+        "validToAnchor": "jjk.shinjuku.epilogue-state",
+        "sortKeyFrom": 14600,
+        "sortKeyTo": 14800,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Final resolution and aftermath"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:ryomen-sukuna",
+          "jjk:itadori-yuji",
+          "jjk:megumi-fushiguro"
+        ],
+        "characters": [
+          "Ryomen Sukuna",
+          "Yuji Itadori",
+          "Megumi Fushiguro"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Sukuna defeat",
+          "final outcome"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:shinjuku-showdown",
+        "character:ryomen-sukuna",
+        "character:itadori-yuji",
+        "character:megumi-fushiguro",
+        "topic:sukuna-defeat",
+        "topic:final-outcome"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Ryomen Sukuna",
+            "Yuji Itadori",
+            "Megumi Fushiguro"
+          ],
+          "topicsAny": [
+            "Sukuna defeat",
+            "final outcome"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shinjuku Showdown through chapter 271 manga aftermath.",
+        "notes": "Jujutsu Kaisen Modulo, anime-only changes, guidebook-only material, games, and light novels should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Sukuna's final defeat closes the central vessel crisis and changes Yuji and Megumi's immediate futures.",
+        "injection": "Use this event state in the active window: Sukuna's final defeat closes the central vessel crisis and changes Yuji and Megumi's immediate futures.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Shinjuku Showdown and Aftermath",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Yuji and Megumi final separation push"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-shinjuku-showdown",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_shinjuku_showdown_exp_yuji_becomes_the_main_separation_specialist",
+      "title": "Yuji Becomes The Main Separation Specialist",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.shinjuku.yuji-megumi-final-push",
+        "validToAnchor": "jjk.shinjuku.epilogue-state",
+        "sortKeyFrom": 14600,
+        "sortKeyTo": 14800,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Final resolution and aftermath"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:itadori-yuji",
+          "jjk:ryomen-sukuna",
+          "jjk:megumi-fushiguro"
+        ],
+        "characters": [
+          "Yuji Itadori",
+          "Ryomen Sukuna",
+          "Megumi Fushiguro"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Yuji soul attacks",
+          "separation objective"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:shinjuku-showdown",
+        "character:itadori-yuji",
+        "character:ryomen-sukuna",
+        "character:megumi-fushiguro",
+        "topic:yuji-soul-attacks",
+        "topic:separation-objective"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuji Itadori",
+            "Ryomen Sukuna",
+            "Megumi Fushiguro"
+          ],
+          "topicsAny": [
+            "Yuji soul attacks",
+            "separation objective"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shinjuku Showdown through chapter 271 manga aftermath.",
+        "notes": "Jujutsu Kaisen Modulo, anime-only changes, guidebook-only material, games, and light novels should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Late Shinjuku Yuji's role centers on direct soul-targeting pressure against Sukuna's hold on Megumi.",
+        "injection": "At this Context, treat this status as active: Late Shinjuku Yuji's role centers on direct soul-targeting pressure against Sukuna's hold on Megumi.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Shinjuku Showdown and Aftermath",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Yuji and Megumi final separation push"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-shinjuku-showdown",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_shinjuku_showdown_exp_todos_return_restores_coordination_possibilities",
+      "title": "Todo's Return Restores Coordination Possibilities",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.shinjuku.yuji-megumi-final-push",
+        "validToAnchor": "jjk.shinjuku.epilogue-state",
+        "sortKeyFrom": 14600,
+        "sortKeyTo": 14800,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Final resolution and aftermath"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:aoi-todo",
+          "jjk:itadori-yuji"
+        ],
+        "characters": [
+          "Aoi Todo",
+          "Yuji Itadori"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Todo return",
+          "coordination"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:shinjuku-showdown",
+        "character:aoi-todo",
+        "character:itadori-yuji",
+        "topic:todo-return",
+        "topic:coordination"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Aoi Todo",
+            "Yuji Itadori"
+          ],
+          "topicsAny": [
+            "Todo return",
+            "coordination"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shinjuku Showdown through chapter 271 manga aftermath.",
+        "notes": "Jujutsu Kaisen Modulo, anime-only changes, guidebook-only material, games, and light novels should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Todo's late reentry gives Yuji coordination and morale support while changing battlefield positioning options.",
+        "injection": "At this Context, treat this status as active: Todo's late reentry gives Yuji coordination and morale support while changing battlefield positioning options.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Shinjuku Showdown and Aftermath",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Yuji and Megumi final separation push"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-shinjuku-showdown",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_shinjuku_showdown_exp_nobaras_return_must_stay_late_gated",
+      "title": "Nobara's Return Must Stay Late-Gated",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.shinjuku.yuji-megumi-final-push",
+        "validToAnchor": "jjk.shinjuku.epilogue-state",
+        "sortKeyFrom": 14600,
+        "sortKeyTo": 14800,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Final resolution and aftermath"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:kugisaki-nobara"
+        ],
+        "characters": [
+          "Nobara Kugisaki"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Nobara return",
+          "spoiler guard"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:shinjuku-showdown",
+        "character:kugisaki-nobara",
+        "topic:nobara-return",
+        "topic:spoiler-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Nobara Kugisaki"
+          ],
+          "topicsAny": [
+            "Nobara return",
+            "spoiler guard"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shinjuku Showdown through chapter 271 manga aftermath.",
+        "notes": "Jujutsu Kaisen Modulo, anime-only changes, guidebook-only material, games, and light novels should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Nobara should not be available or confirmed before the late Shinjuku reveal window.",
+        "injection": "At this Context, treat this status as active: Nobara should not be available or confirmed before the late Shinjuku reveal window.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Shinjuku Showdown and Aftermath",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Yuji and Megumi final separation push"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-shinjuku-showdown",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_shinjuku_showdown_exp_megumi_survives_as_a_rescued_person_not_a_reset",
+      "title": "Megumi Survives As A Rescued Person Not A Reset",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.shinjuku.yuji-megumi-final-push",
+        "validToAnchor": "jjk.shinjuku.epilogue-state",
+        "sortKeyFrom": 14600,
+        "sortKeyTo": 14800,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Final resolution and aftermath"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:megumi-fushiguro",
+          "jjk:ryomen-sukuna"
+        ],
+        "characters": [
+          "Megumi Fushiguro",
+          "Ryomen Sukuna"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Megumi aftermath",
+          "trauma"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:shinjuku-showdown",
+        "character:megumi-fushiguro",
+        "character:ryomen-sukuna",
+        "topic:megumi-aftermath",
+        "topic:trauma"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Megumi Fushiguro",
+            "Ryomen Sukuna"
+          ],
+          "topicsAny": [
+            "Megumi aftermath",
+            "trauma"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shinjuku Showdown through chapter 271 manga aftermath.",
+        "notes": "Jujutsu Kaisen Modulo, anime-only changes, guidebook-only material, games, and light novels should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "After Sukuna's defeat, Megumi survives but should carry trauma and consequence rather than a clean reset.",
+        "injection": "At this Context, treat this status as active: After Sukuna's defeat, Megumi survives but should carry trauma and consequence rather than a clean reset.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Shinjuku Showdown and Aftermath",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Yuji and Megumi final separation push"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-shinjuku-showdown",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_shinjuku_showdown_exp_nobaras_survival_is_a_final_phase_reveal",
+      "title": "Nobara's Survival Is A Final-Phase Reveal",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.shinjuku.yuji-megumi-final-push",
+        "validToAnchor": "jjk.shinjuku.epilogue-state",
+        "sortKeyFrom": 14600,
+        "sortKeyTo": 14800,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Final resolution and aftermath"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:kugisaki-nobara"
+        ],
+        "characters": [
+          "Nobara Kugisaki"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Nobara survival",
+          "spoiler guard"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:shinjuku-showdown",
+        "character:kugisaki-nobara",
+        "topic:nobara-survival",
+        "topic:spoiler-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Nobara Kugisaki"
+          ],
+          "topicsAny": [
+            "Nobara survival",
+            "spoiler guard"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shinjuku Showdown through chapter 271 manga aftermath.",
+        "notes": "Jujutsu Kaisen Modulo, anime-only changes, guidebook-only material, games, and light novels should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Nobara's availability and survival confirmation should remain hidden until the late final battle Context.",
+        "injection": "Gate by Context and character knowledge: Nobara's availability and survival confirmation should remain hidden until the late final battle Context.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Shinjuku Showdown and Aftermath",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Yuji and Megumi final separation push"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-shinjuku-showdown",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_shinjuku_showdown_exp_sukunas_defeat_belongs_only_to_final_resolution",
+      "title": "Sukuna's Defeat Belongs Only To Final Resolution",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.shinjuku.yuji-megumi-final-push",
+        "validToAnchor": "jjk.shinjuku.epilogue-state",
+        "sortKeyFrom": 14600,
+        "sortKeyTo": 14800,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Final resolution and aftermath"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:ryomen-sukuna"
+        ],
+        "characters": [
+          "Ryomen Sukuna"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Sukuna defeat",
+          "temporal gate"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:shinjuku-showdown",
+        "character:ryomen-sukuna",
+        "topic:sukuna-defeat",
+        "topic:temporal-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Ryomen Sukuna"
+          ],
+          "topicsAny": [
+            "Sukuna defeat",
+            "temporal gate"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shinjuku Showdown through chapter 271 manga aftermath.",
+        "notes": "Jujutsu Kaisen Modulo, anime-only changes, guidebook-only material, games, and light novels should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Do not write Sukuna as defeated, dying, or accepted as beaten before the final resolution window.",
+        "injection": "Gate by Context and character knowledge: Do not write Sukuna as defeated, dying, or accepted as beaten before the final resolution window.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Shinjuku Showdown and Aftermath",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Yuji and Megumi final separation push"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-shinjuku-showdown",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_shinjuku_showdown_exp_post_battle_institution_state_is_aftermath_only",
+      "title": "Post-Battle Institution State Is Aftermath Only",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.shinjuku.yuji-megumi-final-push",
+        "validToAnchor": "jjk.shinjuku.epilogue-state",
+        "sortKeyFrom": 14600,
+        "sortKeyTo": 14800,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Final resolution and aftermath"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:jujutsu-society"
+        ],
+        "characters": [
+          "Jujutsu society"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "post-battle institution",
+          "aftermath"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:shinjuku-showdown",
+        "topic:post-battle-institution",
+        "topic:aftermath"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jujutsu society"
+          ],
+          "topicsAny": [
+            "post-battle institution",
+            "aftermath"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shinjuku Showdown through chapter 271 manga aftermath.",
+        "notes": "Jujutsu Kaisen Modulo, anime-only changes, guidebook-only material, games, and light novels should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Any post-battle social or institutional recovery belongs after the epilogue-state anchor, not during active combat.",
+        "injection": "Gate by Context and character knowledge: Any post-battle social or institutional recovery belongs after the epilogue-state anchor, not during active combat.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Shinjuku Showdown and Aftermath",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Yuji and Megumi final separation push"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-shinjuku-showdown",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
     }
   ]
 }

@@ -463,6 +463,1574 @@
           "status": "initial_hidden_inventory_slice"
         }
       }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_hidden_inventory_premature_death_exp_student_gojo_is_brilliant_and_reckless",
+      "title": "Student Gojo Is Brilliant And Reckless",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.hidden.star-plasma-vessel-mission",
+        "validToAnchor": "jjk.hidden.riko-death-and-mission-collapse",
+        "sortKeyFrom": 200,
+        "sortKeyTo": 720,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Star Plasma Vessel mission"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:gojo-satoru"
+        ],
+        "characters": [
+          "Satoru Gojo"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "student Gojo",
+          "strongest development"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:hidden-inventory",
+        "character:gojo-satoru",
+        "topic:student-gojo",
+        "topic:strongest-development"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Satoru Gojo"
+          ],
+          "topicsAny": [
+            "student Gojo",
+            "strongest development"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Hidden Inventory and Premature Death manga pre-mainline material.",
+        "notes": "Mainline origin, Shibuya, Culling Game, Shinjuku, Jujutsu Kaisen 0 scene details, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Student Gojo is already extraordinary but still arrogant, playful, and not yet the fully isolated adult strongest.",
+        "injection": "At this Context, treat this status as active: Student Gojo is already extraordinary but still arrogant, playful, and not yet the fully isolated adult strongest.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Hidden Inventory and Premature Death",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Star Plasma Vessel mission setup"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-hidden-inventory-premature-death",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_hidden_inventory_premature_death_exp_student_geto_believes_in_sorcerer_duty",
+      "title": "Student Geto Believes In Sorcerer Duty",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.hidden.star-plasma-vessel-mission",
+        "validToAnchor": "jjk.hidden.riko-death-and-mission-collapse",
+        "sortKeyFrom": 200,
+        "sortKeyTo": 720,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Star Plasma Vessel mission"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:geto-suguru"
+        ],
+        "characters": [
+          "Suguru Geto"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "student Geto",
+          "moral framework"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:hidden-inventory",
+        "character:geto-suguru",
+        "topic:student-geto",
+        "topic:moral-framework"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Suguru Geto"
+          ],
+          "topicsAny": [
+            "student Geto",
+            "moral framework"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Hidden Inventory and Premature Death manga pre-mainline material.",
+        "notes": "Mainline origin, Shibuya, Culling Game, Shinjuku, Jujutsu Kaisen 0 scene details, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Student Geto begins with a moral framework that sorcerers protect non-sorcerers, making his later collapse a major change.",
+        "injection": "At this Context, treat this status as active: Student Geto begins with a moral framework that sorcerers protect non-sorcerers, making his later collapse a major change.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Hidden Inventory and Premature Death",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Star Plasma Vessel mission setup"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-hidden-inventory-premature-death",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_hidden_inventory_premature_death_exp_riko_is_a_person_before_a_vessel",
+      "title": "Riko Is A Person Before A Vessel",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.hidden.star-plasma-vessel-mission",
+        "validToAnchor": "jjk.hidden.riko-death-and-mission-collapse",
+        "sortKeyFrom": 200,
+        "sortKeyTo": 720,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Star Plasma Vessel mission"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:riko-amanai"
+        ],
+        "characters": [
+          "Riko Amanai"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Star Plasma Vessel",
+          "Riko agency"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:hidden-inventory",
+        "character:riko-amanai",
+        "topic:star-plasma-vessel",
+        "topic:riko-agency"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Riko Amanai"
+          ],
+          "topicsAny": [
+            "Star Plasma Vessel",
+            "Riko agency"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Hidden Inventory and Premature Death manga pre-mainline material.",
+        "notes": "Mainline origin, Shibuya, Culling Game, Shinjuku, Jujutsu Kaisen 0 scene details, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Riko Amanai should be written as a teenager with attachments and agency, not merely as Tengen's component.",
+        "injection": "At this Context, treat this status as active: Riko Amanai should be written as a teenager with attachments and agency, not merely as Tengen's component.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Hidden Inventory and Premature Death",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Star Plasma Vessel mission setup"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-hidden-inventory-premature-death",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_hidden_inventory_premature_death_exp_kuroi_is_rikos_emotional_anchor",
+      "title": "Kuroi Is Riko's Emotional Anchor",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.hidden.star-plasma-vessel-mission",
+        "validToAnchor": "jjk.hidden.riko-death-and-mission-collapse",
+        "sortKeyFrom": 200,
+        "sortKeyTo": 720,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Star Plasma Vessel mission"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:misato-kuroi",
+          "jjk:riko-amanai"
+        ],
+        "characters": [
+          "Misato Kuroi",
+          "Riko Amanai"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Kuroi",
+          "Riko support"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:hidden-inventory",
+        "character:misato-kuroi",
+        "character:riko-amanai",
+        "topic:kuroi",
+        "topic:riko-support"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Misato Kuroi",
+            "Riko Amanai"
+          ],
+          "topicsAny": [
+            "Kuroi",
+            "Riko support"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Hidden Inventory and Premature Death manga pre-mainline material.",
+        "notes": "Mainline origin, Shibuya, Culling Game, Shinjuku, Jujutsu Kaisen 0 scene details, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Misato Kuroi functions as Riko's caretaker and emotional support during the escort mission.",
+        "injection": "At this Context, treat this status as active: Misato Kuroi functions as Riko's caretaker and emotional support during the escort mission.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Hidden Inventory and Premature Death",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Star Plasma Vessel mission setup"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-hidden-inventory-premature-death",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_hidden_inventory_premature_death_exp_limitless_requires_six_eyes_precision",
+      "title": "Limitless Requires Six Eyes Precision",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.hidden.gojo-geto-student-baseline",
+        "validToAnchor": "jjk.hidden.geto-defection",
+        "sortKeyFrom": 100,
+        "sortKeyTo": 1100,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Hidden Inventory through Premature Death"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:gojo-satoru"
+        ],
+        "characters": [
+          "Satoru Gojo"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Limitless",
+          "Six Eyes"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:hidden-inventory",
+        "character:gojo-satoru",
+        "topic:limitless",
+        "topic:six-eyes"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Satoru Gojo"
+          ],
+          "topicsAny": [
+            "Limitless",
+            "Six Eyes"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Hidden Inventory and Premature Death manga pre-mainline material.",
+        "notes": "Mainline origin, Shibuya, Culling Game, Shinjuku, Jujutsu Kaisen 0 scene details, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Gojo's Limitless is strongest because Six Eyes precision lets him process and control cursed energy at an abnormal level.",
+        "injection": "When Limitless and Six Eyes matters, enforce this ability constraint: Gojo's Limitless is strongest because Six Eyes precision lets him process and control cursed energy at an abnormal level.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Hidden Inventory and Premature Death",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Hidden Inventory opening"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-hidden-inventory-premature-death",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      },
+      "ability": {
+        "system": "cursed_technique",
+        "name": "Limitless and Six Eyes",
+        "ownerEntityIds": [
+          "jjk:gojo-satoru"
+        ],
+        "constraints": [
+          "Gojo's Limitless is strongest because Six Eyes precision lets him process and control cursed energy at an abnormal level."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_hidden_inventory_premature_death_exp_infinity_blocks_approach_rather_than_being_armor",
+      "title": "Infinity Blocks Approach Rather Than Being Armor",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.hidden.gojo-geto-student-baseline",
+        "validToAnchor": "jjk.hidden.geto-defection",
+        "sortKeyFrom": 100,
+        "sortKeyTo": 1100,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Hidden Inventory through Premature Death"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:gojo-satoru"
+        ],
+        "characters": [
+          "Satoru Gojo"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Infinity",
+          "Limitless"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:hidden-inventory",
+        "character:gojo-satoru",
+        "topic:infinity",
+        "topic:limitless"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Satoru Gojo"
+          ],
+          "topicsAny": [
+            "Infinity",
+            "Limitless"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Hidden Inventory and Premature Death manga pre-mainline material.",
+        "notes": "Mainline origin, Shibuya, Culling Game, Shinjuku, Jujutsu Kaisen 0 scene details, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Infinity manipulates approach and contact; write it as spatial interference, not ordinary durability.",
+        "injection": "When Infinity matters, enforce this ability constraint: Infinity manipulates approach and contact; write it as spatial interference, not ordinary durability.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Hidden Inventory and Premature Death",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Hidden Inventory opening"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-hidden-inventory-premature-death",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      },
+      "ability": {
+        "system": "cursed_technique",
+        "name": "Infinity",
+        "ownerEntityIds": [
+          "jjk:gojo-satoru"
+        ],
+        "constraints": [
+          "Infinity manipulates approach and contact; write it as spatial interference, not ordinary durability."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_hidden_inventory_premature_death_exp_toji_uses_cursed_tools_to_bypass_techniques",
+      "title": "Toji Uses Cursed Tools To Bypass Techniques",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.hidden.gojo-geto-student-baseline",
+        "validToAnchor": "jjk.hidden.geto-defection",
+        "sortKeyFrom": 100,
+        "sortKeyTo": 1100,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Hidden Inventory through Premature Death"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:toji-fushiguro"
+        ],
+        "characters": [
+          "Toji Fushiguro"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Toji tools",
+          "cursed tools"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:hidden-inventory",
+        "character:toji-fushiguro",
+        "topic:toji-tools",
+        "topic:cursed-tools"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Toji Fushiguro"
+          ],
+          "topicsAny": [
+            "Toji tools",
+            "cursed tools"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Hidden Inventory and Premature Death manga pre-mainline material.",
+        "notes": "Mainline origin, Shibuya, Culling Game, Shinjuku, Jujutsu Kaisen 0 scene details, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Toji compensates for no cursed energy by using cursed tools, timing, and anti-technique weapons.",
+        "injection": "When Toji Cursed Tools matters, enforce this ability constraint: Toji compensates for no cursed energy by using cursed tools, timing, and anti-technique weapons.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Hidden Inventory and Premature Death",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Hidden Inventory opening"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-hidden-inventory-premature-death",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      },
+      "ability": {
+        "system": "cursed_tool",
+        "name": "Toji Cursed Tools",
+        "ownerEntityIds": [
+          "jjk:toji-fushiguro"
+        ],
+        "constraints": [
+          "Toji compensates for no cursed energy by using cursed tools, timing, and anti-technique weapons."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_hidden_inventory_premature_death_exp_inverted_spear_disrupts_cursed_techniques",
+      "title": "Inverted Spear Disrupts Cursed Techniques",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.hidden.gojo-geto-student-baseline",
+        "validToAnchor": "jjk.hidden.geto-defection",
+        "sortKeyFrom": 100,
+        "sortKeyTo": 1100,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Hidden Inventory through Premature Death"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:toji-fushiguro"
+        ],
+        "characters": [
+          "Toji Fushiguro"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Inverted Spear",
+          "cursed tools"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:hidden-inventory",
+        "character:toji-fushiguro",
+        "topic:inverted-spear",
+        "topic:cursed-tools"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Toji Fushiguro"
+          ],
+          "topicsAny": [
+            "Inverted Spear",
+            "cursed tools"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Hidden Inventory and Premature Death manga pre-mainline material.",
+        "notes": "Mainline origin, Shibuya, Culling Game, Shinjuku, Jujutsu Kaisen 0 scene details, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "The Inverted Spear of Heaven can interfere with cursed techniques, making it a credible threat to even elite defenses.",
+        "injection": "When Inverted Spear of Heaven matters, enforce this ability constraint: The Inverted Spear of Heaven can interfere with cursed techniques, making it a credible threat to even elite defenses.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Hidden Inventory and Premature Death",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Hidden Inventory opening"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-hidden-inventory-premature-death",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      },
+      "ability": {
+        "system": "cursed_tool",
+        "name": "Inverted Spear of Heaven",
+        "ownerEntityIds": [
+          "jjk:toji-fushiguro"
+        ],
+        "constraints": [
+          "The Inverted Spear of Heaven can interfere with cursed techniques, making it a credible threat to even elite defenses."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_hidden_inventory_premature_death_exp_inventory_curse_carries_tojis_arsenal",
+      "title": "Inventory Curse Carries Toji's Arsenal",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.hidden.gojo-geto-student-baseline",
+        "validToAnchor": "jjk.hidden.geto-defection",
+        "sortKeyFrom": 100,
+        "sortKeyTo": 1100,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Hidden Inventory through Premature Death"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:toji-fushiguro"
+        ],
+        "characters": [
+          "Toji Fushiguro"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "inventory curse",
+          "Toji arsenal"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:hidden-inventory",
+        "character:toji-fushiguro",
+        "topic:inventory-curse",
+        "topic:toji-arsenal"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Toji Fushiguro"
+          ],
+          "topicsAny": [
+            "inventory curse",
+            "Toji arsenal"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Hidden Inventory and Premature Death manga pre-mainline material.",
+        "notes": "Mainline origin, Shibuya, Culling Game, Shinjuku, Jujutsu Kaisen 0 scene details, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Toji's inventory curse lets him conceal and access weapons while preserving his stealth profile.",
+        "injection": "When Inventory Curse matters, enforce this ability constraint: Toji's inventory curse lets him conceal and access weapons while preserving his stealth profile.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Hidden Inventory and Premature Death",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Hidden Inventory opening"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-hidden-inventory-premature-death",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      },
+      "ability": {
+        "system": "cursed_tool",
+        "name": "Inventory Curse",
+        "ownerEntityIds": [
+          "jjk:toji-fushiguro"
+        ],
+        "constraints": [
+          "Toji's inventory curse lets him conceal and access weapons while preserving his stealth profile."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_hidden_inventory_premature_death_exp_getos_technique_depends_on_curse_acquisition",
+      "title": "Geto's Technique Depends On Curse Acquisition",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.hidden.gojo-geto-student-baseline",
+        "validToAnchor": "jjk.hidden.geto-defection",
+        "sortKeyFrom": 100,
+        "sortKeyTo": 1100,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Hidden Inventory through Premature Death"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:geto-suguru"
+        ],
+        "characters": [
+          "Suguru Geto"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Cursed Spirit Manipulation",
+          "captured curses"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:hidden-inventory",
+        "character:geto-suguru",
+        "topic:cursed-spirit-manipulation",
+        "topic:captured-curses"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Suguru Geto"
+          ],
+          "topicsAny": [
+            "Cursed Spirit Manipulation",
+            "captured curses"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Hidden Inventory and Premature Death manga pre-mainline material.",
+        "notes": "Mainline origin, Shibuya, Culling Game, Shinjuku, Jujutsu Kaisen 0 scene details, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Geto's Cursed Spirit Manipulation scales with what curses he has captured and how he deploys them.",
+        "injection": "When Cursed Spirit Manipulation matters, enforce this ability constraint: Geto's Cursed Spirit Manipulation scales with what curses he has captured and how he deploys them.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Hidden Inventory and Premature Death",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Hidden Inventory opening"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-hidden-inventory-premature-death",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      },
+      "ability": {
+        "system": "cursed_technique",
+        "name": "Cursed Spirit Manipulation",
+        "ownerEntityIds": [
+          "jjk:geto-suguru"
+        ],
+        "constraints": [
+          "Geto's Cursed Spirit Manipulation scales with what curses he has captured and how he deploys them."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_hidden_inventory_premature_death_exp_star_plasma_mission_puts_students_in_a_political_role",
+      "title": "Star Plasma Mission Puts Students In A Political Role",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.hidden.star-plasma-vessel-mission",
+        "validToAnchor": "jjk.hidden.riko-death-and-mission-collapse",
+        "sortKeyFrom": 200,
+        "sortKeyTo": 720,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Star Plasma Vessel mission"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:gojo-satoru",
+          "jjk:geto-suguru",
+          "jjk:riko-amanai"
+        ],
+        "characters": [
+          "Satoru Gojo",
+          "Suguru Geto",
+          "Riko Amanai"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Star Plasma Vessel",
+          "Tengen"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:hidden-inventory",
+        "character:gojo-satoru",
+        "character:geto-suguru",
+        "character:riko-amanai",
+        "topic:star-plasma-vessel",
+        "topic:tengen"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Satoru Gojo",
+            "Suguru Geto",
+            "Riko Amanai"
+          ],
+          "topicsAny": [
+            "Star Plasma Vessel",
+            "Tengen"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Hidden Inventory and Premature Death manga pre-mainline material.",
+        "notes": "Mainline origin, Shibuya, Culling Game, Shinjuku, Jujutsu Kaisen 0 scene details, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Gojo and Geto's escort mission connects student combat to Tengen, religious pressure, and jujutsu society's institutional needs.",
+        "injection": "Use this event state in the active window: Gojo and Geto's escort mission connects student combat to Tengen, religious pressure, and jujutsu society's institutional needs.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Hidden Inventory and Premature Death",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Star Plasma Vessel mission setup"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-hidden-inventory-premature-death",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_hidden_inventory_premature_death_exp_okinawa_detour_humanizes_riko",
+      "title": "Okinawa Detour Humanizes Riko",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.hidden.star-plasma-vessel-mission",
+        "validToAnchor": "jjk.hidden.riko-death-and-mission-collapse",
+        "sortKeyFrom": 200,
+        "sortKeyTo": 720,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Star Plasma Vessel mission"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:riko-amanai",
+          "jjk:gojo-satoru",
+          "jjk:geto-suguru"
+        ],
+        "characters": [
+          "Riko Amanai",
+          "Satoru Gojo",
+          "Suguru Geto"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Okinawa",
+          "Riko agency"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:hidden-inventory",
+        "character:riko-amanai",
+        "character:gojo-satoru",
+        "character:geto-suguru",
+        "topic:okinawa",
+        "topic:riko-agency"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Riko Amanai",
+            "Satoru Gojo",
+            "Suguru Geto"
+          ],
+          "topicsAny": [
+            "Okinawa",
+            "Riko agency"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Hidden Inventory and Premature Death manga pre-mainline material.",
+        "notes": "Mainline origin, Shibuya, Culling Game, Shinjuku, Jujutsu Kaisen 0 scene details, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "The Okinawa interval matters because it gives Riko ordinary life and choice before the mission collapses.",
+        "injection": "Use this event state in the active window: The Okinawa interval matters because it gives Riko ordinary life and choice before the mission collapses.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Hidden Inventory and Premature Death",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Star Plasma Vessel mission setup"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-hidden-inventory-premature-death",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_hidden_inventory_premature_death_exp_rikos_death_ends_the_mission_emotionally",
+      "title": "Riko's Death Ends The Mission Emotionally",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.hidden.star-plasma-vessel-mission",
+        "validToAnchor": "jjk.hidden.riko-death-and-mission-collapse",
+        "sortKeyFrom": 200,
+        "sortKeyTo": 720,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Star Plasma Vessel mission"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:riko-amanai",
+          "jjk:geto-suguru",
+          "jjk:gojo-satoru"
+        ],
+        "characters": [
+          "Riko Amanai",
+          "Suguru Geto",
+          "Satoru Gojo"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Riko death",
+          "mission collapse"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:hidden-inventory",
+        "character:riko-amanai",
+        "character:geto-suguru",
+        "character:gojo-satoru",
+        "topic:riko-death",
+        "topic:mission-collapse"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Riko Amanai",
+            "Suguru Geto",
+            "Satoru Gojo"
+          ],
+          "topicsAny": [
+            "Riko death",
+            "mission collapse"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Hidden Inventory and Premature Death manga pre-mainline material.",
+        "notes": "Mainline origin, Shibuya, Culling Game, Shinjuku, Jujutsu Kaisen 0 scene details, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Riko's death collapses the escort objective and becomes a key trauma for Geto's later worldview.",
+        "injection": "Use this event state in the active window: Riko's death collapses the escort objective and becomes a key trauma for Geto's later worldview.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Hidden Inventory and Premature Death",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Star Plasma Vessel mission setup"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-hidden-inventory-premature-death",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_hidden_inventory_premature_death_exp_tengen_merger_context_is_specialized_knowledge",
+      "title": "Tengen Merger Context Is Specialized Knowledge",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.hidden.star-plasma-vessel-mission",
+        "validToAnchor": "jjk.hidden.riko-death-and-mission-collapse",
+        "sortKeyFrom": 200,
+        "sortKeyTo": 720,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Star Plasma Vessel mission"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:tengen",
+          "jjk:riko-amanai"
+        ],
+        "characters": [
+          "Tengen",
+          "Riko Amanai"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Tengen merger",
+          "Star Plasma Vessel"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:hidden-inventory",
+        "character:tengen",
+        "character:riko-amanai",
+        "topic:tengen-merger",
+        "topic:star-plasma-vessel"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Tengen",
+            "Riko Amanai"
+          ],
+          "topicsAny": [
+            "Tengen merger",
+            "Star Plasma Vessel"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Hidden Inventory and Premature Death manga pre-mainline material.",
+        "notes": "Mainline origin, Shibuya, Culling Game, Shinjuku, Jujutsu Kaisen 0 scene details, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "The Star Plasma Vessel and Tengen merger are jujutsu-institution knowledge, not public information.",
+        "injection": "Gate by Context and character knowledge: The Star Plasma Vessel and Tengen merger are jujutsu-institution knowledge, not public information.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Hidden Inventory and Premature Death",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Star Plasma Vessel mission setup"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-hidden-inventory-premature-death",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
     }
   ]
 }

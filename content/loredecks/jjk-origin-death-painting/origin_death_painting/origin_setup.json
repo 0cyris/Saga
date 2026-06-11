@@ -446,6 +446,1695 @@
           "status": "initial_mainline_opening_slice"
         }
       }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_origin_death_painting_exp_yuji_starts_as_a_civilian_thrown_into_execution_politics",
+      "title": "Yuji Starts As A Civilian Thrown Into Execution Politics",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.main.yuji-eats-sukuna-finger",
+        "validToAnchor": "jjk.main.detention-center-sukuna-emerges",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 1600,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Origin and Cursed Womb"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:itadori-yuji",
+          "jjk:ryomen-sukuna"
+        ],
+        "characters": [
+          "Yuji Itadori",
+          "Ryomen Sukuna"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Yuji origin",
+          "Sukuna vessel"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:origin-death-painting",
+        "character:itadori-yuji",
+        "character:ryomen-sukuna",
+        "topic:yuji-origin",
+        "topic:sukuna-vessel"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuji Itadori",
+            "Ryomen Sukuna"
+          ],
+          "topicsAny": [
+            "Yuji origin",
+            "Sukuna vessel"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath.",
+        "notes": "Jujutsu Kaisen 0 prequel context, Hidden Inventory, Shibuya, Culling Game, Shinjuku, anime-only changes, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Yuji begins as an unusually physical civilian who becomes a condemned vessel after eating Sukuna's finger.",
+        "injection": "At this Context, treat this status as active: Yuji begins as an unusually physical civilian who becomes a condemned vessel after eating Sukuna's finger.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Origin through Death Painting",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Opening mainline arc"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-origin-death-painting",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_origin_death_painting_exp_megumi_is_a_serious_first_year_field_sorcerer",
+      "title": "Megumi Is A Serious First-Year Field Sorcerer",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.main.yuji-eats-sukuna-finger",
+        "validToAnchor": "jjk.main.detention-center-sukuna-emerges",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 1600,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Origin and Cursed Womb"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:megumi-fushiguro"
+        ],
+        "characters": [
+          "Megumi Fushiguro"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Megumi baseline",
+          "first-year sorcerer"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:origin-death-painting",
+        "character:megumi-fushiguro",
+        "topic:megumi-baseline",
+        "topic:first-year-sorcerer"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Megumi Fushiguro"
+          ],
+          "topicsAny": [
+            "Megumi baseline",
+            "first-year sorcerer"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath.",
+        "notes": "Jujutsu Kaisen 0 prequel context, Hidden Inventory, Shibuya, Culling Game, Shinjuku, anime-only changes, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Megumi enters as a trained first-year already used to missions, secrecy, and jujutsu risk.",
+        "injection": "At this Context, treat this status as active: Megumi enters as a trained first-year already used to missions, secrecy, and jujutsu risk.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Origin through Death Painting",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Opening mainline arc"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-origin-death-painting",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_origin_death_painting_exp_nobara_joins_with_rural_confidence_and_pride",
+      "title": "Nobara Joins With Rural Confidence And Pride",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.main.yuji-eats-sukuna-finger",
+        "validToAnchor": "jjk.main.detention-center-sukuna-emerges",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 1600,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Origin and Cursed Womb"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:kugisaki-nobara"
+        ],
+        "characters": [
+          "Nobara Kugisaki"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Nobara baseline",
+          "first-year sorcerer"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:origin-death-painting",
+        "character:kugisaki-nobara",
+        "topic:nobara-baseline",
+        "topic:first-year-sorcerer"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Nobara Kugisaki"
+          ],
+          "topicsAny": [
+            "Nobara baseline",
+            "first-year sorcerer"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath.",
+        "notes": "Jujutsu Kaisen 0 prequel context, Hidden Inventory, Shibuya, Culling Game, Shinjuku, anime-only changes, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Nobara enters Tokyo Jujutsu High with assertive self-definition, pride, and readiness to fight curses on her own terms.",
+        "injection": "At this Context, treat this status as active: Nobara enters Tokyo Jujutsu High with assertive self-definition, pride, and readiness to fight curses on her own terms.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Origin through Death Painting",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Opening mainline arc"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-origin-death-painting",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_origin_death_painting_exp_gojo_suspends_execution_by_taking_responsibility",
+      "title": "Gojo Suspends Execution By Taking Responsibility",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.main.yuji-eats-sukuna-finger",
+        "validToAnchor": "jjk.main.detention-center-sukuna-emerges",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 1600,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Origin and Cursed Womb"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:gojo-satoru",
+          "jjk:itadori-yuji"
+        ],
+        "characters": [
+          "Satoru Gojo",
+          "Yuji Itadori"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "execution suspension",
+          "Gojo protection"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:origin-death-painting",
+        "character:gojo-satoru",
+        "character:itadori-yuji",
+        "topic:execution-suspension",
+        "topic:gojo-protection"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Satoru Gojo",
+            "Yuji Itadori"
+          ],
+          "topicsAny": [
+            "execution suspension",
+            "Gojo protection"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath.",
+        "notes": "Jujutsu Kaisen 0 prequel context, Hidden Inventory, Shibuya, Culling Game, Shinjuku, anime-only changes, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Gojo's protection lets Yuji live under a suspended execution plan, creating constant institutional risk.",
+        "injection": "At this Context, treat this status as active: Gojo's protection lets Yuji live under a suspended execution plan, creating constant institutional risk.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Origin through Death Painting",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Opening mainline arc"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-origin-death-painting",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_origin_death_painting_exp_ten_shadows_starts_as_tactical_shikigami_use",
+      "title": "Ten Shadows Starts As Tactical Shikigami Use",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.main.yuji-eats-sukuna-finger",
+        "validToAnchor": "jjk.main.death-painting-aftermath",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 3800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Origin through Death Painting"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:megumi-fushiguro"
+        ],
+        "characters": [
+          "Megumi Fushiguro"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Ten Shadows",
+          "shikigami"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:origin-death-painting",
+        "character:megumi-fushiguro",
+        "topic:ten-shadows",
+        "topic:shikigami"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Megumi Fushiguro"
+          ],
+          "topicsAny": [
+            "Ten Shadows",
+            "shikigami"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath.",
+        "notes": "Jujutsu Kaisen 0 prequel context, Hidden Inventory, Shibuya, Culling Game, Shinjuku, anime-only changes, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Early Megumi uses Ten Shadows for tracking, restraint, support, and opportunistic attacks rather than full domain mastery.",
+        "injection": "When Ten Shadows Technique matters, enforce this ability constraint: Early Megumi uses Ten Shadows for tracking, restraint, support, and opportunistic attacks rather than full domain mastery.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Origin through Death Painting",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Opening mainline arc"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-origin-death-painting",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      },
+      "ability": {
+        "system": "shikigami",
+        "name": "Ten Shadows Technique",
+        "ownerEntityIds": [
+          "jjk:megumi-fushiguro"
+        ],
+        "constraints": [
+          "Early Megumi uses Ten Shadows for tracking, restraint, support, and opportunistic attacks rather than full domain mastery."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_origin_death_painting_exp_straw_doll_technique_links_body_and_resonance",
+      "title": "Straw Doll Technique Links Body And Resonance",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.main.yuji-eats-sukuna-finger",
+        "validToAnchor": "jjk.main.death-painting-aftermath",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 3800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Origin through Death Painting"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:kugisaki-nobara"
+        ],
+        "characters": [
+          "Nobara Kugisaki"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Straw Doll Technique",
+          "Resonance"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:origin-death-painting",
+        "character:kugisaki-nobara",
+        "topic:straw-doll-technique",
+        "topic:resonance"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Nobara Kugisaki"
+          ],
+          "topicsAny": [
+            "Straw Doll Technique",
+            "Resonance"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath.",
+        "notes": "Jujutsu Kaisen 0 prequel context, Hidden Inventory, Shibuya, Culling Game, Shinjuku, anime-only changes, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Nobara's technique works through nails, straw-doll links, and resonance damage rather than generic ranged blasting.",
+        "injection": "When Straw Doll Technique matters, enforce this ability constraint: Nobara's technique works through nails, straw-doll links, and resonance damage rather than generic ranged blasting.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Origin through Death Painting",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Opening mainline arc"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-origin-death-painting",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      },
+      "ability": {
+        "system": "cursed_technique",
+        "name": "Straw Doll Technique",
+        "ownerEntityIds": [
+          "jjk:kugisaki-nobara"
+        ],
+        "constraints": [
+          "Nobara's technique works through nails, straw-doll links, and resonance damage rather than generic ranged blasting."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_origin_death_painting_exp_divergent_fist_reflects_yujis_early_energy_lag",
+      "title": "Divergent Fist Reflects Yuji's Early Energy Lag",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.main.yuji-eats-sukuna-finger",
+        "validToAnchor": "jjk.main.death-painting-aftermath",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 3800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Origin through Death Painting"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:itadori-yuji"
+        ],
+        "characters": [
+          "Yuji Itadori"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Divergent Fist",
+          "early training"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:origin-death-painting",
+        "character:itadori-yuji",
+        "topic:divergent-fist",
+        "topic:early-training"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuji Itadori"
+          ],
+          "topicsAny": [
+            "Divergent Fist",
+            "early training"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath.",
+        "notes": "Jujutsu Kaisen 0 prequel context, Hidden Inventory, Shibuya, Culling Game, Shinjuku, anime-only changes, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Yuji's early cursed-energy control can create a delayed second impact, useful but not the same as mature precision.",
+        "injection": "When Divergent Fist matters, enforce this ability constraint: Yuji's early cursed-energy control can create a delayed second impact, useful but not the same as mature precision.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Origin through Death Painting",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Opening mainline arc"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-origin-death-painting",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      },
+      "ability": {
+        "system": "cursed_energy",
+        "name": "Divergent Fist",
+        "ownerEntityIds": [
+          "jjk:itadori-yuji"
+        ],
+        "constraints": [
+          "Yuji's early cursed-energy control can create a delayed second impact, useful but not the same as mature precision."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_origin_death_painting_exp_ratio_technique_creates_forced_weak_points",
+      "title": "Ratio Technique Creates Forced Weak Points",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.main.yuji-eats-sukuna-finger",
+        "validToAnchor": "jjk.main.death-painting-aftermath",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 3800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Origin through Death Painting"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:nanami-kento"
+        ],
+        "characters": [
+          "Kento Nanami"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Ratio Technique",
+          "Nanami combat"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:origin-death-painting",
+        "character:nanami-kento",
+        "topic:ratio-technique",
+        "topic:nanami-combat"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kento Nanami"
+          ],
+          "topicsAny": [
+            "Ratio Technique",
+            "Nanami combat"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath.",
+        "notes": "Jujutsu Kaisen 0 prequel context, Hidden Inventory, Shibuya, Culling Game, Shinjuku, anime-only changes, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Nanami's Ratio Technique divides a target to create a weak-point strike and rewards precise disciplined combat.",
+        "injection": "When Ratio Technique matters, enforce this ability constraint: Nanami's Ratio Technique divides a target to create a weak-point strike and rewards precise disciplined combat.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Origin through Death Painting",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Opening mainline arc"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-origin-death-painting",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      },
+      "ability": {
+        "system": "cursed_technique",
+        "name": "Ratio Technique",
+        "ownerEntityIds": [
+          "jjk:nanami-kento"
+        ],
+        "constraints": [
+          "Nanami's Ratio Technique divides a target to create a weak-point strike and rewards precise disciplined combat."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_origin_death_painting_exp_idle_transfiguration_targets_the_soul",
+      "title": "Idle Transfiguration Targets The Soul",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.main.yuji-eats-sukuna-finger",
+        "validToAnchor": "jjk.main.death-painting-aftermath",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 3800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Origin through Death Painting"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:mahito"
+        ],
+        "characters": [
+          "Mahito"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Idle Transfiguration",
+          "soul damage"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:origin-death-painting",
+        "character:mahito",
+        "topic:idle-transfiguration",
+        "topic:soul-damage"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Mahito"
+          ],
+          "topicsAny": [
+            "Idle Transfiguration",
+            "soul damage"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath.",
+        "notes": "Jujutsu Kaisen 0 prequel context, Hidden Inventory, Shibuya, Culling Game, Shinjuku, anime-only changes, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Mahito's Idle Transfiguration changes bodies by touching souls, making it more dangerous than ordinary injury.",
+        "injection": "When Idle Transfiguration matters, enforce this ability constraint: Mahito's Idle Transfiguration changes bodies by touching souls, making it more dangerous than ordinary injury.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Origin through Death Painting",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Opening mainline arc"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-origin-death-painting",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      },
+      "ability": {
+        "system": "cursed_technique",
+        "name": "Idle Transfiguration",
+        "ownerEntityIds": [
+          "jjk:mahito"
+        ],
+        "constraints": [
+          "Mahito's Idle Transfiguration changes bodies by touching souls, making it more dangerous than ordinary injury."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_origin_death_painting_exp_boogie_woogie_swaps_positions_by_clap_trigger",
+      "title": "Boogie Woogie Swaps Positions By Clap Trigger",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.main.yuji-eats-sukuna-finger",
+        "validToAnchor": "jjk.main.death-painting-aftermath",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 3800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Origin through Death Painting"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:aoi-todo"
+        ],
+        "characters": [
+          "Aoi Todo"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Boogie Woogie",
+          "Todo tactics"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:origin-death-painting",
+        "character:aoi-todo",
+        "topic:boogie-woogie",
+        "topic:todo-tactics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Aoi Todo"
+          ],
+          "topicsAny": [
+            "Boogie Woogie",
+            "Todo tactics"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath.",
+        "notes": "Jujutsu Kaisen 0 prequel context, Hidden Inventory, Shibuya, Culling Game, Shinjuku, anime-only changes, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Todo's Boogie Woogie swaps positions through a clap trigger and enables deception, rhythm shifts, and partner tactics.",
+        "injection": "When Boogie Woogie matters, enforce this ability constraint: Todo's Boogie Woogie swaps positions through a clap trigger and enables deception, rhythm shifts, and partner tactics.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Origin through Death Painting",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Opening mainline arc"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-origin-death-painting",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      },
+      "ability": {
+        "system": "cursed_technique",
+        "name": "Boogie Woogie",
+        "ownerEntityIds": [
+          "jjk:aoi-todo"
+        ],
+        "constraints": [
+          "Todo's Boogie Woogie swaps positions through a clap trigger and enables deception, rhythm shifts, and partner tactics."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_origin_death_painting_exp_blood_manipulation_uses_blood_as_medium",
+      "title": "Blood Manipulation Uses Blood As Medium",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.main.yuji-eats-sukuna-finger",
+        "validToAnchor": "jjk.main.death-painting-aftermath",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 3800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Origin through Death Painting"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:noritoshi-kamo",
+          "jjk:choso"
+        ],
+        "characters": [
+          "Noritoshi Kamo",
+          "Choso"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Blood Manipulation",
+          "Kamo clan"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:origin-death-painting",
+        "character:noritoshi-kamo",
+        "character:choso",
+        "topic:blood-manipulation",
+        "topic:kamo-clan"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Noritoshi Kamo",
+            "Choso"
+          ],
+          "topicsAny": [
+            "Blood Manipulation",
+            "Kamo clan"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath.",
+        "notes": "Jujutsu Kaisen 0 prequel context, Hidden Inventory, Shibuya, Culling Game, Shinjuku, anime-only changes, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Kamo-line Blood Manipulation shapes blood for projectiles, restraint, or reinforcement and should track available blood and user physiology.",
+        "injection": "When Blood Manipulation matters, enforce this ability constraint: Kamo-line Blood Manipulation shapes blood for projectiles, restraint, or reinforcement and should track available blood and user physiology.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Origin through Death Painting",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Opening mainline arc"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-origin-death-painting",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      },
+      "ability": {
+        "system": "cursed_technique",
+        "name": "Blood Manipulation",
+        "ownerEntityIds": [
+          "jjk:noritoshi-kamo",
+          "jjk:choso"
+        ],
+        "constraints": [
+          "Kamo-line Blood Manipulation shapes blood for projectiles, restraint, or reinforcement and should track available blood and user physiology."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_origin_death_painting_exp_yuji_eating_the_finger_creates_the_main_vessel_premise",
+      "title": "Yuji Eating The Finger Creates The Main Vessel Premise",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.main.yuji-eats-sukuna-finger",
+        "validToAnchor": "jjk.main.detention-center-sukuna-emerges",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 1600,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Origin and Cursed Womb"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:itadori-yuji",
+          "jjk:ryomen-sukuna",
+          "jjk:megumi-fushiguro"
+        ],
+        "characters": [
+          "Yuji Itadori",
+          "Ryomen Sukuna",
+          "Megumi Fushiguro"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Sukuna finger",
+          "vessel premise"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:origin-death-painting",
+        "character:itadori-yuji",
+        "character:ryomen-sukuna",
+        "character:megumi-fushiguro",
+        "topic:sukuna-finger",
+        "topic:vessel-premise"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuji Itadori",
+            "Ryomen Sukuna",
+            "Megumi Fushiguro"
+          ],
+          "topicsAny": [
+            "Sukuna finger",
+            "vessel premise"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath.",
+        "notes": "Jujutsu Kaisen 0 prequel context, Hidden Inventory, Shibuya, Culling Game, Shinjuku, anime-only changes, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Yuji's decision to eat Sukuna's finger turns a local curse incident into the central vessel problem.",
+        "injection": "Use this event state in the active window: Yuji's decision to eat Sukuna's finger turns a local curse incident into the central vessel problem.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Origin through Death Painting",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Opening mainline arc"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-origin-death-painting",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_origin_death_painting_exp_detention_center_exposes_sukunas_autonomy",
+      "title": "Detention Center Exposes Sukuna's Autonomy",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.main.yuji-eats-sukuna-finger",
+        "validToAnchor": "jjk.main.detention-center-sukuna-emerges",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 1600,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Origin and Cursed Womb"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:itadori-yuji",
+          "jjk:ryomen-sukuna",
+          "jjk:megumi-fushiguro"
+        ],
+        "characters": [
+          "Yuji Itadori",
+          "Ryomen Sukuna",
+          "Megumi Fushiguro"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "detention center",
+          "Sukuna autonomy"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:origin-death-painting",
+        "character:itadori-yuji",
+        "character:ryomen-sukuna",
+        "character:megumi-fushiguro",
+        "topic:detention-center",
+        "topic:sukuna-autonomy"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuji Itadori",
+            "Ryomen Sukuna",
+            "Megumi Fushiguro"
+          ],
+          "topicsAny": [
+            "detention center",
+            "Sukuna autonomy"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath.",
+        "notes": "Jujutsu Kaisen 0 prequel context, Hidden Inventory, Shibuya, Culling Game, Shinjuku, anime-only changes, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "The detention-center event shows that Sukuna can exploit control windows and that Yuji's body is not safely his under all conditions.",
+        "injection": "Use this event state in the active window: The detention-center event shows that Sukuna can exploit control windows and that Yuji's body is not safely his under all conditions.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Origin through Death Painting",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Opening mainline arc"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-origin-death-painting",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_origin_death_painting_exp_yuji_megumi_and_nobara_become_a_practical_trio",
+      "title": "Yuji Megumi And Nobara Become A Practical Trio",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 74,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.main.yuji-eats-sukuna-finger",
+        "validToAnchor": "jjk.main.detention-center-sukuna-emerges",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 1600,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Origin and Cursed Womb"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:itadori-yuji",
+          "jjk:megumi-fushiguro",
+          "jjk:kugisaki-nobara"
+        ],
+        "characters": [
+          "Yuji Itadori",
+          "Megumi Fushiguro",
+          "Nobara Kugisaki"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "first-year trio",
+          "teamwork"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:origin-death-painting",
+        "character:itadori-yuji",
+        "character:megumi-fushiguro",
+        "character:kugisaki-nobara",
+        "topic:first-year-trio",
+        "topic:teamwork"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuji Itadori",
+            "Megumi Fushiguro",
+            "Nobara Kugisaki"
+          ],
+          "topicsAny": [
+            "first-year trio",
+            "teamwork"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath.",
+        "notes": "Jujutsu Kaisen 0 prequel context, Hidden Inventory, Shibuya, Culling Game, Shinjuku, anime-only changes, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "The Tokyo first-years quickly become a functional field trio built on irritation, trust, and shared danger.",
+        "injection": "Use this relationship state for dialogue and behavior: The Tokyo first-years quickly become a functional field trio built on irritation, trust, and shared danger.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Origin through Death Painting",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Opening mainline arc"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-origin-death-painting",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_origin_death_painting_exp_megumis_mahoraga_trump_card_should_stay_hidden",
+      "title": "Megumi's Mahoraga Trump Card Should Stay Hidden",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 74,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.main.yuji-eats-sukuna-finger",
+        "validToAnchor": "jjk.main.detention-center-sukuna-emerges",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 1600,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Origin and Cursed Womb"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:megumi-fushiguro"
+        ],
+        "characters": [
+          "Megumi Fushiguro"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Mahoraga foreshadowing",
+          "Ten Shadows"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:origin-death-painting",
+        "character:megumi-fushiguro",
+        "topic:mahoraga-foreshadowing",
+        "topic:ten-shadows"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Megumi Fushiguro"
+          ],
+          "topicsAny": [
+            "Mahoraga foreshadowing",
+            "Ten Shadows"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath.",
+        "notes": "Jujutsu Kaisen 0 prequel context, Hidden Inventory, Shibuya, Culling Game, Shinjuku, anime-only changes, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Megumi's highest-risk Ten Shadows option should remain a danger signal rather than a casual move in early scenes.",
+        "injection": "Use this relationship state for dialogue and behavior: Megumi's highest-risk Ten Shadows option should remain a danger signal rather than a casual move in early scenes.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Origin through Death Painting",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Opening mainline arc"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-origin-death-painting",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
     }
   ]
 }

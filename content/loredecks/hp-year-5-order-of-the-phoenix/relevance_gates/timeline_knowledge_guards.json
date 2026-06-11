@@ -117,6 +117,15 @@
         "sagaSplitLoredeck": {
           "targetPackId": "hp-year-5-order-of-the-phoenix"
         }
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "essential_guardrails",
+          "suggestionRole": "active_guardrail",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "blocks_context_leakage"
+        }
       }
     },
     {
@@ -355,6 +364,15 @@
         "sagaSplitLoredeck": {
           "targetPackId": "hp-year-5-order-of-the-phoenix"
         }
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "year_secrets",
+          "suggestionRole": "reveal_gate",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "controls_character_knowledge"
+        }
       }
     },
     {
@@ -363,9 +381,9 @@
       "title": "Full prophecy unknown until Dumbledore explains",
       "kind": "knowledge_gate",
       "gateType": "knowledge_gate",
-      "category": "knowledge",
+      "category": "secret",
       "relevance": "high",
-      "lorePurpose": "knowledge_gate",
+      "lorePurpose": "secret",
       "specificityScore": 92,
       "injectableByDefault": true,
       "canon": "canon",
@@ -468,6 +486,15 @@
         },
         "sagaSplitLoredeck": {
           "targetPackId": "hp-year-5-order-of-the-phoenix"
+        }
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "year_secrets",
+          "suggestionRole": "reveal_gate",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "controls_character_knowledge"
         }
       }
     },
@@ -689,6 +716,511 @@
           "curationPass": "hp-relevance-v0.2.0",
           "deckId": "hp-year-5-order-of-the-phoenix",
           "purpose": "story-position control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-5-order-of-the-phoenix"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "secret",
+      "specificityScore": 94,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 112,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "id": "y5_secret_order_headquarters_hidden_from_ministry",
+      "title": "Order headquarters hidden from outsiders",
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y5.order_rescue",
+        "validToAnchor": "hp.y5.dumbledore_flees",
+        "sortKeyFrom": 9362,
+        "sortKeyTo": 9574,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Before Order headquarters is operationally exposed",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Sirius Black",
+          "Albus Dumbledore",
+          "Hermione Granger",
+          "Ron Weasley"
+        ],
+        "topics": [
+          "Order headquarters",
+          "Grimmauld Place",
+          "secret resistance safehouse"
+        ],
+        "schoolYears": [
+          "5"
+        ],
+        "books": [
+          "Order of the Phoenix"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "book:order-of-the-phoenix",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:neville-longbottom",
+        "character:ron-weasley",
+        "character:sirius-black",
+        "era:golden-trio",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "quality:relevance-curated",
+        "school-year:5",
+        "character:albus-dumbledore"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Sirius Black",
+            "Albus Dumbledore",
+            "Hermione Granger",
+            "Ron Weasley"
+          ],
+          "topicsAny": [
+            "Order headquarters",
+            "Grimmauld Place",
+            "secret resistance safehouse"
+          ]
+        }
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "year_secrets",
+          "suggestionRole": "reveal_gate",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "controls_character_knowledge"
+        }
+      },
+      "content": {
+        "fact": "Grimmauld Place functions as a secret Order headquarters; Order members and invited allies may know, but Ministry-aligned outsiders and ordinary students should not.",
+        "injection": "During the Grimmauld headquarters window, allow Order members and invited characters to know the safehouse, but block Umbridge, Ministry outsiders, ordinary students, and public narration from treating its location or function as known.",
+        "constraints": [
+          "Harry can know after being brought there.",
+          "The Ministry can pressure the Order without automatically knowing the headquarters.",
+          "Use this as a reveal-control gate: allow the named keepers to know the secret, but block characters outside that knowledge path from stating, acting on, or narrating it as known.",
+          "Apply only when Saga Context matches Before Order headquarters is operationally exposed; if the scene is outside this window, withhold this secret gate."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Order of the Phoenix",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-secret-gates-v0.3.0",
+          "deckId": "hp-year-5-order-of-the-phoenix",
+          "purpose": "reveal-control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-5-order-of-the-phoenix"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "secret",
+      "specificityScore": 94,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 112,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "id": "y5_secret_neville_parents_hidden_until_mungos",
+      "title": "Neville parents history private before St Mungo visit",
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y5.term_arrival_ministry_denial",
+        "validToAnchor": "hp.y5.neville_parents_revealed",
+        "sortKeyFrom": 9416,
+        "sortKeyTo": 9508,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Before Neville parents are revealed to Harry",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Ron Weasley",
+          "Hermione Granger",
+          "Neville Longbottom"
+        ],
+        "topics": [
+          "Neville parents",
+          "Longbottom family trauma",
+          "St Mungo visit"
+        ],
+        "schoolYears": [
+          "5"
+        ],
+        "books": [
+          "Order of the Phoenix"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "book:order-of-the-phoenix",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:neville-longbottom",
+        "character:ron-weasley",
+        "character:sirius-black",
+        "era:golden-trio",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "quality:relevance-curated",
+        "school-year:5"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Ron Weasley",
+            "Hermione Granger",
+            "Neville Longbottom"
+          ],
+          "topicsAny": [
+            "Neville parents",
+            "Longbottom family trauma",
+            "St Mungo visit"
+          ]
+        }
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "year_secrets",
+          "suggestionRole": "reveal_gate",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "controls_character_knowledge"
+        }
+      },
+      "content": {
+        "fact": "Neville knows his family history, but Harry and classmates do not know the full Longbottom parents truth until the St Mungo encounter.",
+        "injection": "Before the St Mungo reveal, allow Neville and some adults to carry the secret, but block Harry, classmates, and casual narration from discussing Neville parents as known shared context.",
+        "constraints": [
+          "Neville may react from private pain without explaining it.",
+          "Do not make the secret public school gossip before the reveal.",
+          "Use this as a reveal-control gate: allow the named keepers to know the secret, but block characters outside that knowledge path from stating, acting on, or narrating it as known.",
+          "Apply only when Saga Context matches Before Neville parents are revealed to Harry; if the scene is outside this window, withhold this secret gate."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Order of the Phoenix",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-secret-gates-v0.3.0",
+          "deckId": "hp-year-5-order-of-the-phoenix",
+          "purpose": "reveal-control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-5-order-of-the-phoenix"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "secret",
+      "specificityScore": 94,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 112,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "id": "y5_secret_sirius_vision_trap_hidden_until_ministry",
+      "title": "Sirius vision trap hidden until Ministry",
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y5.sirius_torture_vision",
+        "validToAnchor": "hp.y5.department_mysteries_battle",
+        "sortKeyFrom": 9617,
+        "sortKeyTo": 9635,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Before Ministry trap is exposed",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Ron Weasley",
+          "Hermione Granger",
+          "Sirius Black",
+          "Lord Voldemort"
+        ],
+        "topics": [
+          "Sirius vision",
+          "Department of Mysteries trap",
+          "Voldemort mental link"
+        ],
+        "schoolYears": [
+          "5"
+        ],
+        "books": [
+          "Order of the Phoenix"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "book:order-of-the-phoenix",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:neville-longbottom",
+        "character:ron-weasley",
+        "character:sirius-black",
+        "era:golden-trio",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "quality:relevance-curated",
+        "school-year:5",
+        "character:voldemort"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Ron Weasley",
+            "Hermione Granger",
+            "Sirius Black",
+            "Lord Voldemort"
+          ],
+          "topicsAny": [
+            "Sirius vision",
+            "Department of Mysteries trap",
+            "Voldemort mental link"
+          ]
+        }
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "year_secrets",
+          "suggestionRole": "reveal_gate",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "controls_character_knowledge"
+        }
+      },
+      "content": {
+        "fact": "The Sirius torture vision is a trap known to Voldemort and Death Eaters, not to Harry or the students when they respond to it.",
+        "injection": "Between the vision and the Ministry battle, allow Voldemort side to know the trap, but block Harry, the DA students, Order responders, and neutral narration from treating the vision as knowingly false before the reveal.",
+        "constraints": [
+          "Harry can doubt or check; he should not know the trap with certainty.",
+          "Do not make the rescue party act with information they do not have.",
+          "Use this as a reveal-control gate: allow the named keepers to know the secret, but block characters outside that knowledge path from stating, acting on, or narrating it as known.",
+          "Apply only when Saga Context matches Before Ministry trap is exposed; if the scene is outside this window, withhold this secret gate."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Order of the Phoenix",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-secret-gates-v0.3.0",
+          "deckId": "hp-year-5-order-of-the-phoenix",
+          "purpose": "reveal-control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-5-order-of-the-phoenix"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "secret",
+      "specificityScore": 94,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 112,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "id": "y5_secret_grawp_hidden_until_forest",
+      "title": "Grawp hidden in the forest",
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y5.hagrid_returns",
+        "validToAnchor": "hp.y5.umbridge_forest",
+        "sortKeyFrom": 9483,
+        "sortKeyTo": 9623,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Before Grawp is exposed in the forest",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Hermione Granger",
+          "Rubeus Hagrid"
+        ],
+        "topics": [
+          "Grawp",
+          "Forbidden Forest secret",
+          "Hagrid hidden brother"
+        ],
+        "schoolYears": [
+          "5"
+        ],
+        "books": [
+          "Order of the Phoenix"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "book:order-of-the-phoenix",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:neville-longbottom",
+        "character:ron-weasley",
+        "character:sirius-black",
+        "era:golden-trio",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "quality:relevance-curated",
+        "school-year:5",
+        "character:rubeus-hagrid"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Hermione Granger",
+            "Rubeus Hagrid"
+          ],
+          "topicsAny": [
+            "Grawp",
+            "Forbidden Forest secret",
+            "Hagrid hidden brother"
+          ]
+        }
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "year_secrets",
+          "suggestionRole": "reveal_gate",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "controls_character_knowledge"
+        }
+      },
+      "content": {
+        "fact": "Grawp is hidden in the Forbidden Forest; Hagrid and selected students may know, but Umbridge, the school, and ordinary narration should not treat him as public knowledge.",
+        "injection": "Before the forest exposure, allow Hagrid, Harry, and Hermione to know about Grawp after Hagrid tells them, but block Umbridge, students, staff, and public narration from knowing the secret.",
+        "constraints": [
+          "Grawp can create risk and signs in the forest without being publicly identified.",
+          "Hagrid may conceal rather than explain his absences.",
+          "Use this as a reveal-control gate: allow the named keepers to know the secret, but block characters outside that knowledge path from stating, acting on, or narrating it as known.",
+          "Apply only when Saga Context matches Before Grawp is exposed in the forest; if the scene is outside this window, withhold this secret gate."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Order of the Phoenix",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-secret-gates-v0.3.0",
+          "deckId": "hp-year-5-order-of-the-phoenix",
+          "purpose": "reveal-control"
         },
         "sagaSplitLoredeck": {
           "targetPackId": "hp-year-5-order-of-the-phoenix"

@@ -453,6 +453,1290 @@
           "status": "initial_hidden_inventory_slice"
         }
       }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_hidden_inventory_premature_death_exp_toji_is_outside_normal_cursed_energy_detection",
+      "title": "Toji Is Outside Normal Cursed-Energy Detection",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.hidden.toji-assassin-intervention",
+        "validToAnchor": "jjk.hidden.gojo-awakens-rct",
+        "sortKeyFrom": 450,
+        "sortKeyTo": 650,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Toji intervention phase"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:toji-fushiguro"
+        ],
+        "characters": [
+          "Toji Fushiguro"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Toji stealth",
+          "Heavenly Restriction"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:hidden-inventory",
+        "character:toji-fushiguro",
+        "topic:toji-stealth",
+        "topic:heavenly-restriction"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Toji Fushiguro"
+          ],
+          "topicsAny": [
+            "Toji stealth",
+            "Heavenly Restriction"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Hidden Inventory and Premature Death manga pre-mainline material.",
+        "notes": "Mainline origin, Shibuya, Culling Game, Shinjuku, Jujutsu Kaisen 0 scene details, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Toji's lack of cursed energy lets him break ordinary sorcerer detection assumptions and ambush planning.",
+        "injection": "At this Context, treat this status as active: Toji's lack of cursed energy lets him break ordinary sorcerer detection assumptions and ambush planning.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Hidden Inventory and Premature Death",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Toji intervention"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-hidden-inventory-premature-death",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_hidden_inventory_premature_death_exp_gojo_awakening_changes_the_power_balance",
+      "title": "Gojo Awakening Changes The Power Balance",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.hidden.toji-assassin-intervention",
+        "validToAnchor": "jjk.hidden.gojo-awakens-rct",
+        "sortKeyFrom": 450,
+        "sortKeyTo": 650,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Toji intervention phase"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:gojo-satoru"
+        ],
+        "characters": [
+          "Satoru Gojo"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Gojo awakening",
+          "RCT"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:hidden-inventory",
+        "character:gojo-satoru",
+        "topic:gojo-awakening",
+        "topic:rct"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Satoru Gojo"
+          ],
+          "topicsAny": [
+            "Gojo awakening",
+            "RCT"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Hidden Inventory and Premature Death manga pre-mainline material.",
+        "notes": "Mainline origin, Shibuya, Culling Game, Shinjuku, Jujutsu Kaisen 0 scene details, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "After awakening RCT and advanced Limitless use, Gojo's confidence becomes backed by a qualitatively different level of control.",
+        "injection": "At this Context, treat this status as active: After awakening RCT and advanced Limitless use, Gojo's confidence becomes backed by a qualitatively different level of control.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Hidden Inventory and Premature Death",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Toji intervention"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-hidden-inventory-premature-death",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_hidden_inventory_premature_death_exp_getos_strain_becomes_ideological",
+      "title": "Geto's Strain Becomes Ideological",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.hidden.riko-death-and-mission-collapse",
+        "validToAnchor": "jjk.hidden.geto-defection",
+        "sortKeyFrom": 720,
+        "sortKeyTo": 1100,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Premature Death slide"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:geto-suguru"
+        ],
+        "characters": [
+          "Suguru Geto"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Geto defection",
+          "ideology"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:hidden-inventory",
+        "character:geto-suguru",
+        "topic:geto-defection",
+        "topic:ideology"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Suguru Geto"
+          ],
+          "topicsAny": [
+            "Geto defection",
+            "ideology"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Hidden Inventory and Premature Death manga pre-mainline material.",
+        "notes": "Mainline origin, Shibuya, Culling Game, Shinjuku, Jujutsu Kaisen 0 scene details, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "After Riko's death and later losses, Geto's exhaustion turns into disgust and ideological rupture.",
+        "injection": "At this Context, treat this status as active: After Riko's death and later losses, Geto's exhaustion turns into disgust and ideological rupture.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Hidden Inventory and Premature Death",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Mission collapse"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-hidden-inventory-premature-death",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_hidden_inventory_premature_death_exp_yukis_conversation_enables_getos_question",
+      "title": "Yuki's Conversation Enables Geto's Question",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.hidden.riko-death-and-mission-collapse",
+        "validToAnchor": "jjk.hidden.geto-defection",
+        "sortKeyFrom": 720,
+        "sortKeyTo": 1100,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Premature Death slide"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:yuki-tsukumo",
+          "jjk:geto-suguru"
+        ],
+        "characters": [
+          "Yuki Tsukumo",
+          "Suguru Geto"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Yuki conversation",
+          "Geto ideology"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:hidden-inventory",
+        "character:yuki-tsukumo",
+        "character:geto-suguru",
+        "topic:yuki-conversation",
+        "topic:geto-ideology"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuki Tsukumo",
+            "Suguru Geto"
+          ],
+          "topicsAny": [
+            "Yuki conversation",
+            "Geto ideology"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Hidden Inventory and Premature Death manga pre-mainline material.",
+        "notes": "Mainline origin, Shibuya, Culling Game, Shinjuku, Jujutsu Kaisen 0 scene details, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Yuki's worldview gives Geto language for questioning curses, non-sorcerers, and the purpose of jujutsu society.",
+        "injection": "At this Context, treat this status as active: Yuki's worldview gives Geto language for questioning curses, non-sorcerers, and the purpose of jujutsu society.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Hidden Inventory and Premature Death",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Mission collapse"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-hidden-inventory-premature-death",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_hidden_inventory_premature_death_exp_tojis_first_victory_breaks_gojos_certainty",
+      "title": "Toji's First Victory Breaks Gojo's Certainty",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.hidden.toji-assassin-intervention",
+        "validToAnchor": "jjk.hidden.gojo-awakens-rct",
+        "sortKeyFrom": 450,
+        "sortKeyTo": 650,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Toji intervention phase"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:toji-fushiguro",
+          "jjk:gojo-satoru"
+        ],
+        "characters": [
+          "Toji Fushiguro",
+          "Satoru Gojo"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Toji ambush",
+          "Gojo defeat"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:hidden-inventory",
+        "character:toji-fushiguro",
+        "character:gojo-satoru",
+        "topic:toji-ambush",
+        "topic:gojo-defeat"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Toji Fushiguro",
+            "Satoru Gojo"
+          ],
+          "topicsAny": [
+            "Toji ambush",
+            "Gojo defeat"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Hidden Inventory and Premature Death manga pre-mainline material.",
+        "notes": "Mainline origin, Shibuya, Culling Game, Shinjuku, Jujutsu Kaisen 0 scene details, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Toji's ambush defeats Gojo's assumptions and creates the conditions for Gojo's later awakening.",
+        "injection": "Use this event state in the active window: Toji's ambush defeats Gojo's assumptions and creates the conditions for Gojo's later awakening.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Hidden Inventory and Premature Death",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Toji intervention"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-hidden-inventory-premature-death",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_hidden_inventory_premature_death_exp_gojo_kills_toji_after_awakening",
+      "title": "Gojo Kills Toji After Awakening",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.hidden.toji-assassin-intervention",
+        "validToAnchor": "jjk.hidden.gojo-awakens-rct",
+        "sortKeyFrom": 450,
+        "sortKeyTo": 650,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Toji intervention phase"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:gojo-satoru",
+          "jjk:toji-fushiguro"
+        ],
+        "characters": [
+          "Satoru Gojo",
+          "Toji Fushiguro"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Gojo awakening",
+          "Toji death"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:hidden-inventory",
+        "character:gojo-satoru",
+        "character:toji-fushiguro",
+        "topic:gojo-awakening",
+        "topic:toji-death"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Satoru Gojo",
+            "Toji Fushiguro"
+          ],
+          "topicsAny": [
+            "Gojo awakening",
+            "Toji death"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Hidden Inventory and Premature Death manga pre-mainline material.",
+        "notes": "Mainline origin, Shibuya, Culling Game, Shinjuku, Jujutsu Kaisen 0 scene details, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Gojo's rematch with Toji demonstrates his awakened control and closes Toji's direct role in the mission.",
+        "injection": "Use this event state in the active window: Gojo's rematch with Toji demonstrates his awakened control and closes Toji's direct role in the mission.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Hidden Inventory and Premature Death",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Toji intervention"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-hidden-inventory-premature-death",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_hidden_inventory_premature_death_exp_haibaras_death_accelerates_getos_collapse",
+      "title": "Haibara's Death Accelerates Geto's Collapse",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.hidden.riko-death-and-mission-collapse",
+        "validToAnchor": "jjk.hidden.geto-defection",
+        "sortKeyFrom": 720,
+        "sortKeyTo": 1100,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Premature Death slide"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:geto-suguru"
+        ],
+        "characters": [
+          "Suguru Geto"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Haibara death",
+          "Geto collapse"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:hidden-inventory",
+        "character:geto-suguru",
+        "topic:haibara-death",
+        "topic:geto-collapse"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Suguru Geto"
+          ],
+          "topicsAny": [
+            "Haibara death",
+            "Geto collapse"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Hidden Inventory and Premature Death manga pre-mainline material.",
+        "notes": "Mainline origin, Shibuya, Culling Game, Shinjuku, Jujutsu Kaisen 0 scene details, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Haibara's death is part of the accumulated exhaustion that pushes Geto away from jujutsu society's protective ideology.",
+        "injection": "Use this event state in the active window: Haibara's death is part of the accumulated exhaustion that pushes Geto away from jujutsu society's protective ideology.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Hidden Inventory and Premature Death",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Mission collapse"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-hidden-inventory-premature-death",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_hidden_inventory_premature_death_exp_getos_village_massacre_marks_defection",
+      "title": "Geto's Village Massacre Marks Defection",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.hidden.riko-death-and-mission-collapse",
+        "validToAnchor": "jjk.hidden.geto-defection",
+        "sortKeyFrom": 720,
+        "sortKeyTo": 1100,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Premature Death slide"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:geto-suguru"
+        ],
+        "characters": [
+          "Suguru Geto"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Geto defection",
+          "village massacre"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:hidden-inventory",
+        "character:geto-suguru",
+        "topic:geto-defection",
+        "topic:village-massacre"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Suguru Geto"
+          ],
+          "topicsAny": [
+            "Geto defection",
+            "village massacre"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Hidden Inventory and Premature Death manga pre-mainline material.",
+        "notes": "Mainline origin, Shibuya, Culling Game, Shinjuku, Jujutsu Kaisen 0 scene details, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Geto's massacre and adoption of the abused twins mark his irreversible break from jujutsu society.",
+        "injection": "Use this event state in the active window: Geto's massacre and adoption of the abused twins mark his irreversible break from jujutsu society.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Hidden Inventory and Premature Death",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Mission collapse"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-hidden-inventory-premature-death",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_hidden_inventory_premature_death_exp_gojo_and_geto_separate_as_ideological_enemies",
+      "title": "Gojo And Geto Separate As Ideological Enemies",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.hidden.riko-death-and-mission-collapse",
+        "validToAnchor": "jjk.hidden.geto-defection",
+        "sortKeyFrom": 720,
+        "sortKeyTo": 1100,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Premature Death slide"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:gojo-satoru",
+          "jjk:geto-suguru"
+        ],
+        "characters": [
+          "Satoru Gojo",
+          "Suguru Geto"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Gojo Geto split",
+          "ideological enemies"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:hidden-inventory",
+        "character:gojo-satoru",
+        "character:geto-suguru",
+        "topic:gojo-geto-split",
+        "topic:ideological-enemies"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Satoru Gojo",
+            "Suguru Geto"
+          ],
+          "topicsAny": [
+            "Gojo Geto split",
+            "ideological enemies"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Hidden Inventory and Premature Death manga pre-mainline material.",
+        "notes": "Mainline origin, Shibuya, Culling Game, Shinjuku, Jujutsu Kaisen 0 scene details, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "After Geto's defection, Gojo and Geto are no longer just estranged friends; they represent opposed answers to jujutsu society's burden.",
+        "injection": "Use this event state in the active window: After Geto's defection, Gojo and Geto are no longer just estranged friends; they represent opposed answers to jujutsu society's burden.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Hidden Inventory and Premature Death",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Mission collapse"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-hidden-inventory-premature-death",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_hidden_inventory_premature_death_exp_toji_is_megumis_father_but_this_should_be_gated",
+      "title": "Toji Is Megumi's Father But This Should Be Gated",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.hidden.toji-assassin-intervention",
+        "validToAnchor": "jjk.hidden.gojo-awakens-rct",
+        "sortKeyFrom": 450,
+        "sortKeyTo": 650,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Toji intervention phase"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:toji-fushiguro",
+          "jjk:megumi-fushiguro"
+        ],
+        "characters": [
+          "Toji Fushiguro",
+          "Megumi Fushiguro"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Toji father",
+          "Megumi gate"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:hidden-inventory",
+        "character:toji-fushiguro",
+        "character:megumi-fushiguro",
+        "topic:toji-father",
+        "topic:megumi-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Toji Fushiguro",
+            "Megumi Fushiguro"
+          ],
+          "topicsAny": [
+            "Toji father",
+            "Megumi gate"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Hidden Inventory and Premature Death manga pre-mainline material.",
+        "notes": "Mainline origin, Shibuya, Culling Game, Shinjuku, Jujutsu Kaisen 0 scene details, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Toji's relationship to Megumi is important future context but should not leak into ordinary mission scenes unless relevant characters know it.",
+        "injection": "Gate by Context and character knowledge: Toji's relationship to Megumi is important future context but should not leak into ordinary mission scenes unless relevant characters know it.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Hidden Inventory and Premature Death",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Toji intervention"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-hidden-inventory-premature-death",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_hidden_inventory_premature_death_exp_getos_defection_should_not_prewrite_earlier_scenes",
+      "title": "Geto's Defection Should Not Prewrite Earlier Scenes",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.hidden.riko-death-and-mission-collapse",
+        "validToAnchor": "jjk.hidden.geto-defection",
+        "sortKeyFrom": 720,
+        "sortKeyTo": 1100,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Premature Death slide"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:geto-suguru"
+        ],
+        "characters": [
+          "Suguru Geto"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Geto defection",
+          "temporal gate"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:hidden-inventory",
+        "character:geto-suguru",
+        "topic:geto-defection",
+        "topic:temporal-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Suguru Geto"
+          ],
+          "topicsAny": [
+            "Geto defection",
+            "temporal gate"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Hidden Inventory and Premature Death manga pre-mainline material.",
+        "notes": "Mainline origin, Shibuya, Culling Game, Shinjuku, Jujutsu Kaisen 0 scene details, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Before the defection window, Geto should not be written as already committed to exterminating non-sorcerers.",
+        "injection": "Gate by Context and character knowledge: Before the defection window, Geto should not be written as already committed to exterminating non-sorcerers.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Hidden Inventory and Premature Death",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Mission collapse"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-hidden-inventory-premature-death",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_hidden_inventory_premature_death_exp_adult_gojos_isolation_begins_here_but_is_not_complete_yet",
+      "title": "Adult Gojo's Isolation Begins Here But Is Not Complete Yet",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 72,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.hidden.riko-death-and-mission-collapse",
+        "validToAnchor": "jjk.hidden.geto-defection",
+        "sortKeyFrom": 720,
+        "sortKeyTo": 1100,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Premature Death slide"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:gojo-satoru",
+          "jjk:geto-suguru"
+        ],
+        "characters": [
+          "Satoru Gojo",
+          "Suguru Geto"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Gojo isolation",
+          "character development"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:hidden-inventory",
+        "character:gojo-satoru",
+        "character:geto-suguru",
+        "topic:gojo-isolation",
+        "topic:character-development"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Satoru Gojo",
+            "Suguru Geto"
+          ],
+          "topicsAny": [
+            "Gojo isolation",
+            "character development"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Hidden Inventory and Premature Death manga pre-mainline material.",
+        "notes": "Mainline origin, Shibuya, Culling Game, Shinjuku, Jujutsu Kaisen 0 scene details, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Hidden Inventory explains Gojo's later isolation, but student-era Gojo should still interact as a peer with Geto and others.",
+        "injection": "Gate by Context and character knowledge: Hidden Inventory explains Gojo's later isolation, but student-era Gojo should still interact as a peer with Geto and others.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Hidden Inventory and Premature Death",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Mission collapse"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-hidden-inventory-premature-death",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
     }
   ]
 }

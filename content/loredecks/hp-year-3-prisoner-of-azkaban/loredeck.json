@@ -86,7 +86,7 @@
     "sagaSchemaMax": 3
   },
   "stats": {
-    "entryCount": 50,
+    "entryCount": 53,
     "categoryCounts": {
       "character": 14,
       "event": 13,
@@ -94,7 +94,7 @@
       "knowledge": 7,
       "location": 3,
       "relationship": 1,
-      "secret": 3,
+      "secret": 6,
       "spell": 4
     },
     "timelineAnchorCount": 55,

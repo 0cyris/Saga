@@ -85,16 +85,16 @@
     "sagaSchemaMax": 3
   },
   "stats": {
-    "entryCount": 70,
+    "entryCount": 76,
     "categoryCounts": {
       "character": 30,
       "event": 16,
       "faction": 1,
       "item": 5,
-      "knowledge": 7,
+      "knowledge": 6,
       "location": 3,
       "relationship": 3,
-      "secret": 2,
+      "secret": 9,
       "timeline": 3
     },
     "timelineAnchorCount": 70,

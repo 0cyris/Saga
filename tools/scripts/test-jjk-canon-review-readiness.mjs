@@ -31,7 +31,7 @@ for (const deckId of DEFAULT_JJK_LOREDECK_IDS) {
   assert.deepEqual(duplicateManifest.health, manifest.health, `${deckId} duplicated manifest should keep health review notes in sync.`);
   assert.ok(manifest.tags?.includes('quality:draft-reference'), `${deckId} should stay draft-reference until human canon review is complete.`);
   assert.match(String(manifest.license?.notes || '').toLowerCase(), /requires human canon review/, `${deckId} license notes should require human canon review.`);
-  assert.equal(manifest.health?.status, 'good', `${deckId} should remain structurally healthy.`);
+  assert.equal(manifest.health?.status, 'needs_review', `${deckId} should flag expanded draft content for human canon review.`);
   assert.match(String(manifest.health?.notes || '').toLowerCase(), /human canon review|structural health|local structural health/, `${deckId} health notes should not imply canon approval.`);
 
   for (const { entry, file } of listEntries(deckRoot, manifest)) {

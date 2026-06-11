@@ -150,7 +150,16 @@
         "topic:deathly-hallows",
         "topic:elder-wand",
         "topic:horcruxes"
-      ]
+      ],
+      "ui": {
+        "preview": {
+          "primaryPack": "essential_guardrails",
+          "suggestionRole": "active_guardrail",
+          "detailLevel": "core",
+          "suggestByDefault": false,
+          "activeUse": "broad_future_leak_suppressor"
+        }
+      }
     },
     {
       "schemaVersion": 3,
@@ -292,7 +301,16 @@
         "school-year:5",
         "school-year:6",
         "topic:horcruxes"
-      ]
+      ],
+      "ui": {
+        "preview": {
+          "primaryPack": "essential_guardrails",
+          "suggestionRole": "active_guardrail",
+          "detailLevel": "core",
+          "suggestByDefault": false,
+          "activeUse": "broad_future_leak_suppressor"
+        }
+      }
     },
     {
       "schemaVersion": 3,
@@ -435,7 +453,16 @@
         "school-year:5",
         "school-year:6",
         "topic:horcruxes"
-      ]
+      ],
+      "ui": {
+        "preview": {
+          "primaryPack": "essential_guardrails",
+          "suggestionRole": "active_guardrail",
+          "detailLevel": "core",
+          "suggestByDefault": false,
+          "activeUse": "broad_future_leak_suppressor"
+        }
+      }
     }
   ]
 }

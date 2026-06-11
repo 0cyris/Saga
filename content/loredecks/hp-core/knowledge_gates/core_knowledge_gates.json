@@ -116,7 +116,16 @@
         "era:golden-trio",
         "fandom:harry-potter",
         "topic:prophecy"
-      ]
+      ],
+      "ui": {
+        "preview": {
+          "primaryPack": "essential_guardrails",
+          "suggestionRole": "active_guardrail",
+          "detailLevel": "core",
+          "suggestByDefault": false,
+          "activeUse": "broad_future_leak_suppressor"
+        }
+      }
     },
     {
       "schemaVersion": 3,
@@ -238,7 +247,16 @@
         "character:severus-snape",
         "era:golden-trio",
         "fandom:harry-potter"
-      ]
+      ],
+      "ui": {
+        "preview": {
+          "primaryPack": "essential_guardrails",
+          "suggestionRole": "active_guardrail",
+          "detailLevel": "core",
+          "suggestByDefault": false,
+          "activeUse": "broad_future_leak_suppressor"
+        }
+      }
     },
     {
       "schemaVersion": 3,
@@ -360,7 +378,16 @@
         "character:voldemort",
         "era:golden-trio",
         "fandom:harry-potter"
-      ]
+      ],
+      "ui": {
+        "preview": {
+          "primaryPack": "essential_guardrails",
+          "suggestionRole": "active_guardrail",
+          "detailLevel": "core",
+          "suggestByDefault": false,
+          "activeUse": "broad_future_leak_suppressor"
+        }
+      }
     }
   ]
 }

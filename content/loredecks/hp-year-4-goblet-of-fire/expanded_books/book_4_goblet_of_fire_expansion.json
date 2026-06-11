@@ -524,7 +524,16 @@
         "fandom:harry-potter",
         "place:hogwarts",
         "school-year:4"
-      ]
+      ],
+      "ui": {
+        "preview": {
+          "primaryPack": "essential_guardrails",
+          "suggestionRole": "active_guardrail",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "blocks_context_leakage"
+        }
+      }
     },
     {
       "schemaVersion": 3,
@@ -919,7 +928,16 @@
         "fandom:harry-potter",
         "place:hogwarts",
         "school-year:4"
-      ]
+      ],
+      "ui": {
+        "preview": {
+          "primaryPack": "essential_guardrails",
+          "suggestionRole": "active_guardrail",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "blocks_context_leakage"
+        }
+      }
     },
     {
       "schemaVersion": 3,
@@ -1190,7 +1208,16 @@
         "fandom:harry-potter",
         "place:hogwarts",
         "school-year:4"
-      ]
+      ],
+      "ui": {
+        "preview": {
+          "primaryPack": "essential_guardrails",
+          "suggestionRole": "active_guardrail",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "blocks_context_leakage"
+        }
+      }
     },
     {
       "schemaVersion": 3,
@@ -1327,7 +1354,16 @@
         "era:golden-trio",
         "fandom:harry-potter",
         "school-year:4"
-      ]
+      ],
+      "ui": {
+        "preview": {
+          "primaryPack": "year_events",
+          "suggestionRole": "event_anchor",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "context_anchor"
+        }
+      }
     },
     {
       "schemaVersion": 3,

@@ -62,12 +62,7 @@
   "files": [
     "shibuya/seal_and_curtains.json",
     "shibuya/battlefield_escalation.json",
-    "shibuya/aftermath_guards.json",
-    "expanded/phase_events.json",
-    "expanded/status_changes.json",
-    "expanded/abilities_and_combat_rules.json",
-    "expanded/knowledge_and_spoiler_gates.json",
-    "expanded/location_states.json"
+    "shibuya/aftermath_guards.json"
   ],
   "compatibility": {
     "sagaSchemaMin": 3,

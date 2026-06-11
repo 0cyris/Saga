@@ -1,0 +1,610 @@
+/* Saga iteration 3: generation controls, context editor, and injection preview */
+.saga-compact-slider-row {
+    gap: 10px;
+}
+
+.saga-compact-slider-row span {
+    min-width: 132px;
+    color: var(--saga-muted, rgba(241, 234, 216, 0.72));
+}
+
+.saga-context-grid {
+    grid-template-columns: 1fr;
+}
+
+.saga-context-field {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.saga-context-field span {
+    font-size: 0.78em;
+    opacity: 0.72;
+}
+
+.saga-context-field input[type="text"],
+.saga-inline-field input[type="text"] {
+    width: 100%;
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.36);
+    border: 1px solid var(--saga-border-soft, rgba(185, 139, 54, 0.18));
+    color: var(--saga-text, #f1ead8);
+    border-radius: 5px;
+    padding: 5px 7px;
+    font-family: inherit;
+    font-size: 0.86em;
+}
+
+.saga-context-field input[type="text"]:focus,
+.saga-inline-field input[type="text"]:focus,
+.saga-inline-field input[type="number"]:focus {
+    outline: none;
+    border-color: var(--saga-border, rgba(185, 139, 54, 0.38));
+    box-shadow: 0 0 0 1px rgba(215, 181, 109, 0.18);
+}
+
+.saga-generation-progress-card {
+    background: rgba(18, 18, 24, 0.72);
+}
+
+.saga-generation-status-text {
+    font-size: 0.84em;
+    color: var(--saga-muted, rgba(241, 234, 216, 0.72));
+    margin-bottom: 6px;
+}
+
+.saga-progress-bar {
+    height: 8px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.42);
+    border: 1px solid var(--saga-border-soft, rgba(185, 139, 54, 0.18));
+}
+
+.saga-progress-fill {
+    height: 100%;
+    width: 0%;
+    transition: width 0.18s ease;
+    background: linear-gradient(90deg, var(--saga-button-hover, rgba(92, 23, 36, 0.86)), var(--saga-border-strong, rgba(215, 181, 109, 0.78)));
+}
+
+.saga-runtime-tab-body-injection {
+    display: flex;
+    flex-direction: column;
+}
+
+.saga-injection-preview-card {
+    display: flex;
+    flex-direction: column;
+    min-height: 220px;
+}
+
+.saga-injection-preview {
+    flex: 1 1 auto;
+    min-height: 180px;
+    max-height: 360px;
+    overflow: auto;
+    white-space: pre-wrap;
+    word-break: break-word;
+    margin: 8px 0 0;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid var(--saga-border-soft, rgba(185, 139, 54, 0.18));
+    background: rgba(0, 0, 0, 0.42);
+    color: #eadfbe;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.76em;
+    line-height: 1.38;
+}
+
+.saga-lore-panel input[type="range"] {
+    accent-color: var(--saga-gold, #d7b56d);
+}
+
+.saga-lore-panel input[type="checkbox"] {
+    accent-color: var(--saga-gold, #d7b56d);
+}
+
+/* Continuity tab editors */
+.saga-continuity-toggle-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+}
+
+.saga-runtime-card-subtitle {
+    font-size: 0.82em;
+    margin-top: 2px;
+}
+
+.saga-continuity-child-fields,
+.saga-continuity-emotion-freshness {
+    margin-top: 10px;
+    padding: 9px;
+    border: 1px solid rgba(190, 145, 75, 0.2);
+    border-radius: 6px;
+    background: rgba(20, 18, 20, 0.32);
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.saga-character-field-summary {
+    margin-top: 8px;
+    padding: 8px;
+    border: 1px solid rgba(190, 145, 75, 0.18);
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.14);
+}
+
+.saga-character-field-summary-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    color: #f3d38b;
+    font-size: 0.82em;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.saga-character-field-summary-head span:last-child {
+    color: rgba(238, 226, 196, 0.62);
+    font-weight: 500;
+    text-align: right;
+}
+
+.saga-character-field-summary-row {
+    color: rgba(238, 226, 196, 0.78);
+    font-size: 0.78em;
+    line-height: 1.35;
+    padding-top: 3px;
+}
+
+.saga-character-field-empty {
+    color: rgba(238, 226, 196, 0.52);
+}
+
+.saga-json-editor-card,
+.saga-json-editor-embedded {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.saga-json-editor-embedded {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid rgba(212, 175, 55, 0.18);
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.18);
+}
+
+.saga-continuity-json-editor {
+    width: 100%;
+    min-height: 120px;
+    max-height: 260px;
+    resize: vertical;
+    box-sizing: border-box;
+    border: 1px solid rgba(212, 175, 55, 0.22);
+    border-radius: 10px;
+    background: rgba(8, 6, 10, 0.72);
+    color: var(--SmartThemeBodyColor, #e8dfc5);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.78em;
+    line-height: 1.45;
+    padding: 10px;
+    outline: none;
+}
+
+.saga-continuity-json-editor:focus {
+    border-color: rgba(212, 175, 55, 0.55);
+    box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.18);
+}
+
+.saga-continuity-injection-preview {
+    min-height: 150px;
+    max-height: 320px;
+}
+
+.saga-instructions-card summary {
+    cursor: pointer;
+    list-style: none;
+}
+
+.saga-instructions-card summary::-webkit-details-marker {
+    display: none;
+}
+
+.saga-instructions-card summary::after {
+    content: '▸';
+    float: right;
+    opacity: 0.65;
+    font-size: 0.85em;
+}
+
+.saga-instructions-card[open] summary::after {
+    content: '▾';
+}
+
+.saga-workflow-list {
+    margin: 8px 0 0 18px;
+    padding: 0;
+    color: rgba(238, 226, 196, 0.82);
+    font-size: 0.86em;
+    line-height: 1.45;
+}
+
+.saga-workflow-list li {
+    margin: 3px 0;
+}
+
+.saga-automation-mode-card {
+    padding: 8px;
+}
+
+.saga-generation-mode-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    margin-bottom: 8px;
+}
+
+/* ── Canon lore database and editable metadata chips ───────────────────────── */
+.saga-canon-db-card {
+    border-color: rgba(190, 145, 75, 0.28);
+}
+
+.saga-lore-badge-clickable {
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.15s ease, border-color 0.15s ease, transform 0.08s ease;
+}
+
+.saga-lore-badge-clickable:hover {
+    border-color: rgba(235, 203, 125, 0.65);
+    background: rgba(235, 203, 125, 0.18);
+    transform: translateY(-1px);
+}
+
+.saga-lore-badge-character { color: #e8c58a; background: rgba(150, 100, 30, 0.22); }
+.saga-lore-badge-event { color: #c8d8ff; background: rgba(65, 85, 150, 0.22); }
+.saga-lore-badge-item { color: #d8d0b0; background: rgba(135, 115, 60, 0.22); }
+.saga-lore-badge-knowledge { color: #b8d8e8; background: rgba(55, 105, 135, 0.22); }
+.saga-lore-badge-place { color: #a8d8b8; background: rgba(55, 130, 75, 0.22); }
+.saga-lore-badge-faction { color: #e0b8e8; background: rgba(120, 65, 140, 0.22); }
+.saga-lore-badge-spell { color: #b8c8ff; background: rgba(75, 85, 155, 0.22); }
+.saga-lore-badge-artifact { color: #f0d090; background: rgba(160, 115, 40, 0.25); }
+.saga-lore-badge-divergent { color: #e8b070; background: rgba(170, 95, 30, 0.20); }
+.saga-lore-badge-fanon { color: #c0a0d8; background: rgba(100, 65, 135, 0.20); }
+.saga-lore-badge-unknown { color: #b8b8b8; background: rgba(100, 100, 100, 0.18); }
+.saga-lore-badge-true { color: #a8d8a8; background: rgba(70, 135, 70, 0.18); }
+.saga-lore-badge-false { color: #e8a0a0; background: rgba(145, 55, 55, 0.20); }
+.saga-lore-badge-public-belief { color: #e8d8a0; background: rgba(140, 120, 55, 0.22); }
+.saga-lore-badge-contested { color: #f0c078; background: rgba(180, 115, 35, 0.24); }
+.saga-lore-badge-hidden { color: #b0b8d8; background: rgba(70, 75, 130, 0.24); }
+.saga-lore-badge-public { color: #a8d8b0; background: rgba(55, 130, 70, 0.18); }
+.saga-lore-badge-private { color: #d8c098; background: rgba(130, 100, 45, 0.20); }
+.saga-lore-badge-do-not-reveal { color: #f0a0a0; background: rgba(160, 45, 45, 0.24); }
+.saga-lore-badge-only-if-knower-present,
+.saga-lore-badge-only-if-user-reveals { color: #d8b8f0; background: rgba(100, 65, 150, 0.22); }
+.saga-lore-badge-muted { color: #a8a8a8; background: rgba(80, 80, 80, 0.2); }
+.saga-lore-badge-pinned { color: #f0d080; background: rgba(170, 120, 35, 0.25); }
+.saga-lore-badge-saga-meta {
+    display: inline-block;
+    max-width: 190px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: bottom;
+}
+.saga-lore-badge-source {
+    color: #9dd5c6;
+    background: rgba(42, 112, 96, 0.24);
+    border-color: rgba(119, 196, 174, 0.28);
+}
+.saga-lore-badge-source-detail {
+    color: #c8d8e0;
+    background: rgba(70, 100, 120, 0.22);
+    border-color: rgba(150, 180, 195, 0.22);
+}
+.saga-lore-badge-context,
+.saga-lore-badge-context-match {
+    color: #bdd7ff;
+    background: rgba(62, 95, 155, 0.24);
+    border-color: rgba(135, 165, 220, 0.26);
+}
+.saga-lore-badge-date-gate {
+    color: #d8cfaa;
+    background: rgba(132, 116, 62, 0.24);
+    border-color: rgba(198, 178, 108, 0.24);
+}
+.saga-lore-badge-context-unresolved {
+    color: #f0c98f;
+    background: rgba(154, 102, 44, 0.24);
+    border-color: rgba(220, 162, 86, 0.28);
+}
+.saga-lore-badge-context-blocked {
+    color: #efa6a6;
+    background: rgba(148, 56, 56, 0.24);
+    border-color: rgba(218, 112, 112, 0.3);
+}
+
+/* ── Metadata dropdown chips ─────────────────────────────────────────────── */
+.saga-lore-meta-select-wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    border: 1px solid rgba(214, 180, 105, 0.35);
+    border-radius: 999px;
+    background: rgba(45, 29, 28, 0.78);
+    color: #f0e2c1;
+    font-size: 0.72em;
+    line-height: 1;
+    padding: 2px 4px 2px 7px;
+    max-width: 190px;
+}
+
+.saga-lore-meta-select-prefix {
+    opacity: 0.78;
+    white-space: nowrap;
+    font-weight: 600;
+}
+
+.saga-lore-meta-select {
+    max-width: 126px;
+    min-width: 72px;
+    border: none;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.28);
+    color: inherit;
+    font: inherit;
+    font-size: 1em;
+    padding: 2px 18px 2px 6px;
+    outline: none;
+    cursor: pointer;
+}
+
+.saga-lore-meta-select option {
+    background: #1d1415;
+    color: #f0e2c1;
+}
+
+.saga-lore-meta-select-priority {
+    background: rgba(125, 92, 38, 0.36);
+    border-color: rgba(235, 203, 125, 0.45);
+}
+
+.saga-small-button {
+    margin: 6px 0 0 0;
+    font-size: 0.82em;
+    padding: 4px 8px;
+}
+
+
+/* ── Live feedback compactness and scroll fixes ───────────────────────────── */
+.saga-pending-lore-list {
+    max-height: 320px;
+    overflow-y: auto;
+    padding-right: 4px;
+    scrollbar-width: thin;
+}
+
+.saga-lore-meta-select-wrap {
+    gap: 2px;
+    min-height: 18px;
+    padding: 1px 3px 1px 5px;
+    font-size: 0.66em;
+    line-height: 1.05;
+    max-width: 162px;
+}
+
+.saga-lore-meta-select-prefix {
+    font-size: 0.88em;
+}
+
+.saga-lore-meta-select {
+    min-width: 54px;
+    max-width: 102px;
+    height: 16px;
+    padding: 0 14px 0 4px;
+    font-size: 0.95em;
+    line-height: 1;
+}
+
+.saga-lore-meta-select-priority .saga-lore-meta-select {
+    min-width: 48px;
+    max-width: 58px;
+}
+
+.saga-lore-entry-title {
+    font-size: 1.0em;
+}
+
+.saga-review-lore-title {
+    font-size: 1.05em;
+}
+
+
+/* ── Live feedback patch: compact metadata chips, stronger titles, title/tag margin ── */
+.saga-lore-meta-select-wrap {
+    min-height: 0 !important;
+    height: 16px !important;
+    padding: 0 2px 0 4px !important;
+    gap: 2px !important;
+    align-items: center !important;
+    line-height: 1 !important;
+    font-size: 0.62em !important;
+}
+
+.saga-lore-meta-select-prefix {
+    display: inline-flex !important;
+    align-items: center !important;
+    height: 14px !important;
+    line-height: 1 !important;
+}
+
+.saga-lore-meta-select {
+    height: 14px !important;
+    min-height: 14px !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    line-height: 1 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+}
+
+.saga-lore-entry-title-wrap {
+    margin-left: 8px !important;
+}
+
+.saga-review-lore-title {
+    margin-left: 8px !important;
+}
+
+.saga-lore-entry-title {
+    font-size: 1.12em !important;
+}
+
+.saga-review-lore-title {
+    font-size: 1.13em !important;
+}
+
+.saga-danger-button {
+    border-color: var(--saga-red-soft, rgba(190, 80, 80, 0.45)) !important;
+    background: var(--saga-red-surface, rgba(120, 30, 38, 0.22)) !important;
+}
+
+.saga-danger-button:hover:not(:disabled) {
+    background: var(--saga-red-hover, rgba(160, 45, 55, 0.34)) !important;
+}
+
+/* ── Lore performance refactor: paged accepted list and lightweight rows ───── */
+.saga-lore-list-summary {
+    font-size: 0.72em;
+    color: rgba(232, 218, 185, 0.62);
+    padding: 2px 4px 4px 4px;
+    flex: 0 0 auto;
+}
+
+.saga-lore-show-more {
+    align-self: stretch;
+    margin: 4px 2px 8px 2px;
+    min-height: 24px;
+}
+
+.saga-lore-registry-badge {
+    display: inline-flex;
+    align-items: center;
+    min-height: 14px;
+    line-height: 1;
+    max-width: 180px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.saga-lore-entry-card:not(.saga-lore-entry-expanded) .saga-lore-entry-meta {
+    gap: 2px;
+}
+
+.saga-lore-entry-card:not(.saga-lore-entry-expanded) .saga-lore-badge,
+.saga-lore-entry-card:not(.saga-lore-entry-expanded) .saga-lore-registry-badge {
+    font-size: 0.64em;
+    padding: 0 4px;
+    min-height: 13px;
+}
+
+/* ── Injection placement compact layout and final live feedback polish ─────── */
+.saga-prompt-placement-card .saga-runtime-help {
+    font-size: 0.70em;
+    line-height: 1.25;
+}
+
+.saga-prompt-placement-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin: 6px 0 7px 0;
+}
+
+.saga-prompt-placement-line {
+    display: grid;
+    grid-template-columns: 70px minmax(0, 1fr);
+    align-items: center;
+    gap: 6px;
+    min-width: 0;
+}
+
+.saga-prompt-placement-method-line {
+    grid-template-columns: 96px minmax(0, 220px);
+}
+
+.saga-prompt-placement-line-label {
+    font-size: 0.72em;
+    font-weight: 700;
+    color: var(--saga-text-muted);
+    white-space: nowrap;
+}
+
+.saga-prompt-placement-control-wrap {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-wrap: nowrap;
+    min-width: 0;
+}
+
+.saga-prompt-placement-card .saga-inline-field {
+    display: inline-grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    gap: 3px;
+    margin: 0;
+    min-width: 0;
+    font-size: 0.68em;
+    line-height: 1;
+}
+
+.saga-prompt-placement-card .saga-inline-field span {
+    opacity: 0.82;
+    white-space: nowrap;
+}
+
+.saga-prompt-placement-card .saga-inline-field select,
+.saga-prompt-placement-card .saga-inline-field input[type="number"] {
+    min-width: 0;
+    height: 18px;
+    box-sizing: border-box;
+    border: 1px solid var(--saga-border-soft);
+    border-radius: 5px;
+    background: rgba(10, 12, 16, 0.86);
+    color: var(--saga-text);
+    font-size: 0.90em;
+    line-height: 1;
+    padding: 0 4px;
+}
+
+.saga-prompt-placement-card .saga-placement-method select {
+    width: 130px;
+}
+
+.saga-prompt-placement-card .saga-placement-position select {
+    width: 82px;
+}
+
+.saga-prompt-placement-card .saga-placement-role select {
+    width: 68px;
+}
+
+.saga-prompt-placement-card .saga-placement-depth input[type="number"] {
+    width: 44px;
+    text-align: center;
+    padding: 0 2px;
+}
+
+@media (max-width: 520px) {
+    .saga-prompt-placement-line,
+    .saga-prompt-placement-method-line {
+        grid-template-columns: 1fr;
+        align-items: stretch;
+    }
+
+    .saga-prompt-placement-control-wrap {
+        flex-wrap: wrap;
+    }
+}

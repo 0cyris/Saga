@@ -62,24 +62,21 @@
   "files": [
     "core/cursed_energy_rules.json",
     "core/knowledge_gates.json",
-    "core/status_and_spoiler_guards.json",
-    "core/expanded_cursed_energy_and_society.json",
-    "core/expanded_ability_metadata.json",
-    "core/expanded_global_knowledge_and_spoiler_guards.json"
+    "core/status_and_spoiler_guards.json"
   ],
   "compatibility": {
     "sagaSchemaMin": 3,
     "sagaSchemaMax": 3
   },
   "stats": {
-    "entryCount": 51,
+    "entryCount": 50,
     "categoryCounts": {
       "faction": 1,
       "knowledge": 1,
       "rule": 40,
-      "secret": 9
+      "secret": 8
     },
-    "timelineAnchorCount": 6,
+    "timelineAnchorCount": 7,
     "timelineWindowCount": 3
   },
   "license": {

@@ -73,7 +73,7 @@ for (const deckId of EXPECTED_JJK_IDS) {
   assert.equal(manifest.type, 'bundled', `${deckId} should remain a bundled Loredeck.`);
   assert.equal(manifest.entrySchemaVersion, 3, `${deckId} should use Lorecard schema v3 entries.`);
   assert.equal(DEFAULT_BUNDLED_LOREDECK_CONTEXTS[deckId].contextType, 'anchor_window', `${deckId} should use anchor-window Context defaults.`);
-  assert.equal(manifest.health?.status, 'good', `${deckId} manifest should report good draft health.`);
+  assert.equal(manifest.health?.status, 'needs_review', `${deckId} manifest should flag expanded draft content for human canon review.`);
   assert.equal(manifest.library?.familyOrder, expectedFamilyOrder, `${deckId} familyOrder should match the JJK plan.`);
   assert.deepEqual(manifest.library?.suggestedPath, expectedPath, `${deckId} should live in the intended JJK library path.`);
   assert.deepEqual(indexRecord.library, manifest.library, `${deckId} index library metadata should match manifest.`);

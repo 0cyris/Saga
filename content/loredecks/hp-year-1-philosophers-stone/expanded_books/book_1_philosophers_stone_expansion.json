@@ -1319,7 +1319,16 @@
         "era:golden-trio",
         "fandom:harry-potter",
         "school-year:1"
-      ]
+      ],
+      "ui": {
+        "preview": {
+          "primaryPack": "essential_guardrails",
+          "suggestionRole": "active_guardrail",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "blocks_context_leakage"
+        }
+      }
     },
     {
       "schemaVersion": 3,
@@ -1452,7 +1461,16 @@
         "fandom:harry-potter",
         "place:hogwarts",
         "school-year:1"
-      ]
+      ],
+      "ui": {
+        "preview": {
+          "primaryPack": "essential_guardrails",
+          "suggestionRole": "active_guardrail",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "blocks_context_leakage"
+        }
+      }
     },
     {
       "schemaVersion": 3,

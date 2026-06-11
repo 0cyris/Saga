@@ -63,11 +63,7 @@
   "files": [
     "origin_death_painting/origin_setup.json",
     "origin_death_painting/detention_junpei.json",
-    "origin_death_painting/goodwill_death_painting.json",
-    "expanded/character_states.json",
-    "expanded/abilities.json",
-    "expanded/event_anchors.json",
-    "expanded/relationships_and_knowledge.json"
+    "origin_death_painting/goodwill_death_painting.json"
   ],
   "compatibility": {
     "sagaSchemaMin": 3,

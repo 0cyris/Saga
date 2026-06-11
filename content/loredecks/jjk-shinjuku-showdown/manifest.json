@@ -35,6 +35,17 @@
     "scoring": "scoring.json"
   },
   "resolver": "resolver.json",
+  "assets": {
+    "cover": {
+      "path": "assets/cover.png",
+      "alt": "Deck cover for Jujutsu Kaisen: Shinjuku Showdown and Aftermath",
+      "aspect": "1:1",
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    }
+  },
   "continuity": {
     "continuityId": "jjk-manga-main",
     "canonTier": "primary",
@@ -51,11 +62,7 @@
   "files": [
     "shinjuku/gojo_sukuna_opening.json",
     "shinjuku/rotating_plans.json",
-    "shinjuku/final_resolution.json",
-    "expanded/fight_phase_events.json",
-    "expanded/status_and_relationships.json",
-    "expanded/abilities_and_final_arc_rules.json",
-    "expanded/knowledge_and_aftermath_gates.json"
+    "shinjuku/final_resolution.json"
   ],
   "compatibility": {
     "sagaSchemaMin": 3,

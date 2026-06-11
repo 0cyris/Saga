@@ -1,14 +1,27 @@
 import {
+    getSettings,
     getState,
+    saveSettings,
     saveState,
     applyDelta,
 } from '../state/state-manager.js';
+import { DEFAULT_SETTINGS } from '../state/constants.js';
+import { onExtractionTriggered } from './extractor.js';
 import {
     addTooltip,
     createButton,
+    createEmptyMessage,
     createKeyValue,
+    createSectionHeader,
+    createToggleCard,
+    runBusyAction,
     toast,
 } from '../ui/runtime-ui-kit.js';
+import {
+    CONTINUITY_EMOTION_FRESHNESS_SETTING_KEYS,
+    CONTINUITY_SCAN_PERFORMANCE_SETTING_KEYS,
+    CONTINUITY_SCAN_SCOPE_SETTING_KEYS,
+} from '../runtime/runtime-setting-groups.js';
 
 let continuityPanelDeps = {};
 
@@ -30,6 +43,20 @@ function refreshPanelBody(options = {}) {
 function refreshHeader() {
     return dep('refreshHeader', () => null)();
 }
+
+function createCollapsibleSection(...args) { return dep('createCollapsibleSection')(...args); }
+function markTourTarget(element, target) { return dep('markTourTarget', value => value)(element, target); }
+function appendSettingsResetButton(...args) { return dep('appendSettingsResetButton', () => null)(...args); }
+function createSelectSettingRow(...args) { return dep('createSelectSettingRow')(...args); }
+function createNumberSettingRow(...args) { return dep('createNumberSettingRow')(...args); }
+function createRangeSettingRow(...args) { return dep('createRangeSettingRow')(...args); }
+function createAutomationModeCard(...args) { return dep('createAutomationModeCard')(...args); }
+function ensureContinuityProviderReadyForAction(actionLabel) { return dep('ensureContinuityProviderReadyForAction', () => false)(actionLabel); }
+function setFeatureProgress(...args) { return dep('setFeatureProgress', () => null)(...args); }
+function resetFeatureProgress(...args) { return dep('resetFeatureProgress', () => null)(...args); }
+function appendGenerationStatus(...args) { return dep('appendGenerationStatus', () => null)(...args); }
+function getCountLabel(...args) { return dep('getCountLabel', value => String(Array.isArray(value) ? value.length : 0))(...args); }
+function createTextSettingField(...args) { return dep('createTextSettingField')(...args); }
 
 export function createDeltaReviewCard(delta) {
     const card = document.createElement('div');
@@ -75,4 +102,778 @@ export function createDeltaReviewCard(delta) {
     card.appendChild(actions);
 
     return card;
+}
+
+// Continuity tab --------------------------------------------------------------
+
+const CONTINUITY_SECTION_LABELS = {
+    canon: 'Timeline / Date',
+    scene: 'Scene',
+    characters: 'Active Characters',
+    inventory: 'Key Items',
+    objectives: 'Active Goals',
+    threads: 'Active Threads',
+};
+
+const CHARACTER_CONTINUITY_FIELD_LABELS = {
+    appearance: 'Appearance Detail',
+    emotionalState: 'Emotional State',
+};
+
+
+function getContinuityScanScopeSummary(settings = getSettings()) {
+    const mode = settings.continuityScanMode || 'recent';
+    if (mode === 'entire') return 'entire chat';
+    if (mode === 'range') return `${settings.continuityScanRangeStart || 1}-${settings.continuityScanRangeEnd || 'latest'}`;
+    return `last ${settings.continuitySourceMessageCount || 10}`;
+}
+
+function getContinuityScanPerformanceSummary(settings = getSettings()) {
+    const strategy = settings.continuityScanStrategy || 'adaptive';
+    const fast = settings.continuityScanFastThreshold || 4;
+    const hybrid = settings.continuityScanHybridThreshold || 80;
+    return `${strategy} · fast ≤${fast} · hybrid ≤${hybrid}`;
+}
+
+function getContinuityScanResultsSummary(state = getState()) {
+    const ledger = state?.continuityScan || {};
+    const batch = ledger.lastBatchId ? ledger.batches?.[ledger.lastBatchId] : null;
+    if (!batch) return 'no scan results yet';
+    const status = batch.status || 'unknown';
+    const completed = Number(batch.completedChunks || 0);
+    const failed = Number(batch.failedChunks || 0);
+    const observations = Number(batch.observationCount || 0);
+    return `${status} · ${completed} complete · ${failed} failed · ${observations} observations`;
+}
+
+function createContinuityScanScopeSettingsContent() {
+    const settings = getSettings();
+    const content = document.createElement('div');
+    content.className = 'saga-lore-scan-settings-block';
+    appendSettingsResetButton(content, CONTINUITY_SCAN_SCOPE_SETTING_KEYS, 'Continuity scan scope settings');
+
+    const grid = document.createElement('div');
+    grid.className = 'saga-runtime-grid saga-lore-scan-compact-grid';
+    grid.appendChild(createSelectSettingRow(
+        'Scan range',
+        'Controls which messages Scan Continuity State processes. Recent is safest for routine use; Custom and Entire are for backfilling or repair scans.',
+        'continuityScanMode',
+        [
+            ['recent', 'Recent messages'],
+            ['range', 'Custom range'],
+            ['entire', 'Entire chat'],
+        ]
+    ));
+    grid.appendChild(createNumberSettingRow('Start', 'First 1-based message index used when Scan range is Custom range.', 'continuityScanRangeStart', { min: 1, max: 100000, fallback: 1 }));
+    grid.appendChild(createNumberSettingRow('End', 'Last 1-based message index used when Scan range is Custom range. Use 0 to mean latest message.', 'continuityScanRangeEnd', { min: 0, max: 100000, fallback: 0 }));
+    content.appendChild(grid);
+
+    const sourceRow = document.createElement('label');
+    sourceRow.className = 'saga-slider-row saga-compact-slider-row saga-lore-scan-setting-row';
+    const sourceText = document.createElement('span');
+    sourceText.textContent = `Recent window: ${settings.continuitySourceMessageCount || 10}`;
+    addTooltip(sourceText, 'How many recent chat messages are scanned when Scan range is Recent messages.');
+    const sourceInput = document.createElement('input');
+    sourceInput.type = 'range';
+    sourceInput.min = '1';
+    sourceInput.max = '200';
+    sourceInput.step = '1';
+    sourceInput.value = String(settings.continuitySourceMessageCount || 10);
+    sourceInput.addEventListener('input', () => {
+        const next = getSettings();
+        next.continuitySourceMessageCount = Math.max(1, Math.min(200, parseInt(sourceInput.value, 10) || 10));
+        saveSettings(next);
+        sourceText.textContent = `Recent window: ${next.continuitySourceMessageCount}`;
+    });
+    sourceRow.appendChild(sourceText);
+    sourceRow.appendChild(sourceInput);
+    content.appendChild(sourceRow);
+
+    const help = document.createElement('div');
+    help.className = 'saga-runtime-help saga-compact-help';
+    help.textContent = 'Adaptive continuity scans use a single compact delta call only for very small windows, parallel grouped calls for routine recent scans, and checkpointed chunks for large backfills.';
+    content.appendChild(help);
+    return content;
+}
+
+function createContinuityScanPerformanceSettingsContent() {
+    const content = document.createElement('div');
+    content.className = 'saga-lore-scan-settings-block';
+    appendSettingsResetButton(content, CONTINUITY_SCAN_PERFORMANCE_SETTING_KEYS, 'Continuity performance and recovery settings');
+    content.appendChild(createSelectSettingRow(
+        'Scan strategy',
+        'Adaptive uses one fast delta call only for very small scans, grouped hybrid calls for routine recent ranges, and the checkpointed bulk pipeline for large backfills.',
+        'continuityScanStrategy',
+        [
+            ['adaptive', 'Adaptive'],
+            ['fast', 'Always fast'],
+            ['hybrid', 'Always hybrid'],
+            ['bulk', 'Always bulk/checkpointed'],
+        ]
+    ));
+    content.appendChild(createRangeSettingRow('Fast threshold', 'Adaptive scans at or below this message count use the single-call fast continuity delta path. Keep this low if your provider is slow on large JSON calls.', 'continuityScanFastThreshold', { min: 1, max: 200, fallback: 4 }));
+    content.appendChild(createRangeSettingRow('Hybrid threshold', 'Adaptive scans above the fast threshold and at or below this count use grouped hybrid delta calls. Larger scans use the checkpointed bulk path.', 'continuityScanHybridThreshold', { min: 20, max: 500, fallback: 80 }));
+    content.appendChild(createRangeSettingRow('Fast max tokens', 'Maximum output tokens for the fast single-call continuity scan.', 'continuityFastMaxTokens', { min: 512, max: 8192, fallback: 2048 }));
+    content.appendChild(createRangeSettingRow('Hybrid max tokens', 'Maximum output tokens for each grouped hybrid continuity scan call.', 'continuityHybridMaxTokens', { min: 512, max: 8192, fallback: 3072 }));
+    content.appendChild(createRangeSettingRow('Chunk size', 'Messages per continuity observation chunk. Used by the bulk/checkpointed path for large ranges.', 'continuityScanChunkSize', { min: 2, max: 40, fallback: 8 }));
+    content.appendChild(createRangeSettingRow('Overlap', 'Messages repeated at chunk boundaries to preserve continuity facts that span intervals.', 'continuityScanOverlap', { min: 0, max: 10, fallback: 1 }));
+    content.appendChild(createRangeSettingRow('Simultaneous chunks', 'Maximum continuity observation chunks sent to the Utility provider at the same time.', 'continuityScanConcurrency', { min: 1, max: 8, fallback: 3 }));
+    content.appendChild(createRangeSettingRow('Simultaneous reducers', 'Maximum section reducers sent to the Utility provider at the same time after observations are extracted.', 'continuityScanReducerConcurrency', { min: 1, max: 6, fallback: 3 }));
+    content.appendChild(createRangeSettingRow('Retry attempts', 'Chunk-level retry attempts after empty, malformed, or failed observation responses.', 'continuityScanRetryAttempts', { min: 0, max: 4, fallback: 2 }));
+    content.appendChild(createRangeSettingRow('Observations per chunk', 'Upper target for compact continuity observations extracted from each chunk in the bulk/checkpointed path.', 'continuityScanObservationsPerChunk', { min: 3, max: 30, fallback: 12 }));
+    content.appendChild(createRangeSettingRow('Observation max tokens', 'Maximum output tokens for each bulk observation extraction call.', 'continuityObservationMaxTokens', { min: 512, max: 8192, fallback: 1536 }));
+    content.appendChild(createRangeSettingRow('Reducer max tokens', 'Maximum output tokens for each bulk section reducer call.', 'continuityReducerMaxTokens', { min: 512, max: 8192, fallback: 1536 }));
+    content.appendChild(createRangeSettingRow('Save checkpoint every chunks', 'How often the scan writes a full compact checkpoint after lightweight per-chunk observation saves.', 'continuityScanFullCheckpointEveryChunks', { min: 1, max: 25, fallback: 5 }));
+
+    const rescanRow = createSelectSettingRow(
+        'What to rescan',
+        'Controls whether Scan Continuity State skips unchanged completed chunks, retries failed chunks, rescans edited chunks, or rescans all chunks.',
+        'continuityScanRescanMode',
+        [
+            ['skip_unchanged', 'Skip unchanged'],
+            ['retry_failed', 'Retry failed only'],
+            ['stale_only', 'Rescan edited only'],
+            ['rescan_all', 'Rescan all'],
+        ]
+    );
+    content.appendChild(rescanRow);
+
+    const help = document.createElement('div');
+    help.className = 'saga-runtime-help saga-compact-help';
+    help.textContent = 'Adaptive mode avoids the heavy bulk pipeline for small scans. Chunk checkpoints are still used for large backfills, with prompt injection sync deferred until the final delta is applied or stored for review.';
+    content.appendChild(help);
+    return content;
+}
+
+function createContinuityScanResultsCard(state) {
+    const ledger = state?.continuityScan || {};
+    const batch = ledger.lastBatchId ? ledger.batches?.[ledger.lastBatchId] : null;
+    const card = document.createElement('div');
+    card.className = 'saga-runtime-card saga-generation-results-card';
+
+    const title = document.createElement('div');
+    title.className = 'saga-runtime-card-title';
+    title.textContent = 'Continuity Scan Results';
+    addTooltip(title, 'Recoverable results from the latest checkpointed continuity scan.');
+    card.appendChild(title);
+
+    if (!batch) {
+        card.appendChild(createEmptyMessage('No continuity scan has run yet.'));
+        return card;
+    }
+
+    card.appendChild(createKeyValue('Status', batch.status || 'unknown', 'Latest scan batch status.'));
+    card.appendChild(createKeyValue('Strategy', batch.strategy || 'bulk', 'Continuity scan strategy used for this result.'));
+    if (batch.modelCallCount !== undefined) card.appendChild(createKeyValue('Model calls', String(batch.modelCallCount || 0), 'Expected direct model calls used by this strategy, excluding JSON repair retries.'));
+    card.appendChild(createKeyValue('Range', `${batch.startIndex || 0}-${batch.endIndex || 0}`, 'Message range used for this scan.'));
+    card.appendChild(createKeyValue('Chunks', `${batch.completedChunks || 0} complete / ${batch.failedChunks || 0} failed / ${batch.totalChunks || 0} total`, 'Chunk-level checkpoint status.'));
+    card.appendChild(createKeyValue('Observations', String(batch.observationCount || 0), 'Compact observations extracted before reducer passes.'));
+    if (Array.isArray(batch.changeKeys) && batch.changeKeys.length) {
+        card.appendChild(createKeyValue('Changed sections', batch.changeKeys.join(', '), 'Top-level continuity sections updated by the reduced delta.'));
+    }
+    if (batch.error) {
+        card.appendChild(createKeyValue('Last error', batch.error, 'Latest scan error stored in the checkpoint ledger.'));
+    }
+    if (batch.completedAt || batch.updatedAt) {
+        card.appendChild(createKeyValue('Updated', new Date(batch.completedAt || batch.updatedAt).toLocaleString(), 'Last time this scan batch was updated.'));
+    }
+    return card;
+}
+
+function createContinuityScanCard(state) {
+    const settings = getSettings();
+    const card = document.createElement('div');
+    card.className = 'saga-runtime-card saga-generation-progress-card';
+    markTourTarget(card, 'continuity.scan');
+
+    const title = document.createElement('div');
+    title.className = 'saga-runtime-card-title';
+    title.textContent = 'Continuity Scan';
+    addTooltip(title, 'Adaptive continuity scanning: small scans use one fast delta call, medium scans use grouped section calls, and large scans use the checkpointed bulk pipeline.');
+    card.appendChild(title);
+
+    const automationCard = createAutomationModeCard(
+        'Continuity Tracking',
+        'continuityTrackingMode',
+        'continuityAutoInterval',
+        'Continuity scans only run when you click Scan Continuity State.',
+        'Saga automatically scans recent continuity state every configured number of turns using the Utility provider.',
+        'Automatic continuity scan interval in completed model turns.'
+    );
+    markTourTarget(automationCard, 'continuity.automation');
+    card.appendChild(automationCard);
+
+    const settingsWrap = document.createElement('div');
+    settingsWrap.className = 'saga-lore-scan-settings-wrap';
+    const scopeSection = createCollapsibleSection(
+        'continuity.scanScope',
+        'Scan Scope',
+        getContinuityScanScopeSummary(settings),
+        false,
+        createContinuityScanScopeSettingsContent,
+        { tooltip: 'Choose recent, custom range, or entire-chat scanning for continuity state.' }
+    );
+    markTourTarget(scopeSection, 'continuity.scanScope');
+    settingsWrap.appendChild(scopeSection);
+    const performanceSection = createCollapsibleSection(
+        'continuity.scanPerformance',
+        'Performance and Recovery',
+        getContinuityScanPerformanceSummary(settings),
+        false,
+        createContinuityScanPerformanceSettingsContent,
+        { tooltip: 'Chunk size, overlap, parallelism, retry behavior, and checkpoint settings.' }
+    );
+    markTourTarget(performanceSection, 'continuity.performance');
+    settingsWrap.appendChild(performanceSection);
+    const hasScanResults = !!state?.continuityScan?.lastBatchId;
+    if (hasScanResults) {
+        const resultsSection = createCollapsibleSection(
+            'continuity.scanResults',
+            'Scan Results',
+            getContinuityScanResultsSummary(state),
+            false,
+            () => createContinuityScanResultsCard(getState()),
+            { tooltip: 'Latest checkpointed continuity scan result and recovery status.' }
+        );
+        markTourTarget(resultsSection, 'continuity.results');
+        settingsWrap.appendChild(resultsSection);
+    }
+    card.appendChild(settingsWrap);
+
+    const actions = document.createElement('div');
+    actions.className = 'saga-primary-actions';
+    actions.appendChild(markTourTarget(createButton('Scan Continuity State', 'Scans the selected message range with the adaptive continuity scanner, then applies or stores one ordered continuity state update.', async (btn) => {
+        if (!ensureContinuityProviderReadyForAction('Scan Continuity State')) return;
+        await runBusyAction(btn, 'Scanning...', async () => {
+            setFeatureProgress('continuity', 'Scanning continuity state...', 5);
+            const result = await onExtractionTriggered({
+                force: true,
+                applyImmediately: true,
+                progress: (message, pct) => setFeatureProgress('continuity', message, pct),
+            });
+            refreshHeader();
+            refreshPanelBody({ preserveScroll: true });
+
+            if (result?.status === 'applied') {
+                const keys = result.changeKeys?.length ? ` Updated: ${result.changeKeys.join(', ')}.` : '';
+                const chunks = Number(result.completedChunkCount || 0);
+                const failed = Number(result.failedChunkCount || 0);
+                setFeatureProgress('continuity', `Continuity scan applied.${keys}`, 100);
+                resetFeatureProgress('continuity');
+                toast(`Continuity state updated from ${chunks} chunk(s)${failed ? `; ${failed} failed` : ''}.${keys}`);
+            } else if (result?.status === 'no_changes' || result?.status === 'skipped_unchanged') {
+                setFeatureProgress('continuity', 'Continuity scan complete. No state changes detected.', 100);
+                resetFeatureProgress('continuity');
+                toast(result?.status === 'skipped_unchanged' ? 'Scan skipped unchanged chunks.' : 'Scan complete. No continuity changes detected.', 'info');
+            } else if (result?.status === 'pending_review') {
+                setFeatureProgress('continuity', 'Continuity scan stored changes for review.', 100);
+                resetFeatureProgress('continuity');
+                toast('Continuity changes stored for review.', 'info');
+            } else {
+                const status = result?.error || result?.status || 'unknown result';
+                setFeatureProgress('continuity', `Continuity scan did not update state: ${status}`, 100);
+                toast(`Continuity scan did not update state: ${status}`, 'warning');
+            }
+        });
+    }, 'saga-primary-button'), 'continuity.scan.button'));
+    card.appendChild(actions);
+
+    appendGenerationStatus(card, state, 'continuity');
+    return card;
+}
+
+
+export function renderContinuityTab(container, state) {
+    container.appendChild(createSectionHeader(
+        'Continuity State',
+        'Edit the lightweight live roleplay state Saga tracks for the next scene. Durable memory such as knowledge, secrets, milestones, and relationships belongs in Story Lore.'
+    ));
+
+    container.appendChild(createCollapsibleSection(
+        'continuity.scan',
+        'Continuity Scan',
+        getContinuityScanScopeSummary(getSettings()),
+        true,
+        createContinuityScanCard(state),
+        { tooltip: 'Adaptive continuity scanning controls, progress, and scan settings.' }
+    ));
+
+    if (state?.lastDelta) {
+        const pendingDelta = document.createElement('div');
+        pendingDelta.className = 'saga-review-section';
+        const title = document.createElement('h4');
+        title.textContent = 'Pending Continuity Changes';
+        addTooltip(title, 'Older or manually created continuity deltas waiting to be applied. New scans apply directly to the editable sections below.');
+        pendingDelta.appendChild(title);
+        pendingDelta.appendChild(createDeltaReviewCard(state.lastDelta));
+        container.appendChild(createCollapsibleSection(
+            'continuity.pendingChanges',
+            'Pending Continuity Changes',
+            '1 waiting',
+            true,
+            pendingDelta,
+            { tooltip: 'Older or manually created continuity deltas waiting to be applied.' }
+        ));
+    }
+
+    const trackedSection = createCollapsibleSection('continuity.trackedSections', 'Tracked Sections', 'Enable/disable live-state scan and injection sections', false, createContinuitySectionToggleCard(state), { tooltip: 'Optional lightweight continuity sections for this chat.' });
+    markTourTarget(trackedSection, 'continuity.trackedSections');
+    container.appendChild(trackedSection);
+    const sceneSection = createCollapsibleSection('continuity.canonScene', 'Scene and Timeline', getContinuityCanonSceneSummary(state), false, createCanonSceneEditorCard(state), { tooltip: 'Current date, scene, cast, and activity fields.' });
+    markTourTarget(sceneSection, 'continuity.scene');
+    container.appendChild(sceneSection);
+    const charactersSection = createCollapsibleSection('continuity.characters', 'Active Characters', getCountLabel(state.characters || [], 'character'), false, createCharacterStateEditorCard(state), { tooltip: 'Current character-specific state: clothing, posture, emotion, immediate goals, and notes.' });
+    markTourTarget(charactersSection, 'continuity.characters');
+    container.appendChild(charactersSection);
+    const inventorySection = createCollapsibleSection('continuity.inventory', 'Key Items', getCountLabel(state.inventory || [], 'item'), false, createJsonEditorCard('Key Items', 'Currently relevant items, owners, locations, and object status. Durable item history belongs in Story Lore.', 'inventory', state.inventory || [], false, 'inventory'), { tooltip: 'Current consequential items only.' });
+    markTourTarget(inventorySection, 'continuity.items');
+    container.appendChild(inventorySection);
+    const threadsSection = createCollapsibleSection('continuity.activeGoalsThreads', 'Active Goals and Threads', getActiveGoalsThreadsSummary(state), false, createActiveGoalsThreadsEditorCard(state), { tooltip: 'Immediate goals and active threads that affect the next scene.' });
+    markTourTarget(threadsSection, 'continuity.threads');
+    container.appendChild(threadsSection);
+}
+
+function createContinuitySectionToggleCard(state) {
+    const card = document.createElement('div');
+    card.className = 'saga-runtime-card';
+    const title = document.createElement('div');
+    title.className = 'saga-runtime-card-title';
+    title.textContent = 'Tracked Sections';
+    addTooltip(title, 'Disabled top-level sections are not updated by Scan Continuity State and are omitted from continuity injection. Character child fields control nested character details.');
+    card.appendChild(title);
+
+    const help = document.createElement('div');
+    help.className = 'saga-runtime-help';
+    help.textContent = 'Top-level sections control the live continuity blocks. Appearance Detail and Emotional State are child fields inside Active Characters.';
+    card.appendChild(help);
+
+    const grid = document.createElement('div');
+    grid.className = 'saga-runtime-grid saga-continuity-toggle-grid';
+    const cfg = state?.continuityConfig || {};
+    for (const [key, label] of Object.entries(CONTINUITY_SECTION_LABELS)) {
+        grid.appendChild(createContinuityConfigToggle(key, label, `${label} tracking. Turn off to preserve existing data but omit it from scans and continuity injection.`, cfg[key] !== false));
+    }
+    card.appendChild(grid);
+
+    const characterFields = document.createElement('div');
+    characterFields.className = 'saga-continuity-child-fields';
+    markTourTarget(characterFields, 'continuity.characterFields');
+    const childTitle = document.createElement('div');
+    childTitle.className = 'saga-runtime-card-title saga-runtime-card-subtitle';
+    childTitle.textContent = 'Active Character Fields';
+    addTooltip(childTitle, 'Nested fields inside Active Characters. These apply only when Active Characters is enabled.');
+    characterFields.appendChild(childTitle);
+
+    const childHelp = document.createElement('div');
+    childHelp.className = 'saga-runtime-help';
+    childHelp.textContent = 'Appearance and emotion are stored inside each active character. Disabling one preserves saved values but keeps scans and injection from treating it as live state.';
+    characterFields.appendChild(childHelp);
+
+    const childGrid = document.createElement('div');
+    childGrid.className = 'saga-runtime-grid saga-continuity-toggle-grid';
+    for (const [key, label] of Object.entries(CHARACTER_CONTINUITY_FIELD_LABELS)) {
+        const tooltip = key === 'emotionalState'
+            ? 'Emotional State tracking. Turn off to preserve saved emotions but stop scans and continuity injection from treating them as live state.'
+            : 'Appearance Detail tracking. Turn off to preserve saved clothing/appearance details but omit them from scans and continuity injection.';
+        childGrid.appendChild(createContinuityConfigToggle(key, label, tooltip, cfg[key] !== false));
+    }
+    characterFields.appendChild(childGrid);
+    card.appendChild(characterFields);
+
+    card.appendChild(createEmotionFreshnessControls());
+
+    return card;
+}
+
+function createContinuityConfigToggle(key, label, tooltip, checked) {
+    return createToggleCard(label, checked, tooltip, (nextChecked) => {
+        const current = getState();
+        current.continuityConfig = { ...(current.continuityConfig || {}), [key]: nextChecked };
+        saveState(current);
+        refreshPanelBody({ preserveScroll: true });
+        refreshHeader();
+    });
+}
+
+function createEmotionFreshnessControls() {
+    const settings = getSettings();
+    const wrap = document.createElement('div');
+    wrap.className = 'saga-continuity-emotion-freshness';
+    markTourTarget(wrap, 'continuity.emotionalState');
+
+    const title = document.createElement('div');
+    title.className = 'saga-runtime-card-title saga-runtime-card-subtitle';
+    title.textContent = 'Emotional State Freshness';
+    addTooltip(title, 'Controls how long emotional state is treated as current in continuity injection.');
+    wrap.appendChild(title);
+
+    const help = document.createElement('div');
+    help.className = 'saga-runtime-help';
+    help.textContent = 'Emotion decays by chat-message age so an old feeling does not keep steering the character after the scene moves on.';
+    wrap.appendChild(help);
+    appendSettingsResetButton(wrap, CONTINUITY_EMOTION_FRESHNESS_SETTING_KEYS, 'Emotional state freshness settings');
+
+    const grid = document.createElement('div');
+    grid.className = 'saga-runtime-grid saga-continuity-toggle-grid';
+    grid.appendChild(createToggleCard(
+        'Use emotion recency labels',
+        settings.continuityEmotionRecencyEnabled !== false,
+        'When enabled, injected emotional state is labeled current or recent, and stale emotions can be omitted.',
+        (checked) => {
+            const next = getSettings();
+            next.continuityEmotionRecencyEnabled = checked;
+            saveSettings(next);
+            refreshPanelBody({ preserveScroll: true });
+            refreshHeader();
+        }
+    ));
+    wrap.appendChild(grid);
+
+    wrap.appendChild(createRangeSettingRow('Current emotion window', 'Messages after an emotional update where emotion is injected as current.', 'continuityEmotionCurrentMessageWindow', { min: 0, max: 50, fallback: 8, suffix: ' messages' }));
+    wrap.appendChild(createRangeSettingRow('Recent emotion window', 'Messages after an emotional update where emotion is injected only as recent context. Older emotions follow stale handling.', 'continuityEmotionRecentMessageWindow', { min: 0, max: 100, fallback: 20, suffix: ' messages' }));
+    wrap.appendChild(createSelectSettingRow(
+        'Stale emotion handling',
+        'Controls what happens after the recent emotion window expires.',
+        'continuityEmotionStaleBehavior',
+        [
+            ['omit', 'Omit stale emotions'],
+            ['keep_as_recent', 'Keep as recent warning'],
+            ['keep', 'Keep with stale label'],
+        ]
+    ));
+
+    return wrap;
+}
+
+function createCanonSceneEditorCard(state) {
+    const card = document.createElement('div');
+    card.className = 'saga-runtime-card';
+    const title = document.createElement('div');
+    title.className = 'saga-runtime-card-title';
+    title.textContent = 'Scene and Timeline';
+    addTooltip(title, 'Lightweight live scene and timeline fields. Durable story-established canon changes belong in Story Lore.');
+    card.appendChild(title);
+
+    const grid = document.createElement('div');
+    grid.className = 'saga-runtime-grid saga-context-grid';
+    grid.appendChild(createContinuityTextField('Era', state?.canon?.era || '', 'canon', 'era', 'Canon era or broad story period.'));
+    grid.appendChild(createContinuityTextField('In-universe date', state?.canon?.inUniverseDate || '', 'canon', 'inUniverseDate', 'Current in-universe date if known.'));
+    grid.appendChild(createContinuityTextField('Canon boundary', state?.canon?.canonBoundary || '', 'canon', 'canonBoundary', 'Latest canon point treated as established.'));
+    grid.appendChild(createContinuityTextField('Location', state?.scene?.location || '', 'scene', 'location', 'Current scene location.'));
+    grid.appendChild(createContinuityTextField('Time of day', state?.scene?.timeOfDay || '', 'scene', 'timeOfDay', 'Current scene time of day.'));
+    grid.appendChild(createContinuityTextField('Weather', state?.scene?.weather || '', 'scene', 'weather', 'Current weather if relevant.'));
+    grid.appendChild(createContinuityTextField('Ambience', state?.scene?.ambience || '', 'scene', 'ambience', 'Scene mood or ambient conditions.'));
+    grid.appendChild(createContinuityTextField('Current activity', state?.scene?.currentActivity || '', 'scene', 'currentActivity', 'What is currently happening in the scene.'));
+    card.appendChild(grid);
+
+    card.appendChild(createArrayTextField('Present characters', state?.scene?.presentCharacters || [], 'scene', 'presentCharacters', 'Comma-separated characters currently present.'));
+    card.appendChild(createArrayTextField('Nearby characters', state?.scene?.nearbyCharacters || [], 'scene', 'nearbyCharacters', 'Comma-separated characters nearby but not necessarily in the active conversation.'));
+    card.appendChild(createContinuitySectionPromptEditor('canonScene', 'Scene and Timeline'));
+    return card;
+}
+
+function getContinuityCanonSceneSummary(state) {
+    const parts = [state?.canon?.inUniverseDate, state?.scene?.location, state?.scene?.currentActivity]
+        .map(v => String(v || '').trim())
+        .filter(Boolean);
+    return parts.length ? parts.slice(0, 2).join(' · ') : 'core fields';
+}
+
+
+function getActiveGoalsThreadsSummary(state) {
+    const objectives = Array.isArray(state?.objectives) ? state.objectives.filter(o => o?.status !== 'completed' && o?.status !== 'abandoned').length : 0;
+    const threads = Array.isArray(state?.threads) ? state.threads.filter(t => t?.status !== 'resolved').length : 0;
+    const parts = [];
+    if (objectives) parts.push(`${objectives} active goal${objectives === 1 ? '' : 's'}`);
+    if (threads) parts.push(`${threads} active thread${threads === 1 ? '' : 's'}`);
+    return parts.join(' · ') || 'none active';
+}
+
+function createActiveGoalsThreadsEditorCard(state) {
+    const wrap = document.createElement('div');
+    wrap.className = 'saga-runtime-grid';
+    wrap.appendChild(createJsonEditorCard(
+        'Active Goals',
+        'Immediate goals, blockers, stakes, and status. Long-term plot memory belongs in Story Lore.',
+        'objectives',
+        state?.objectives || [],
+        true,
+        'objectives'
+    ));
+    wrap.appendChild(createJsonEditorCard(
+        'Active Threads',
+        'Immediate unresolved threads that should influence the next scene. Durable relationship history, milestones, secrets, and plot history belong in Story Lore.',
+        'threads',
+        state?.threads || [],
+        true,
+        'threads'
+    ));
+    return wrap;
+}
+
+function createCharacterStateEditorCard(state) {
+    const card = createJsonEditorCard(
+        'Active Characters',
+        'Live character state supports name, role, current location, clothing, posture, physicalState, emotionalState, carried key items, immediate goals, and notes. Durable knowledge, secrets, relationships, and milestones belong in Story Lore.',
+        'characters',
+        state?.characters || [],
+        false,
+        'characters'
+    );
+    card.appendChild(createCharacterAppearanceSummary(state));
+    card.appendChild(createCharacterEmotionSummary(state));
+    const schema = document.createElement('div');
+    schema.className = 'saga-runtime-help';
+    schema.textContent = 'Recommended active character object: { "name": "Harry", "clothing": "school robes", "physicalState": "tired", "emotionalState": { "trust": 2, "fear": 1, "confidence": 0.8, "notes": "uneasy but cooperative" }, "goals": ["find the source of the curse"] }';
+    card.appendChild(schema);
+    return card;
+}
+
+function createCharacterAppearanceSummary(state) {
+    const cfg = state?.continuityConfig || {};
+    const characters = Array.isArray(state?.characters) ? state.characters : [];
+    return createCharacterFieldSummary(
+        'Appearance Detail',
+        cfg.appearance === false ? 'disabled for scans and injection' : 'active child field',
+        characters
+            .map(c => {
+                return c?.clothing ? `${c.name || 'Unnamed'} - clothing: ${c.clothing}` : '';
+            })
+            .filter(Boolean),
+        'continuity.appearanceDetail',
+        'Appearance Detail is stored inside Active Characters. Disabling it preserves saved values but omits clothing/appearance from scans and injection.'
+    );
+}
+
+function createCharacterEmotionSummary(state) {
+    const cfg = state?.continuityConfig || {};
+    const settings = getSettings();
+    const characters = Array.isArray(state?.characters) ? state.characters : [];
+    return createCharacterFieldSummary(
+        'Emotional State',
+        cfg.emotionalState === false ? 'disabled for scans and injection' : getEmotionFreshnessSummary(settings),
+        characters
+            .map(c => {
+                const emotion = formatEmotionSummaryForPanel(c?.emotionalState || {}, settings);
+                return emotion ? `${c.name || 'Unnamed'} - ${emotion}` : '';
+            })
+            .filter(Boolean),
+        'continuity.emotionalStateSummary',
+        'Emotional State is stored inside Active Characters. Injection uses freshness windows so old emotions do not keep steering the character.'
+    );
+}
+
+function createCharacterFieldSummary(titleText, statusText, lines, tourTarget, tooltip) {
+    const wrap = document.createElement('div');
+    wrap.className = 'saga-character-field-summary';
+    markTourTarget(wrap, tourTarget);
+
+    const head = document.createElement('div');
+    head.className = 'saga-character-field-summary-head';
+    const title = document.createElement('span');
+    title.textContent = titleText;
+    addTooltip(title, tooltip);
+    head.appendChild(title);
+    const status = document.createElement('span');
+    status.textContent = statusText;
+    head.appendChild(status);
+    wrap.appendChild(head);
+
+    if (lines.length) {
+        for (const line of lines.slice(0, 8)) {
+            const row = document.createElement('div');
+            row.className = 'saga-character-field-summary-row';
+            row.textContent = line;
+            wrap.appendChild(row);
+        }
+        if (lines.length > 8) {
+            const more = document.createElement('div');
+            more.className = 'saga-character-field-summary-row';
+            more.textContent = `+${lines.length - 8} more`;
+            wrap.appendChild(more);
+        }
+    } else {
+        const empty = document.createElement('div');
+        empty.className = 'saga-character-field-summary-row saga-character-field-empty';
+        empty.textContent = 'No saved values yet.';
+        wrap.appendChild(empty);
+    }
+
+    return wrap;
+}
+
+function getPanelChatLength() {
+    try {
+        const ctx = SillyTavern.getContext();
+        return Array.isArray(ctx?.chat) ? ctx.chat.length : 0;
+    } catch (_) {
+        return 0;
+    }
+}
+
+function getEmotionFreshnessSummary(settings = getSettings()) {
+    if (settings.continuityEmotionRecencyEnabled === false) return 'recency labels off';
+    return `current ${settings.continuityEmotionCurrentMessageWindow || 8} / recent ${settings.continuityEmotionRecentMessageWindow || 20} messages`;
+}
+
+function formatEmotionSummaryForPanel(raw = {}, settings = getSettings()) {
+    const keys = ['affection', 'trust', 'desire', 'connection', 'fear', 'anger', 'sadness', 'joy'];
+    const parts = [];
+    for (const key of keys) {
+        const value = Number(raw?.[key] || 0);
+        if (Math.abs(value) >= 2) parts.push(`${key} ${value > 0 ? '+' : ''}${value}`);
+    }
+    if (raw?.notes) parts.push(String(raw.notes));
+    if (!parts.length) return '';
+
+    const current = getPanelChatLength();
+    const updatedAt = Number(raw?.lastUpdatedChatLength);
+    const age = Number.isFinite(updatedAt) && updatedAt > 0 && current >= updatedAt ? current - updatedAt : 0;
+    if (settings.continuityEmotionRecencyEnabled === false) return parts.join(', ');
+
+    const currentWindow = Math.max(0, Number(settings.continuityEmotionCurrentMessageWindow) || 8);
+    const recentWindow = Math.max(currentWindow, Number(settings.continuityEmotionRecentMessageWindow) || 20);
+    const confidence = Number(raw?.confidence);
+    const confidenceText = Number.isFinite(confidence) && confidence < 0.65 ? 'uncertain, ' : '';
+    if (age > recentWindow) return `${confidenceText}stale ${age} messages ago; omitted unless stale handling keeps it (${parts.join(', ')})`;
+    if (age > currentWindow) return `${confidenceText}recent ${age} messages ago: ${parts.join(', ')}`;
+    return `${confidenceText}current: ${parts.join(', ')}`;
+}
+
+
+function createContinuitySectionPromptEditor(sectionKey, label) {
+    const settings = getSettings();
+    const prompts = settings.continuitySectionPrompts || {};
+    const defaults = DEFAULT_SETTINGS.continuitySectionPrompts || {};
+
+    const wrap = document.createElement('div');
+    wrap.className = 'saga-section-prompt-editor-wrap';
+
+    const textarea = document.createElement('textarea');
+    textarea.className = 'saga-section-prompt-editor';
+    textarea.spellcheck = false;
+    textarea.value = String(prompts[sectionKey] || defaults[sectionKey] || '');
+    addTooltip(textarea, `User-editable scan prompt for ${label}. This is appended to Scan Continuity State when this section is enabled/tracked.`);
+
+    const actions = document.createElement('div');
+    actions.className = 'saga-primary-actions saga-section-prompt-actions';
+    actions.appendChild(createButton('Save Prompt', `Save the Scan Continuity prompt for ${label}.`, () => {
+        const next = getSettings();
+        next.continuitySectionPrompts = {
+            ...(DEFAULT_SETTINGS.continuitySectionPrompts || {}),
+            ...(next.continuitySectionPrompts || {}),
+            [sectionKey]: textarea.value.trim(),
+        };
+        saveSettings(next);
+        toast(`${label} scan prompt saved.`);
+    }, 'saga-primary-button'));
+    actions.appendChild(createButton('Reset Default', `Restore the default Scan Continuity prompt for ${label}.`, () => {
+        textarea.value = String(defaults[sectionKey] || '');
+        const next = getSettings();
+        next.continuitySectionPrompts = {
+            ...(DEFAULT_SETTINGS.continuitySectionPrompts || {}),
+            ...(next.continuitySectionPrompts || {}),
+            [sectionKey]: textarea.value.trim(),
+        };
+        saveSettings(next);
+        toast(`${label} scan prompt reset.`);
+    }));
+
+    wrap.appendChild(textarea);
+    wrap.appendChild(actions);
+
+    return createCollapsibleSection(
+        `continuity.prompt.${sectionKey}`,
+        'Scan Prompt',
+        'used when this section is tracked',
+        false,
+        wrap,
+        { tooltip: `Editable prompt guidance appended to continuity scans for ${label}.` }
+    );
+}
+
+function createContinuityTextField(label, value, section, field, tooltip) {
+    return createTextSettingField(label, value, tooltip, (nextValue) => {
+        const current = getState();
+        current[section] = { ...(current[section] || {}), [field]: nextValue };
+        saveState(current);
+        refreshHeader();
+    });
+}
+
+function createArrayTextField(label, values, section, field, tooltip) {
+    const wrap = document.createElement('label');
+    wrap.className = 'saga-inline-field saga-context-field';
+    addTooltip(wrap, tooltip);
+    const span = document.createElement('span');
+    span.textContent = label;
+    wrap.appendChild(span);
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.value = Array.isArray(values) ? values.join(', ') : '';
+    input.addEventListener('change', () => {
+        const current = getState();
+        current[section] = { ...(current[section] || {}), [field]: input.value.split(',').map(x => x.trim()).filter(Boolean) };
+        saveState(current);
+        refreshHeader();
+    });
+    wrap.appendChild(input);
+    return wrap;
+}
+
+function createJsonEditorCard(titleText, helpText, path, value, embedded = false, promptSectionKey = '') {
+    const card = document.createElement('div');
+    card.className = embedded ? 'saga-json-editor-embedded' : 'saga-runtime-card saga-json-editor-card';
+    const title = document.createElement('div');
+    title.className = 'saga-runtime-card-title';
+    title.textContent = titleText;
+    addTooltip(title, helpText);
+    card.appendChild(title);
+
+    const help = document.createElement('div');
+    help.className = 'saga-runtime-help';
+    help.textContent = helpText;
+    card.appendChild(help);
+
+    const textarea = document.createElement('textarea');
+    textarea.className = 'saga-continuity-json-editor';
+    textarea.value = JSON.stringify(value ?? null, null, 2);
+    textarea.spellcheck = false;
+    addTooltip(textarea, `Editable JSON for ${titleText}. Save validates JSON before writing to state.`);
+    card.appendChild(textarea);
+
+    const actions = document.createElement('div');
+    actions.className = 'saga-primary-actions';
+    actions.appendChild(createButton('Save Section', `Save edited ${titleText} JSON into the current chat continuity state.`, () => {
+        try {
+            const parsed = JSON.parse(textarea.value || 'null');
+            const current = getState();
+            setStatePath(current, path, parsed);
+            saveState(current);
+            refreshPanelBody({ preserveScroll: true });
+            refreshHeader();
+            toast(`${titleText} saved.`);
+        } catch (e) {
+            toast(`Invalid JSON in ${titleText}: ${e.message}`, 'error');
+        }
+    }, 'saga-primary-button'));
+    actions.appendChild(createButton('Revert', `Reload ${titleText} from saved state.`, () => {
+        refreshPanelBody({ preserveScroll: true });
+    }));
+    card.appendChild(actions);
+    if (promptSectionKey) {
+        card.appendChild(createContinuitySectionPromptEditor(promptSectionKey, titleText));
+    }
+    return card;
+}
+
+function setStatePath(state, path, value) {
+    const parts = String(path).split('.');
+    let target = state;
+    for (let i = 0; i < parts.length - 1; i++) {
+        const key = parts[i];
+        if (!target[key] || typeof target[key] !== 'object') target[key] = {};
+        target = target[key];
+    }
+    target[parts[parts.length - 1]] = value;
 }

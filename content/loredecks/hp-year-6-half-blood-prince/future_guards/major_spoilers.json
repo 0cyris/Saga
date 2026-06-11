@@ -121,7 +121,16 @@
         "era:golden-trio",
         "fandom:harry-potter",
         "school-year:6"
-      ]
+      ],
+      "ui": {
+        "preview": {
+          "primaryPack": "essential_guardrails",
+          "suggestionRole": "active_guardrail",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "blocks_context_leakage"
+        }
+      }
     }
   ]
 }

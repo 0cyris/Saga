@@ -1,0 +1,66 @@
+/**
+ * Basic Experience profile defaults for Saga.
+ */
+
+export const AUTOMATION_MODE_VALUES = Object.freeze(['manual', 'assisted', 'automatic']);
+export const EXPERIENCE_MODE_VALUES = Object.freeze(['basic', 'advanced']);
+export const BASIC_EXPERIENCE_PROFILE_VERSION = 2;
+
+export const BASIC_EXPERIENCE_SETTINGS = Object.freeze({
+    autoExtract: false,
+    autoApplyDelta: true,
+    autoGenerateLore: false,
+    automationMode: 'manual',
+    workflowMode: 'manual',
+    continuityTrackingMode: 'manual',
+    contextDetectionMode: 'manual',
+    contextDetectionAutoInterval: 20,
+    contextDetectionAutoMinTurns: 8,
+    contextDetectionAutoCharacterThreshold: 8000,
+    loreGenerationMode: 'manual',
+    contextSourceMessageCount: 20,
+    contextModelFallbackMinCharacters: 1200,
+    contextReasonerFallbackEnabled: true,
+    contextLocalApplyMinConfidence: 0.78,
+    contextReasonerProposalMinConfidence: 0.55,
+    canonLoreDatabaseEnabled: true,
+    canonLoreAutoPropose: false,
+    canonLoreMaxEntries: 10,
+    loreBulkScanMode: 'recent',
+    loreSourceMessageCount: 40,
+    loreBulkChunkSize: 10,
+    loreBulkOverlap: 1,
+    loreBulkConcurrency: 2,
+    loreBulkFactsPerChunk: 8,
+    loreGenerationBreadthMode: 'auto',
+    loreBootstrapTargetEntries: 40,
+    loreIncrementalTargetEntries: 5,
+    loreReplacementGuard: true,
+    loreDuplicateGuard: true,
+    loreSimilarityRouting: true,
+    loreStrictQualityGate: true,
+    loreTagCount: 4,
+    autoRelevanceEnabled: false,
+    autoRelevanceUseModel: false,
+    injectionTransport: 'extension_prompt',
+    injectMemo: true,
+    injectContinuity: false,
+    injectLore: true,
+    continuityInjectionMode: 'direct',
+    loreHighInjectionEnabled: true,
+    loreNormalInjectionEnabled: true,
+    loreLowInjectionEnabled: false,
+    loreHighInjectionMode: 'direct',
+    loreNormalInjectionMode: 'direct',
+    loreLowInjectionMode: 'direct',
+    loreHighCompressionLevel: 3,
+    loreNormalCompressionLevel: 3,
+    loreLowCompressionLevel: 3,
+    continuityInjectionDepth: 3,
+    loreHighInjectionDepth: 2,
+    loreNormalInjectionDepth: 5,
+    loreLowInjectionDepth: 9,
+});
+
+export const BASIC_EXPERIENCE_MANAGED_SETTING_KEYS = Object.freeze(Object.keys(BASIC_EXPERIENCE_SETTINGS));
+

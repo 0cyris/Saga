@@ -1,0 +1,1037 @@
+/* Runtime rail + drawer redesign ------------------------------------------------
+   Phase 3: keep existing tab bodies, replace the outer floating-window shell. */
+.saga-lore-panel.saga-runtime-shell {
+    position: fixed !important;
+    z-index: 10000 !important;
+    width: auto !important;
+    height: auto !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    max-width: none !important;
+    max-height: none !important;
+    display: block !important;
+    overflow: visible !important;
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    color: var(--SmartThemeBodyColor, #e0e0e0);
+    font-family: var(--SmartThemeFont, 'Segoe UI', sans-serif);
+    font-size: 0.85em;
+    user-select: none;
+}
+
+.saga-runtime-rail {
+    width: var(--saga-rail-width, 52px);
+    max-height: calc(100vh - 16px);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 6px;
+    overflow: hidden;
+    background: rgba(20, 20, 30, 0.96);
+    border: 1px solid rgba(180, 160, 140, 0.32);
+    border-radius: 10px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.58);
+    box-sizing: border-box;
+}
+
+.saga-runtime-rail-drag {
+    min-height: 34px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2px;
+    padding: 5px 6px;
+    border-radius: 7px;
+    background: rgba(60, 50, 40, 0.5);
+    border: 1px solid rgba(180, 160, 140, 0.14);
+    cursor: grab;
+    overflow: hidden;
+}
+
+.saga-runtime-rail-drag:active,
+.saga-runtime-dragging .saga-runtime-rail-drag {
+    cursor: grabbing;
+}
+
+.saga-runtime-rail-mark {
+    color: #d4c8a8;
+    font-weight: 800;
+    font-size: 0.95em;
+    line-height: 1.1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+.saga-runtime-rail-expanded .saga-runtime-rail-mark {
+    text-align: left;
+}
+
+.saga-runtime-rail-subtitle {
+    display: none;
+    opacity: 0.72;
+    font-size: 0.74em;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.saga-runtime-rail-expanded .saga-runtime-rail-subtitle {
+    display: block;
+}
+
+.saga-runtime-rail-tabs,
+.saga-runtime-rail-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.saga-runtime-rail-tabs {
+    flex: 1 1 auto;
+}
+
+.saga-runtime-rail-tab-divider {
+    flex: 0 0 auto;
+    height: 1px;
+    margin: 3px 5px 5px;
+    background: linear-gradient(90deg, transparent, rgba(212, 200, 168, 0.26), transparent);
+    opacity: 0.76;
+}
+
+.saga-runtime-rail-tab,
+.saga-runtime-rail-control {
+    width: 100%;
+    min-width: 0;
+    min-height: 36px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 6px;
+    border: 1px solid rgba(180, 160, 140, 0.16);
+    border-radius: 7px;
+    background: rgba(255, 255, 255, 0.035);
+    color: inherit;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.saga-runtime-rail-control {
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.62);
+}
+
+.saga-runtime-rail-tab-global {
+    border-color: var(--saga-border, rgba(180, 160, 140, 0.3));
+    box-shadow: 0 0 0 1px var(--saga-border-soft, rgba(180, 160, 140, 0.08)) inset;
+}
+
+.saga-runtime-rail-tab:hover,
+.saga-runtime-rail-control:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(180, 160, 140, 0.3);
+}
+
+.saga-runtime-rail-tab-active {
+    background: rgba(180, 160, 140, 0.14);
+    border-color: rgba(212, 200, 168, 0.42);
+    color: #f1e8cf;
+}
+
+.saga-runtime-rail-icon {
+    flex: 0 0 26px;
+    width: 26px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    background: rgba(180, 160, 140, 0.12);
+    color: #d4c8a8;
+    font-weight: 800;
+    font-size: 0.86em;
+}
+
+.saga-runtime-rail-label {
+    flex: 1 1 auto;
+    min-width: 0;
+    display: none;
+    font-weight: 650;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.saga-runtime-rail-metric {
+    display: none;
+    flex: 0 1 auto;
+    min-width: 0;
+    max-width: 106px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    opacity: 0.72;
+    font-size: 0.66em;
+    line-height: 1.1;
+    text-align: right;
+}
+
+.saga-runtime-rail-expanded .saga-runtime-rail-label,
+.saga-runtime-rail-expanded .saga-runtime-rail-metric {
+    display: inline-block;
+}
+
+.saga-runtime-rail-expanded .saga-runtime-rail-metric-stack {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 106px;
+    max-width: 106px;
+    gap: 0;
+    text-align: left;
+    transform: translateX(-5px);
+}
+
+.saga-runtime-rail-metric-line {
+    display: inline-block;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 1.05;
+    text-align: left;
+}
+
+.saga-runtime-rail-metric-line + .saga-runtime-rail-metric-line {
+    margin-top: 2px;
+}
+
+.saga-runtime-rail-expanded .saga-runtime-rail-tab[data-tab-id="settings"] .saga-runtime-rail-label {
+    flex: 0 0 auto;
+}
+
+.saga-runtime-rail-expanded .saga-runtime-rail-tab[data-tab-id="settings"] .saga-runtime-rail-metric {
+    flex: 1 1 0;
+    max-width: none;
+}
+
+.saga-runtime-rail-expanded .saga-runtime-rail-tab[data-tab-id="settings"] .saga-runtime-rail-metric-stack {
+    width: auto;
+    max-width: none;
+    align-items: stretch;
+    transform: none;
+}
+
+.saga-runtime-rail-compact .saga-runtime-rail-tab,
+.saga-runtime-rail-compact .saga-runtime-rail-control {
+    justify-content: center;
+    padding: 6px 4px;
+}
+
+.saga-runtime-rail-compact .saga-runtime-rail-icon {
+    flex-basis: 28px;
+}
+
+.saga-runtime-rail-compact .saga-runtime-rail-tab-divider {
+    margin: 2px 8px 4px;
+}
+
+.saga-runtime-drawer {
+    position: absolute;
+    top: 0;
+    left: calc(var(--saga-rail-width, 52px) + 8px);
+    width: var(--saga-drawer-width, 560px);
+    height: var(--saga-drawer-height, 640px);
+    min-width: 360px;
+    min-height: 320px;
+    max-width: calc(100vw - 24px);
+    max-height: calc(100vh - 16px);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: rgba(20, 20, 30, 0.97);
+    border: 1px solid rgba(180, 160, 140, 0.34);
+    border-radius: 10px;
+    box-shadow: 0 4px 28px rgba(0, 0, 0, 0.62);
+    box-sizing: border-box;
+}
+
+.saga-runtime-drawer-left {
+    left: auto;
+    right: calc(var(--saga-rail-width, 52px) + 8px);
+}
+
+.saga-runtime-drawer-header {
+    flex: 0 0 auto;
+    min-height: 42px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 8px;
+    background: rgba(60, 50, 40, 0.5);
+    border-bottom: 1px solid rgba(180, 160, 140, 0.15);
+}
+
+.saga-runtime-drawer-title {
+    font-weight: 800;
+}
+
+.saga-runtime-drawer .saga-lore-panel-body {
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
+    padding: 8px !important;
+}
+
+.saga-runtime-drawer .saga-runtime-tab-body {
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.saga-runtime-drawer .saga-runtime-tab-body-lore {
+    overflow: hidden !important;
+}
+
+.saga-runtime-drawer-resize-handle {
+    display: block !important;
+}
+
+.saga-runtime-drawer-left .saga-runtime-drawer-resize-handle {
+    right: auto;
+    left: 0;
+    cursor: nesw-resize;
+    transform: scaleX(-1);
+}
+
+.saga-runtime-drawer .saga-runtime-tabs {
+    display: none !important;
+}
+
+/* Runtime rail icon integration + restored house-archive gradient palette ---------
+   Phase 4: use transparent tab artwork and bring the rail/drawer back into the
+   original Saga dark red, black, and antique-gold color system. */
+.saga-lore-panel.saga-runtime-shell {
+    color: var(--saga-text, #f1ead8);
+}
+
+.saga-runtime-rail {
+    gap: 7px;
+    padding: 7px;
+    background:
+        radial-gradient(circle at 18% 8%, var(--saga-button-hover, rgba(92, 23, 36, 0.56)), transparent 34%),
+        radial-gradient(circle at 88% 94%, var(--saga-border-soft, rgba(185, 139, 54, 0.16)), transparent 38%),
+        linear-gradient(145deg, var(--saga-bg-gradient-start, rgba(18, 12, 18, 0.985)), var(--saga-bg-gradient-end, rgba(9, 12, 18, 0.975)));
+    border: 1px solid var(--saga-border, rgba(185, 139, 54, 0.38));
+    box-shadow:
+        0 10px 32px rgba(0, 0, 0, 0.72),
+        0 0 0 1px rgba(215, 181, 109, 0.08) inset,
+        0 0 22px rgba(92, 23, 36, 0.24);
+}
+
+.saga-runtime-rail-drag {
+    background:
+        linear-gradient(90deg, var(--saga-button-hover, rgba(92, 23, 36, 0.72)), var(--saga-bg-2, rgba(20, 24, 32, 0.88)));
+    border: 1px solid var(--saga-border-soft, rgba(185, 139, 54, 0.18));
+    box-shadow: 0 0 0 1px rgba(215, 181, 109, 0.05) inset;
+}
+
+.saga-runtime-rail-mark {
+    color: var(--saga-gold, #d7b56d);
+    letter-spacing: 0.02em;
+    text-shadow: 0 0 10px rgba(215, 181, 109, 0.2);
+}
+
+.saga-runtime-rail-subtitle {
+    color: var(--saga-muted, rgba(241, 234, 216, 0.68));
+}
+
+.saga-experience-switch {
+    position: relative;
+    width: 100%;
+    min-height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0;
+    padding: 3px;
+    border: 1px solid rgba(185, 139, 54, 0.36);
+    border-radius: 6px;
+    background:
+        linear-gradient(180deg, var(--saga-button, rgba(20, 18, 20, 0.92)), var(--saga-input, rgba(10, 12, 16, 0.92)));
+    color: rgba(241, 234, 216, 0.72);
+    font: inherit;
+    box-sizing: border-box;
+    overflow: hidden;
+    box-shadow: 0 0 0 1px rgba(215, 181, 109, 0.05) inset;
+}
+
+.saga-experience-switch:hover {
+    border-color: rgba(215, 181, 109, 0.58);
+    color: var(--saga-text, #f1ead8);
+}
+
+.saga-experience-switch-label {
+    position: relative;
+    z-index: 2;
+    flex: 1 1 50%;
+    min-width: 0;
+    text-align: center;
+    font-size: 0.74em;
+    font-weight: 700;
+    line-height: 1;
+    white-space: nowrap;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font-family: inherit;
+    cursor: pointer;
+    padding: 0 5px;
+    transition: color 140ms ease;
+}
+
+.saga-experience-switch-label:focus-visible {
+    outline: 1px solid var(--saga-focus, rgba(255, 235, 168, 0.9));
+    outline-offset: -2px;
+    border-radius: 4px;
+}
+
+.saga-experience-switch-basic .saga-experience-switch-label-basic,
+.saga-experience-switch-advanced .saga-experience-switch-label-advanced {
+    color: #161108;
+}
+
+.saga-experience-switch-knob {
+    position: absolute;
+    z-index: 1;
+    top: 3px;
+    bottom: 3px;
+    left: 3px;
+    width: calc(50% - 3px);
+    border-radius: 4px;
+    background:
+        linear-gradient(180deg, rgba(244, 211, 130, 0.98), rgba(177, 126, 42, 0.98));
+    border: 1px solid rgba(255, 235, 168, 0.46);
+    box-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.42),
+        0 0 0 1px rgba(255, 244, 198, 0.12) inset,
+        0 0 12px rgba(215, 181, 109, 0.2);
+    transform: translateX(0);
+    transition:
+        transform 220ms cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 220ms ease;
+}
+
+.saga-experience-switch-advanced .saga-experience-switch-knob {
+    transform: translateX(calc(100% - 1px));
+}
+
+.saga-runtime-rail-compact .saga-experience-switch {
+    min-height: 30px;
+    padding: 3px;
+}
+
+.saga-runtime-rail-compact .saga-experience-switch-label {
+    font-size: 0;
+    padding: 0;
+}
+
+.saga-runtime-rail-compact .saga-experience-switch-label-basic::after {
+    content: "B";
+    font-size: 10px;
+}
+
+.saga-runtime-rail-compact .saga-experience-switch-label-advanced::after {
+    content: "A";
+    font-size: 10px;
+}
+
+.saga-runtime-rail-tab,
+.saga-runtime-rail-control {
+    background:
+        linear-gradient(180deg, var(--saga-button, rgba(18, 18, 24, 0.78)), var(--saga-surface-2, rgba(18, 12, 18, 0.66)));
+    border-color: var(--saga-border-soft, rgba(185, 139, 54, 0.18));
+    color: var(--saga-text, #f1ead8);
+    box-shadow: 0 0 0 1px rgba(215, 181, 109, 0.035) inset;
+}
+
+.saga-runtime-rail-tab-divider {
+    background: linear-gradient(90deg, transparent, var(--saga-border-soft, rgba(185, 139, 54, 0.34)), transparent);
+}
+
+.saga-runtime-rail-tab-global {
+    border-color: var(--saga-border, rgba(185, 139, 54, 0.38));
+    box-shadow: 0 0 0 1px var(--saga-border-soft, rgba(185, 139, 54, 0.18)) inset;
+}
+
+.saga-runtime-rail-tab:hover,
+.saga-runtime-rail-control:hover {
+    background:
+        radial-gradient(circle at 20% 0%, rgba(215, 181, 109, 0.12), transparent 36%),
+        linear-gradient(180deg, var(--saga-button-hover, rgba(92, 23, 36, 0.52)), var(--saga-button, rgba(26, 18, 24, 0.82)));
+    border-color: var(--saga-border, rgba(185, 139, 54, 0.38));
+    color: var(--saga-gold, #d7b56d);
+}
+
+.saga-runtime-rail-tab-active {
+    background:
+        radial-gradient(circle at 28% 12%, rgba(215, 181, 109, 0.2), transparent 34%),
+        linear-gradient(180deg, var(--saga-button-hover, rgba(92, 23, 36, 0.66)), var(--saga-button, rgba(34, 16, 22, 0.9)));
+    border-color: var(--saga-border-strong, rgba(215, 181, 109, 0.58));
+    color: var(--saga-gold, #d7b56d);
+    box-shadow:
+        0 0 0 1px rgba(215, 181, 109, 0.12) inset,
+        0 0 14px rgba(215, 181, 109, 0.08);
+}
+
+.saga-runtime-rail-icon {
+    flex: 0 0 38px;
+    width: 38px;
+    height: 36px;
+    padding: 1px;
+    border-radius: 6px;
+    background:
+        radial-gradient(circle at 50% 44%, rgba(215, 181, 109, 0.16), transparent 56%),
+        linear-gradient(180deg, rgba(0, 0, 0, 0.22), var(--saga-surface-2, rgba(18, 12, 18, 0.42)));
+    color: var(--saga-gold, #d7b56d);
+    border: 1px solid rgba(185, 139, 54, 0.14);
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.saga-runtime-rail-icon-img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    pointer-events: none;
+    user-select: none;
+    filter: drop-shadow(0 0 3px rgba(215, 181, 109, 0.36));
+}
+
+.saga-runtime-rail-tab:hover .saga-runtime-rail-icon-img,
+.saga-runtime-rail-tab-active .saga-runtime-rail-icon-img {
+    filter:
+        drop-shadow(0 0 4px rgba(215, 181, 109, 0.54))
+        drop-shadow(0 0 8px rgba(92, 23, 36, 0.32));
+}
+
+.saga-runtime-rail-icon-missing {
+    font-weight: 800;
+    font-size: 0.86em;
+}
+
+.saga-runtime-rail-label {
+    color: var(--saga-text, #f1ead8);
+}
+
+.saga-runtime-rail-metric {
+    color: var(--saga-muted, rgba(241, 234, 216, 0.68));
+}
+
+.saga-runtime-rail-expanded .saga-runtime-rail-tab {
+    min-height: 42px;
+}
+
+.saga-runtime-rail-compact .saga-runtime-rail-tab,
+.saga-runtime-rail-compact .saga-runtime-rail-control {
+    min-height: 50px;
+    padding: 4px 4px;
+}
+
+.saga-runtime-rail-compact .saga-runtime-rail-icon {
+    flex-basis: 42px;
+    width: 42px;
+    height: 42px;
+}
+
+.saga-runtime-drawer {
+    background:
+        radial-gradient(circle at 8% 0%, var(--saga-button-hover, rgba(92, 23, 36, 0.42)), transparent 36%),
+        radial-gradient(circle at 100% 100%, var(--saga-border-soft, rgba(185, 139, 54, 0.11)), transparent 42%),
+        linear-gradient(145deg, var(--saga-bg-gradient-start, rgba(18, 12, 18, 0.985)), var(--saga-bg-gradient-end, rgba(9, 12, 18, 0.98)));
+    border: 1px solid var(--saga-border, rgba(185, 139, 54, 0.38));
+    box-shadow:
+        0 10px 36px rgba(0, 0, 0, 0.72),
+        0 0 0 1px rgba(215, 181, 109, 0.08) inset,
+        0 0 24px rgba(92, 23, 36, 0.2);
+}
+
+.saga-runtime-drawer-header {
+    background: linear-gradient(90deg, var(--saga-button-hover, rgba(92, 23, 36, 0.72)), var(--saga-bg-2, rgba(20, 24, 32, 0.9)));
+    border-bottom: 1px solid var(--saga-border-soft, rgba(185, 139, 54, 0.18));
+    box-shadow: 0 -1px 0 rgba(215, 181, 109, 0.07) inset;
+}
+
+.saga-runtime-drawer-title {
+    color: var(--saga-gold, #d7b56d);
+    text-shadow: 0 0 10px rgba(215, 181, 109, 0.16);
+}
+
+.saga-runtime-drawer-status {
+    color: var(--saga-muted, rgba(241, 234, 216, 0.68));
+}
+
+.saga-runtime-drawer .saga-lore-panel-body {
+    background: transparent !important;
+}
+
+/* Runtime drawer scroll containment -------------------------------------------------
+   Phase 6: each tab gets a reliable outer scroller based on the resized drawer
+   height. Long tabs no longer clip at the drawer bottom. Existing internal
+   scroll regions, such as Accepted Lorecards and Pending Lore Review, remain
+   bounded nested scroll containers instead of stretching the whole Lore tab. */
+.saga-runtime-drawer {
+    overflow: hidden !important;
+}
+
+.saga-runtime-drawer .saga-lore-panel-body {
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
+    padding: 8px !important;
+    box-sizing: border-box !important;
+}
+
+.saga-runtime-drawer .saga-runtime-tab-body {
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    height: auto !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    overscroll-behavior: contain !important;
+    scrollbar-gutter: stable !important;
+    scrollbar-width: thin !important;
+    scrollbar-color: var(--saga-border-strong, rgba(215, 181, 109, 0.62)) var(--saga-input, rgba(10, 12, 16, 0.38)) !important;
+    padding-right: 8px !important;
+    box-sizing: border-box !important;
+}
+
+.saga-runtime-drawer .saga-runtime-tab-body::-webkit-scrollbar {
+    width: 10px;
+}
+
+.saga-runtime-drawer .saga-runtime-tab-body::-webkit-scrollbar-track {
+    background: var(--saga-input, rgba(10, 12, 16, 0.38));
+    border-radius: 999px;
+}
+
+.saga-runtime-drawer .saga-runtime-tab-body::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--saga-border-strong, rgba(215, 181, 109, 0.74)), var(--saga-button-hover, rgba(92, 23, 36, 0.58)));
+    border-radius: 999px;
+    border: 2px solid rgba(10, 12, 16, 0.42);
+}
+
+.saga-runtime-drawer .saga-runtime-tab-body-lore {
+    display: block !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+}
+
+.saga-runtime-drawer .saga-runtime-tab-body > .saga-runtime-card,
+.saga-runtime-drawer .saga-runtime-tab-body > .saga-collapsible-card,
+.saga-runtime-drawer .saga-runtime-tab-body > .saga-section-header {
+    flex: 0 0 auto !important;
+}
+
+.saga-runtime-drawer .saga-lore-accepted-collapsible[open],
+.saga-runtime-drawer .saga-lore-accepted-collapsible[open] > .saga-collapsible-content,
+.saga-runtime-drawer .saga-accepted-lore-section {
+    height: auto !important;
+    max-height: none !important;
+    min-height: 0 !important;
+    flex: 0 0 auto !important;
+    overflow: visible !important;
+}
+
+.saga-runtime-drawer .saga-lore-accepted-collapsible[open] > .saga-collapsible-content,
+.saga-runtime-drawer .saga-accepted-lore-section {
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.saga-runtime-drawer .saga-accepted-lore-section .saga-lore-controls,
+.saga-runtime-drawer .saga-accepted-lore-section .saga-lore-bulk-toolbar,
+.saga-runtime-drawer .saga-accepted-lore-section .saga-lore-list-summary,
+.saga-runtime-drawer .saga-accepted-lore-section .saga-lore-show-more {
+    flex: 0 0 auto !important;
+}
+
+.saga-runtime-drawer .saga-accepted-lore-scroll-region {
+    height: auto !important;
+    min-height: 150px !important;
+    max-height: var(--saga-nested-scroll-max, min(420px, 46vh)) !important;
+    flex: 0 1 auto !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    overscroll-behavior: contain !important;
+    touch-action: pan-y !important;
+    scrollbar-gutter: stable both-edges !important;
+}
+
+.saga-runtime-drawer .saga-pending-lore-list,
+.saga-runtime-drawer .saga-injection-preview,
+.saga-runtime-drawer .saga-continuity-json-editor {
+    max-height: var(--saga-nested-scroll-max, min(420px, 46vh)) !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain !important;
+    touch-action: pan-y !important;
+}
+
+
+/* Runtime brand logo integration ------------------------------------------------
+   Compact rail uses the square S mark; expanded rail uses the horizontal Saga
+   banner. These rules are intentionally appended late for cascade priority. */
+.saga-runtime-rail-drag {
+    align-items: center;
+}
+
+.saga-runtime-rail-mark {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 0;
+    line-height: 1;
+}
+
+.saga-runtime-rail-expanded .saga-runtime-rail-mark {
+    min-height: 0;
+}
+
+.saga-runtime-rail-logo-img {
+    display: block;
+    object-fit: contain;
+    pointer-events: none;
+    user-select: none;
+    filter:
+        drop-shadow(0 0 4px rgba(215, 181, 109, 0.34))
+        drop-shadow(0 0 8px rgba(92, 23, 36, 0.18));
+}
+
+.saga-runtime-rail-compact .saga-runtime-rail-logo-img {
+    width: 44px;
+    height: 44px;
+}
+
+.saga-runtime-rail-expanded .saga-runtime-rail-logo-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 512 / 170;
+    max-width: 100%;
+}
+
+.saga-runtime-rail-expanded .saga-runtime-rail-drag {
+    min-height: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+.saga-runtime-rail-mark-fallback {
+    color: var(--saga-gold, #d7b56d);
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-shadow: 0 0 10px rgba(215, 181, 109, 0.25);
+}
+
+
+
+/* Compact brand mark ------------------------------------------------------------
+   The collapsed rail uses the S mark as the shelf handle. Keep the drag target
+   invisible so the image can use the full top shelf space without a framed box. */
+.saga-runtime-rail-subtitle,
+.saga-runtime-rail-subtitle:empty,
+.saga-runtime-rail-expanded .saga-runtime-rail-subtitle {
+    display: none !important;
+}
+
+.saga-runtime-rail-compact .saga-runtime-rail-drag {
+    width: calc(100% + 8px);
+    height: 54px;
+    min-height: 54px;
+    max-height: 54px;
+    margin: -2px -4px 0;
+    padding: 0;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    overflow: visible;
+}
+
+.saga-runtime-rail-compact .saga-runtime-rail-mark {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    line-height: 1;
+    box-sizing: border-box;
+    overflow: visible;
+}
+
+.saga-runtime-rail-compact .saga-runtime-rail-logo-img {
+    width: 54px;
+    height: 54px;
+    max-width: 54px;
+    max-height: 54px;
+    object-fit: contain;
+}
+
+
+/* Phase 13: compact rail runtime icon button geometry --------------------------
+   The tab icon itself already sits in a square inner frame. This makes the
+   surrounding compact rail tab/control button square as well, instead of a
+   slightly taller rectangle. Runtime icon artwork and filters are unchanged. */
+.saga-runtime-rail-compact .saga-runtime-rail-tab,
+.saga-runtime-rail-compact .saga-runtime-rail-control {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 1 / 1;
+    padding: 2px;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.saga-runtime-rail-compact .saga-runtime-rail-icon {
+    flex: 0 0 42px;
+    width: 42px;
+    height: 42px;
+}
+
+
+/* Phase 16: Runtime Window controls -------------------------------------------
+   Open and Reset sit side-by-side with equal button widths. */
+.saga-runtime-window-actions {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: stretch;
+    width: 100%;
+}
+
+.saga-runtime-window-actions > .menu_button {
+    flex: 1 1 0;
+    min-width: 0;
+    justify-content: center;
+    text-align: center;
+}
+
+
+/* Phase 17: drawer header cleanup + Injection Prompt Placement layout -----------
+   Header buttons were removed in JS; this keeps the title/status area full-width.
+   Prompt Placement uses a wider protected label column and wrapping controls so
+   row labels cannot overlap Position/Depth/Role controls when the drawer narrows. */
+.saga-runtime-drawer-header .saga-lore-panel-title-wrap {
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: 100%;
+}
+
+.saga-runtime-drawer-header .saga-runtime-drawer-collapse,
+.saga-runtime-drawer-header .saga-runtime-drawer-close,
+.saga-runtime-drawer-header .saga-lore-panel-collapse-btn,
+.saga-runtime-drawer-header .saga-lore-panel-close-btn {
+    display: none !important;
+}
+
+.saga-prompt-placement-line {
+    grid-template-columns: minmax(142px, 170px) minmax(0, 1fr);
+    column-gap: 12px;
+    row-gap: 4px;
+    align-items: start;
+}
+
+.saga-prompt-placement-method-line {
+    grid-template-columns: minmax(142px, 170px) minmax(0, 1fr);
+}
+
+.saga-prompt-placement-line-label {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-top: 3px;
+    box-sizing: border-box;
+}
+
+.saga-prompt-placement-control-wrap {
+    display: grid;
+    grid-template-columns: minmax(116px, max-content) minmax(72px, max-content) minmax(96px, max-content);
+    gap: 5px 8px;
+    align-items: center;
+    justify-content: start;
+    min-width: 0;
+    max-width: 100%;
+}
+
+.saga-prompt-placement-method-line .saga-prompt-placement-control-wrap {
+    grid-template-columns: minmax(190px, max-content);
+}
+
+.saga-prompt-placement-card .saga-inline-field {
+    min-width: 0;
+    max-width: 100%;
+}
+
+.saga-prompt-placement-card .saga-inline-field span {
+    white-space: nowrap;
+}
+
+@container (max-width: 430px) {
+    .saga-prompt-placement-line,
+    .saga-prompt-placement-method-line {
+        grid-template-columns: 1fr;
+    }
+
+    .saga-prompt-placement-control-wrap,
+    .saga-prompt-placement-method-line .saga-prompt-placement-control-wrap {
+        grid-template-columns: 1fr;
+    }
+
+    .saga-prompt-placement-card .saga-inline-field {
+        grid-template-columns: minmax(72px, auto) minmax(0, 1fr);
+    }
+}
+
+.saga-prompt-placement-card {
+    container-type: inline-size;
+}
+
+
+/* Lore tab QoL: Auto-Relevance visual cleanup and larger review scroll areas. */
+.saga-auto-relevance-card {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    padding: 10px !important;
+}
+
+.saga-auto-relevance-card .saga-runtime-card-title {
+    margin: 0 !important;
+    font-size: 0.94em !important;
+    line-height: 1.2 !important;
+}
+
+.saga-auto-relevance-card > .saga-runtime-help {
+    margin: 0 !important;
+    font-size: 0.78em !important;
+    line-height: 1.34 !important;
+}
+
+.saga-auto-relevance-card .saga-inline-toggle {
+    display: flex !important;
+    align-items: center !important;
+    gap: 7px !important;
+    min-height: 30px !important;
+    margin: 0 !important;
+    padding: 6px 8px !important;
+    border: 1px solid var(--saga-border-soft, rgba(185, 139, 54, 0.18)) !important;
+    border-radius: 7px !important;
+    background: rgba(10, 12, 16, 0.34) !important;
+    font-size: 0.82em !important;
+    line-height: 1.2 !important;
+    box-sizing: border-box !important;
+}
+
+.saga-auto-relevance-card > .saga-runtime-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(155px, 1fr)) !important;
+    gap: 6px !important;
+    margin: 0 !important;
+}
+
+.saga-auto-relevance-card .saga-inline-field {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 4px !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 6px 7px !important;
+    border: 1px solid rgba(126, 145, 165, 0.24) !important;
+    border-radius: 7px !important;
+    background: rgba(10, 12, 16, 0.28) !important;
+    font-size: 0.78em !important;
+    line-height: 1.2 !important;
+    box-sizing: border-box !important;
+}
+
+.saga-auto-relevance-card .saga-inline-field span {
+    min-width: 0 !important;
+    opacity: 0.74 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+.saga-auto-relevance-card .saga-inline-field input,
+.saga-auto-relevance-card .saga-inline-field select {
+    width: 100% !important;
+    min-width: 0 !important;
+    height: 24px !important;
+    border-radius: 6px !important;
+    box-sizing: border-box !important;
+    font-size: 0.95em !important;
+}
+
+.saga-auto-relevance-card .saga-key-value {
+    margin: 0 !important;
+    padding: 6px 8px !important;
+    border: 1px solid rgba(126, 145, 165, 0.18) !important;
+    border-radius: 7px !important;
+    background: rgba(10, 12, 16, 0.26) !important;
+    font-size: 0.78em !important;
+}
+
+.saga-auto-relevance-card .saga-primary-actions {
+    margin: 0 !important;
+}
+
+.saga-auto-relevance-suggestions {
+    max-height: 220px !important;
+    overflow-y: auto !important;
+    padding-right: 4px !important;
+    margin: 0 !important;
+}
+
+.saga-auto-relevance-suggestion-row {
+    grid-template-columns: minmax(0, 1fr) auto auto !important;
+    padding: 5px 6px !important;
+    border-color: rgba(126, 145, 165, 0.26) !important;
+    background: rgba(10, 12, 16, 0.24) !important;
+}
+
+.saga-auto-relevance-suggestion-summary {
+    font-size: 0.78em !important;
+}
+
+.saga-runtime-drawer .saga-lore-pending-collapsible .saga-pending-lore-list,
+.saga-lore-pending-collapsible .saga-pending-lore-list {
+    min-height: min(440px, calc(var(--saga-drawer-body-available, 620px) - 180px)) !important;
+    max-height: min(560px, calc(var(--saga-drawer-body-available, 620px) - 60px)) !important;
+}

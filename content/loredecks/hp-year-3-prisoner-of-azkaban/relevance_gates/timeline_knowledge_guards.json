@@ -115,6 +115,15 @@
         "sagaSplitLoredeck": {
           "targetPackId": "hp-year-3-prisoner-of-azkaban"
         }
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "essential_guardrails",
+          "suggestionRole": "active_guardrail",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "blocks_context_leakage"
+        }
       }
     },
     {
@@ -230,6 +239,15 @@
         },
         "sagaSplitLoredeck": {
           "targetPackId": "hp-year-3-prisoner-of-azkaban"
+        }
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "year_secrets",
+          "suggestionRole": "reveal_gate",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "controls_character_knowledge"
         }
       }
     },
@@ -348,6 +366,15 @@
         "sagaSplitLoredeck": {
           "targetPackId": "hp-year-3-prisoner-of-azkaban"
         }
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "year_secrets",
+          "suggestionRole": "reveal_gate",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "controls_character_knowledge"
+        }
       }
     },
     {
@@ -464,6 +491,15 @@
         "sagaSplitLoredeck": {
           "targetPackId": "hp-year-3-prisoner-of-azkaban"
         }
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "year_secrets",
+          "suggestionRole": "reveal_gate",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "controls_character_knowledge"
+        }
       }
     },
     {
@@ -572,6 +608,393 @@
           "curationPass": "hp-relevance-v0.2.0",
           "deckId": "hp-year-3-prisoner-of-azkaban",
           "purpose": "story-position control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-3-prisoner-of-azkaban"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "secret",
+      "specificityScore": 94,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 112,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "id": "y3_secret_marauders_map_origin_hidden_until_lupin",
+      "title": "Marauders Map origin hidden until Lupin",
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y3.marauders_map_given",
+        "validToAnchor": "hp.y3.lupin_resigns",
+        "sortKeyFrom": 8768,
+        "sortKeyTo": 8930,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Before Marauders Map origin is explained",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Ron Weasley",
+          "Hermione Granger",
+          "Remus Lupin",
+          "Sirius Black",
+          "Peter Pettigrew"
+        ],
+        "topics": [
+          "Marauders Map",
+          "Moony Wormtail Padfoot Prongs",
+          "map creators"
+        ],
+        "objects": [
+          "Marauder's Map"
+        ],
+        "schoolYears": [
+          "3"
+        ],
+        "books": [
+          "Prisoner of Azkaban"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "artifact:marauders-map",
+        "book:prisoner-of-azkaban",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "character:remus-lupin",
+        "character:sirius-black",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "quality:relevance-curated",
+        "school-year:3",
+        "character:peter-pettigrew"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Ron Weasley",
+            "Hermione Granger",
+            "Remus Lupin",
+            "Sirius Black",
+            "Peter Pettigrew"
+          ],
+          "topicsAny": [
+            "Marauders Map",
+            "Moony Wormtail Padfoot Prongs",
+            "map creators",
+            "Marauder's Map"
+          ]
+        }
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "year_secrets",
+          "suggestionRole": "reveal_gate",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "controls_character_knowledge"
+        }
+      },
+      "content": {
+        "fact": "The map works for Harry before he understands who Moony, Wormtail, Padfoot, and Prongs are; the creator identities stay hidden until Lupin and the late-year truth chain.",
+        "injection": "Before Lupin explains the Marauders connection, allow Fred, George, Harry, and Lupin to use or recognize aspects of the map according to their knowledge, but block the trio and ordinary narration from naming the creators as known history.",
+        "constraints": [
+          "Map possession is not the same as knowing the creators.",
+          "Lupin may recognize the map privately before explaining it.",
+          "Use this as a reveal-control gate: allow the named keepers to know the secret, but block characters outside that knowledge path from stating, acting on, or narrating it as known.",
+          "Apply only when Saga Context matches Before Marauders Map origin is explained; if the scene is outside this window, withhold this secret gate."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Prisoner of Azkaban",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-secret-gates-v0.3.0",
+          "deckId": "hp-year-3-prisoner-of-azkaban",
+          "purpose": "reveal-control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-3-prisoner-of-azkaban"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "secret",
+      "specificityScore": 94,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 112,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "id": "y3_secret_shrieking_shack_truth_hidden",
+      "title": "Shrieking Shack truth hidden before confrontation",
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y3.three_broomsticks_sirius_story",
+        "validToAnchor": "hp.y3.shrieking_shack_reveal",
+        "sortKeyFrom": 8786,
+        "sortKeyTo": 8876,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Before Shrieking Shack truth chain",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Ron Weasley",
+          "Hermione Granger",
+          "Sirius Black",
+          "Remus Lupin",
+          "Peter Pettigrew"
+        ],
+        "topics": [
+          "Sirius innocence",
+          "Pettigrew betrayal",
+          "Shrieking Shack"
+        ],
+        "schoolYears": [
+          "3"
+        ],
+        "books": [
+          "Prisoner of Azkaban"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "artifact:marauders-map",
+        "book:prisoner-of-azkaban",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "character:remus-lupin",
+        "character:sirius-black",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "quality:relevance-curated",
+        "school-year:3",
+        "character:peter-pettigrew"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Ron Weasley",
+            "Hermione Granger",
+            "Sirius Black",
+            "Remus Lupin",
+            "Peter Pettigrew"
+          ],
+          "topicsAny": [
+            "Sirius innocence",
+            "Pettigrew betrayal",
+            "Shrieking Shack"
+          ]
+        }
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "year_secrets",
+          "suggestionRole": "reveal_gate",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "controls_character_knowledge"
+        }
+      },
+      "content": {
+        "fact": "Before the Shrieking Shack confrontation, Harry and most characters believe the public Sirius story; Sirius, Lupin, and Pettigrew hold pieces of the truth.",
+        "injection": "Before the Shack reveal, allow Sirius, Lupin, and Pettigrew to act from hidden knowledge, but block Harry, Ron, Hermione, school rumor, and neutral narration from treating Sirius innocence or Pettigrew guilt as known.",
+        "constraints": [
+          "Public belief can accuse Sirius; private truth should not leak into student dialogue early.",
+          "Do not let the model resolve the mystery before the confrontation.",
+          "Use this as a reveal-control gate: allow the named keepers to know the secret, but block characters outside that knowledge path from stating, acting on, or narrating it as known.",
+          "Apply only when Saga Context matches Before Shrieking Shack truth chain; if the scene is outside this window, withhold this secret gate."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Prisoner of Azkaban",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-secret-gates-v0.3.0",
+          "deckId": "hp-year-3-prisoner-of-azkaban",
+          "purpose": "reveal-control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-3-prisoner-of-azkaban"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "secret",
+      "specificityScore": 94,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 112,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "id": "y3_secret_patronus_time_loop_hidden_until_turner",
+      "title": "Lake Patronus caster hidden until Time-Turner",
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y3.lake_dementors",
+        "validToAnchor": "hp.y3.time_turner_revealed",
+        "sortKeyFrom": 8900,
+        "sortKeyTo": 8912,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Before Time-Turner explains lake Patronus",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Hermione Granger",
+          "Sirius Black"
+        ],
+        "topics": [
+          "lake Patronus",
+          "Time-Turner loop",
+          "future Harry"
+        ],
+        "schoolYears": [
+          "3"
+        ],
+        "books": [
+          "Prisoner of Azkaban"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "artifact:marauders-map",
+        "book:prisoner-of-azkaban",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "character:remus-lupin",
+        "character:sirius-black",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "quality:relevance-curated",
+        "school-year:3"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Hermione Granger",
+            "Sirius Black"
+          ],
+          "topicsAny": [
+            "lake Patronus",
+            "Time-Turner loop",
+            "future Harry"
+          ]
+        }
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "year_secrets",
+          "suggestionRole": "reveal_gate",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "controls_character_knowledge"
+        }
+      },
+      "content": {
+        "fact": "At the lake, Harry does not yet know he will be the one to cast the saving Patronus from the time loop.",
+        "injection": "Between the lake Dementors and the Time-Turner reveal, block Harry and narration from knowing the caster is future Harry; allow only the later time-loop path to resolve that knowledge.",
+        "constraints": [
+          "Harry may misinterpret what he sees.",
+          "Hermione knows she has a Time-Turner but does not know this exact lake outcome before the loop reaches it.",
+          "Use this as a reveal-control gate: allow the named keepers to know the secret, but block characters outside that knowledge path from stating, acting on, or narrating it as known.",
+          "Apply only when Saga Context matches Before Time-Turner explains lake Patronus; if the scene is outside this window, withhold this secret gate."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Prisoner of Azkaban",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-secret-gates-v0.3.0",
+          "deckId": "hp-year-3-prisoner-of-azkaban",
+          "purpose": "reveal-control"
         },
         "sagaSplitLoredeck": {
           "targetPackId": "hp-year-3-prisoner-of-azkaban"

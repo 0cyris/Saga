@@ -305,9 +305,9 @@
       "title": "Horcrux knowledge is restricted",
       "kind": "knowledge_gate",
       "gateType": "knowledge_gate",
-      "category": "knowledge",
+      "category": "secret",
       "relevance": "high",
-      "lorePurpose": "knowledge_gate",
+      "lorePurpose": "secret",
       "specificityScore": 100,
       "injectableByDefault": true,
       "canon": "canon",
@@ -434,6 +434,15 @@
           "sourcePackId": "hp-golden-trio",
           "targetPackId": "hp-core",
           "splitAt": "2026-06-05"
+        }
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "year_secrets",
+          "suggestionRole": "reveal_gate",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "controls_character_knowledge"
         }
       }
     }

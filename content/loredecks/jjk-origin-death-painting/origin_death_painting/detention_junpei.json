@@ -445,6 +445,660 @@
           "status": "initial_mainline_opening_slice"
         }
       }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_origin_death_painting_exp_yujis_death_is_hidden_from_classmates",
+      "title": "Yuji's Death Is Hidden From Classmates",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.main.yuji-private-training",
+        "validToAnchor": "jjk.main.mahito-junpei-incident",
+        "sortKeyFrom": 1900,
+        "sortKeyTo": 2300,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Hidden training and Junpei"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:itadori-yuji"
+        ],
+        "characters": [
+          "Yuji Itadori"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Yuji hidden survival",
+          "private training"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:origin-death-painting",
+        "character:itadori-yuji",
+        "topic:yuji-hidden-survival",
+        "topic:private-training"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuji Itadori"
+          ],
+          "topicsAny": [
+            "Yuji hidden survival",
+            "private training"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath.",
+        "notes": "Jujutsu Kaisen 0 prequel context, Hidden Inventory, Shibuya, Culling Game, Shinjuku, anime-only changes, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "After the detention-center incident, Yuji's apparent death and survival are hidden from many peers during his private training.",
+        "injection": "At this Context, treat this status as active: After the detention-center incident, Yuji's apparent death and survival are hidden from many peers during his private training.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Origin through Death Painting",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Post-detention training window"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-origin-death-painting",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_origin_death_painting_exp_nanami_becomes_yujis_adult_field_model",
+      "title": "Nanami Becomes Yuji's Adult Field Model",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.main.yuji-private-training",
+        "validToAnchor": "jjk.main.mahito-junpei-incident",
+        "sortKeyFrom": 1900,
+        "sortKeyTo": 2300,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Hidden training and Junpei"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:nanami-kento",
+          "jjk:itadori-yuji"
+        ],
+        "characters": [
+          "Kento Nanami",
+          "Yuji Itadori"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Nanami mentor",
+          "field professionalism"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:origin-death-painting",
+        "character:nanami-kento",
+        "character:itadori-yuji",
+        "topic:nanami-mentor",
+        "topic:field-professionalism"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kento Nanami",
+            "Yuji Itadori"
+          ],
+          "topicsAny": [
+            "Nanami mentor",
+            "field professionalism"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath.",
+        "notes": "Jujutsu Kaisen 0 prequel context, Hidden Inventory, Shibuya, Culling Game, Shinjuku, anime-only changes, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Nanami gives Yuji a professional sorcerer model distinct from Gojo's theatrical confidence.",
+        "injection": "At this Context, treat this status as active: Nanami gives Yuji a professional sorcerer model distinct from Gojo's theatrical confidence.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Origin through Death Painting",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Post-detention training window"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-origin-death-painting",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_origin_death_painting_exp_junpei_is_isolated_and_vulnerable_to_mahito",
+      "title": "Junpei Is Isolated And Vulnerable To Mahito",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.main.yuji-private-training",
+        "validToAnchor": "jjk.main.mahito-junpei-incident",
+        "sortKeyFrom": 1900,
+        "sortKeyTo": 2300,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Hidden training and Junpei"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:mahito",
+          "jjk:itadori-yuji"
+        ],
+        "characters": [
+          "Junpei Yoshino",
+          "Mahito",
+          "Yuji Itadori"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Junpei manipulation",
+          "Mahito"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:origin-death-painting",
+        "character:mahito",
+        "character:itadori-yuji",
+        "topic:junpei-manipulation",
+        "topic:mahito"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Junpei Yoshino",
+            "Mahito",
+            "Yuji Itadori"
+          ],
+          "topicsAny": [
+            "Junpei manipulation",
+            "Mahito"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath.",
+        "notes": "Jujutsu Kaisen 0 prequel context, Hidden Inventory, Shibuya, Culling Game, Shinjuku, anime-only changes, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Junpei's isolation and resentment make him vulnerable to Mahito's manipulation before he can be safely brought into Yuji's world.",
+        "injection": "At this Context, treat this status as active: Junpei's isolation and resentment make him vulnerable to Mahito's manipulation before he can be safely brought into Yuji's world.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Origin through Death Painting",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Post-detention training window"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-origin-death-painting",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_origin_death_painting_exp_private_training_keeps_yuji_off_the_public_board",
+      "title": "Private Training Keeps Yuji Off The Public Board",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.main.yuji-private-training",
+        "validToAnchor": "jjk.main.mahito-junpei-incident",
+        "sortKeyFrom": 1900,
+        "sortKeyTo": 2300,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Hidden training and Junpei"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:itadori-yuji",
+          "jjk:gojo-satoru"
+        ],
+        "characters": [
+          "Yuji Itadori",
+          "Satoru Gojo"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "private training",
+          "hidden survival"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:origin-death-painting",
+        "character:itadori-yuji",
+        "character:gojo-satoru",
+        "topic:private-training",
+        "topic:hidden-survival"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuji Itadori",
+            "Satoru Gojo"
+          ],
+          "topicsAny": [
+            "private training",
+            "hidden survival"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath.",
+        "notes": "Jujutsu Kaisen 0 prequel context, Hidden Inventory, Shibuya, Culling Game, Shinjuku, anime-only changes, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Yuji's survival and training remain hidden, affecting how classmates and Kyoto students understand his status.",
+        "injection": "Use this event state in the active window: Yuji's survival and training remain hidden, affecting how classmates and Kyoto students understand his status.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Origin through Death Painting",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Post-detention training window"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-origin-death-painting",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_origin_death_painting_exp_junpei_incident_gives_yuji_a_moral_scar",
+      "title": "Junpei Incident Gives Yuji A Moral Scar",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.main.yuji-private-training",
+        "validToAnchor": "jjk.main.mahito-junpei-incident",
+        "sortKeyFrom": 1900,
+        "sortKeyTo": 2300,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Hidden training and Junpei"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:itadori-yuji",
+          "jjk:mahito"
+        ],
+        "characters": [
+          "Yuji Itadori",
+          "Junpei Yoshino",
+          "Mahito"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Junpei incident",
+          "moral scar"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:origin-death-painting",
+        "character:itadori-yuji",
+        "character:mahito",
+        "topic:junpei-incident",
+        "topic:moral-scar"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuji Itadori",
+            "Junpei Yoshino",
+            "Mahito"
+          ],
+          "topicsAny": [
+            "Junpei incident",
+            "moral scar"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath.",
+        "notes": "Jujutsu Kaisen 0 prequel context, Hidden Inventory, Shibuya, Culling Game, Shinjuku, anime-only changes, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "The Junpei incident teaches Yuji that saving someone emotionally does not guarantee saving them from curse-user manipulation.",
+        "injection": "Use this event state in the active window: The Junpei incident teaches Yuji that saving someone emotionally does not guarantee saving them from curse-user manipulation.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Origin through Death Painting",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Post-detention training window"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-origin-death-painting",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_origin_death_painting_exp_yuji_and_nanami_are_mentor_and_trainee",
+      "title": "Yuji And Nanami Are Mentor And Trainee",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 74,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.main.yuji-private-training",
+        "validToAnchor": "jjk.main.mahito-junpei-incident",
+        "sortKeyFrom": 1900,
+        "sortKeyTo": 2300,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Hidden training and Junpei"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:itadori-yuji",
+          "jjk:nanami-kento"
+        ],
+        "characters": [
+          "Yuji Itadori",
+          "Kento Nanami"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Nanami Yuji mentorship",
+          "professional boundaries"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:origin-death-painting",
+        "character:itadori-yuji",
+        "character:nanami-kento",
+        "topic:nanami-yuji-mentorship",
+        "topic:professional-boundaries"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuji Itadori",
+            "Kento Nanami"
+          ],
+          "topicsAny": [
+            "Nanami Yuji mentorship",
+            "professional boundaries"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath.",
+        "notes": "Jujutsu Kaisen 0 prequel context, Hidden Inventory, Shibuya, Culling Game, Shinjuku, anime-only changes, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Nanami treats Yuji as a junior who needs professional boundaries, not just encouragement.",
+        "injection": "Use this relationship state for dialogue and behavior: Nanami treats Yuji as a junior who needs professional boundaries, not just encouragement.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Origin through Death Painting",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Post-detention training window"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-origin-death-painting",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
     }
   ]
 }

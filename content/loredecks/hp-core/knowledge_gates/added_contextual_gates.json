@@ -143,7 +143,16 @@
         "school-year:5",
         "school-year:6",
         "school-year:7"
-      ]
+      ],
+      "ui": {
+        "preview": {
+          "primaryPack": "essential_guardrails",
+          "suggestionRole": "active_guardrail",
+          "detailLevel": "core",
+          "suggestByDefault": false,
+          "activeUse": "broad_future_leak_suppressor"
+        }
+      }
     },
     {
       "schemaVersion": 3,
@@ -621,7 +630,16 @@
         "school-year:3",
         "school-year:4",
         "school-year:5"
-      ]
+      ],
+      "ui": {
+        "preview": {
+          "primaryPack": "essential_guardrails",
+          "suggestionRole": "active_guardrail",
+          "detailLevel": "core",
+          "suggestByDefault": false,
+          "activeUse": "broad_future_leak_suppressor"
+        }
+      }
     },
     {
       "schemaVersion": 3,
@@ -744,7 +762,16 @@
         "school-year:3",
         "school-year:4",
         "school-year:5"
-      ]
+      ],
+      "ui": {
+        "preview": {
+          "primaryPack": "essential_guardrails",
+          "suggestionRole": "active_guardrail",
+          "detailLevel": "core",
+          "suggestByDefault": false,
+          "activeUse": "broad_future_leak_suppressor"
+        }
+      }
     }
   ]
 }

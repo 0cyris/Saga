@@ -464,6 +464,551 @@
           "status": "initial_culling_setup_slice"
         }
       }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_post_shibuya_preparation_exp_tengen_briefing_makes_kenjakus_plan_strategic",
+      "title": "Tengen Briefing Makes Kenjaku's Plan Strategic",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.post.tengen-briefing",
+        "validToAnchor": "jjk.post.tsumiki-urgency-established",
+        "sortKeyFrom": 8800,
+        "sortKeyTo": 9100,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Tengen and Culling Game setup"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:tengen",
+          "jjk:kenjaku"
+        ],
+        "characters": [
+          "Tengen",
+          "Kenjaku"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Tengen briefing",
+          "Kenjaku plan"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:post-shibuya-preparation",
+        "character:tengen",
+        "character:kenjaku",
+        "topic:tengen-briefing",
+        "topic:kenjaku-plan"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Tengen",
+            "Kenjaku"
+          ],
+          "topicsAny": [
+            "Tengen briefing",
+            "Kenjaku plan"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen post-Shibuya aftermath through Perfect Preparation and Culling Game setup.",
+        "notes": "Culling Game colony action, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "The Tengen briefing shifts the story from immediate pursuit to understanding Kenjaku's broader Culling Game and merger plan.",
+        "injection": "Use this event state in the active window: The Tengen briefing shifts the story from immediate pursuit to understanding Kenjaku's broader Culling Game and merger plan.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Post-Shibuya and Perfect Preparation",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Tengen briefing"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-post-shibuya-preparation",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_post_shibuya_preparation_exp_tsumikis_danger_drives_megumis_culling_game_urgency",
+      "title": "Tsumiki's Danger Drives Megumi's Culling Game Urgency",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.post.tengen-briefing",
+        "validToAnchor": "jjk.post.tsumiki-urgency-established",
+        "sortKeyFrom": 8800,
+        "sortKeyTo": 9100,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Tengen and Culling Game setup"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:megumi-fushiguro",
+          "jjk:tsumiki-fushiguro"
+        ],
+        "characters": [
+          "Megumi Fushiguro",
+          "Tsumiki Fushiguro"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Tsumiki danger",
+          "Megumi objective"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:post-shibuya-preparation",
+        "character:megumi-fushiguro",
+        "character:tsumiki-fushiguro",
+        "topic:tsumiki-danger",
+        "topic:megumi-objective"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Megumi Fushiguro",
+            "Tsumiki Fushiguro"
+          ],
+          "topicsAny": [
+            "Tsumiki danger",
+            "Megumi objective"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen post-Shibuya aftermath through Perfect Preparation and Culling Game setup.",
+        "notes": "Culling Game colony action, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Megumi's participation pressure is personal because Tsumiki is endangered by the Culling Game system.",
+        "injection": "Use this event state in the active window: Megumi's participation pressure is personal because Tsumiki is endangered by the Culling Game system.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Post-Shibuya and Perfect Preparation",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Tengen briefing"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-post-shibuya-preparation",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_post_shibuya_preparation_exp_megumi_carries_rescue_and_rule_objectives",
+      "title": "Megumi Carries Rescue And Rule Objectives",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.post.tengen-briefing",
+        "validToAnchor": "jjk.post.tsumiki-urgency-established",
+        "sortKeyFrom": 8800,
+        "sortKeyTo": 9100,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Tengen and Culling Game setup"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:megumi-fushiguro",
+          "jjk:tsumiki-fushiguro"
+        ],
+        "characters": [
+          "Megumi Fushiguro",
+          "Tsumiki Fushiguro"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Megumi objective",
+          "Culling Game"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:post-shibuya-preparation",
+        "character:megumi-fushiguro",
+        "character:tsumiki-fushiguro",
+        "topic:megumi-objective",
+        "topic:culling-game"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Megumi Fushiguro",
+            "Tsumiki Fushiguro"
+          ],
+          "topicsAny": [
+            "Megumi objective",
+            "Culling Game"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen post-Shibuya aftermath through Perfect Preparation and Culling Game setup.",
+        "notes": "Culling Game colony action, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Megumi's post-Shibuya priority is saving Tsumiki and navigating Culling Game rules, not ordinary school recovery.",
+        "injection": "At this Context, treat this status as active: Megumi's post-Shibuya priority is saving Tsumiki and navigating Culling Game rules, not ordinary school recovery.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Post-Shibuya and Perfect Preparation",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Tengen briefing"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-post-shibuya-preparation",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_post_shibuya_preparation_exp_tengens_merger_stakes_are_specialist_knowledge",
+      "title": "Tengen's Merger Stakes Are Specialist Knowledge",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.post.tengen-briefing",
+        "validToAnchor": "jjk.post.tsumiki-urgency-established",
+        "sortKeyFrom": 8800,
+        "sortKeyTo": 9100,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Tengen and Culling Game setup"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:tengen",
+          "jjk:kenjaku"
+        ],
+        "characters": [
+          "Tengen",
+          "Kenjaku"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "merger threat",
+          "Tengen briefing"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:post-shibuya-preparation",
+        "character:tengen",
+        "character:kenjaku",
+        "topic:merger-threat",
+        "topic:tengen-briefing"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Tengen",
+            "Kenjaku"
+          ],
+          "topicsAny": [
+            "merger threat",
+            "Tengen briefing"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen post-Shibuya aftermath through Perfect Preparation and Culling Game setup.",
+        "notes": "Culling Game colony action, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "The details of Kenjaku's merger threat are known through Tengen briefing context, not by ordinary sorcerers automatically.",
+        "injection": "Gate by Context and character knowledge: The details of Kenjaku's merger threat are known through Tengen briefing context, not by ordinary sorcerers automatically.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Post-Shibuya and Perfect Preparation",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Tengen briefing"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-post-shibuya-preparation",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_post_shibuya_preparation_exp_hakari_recruitment_belongs_to_culling_setup",
+      "title": "Hakari Recruitment Belongs To Culling Setup",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 72,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.post.tengen-briefing",
+        "validToAnchor": "jjk.post.tsumiki-urgency-established",
+        "sortKeyFrom": 8800,
+        "sortKeyTo": 9100,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Tengen and Culling Game setup"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:kinji-hakari",
+          "jjk:kirara-hoshi"
+        ],
+        "characters": [
+          "Kinji Hakari",
+          "Kirara Hoshi"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Hakari recruitment",
+          "Culling Game setup"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:post-shibuya-preparation",
+        "character:kinji-hakari",
+        "character:kirara-hoshi",
+        "topic:hakari-recruitment",
+        "topic:culling-game-setup"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kinji Hakari",
+            "Kirara Hoshi"
+          ],
+          "topicsAny": [
+            "Hakari recruitment",
+            "Culling Game setup"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen post-Shibuya aftermath through Perfect Preparation and Culling Game setup.",
+        "notes": "Culling Game colony action, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Hakari and Kirara's recruitment context should appear as preparation for Culling Game entry, not as early-school baseline knowledge.",
+        "injection": "Gate by Context and character knowledge: Hakari and Kirara's recruitment context should appear as preparation for Culling Game entry, not as early-school baseline knowledge.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Post-Shibuya and Perfect Preparation",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Tengen briefing"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-post-shibuya-preparation",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
     }
   ]
 }

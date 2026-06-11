@@ -63,11 +63,7 @@
   "files": [
     "hidden_inventory/gojo_geto_riko.json",
     "hidden_inventory/toji_and_tengen.json",
-    "hidden_inventory/premature_death.json",
-    "expanded/character_states.json",
-    "expanded/abilities_and_items.json",
-    "expanded/mission_and_defection_events.json",
-    "expanded/knowledge_gates.json"
+    "hidden_inventory/premature_death.json"
   ],
   "compatibility": {
     "sagaSchemaMin": 3,

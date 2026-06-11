@@ -95,10 +95,10 @@
       "character": 47,
       "faction": 1,
       "item": 4,
-      "knowledge": 13,
+      "knowledge": 12,
       "location": 4,
       "rule": 1,
-      "secret": 1,
+      "secret": 2,
       "spell": 6,
       "timeline": 2
     },

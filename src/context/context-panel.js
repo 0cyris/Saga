@@ -3,12 +3,14 @@ import {
     confirmAction,
     createButton,
     createEmptyMessage,
+    createSectionHeader,
     createStatusPill,
     humanizeScopeKey,
     toast,
     wireOverlayBackdropClose,
 } from '../ui/runtime-ui-kit.js';
 import { formatLoredeckContextUpdatedAt } from './context-formatters.js';
+import { getContextIndexSync, loadContextIndex } from './context-index.js';
 
 const CONTEXT_PROPOSAL_REVIEW_ID = 'saga-context-proposal-review';
 
@@ -55,8 +57,50 @@ function createContextEditorCard(state) { return dep('createContextEditorCard', 
 function getState() { return dep('getState', () => ({}))(); }
 function getSettings() { return dep('getSettings', () => ({}))(); }
 function saveSettings(settings) { return dep('saveSettings', () => null)(settings); }
-function refreshContextPanelBody() { return dep('refreshContextPanelBody', () => null)(); }
+function refreshContextPanelBody(options = {}) { return dep('refreshContextPanelBody', () => null)(options); }
 function resetContextDetectionSettings() { return dep('resetContextDetectionSettings', () => null)(); }
+
+// Context tab -----------------------------------------------------------------
+
+export function renderContextTab(container, state) {
+    const settings = getSettings();
+    const basic = isBasicExperienceMode();
+    const contextIndex = getContextIndexSync();
+    if (!contextIndex) {
+        loadContextIndex()
+            .then(() => refreshContextPanelBody({ preserveScroll: true, preserveWindowScroll: true }))
+            .catch(e => console.warn('[Saga] Context index load failed:', e));
+    }
+
+    container.appendChild(createSectionHeader(
+        'Context',
+        'Set and audit where this chat sits inside each loaded Loredeck.'
+    ));
+
+    const contextStack = getContextWorkbenchStack(state);
+    const contextProposals = getContextResolutionProposals(state);
+    container.appendChild(createCollapsibleSection(
+        'context.commandCenter',
+        'Runtime Context',
+        `${contextStack.length} loaded | ${contextProposals.length} proposal${contextProposals.length === 1 ? '' : 's'}`,
+        true,
+        createContextCommandCenterCard(state, contextIndex),
+        {
+            tooltip: 'Primary controls for browsing, detecting, resolving, and reviewing loaded Loredeck Context.',
+        }
+    ));
+    container.appendChild(createCollapsibleSection(
+        'context.loadedLoredecks',
+        'Loaded Loredeck Contexts',
+        contextStack.length ? `${contextStack.length} active` : 'none loaded',
+        true,
+        createLoredeckContextCard(state, contextIndex),
+        {
+            tooltip: 'Per-Loredeck Context rows for the active stack, including locks, manual browser access, and resolver confidence.',
+        }
+    ));
+    if (!basic) container.appendChild(createContextAdvancedBriefSection(state));
+}
 
 export function createContextAdvancedBriefSection(state = {}) {
     return createCollapsibleSection(

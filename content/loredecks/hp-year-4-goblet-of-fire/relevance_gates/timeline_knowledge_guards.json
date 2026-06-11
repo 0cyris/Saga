@@ -111,6 +111,15 @@
         "sagaSplitLoredeck": {
           "targetPackId": "hp-year-4-goblet-of-fire"
         }
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "year_secrets",
+          "suggestionRole": "reveal_gate",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "controls_character_knowledge"
+        }
       }
     },
     {
@@ -225,6 +234,15 @@
         },
         "sagaSplitLoredeck": {
           "targetPackId": "hp-year-4-goblet-of-fire"
+        }
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "year_events",
+          "suggestionRole": "event_anchor",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "context_anchor"
         }
       }
     },
@@ -450,6 +468,15 @@
         "sagaSplitLoredeck": {
           "targetPackId": "hp-year-4-goblet-of-fire"
         }
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "year_secrets",
+          "suggestionRole": "reveal_gate",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "controls_character_knowledge"
+        }
       }
     },
     {
@@ -564,6 +591,380 @@
           "curationPass": "hp-relevance-v0.2.0",
           "deckId": "hp-year-4-goblet-of-fire",
           "purpose": "story-position control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-4-goblet-of-fire"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "secret",
+      "specificityScore": 94,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 112,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "id": "y4_secret_barty_crouch_jr_alive_hidden",
+      "title": "Barty Crouch Jr survival hidden",
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y4.frank_bryce_murder",
+        "validToAnchor": "hp.y4.barty_crouch_jr_confession",
+        "sortKeyFrom": 8992,
+        "sortKeyTo": 9288,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Before Barty Crouch Jr confession",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Ron Weasley",
+          "Hermione Granger",
+          "Barty Crouch Jr.",
+          "Albus Dumbledore"
+        ],
+        "topics": [
+          "Barty Crouch Jr",
+          "escaped Death Eater",
+          "Crouch family secret"
+        ],
+        "schoolYears": [
+          "4"
+        ],
+        "books": [
+          "Goblet of Fire"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "book:goblet-of-fire",
+        "character:barty-crouch-jr",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "event:triwizard-tournament",
+        "fandom:harry-potter",
+        "quality:relevance-curated",
+        "school-year:4",
+        "character:albus-dumbledore"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Ron Weasley",
+            "Hermione Granger",
+            "Barty Crouch Jr.",
+            "Albus Dumbledore"
+          ],
+          "topicsAny": [
+            "Barty Crouch Jr",
+            "escaped Death Eater",
+            "Crouch family secret"
+          ]
+        }
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "year_secrets",
+          "suggestionRole": "reveal_gate",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "controls_character_knowledge"
+        }
+      },
+      "content": {
+        "fact": "Barty Crouch Jr being alive and active is hidden until the endgame confession; most characters believe an incomplete or false Crouch family history.",
+        "injection": "Before the confession, allow Barty Crouch Jr and conspirators to know his survival, but block Harry, the trio, Hogwarts staff, and neutral narration from treating him as known alive or present.",
+        "constraints": [
+          "Pensieve trial context may raise suspicion, not reveal his current disguise.",
+          "Keep the Crouch mystery as a live secret until the confession.",
+          "Use this as a reveal-control gate: allow the named keepers to know the secret, but block characters outside that knowledge path from stating, acting on, or narrating it as known.",
+          "Apply only when Saga Context matches Before Barty Crouch Jr confession; if the scene is outside this window, withhold this secret gate."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Goblet of Fire",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-secret-gates-v0.3.0",
+          "deckId": "hp-year-4-goblet-of-fire",
+          "purpose": "reveal-control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-4-goblet-of-fire"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "secret",
+      "specificityScore": 94,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 112,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "id": "y4_secret_triwizard_cup_portkey_trap_hidden",
+      "title": "Triwizard Cup portkey trap hidden",
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y4.harry_selected_fourth_champion",
+        "validToAnchor": "hp.y4.portkey_graveyard",
+        "sortKeyFrom": 9094,
+        "sortKeyTo": 9260,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Before Cup portkey trap triggers",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Cedric Diggory",
+          "Barty Crouch Jr.",
+          "Albus Dumbledore"
+        ],
+        "topics": [
+          "Triwizard Cup",
+          "portkey trap",
+          "graveyard ambush"
+        ],
+        "schoolYears": [
+          "4"
+        ],
+        "books": [
+          "Goblet of Fire"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "book:goblet-of-fire",
+        "character:barty-crouch-jr",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "event:triwizard-tournament",
+        "fandom:harry-potter",
+        "quality:relevance-curated",
+        "school-year:4",
+        "character:albus-dumbledore"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Cedric Diggory",
+            "Barty Crouch Jr.",
+            "Albus Dumbledore"
+          ],
+          "topicsAny": [
+            "Triwizard Cup",
+            "portkey trap",
+            "graveyard ambush"
+          ]
+        }
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "year_secrets",
+          "suggestionRole": "reveal_gate",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "controls_character_knowledge"
+        }
+      },
+      "content": {
+        "fact": "The Triwizard Cup being turned into a portkey trap is hidden from Harry, Cedric, staff, and spectators until it activates.",
+        "injection": "Before the Cup activates, allow the hidden culprit to know the trap, but block champions, teachers, spectators, and narration from exposing the Cup as a portkey unless the story explicitly discovers the sabotage early.",
+        "constraints": [
+          "Tournament danger is public; the graveyard transport trap is not.",
+          "Do not foreshadow with certainty that characters should not have.",
+          "Use this as a reveal-control gate: allow the named keepers to know the secret, but block characters outside that knowledge path from stating, acting on, or narrating it as known.",
+          "Apply only when Saga Context matches Before Cup portkey trap triggers; if the scene is outside this window, withhold this secret gate."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Goblet of Fire",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-secret-gates-v0.3.0",
+          "deckId": "hp-year-4-goblet-of-fire",
+          "purpose": "reveal-control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-4-goblet-of-fire"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "secret",
+      "specificityScore": 94,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 112,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "id": "y4_secret_rita_skeeter_animagus_hidden",
+      "title": "Rita Skeeter method hidden",
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y4.rita_skeeter_harry_profile",
+        "validToAnchor": "hp.y4.train_home_after_cedric",
+        "sortKeyFrom": 9123,
+        "sortKeyTo": 9306,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Before Rita method is exposed",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Ron Weasley",
+          "Hermione Granger"
+        ],
+        "topics": [
+          "Rita Skeeter",
+          "secret reporting method",
+          "unregistered Animagus"
+        ],
+        "schoolYears": [
+          "4"
+        ],
+        "books": [
+          "Goblet of Fire"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "book:goblet-of-fire",
+        "character:barty-crouch-jr",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "event:triwizard-tournament",
+        "fandom:harry-potter",
+        "quality:relevance-curated",
+        "school-year:4"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Ron Weasley",
+            "Hermione Granger"
+          ],
+          "topicsAny": [
+            "Rita Skeeter",
+            "secret reporting method",
+            "unregistered Animagus"
+          ]
+        }
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "year_secrets",
+          "suggestionRole": "reveal_gate",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "controls_character_knowledge"
+        }
+      },
+      "content": {
+        "fact": "Rita Skeeter has a hidden reporting method that explains impossible scoops, but the trio should not know the mechanism until Hermione works it out near the end.",
+        "injection": "Before Hermione exposes Rita method, allow suspicious articles and privacy violations, but block Harry, Ron, other students, and narration from naming the hidden method as known.",
+        "constraints": [
+          "Hermione can investigate and suspect; certainty waits for the reveal path.",
+          "Do not make the school casually aware of the method.",
+          "Use this as a reveal-control gate: allow the named keepers to know the secret, but block characters outside that knowledge path from stating, acting on, or narrating it as known.",
+          "Apply only when Saga Context matches Before Rita method is exposed; if the scene is outside this window, withhold this secret gate."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Goblet of Fire",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-secret-gates-v0.3.0",
+          "deckId": "hp-year-4-goblet-of-fire",
+          "purpose": "reveal-control"
         },
         "sagaSplitLoredeck": {
           "targetPackId": "hp-year-4-goblet-of-fire"

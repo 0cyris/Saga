@@ -30,10 +30,84 @@ for (const requiredPath of [
   'content/loredecks',
   'content/loredecks/index.json',
   'content/presets/Provider-1.2.json',
+  'src/continuity/continuity-panel.js',
+  'src/extension/bootstrap.js',
+  'src/extension/events.js',
+  'src/extension/global-bridge.js',
   'src/extension/index.js',
+  'src/extension/lifecycle.js',
+  'src/extension/menu-button.js',
+  'src/extension/runtime-mount.js',
   'src/extension/settings.html',
+  'src/extension/settings-mount.js',
+  'src/extension/slash-commands.js',
+  'src/settings/runtime-settings-tab.js',
+  'src/loredecks/context-health.js',
+  'src/loredecks/loredeck-health-core.js',
+  'src/loredecks/loredeck-health-engine.js',
+  'src/loredecks/loredeck-normalizer.js',
+  'src/loredecks/schema-v3-health.js',
+  'src/loredecks/tag-registry-health.js',
+  'src/runtime/active-stack-panel.js',
+  'src/runtime/advanced-runtime-panel.js',
+  'src/runtime/loredeck-generated-export-card.js',
+  'src/runtime/loredeck-generated-readiness.js',
+  'src/runtime/loredeck-editor-fields.js',
+  'src/runtime/loredeck-editor-loader.js',
+  'src/runtime/loredeck-editor-validation.js',
+  'src/runtime/loredeck-manifest-formatters.js',
+  'src/runtime/loredeck-manifest-preview.js',
+  'src/runtime/loredeck-manifest-runtime.js',
+  'src/runtime/loredeck-package-export.js',
+  'src/runtime/loredeck-package-helpers.js',
+  'src/runtime/loredeck-package-install.js',
+  'src/runtime/loredeck-package-install-panel.js',
+  'src/runtime/loredeck-source-summary.js',
+  'src/runtime/loredeck-virtual-data.js',
   'src/runtime/lore-panel.js',
+  'src/runtime/injection-preview-panel.js',
+  'src/runtime/runtime-collapsible.js',
+  'src/runtime/runtime-feature-progress.js',
+  'src/runtime/runtime-guide-prep.js',
+  'src/runtime/runtime-lore-registry.js',
+  'src/runtime/runtime-rail-metrics.js',
+  'src/runtime/runtime-shell-view.js',
+  'src/runtime/runtime-actions.js',
+  'src/runtime/runtime-safety-panel.js',
+  'src/runtime/runtime-setting-controls.js',
+  'src/runtime/runtime-setting-groups.js',
+  'src/runtime/session-basic-panel.js',
+  'src/runtime/tab-registry.js',
+  'src/state/basic-profile.js',
+  'src/state/constants.js',
+  'src/state/continuity-state.js',
+  'src/state/default-settings.js',
+  'src/state/default-state.js',
+  'src/state/import-export.js',
+  'src/state/lore-creator-store.js',
+  'src/state/lore-creator-state.js',
+  'src/state/lore-generation-state.js',
+  'src/state/lore-storage-sanitizer.js',
+  'src/state/lore-state-normalizers.js',
+  'src/state/loredeck-library-store.js',
+  'src/state/prompt-defaults.js',
+  'src/state/provider-defaults.js',
+  'src/state/prompt-sync.js',
+  'src/state/schema.js',
+  'src/state/settings-store.js',
+  'src/state/state-backup.js',
+  'src/state/storage-safety.js',
+  'src/state/theme-library-store.js',
+  'src/state/ui-defaults.js',
+  'styles/components.css',
+  'styles/continuity.css',
+  'styles/layout.css',
+  'styles/review.css',
+  'styles/runtime.css',
   'styles/saga.css',
+  'styles/settings.css',
+  'styles/tokens.css',
+  'styles/workbench.css',
   'tests/browser/visual-smoke.html',
   'tools/scripts',
 ]) {
@@ -55,9 +129,25 @@ const manifest = JSON.parse(await readText('manifest.json'));
 assert.equal(manifest.js, 'src/extension/index.js', 'SillyTavern manifest should point directly at the nested extension entrypoint.');
 assert.equal(manifest.css, 'styles/saga.css', 'SillyTavern manifest should point directly at the nested stylesheet.');
 
+const stylesheetEntry = await readText('styles/saga.css');
+for (const cssModule of ['components', 'runtime', 'settings', 'tokens', 'continuity', 'review', 'layout', 'workbench']) {
+  assert.ok(stylesheetEntry.includes(`@import './${cssModule}.css';`), `styles/saga.css should import ${cssModule}.css in the composed stylesheet.`);
+}
+
 const extensionIndex = await readText('src/extension/index.js');
-assert.match(extensionIndex, /SETTINGS_TEMPLATE_ID\s*=\s*'src\/extension\/settings'/, 'Extension entrypoint should request the nested settings template.');
-assert.match(extensionIndex, /renderExtensionTemplateAsync\(\s*folder,\s*SETTINGS_TEMPLATE_ID/s, 'Extension entrypoint should render settings through the nested template ID.');
+assert.match(extensionIndex, /import \{ bootstrapSagaExtension \} from '\.\/bootstrap\.js'/, 'Extension entrypoint should delegate document-ready startup to the bootstrap module.');
+assert.match(extensionIndex, /import \{ configureRuntimeActions \} from '\.\/runtime-mount\.js'/, 'Extension entrypoint should delegate runtime action registration to the runtime mount module.');
+assert.match(extensionIndex, /export \{[\s\S]*sagaOnInstall[\s\S]*sagaOnActivate[\s\S]*\} from '\.\/lifecycle\.js'/, 'Extension entrypoint should re-export lifecycle hooks from the lifecycle module.');
+assert.match(extensionIndex, /configureRuntimeActions\(\)/, 'Extension entrypoint should register runtime actions before bootstrap.');
+assert.match(extensionIndex, /await bootstrapSagaExtension\(\)/, 'Extension entrypoint should run bootstrap from document ready.');
+
+const bootstrap = await readText('src/extension/bootstrap.js');
+assert.match(bootstrap, /import \{ mountSettingsPanel \} from '\.\/settings-mount\.js'/, 'Bootstrap module should delegate settings mounting to the settings module.');
+assert.match(bootstrap, /await mountSettingsPanel\(ctx\)/, 'Bootstrap module should mount settings through the settings module.');
+
+const settingsMount = await readText('src/extension/settings-mount.js');
+assert.match(settingsMount, /SETTINGS_TEMPLATE_ID\s*=\s*'src\/extension\/settings'/, 'Settings mount module should request the nested settings template.');
+assert.match(settingsMount, /renderExtensionTemplateAsync\(\s*folder,\s*SETTINGS_TEMPLATE_ID/s, 'Settings mount module should render settings through the nested template ID.');
 
 const runtimeTheme = await readText('src/theme/runtime-theme.js');
 assert.match(runtimeTheme, /EXTENSION_ROOT_ASSET_PATTERN\s*=\s*\/\^\(\?:\\\.\\\/\)\?\(\?:assets\|content\)\\\//, 'Runtime asset resolver should treat ./assets, assets, ./content, and content paths as extension-root assets.');
@@ -70,8 +160,14 @@ assert.match(settingsUi, /EXTENSION_ROOT_ASSET_PATTERN\.test\(assetPath\)/, 'Set
 assert.doesNotMatch(settingsUi, /LEGACY_PROVIDER_PRESET_NAMES|Provider-1\.0|Provider-1\.1|legacyName/, 'Settings provider install status should not keep pre-alpha Provider-1.0/1.1 compatibility checks.');
 
 const constants = await readText('src/state/constants.js');
-assert.doesNotMatch(constants, /LEGACY_EXTENSION_FOLDERS|SagaContinuity/, 'Extension folder detection should not keep pre-alpha legacy install-folder compatibility.');
-assert.match(constants, /third-party\\\/\(\[\^\/\]\+\)\\\//, 'Extension folder detection should support nested manifest script paths.');
+assert.match(constants, /from '\.\/schema\.js'/, 'Constants facade should re-export schema constants.');
+assert.match(constants, /from '\.\/default-settings\.js'/, 'Constants facade should re-export default settings.');
+assert.match(constants, /from '\.\/default-state\.js'/, 'Constants facade should re-export default state.');
+assert.match(constants, /from '\.\/prompt-defaults\.js'/, 'Constants facade should re-export prompt defaults.');
+
+const uiDefaults = await readText('src/state/ui-defaults.js');
+assert.doesNotMatch(uiDefaults, /LEGACY_EXTENSION_FOLDERS|SagaContinuity/, 'Extension folder detection should not keep pre-alpha legacy install-folder compatibility.');
+assert.match(uiDefaults, /third-party\\\/\(\[\^\/\]\+\)\\\//, 'Extension folder detection should support nested manifest script paths.');
 
 const loredeckLibraryPanel = await readText('src/loredecks/loredeck-library-panel.js');
 assert.doesNotMatch(loredeckLibraryPanel, /(?:Images|Loredecks|Presets)\\\//, 'Runtime library code should not preserve escaped old root folder path checks.');
@@ -101,7 +197,11 @@ const packageService = await readText('src/loredecks/loredeck-package-service.js
 assert.match(packageService, /LOREDECK_PACKAGE_ROOT\s*=\s*'loredecks'/, 'Package parser should use lowercase loredecks/ archive root.');
 assert.match(packageService, /missing loredecks\/index\.json/, 'Package parser should report the lowercase package index contract.');
 
-const runtimePanel = await readText('src/runtime/lore-panel.js');
-assert.match(runtimePanel, /'loredecks\/index\.json'/, 'Package exporter should write loredecks/index.json.');
+const runtimePackageSource = [
+  await readText('src/runtime/lore-panel.js'),
+  await readText('src/runtime/loredeck-package-export.js'),
+  await readText('src/runtime/loredeck-package-install.js'),
+].join('\n');
+assert.match(runtimePackageSource, /'loredecks\/index\.json'/, 'Package exporter should write loredecks/index.json.');
 
 console.log('Repository layout contract passed.');

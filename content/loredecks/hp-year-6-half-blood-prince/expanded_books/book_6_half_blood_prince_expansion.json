@@ -661,7 +661,16 @@
         "place:hogwarts",
         "school-year:6",
         "topic:horcruxes"
-      ]
+      ],
+      "ui": {
+        "preview": {
+          "primaryPack": "essential_guardrails",
+          "suggestionRole": "active_guardrail",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "blocks_context_leakage"
+        }
+      }
     },
     {
       "schemaVersion": 3,

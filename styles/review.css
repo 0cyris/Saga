@@ -1,0 +1,1600 @@
+/* Make accepted and pending scroll regions visually consistent. */
+.saga-lore-entry-list,
+.saga-pending-lore-list {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(120, 138, 156, 0.78) rgba(10, 12, 16, 0.38);
+}
+
+.saga-lore-entry-list::-webkit-scrollbar,
+.saga-pending-lore-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.saga-lore-entry-list::-webkit-scrollbar-track,
+.saga-pending-lore-list::-webkit-scrollbar-track {
+    background: rgba(10, 12, 16, 0.38);
+    border-radius: 8px;
+}
+
+.saga-lore-entry-list::-webkit-scrollbar-thumb,
+.saga-pending-lore-list::-webkit-scrollbar-thumb {
+    background: rgba(120, 138, 156, 0.78);
+    border-radius: 8px;
+}
+
+.saga-lore-show-more,
+.saga-small-button {
+    background: rgba(42, 52, 64, 0.88) !important;
+    border-color: rgba(126, 145, 165, 0.52) !important;
+    color: #d7e1ea !important;
+}
+
+.saga-lore-show-more:hover,
+.saga-small-button:hover {
+    background: rgba(58, 72, 88, 0.96) !important;
+    border-color: rgba(155, 176, 196, 0.72) !important;
+}
+
+.saga-settings-reset-row {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 0 6px 0;
+}
+
+.saga-settings-reset-row .saga-small-button {
+    margin: 0;
+    padding: 2px 8px;
+    font-size: 0.76em;
+}
+
+/* Final chip compaction: outer chip is ~20px shorter than the old oversized rows. */
+.saga-lore-meta-select-wrap {
+    height: 14px !important;
+    min-height: 14px !important;
+    padding: 0 2px 0 4px !important;
+    gap: 2px !important;
+    align-items: center !important;
+    max-width: 148px !important;
+    font-size: 0.58em !important;
+    line-height: 1 !important;
+}
+
+.saga-lore-meta-select-prefix {
+    height: 12px !important;
+    min-height: 12px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    line-height: 1 !important;
+}
+
+.saga-lore-meta-select {
+    height: 12px !important;
+    min-height: 12px !important;
+    max-width: 92px !important;
+    line-height: 1 !important;
+    padding: 0 12px 0 3px !important;
+    font-size: 0.92em !important;
+    vertical-align: middle !important;
+}
+
+.saga-lore-meta-select-priority .saga-lore-meta-select {
+    max-width: 50px !important;
+}
+
+.saga-lore-entry-title-wrap,
+.saga-review-lore-title {
+    margin-left: 12px !important;
+}
+
+.saga-lore-entry-tags {
+    margin-left: 2px;
+}
+
+@media (max-width: 430px) {
+    .saga-prompt-placement-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Lore lifecycle status control */
+.saga-lore-lifecycle-select-wrap {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 20px;
+    min-height: 20px;
+    max-width: 116px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: var(--saga-chip-bg, #166534);
+    color: var(--saga-chip-fg, #dcfce7);
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.saga-lore-lifecycle-select {
+    height: 18px;
+    min-height: 18px;
+    max-width: 112px;
+    border: 0;
+    border-radius: 5px;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    font-size: 0.68em;
+    font-weight: 700;
+    line-height: 1;
+    padding: 0 14px 0 4px;
+    outline: none;
+    cursor: pointer;
+}
+
+.saga-lore-lifecycle-select option {
+    background: #1b1d22;
+    color: #f3f4f6;
+}
+
+/* Title/tags should align with card content, not indent past metadata chips. */
+.saga-lore-entry-title-wrap,
+.saga-review-lore-title {
+    margin-left: 0 !important;
+}
+
+.saga-lore-entry-tags {
+    margin-left: 0 !important;
+}
+
+/* ── Collapsible runtime sections ───────────────────────────────────────────── */
+.saga-collapsible-card {
+    padding: 0;
+    overflow: hidden;
+}
+
+.saga-collapsible-summary {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 28px;
+    padding: 6px 8px;
+    cursor: pointer;
+    color: #d4c8a8;
+    list-style: none;
+    user-select: none;
+}
+
+.saga-collapsible-summary::-webkit-details-marker {
+    display: none;
+}
+
+.saga-collapsible-summary::before {
+    content: '▸';
+    font-size: 0.8em;
+    opacity: 0.75;
+    width: 10px;
+    flex: 0 0 10px;
+}
+
+.saga-collapsible-card[open] > .saga-collapsible-summary::before {
+    content: '▾';
+}
+
+.saga-collapsible-title {
+    font-weight: 650;
+    font-size: 0.88em;
+    white-space: nowrap;
+}
+
+.saga-collapsible-subtitle {
+    margin-left: auto;
+    min-width: 0;
+    max-width: 58%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.72em;
+    opacity: 0.68;
+    color: #9fb0bf;
+    text-align: right;
+}
+
+.saga-collapsible-content {
+    padding: 0 8px 8px;
+}
+
+.saga-collapsible-content > .saga-runtime-card,
+.saga-collapsible-content > details.saga-runtime-card {
+    margin: 0;
+    border-color: rgba(255, 255, 255, 0.08);
+    background: rgba(0, 0, 0, 0.12);
+}
+
+.saga-collapsible-content > .saga-runtime-card > .saga-runtime-card-title:first-child,
+.saga-collapsible-content > details.saga-runtime-card > summary.saga-runtime-card-title:first-child {
+    display: none;
+}
+
+/* ── Compression prompt editor ─────────────────────────────────────────────── */
+.saga-compression-template-wrap {
+    margin-top: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 8px;
+}
+
+.saga-compression-template-title {
+    font-size: 0.82em;
+    margin-bottom: 4px;
+}
+
+.saga-compression-template-editor {
+    width: 100%;
+    min-height: 130px;
+    max-height: 260px;
+    resize: vertical;
+    box-sizing: border-box;
+    border: 1px solid rgba(180, 160, 140, 0.25);
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.32);
+    color: var(--SmartThemeBodyColor, #e0e0e0);
+    font-family: 'Courier New', monospace;
+    font-size: 0.74em;
+    line-height: 1.35;
+    padding: 7px 8px;
+}
+
+.saga-compression-template-editor:focus {
+    outline: none;
+    border-color: rgba(120, 150, 180, 0.65);
+    box-shadow: 0 0 4px rgba(80, 120, 160, 0.25);
+}
+
+.saga-compression-handling-card .saga-slider-row span {
+    min-width: 180px;
+}
+
+/* ── Accepted Lore bulk actions and inline editor ─────────────────────────── */
+.saga-lore-bulk-toolbar {
+    margin-top: 8px;
+}
+
+.saga-lore-bulk-controls-card {
+    border: 1px solid rgba(120, 150, 170, 0.22);
+    border-radius: 8px;
+    background: rgba(10, 14, 20, 0.42);
+    padding: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.saga-lore-bulk-summary {
+    font-size: 0.76em;
+    color: #b9c6cf;
+}
+
+.saga-lore-bulk-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 5px;
+}
+
+.saga-lore-bulk-edit-row,
+.saga-lore-bulk-tag-row {
+    padding-top: 4px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.saga-lore-bulk-select,
+.saga-lore-bulk-tag-input {
+    min-height: 22px;
+    max-height: 24px;
+    border: 1px solid rgba(150, 170, 185, 0.28);
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.36);
+    color: var(--SmartThemeBodyColor, #e0e0e0);
+    font-size: 0.72em;
+    padding: 1px 5px;
+}
+
+.saga-lore-bulk-select {
+    max-width: 120px;
+}
+
+.saga-lore-bulk-tag-input {
+    flex: 1 1 140px;
+    min-width: 110px;
+}
+
+.saga-lore-entry-select {
+    width: 14px;
+    height: 14px;
+    margin: 0 2px 0 0;
+    accent-color: #6f879a;
+    flex: 0 0 auto;
+}
+
+.saga-lore-entry-selected {
+    border-color: rgba(120, 155, 190, 0.75) !important;
+    box-shadow: 0 0 0 1px rgba(120, 155, 190, 0.25), 0 0 10px rgba(80, 120, 160, 0.12);
+}
+
+.saga-lore-entry-editor {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    border: 1px solid rgba(120, 150, 170, 0.18);
+    border-radius: 8px;
+    padding: 7px;
+    background: rgba(0, 0, 0, 0.2);
+    margin-bottom: 8px;
+}
+
+.saga-lore-editor-field {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    font-size: 0.76em;
+    color: #c8d1d8;
+}
+
+.saga-lore-editor-input,
+.saga-lore-editor-textarea {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid rgba(180, 160, 140, 0.25);
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.34);
+    color: var(--SmartThemeBodyColor, #e0e0e0);
+    font: inherit;
+    padding: 5px 6px;
+}
+
+.saga-lore-editor-textarea {
+    min-height: 54px;
+    resize: vertical;
+}
+
+.saga-danger-button {
+    border-color: var(--saga-red-soft, rgba(170, 80, 80, 0.45)) !important;
+    color: var(--saga-button-text, #f0b8b8) !important;
+}
+
+/* ── Lore generation workflow restructure ─────────────────────────────────── */
+.saga-lore-generation-card {
+    flex: 0 0 auto;
+}
+
+.saga-lore-context-status {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 6px;
+    align-items: center;
+    padding: 5px 6px;
+    margin: 4px 0 6px;
+    border: 1px solid rgba(126, 145, 165, 0.24);
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.18);
+}
+
+.saga-lore-context-status-label {
+    font-size: 0.72em;
+    font-weight: 700;
+    color: #d7b56d;
+    white-space: nowrap;
+}
+
+.saga-lore-context-status-value {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.72em;
+    color: #d5dfeb;
+}
+
+.saga-context-brief-status {
+    grid-template-columns: auto minmax(0, 1fr) minmax(180px, auto);
+}
+
+.saga-context-brief-status-chips {
+    justify-content: flex-end;
+    min-width: 0;
+    font-size: 0.72em;
+}
+
+.saga-context-brief-status-chips .saga-status-pill {
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.saga-warning-text {
+    color: #e9b36b !important;
+}
+
+.saga-lore-generation-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 8px;
+    align-items: start;
+}
+
+.saga-lore-generation-panel {
+    min-width: 0;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    padding: 7px;
+    background: rgba(0, 0, 0, 0.14);
+}
+
+.saga-lore-generation-panel-title {
+    font-size: 0.82em;
+    font-weight: 700;
+    color: #d4c8a8;
+    margin-bottom: 3px;
+}
+
+.saga-compact-action-button {
+    padding: 3px 7px !important;
+    font-size: 0.72em !important;
+    white-space: nowrap;
+}
+
+.saga-canon-preview-section {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 7px;
+}
+
+.saga-canon-preview-summary {
+    font-size: 0.76em;
+    color: #d7b56d;
+    line-height: 1.3;
+}
+
+.saga-canon-detail-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    align-items: center;
+}
+
+.saga-canon-detail-button {
+    border: 1px solid rgba(126, 145, 165, 0.36);
+    border-radius: 6px;
+    background: rgba(22, 28, 36, 0.72);
+    color: var(--SmartThemeBodyColor, #e8e1d3);
+    font-size: 0.70em;
+    line-height: 1.1;
+    padding: 4px 7px;
+    cursor: pointer;
+}
+
+.saga-canon-detail-button:hover {
+    background: rgba(34, 43, 54, 0.9);
+    border-color: rgba(155, 176, 196, 0.58);
+}
+
+.saga-canon-detail-active {
+    border-color: rgba(215, 181, 109, 0.72);
+    background: rgba(63, 52, 31, 0.54);
+    color: #f1dfb8;
+}
+
+.saga-canon-pack-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(148px, 1fr));
+    gap: 5px;
+}
+
+.saga-canon-pack-button {
+    min-width: 0;
+    border: 1px solid rgba(126, 145, 165, 0.34);
+    border-radius: 7px;
+    background: rgba(22, 28, 36, 0.72);
+    color: var(--SmartThemeBodyColor, #e8e1d3);
+    padding: 6px 7px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    text-align: left;
+    cursor: pointer;
+}
+
+.saga-canon-pack-button:hover {
+    background: rgba(34, 43, 54, 0.9);
+    border-color: rgba(155, 176, 196, 0.58);
+}
+
+.saga-canon-pack-active {
+    border-color: rgba(215, 181, 109, 0.72);
+    background: rgba(63, 52, 31, 0.48);
+}
+
+.saga-canon-pack-label {
+    font-size: 0.76em;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.saga-canon-pack-meta {
+    font-size: 0.68em;
+    color: #aebcca;
+    line-height: 1.2;
+}
+
+.saga-canon-preview-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 5px;
+}
+
+.saga-canon-preview-selected-count {
+    font-size: 0.72em;
+    color: #c6d2dd;
+    margin-right: 2px;
+}
+
+.saga-canon-preview-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    max-height: min(340px, 42vh);
+    overflow-y: auto;
+    padding-right: 2px;
+}
+
+.saga-canon-preview-row {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 7px;
+    align-items: start;
+    padding: 6px 7px;
+    border: 1px solid rgba(126, 145, 165, 0.22);
+    border-radius: 7px;
+    background: rgba(10, 14, 20, 0.38);
+    cursor: pointer;
+}
+
+.saga-canon-preview-row-selected {
+    border-color: rgba(120, 170, 220, 0.58);
+    background: rgba(35, 55, 76, 0.42);
+}
+
+.saga-canon-preview-row-disabled {
+    opacity: 0.64;
+    cursor: default;
+}
+
+.saga-canon-preview-row input[type="checkbox"] {
+    margin-top: 2px;
+}
+
+.saga-canon-preview-row-main {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.saga-canon-preview-row-title {
+    font-size: 0.78em;
+    font-weight: 700;
+    color: #e4dccb;
+    line-height: 1.25;
+    overflow-wrap: anywhere;
+}
+
+.saga-canon-preview-row-text {
+    font-size: 0.72em;
+    color: #b9c6cf;
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+}
+
+.saga-canon-preview-row-meta {
+    gap: 3px;
+}
+
+.saga-lore-source-filter {
+    max-width: 148px;
+    min-width: 112px;
+    height: 24px;
+    border-radius: 7px;
+    border: 1px solid rgba(126, 145, 165, 0.42);
+    background: rgba(20, 26, 34, 0.88);
+    color: var(--SmartThemeBodyColor, #e8e1d3);
+    font-size: 0.76em;
+    padding: 2px 5px;
+}
+
+.saga-lore-accepted-collapsible {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.saga-lore-accepted-collapsible[open] {
+    min-height: 160px;
+}
+
+.saga-lore-accepted-collapsible > .saga-collapsible-content {
+    min-height: 0;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.saga-accepted-lore-section {
+    min-height: 0;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.saga-lore-pending-collapsible > .saga-collapsible-content {
+    min-height: 0;
+}
+
+.saga-lore-pending-collapsible .saga-pending-lore-list {
+    max-height: min(320px, 38vh);
+}
+
+@media (max-width: 560px) {
+    .saga-lore-generation-grid {
+        grid-template-columns: 1fr;
+    }
+    .saga-lore-context-status {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── Live feedback patch: Lore/Continuity layout, scroll, and danger styling ── */
+.saga-runtime-tab-body {
+    overflow-y: auto;
+}
+
+.saga-runtime-tab-body > .saga-runtime-card,
+.saga-runtime-tab-body > .saga-collapsible-card,
+.saga-runtime-tab-body > .saga-section-header {
+    flex: 0 0 auto;
+}
+
+.saga-runtime-tab-body-lore {
+    display: block;
+    overflow-y: auto;
+}
+
+.saga-lore-generation-collapsible {
+    flex: 0 0 auto;
+}
+
+.saga-lore-generation-grid {
+    grid-template-columns: 1fr !important;
+    gap: 8px;
+}
+
+.saga-lore-generation-panel {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.saga-collapsible-card:not([open]) {
+    flex: 0 0 auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+}
+
+.saga-collapsible-card:not([open]) > .saga-collapsible-content {
+    display: none !important;
+}
+
+.saga-lore-pending-collapsible:not([open]),
+.saga-lore-accepted-collapsible:not([open]) {
+    flex: 0 0 auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+}
+
+.saga-lore-pending-collapsible > .saga-collapsible-summary,
+.saga-lore-accepted-collapsible > .saga-collapsible-summary,
+.saga-lore-generation-collapsible > .saga-collapsible-summary {
+    min-height: 30px;
+}
+
+.saga-lore-pending-collapsible[open] > .saga-collapsible-content,
+.saga-lore-accepted-collapsible[open] > .saga-collapsible-content {
+    min-height: 42px;
+}
+
+.saga-lore-pending-collapsible .saga-lore-empty {
+    min-height: 24px;
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+}
+
+.saga-lore-accepted-collapsible[open] {
+    flex: 0 0 auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+}
+
+.saga-lore-accepted-collapsible[open] > .saga-collapsible-content {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    max-height: min(620px, 62vh);
+}
+
+.saga-accepted-lore-section {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+.saga-accepted-lore-section .saga-lore-controls {
+    flex: 0 0 auto;
+    position: relative;
+    top: auto;
+    z-index: 1;
+}
+
+.saga-accepted-lore-section .saga-lore-entry-list {
+    flex: 1 1 auto;
+    min-height: 150px;
+    max-height: min(420px, 42vh);
+    overflow-y: auto !important;
+    padding-right: 4px;
+}
+
+.saga-pending-lore-list {
+    min-height: 80px;
+    max-height: min(340px, 38vh) !important;
+    overflow-y: auto !important;
+}
+
+.saga-lore-entry-header {
+    align-items: flex-start !important;
+    gap: 6px !important;
+}
+
+.saga-lore-entry-select {
+    flex: 0 0 auto;
+    margin: 2px 0 0 0 !important;
+    align-self: flex-start;
+}
+
+.saga-lore-entry-title-wrap {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+}
+
+.saga-lore-entry-title {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    text-align: left !important;
+}
+
+.saga-lore-entry-tags {
+    margin-left: 0 !important;
+    justify-content: flex-start !important;
+}
+
+.saga-lore-entry-actions {
+    margin-left: auto;
+    align-self: flex-start;
+}
+
+.saga-lore-entry-meta,
+.saga-lore-entry-fact,
+.saga-lore-entry-details {
+    margin-left: 0 !important;
+}
+
+/* ── Live feedback patch: lore vertical sizing + continuity section prompts ── */
+.saga-runtime-tab-body-lore {
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+}
+
+.saga-lore-generation-collapsible,
+.saga-lore-pending-collapsible {
+    flex: 0 0 auto !important;
+}
+
+.saga-lore-accepted-collapsible[open] {
+    flex: 1 1 auto !important;
+    min-height: 180px !important;
+    max-height: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.saga-lore-accepted-collapsible[open] > .saga-collapsible-content {
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.saga-accepted-lore-section {
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.saga-accepted-lore-section .saga-lore-controls,
+.saga-accepted-lore-section .saga-accepted-bulk-toolbar {
+    flex: 0 0 auto !important;
+}
+
+.saga-accepted-lore-section .saga-lore-entry-list {
+    flex: 1 1 auto !important;
+    min-height: 160px !important;
+    max-height: none !important;
+    overflow-y: auto !important;
+    padding-right: 4px;
+}
+
+.saga-story-lore-generation-panel .saga-generation-status-text {
+    margin-top: 4px;
+}
+
+.saga-story-lore-settings-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.saga-lore-entry-tags {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    justify-content: flex-start !important;
+    width: 100%;
+}
+
+.saga-lore-entry-title-wrap .saga-lore-entry-tags {
+    width: auto;
+}
+
+.saga-section-prompt-editor-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 4px 0 0;
+}
+
+.saga-section-prompt-editor {
+    width: 100%;
+    min-height: 88px;
+    resize: vertical;
+    box-sizing: border-box;
+    border: 1px solid rgba(126, 145, 165, 0.32);
+    border-radius: 7px;
+    background: rgba(0, 0, 0, 0.32);
+    color: var(--SmartThemeBodyColor, #e8e1d3);
+    font-family: var(--mainFontFamily, inherit);
+    font-size: 0.78em;
+    line-height: 1.35;
+    padding: 6px 7px;
+}
+
+.saga-section-prompt-editor:focus {
+    outline: none;
+    border-color: rgba(180, 160, 140, 0.55);
+    box-shadow: 0 0 0 1px rgba(180, 160, 140, 0.16);
+}
+
+.saga-section-prompt-actions {
+    margin-top: 2px !important;
+}
+
+/* QoL pass: keep pending and accepted lore cards visually aligned. */
+.saga-pending-review-entry-card {
+    background: rgba(12, 18, 30, 0.62) !important;
+    border-color: rgba(82, 107, 148, 0.34) !important;
+    padding: 5px 7px !important;
+    margin-bottom: 6px;
+}
+
+.saga-pending-review-entry-card .saga-lore-entry-header,
+.saga-lore-entry-card .saga-lore-entry-header {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 6px !important;
+}
+
+.saga-pending-review-entry-card .saga-review-lore-checkbox,
+.saga-lore-entry-card .saga-lore-entry-select {
+    flex: 0 0 auto !important;
+    margin: 2px 0 0 0 !important;
+    align-self: flex-start !important;
+}
+
+.saga-pending-review-entry-card .saga-lore-entry-title-wrap,
+.saga-lore-entry-card .saga-lore-entry-title-wrap {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    align-items: flex-start !important;
+}
+
+.saga-pending-review-entry-card .saga-lore-entry-title,
+.saga-lore-entry-card .saga-lore-entry-title {
+    text-align: left !important;
+}
+
+.saga-pending-review-entry-card .saga-lore-entry-meta,
+.saga-lore-entry-card .saga-lore-entry-meta,
+.saga-pending-review-entry-card .saga-lore-entry-tags,
+.saga-lore-entry-card .saga-lore-entry-tags,
+.saga-pending-review-entry-card .saga-lore-entry-fact,
+.saga-lore-entry-card .saga-lore-entry-fact {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    justify-content: flex-start !important;
+}
+
+.saga-pending-entry-actions {
+    margin-top: 6px !important;
+}
+
+/* Restore stable scroll behavior for accepted lore entries; controls remain fixed above. */
+.saga-accepted-lore-section {
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+}
+
+.saga-accepted-lore-section .saga-lore-entry-list {
+    flex: 1 1 auto !important;
+    min-height: 160px !important;
+    overflow-y: scroll !important;
+    overflow-x: hidden !important;
+    scrollbar-gutter: stable;
+    padding-right: 6px !important;
+}
+
+.saga-pending-lore-list {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    scrollbar-gutter: stable;
+    padding-right: 6px !important;
+}
+
+.saga-lore-entry-list,
+.saga-pending-lore-list {
+    scrollbar-width: thin !important;
+    scrollbar-color: rgba(120, 138, 156, 0.78) rgba(10, 12, 16, 0.38) !important;
+}
+
+.saga-lore-entry-list::-webkit-scrollbar,
+.saga-pending-lore-list::-webkit-scrollbar {
+    width: 8px !important;
+}
+
+.saga-lore-entry-list::-webkit-scrollbar-track,
+.saga-pending-lore-list::-webkit-scrollbar-track {
+    background: rgba(10, 12, 16, 0.38) !important;
+    border-radius: 8px !important;
+}
+
+.saga-lore-entry-list::-webkit-scrollbar-thumb,
+.saga-pending-lore-list::-webkit-scrollbar-thumb {
+    background: rgba(120, 138, 156, 0.78) !important;
+    border-radius: 8px !important;
+}
+
+/* Keep empty pending review readable instead of collapsing into a hairline row. */
+.saga-lore-pending-collapsible .saga-lore-empty {
+    min-height: 48px !important;
+    padding: 10px !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+/* Injection panels are actual injected text, not previews. */
+.saga-injection-preview-card .saga-runtime-card-title {
+    letter-spacing: 0.01em;
+}
+
+/* ── README/instructions polish ───────────────────────────────────────────── */
+.saga-instructions-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.saga-instructions-lede,
+.saga-instructions-note {
+    margin: 0;
+    color: rgba(238, 226, 196, 0.84);
+    font-size: 0.86em;
+    line-height: 1.45;
+}
+
+.saga-instructions-note {
+    color: rgba(238, 226, 196, 0.7);
+}
+
+.saga-instructions-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    max-height: min(320px, 38vh);
+    overflow-y: auto;
+    overflow-x: hidden;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable;
+    padding-right: 4px;
+}
+
+.saga-guide-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+}
+
+.saga-instructions-step-card,
+.saga-instructions-section-card {
+    border: 1px solid rgba(190, 145, 75, 0.24);
+    border-radius: 6px;
+    background: rgba(20, 18, 20, 0.45);
+    padding: 8px;
+    min-width: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 8px;
+}
+
+.saga-instructions-step-main,
+.saga-instructions-section-main {
+    min-width: 0;
+}
+
+.saga-instructions-section-header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    align-items: center;
+    margin-bottom: 3px;
+}
+
+.saga-instructions-step-title,
+.saga-instructions-section-title {
+    color: #f3d38b;
+    font-weight: 700;
+    font-size: 0.82em;
+}
+
+.saga-instructions-step-title {
+    margin-bottom: 3px;
+}
+
+.saga-instructions-step-body,
+.saga-instructions-section-body {
+    color: rgba(238, 226, 196, 0.78);
+    font-size: 0.78em;
+    line-height: 1.35;
+}
+
+.saga-instructions-section-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-top: 5px;
+}
+
+.saga-instructions-section-card .saga-status-pill {
+    min-height: 15px;
+    border-color: rgba(148, 158, 172, 0.22);
+    background: rgba(148, 158, 172, 0.11);
+    color: rgba(226, 231, 238, 0.76);
+    padding: 1px 5px;
+    font-size: 0.66em;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 0;
+}
+
+.saga-instructions-section-header .saga-status-pill {
+    min-height: 14px;
+    padding-inline: 4px;
+    font-size: 0.62em;
+}
+
+.saga-guide-step-button {
+    align-self: center;
+    white-space: nowrap;
+}
+
+.saga-tour-highlight {
+    outline: 2px solid rgba(214, 170, 86, 0.95) !important;
+    outline-offset: 3px;
+    box-shadow: 0 0 0 3px rgba(214, 170, 86, 0.16) !important;
+    border-radius: 6px;
+}
+
+.saga-tour-popover {
+    position: fixed;
+    z-index: 2147483000;
+    width: min(340px, calc(100vw - 24px));
+    color: #f2dfb2;
+    border: 1px solid rgba(194, 150, 78, 0.42);
+    border-radius: 6px;
+    background:
+        linear-gradient(180deg, rgba(42, 32, 24, 0.98), rgba(18, 16, 18, 0.98));
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.45);
+    padding: 10px;
+    font-size: 12px;
+    max-height: calc(100vh - 24px);
+    overflow-y: auto;
+}
+
+.saga-checklist-tour-popover {
+    border-color: rgba(104, 186, 132, 0.48);
+    background:
+        linear-gradient(180deg, rgba(31, 54, 42, 0.98), rgba(16, 18, 18, 0.98));
+}
+
+.saga-checklist-tour-popover .saga-tour-progress,
+.saga-checklist-tour-popover .saga-tour-detail-label {
+    color: rgba(151, 223, 174, 0.9);
+}
+
+.saga-tour-progress {
+    color: rgba(220, 184, 111, 0.82);
+    font-size: 0.74em;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.saga-tour-title {
+    color: #f3d38b;
+    font-size: 1em;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.saga-tour-body {
+    color: rgba(238, 226, 196, 0.82);
+    font-size: 0.9em;
+    line-height: 1.38;
+}
+
+.saga-tour-detail {
+    color: rgba(238, 226, 196, 0.76);
+    font-size: 0.82em;
+    line-height: 1.35;
+    margin-top: 7px;
+}
+
+.saga-tour-detail-label {
+    color: rgba(220, 184, 111, 0.9);
+    font-weight: 700;
+}
+
+.saga-tour-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+/* Live feedback fix: accepted lore list owns scrolling; cards do not flex-shrink into a non-scrollable column. */
+.saga-runtime-tab-body-lore {
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+}
+
+.saga-lore-accepted-collapsible[open] {
+    display: flex !important;
+    flex: 1 1 auto !important;
+    flex-direction: column !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: hidden !important;
+}
+
+.saga-lore-accepted-collapsible[open] > .saga-collapsible-summary {
+    flex: 0 0 auto !important;
+}
+
+.saga-lore-accepted-collapsible[open] > .saga-collapsible-content,
+.saga-accepted-lore-section {
+    display: flex !important;
+    flex: 1 1 auto !important;
+    flex-direction: column !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: hidden !important;
+}
+
+.saga-accepted-lore-section .saga-lore-controls {
+    flex: 0 0 auto !important;
+    max-height: min(300px, 42vh);
+    overflow-y: auto;
+}
+
+.saga-accepted-lore-section .saga-lore-entry-list {
+    display: flex !important;
+    flex: 1 1 auto !important;
+    flex-direction: column !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable both-edges;
+    touch-action: pan-y;
+}
+
+.saga-accepted-lore-section .saga-lore-entry-list > * {
+    flex: 0 0 auto !important;
+}
+
+/* Live feedback fix: restore a visible, functional scrollbar for Accepted Lorecards.
+   The accepted list is the only vertical scroll owner; controls remain fixed above it. */
+.saga-lore-panel .saga-runtime-tab-body-lore {
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+}
+
+.saga-lore-panel .saga-lore-accepted-collapsible[open] {
+    display: flex !important;
+    flex: 1 1 240px !important;
+    flex-direction: column !important;
+    min-height: 180px !important;
+    overflow: hidden !important;
+}
+
+.saga-lore-panel .saga-lore-accepted-collapsible[open] > .saga-collapsible-content,
+.saga-lore-panel .saga-accepted-lore-section {
+    display: flex !important;
+    flex: 1 1 auto !important;
+    flex-direction: column !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+}
+
+.saga-lore-panel .saga-accepted-lore-section .saga-lore-controls,
+.saga-lore-panel .saga-accepted-lore-section .saga-lore-bulk-toolbar,
+.saga-lore-panel .saga-accepted-lore-section .saga-lore-list-summary,
+.saga-lore-panel .saga-accepted-lore-section .saga-lore-show-more {
+    flex: 0 0 auto !important;
+}
+
+.saga-lore-panel .saga-accepted-lore-section .saga-accepted-lore-scroll-region {
+    display: flex !important;
+    flex: 1 1 220px !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+    min-height: 160px !important;
+    max-height: clamp(180px, 44vh, 460px) !important;
+    overflow-y: scroll !important;
+    overflow-x: hidden !important;
+    overscroll-behavior: contain !important;
+    scrollbar-gutter: stable both-edges !important;
+    scrollbar-width: thin !important;
+    scrollbar-color: rgba(120, 138, 156, 0.78) rgba(10, 12, 16, 0.38) !important;
+    padding-right: 6px !important;
+    touch-action: pan-y !important;
+}
+
+.saga-lore-panel .saga-accepted-lore-section .saga-accepted-lore-scroll-region::-webkit-scrollbar {
+    width: 8px !important;
+}
+
+.saga-lore-panel .saga-accepted-lore-section .saga-accepted-lore-scroll-region::-webkit-scrollbar-track {
+    background: rgba(10, 12, 16, 0.38) !important;
+    border-radius: 8px !important;
+}
+
+.saga-lore-panel .saga-accepted-lore-section .saga-accepted-lore-scroll-region::-webkit-scrollbar-thumb {
+    background: rgba(120, 138, 156, 0.78) !important;
+    border-radius: 8px !important;
+}
+
+.saga-lore-panel .saga-accepted-lore-section .saga-accepted-lore-scroll-region > * {
+    flex: 0 0 auto !important;
+}
+
+
+/* Live feedback fix 2026-05-31: Accepted Lore must fill available panel height.
+   Earlier scroll patches capped the list with viewport clamps, which left only a
+   couple of cards visible in resized panels. This final cascade makes the Lore
+   tab a true column layout and lets the accepted lore list consume the remaining
+   vertical space down to the bottom of the Saga window. */
+.saga-lore-panel {
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
+}
+
+.saga-lore-panel:not(.saga-lore-panel-collapsed) {
+    max-height: calc(100vh - 16px) !important;
+}
+
+.saga-lore-panel .saga-lore-panel-body {
+    display: flex !important;
+    flex: 1 1 auto !important;
+    flex-direction: column !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+}
+
+.saga-lore-panel .saga-runtime-tabs {
+    flex: 0 0 auto !important;
+}
+
+.saga-lore-panel .saga-runtime-tab-body {
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+}
+
+.saga-lore-panel .saga-runtime-tab-body-lore {
+    display: flex !important;
+    flex: 1 1 auto !important;
+    flex-direction: column !important;
+    min-height: 0 !important;
+    height: 100% !important;
+    overflow: hidden !important;
+}
+
+.saga-lore-panel .saga-runtime-tab-body-lore > .saga-section-header,
+.saga-lore-panel .saga-runtime-tab-body-lore > .saga-lore-generation-collapsible,
+.saga-lore-panel .saga-runtime-tab-body-lore > .saga-lore-pending-collapsible {
+    flex: 0 0 auto !important;
+}
+
+.saga-lore-panel .saga-lore-accepted-collapsible[open] {
+    display: flex !important;
+    flex: 1 1 auto !important;
+    flex-direction: column !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: hidden !important;
+}
+
+.saga-lore-panel .saga-lore-accepted-collapsible[open] > .saga-collapsible-content,
+.saga-lore-panel .saga-accepted-lore-section {
+    display: flex !important;
+    flex: 1 1 auto !important;
+    flex-direction: column !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: hidden !important;
+}
+
+.saga-lore-panel .saga-accepted-lore-section .saga-lore-controls,
+.saga-lore-panel .saga-accepted-lore-section .saga-lore-bulk-toolbar,
+.saga-lore-panel .saga-accepted-lore-section .saga-lore-list-summary,
+.saga-lore-panel .saga-accepted-lore-section .saga-lore-show-more {
+    flex: 0 0 auto !important;
+}
+
+.saga-lore-panel .saga-accepted-lore-section .saga-accepted-lore-scroll-region {
+    display: flex !important;
+    flex: 1 1 auto !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow-y: scroll !important;
+    overflow-x: hidden !important;
+    overscroll-behavior: contain !important;
+    scrollbar-gutter: stable both-edges !important;
+    scrollbar-width: thin !important;
+    scrollbar-color: rgba(120, 138, 156, 0.78) rgba(10, 12, 16, 0.38) !important;
+    padding-right: 6px !important;
+    touch-action: pan-y !important;
+}
+
+.saga-lore-panel .saga-accepted-lore-section .saga-accepted-lore-scroll-region > * {
+    flex: 0 0 auto !important;
+}
+
+/* Live feedback fix 2026-05-31: Pending Lore Review cards use the same compact
+   accepted-lore card layout. The review state badge stays in the right-side
+   action slot; metadata chips do not introduce a separate state chip on the left. */
+.saga-pending-review-entry-card {
+    background: var(--saga-surface-2) !important;
+    border-color: var(--saga-border-soft) !important;
+}
+
+.saga-pending-review-entry-card .saga-lore-entry-actions {
+    margin-left: auto !important;
+    align-self: flex-start !important;
+}
+
+.saga-pending-review-entry-card .saga-lore-entry-meta {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 4px !important;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+}
+
+.saga-pending-review-entry-card .saga-pending-entry-actions {
+    display: flex !important;
+    justify-content: flex-end !important;
+    gap: 6px !important;
+    margin-top: 6px !important;
+}
+
+/* Bulk story-lore scan controls and ledger */
+.saga-runtime-subtitle {
+    font-size: 0.92em;
+    font-weight: 700;
+    margin: 8px 0 4px;
+    opacity: 0.9;
+}
+
+.saga-bulk-lore-status-card .saga-runtime-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+}
+
+/* Lore tab scan UI consolidation */
+.saga-lore-generation-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
+    gap: 8px;
+}
+
+.saga-lore-generation-panel .saga-runtime-help,
+.saga-lore-scan-settings-block .saga-runtime-help,
+.saga-lore-scan-help {
+    font-size: 0.74em;
+    line-height: 1.28;
+}
+
+.saga-story-lore-settings-content {
+    gap: 6px;
+}
+
+.saga-compact-subsection {
+    margin-bottom: 6px !important;
+    border-radius: 7px !important;
+    background: rgba(0, 0, 0, 0.12) !important;
+}
+
+.saga-compact-subsection > .saga-collapsible-summary {
+    min-height: 24px !important;
+    padding: 4px 6px !important;
+}
+
+.saga-compact-subsection > .saga-collapsible-summary .saga-collapsible-title {
+    font-size: 0.8em;
+}
+
+.saga-compact-subsection > .saga-collapsible-summary .saga-collapsible-subtitle {
+    font-size: 0.68em;
+    max-width: 50%;
+}
+
+.saga-compact-subsection > .saga-collapsible-content {
+    padding: 0 6px 6px !important;
+}
+
+.saga-lore-scan-settings-block {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.saga-lore-scan-settings-block .saga-setting-row,
+.saga-lore-scan-setting-row,
+.saga-lore-scan-settings-block .saga-slider-row {
+    margin: 3px 0;
+    font-size: 0.76em;
+    gap: 6px;
+}
+
+.saga-lore-scan-settings-block .saga-compact-slider-row span {
+    min-width: 108px;
+}
+
+.saga-lore-scan-settings-block input[type="number"],
+.saga-lore-scan-settings-block select,
+.saga-lore-scan-settings-block .text_pole {
+    min-height: 22px;
+    font-size: 0.76em;
+}
+
+.saga-lore-scan-compact-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 4px;
+    margin-bottom: 4px;
+}
+
+.saga-continuity-emotion-freshness .saga-setting-row {
+    margin: 3px 0;
+    font-size: 0.76em;
+    gap: 6px;
+}
+
+.saga-continuity-emotion-freshness .saga-setting-row span {
+    min-width: 126px;
+}
+
+.saga-continuity-emotion-freshness select,
+.saga-continuity-emotion-freshness .text_pole {
+    width: auto;
+    min-width: 150px;
+    max-width: 220px;
+    min-height: 22px;
+    padding: 2px 22px 2px 6px;
+    font-size: 0.76em;
+    line-height: 1.15;
+}
+
+.saga-lore-scan-results-summary {
+    margin-bottom: 5px;
+    color: #d7b56d;
+    opacity: 0.9;
+}
+
+.saga-lore-scan-results-grid {
+    grid-template-columns: repeat(auto-fit, minmax(95px, 1fr)) !important;
+    margin-bottom: 0;
+}
+
+.saga-bulk-lore-status-card {
+    padding: 7px;
+}
+
+.saga-bulk-lore-status-card .saga-runtime-card-title {
+    margin-bottom: 3px;
+}
+
+@media (max-width: 560px) {
+    .saga-lore-generation-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* Auto-Relevance suggestion review */
+.saga-auto-relevance-suggestions {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 8px;
+}
+
+.saga-auto-relevance-suggestion-row {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 6px;
+    align-items: center;
+    padding: 6px 8px;
+    border: 1px solid var(--SmartThemeBorderColor, rgba(255,255,255,0.18));
+    border-radius: 6px;
+}
+
+.saga-auto-relevance-suggestion-summary {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

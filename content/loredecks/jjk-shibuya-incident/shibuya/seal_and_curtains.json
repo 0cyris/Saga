@@ -466,6 +466,2559 @@
           "status": "initial_shibuya_slice"
         }
       }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_shibuya_incident_exp_curtains_turn_shibuya_into_a_trap",
+      "title": "Curtains Turn Shibuya Into A Trap",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.shibuya.curtains-descend",
+        "validToAnchor": "jjk.shibuya.gojo-sealed",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 6500,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Pre-seal Shibuya operation"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:gojo-satoru",
+          "jjk:kenjaku"
+        ],
+        "characters": [
+          "Satoru Gojo",
+          "Kenjaku"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Shibuya curtain",
+          "civilian trap"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:shibuya-incident",
+        "character:gojo-satoru",
+        "character:kenjaku",
+        "topic:shibuya-curtain",
+        "topic:civilian-trap"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Satoru Gojo",
+            "Kenjaku"
+          ],
+          "topicsAny": [
+            "Shibuya curtain",
+            "civilian trap"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath.",
+        "notes": "Post-Shibuya preparation, Perfect Preparation, Culling Game, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "The curtain operation turns a dense civilian district into a controlled battlefield designed to isolate Gojo and pressure sorcerers.",
+        "injection": "Use this event state in the active window: The curtain operation turns a dense civilian district into a controlled battlefield designed to isolate Gojo and pressure sorcerers.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Shibuya Incident",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Incident opening"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-shibuya-incident",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_shibuya_incident_exp_gojo_enters_alone_under_civilian_constraint",
+      "title": "Gojo Enters Alone Under Civilian Constraint",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.shibuya.curtains-descend",
+        "validToAnchor": "jjk.shibuya.gojo-sealed",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 6500,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Pre-seal Shibuya operation"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:gojo-satoru"
+        ],
+        "characters": [
+          "Satoru Gojo"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Gojo Shibuya",
+          "civilian constraint"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:shibuya-incident",
+        "character:gojo-satoru",
+        "topic:gojo-shibuya",
+        "topic:civilian-constraint"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Satoru Gojo"
+          ],
+          "topicsAny": [
+            "Gojo Shibuya",
+            "civilian constraint"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath.",
+        "notes": "Post-Shibuya preparation, Perfect Preparation, Culling Game, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Gojo's early Shibuya actions are constrained by civilians and the enemy's plan to prevent indiscriminate force.",
+        "injection": "Use this event state in the active window: Gojo's early Shibuya actions are constrained by civilians and the enemy's plan to prevent indiscriminate force.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Shibuya Incident",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Incident opening"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-shibuya-incident",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_shibuya_incident_exp_prison_realm_requires_a_psychological_opening",
+      "title": "Prison Realm Requires A Psychological Opening",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.shibuya.curtains-descend",
+        "validToAnchor": "jjk.shibuya.gojo-sealed",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 6500,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Pre-seal Shibuya operation"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:gojo-satoru",
+          "jjk:kenjaku",
+          "jjk:geto-suguru"
+        ],
+        "characters": [
+          "Satoru Gojo",
+          "Kenjaku",
+          "Suguru Geto"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Prison Realm",
+          "Geto body"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:shibuya-incident",
+        "character:gojo-satoru",
+        "character:kenjaku",
+        "character:geto-suguru",
+        "topic:prison-realm",
+        "topic:geto-body"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Satoru Gojo",
+            "Kenjaku",
+            "Suguru Geto"
+          ],
+          "topicsAny": [
+            "Prison Realm",
+            "Geto body"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath.",
+        "notes": "Post-Shibuya preparation, Perfect Preparation, Culling Game, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "The sealing plan depends on using Geto's body and Gojo's recognition shock to create the Prison Realm condition.",
+        "injection": "Use this event state in the active window: The sealing plan depends on using Geto's body and Gojo's recognition shock to create the Prison Realm condition.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Shibuya Incident",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Incident opening"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-shibuya-incident",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_shibuya_incident_exp_gojos_sealing_changes_every_allied_objective",
+      "title": "Gojo's Sealing Changes Every Allied Objective",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.shibuya.gojo-sealed",
+        "validToAnchor": "jjk.shibuya.sukuna-finger-flood",
+        "sortKeyFrom": 6500,
+        "sortKeyTo": 7350,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Post-seal chaos"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:gojo-satoru",
+          "jjk:itadori-yuji"
+        ],
+        "characters": [
+          "Satoru Gojo",
+          "Yuji Itadori"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Gojo sealed",
+          "operation pivot"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:shibuya-incident",
+        "character:gojo-satoru",
+        "character:itadori-yuji",
+        "topic:gojo-sealed",
+        "topic:operation-pivot"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Satoru Gojo",
+            "Yuji Itadori"
+          ],
+          "topicsAny": [
+            "Gojo sealed",
+            "operation pivot"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath.",
+        "notes": "Post-Shibuya preparation, Perfect Preparation, Culling Game, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Once Gojo is sealed, the operation shifts from containment to survival, rescue attempts, and information control.",
+        "injection": "Use this event state in the active window: Once Gojo is sealed, the operation shifts from containment to survival, rescue attempts, and information control.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Shibuya Incident",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Gojo sealing"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-shibuya-incident",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_shibuya_incident_exp_mechamaru_contingency_gives_yuji_direction",
+      "title": "Mechamaru Contingency Gives Yuji Direction",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.shibuya.gojo-sealed",
+        "validToAnchor": "jjk.shibuya.sukuna-finger-flood",
+        "sortKeyFrom": 6500,
+        "sortKeyTo": 7350,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Post-seal chaos"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:mechamaru",
+          "jjk:itadori-yuji"
+        ],
+        "characters": [
+          "Mechamaru",
+          "Yuji Itadori"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Mechamaru contingency",
+          "Gojo sealed"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:shibuya-incident",
+        "character:mechamaru",
+        "character:itadori-yuji",
+        "topic:mechamaru-contingency",
+        "topic:gojo-sealed"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Mechamaru",
+            "Yuji Itadori"
+          ],
+          "topicsAny": [
+            "Mechamaru contingency",
+            "Gojo sealed"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath.",
+        "notes": "Post-Shibuya preparation, Perfect Preparation, Culling Game, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Mechamaru's posthumous communication helps Yuji understand Gojo's sealing and directs allied action after the plan succeeds.",
+        "injection": "Use this event state in the active window: Mechamaru's posthumous communication helps Yuji understand Gojo's sealing and directs allied action after the plan succeeds.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Shibuya Incident",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Gojo sealing"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-shibuya-incident",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_shibuya_incident_exp_dagons_domain_creates_a_local_disaster",
+      "title": "Dagon's Domain Creates A Local Disaster",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.shibuya.gojo-sealed",
+        "validToAnchor": "jjk.shibuya.sukuna-finger-flood",
+        "sortKeyFrom": 6500,
+        "sortKeyTo": 7350,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Post-seal chaos"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:dagon",
+          "jjk:nanami-kento",
+          "jjk:maki-zenin",
+          "jjk:naobito-zenin",
+          "jjk:toji-fushiguro"
+        ],
+        "characters": [
+          "Dagon",
+          "Kento Nanami",
+          "Maki Zenin",
+          "Naobito Zenin",
+          "Toji Fushiguro"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Dagon domain",
+          "Toji disruption"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:shibuya-incident",
+        "character:dagon",
+        "character:nanami-kento",
+        "character:maki-zenin",
+        "character:naobito-zenin",
+        "character:toji-fushiguro",
+        "topic:dagon-domain",
+        "topic:toji-disruption"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Dagon",
+            "Kento Nanami",
+            "Maki Zenin",
+            "Naobito Zenin",
+            "Toji Fushiguro"
+          ],
+          "topicsAny": [
+            "Dagon domain",
+            "Toji disruption"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath.",
+        "notes": "Post-Shibuya preparation, Perfect Preparation, Culling Game, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Dagon's domain fight severely pressures Nanami, Maki, and Naobito before Toji disrupts the battle state.",
+        "injection": "Use this event state in the active window: Dagon's domain fight severely pressures Nanami, Maki, and Naobito before Toji disrupts the battle state.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Shibuya Incident",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Gojo sealing"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-shibuya-incident",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_shibuya_incident_exp_tojis_revival_is_an_uncontrolled_variable",
+      "title": "Toji's Revival Is An Uncontrolled Variable",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.shibuya.gojo-sealed",
+        "validToAnchor": "jjk.shibuya.sukuna-finger-flood",
+        "sortKeyFrom": 6500,
+        "sortKeyTo": 7350,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Post-seal chaos"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:toji-fushiguro"
+        ],
+        "characters": [
+          "Toji Fushiguro"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Toji revival",
+          "uncontrolled variable"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:shibuya-incident",
+        "character:toji-fushiguro",
+        "topic:toji-revival",
+        "topic:uncontrolled-variable"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Toji Fushiguro"
+          ],
+          "topicsAny": [
+            "Toji revival",
+            "uncontrolled variable"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath.",
+        "notes": "Post-Shibuya preparation, Perfect Preparation, Culling Game, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Toji's revived body acts outside normal ally-enemy planning and destabilizes the station battles.",
+        "injection": "Use this event state in the active window: Toji's revived body acts outside normal ally-enemy planning and destabilizes the station battles.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Shibuya Incident",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Gojo sealing"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-shibuya-incident",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_shibuya_incident_exp_gojo_is_removed_from_the_board_after_sealing",
+      "title": "Gojo Is Removed From The Board After Sealing",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.shibuya.gojo-sealed",
+        "validToAnchor": "jjk.shibuya.sukuna-finger-flood",
+        "sortKeyFrom": 6500,
+        "sortKeyTo": 7350,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Post-seal chaos"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:gojo-satoru"
+        ],
+        "characters": [
+          "Satoru Gojo"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Gojo sealed",
+          "status change"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:shibuya-incident",
+        "character:gojo-satoru",
+        "topic:gojo-sealed",
+        "topic:status-change"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Satoru Gojo"
+          ],
+          "topicsAny": [
+            "Gojo sealed",
+            "status change"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath.",
+        "notes": "Post-Shibuya preparation, Perfect Preparation, Culling Game, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "After the Prison Realm succeeds, Gojo cannot solve fights, protect students, or overrule jujutsu politics until unsealed later.",
+        "injection": "At this Context, treat this status as active: After the Prison Realm succeeds, Gojo cannot solve fights, protect students, or overrule jujutsu politics until unsealed later.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Shibuya Incident",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Gojo sealing"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-shibuya-incident",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_shibuya_incident_exp_maki_leaves_shibuya_severely_injured",
+      "title": "Maki Leaves Shibuya Severely Injured",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.shibuya.gojo-sealed",
+        "validToAnchor": "jjk.shibuya.sukuna-finger-flood",
+        "sortKeyFrom": 6500,
+        "sortKeyTo": 7350,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Post-seal chaos"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:maki-zenin"
+        ],
+        "characters": [
+          "Maki Zenin"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Maki injury",
+          "post-Shibuya setup"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:shibuya-incident",
+        "character:maki-zenin",
+        "topic:maki-injury",
+        "topic:post-shibuya-setup"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Maki Zenin"
+          ],
+          "topicsAny": [
+            "Maki injury",
+            "post-Shibuya setup"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath.",
+        "notes": "Post-Shibuya preparation, Perfect Preparation, Culling Game, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Maki's Shibuya injuries are a bridge into her later Perfect Preparation transformation and should not be ignored after the arc.",
+        "injection": "At this Context, treat this status as active: Maki's Shibuya injuries are a bridge into her later Perfect Preparation transformation and should not be ignored after the arc.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Shibuya Incident",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Gojo sealing"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-shibuya-incident",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_shibuya_incident_exp_naobitos_condition_weakens_zenin_succession",
+      "title": "Naobito's Condition Weakens Zenin Succession",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.shibuya.gojo-sealed",
+        "validToAnchor": "jjk.shibuya.sukuna-finger-flood",
+        "sortKeyFrom": 6500,
+        "sortKeyTo": 7350,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Post-seal chaos"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:naobito-zenin",
+          "jjk:zenin-clan"
+        ],
+        "characters": [
+          "Naobito Zenin",
+          "Zenin clan"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Naobito injury",
+          "Zenin succession"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:shibuya-incident",
+        "character:naobito-zenin",
+        "topic:naobito-injury",
+        "topic:zenin-succession"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Naobito Zenin",
+            "Zenin clan"
+          ],
+          "topicsAny": [
+            "Naobito injury",
+            "Zenin succession"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath.",
+        "notes": "Post-Shibuya preparation, Perfect Preparation, Culling Game, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Naobito's Shibuya injuries create later Zenin clan succession pressure and political instability.",
+        "injection": "At this Context, treat this status as active: Naobito's Shibuya injuries create later Zenin clan succession pressure and political instability.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Shibuya Incident",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Gojo sealing"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-shibuya-incident",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_shibuya_incident_exp_chosos_perception_of_yuji_shifts_mid_arc",
+      "title": "Choso's Perception Of Yuji Shifts Mid-Arc",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.shibuya.gojo-sealed",
+        "validToAnchor": "jjk.shibuya.sukuna-finger-flood",
+        "sortKeyFrom": 6500,
+        "sortKeyTo": 7350,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Post-seal chaos"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:choso",
+          "jjk:itadori-yuji"
+        ],
+        "characters": [
+          "Choso",
+          "Yuji Itadori"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Choso memory",
+          "Yuji brother"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:shibuya-incident",
+        "character:choso",
+        "character:itadori-yuji",
+        "topic:choso-memory",
+        "topic:yuji-brother"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Choso",
+            "Yuji Itadori"
+          ],
+          "topicsAny": [
+            "Choso memory",
+            "Yuji brother"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath.",
+        "notes": "Post-Shibuya preparation, Perfect Preparation, Culling Game, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Choso moves from enemy pressure toward a destabilizing familial recognition that changes his later allegiance.",
+        "injection": "At this Context, treat this status as active: Choso moves from enemy pressure toward a destabilizing familial recognition that changes his later allegiance.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Shibuya Incident",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Gojo sealing"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-shibuya-incident",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_shibuya_incident_exp_unlimited_void_is_constrained_by_civilian_presence",
+      "title": "Unlimited Void Is Constrained By Civilian Presence",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.shibuya.curtains-descend",
+        "validToAnchor": "jjk.shibuya.aftermath",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 8200,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Shibuya Incident"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:gojo-satoru"
+        ],
+        "characters": [
+          "Satoru Gojo"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Unlimited Void",
+          "civilian constraint"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:shibuya-incident",
+        "character:gojo-satoru",
+        "topic:unlimited-void",
+        "topic:civilian-constraint"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Satoru Gojo"
+          ],
+          "topicsAny": [
+            "Unlimited Void",
+            "civilian constraint"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath.",
+        "notes": "Post-Shibuya preparation, Perfect Preparation, Culling Game, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Gojo's domain use in Shibuya is constrained by civilians and timing, making his choices tactical rather than casually unlimited.",
+        "injection": "When Unlimited Void matters, enforce this ability constraint: Gojo's domain use in Shibuya is constrained by civilians and timing, making his choices tactical rather than casually unlimited.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Shibuya Incident",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Incident opening"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-shibuya-incident",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      },
+      "ability": {
+        "system": "domain_expansion",
+        "name": "Unlimited Void",
+        "ownerEntityIds": [
+          "jjk:gojo-satoru"
+        ],
+        "constraints": [
+          "Gojo's domain use in Shibuya is constrained by civilians and timing, making his choices tactical rather than casually unlimited."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_shibuya_incident_exp_prison_realm_is_a_sealing_tool_not_a_killing_attack",
+      "title": "Prison Realm Is A Sealing Tool Not A Killing Attack",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.shibuya.curtains-descend",
+        "validToAnchor": "jjk.shibuya.aftermath",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 8200,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Shibuya Incident"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:gojo-satoru",
+          "jjk:kenjaku"
+        ],
+        "characters": [
+          "Satoru Gojo",
+          "Kenjaku"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Prison Realm",
+          "sealing"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:shibuya-incident",
+        "character:gojo-satoru",
+        "character:kenjaku",
+        "topic:prison-realm",
+        "topic:sealing"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Satoru Gojo",
+            "Kenjaku"
+          ],
+          "topicsAny": [
+            "Prison Realm",
+            "sealing"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath.",
+        "notes": "Post-Shibuya preparation, Perfect Preparation, Culling Game, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "The Prison Realm removes Gojo from play by sealing him, not by defeating him through ordinary damage.",
+        "injection": "When Prison Realm matters, enforce this ability constraint: The Prison Realm removes Gojo from play by sealing him, not by defeating him through ordinary damage.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Shibuya Incident",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Incident opening"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-shibuya-incident",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      },
+      "ability": {
+        "system": "cursed_tool",
+        "name": "Prison Realm",
+        "ownerEntityIds": [
+          "jjk:gojo-satoru",
+          "jjk:kenjaku"
+        ],
+        "constraints": [
+          "The Prison Realm removes Gojo from play by sealing him, not by defeating him through ordinary damage."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_shibuya_incident_exp_idle_transfiguration_cannot_be_treated_as_normal_injury",
+      "title": "Idle Transfiguration Cannot Be Treated As Normal Injury",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.shibuya.curtains-descend",
+        "validToAnchor": "jjk.shibuya.aftermath",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 8200,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Shibuya Incident"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:mahito"
+        ],
+        "characters": [
+          "Mahito"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Idle Transfiguration",
+          "soul damage"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:shibuya-incident",
+        "character:mahito",
+        "topic:idle-transfiguration",
+        "topic:soul-damage"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Mahito"
+          ],
+          "topicsAny": [
+            "Idle Transfiguration",
+            "soul damage"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath.",
+        "notes": "Post-Shibuya preparation, Perfect Preparation, Culling Game, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Mahito's touch threatens soul shape and body form, so victims should not recover like they suffered ordinary wounds.",
+        "injection": "When Idle Transfiguration matters, enforce this ability constraint: Mahito's touch threatens soul shape and body form, so victims should not recover like they suffered ordinary wounds.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Shibuya Incident",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Incident opening"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-shibuya-incident",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      },
+      "ability": {
+        "system": "cursed_technique",
+        "name": "Idle Transfiguration",
+        "ownerEntityIds": [
+          "jjk:mahito"
+        ],
+        "constraints": [
+          "Mahito's touch threatens soul shape and body form, so victims should not recover like they suffered ordinary wounds."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_shibuya_incident_exp_malevolent_shrine_causes_area_scale_slashing",
+      "title": "Malevolent Shrine Causes Area-Scale Slashing",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.shibuya.curtains-descend",
+        "validToAnchor": "jjk.shibuya.aftermath",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 8200,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Shibuya Incident"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:ryomen-sukuna"
+        ],
+        "characters": [
+          "Ryomen Sukuna"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Malevolent Shrine",
+          "Shibuya devastation"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:shibuya-incident",
+        "character:ryomen-sukuna",
+        "topic:malevolent-shrine",
+        "topic:shibuya-devastation"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Ryomen Sukuna"
+          ],
+          "topicsAny": [
+            "Malevolent Shrine",
+            "Shibuya devastation"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath.",
+        "notes": "Post-Shibuya preparation, Perfect Preparation, Culling Game, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Sukuna's Shibuya domain produces area-scale slashing devastation and should not be written as a narrow duel effect.",
+        "injection": "When Malevolent Shrine matters, enforce this ability constraint: Sukuna's Shibuya domain produces area-scale slashing devastation and should not be written as a narrow duel effect.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Shibuya Incident",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Incident opening"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-shibuya-incident",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      },
+      "ability": {
+        "system": "domain_expansion",
+        "name": "Malevolent Shrine",
+        "ownerEntityIds": [
+          "jjk:ryomen-sukuna"
+        ],
+        "constraints": [
+          "Sukuna's Shibuya domain produces area-scale slashing devastation and should not be written as a narrow duel effect."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_shibuya_incident_exp_mahoraga_adapts_to_phenomena",
+      "title": "Mahoraga Adapts To Phenomena",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.shibuya.curtains-descend",
+        "validToAnchor": "jjk.shibuya.aftermath",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 8200,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Shibuya Incident"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:megumi-fushiguro",
+          "jjk:ryomen-sukuna"
+        ],
+        "characters": [
+          "Megumi Fushiguro",
+          "Ryomen Sukuna"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Mahoraga",
+          "adaptation"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:shibuya-incident",
+        "character:megumi-fushiguro",
+        "character:ryomen-sukuna",
+        "topic:mahoraga",
+        "topic:adaptation"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Megumi Fushiguro",
+            "Ryomen Sukuna"
+          ],
+          "topicsAny": [
+            "Mahoraga",
+            "adaptation"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath.",
+        "notes": "Post-Shibuya preparation, Perfect Preparation, Culling Game, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Mahoraga's threat comes from adaptation to phenomena, requiring opponents to finish or overwhelm it before adaptation dominates.",
+        "injection": "When Mahoraga Adaptation matters, enforce this ability constraint: Mahoraga's threat comes from adaptation to phenomena, requiring opponents to finish or overwhelm it before adaptation dominates.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Shibuya Incident",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Incident opening"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-shibuya-incident",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      },
+      "ability": {
+        "system": "shikigami",
+        "name": "Mahoraga Adaptation",
+        "ownerEntityIds": [
+          "jjk:megumi-fushiguro",
+          "jjk:ryomen-sukuna"
+        ],
+        "constraints": [
+          "Mahoraga's threat comes from adaptation to phenomena, requiring opponents to finish or overwhelm it before adaptation dominates."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_shibuya_incident_exp_boogie_woogie_supports_yujis_rhythm_against_mahito",
+      "title": "Boogie Woogie Supports Yuji's Rhythm Against Mahito",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.shibuya.curtains-descend",
+        "validToAnchor": "jjk.shibuya.aftermath",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 8200,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Shibuya Incident"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:aoi-todo",
+          "jjk:itadori-yuji"
+        ],
+        "characters": [
+          "Aoi Todo",
+          "Yuji Itadori"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Boogie Woogie",
+          "Mahito fight"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:shibuya-incident",
+        "character:aoi-todo",
+        "character:itadori-yuji",
+        "topic:boogie-woogie",
+        "topic:mahito-fight"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Aoi Todo",
+            "Yuji Itadori"
+          ],
+          "topicsAny": [
+            "Boogie Woogie",
+            "Mahito fight"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath.",
+        "notes": "Post-Shibuya preparation, Perfect Preparation, Culling Game, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Todo's swaps let Yuji pressure Mahito through timing, confusion, and coordinated attacks rather than raw solo superiority.",
+        "injection": "When Boogie Woogie matters, enforce this ability constraint: Todo's swaps let Yuji pressure Mahito through timing, confusion, and coordinated attacks rather than raw solo superiority.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Shibuya Incident",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Incident opening"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-shibuya-incident",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      },
+      "ability": {
+        "system": "cursed_technique",
+        "name": "Boogie Woogie",
+        "ownerEntityIds": [
+          "jjk:aoi-todo",
+          "jjk:itadori-yuji"
+        ],
+        "constraints": [
+          "Todo's swaps let Yuji pressure Mahito through timing, confusion, and coordinated attacks rather than raw solo superiority."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_shibuya_incident_exp_blood_manipulation_makes_choso_a_midrange_threat",
+      "title": "Blood Manipulation Makes Choso A Midrange Threat",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.shibuya.curtains-descend",
+        "validToAnchor": "jjk.shibuya.aftermath",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 8200,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Shibuya Incident"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:choso"
+        ],
+        "characters": [
+          "Choso"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Blood Manipulation",
+          "Choso combat"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:shibuya-incident",
+        "character:choso",
+        "topic:blood-manipulation",
+        "topic:choso-combat"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Choso"
+          ],
+          "topicsAny": [
+            "Blood Manipulation",
+            "Choso combat"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath.",
+        "notes": "Post-Shibuya preparation, Perfect Preparation, Culling Game, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Choso's blood techniques create pressure through piercing attacks, blood control, and durable ranged tactics.",
+        "injection": "When Blood Manipulation matters, enforce this ability constraint: Choso's blood techniques create pressure through piercing attacks, blood control, and durable ranged tactics.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Shibuya Incident",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Incident opening"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-shibuya-incident",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      },
+      "ability": {
+        "system": "cursed_technique",
+        "name": "Blood Manipulation",
+        "ownerEntityIds": [
+          "jjk:choso"
+        ],
+        "constraints": [
+          "Choso's blood techniques create pressure through piercing attacks, blood control, and durable ranged tactics."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_shibuya_incident_exp_projection_sorcery_rewards_frame_timing",
+      "title": "Projection Sorcery Rewards Frame Timing",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.shibuya.curtains-descend",
+        "validToAnchor": "jjk.shibuya.aftermath",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 8200,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Shibuya Incident"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:naobito-zenin"
+        ],
+        "characters": [
+          "Naobito Zenin"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Projection Sorcery",
+          "Naobito"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:shibuya-incident",
+        "character:naobito-zenin",
+        "topic:projection-sorcery",
+        "topic:naobito"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Naobito Zenin"
+          ],
+          "topicsAny": [
+            "Projection Sorcery",
+            "Naobito"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath.",
+        "notes": "Post-Shibuya preparation, Perfect Preparation, Culling Game, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Naobito's Projection Sorcery depends on divided movement timing and punishes targets who fail its rule.",
+        "injection": "When Projection Sorcery matters, enforce this ability constraint: Naobito's Projection Sorcery depends on divided movement timing and punishes targets who fail its rule.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Shibuya Incident",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Incident opening"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-shibuya-incident",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      },
+      "ability": {
+        "system": "cursed_technique",
+        "name": "Projection Sorcery",
+        "ownerEntityIds": [
+          "jjk:naobito-zenin"
+        ],
+        "constraints": [
+          "Naobito's Projection Sorcery depends on divided movement timing and punishes targets who fail its rule."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_shibuya_incident_exp_getos_body_reveal_is_not_early_shibuya_knowledge",
+      "title": "Geto's Body Reveal Is Not Early Shibuya Knowledge",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.shibuya.curtains-descend",
+        "validToAnchor": "jjk.shibuya.gojo-sealed",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 6500,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Pre-seal Shibuya operation"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:kenjaku",
+          "jjk:geto-suguru"
+        ],
+        "characters": [
+          "Kenjaku",
+          "Suguru Geto"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Kenjaku reveal",
+          "knowledge gate"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:shibuya-incident",
+        "character:kenjaku",
+        "character:geto-suguru",
+        "topic:kenjaku-reveal",
+        "topic:knowledge-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kenjaku",
+            "Suguru Geto"
+          ],
+          "topicsAny": [
+            "Kenjaku reveal",
+            "knowledge gate"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath.",
+        "notes": "Post-Shibuya preparation, Perfect Preparation, Culling Game, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Before the late reveal, characters should not know that Kenjaku is controlling Geto's body unless they have specific exceptional evidence.",
+        "injection": "Gate by Context and character knowledge: Before the late reveal, characters should not know that Kenjaku is controlling Geto's body unless they have specific exceptional evidence.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Shibuya Incident",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Incident opening"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-shibuya-incident",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_shibuya_incident_exp_shibuya_station_is_a_layered_battlefield",
+      "title": "Shibuya Station Is A Layered Battlefield",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 72,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.shibuya.curtains-descend",
+        "validToAnchor": "jjk.shibuya.gojo-sealed",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 6500,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Pre-seal Shibuya operation"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [
+          "Shibuya Station"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Shibuya station",
+          "battlefield zones"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:shibuya-incident",
+        "topic:shibuya-station",
+        "topic:battlefield-zones",
+        "location:shibuya-station"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "Shibuya station",
+            "battlefield zones"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath.",
+        "notes": "Post-Shibuya preparation, Perfect Preparation, Culling Game, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Shibuya station scenes should track platforms, underground spaces, civilians, curtains, and separated teams instead of acting like one open arena.",
+        "injection": "Use this location state when the scene is set there: Shibuya station scenes should track platforms, underground spaces, civilians, curtains, and separated teams instead of acting like one open arena.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Shibuya Incident",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Incident opening"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-shibuya-incident",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_shibuya_incident_exp_the_civilian_crowd_is_tactical_pressure",
+      "title": "The Civilian Crowd Is Tactical Pressure",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 72,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.shibuya.curtains-descend",
+        "validToAnchor": "jjk.shibuya.gojo-sealed",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 6500,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Pre-seal Shibuya operation"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [
+          "Shibuya"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "civilian crowd",
+          "tactical pressure"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:shibuya-incident",
+        "topic:civilian-crowd",
+        "topic:tactical-pressure",
+        "location:shibuya"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "civilian crowd",
+            "tactical pressure"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath.",
+        "notes": "Post-Shibuya preparation, Perfect Preparation, Culling Game, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Civilians are not background decoration in Shibuya; they constrain Gojo, amplify stakes, and complicate rescue and combat choices.",
+        "injection": "Use this location state when the scene is set there: Civilians are not background decoration in Shibuya; they constrain Gojo, amplify stakes, and complicate rescue and combat choices.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Shibuya Incident",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Incident opening"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-shibuya-incident",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_shibuya_incident_exp_post_seal_movement_is_fragmented",
+      "title": "Post-Seal Movement Is Fragmented",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 72,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.shibuya.gojo-sealed",
+        "validToAnchor": "jjk.shibuya.sukuna-finger-flood",
+        "sortKeyFrom": 6500,
+        "sortKeyTo": 7350,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Post-seal chaos"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [
+          "Shibuya Station"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "post-seal movement",
+          "separated teams"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:shibuya-incident",
+        "topic:post-seal-movement",
+        "topic:separated-teams",
+        "location:shibuya-station"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "post-seal movement",
+            "separated teams"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shibuya Incident manga material through immediate aftermath.",
+        "notes": "Post-Shibuya preparation, Perfect Preparation, Culling Game, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "After Gojo is sealed, allied movement through Shibuya is fragmented by barriers, enemies, and communication failures.",
+        "injection": "Use this location state when the scene is set there: After Gojo is sealed, allied movement through Shibuya is fragmented by barriers, enemies, and communication failures.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Shibuya Incident",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Gojo sealing"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-shibuya-incident",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
     }
   ]
 }

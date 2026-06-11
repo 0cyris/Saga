@@ -424,6 +424,777 @@
           "status": "initial_mainline_opening_slice"
         }
       }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_origin_death_painting_exp_todo_forces_yuji_to_grow_mid_combat",
+      "title": "Todo Forces Yuji To Grow Mid-Combat",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.main.kyoto-goodwill-event",
+        "validToAnchor": "jjk.main.death-painting-aftermath",
+        "sortKeyFrom": 3100,
+        "sortKeyTo": 3800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Goodwill through Death Painting"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:aoi-todo",
+          "jjk:itadori-yuji"
+        ],
+        "characters": [
+          "Aoi Todo",
+          "Yuji Itadori"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Todo mentorship",
+          "Black Flash"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:origin-death-painting",
+        "character:aoi-todo",
+        "character:itadori-yuji",
+        "topic:todo-mentorship",
+        "topic:black-flash"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Aoi Todo",
+            "Yuji Itadori"
+          ],
+          "topicsAny": [
+            "Todo mentorship",
+            "Black Flash"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath.",
+        "notes": "Jujutsu Kaisen 0 prequel context, Hidden Inventory, Shibuya, Culling Game, Shinjuku, anime-only changes, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Todo's mentorship during Goodwill turns combat into a lesson about cursed energy timing and personal taste.",
+        "injection": "At this Context, treat this status as active: Todo's mentorship during Goodwill turns combat into a lesson about cursed energy timing and personal taste.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Origin through Death Painting",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Kyoto Goodwill Event"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-origin-death-painting",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_origin_death_painting_exp_choso_is_introduced_through_blood_connection_pressure",
+      "title": "Choso Is Introduced Through Blood Connection Pressure",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.main.kyoto-goodwill-event",
+        "validToAnchor": "jjk.main.death-painting-aftermath",
+        "sortKeyFrom": 3100,
+        "sortKeyTo": 3800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Goodwill through Death Painting"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:choso",
+          "jjk:itadori-yuji"
+        ],
+        "characters": [
+          "Choso",
+          "Yuji Itadori"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Choso bond",
+          "Death Paintings"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:origin-death-painting",
+        "character:choso",
+        "character:itadori-yuji",
+        "topic:choso-bond",
+        "topic:death-paintings"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Choso",
+            "Yuji Itadori"
+          ],
+          "topicsAny": [
+            "Choso bond",
+            "Death Paintings"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath.",
+        "notes": "Jujutsu Kaisen 0 prequel context, Hidden Inventory, Shibuya, Culling Game, Shinjuku, anime-only changes, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Choso's bond with the Death Paintings gives later conflict emotional weight beyond an ordinary enemy role.",
+        "injection": "At this Context, treat this status as active: Choso's bond with the Death Paintings gives later conflict emotional weight beyond an ordinary enemy role.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Origin through Death Painting",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Kyoto Goodwill Event"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-origin-death-painting",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_origin_death_painting_exp_goodwill_event_turns_into_a_real_attack",
+      "title": "Goodwill Event Turns Into A Real Attack",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.main.kyoto-goodwill-event",
+        "validToAnchor": "jjk.main.death-painting-aftermath",
+        "sortKeyFrom": 3100,
+        "sortKeyTo": 3800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Goodwill through Death Painting"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:itadori-yuji",
+          "jjk:aoi-todo",
+          "jjk:hanami"
+        ],
+        "characters": [
+          "Yuji Itadori",
+          "Aoi Todo",
+          "Hanami"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Goodwill Event",
+          "Hanami attack"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:origin-death-painting",
+        "character:itadori-yuji",
+        "character:aoi-todo",
+        "character:hanami",
+        "topic:goodwill-event",
+        "topic:hanami-attack"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuji Itadori",
+            "Aoi Todo",
+            "Hanami"
+          ],
+          "topicsAny": [
+            "Goodwill Event",
+            "Hanami attack"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath.",
+        "notes": "Jujutsu Kaisen 0 prequel context, Hidden Inventory, Shibuya, Culling Game, Shinjuku, anime-only changes, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "The Kyoto exchange stops being a school competition once Hanami and the curse-user operation intrude.",
+        "injection": "Use this event state in the active window: The Kyoto exchange stops being a school competition once Hanami and the curse-user operation intrude.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Origin through Death Painting",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Kyoto Goodwill Event"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-origin-death-painting",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_origin_death_painting_exp_yuji_and_nobara_defeat_death_paintings_together",
+      "title": "Yuji And Nobara Defeat Death Paintings Together",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.main.kyoto-goodwill-event",
+        "validToAnchor": "jjk.main.death-painting-aftermath",
+        "sortKeyFrom": 3100,
+        "sortKeyTo": 3800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Goodwill through Death Painting"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:itadori-yuji",
+          "jjk:kugisaki-nobara"
+        ],
+        "characters": [
+          "Yuji Itadori",
+          "Nobara Kugisaki"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Death Paintings",
+          "shared burden"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:origin-death-painting",
+        "character:itadori-yuji",
+        "character:kugisaki-nobara",
+        "topic:death-paintings",
+        "topic:shared-burden"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuji Itadori",
+            "Nobara Kugisaki"
+          ],
+          "topicsAny": [
+            "Death Paintings",
+            "shared burden"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath.",
+        "notes": "Jujutsu Kaisen 0 prequel context, Hidden Inventory, Shibuya, Culling Game, Shinjuku, anime-only changes, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "The Death Painting fight establishes Yuji and Nobara's shared willingness to kill cursed incarnations while still feeling the human cost.",
+        "injection": "Use this event state in the active window: The Death Painting fight establishes Yuji and Nobara's shared willingness to kill cursed incarnations while still feeling the human cost.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Origin through Death Painting",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Kyoto Goodwill Event"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-origin-death-painting",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_origin_death_painting_exp_death_painting_aftermath_links_enemies_to_family",
+      "title": "Death Painting Aftermath Links Enemies To Family",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.main.kyoto-goodwill-event",
+        "validToAnchor": "jjk.main.death-painting-aftermath",
+        "sortKeyFrom": 3100,
+        "sortKeyTo": 3800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Goodwill through Death Painting"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:choso",
+          "jjk:itadori-yuji",
+          "jjk:kugisaki-nobara"
+        ],
+        "characters": [
+          "Choso",
+          "Yuji Itadori",
+          "Nobara Kugisaki"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Death Painting aftermath",
+          "Choso motive"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:origin-death-painting",
+        "character:choso",
+        "character:itadori-yuji",
+        "character:kugisaki-nobara",
+        "topic:death-painting-aftermath",
+        "topic:choso-motive"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Choso",
+            "Yuji Itadori",
+            "Nobara Kugisaki"
+          ],
+          "topicsAny": [
+            "Death Painting aftermath",
+            "Choso motive"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath.",
+        "notes": "Jujutsu Kaisen 0 prequel context, Hidden Inventory, Shibuya, Culling Game, Shinjuku, anime-only changes, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "The aftermath creates a future emotional connection between Choso and the brothers killed by Yuji and Nobara.",
+        "injection": "Use this event state in the active window: The aftermath creates a future emotional connection between Choso and the brothers killed by Yuji and Nobara.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Origin through Death Painting",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Kyoto Goodwill Event"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-origin-death-painting",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_origin_death_painting_exp_yuji_and_todo_become_combat_brothers_by_tempo",
+      "title": "Yuji And Todo Become Combat Brothers By Tempo",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 74,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.main.kyoto-goodwill-event",
+        "validToAnchor": "jjk.main.death-painting-aftermath",
+        "sortKeyFrom": 3100,
+        "sortKeyTo": 3800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Goodwill through Death Painting"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:itadori-yuji",
+          "jjk:aoi-todo"
+        ],
+        "characters": [
+          "Yuji Itadori",
+          "Aoi Todo"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Todo Yuji",
+          "combat rhythm"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:origin-death-painting",
+        "character:itadori-yuji",
+        "character:aoi-todo",
+        "topic:todo-yuji",
+        "topic:combat-rhythm"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuji Itadori",
+            "Aoi Todo"
+          ],
+          "topicsAny": [
+            "Todo Yuji",
+            "combat rhythm"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath.",
+        "notes": "Jujutsu Kaisen 0 prequel context, Hidden Inventory, Shibuya, Culling Game, Shinjuku, anime-only changes, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Todo's bond with Yuji is eccentric but tactically real once they synchronize in combat.",
+        "injection": "Use this relationship state for dialogue and behavior: Todo's bond with Yuji is eccentric but tactically real once they synchronize in combat.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Origin through Death Painting",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Kyoto Goodwill Event"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-origin-death-painting",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_origin_death_painting_exp_nobara_and_maki_share_respect_through_defiance",
+      "title": "Nobara And Maki Share Respect Through Defiance",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 74,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.main.kyoto-goodwill-event",
+        "validToAnchor": "jjk.main.death-painting-aftermath",
+        "sortKeyFrom": 3100,
+        "sortKeyTo": 3800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Goodwill through Death Painting"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:kugisaki-nobara",
+          "jjk:maki-zenin"
+        ],
+        "characters": [
+          "Nobara Kugisaki",
+          "Maki Zenin"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Nobara Maki respect",
+          "self-definition"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:origin-death-painting",
+        "character:kugisaki-nobara",
+        "character:maki-zenin",
+        "topic:nobara-maki-respect",
+        "topic:self-definition"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Nobara Kugisaki",
+            "Maki Zenin"
+          ],
+          "topicsAny": [
+            "Nobara Maki respect",
+            "self-definition"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen manga mainline opening through Death Painting aftermath.",
+        "notes": "Jujutsu Kaisen 0 prequel context, Hidden Inventory, Shibuya, Culling Game, Shinjuku, anime-only changes, light novels, games, guidebook-only material, and Jujutsu Kaisen Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Nobara's admiration for Maki centers on self-definition and defiance of restrictive expectations.",
+        "injection": "Use this relationship state for dialogue and behavior: Nobara's admiration for Maki centers on self-definition and defiance of restrictive expectations.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Origin through Death Painting",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Kyoto Goodwill Event"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-origin-death-painting",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
     }
   ]
 }

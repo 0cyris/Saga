@@ -465,6 +465,1189 @@
           "status": "initial_culling_colonies_slice"
         }
       }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_culling_game_colonies_exp_yuji_enters_the_game_seeking_points_and_answers",
+      "title": "Yuji Enters The Game Seeking Points And Answers",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.culling.tokyo-no1-higuruma",
+        "validToAnchor": "jjk.culling.tokyo-no1-reggie-fight",
+        "sortKeyFrom": 10300,
+        "sortKeyTo": 10700,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Tokyo No. 1 Colony"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:itadori-yuji"
+        ],
+        "characters": [
+          "Yuji Itadori"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Yuji objective",
+          "point transfer"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:culling-game-colonies",
+        "character:itadori-yuji",
+        "topic:yuji-objective",
+        "topic:point-transfer"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuji Itadori"
+          ],
+          "topicsAny": [
+            "Yuji objective",
+            "point transfer"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen early and middle Culling Game colony action through Tokyo No. 2 Hakari/Kashimo material.",
+        "notes": "Late Culling Game convergence, Sakurajima, Angel, Prison Realm resolution, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Yuji's colony objective is to navigate the rules without becoming a casual killer while finding a way to help Tsumiki.",
+        "injection": "At this Context, treat this status as active: Yuji's colony objective is to navigate the rules without becoming a casual killer while finding a way to help Tsumiki.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Culling Game Colonies",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Yuji and Higuruma"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-culling-game-colonies",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_culling_game_colonies_exp_megumi_enters_with_a_ruthless_rescue_focus",
+      "title": "Megumi Enters With A Ruthless Rescue Focus",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.culling.tokyo-no1-higuruma",
+        "validToAnchor": "jjk.culling.tokyo-no1-reggie-fight",
+        "sortKeyFrom": 10300,
+        "sortKeyTo": 10700,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Tokyo No. 1 Colony"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:megumi-fushiguro",
+          "jjk:tsumiki-fushiguro"
+        ],
+        "characters": [
+          "Megumi Fushiguro",
+          "Tsumiki Fushiguro"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Megumi objective",
+          "Tsumiki rescue"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:culling-game-colonies",
+        "character:megumi-fushiguro",
+        "character:tsumiki-fushiguro",
+        "topic:megumi-objective",
+        "topic:tsumiki-rescue"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Megumi Fushiguro",
+            "Tsumiki Fushiguro"
+          ],
+          "topicsAny": [
+            "Megumi objective",
+            "Tsumiki rescue"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen early and middle Culling Game colony action through Tokyo No. 2 Hakari/Kashimo material.",
+        "notes": "Late Culling Game convergence, Sakurajima, Angel, Prison Realm resolution, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Megumi's colony decisions can become colder and more tactical because Tsumiki's survival is at stake.",
+        "injection": "At this Context, treat this status as active: Megumi's colony decisions can become colder and more tactical because Tsumiki's survival is at stake.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Culling Game Colonies",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Yuji and Higuruma"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-culling-game-colonies",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_culling_game_colonies_exp_higuruma_is_a_disillusioned_modern_sorcerer",
+      "title": "Higuruma Is A Disillusioned Modern Sorcerer",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.culling.tokyo-no1-higuruma",
+        "validToAnchor": "jjk.culling.tokyo-no1-reggie-fight",
+        "sortKeyFrom": 10300,
+        "sortKeyTo": 10700,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Tokyo No. 1 Colony"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:hiromi-higuruma"
+        ],
+        "characters": [
+          "Hiromi Higuruma"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Higuruma baseline",
+          "legal disillusionment"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:culling-game-colonies",
+        "character:hiromi-higuruma",
+        "topic:higuruma-baseline",
+        "topic:legal-disillusionment"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Hiromi Higuruma"
+          ],
+          "topicsAny": [
+            "Higuruma baseline",
+            "legal disillusionment"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen early and middle Culling Game colony action through Tokyo No. 2 Hakari/Kashimo material.",
+        "notes": "Late Culling Game convergence, Sakurajima, Angel, Prison Realm resolution, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Higuruma's technique and behavior reflect legal burnout and moral collapse more than traditional jujutsu training.",
+        "injection": "At this Context, treat this status as active: Higuruma's technique and behavior reflect legal burnout and moral collapse more than traditional jujutsu training.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Culling Game Colonies",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Yuji and Higuruma"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-culling-game-colonies",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_culling_game_colonies_exp_takaba_is_dangerous_because_reality_bends_through_comedy",
+      "title": "Takaba Is Dangerous Because Reality Bends Through Comedy",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.culling.tokyo-no1-higuruma",
+        "validToAnchor": "jjk.culling.tokyo-no1-reggie-fight",
+        "sortKeyFrom": 10300,
+        "sortKeyTo": 10700,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Tokyo No. 1 Colony"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:fumihiko-takaba"
+        ],
+        "characters": [
+          "Fumihiko Takaba"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Takaba ability",
+          "comedy"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:culling-game-colonies",
+        "character:fumihiko-takaba",
+        "topic:takaba-ability",
+        "topic:comedy"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Fumihiko Takaba"
+          ],
+          "topicsAny": [
+            "Takaba ability",
+            "comedy"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen early and middle Culling Game colony action through Tokyo No. 2 Hakari/Kashimo material.",
+        "notes": "Late Culling Game convergence, Sakurajima, Angel, Prison Realm resolution, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Takaba's ability should be treated as bizarre and potent even when his conscious understanding is limited.",
+        "injection": "At this Context, treat this status as active: Takaba's ability should be treated as bizarre and potent even when his conscious understanding is limited.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Culling Game Colonies",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Yuji and Higuruma"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-culling-game-colonies",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_culling_game_colonies_exp_yuta_prioritizes_civilian_protection_in_sendai",
+      "title": "Yuta Prioritizes Civilian Protection In Sendai",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.culling.sendai-deadlock",
+        "validToAnchor": "jjk.culling.yuta-sendai-resolution",
+        "sortKeyFrom": 11000,
+        "sortKeyTo": 11150,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Sendai Colony"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:yuta-okkotsu"
+        ],
+        "characters": [
+          "Yuta Okkotsu"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Yuta Sendai",
+          "civilian protection"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:culling-game-colonies",
+        "character:yuta-okkotsu",
+        "topic:yuta-sendai",
+        "topic:civilian-protection"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuta Okkotsu"
+          ],
+          "topicsAny": [
+            "Yuta Sendai",
+            "civilian protection"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen early and middle Culling Game colony action through Tokyo No. 2 Hakari/Kashimo material.",
+        "notes": "Late Culling Game convergence, Sakurajima, Angel, Prison Realm resolution, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Yuta's Sendai actions balance defeating strong players with protecting civilians and collecting points.",
+        "injection": "At this Context, treat this status as active: Yuta's Sendai actions balance defeating strong players with protecting civilians and collecting points.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Culling Game Colonies",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Sendai deadlock"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-culling-game-colonies",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_culling_game_colonies_exp_ryu_seeks_a_satisfying_fight",
+      "title": "Ryu Seeks A Satisfying Fight",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.culling.sendai-deadlock",
+        "validToAnchor": "jjk.culling.yuta-sendai-resolution",
+        "sortKeyFrom": 11000,
+        "sortKeyTo": 11150,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Sendai Colony"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:ryu-ishigori"
+        ],
+        "characters": [
+          "Ryu Ishigori"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Ryu motivation",
+          "Sendai"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:culling-game-colonies",
+        "character:ryu-ishigori",
+        "topic:ryu-motivation",
+        "topic:sendai"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Ryu Ishigori"
+          ],
+          "topicsAny": [
+            "Ryu motivation",
+            "Sendai"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen early and middle Culling Game colony action through Tokyo No. 2 Hakari/Kashimo material.",
+        "notes": "Late Culling Game convergence, Sakurajima, Angel, Prison Realm resolution, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Ryu's motivation centers on appetite for a fulfilling battle and output expression rather than ideology.",
+        "injection": "At this Context, treat this status as active: Ryu's motivation centers on appetite for a fulfilling battle and output expression rather than ideology.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Culling Game Colonies",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Sendai deadlock"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-culling-game-colonies",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_culling_game_colonies_exp_uro_carries_heian_era_resentment",
+      "title": "Uro Carries Heian-Era Resentment",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.culling.sendai-deadlock",
+        "validToAnchor": "jjk.culling.yuta-sendai-resolution",
+        "sortKeyFrom": 11000,
+        "sortKeyTo": 11150,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Sendai Colony"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:takako-uro"
+        ],
+        "characters": [
+          "Takako Uro"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Uro resentment",
+          "reincarnated sorcerer"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:culling-game-colonies",
+        "character:takako-uro",
+        "topic:uro-resentment",
+        "topic:reincarnated-sorcerer"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Takako Uro"
+          ],
+          "topicsAny": [
+            "Uro resentment",
+            "reincarnated sorcerer"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen early and middle Culling Game colony action through Tokyo No. 2 Hakari/Kashimo material.",
+        "notes": "Late Culling Game convergence, Sakurajima, Angel, Prison Realm resolution, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Uro's reincarnated perspective includes old betrayal and social resentment, making her more than a generic aerial fighter.",
+        "injection": "At this Context, treat this status as active: Uro's reincarnated perspective includes old betrayal and social resentment, making her more than a generic aerial fighter.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Culling Game Colonies",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Sendai deadlock"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-culling-game-colonies",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_culling_game_colonies_exp_yuji_confesses_in_higurumas_domain",
+      "title": "Yuji Confesses In Higuruma's Domain",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.culling.tokyo-no1-higuruma",
+        "validToAnchor": "jjk.culling.tokyo-no1-reggie-fight",
+        "sortKeyFrom": 10300,
+        "sortKeyTo": 10700,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Tokyo No. 1 Colony"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:itadori-yuji",
+          "jjk:hiromi-higuruma"
+        ],
+        "characters": [
+          "Yuji Itadori",
+          "Hiromi Higuruma"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Yuji confession",
+          "Higuruma domain"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:culling-game-colonies",
+        "character:itadori-yuji",
+        "character:hiromi-higuruma",
+        "topic:yuji-confession",
+        "topic:higuruma-domain"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuji Itadori",
+            "Hiromi Higuruma"
+          ],
+          "topicsAny": [
+            "Yuji confession",
+            "Higuruma domain"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen early and middle Culling Game colony action through Tokyo No. 2 Hakari/Kashimo material.",
+        "notes": "Late Culling Game convergence, Sakurajima, Angel, Prison Realm resolution, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Yuji's response inside Deadly Sentencing reveals his guilt over Shibuya and changes the moral texture of the fight.",
+        "injection": "Use this event state in the active window: Yuji's response inside Deadly Sentencing reveals his guilt over Shibuya and changes the moral texture of the fight.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Culling Game Colonies",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Yuji and Higuruma"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-culling-game-colonies",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_culling_game_colonies_exp_higuruma_transfers_points_after_moral_recognition",
+      "title": "Higuruma Transfers Points After Moral Recognition",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.culling.tokyo-no1-higuruma",
+        "validToAnchor": "jjk.culling.tokyo-no1-reggie-fight",
+        "sortKeyFrom": 10300,
+        "sortKeyTo": 10700,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Tokyo No. 1 Colony"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:hiromi-higuruma",
+          "jjk:itadori-yuji"
+        ],
+        "characters": [
+          "Hiromi Higuruma",
+          "Yuji Itadori"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "point transfer",
+          "Higuruma shift"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:culling-game-colonies",
+        "character:hiromi-higuruma",
+        "character:itadori-yuji",
+        "topic:point-transfer",
+        "topic:higuruma-shift"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Hiromi Higuruma",
+            "Yuji Itadori"
+          ],
+          "topicsAny": [
+            "point transfer",
+            "Higuruma shift"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen early and middle Culling Game colony action through Tokyo No. 2 Hakari/Kashimo material.",
+        "notes": "Late Culling Game convergence, Sakurajima, Angel, Prison Realm resolution, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Higuruma's point transfer follows recognition of Yuji's burden and his own disillusionment with punishment.",
+        "injection": "Use this event state in the active window: Higuruma's point transfer follows recognition of Yuji's burden and his own disillusionment with punishment.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Culling Game Colonies",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Yuji and Higuruma"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-culling-game-colonies",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_culling_game_colonies_exp_megumi_defeats_reggie_through_shadow_tactics",
+      "title": "Megumi Defeats Reggie Through Shadow Tactics",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.culling.tokyo-no1-higuruma",
+        "validToAnchor": "jjk.culling.tokyo-no1-reggie-fight",
+        "sortKeyFrom": 10300,
+        "sortKeyTo": 10700,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Tokyo No. 1 Colony"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:megumi-fushiguro",
+          "jjk:reggie-star"
+        ],
+        "characters": [
+          "Megumi Fushiguro",
+          "Reggie Star"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Reggie fight",
+          "shadow tactics"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:culling-game-colonies",
+        "character:megumi-fushiguro",
+        "character:reggie-star",
+        "topic:reggie-fight",
+        "topic:shadow-tactics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Megumi Fushiguro",
+            "Reggie Star"
+          ],
+          "topicsAny": [
+            "Reggie fight",
+            "shadow tactics"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen early and middle Culling Game colony action through Tokyo No. 2 Hakari/Kashimo material.",
+        "notes": "Late Culling Game convergence, Sakurajima, Angel, Prison Realm resolution, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Megumi's fight with Reggie hinges on exploiting assumptions, weight, and shadow space rather than simple overpowering.",
+        "injection": "Use this event state in the active window: Megumi's fight with Reggie hinges on exploiting assumptions, weight, and shadow space rather than simple overpowering.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Culling Game Colonies",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Yuji and Higuruma"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-culling-game-colonies",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_culling_game_colonies_exp_yuta_clears_sendais_multi_way_deadlock",
+      "title": "Yuta Clears Sendai's Multi-Way Deadlock",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.culling.sendai-deadlock",
+        "validToAnchor": "jjk.culling.yuta-sendai-resolution",
+        "sortKeyFrom": 11000,
+        "sortKeyTo": 11150,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Sendai Colony"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:yuta-okkotsu",
+          "jjk:ryu-ishigori",
+          "jjk:takako-uro",
+          "jjk:kurourushi"
+        ],
+        "characters": [
+          "Yuta Okkotsu",
+          "Ryu Ishigori",
+          "Takako Uro",
+          "Kurourushi"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Sendai deadlock",
+          "Yuta resolution"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:culling-game-colonies",
+        "character:yuta-okkotsu",
+        "character:ryu-ishigori",
+        "character:takako-uro",
+        "character:kurourushi",
+        "topic:sendai-deadlock",
+        "topic:yuta-resolution"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuta Okkotsu",
+            "Ryu Ishigori",
+            "Takako Uro",
+            "Kurourushi"
+          ],
+          "topicsAny": [
+            "Sendai deadlock",
+            "Yuta resolution"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen early and middle Culling Game colony action through Tokyo No. 2 Hakari/Kashimo material.",
+        "notes": "Late Culling Game convergence, Sakurajima, Angel, Prison Realm resolution, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Yuta's Sendai resolution breaks a dangerous standoff among multiple strong players while preserving his wider rescue objective.",
+        "injection": "Use this event state in the active window: Yuta's Sendai resolution breaks a dangerous standoff among multiple strong players while preserving his wider rescue objective.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Culling Game Colonies",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Sendai deadlock"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-culling-game-colonies",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
     }
   ]
 }

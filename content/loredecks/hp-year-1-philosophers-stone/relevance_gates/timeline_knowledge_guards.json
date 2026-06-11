@@ -232,9 +232,9 @@
       "title": "Flamel and Stone mystery not solved early",
       "kind": "knowledge_gate",
       "gateType": "knowledge_gate",
-      "category": "knowledge",
+      "category": "secret",
       "relevance": "high",
-      "lorePurpose": "knowledge_gate",
+      "lorePurpose": "secret",
       "specificityScore": 92,
       "injectableByDefault": true,
       "canon": "canon",
@@ -340,6 +340,15 @@
         },
         "sagaSplitLoredeck": {
           "targetPackId": "hp-year-1-philosophers-stone"
+        }
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "year_secrets",
+          "suggestionRole": "reveal_gate",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "controls_character_knowledge"
         }
       }
     },
@@ -463,6 +472,15 @@
         "sagaSplitLoredeck": {
           "targetPackId": "hp-year-1-philosophers-stone"
         }
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "year_secrets",
+          "suggestionRole": "reveal_gate",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "controls_character_knowledge"
+        }
       }
     },
     {
@@ -578,6 +596,399 @@
           "curationPass": "hp-relevance-v0.2.0",
           "deckId": "hp-year-1-philosophers-stone",
           "purpose": "story-position control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-1-philosophers-stone"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "secret",
+      "specificityScore": 94,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 112,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "id": "y1_secret_snape_protection_misdirected_until_aftermath",
+      "title": "Snape protection hidden behind suspicion",
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y1.counterjinx_suspicion",
+        "validToAnchor": "hp.y1.hospital_aftermath",
+        "sortKeyFrom": 8085,
+        "sortKeyTo": 8192,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Before Dumbledore explains Snape protection",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Ron Weasley",
+          "Hermione Granger",
+          "Severus Snape",
+          "Quirinus Quirrell",
+          "Albus Dumbledore"
+        ],
+        "topics": [
+          "Snape suspicion",
+          "Quirrell threat",
+          "Stone protection secret"
+        ],
+        "objects": [
+          "Philosopher's Stone"
+        ],
+        "schoolYears": [
+          "1"
+        ],
+        "books": [
+          "Philosopher's Stone"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "artifact:philosophers-stone",
+        "book:philosophers-stone",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "quality:relevance-curated",
+        "school-year:1",
+        "character:severus-snape",
+        "character:quirinus-quirrell",
+        "character:albus-dumbledore"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Ron Weasley",
+            "Hermione Granger",
+            "Severus Snape",
+            "Quirinus Quirrell",
+            "Albus Dumbledore"
+          ],
+          "topicsAny": [
+            "Snape suspicion",
+            "Quirrell threat",
+            "Stone protection secret",
+            "Philosopher's Stone"
+          ]
+        }
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "year_secrets",
+          "suggestionRole": "reveal_gate",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "controls_character_knowledge"
+        }
+      },
+      "content": {
+        "fact": "During the Stone mystery, Harry and the trio misread Snape as the likely threat; Snape is secretly protecting Harry and opposing Quirrell.",
+        "injection": "Before Dumbledore explains the aftermath, allow Dumbledore, Snape, and Quirrell to know their own roles, but block Harry, Ron, Hermione, students, and ordinary narration from treating Snape as confirmed protector or Quirrell as confirmed culprit.",
+        "constraints": [
+          "Suspicion of Snape is allowed; certainty about Snape helping Harry is not.",
+          "Quirrell can act suspiciously, but his role should stay concealed until the reveal path.",
+          "Use this as a reveal-control gate: allow the named keepers to know the secret, but block characters outside that knowledge path from stating, acting on, or narrating it as known.",
+          "Apply only when Saga Context matches Before Dumbledore explains Snape protection; if the scene is outside this window, withhold this secret gate."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Philosopher's Stone",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-secret-gates-v0.3.0",
+          "deckId": "hp-year-1-philosophers-stone",
+          "purpose": "reveal-control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-1-philosophers-stone"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "secret",
+      "specificityScore": 94,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 112,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "id": "y1_secret_mirror_stone_mechanism_hidden",
+      "title": "Mirror Stone mechanism hidden",
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y1.mirror_of_erised_first",
+        "validToAnchor": "hp.y1.quirrell_voldemort_reveal",
+        "sortKeyFrom": 8098,
+        "sortKeyTo": 8179,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Before Mirror Stone mechanism is revealed",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Ron Weasley",
+          "Hermione Granger",
+          "Albus Dumbledore",
+          "Quirinus Quirrell"
+        ],
+        "topics": [
+          "Mirror of Erised",
+          "Stone retrieval mechanism",
+          "Dumbledore protection"
+        ],
+        "objects": [
+          "Philosopher's Stone"
+        ],
+        "schoolYears": [
+          "1"
+        ],
+        "books": [
+          "Philosopher's Stone"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "artifact:philosophers-stone",
+        "book:philosophers-stone",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "quality:relevance-curated",
+        "school-year:1",
+        "character:albus-dumbledore",
+        "character:quirinus-quirrell"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Ron Weasley",
+            "Hermione Granger",
+            "Albus Dumbledore",
+            "Quirinus Quirrell"
+          ],
+          "topicsAny": [
+            "Mirror of Erised",
+            "Stone retrieval mechanism",
+            "Dumbledore protection",
+            "Philosopher's Stone"
+          ]
+        }
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "year_secrets",
+          "suggestionRole": "reveal_gate",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "controls_character_knowledge"
+        }
+      },
+      "content": {
+        "fact": "The Mirror of Erised protection around the Stone is Dumbledore-controlled secret knowledge, not something the students or Quirrell understand before the final chamber.",
+        "injection": "Before the final chamber reveal, do not let Harry, Ron, Hermione, Quirrell, or ordinary narration explain how the Mirror can yield the Stone; Dumbledore may know because he set the protection.",
+        "constraints": [
+          "The trio may know the Mirror exists after Christmas, but not its Stone-specific function.",
+          "Quirrell may pursue the Stone without understanding the final mechanism.",
+          "Use this as a reveal-control gate: allow the named keepers to know the secret, but block characters outside that knowledge path from stating, acting on, or narrating it as known.",
+          "Apply only when Saga Context matches Before Mirror Stone mechanism is revealed; if the scene is outside this window, withhold this secret gate."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Philosopher's Stone",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-secret-gates-v0.3.0",
+          "deckId": "hp-year-1-philosophers-stone",
+          "purpose": "reveal-control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-1-philosophers-stone"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "secret",
+      "specificityScore": 94,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 112,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "id": "y1_secret_norbert_dragon_hidden_until_removed",
+      "title": "Norbert stays hidden from school",
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y1.norbert_hatches",
+        "validToAnchor": "hp.y1.norbert_removed",
+        "sortKeyFrom": 8125,
+        "sortKeyTo": 8132,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Norbert hidden before removal",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Ron Weasley",
+          "Hermione Granger",
+          "Rubeus Hagrid"
+        ],
+        "topics": [
+          "Norbert",
+          "illegal dragon",
+          "Hagrid secret"
+        ],
+        "objects": [
+          "Norbert"
+        ],
+        "schoolYears": [
+          "1"
+        ],
+        "books": [
+          "Philosopher's Stone"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "artifact:philosophers-stone",
+        "book:philosophers-stone",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "quality:relevance-curated",
+        "school-year:1",
+        "character:rubeus-hagrid"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Ron Weasley",
+            "Hermione Granger",
+            "Rubeus Hagrid"
+          ],
+          "topicsAny": [
+            "Norbert",
+            "illegal dragon",
+            "Hagrid secret",
+            "Norbert"
+          ]
+        }
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "year_secrets",
+          "suggestionRole": "reveal_gate",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "controls_character_knowledge"
+        }
+      },
+      "content": {
+        "fact": "Norbert is a private Hagrid-and-trio secret while the dragon is hidden; the wider school and staff should not casually know about him before removal.",
+        "injection": "During the Norbert window, allow Hagrid and the trio to know the dragon exists, but block other students, teachers, and narration from treating the dragon as public knowledge unless the story reveals it.",
+        "constraints": [
+          "This controls who can know about the dragon, not whether the dragon exists.",
+          "Use discovery risk and concealment pressure rather than public dragon gossip.",
+          "Use this as a reveal-control gate: allow the named keepers to know the secret, but block characters outside that knowledge path from stating, acting on, or narrating it as known.",
+          "Apply only when Saga Context matches Norbert hidden before removal; if the scene is outside this window, withhold this secret gate."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Philosopher's Stone",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-secret-gates-v0.3.0",
+          "deckId": "hp-year-1-philosophers-stone",
+          "purpose": "reveal-control"
         },
         "sagaSplitLoredeck": {
           "targetPackId": "hp-year-1-philosophers-stone"

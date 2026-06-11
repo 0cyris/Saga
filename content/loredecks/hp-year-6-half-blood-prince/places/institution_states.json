@@ -113,7 +113,16 @@
         "faction:ministry-of-magic",
         "fandom:harry-potter",
         "school-year:6"
-      ]
+      ],
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "character_state_gate"
+        }
+      }
     }
   ]
 }

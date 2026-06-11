@@ -111,7 +111,16 @@
         "school-year:6",
         "school-year:7",
         "topic:deathly-hallows"
-      ]
+      ],
+      "ui": {
+        "preview": {
+          "primaryPack": "essential_guardrails",
+          "suggestionRole": "active_guardrail",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "blocks_context_leakage"
+        }
+      }
     }
   ]
 }

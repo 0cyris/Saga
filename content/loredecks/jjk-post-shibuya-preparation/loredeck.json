@@ -63,11 +63,7 @@
   "files": [
     "post_shibuya/punitive_return.json",
     "post_shibuya/tengen_culling_setup.json",
-    "post_shibuya/perfect_preparation.json",
-    "expanded/event_anchors.json",
-    "expanded/status_and_factions.json",
-    "expanded/abilities_and_constraints.json",
-    "expanded/knowledge_gates.json"
+    "post_shibuya/perfect_preparation.json"
   ],
   "compatibility": {
     "sagaSchemaMin": 3,

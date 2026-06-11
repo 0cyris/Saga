@@ -35,6 +35,17 @@
     "scoring": "scoring.json"
   },
   "resolver": "resolver.json",
+  "assets": {
+    "cover": {
+      "path": "assets/cover.png",
+      "alt": "Deck cover for Jujutsu Kaisen: Culling Game Convergence",
+      "aspect": "1:1",
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    }
+  },
   "continuity": {
     "continuityId": "jjk-manga-main",
     "canonTier": "primary",
@@ -51,11 +62,7 @@
   "files": [
     "culling_convergence/sakurajima_angel.json",
     "culling_convergence/kenjaku_sukuna_tsumiki.json",
-    "culling_convergence/gojo_shinjuku_setup.json",
-    "expanded/convergence_events.json",
-    "expanded/status_changes.json",
-    "expanded/abilities_and_rules.json",
-    "expanded/knowledge_gates.json"
+    "culling_convergence/gojo_shinjuku_setup.json"
   ],
   "compatibility": {
     "sagaSchemaMin": 3,

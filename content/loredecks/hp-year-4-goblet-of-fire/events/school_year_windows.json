@@ -113,7 +113,16 @@
           "splitAt": "2026-06-05"
         }
       },
-      "lorePurpose": "knowledge_gate"
+      "lorePurpose": "knowledge_gate",
+      "ui": {
+        "preview": {
+          "primaryPack": "year_events",
+          "suggestionRole": "event_anchor",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "context_anchor"
+        }
+      }
     }
   ]
 }

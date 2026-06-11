@@ -453,6 +453,1241 @@
           "status": "initial_post_shibuya_slice"
         }
       }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_post_shibuya_preparation_exp_execution_order_converts_yuji_into_a_target",
+      "title": "Execution Order Converts Yuji Into A Target",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.post.execution-reinstated",
+        "validToAnchor": "jjk.post.yuta-yuji-confrontation",
+        "sortKeyFrom": 8300,
+        "sortKeyTo": 8600,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Itadori Extermination window"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:itadori-yuji"
+        ],
+        "characters": [
+          "Yuji Itadori"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "execution order",
+          "post-Shibuya"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:post-shibuya-preparation",
+        "character:itadori-yuji",
+        "topic:execution-order",
+        "topic:post-shibuya"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuji Itadori"
+          ],
+          "topicsAny": [
+            "execution order",
+            "post-Shibuya"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen post-Shibuya aftermath through Perfect Preparation and Culling Game setup.",
+        "notes": "Culling Game colony action, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "After Shibuya, Yuji's suspended execution becomes active political pressure rather than a distant sentence.",
+        "injection": "Use this event state in the active window: After Shibuya, Yuji's suspended execution becomes active political pressure rather than a distant sentence.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Post-Shibuya and Perfect Preparation",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Post-Shibuya aftermath"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-post-shibuya-preparation",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_post_shibuya_preparation_exp_yutas_return_looks_hostile_by_official_order",
+      "title": "Yuta's Return Looks Hostile By Official Order",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.post.execution-reinstated",
+        "validToAnchor": "jjk.post.yuta-yuji-confrontation",
+        "sortKeyFrom": 8300,
+        "sortKeyTo": 8600,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Itadori Extermination window"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:yuta-okkotsu",
+          "jjk:itadori-yuji"
+        ],
+        "characters": [
+          "Yuta Okkotsu",
+          "Yuji Itadori"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Yuta return",
+          "executioner"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:post-shibuya-preparation",
+        "character:yuta-okkotsu",
+        "character:itadori-yuji",
+        "topic:yuta-return",
+        "topic:executioner"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuta Okkotsu",
+            "Yuji Itadori"
+          ],
+          "topicsAny": [
+            "Yuta return",
+            "executioner"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen post-Shibuya aftermath through Perfect Preparation and Culling Game setup.",
+        "notes": "Culling Game colony action, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Yuta returns under an execution assignment, so his early post-Shibuya role should read as ambiguous or threatening until his intent is clear.",
+        "injection": "Use this event state in the active window: Yuta returns under an execution assignment, so his early post-Shibuya role should read as ambiguous or threatening until his intent is clear.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Post-Shibuya and Perfect Preparation",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Post-Shibuya aftermath"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-post-shibuya-preparation",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_post_shibuya_preparation_exp_yuta_revives_yuji_after_a_controlled_kill",
+      "title": "Yuta Revives Yuji After A Controlled Kill",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.post.execution-reinstated",
+        "validToAnchor": "jjk.post.yuta-yuji-confrontation",
+        "sortKeyFrom": 8300,
+        "sortKeyTo": 8600,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Itadori Extermination window"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:yuta-okkotsu",
+          "jjk:itadori-yuji"
+        ],
+        "characters": [
+          "Yuta Okkotsu",
+          "Yuji Itadori"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Yuta Yuji revival",
+          "Binding Vow"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:post-shibuya-preparation",
+        "character:yuta-okkotsu",
+        "character:itadori-yuji",
+        "topic:yuta-yuji-revival",
+        "topic:binding-vow"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuta Okkotsu",
+            "Yuji Itadori"
+          ],
+          "topicsAny": [
+            "Yuta Yuji revival",
+            "Binding Vow"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen post-Shibuya aftermath through Perfect Preparation and Culling Game setup.",
+        "notes": "Culling Game colony action, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Yuta's apparent execution of Yuji is part of a controlled maneuver using RCT and a Binding Vow context, not a simple betrayal.",
+        "injection": "Use this event state in the active window: Yuta's apparent execution of Yuji is part of a controlled maneuver using RCT and a Binding Vow context, not a simple betrayal.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Post-Shibuya and Perfect Preparation",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Post-Shibuya aftermath"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-post-shibuya-preparation",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_post_shibuya_preparation_exp_choso_aligns_with_yuji_after_shibuya",
+      "title": "Choso Aligns With Yuji After Shibuya",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.post.execution-reinstated",
+        "validToAnchor": "jjk.post.yuta-yuji-confrontation",
+        "sortKeyFrom": 8300,
+        "sortKeyTo": 8600,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Itadori Extermination window"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:choso",
+          "jjk:itadori-yuji"
+        ],
+        "characters": [
+          "Choso",
+          "Yuji Itadori"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Choso ally",
+          "brother claim"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:post-shibuya-preparation",
+        "character:choso",
+        "character:itadori-yuji",
+        "topic:choso-ally",
+        "topic:brother-claim"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Choso",
+            "Yuji Itadori"
+          ],
+          "topicsAny": [
+            "Choso ally",
+            "brother claim"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen post-Shibuya aftermath through Perfect Preparation and Culling Game setup.",
+        "notes": "Culling Game colony action, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Choso's brother claim turns him into Yuji's protector and ally despite his prior enemy role.",
+        "injection": "At this Context, treat this status as active: Choso's brother claim turns him into Yuji's protector and ally despite his prior enemy role.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Post-Shibuya and Perfect Preparation",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Post-Shibuya aftermath"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-post-shibuya-preparation",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_post_shibuya_preparation_exp_gojos_absence_enables_higher_up_control",
+      "title": "Gojo's Absence Enables Higher-Up Control",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.post.execution-reinstated",
+        "validToAnchor": "jjk.post.yuta-yuji-confrontation",
+        "sortKeyFrom": 8300,
+        "sortKeyTo": 8600,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Itadori Extermination window"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:gojo-satoru",
+          "jjk:jujutsu-society"
+        ],
+        "characters": [
+          "Satoru Gojo",
+          "Jujutsu society"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Gojo absence",
+          "higher-ups"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:post-shibuya-preparation",
+        "character:gojo-satoru",
+        "topic:gojo-absence",
+        "topic:higher-ups"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Satoru Gojo",
+            "Jujutsu society"
+          ],
+          "topicsAny": [
+            "Gojo absence",
+            "higher-ups"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen post-Shibuya aftermath through Perfect Preparation and Culling Game setup.",
+        "notes": "Culling Game colony action, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "With Gojo sealed, higher-ups and conservative factions can act more aggressively against Yuji and allies.",
+        "injection": "At this Context, treat this status as active: With Gojo sealed, higher-ups and conservative factions can act more aggressively against Yuji and allies.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Post-Shibuya and Perfect Preparation",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Post-Shibuya aftermath"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-post-shibuya-preparation",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_post_shibuya_preparation_exp_the_higher_ups_criminalize_gojos_allies",
+      "title": "The Higher-Ups Criminalize Gojo's Allies",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.post.execution-reinstated",
+        "validToAnchor": "jjk.post.yuta-yuji-confrontation",
+        "sortKeyFrom": 8300,
+        "sortKeyTo": 8600,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Itadori Extermination window"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:gojo-satoru",
+          "jjk:itadori-yuji",
+          "jjk:jujutsu-society"
+        ],
+        "characters": [
+          "Satoru Gojo",
+          "Yuji Itadori",
+          "Jujutsu society"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "higher-ups",
+          "criminalization"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:post-shibuya-preparation",
+        "character:gojo-satoru",
+        "character:itadori-yuji",
+        "topic:higher-ups",
+        "topic:criminalization"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Satoru Gojo",
+            "Yuji Itadori",
+            "Jujutsu society"
+          ],
+          "topicsAny": [
+            "higher-ups",
+            "criminalization"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen post-Shibuya aftermath through Perfect Preparation and Culling Game setup.",
+        "notes": "Culling Game colony action, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Post-Shibuya orders frame Gojo's allies and Yuji's survival as institutional problems, not merely battlefield consequences.",
+        "injection": "At this Context, treat this status as active: Post-Shibuya orders frame Gojo's allies and Yuji's survival as institutional problems, not merely battlefield consequences.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Post-Shibuya and Perfect Preparation",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Post-Shibuya aftermath"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-post-shibuya-preparation",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_post_shibuya_preparation_exp_yuta_can_output_rct_in_the_yuji_plan",
+      "title": "Yuta Can Output RCT In The Yuji Plan",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.post.execution-reinstated",
+        "validToAnchor": "jjk.post.zenin-clan-collapse",
+        "sortKeyFrom": 8300,
+        "sortKeyTo": 9650,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Post-Shibuya through Perfect Preparation"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:yuta-okkotsu",
+          "jjk:itadori-yuji"
+        ],
+        "characters": [
+          "Yuta Okkotsu",
+          "Yuji Itadori"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Yuta RCT",
+          "Yuji revival"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:post-shibuya-preparation",
+        "character:yuta-okkotsu",
+        "character:itadori-yuji",
+        "topic:yuta-rct",
+        "topic:yuji-revival"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuta Okkotsu",
+            "Yuji Itadori"
+          ],
+          "topicsAny": [
+            "Yuta RCT",
+            "Yuji revival"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen post-Shibuya aftermath through Perfect Preparation and Culling Game setup.",
+        "notes": "Culling Game colony action, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Yuta's post-Shibuya maneuver depends on precise lethal timing and RCT output, not casual fake violence.",
+        "injection": "When Yuta RCT Output matters, enforce this ability constraint: Yuta's post-Shibuya maneuver depends on precise lethal timing and RCT output, not casual fake violence.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Post-Shibuya and Perfect Preparation",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Post-Shibuya aftermath"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-post-shibuya-preparation",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      },
+      "ability": {
+        "system": "reverse_cursed_technique",
+        "name": "Yuta RCT Output",
+        "ownerEntityIds": [
+          "jjk:yuta-okkotsu",
+          "jjk:itadori-yuji"
+        ],
+        "constraints": [
+          "Yuta's post-Shibuya maneuver depends on precise lethal timing and RCT output, not casual fake violence."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_post_shibuya_preparation_exp_projection_sorcery_succession_matters_politically",
+      "title": "Projection Sorcery Succession Matters Politically",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.post.execution-reinstated",
+        "validToAnchor": "jjk.post.zenin-clan-collapse",
+        "sortKeyFrom": 8300,
+        "sortKeyTo": 9650,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Post-Shibuya through Perfect Preparation"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:naoya-zenin"
+        ],
+        "characters": [
+          "Naoya Zenin"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Projection Sorcery",
+          "Zenin succession"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:post-shibuya-preparation",
+        "character:naoya-zenin",
+        "topic:projection-sorcery",
+        "topic:zenin-succession"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Naoya Zenin"
+          ],
+          "topicsAny": [
+            "Projection Sorcery",
+            "Zenin succession"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen post-Shibuya aftermath through Perfect Preparation and Culling Game setup.",
+        "notes": "Culling Game colony action, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Naoya's inherited Projection Sorcery is tied to Zenin prestige and succession claims, not just speed aesthetics.",
+        "injection": "When Projection Sorcery matters, enforce this ability constraint: Naoya's inherited Projection Sorcery is tied to Zenin prestige and succession claims, not just speed aesthetics.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Post-Shibuya and Perfect Preparation",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Post-Shibuya aftermath"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-post-shibuya-preparation",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      },
+      "ability": {
+        "system": "cursed_technique",
+        "name": "Projection Sorcery",
+        "ownerEntityIds": [
+          "jjk:naoya-zenin"
+        ],
+        "constraints": [
+          "Naoya's inherited Projection Sorcery is tied to Zenin prestige and succession claims, not just speed aesthetics."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_post_shibuya_preparation_exp_makis_restriction_becomes_toji_like_after_mai",
+      "title": "Maki's Restriction Becomes Toji-Like After Mai",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.post.execution-reinstated",
+        "validToAnchor": "jjk.post.zenin-clan-collapse",
+        "sortKeyFrom": 8300,
+        "sortKeyTo": 9650,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Post-Shibuya through Perfect Preparation"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:maki-zenin",
+          "jjk:toji-fushiguro"
+        ],
+        "characters": [
+          "Maki Zenin",
+          "Toji Fushiguro"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Maki transformation",
+          "Heavenly Restriction"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:post-shibuya-preparation",
+        "character:maki-zenin",
+        "character:toji-fushiguro",
+        "topic:maki-transformation",
+        "topic:heavenly-restriction"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Maki Zenin",
+            "Toji Fushiguro"
+          ],
+          "topicsAny": [
+            "Maki transformation",
+            "Heavenly Restriction"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen post-Shibuya aftermath through Perfect Preparation and Culling Game setup.",
+        "notes": "Culling Game colony action, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "After Mai's sacrifice, Maki's physical state should be compared to Toji-style Heavenly Restriction rather than ordinary grade progression.",
+        "injection": "When Completed Heavenly Restriction matters, enforce this ability constraint: After Mai's sacrifice, Maki's physical state should be compared to Toji-style Heavenly Restriction rather than ordinary grade progression.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Post-Shibuya and Perfect Preparation",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Post-Shibuya aftermath"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-post-shibuya-preparation",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      },
+      "ability": {
+        "system": "heavenly_restriction",
+        "name": "Completed Heavenly Restriction",
+        "ownerEntityIds": [
+          "jjk:maki-zenin",
+          "jjk:toji-fushiguro"
+        ],
+        "constraints": [
+          "After Mai's sacrifice, Maki's physical state should be compared to Toji-style Heavenly Restriction rather than ordinary grade progression."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_post_shibuya_preparation_exp_tengen_is_a_barrier_authority_not_a_frontline_solver",
+      "title": "Tengen Is A Barrier Authority Not A Frontline Solver",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.post.execution-reinstated",
+        "validToAnchor": "jjk.post.zenin-clan-collapse",
+        "sortKeyFrom": 8300,
+        "sortKeyTo": 9650,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Post-Shibuya through Perfect Preparation"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:tengen"
+        ],
+        "characters": [
+          "Tengen"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Tengen",
+          "barrier techniques"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:post-shibuya-preparation",
+        "character:tengen",
+        "topic:tengen",
+        "topic:barrier-techniques"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Tengen"
+          ],
+          "topicsAny": [
+            "Tengen",
+            "barrier techniques"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen post-Shibuya aftermath through Perfect Preparation and Culling Game setup.",
+        "notes": "Culling Game colony action, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Tengen provides barrier knowledge and strategic context, but should not be written as a normal battlefield rescue character.",
+        "injection": "When Tengen Barrier Knowledge matters, enforce this ability constraint: Tengen provides barrier knowledge and strategic context, but should not be written as a normal battlefield rescue character.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Post-Shibuya and Perfect Preparation",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Post-Shibuya aftermath"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-post-shibuya-preparation",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      },
+      "ability": {
+        "system": "barrier_technique",
+        "name": "Tengen Barrier Knowledge",
+        "ownerEntityIds": [
+          "jjk:tengen"
+        ],
+        "constraints": [
+          "Tengen provides barrier knowledge and strategic context, but should not be written as a normal battlefield rescue character."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_post_shibuya_preparation_exp_yutas_true_intent_is_initially_hidden",
+      "title": "Yuta's True Intent Is Initially Hidden",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.post.execution-reinstated",
+        "validToAnchor": "jjk.post.yuta-yuji-confrontation",
+        "sortKeyFrom": 8300,
+        "sortKeyTo": 8600,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Itadori Extermination window"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:yuta-okkotsu",
+          "jjk:itadori-yuji"
+        ],
+        "characters": [
+          "Yuta Okkotsu",
+          "Yuji Itadori"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Yuta intent",
+          "knowledge gate"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:post-shibuya-preparation",
+        "character:yuta-okkotsu",
+        "character:itadori-yuji",
+        "topic:yuta-intent",
+        "topic:knowledge-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuta Okkotsu",
+            "Yuji Itadori"
+          ],
+          "topicsAny": [
+            "Yuta intent",
+            "knowledge gate"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen post-Shibuya aftermath through Perfect Preparation and Culling Game setup.",
+        "notes": "Culling Game colony action, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Early post-Shibuya scenes can present Yuta as Yuji's executioner until his protective intent and revival plan are revealed.",
+        "injection": "Gate by Context and character knowledge: Early post-Shibuya scenes can present Yuta as Yuji's executioner until his protective intent and revival plan are revealed.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Post-Shibuya and Perfect Preparation",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Post-Shibuya aftermath"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-post-shibuya-preparation",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
     }
   ]
 }

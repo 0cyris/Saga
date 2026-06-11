@@ -922,7 +922,16 @@
         "place:hogwarts",
         "school-year:3",
         "topic:time-turner"
-      ]
+      ],
+      "ui": {
+        "preview": {
+          "primaryPack": "essential_guardrails",
+          "suggestionRole": "active_guardrail",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "blocks_context_leakage"
+        }
+      }
     },
     {
       "schemaVersion": 3,
@@ -1323,7 +1332,16 @@
         "place:azkaban",
         "place:hogwarts",
         "school-year:3"
-      ]
+      ],
+      "ui": {
+        "preview": {
+          "primaryPack": "essential_guardrails",
+          "suggestionRole": "active_guardrail",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "blocks_context_leakage"
+        }
+      }
     },
     {
       "schemaVersion": 3,

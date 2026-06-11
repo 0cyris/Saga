@@ -1853,7 +1853,16 @@
         "fandom:harry-potter",
         "place:hogwarts",
         "school-year:4"
-      ]
+      ],
+      "ui": {
+        "preview": {
+          "primaryPack": "year_events",
+          "suggestionRole": "event_anchor",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "context_anchor"
+        }
+      }
     },
     {
       "schemaVersion": 3,

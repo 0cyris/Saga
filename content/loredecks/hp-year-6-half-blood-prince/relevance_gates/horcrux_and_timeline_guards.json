@@ -7,9 +7,9 @@
       "title": "No trio Horcrux knowledge before memory task",
       "kind": "knowledge_gate",
       "gateType": "knowledge_gate",
-      "category": "knowledge",
+      "category": "secret",
       "relevance": "high",
-      "lorePurpose": "knowledge_gate",
+      "lorePurpose": "secret",
       "specificityScore": 92,
       "injectableByDefault": true,
       "canon": "canon",
@@ -116,6 +116,15 @@
         "sagaSplitLoredeck": {
           "targetPackId": "hp-year-6-half-blood-prince"
         }
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "year_secrets",
+          "suggestionRole": "reveal_gate",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "controls_character_knowledge"
+        }
       }
     },
     {
@@ -124,9 +133,9 @@
       "title": "Altered memory gives limited Horcrux clue",
       "kind": "knowledge_gate",
       "gateType": "knowledge_gate",
-      "category": "knowledge",
+      "category": "secret",
       "relevance": "high",
-      "lorePurpose": "knowledge_gate",
+      "lorePurpose": "secret",
       "specificityScore": 92,
       "injectableByDefault": true,
       "canon": "canon",
@@ -234,6 +243,15 @@
         "sagaSplitLoredeck": {
           "targetPackId": "hp-year-6-half-blood-prince"
         }
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "year_secrets",
+          "suggestionRole": "reveal_gate",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "controls_character_knowledge"
+        }
       }
     },
     {
@@ -242,9 +260,9 @@
       "title": "True memory initially informs Harry and Dumbledore",
       "kind": "knowledge_gate",
       "gateType": "knowledge_gate",
-      "category": "knowledge",
+      "category": "secret",
       "relevance": "high",
-      "lorePurpose": "knowledge_gate",
+      "lorePurpose": "secret",
       "specificityScore": 92,
       "injectableByDefault": true,
       "canon": "canon",
@@ -351,6 +369,15 @@
         },
         "sagaSplitLoredeck": {
           "targetPackId": "hp-year-6-half-blood-prince"
+        }
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "year_secrets",
+          "suggestionRole": "reveal_gate",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "controls_character_knowledge"
         }
       }
     },
@@ -586,6 +613,15 @@
         "sagaSplitLoredeck": {
           "targetPackId": "hp-year-6-half-blood-prince"
         }
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "year_secrets",
+          "suggestionRole": "reveal_gate",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "controls_character_knowledge"
+        }
       }
     },
     {
@@ -701,6 +737,15 @@
         },
         "sagaSplitLoredeck": {
           "targetPackId": "hp-year-6-half-blood-prince"
+        }
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "year_secrets",
+          "suggestionRole": "reveal_gate",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "controls_character_knowledge"
         }
       }
     },

@@ -233,44 +233,11 @@
       "deprecated": false,
       "replacement": ""
     },
-    "character:maru": {
-      "label": "Maru",
-      "color": "#334155",
-      "textColor": "#f8fafc",
-      "description": "Auto-added phase-1 expansion tag for Maru.",
-      "aliases": [],
-      "parents": [],
-      "sensitive": false,
-      "deprecated": false,
-      "replacement": ""
-    },
     "character:megumi-fushiguro": {
       "label": "Megumi Fushiguro",
       "color": "#334155",
       "textColor": "#f8fafc",
       "description": "Auto-added phase-1 expansion tag for Megumi Fushiguro.",
-      "aliases": [],
-      "parents": [],
-      "sensitive": false,
-      "deprecated": false,
-      "replacement": ""
-    },
-    "character:tsurugi-okkotsu": {
-      "label": "Tsurugi Okkotsu",
-      "color": "#334155",
-      "textColor": "#f8fafc",
-      "description": "Auto-added phase-1 expansion tag for Tsurugi Okkotsu.",
-      "aliases": [],
-      "parents": [],
-      "sensitive": false,
-      "deprecated": false,
-      "replacement": ""
-    },
-    "character:yuka-okkotsu": {
-      "label": "Yuka Okkotsu",
-      "color": "#334155",
-      "textColor": "#f8fafc",
-      "description": "Auto-added phase-1 expansion tag for Yuka Okkotsu.",
       "aliases": [],
       "parents": [],
       "sensitive": false,
@@ -717,17 +684,6 @@
       "deprecated": false,
       "replacement": ""
     },
-    "topic:modulo-separation": {
-      "label": "Modulo Separation",
-      "color": "#334155",
-      "textColor": "#f8fafc",
-      "description": "Auto-added phase-1 expansion tag for Modulo Separation.",
-      "aliases": [],
-      "parents": [],
-      "sensitive": false,
-      "deprecated": false,
-      "replacement": ""
-    },
     "topic:nobara-status": {
       "label": "Nobara Status",
       "color": "#334155",
@@ -766,17 +722,6 @@
       "color": "#334155",
       "textColor": "#f8fafc",
       "description": "Auto-added phase-1 expansion tag for Reverse Cursed Technique Output.",
-      "aliases": [],
-      "parents": [],
-      "sensitive": false,
-      "deprecated": false,
-      "replacement": ""
-    },
-    "topic:sequel-continuity": {
-      "label": "Sequel Continuity",
-      "color": "#334155",
-      "textColor": "#f8fafc",
-      "description": "Auto-added phase-1 expansion tag for Sequel Continuity.",
       "aliases": [],
       "parents": [],
       "sensitive": false,

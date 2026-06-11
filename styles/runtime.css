@@ -1,0 +1,4886 @@
+/* Runtime Saga window overhaul -------------------------------- */
+.saga-lore-panel {
+    width: 520px;
+    height: 640px;
+    min-width: 420px;
+    min-height: 360px;
+    max-width: calc(100vw - 16px);
+    max-height: calc(100vh - 16px);
+    overflow: hidden;
+    user-select: none;
+}
+
+.saga-lore-panel-collapsed {
+    height: 44px !important;
+    min-height: 44px;
+}
+
+.saga-lore-panel-collapsed .saga-lore-panel-body,
+.saga-lore-panel-collapsed .saga-lore-panel-resize-handle {
+    display: none;
+}
+
+.saga-lore-panel-header {
+    min-height: 42px;
+}
+
+.saga-lore-panel-title-wrap {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.saga-lore-panel-title {
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.saga-lore-panel-status {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 3px;
+    font-size: 0.72em;
+    opacity: 0.9;
+}
+
+.saga-status-pill {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid rgba(180, 160, 140, 0.24);
+    border-radius: 999px;
+    background: rgba(180, 160, 140, 0.08);
+    padding: 1px 6px;
+    white-space: nowrap;
+}
+
+.saga-status-pill-risk-low {
+    border-color: rgba(94, 178, 126, 0.42);
+    background: rgba(94, 178, 126, 0.12);
+}
+
+.saga-status-pill-risk-medium,
+.saga-status-pill-health-impact,
+.saga-status-pill-health-stale {
+    border-color: rgba(226, 177, 98, 0.48);
+    background: rgba(226, 177, 98, 0.13);
+}
+
+.saga-status-pill-risk-high {
+    border-color: rgba(219, 105, 105, 0.52);
+    background: rgba(219, 105, 105, 0.13);
+}
+
+.saga-status-pill-risk-unknown {
+    border-color: rgba(159, 174, 194, 0.4);
+    background: rgba(159, 174, 194, 0.1);
+}
+
+.saga-status-pill-quality-high {
+    border-color: rgba(94, 178, 126, 0.42);
+    background: rgba(94, 178, 126, 0.11);
+}
+
+.saga-status-pill-quality-medium,
+.saga-status-pill-quality-flag {
+    border-color: rgba(226, 177, 98, 0.48);
+    background: rgba(226, 177, 98, 0.13);
+}
+
+.saga-status-pill-quality-low {
+    border-color: rgba(219, 105, 105, 0.52);
+    background: rgba(219, 105, 105, 0.13);
+}
+
+.saga-status-pill-quality-not_applicable {
+    border-color: rgba(159, 174, 194, 0.4);
+    background: rgba(159, 174, 194, 0.1);
+}
+
+.saga-lore-panel-body {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.saga-runtime-tabs {
+    display: flex;
+    gap: 4px;
+    padding: 6px 8px 4px;
+    border-bottom: 1px solid rgba(180, 160, 140, 0.12);
+    background: rgba(0, 0, 0, 0.12);
+    flex-shrink: 0;
+}
+
+.saga-runtime-tab {
+    flex: 1;
+    min-width: 0;
+    border: 1px solid rgba(180, 160, 140, 0.18);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--SmartThemeBodyColor, #e0e0e0);
+    cursor: pointer;
+    padding: 5px 6px;
+    font-size: 0.82em;
+}
+
+.saga-runtime-tab:hover,
+.saga-runtime-tab-active {
+    background: rgba(180, 160, 140, 0.18);
+    border-color: rgba(180, 160, 140, 0.45);
+}
+
+.saga-runtime-tab-body {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    padding: 8px;
+}
+
+.saga-section-header {
+    margin-bottom: 8px;
+}
+
+.saga-section-header h3 {
+    margin: 0 0 2px 0;
+    font-size: 1em;
+    color: #d4c8a8;
+}
+
+.saga-section-header p,
+.saga-runtime-help {
+    margin: 0;
+    font-size: 0.78em;
+    opacity: 0.72;
+    line-height: 1.35;
+}
+
+.saga-runtime-card,
+.saga-review-lore-card {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 7px;
+    background: rgba(0, 0, 0, 0.18);
+    padding: 8px;
+    margin-bottom: 8px;
+}
+
+.saga-runtime-card-title {
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: #d4c8a8;
+}
+
+.saga-runtime-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 6px;
+    margin-bottom: 8px;
+}
+
+.saga-toggle-card {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 7px;
+    background: rgba(0, 0, 0, 0.16);
+    padding: 7px;
+    cursor: pointer;
+}
+
+.saga-toggle-card span:nth-child(2) {
+    flex: 1;
+}
+
+.saga-toggle-state {
+    opacity: 0.7;
+    font-size: 0.78em;
+}
+
+.saga-mode-buttons,
+.saga-primary-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 6px 0;
+}
+
+.saga-mode-button,
+.saga-runtime-button {
+    border: 1px solid rgba(180, 160, 140, 0.24);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--SmartThemeBodyColor, #e0e0e0);
+    cursor: pointer;
+    padding: 5px 9px;
+    font-size: 0.83em;
+}
+
+.saga-mode-button:hover,
+.saga-runtime-button:hover,
+.saga-mode-button-active,
+.saga-primary-button {
+    background: rgba(180, 160, 140, 0.2);
+    border-color: rgba(180, 160, 140, 0.5);
+}
+
+.saga-runtime-button:disabled {
+    opacity: 0.55;
+    cursor: progress;
+}
+
+.saga-loredeck-creator-done-button,
+.saga-loredeck-creator-done-button:disabled {
+    border-color: rgba(104, 186, 132, 0.54);
+    background: linear-gradient(135deg, rgba(24, 74, 42, 0.76), rgba(16, 34, 24, 0.9));
+    color: #bff1c4;
+    box-shadow: 0 0 0 1px rgba(104, 186, 132, 0.14) inset;
+    cursor: default;
+    opacity: 1;
+}
+
+.saga-key-value {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    justify-content: space-between;
+    font-size: 0.82em;
+    padding: 2px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.saga-key-value:last-child {
+    border-bottom: none;
+}
+
+.saga-basic-readiness-card {
+    border-color: rgba(215, 181, 109, 0.28);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(0, 0, 0, 0.16));
+}
+
+.saga-basic-advanced-handoff {
+    display: flex;
+    justify-content: flex-end;
+    margin: 4px 0 8px;
+}
+
+.saga-basic-review-entry-card .saga-lore-entry-header {
+    grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.saga-basic-review-entry-card .saga-lore-entry-meta {
+    gap: 5px;
+}
+
+.saga-basic-next-action {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 8px;
+    padding: 7px;
+    border: 1px solid rgba(215, 181, 109, 0.18);
+    border-radius: 6px;
+    background: rgba(215, 181, 109, 0.06);
+    font-size: 0.84em;
+}
+
+.saga-basic-readiness-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.saga-basic-readiness-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.055);
+}
+
+.saga-basic-readiness-row:last-child {
+    border-bottom: 0;
+}
+
+.saga-basic-readiness-main {
+    min-width: 0;
+}
+
+.saga-basic-readiness-label {
+    font-size: 0.83em;
+    font-weight: 700;
+    color: var(--SmartThemeBodyColor, #e4dccb);
+}
+
+.saga-basic-readiness-state {
+    font-size: 0.76em;
+    line-height: 1.3;
+    opacity: 0.72;
+}
+
+.saga-basic-readiness-row-ready .saga-basic-readiness-state {
+    color: #bff1c4;
+    opacity: 0.9;
+}
+
+.saga-basic-readiness-row-missing:not(.saga-basic-readiness-row-optional) .saga-basic-readiness-state {
+    color: #f3d38a;
+    opacity: 0.95;
+}
+
+.saga-loredeck-row-main {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.saga-loredeck-row-title {
+    color: var(--SmartThemeBodyColor, #e4dccb);
+    font-size: 0.82em;
+    font-weight: 700;
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+}
+
+.saga-loredeck-row-description {
+    font-size: 0.76em;
+    line-height: 1.35;
+    opacity: 0.76;
+}
+
+.saga-loredeck-row-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.saga-loredeck-row-meta .saga-status-pill {
+    max-width: 100%;
+    white-space: nowrap;
+}
+
+.saga-runtime-tab-body-loredecks .saga-status-pill,
+.saga-runtime-tab-body-loredecks .saga-loredeck-row-meta .saga-status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    min-height: 16px;
+    padding: 0 5px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.08);
+    color: #d8d0c0;
+    font-size: 0.68em;
+    font-weight: 500;
+    line-height: 1.45;
+    letter-spacing: 0;
+    box-sizing: border-box;
+    white-space: nowrap;
+}
+
+.saga-runtime-tab-body-loredecks .saga-status-pill-risk-low,
+.saga-runtime-tab-body-loredecks .saga-status-pill-quality-high {
+    border-color: rgba(94, 178, 126, 0.42);
+    background: rgba(94, 178, 126, 0.12);
+}
+
+.saga-runtime-tab-body-loredecks .saga-status-pill-risk-medium,
+.saga-runtime-tab-body-loredecks .saga-status-pill-health-impact,
+.saga-runtime-tab-body-loredecks .saga-status-pill-health-stale,
+.saga-runtime-tab-body-loredecks .saga-status-pill-quality-medium,
+.saga-runtime-tab-body-loredecks .saga-status-pill-quality-flag {
+    border-color: rgba(226, 177, 98, 0.48);
+    background: rgba(226, 177, 98, 0.13);
+}
+
+.saga-runtime-tab-body-loredecks .saga-status-pill-risk-high,
+.saga-runtime-tab-body-loredecks .saga-status-pill-quality-low {
+    border-color: rgba(219, 105, 105, 0.52);
+    background: rgba(219, 105, 105, 0.13);
+}
+
+.saga-runtime-tab-body-loredecks .saga-status-pill-risk-unknown,
+.saga-runtime-tab-body-loredecks .saga-status-pill-quality-not_applicable {
+    border-color: rgba(159, 174, 194, 0.4);
+    background: rgba(159, 174, 194, 0.1);
+}
+
+.saga-loredeck-creator-launch-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 8px;
+    border: 1px solid rgba(185, 139, 54, 0.2);
+    border-radius: 7px;
+    background: rgba(10, 12, 16, 0.28);
+}
+
+.saga-loredeck-creator-launch-text {
+    min-width: 0;
+    color: var(--saga-muted, rgba(241, 234, 216, 0.72));
+    font-size: 0.78em;
+    line-height: 1.3;
+}
+
+.saga-loredeck-creator-project-shelf {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.saga-loredeck-creator-project-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.saga-loredeck-creator-project-title-wrap {
+    min-width: 0;
+}
+
+.saga-loredeck-creator-project-title-wrap h4 {
+    margin: 0 0 3px;
+}
+
+.saga-loredeck-creator-project-meta {
+    justify-content: flex-end;
+}
+
+.saga-loredeck-creator-project-controls {
+    display: grid;
+    grid-template-columns: minmax(150px, 1fr) minmax(110px, auto) minmax(120px, auto);
+    gap: 7px;
+    align-items: center;
+}
+
+.saga-loredeck-creator-project-search,
+.saga-loredeck-creator-project-filter,
+.saga-loredeck-creator-project-folder-filter,
+.saga-loredeck-creator-project-move-select {
+    min-height: 30px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.saga-loredeck-creator-project-move-select {
+    flex: 0 1 170px;
+    font-size: 0.74em;
+}
+
+.saga-loredeck-creator-project-bulk {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 6px;
+    border: 1px solid rgba(185, 139, 54, 0.16);
+    border-radius: 7px;
+    background: rgba(10, 12, 16, 0.24);
+}
+
+.saga-loredeck-creator-project-selection-summary {
+    flex: 1 1 110px;
+    min-width: 0;
+    color: var(--saga-muted, rgba(241, 234, 216, 0.72));
+    font-size: 0.72em;
+    line-height: 1.25;
+}
+
+.saga-loredeck-creator-project-bulk .saga-runtime-button {
+    min-height: 28px;
+    padding: 4px 8px;
+    font-size: 0.74em;
+}
+
+.saga-loredeck-creator-project-list {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    max-height: 420px;
+    overflow-y: auto;
+    padding-right: 2px;
+}
+
+.saga-loredeck-creator-project-card {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 8px;
+    align-items: center;
+    padding: 8px;
+    border: 1px solid rgba(185, 139, 54, 0.22);
+    border-radius: 7px;
+    background: linear-gradient(135deg, rgba(18, 16, 22, 0.88), rgba(9, 12, 18, 0.72));
+    box-shadow: inset 0 0 0 1px rgba(255, 235, 170, 0.03);
+    cursor: pointer;
+    transition: border-color 140ms ease, background 140ms ease, box-shadow 140ms ease, transform 140ms ease;
+}
+
+.saga-loredeck-creator-project-card:hover,
+.saga-loredeck-creator-project-card:focus-visible {
+    border-color: rgba(231, 185, 94, 0.58);
+    background: linear-gradient(135deg, rgba(40, 24, 25, 0.92), rgba(10, 14, 22, 0.82));
+    box-shadow: 0 0 0 1px rgba(231, 185, 94, 0.12), 0 10px 24px rgba(0, 0, 0, 0.22);
+    outline: none;
+    transform: translateY(-1px);
+}
+
+.saga-loredeck-creator-project-card-active {
+    border-color: rgba(231, 185, 94, 0.72);
+    background: linear-gradient(135deg, rgba(78, 33, 36, 0.72), rgba(15, 18, 27, 0.86));
+}
+
+.saga-loredeck-creator-project-card-selected {
+    border-color: rgba(255, 207, 105, 0.9);
+    background:
+        radial-gradient(circle at 10% 0%, rgba(255, 207, 105, 0.16), transparent 34%),
+        linear-gradient(135deg, rgba(42, 27, 25, 0.92), rgba(10, 13, 19, 0.86));
+    box-shadow:
+        0 0 0 1px rgba(255, 207, 105, 0.24) inset,
+        3px 0 0 rgba(255, 207, 105, 0.74) inset,
+        0 0 18px rgba(245, 196, 91, 0.14);
+}
+
+.saga-loredeck-creator-project-visual {
+    width: 46px;
+    height: 46px;
+}
+
+.saga-loredeck-creator-project-main {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.saga-loredeck-creator-project-topline,
+.saga-loredeck-creator-project-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    min-width: 0;
+}
+
+.saga-loredeck-creator-project-title {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: var(--saga-text, #f1ead8);
+    font-weight: 700;
+    font-size: 0.92em;
+}
+
+.saga-loredeck-creator-project-title .saga-loredeck-library-inline-title {
+    max-width: 100%;
+}
+
+.saga-loredeck-creator-project-title .saga-loredeck-library-inline-title-label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.saga-loredeck-creator-project-stage {
+    flex: 0 0 auto;
+    max-width: 42%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 2px 6px;
+    border: 1px solid rgba(159, 174, 194, 0.24);
+    border-radius: 999px;
+    color: var(--saga-muted, rgba(241, 234, 216, 0.74));
+    background: rgba(10, 12, 16, 0.34);
+    font-size: 0.68em;
+    line-height: 1.25;
+}
+
+.saga-loredeck-creator-project-stage-review {
+    border-color: rgba(154, 145, 229, 0.38);
+    color: #d9d2ff;
+    background: rgba(95, 83, 180, 0.14);
+}
+
+.saga-loredeck-creator-project-stage-running {
+    border-color: rgba(226, 177, 98, 0.44);
+    color: #f2d08a;
+    background: rgba(226, 177, 98, 0.12);
+}
+
+.saga-loredeck-creator-project-stage-warning {
+    border-color: rgba(219, 105, 105, 0.5);
+    color: #ffb1a8;
+    background: rgba(105, 25, 31, 0.24);
+}
+
+.saga-loredeck-creator-project-stage-success {
+    border-color: rgba(125, 205, 117, 0.38);
+    color: #c2efa8;
+    background: rgba(61, 122, 53, 0.16);
+}
+
+.saga-loredeck-creator-project-subtitle {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: var(--saga-muted, rgba(241, 234, 216, 0.74));
+    font-size: 0.76em;
+    line-height: 1.25;
+}
+
+.saga-loredeck-creator-project-progress {
+    position: relative;
+    height: 5px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.07);
+}
+
+.saga-loredeck-creator-project-progress span {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, rgba(185, 139, 54, 0.72), rgba(241, 207, 129, 0.94));
+}
+
+.saga-loredeck-creator-project-footer {
+    color: var(--saga-muted, rgba(241, 234, 216, 0.62));
+    font-size: 0.68em;
+}
+
+.saga-loredeck-creator-project-footer span {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.saga-loredeck-creator-project-actions {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: flex-end;
+    gap: 6px;
+}
+
+.saga-loredeck-creator-project-actions .saga-runtime-button {
+    min-height: 28px;
+    padding: 4px 9px;
+    font-size: 0.74em;
+}
+
+.saga-loredeck-creator-project-actions .saga-loredeck-creator-project-select-active {
+    border-color: rgba(245, 196, 91, 0.72);
+    color: #f6d48a;
+    background: rgba(185, 139, 54, 0.2);
+}
+
+.saga-loredeck-creator-project-actions .saga-loredeck-creator-project-delete {
+    border-color: rgba(219, 105, 105, 0.28);
+    color: #f1c4b6;
+}
+
+.saga-loredeck-creator-project-actions .saga-loredeck-creator-project-delete:hover,
+.saga-loredeck-creator-project-actions .saga-loredeck-creator-project-delete:focus-visible {
+    border-color: rgba(219, 105, 105, 0.58);
+    background: rgba(105, 25, 31, 0.28);
+}
+
+@media (max-width: 560px) {
+    .saga-loredeck-creator-project-header,
+    .saga-loredeck-creator-project-topline,
+    .saga-loredeck-creator-project-footer {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .saga-loredeck-creator-project-stage {
+        max-width: 100%;
+    }
+
+    .saga-loredeck-creator-project-controls {
+        grid-template-columns: 1fr;
+    }
+}
+
+.saga-loredeck-granularity-blurb {
+    align-self: stretch;
+    min-height: 34px;
+    display: flex;
+    align-items: center;
+    padding: 6px 8px;
+    border: 1px solid rgba(126, 145, 165, 0.18);
+    border-radius: 7px;
+    background: rgba(10, 12, 16, 0.24);
+    color: var(--saga-muted, rgba(241, 234, 216, 0.72));
+    font-size: 0.76em;
+    line-height: 1.3;
+    box-sizing: border-box;
+}
+
+.saga-loredeck-creator-workbench-body {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.saga-loredeck-metadata-shell {
+    width: min(1120px, calc(100vw - 28px));
+}
+
+.saga-loredeck-metadata-body {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.saga-loredeck-metadata-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.saga-loredeck-metadata-heading {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 10px;
+    align-items: center;
+    border: 1px solid rgba(180, 160, 140, 0.14);
+    border-radius: 7px;
+    background: rgba(0, 0, 0, 0.12);
+    padding: 8px;
+}
+
+.saga-loredeck-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 4px 10px;
+}
+
+.saga-loredeck-edit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 7px;
+}
+
+.saga-loredeck-editor-field {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    font-size: 0.78em;
+}
+
+.saga-loredeck-editor-field-full {
+    grid-column: 1 / -1;
+}
+
+.saga-loredeck-editor-field > span {
+    color: #d4c8a8;
+    font-weight: 650;
+}
+
+.saga-loredeck-manifest-preview {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 7px;
+}
+
+.saga-loredeck-file-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 4px;
+    margin-top: 6px;
+}
+
+.saga-loredeck-file-item {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    border: 1px solid rgba(180, 160, 140, 0.12);
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.14);
+    padding: 4px 6px;
+    font-size: 0.74em;
+    line-height: 1.25;
+}
+
+.saga-loredeck-file-item-muted {
+    opacity: 0.72;
+    font-style: italic;
+}
+
+.saga-loredeck-generated-readiness {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.saga-loredeck-generated-readiness-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.saga-loredeck-generated-readiness-item {
+    border: 1px solid rgba(180, 160, 140, 0.14);
+    border-left-width: 3px;
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.14);
+    color: var(--saga-muted, rgba(241, 234, 216, 0.76));
+    padding: 5px 7px;
+    font-size: 0.76em;
+    line-height: 1.35;
+}
+
+.saga-loredeck-generated-readiness-blocker {
+    border-left-color: rgba(190, 80, 92, 0.82);
+}
+
+.saga-loredeck-generated-readiness-warning {
+    border-left-color: rgba(215, 181, 109, 0.78);
+}
+
+.saga-loredeck-entry-overrides {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 7px;
+}
+
+.saga-loredeck-context-card {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.saga-context-command-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: rgba(18, 18, 24, 0.72);
+}
+
+.saga-context-command-header,
+.saga-context-section-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.saga-context-command-title-wrap {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.saga-context-command-chips,
+.saga-context-section-header .saga-context-index-summary {
+    justify-content: flex-end;
+}
+
+.saga-context-command-actions,
+.saga-context-resolver-actions {
+    justify-content: flex-start;
+}
+
+.saga-context-resolver-actions .saga-runtime-button {
+    font-size: 0.78em;
+}
+
+.saga-context-automation-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    border: 1px solid var(--saga-border-soft, rgba(180, 160, 140, 0.14));
+    border-radius: 7px;
+    background: rgba(0, 0, 0, 0.12);
+    padding: 7px;
+}
+
+.saga-context-mode-buttons {
+    justify-content: flex-start;
+}
+
+.saga-context-automation-description {
+    margin-top: -2px;
+}
+
+.saga-context-automation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 7px;
+}
+
+.saga-context-automation-grid .saga-slider-row {
+    margin: 0;
+}
+
+.saga-context-automation-toggles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+.saga-context-automation-toggle {
+    margin: 0;
+}
+
+.saga-context-automation-audit {
+    border-color: rgba(126, 143, 214, 0.26);
+    background:
+        linear-gradient(135deg, rgba(56, 70, 130, 0.12), rgba(0, 0, 0, 0.08)),
+        rgba(0, 0, 0, 0.12);
+}
+
+.saga-context-proposal-focus {
+    animation: saga-context-proposal-focus 1.2s ease;
+}
+
+.saga-context-proposal-review-shell {
+    width: min(1120px, calc(100vw - 36px));
+}
+
+.saga-context-proposal-review-header {
+    grid-template-columns: minmax(180px, 1fr) auto;
+}
+
+.saga-context-proposal-review-actions {
+    justify-content: flex-end;
+}
+
+.saga-context-proposal-review-body {
+    min-height: 0;
+    flex: 1 1 auto;
+    overflow: hidden;
+    padding: 10px;
+}
+
+.saga-context-proposal-review-list {
+    height: 100%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-right: 3px;
+}
+
+.saga-context-proposal-review-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 10px;
+    align-items: start;
+    border: 1px solid var(--saga-border-soft, rgba(180, 160, 140, 0.16));
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.18);
+    padding: 9px;
+    transition: background 0.16s ease, border-color 0.16s ease;
+}
+
+.saga-context-proposal-review-row:hover {
+    border-color: rgba(215, 181, 109, 0.34);
+    background: rgba(215, 181, 109, 0.055);
+}
+
+.saga-context-proposal-review-main {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.saga-context-proposal-review-title {
+    min-width: 0;
+    color: var(--saga-text, #f1ead8);
+    font-size: 0.9em;
+    font-weight: 800;
+    line-height: 1.25;
+}
+
+.saga-context-proposal-review-summary,
+.saga-context-proposal-review-patch {
+    min-width: 0;
+    color: var(--saga-muted, rgba(241, 234, 216, 0.72));
+    font-size: 0.76em;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+}
+
+.saga-context-proposal-review-patch {
+    border: 1px solid rgba(180, 160, 140, 0.12);
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.16);
+    padding: 5px 6px;
+}
+
+.saga-context-proposal-review-row-actions {
+    flex-direction: column;
+    align-items: stretch;
+    min-width: 96px;
+}
+
+@keyframes saga-context-proposal-focus {
+    0% {
+        box-shadow: 0 0 0 0 rgba(215, 181, 109, 0);
+    }
+    32% {
+        box-shadow: 0 0 0 2px rgba(215, 181, 109, 0.42);
+        border-color: rgba(215, 181, 109, 0.55);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(215, 181, 109, 0);
+    }
+}
+
+.saga-loredeck-context-list {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.saga-loredeck-context-row {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    border: 1px solid var(--saga-border-soft, rgba(180, 160, 140, 0.16));
+    border-radius: 7px;
+    background: var(--saga-surface-2, rgba(0, 0, 0, 0.14));
+    padding: 7px;
+    transition: background 0.16s ease, border-color 0.16s ease;
+}
+
+.saga-loredeck-context-row:hover {
+    border-color: rgba(215, 181, 109, 0.32);
+    background: rgba(215, 181, 109, 0.055);
+}
+
+.saga-loredeck-context-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 7px;
+}
+
+.saga-loredeck-context-summary {
+    border: 1px solid var(--saga-border-soft, rgba(180, 160, 140, 0.14));
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.13);
+    color: var(--saga-muted, rgba(241, 234, 216, 0.72));
+    padding: 5px 6px;
+    font-size: 0.76em;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+}
+
+.saga-loredeck-context-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(132px, 1fr));
+    gap: 7px;
+}
+
+.saga-loredeck-context-quick {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    border: 1px solid var(--saga-border-soft, rgba(180, 160, 140, 0.14));
+    border-radius: 7px;
+    background: rgba(0, 0, 0, 0.10);
+    padding: 7px;
+}
+
+.saga-loredeck-context-quick-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.saga-loredeck-context-quick .saga-context-anchor-lookup {
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    padding: 0;
+}
+
+.saga-loredeck-context-actions {
+    justify-content: flex-end;
+}
+
+.saga-context-index-summary {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.saga-context-advanced-brief-section > .saga-collapsible-content {
+    padding-top: 2px;
+}
+
+.saga-context-advanced-brief-content {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.saga-context-brief-diagnostics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(138px, 1fr));
+    gap: 6px;
+}
+
+.saga-context-anchor-lookup {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    border: 1px solid var(--saga-border-soft, rgba(180, 160, 140, 0.14));
+    border-radius: 7px;
+    background: rgba(0, 0, 0, 0.12);
+    padding: 6px;
+}
+
+.saga-context-anchor-lookup-top {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 6px;
+    align-items: center;
+}
+
+.saga-context-anchor-results {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.saga-context-anchor-result {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 7px;
+    align-items: center;
+    border: 1px solid rgba(180, 160, 140, 0.12);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 5px 6px;
+}
+
+.saga-context-anchor-main {
+    min-width: 0;
+}
+
+.saga-context-anchor-title {
+    min-width: 0;
+    color: var(--saga-text, #f1ead8);
+    font-size: 0.82em;
+    font-weight: 700;
+    line-height: 1.25;
+    overflow-wrap: anywhere;
+}
+
+.saga-context-anchor-meta {
+    min-width: 0;
+    color: var(--saga-muted, rgba(241, 234, 216, 0.68));
+    font-size: 0.74em;
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+}
+
+.saga-loredeck-context-check {
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    border: 1px solid var(--saga-border-soft, rgba(180, 160, 140, 0.16));
+    border-radius: 7px;
+    background: rgba(0, 0, 0, 0.14);
+    padding: 7px;
+    font-size: 0.78em;
+    cursor: pointer;
+}
+
+.saga-loredeck-context-check input {
+    margin: 0;
+    accent-color: var(--saga-gold, #d7b56d);
+}
+
+.saga-loredeck-context-check span {
+    min-width: 0;
+    color: #d4c8a8;
+    font-weight: 650;
+}
+
+.saga-loredeck-entry-summary {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-bottom: 5px;
+}
+
+.saga-loredeck-entry-search {
+    min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 4px 0 6px;
+}
+
+.saga-loredeck-entry-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    max-height: 360px;
+    overflow-y: auto;
+    padding-right: 2px;
+}
+
+.saga-loredeck-entry-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 8px;
+    align-items: start;
+    border: 1px solid rgba(180, 160, 140, 0.14);
+    border-left-width: 3px;
+    border-radius: 7px;
+    background: rgba(0, 0, 0, 0.14);
+    padding: 7px;
+}
+
+.saga-loredeck-entry-row-overridden {
+    border-left-color: rgba(215, 181, 109, 0.78);
+}
+
+.saga-loredeck-entry-row-added {
+    border-left-color: rgba(104, 186, 132, 0.76);
+}
+
+.saga-loredeck-entry-row-disabled {
+    border-left-color: rgba(190, 80, 92, 0.82);
+    opacity: 0.72;
+}
+
+.saga-loredeck-assistant-draft-batch {
+    gap: 7px;
+}
+
+.saga-loredeck-assistant-draft-row {
+    border-left-color: rgba(126, 166, 219, 0.76);
+}
+
+.saga-loredeck-assistant-draft-title {
+    display: flex;
+    align-items: flex-start;
+    gap: 7px;
+    min-width: 0;
+    cursor: pointer;
+}
+
+.saga-loredeck-assistant-draft-title input {
+    margin: 2px 0 0;
+    accent-color: var(--saga-gold, #d7b56d);
+    flex: 0 0 auto;
+}
+
+.saga-loredeck-assistant-revise-form {
+    padding: 0;
+    overflow: visible;
+}
+
+.saga-loredeck-assistant-draft-json {
+    min-height: 360px;
+}
+
+.saga-loredeck-creator-card {
+    gap: 10px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+}
+
+.saga-loredeck-creator-pipeline-header {
+    flex: 0 0 auto;
+}
+
+.saga-loredeck-creator-title-row,
+.saga-loredeck-creator-title-text {
+    min-width: 0;
+}
+
+.saga-loredeck-creator-title-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.saga-loredeck-creator-current-kicker {
+    color: var(--saga-gold, #d7b56d);
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.saga-loredeck-creator-header-actions {
+    justify-content: flex-end;
+}
+
+.saga-loredeck-creator-stage-guide {
+    position: sticky;
+    top: 0;
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border: 1px solid rgba(185, 139, 54, 0.22);
+    border-radius: 8px;
+    background: rgba(8, 11, 18, 0.96);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.24);
+    padding: 10px;
+}
+
+.saga-loredeck-creator-stage-list {
+    display: grid;
+    grid-template-columns: repeat(8, minmax(92px, 1fr));
+    gap: 8px;
+}
+
+.saga-loredeck-creator-stage-item {
+    min-width: 0;
+    display: grid;
+    grid-template-columns: 30px minmax(0, 1fr);
+    gap: 7px;
+    align-items: center;
+    border: 1px solid rgba(180, 160, 140, 0.18);
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.18);
+    color: var(--saga-text, #f1ead8);
+    text-align: left;
+    padding: 7px;
+    cursor: pointer;
+}
+
+.saga-loredeck-creator-stage-number {
+    width: 28px;
+    height: 28px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(180, 160, 140, 0.34);
+    border-radius: 50%;
+    color: var(--saga-muted, rgba(241, 234, 216, 0.7));
+    font-size: 0.8rem;
+    font-weight: 800;
+}
+
+.saga-loredeck-creator-stage-body {
+    min-width: 0;
+}
+
+.saga-loredeck-creator-stage-label,
+.saga-loredeck-creator-stage-detail {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.saga-loredeck-creator-stage-label {
+    color: var(--saga-text, #f2eadc);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.saga-loredeck-creator-stage-detail {
+    color: var(--saga-muted, #b8aa98);
+    font-size: 11px;
+    margin-top: 2px;
+}
+
+.saga-loredeck-creator-stage-approved {
+    border-color: rgba(104, 186, 132, 0.42);
+    background: rgba(24, 54, 35, 0.18);
+}
+
+.saga-loredeck-creator-stage-approved .saga-loredeck-creator-stage-number {
+    border-color: rgba(104, 186, 132, 0.72);
+    color: #9ee0a9;
+}
+
+.saga-loredeck-creator-stage-ready,
+.saga-loredeck-creator-stage-active {
+    border-color: rgba(215, 181, 109, 0.62);
+    background: rgba(125, 88, 34, 0.22);
+    box-shadow: 0 0 0 1px rgba(215, 181, 109, 0.12) inset;
+}
+
+.saga-loredeck-creator-stage-ready .saga-loredeck-creator-stage-number,
+.saga-loredeck-creator-stage-active .saga-loredeck-creator-stage-number {
+    border-color: rgba(215, 181, 109, 0.9);
+    color: var(--saga-gold, #d7b56d);
+    box-shadow: 0 0 14px rgba(215, 181, 109, 0.2);
+}
+
+.saga-loredeck-creator-stage-needs-review,
+.saga-loredeck-creator-stage-generating {
+    border-color: rgba(230, 175, 73, 0.42);
+    background: rgba(112, 73, 26, 0.16);
+}
+
+.saga-loredeck-creator-stage-blocked,
+.saga-loredeck-creator-stage-error {
+    border-color: rgba(190, 80, 92, 0.48);
+    background: rgba(88, 24, 32, 0.18);
+}
+
+.saga-loredeck-creator-stage-locked,
+.saga-loredeck-creator-stage-not-ready,
+.saga-loredeck-creator-stage-empty {
+    opacity: 0.58;
+}
+
+.saga-loredeck-creator-current-task {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(270px, 0.34fr);
+    gap: 12px;
+    align-items: start;
+    border: 1px solid rgba(185, 139, 54, 0.24);
+    border-radius: 8px;
+    background:
+        radial-gradient(circle at 6% 10%, rgba(215, 181, 109, 0.12), transparent 32%),
+        linear-gradient(135deg, rgba(15, 17, 24, 0.92), rgba(10, 12, 18, 0.78));
+    padding: 14px;
+}
+
+.saga-loredeck-creator-current-main {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.saga-loredeck-creator-current-title {
+    color: var(--saga-text, #f1ead8);
+    font-size: 1.35rem;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.saga-loredeck-creator-current-description {
+    max-width: 760px;
+    color: var(--saga-muted, rgba(241, 234, 216, 0.78));
+    font-size: 0.86rem;
+    line-height: 1.45;
+}
+
+.saga-loredeck-creator-output-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 8px;
+}
+
+.saga-loredeck-creator-output-item {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    border: 1px solid rgba(180, 160, 140, 0.14);
+    border-radius: 7px;
+    background: rgba(255, 255, 255, 0.035);
+    padding: 8px;
+}
+
+.saga-loredeck-creator-output-item strong {
+    color: var(--saga-gold, #d7b56d);
+    font-size: 0.8rem;
+}
+
+.saga-loredeck-creator-output-item span {
+    color: var(--saga-muted, rgba(241, 234, 216, 0.72));
+    font-size: 0.76rem;
+    line-height: 1.35;
+}
+
+.saga-loredeck-creator-current-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.saga-loredeck-creator-current-actions .saga-primary-button {
+    min-height: 36px;
+    padding: 8px 14px;
+    font-size: 0.88rem;
+}
+
+.saga-loredeck-creator-current-sidebar {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.saga-loredeck-creator-side-panel {
+    min-width: 0;
+    border: 1px solid rgba(180, 160, 140, 0.14);
+    border-radius: 7px;
+    background: rgba(0, 0, 0, 0.18);
+    padding: 9px;
+}
+
+.saga-loredeck-creator-side-title {
+    color: var(--saga-gold, #d7b56d);
+    font-size: 0.78rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 7px;
+}
+
+.saga-loredeck-creator-side-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.saga-loredeck-creator-side-row,
+.saga-loredeck-creator-queue-row {
+    min-width: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 8px;
+    color: var(--saga-muted, rgba(241, 234, 216, 0.72));
+    font-size: 0.78rem;
+    line-height: 1.3;
+}
+
+.saga-loredeck-creator-side-row strong,
+.saga-loredeck-creator-queue-row strong {
+    color: var(--saga-text, #f1ead8);
+    font-weight: 700;
+}
+
+.saga-loredeck-creator-check-list {
+    margin: 8px 0 0;
+    padding-left: 18px;
+    color: var(--saga-muted, rgba(241, 234, 216, 0.72));
+    font-size: 0.78rem;
+    line-height: 1.45;
+}
+
+.saga-loredeck-creator-artifact {
+    border: 1px solid rgba(180, 160, 140, 0.14);
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+}
+
+.saga-loredeck-creator-artifact > summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 9px 11px;
+    cursor: pointer;
+    color: var(--saga-gold, #d7b56d);
+    font-weight: 800;
+    list-style: none;
+}
+
+.saga-loredeck-creator-artifact > summary::-webkit-details-marker {
+    display: none;
+}
+
+.saga-loredeck-creator-artifact-state {
+    color: var(--saga-muted, rgba(241, 234, 216, 0.72));
+    font-size: 0.72rem;
+    font-weight: 700;
+}
+
+.saga-loredeck-creator-artifact > .saga-loredeck-creator-brief,
+.saga-loredeck-creator-artifact > .saga-loredeck-creator-outline,
+.saga-loredeck-creator-artifact > .saga-loredeck-creator-title-pass,
+.saga-loredeck-creator-artifact > .saga-loredeck-creator-planning,
+.saga-loredeck-creator-artifact > .saga-loredeck-creator-entry-drafts,
+.saga-loredeck-creator-artifact > .saga-loredeck-generated-readiness {
+    border: 0;
+    border-top: 1px solid rgba(180, 160, 140, 0.12);
+    border-radius: 0;
+}
+
+.saga-loredeck-creator-generation-settings {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-top: 1px solid rgba(180, 160, 140, 0.12);
+    padding: 9px 10px 10px;
+}
+
+.saga-loredeck-creator-generation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 8px;
+}
+
+.saga-loredeck-creator-generation-row,
+.saga-loredeck-creator-generation-toggle {
+    min-width: 0;
+    display: grid;
+    grid-template-columns: minmax(118px, 0.9fr) minmax(120px, 1fr);
+    gap: 8px;
+    align-items: center;
+    border: 1px solid rgba(180, 160, 140, 0.13);
+    border-radius: 7px;
+    background: rgba(255, 255, 255, 0.032);
+    color: var(--saga-muted, rgba(241, 234, 216, 0.76));
+    font-size: 0.76rem;
+    padding: 7px 8px;
+}
+
+.saga-loredeck-creator-generation-label,
+.saga-loredeck-creator-generation-toggle span {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.saga-loredeck-creator-generation-label strong,
+.saga-loredeck-creator-generation-toggle strong {
+    color: var(--saga-gold, #d7b56d);
+    font-weight: 800;
+}
+
+.saga-loredeck-creator-generation-row input[type="range"] {
+    width: 100%;
+    min-width: 0;
+}
+
+.saga-loredeck-creator-generation-toggles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 8px;
+}
+
+.saga-loredeck-creator-generation-toggle {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    cursor: pointer;
+}
+
+.saga-loredeck-creator-generation-toggle input {
+    margin: 0;
+}
+
+.saga-loredeck-creator-inline-note {
+    border: 1px solid rgba(180, 160, 140, 0.14);
+    border-radius: 7px;
+    background: rgba(0, 0, 0, 0.13);
+    color: var(--saga-muted, rgba(241, 234, 216, 0.74));
+    padding: 8px;
+    font-size: 0.78rem;
+    line-height: 1.4;
+}
+
+@media (max-width: 980px) {
+    .saga-loredeck-creator-stage-list {
+        grid-template-columns: repeat(4, minmax(92px, 1fr));
+    }
+
+    .saga-loredeck-creator-current-task,
+    .saga-loredeck-creator-pipeline-header {
+        grid-template-columns: 1fr;
+    }
+}
+
+.saga-loredeck-creator-form,
+.saga-loredeck-creator-revise-form {
+    padding: 10px;
+    border: 1px solid rgba(185, 139, 54, 0.20);
+    border-radius: 8px;
+    background:
+        radial-gradient(circle at 100% 0%, rgba(215, 181, 109, 0.08), transparent 36%),
+        rgba(8, 11, 18, 0.42);
+    overflow: visible;
+}
+
+.saga-loredeck-creator-form-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 6px 10px;
+    margin-bottom: 2px;
+}
+
+.saga-loredeck-creator-form-title {
+    color: var(--saga-gold, #d7b56d);
+    font-size: 0.82rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.saga-loredeck-creator-brief {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    border: 1px solid rgba(180, 160, 140, 0.14);
+    border-radius: 7px;
+    background: rgba(0, 0, 0, 0.13);
+    padding: 8px;
+}
+
+.saga-loredeck-creator-brief-list {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    border-top: 1px solid rgba(180, 160, 140, 0.12);
+    padding-top: 6px;
+}
+
+.saga-loredeck-creator-title-pass {
+    gap: 7px;
+}
+
+.saga-loredeck-creator-title-row {
+    border-left-color: rgba(215, 181, 109, 0.78);
+}
+
+.saga-loredeck-creator-title-label {
+    min-width: 0;
+}
+
+.saga-loredeck-creator-title-json {
+    min-height: 320px;
+}
+
+.saga-loredeck-creator-planning {
+    border-left: 3px solid rgba(126, 166, 219, 0.72);
+}
+
+.saga-loredeck-creator-entry-drafts {
+    border-left: 3px solid rgba(104, 186, 132, 0.76);
+}
+
+.saga-generation-live-status {
+    display: grid;
+    grid-template-columns: 24px minmax(0, 1fr);
+    gap: 8px;
+    align-items: start;
+    border: 1px solid rgba(185, 139, 54, 0.22);
+    border-radius: 7px;
+    background: linear-gradient(135deg, rgba(19, 18, 24, 0.82), rgba(67, 27, 35, 0.18));
+    padding: 7px 8px;
+    min-height: 34px;
+}
+
+.saga-generation-live-status-compact {
+    margin-top: 6px;
+    padding: 6px;
+    grid-template-columns: 20px minmax(0, 1fr);
+}
+
+.saga-generation-live-status-success {
+    border-color: rgba(104, 186, 132, 0.34);
+    background: linear-gradient(135deg, rgba(17, 28, 22, 0.84), rgba(30, 52, 36, 0.18));
+}
+
+.saga-generation-live-status-warning {
+    border-color: rgba(230, 175, 73, 0.38);
+}
+
+.saga-generation-live-status-error {
+    border-color: rgba(190, 80, 92, 0.42);
+    background: linear-gradient(135deg, rgba(34, 14, 19, 0.84), rgba(88, 24, 32, 0.18));
+}
+
+.saga-generation-live-status-cancelled {
+    border-color: rgba(180, 160, 140, 0.28);
+    background: linear-gradient(135deg, rgba(22, 21, 24, 0.84), rgba(82, 73, 58, 0.16));
+}
+
+.saga-generation-thinking-icon,
+.saga-generation-result-icon {
+    width: 18px;
+    height: 18px;
+    margin-top: 1px;
+    border-radius: 50%;
+    box-sizing: border-box;
+}
+
+.saga-generation-thinking-icon {
+    border: 2px solid rgba(215, 181, 109, 0.18);
+    border-top-color: rgba(245, 199, 96, 0.96);
+    animation: saga-generation-spin 0.9s linear infinite;
+}
+
+.saga-generation-result-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--saga-gold, #d7b56d);
+    border: 1px solid rgba(215, 181, 109, 0.45);
+    font-size: 0.58rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.saga-generation-live-main {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.saga-generation-live-line {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    align-items: baseline;
+    min-width: 0;
+    font-size: 0.82rem;
+    line-height: 1.25;
+}
+
+.saga-generation-live-label {
+    color: var(--saga-gold, #d7b56d);
+    font-weight: 750;
+}
+
+.saga-generation-live-text {
+    color: var(--saga-text, #f1ead8);
+}
+
+.saga-generation-live-elapsed {
+    color: var(--saga-muted, rgba(241, 234, 216, 0.68));
+    font-size: 0.76rem;
+    margin-left: auto;
+}
+
+.saga-generation-cancel-button {
+    padding: 2px 7px;
+    min-height: 22px;
+    font-size: 0.72rem;
+    border-color: rgba(190, 80, 92, 0.42);
+    color: #f0c8c8;
+}
+
+.saga-generation-live-meta {
+    color: var(--saga-muted, rgba(241, 234, 216, 0.66));
+    font-size: 0.72rem;
+    line-height: 1.25;
+}
+
+.saga-generation-live-snippet {
+    margin: 3px 0 0;
+    max-height: 92px;
+    overflow: auto;
+    white-space: pre-wrap;
+    word-break: break-word;
+    color: rgba(241, 234, 216, 0.82);
+    background: rgba(0, 0, 0, 0.28);
+    border: 1px solid rgba(185, 139, 54, 0.16);
+    border-radius: 6px;
+    padding: 6px;
+    font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+    font-size: 0.72rem;
+    line-height: 1.35;
+}
+
+@keyframes saga-generation-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.saga-loredeck-entry-override-shell {
+    width: min(820px, calc(100vw - 36px));
+}
+
+.saga-loredeck-duplicate-source {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 4px 10px;
+    border: 1px solid rgba(180, 160, 140, 0.14);
+    border-radius: 7px;
+    background: rgba(0, 0, 0, 0.14);
+    padding: 7px;
+}
+
+.saga-loredeck-duplicate-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid rgba(180, 160, 140, 0.14);
+    border-radius: 7px;
+    background: rgba(0, 0, 0, 0.12);
+    padding: 7px;
+    font-size: 0.82em;
+    cursor: pointer;
+}
+
+.saga-loredeck-duplicate-option input {
+    margin: 0;
+}
+
+.saga-loredeck-install-shell {
+    width: min(860px, calc(100vw - 36px));
+}
+
+.saga-loredeck-install-form {
+    gap: 9px;
+}
+
+.saga-loredeck-install-matches {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    border: 1px solid var(--saga-border-soft, rgba(180, 160, 140, 0.14));
+    border-radius: 7px;
+    background: rgba(0, 0, 0, 0.12);
+    padding: 7px;
+}
+
+.saga-loredeck-install-match-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    max-height: 220px;
+    overflow-y: auto;
+}
+
+.saga-loredeck-install-match-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 8px;
+    align-items: center;
+    border: 1px solid rgba(180, 160, 140, 0.14);
+    border-left-width: 3px;
+    border-radius: 7px;
+    background: rgba(0, 0, 0, 0.14);
+    padding: 7px;
+}
+
+.saga-loredeck-install-match-exact {
+    border-left-color: rgba(104, 186, 132, 0.78);
+}
+
+.saga-loredeck-install-match-modified {
+    border-left-color: rgba(215, 181, 109, 0.82);
+}
+
+.saga-loredeck-install-match-main {
+    min-width: 0;
+}
+
+.saga-loredeck-install-match-title {
+    color: var(--saga-text, #f1ead8);
+    font-size: 0.84em;
+    font-weight: 700;
+    line-height: 1.25;
+    overflow-wrap: anywhere;
+}
+
+.saga-loredeck-install-match-meta {
+    color: var(--saga-muted, rgba(241, 234, 216, 0.68));
+    font-size: 0.74em;
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+}
+
+.saga-loredeck-install-match-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 5px;
+}
+
+.saga-loredeck-bulk-install-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    max-height: 360px;
+    overflow-y: auto;
+    padding-right: 3px;
+}
+
+.saga-loredeck-bulk-install-row {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 8px;
+    align-items: start;
+    border: 1px solid rgba(180, 160, 140, 0.14);
+    border-left: 3px solid rgba(104, 186, 132, 0.58);
+    border-radius: 7px;
+    background: rgba(0, 0, 0, 0.14);
+    padding: 7px;
+    cursor: pointer;
+}
+
+.saga-loredeck-bulk-install-row-error {
+    border-left-color: rgba(219, 105, 105, 0.82);
+    opacity: 0.76;
+}
+
+.saga-loredeck-bulk-install-row input {
+    margin: 2px 0 0;
+}
+
+.saga-loredeck-bulk-install-main {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.saga-loredeck-row-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 4px;
+    max-width: 150px;
+}
+
+.saga-loredeck-row-actions .saga-runtime-button {
+    min-width: 58px;
+    padding-left: 7px;
+    padding-right: 7px;
+}
+
+.saga-loredeck-library-launch-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 10px;
+    align-items: center;
+    border-color: rgba(215, 181, 109, 0.26);
+    background:
+        radial-gradient(circle at 12% 0%, rgba(215, 181, 109, 0.1), transparent 28%),
+        rgba(10, 12, 16, 0.28);
+}
+
+.saga-loredeck-library-launch-main {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.saga-loredeck-library-launch-actions {
+    justify-content: flex-end;
+}
+
+.saga-loredeck-library-shell {
+    width: min(1460px, calc(100vw - 24px));
+    height: min(940px, calc(100vh - 24px));
+    max-height: calc(100vh - 24px);
+}
+
+.saga-lore-workbench-shell,
+.saga-new-lore-shell {
+    font-family: var(--SmartThemeFont, 'Segoe UI', sans-serif);
+    font-size: 13px;
+    color: var(--saga-text);
+}
+
+.saga-lore-workbench-shell button,
+.saga-lore-workbench-shell input,
+.saga-lore-workbench-shell select,
+.saga-lore-workbench-shell textarea,
+.saga-new-lore-shell button,
+.saga-new-lore-shell input,
+.saga-new-lore-shell select,
+.saga-new-lore-shell textarea {
+    font-family: inherit;
+}
+
+.saga-lore-workbench-shell .saga-runtime-button,
+.saga-new-lore-shell .saga-runtime-button {
+    min-height: 26px;
+    padding: 5px 9px;
+    border-radius: 6px;
+    background: var(--saga-button);
+    border-color: var(--saga-border-soft);
+    color: var(--saga-button-text);
+    font-size: 11px;
+    line-height: 1.2;
+}
+
+.saga-lore-workbench-shell .saga-runtime-button:hover:not(:disabled),
+.saga-new-lore-shell .saga-runtime-button:hover:not(:disabled),
+.saga-lore-workbench-shell .saga-primary-button,
+.saga-new-lore-shell .saga-primary-button {
+    background: var(--saga-button-hover);
+    border-color: var(--saga-border-strong);
+    color: var(--saga-gold);
+}
+
+.saga-lore-workbench-shell .saga-runtime-button:disabled,
+.saga-new-lore-shell .saga-runtime-button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.saga-lore-workbench-shell input[type="text"],
+.saga-lore-workbench-shell input[type="number"],
+.saga-lore-workbench-shell input[type="password"],
+.saga-lore-workbench-shell input[type="search"],
+.saga-lore-workbench-shell select,
+.saga-lore-workbench-shell textarea,
+.saga-lore-workbench-shell .text_pole,
+.saga-new-lore-shell input[type="text"],
+.saga-new-lore-shell input[type="number"],
+.saga-new-lore-shell input[type="password"],
+.saga-new-lore-shell input[type="search"],
+.saga-new-lore-shell select,
+.saga-new-lore-shell textarea,
+.saga-new-lore-shell .text_pole {
+    min-height: 28px;
+    border: 1px solid var(--saga-input-border);
+    border-radius: 6px;
+    background: var(--saga-input);
+    color: var(--saga-text);
+    font-size: 12px;
+}
+
+.saga-lore-workbench-shell input[type="range"],
+.saga-new-lore-shell input[type="range"],
+.saga-lore-workbench-shell input[type="checkbox"],
+.saga-new-lore-shell input[type="checkbox"] {
+    accent-color: var(--saga-gold);
+}
+
+.saga-lore-workbench-shell button:focus-visible,
+.saga-lore-workbench-shell input:focus-visible,
+.saga-lore-workbench-shell select:focus-visible,
+.saga-lore-workbench-shell textarea:focus-visible,
+.saga-new-lore-shell button:focus-visible,
+.saga-new-lore-shell input:focus-visible,
+.saga-new-lore-shell select:focus-visible,
+.saga-new-lore-shell textarea:focus-visible {
+    outline: 2px solid var(--saga-focus);
+    outline-offset: 2px;
+}
+
+.saga-loredeck-library-header {
+    flex: 0 0 auto;
+}
+
+.saga-loredeck-library-title-row {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    min-width: 0;
+}
+
+.saga-loredeck-library-title-line {
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.saga-loredeck-library-title-meta {
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.saga-loredeck-library-title-meta .saga-status-pill {
+    font-size: 0.67em;
+    padding: 2px 7px;
+}
+
+.saga-loredeck-library-emblem {
+    flex: 0 0 42px;
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(215, 181, 109, 0.45);
+    border-radius: 7px;
+    background:
+        radial-gradient(circle at 50% 36%, rgba(215, 181, 109, 0.18), transparent 56%),
+        linear-gradient(180deg, rgba(38, 26, 18, 0.95), rgba(8, 10, 14, 0.95));
+    color: var(--saga-gold, #d7b56d);
+    font-size: 1.25em;
+    font-weight: 800;
+    box-shadow: 0 0 14px rgba(215, 181, 109, 0.12);
+}
+
+.saga-loredeck-library-header-actions {
+    justify-content: flex-end;
+}
+
+.saga-loredeck-library-body {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: grid;
+    grid-template-rows:
+        minmax(0, 1fr)
+        30px
+        minmax(190px, var(--saga-loredeck-library-details-height, 280px));
+    gap: 6px;
+    padding: 10px;
+    overflow: hidden;
+    box-sizing: border-box;
+    transition: grid-template-rows 180ms ease;
+}
+
+.saga-loredeck-library-resizing .saga-loredeck-library-body {
+    transition: none;
+}
+
+.saga-loredeck-library-details-collapsed {
+    grid-template-rows:
+        minmax(0, 1fr)
+        32px
+        minmax(0, 0px);
+}
+
+.saga-loredeck-library-columns {
+    min-height: 0;
+    display: grid;
+    grid-template-columns: minmax(600px, 1.65fr) minmax(128px, 0.22fr) minmax(280px, 0.82fr);
+    gap: 10px;
+}
+
+.saga-loredeck-library-resize-handle {
+    width: 100%;
+    min-width: 0;
+    min-height: 30px;
+    display: grid;
+    grid-template-columns: minmax(48px, 1fr) auto minmax(48px, 1fr);
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    border: 1px solid var(--saga-border, rgba(215, 181, 109, 0.34));
+    border-radius: 8px 8px 0 0;
+    background:
+        linear-gradient(180deg, var(--saga-gold-surface, rgba(215, 181, 109, 0.11)), var(--saga-surface-2, rgba(8, 10, 14, 0.28)));
+    color: var(--saga-gold, #d7b56d);
+    padding: 0 10px;
+    cursor: row-resize;
+    box-sizing: border-box;
+}
+
+.saga-loredeck-library-resize-handle-collapsed {
+    cursor: pointer;
+    border-color: var(--saga-border-strong, rgba(245, 196, 91, 0.64));
+    background:
+        radial-gradient(circle at 50% 0%, var(--saga-gold-surface, rgba(245, 196, 91, 0.16)), transparent 56%),
+        var(--saga-surface-2, rgba(8, 10, 14, 0.64));
+}
+
+.saga-loredeck-library-resize-track {
+    width: 42px;
+    height: 8px;
+    display: grid;
+    grid-template-columns: repeat(4, 4px);
+    gap: 6px;
+    align-items: center;
+    opacity: 0.72;
+}
+
+.saga-loredeck-library-resize-track-left {
+    justify-self: start;
+}
+
+.saga-loredeck-library-resize-track-right {
+    justify-self: end;
+}
+
+.saga-loredeck-library-resize-track span {
+    width: 4px;
+    height: 4px;
+    display: block;
+    border-radius: 999px;
+    background: var(--saga-border-strong, rgba(215, 181, 109, 0.78));
+    box-shadow: 0 0 5px var(--saga-gold-surface, rgba(215, 181, 109, 0.22));
+}
+
+.saga-loredeck-library-resize-label {
+    flex: 0 0 auto;
+    min-width: 154px;
+    display: grid;
+    grid-template-columns: 16px auto 16px;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: var(--saga-gold, #d7b56d);
+    font-size: 0.72em;
+    font-weight: 800;
+    line-height: 1;
+    text-align: center;
+}
+
+.saga-loredeck-library-resize-label-arrow {
+    line-height: 1;
+}
+
+.saga-loredeck-library-resize-label-text {
+    white-space: nowrap;
+}
+
+.saga-loredeck-library-resize-handle:hover .saga-loredeck-library-resize-track,
+.saga-loredeck-library-resize-handle:focus-visible .saga-loredeck-library-resize-track,
+.saga-loredeck-library-resizing .saga-loredeck-library-resize-handle .saga-loredeck-library-resize-track {
+    opacity: 1;
+    filter: drop-shadow(0 0 5px var(--saga-gold-surface, rgba(215, 181, 109, 0.36)));
+}
+
+.saga-loredeck-library-resizing {
+    user-select: none;
+    cursor: row-resize;
+}
+
+.saga-loredeck-library-pane {
+    min-width: 0;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border: 1px solid var(--saga-border-soft, rgba(185, 139, 54, 0.24));
+    border-radius: 8px;
+    background:
+        radial-gradient(circle at 12% 0%, var(--saga-red-surface, rgba(92, 23, 36, 0.18)), transparent 34%),
+        var(--saga-surface-2, rgba(8, 10, 14, 0.48));
+    padding: 9px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.saga-loredeck-library-pane-stack {
+    background:
+        radial-gradient(circle at 88% 0%, var(--saga-gold-surface, rgba(215, 181, 109, 0.12)), transparent 30%),
+        var(--saga-surface-2, rgba(8, 10, 14, 0.5));
+}
+
+.saga-loredeck-library-pane-header,
+.saga-loredeck-library-stack-header {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.saga-loredeck-library-pane-title {
+    color: var(--saga-gold, #d7b56d);
+    font-size: 1.02em;
+    font-weight: 800;
+    letter-spacing: 0;
+    line-height: 1.15;
+}
+
+.saga-loredeck-library-pane-subtitle {
+    color: var(--saga-muted, rgba(241, 234, 216, 0.68));
+    font-size: 0.76em;
+    line-height: 1.3;
+}
+
+.saga-loredeck-library-controls {
+    flex: 0 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(118px, auto) minmax(116px, auto) auto;
+    gap: 7px;
+}
+
+.saga-loredeck-library-search,
+.saga-loredeck-library-view,
+.saga-loredeck-library-sort,
+.saga-loredeck-library-folder-move-select {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.saga-loredeck-library-new-folder-button {
+    min-width: 86px;
+    white-space: nowrap;
+}
+
+.saga-loredeck-library-selection-toolbar {
+    flex: 0 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 5px;
+    border: 1px solid rgba(185, 139, 54, 0.14);
+    border-radius: 7px;
+    background: rgba(0, 0, 0, 0.13);
+    padding: 5px;
+}
+
+.saga-loredeck-library-folder-move-select {
+    flex: 1 1 128px;
+    max-width: 190px;
+}
+
+.saga-loredeck-library-stack-dragging .saga-loredeck-library-folder-row-drop-enabled {
+    cursor: copy;
+}
+
+.saga-loredeck-library-folder-label {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.74em;
+    font-weight: 720;
+    line-height: 1.25;
+}
+
+.saga-loredeck-library-inline-folder-row {
+    position: relative;
+    width: calc(100% - (var(--saga-folder-depth, 0) * 18px));
+    min-width: 0;
+    min-height: 74px;
+    display: grid;
+    grid-template-columns: 20px 24px minmax(0, 1fr);
+    gap: 7px;
+    align-items: center;
+    align-self: stretch;
+    margin-left: calc(var(--saga-folder-depth, 0) * 18px);
+    border: 1px solid var(--saga-border-soft, rgba(185, 139, 54, 0.2));
+    border-radius: 7px;
+    background:
+        radial-gradient(circle at 8% 0%, var(--saga-gold-surface, rgba(215, 181, 109, 0.12)), transparent 38%),
+        linear-gradient(180deg, var(--saga-surface, rgba(20, 17, 18, 0.78)), var(--saga-surface-2, rgba(8, 10, 14, 0.84)));
+    color: var(--saga-text, #f1ead8);
+    padding: 7px 9px;
+    box-sizing: border-box;
+    cursor: pointer;
+    overflow: hidden;
+    transition:
+        border-color 150ms ease,
+        background 150ms ease,
+        box-shadow 150ms ease,
+        transform 150ms ease;
+}
+
+.saga-loredeck-library-inline-folder-row:hover,
+.saga-loredeck-library-inline-folder-row:focus-visible {
+    border-color: var(--saga-border-strong, rgba(215, 181, 109, 0.46));
+    background:
+        radial-gradient(circle at 8% 0%, var(--saga-gold-surface, rgba(245, 196, 91, 0.16)), transparent 40%),
+        linear-gradient(180deg, var(--saga-button-hover, rgba(31, 23, 22, 0.86)), var(--saga-surface-2, rgba(8, 10, 14, 0.88)));
+}
+
+.saga-loredeck-library-inline-folder-row.saga-loredeck-library-drag-drop-target {
+    outline: 1px dashed var(--saga-border-strong, rgba(245, 196, 91, 0.72));
+    outline-offset: -3px;
+    border-color: var(--saga-border-strong, rgba(245, 196, 91, 0.76));
+}
+
+.saga-loredeck-library-inline-folder-row.saga-loredeck-library-search-match {
+    border-color: var(--saga-border-strong, rgba(245, 196, 91, 0.62));
+    background:
+        radial-gradient(circle at 8% 0%, var(--saga-gold-surface, rgba(245, 196, 91, 0.18)), transparent 40%),
+        linear-gradient(180deg, var(--saga-button-hover, rgba(35, 25, 18, 0.86)), var(--saga-surface-2, rgba(8, 10, 14, 0.88)));
+    box-shadow: 0 0 0 1px var(--saga-gold-surface, rgba(245, 196, 91, 0.12)) inset;
+}
+
+.saga-loredeck-library-inline-folder-row.saga-loredeck-library-search-context {
+    border-color: var(--saga-border-soft, rgba(185, 139, 54, 0.28));
+    background:
+        radial-gradient(circle at 8% 0%, var(--saga-gold-surface, rgba(215, 181, 109, 0.08)), transparent 38%),
+        linear-gradient(180deg, var(--saga-surface, rgba(18, 17, 20, 0.7)), var(--saga-surface-2, rgba(8, 10, 14, 0.82)));
+}
+
+.saga-loredeck-library-inline-folder-row.saga-loredeck-library-folder-row-active {
+    border-color: var(--saga-border-strong, rgba(255, 207, 105, 0.98));
+    background:
+        radial-gradient(circle at 0% 50%, var(--saga-gold-surface, rgba(255, 207, 105, 0.28)), transparent 52%),
+        radial-gradient(circle at 100% 0%, var(--saga-gold-surface, rgba(245, 196, 91, 0.16)), transparent 38%),
+        linear-gradient(180deg, var(--saga-button-hover, rgba(111, 39, 45, 0.66)), var(--saga-bg-2, rgba(43, 18, 24, 0.72)));
+    box-shadow:
+        0 0 0 1px var(--saga-gold-surface, rgba(255, 207, 105, 0.34)) inset,
+        3px 0 0 var(--saga-border-strong, rgba(255, 207, 105, 0.82)) inset,
+        0 0 22px var(--saga-gold-surface, rgba(245, 196, 91, 0.22));
+}
+
+.saga-loredeck-library-inline-folder-row.saga-loredeck-library-folder-row-active .saga-loredeck-library-folder-label {
+    color: var(--saga-gold, #ffe1a2);
+}
+
+.saga-loredeck-library-folder-grip {
+    height: 48px;
+}
+
+.saga-loredeck-library-folder-disclosure {
+    width: 24px;
+    height: 24px;
+    display: inline-grid;
+    place-items: center;
+    border: 1px solid var(--saga-border-soft, rgba(185, 139, 54, 0.2));
+    border-radius: 6px;
+    background: var(--saga-button, rgba(0, 0, 0, 0.24));
+    color: var(--saga-gold, #d7b56d);
+    font-size: 0.72em;
+    font-weight: 900;
+    line-height: 1;
+    padding: 0;
+    cursor: pointer;
+}
+
+.saga-loredeck-library-folder-main {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    overflow: visible;
+}
+
+.saga-loredeck-library-folder-topline {
+    min-width: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 8px;
+    overflow: hidden;
+}
+
+.saga-loredeck-library-folder-meta {
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    overflow: hidden;
+}
+
+.saga-loredeck-library-folder-cover-strip {
+    position: relative;
+    min-width: 0;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    padding-left: 2px;
+    overflow: visible;
+    --saga-folder-cover-overlap: -12px;
+    --saga-folder-cover-size: 38px;
+}
+
+.saga-loredeck-library-folder-cover-tile {
+    position: relative;
+    z-index: 1;
+    width: var(--saga-folder-cover-size);
+    height: var(--saga-folder-cover-size);
+    flex: 0 0 var(--saga-folder-cover-size);
+    display: inline-grid;
+    place-items: center;
+    border: 1px solid var(--saga-border-soft, rgba(215, 181, 109, 0.28));
+    border-radius: 5px;
+    background:
+        radial-gradient(circle at 45% 25%, var(--saga-gold-surface, rgba(215, 181, 109, 0.2)), transparent 62%),
+        var(--saga-bg-2, rgba(8, 10, 14, 0.9));
+    color: var(--saga-gold, #d7b56d);
+    font-size: 0.64em;
+    font-weight: 900;
+    line-height: 1;
+    overflow: hidden;
+    transform-origin: center bottom;
+    box-shadow:
+        0 0 0 1px var(--saga-gold-surface, rgba(215, 181, 109, 0.08)) inset,
+        0 2px 8px rgba(0, 0, 0, 0.24);
+    transition:
+        margin-left 180ms ease,
+        transform 180ms ease,
+        box-shadow 180ms ease;
+}
+
+.saga-loredeck-library-folder-cover-tile + .saga-loredeck-library-folder-cover-tile {
+    margin-left: var(--saga-folder-cover-overlap);
+}
+
+.saga-loredeck-library-folder-cover-tile[hidden] {
+    display: none;
+}
+
+.saga-loredeck-library-folder-cover-tile:hover {
+    z-index: 30;
+    transform: translateY(-5px);
+    box-shadow:
+        0 0 0 1px var(--saga-gold-surface, rgba(255, 207, 105, 0.18)) inset,
+        0 8px 16px rgba(0, 0, 0, 0.32);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .saga-loredeck-library-folder-cover-strip,
+    .saga-loredeck-library-folder-cover-tile,
+    .saga-loredeck-library-inline-folder-row,
+    .saga-loredeck-library-title-edit-action,
+    .saga-loredeck-library-cover-actions,
+    .saga-loredeck-library-cover-action {
+        transition: none;
+    }
+}
+
+.saga-loredeck-library-folder-cover-tile img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    border-radius: inherit;
+}
+
+.saga-loredeck-library-folder-cover-tile-contain img {
+    object-fit: contain;
+    background:
+        radial-gradient(circle at 50% 42%, var(--saga-gold-surface, rgba(215, 181, 109, 0.1)), transparent 62%),
+        linear-gradient(180deg, var(--saga-bg-2, rgba(8, 10, 14, 0.94)), var(--saga-bg-gradient-end, rgba(3, 4, 7, 0.98)));
+}
+
+.saga-loredeck-library-folder-cover-more {
+    width: 32px;
+    flex-basis: 32px;
+    text-align: center;
+}
+
+.saga-loredeck-library-folder-cover-empty {
+    color: var(--saga-muted, rgba(241, 234, 216, 0.62));
+    font-size: 0.68em;
+    line-height: 1;
+}
+
+.saga-loredeck-library-selection-summary {
+    flex: 1 1 110px;
+    min-width: 0;
+    color: var(--saga-muted, rgba(241, 234, 216, 0.72));
+    font-size: 0.72em;
+    line-height: 1.25;
+}
+
+.saga-loredeck-library-small-button {
+    min-width: 0;
+    padding: 4px 8px;
+    font-size: 0.74em;
+}
+
+.saga-loredeck-library-deck-list,
+.saga-loredeck-library-stack-list {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable;
+    padding-right: 4px;
+    transition:
+        background 150ms ease,
+        outline-color 150ms ease,
+        box-shadow 150ms ease;
+}
+
+.saga-loredeck-library-hierarchy-list {
+    gap: 7px;
+}
+
+.saga-loredeck-library-deck-card {
+    position: relative;
+    width: 100%;
+    min-height: 92px;
+    display: grid;
+    grid-template-columns: 20px 54px minmax(0, 1fr);
+    gap: 8px;
+    align-items: center;
+    border: 1px solid var(--saga-border-soft, rgba(185, 139, 54, 0.2));
+    border-radius: 7px;
+    background:
+        linear-gradient(180deg, var(--saga-surface, rgba(18, 18, 24, 0.74)), var(--saga-surface-2, rgba(8, 10, 14, 0.82)));
+    color: var(--saga-text, #f1ead8);
+    text-align: left;
+    padding: 7px 34px 7px 7px;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition:
+        transform 150ms cubic-bezier(0.2, 0.8, 0.2, 1),
+        opacity 120ms ease,
+        border-color 150ms ease,
+        background 150ms ease,
+        box-shadow 150ms ease;
+    will-change: transform;
+    overflow: hidden;
+}
+
+.saga-loredeck-library-deck-card-nested {
+    width: calc(100% - (var(--saga-folder-depth, 0) * 18px));
+    margin-left: calc(var(--saga-folder-depth, 0) * 18px);
+}
+
+.saga-loredeck-library-deck-card:hover,
+.saga-loredeck-library-stack-card:hover {
+    border-color: var(--saga-border-strong, rgba(215, 181, 109, 0.42));
+    background:
+        radial-gradient(circle at 12% 0%, var(--saga-gold-surface, rgba(215, 181, 109, 0.1)), transparent 32%),
+        linear-gradient(180deg, var(--saga-button-hover, rgba(28, 20, 22, 0.82)), var(--saga-surface-2, rgba(8, 10, 14, 0.86)));
+}
+
+.saga-loredeck-library-deck-selected,
+.saga-loredeck-library-stack-card-selected {
+    border-color: var(--saga-border-strong, rgba(245, 196, 91, 0.78));
+    box-shadow:
+        0 0 0 1px var(--saga-gold-surface, rgba(245, 196, 91, 0.16)) inset,
+        0 0 18px var(--saga-gold-surface, rgba(215, 181, 109, 0.12));
+}
+
+.saga-loredeck-library-deck-bulk-selected {
+    border-color: var(--saga-border-strong, rgba(245, 196, 91, 0.86));
+    box-shadow:
+        0 0 0 1px var(--saga-gold-surface, rgba(245, 196, 91, 0.22)) inset,
+        3px 0 0 var(--saga-border-strong, rgba(245, 196, 91, 0.7)) inset;
+}
+
+.saga-loredeck-library-deck-active {
+    background:
+        radial-gradient(circle at 90% 10%, var(--saga-green-soft, rgba(76, 138, 78, 0.14)), transparent 28%),
+        linear-gradient(180deg, var(--saga-surface, rgba(18, 24, 18, 0.74)), var(--saga-surface-2, rgba(8, 10, 14, 0.82)));
+}
+
+.saga-loredeck-library-deck-card.saga-loredeck-library-deck-selected {
+    border-color: var(--saga-border-strong, rgba(255, 207, 105, 0.98));
+    background:
+        radial-gradient(circle at 10% 0%, var(--saga-gold-surface, rgba(255, 207, 105, 0.18)), transparent 34%),
+        radial-gradient(circle at 100% 20%, var(--saga-red-surface, rgba(104, 34, 42, 0.26)), transparent 44%),
+        linear-gradient(180deg, var(--saga-button-hover, rgba(36, 25, 23, 0.9)), var(--saga-bg-2, rgba(11, 10, 13, 0.92)));
+    box-shadow:
+        0 0 0 1px var(--saga-gold-surface, rgba(255, 207, 105, 0.28)) inset,
+        3px 0 0 var(--saga-border-strong, rgba(255, 207, 105, 0.78)) inset,
+        0 0 22px var(--saga-gold-surface, rgba(245, 196, 91, 0.18));
+}
+
+.saga-loredeck-library-deck-warning {
+    border-left: 3px solid var(--saga-warning-soft, rgba(226, 177, 98, 0.72));
+}
+
+.saga-loredeck-library-deck-error {
+    border-left: 3px solid var(--saga-red-soft, rgba(219, 105, 105, 0.82));
+}
+
+.saga-loredeck-library-monogram,
+.saga-loredeck-library-detail-monogram {
+    align-self: center;
+    justify-self: center;
+    display: grid;
+    place-items: center;
+    aspect-ratio: 1 / 1;
+    border: 1px solid var(--saga-border, rgba(185, 139, 54, 0.36));
+    border-radius: 6px;
+    background:
+        radial-gradient(circle at 50% 35%, var(--saga-gold-surface, rgba(215, 181, 109, 0.18)), transparent 58%),
+        linear-gradient(180deg, var(--saga-surface, rgba(27, 22, 20, 0.95)), var(--saga-bg-2, rgba(8, 10, 14, 0.96)));
+    color: var(--saga-gold, #d7b56d);
+    font-weight: 800;
+    line-height: 1;
+    box-shadow: 0 0 0 1px var(--saga-gold-surface, rgba(215, 181, 109, 0.05)) inset;
+}
+
+.saga-loredeck-library-monogram {
+    width: 52px;
+    height: 52px;
+    font-size: 1.1em;
+}
+
+.saga-loredeck-library-visual {
+    position: relative;
+    overflow: hidden;
+    border-radius: 6px;
+    isolation: isolate;
+}
+
+.saga-loredeck-library-visual img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    border-radius: inherit;
+}
+
+.saga-loredeck-library-visual-contain img {
+    object-fit: contain;
+    background:
+        radial-gradient(circle at 50% 42%, var(--saga-gold-surface, rgba(215, 181, 109, 0.1)), transparent 62%),
+        linear-gradient(180deg, var(--saga-bg-2, rgba(8, 10, 14, 0.94)), var(--saga-bg-gradient-end, rgba(3, 4, 7, 0.98)));
+}
+
+.saga-loredeck-library-visual-cover {
+    padding: 0;
+}
+
+.saga-loredeck-library-visual-cover::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    box-shadow:
+        0 0 0 1px var(--saga-border-soft, rgba(215, 181, 109, 0.22)) inset,
+        0 1px 0 rgba(255, 237, 181, 0.16) inset,
+        0 -1px 0 rgba(0, 0, 0, 0.34) inset;
+}
+
+.saga-loredeck-library-visual-fallback {
+    padding: 0;
+}
+
+.saga-loredeck-library-visual-fallback-text {
+    min-width: 0;
+    max-width: calc(100% - 10px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.saga-loredeck-library-cover-actions {
+    position: absolute;
+    inset: auto 4px 4px auto;
+    z-index: 2;
+    display: flex;
+    gap: 4px;
+    opacity: 0;
+    transform: translateY(4px) scale(0.96);
+    transition:
+        opacity 150ms ease,
+        transform 150ms ease;
+    pointer-events: none;
+}
+
+.saga-loredeck-library-visual:hover .saga-loredeck-library-cover-actions,
+.saga-loredeck-library-visual:focus-within .saga-loredeck-library-cover-actions {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+}
+
+.saga-loredeck-library-cover-action {
+    position: relative;
+    width: 22px;
+    height: 22px;
+    display: inline-grid;
+    place-items: center;
+    border: 1px solid var(--saga-border, rgba(215, 181, 109, 0.42));
+    border-radius: 6px;
+    background: var(--saga-button, rgba(7, 7, 10, 0.82));
+    color: var(--saga-gold, #d7b56d);
+    font-size: 0.78em;
+    font-weight: 900;
+    line-height: 1;
+    padding: 0;
+    cursor: pointer;
+    box-shadow:
+        0 0 0 1px rgba(0, 0, 0, 0.32),
+        0 4px 12px rgba(0, 0, 0, 0.32);
+    transition:
+        border-color 150ms ease,
+        background 150ms ease,
+        color 150ms ease,
+        box-shadow 150ms ease,
+        transform 150ms ease;
+}
+
+.saga-loredeck-library-cover-action:hover,
+.saga-loredeck-library-cover-action:focus-visible {
+    border-color: var(--saga-border-strong, rgba(255, 207, 105, 0.82));
+    background: var(--saga-gold-surface, rgba(215, 181, 109, 0.18));
+    box-shadow:
+        0 0 0 1px var(--saga-gold-surface, rgba(255, 207, 105, 0.16)),
+        0 0 14px var(--saga-gold-surface, rgba(215, 181, 109, 0.28));
+    transform: translateY(-1px);
+}
+
+.saga-loredeck-library-cover-action-remove {
+    border-color: var(--saga-red-soft, rgba(219, 105, 105, 0.48));
+    color: var(--saga-red, #f07f68);
+}
+
+.saga-loredeck-library-cover-action-remove:hover,
+.saga-loredeck-library-cover-action-remove:focus-visible {
+    border-color: var(--saga-red-soft, rgba(240, 127, 104, 0.82));
+    background: var(--saga-red-hover, rgba(111, 29, 31, 0.62));
+    color: var(--saga-button-text, #ffd0c2);
+}
+
+.saga-loredeck-library-cover-action:disabled {
+    cursor: wait;
+    opacity: 0.58;
+    transform: none;
+}
+
+.saga-loredeck-library-deck-main,
+.saga-loredeck-library-stack-main,
+.saga-loredeck-library-detail-main {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.saga-loredeck-library-deck-main,
+.saga-loredeck-library-stack-main {
+    overflow: hidden;
+}
+
+.saga-loredeck-library-deck-title {
+    min-width: 0;
+    color: var(--saga-text, #f1ead8);
+    font-size: 0.94em;
+    font-weight: 760;
+    line-height: 1.22;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.saga-loredeck-library-inline-title {
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    min-width: 0;
+}
+
+.saga-loredeck-library-inline-title-label {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.saga-loredeck-library-title-edit-action {
+    position: relative;
+    flex: 0 0 18px;
+    width: 18px;
+    height: 18px;
+    display: inline-grid;
+    place-items: center;
+    border: 1px solid rgba(215, 181, 109, 0.24);
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.26);
+    color: var(--saga-gold, #d7b56d);
+    cursor: pointer;
+    opacity: 0;
+    padding: 0;
+    transform: translateX(-3px) scale(0.94);
+    transition:
+        opacity 150ms ease,
+        transform 150ms ease,
+        border-color 150ms ease,
+        background 150ms ease,
+        box-shadow 150ms ease;
+}
+
+.saga-loredeck-library-inline-title-editable:hover .saga-loredeck-library-title-edit-action,
+.saga-loredeck-library-inline-title-editable:focus-within .saga-loredeck-library-title-edit-action,
+.saga-loredeck-library-inline-title-editing .saga-loredeck-library-title-edit-action {
+    opacity: 1;
+    transform: none;
+}
+
+.saga-loredeck-library-title-edit-action:hover,
+.saga-loredeck-library-title-edit-action:focus-visible {
+    border-color: rgba(255, 207, 105, 0.72);
+    background: rgba(215, 181, 109, 0.16);
+    box-shadow: 0 0 10px rgba(215, 181, 109, 0.22);
+}
+
+.saga-loredeck-library-title-edit-wand::before {
+    content: "";
+    position: absolute;
+    width: 11px;
+    height: 2px;
+    border-radius: 999px;
+    background: currentColor;
+    transform: rotate(-36deg);
+    box-shadow: 0 0 5px rgba(245, 196, 91, 0.36);
+}
+
+.saga-loredeck-library-title-edit-wand::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 4px;
+    width: 3px;
+    height: 3px;
+    border-radius: 999px;
+    background: #ffe1a2;
+    box-shadow:
+        4px -2px 0 rgba(255, 225, 162, 0.72),
+        -2px 4px 0 rgba(255, 225, 162, 0.56);
+}
+
+.saga-loredeck-library-title-edit-accept::before {
+    content: "";
+    width: 9px;
+    height: 5px;
+    border-left: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: translateY(-1px) rotate(-45deg);
+}
+
+.saga-loredeck-library-title-edit-accept::after {
+    content: none;
+}
+
+.saga-loredeck-library-title-input {
+    width: 100%;
+    min-width: 0;
+    height: 24px;
+    box-sizing: border-box;
+    font: inherit;
+    font-weight: inherit;
+    color: var(--saga-text, #f1ead8);
+    background: rgba(0, 0, 0, 0.34);
+    border-color: rgba(255, 207, 105, 0.58);
+    cursor: text;
+}
+
+.saga-loredeck-library-deck-description,
+.saga-loredeck-library-detail-description {
+    color: var(--saga-muted, rgba(241, 234, 216, 0.72));
+    font-size: 0.75em;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+}
+
+.saga-loredeck-library-deck-description {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.saga-loredeck-library-deck-main > .saga-loredeck-row-meta,
+.saga-loredeck-library-stack-main > .saga-loredeck-row-meta {
+    min-width: 0;
+    flex-wrap: nowrap;
+    overflow: hidden;
+}
+
+.saga-loredeck-library-deck-main > .saga-loredeck-row-meta .saga-status-pill,
+.saga-loredeck-library-stack-main > .saga-loredeck-row-meta .saga-status-pill {
+    min-width: 0;
+    flex: 0 1 auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.saga-loredeck-library-card-stats {
+    color: rgba(241, 234, 216, 0.74);
+    font-size: 0.72em;
+    line-height: 1.25;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.saga-loredeck-library-deck-side {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    min-width: 24px;
+    max-width: 30px;
+    min-height: 22px;
+    display: inline-grid;
+    place-items: center;
+    border: 1px solid rgba(185, 139, 54, 0.2);
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.24);
+    color: var(--saga-gold, #d7b56d);
+    font-size: 0.66em;
+    font-weight: 800;
+    line-height: 1;
+    text-align: center;
+    pointer-events: none;
+}
+
+.saga-loredeck-library-transfer-pane {
+    min-width: 0;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 8px 0;
+}
+
+.saga-loredeck-library-transfer-flow,
+.saga-loredeck-library-transfer-footer {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+}
+
+.saga-loredeck-library-transfer-flow {
+    flex: 1 1 auto;
+    justify-content: center;
+}
+
+.saga-loredeck-library-transfer-footer {
+    flex: 0 0 auto;
+}
+
+.saga-loredeck-library-transfer-button {
+    min-height: 42px;
+    white-space: normal;
+    line-height: 1.2;
+}
+
+.saga-loredeck-library-stack-card {
+    position: relative;
+    min-height: 76px;
+    display: grid;
+    grid-template-columns: 20px 54px minmax(0, 1fr) 24px;
+    gap: 8px;
+    align-items: center;
+    border: 1px solid var(--saga-border-soft, rgba(185, 139, 54, 0.22));
+    border-radius: 7px;
+    background:
+        linear-gradient(180deg, var(--saga-surface, rgba(18, 18, 24, 0.8)), var(--saga-surface-2, rgba(8, 10, 14, 0.86)));
+    padding: 7px 8px;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition:
+        transform 150ms cubic-bezier(0.2, 0.8, 0.2, 1),
+        opacity 120ms ease,
+        border-color 150ms ease,
+        background 150ms ease,
+        box-shadow 150ms ease;
+    will-change: transform;
+    overflow: hidden;
+}
+
+.saga-loredeck-library-stack-card-disabled {
+    opacity: 0.68;
+}
+
+.saga-loredeck-library-stack-card-suppressed {
+    border-color: var(--saga-warning-soft, rgba(226, 177, 98, 0.42));
+    background:
+        radial-gradient(circle at 12% 0%, var(--saga-warning-soft, rgba(226, 177, 98, 0.12)), transparent 34%),
+        linear-gradient(180deg, var(--saga-surface, rgba(24, 18, 17, 0.82)), var(--saga-surface-2, rgba(8, 10, 14, 0.88)));
+    box-shadow: 0 0 0 1px var(--saga-warning-soft, rgba(226, 177, 98, 0.08)) inset;
+}
+
+.saga-loredeck-library-stack-folder-card {
+    background:
+        radial-gradient(circle at 12% 10%, var(--saga-gold-surface, rgba(215, 181, 109, 0.12)), transparent 34%),
+        linear-gradient(180deg, var(--saga-surface, rgba(22, 19, 18, 0.84)), var(--saga-surface-2, rgba(8, 10, 14, 0.88)));
+}
+
+.saga-loredeck-library-stack-folder-card-expanded {
+    align-items: start;
+}
+
+.saga-loredeck-library-stack-folder-card-has-suppressed {
+    border-color: var(--saga-warning-soft, rgba(226, 177, 98, 0.36));
+    box-shadow: 0 0 0 1px var(--saga-warning-soft, rgba(226, 177, 98, 0.09)) inset;
+}
+
+.saga-loredeck-library-stack-duplicate-summary {
+    margin: -2px 0 6px;
+    padding: 7px 10px;
+    border: 1px solid rgba(226, 177, 98, 0.32);
+    border-radius: 6px;
+    background:
+        linear-gradient(90deg, rgba(226, 177, 98, 0.12), rgba(104, 34, 42, 0.08)),
+        rgba(8, 10, 14, 0.56);
+    color: var(--saga-gold-bright, #f0cf8a);
+    font-size: 0.78rem;
+    line-height: 1.35;
+}
+
+.saga-loredeck-library-stack-card.saga-loredeck-library-stack-card-selected {
+    border-color: var(--saga-border-strong, rgba(255, 207, 105, 0.98));
+    background:
+        radial-gradient(circle at 10% 0%, var(--saga-gold-surface, rgba(255, 207, 105, 0.18)), transparent 36%),
+        radial-gradient(circle at 100% 18%, var(--saga-red-surface, rgba(104, 34, 42, 0.24)), transparent 44%),
+        linear-gradient(180deg, var(--saga-button-hover, rgba(36, 25, 23, 0.9)), var(--saga-bg-2, rgba(11, 10, 13, 0.92)));
+    box-shadow:
+        0 0 0 1px var(--saga-gold-surface, rgba(255, 207, 105, 0.28)) inset,
+        3px 0 0 var(--saga-border-strong, rgba(255, 207, 105, 0.78)) inset,
+        0 0 22px var(--saga-gold-surface, rgba(245, 196, 91, 0.18));
+}
+
+.saga-loredeck-library-stack-folder-visual {
+    overflow: hidden;
+    padding: 4px;
+}
+
+.saga-loredeck-library-stack-folder-visual .saga-loredeck-library-folder-cover-strip {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    padding-left: 0;
+    justify-content: center;
+    --saga-folder-cover-overlap: -9px;
+}
+
+.saga-loredeck-library-stack-folder-visual .saga-loredeck-library-folder-cover-tile {
+    width: 20px;
+    height: 34px;
+    flex-basis: 20px;
+    border-radius: 4px;
+}
+
+.saga-loredeck-library-stack-folder-visual .saga-loredeck-library-folder-cover-empty {
+    font-size: 0.58em;
+}
+
+.saga-loredeck-library-stack-card-bulk-selected {
+    border-color: var(--saga-border-strong, rgba(245, 196, 91, 0.86));
+    box-shadow:
+        0 0 0 1px var(--saga-gold-surface, rgba(245, 196, 91, 0.22)) inset,
+        3px 0 0 var(--saga-border-strong, rgba(245, 196, 91, 0.7)) inset;
+}
+
+.saga-loredeck-library-stack-grip {
+    align-self: center;
+    justify-self: center;
+    width: 18px;
+    min-width: 18px;
+    height: 52px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--saga-border-soft, rgba(185, 139, 54, 0.18));
+    border-radius: 6px;
+    background: var(--saga-button, rgba(0, 0, 0, 0.18));
+    color: var(--saga-gold, #d7b56d);
+    padding: 0;
+    cursor: grab;
+    box-sizing: border-box;
+}
+
+.saga-loredeck-library-deck-grip {
+    height: 48px;
+}
+
+.saga-loredeck-library-stack-grip:active,
+.saga-loredeck-library-stack-dragging .saga-loredeck-library-stack-grip {
+    cursor: grabbing;
+}
+
+.saga-loredeck-library-stack-grip span {
+    width: 10px;
+    height: min(44px, max(14px, calc(var(--saga-grip-dot-rows, 6) * 7px)));
+    display: block;
+    opacity: 0.74;
+    background:
+        radial-gradient(circle, var(--saga-border-strong, rgba(215, 181, 109, 0.78)) 0 1.4px, transparent 2px) 0 0 / 5px 7px repeat;
+}
+
+.saga-loredeck-library-stack-grip:hover,
+.saga-loredeck-library-stack-grip:focus-visible {
+    border-color: var(--saga-border-strong, rgba(245, 196, 91, 0.62));
+    box-shadow: 0 0 0 1px var(--saga-gold-surface, rgba(245, 196, 91, 0.16)) inset;
+}
+
+.saga-loredeck-library-stack-card-dragging-source {
+    opacity: 0.28;
+    border-style: dashed;
+}
+
+.saga-loredeck-library-stack-card-displaced {
+    pointer-events: none;
+}
+
+.saga-loredeck-library-drag-drop-target {
+    outline: 1px dashed rgba(245, 196, 91, 0.72);
+    outline-offset: -3px;
+    background:
+        radial-gradient(circle at 50% 0%, rgba(215, 181, 109, 0.14), transparent 42%),
+        rgba(18, 18, 24, 0.42);
+    transition:
+        background 150ms ease,
+        border-color 150ms ease,
+        box-shadow 150ms ease,
+        outline-color 150ms ease;
+}
+
+.saga-loredeck-library-drag-drop-valid {
+    border-color: rgba(119, 184, 93, 0.64) !important;
+    outline-color: rgba(119, 184, 93, 0.78) !important;
+    box-shadow: 0 0 0 1px rgba(119, 184, 93, 0.18) inset;
+}
+
+.saga-loredeck-library-drag-drop-invalid {
+    border-color: rgba(219, 105, 105, 0.72) !important;
+    outline-color: rgba(219, 105, 105, 0.84) !important;
+    background:
+        radial-gradient(circle at 50% 0%, rgba(219, 105, 105, 0.16), transparent 42%),
+        rgba(40, 10, 16, 0.58) !important;
+    cursor: no-drop !important;
+}
+
+.saga-loredeck-library-deck-list.saga-loredeck-library-root-drop-active,
+.saga-loredeck-library-deck-list.saga-loredeck-library-stack-remove-active {
+    position: relative;
+    outline: 1px solid rgba(245, 196, 91, 0.78);
+    outline-offset: -4px;
+    background:
+        radial-gradient(circle at 2% 10%, rgba(245, 196, 91, 0.14), transparent 22%),
+        rgba(8, 10, 14, 0.18);
+}
+
+.saga-loredeck-library-deck-list.saga-loredeck-library-stack-remove-active {
+    outline-color: rgba(219, 105, 105, 0.82);
+    background:
+        radial-gradient(circle at 2% 10%, rgba(219, 105, 105, 0.16), transparent 22%),
+        rgba(40, 10, 16, 0.22);
+}
+
+.saga-loredeck-library-deck-list.saga-loredeck-library-root-drop-active::before,
+.saga-loredeck-library-deck-list.saga-loredeck-library-stack-remove-active::before {
+    content: attr(data-drag-drop-label);
+    position: absolute;
+    top: 4px;
+    left: 6px;
+    z-index: 3;
+    align-self: flex-start;
+    max-width: calc(100% - 12px);
+    display: inline-grid;
+    place-items: center;
+    border: 1px solid rgba(245, 196, 91, 0.58);
+    border-radius: 999px;
+    background: rgba(30, 20, 10, 0.92);
+    color: var(--saga-gold, #d7b56d);
+    padding: 3px 8px;
+    font-size: 0.68em;
+    font-weight: 800;
+    line-height: 1;
+    pointer-events: none;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.28);
+}
+
+.saga-loredeck-library-deck-list.saga-loredeck-library-stack-remove-active::before {
+    border-color: rgba(219, 105, 105, 0.62);
+    background: rgba(42, 12, 18, 0.94);
+    color: #ffb3aa;
+}
+
+.saga-loredeck-library-stack-ghost {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100000;
+    pointer-events: none;
+    opacity: 0.96;
+    overflow: visible !important;
+    box-shadow:
+        0 18px 34px rgba(0, 0, 0, 0.42),
+        0 0 0 1px rgba(245, 196, 91, 0.18) inset,
+        0 0 24px rgba(215, 181, 109, 0.18);
+    cursor: grabbing;
+    transform-origin: top left;
+    transition: none !important;
+    will-change: transform;
+}
+
+.saga-loredeck-library-drag-copy {
+    position: absolute;
+    left: 8px;
+    bottom: -30px;
+    max-width: calc(100% - 16px);
+    display: block;
+    border: 1px solid rgba(119, 184, 93, 0.52);
+    border-radius: 999px;
+    background: rgba(8, 20, 14, 0.94);
+    color: #d9f0ca;
+    padding: 4px 8px;
+    font-size: 0.72em;
+    font-weight: 800;
+    line-height: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.34);
+    transition:
+        background 150ms ease,
+        border-color 150ms ease,
+        color 150ms ease;
+}
+
+.saga-loredeck-library-drag-copy-invalid {
+    border-color: rgba(219, 105, 105, 0.62);
+    background: rgba(42, 12, 18, 0.95);
+    color: #ffb3aa;
+}
+
+.saga-loredeck-library-drag-copy-root {
+    border-color: rgba(245, 196, 91, 0.64);
+    background: rgba(35, 23, 10, 0.95);
+    color: var(--saga-gold, #d7b56d);
+}
+
+.saga-loredeck-library-drag-copy-remove {
+    border-color: rgba(219, 105, 105, 0.62);
+    background: rgba(42, 12, 18, 0.95);
+    color: #ffb3aa;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .saga-loredeck-library-deck-card,
+    .saga-loredeck-library-stack-card,
+    .saga-loredeck-library-inline-folder-row,
+    .saga-loredeck-library-deck-list,
+    .saga-loredeck-library-stack-list,
+    .saga-loredeck-library-drag-drop-target,
+    .saga-loredeck-library-stack-remove-active,
+    .saga-loredeck-library-drag-copy {
+        transition: none;
+    }
+}
+
+.saga-loredeck-library-stack-controls {
+    position: static;
+    align-self: end;
+    justify-self: end;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 5px;
+}
+
+.saga-loredeck-library-stack-disclosure-button {
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(185, 139, 54, 0.24);
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.2);
+    color: var(--saga-gold, #d7b56d);
+    font-size: 0.68em;
+    font-weight: 900;
+    line-height: 1;
+    padding: 0;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.saga-loredeck-library-stack-disclosure-button:hover,
+.saga-loredeck-library-stack-disclosure-button:focus-visible {
+    border-color: rgba(245, 196, 91, 0.62);
+    box-shadow: 0 0 0 1px rgba(245, 196, 91, 0.16) inset;
+}
+
+.saga-loredeck-library-stack-folder-preview {
+    grid-column: 2 / -1;
+    min-width: 0;
+    max-height: 178px;
+    overflow: hidden;
+    border-top: 1px solid rgba(185, 139, 54, 0.16);
+    padding-top: 6px;
+}
+
+.saga-loredeck-library-stack-folder-preview-list {
+    max-height: 168px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 3px;
+}
+
+.saga-loredeck-library-stack-folder-preview-row {
+    width: 100%;
+    min-width: 0;
+    min-height: 24px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto auto auto;
+    gap: 5px;
+    align-items: center;
+    border: 1px solid rgba(185, 139, 54, 0.12);
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.16);
+    color: var(--saga-text, #f1ead8);
+    padding: 3px 5px 3px calc(6px + (var(--saga-stack-preview-depth, 0) * 12px));
+    text-align: left;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.saga-loredeck-library-stack-folder-preview-row:hover,
+.saga-loredeck-library-stack-folder-preview-row:focus-visible {
+    border-color: rgba(245, 196, 91, 0.45);
+    box-shadow: 0 0 0 1px rgba(245, 196, 91, 0.1) inset;
+}
+
+.saga-loredeck-library-stack-folder-preview-row-folder {
+    background:
+        radial-gradient(circle at 8% 50%, rgba(215, 181, 109, 0.09), transparent 44%),
+        rgba(8, 10, 14, 0.22);
+}
+
+.saga-loredeck-library-stack-folder-preview-row-suppressed,
+.saga-loredeck-library-stack-folder-preview-row-disabled {
+    opacity: 0.74;
+}
+
+.saga-loredeck-library-stack-folder-preview-title {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.72em;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.saga-loredeck-library-stack-folder-preview-chip {
+    min-width: 0;
+    display: inline-grid;
+    place-items: center;
+    border: 1px solid rgba(185, 139, 54, 0.18);
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.18);
+    color: var(--saga-muted, rgba(241, 234, 216, 0.72));
+    padding: 2px 5px;
+    font-size: 0.62em;
+    font-weight: 800;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.saga-loredeck-library-stack-folder-preview-chip-active,
+.saga-loredeck-library-stack-folder-preview-health-chip-ok {
+    color: #bce4a7;
+    border-color: rgba(119, 184, 93, 0.42);
+}
+
+.saga-loredeck-library-stack-folder-preview-chip-suppressed,
+.saga-loredeck-library-stack-folder-preview-chip-disabled {
+    color: rgba(241, 234, 216, 0.66);
+}
+
+.saga-loredeck-library-stack-folder-preview-chip-kept {
+    max-width: 150px;
+    color: #ffd58a;
+    border-color: rgba(226, 177, 98, 0.42);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.saga-loredeck-library-stack-folder-preview-health-chip-warning {
+    color: #ffd58a;
+    border-color: rgba(226, 177, 98, 0.48);
+}
+
+.saga-loredeck-library-stack-folder-preview-health-chip-error {
+    color: #ffb3aa;
+    border-color: rgba(219, 105, 105, 0.5);
+}
+
+.saga-loredeck-library-stack-toggle-button {
+    position: relative;
+    width: 26px;
+    height: 26px;
+    min-width: 26px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(185, 139, 54, 0.32);
+    border-radius: 50%;
+    padding: 0;
+    cursor: pointer;
+    box-sizing: border-box;
+    overflow: visible;
+    transition: border-color 140ms ease, box-shadow 140ms ease, transform 140ms ease;
+}
+
+.saga-loredeck-library-stack-toggle-button::before {
+    content: "";
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    transition: background 140ms ease, box-shadow 140ms ease, opacity 140ms ease;
+}
+
+.saga-loredeck-library-stack-toggle-button::after {
+    content: "";
+    position: absolute;
+    inset: 5px;
+    border-radius: 50%;
+    pointer-events: none;
+    transition: opacity 140ms ease, box-shadow 140ms ease;
+}
+
+.saga-loredeck-library-stack-toggle-active {
+    border-color: rgba(119, 184, 93, 0.72);
+    background:
+        radial-gradient(circle at 50% 42%, rgba(231, 255, 192, 0.38), transparent 42%),
+        radial-gradient(circle at 50% 50%, rgba(103, 216, 82, 0.26), transparent 72%),
+        rgba(12, 30, 21, 0.9);
+    box-shadow:
+        0 0 0 1px rgba(202, 255, 146, 0.2) inset,
+        0 0 12px rgba(107, 255, 89, 0.44),
+        0 0 24px rgba(107, 255, 89, 0.16);
+}
+
+.saga-loredeck-library-stack-toggle-active::before {
+    background:
+        radial-gradient(circle at 38% 28%, #ffffff 0 12%, #f0ffd3 18%, #9cff6d 54%, #3ecf58 100%);
+    box-shadow:
+        0 0 5px rgba(229, 255, 198, 0.9),
+        0 0 12px rgba(110, 255, 91, 0.78);
+}
+
+.saga-loredeck-library-stack-toggle-active::after {
+    opacity: 1;
+    box-shadow:
+        0 0 12px 2px rgba(119, 255, 87, 0.5),
+        0 0 3px rgba(255, 255, 255, 0.72) inset;
+}
+
+.saga-loredeck-library-stack-toggle-inactive {
+    border-color: rgba(185, 139, 54, 0.22);
+    background:
+        radial-gradient(circle at 50% 38%, rgba(241, 234, 216, 0.08), transparent 48%),
+        rgba(16, 16, 18, 0.86);
+}
+
+.saga-loredeck-library-stack-toggle-inactive::before {
+    opacity: 0.58;
+    background:
+        radial-gradient(circle at 38% 28%, rgba(241, 234, 216, 0.7) 0 10%, rgba(120, 120, 118, 0.46) 44%, rgba(38, 38, 40, 0.82) 100%);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.44) inset;
+}
+
+.saga-loredeck-library-stack-toggle-inactive::after {
+    opacity: 0;
+}
+
+.saga-loredeck-library-stack-toggle-button:hover,
+.saga-loredeck-library-stack-toggle-button:focus-visible {
+    border-color: rgba(245, 196, 91, 0.72);
+    transform: translateY(-1px);
+    box-shadow:
+        0 0 0 1px rgba(245, 196, 91, 0.18) inset,
+        0 0 14px rgba(245, 196, 91, 0.16);
+}
+
+.saga-loredeck-library-center-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding: 0;
+}
+
+.saga-loredeck-library-square-action-group {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+}
+
+.saga-loredeck-library-square-action {
+    width: 46px;
+    height: 46px;
+    min-width: 46px;
+    min-height: 46px;
+    justify-self: center;
+    display: inline-grid !important;
+    place-items: center;
+    justify-content: center;
+    align-content: center;
+    padding: 0 !important;
+    border-radius: 7px;
+    color: var(--saga-gold, #d7b56d);
+    line-height: 0;
+}
+
+.saga-loredeck-library-square-action-label {
+    max-width: 58px;
+    color: var(--saga-muted, rgba(224, 216, 196, 0.74));
+    font-size: 0.68em;
+    font-weight: 700;
+    line-height: 1.1;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    pointer-events: none;
+}
+
+.saga-loredeck-library-square-action:disabled + .saga-loredeck-library-square-action-label {
+    opacity: 0.58;
+}
+
+.saga-loredeck-library-icon-action svg {
+    width: 30px;
+    height: 30px;
+    display: block;
+    grid-area: 1 / 1;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.saga-loredeck-library-action-icon-img {
+    width: 46px;
+    height: 46px;
+    display: block;
+    grid-area: 1 / 1;
+    align-self: center;
+    justify-self: center;
+    object-fit: contain;
+    object-position: center center;
+    pointer-events: none;
+    user-select: none;
+}
+
+.saga-loredeck-library-icon-action .saga-icon-fill-soft {
+    fill: var(--saga-gold-surface, rgba(215, 181, 109, 0.08));
+}
+
+.saga-loredeck-library-icon-action .saga-icon-spark {
+    fill: var(--saga-gold-surface, rgba(215, 181, 109, 0.12));
+    stroke-width: 1.8;
+}
+
+.saga-loredeck-library-square-action-danger {
+    border-color: var(--saga-red-soft, rgba(219, 105, 105, 0.42));
+    color: var(--saga-red, #f07f68);
+}
+
+.saga-loredeck-library-square-action-danger .saga-icon-fill-soft {
+    fill: var(--saga-red-surface, rgba(219, 105, 105, 0.1));
+}
+
+.saga-loredeck-library-square-action-danger .saga-icon-spark {
+    fill: var(--saga-gold-surface, rgba(215, 181, 109, 0.1));
+    color: var(--saga-gold, #d7b56d);
+}
+
+.saga-loredeck-library-details {
+    height: 100%;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: minmax(340px, 0.5fr) minmax(0, 1fr);
+    gap: 10px;
+    border: 1px solid var(--saga-border-soft, rgba(185, 139, 54, 0.24));
+    border-radius: 8px;
+    background:
+        radial-gradient(circle at 12% 0%, var(--saga-gold-surface, rgba(215, 181, 109, 0.08)), transparent 30%),
+        var(--saga-surface-2, rgba(8, 10, 14, 0.48));
+    padding: 9px;
+    overflow: hidden;
+    box-sizing: border-box;
+    opacity: 1;
+    transition:
+        opacity 160ms ease,
+        transform 180ms ease;
+}
+
+.saga-loredeck-library-details-empty {
+    grid-template-columns: 1fr;
+    place-items: center;
+}
+
+.saga-loredeck-library-details-empty .saga-lore-empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: min(100%, 560px);
+    margin: 0;
+    padding: 0 12px;
+    color: var(--saga-muted, rgba(255, 255, 255, 0.52));
+    font-size: 0.9em;
+    font-style: normal;
+    letter-spacing: 0;
+    white-space: nowrap;
+}
+
+.saga-loredeck-library-details-empty .saga-lore-empty::before,
+.saga-loredeck-library-details-empty .saga-lore-empty::after {
+    content: '';
+    flex: 1 1 48px;
+    height: 1px;
+    min-width: 32px;
+    background: linear-gradient(90deg, transparent, var(--saga-border-soft, rgba(185, 139, 54, 0.32)));
+}
+
+.saga-loredeck-library-details-empty .saga-lore-empty::after {
+    background: linear-gradient(90deg, var(--saga-border-soft, rgba(185, 139, 54, 0.32)), transparent);
+}
+
+.saga-loredeck-library-details-collapsed .saga-loredeck-library-details {
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
+}
+
+.saga-loredeck-library-detail-identity {
+    align-self: start;
+    min-width: 0;
+    display: grid;
+    grid-template-columns: 128px minmax(0, 1fr);
+    gap: 14px;
+    align-items: start;
+    overflow: hidden;
+}
+
+.saga-loredeck-library-detail-monogram {
+    width: 128px;
+    height: 128px;
+    font-size: 2.35em;
+}
+
+.saga-loredeck-library-detail-title {
+    min-width: 0;
+    color: var(--saga-gold, #d7b56d);
+    font-size: 1.02em;
+    font-weight: 800;
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+}
+
+.saga-loredeck-library-detail-kicker {
+    width: fit-content;
+    max-width: 100%;
+    border: 1px solid rgba(255, 207, 105, 0.28);
+    border-radius: 6px;
+    background: rgba(255, 207, 105, 0.1);
+    color: #ffe1a2;
+    padding: 1px 6px;
+    font-size: 0.66em;
+    font-weight: 800;
+    line-height: 1.45;
+    letter-spacing: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    box-sizing: border-box;
+}
+
+.saga-loredeck-library-detail-content {
+    min-width: 0;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.saga-loredeck-library-detail-tabs {
+    flex: 0 0 auto;
+    border-bottom: 1px solid rgba(185, 139, 54, 0.18);
+}
+
+.saga-loredeck-library-detail-tab {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 8px 4px 2px;
+}
+
+.saga-loredeck-library-detail-grid-wrap,
+.saga-loredeck-library-health-detail,
+.saga-loredeck-library-dependencies-detail,
+.saga-loredeck-library-files-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.saga-loredeck-library-detail-actions {
+    margin-top: 2px;
+}
+
+.saga-loredeck-library-folder-details {
+    grid-template-columns: minmax(300px, 0.38fr) minmax(0, 1fr);
+}
+
+.saga-loredeck-library-folder-detail-visual {
+    align-self: start;
+    justify-self: start;
+    overflow: hidden;
+    padding: 4px;
+}
+
+.saga-loredeck-library-folder-detail-visual .saga-loredeck-library-folder-cover-strip {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    padding-left: 0;
+    justify-content: center;
+    --saga-folder-cover-overlap: -9px;
+}
+
+.saga-loredeck-library-folder-detail-visual .saga-loredeck-library-folder-cover-tile {
+    width: 20px;
+    height: 34px;
+    flex-basis: 20px;
+    border-radius: 4px;
+}
+
+.saga-loredeck-library-folder-detail-content {
+    min-height: 0;
+    gap: 8px;
+}
+
+.saga-loredeck-library-folder-actions {
+    margin-top: 2px;
+    gap: 5px;
+    justify-content: flex-start;
+}
+
+.saga-loredeck-library-folder-parent-control {
+    flex: 1 1 230px;
+    min-width: 190px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.saga-loredeck-library-folder-parent-select {
+    flex: 1 1 150px;
+    max-width: none;
+}
+
+.saga-loredeck-library-folder-summary-grid {
+    flex: 0 0 auto;
+}
+
+.saga-loredeck-library-folder-loredeck-list-wrap {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    overflow: hidden;
+}
+
+.saga-loredeck-library-folder-loredeck-list {
+    flex: 1 1 auto;
+    min-height: 0;
+    max-height: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 4px;
+}
+
+.saga-loredeck-library-folder-loredeck-row {
+    width: 100%;
+    min-height: 30px;
+    display: grid;
+    grid-template-columns: minmax(110px, 1fr) minmax(84px, 0.42fr) 46px 42px;
+    gap: 8px;
+    align-items: center;
+    border: 1px solid var(--saga-border-soft, rgba(185, 139, 54, 0.16));
+    border-radius: 6px;
+    background: var(--saga-surface-2, rgba(0, 0, 0, 0.18));
+    color: var(--saga-text, #f1ead8);
+    padding: 5px 7px;
+    text-align: left;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.saga-loredeck-library-folder-loredeck-row:hover,
+.saga-loredeck-library-folder-loredeck-row:focus-visible {
+    border-color: var(--saga-border-strong, rgba(245, 196, 91, 0.5));
+    box-shadow: 0 0 0 1px var(--saga-gold-surface, rgba(245, 196, 91, 0.12)) inset;
+}
+
+.saga-loredeck-library-folder-loredeck-title {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.82em;
+    font-weight: 700;
+}
+
+.saga-loredeck-library-folder-loredeck-meter {
+    min-width: 0;
+    height: 8px;
+    border-radius: 999px;
+    border: 1px solid var(--saga-border-soft, rgba(185, 139, 54, 0.18));
+    background: var(--saga-input, rgba(0, 0, 0, 0.28));
+    overflow: hidden;
+}
+
+.saga-loredeck-library-folder-loredeck-meter-fill {
+    width: var(--saga-folder-loredeck-meter, 0%);
+    height: 100%;
+    display: block;
+    border-radius: inherit;
+    background: linear-gradient(90deg, var(--saga-gold-soft, rgba(185, 139, 54, 0.58)), var(--saga-border-strong, rgba(245, 196, 91, 0.88)));
+}
+
+.saga-loredeck-library-folder-loredeck-entry-count,
+.saga-loredeck-library-folder-loredeck-health {
+    justify-self: end;
+    min-width: 0;
+    color: var(--saga-muted, rgba(241, 234, 216, 0.72));
+    font-size: 0.72em;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.saga-loredeck-library-folder-loredeck-health {
+    min-width: 30px;
+    display: inline-grid;
+    place-items: center;
+    border: 1px solid var(--saga-border-soft, rgba(185, 139, 54, 0.18));
+    border-radius: 999px;
+    padding: 3px 5px;
+}
+
+.saga-loredeck-library-folder-loredeck-health-error {
+    color: color-mix(in srgb, var(--saga-red, #ffb3aa) 45%, var(--saga-text, #f1ead8));
+    border-color: var(--saga-red-soft, rgba(219, 105, 105, 0.5));
+}
+
+.saga-loredeck-library-folder-loredeck-health-warning {
+    color: color-mix(in srgb, var(--saga-warning, #ffd58a) 68%, var(--saga-text, #f1ead8));
+    border-color: var(--saga-warning-soft, rgba(226, 177, 98, 0.5));
+}
+
+.saga-loredeck-library-folder-loredeck-health-ok {
+    color: color-mix(in srgb, var(--saga-green, #bce4a7) 46%, var(--saga-text, #f1ead8));
+    border-color: var(--saga-green-soft, rgba(119, 184, 93, 0.46));
+}
+
+.saga-loredeck-library-health-top-issue {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    border: 1px solid var(--saga-border-soft, rgba(185, 139, 54, 0.18));
+    border-radius: 7px;
+    background: var(--saga-surface-2, rgba(0, 0, 0, 0.16));
+    padding: 8px;
+}
+
+.saga-loredeck-library-health-top-title {
+    color: var(--saga-gold, #d7b56d);
+    font-size: 0.86em;
+    font-weight: 760;
+    line-height: 1.2;
+}
+
+.saga-loredeck-library-simple-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 5px;
+}
+
+.saga-loredeck-library-mini-section {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.saga-loredeck-library-overlay .saga-status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    min-height: 16px;
+    padding: 0 5px;
+    border: 1px solid var(--saga-border-soft, rgba(255, 255, 255, 0.1));
+    border-radius: 6px;
+    background: var(--saga-chip-bg, rgba(255, 255, 255, 0.08));
+    color: var(--saga-chip-fg, #d8d0c0);
+    font-size: 0.68em;
+    font-weight: 500;
+    line-height: 1.45;
+    letter-spacing: 0;
+    box-sizing: border-box;
+    white-space: nowrap;
+}
+
+@media (max-width: 980px) {
+    .saga-loredeck-library-shell {
+        height: calc(100vh - 18px);
+    }
+
+    .saga-loredeck-library-body {
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+    }
+
+    .saga-loredeck-library-resize-handle {
+        display: grid;
+    }
+
+    .saga-loredeck-library-details-collapsed .saga-loredeck-library-details {
+        display: none;
+    }
+
+    .saga-loredeck-library-columns {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .saga-loredeck-library-pane {
+        flex: 0 0 auto;
+        height: min(520px, calc(100vh - 220px));
+        min-height: 360px;
+    }
+
+    .saga-loredeck-library-transfer-pane {
+        flex: 0 0 auto;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        min-height: auto;
+        padding: 0;
+    }
+
+    .saga-loredeck-library-details {
+        flex: 0 0 auto;
+        grid-template-columns: minmax(0, 1fr);
+        min-height: 320px;
+    }
+}
+
+@media (max-width: 640px) {
+    .saga-loredeck-library-launch-card,
+    .saga-loredeck-library-detail-identity,
+    .saga-loredeck-library-stack-card,
+    .saga-loredeck-library-deck-card {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .saga-loredeck-library-header,
+    .saga-loredeck-library-pane-header,
+    .saga-loredeck-library-stack-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .saga-loredeck-library-header-actions,
+    .saga-loredeck-library-launch-actions {
+        justify-content: flex-start;
+    }
+
+    .saga-loredeck-library-controls,
+    .saga-loredeck-library-transfer-pane {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .saga-loredeck-library-monogram {
+        width: 58px;
+        height: 58px;
+    }
+
+    .saga-loredeck-library-detail-monogram {
+        width: min(128px, 42vw);
+        height: min(128px, 42vw);
+    }
+
+}
+
+.saga-loredeck-health-card {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.saga-loredeck-health-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
+    gap: 6px;
+}
+
+.saga-loredeck-health-metric {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    border: 1px solid rgba(180, 160, 140, 0.14);
+    border-radius: 7px;
+    background: rgba(0, 0, 0, 0.14);
+    padding: 6px;
+}
+
+.saga-loredeck-health-metric span {
+    color: var(--saga-muted, rgba(241, 234, 216, 0.68));
+    font-size: 0.72em;
+}
+
+.saga-loredeck-health-metric strong {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    color: #d4c8a8;
+    font-size: 0.92em;
+    line-height: 1.2;
+}
+
+.saga-loredeck-health-pack-list,
+.saga-loredeck-health-issue-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.saga-loredeck-health-pack-row,
+.saga-loredeck-health-issue {
+    border: 1px solid rgba(180, 160, 140, 0.14);
+    border-radius: 7px;
+    background: rgba(0, 0, 0, 0.13);
+    padding: 7px;
+}
+
+.saga-loredeck-health-issue {
+    border-left-width: 3px;
+}
+
+.saga-loredeck-health-issue-error {
+    border-left-color: rgba(210, 78, 88, 0.86);
+}
+
+.saga-loredeck-health-issue-warning {
+    border-left-color: rgba(215, 181, 109, 0.82);
+}
+
+.saga-loredeck-health-issue-suggestion {
+    border-left-color: rgba(106, 168, 198, 0.78);
+}
+
+.saga-loredeck-health-issue-code {
+    color: #d4c8a8;
+    font-size: 0.76em;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+.saga-loredeck-health-issue-message {
+    margin: 3px 0;
+    font-size: 0.76em;
+    line-height: 1.35;
+    opacity: 0.84;
+    overflow-wrap: anywhere;
+}
+
+.saga-loredeck-health-repair-planner {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    border-top: 1px solid rgba(180, 160, 140, 0.14);
+    padding-top: 8px;
+}
+
+.saga-loredeck-health-repair-list {
+    max-height: 320px;
+    overflow-y: auto;
+    padding-right: 2px;
+}
+
+.saga-loredeck-health-repair-issue {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 7px;
+    align-items: start;
+    cursor: pointer;
+}
+
+.saga-loredeck-health-repair-issue input {
+    margin: 2px 0 0;
+    accent-color: var(--saga-gold, #d7b56d);
+}
+
+.saga-loredeck-health-center-shell {
+    width: min(1180px, calc(100vw - 34px));
+    height: min(860px, calc(100vh - 34px));
+}
+
+.saga-loredeck-health-center-header {
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.saga-loredeck-health-center-actions {
+    flex: 0 0 auto;
+    justify-content: flex-end;
+    margin: 0;
+}
+
+.saga-loredeck-health-center-body {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.saga-loredeck-health-tabs {
+    flex: 0 0 auto;
+    padding: 8px 10px 0;
+    border-bottom: 1px solid var(--saga-border-soft, rgba(185, 139, 54, 0.22));
+    gap: 0;
+    align-items: flex-end;
+}
+
+.saga-loredeck-health-tabs .saga-lore-workbench-mode-tab {
+    min-height: 30px;
+    padding: 7px 11px 8px;
+    border: none;
+    border-bottom: 2px solid transparent;
+    border-radius: 0;
+    background: transparent;
+    color: var(--saga-muted, rgba(241, 234, 216, 0.68));
+    font-size: 0.78em;
+    font-weight: 650;
+}
+
+.saga-loredeck-health-tabs .saga-lore-workbench-mode-tab:hover {
+    border-bottom-color: var(--saga-border-strong, rgba(215, 181, 109, 0.42));
+    background: var(--saga-gold-surface, rgba(215, 181, 109, 0.07));
+    color: var(--saga-text, #f1ead8);
+}
+
+.saga-loredeck-health-tabs .saga-lore-workbench-mode-tab-active {
+    border-bottom-color: var(--saga-gold, #d7b56d);
+    background: var(--saga-gold-surface, rgba(215, 181, 109, 0.1));
+    color: var(--saga-gold, #d7b56d);
+}
+
+.saga-loredeck-health-center-content {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.saga-loredeck-health-overview,
+.saga-loredeck-health-issues-view,
+.saga-loredeck-health-coverage-view,
+.saga-loredeck-health-files-view,
+.saga-loredeck-health-advanced-view {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.saga-loredeck-health-hero {
+    display: grid;
+    grid-template-columns: 72px minmax(0, 1fr);
+    gap: 14px;
+    align-items: center;
+    border: 1px solid var(--saga-border-soft, rgba(185, 139, 54, 0.24));
+    border-radius: 7px;
+    background:
+        linear-gradient(135deg, var(--saga-gold-surface, rgba(185, 139, 54, 0.12)), var(--saga-surface-2, rgba(8, 10, 14, 0.28))),
+        rgba(0, 0, 0, 0.16);
+    padding: 14px;
+}
+
+.saga-loredeck-health-hero-compact {
+    grid-template-columns: 46px minmax(0, 1fr);
+    gap: 10px;
+    padding: 9px;
+}
+
+.saga-loredeck-health-hero-error {
+    border-color: var(--saga-red-soft, rgba(219, 105, 105, 0.48));
+    background: linear-gradient(135deg, var(--saga-red-surface, rgba(92, 23, 36, 0.3)), var(--saga-surface-2, rgba(8, 10, 14, 0.24)));
+}
+
+.saga-loredeck-health-hero-ok {
+    border-color: var(--saga-green-soft, rgba(94, 178, 126, 0.44));
+    background: linear-gradient(135deg, var(--saga-green-soft, rgba(31, 74, 56, 0.24)), var(--saga-surface-2, rgba(8, 10, 14, 0.24)));
+}
+
+.saga-loredeck-health-hero-suggestion {
+    border-color: rgba(126, 145, 215, 0.34);
+    background: linear-gradient(135deg, rgba(52, 63, 96, 0.28), rgba(8, 10, 14, 0.24));
+}
+
+.saga-loredeck-health-emblem {
+    width: 58px;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--saga-border-strong, rgba(215, 181, 109, 0.72));
+    border-radius: 50%;
+    color: var(--saga-gold, #d7b56d);
+    font-size: 1.05em;
+    font-weight: 800;
+    box-shadow: 0 0 24px var(--saga-gold-surface, rgba(185, 139, 54, 0.16)) inset;
+}
+
+.saga-loredeck-health-hero-compact .saga-loredeck-health-emblem {
+    width: 38px;
+    height: 38px;
+    font-size: 0.78em;
+}
+
+.saga-loredeck-health-hero-main {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.saga-loredeck-health-deck-title {
+    color: var(--saga-text, #f1ead8);
+    font-size: 1em;
+    font-weight: 700;
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+}
+
+.saga-loredeck-health-status-label {
+    color: var(--saga-gold, #d7b56d);
+    font-size: 1.08em;
+    font-weight: 750;
+    line-height: 1.2;
+}
+
+.saga-loredeck-health-status-summary,
+.saga-loredeck-health-status-detail,
+.saga-loredeck-health-group-message,
+.saga-loredeck-health-detail-block p {
+    color: var(--saga-muted, rgba(241, 234, 216, 0.72));
+    font-size: 0.8em;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.saga-loredeck-health-severity-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+}
+
+.saga-loredeck-health-severity-grid-compact {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.saga-loredeck-health-severity-card {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    border: 1px solid rgba(180, 160, 140, 0.16);
+    border-radius: 7px;
+    background: rgba(0, 0, 0, 0.18);
+    padding: 9px;
+}
+
+.saga-loredeck-health-severity-card span,
+.saga-loredeck-health-severity-card small {
+    color: var(--saga-muted, rgba(241, 234, 216, 0.68));
+    font-size: 0.72em;
+    line-height: 1.2;
+}
+
+.saga-loredeck-health-severity-card strong {
+    color: var(--saga-text, #f1ead8);
+    font-size: 1.55em;
+    line-height: 1;
+}
+
+.saga-loredeck-health-severity-card-error {
+    border-color: var(--saga-red-soft, rgba(219, 105, 105, 0.38));
+    background: var(--saga-red-surface, rgba(92, 23, 36, 0.16));
+}
+
+.saga-loredeck-health-severity-card-warning {
+    border-color: var(--saga-warning-soft, rgba(215, 181, 109, 0.42));
+    background: var(--saga-gold-surface, rgba(185, 139, 54, 0.12));
+}
+
+.saga-loredeck-health-severity-card-suggestion {
+    border-color: rgba(126, 145, 215, 0.34);
+    background: rgba(52, 63, 96, 0.16);
+}
+
+.saga-loredeck-health-severity-card-checked {
+    border-color: var(--saga-green-soft, rgba(94, 178, 126, 0.34));
+    background: var(--saga-green-soft, rgba(31, 74, 56, 0.14));
+}
+
+.saga-loredeck-health-overview-main {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
+    gap: 10px;
+}
+
+.saga-loredeck-health-panel,
+.saga-loredeck-health-group-card,
+.saga-loredeck-health-detail-panel,
+.saga-loredeck-health-inventory,
+.saga-loredeck-health-issue-table,
+.saga-loredeck-health-file-table {
+    border: 1px solid rgba(180, 160, 140, 0.14);
+    border-radius: 7px;
+    background: rgba(0, 0, 0, 0.15);
+}
+
+.saga-loredeck-health-panel,
+.saga-loredeck-health-detail-panel {
+    padding: 10px;
+}
+
+.saga-loredeck-health-compact-issues {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.saga-loredeck-health-group-card {
+    padding: 0;
+    overflow: hidden;
+}
+
+.saga-loredeck-health-group-card summary {
+    display: flex;
+    cursor: pointer;
+    list-style: none;
+    padding: 10px;
+}
+
+.saga-loredeck-health-group-card summary::-webkit-details-marker,
+.saga-loredeck-health-issue-table-row summary::-webkit-details-marker {
+    display: none;
+}
+
+.saga-loredeck-health-group-card-compact summary {
+    padding: 8px;
+}
+
+.saga-loredeck-health-group-error {
+    border-left: 3px solid rgba(219, 105, 105, 0.82);
+}
+
+.saga-loredeck-health-group-warning {
+    border-left: 3px solid rgba(215, 181, 109, 0.86);
+}
+
+.saga-loredeck-health-group-suggestion {
+    border-left: 3px solid rgba(126, 145, 215, 0.76);
+}
+
+.saga-loredeck-health-group-state-ignored,
+.saga-loredeck-health-issue-table-row-state-ignored summary {
+    opacity: 0.68;
+}
+
+.saga-loredeck-health-group-state-resolved,
+.saga-loredeck-health-issue-table-row-state-resolved summary {
+    background: rgba(60, 130, 82, 0.08);
+}
+
+.saga-loredeck-health-group-main {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.saga-loredeck-health-card .saga-status-pill,
+.saga-loredeck-health-center-overlay .saga-status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    min-height: 14px;
+    max-width: 100%;
+    padding: 0 4px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.08);
+    color: #d8d0c0;
+    font-size: 0.64em;
+    font-weight: 500;
+    line-height: 1.25;
+    letter-spacing: 0;
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+
+.saga-loredeck-health-chip-error {
+    color: #efa6a6 !important;
+    background: rgba(148, 56, 56, 0.2) !important;
+    border-color: rgba(218, 112, 112, 0.3) !important;
+}
+
+.saga-loredeck-health-chip-warning {
+    color: #f0d080 !important;
+    background: rgba(170, 120, 35, 0.22) !important;
+    border-color: rgba(235, 190, 92, 0.28) !important;
+}
+
+.saga-loredeck-health-chip-suggestion {
+    color: #bdd7ff !important;
+    background: rgba(62, 95, 155, 0.22) !important;
+    border-color: rgba(135, 165, 220, 0.26) !important;
+}
+
+.saga-loredeck-health-chip-affected {
+    color: #d8cfaa !important;
+    background: rgba(132, 116, 62, 0.2) !important;
+    border-color: rgba(198, 178, 108, 0.24) !important;
+}
+
+.saga-loredeck-health-chip-file {
+    color: #b8d8e8 !important;
+    background: rgba(55, 105, 135, 0.2) !important;
+    border-color: rgba(105, 155, 185, 0.24) !important;
+}
+
+.saga-loredeck-health-chip-fix {
+    color: #a8d8a8 !important;
+    background: rgba(70, 135, 70, 0.18) !important;
+    border-color: rgba(105, 175, 105, 0.24) !important;
+}
+
+.saga-loredeck-health-chip-state-ignored {
+    color: #c6bda8 !important;
+    background: rgba(112, 103, 85, 0.18) !important;
+    border-color: rgba(180, 160, 140, 0.22) !important;
+}
+
+.saga-loredeck-health-chip-state-resolved {
+    color: #a8d8a8 !important;
+    background: rgba(70, 135, 70, 0.18) !important;
+    border-color: rgba(105, 175, 105, 0.24) !important;
+}
+
+.saga-loredeck-health-group-title {
+    color: var(--saga-text, #f1ead8);
+    font-size: 0.86em;
+    font-weight: 700;
+    line-height: 1.24;
+    overflow-wrap: anywhere;
+}
+
+.saga-loredeck-health-detail-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.saga-loredeck-health-detail-panel-embedded {
+    margin: 0 10px 10px;
+}
+
+.saga-loredeck-health-detail-block {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.saga-loredeck-health-detail-block strong {
+    color: var(--saga-gold, #d7b56d);
+    font-size: 0.78em;
+}
+
+.saga-loredeck-health-affected-list {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.saga-loredeck-health-affected-row {
+    display: grid;
+    grid-template-columns: minmax(110px, 0.7fr) minmax(120px, 0.7fr) minmax(160px, 1fr);
+    gap: 8px;
+    border-bottom: 1px solid rgba(180, 160, 140, 0.1);
+    padding: 4px 0;
+    color: var(--saga-muted, rgba(241, 234, 216, 0.72));
+    font-size: 0.74em;
+}
+
+.saga-loredeck-health-category-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.saga-loredeck-health-category-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 8px;
+    align-items: center;
+    border-bottom: 1px solid rgba(180, 160, 140, 0.11);
+    padding: 8px 2px;
+    font-size: 0.82em;
+}
+
+.saga-loredeck-health-category-row:last-child {
+    border-bottom: none;
+}
+
+.saga-loredeck-health-category-row span:first-child {
+    color: var(--saga-text, #f1ead8);
+    font-weight: 600;
+}
+
+.saga-loredeck-health-category-row-ok span:last-child {
+    color: #8fca7a;
+}
+
+.saga-loredeck-health-category-row-warning span:last-child {
+    color: var(--saga-gold, #d7b56d);
+}
+
+.saga-loredeck-health-category-row-unknown span:last-child {
+    color: var(--saga-muted, rgba(241, 234, 216, 0.62));
+}
+
+.saga-loredeck-health-category-row-error span:last-child {
+    color: #e08080;
+}
+
+.saga-loredeck-health-inventory {
+    display: grid;
+    grid-template-columns: minmax(150px, 1.1fr) repeat(7, minmax(72px, 1fr));
+    gap: 0;
+    align-items: stretch;
+    overflow: hidden;
+}
+
+.saga-loredeck-health-inventory-title,
+.saga-loredeck-health-inventory-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3px;
+    min-width: 0;
+    border-right: 1px solid rgba(180, 160, 140, 0.11);
+    padding: 9px 11px;
+}
+
+.saga-loredeck-health-inventory-title {
+    color: var(--saga-gold, #d7b56d);
+    font-weight: 700;
+}
+
+.saga-loredeck-health-inventory-item:last-child {
+    border-right: none;
+}
+
+.saga-loredeck-health-inventory-item span {
+    color: var(--saga-muted, rgba(241, 234, 216, 0.68));
+    font-size: 0.7em;
+}
+
+.saga-loredeck-health-inventory-item strong {
+    color: var(--saga-text, #f1ead8);
+    font-size: 0.92em;
+}
+
+.saga-loredeck-health-view-header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.saga-loredeck-health-issue-table,
+.saga-loredeck-health-file-table {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.saga-loredeck-health-issue-table-row summary,
+.saga-loredeck-health-issue-table-header,
+.saga-loredeck-health-file-row {
+    display: grid;
+    gap: 8px;
+    align-items: center;
+    border-bottom: 1px solid rgba(180, 160, 140, 0.11);
+    padding: 8px 10px;
+    font-size: 0.78em;
+}
+
+.saga-loredeck-health-issue-table-row summary,
+.saga-loredeck-health-issue-table-header {
+    grid-template-columns: 86px minmax(170px, 1.3fr) minmax(120px, 0.7fr) minmax(150px, 1fr) minmax(100px, 0.7fr);
+}
+
+.saga-loredeck-health-file-row {
+    grid-template-columns: minmax(220px, 1.4fr) 80px 80px 90px 100px;
+}
+
+.saga-loredeck-health-issue-table-row summary {
+    cursor: pointer;
+    list-style: none;
+}
+
+.saga-loredeck-health-issue-table-header,
+.saga-loredeck-health-file-row-header {
+    color: var(--saga-gold, #d7b56d);
+    font-weight: 700;
+    background: var(--saga-gold-surface, rgba(185, 139, 54, 0.08));
+}
+
+.saga-loredeck-health-issue-table-row-error summary,
+.saga-loredeck-health-file-row-error {
+    background: var(--saga-red-surface, rgba(92, 23, 36, 0.12));
+}
+
+.saga-loredeck-health-issue-table-row-warning summary,
+.saga-loredeck-health-file-row-warning {
+    background: var(--saga-gold-surface, rgba(185, 139, 54, 0.08));
+}
+
+.saga-loredeck-health-issue-table-row-suggestion summary {
+    background: rgba(52, 63, 96, 0.1);
+}
+
+.saga-loredeck-health-coverage-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 6px;
+    margin-top: 8px;
+}
+
+@media (max-width: 860px) {
+    .saga-loredeck-health-center-shell {
+        width: calc(100vw - 18px);
+        height: calc(100vh - 18px);
+    }
+
+    .saga-loredeck-health-center-header {
+        flex-direction: column;
+    }
+
+    .saga-loredeck-health-severity-grid,
+    .saga-loredeck-health-overview-main {
+        grid-template-columns: 1fr;
+    }
+
+    .saga-loredeck-health-hero {
+        grid-template-columns: 1fr;
+    }
+
+    .saga-loredeck-health-inventory {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .saga-loredeck-health-inventory-title {
+        grid-column: 1 / -1;
+    }
+
+    .saga-loredeck-health-issue-table-row summary,
+    .saga-loredeck-health-issue-table-header,
+    .saga-loredeck-health-file-row,
+    .saga-loredeck-health-affected-row {
+        grid-template-columns: 1fr;
+    }
+}

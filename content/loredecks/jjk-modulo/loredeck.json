@@ -35,6 +35,17 @@
     "scoring": "scoring.json"
   },
   "resolver": "resolver.json",
+  "assets": {
+    "cover": {
+      "path": "assets/cover.png",
+      "alt": "Deck cover for Jujutsu Kaisen Modulo",
+      "aspect": "1:1",
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    }
+  },
   "continuity": {
     "continuityId": "jjk-modulo",
     "canonTier": "sequel",
@@ -51,11 +62,7 @@
   "files": [
     "future/arrival_and_mission.json",
     "future/coexistence_and_conflict.json",
-    "future/final_resolution.json",
-    "expanded/sequel_continuity_guards.json",
-    "expanded/future_character_states.json",
-    "expanded/sequel_rules.json",
-    "expanded/future_event_anchors.json"
+    "future/final_resolution.json"
   ],
   "compatibility": {
     "sagaSchemaMin": 3,

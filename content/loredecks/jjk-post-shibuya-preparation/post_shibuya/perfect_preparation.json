@@ -475,6 +475,661 @@
           "status": "initial_perfect_preparation_slice"
         }
       }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_post_shibuya_preparation_exp_makis_zenin_return_triggers_clan_violence",
+      "title": "Maki's Zenin Return Triggers Clan Violence",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.post.maki-returns-zenin",
+        "validToAnchor": "jjk.post.zenin-clan-collapse",
+        "sortKeyFrom": 9250,
+        "sortKeyTo": 9650,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Perfect Preparation window"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:maki-zenin",
+          "jjk:zenin-clan"
+        ],
+        "characters": [
+          "Maki Zenin",
+          "Zenin clan"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Maki Zenin return",
+          "clan violence"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:post-shibuya-preparation",
+        "character:maki-zenin",
+        "topic:maki-zenin-return",
+        "topic:clan-violence"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Maki Zenin",
+            "Zenin clan"
+          ],
+          "topicsAny": [
+            "Maki Zenin return",
+            "clan violence"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen post-Shibuya aftermath through Perfect Preparation and Culling Game setup.",
+        "notes": "Culling Game colony action, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Maki's return to the Zenin estate turns family hostility into direct lethal conflict.",
+        "injection": "Use this event state in the active window: Maki's return to the Zenin estate turns family hostility into direct lethal conflict.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Post-Shibuya and Perfect Preparation",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Maki returns to Zenin estate"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-post-shibuya-preparation",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_post_shibuya_preparation_exp_mais_sacrifice_changes_maki_permanently",
+      "title": "Mai's Sacrifice Changes Maki Permanently",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.post.maki-returns-zenin",
+        "validToAnchor": "jjk.post.zenin-clan-collapse",
+        "sortKeyFrom": 9250,
+        "sortKeyTo": 9650,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Perfect Preparation window"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:maki-zenin",
+          "jjk:mai-zenin"
+        ],
+        "characters": [
+          "Maki Zenin",
+          "Mai Zenin"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Mai sacrifice",
+          "Maki transformation"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:post-shibuya-preparation",
+        "character:maki-zenin",
+        "character:mai-zenin",
+        "topic:mai-sacrifice",
+        "topic:maki-transformation"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Maki Zenin",
+            "Mai Zenin"
+          ],
+          "topicsAny": [
+            "Mai sacrifice",
+            "Maki transformation"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen post-Shibuya aftermath through Perfect Preparation and Culling Game setup.",
+        "notes": "Culling Game colony action, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Mai's death and final act remove Maki's old limitation and create her later post-Zenin combat state.",
+        "injection": "Use this event state in the active window: Mai's death and final act remove Maki's old limitation and create her later post-Zenin combat state.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Post-Shibuya and Perfect Preparation",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Maki returns to Zenin estate"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-post-shibuya-preparation",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_post_shibuya_preparation_exp_zenin_collapse_removes_a_major_clan_pillar",
+      "title": "Zenin Collapse Removes A Major Clan Pillar",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.post.maki-returns-zenin",
+        "validToAnchor": "jjk.post.zenin-clan-collapse",
+        "sortKeyFrom": 9250,
+        "sortKeyTo": 9650,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Perfect Preparation window"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:maki-zenin",
+          "jjk:zenin-clan"
+        ],
+        "characters": [
+          "Maki Zenin",
+          "Zenin clan"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Zenin collapse",
+          "clan politics"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:post-shibuya-preparation",
+        "character:maki-zenin",
+        "topic:zenin-collapse",
+        "topic:clan-politics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Maki Zenin",
+            "Zenin clan"
+          ],
+          "topicsAny": [
+            "Zenin collapse",
+            "clan politics"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen post-Shibuya aftermath through Perfect Preparation and Culling Game setup.",
+        "notes": "Culling Game colony action, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "The Zenin clan's violent collapse changes jujutsu politics and Maki's social position after Perfect Preparation.",
+        "injection": "Use this event state in the active window: The Zenin clan's violent collapse changes jujutsu politics and Maki's social position after Perfect Preparation.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Post-Shibuya and Perfect Preparation",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Maki returns to Zenin estate"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-post-shibuya-preparation",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_post_shibuya_preparation_exp_maki_after_mai_is_a_different_combat_baseline",
+      "title": "Maki After Mai Is A Different Combat Baseline",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.post.maki-returns-zenin",
+        "validToAnchor": "jjk.post.zenin-clan-collapse",
+        "sortKeyFrom": 9250,
+        "sortKeyTo": 9650,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Perfect Preparation window"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:maki-zenin",
+          "jjk:mai-zenin"
+        ],
+        "characters": [
+          "Maki Zenin",
+          "Mai Zenin"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Maki transformation",
+          "Heavenly Restriction"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:post-shibuya-preparation",
+        "character:maki-zenin",
+        "character:mai-zenin",
+        "topic:maki-transformation",
+        "topic:heavenly-restriction"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Maki Zenin",
+            "Mai Zenin"
+          ],
+          "topicsAny": [
+            "Maki transformation",
+            "Heavenly Restriction"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen post-Shibuya aftermath through Perfect Preparation and Culling Game setup.",
+        "notes": "Culling Game colony action, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "After Mai's sacrifice, Maki should be treated as physically transformed and no longer limited by her old twin-based restriction state.",
+        "injection": "At this Context, treat this status as active: After Mai's sacrifice, Maki should be treated as physically transformed and no longer limited by her old twin-based restriction state.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Post-Shibuya and Perfect Preparation",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Maki returns to Zenin estate"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-post-shibuya-preparation",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_post_shibuya_preparation_exp_naoya_embodies_zenin_succession_hostility",
+      "title": "Naoya Embodies Zenin Succession Hostility",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.post.maki-returns-zenin",
+        "validToAnchor": "jjk.post.zenin-clan-collapse",
+        "sortKeyFrom": 9250,
+        "sortKeyTo": 9650,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Perfect Preparation window"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:naoya-zenin",
+          "jjk:maki-zenin",
+          "jjk:zenin-clan"
+        ],
+        "characters": [
+          "Naoya Zenin",
+          "Maki Zenin",
+          "Zenin clan"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Naoya hostility",
+          "Zenin succession"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:post-shibuya-preparation",
+        "character:naoya-zenin",
+        "character:maki-zenin",
+        "topic:naoya-hostility",
+        "topic:zenin-succession"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Naoya Zenin",
+            "Maki Zenin",
+            "Zenin clan"
+          ],
+          "topicsAny": [
+            "Naoya hostility",
+            "Zenin succession"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen post-Shibuya aftermath through Perfect Preparation and Culling Game setup.",
+        "notes": "Culling Game colony action, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Naoya's role should carry entitlement, misogyny, and succession pressure rather than generic rival behavior.",
+        "injection": "At this Context, treat this status as active: Naoya's role should carry entitlement, misogyny, and succession pressure rather than generic rival behavior.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Post-Shibuya and Perfect Preparation",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Maki returns to Zenin estate"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-post-shibuya-preparation",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_post_shibuya_preparation_exp_perfect_preparation_should_not_leak_into_shibuya",
+      "title": "Perfect Preparation Should Not Leak Into Shibuya",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.post.maki-returns-zenin",
+        "validToAnchor": "jjk.post.zenin-clan-collapse",
+        "sortKeyFrom": 9250,
+        "sortKeyTo": 9650,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Perfect Preparation window"
+      },
+      "coordinates": [
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:maki-zenin",
+          "jjk:mai-zenin"
+        ],
+        "characters": [
+          "Maki Zenin",
+          "Mai Zenin"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Perfect Preparation",
+          "temporal gate"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:post-shibuya-preparation",
+        "character:maki-zenin",
+        "character:mai-zenin",
+        "topic:perfect-preparation",
+        "topic:temporal-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Maki Zenin",
+            "Mai Zenin"
+          ],
+          "topicsAny": [
+            "Perfect Preparation",
+            "temporal gate"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen post-Shibuya aftermath through Perfect Preparation and Culling Game setup.",
+        "notes": "Culling Game colony action, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+      },
+      "content": {
+        "fact": "Maki's post-Mai state and Zenin collapse should not affect scenes before the Perfect Preparation window.",
+        "injection": "Gate by Context and character knowledge: Maki's post-Mai state and Zenin collapse should not affect scenes before the Perfect Preparation window.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": "Phase 1 generated expansion; requires human canon review before reference release."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Jujutsu Kaisen: Post-Shibuya and Perfect Preparation",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release.",
+        "chapterRange": "Maki returns to Zenin estate"
+      },
+      "extensions": {
+        "sagaJjkExpansion": {
+          "status": "phase1_expansion",
+          "generatedAt": "2026-06-11",
+          "expansionPass": "phase1"
+        },
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-post-shibuya-preparation",
+          "status": "phase1_expansion_needs_human_review"
+        }
+      }
     }
   ]
 }

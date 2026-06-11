@@ -121,7 +121,16 @@
         "era:golden-trio",
         "fandom:harry-potter",
         "school-year:4"
-      ]
+      ],
+      "ui": {
+        "preview": {
+          "primaryPack": "year_events",
+          "suggestionRole": "event_anchor",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "context_anchor"
+        }
+      }
     }
   ]
 }

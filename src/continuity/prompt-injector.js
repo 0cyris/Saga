@@ -61,6 +61,23 @@ function getSillyTavernContextSafe() {
     return null;
 }
 
+function getSagaNamespace() {
+    const namespace = globalThis.Saga && typeof globalThis.Saga === 'object'
+        ? globalThis.Saga
+        : {};
+    globalThis.Saga = namespace;
+    return namespace;
+}
+
+function getPromptInjectionNamespace() {
+    const saga = getSagaNamespace();
+    const namespace = saga.promptInjection && typeof saga.promptInjection === 'object'
+        ? saga.promptInjection
+        : {};
+    saga.promptInjection = namespace;
+    return namespace;
+}
+
 let lastSyncInfo = {
     transport: 'unknown',
     continuityChars: 0,
@@ -75,16 +92,22 @@ let lastSyncInfo = {
  * Called once from src/extension/index.js on jQuery document ready.
  */
 export function installInterceptor() {
-    globalThis.sagaInterceptor = sagaInterceptor;
-    globalThis.sagaSyncPromptInjection = syncPromptInjection;
-    globalThis.sagaClearPromptInjection = clearExtensionPrompts;
-    globalThis.sagaGetInjectionStatus = () => ({ ...lastSyncInfo });
+    const promptInjection = getPromptInjectionNamespace();
+    promptInjection.interceptor = sagaInterceptor;
+    promptInjection.sync = syncPromptInjection;
+    promptInjection.clear = clearExtensionPrompts;
+    promptInjection.getStatus = getPromptInjectionStatus;
+    promptInjection.uninstall = uninstallInterceptor;
 
     globalThis.sagaInterceptor = sagaInterceptor;
-    globalThis.sagaContinuityInterceptor = sagaInterceptor; // legacy alias
-    globalThis.sagaSyncPromptInjection = syncPromptInjection;
-    globalThis.sagaClearPromptInjection = clearExtensionPrompts;
-    globalThis.sagaGetInjectionStatus = () => ({ ...lastSyncInfo });
+    for (const key of [
+        'sagaSyncPromptInjection',
+        'sagaClearPromptInjection',
+        'sagaGetInjectionStatus',
+        'sagaContinuityInterceptor',
+    ]) {
+        delete globalThis[key];
+    }
 
     syncPromptInjection();
 
@@ -93,6 +116,44 @@ export function installInterceptor() {
     } else {
         console.error(`${LOG_PREFIX} Failed to register generate_interceptor`);
     }
+}
+
+export function uninstallInterceptor() {
+    clearExtensionPrompts();
+
+    const promptInjection = globalThis.Saga?.promptInjection;
+    if (promptInjection && typeof promptInjection === 'object') {
+        for (const [key, value] of [
+            ['interceptor', sagaInterceptor],
+            ['sync', syncPromptInjection],
+            ['clear', clearExtensionPrompts],
+            ['getStatus', getPromptInjectionStatus],
+            ['uninstall', uninstallInterceptor],
+        ]) {
+            if (promptInjection[key] === value) delete promptInjection[key];
+        }
+    }
+
+    for (const [key, value] of [
+        ['sagaInterceptor', sagaInterceptor],
+    ]) {
+        if (globalThis[key] === value) delete globalThis[key];
+    }
+    for (const key of [
+        'sagaSyncPromptInjection',
+        'sagaClearPromptInjection',
+        'sagaGetInjectionStatus',
+        'sagaContinuityInterceptor',
+    ]) {
+        delete globalThis[key];
+    }
+
+    lastSyncInfo = { transport: 'uninstalled', continuityChars: 0, loreChars: 0, combinedChars: 0, syncedAt: Date.now(), fallback: false };
+    return getPromptInjectionStatus();
+}
+
+export function getPromptInjectionStatus() {
+    return { ...lastSyncInfo };
 }
 
 /**

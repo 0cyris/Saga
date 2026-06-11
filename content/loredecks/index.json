@@ -40,10 +40,10 @@
           "character": 47,
           "faction": 1,
           "item": 4,
-          "knowledge": 13,
+          "knowledge": 12,
           "location": 4,
           "rule": 1,
-          "secret": 1,
+          "secret": 2,
           "spell": 6,
           "timeline": 2
         },
@@ -85,14 +85,14 @@
       ],
       "updatedAt": 1780876800000,
       "stats": {
-        "entryCount": 49,
+        "entryCount": 52,
         "categoryCounts": {
           "character": 15,
           "event": 18,
           "item": 6,
-          "knowledge": 5,
+          "knowledge": 4,
           "relationship": 3,
-          "secret": 1,
+          "secret": 5,
           "timeline": 1
         },
         "timelineAnchorCount": 55,
@@ -133,14 +133,14 @@
       ],
       "updatedAt": 1780876800000,
       "stats": {
-        "entryCount": 47,
+        "entryCount": 49,
         "categoryCounts": {
           "character": 17,
           "event": 13,
           "item": 1,
           "knowledge": 10,
           "location": 2,
-          "secret": 3,
+          "secret": 5,
           "spell": 1
         },
         "timelineAnchorCount": 55,
@@ -181,7 +181,7 @@
       ],
       "updatedAt": 1780876800000,
       "stats": {
-        "entryCount": 50,
+        "entryCount": 53,
         "categoryCounts": {
           "character": 14,
           "event": 13,
@@ -189,7 +189,7 @@
           "knowledge": 7,
           "location": 3,
           "relationship": 1,
-          "secret": 3,
+          "secret": 6,
           "spell": 4
         },
         "timelineAnchorCount": 55,
@@ -230,7 +230,7 @@
       ],
       "updatedAt": 1780876800000,
       "stats": {
-        "entryCount": 57,
+        "entryCount": 60,
         "categoryCounts": {
           "character": 17,
           "event": 19,
@@ -238,7 +238,7 @@
           "knowledge": 7,
           "location": 2,
           "relationship": 2,
-          "secret": 2,
+          "secret": 5,
           "spell": 4,
           "timeline": 2
         },
@@ -280,15 +280,15 @@
       ],
       "updatedAt": 1780876800000,
       "stats": {
-        "entryCount": 58,
+        "entryCount": 62,
         "categoryCounts": {
           "character": 21,
           "event": 11,
           "faction": 8,
-          "knowledge": 7,
+          "knowledge": 6,
           "location": 4,
           "rule": 1,
-          "secret": 1,
+          "secret": 6,
           "spell": 3,
           "timeline": 2
         },
@@ -336,10 +336,10 @@
           "event": 13,
           "faction": 2,
           "item": 3,
-          "knowledge": 13,
+          "knowledge": 10,
           "location": 1,
           "relationship": 2,
-          "secret": 2,
+          "secret": 5,
           "spell": 2,
           "timeline": 2
         },
@@ -381,16 +381,16 @@
       ],
       "updatedAt": 1780876800000,
       "stats": {
-        "entryCount": 70,
+        "entryCount": 76,
         "categoryCounts": {
           "character": 30,
           "event": 16,
           "faction": 1,
           "item": 5,
-          "knowledge": 7,
+          "knowledge": 6,
           "location": 3,
           "relationship": 3,
-          "secret": 2,
+          "secret": 9,
           "timeline": 3
         },
         "timelineAnchorCount": 70,
@@ -1342,7 +1342,7 @@
         }
       },
       "entrySchemaVersion": 3,
-      "version": "0.1.0",
+      "version": "0.2.0-phase1",
       "author": "Saga",
       "fandom": "Jujutsu Kaisen",
       "era": "Manga Main Core",
@@ -1355,14 +1355,14 @@
       ],
       "updatedAt": 1781136000000,
       "stats": {
-        "entryCount": 8,
+        "entryCount": 50,
         "categoryCounts": {
           "faction": 1,
           "knowledge": 1,
-          "rule": 4,
-          "secret": 2
+          "rule": 40,
+          "secret": 8
         },
-        "timelineAnchorCount": 6,
+        "timelineAnchorCount": 7,
         "timelineWindowCount": 3
       }
     },
@@ -1391,7 +1391,7 @@
         }
       },
       "entrySchemaVersion": 3,
-      "version": "0.1.0",
+      "version": "0.2.0-phase1",
       "author": "Saga",
       "fandom": "Jujutsu Kaisen",
       "era": "Jujutsu Kaisen 0 Prequel",
@@ -1404,14 +1404,14 @@
       ],
       "updatedAt": 1781136000000,
       "stats": {
-        "entryCount": 10,
+        "entryCount": 33,
         "categoryCounts": {
-          "character": 1,
-          "event": 1,
+          "character": 9,
+          "event": 6,
           "faction": 2,
           "knowledge": 1,
-          "relationship": 1,
-          "rule": 1,
+          "relationship": 6,
+          "rule": 6,
           "secret": 3
         },
         "timelineAnchorCount": 7,
@@ -1443,7 +1443,7 @@
         }
       },
       "entrySchemaVersion": 3,
-      "version": "0.1.0",
+      "version": "0.2.0-phase1",
       "author": "Saga",
       "fandom": "Jujutsu Kaisen",
       "era": "Origin through Death Painting",
@@ -1457,13 +1457,14 @@
       ],
       "updatedAt": 1781136000000,
       "stats": {
-        "entryCount": 12,
+        "entryCount": 40,
         "categoryCounts": {
-          "event": 3,
+          "character": 9,
+          "event": 10,
           "faction": 2,
           "knowledge": 1,
-          "relationship": 2,
-          "rule": 2,
+          "relationship": 7,
+          "rule": 9,
           "secret": 2
         },
         "timelineAnchorCount": 9,
@@ -1495,7 +1496,7 @@
         }
       },
       "entrySchemaVersion": 3,
-      "version": "0.1.0",
+      "version": "0.2.0-phase1",
       "author": "Saga",
       "fandom": "Jujutsu Kaisen",
       "era": "Hidden Inventory / Premature Death",
@@ -1509,15 +1510,15 @@
       ],
       "updatedAt": 1781136000000,
       "stats": {
-        "entryCount": 12,
+        "entryCount": 38,
         "categoryCounts": {
-          "character": 1,
-          "event": 3,
+          "character": 9,
+          "event": 11,
           "faction": 2,
-          "knowledge": 2,
+          "knowledge": 3,
           "relationship": 1,
-          "rule": 1,
-          "secret": 2
+          "rule": 7,
+          "secret": 5
         },
         "timelineAnchorCount": 8,
         "timelineWindowCount": 3
@@ -1548,7 +1549,7 @@
         }
       },
       "entrySchemaVersion": 3,
-      "version": "0.1.0",
+      "version": "0.2.0-phase1",
       "author": "Saga",
       "fandom": "Jujutsu Kaisen",
       "era": "Shibuya Incident",
@@ -1561,13 +1562,15 @@
       ],
       "updatedAt": 1781136000000,
       "stats": {
-        "entryCount": 12,
+        "entryCount": 51,
         "categoryCounts": {
-          "event": 4,
+          "character": 8,
+          "event": 17,
           "faction": 2,
-          "knowledge": 2,
-          "rule": 2,
-          "secret": 2
+          "knowledge": 3,
+          "location": 4,
+          "rule": 10,
+          "secret": 7
         },
         "timelineAnchorCount": 10,
         "timelineWindowCount": 4
@@ -1598,7 +1601,7 @@
         }
       },
       "entrySchemaVersion": 3,
-      "version": "0.1.0",
+      "version": "0.2.0-phase1",
       "author": "Saga",
       "fandom": "Jujutsu Kaisen",
       "era": "Post-Shibuya / Perfect Preparation",
@@ -1612,13 +1615,14 @@
       ],
       "updatedAt": 1781136000000,
       "stats": {
-        "entryCount": 12,
+        "entryCount": 34,
         "categoryCounts": {
-          "event": 3,
+          "character": 6,
+          "event": 11,
           "faction": 2,
-          "knowledge": 3,
-          "rule": 2,
-          "secret": 2
+          "knowledge": 4,
+          "rule": 6,
+          "secret": 5
         },
         "timelineAnchorCount": 9,
         "timelineWindowCount": 4
@@ -1649,7 +1653,7 @@
         }
       },
       "entrySchemaVersion": 3,
-      "version": "0.1.0",
+      "version": "0.2.0-phase1",
       "author": "Saga",
       "fandom": "Jujutsu Kaisen",
       "era": "Culling Game Colonies",
@@ -1662,14 +1666,14 @@
       ],
       "updatedAt": 1781136000000,
       "stats": {
-        "entryCount": 12,
+        "entryCount": 50,
         "categoryCounts": {
-          "character": 1,
-          "event": 6,
+          "character": 11,
+          "event": 12,
           "faction": 1,
           "knowledge": 1,
-          "rule": 2,
-          "secret": 1
+          "rule": 20,
+          "secret": 5
         },
         "timelineAnchorCount": 8,
         "timelineWindowCount": 4
@@ -1700,7 +1704,7 @@
         }
       },
       "entrySchemaVersion": 3,
-      "version": "0.1.0",
+      "version": "0.2.0-phase1",
       "author": "Saga",
       "fandom": "Jujutsu Kaisen",
       "era": "Culling Game Convergence",
@@ -1713,13 +1717,14 @@
       ],
       "updatedAt": 1781136000000,
       "stats": {
-        "entryCount": 12,
+        "entryCount": 38,
         "categoryCounts": {
-          "event": 4,
+          "character": 6,
+          "event": 14,
           "faction": 1,
           "knowledge": 3,
-          "rule": 1,
-          "secret": 3
+          "rule": 7,
+          "secret": 7
         },
         "timelineAnchorCount": 9,
         "timelineWindowCount": 4
@@ -1750,7 +1755,7 @@
         }
       },
       "entrySchemaVersion": 3,
-      "version": "0.1.0",
+      "version": "0.2.0-phase1",
       "author": "Saga",
       "fandom": "Jujutsu Kaisen",
       "era": "Shinjuku Showdown and Aftermath",
@@ -1763,13 +1768,14 @@
       ],
       "updatedAt": 1781136000000,
       "stats": {
-        "entryCount": 12,
+        "entryCount": 46,
         "categoryCounts": {
-          "event": 5,
+          "character": 8,
+          "event": 17,
           "knowledge": 2,
           "relationship": 1,
-          "rule": 2,
-          "secret": 2
+          "rule": 10,
+          "secret": 8
         },
         "timelineAnchorCount": 9,
         "timelineWindowCount": 4
@@ -1800,7 +1806,7 @@
         }
       },
       "entrySchemaVersion": 3,
-      "version": "0.1.0",
+      "version": "0.2.0-phase1",
       "author": "Saga",
       "fandom": "Jujutsu Kaisen",
       "era": "Modulo Sequel",
@@ -1813,13 +1819,14 @@
       ],
       "updatedAt": 1781136000000,
       "stats": {
-        "entryCount": 12,
+        "entryCount": 27,
         "categoryCounts": {
-          "event": 3,
-          "knowledge": 3,
+          "character": 4,
+          "event": 7,
+          "knowledge": 4,
           "relationship": 1,
-          "rule": 3,
-          "secret": 2
+          "rule": 6,
+          "secret": 5
         },
         "timelineAnchorCount": 9,
         "timelineWindowCount": 4

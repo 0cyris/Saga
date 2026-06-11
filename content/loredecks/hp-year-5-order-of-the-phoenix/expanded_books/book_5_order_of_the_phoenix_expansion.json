@@ -955,7 +955,16 @@
         "fandom:harry-potter",
         "place:hogwarts",
         "school-year:5"
-      ]
+      ],
+      "ui": {
+        "preview": {
+          "primaryPack": "essential_guardrails",
+          "suggestionRole": "active_guardrail",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "blocks_context_leakage"
+        }
+      }
     },
     {
       "schemaVersion": 3,
@@ -1086,7 +1095,16 @@
         "faction:order-of-the-phoenix",
         "fandom:harry-potter",
         "school-year:5"
-      ]
+      ],
+      "ui": {
+        "preview": {
+          "primaryPack": "essential_guardrails",
+          "suggestionRole": "active_guardrail",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "blocks_context_leakage"
+        }
+      }
     },
     {
       "schemaVersion": 3,
@@ -1215,7 +1233,16 @@
         "faction:order-of-the-phoenix",
         "fandom:harry-potter",
         "school-year:5"
-      ]
+      ],
+      "ui": {
+        "preview": {
+          "primaryPack": "essential_guardrails",
+          "suggestionRole": "active_guardrail",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "blocks_context_leakage"
+        }
+      }
     },
     {
       "schemaVersion": 3,
@@ -1487,7 +1514,16 @@
         "fandom:harry-potter",
         "school-year:5",
         "topic:prophecy"
-      ]
+      ],
+      "ui": {
+        "preview": {
+          "primaryPack": "essential_guardrails",
+          "suggestionRole": "active_guardrail",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "blocks_context_leakage"
+        }
+      }
     },
     {
       "schemaVersion": 3,

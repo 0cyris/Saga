@@ -831,7 +831,16 @@
         "fandom:harry-potter",
         "school-year:7",
         "topic:deathly-hallows"
-      ]
+      ],
+      "ui": {
+        "preview": {
+          "primaryPack": "essential_guardrails",
+          "suggestionRole": "active_guardrail",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "blocks_context_leakage"
+        }
+      }
     },
     {
       "schemaVersion": 3,
@@ -1257,7 +1266,16 @@
         "place:hogwarts",
         "school-year:7",
         "topic:deathly-hallows"
-      ]
+      ],
+      "ui": {
+        "preview": {
+          "primaryPack": "year_events",
+          "suggestionRole": "event_anchor",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "context_anchor"
+        }
+      }
     },
     {
       "schemaVersion": 3,
@@ -1535,7 +1553,16 @@
         "place:hogwarts",
         "school-year:7",
         "topic:deathly-hallows"
-      ]
+      ],
+      "ui": {
+        "preview": {
+          "primaryPack": "essential_guardrails",
+          "suggestionRole": "active_guardrail",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "blocks_context_leakage"
+        }
+      }
     },
     {
       "schemaVersion": 3,
@@ -1672,7 +1699,16 @@
         "place:hogwarts",
         "school-year:7",
         "topic:deathly-hallows"
-      ]
+      ],
+      "ui": {
+        "preview": {
+          "primaryPack": "essential_guardrails",
+          "suggestionRole": "active_guardrail",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "blocks_context_leakage"
+        }
+      }
     },
     {
       "schemaVersion": 3,

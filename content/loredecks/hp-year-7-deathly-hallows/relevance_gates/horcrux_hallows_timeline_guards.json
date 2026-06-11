@@ -114,6 +114,15 @@
         "sagaSplitLoredeck": {
           "targetPackId": "hp-year-7-deathly-hallows"
         }
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "essential_guardrails",
+          "suggestionRole": "active_guardrail",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "blocks_context_leakage"
+        }
       }
     },
     {
@@ -122,9 +131,9 @@
       "title": "Hallows not active before Lovegood explanation",
       "kind": "knowledge_gate",
       "gateType": "knowledge_gate",
-      "category": "knowledge",
+      "category": "secret",
       "relevance": "high",
-      "lorePurpose": "knowledge_gate",
+      "lorePurpose": "secret",
       "specificityScore": 92,
       "injectableByDefault": true,
       "canon": "canon",
@@ -230,6 +239,15 @@
         },
         "sagaSplitLoredeck": {
           "targetPackId": "hp-year-7-deathly-hallows"
+        }
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "year_secrets",
+          "suggestionRole": "reveal_gate",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "controls_character_knowledge"
         }
       }
     },
@@ -353,6 +371,15 @@
         },
         "sagaSplitLoredeck": {
           "targetPackId": "hp-year-7-deathly-hallows"
+        }
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "year_events",
+          "suggestionRole": "event_anchor",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "context_anchor"
         }
       }
     },
@@ -708,6 +735,15 @@
         "sagaSplitLoredeck": {
           "targetPackId": "hp-year-7-deathly-hallows"
         }
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "year_secrets",
+          "suggestionRole": "reveal_gate",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "controls_character_knowledge"
+        }
       }
     },
     {
@@ -820,6 +856,15 @@
         },
         "sagaSplitLoredeck": {
           "targetPackId": "hp-year-7-deathly-hallows"
+        }
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "year_secrets",
+          "suggestionRole": "reveal_gate",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "controls_character_knowledge"
         }
       }
     },
@@ -934,6 +979,758 @@
           "curationPass": "hp-relevance-v0.2.0",
           "deckId": "hp-year-7-deathly-hallows",
           "purpose": "story-position control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-7-deathly-hallows"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "secret",
+      "specificityScore": 94,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 112,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "id": "y7_secret_kreacher_locket_truth_hidden_until_story",
+      "title": "Kreacher locket truth hidden until story",
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y7.rab_discovered",
+        "validToAnchor": "hp.y7.kreacher_locket_story",
+        "sortKeyFrom": 10105,
+        "sortKeyTo": 10109,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Before Kreacher explains the locket",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Ron Weasley",
+          "Hermione Granger",
+          "Kreacher"
+        ],
+        "topics": [
+          "R.A.B.",
+          "Kreacher locket story",
+          "Regulus Black"
+        ],
+        "schoolYears": [
+          "7"
+        ],
+        "books": [
+          "Deathly Hallows"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "artifact:deathly-hallows",
+        "book:deathly-hallows",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "character:voldemort",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "quality:relevance-curated",
+        "school-year:7"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Ron Weasley",
+            "Hermione Granger",
+            "Kreacher"
+          ],
+          "topicsAny": [
+            "R.A.B.",
+            "Kreacher locket story",
+            "Regulus Black"
+          ]
+        }
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "year_secrets",
+          "suggestionRole": "reveal_gate",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "controls_character_knowledge"
+        }
+      },
+      "content": {
+        "fact": "After finding the R.A.B. clue, the trio do not yet know Kreacher role or the full Regulus locket story until Kreacher tells it.",
+        "injection": "Before Kreacher explains the locket, allow Kreacher to know his own history, but block the trio and narration from treating Regulus, the cave, or Mundungus locket chain as already known.",
+        "constraints": [
+          "The initials can prompt investigation without granting the full backstory.",
+          "Kreacher may withhold or reveal depending on the scene.",
+          "Use this as a reveal-control gate: allow the named keepers to know the secret, but block characters outside that knowledge path from stating, acting on, or narrating it as known.",
+          "Apply only when Saga Context matches Before Kreacher explains the locket; if the scene is outside this window, withhold this secret gate."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Deathly Hallows",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-secret-gates-v0.3.0",
+          "deckId": "hp-year-7-deathly-hallows",
+          "purpose": "reveal-control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-7-deathly-hallows"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "secret",
+      "specificityScore": 94,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 112,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "id": "y7_secret_bathilda_nagini_trap_hidden",
+      "title": "Bathilda trap hidden until attack",
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y7.godrics_hollow_visit",
+        "validToAnchor": "hp.y7.bathilda_nagini_trap",
+        "sortKeyFrom": 10158,
+        "sortKeyTo": 10162,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Before Bathilda trap springs",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Hermione Granger",
+          "Lord Voldemort"
+        ],
+        "topics": [
+          "Bathilda Bagshot",
+          "Nagini trap",
+          "Godric Hollow"
+        ],
+        "schoolYears": [
+          "7"
+        ],
+        "books": [
+          "Deathly Hallows"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "artifact:deathly-hallows",
+        "book:deathly-hallows",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "character:voldemort",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "quality:relevance-curated",
+        "school-year:7"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Hermione Granger",
+            "Lord Voldemort"
+          ],
+          "topicsAny": [
+            "Bathilda Bagshot",
+            "Nagini trap",
+            "Godric Hollow"
+          ]
+        }
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "year_secrets",
+          "suggestionRole": "reveal_gate",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "controls_character_knowledge"
+        }
+      },
+      "content": {
+        "fact": "The Bathilda encounter is a trap using Nagini; Harry and Hermione should not know that before the attack reveals it.",
+        "injection": "Before the Godric Hollow trap springs, allow Voldemort side to know the trap, but block Harry, Hermione, and narration from identifying Bathilda as Nagini or treating the visit as knowingly compromised.",
+        "constraints": [
+          "Unease and wrongness are allowed; confirmed trap knowledge is not.",
+          "Do not let later knowledge make Harry avoid the scene without an AU clue path.",
+          "Use this as a reveal-control gate: allow the named keepers to know the secret, but block characters outside that knowledge path from stating, acting on, or narrating it as known.",
+          "Apply only when Saga Context matches Before Bathilda trap springs; if the scene is outside this window, withhold this secret gate."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Deathly Hallows",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-secret-gates-v0.3.0",
+          "deckId": "hp-year-7-deathly-hallows",
+          "purpose": "reveal-control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-7-deathly-hallows"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "secret",
+      "specificityScore": 94,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 112,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "id": "y7_secret_taboo_hidden_until_snatchers",
+      "title": "Voldemort name Taboo hidden until capture",
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y7.ministry_falls",
+        "validToAnchor": "hp.y7.taboo_snatchers_capture",
+        "sortKeyFrom": 10091,
+        "sortKeyTo": 10198,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Before Taboo capture reveals tracking",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Ron Weasley",
+          "Hermione Granger",
+          "Lord Voldemort"
+        ],
+        "topics": [
+          "Taboo",
+          "Voldemort name",
+          "Snatchers"
+        ],
+        "schoolYears": [
+          "7"
+        ],
+        "books": [
+          "Deathly Hallows"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "artifact:deathly-hallows",
+        "book:deathly-hallows",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "character:voldemort",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "quality:relevance-curated",
+        "school-year:7"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Ron Weasley",
+            "Hermione Granger",
+            "Lord Voldemort"
+          ],
+          "topicsAny": [
+            "Taboo",
+            "Voldemort name",
+            "Snatchers"
+          ]
+        }
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "year_secrets",
+          "suggestionRole": "reveal_gate",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "controls_character_knowledge"
+        }
+      },
+      "content": {
+        "fact": "The name Taboo is a hostile tracking secret; Death Eaters can use it, but the trio should not know the full mechanism until the capture path exposes it.",
+        "injection": "Before the Snatcher capture reveals the Taboo, allow Ron to fear the name and Death Eaters to exploit the system, but block the trio and narration from explaining the full tracking rule as known.",
+        "constraints": [
+          "Avoid making the trio perfectly operationally aware too early.",
+          "The secret controls knowledge of the tracking mechanism, not whether danger exists.",
+          "Use this as a reveal-control gate: allow the named keepers to know the secret, but block characters outside that knowledge path from stating, acting on, or narrating it as known.",
+          "Apply only when Saga Context matches Before Taboo capture reveals tracking; if the scene is outside this window, withhold this secret gate."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Deathly Hallows",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-secret-gates-v0.3.0",
+          "deckId": "hp-year-7-deathly-hallows",
+          "purpose": "reveal-control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-7-deathly-hallows"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "secret",
+      "specificityScore": 94,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 112,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "id": "y7_secret_narcissa_lie_hidden_until_reveal",
+      "title": "Narcissa lie hidden during forest aftermath",
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y7.narcissa_lies",
+        "validToAnchor": "hp.y7.final_battle_resumes",
+        "sortKeyFrom": 10326,
+        "sortKeyTo": 10331,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Before Narcissa lie reaches the defenders",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Narcissa Malfoy",
+          "Lord Voldemort"
+        ],
+        "topics": [
+          "Narcissa lie",
+          "Harry survival",
+          "forest aftermath"
+        ],
+        "schoolYears": [
+          "7"
+        ],
+        "books": [
+          "Deathly Hallows"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "artifact:deathly-hallows",
+        "book:deathly-hallows",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "character:voldemort",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "quality:relevance-curated",
+        "school-year:7"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Narcissa Malfoy",
+            "Lord Voldemort"
+          ],
+          "topicsAny": [
+            "Narcissa lie",
+            "Harry survival",
+            "forest aftermath"
+          ]
+        }
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "year_secrets",
+          "suggestionRole": "reveal_gate",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "controls_character_knowledge"
+        }
+      },
+      "content": {
+        "fact": "Narcissa privately lies about Harry death; Voldemort and his followers should not know Harry is alive until the battle resumes.",
+        "injection": "During the forest aftermath, allow Harry and Narcissa to know the lie, but block Voldemort, Death Eaters, Hogwarts defenders, and narration outside Harry perspective from treating Harry survival as public knowledge.",
+        "constraints": [
+          "This is a narrow battlefield secret with a short reveal window.",
+          "Do not let the defenders or Voldemort react to Harry survival before it is exposed.",
+          "Use this as a reveal-control gate: allow the named keepers to know the secret, but block characters outside that knowledge path from stating, acting on, or narrating it as known.",
+          "Apply only when Saga Context matches Before Narcissa lie reaches the defenders; if the scene is outside this window, withhold this secret gate."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Deathly Hallows",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-secret-gates-v0.3.0",
+          "deckId": "hp-year-7-deathly-hallows",
+          "purpose": "reveal-control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-7-deathly-hallows"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "secret",
+      "specificityScore": 94,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 112,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "id": "y7_secret_lestrange_vault_cup_target_hidden",
+      "title": "Lestrange vault cup target hidden",
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y7.ministry_falls",
+        "validToAnchor": "hp.y7.hermione_tortured",
+        "sortKeyFrom": 10091,
+        "sortKeyTo": 10207,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Before Bellatrix panic exposes vault clue",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Ron Weasley",
+          "Hermione Granger",
+          "Bellatrix Lestrange",
+          "Lord Voldemort"
+        ],
+        "topics": [
+          "Lestrange vault",
+          "Hufflepuff cup",
+          "Bellatrix panic",
+          "Horcrux target"
+        ],
+        "objects": [
+          "Hufflepuff cup"
+        ],
+        "schoolYears": [
+          "7"
+        ],
+        "books": [
+          "Deathly Hallows"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "artifact:deathly-hallows",
+        "book:deathly-hallows",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "character:voldemort",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "quality:relevance-curated",
+        "school-year:7"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Ron Weasley",
+            "Hermione Granger",
+            "Bellatrix Lestrange",
+            "Lord Voldemort"
+          ],
+          "topicsAny": [
+            "Lestrange vault",
+            "Hufflepuff cup",
+            "Bellatrix panic",
+            "Horcrux target",
+            "Hufflepuff cup"
+          ]
+        }
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "year_secrets",
+          "suggestionRole": "reveal_gate",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "controls_character_knowledge"
+        }
+      },
+      "content": {
+        "fact": "Before Bellatrix panic at Malfoy Manor gives the vault clue, the trio do not know the Lestrange vault is tied to a Horcrux target.",
+        "injection": "Before the Malfoy Manor clue path, allow Voldemort side and Bellatrix to protect their secrets, but block the trio and narration from knowing the cup/vault target or planning Gringotts as a Horcrux objective.",
+        "constraints": [
+          "The trio can hunt Horcruxes broadly without knowing this target yet.",
+          "Do not turn later Gringotts knowledge into early hunt certainty.",
+          "Use this as a reveal-control gate: allow the named keepers to know the secret, but block characters outside that knowledge path from stating, acting on, or narrating it as known.",
+          "Apply only when Saga Context matches Before Bellatrix panic exposes vault clue; if the scene is outside this window, withhold this secret gate."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Deathly Hallows",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-secret-gates-v0.3.0",
+          "deckId": "hp-year-7-deathly-hallows",
+          "purpose": "reveal-control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-7-deathly-hallows"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "secret",
+      "specificityScore": 94,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 112,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "id": "y7_secret_elder_wand_allegiance_hidden_until_final_duel",
+      "title": "Elder Wand allegiance hidden until final duel",
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y7.ollivander_wandlore",
+        "validToAnchor": "hp.y7.voldemort_defeated",
+        "sortKeyFrom": 10224,
+        "sortKeyTo": 10340,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Before Elder Wand allegiance is resolved",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Lord Voldemort",
+          "Severus Snape",
+          "Draco Malfoy"
+        ],
+        "topics": [
+          "Elder Wand allegiance",
+          "wand mastery",
+          "final duel secret"
+        ],
+        "objects": [
+          "Elder Wand"
+        ],
+        "schoolYears": [
+          "7"
+        ],
+        "books": [
+          "Deathly Hallows"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "artifact:deathly-hallows",
+        "book:deathly-hallows",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "character:voldemort",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "quality:relevance-curated",
+        "school-year:7"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Lord Voldemort",
+            "Severus Snape",
+            "Draco Malfoy"
+          ],
+          "topicsAny": [
+            "Elder Wand allegiance",
+            "wand mastery",
+            "final duel secret",
+            "Elder Wand"
+          ]
+        }
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "year_secrets",
+          "suggestionRole": "reveal_gate",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "controls_character_knowledge"
+        }
+      },
+      "content": {
+        "fact": "The true Elder Wand allegiance chain remains hidden until Harry resolves it at the final duel.",
+        "injection": "Before the final duel, allow Harry to reason toward the wand allegiance only after the relevant clues, but block Voldemort, Death Eaters, and neutral narration from knowing the allegiance answer early.",
+        "constraints": [
+          "Voldemort may pursue a mistaken theory without knowing the real allegiance chain.",
+          "Do not let the model shortcut the wand mystery before the final confrontation.",
+          "Use this as a reveal-control gate: allow the named keepers to know the secret, but block characters outside that knowledge path from stating, acting on, or narrating it as known.",
+          "Apply only when Saga Context matches Before Elder Wand allegiance is resolved; if the scene is outside this window, withhold this secret gate."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Deathly Hallows",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-secret-gates-v0.3.0",
+          "deckId": "hp-year-7-deathly-hallows",
+          "purpose": "reveal-control"
         },
         "sagaSplitLoredeck": {
           "targetPackId": "hp-year-7-deathly-hallows"

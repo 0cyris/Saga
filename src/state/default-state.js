@@ -1,0 +1,297 @@
+/**
+ * Default per-chat state for Saga.
+ */
+
+import {
+    DEFAULT_BUNDLED_LOREDECK_CONTEXTS,
+    DEFAULT_BUNDLED_LOREDECK_LIBRARY_PACKS,
+    DEFAULT_HP_LOREDECK_STACK,
+} from '../loredecks/loredeck-defaults.js';
+import { SCHEMA_VERSION } from './schema.js';
+
+export function getDefaultState() {
+    return {
+        canon: {
+            era: '',
+            inUniverseDate: '',
+            canonBoundary: '',
+            divergences: [],
+        },
+        continuityConfig: {
+            canon: true,
+            scene: true,
+            characters: true,
+            appearance: true,
+            emotionalState: true,
+            threads: true,
+            inventory: true,
+            objectives: true,
+            // Retired continuity sections remain in saved state for backward compatibility
+            // but are no longer scanned, injected, or shown in the streamlined UI.
+            knowledge: false,
+            secrets: false,
+            relationships: false,
+            flags: false,
+            storyMilestones: false,
+        },
+        scene: {
+            location: '',
+            timeOfDay: '',
+            weather: '',
+            ambience: '',
+            presentCharacters: [],
+            nearbyCharacters: [],
+            currentActivity: '',
+        },
+        characters: [],
+        inventory: [],
+        objectives: [],
+        storyMilestones: {},
+
+        // Lore matrix (schema v2)
+        loreContext: {
+            sceneDate: '',
+            subjectiveDate: '',
+            canonBoundary: '',
+            branchId: 'main',
+            timeTravelMode: 'none',
+            lastDetectedAt: 0,
+            lastGeneratedFor: '',
+            lastGenerationSummary: '',
+        },
+        contextBrief: {
+            schemaVersion: 1,
+            summary: '',
+            branchId: 'main',
+            timeTravelMode: 'none',
+            evidence: [],
+            signals: {
+                sceneDate: '',
+                subjectiveDate: '',
+                canonBoundary: '',
+                positionPhrases: [],
+                fandomHints: [],
+                arc: '',
+                phase: '',
+                season: '',
+                episode: '',
+                chapter: '',
+                issue: '',
+                quest: '',
+                gameStage: '',
+                stardate: '',
+                coordinates: {},
+                eventLabels: [],
+            },
+            uncertainty: {
+                level: 'low',
+                notes: [],
+            },
+            status: {
+                state: 'idle',
+                message: '',
+                error: '',
+                repaired: false,
+                fallbackUsed: false,
+                rawResponsePreview: '',
+            },
+            source: 'unknown',
+            updatedAt: 0,
+        },
+        loreMatrix: [],
+        pendingLoreEntries: [],
+
+        // Lore generation lifecycle ledger (schema v3)
+        canonLoreDatabase: {
+            lastQueriedAt: 0,
+            lastSceneDate: '',
+            lastCanonBoundary: '',
+            lastMatchedCount: 0,
+            lastProposedCount: 0,
+            lastStatus: 'Not queried.',
+        },
+
+        loredeckStack: DEFAULT_HP_LOREDECK_STACK.map(item => ({ ...item })),
+        hpDefaultLoredeckStackCleared20260605: true,
+        loredeckRegistry: {
+            schemaVersion: 1,
+            packs: DEFAULT_BUNDLED_LOREDECK_LIBRARY_PACKS,
+        },
+        loredeckContexts: Object.fromEntries(Object.entries(DEFAULT_BUNDLED_LOREDECK_CONTEXTS).map(([id, context]) => [id, { ...context }])),
+
+        loreGeneration: {
+            lastAttemptedFor: '',
+            lastProposedFor: '',
+            lastAcceptedFor: '',
+            lastRejectedFor: '',
+            lastFailedFor: '',
+            lastForcePendingFor: '',
+            attempts: {},
+        },
+
+        // Resumable bulk lore scan ledger (schema v8)
+        loreBulkGeneration: {
+            activeBatchId: '',
+            lastBatchId: '',
+            batches: {},
+            chunks: {},
+            candidates: {},
+        },
+
+        stateSafety: {
+            schemaVersion: 1,
+            backups: [],
+            migrationLog: [],
+            lastBackupAt: 0,
+            lastBackupReason: '',
+            lastRestoreAt: 0,
+            lastRestoreSource: '',
+        },
+
+        // Resumable Loredeck Creator jobs (schema v23)
+        loredeckCreator: {
+            schemaVersion: 1,
+            activeJobId: '',
+            lastJobId: '',
+            jobs: {},
+        },
+
+        // Resumable continuity scan ledger (schema v9)
+        continuityScan: {
+            activeBatchId: '',
+            lastBatchId: '',
+            batches: {},
+            chunks: {},
+            observations: {},
+        },
+
+        pendingLoreMeta: null,
+
+        // Auto-Relevance suggestion queue/status. Suggest mode writes here instead of mutating accepted lore.
+        autoRelevanceSuggestions: [],
+        autoRelevanceLastRun: null,
+
+        // Prompt injection/compression preview status
+        loreCompressionStatus: {
+            lastCompressedAt: 0,
+            lastSignature: '',
+            lastMode: 'direct',
+            lastTokenEstimate: 0,
+            lastCharacterCount: 0,
+            lastDirectTokenEstimate: 0,
+            lastDirectCharacterCount: 0,
+            lastTargetTokenEstimate: 0,
+            lastTargetCharacterCount: 0,
+            lastHardTokenLimit: 0,
+            lastHardCharacterLimit: 0,
+            lastCompressionRatio: 0,
+            turnsSinceCompression: 0,
+            lastChatLength: 0,
+            cachedText: '',
+            lastError: '',
+        },
+        loreCompressionStatusByRelevance: {
+            high: {
+                lastCompressedAt: 0, lastSignature: '', lastMode: 'direct', lastTokenEstimate: 0, lastCharacterCount: 0,
+                lastDirectTokenEstimate: 0, lastDirectCharacterCount: 0, lastTargetTokenEstimate: 0, lastTargetCharacterCount: 0,
+                lastHardTokenLimit: 0, lastHardCharacterLimit: 0, lastCompressionRatio: 0, turnsSinceCompression: 0, lastChatLength: 0,
+                cachedText: '', lastError: '',
+            },
+            normal: {
+                lastCompressedAt: 0, lastSignature: '', lastMode: 'direct', lastTokenEstimate: 0, lastCharacterCount: 0,
+                lastDirectTokenEstimate: 0, lastDirectCharacterCount: 0, lastTargetTokenEstimate: 0, lastTargetCharacterCount: 0,
+                lastHardTokenLimit: 0, lastHardCharacterLimit: 0, lastCompressionRatio: 0, turnsSinceCompression: 0, lastChatLength: 0,
+                cachedText: '', lastError: '',
+            },
+            low: {
+                lastCompressedAt: 0, lastSignature: '', lastMode: 'direct', lastTokenEstimate: 0, lastCharacterCount: 0,
+                lastDirectTokenEstimate: 0, lastDirectCharacterCount: 0, lastTargetTokenEstimate: 0, lastTargetCharacterCount: 0,
+                lastHardTokenLimit: 0, lastHardCharacterLimit: 0, lastCompressionRatio: 0, turnsSinceCompression: 0, lastChatLength: 0,
+                cachedText: '', lastError: '',
+            },
+        },
+        continuityCompressionStatus: {
+            lastCompressedAt: 0,
+            lastSignature: '',
+            lastMode: 'direct',
+            lastTokenEstimate: 0,
+            lastCharacterCount: 0,
+            lastDirectTokenEstimate: 0,
+            lastDirectCharacterCount: 0,
+            lastTargetTokenEstimate: 0,
+            lastTargetCharacterCount: 0,
+            lastHardTokenLimit: 0,
+            lastHardCharacterLimit: 0,
+            lastCompressionRatio: 0,
+            turnsSinceCompression: 0,
+            lastChatLength: 0,
+            cachedText: '',
+            lastError: '',
+        },
+
+        // Runtime rail + drawer UI state (schema v16). Legacy x/y/width/height
+        // remain as migration aliases for older saved Saga panels.
+        lorePanel: {
+            isOpen: false,
+            hasOpenedRuntime: false,
+            launcherDismissed: false,
+            firstOpenedAt: 0,
+            lastOpenedAt: 0,
+            collapsed: true,
+            railMode: 'compact',
+            railX: 20,
+            railY: 220,
+            drawerOpen: false,
+            drawerWidth: 560,
+            drawerHeight: 640,
+            drawerDirection: 'auto',
+            selectedCategory: 'all',
+            search: '',
+            selectedEntryId: '',
+            selectedLoredeckId: '',
+            loredeckLibraryDetailsHeight: 190,
+            loredeckLibraryDetailsCollapsed: false,
+            activeTab: 'session',
+            reviewSelectedIds: [],
+            acceptedSelectedIds: [],
+            pendingReviewVisibleLimit: 10,
+            generationStatus: 'Idle.',
+            generationProgress: 0,
+            contextStatus: 'Idle.',
+            contextProgress: 0,
+            continuityStatus: 'Idle.',
+            continuityProgress: 0,
+            loreStatus: 'Idle.',
+            loreProgress: 0,
+            contextResolutionProposals: [],
+            contextResolutionProposalMeta: null,
+            contextResolutionCache: null,
+            contextResolutionAudit: null,
+            contextAutomationAudit: null,
+            showOnlyActive: false,
+            x: 20,
+            y: 220,
+            width: 560,
+            height: 640,
+        },
+        loreTimeline: {
+            schemaVersion: 1,
+            events: [],
+        },
+
+        // Lore selection (user overrides for active loring)
+        loreSelection: {
+            pinnedIds: [],
+            suppressedIds: [],
+        },
+
+        knowledge: {},
+        secrets: [],
+        relationships: [],
+        threads: [],
+        continuityFlags: [],
+        lastDelta: null,
+        _version: SCHEMA_VERSION,
+    };
+}
+

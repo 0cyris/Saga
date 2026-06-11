@@ -35,6 +35,17 @@
     "scoring": "scoring.json"
   },
   "resolver": "resolver.json",
+  "assets": {
+    "cover": {
+      "path": "assets/cover.png",
+      "alt": "Deck cover for Jujutsu Kaisen 0",
+      "aspect": "1:1",
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    }
+  },
   "continuity": {
     "continuityId": "jjk-zero",
     "canonTier": "primary",
@@ -51,11 +62,7 @@
   "files": [
     "zero/yuta_and_rika.json",
     "zero/tokyo_jujutsu_high.json",
-    "zero/geto_and_night_parade.json",
-    "expanded/characters_and_status.json",
-    "expanded/relationships_and_training.json",
-    "expanded/abilities_and_night_parade.json",
-    "expanded/event_and_knowledge_gates.json"
+    "zero/geto_and_night_parade.json"
   ],
   "compatibility": {
     "sagaSchemaMin": 3,

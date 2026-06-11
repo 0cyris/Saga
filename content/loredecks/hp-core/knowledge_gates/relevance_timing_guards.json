@@ -103,6 +103,15 @@
         "sagaSplitLoredeck": {
           "targetPackId": "hp-core"
         }
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "essential_guardrails",
+          "suggestionRole": "active_guardrail",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "blocks_context_leakage"
+        }
       }
     },
     {
@@ -210,6 +219,15 @@
         },
         "sagaSplitLoredeck": {
           "targetPackId": "hp-core"
+        }
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "essential_guardrails",
+          "suggestionRole": "active_guardrail",
+          "detailLevel": "core",
+          "suggestByDefault": false,
+          "activeUse": "broad_future_leak_suppressor"
         }
       }
     },
@@ -319,6 +337,15 @@
         "sagaSplitLoredeck": {
           "targetPackId": "hp-core"
         }
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "essential_guardrails",
+          "suggestionRole": "active_guardrail",
+          "detailLevel": "core",
+          "suggestByDefault": false,
+          "activeUse": "broad_future_leak_suppressor"
+        }
       }
     },
     {
@@ -423,6 +450,15 @@
         "sagaSplitLoredeck": {
           "targetPackId": "hp-core"
         }
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "year_secrets",
+          "suggestionRole": "reveal_gate",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "controls_character_knowledge"
+        }
       }
     },
     {
@@ -526,6 +562,15 @@
         },
         "sagaSplitLoredeck": {
           "targetPackId": "hp-core"
+        }
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "essential_guardrails",
+          "suggestionRole": "active_guardrail",
+          "detailLevel": "core",
+          "suggestByDefault": false,
+          "activeUse": "broad_future_leak_suppressor"
         }
       }
     }

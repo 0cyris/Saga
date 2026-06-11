@@ -110,6 +110,15 @@
         "sagaSplitLoredeck": {
           "targetPackId": "hp-year-2-chamber-of-secrets"
         }
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "year_secrets",
+          "suggestionRole": "reveal_gate",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "controls_character_knowledge"
+        }
       }
     },
     {
@@ -218,6 +227,15 @@
         },
         "sagaSplitLoredeck": {
           "targetPackId": "hp-year-2-chamber-of-secrets"
+        }
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "present_characters",
+          "suggestionRole": "character_state",
+          "detailLevel": "standard",
+          "suggestByDefault": true,
+          "activeUse": "character_state_gate"
         }
       }
     },
@@ -331,6 +349,15 @@
         },
         "sagaSplitLoredeck": {
           "targetPackId": "hp-year-2-chamber-of-secrets"
+        }
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "essential_guardrails",
+          "suggestionRole": "active_guardrail",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "blocks_context_leakage"
         }
       }
     },
@@ -455,6 +482,15 @@
         "sagaSplitLoredeck": {
           "targetPackId": "hp-year-2-chamber-of-secrets"
         }
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "year_secrets",
+          "suggestionRole": "reveal_gate",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "controls_character_knowledge"
+        }
       }
     },
     {
@@ -568,6 +604,267 @@
           "curationPass": "hp-relevance-v0.2.0",
           "deckId": "hp-year-2-chamber-of-secrets",
           "purpose": "story-position control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-2-chamber-of-secrets"
+        }
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "year_secrets",
+          "suggestionRole": "reveal_gate",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "controls_character_knowledge"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "secret",
+      "specificityScore": 94,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 112,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "id": "y2_secret_basilisk_identity_hidden_until_deduction",
+      "title": "Basilisk identity hidden until deduction",
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y2.basilisk_voice_first",
+        "validToAnchor": "hp.y2.basilisk_pipes_deduction",
+        "sortKeyFrom": 8367,
+        "sortKeyTo": 8517,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Before basilisk pipes deduction",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Ron Weasley",
+          "Hermione Granger",
+          "Ginny Weasley",
+          "Albus Dumbledore"
+        ],
+        "topics": [
+          "Chamber monster",
+          "basilisk",
+          "Parseltongue voice"
+        ],
+        "schoolYears": [
+          "2"
+        ],
+        "books": [
+          "Chamber of Secrets"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "artifact:diary",
+        "book:chamber-of-secrets",
+        "character:ginny-weasley",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "quality:relevance-curated",
+        "school-year:2",
+        "character:albus-dumbledore"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Ron Weasley",
+            "Hermione Granger",
+            "Ginny Weasley",
+            "Albus Dumbledore"
+          ],
+          "topicsAny": [
+            "Chamber monster",
+            "basilisk",
+            "Parseltongue voice"
+          ]
+        }
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "year_secrets",
+          "suggestionRole": "reveal_gate",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "controls_character_knowledge"
+        }
+      },
+      "content": {
+        "fact": "The Chamber monster being a basilisk is hidden until Hermione and Harry assemble the clues; Harry hearing a voice is not enough for most characters to know the creature.",
+        "injection": "Before the basilisk deduction, allow danger clues and Parseltongue unease, but block students, teachers, and narration from naming the monster as a basilisk unless the scene follows a valid clue path.",
+        "constraints": [
+          "Harry may hear the voice without understanding the creature.",
+          "Dumbledore may suspect more than students, but he should not turn the secret into public school knowledge early.",
+          "Use this as a reveal-control gate: allow the named keepers to know the secret, but block characters outside that knowledge path from stating, acting on, or narrating it as known.",
+          "Apply only when Saga Context matches Before basilisk pipes deduction; if the scene is outside this window, withhold this secret gate."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Chamber of Secrets",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-secret-gates-v0.3.0",
+          "deckId": "hp-year-2-chamber-of-secrets",
+          "purpose": "reveal-control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-2-chamber-of-secrets"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "secret",
+      "specificityScore": 94,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 112,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "id": "y2_secret_polyjuice_infiltration_plan_hidden",
+      "title": "Polyjuice infiltration plan hidden",
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y2.polyjuice_brew_begins",
+        "validToAnchor": "hp.y2.slytherin_common_room_interrogation",
+        "sortKeyFrom": 8433,
+        "sortKeyTo": 8451,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Before Polyjuice infiltration ends",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Ron Weasley",
+          "Hermione Granger",
+          "Draco Malfoy"
+        ],
+        "topics": [
+          "Polyjuice Potion",
+          "Slytherin infiltration",
+          "Crabbe and Goyle disguise"
+        ],
+        "schoolYears": [
+          "2"
+        ],
+        "books": [
+          "Chamber of Secrets"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "artifact:diary",
+        "book:chamber-of-secrets",
+        "character:ginny-weasley",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "quality:relevance-curated",
+        "school-year:2",
+        "character:draco-malfoy"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Ron Weasley",
+            "Hermione Granger",
+            "Draco Malfoy"
+          ],
+          "topicsAny": [
+            "Polyjuice Potion",
+            "Slytherin infiltration",
+            "Crabbe and Goyle disguise"
+          ]
+        }
+      },
+      "ui": {
+        "preview": {
+          "primaryPack": "year_secrets",
+          "suggestionRole": "reveal_gate",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "controls_character_knowledge"
+        }
+      },
+      "content": {
+        "fact": "The trio secretly brew and use Polyjuice for the Slytherin interrogation; other students and staff should not know the plan while it is underway.",
+        "injection": "During the Polyjuice plan window, allow Harry, Ron, and Hermione to know their plan, but block Draco, Slytherin students, staff, and narration from treating the disguises or potion as exposed before the infiltration resolves.",
+        "constraints": [
+          "The secret is the plan and disguise state, not the existence of Polyjuice in the setting.",
+          "Let risk of discovery create tension without making the plan public prematurely.",
+          "Use this as a reveal-control gate: allow the named keepers to know the secret, but block characters outside that knowledge path from stating, acting on, or narrating it as known.",
+          "Apply only when Saga Context matches Before Polyjuice infiltration ends; if the scene is outside this window, withhold this secret gate."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Chamber of Secrets",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-secret-gates-v0.3.0",
+          "deckId": "hp-year-2-chamber-of-secrets",
+          "purpose": "reveal-control"
         },
         "sagaSplitLoredeck": {
           "targetPackId": "hp-year-2-chamber-of-secrets"

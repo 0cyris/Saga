@@ -35,6 +35,17 @@
     "scoring": "scoring.json"
   },
   "resolver": "resolver.json",
+  "assets": {
+    "cover": {
+      "path": "assets/cover.png",
+      "alt": "Deck cover for Jujutsu Kaisen: Culling Game Colonies",
+      "aspect": "1:1",
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    }
+  },
   "continuity": {
     "continuityId": "jjk-manga-main",
     "canonTier": "primary",
@@ -51,12 +62,7 @@
   "files": [
     "culling_game/rules_and_entry.json",
     "culling_game/tokyo_no1_sendai.json",
-    "culling_game/tokyo_no2_guards.json",
-    "expanded/rules_and_player_taxonomy.json",
-    "expanded/character_states.json",
-    "expanded/abilities.json",
-    "expanded/colony_event_anchors.json",
-    "expanded/knowledge_gates.json"
+    "culling_game/tokyo_no2_guards.json"
   ],
   "compatibility": {
     "sagaSchemaMin": 3,

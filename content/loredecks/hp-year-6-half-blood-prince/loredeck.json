@@ -97,10 +97,10 @@
       "event": 13,
       "faction": 2,
       "item": 3,
-      "knowledge": 13,
+      "knowledge": 10,
       "location": 1,
       "relationship": 2,
-      "secret": 2,
+      "secret": 5,
       "spell": 2,
       "timeline": 2
     },
