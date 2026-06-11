@@ -1,0 +1,474 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "jjk_modulo_yuka_tsurugi_okkotsu_are_future_leads",
+      "title": "Yuka And Tsurugi Okkotsu Are Future Leads",
+      "kind": "relationship",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.modulo.okkotsu-siblings-assigned",
+        "validToAnchor": "jjk.modulo.epilogue-state",
+        "sortKeyFrom": 20400,
+        "sortKeyTo": 20800,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Okkotsu sibling lead context"
+      },
+      "coordinates": [
+        {
+          "axis": "okkotsu_legacy_state",
+          "id": "active-leads",
+          "label": "Yuka and Tsurugi Okkotsu are active Modulo leads",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:yuka-okkotsu",
+          "jjk:tsurugi-okkotsu",
+          "jjk:okkotsu-siblings"
+        ],
+        "characters": [
+          "Yuka Okkotsu",
+          "Tsurugi Okkotsu"
+        ],
+        "locations": [
+          "Future Tokyo"
+        ],
+        "objects": [],
+        "factions": [
+          "Okkotsu siblings"
+        ],
+        "topics": [
+          "Okkotsu siblings",
+          "future leads",
+          "Okkotsu legacy"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-modulo",
+        "adaptation:manga",
+        "arc:modulo",
+        "character:yuka-okkotsu",
+        "character:tsurugi-okkotsu",
+        "relationship:okkotsu-siblings",
+        "topic:okkotsu-legacy",
+        "topic:coexistence-test"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Yuka Okkotsu",
+            "Tsurugi Okkotsu"
+          ],
+          "topicsAny": [
+            "Okkotsu siblings",
+            "Modulo leads",
+            "Okkotsu legacy"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-modulo",
+        "canonTier": "sequel",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Modulo chapters 1-25 as a separate sequel/spinoff continuity."
+      },
+      "content": {
+        "fact": "Yuka and Tsurugi Okkotsu function as central Modulo-era leads, tying the sequel's future cast to Okkotsu-family legacy context.",
+        "injection": "When Yuka or Tsurugi are present, treat their sibling relationship and Okkotsu legacy as active Modulo scene context.",
+        "constraints": [
+          "Do not introduce Yuka or Tsurugi into manga-main arcs before Modulo Context."
+        ],
+        "antiLore": [
+          "Do not treat the Modulo leads as contemporaries of Yuji's student-era cast."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen Modulo",
+        "sourceType": "manga",
+        "title": "Okkotsu sibling lead context",
+        "chapterRange": "Modulo lead setup",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-modulo",
+          "status": "initial_modulo_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_modulo_okkotsu_legacy_is_future_context_not_mainline_presence",
+      "title": "Okkotsu Legacy Is Future Context, Not Mainline Presence",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "secret",
+      "revealPolicy": "spoiler_guard",
+      "priority": 90,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.modulo.okkotsu-siblings-assigned",
+        "validToAnchor": "jjk.modulo.epilogue-state",
+        "sortKeyFrom": 20400,
+        "sortKeyTo": 20800,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Okkotsu legacy spoiler boundary"
+      },
+      "coordinates": [
+        {
+          "axis": "okkotsu_legacy_state",
+          "id": "future-inheritance",
+          "label": "Okkotsu legacy has future-sequel inheritance context",
+          "required": false
+        },
+        {
+          "axis": "knowledge_state",
+          "id": "sequel-spoiler",
+          "label": "Modulo sequel legacy detail is spoiler-bearing",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:yuka-okkotsu",
+          "jjk:tsurugi-okkotsu",
+          "jjk:okkotsu-siblings",
+          "jjk:modulo-continuity"
+        ],
+        "characters": [
+          "Yuka Okkotsu",
+          "Tsurugi Okkotsu"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Okkotsu siblings"
+        ],
+        "topics": [
+          "Okkotsu legacy",
+          "future inheritance",
+          "sequel spoiler boundary"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-modulo",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:modulo",
+        "character:yuka-okkotsu",
+        "character:tsurugi-okkotsu",
+        "relationship:okkotsu-siblings",
+        "topic:okkotsu-legacy",
+        "topic:mainline-boundary"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Yuka Okkotsu",
+            "Tsurugi Okkotsu"
+          ],
+          "topicsAny": [
+            "Okkotsu legacy",
+            "Yuta legacy",
+            "Maki legacy",
+            "future inheritance"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-modulo",
+        "canonTier": "sequel",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Modulo chapters 1-25 as a separate sequel/spinoff continuity."
+      },
+      "content": {
+        "fact": "Modulo-era Okkotsu legacy details are future-sequel context and should not be used to imply that Yuka or Tsurugi exist during mainline Jujutsu Kaisen scenes.",
+        "injection": "When Okkotsu legacy appears in Modulo, keep it gated as future inheritance context and avoid retroactively changing Yuta or Maki's mainline scene behavior.",
+        "constraints": [
+          "Do not reveal Modulo-era Okkotsu descendants in mainline Jujutsu Kaisen Context."
+        ],
+        "antiLore": [
+          "Do not let sequel-family facts rewrite the immediate Shinjuku aftermath unless Modulo is explicitly loaded."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen Modulo",
+        "sourceType": "manga",
+        "title": "Okkotsu legacy boundary",
+        "chapterRange": "Modulo lead setup",
+        "confidence": 0.72,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-modulo",
+          "status": "initial_modulo_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_modulo_alien_jujutsu_requires_overlay_rules",
+      "title": "Alien Jujutsu Requires Modulo Rules",
+      "kind": "rule",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "power_rule",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.modulo.simurian-arrival",
+        "validToAnchor": "jjk.modulo.alien-jujutsu-conflict",
+        "sortKeyFrom": 20200,
+        "sortKeyTo": 20600,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Alien jujutsu rules"
+      },
+      "coordinates": [
+        {
+          "axis": "simurian_state",
+          "id": "coexistence-tested",
+          "label": "Simurian coexistence and jujutsu assumptions are being tested",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:simurians",
+          "jjk:maru"
+        ],
+        "characters": [
+          "Maru"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Simurians"
+        ],
+        "topics": [
+          "alien jujutsu",
+          "Simurian cursed energy",
+          "Modulo power rules"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-modulo",
+        "adaptation:manga",
+        "arc:modulo",
+        "character:maru",
+        "species:simurian",
+        "topic:alien-jujutsu",
+        "topic:coexistence-test"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Maru",
+            "Marulu"
+          ],
+          "topicsAny": [
+            "alien jujutsu",
+            "Simurian technique",
+            "Modulo power rules"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-modulo",
+        "canonTier": "sequel",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Modulo chapters 1-25 as a separate sequel/spinoff continuity."
+      },
+      "content": {
+        "fact": "Alien jujutsu in Modulo should be treated as a sequel-specific rule layer, not as a replacement for core cursed-energy rules in earlier Jujutsu Kaisen arcs.",
+        "injection": "When alien jujutsu appears, use the core deck for baseline cursed-energy language but defer Modulo-specific mechanics to this sequel deck.",
+        "constraints": [
+          "Do not assume Simurian techniques follow exactly the same limits as human jujutsu unless a reviewed Lorecard establishes it."
+        ],
+        "antiLore": [
+          "Do not use alien jujutsu to reinterpret Sukuna, Gojo, or mainline domains retroactively."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen Modulo",
+        "sourceType": "manga",
+        "title": "Alien jujutsu rules",
+        "chapterRange": "Modulo middle conflict",
+        "confidence": 0.74,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-modulo",
+          "status": "initial_modulo_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_modulo_coexistence_test_escalates_beyond_simple_hostility",
+      "title": "The Coexistence Test Escalates Beyond Simple Hostility",
+      "kind": "event",
+      "category": "event",
+      "relevance": "medium",
+      "canon": "canon",
+      "lorePurpose": "event",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.modulo.coexistence-test-escalates",
+        "validToAnchor": "jjk.modulo.alien-jujutsu-conflict",
+        "sortKeyFrom": 20500,
+        "sortKeyTo": 20600,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Coexistence test escalation"
+      },
+      "coordinates": [
+        {
+          "axis": "simurian_state",
+          "id": "conflict-active",
+          "label": "Simurian/human conflict pressure is active",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:maru",
+          "jjk:simurians",
+          "jjk:yuka-okkotsu",
+          "jjk:tsurugi-okkotsu",
+          "jjk:future-jujutsu-authorities"
+        ],
+        "characters": [
+          "Maru",
+          "Yuka Okkotsu",
+          "Tsurugi Okkotsu"
+        ],
+        "locations": [
+          "Future Tokyo"
+        ],
+        "objects": [],
+        "factions": [
+          "Simurians",
+          "Future jujutsu authorities"
+        ],
+        "topics": [
+          "coexistence test",
+          "human and Simurian conflict",
+          "diplomatic pressure"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-modulo",
+        "adaptation:manga",
+        "arc:modulo",
+        "character:maru",
+        "character:yuka-okkotsu",
+        "character:tsurugi-okkotsu",
+        "species:simurian",
+        "faction:future-jujutsu-authorities",
+        "topic:coexistence-test",
+        "topic:alien-jujutsu"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Maru",
+            "Yuka Okkotsu",
+            "Tsurugi Okkotsu"
+          ],
+          "topicsAny": [
+            "coexistence test",
+            "Simurian conflict",
+            "Modulo escalation"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-modulo",
+        "canonTier": "sequel",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Modulo chapters 1-25 as a separate sequel/spinoff continuity."
+      },
+      "content": {
+        "fact": "Modulo's coexistence premise escalates into active conflict pressure, but the core question remains whether human and Simurian jujutsu societies can coexist.",
+        "injection": "When the coexistence test escalates, preserve both sides of the premise: conflict pressure and the possibility of coexistence.",
+        "constraints": [
+          "Do not flatten Modulo into a simple alien invasion premise without the coexistence-test frame."
+        ],
+        "antiLore": [
+          "Do not write every Simurian as automatically hostile unless a reviewed scene-specific Lorecard supports it."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen Modulo",
+        "sourceType": "manga",
+        "title": "Coexistence escalation",
+        "chapterRange": "Modulo middle conflict",
+        "confidence": 0.72,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-modulo",
+          "status": "initial_modulo_slice"
+        }
+      }
+    }
+  ]
+}

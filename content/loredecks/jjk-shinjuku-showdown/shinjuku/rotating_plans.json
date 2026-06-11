@@ -1,0 +1,481 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "jjk_shinjuku_rotating_allied_plans_are_layered_sequence",
+      "title": "Rotating Allied Plans Are A Layered Sequence",
+      "kind": "knowledge",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "continuity_guard",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.shinjuku.rotating-allied-plans",
+        "validToAnchor": "jjk.shinjuku.yuji-megumi-final-push",
+        "sortKeyFrom": 14400,
+        "sortKeyTo": 14600,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Rotating allied plan sequence"
+      },
+      "coordinates": [
+        {
+          "axis": "sukuna_state",
+          "id": "weakened-by-plans",
+          "label": "Sukuna is being pressured by layered allied plans",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:itadori-yuji",
+          "jjk:higuruma-hiromi",
+          "jjk:yuta-okkotsu",
+          "jjk:maki-zenin",
+          "jjk:jujutsu-allies",
+          "jjk:ryomen-sukuna"
+        ],
+        "characters": [
+          "Yuji Itadori",
+          "Hiromi Higuruma",
+          "Yuta Okkotsu",
+          "Maki Zenin",
+          "Ryomen Sukuna"
+        ],
+        "locations": [
+          "Shinjuku"
+        ],
+        "objects": [],
+        "factions": [
+          "Jujutsu allies"
+        ],
+        "topics": [
+          "Rotating allied plans",
+          "Sukuna gauntlet",
+          "post-Gojo tactics"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:shinjuku-showdown",
+        "character:itadori-yuji",
+        "character:higuruma-hiromi",
+        "character:okkotsu-yuta",
+        "character:maki-zenin",
+        "character:ryomen-sukuna",
+        "faction:jujutsu-allies",
+        "topic:rotating-plans"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Yuji Itadori",
+            "Hiromi Higuruma",
+            "Yuta Okkotsu",
+            "Maki Zenin",
+            "Ryomen Sukuna"
+          ],
+          "topicsAny": [
+            "rotating allied plans",
+            "Sukuna gauntlet",
+            "post-Gojo tactics"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shinjuku Showdown through chapter 271 manga aftermath."
+      },
+      "content": {
+        "fact": "After Gojo falls and Kashimo's phase passes, the Shinjuku fight becomes a layered rotation of allied plans meant to keep Sukuna under pressure.",
+        "injection": "During the post-Gojo rotation, treat each allied entry as part of a planned sequence rather than disconnected surprise appearances.",
+        "constraints": [
+          "Do not make a single ally's plan replace the full rotating sequence."
+        ],
+        "antiLore": [
+          "Do not write the Shinjuku allies as improvising without prior layered contingencies."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Shinjuku Showdown",
+        "chapterRange": "Post-Gojo rotating plans",
+        "confidence": 0.84,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-shinjuku-showdown",
+          "status": "initial_shinjuku_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_shinjuku_higuruma_yuji_plan_pressures_sukuna",
+      "title": "Higuruma And Yuji Pressure Sukuna",
+      "kind": "event",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.shinjuku.rotating-allied-plans",
+        "validToAnchor": "jjk.shinjuku.yuta-domain-plan",
+        "sortKeyFrom": 14400,
+        "sortKeyTo": 14500,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Higuruma and Yuji plan"
+      },
+      "coordinates": [
+        {
+          "axis": "sukuna_state",
+          "id": "weakened-by-plans",
+          "label": "Sukuna is being pressured by layered allied plans",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:higuruma-hiromi",
+          "jjk:itadori-yuji",
+          "jjk:ryomen-sukuna",
+          "jjk:jujutsu-allies"
+        ],
+        "characters": [
+          "Hiromi Higuruma",
+          "Yuji Itadori",
+          "Ryomen Sukuna"
+        ],
+        "locations": [
+          "Shinjuku"
+        ],
+        "objects": [],
+        "factions": [
+          "Jujutsu allies"
+        ],
+        "topics": [
+          "Higuruma plan",
+          "Yuji pressure",
+          "Sukuna gauntlet"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:shinjuku-showdown",
+        "character:higuruma-hiromi",
+        "character:itadori-yuji",
+        "character:ryomen-sukuna",
+        "faction:jujutsu-allies",
+        "topic:rotating-plans"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Hiromi Higuruma",
+            "Yuji Itadori",
+            "Ryomen Sukuna"
+          ],
+          "topicsAny": [
+            "Higuruma plan",
+            "Yuji versus Sukuna",
+            "post-Gojo Sukuna fight"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shinjuku Showdown through chapter 271 manga aftermath."
+      },
+      "content": {
+        "fact": "Higuruma and Yuji are part of the post-Gojo pressure sequence against Sukuna, using Higuruma's role as a tactical pivot for the allies' plan.",
+        "injection": "When Higuruma enters the Shinjuku rotation, pair his tactical role with Yuji's direct pressure on Sukuna.",
+        "constraints": [
+          "Keep this after Kashimo's post-Gojo phase and before the later Yuta/Maki layers dominate."
+        ],
+        "antiLore": [
+          "Do not place Higuruma in the opening Gojo/Sukuna duel."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Shinjuku Showdown",
+        "chapterRange": "Higuruma and Yuji plan",
+        "confidence": 0.82,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-shinjuku-showdown",
+          "status": "initial_shinjuku_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_shinjuku_yuta_backup_plan_adds_domain_layer",
+      "title": "Yuta's Backup Plan Adds A Domain Layer",
+      "kind": "event",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.shinjuku.yuta-domain-plan",
+        "validToAnchor": "jjk.shinjuku.yuji-megumi-final-push",
+        "sortKeyFrom": 14500,
+        "sortKeyTo": 14600,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Yuta domain plan"
+      },
+      "coordinates": [
+        {
+          "axis": "sukuna_state",
+          "id": "weakened-by-plans",
+          "label": "Sukuna is being pressured by layered allied plans",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:yuta-okkotsu",
+          "jjk:itadori-yuji",
+          "jjk:ryomen-sukuna",
+          "jjk:jujutsu-allies"
+        ],
+        "characters": [
+          "Yuta Okkotsu",
+          "Yuji Itadori",
+          "Ryomen Sukuna"
+        ],
+        "locations": [
+          "Shinjuku"
+        ],
+        "objects": [],
+        "factions": [
+          "Jujutsu allies"
+        ],
+        "topics": [
+          "Yuta domain plan",
+          "backup plan",
+          "Sukuna pressure"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:shinjuku-showdown",
+        "character:okkotsu-yuta",
+        "character:itadori-yuji",
+        "character:ryomen-sukuna",
+        "faction:jujutsu-allies",
+        "topic:rotating-plans"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Yuta Okkotsu",
+            "Yuji Itadori",
+            "Ryomen Sukuna"
+          ],
+          "topicsAny": [
+            "Yuta domain",
+            "Yuta backup plan",
+            "Sukuna pressure"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shinjuku Showdown through chapter 271 manga aftermath."
+      },
+      "content": {
+        "fact": "Yuta's Shinjuku layer adds another planned pressure point against Sukuna, including domain-centered tactics that lead into the final Yuji/Megumi push.",
+        "injection": "Use Yuta's Shinjuku role as a backup-plan layer that bridges the allied rotation into Yuji and Megumi's final separation stakes.",
+        "constraints": [
+          "Do not treat Yuta's layer as the final resolution by itself."
+        ],
+        "antiLore": [
+          "Do not skip from Higuruma directly to Sukuna's defeat without the later backup-plan pressure."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Shinjuku Showdown",
+        "chapterRange": "Yuta backup plan and domain phase",
+        "confidence": 0.82,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-shinjuku-showdown",
+          "status": "initial_shinjuku_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_shinjuku_maki_ambush_keeps_sukuna_under_rotation_pressure",
+      "title": "Maki's Ambush Keeps Sukuna Under Rotation Pressure",
+      "kind": "event",
+      "category": "event",
+      "relevance": "medium",
+      "canon": "canon",
+      "lorePurpose": "event",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.shinjuku.yuta-domain-plan",
+        "validToAnchor": "jjk.shinjuku.yuji-megumi-final-push",
+        "sortKeyFrom": 14500,
+        "sortKeyTo": 14600,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Maki ambush layer"
+      },
+      "coordinates": [
+        {
+          "axis": "sukuna_state",
+          "id": "weakened-by-plans",
+          "label": "Sukuna is being pressured by layered allied plans",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:maki-zenin",
+          "jjk:ryomen-sukuna",
+          "jjk:jujutsu-allies"
+        ],
+        "characters": [
+          "Maki Zenin",
+          "Ryomen Sukuna"
+        ],
+        "locations": [
+          "Shinjuku"
+        ],
+        "objects": [],
+        "factions": [
+          "Jujutsu allies"
+        ],
+        "topics": [
+          "Maki ambush",
+          "rotating allied plans",
+          "Sukuna pressure"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:shinjuku-showdown",
+        "character:maki-zenin",
+        "character:ryomen-sukuna",
+        "faction:jujutsu-allies",
+        "topic:rotating-plans"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Maki Zenin",
+            "Ryomen Sukuna"
+          ],
+          "topicsAny": [
+            "Maki ambush",
+            "rotating allied plans",
+            "Sukuna pressure"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shinjuku Showdown through chapter 271 manga aftermath."
+      },
+      "content": {
+        "fact": "Maki's Shinjuku ambush functions as another pressure layer in the allied rotation against Sukuna.",
+        "injection": "When Maki enters the Shinjuku fight, frame her as part of the coordinated sequence that keeps Sukuna from resetting the battlefield.",
+        "constraints": [
+          "Keep Maki's earlier post-Zenin state in the Culling Game convergence deck."
+        ],
+        "antiLore": [
+          "Do not portray Maki's Shinjuku role as unrelated to the broader allied plan."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Shinjuku Showdown",
+        "chapterRange": "Maki ambush and rotation pressure",
+        "confidence": 0.8,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-shinjuku-showdown",
+          "status": "initial_shinjuku_slice"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,452 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "jjk_convergence_sakurajima_extends_maki_post_zenin_state",
+      "title": "Sakurajima Extends Maki's Post-Zenin State",
+      "kind": "event",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.convergence.sakurajima-maki",
+        "validToAnchor": "jjk.convergence.angel-hana-focus",
+        "sortKeyFrom": 11600,
+        "sortKeyTo": 11800,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Maki in Sakurajima"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "sakurajima",
+          "label": "Sakurajima Colony",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:maki-zenin"
+        ],
+        "characters": [
+          "Maki Zenin"
+        ],
+        "locations": [
+          "Sakurajima Colony"
+        ],
+        "objects": [],
+        "factions": [
+          "Culling Game players"
+        ],
+        "topics": [
+          "Sakurajima",
+          "Maki post-Zenin state",
+          "colony pressure"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:culling-game-convergence",
+        "arc:sakurajima",
+        "character:maki-zenin",
+        "faction:culling-game-players",
+        "topic:sakurajima-maki"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Maki Zenin"
+          ],
+          "topicsAny": [
+            "Sakurajima",
+            "Maki post-Zenin",
+            "Maki colony"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen late Culling Game convergence through Gojo unsealing and Shinjuku setup."
+      },
+      "content": {
+        "fact": "Sakurajima continues Maki's post-Zenin arc by testing and clarifying her changed body and combat state inside the Culling Game.",
+        "injection": "In Sakurajima scenes, write Maki as already changed by Perfect Preparation and still refining what that state means in battle.",
+        "constraints": [
+          "Use the Post-Shibuya deck for the Zenin collapse itself."
+        ],
+        "antiLore": [
+          "Do not reset Maki to her pre-Mai-sacrifice limitations during Sakurajima."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Sakurajima Colony",
+        "chapterRange": "Sakurajima setup",
+        "confidence": 0.82,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-culling-game-convergence",
+          "status": "initial_convergence_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_convergence_maki_state_matures_through_sakurajima",
+      "title": "Maki's State Matures Through Sakurajima",
+      "kind": "rule",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "power_rule",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.convergence.sakurajima-maki",
+        "validToAnchor": "jjk.convergence.shinjuku-setup",
+        "sortKeyFrom": 11600,
+        "sortKeyTo": 13200,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Maki after Sakurajima development"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "sakurajima",
+          "label": "Sakurajima Colony",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:maki-zenin"
+        ],
+        "characters": [
+          "Maki Zenin"
+        ],
+        "locations": [
+          "Sakurajima Colony"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Maki perception",
+          "post-Zenin combat state",
+          "Sakurajima development"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:culling-game-convergence",
+        "arc:sakurajima",
+        "character:maki-zenin",
+        "topic:sakurajima-maki"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Maki Zenin"
+          ],
+          "topicsAny": [
+            "Maki Sakurajima development",
+            "Maki perception",
+            "post-Zenin Maki"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen late Culling Game convergence through Gojo unsealing and Shinjuku setup."
+      },
+      "content": {
+        "fact": "Sakurajima clarifies Maki's mature post-Zenin combat state, including how she perceives and responds to threats after the transformation.",
+        "injection": "After Sakurajima, let Maki's movement, perception, and confidence reflect the matured post-Zenin state rather than only raw strength.",
+        "constraints": [
+          "Do not use this card to reveal Shinjuku battle outcomes."
+        ],
+        "antiLore": [
+          "Do not describe Maki's Sakurajima growth as just ordinary training."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Sakurajima Colony",
+        "chapterRange": "Maki development",
+        "confidence": 0.82,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-culling-game-convergence",
+          "status": "initial_convergence_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_convergence_angel_hana_create_prison_realm_route",
+      "title": "Angel And Hana Create A Prison Realm Route",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 90,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.convergence.angel-hana-focus",
+        "validToAnchor": "jjk.convergence.gojo-unsealed",
+        "sortKeyFrom": 11800,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Angel and Hana Prison Realm route"
+      },
+      "coordinates": [
+        {
+          "axis": "gojo_state",
+          "id": "sealed",
+          "label": "Gojo is still sealed",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:angel",
+          "jjk:hana-kurusu",
+          "jjk:gojo-satoru"
+        ],
+        "characters": [
+          "Angel",
+          "Hana Kurusu",
+          "Satoru Gojo"
+        ],
+        "locations": [],
+        "objects": [
+          "Prison Realm"
+        ],
+        "factions": [
+          "Culling Game players"
+        ],
+        "topics": [
+          "Angel",
+          "Hana",
+          "Gojo unsealing route"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:culling-game-convergence",
+        "character:angel",
+        "character:hana-kurusu",
+        "character:gojo-satoru",
+        "faction:culling-game-players",
+        "topic:angel-unsealing"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Angel",
+            "Hana Kurusu",
+            "Satoru Gojo"
+          ],
+          "topicsAny": [
+            "Angel",
+            "Prison Realm",
+            "Gojo unsealing route"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen late Culling Game convergence through Gojo unsealing and Shinjuku setup."
+      },
+      "content": {
+        "fact": "Angel and Hana make a route toward opening the Prison Realm possible, turning Gojo's sealed state from static loss into an actionable objective.",
+        "injection": "After Angel and Hana enter focus, let Prison Realm planning become concrete without revealing the final unsealing until that anchor arrives.",
+        "constraints": [
+          "Do not treat Gojo as already free before the unsealing anchor."
+        ],
+        "antiLore": [
+          "Do not make Angel's route irrelevant to Gojo's return."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Culling Game Convergence",
+        "chapterRange": "Angel and Hana setup",
+        "confidence": 0.82,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-culling-game-convergence",
+          "status": "initial_convergence_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_convergence_military_incursion_expands_colony_crisis",
+      "title": "Military Incursion Expands The Colony Crisis",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "medium",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.convergence.military-incursion",
+        "validToAnchor": "jjk.convergence.kenjaku-gains-tengen",
+        "sortKeyFrom": 12000,
+        "sortKeyTo": 12400,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Military incursion into Culling Game"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "culling-game-convergence",
+          "label": "Culling Game Convergence",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:foreign-military",
+          "jjk:kenjaku",
+          "jjk:culling-game-players"
+        ],
+        "characters": [
+          "Kenjaku"
+        ],
+        "locations": [
+          "Culling Game colonies"
+        ],
+        "objects": [],
+        "factions": [
+          "Foreign military forces",
+          "Culling Game players"
+        ],
+        "topics": [
+          "military incursion",
+          "outside forces",
+          "Kenjaku escalation"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:culling-game-convergence",
+        "character:kenjaku",
+        "faction:foreign-military",
+        "faction:culling-game-players",
+        "topic:military-incursion"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Kenjaku"
+          ],
+          "topicsAny": [
+            "military incursion",
+            "foreign soldiers",
+            "Culling Game escalation"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen late Culling Game convergence through Gojo unsealing and Shinjuku setup."
+      },
+      "content": {
+        "fact": "The military incursion expands the Culling Game crisis beyond sorcerer participants and shows Kenjaku manipulating outside forces into the colonies.",
+        "injection": "During the incursion window, add outside-force confusion and exploitation to the Culling Game rather than keeping it a closed sorcerer tournament.",
+        "constraints": [
+          "Do not make the military incursion the final resolution of the game."
+        ],
+        "antiLore": [
+          "Do not write the colonies as isolated from global or non-sorcerer exploitation after this anchor."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Culling Game Convergence",
+        "chapterRange": "Military incursion",
+        "confidence": 0.78,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-culling-game-convergence",
+          "status": "initial_convergence_slice"
+        }
+      }
+    }
+  ]
+}

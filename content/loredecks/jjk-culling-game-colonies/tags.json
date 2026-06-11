@@ -1,0 +1,318 @@
+{
+  "schemaVersion": 1,
+  "tags": {
+    "adaptation:manga": {
+      "label": "Manga",
+      "color": "#5b677a",
+      "textColor": "#ffffff",
+      "description": "Manga-primary continuity tag for Jujutsu Kaisen retrieval and filtering.",
+      "aliases": [
+        "manga"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "arc:culling-game-colonies": {
+      "label": "Culling Game Colonies",
+      "color": "#7b3f00",
+      "textColor": "#ffffff",
+      "description": "Early and middle Culling Game colony action tag.",
+      "aliases": [
+        "Culling Game Colonies arc"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:fushiguro-megumi": {
+      "label": "Megumi Fushiguro",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Megumi Fushiguro Culling Game colony tag.",
+      "aliases": [
+        "Megumi Culling Game"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:higuruma-hiromi": {
+      "label": "Hiromi Higuruma",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Hiromi Higuruma Tokyo No. 1 Colony tag.",
+      "aliases": [
+        "Higuruma Tokyo No. 1"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:hakari-kinji": {
+      "label": "Kinji Hakari",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Kinji Hakari Tokyo No. 2 Colony tag.",
+      "aliases": [
+        "Hakari Tokyo No. 2"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:itadori-yuji": {
+      "label": "Yuji Itadori",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Yuji Itadori Culling Game colony tag.",
+      "aliases": [
+        "Yuji Culling Game"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:kashimo-hajime": {
+      "label": "Hajime Kashimo",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Hajime Kashimo Tokyo No. 2 Colony tag.",
+      "aliases": [
+        "Kashimo Tokyo No. 2"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:kurourushi": {
+      "label": "Kurourushi",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Kurourushi Sendai Colony tag.",
+      "aliases": [
+        "Kurourushi Sendai"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:okkotsu-yuta": {
+      "label": "Yuta Okkotsu",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Yuta Okkotsu Sendai Colony tag.",
+      "aliases": [
+        "Yuta Sendai Colony"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:reggie-star": {
+      "label": "Reggie Star",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Reggie Star Tokyo No. 1 Colony tag.",
+      "aliases": [
+        "Reggie Tokyo No. 1"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:ryu-ishigori": {
+      "label": "Ryu Ishigori",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Ryu Ishigori Sendai Colony tag.",
+      "aliases": [
+        "Ryu Sendai"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:takako-uro": {
+      "label": "Takako Uro",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Takako Uro Sendai Colony tag.",
+      "aliases": [
+        "Uro Sendai"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:tsumiki-fushiguro": {
+      "label": "Tsumiki Fushiguro",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Tsumiki Fushiguro Culling Game rescue-pressure tag.",
+      "aliases": [
+        "Tsumiki colony pressure"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "continuity:jjk-manga-main": {
+      "label": "JJK Manga Main",
+      "color": "#4c5c68",
+      "textColor": "#ffffff",
+      "description": "Primary Jujutsu Kaisen manga continuity.",
+      "aliases": [
+        "JJK manga main"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:culling-game-players": {
+      "label": "Culling Game Players",
+      "color": "#7d3c98",
+      "textColor": "#ffffff",
+      "description": "Culling Game participants, reincarnated sorcerers, and awakened players.",
+      "aliases": [
+        "active Culling Game players"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "fandom:jjk": {
+      "label": "Jujutsu Kaisen",
+      "color": "#4c5c68",
+      "textColor": "#ffffff",
+      "description": "Jujutsu Kaisen fandom tag.",
+      "aliases": [
+        "JJK",
+        "Jujutsu Kaisen"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:tsumiki-status": {
+      "label": "Tsumiki Status",
+      "color": "#922b21",
+      "textColor": "#ffffff",
+      "description": "Spoiler guard for Tsumiki's unresolved Culling Game rescue pressure.",
+      "aliases": [
+        "Tsumiki rescue status spoiler"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:ancient-sorcerers": {
+      "label": "Ancient Sorcerers",
+      "color": "#2e86c1",
+      "textColor": "#ffffff",
+      "description": "Reincarnated ancient sorcerer pressure in the colonies.",
+      "aliases": [
+        "reincarnated sorcerer pressure"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:culling-game-rules": {
+      "label": "Culling Game Rules",
+      "color": "#2e86c1",
+      "textColor": "#ffffff",
+      "description": "Active Culling Game rules, points, and colony constraints.",
+      "aliases": [
+        "active Culling Game rules"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:future-convergence-guard": {
+      "label": "Future Convergence Guard",
+      "color": "#2e86c1",
+      "textColor": "#ffffff",
+      "description": "Guardrail for late Culling Game convergence and post-colony spoilers.",
+      "aliases": [
+        "late Culling Game spoiler guard"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:point-transfer": {
+      "label": "Point Transfer",
+      "color": "#2e86c1",
+      "textColor": "#ffffff",
+      "description": "Culling Game point transfer rule and survival impact.",
+      "aliases": [
+        "Culling Game point transfer"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:sendai-deadlock": {
+      "label": "Sendai Deadlock",
+      "color": "#2e86c1",
+      "textColor": "#ffffff",
+      "description": "Sendai Colony multi-way deadlock and Yuta battle pressure.",
+      "aliases": [
+        "Sendai colony deadlock"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:tokyo-no1-colony": {
+      "label": "Tokyo No. 1 Colony",
+      "color": "#2e86c1",
+      "textColor": "#ffffff",
+      "description": "Tokyo No. 1 Colony, Higuruma, Yuji, Megumi, and Reggie pressure.",
+      "aliases": [
+        "Tokyo Number One colony"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:tokyo-no2-colony": {
+      "label": "Tokyo No. 2 Colony",
+      "color": "#2e86c1",
+      "textColor": "#ffffff",
+      "description": "Tokyo No. 2 Colony, Hakari, and Kashimo pressure.",
+      "aliases": [
+        "Tokyo Number Two colony"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    }
+  }
+}

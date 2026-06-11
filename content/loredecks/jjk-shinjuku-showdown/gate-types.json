@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "gateTypes": {
+    "contextual": {
+      "label": "Contextual",
+      "description": "Inject only when the scene Context reaches the relevant Shinjuku window."
+    },
+    "spoiler_guard": {
+      "label": "Spoiler Guard",
+      "description": "Protect final battle and epilogue reveal timing."
+    },
+    "timeline": {
+      "label": "Timeline",
+      "description": "Use timeline anchors and windows to constrain retrieval."
+    }
+  }
+}

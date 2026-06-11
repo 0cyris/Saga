@@ -1,0 +1,218 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "sortKeyScale": "pack_local",
+  "anchors": [
+    {
+      "id": "jjk.shinjuku.gojo-sukuna-battle-begins",
+      "label": "Gojo and Sukuna's Shinjuku battle begins",
+      "sortKey": 14000,
+      "aliases": [
+        "Gojo versus Sukuna begins",
+        "Shinjuku battle begins"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Shinjuku Showdown"
+      }
+    },
+    {
+      "id": "jjk.shinjuku.domain-adaptation-phase",
+      "label": "Domain and adaptation phase escalates",
+      "sortKey": 14100,
+      "aliases": [
+        "domain clash phase",
+        "Mahoraga adaptation phase"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Shinjuku Showdown"
+      }
+    },
+    {
+      "id": "jjk.shinjuku.gojo-falls",
+      "label": "Gojo falls in Shinjuku",
+      "sortKey": 14200,
+      "aliases": [
+        "Gojo falls",
+        "after Gojo versus Sukuna"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Shinjuku Showdown"
+      }
+    },
+    {
+      "id": "jjk.shinjuku.kashimo-enters",
+      "label": "Kashimo enters after Gojo",
+      "sortKey": 14300,
+      "aliases": [
+        "Kashimo enters",
+        "Kashimo after Gojo"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Shinjuku Showdown"
+      }
+    },
+    {
+      "id": "jjk.shinjuku.rotating-allied-plans",
+      "label": "Rotating allied plans engage Sukuna",
+      "sortKey": 14400,
+      "aliases": [
+        "rotating allied plans",
+        "Sukuna gauntlet"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Shinjuku Showdown"
+      }
+    },
+    {
+      "id": "jjk.shinjuku.yuta-domain-plan",
+      "label": "Yuta domain and backup plan phase",
+      "sortKey": 14500,
+      "aliases": [
+        "Yuta domain plan",
+        "Yuta backup phase"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Shinjuku Showdown"
+      }
+    },
+    {
+      "id": "jjk.shinjuku.yuji-megumi-final-push",
+      "label": "Yuji and Megumi final separation push",
+      "sortKey": 14600,
+      "aliases": [
+        "Yuji Megumi final push",
+        "separate Sukuna from Megumi"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Shinjuku Showdown"
+      }
+    },
+    {
+      "id": "jjk.shinjuku.sukuna-defeated",
+      "label": "Sukuna is defeated",
+      "sortKey": 14700,
+      "aliases": [
+        "Sukuna defeated",
+        "final Sukuna resolution"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Shinjuku Showdown"
+      }
+    },
+    {
+      "id": "jjk.shinjuku.epilogue-state",
+      "label": "Post-battle epilogue state",
+      "sortKey": 14800,
+      "aliases": [
+        "JJK epilogue",
+        "chapter 271 aftermath"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Chapter 271 aftermath"
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "jjk.shinjuku.window.full-showdown",
+      "label": "Shinjuku Showdown and Aftermath",
+      "anchorFrom": "jjk.shinjuku.gojo-sukuna-battle-begins",
+      "anchorTo": "jjk.shinjuku.epilogue-state",
+      "sortKeyFrom": 14000,
+      "sortKeyTo": 14800,
+      "aliases": [
+        "Shinjuku Showdown",
+        "final JJK arc"
+      ]
+    },
+    {
+      "id": "jjk.shinjuku.window.gojo-sukuna",
+      "label": "Gojo Versus Sukuna",
+      "anchorFrom": "jjk.shinjuku.gojo-sukuna-battle-begins",
+      "anchorTo": "jjk.shinjuku.gojo-falls",
+      "sortKeyFrom": 14000,
+      "sortKeyTo": 14200,
+      "aliases": [
+        "Gojo versus Sukuna",
+        "Gojo Shinjuku fight"
+      ]
+    },
+    {
+      "id": "jjk.shinjuku.window-rotating-plans",
+      "label": "Rotating Allied Plans",
+      "anchorFrom": "jjk.shinjuku.kashimo-enters",
+      "anchorTo": "jjk.shinjuku.yuji-megumi-final-push",
+      "sortKeyFrom": 14300,
+      "sortKeyTo": 14600,
+      "aliases": [
+        "post-Gojo Sukuna gauntlet",
+        "allied plan rotation"
+      ]
+    },
+    {
+      "id": "jjk.shinjuku.window-final-resolution",
+      "label": "Final Resolution",
+      "anchorFrom": "jjk.shinjuku.yuji-megumi-final-push",
+      "anchorTo": "jjk.shinjuku.epilogue-state",
+      "sortKeyFrom": 14600,
+      "sortKeyTo": 14800,
+      "aliases": [
+        "Sukuna final defeat",
+        "JJK ending"
+      ]
+    }
+  ],
+  "coordinateAxes": [
+    {
+      "axis": "arc",
+      "label": "Arc",
+      "values": [
+        "shinjuku-showdown",
+        "epilogue"
+      ]
+    },
+    {
+      "axis": "gojo_state",
+      "label": "Gojo State",
+      "values": [
+        "fighting-sukuna",
+        "fallen"
+      ]
+    },
+    {
+      "axis": "sukuna_state",
+      "label": "Sukuna State",
+      "values": [
+        "megumi-vessel",
+        "weakened-by-plans",
+        "defeated"
+      ]
+    },
+    {
+      "axis": "megumi_state",
+      "label": "Megumi State",
+      "values": [
+        "suppressed",
+        "rescued"
+      ]
+    }
+  ]
+}

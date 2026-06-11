@@ -1559,6 +1559,163 @@
       }
     },
     {
+      "packId": "jjk-culling-game-colonies",
+      "manifest": "jjk-culling-game-colonies/loredeck.json",
+      "type": "bundled",
+      "title": "Jujutsu Kaisen: Culling Game Colonies",
+      "description": "Culling Game colony Loredeck for active rules, point transfer, Tokyo No. 1, Higuruma, Reggie, Sendai, Yuta, Hakari, Kashimo, and early colony survival pressure.",
+      "library": {
+        "suggestedPath": [
+          "Jujutsu Kaisen",
+          "Manga Main"
+        ],
+        "familyOrder": 70
+      },
+      "entrySchemaVersion": 3,
+      "version": "0.1.0",
+      "author": "Saga",
+      "fandom": "Jujutsu Kaisen",
+      "era": "Culling Game Colonies",
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:culling-game-colonies",
+        "quality:draft-reference"
+      ],
+      "updatedAt": 1781136000000,
+      "stats": {
+        "entryCount": 12,
+        "categoryCounts": {
+          "character": 1,
+          "event": 6,
+          "faction": 1,
+          "knowledge": 1,
+          "rule": 2,
+          "secret": 1
+        },
+        "timelineAnchorCount": 8,
+        "timelineWindowCount": 4
+      }
+    },
+    {
+      "packId": "jjk-culling-game-convergence",
+      "manifest": "jjk-culling-game-convergence/loredeck.json",
+      "type": "bundled",
+      "title": "Jujutsu Kaisen: Culling Game Convergence",
+      "description": "Late Culling Game Loredeck for Sakurajima, Angel and Hana, military incursion, Kenjaku versus Tengen's defenders, Sukuna's Megumi turn, Tsumiki and Yorozu, Gojo unsealing, and Shinjuku setup.",
+      "library": {
+        "suggestedPath": [
+          "Jujutsu Kaisen",
+          "Manga Main"
+        ],
+        "familyOrder": 80
+      },
+      "entrySchemaVersion": 3,
+      "version": "0.1.0",
+      "author": "Saga",
+      "fandom": "Jujutsu Kaisen",
+      "era": "Culling Game Convergence",
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:culling-game-convergence",
+        "quality:draft-reference"
+      ],
+      "updatedAt": 1781136000000,
+      "stats": {
+        "entryCount": 12,
+        "categoryCounts": {
+          "event": 4,
+          "faction": 1,
+          "knowledge": 3,
+          "rule": 1,
+          "secret": 3
+        },
+        "timelineAnchorCount": 9,
+        "timelineWindowCount": 4
+      }
+    },
+    {
+      "packId": "jjk-shinjuku-showdown",
+      "manifest": "jjk-shinjuku-showdown/loredeck.json",
+      "type": "bundled",
+      "title": "Jujutsu Kaisen: Shinjuku Showdown and Aftermath",
+      "description": "Final manga-main Loredeck for Gojo versus Sukuna, Shinjuku rotating plans, Kashimo, Higuruma, Yuta, Maki, Yuji and Megumi's final stakes, Sukuna's defeat, and epilogue-state guards.",
+      "library": {
+        "suggestedPath": [
+          "Jujutsu Kaisen",
+          "Manga Main"
+        ],
+        "familyOrder": 90
+      },
+      "entrySchemaVersion": 3,
+      "version": "0.1.0",
+      "author": "Saga",
+      "fandom": "Jujutsu Kaisen",
+      "era": "Shinjuku Showdown and Aftermath",
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:shinjuku-showdown",
+        "quality:draft-reference"
+      ],
+      "updatedAt": 1781136000000,
+      "stats": {
+        "entryCount": 12,
+        "categoryCounts": {
+          "event": 5,
+          "knowledge": 2,
+          "relationship": 1,
+          "rule": 2,
+          "secret": 2
+        },
+        "timelineAnchorCount": 9,
+        "timelineWindowCount": 4
+      }
+    },
+    {
+      "packId": "jjk-modulo",
+      "manifest": "jjk-modulo/loredeck.json",
+      "type": "bundled",
+      "title": "Jujutsu Kaisen Modulo",
+      "description": "Separate sequel/spinoff Loredeck for Jujutsu Kaisen Modulo, including the future continuity boundary, Simurian arrival, Maru's diplomatic mission, Yuka and Tsurugi Okkotsu, alien jujutsu, coexistence-test stakes, and late-series resolution guards.",
+      "library": {
+        "suggestedPath": [
+          "Jujutsu Kaisen",
+          "Modulo"
+        ],
+        "familyOrder": 110
+      },
+      "entrySchemaVersion": 3,
+      "version": "0.1.0",
+      "author": "Saga",
+      "fandom": "Jujutsu Kaisen",
+      "era": "Modulo Sequel",
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-modulo",
+        "adaptation:manga",
+        "arc:modulo",
+        "quality:draft-reference"
+      ],
+      "updatedAt": 1781136000000,
+      "stats": {
+        "entryCount": 12,
+        "categoryCounts": {
+          "event": 3,
+          "knowledge": 3,
+          "relationship": 1,
+          "rule": 3,
+          "secret": 2
+        },
+        "timelineAnchorCount": 9,
+        "timelineWindowCount": 4
+      }
+    },
+    {
       "packId": "sw-legends-core",
       "manifest": "sw-legends-core/loredeck.json",
       "type": "bundled",

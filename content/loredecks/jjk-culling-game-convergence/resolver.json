@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve Jujutsu Kaisen late Culling Game convergence Context from Sakurajima through Gojo unsealing and Shinjuku setup.",
+  "preferredFields": [
+    "arc",
+    "chapter",
+    "beforeAfter",
+    "majorEvent",
+    "tengenState",
+    "sukunaState",
+    "gojoState"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer late Culling Game anchors around Sakurajima, Angel, Kenjaku/Tengen, Sukuna's Megumi vessel turn, Tsumiki/Yorozu, Gojo unsealing, and Shinjuku setup. Do not infer Shinjuku fight or final outcomes from this deck.",
+  "localPatterns": [
+    {
+      "pattern": "during sakurajima",
+      "result": {
+        "anchorId": "jjk.convergence.sakurajima-maki",
+        "label": "Sakurajima Colony"
+      }
+    },
+    {
+      "pattern": "during military incursion",
+      "result": {
+        "anchorId": "jjk.convergence.military-incursion",
+        "label": "Military incursion"
+      }
+    },
+    {
+      "pattern": "after sukuna takes megumi",
+      "result": {
+        "anchorFrom": "jjk.convergence.sukuna-takes-megumi",
+        "label": "After Sukuna takes Megumi"
+      }
+    },
+    {
+      "pattern": "after gojo is unsealed",
+      "result": {
+        "anchorFrom": "jjk.convergence.gojo-unsealed",
+        "label": "After Gojo is unsealed"
+      }
+    },
+    {
+      "pattern": "before shinjuku showdown",
+      "result": {
+        "anchorId": "jjk.convergence.shinjuku-setup",
+        "label": "Shinjuku setup"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "sceneDate": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "label": "string",
+    "branchId": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

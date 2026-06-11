@@ -1,0 +1,473 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "jjk_convergence_yuki_choso_tengen_stand_against_kenjaku",
+      "title": "Yuki, Choso, And Tengen Stand Against Kenjaku",
+      "kind": "event",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.convergence.kenjaku-vs-tengen-defenders",
+        "validToAnchor": "jjk.convergence.kenjaku-gains-tengen",
+        "sortKeyFrom": 12200,
+        "sortKeyTo": 12400,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Kenjaku versus Tengen's defenders"
+      },
+      "coordinates": [
+        {
+          "axis": "tengen_state",
+          "id": "defended",
+          "label": "Tengen is being defended",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:tsukumo-yuki",
+          "jjk:choso",
+          "jjk:tengen",
+          "jjk:kenjaku"
+        ],
+        "characters": [
+          "Yuki Tsukumo",
+          "Choso",
+          "Tengen",
+          "Kenjaku"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Jujutsu allies"
+        ],
+        "topics": [
+          "Tengen defense",
+          "Kenjaku fight",
+          "Yuki and Choso"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:culling-game-convergence",
+        "character:tsukumo-yuki",
+        "character:choso",
+        "character:tengen",
+        "character:kenjaku",
+        "faction:jujutsu-allies",
+        "topic:tengen-capture"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Yuki Tsukumo",
+            "Choso",
+            "Tengen",
+            "Kenjaku"
+          ],
+          "topicsAny": [
+            "Kenjaku versus Yuki",
+            "Tengen defense",
+            "Choso and Yuki"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen late Culling Game convergence through Gojo unsealing and Shinjuku setup."
+      },
+      "content": {
+        "fact": "Yuki, Choso, and Tengen form the defensive side against Kenjaku's late Culling Game move for Tengen.",
+        "injection": "During the Tengen defense window, frame the conflict as a decisive attempt to stop Kenjaku's plan rather than a detached side fight.",
+        "constraints": [
+          "Do not reveal the outcome before the Kenjaku gains Tengen anchor."
+        ],
+        "antiLore": [
+          "Do not make Tengen's safety feel guaranteed during this fight."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Culling Game Convergence",
+        "chapterRange": "Kenjaku versus Tengen defenders",
+        "confidence": 0.84,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-culling-game-convergence",
+          "status": "initial_convergence_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_convergence_kenjaku_gains_tengen_and_changes_endgame_state",
+      "title": "Kenjaku Gains Tengen And Changes Endgame State",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "secret",
+      "revealPolicy": "spoiler_guard",
+      "priority": 94,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.convergence.kenjaku-gains-tengen",
+        "validToAnchor": "jjk.convergence.shinjuku-setup",
+        "sortKeyFrom": 12400,
+        "sortKeyTo": 13200,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "After Kenjaku gains Tengen"
+      },
+      "coordinates": [
+        {
+          "axis": "tengen_state",
+          "id": "captured",
+          "label": "Kenjaku has gained Tengen",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:kenjaku",
+          "jjk:tengen",
+          "jjk:tsukumo-yuki",
+          "jjk:choso"
+        ],
+        "characters": [
+          "Kenjaku",
+          "Tengen",
+          "Yuki Tsukumo",
+          "Choso"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Tengen captured",
+          "Kenjaku plan",
+          "endgame state"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:culling-game-convergence",
+        "character:kenjaku",
+        "character:tengen",
+        "character:tsukumo-yuki",
+        "character:choso",
+        "secret:tengen-capture",
+        "topic:tengen-capture"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Kenjaku",
+            "Tengen",
+            "Yuki Tsukumo",
+            "Choso"
+          ],
+          "topicsAny": [
+            "Kenjaku gains Tengen",
+            "Tengen captured",
+            "late Culling Game outcome"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen late Culling Game convergence through Gojo unsealing and Shinjuku setup."
+      },
+      "content": {
+        "fact": "Kenjaku gaining Tengen changes the late Culling Game endgame state and sharply worsens the allies' strategic position.",
+        "injection": "After Kenjaku gains Tengen, write the allies' situation as escalated and destabilized rather than simply continuing ordinary colony objectives.",
+        "constraints": [
+          "Use the Shinjuku deck for final battle consequences."
+        ],
+        "antiLore": [
+          "Do not write Tengen as safely independent after this anchor."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Culling Game Convergence",
+        "chapterRange": "Kenjaku gains Tengen",
+        "confidence": 0.84,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-culling-game-convergence",
+          "status": "initial_convergence_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_convergence_sukuna_takes_megumi_as_vessel",
+      "title": "Sukuna Takes Megumi As Vessel",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "secret",
+      "revealPolicy": "spoiler_guard",
+      "priority": 96,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.convergence.sukuna-takes-megumi",
+        "validToAnchor": "jjk.convergence.shinjuku-setup",
+        "sortKeyFrom": 12600,
+        "sortKeyTo": 13200,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Sukuna after taking Megumi"
+      },
+      "coordinates": [
+        {
+          "axis": "sukuna_state",
+          "id": "megumi-vessel",
+          "label": "Sukuna has taken Megumi as vessel",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:ryomen-sukuna",
+          "jjk:megumi-fushiguro",
+          "jjk:itadori-yuji"
+        ],
+        "characters": [
+          "Ryomen Sukuna",
+          "Megumi Fushiguro",
+          "Yuji Itadori"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Megumi vessel",
+          "Sukuna transfer",
+          "Yuji loss"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:culling-game-convergence",
+        "character:ryomen-sukuna",
+        "character:megumi-fushiguro",
+        "character:itadori-yuji",
+        "secret:megumi-vessel",
+        "topic:megumi-vessel"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Ryomen Sukuna",
+            "Megumi Fushiguro",
+            "Yuji Itadori"
+          ],
+          "topicsAny": [
+            "Sukuna takes Megumi",
+            "Megumi vessel",
+            "Sukuna transfer"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen late Culling Game convergence through Gojo unsealing and Shinjuku setup."
+      },
+      "content": {
+        "fact": "Sukuna taking Megumi as vessel is a major late Culling Game rupture that changes Yuji, Megumi, and Sukuna's status entering the endgame.",
+        "injection": "After the Megumi vessel anchor, write Sukuna's body-state and the allies' emotional stakes around Megumi as fundamentally changed.",
+        "constraints": [
+          "Do not reveal this vessel turn before the anchor.",
+          "Use the Shinjuku deck for the final battle and resolution."
+        ],
+        "antiLore": [
+          "Do not continue writing Sukuna only as Yuji's vessel-state problem after this anchor."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Culling Game Convergence",
+        "chapterRange": "Sukuna takes Megumi",
+        "confidence": 0.86,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-culling-game-convergence",
+          "status": "initial_convergence_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_convergence_tsumiki_yorozu_reveal_breaks_rescue_premise",
+      "title": "Tsumiki/Yorozu Reveal Breaks The Rescue Premise",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "secret",
+      "revealPolicy": "spoiler_guard",
+      "priority": 94,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.convergence.tsumiki-yorozu-reveal",
+        "validToAnchor": "jjk.convergence.shinjuku-setup",
+        "sortKeyFrom": 12800,
+        "sortKeyTo": 13200,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "After Tsumiki and Yorozu reveal"
+      },
+      "coordinates": [
+        {
+          "axis": "sukuna_state",
+          "id": "megumi-vessel",
+          "label": "Sukuna has taken Megumi as vessel",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:tsumiki-fushiguro",
+          "jjk:yorozu",
+          "jjk:megumi-fushiguro",
+          "jjk:ryomen-sukuna"
+        ],
+        "characters": [
+          "Tsumiki Fushiguro",
+          "Yorozu",
+          "Megumi Fushiguro",
+          "Ryomen Sukuna"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Tsumiki reveal",
+          "Yorozu",
+          "Megumi rescue premise"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:culling-game-convergence",
+        "character:tsumiki-fushiguro",
+        "character:yorozu",
+        "character:megumi-fushiguro",
+        "character:ryomen-sukuna",
+        "secret:tsumiki-yorozu",
+        "topic:tsumiki-yorozu",
+        "topic:megumi-vessel"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Tsumiki Fushiguro",
+            "Yorozu",
+            "Megumi Fushiguro",
+            "Ryomen Sukuna"
+          ],
+          "topicsAny": [
+            "Tsumiki Yorozu reveal",
+            "Yorozu",
+            "Megumi rescue premise"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen late Culling Game convergence through Gojo unsealing and Shinjuku setup."
+      },
+      "content": {
+        "fact": "The Tsumiki/Yorozu reveal breaks the original rescue premise and compounds Megumi's late Culling Game tragedy.",
+        "injection": "After the Tsumiki/Yorozu reveal, do not write the Culling Game rescue objective as if Tsumiki's situation remains what Megumi believed it was.",
+        "constraints": [
+          "Do not reveal this twist during early colony or setup scenes."
+        ],
+        "antiLore": [
+          "Do not preserve Tsumiki as a straightforward rescued-player objective after this reveal."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Culling Game Convergence",
+        "chapterRange": "Tsumiki and Yorozu reveal",
+        "confidence": 0.84,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-culling-game-convergence",
+          "status": "initial_convergence_slice"
+        }
+      }
+    }
+  ]
+}

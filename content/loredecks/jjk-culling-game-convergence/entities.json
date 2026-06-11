@@ -1,0 +1,436 @@
+{
+  "schemaVersion": 1,
+  "entities": {
+    "jjk:angel": {
+      "type": "character",
+      "label": "Angel",
+      "aliases": [
+        "Angel"
+      ],
+      "canonicalNames": [
+        "Angel"
+      ],
+      "tags": [
+        "character:angel",
+        "topic:angel-unsealing"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen late Culling Game convergence through Gojo unsealing and Shinjuku setup."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "jjk:choso": {
+      "type": "character",
+      "label": "Choso",
+      "aliases": [
+        "Choso"
+      ],
+      "canonicalNames": [
+        "Choso"
+      ],
+      "tags": [
+        "character:choso"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen late Culling Game convergence through Gojo unsealing and Shinjuku setup."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    },
+    "jjk:culling-game-players": {
+      "type": "faction",
+      "label": "Culling Game players",
+      "aliases": [
+        "Culling Game players"
+      ],
+      "canonicalNames": [
+        "Culling Game players"
+      ],
+      "tags": [
+        "faction:culling-game-players"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen late Culling Game convergence through Gojo unsealing and Shinjuku setup."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "jjk:foreign-military": {
+      "type": "faction",
+      "label": "Foreign military forces",
+      "aliases": [
+        "foreign soldiers",
+        "military incursion"
+      ],
+      "canonicalNames": [
+        "Foreign military forces"
+      ],
+      "tags": [
+        "faction:foreign-military",
+        "topic:military-incursion"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen late Culling Game convergence through Gojo unsealing and Shinjuku setup."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.76
+      },
+      "extensions": {}
+    },
+    "jjk:gojo-satoru": {
+      "type": "character",
+      "label": "Satoru Gojo",
+      "aliases": [
+        "Gojo",
+        "unsealed Gojo"
+      ],
+      "canonicalNames": [
+        "Satoru Gojo"
+      ],
+      "tags": [
+        "character:gojo-satoru",
+        "secret:gojo-unsealed",
+        "topic:gojo-unsealed"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen late Culling Game convergence through Gojo unsealing and Shinjuku setup."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.84
+      },
+      "extensions": {}
+    },
+    "jjk:hana-kurusu": {
+      "type": "character",
+      "label": "Hana Kurusu",
+      "aliases": [
+        "Hana"
+      ],
+      "canonicalNames": [
+        "Hana Kurusu"
+      ],
+      "tags": [
+        "character:hana-kurusu",
+        "character:angel"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen late Culling Game convergence through Gojo unsealing and Shinjuku setup."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "jjk:itadori-yuji": {
+      "type": "character",
+      "label": "Yuji Itadori",
+      "aliases": [
+        "Yuji"
+      ],
+      "canonicalNames": [
+        "Yuji Itadori"
+      ],
+      "tags": [
+        "character:itadori-yuji"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen late Culling Game convergence through Gojo unsealing and Shinjuku setup."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.84
+      },
+      "extensions": {}
+    },
+    "jjk:jujutsu-allies": {
+      "type": "faction",
+      "label": "Jujutsu allies",
+      "aliases": [
+        "Shinjuku allies"
+      ],
+      "canonicalNames": [
+        "Jujutsu allies"
+      ],
+      "tags": [
+        "faction:jujutsu-allies",
+        "topic:shinjuku-setup"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen late Culling Game convergence through Gojo unsealing and Shinjuku setup."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "jjk:kenjaku": {
+      "type": "character",
+      "label": "Kenjaku",
+      "aliases": [
+        "Kenjaku"
+      ],
+      "canonicalNames": [
+        "Kenjaku"
+      ],
+      "tags": [
+        "character:kenjaku",
+        "topic:tengen-capture"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen late Culling Game convergence through Gojo unsealing and Shinjuku setup."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.84
+      },
+      "extensions": {}
+    },
+    "jjk:maki-zenin": {
+      "type": "character",
+      "label": "Maki Zenin",
+      "aliases": [
+        "Maki"
+      ],
+      "canonicalNames": [
+        "Maki Zenin"
+      ],
+      "tags": [
+        "character:maki-zenin",
+        "topic:sakurajima-maki"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen late Culling Game convergence through Gojo unsealing and Shinjuku setup."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.84
+      },
+      "extensions": {}
+    },
+    "jjk:megumi-fushiguro": {
+      "type": "character",
+      "label": "Megumi Fushiguro",
+      "aliases": [
+        "Megumi"
+      ],
+      "canonicalNames": [
+        "Megumi Fushiguro"
+      ],
+      "tags": [
+        "character:megumi-fushiguro",
+        "secret:megumi-vessel"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen late Culling Game convergence through Gojo unsealing and Shinjuku setup."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.84
+      },
+      "extensions": {}
+    },
+    "jjk:ryomen-sukuna": {
+      "type": "character",
+      "label": "Ryomen Sukuna",
+      "aliases": [
+        "Sukuna"
+      ],
+      "canonicalNames": [
+        "Ryomen Sukuna"
+      ],
+      "tags": [
+        "character:ryomen-sukuna",
+        "topic:megumi-vessel"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen late Culling Game convergence through Gojo unsealing and Shinjuku setup."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.84
+      },
+      "extensions": {}
+    },
+    "jjk:tengen": {
+      "type": "character",
+      "label": "Tengen",
+      "aliases": [
+        "Master Tengen"
+      ],
+      "canonicalNames": [
+        "Tengen"
+      ],
+      "tags": [
+        "character:tengen",
+        "secret:tengen-capture"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen late Culling Game convergence through Gojo unsealing and Shinjuku setup."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    },
+    "jjk:tsukumo-yuki": {
+      "type": "character",
+      "label": "Yuki Tsukumo",
+      "aliases": [
+        "Yuki"
+      ],
+      "canonicalNames": [
+        "Yuki Tsukumo"
+      ],
+      "tags": [
+        "character:tsukumo-yuki"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen late Culling Game convergence through Gojo unsealing and Shinjuku setup."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    },
+    "jjk:tsumiki-fushiguro": {
+      "type": "character",
+      "label": "Tsumiki Fushiguro",
+      "aliases": [
+        "Tsumiki"
+      ],
+      "canonicalNames": [
+        "Tsumiki Fushiguro"
+      ],
+      "tags": [
+        "character:tsumiki-fushiguro",
+        "secret:tsumiki-yorozu"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen late Culling Game convergence through Gojo unsealing and Shinjuku setup."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "jjk:yorozu": {
+      "type": "character",
+      "label": "Yorozu",
+      "aliases": [
+        "Yorozu"
+      ],
+      "canonicalNames": [
+        "Yorozu"
+      ],
+      "tags": [
+        "character:yorozu",
+        "topic:tsumiki-yorozu"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen late Culling Game convergence through Gojo unsealing and Shinjuku setup."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    }
+  }
+}

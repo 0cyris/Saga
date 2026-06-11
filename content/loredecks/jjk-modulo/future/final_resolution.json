@@ -1,0 +1,495 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "jjk_modulo_conflict_stays_in_sequel_continuity",
+      "title": "Modulo Conflict Stays In Sequel Continuity",
+      "kind": "rule",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "continuity_rule",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 90,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.modulo.coexistence-test-escalates",
+        "validToAnchor": "jjk.modulo.epilogue-state",
+        "sortKeyFrom": 20500,
+        "sortKeyTo": 20800,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Modulo conflict boundary"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "coexistence-conflict",
+          "label": "Modulo coexistence conflict is active",
+          "required": false
+        },
+        {
+          "axis": "knowledge_state",
+          "id": "sequel-spoiler",
+          "label": "Modulo conflict details are sequel spoilers",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:modulo-continuity",
+          "jjk:simurians",
+          "jjk:okkotsu-siblings"
+        ],
+        "characters": [
+          "Yuka Okkotsu",
+          "Tsurugi Okkotsu",
+          "Maru"
+        ],
+        "locations": [
+          "Future Tokyo"
+        ],
+        "objects": [],
+        "factions": [
+          "Simurians",
+          "Okkotsu siblings"
+        ],
+        "topics": [
+          "Modulo conflict",
+          "sequel continuity",
+          "mainline boundary"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-modulo",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:modulo",
+        "species:simurian",
+        "relationship:okkotsu-siblings",
+        "topic:mainline-boundary",
+        "topic:coexistence-test"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Yuka Okkotsu",
+            "Tsurugi Okkotsu",
+            "Maru"
+          ],
+          "topicsAny": [
+            "Modulo conflict",
+            "sequel continuity",
+            "mainline boundary"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-modulo",
+        "canonTier": "sequel",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Modulo chapters 1-25 as a separate sequel/spinoff continuity."
+      },
+      "content": {
+        "fact": "Modulo's conflict and resolution belong to sequel continuity and should not be treated as unresolved mainline Jujutsu Kaisen plot state.",
+        "injection": "When Modulo conflict details are relevant, route them through sequel Context and keep mainline arc state untouched.",
+        "constraints": [
+          "Do not make Modulo conflict a hidden driver of Shibuya, Culling Game, or Shinjuku scenes."
+        ],
+        "antiLore": [
+          "Do not use Modulo conflict details as retcons for mainline cursed spirit, curse user, or domain rules."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen Modulo",
+        "sourceType": "manga",
+        "title": "Sequel continuity boundary",
+        "chapterRange": "Modulo middle through ending",
+        "confidence": 0.8,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-modulo",
+          "status": "initial_modulo_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_modulo_final_resolution_is_late_series_spoiler",
+      "title": "Modulo Final Resolution Is A Late-Series Spoiler",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "secret",
+      "revealPolicy": "spoiler_guard",
+      "priority": 94,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.modulo.final-resolution",
+        "validToAnchor": "jjk.modulo.epilogue-state",
+        "sortKeyFrom": 20700,
+        "sortKeyTo": 20800,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Modulo final resolution"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "resolution",
+          "label": "Modulo has reached final-resolution context",
+          "required": false
+        },
+        {
+          "axis": "knowledge_state",
+          "id": "final-resolution",
+          "label": "Final-resolution details are available",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:modulo-continuity",
+          "jjk:simurians",
+          "jjk:maru",
+          "jjk:yuka-okkotsu",
+          "jjk:tsurugi-okkotsu"
+        ],
+        "characters": [
+          "Maru",
+          "Yuka Okkotsu",
+          "Tsurugi Okkotsu"
+        ],
+        "locations": [
+          "Future Tokyo"
+        ],
+        "objects": [],
+        "factions": [
+          "Simurians"
+        ],
+        "topics": [
+          "Modulo final resolution",
+          "chapter 25",
+          "sequel ending"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-modulo",
+        "adaptation:manga",
+        "arc:modulo-resolution",
+        "character:maru",
+        "character:yuka-okkotsu",
+        "character:tsurugi-okkotsu",
+        "species:simurian",
+        "secret:modulo-final-resolution",
+        "topic:coexistence-test",
+        "topic:alien-jujutsu"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Maru",
+            "Yuka Okkotsu",
+            "Tsurugi Okkotsu"
+          ],
+          "topicsAny": [
+            "Modulo ending",
+            "chapter 25 resolution",
+            "final Modulo spoilers"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-modulo",
+        "canonTier": "sequel",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Modulo chapters 1-25 as a separate sequel/spinoff continuity."
+      },
+      "content": {
+        "fact": "Modulo's final resolution should remain spoiler-gated until late-series sequel Context, especially around chapter 25 and aftermath scenes.",
+        "injection": "After the Modulo final-resolution anchor, allow ending-state references while preserving earlier coexistence uncertainty before that anchor.",
+        "constraints": [
+          "Before this anchor, do not reveal the final outcome of Modulo's coexistence conflict."
+        ],
+        "antiLore": [
+          "Do not make early Modulo scenes assume the final resolution is already known."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen Modulo",
+        "sourceType": "manga",
+        "title": "Final resolution",
+        "chapterRange": "Chapter 25",
+        "confidence": 0.78,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-modulo",
+          "status": "initial_modulo_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_modulo_epilogue_state_keeps_mainline_and_modulo_separate",
+      "title": "The Epilogue State Keeps Mainline And Modulo Separate",
+      "kind": "knowledge",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "continuity_guard",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "jjk.modulo.epilogue-state",
+        "validToAnchor": "jjk.modulo.epilogue-state",
+        "sortKeyFrom": 20800,
+        "sortKeyTo": 20800,
+        "precision": "exact",
+        "windowKind": "point",
+        "label": "Modulo epilogue state"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "resolution",
+          "label": "Modulo has reached final-resolution context",
+          "required": false
+        },
+        {
+          "axis": "simurian_state",
+          "id": "resolved",
+          "label": "Simurian coexistence conflict is in aftermath state",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:modulo-continuity",
+          "jjk:simurians",
+          "jjk:okkotsu-siblings"
+        ],
+        "characters": [
+          "Yuka Okkotsu",
+          "Tsurugi Okkotsu",
+          "Maru"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Simurians",
+          "Okkotsu siblings"
+        ],
+        "topics": [
+          "Modulo aftermath",
+          "epilogue state",
+          "sequel close"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-modulo",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:modulo-resolution",
+        "species:simurian",
+        "relationship:okkotsu-siblings",
+        "secret:modulo-final-resolution",
+        "topic:mainline-boundary",
+        "topic:coexistence-test"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Yuka Okkotsu",
+            "Tsurugi Okkotsu",
+            "Maru"
+          ],
+          "topicsAny": [
+            "Modulo aftermath",
+            "Modulo epilogue",
+            "sequel close"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-modulo",
+        "canonTier": "sequel",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Modulo chapters 1-25 as a separate sequel/spinoff continuity."
+      },
+      "content": {
+        "fact": "Modulo's epilogue state closes the sequel/spinoff deck without changing the manga-main Jujutsu Kaisen ending deck's chapter 271 boundary.",
+        "injection": "At Modulo aftermath Context, allow sequel ending-state references while keeping chapter 271 manga-main facts separate and earlier.",
+        "constraints": [
+          "Do not use Modulo aftermath facts when only the manga-main stack is loaded."
+        ],
+        "antiLore": [
+          "Do not collapse the chapter 271 epilogue and Modulo aftermath into one undifferentiated ending state."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen Modulo",
+        "sourceType": "manga",
+        "title": "Modulo aftermath",
+        "chapterRange": "Chapter 25 aftermath",
+        "confidence": 0.76,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-modulo",
+          "status": "initial_modulo_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_modulo_future_cast_should_not_leak_into_mainline_scenes",
+      "title": "The Future Cast Should Not Leak Into Mainline Scenes",
+      "kind": "rule",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "continuity_rule",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "never_before_context",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.modulo.after-mainline-gap",
+        "validToAnchor": "jjk.modulo.epilogue-state",
+        "sortKeyFrom": 20000,
+        "sortKeyTo": 20800,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Future cast spoiler guard"
+      },
+      "coordinates": [
+        {
+          "axis": "knowledge_state",
+          "id": "sequel-spoiler",
+          "label": "Modulo sequel legacy detail is spoiler-bearing",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:yuka-okkotsu",
+          "jjk:tsurugi-okkotsu",
+          "jjk:maru",
+          "jjk:modulo-continuity"
+        ],
+        "characters": [
+          "Yuka Okkotsu",
+          "Tsurugi Okkotsu",
+          "Maru"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "future cast",
+          "mainline spoiler guard",
+          "sequel boundary"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-modulo",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:modulo",
+        "character:yuka-okkotsu",
+        "character:tsurugi-okkotsu",
+        "character:maru",
+        "topic:mainline-boundary",
+        "topic:okkotsu-legacy",
+        "topic:future-sorcery"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Yuka Okkotsu",
+            "Tsurugi Okkotsu",
+            "Maru"
+          ],
+          "topicsAny": [
+            "future cast",
+            "Modulo spoiler guard",
+            "mainline boundary"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-modulo",
+        "canonTier": "sequel",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Modulo chapters 1-25 as a separate sequel/spinoff continuity."
+      },
+      "content": {
+        "fact": "Modulo's future cast should only retrieve when sequel Context is active; they should not appear as hidden participants or background assumptions in mainline Jujutsu Kaisen arcs.",
+        "injection": "If a scene is not explicitly in Modulo or a sequel-aware crossover, suppress future-cast retrieval and use the manga-main decks instead.",
+        "constraints": [
+          "Do not include Yuka, Tsurugi, or Maru in mainline-era scenes without explicit time-travel, crossover, or AU instruction."
+        ],
+        "antiLore": [
+          "Do not treat Modulo future characters as existing during Yuji's school year, Shibuya, the Culling Game, or Shinjuku."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen Modulo",
+        "sourceType": "manga",
+        "title": "Future cast boundary",
+        "chapterRange": "Chapters 1-25",
+        "confidence": 0.82,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-modulo",
+          "status": "initial_modulo_slice"
+        }
+      }
+    }
+  ]
+}

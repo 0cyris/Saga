@@ -1,0 +1,218 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "sortKeyScale": "pack_local",
+  "anchors": [
+    {
+      "id": "jjk.convergence.sakurajima-maki",
+      "label": "Maki enters Sakurajima's convergence pressure",
+      "sortKey": 11600,
+      "aliases": [
+        "Sakurajima Colony",
+        "Maki Sakurajima"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Sakurajima Colony"
+      }
+    },
+    {
+      "id": "jjk.convergence.angel-hana-focus",
+      "label": "Angel and Hana become central to Prison Realm options",
+      "sortKey": 11800,
+      "aliases": [
+        "Angel and Hana",
+        "Prison Realm unsealing route"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Culling Game Convergence"
+      }
+    },
+    {
+      "id": "jjk.convergence.military-incursion",
+      "label": "Military incursion escalates the Culling Game",
+      "sortKey": 12000,
+      "aliases": [
+        "military incursion",
+        "soldiers enter Culling Game"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Culling Game Convergence"
+      }
+    },
+    {
+      "id": "jjk.convergence.kenjaku-vs-tengen-defenders",
+      "label": "Kenjaku fights Tengen's defenders",
+      "sortKey": 12200,
+      "aliases": [
+        "Kenjaku versus Yuki and Choso",
+        "Tengen defenders"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Culling Game Convergence"
+      }
+    },
+    {
+      "id": "jjk.convergence.kenjaku-gains-tengen",
+      "label": "Kenjaku gains Tengen",
+      "sortKey": 12400,
+      "aliases": [
+        "Kenjaku gains Tengen",
+        "Tengen absorbed"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Culling Game Convergence"
+      }
+    },
+    {
+      "id": "jjk.convergence.sukuna-takes-megumi",
+      "label": "Sukuna takes Megumi as vessel",
+      "sortKey": 12600,
+      "aliases": [
+        "Sukuna takes Megumi",
+        "Megumi vessel turn"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Culling Game Convergence"
+      }
+    },
+    {
+      "id": "jjk.convergence.tsumiki-yorozu-reveal",
+      "label": "Tsumiki and Yorozu reveal breaks the rescue premise",
+      "sortKey": 12800,
+      "aliases": [
+        "Tsumiki Yorozu reveal",
+        "Yorozu reveal"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Culling Game Convergence"
+      }
+    },
+    {
+      "id": "jjk.convergence.gojo-unsealed",
+      "label": "Gojo is unsealed",
+      "sortKey": 13000,
+      "aliases": [
+        "Gojo unsealed",
+        "Prison Realm opens"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Culling Game Convergence"
+      }
+    },
+    {
+      "id": "jjk.convergence.shinjuku-setup",
+      "label": "Shinjuku showdown setup begins",
+      "sortKey": 13200,
+      "aliases": [
+        "Shinjuku setup",
+        "before Gojo versus Sukuna"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Shinjuku setup"
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "jjk.convergence.window.full",
+      "label": "Culling Game Convergence",
+      "anchorFrom": "jjk.convergence.sakurajima-maki",
+      "anchorTo": "jjk.convergence.shinjuku-setup",
+      "sortKeyFrom": 11600,
+      "sortKeyTo": 13200,
+      "aliases": [
+        "late Culling Game",
+        "Culling Game Convergence"
+      ]
+    },
+    {
+      "id": "jjk.convergence.window.sakurajima-angel",
+      "label": "Sakurajima Through Angel Setup",
+      "anchorFrom": "jjk.convergence.sakurajima-maki",
+      "anchorTo": "jjk.convergence.angel-hana-focus",
+      "sortKeyFrom": 11600,
+      "sortKeyTo": 11800,
+      "aliases": [
+        "Sakurajima and Angel",
+        "Maki and Angel setup"
+      ]
+    },
+    {
+      "id": "jjk.convergence.window.kenjaku-tengen",
+      "label": "Kenjaku And Tengen",
+      "anchorFrom": "jjk.convergence.military-incursion",
+      "anchorTo": "jjk.convergence.kenjaku-gains-tengen",
+      "sortKeyFrom": 12000,
+      "sortKeyTo": 12400,
+      "aliases": [
+        "Kenjaku and Tengen",
+        "Yuki Choso Tengen"
+      ]
+    },
+    {
+      "id": "jjk.convergence.window.sukuna-gojo-shinjuku-setup",
+      "label": "Sukuna Turn Through Shinjuku Setup",
+      "anchorFrom": "jjk.convergence.sukuna-takes-megumi",
+      "anchorTo": "jjk.convergence.shinjuku-setup",
+      "sortKeyFrom": 12600,
+      "sortKeyTo": 13200,
+      "aliases": [
+        "Sukuna Megumi through Gojo unseal",
+        "Shinjuku setup window"
+      ]
+    }
+  ],
+  "coordinateAxes": [
+    {
+      "axis": "arc",
+      "label": "Arc",
+      "values": [
+        "culling-game-convergence",
+        "sakurajima",
+        "shinjuku-setup"
+      ]
+    },
+    {
+      "axis": "tengen_state",
+      "label": "Tengen State",
+      "values": [
+        "defended",
+        "captured"
+      ]
+    },
+    {
+      "axis": "sukuna_state",
+      "label": "Sukuna State",
+      "values": [
+        "yuji-vessel",
+        "megumi-vessel"
+      ]
+    },
+    {
+      "axis": "gojo_state",
+      "label": "Gojo State",
+      "values": [
+        "sealed",
+        "unsealed"
+      ]
+    }
+  ]
+}

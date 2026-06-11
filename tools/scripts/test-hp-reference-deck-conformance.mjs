@@ -170,9 +170,11 @@ for (const deckId of mhaDefaultIds) {
 }
 
 for (const deckId of jjkDefaultIds) {
-  assert.deepEqual(DEFAULT_BUNDLED_LOREDECK_LIBRARY_PACKS[deckId].library?.suggestedPath, jjkFolderPath, `${deckId} should live under the Jujutsu Kaisen Manga Main folder.`);
+  const suggestedPath = DEFAULT_BUNDLED_LOREDECK_LIBRARY_PACKS[deckId].library?.suggestedPath || [];
+  const expectedFolderId = createFolderIdFromPath(suggestedPath);
+  assert.deepEqual(getFolderPath(expectedFolderId, defaultLibraryIndex), suggestedPath, `${deckId} default Library index should create its Jujutsu Kaisen folder.`);
   assert.equal(DEFAULT_BUNDLED_LOREDECK_CONTEXTS[deckId].contextType, 'anchor_window', `${deckId} should use anchor-window Context defaults.`);
-  assert.equal(defaultLibraryIndex.deckPlacements.find(item => item.deckId === deckId)?.folderId, jjkFolderId, `${deckId} should be placed in the default Jujutsu Kaisen folder.`);
+  assert.equal(defaultLibraryIndex.deckPlacements.find(item => item.deckId === deckId)?.folderId, expectedFolderId, `${deckId} should be placed in its default Jujutsu Kaisen folder.`);
 }
 
 for (const deckId of starWarsDefaultIds) {

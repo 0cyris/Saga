@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "categories": {
+    "event": {
+      "label": "Event",
+      "description": "Specific late Culling Game story turn or consequence."
+    },
+    "faction": {
+      "label": "Faction",
+      "description": "Faction pressure, outside force, or group alignment."
+    },
+    "knowledge": {
+      "label": "Knowledge Gate",
+      "description": "Information that should be gated to the right convergence Context."
+    },
+    "rule": {
+      "label": "Rule",
+      "description": "Power-state or setting rule."
+    },
+    "secret": {
+      "label": "Secret",
+      "description": "Sensitive reveal or spoiler-bearing truth."
+    }
+  },
+  "relevanceLevels": [
+    "low",
+    "medium",
+    "high"
+  ],
+  "truthStatuses": [
+    "true",
+    "hidden",
+    "secret"
+  ],
+  "revealPolicies": [
+    "contextual",
+    "spoiler_guard",
+    "never_before_context"
+  ]
+}

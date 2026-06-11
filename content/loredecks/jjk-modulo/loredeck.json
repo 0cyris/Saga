@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "id": "jjk-modulo",
+  "type": "bundled",
+  "title": "Jujutsu Kaisen Modulo",
+  "description": "Separate sequel/spinoff Loredeck for Jujutsu Kaisen Modulo, including the future continuity boundary, Simurian arrival, Maru's diplomatic mission, Yuka and Tsurugi Okkotsu, alien jujutsu, coexistence-test stakes, and late-series resolution guards.",
+  "fandom": "Jujutsu Kaisen",
+  "era": "Modulo Sequel",
+  "contentKind": "fandom",
+  "author": "Saga",
+  "version": "0.1.0",
+  "defaultLocale": "en",
+  "tags": [
+    "fandom:jjk",
+    "continuity:jjk-modulo",
+    "adaptation:manga",
+    "arc:modulo",
+    "quality:draft-reference"
+  ],
+  "source": {
+    "kind": "bundled",
+    "url": "https://www.viz.com/shonenjump/chapters/jujutsu-kaisen-modulo"
+  },
+  "update": {
+    "checkForUpdates": false,
+    "url": "",
+    "lastCheckedAt": 0
+  },
+  "registries": {
+    "taxonomy": "taxonomy.json",
+    "tags": "tags.json",
+    "entities": "entities.json",
+    "timeline": "timeline.json",
+    "gateTypes": "gate-types.json",
+    "scoring": "scoring.json"
+  },
+  "resolver": "resolver.json",
+  "continuity": {
+    "continuityId": "jjk-modulo",
+    "canonTier": "sequel",
+    "adaptation": "manga",
+    "medium": "manga",
+    "sourceBoundary": "Jujutsu Kaisen Modulo chapters 1-25 as a separate sequel/spinoff continuity.",
+    "notes": "Keep Modulo separate from the manga-main stack unless the user explicitly loads sequel/spinoff context. Anime-only changes, guidebook-only material, games, and light novels remain separate overlays."
+  },
+  "runtimeDefaults": {
+    "scanDepth": null,
+    "recursiveTriggers": false,
+    "tokenBudget": null
+  },
+  "files": [
+    "future/arrival_and_mission.json",
+    "future/coexistence_and_conflict.json",
+    "future/final_resolution.json"
+  ],
+  "compatibility": {
+    "sagaSchemaMin": 3,
+    "sagaSchemaMax": 3
+  },
+  "dependencies": [
+    {
+      "packId": "jjk-core",
+      "versionMin": "0.1.0",
+      "versionMax": "",
+      "required": false,
+      "reason": "Uses core Jujutsu Kaisen cursed energy, jujutsu society, technique, and domain assumptions."
+    },
+    {
+      "packId": "jjk-shinjuku-showdown",
+      "versionMin": "0.1.0",
+      "versionMax": "",
+      "required": false,
+      "reason": "Sequel-state references should not leak into manga-main ending scenes unless this deck is explicitly loaded."
+    }
+  ],
+  "stats": {
+    "entryCount": 12,
+    "categoryCounts": {
+      "event": 3,
+      "knowledge": 3,
+      "relationship": 1,
+      "rule": 3,
+      "secret": 2
+    },
+    "timelineAnchorCount": 9,
+    "timelineWindowCount": 4
+  },
+  "license": {
+    "name": "Draft fan reference data",
+    "notes": "For local testing. Requires human canon review before reference release."
+  },
+  "health": {
+    "status": "good",
+    "notes": "Initial Modulo scaffold is designed for local structural health checks; not a substitute for human canon review."
+  },
+  "library": {
+    "suggestedPath": [
+      "Jujutsu Kaisen",
+      "Modulo"
+    ],
+    "familyOrder": 110
+  },
+  "entrySchemaVersion": 3,
+  "updatedAt": 1781136000000
+}

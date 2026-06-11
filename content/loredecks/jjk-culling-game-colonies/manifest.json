@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "id": "jjk-culling-game-colonies",
+  "type": "bundled",
+  "title": "Jujutsu Kaisen: Culling Game Colonies",
+  "description": "Culling Game colony Loredeck for active rules, point transfer, Tokyo No. 1, Higuruma, Reggie, Sendai, Yuta, Hakari, Kashimo, and early colony survival pressure.",
+  "fandom": "Jujutsu Kaisen",
+  "era": "Culling Game Colonies",
+  "contentKind": "fandom",
+  "author": "Saga",
+  "version": "0.1.0",
+  "defaultLocale": "en",
+  "tags": [
+    "fandom:jjk",
+    "continuity:jjk-manga-main",
+    "adaptation:manga",
+    "arc:culling-game-colonies",
+    "quality:draft-reference"
+  ],
+  "source": {
+    "kind": "bundled",
+    "url": ""
+  },
+  "update": {
+    "checkForUpdates": false,
+    "url": "",
+    "lastCheckedAt": 0
+  },
+  "registries": {
+    "taxonomy": "taxonomy.json",
+    "tags": "tags.json",
+    "entities": "entities.json",
+    "timeline": "timeline.json",
+    "gateTypes": "gate-types.json",
+    "scoring": "scoring.json"
+  },
+  "resolver": "resolver.json",
+  "continuity": {
+    "continuityId": "jjk-manga-main",
+    "canonTier": "primary",
+    "adaptation": "manga",
+    "medium": "manga",
+    "sourceBoundary": "Jujutsu Kaisen early and middle Culling Game colony action through Tokyo No. 2 Hakari/Kashimo material.",
+    "notes": "Late Culling Game convergence, Sakurajima, Angel, Prison Realm resolution, Gojo unsealing, Shinjuku, post-series, anime-only changes, guidebook-only material, and Modulo should remain separate decks unless explicitly loaded."
+  },
+  "runtimeDefaults": {
+    "scanDepth": null,
+    "recursiveTriggers": false,
+    "tokenBudget": null
+  },
+  "files": [
+    "culling_game/rules_and_entry.json",
+    "culling_game/tokyo_no1_sendai.json",
+    "culling_game/tokyo_no2_guards.json"
+  ],
+  "compatibility": {
+    "sagaSchemaMin": 3,
+    "sagaSchemaMax": 3
+  },
+  "dependencies": [
+    {
+      "packId": "jjk-core",
+      "versionMin": "0.1.0",
+      "versionMax": "",
+      "required": false,
+      "reason": "Uses core Jujutsu Kaisen cursed energy, jujutsu society, Sukuna vessel, technique, and spoiler-gate assumptions."
+    }
+  ],
+  "stats": {
+    "entryCount": 12,
+    "categoryCounts": {
+      "character": 1,
+      "event": 6,
+      "faction": 1,
+      "knowledge": 1,
+      "rule": 2,
+      "secret": 1
+    },
+    "timelineAnchorCount": 8,
+    "timelineWindowCount": 4
+  },
+  "license": {
+    "name": "Draft fan reference data",
+    "notes": "For local testing. Requires human canon review before reference release."
+  },
+  "health": {
+    "status": "good",
+    "notes": "Initial Culling Game Colonies scaffold passes local structural health checks; not a substitute for human canon review."
+  },
+  "library": {
+    "suggestedPath": [
+      "Jujutsu Kaisen",
+      "Manga Main"
+    ],
+    "familyOrder": 70
+  },
+  "entrySchemaVersion": 3,
+  "updatedAt": 1781136000000
+}

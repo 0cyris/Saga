@@ -17,7 +17,7 @@ Initial recommendation:
 - Primary continuity: Jujutsu Kaisen manga mainline by Gege Akutami, including Jujutsu Kaisen 0 as a prequel deck and the main series through chapter 271.
 - Default family scope: manga-primary, not anime-primary.
 - Optional later overlays: anime adaptation differences, movies, light novels, games, official guides, and Jujutsu Kaisen Modulo.
-- Modulo should be a separate sequel/spinoff continuity deck unless we decide "all of Jujutsu Kaisen" means broader franchise coverage instead of the original manga continuity.
+- Modulo is implemented as a separate sequel/spinoff continuity deck under its own `Jujutsu Kaisen / Modulo` library path, not merged into the manga-main stack.
 
 Source status verified from official VIZ pages:
 
@@ -61,7 +61,7 @@ Use the MHA family as the nearest structural reference: one reusable core deck p
 | 70 | `jjk-culling-game-colonies` | Jujutsu Kaisen: Culling Game Colonies | Early and middle Culling Game colony action | Game rules, colony locations, point/rule mechanics, player states, Hakari, Higuruma, Sendai, Tokyo colonies, and tactical reveals. |
 | 80 | `jjk-culling-game-convergence` | Jujutsu Kaisen: Culling Game Convergence | Late Culling Game through Gojo unsealing | Kenjaku, Tengen, military incursion, Sakurajima, Angel, Prison Realm resolution, and endgame setup. |
 | 90 | `jjk-shinjuku-showdown` | Jujutsu Kaisen: Shinjuku Showdown and Aftermath | Final battle through chapter 271 | Gojo/Sukuna battle, rotating plans, death/status reveals, final Sukuna resolution, epilogue states, and late-series spoiler guards. |
-| 110 | `jjk-modulo` | Jujutsu Kaisen Modulo | Optional sequel/spinoff | Separate continuity deck only if we choose broader franchise coverage. Keep out of the default mainline stack initially. |
+| 110 | `jjk-modulo` | Jujutsu Kaisen Modulo | Sequel/spinoff chapters 1-25 | Separate future-continuity deck for Simurians, Maru, Yuka and Tsurugi Okkotsu, alien jujutsu, coexistence-test stakes, and Modulo spoiler guards. |
 
 Default stack should usually be:
 
@@ -218,9 +218,25 @@ Before any JJK deck can be treated as reference-ready:
 Add JJK equivalents of the HP checks when the first implementation begins:
 
 ```powershell
+node tools\scripts\test-jjk-loredeck-suite.mjs
+```
+
+Use the individual checks below when diagnosing a suite failure:
+
+```powershell
+node tools\scripts\test-jjk-family-coverage.mjs
+node tools\scripts\test-jjk-canon-review-readiness.mjs
+node tools\scripts\test-jjk-spoiler-boundaries.mjs
 node tools\scripts\test-jjk-loredeck-health.mjs
 node tools\scripts\test-jjk-loredeck-v3-conformance.mjs
 node tools\scripts\test-jjk-reference-deck-conformance.mjs
+```
+
+Generate a review-facing coverage report with:
+
+```powershell
+node tools\scripts\report-jjk-loredeck-coverage.mjs
+node tools\scripts\report-jjk-loredeck-coverage.mjs --json
 ```
 
 The health test should mirror `tools/scripts/test-hp-loredeck-health.mjs`: load every `DEFAULT_JJK_LOREDECK_IDS` entry, assert zero errors, warnings, and suggestions, and assert `status === "good"`.
@@ -234,6 +250,9 @@ The reference conformance test should verify:
 - Each manifest and index record agree on title, description, version, stats, assets, and tags.
 - Every non-core mainline deck declares a soft dependency on `jjk-core`.
 - Modulo, if implemented, uses a separate suggested path or continuity marker and is not silently mixed into the manga-main stack.
+- `test-jjk-family-coverage.mjs` should lock the planned JJK deck list, chronological order, mainline shelf, Modulo shelf, and sequel-boundary dependencies.
+- `test-jjk-canon-review-readiness.mjs` should verify draft-reference review markers, sourceInfo fields, confidence values, and human canon review notes across every JJK Lorecard.
+- `test-jjk-spoiler-boundaries.mjs` should prevent Modulo-only tags, entities, source titles, and cast/species text from leaking into manga-main Lorecards, except for the explicit Shinjuku deck boundary card.
 
 ## Generation Workflow
 
@@ -263,6 +282,11 @@ Current scope:
 Current validation:
 
 ```powershell
+node tools\scripts\test-jjk-loredeck-suite.mjs
+node tools\scripts\report-jjk-loredeck-coverage.mjs
+node tools\scripts\test-jjk-family-coverage.mjs
+node tools\scripts\test-jjk-canon-review-readiness.mjs
+node tools\scripts\test-jjk-spoiler-boundaries.mjs
 node tools\scripts\test-jjk-loredeck-health.mjs
 node tools\scripts\test-jjk-loredeck-v3-conformance.mjs
 node tools\scripts\test-jjk-reference-deck-conformance.mjs
@@ -362,9 +386,162 @@ Current guardrails:
 - Perfect Preparation cards separate Maki's pre-sacrifice, post-sacrifice, and post-collapse states by timeline anchor.
 - Generated cover/banner assets remain deferred.
 
+## Implementation Slice 7
+
+Added `jjk-culling-game-colonies` under `content/loredecks/jjk-culling-game-colonies/`.
+
+Current scope:
+
+- Culling Game Colonies manifest, duplicate `manifest.json`, local timeline, tags, entities, resolver, taxonomy, gate types, and scoring registries.
+- Twelve draft-reference Lorecards covering colony entry as an active rule field, points and added-rule survival math, the mixed participant pool, split-team communication limits, Yuji and Higuruma in Tokyo No. 1, point transfer, Megumi and Reggie, Sendai's multi-way deadlock, Yuta's Sendai resolution, Kashimo's ancient-player pressure, Hakari and Kashimo in Tokyo No. 2, and future guards for late convergence/Tsumiki spoilers.
+- Registration in `content/loredecks/index.json`.
+- Default library/context wiring in `src/loredecks/loredeck-defaults.js`.
+- Soft dependency on `jjk-core` for cursed energy, jujutsu society, Sukuna vessel, technique, and spoiler-gate assumptions.
+
+Current guardrails:
+
+- Late Culling Game convergence, Sakurajima, Angel, Prison Realm resolution, Gojo unsealing, Shinjuku, and final-arc outcomes remain gated to later decks.
+- Colony cards preserve split-team uncertainty and do not assume cross-colony omniscience.
+- Generated cover/banner assets remain deferred.
+
+## Implementation Slice 8
+
+Added `jjk-culling-game-convergence` under `content/loredecks/jjk-culling-game-convergence/`.
+
+Current scope:
+
+- Late Culling Game Convergence manifest, duplicate `manifest.json`, local timeline, tags, entities, resolver, taxonomy, gate types, and scoring registries.
+- Twelve draft-reference Lorecards covering Maki's Sakurajima continuation, Maki's matured post-Zenin combat state, Angel and Hana as the Prison Realm route, military incursion, Yuki/Choso/Tengen defending against Kenjaku, Kenjaku gaining Tengen, Sukuna taking Megumi as vessel, Tsumiki/Yorozu reveal, Gojo unsealing, ally regrouping for Shinjuku, Gojo/Sukuna showdown setup, and future guards for Shinjuku/final outcome leaks.
+- Registration in `content/loredecks/index.json`.
+- Default library/context wiring in `src/loredecks/loredeck-defaults.js`.
+- Soft dependency on `jjk-core` for cursed energy, jujutsu society, Sukuna vessel, technique, and spoiler-gate assumptions.
+
+Current guardrails:
+
+- Shinjuku battle sequence, Gojo/Sukuna result, Kenjaku's final fate, Sukuna's final resolution, epilogue states, and post-series material remain gated to the Shinjuku deck.
+- Gojo's sealed/unsealed state, Tengen's defended/captured state, and Sukuna's vessel state are separated by timeline anchors.
+- Generated cover/banner assets remain deferred.
+
+## Implementation Slice 9
+
+Added `jjk-shinjuku-showdown` under `content/loredecks/jjk-shinjuku-showdown/`.
+
+Current scope:
+
+- Shinjuku Showdown and Aftermath manifest, duplicate `manifest.json`, local timeline, tags, entities, resolver, taxonomy, gate types, and scoring registries.
+- Twelve draft-reference Lorecards covering the Gojo/Sukuna opening, domain and adaptation phase, Gojo's fall, Kashimo's post-Gojo entry, rotating allied plans, Higuruma and Yuji pressure, Yuta's backup/domain layer, Maki's ambush pressure, Yuji targeting Sukuna/Megumi separation, Megumi rescue stakes, Sukuna's defeat, and the chapter 271 epilogue-state close.
+- Registration in `content/loredecks/index.json`.
+- Default library/context wiring in `src/loredecks/loredeck-defaults.js`.
+- Soft dependency on `jjk-core` for cursed energy, jujutsu society, Sukuna vessel, technique, domain, and spoiler-gate assumptions.
+
+Current guardrails:
+
+- Jujutsu Kaisen Modulo remains an optional sequel/spinoff deck, not part of the default manga-main stack.
+- Anime-only changes, guidebook-only material, games, and light novels remain out of scope for the manga-primary bundled family unless added as explicit overlay decks.
+- Generated cover/banner assets remain deferred.
+- These cards are draft-reference scaffolds and still require human canon review before reference release.
+
+## Implementation Slice 10
+
+Added `jjk-modulo` under `content/loredecks/jjk-modulo/`.
+
+Current scope:
+
+- Modulo manifest, duplicate `manifest.json`, local timeline, tags, entities, resolver, taxonomy, gate types, and scoring registries.
+- Twelve draft-reference Lorecards covering the Modulo future-continuity boundary, future jujutsu world state, Simurian arrival, Maru's diplomatic mission, Yuka and Tsurugi Okkotsu as future leads, Okkotsu legacy spoiler boundaries, alien jujutsu rules, coexistence-test escalation, Modulo conflict boundaries, final-resolution spoiler guards, epilogue-state separation, and future-cast leakage guards.
+- Registration in `content/loredecks/index.json`.
+- Default library/context wiring in `src/loredecks/loredeck-defaults.js` under `Jujutsu Kaisen / Modulo`, with family order after the manga-main stack.
+- Soft dependencies on `jjk-core` for cursed energy and jujutsu society assumptions, and `jjk-shinjuku-showdown` for sequel-boundary guardrails.
+
+Current guardrails:
+
+- Modulo remains a separate sequel/spinoff continuity. It should not leak future cast, Simurian premise, Okkotsu legacy, or final-resolution details into manga-main scenes unless explicitly loaded.
+- Anime-only changes, guidebook-only material, games, and light novels remain separate overlay candidates.
+- Generated cover/banner assets remain deferred.
+- These cards are draft-reference scaffolds and still require human canon review before reference release.
+
+## Implementation Slice 11
+
+Added `tools/scripts/test-jjk-family-coverage.mjs`.
+
+Current scope:
+
+- Locks the planned JJK bundled family list in order: core, Zero, manga-main arc decks through Shinjuku, then Modulo.
+- Verifies mainline decks remain under `Jujutsu Kaisen / Manga Main` while `jjk-modulo` remains under `Jujutsu Kaisen / Modulo`.
+- Verifies family order, anchor-window Context defaults, draft-reference health status, `jjk-core` soft dependencies, and Modulo's soft dependency on `jjk-shinjuku-showdown`.
+- Verifies Modulo keeps its VIZ chapter-list source-boundary URL and does not carry the manga-main continuity tag.
+
+Current guardrails:
+
+- Future JJK overlays or denser scene splits must update the family coverage contract intentionally rather than appearing as unreviewed bundled drift.
+- The test is a structural coverage contract only; it does not replace human canon review.
+
+## Implementation Slice 12
+
+Added `tools/scripts/test-jjk-loredeck-suite.mjs`.
+
+Current scope:
+
+- Provides one offline validation command for the JJK Loredeck family.
+- Runs the JJK family coverage contract, Pack Health check, v3 conformance check, JJK reference conformance check, broad bundled reference conformance check, and repository layout contract in order.
+- Adds the suite script to the repository layout contract's current-path conformance script list.
+
+Current guardrails:
+
+- The suite is the default command for JJK-family regression checks.
+- Individual scripts remain listed for diagnosing a specific failure.
+
+## Implementation Slice 13
+
+Added `tools/scripts/test-jjk-canon-review-readiness.mjs`.
+
+Current scope:
+
+- Verifies every JJK bundled manifest stays marked `quality:draft-reference` until human canon review is complete.
+- Verifies manifest license and health notes do not imply canon approval just because structural health passes.
+- Verifies every JJK Lorecard has review-facing `sourceInfo.work`, `sourceInfo.sourceType`, `sourceInfo.title`, `sourceInfo.chapterRange`, numeric confidence, and source notes that preserve the human canon review requirement.
+- Verifies every JJK Lorecard keeps its `extensions.sagaJjkScaffold.targetPackId` and scaffold status for audit traceability.
+- Adds the readiness check to `tools/scripts/test-jjk-loredeck-suite.mjs` and the repository layout contract.
+
+Current guardrails:
+
+- Pack Health passing remains a structural bar, not canon approval.
+- Human review can now rely on the deterministic readiness check to catch missing source metadata before reading the cards.
+
+## Implementation Slice 14
+
+Added `tools/scripts/test-jjk-spoiler-boundaries.mjs`.
+
+Current scope:
+
+- Verifies manga-main JJK Lorecards do not carry Modulo-only tags, entities, or `sourceInfo.work`.
+- Verifies manga-main JJK Lorecard content does not leak standalone Modulo cast/species/premise terms.
+- Allows the single Shinjuku epilogue boundary card to mention Modulo only as an explicit out-of-scope sequel/spinoff guard.
+- Verifies the Modulo manifest remains under `Jujutsu Kaisen / Modulo` with `continuityId: "jjk-modulo"` and without the manga-main manifest tag.
+- Adds the spoiler-boundary check to `tools/scripts/test-jjk-loredeck-suite.mjs` and the repository layout contract.
+
+Current guardrails:
+
+- Modulo can be referenced by manga-main only as a boundary warning, not as content, cast, source, tag, or entity data.
+- Future sequel/spinoff decks should add their own boundary exceptions deliberately rather than weakening the manga-main checks.
+
+## Implementation Slice 15
+
+Added `tools/scripts/report-jjk-loredeck-coverage.mjs`.
+
+Current scope:
+
+- Generates a human-readable or `--json` review handoff report for the bundled JJK family.
+- Summarizes deck count, Lorecard count, timeline anchor/window totals, library paths, continuity IDs, review/health status, category mix, reveal policy mix, file count, and source-confidence range per deck.
+- Adds the report script to the repository layout contract's current-path script list.
+
+Current guardrails:
+
+- The report is for reviewer visibility, not a replacement for validation.
+- `tools/scripts/test-jjk-loredeck-suite.mjs` remains the pass/fail command.
+
 ## Open Decisions
 
-- Whether Modulo is part of the first "all JJK" deliverable or a later optional sequel deck.
 - Whether anime adaptation overlays are in scope before the manga-primary family is clean.
 - Whether generated cover/banner assets should be created now or deferred until the data family passes Pack Health.
-- Whether Shibuya and Shinjuku need scene-dense sub-splits if one deck becomes too heavy for review.
+- Whether Shibuya and Shinjuku need scene-dense sub-splits after human review, if one deck becomes too heavy for release-quality coverage.

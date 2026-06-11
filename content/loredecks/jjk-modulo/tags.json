@@ -1,0 +1,242 @@
+{
+  "schemaVersion": 1,
+  "tags": {
+    "adaptation:manga": {
+      "label": "Manga",
+      "color": "#5b677a",
+      "textColor": "#ffffff",
+      "description": "Manga-primary continuity tag for Jujutsu Kaisen retrieval and filtering.",
+      "aliases": [
+        "manga"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "arc:modulo": {
+      "label": "Modulo",
+      "color": "#7b3f00",
+      "textColor": "#ffffff",
+      "description": "Jujutsu Kaisen Modulo sequel/spinoff arc tag.",
+      "aliases": [
+        "JJK Modulo"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "arc:modulo-resolution": {
+      "label": "Modulo Resolution",
+      "color": "#7b3f00",
+      "textColor": "#ffffff",
+      "description": "Late Modulo resolution and aftermath tag.",
+      "aliases": [
+        "Modulo ending"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:maru": {
+      "label": "Maru",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Maru / Marulu Val Vol Yelvori tag.",
+      "aliases": [
+        "Marulu",
+        "Marulu Val Vol Yelvori"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:tsurugi-okkotsu": {
+      "label": "Tsurugi Okkotsu",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Tsurugi Okkotsu Modulo lead tag.",
+      "aliases": [
+        "Tsurugi"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:yuka-okkotsu": {
+      "label": "Yuka Okkotsu",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Yuka Okkotsu Modulo lead tag.",
+      "aliases": [
+        "Yuka"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "continuity:jjk-manga-main": {
+      "label": "JJK Manga Main",
+      "color": "#4c5c68",
+      "textColor": "#ffffff",
+      "description": "Primary Jujutsu Kaisen manga continuity.",
+      "aliases": [
+        "JJK manga main"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "continuity:jjk-modulo": {
+      "label": "JJK Modulo",
+      "color": "#4c5c68",
+      "textColor": "#ffffff",
+      "description": "Jujutsu Kaisen Modulo sequel/spinoff continuity.",
+      "aliases": [
+        "Modulo continuity"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:future-jujutsu-authorities": {
+      "label": "Future Jujutsu Authorities",
+      "color": "#7d3c98",
+      "textColor": "#ffffff",
+      "description": "Future jujutsu authority structure in Modulo.",
+      "aliases": [
+        "future jujutsu society"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "fandom:jjk": {
+      "label": "Jujutsu Kaisen",
+      "color": "#4c5c68",
+      "textColor": "#ffffff",
+      "description": "Jujutsu Kaisen fandom tag.",
+      "aliases": [
+        "JJK",
+        "Jujutsu Kaisen"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "relationship:okkotsu-siblings": {
+      "label": "Okkotsu Siblings",
+      "color": "#b04a7a",
+      "textColor": "#ffffff",
+      "description": "Yuka and Tsurugi Okkotsu sibling lead relationship.",
+      "aliases": [
+        "Yuka and Tsurugi"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:modulo-final-resolution": {
+      "label": "Modulo Final Resolution",
+      "color": "#922b21",
+      "textColor": "#ffffff",
+      "description": "Spoiler tag for Modulo's late-series resolution.",
+      "aliases": [
+        "Modulo ending spoiler"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "species:simurian": {
+      "label": "Simurian",
+      "color": "#0f766e",
+      "textColor": "#ffffff",
+      "description": "Simurian species tag for alien jujutsu continuity.",
+      "aliases": [
+        "Simurians"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:alien-jujutsu": {
+      "label": "Alien Jujutsu",
+      "color": "#2e86c1",
+      "textColor": "#ffffff",
+      "description": "Modulo topic for nonhuman cursed-energy and jujutsu rules.",
+      "aliases": [
+        "alien cursed energy",
+        "Simurian jujutsu"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:coexistence-test": {
+      "label": "Coexistence Test",
+      "color": "#2e86c1",
+      "textColor": "#ffffff",
+      "description": "Modulo topic for human/Simurian coexistence stakes.",
+      "aliases": [
+        "Simurian coexistence"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:future-sorcery": {
+      "label": "Future Sorcery",
+      "color": "#2e86c1",
+      "textColor": "#ffffff",
+      "description": "Future jujutsu society and technology-sorcery state.",
+      "aliases": [
+        "future jujutsu world"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:mainline-boundary": {
+      "label": "Mainline Boundary",
+      "color": "#2e86c1",
+      "textColor": "#ffffff",
+      "description": "Boundary between manga-main JJK and Modulo sequel continuity.",
+      "aliases": [
+        "sequel boundary"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:okkotsu-legacy": {
+      "label": "Okkotsu Legacy",
+      "color": "#2e86c1",
+      "textColor": "#ffffff",
+      "description": "Future Okkotsu-family legacy topic.",
+      "aliases": [
+        "Okkotsu future legacy"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    }
+  }
+}

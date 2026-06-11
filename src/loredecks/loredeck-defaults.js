@@ -784,6 +784,67 @@ const JJK_SPLIT_LOREDECKS = Object.freeze([
             timelineWindowCount: 4,
         },
     },
+    {
+        packId: 'jjk-culling-game-colonies',
+        title: 'Jujutsu Kaisen: Culling Game Colonies',
+        description: 'Culling Game colony Loredeck for active rules, point transfer, Tokyo No. 1, Higuruma, Reggie, Sendai, Yuta, Hakari, Kashimo, and early colony survival pressure.',
+        era: 'Culling Game Colonies',
+        familyOrder: 70,
+        tags: ['fandom:jjk', 'continuity:jjk-manga-main', 'adaptation:manga', 'arc:culling-game-colonies', 'quality:draft-reference'],
+        assets: null,
+        stats: {
+            entryCount: 12,
+            categoryCounts: { character: 1, event: 6, faction: 1, knowledge: 1, rule: 2, secret: 1 },
+            timelineAnchorCount: 8,
+            timelineWindowCount: 4,
+        },
+    },
+    {
+        packId: 'jjk-culling-game-convergence',
+        title: 'Jujutsu Kaisen: Culling Game Convergence',
+        description: "Late Culling Game Loredeck for Sakurajima, Angel and Hana, military incursion, Kenjaku versus Tengen's defenders, Sukuna's Megumi turn, Tsumiki and Yorozu, Gojo unsealing, and Shinjuku setup.",
+        era: 'Culling Game Convergence',
+        familyOrder: 80,
+        tags: ['fandom:jjk', 'continuity:jjk-manga-main', 'adaptation:manga', 'arc:culling-game-convergence', 'quality:draft-reference'],
+        assets: null,
+        stats: {
+            entryCount: 12,
+            categoryCounts: { event: 4, faction: 1, knowledge: 3, rule: 1, secret: 3 },
+            timelineAnchorCount: 9,
+            timelineWindowCount: 4,
+        },
+    },
+    {
+        packId: 'jjk-shinjuku-showdown',
+        title: 'Jujutsu Kaisen: Shinjuku Showdown and Aftermath',
+        description: "Final manga-main Loredeck for Gojo versus Sukuna, Shinjuku rotating plans, Kashimo, Higuruma, Yuta, Maki, Yuji and Megumi's final stakes, Sukuna's defeat, and epilogue-state guards.",
+        era: 'Shinjuku Showdown and Aftermath',
+        familyOrder: 90,
+        tags: ['fandom:jjk', 'continuity:jjk-manga-main', 'adaptation:manga', 'arc:shinjuku-showdown', 'quality:draft-reference'],
+        assets: null,
+        stats: {
+            entryCount: 12,
+            categoryCounts: { event: 5, knowledge: 2, relationship: 1, rule: 2, secret: 2 },
+            timelineAnchorCount: 9,
+            timelineWindowCount: 4,
+        },
+    },
+    {
+        packId: 'jjk-modulo',
+        title: 'Jujutsu Kaisen Modulo',
+        description: "Separate sequel/spinoff Loredeck for Jujutsu Kaisen Modulo, including the future continuity boundary, Simurian arrival, Maru's diplomatic mission, Yuka and Tsurugi Okkotsu, alien jujutsu, coexistence-test stakes, and late-series resolution guards.",
+        era: 'Modulo Sequel',
+        familyOrder: 110,
+        libraryPath: ['Jujutsu Kaisen', 'Modulo'],
+        tags: ['fandom:jjk', 'continuity:jjk-modulo', 'adaptation:manga', 'arc:modulo', 'quality:draft-reference'],
+        assets: null,
+        stats: {
+            entryCount: 12,
+            categoryCounts: { event: 3, knowledge: 3, relationship: 1, rule: 3, secret: 2 },
+            timelineAnchorCount: 9,
+            timelineWindowCount: 4,
+        },
+    },
 ]);
 
 const STAR_WARS_LEGENDS_LOREDECKS = Object.freeze([
@@ -1015,7 +1076,7 @@ const STAR_WARS_LEGENDS_LOREDECKS = Object.freeze([
 ]);
 
 function buildBundledLoredeckRecord(deck, options = {}) {
-    const libraryPath = options.libraryPath || [];
+    const libraryPath = Array.isArray(deck.libraryPath) ? deck.libraryPath : (options.libraryPath || []);
     const updatedAt = Number.isFinite(Number(options.updatedAt)) ? Number(options.updatedAt) : 0;
     const fallbackAssets = options.defaultAssets === false
         ? null

@@ -82,6 +82,11 @@ assert.doesNotMatch(loredeckLoader, /replace\(\s*\/\^Loredecks\\\//, 'Bundled Lo
 
 for (const conformanceScript of [
   'tools/scripts/test-hp-reference-deck-conformance.mjs',
+  'tools/scripts/report-jjk-loredeck-coverage.mjs',
+  'tools/scripts/test-jjk-canon-review-readiness.mjs',
+  'tools/scripts/test-jjk-family-coverage.mjs',
+  'tools/scripts/test-jjk-loredeck-suite.mjs',
+  'tools/scripts/test-jjk-spoiler-boundaries.mjs',
   'tools/scripts/test-jjk-reference-deck-conformance.mjs',
 ]) {
   assert.doesNotMatch(await readText(conformanceScript), /replace\(\s*\/\^Loredecks\\\//, `${conformanceScript} should validate current content/loredecks paths without old root normalization.`);

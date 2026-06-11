@@ -1,0 +1,470 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "jjk_culling_yuji_higuruma_case_reframes_guilt_and_violence",
+      "title": "Yuji And Higuruma Reframe Guilt And Violence",
+      "kind": "event",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.culling.tokyo-no1-higuruma",
+        "validToAnchor": "jjk.culling.point-transfer-added",
+        "sortKeyFrom": 10300,
+        "sortKeyTo": 10500,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Yuji and Higuruma in Tokyo No. 1"
+      },
+      "coordinates": [
+        {
+          "axis": "colony",
+          "id": "tokyo-no1",
+          "label": "Tokyo No. 1 Colony",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:itadori-yuji",
+          "jjk:higuruma-hiromi"
+        ],
+        "characters": [
+          "Yuji Itadori",
+          "Hiromi Higuruma"
+        ],
+        "locations": [
+          "Tokyo No. 1 Colony"
+        ],
+        "objects": [],
+        "factions": [
+          "Culling Game players"
+        ],
+        "topics": [
+          "Higuruma",
+          "Yuji guilt",
+          "Tokyo No. 1 Colony"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:culling-game-colonies",
+        "character:itadori-yuji",
+        "character:higuruma-hiromi",
+        "faction:culling-game-players",
+        "topic:tokyo-no1-colony",
+        "topic:culling-game-rules"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuji Itadori",
+            "Hiromi Higuruma"
+          ],
+          "topicsAny": [
+            "Higuruma",
+            "Yuji guilt",
+            "Tokyo No. 1 Colony"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen early and middle Culling Game colony action through Tokyo No. 2 Hakari/Kashimo material."
+      },
+      "content": {
+        "fact": "Yuji's encounter with Higuruma in Tokyo No. 1 links colony survival pressure to guilt, judgment, and whether violence can be redirected into rule change.",
+        "injection": "During Yuji and Higuruma scenes, let the conflict carry moral/legal weight rather than playing as only a points fight.",
+        "constraints": [
+          "Keep later Shinjuku Higuruma roles gated to later decks."
+        ],
+        "antiLore": [
+          "Do not treat Higuruma as a generic colony combatant with no courtroom or judgment framing."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Tokyo No. 1 Colony",
+        "chapterRange": "Yuji and Higuruma",
+        "confidence": 0.82,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-culling-game-colonies",
+          "status": "initial_culling_colonies_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_culling_point_transfer_rule_changes_survival_options",
+      "title": "Point Transfer Rule Changes Survival Options",
+      "kind": "event",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.culling.point-transfer-added",
+        "validToAnchor": "jjk.culling.tokyo-no2-hakari-kashimo",
+        "sortKeyFrom": 10500,
+        "sortKeyTo": 11300,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "After point transfer rule"
+      },
+      "coordinates": [
+        {
+          "axis": "rule_state",
+          "id": "point-transfer-added",
+          "label": "Point transfer has been added",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:higuruma-hiromi",
+          "jjk:itadori-yuji",
+          "jjk:culling-game-players"
+        ],
+        "characters": [
+          "Hiromi Higuruma",
+          "Yuji Itadori"
+        ],
+        "locations": [
+          "Tokyo No. 1 Colony"
+        ],
+        "objects": [],
+        "factions": [
+          "Culling Game players"
+        ],
+        "topics": [
+          "point transfer",
+          "rule addition",
+          "survival options"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:culling-game-colonies",
+        "character:higuruma-hiromi",
+        "character:itadori-yuji",
+        "faction:culling-game-players",
+        "topic:point-transfer",
+        "topic:tokyo-no1-colony"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Hiromi Higuruma",
+            "Yuji Itadori"
+          ],
+          "topicsAny": [
+            "point transfer",
+            "Higuruma adds rule",
+            "Culling Game survival"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen early and middle Culling Game colony action through Tokyo No. 2 Hakari/Kashimo material."
+      },
+      "content": {
+        "fact": "The added point transfer rule changes the Culling Game from pure kill-or-lose pressure into a system where players can move points and open survival options.",
+        "injection": "After point transfer is added, let negotiation and point movement become viable scene tools alongside combat.",
+        "constraints": [
+          "Do not assume later rule changes or game-ending options from this early rule addition."
+        ],
+        "antiLore": [
+          "Do not continue writing the game as if players can only survive by killing for points after this anchor."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Tokyo No. 1 Colony",
+        "chapterRange": "Point transfer rule",
+        "confidence": 0.82,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-culling-game-colonies",
+          "status": "initial_culling_colonies_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_culling_megumi_reggie_fight_shows_colony_strategy",
+      "title": "Megumi's Reggie Fight Shows Colony Strategy",
+      "kind": "event",
+      "category": "event",
+      "relevance": "medium",
+      "canon": "canon",
+      "lorePurpose": "event",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.culling.tokyo-no1-reggie-fight",
+        "validToAnchor": "jjk.culling.yuta-sendai-resolution",
+        "sortKeyFrom": 10700,
+        "sortKeyTo": 11150,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Megumi and Reggie in Tokyo No. 1"
+      },
+      "coordinates": [
+        {
+          "axis": "colony",
+          "id": "tokyo-no1",
+          "label": "Tokyo No. 1 Colony",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:megumi-fushiguro",
+          "jjk:reggie-star"
+        ],
+        "characters": [
+          "Megumi Fushiguro",
+          "Reggie Star"
+        ],
+        "locations": [
+          "Tokyo No. 1 Colony"
+        ],
+        "objects": [],
+        "factions": [
+          "Culling Game players"
+        ],
+        "topics": [
+          "Reggie fight",
+          "colony tactics",
+          "Megumi strategy"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:culling-game-colonies",
+        "character:fushiguro-megumi",
+        "character:reggie-star",
+        "faction:culling-game-players",
+        "topic:tokyo-no1-colony",
+        "topic:culling-game-rules"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Megumi Fushiguro",
+            "Reggie Star"
+          ],
+          "topicsAny": [
+            "Megumi versus Reggie",
+            "Tokyo No. 1 strategy",
+            "Culling Game tactics"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen early and middle Culling Game colony action through Tokyo No. 2 Hakari/Kashimo material."
+      },
+      "content": {
+        "fact": "Megumi's fight with Reggie shows that Culling Game survival depends on layered information, territory use, and tactical reading as much as raw power.",
+        "injection": "During Megumi's Tokyo No. 1 scenes, emphasize tactical adaptation and colony-specific uncertainty rather than simple arena combat.",
+        "constraints": [
+          "Do not reveal later Megumi vessel or Shinjuku developments from this colony fight."
+        ],
+        "antiLore": [
+          "Do not write Megumi's Reggie fight as a straightforward power contest with no strategic misdirection."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Tokyo No. 1 Colony",
+        "chapterRange": "Megumi and Reggie fight",
+        "confidence": 0.8,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-culling-game-colonies",
+          "status": "initial_culling_colonies_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_culling_sendai_deadlock_is_multi_way_pressure",
+      "title": "Sendai Deadlock Is Multi-Way Pressure",
+      "kind": "event",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.culling.sendai-deadlock",
+        "validToAnchor": "jjk.culling.yuta-sendai-resolution",
+        "sortKeyFrom": 11000,
+        "sortKeyTo": 11150,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Sendai Colony deadlock"
+      },
+      "coordinates": [
+        {
+          "axis": "colony",
+          "id": "sendai",
+          "label": "Sendai Colony",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:yuta-okkotsu",
+          "jjk:takako-uro",
+          "jjk:ryu-ishigori",
+          "jjk:kurourushi"
+        ],
+        "characters": [
+          "Yuta Okkotsu",
+          "Takako Uro",
+          "Ryu Ishigori",
+          "Kurourushi"
+        ],
+        "locations": [
+          "Sendai Colony"
+        ],
+        "objects": [],
+        "factions": [
+          "Culling Game players"
+        ],
+        "topics": [
+          "Sendai deadlock",
+          "multi-way fight",
+          "Yuta pressure"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:culling-game-colonies",
+        "character:okkotsu-yuta",
+        "character:takako-uro",
+        "character:ryu-ishigori",
+        "character:kurourushi",
+        "faction:culling-game-players",
+        "topic:sendai-deadlock",
+        "topic:ancient-sorcerers"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuta Okkotsu",
+            "Takako Uro",
+            "Ryu Ishigori",
+            "Kurourushi"
+          ],
+          "topicsAny": [
+            "Sendai deadlock",
+            "Yuta Sendai",
+            "multi-way colony fight"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen early and middle Culling Game colony action through Tokyo No. 2 Hakari/Kashimo material."
+      },
+      "content": {
+        "fact": "Sendai Colony is a multi-way deadlock among powerful players, making Yuta's arrival part of an unstable balance rather than a simple one-on-one mission.",
+        "injection": "In Sendai scenes before resolution, write Uro, Ryu, Kurourushi, and Yuta as part of a volatile multi-way pressure field.",
+        "constraints": [
+          "Do not use Sendai as proof that all colonies have the same player structure or stakes."
+        ],
+        "antiLore": [
+          "Do not reduce Sendai to only Yuta versus one named opponent."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Sendai Colony",
+        "chapterRange": "Sendai deadlock",
+        "confidence": 0.82,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-culling-game-colonies",
+          "status": "initial_culling_colonies_slice"
+        }
+      }
+    }
+  ]
+}

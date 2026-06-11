@@ -1,0 +1,460 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "jjk_shinjuku_gojo_sukuna_opens_as_endgame_duel",
+      "title": "Gojo And Sukuna Open The Endgame Duel",
+      "kind": "event",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.shinjuku.gojo-sukuna-battle-begins",
+        "validToAnchor": "jjk.shinjuku.gojo-falls",
+        "sortKeyFrom": 14000,
+        "sortKeyTo": 14200,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Gojo versus Sukuna"
+      },
+      "coordinates": [
+        {
+          "axis": "gojo_state",
+          "id": "fighting-sukuna",
+          "label": "Gojo is fighting Sukuna",
+          "required": false
+        },
+        {
+          "axis": "sukuna_state",
+          "id": "megumi-vessel",
+          "label": "Sukuna is in Megumi's body",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:gojo-satoru",
+          "jjk:ryomen-sukuna",
+          "jjk:megumi-fushiguro"
+        ],
+        "characters": [
+          "Satoru Gojo",
+          "Ryomen Sukuna",
+          "Megumi Fushiguro"
+        ],
+        "locations": [
+          "Shinjuku"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Gojo versus Sukuna",
+          "endgame duel",
+          "Megumi vessel stakes"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:shinjuku-showdown",
+        "character:gojo-satoru",
+        "character:ryomen-sukuna",
+        "character:megumi-fushiguro",
+        "topic:domain-adaptation"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Satoru Gojo",
+            "Ryomen Sukuna",
+            "Megumi Fushiguro"
+          ],
+          "topicsAny": [
+            "Gojo versus Sukuna",
+            "Shinjuku battle",
+            "Megumi vessel stakes"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shinjuku Showdown through chapter 271 manga aftermath."
+      },
+      "content": {
+        "fact": "The Shinjuku Showdown opens with Gojo directly fighting Sukuna in Megumi's body, making the duel both a power-system climax and a rescue-state problem.",
+        "injection": "During the opening Shinjuku duel, keep Gojo versus Sukuna centered while preserving Megumi's body as part of the stakes.",
+        "constraints": [
+          "Do not reveal Gojo's fate before the Gojo falls anchor."
+        ],
+        "antiLore": [
+          "Do not write the opening duel as detached from Megumi's vessel state."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Shinjuku Showdown",
+        "chapterRange": "Gojo versus Sukuna opening",
+        "confidence": 0.86,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-shinjuku-showdown",
+          "status": "initial_shinjuku_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_shinjuku_domain_and_adaptation_define_first_phase",
+      "title": "Domain And Adaptation Define The First Phase",
+      "kind": "rule",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "power_rule",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.shinjuku.domain-adaptation-phase",
+        "validToAnchor": "jjk.shinjuku.gojo-falls",
+        "sortKeyFrom": 14100,
+        "sortKeyTo": 14200,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Domain and adaptation phase"
+      },
+      "coordinates": [
+        {
+          "axis": "gojo_state",
+          "id": "fighting-sukuna",
+          "label": "Gojo is fighting Sukuna",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:gojo-satoru",
+          "jjk:ryomen-sukuna"
+        ],
+        "characters": [
+          "Satoru Gojo",
+          "Ryomen Sukuna"
+        ],
+        "locations": [
+          "Shinjuku"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Domain clash",
+          "Mahoraga adaptation",
+          "Limitless counterplay"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:shinjuku-showdown",
+        "character:gojo-satoru",
+        "character:ryomen-sukuna",
+        "topic:domain-adaptation"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Satoru Gojo",
+            "Ryomen Sukuna"
+          ],
+          "topicsAny": [
+            "domain clash",
+            "Mahoraga adaptation",
+            "Gojo Sukuna mechanics"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shinjuku Showdown through chapter 271 manga aftermath."
+      },
+      "content": {
+        "fact": "The first Gojo/Sukuna phase is defined by domain clashes, adaptation pressure, and high-level counterplay rather than a simple exchange of attacks.",
+        "injection": "During the domain/adaptation phase, keep battle logic precise: domain conditions, adaptation, and counterplay drive the stakes.",
+        "constraints": [
+          "Do not reduce this phase to raw power comparison."
+        ],
+        "antiLore": [
+          "Do not ignore Mahoraga adaptation as a central pressure in the Gojo/Sukuna fight."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Shinjuku Showdown",
+        "chapterRange": "Domain and adaptation phase",
+        "confidence": 0.86,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-shinjuku-showdown",
+          "status": "initial_shinjuku_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_shinjuku_gojo_fall_changes_plan_and_morale",
+      "title": "Gojo's Fall Changes Plan And Morale",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "secret",
+      "revealPolicy": "spoiler_guard",
+      "priority": 96,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.shinjuku.gojo-falls",
+        "validToAnchor": "jjk.shinjuku.epilogue-state",
+        "sortKeyFrom": 14200,
+        "sortKeyTo": 14800,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "After Gojo falls"
+      },
+      "coordinates": [
+        {
+          "axis": "gojo_state",
+          "id": "fallen",
+          "label": "Gojo has fallen",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:gojo-satoru",
+          "jjk:ryomen-sukuna",
+          "jjk:jujutsu-allies"
+        ],
+        "characters": [
+          "Satoru Gojo",
+          "Ryomen Sukuna"
+        ],
+        "locations": [
+          "Shinjuku"
+        ],
+        "objects": [],
+        "factions": [
+          "Jujutsu allies"
+        ],
+        "topics": [
+          "Gojo fate",
+          "post-Gojo plan",
+          "Sukuna gauntlet"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:shinjuku-showdown",
+        "character:gojo-satoru",
+        "character:ryomen-sukuna",
+        "faction:jujutsu-allies",
+        "secret:gojo-fate",
+        "topic:rotating-plans"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Satoru Gojo",
+            "Ryomen Sukuna"
+          ],
+          "topicsAny": [
+            "Gojo falls",
+            "after Gojo",
+            "post-Gojo plan"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shinjuku Showdown through chapter 271 manga aftermath."
+      },
+      "content": {
+        "fact": "Gojo's fall changes the final battle from a duel into a sequence of allied plans against a still-active Sukuna.",
+        "injection": "After Gojo falls, write the allies' morale and tactics around the loss of their strongest fighter and the need to keep rotating plans alive.",
+        "constraints": [
+          "Before this anchor, do not reveal Gojo's final Shinjuku fate."
+        ],
+        "antiLore": [
+          "Do not let Gojo keep actively solving post-fall Shinjuku scenes."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Shinjuku Showdown",
+        "chapterRange": "Gojo fall",
+        "confidence": 0.86,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-shinjuku-showdown",
+          "status": "initial_shinjuku_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_shinjuku_kashimo_enters_after_gojo",
+      "title": "Kashimo Enters After Gojo",
+      "kind": "event",
+      "category": "event",
+      "relevance": "medium",
+      "canon": "canon",
+      "lorePurpose": "event",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.shinjuku.kashimo-enters",
+        "validToAnchor": "jjk.shinjuku.rotating-allied-plans",
+        "sortKeyFrom": 14300,
+        "sortKeyTo": 14400,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "Kashimo after Gojo"
+      },
+      "coordinates": [
+        {
+          "axis": "sukuna_state",
+          "id": "megumi-vessel",
+          "label": "Sukuna is in Megumi's body",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:kashimo-hajime",
+          "jjk:ryomen-sukuna"
+        ],
+        "characters": [
+          "Hajime Kashimo",
+          "Ryomen Sukuna"
+        ],
+        "locations": [
+          "Shinjuku"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Kashimo",
+          "post-Gojo challenger",
+          "Sukuna gauntlet"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:shinjuku-showdown",
+        "character:kashimo-hajime",
+        "character:ryomen-sukuna",
+        "topic:rotating-plans"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Hajime Kashimo",
+            "Ryomen Sukuna"
+          ],
+          "topicsAny": [
+            "Kashimo enters",
+            "after Gojo falls",
+            "Sukuna gauntlet"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen Shinjuku Showdown through chapter 271 manga aftermath."
+      },
+      "content": {
+        "fact": "After Gojo falls, Kashimo enters the Shinjuku fight as the next challenger against Sukuna.",
+        "injection": "In the immediate post-Gojo window, use Kashimo as the next pressure point before the broader allied rotation fully takes over.",
+        "constraints": [
+          "Keep Kashimo's earlier Culling Game role in the Colonies deck."
+        ],
+        "antiLore": [
+          "Do not make Kashimo part of the opening Gojo/Sukuna duel."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Shinjuku Showdown",
+        "chapterRange": "Kashimo post-Gojo phase",
+        "confidence": 0.8,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-shinjuku-showdown",
+          "status": "initial_shinjuku_slice"
+        }
+      }
+    }
+  ]
+}

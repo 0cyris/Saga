@@ -1,0 +1,470 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "jjk_culling_colony_entry_turns_setup_into_active_rule_field",
+      "title": "Colony Entry Turns Setup Into Active Rule Field",
+      "kind": "rule",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.culling.colony-entry",
+        "validToAnchor": "jjk.culling.tokyo-no2-hakari-kashimo",
+        "sortKeyFrom": 10000,
+        "sortKeyTo": 11300,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Active Culling Game colonies"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "culling-game-colonies",
+          "label": "Culling Game Colonies",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:culling-game-players",
+          "jjk:itadori-yuji",
+          "jjk:megumi-fushiguro"
+        ],
+        "characters": [
+          "Yuji Itadori",
+          "Megumi Fushiguro"
+        ],
+        "locations": [
+          "Culling Game colonies"
+        ],
+        "objects": [],
+        "factions": [
+          "Culling Game players"
+        ],
+        "topics": [
+          "Culling Game entry",
+          "colony rules",
+          "active rule field"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:culling-game-colonies",
+        "character:itadori-yuji",
+        "character:fushiguro-megumi",
+        "faction:culling-game-players",
+        "topic:culling-game-rules"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuji Itadori",
+            "Megumi Fushiguro"
+          ],
+          "topicsAny": [
+            "Culling Game entry",
+            "colonies",
+            "active Culling Game rules"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen early and middle Culling Game colony action through Tokyo No. 2 Hakari/Kashimo material."
+      },
+      "content": {
+        "fact": "Once characters enter the Culling Game colonies, the conflict shifts from preparation into an active rule field where points, barriers, and player choices constrain survival.",
+        "injection": "During colony scenes, write the Culling Game as an active rules environment, not just a backdrop for ordinary fights.",
+        "constraints": [
+          "Keep late convergence, Gojo unsealing, and Shinjuku outcomes gated to later decks."
+        ],
+        "antiLore": [
+          "Do not treat colony entry as reversible or consequence-free travel."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Culling Game",
+        "chapterRange": "Colony entry",
+        "confidence": 0.82,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-culling-game-colonies",
+          "status": "initial_culling_colonies_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_culling_points_and_added_rules_define_survival_math",
+      "title": "Points And Added Rules Define Survival Math",
+      "kind": "rule",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 90,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.culling.rules-points-active",
+        "validToAnchor": "jjk.culling.tokyo-no2-hakari-kashimo",
+        "sortKeyFrom": 10100,
+        "sortKeyTo": 11300,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Active Culling Game point rules"
+      },
+      "coordinates": [
+        {
+          "axis": "rule_state",
+          "id": "points-active",
+          "label": "Culling Game points are active",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:culling-game-players"
+        ],
+        "characters": [],
+        "locations": [
+          "Culling Game colonies"
+        ],
+        "objects": [],
+        "factions": [
+          "Culling Game players"
+        ],
+        "topics": [
+          "Culling Game points",
+          "rule addition",
+          "survival math"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:culling-game-colonies",
+        "faction:culling-game-players",
+        "topic:culling-game-rules",
+        "topic:point-transfer"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "Culling Game points",
+            "added rules",
+            "point transfer"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen early and middle Culling Game colony action through Tokyo No. 2 Hakari/Kashimo material."
+      },
+      "content": {
+        "fact": "Culling Game points and added rules define survival choices, negotiation leverage, and whether players can help one another without killing.",
+        "injection": "When points are active in Context, make point totals and rule additions matter to tactical choices and moral pressure.",
+        "constraints": [
+          "Do not skip to later rule additions from the convergence deck unless that deck is loaded."
+        ],
+        "antiLore": [
+          "Do not make Culling Game points decorative bookkeeping with no scene effect."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Culling Game",
+        "chapterRange": "Rule and point pressure",
+        "confidence": 0.82,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-culling-game-colonies",
+          "status": "initial_culling_colonies_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_culling_players_are_mixed_modern_and_reincarnated_pool",
+      "title": "Culling Game Players Are A Mixed Participant Pool",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "medium",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.culling.colony-entry",
+        "validToAnchor": "jjk.culling.tokyo-no2-hakari-kashimo",
+        "sortKeyFrom": 10000,
+        "sortKeyTo": 11300,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Mixed Culling Game participant pool"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "culling-game-colonies",
+          "label": "Culling Game Colonies",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:culling-game-players",
+          "jjk:kashimo-hajime",
+          "jjk:ryu-ishigori",
+          "jjk:takako-uro",
+          "jjk:higuruma-hiromi"
+        ],
+        "characters": [
+          "Hajime Kashimo",
+          "Ryu Ishigori",
+          "Takako Uro",
+          "Hiromi Higuruma"
+        ],
+        "locations": [
+          "Culling Game colonies"
+        ],
+        "objects": [],
+        "factions": [
+          "Culling Game players"
+        ],
+        "topics": [
+          "modern players",
+          "reincarnated sorcerers",
+          "colony participant pool"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:culling-game-colonies",
+        "faction:culling-game-players",
+        "character:kashimo-hajime",
+        "character:ryu-ishigori",
+        "character:takako-uro",
+        "character:higuruma-hiromi",
+        "topic:ancient-sorcerers",
+        "topic:culling-game-rules"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Hajime Kashimo",
+            "Ryu Ishigori",
+            "Takako Uro",
+            "Hiromi Higuruma"
+          ],
+          "topicsAny": [
+            "reincarnated sorcerers",
+            "Culling Game players",
+            "modern awakened players"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen early and middle Culling Game colony action through Tokyo No. 2 Hakari/Kashimo material."
+      },
+      "content": {
+        "fact": "The Culling Game participant pool mixes modern awakened players, reincarnated sorcerers, and forced or pressured participants with different motives.",
+        "injection": "In colony scenes, vary player motives and time-origin assumptions instead of treating all participants as the same type of curse user.",
+        "constraints": [
+          "Do not reveal late convergence identity twists or final player outcomes from this deck."
+        ],
+        "antiLore": [
+          "Do not flatten Culling Game players into a single faction with shared goals."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Culling Game",
+        "chapterRange": "Colony participant setup",
+        "confidence": 0.78,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-culling-game-colonies",
+          "status": "initial_culling_colonies_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_culling_colony_separation_makes_communication_unreliable",
+      "title": "Colony Separation Makes Communication Unreliable",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "medium",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 76,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.culling.colony-entry",
+        "validToAnchor": "jjk.culling.tokyo-no2-hakari-kashimo",
+        "sortKeyFrom": 10000,
+        "sortKeyTo": 11300,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Colony separation and unreliable coordination"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "culling-game-colonies",
+          "label": "Culling Game Colonies",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:itadori-yuji",
+          "jjk:megumi-fushiguro",
+          "jjk:yuta-okkotsu",
+          "jjk:hakari-kinji"
+        ],
+        "characters": [
+          "Yuji Itadori",
+          "Megumi Fushiguro",
+          "Yuta Okkotsu",
+          "Kinji Hakari"
+        ],
+        "locations": [
+          "Tokyo No. 1 Colony",
+          "Sendai Colony",
+          "Tokyo No. 2 Colony"
+        ],
+        "objects": [],
+        "factions": [
+          "Culling Game players"
+        ],
+        "topics": [
+          "split teams",
+          "colony separation",
+          "communication limits"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:culling-game-colonies",
+        "character:itadori-yuji",
+        "character:fushiguro-megumi",
+        "character:okkotsu-yuta",
+        "character:hakari-kinji",
+        "faction:culling-game-players",
+        "topic:culling-game-rules"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Yuji Itadori",
+            "Megumi Fushiguro",
+            "Yuta Okkotsu",
+            "Kinji Hakari"
+          ],
+          "topicsAny": [
+            "split teams",
+            "colony separation",
+            "communication limits"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen early and middle Culling Game colony action through Tokyo No. 2 Hakari/Kashimo material."
+      },
+      "content": {
+        "fact": "The main group is split across colonies, so information, points, and safety cannot be assumed to move cleanly between Yuji, Megumi, Yuta, and Hakari scenes.",
+        "injection": "During active colony scenes, preserve split-team uncertainty and avoid giving every character complete knowledge of other colonies.",
+        "constraints": [
+          "Let later decks handle communication breakthroughs and convergence."
+        ],
+        "antiLore": [
+          "Do not make colony teams instantly coordinate as if all fights are in one shared room."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Culling Game",
+        "chapterRange": "Split colony operation",
+        "confidence": 0.78,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-culling-game-colonies",
+          "status": "initial_culling_colonies_slice"
+        }
+      }
+    }
+  ]
+}

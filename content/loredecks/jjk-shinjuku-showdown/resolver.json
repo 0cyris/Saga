@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve Jujutsu Kaisen Shinjuku Showdown Context from Gojo versus Sukuna through final resolution and epilogue state.",
+  "preferredFields": [
+    "arc",
+    "chapter",
+    "beforeAfter",
+    "majorEvent",
+    "gojoState",
+    "sukunaState",
+    "megumiState"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer final battle anchors around Gojo/Sukuna, post-Gojo rotating plans, Yuji/Megumi separation, Sukuna defeat, and epilogue state. Keep Modulo outside this manga-main deck unless explicitly loaded.",
+  "localPatterns": [
+    {
+      "pattern": "during gojo versus sukuna",
+      "result": {
+        "anchorFrom": "jjk.shinjuku.gojo-sukuna-battle-begins",
+        "anchorTo": "jjk.shinjuku.gojo-falls",
+        "label": "Gojo versus Sukuna"
+      }
+    },
+    {
+      "pattern": "after gojo falls",
+      "result": {
+        "anchorFrom": "jjk.shinjuku.gojo-falls",
+        "label": "After Gojo falls"
+      }
+    },
+    {
+      "pattern": "during rotating plans",
+      "result": {
+        "anchorFrom": "jjk.shinjuku.kashimo-enters",
+        "anchorTo": "jjk.shinjuku.yuji-megumi-final-push",
+        "label": "Rotating allied plans"
+      }
+    },
+    {
+      "pattern": "after sukuna is defeated",
+      "result": {
+        "anchorFrom": "jjk.shinjuku.sukuna-defeated",
+        "label": "After Sukuna is defeated"
+      }
+    },
+    {
+      "pattern": "during epilogue",
+      "result": {
+        "anchorId": "jjk.shinjuku.epilogue-state",
+        "label": "Post-battle epilogue state"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "sceneDate": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "label": "string",
+    "branchId": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

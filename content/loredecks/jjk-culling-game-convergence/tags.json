@@ -1,0 +1,461 @@
+{
+  "schemaVersion": 1,
+  "tags": {
+    "adaptation:manga": {
+      "label": "Manga",
+      "color": "#5b677a",
+      "textColor": "#ffffff",
+      "description": "Manga-primary continuity tag for Jujutsu Kaisen retrieval and filtering.",
+      "aliases": [
+        "manga"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "arc:culling-game-convergence": {
+      "label": "Culling Game Convergence",
+      "color": "#7b3f00",
+      "textColor": "#ffffff",
+      "description": "Late Culling Game convergence tag.",
+      "aliases": [
+        "Culling Game Convergence arc"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "arc:sakurajima": {
+      "label": "Sakurajima",
+      "color": "#7b3f00",
+      "textColor": "#ffffff",
+      "description": "Sakurajima Colony and Maki state-development tag.",
+      "aliases": [
+        "Sakurajima Colony arc"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "arc:shinjuku-setup": {
+      "label": "Shinjuku Setup",
+      "color": "#7b3f00",
+      "textColor": "#ffffff",
+      "description": "Pre-Shinjuku showdown setup tag.",
+      "aliases": [
+        "Shinjuku setup arc"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:angel": {
+      "label": "Angel",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Angel and Prison Realm unsealing route tag.",
+      "aliases": [
+        "Angel unsealing route"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:choso": {
+      "label": "Choso",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Choso late Culling Game defender tag.",
+      "aliases": [
+        "Choso Tengen defender"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:gojo-satoru": {
+      "label": "Satoru Gojo",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Gojo unsealing and Shinjuku setup tag.",
+      "aliases": [
+        "Gojo convergence unsealed"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:hana-kurusu": {
+      "label": "Hana Kurusu",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Hana Kurusu and Angel vessel tag.",
+      "aliases": [
+        "Hana Angel vessel"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:itadori-yuji": {
+      "label": "Yuji Itadori",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Yuji late Culling Game reaction tag.",
+      "aliases": [
+        "Yuji convergence"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:kenjaku": {
+      "label": "Kenjaku",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Kenjaku late Culling Game plan tag.",
+      "aliases": [
+        "Kenjaku convergence"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:maki-zenin": {
+      "label": "Maki Zenin",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Maki Sakurajima state tag.",
+      "aliases": [
+        "Maki Sakurajima state"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:megumi-fushiguro": {
+      "label": "Megumi Fushiguro",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Megumi vessel-turn tag.",
+      "aliases": [
+        "Megumi vessel turn"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:ryomen-sukuna": {
+      "label": "Ryomen Sukuna",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Sukuna late Culling Game vessel-state tag.",
+      "aliases": [
+        "Sukuna Megumi vessel turn"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:tengen": {
+      "label": "Tengen",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Tengen late Culling Game state tag.",
+      "aliases": [
+        "Tengen convergence state"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:tsukumo-yuki": {
+      "label": "Yuki Tsukumo",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Yuki Tsukumo defender tag.",
+      "aliases": [
+        "Yuki Tengen defender"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:tsumiki-fushiguro": {
+      "label": "Tsumiki Fushiguro",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Tsumiki and Yorozu reveal tag.",
+      "aliases": [
+        "Tsumiki Yorozu reveal"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:yorozu": {
+      "label": "Yorozu",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Yorozu reveal and Sukuna conflict setup tag.",
+      "aliases": [
+        "Yorozu convergence reveal"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "continuity:jjk-manga-main": {
+      "label": "JJK Manga Main",
+      "color": "#4c5c68",
+      "textColor": "#ffffff",
+      "description": "Primary Jujutsu Kaisen manga continuity.",
+      "aliases": [
+        "JJK manga main"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:culling-game-players": {
+      "label": "Culling Game Players",
+      "color": "#7d3c98",
+      "textColor": "#ffffff",
+      "description": "Late Culling Game participant pressure tag.",
+      "aliases": [
+        "late Culling Game players"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:foreign-military": {
+      "label": "Foreign Military",
+      "color": "#7d3c98",
+      "textColor": "#ffffff",
+      "description": "Military incursion pressure tag.",
+      "aliases": [
+        "Culling Game military incursion"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:jujutsu-allies": {
+      "label": "Jujutsu Allies",
+      "color": "#7d3c98",
+      "textColor": "#ffffff",
+      "description": "Late Culling Game allied group preparing for Shinjuku.",
+      "aliases": [
+        "Shinjuku preparation allies"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "fandom:jjk": {
+      "label": "Jujutsu Kaisen",
+      "color": "#4c5c68",
+      "textColor": "#ffffff",
+      "description": "Jujutsu Kaisen fandom tag.",
+      "aliases": [
+        "JJK",
+        "Jujutsu Kaisen"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:gojo-unsealed": {
+      "label": "Gojo Unsealed",
+      "color": "#922b21",
+      "textColor": "#ffffff",
+      "description": "Spoiler tag for Gojo's unsealing.",
+      "aliases": [
+        "Gojo unsealing spoiler"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:megumi-vessel": {
+      "label": "Megumi Vessel",
+      "color": "#922b21",
+      "textColor": "#ffffff",
+      "description": "Spoiler tag for Sukuna taking Megumi as vessel.",
+      "aliases": [
+        "Megumi vessel spoiler"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:tengen-capture": {
+      "label": "Tengen Capture",
+      "color": "#922b21",
+      "textColor": "#ffffff",
+      "description": "Spoiler tag for Kenjaku gaining Tengen.",
+      "aliases": [
+        "Tengen capture spoiler"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:tsumiki-yorozu": {
+      "label": "Tsumiki And Yorozu",
+      "color": "#922b21",
+      "textColor": "#ffffff",
+      "description": "Spoiler tag for the Tsumiki and Yorozu reveal.",
+      "aliases": [
+        "Tsumiki Yorozu spoiler"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:angel-unsealing": {
+      "label": "Angel Unsealing",
+      "color": "#2e86c1",
+      "textColor": "#ffffff",
+      "description": "Angel and Prison Realm unsealing route topic.",
+      "aliases": [
+        "Angel Prison Realm route"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:future-shinjuku-guard": {
+      "label": "Future Shinjuku Guard",
+      "color": "#2e86c1",
+      "textColor": "#ffffff",
+      "description": "Guardrail for Shinjuku and final outcome spoilers.",
+      "aliases": [
+        "Shinjuku outcome guard"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:gojo-unsealed": {
+      "label": "Gojo Unsealed",
+      "color": "#2e86c1",
+      "textColor": "#ffffff",
+      "description": "Gojo unsealed state topic.",
+      "aliases": [
+        "Gojo returns from Prison Realm"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:megumi-vessel": {
+      "label": "Megumi Vessel",
+      "color": "#2e86c1",
+      "textColor": "#ffffff",
+      "description": "Sukuna and Megumi vessel-state topic.",
+      "aliases": [
+        "Sukuna takes Megumi topic"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:military-incursion": {
+      "label": "Military Incursion",
+      "color": "#2e86c1",
+      "textColor": "#ffffff",
+      "description": "Military entry into the Culling Game colonies.",
+      "aliases": [
+        "soldiers in Culling Game"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:sakurajima-maki": {
+      "label": "Sakurajima Maki",
+      "color": "#2e86c1",
+      "textColor": "#ffffff",
+      "description": "Maki's Sakurajima development topic.",
+      "aliases": [
+        "Maki Sakurajima development"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:shinjuku-setup": {
+      "label": "Shinjuku Setup",
+      "color": "#2e86c1",
+      "textColor": "#ffffff",
+      "description": "Setup for the Shinjuku Showdown.",
+      "aliases": [
+        "pre-Shinjuku setup"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:tengen-capture": {
+      "label": "Tengen Capture",
+      "color": "#2e86c1",
+      "textColor": "#ffffff",
+      "description": "Kenjaku gaining Tengen and changing the endgame position.",
+      "aliases": [
+        "Kenjaku gains Tengen topic"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:tsumiki-yorozu": {
+      "label": "Tsumiki And Yorozu",
+      "color": "#2e86c1",
+      "textColor": "#ffffff",
+      "description": "Tsumiki and Yorozu reveal topic.",
+      "aliases": [
+        "Tsumiki Yorozu topic"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "categories": {
+    "character": {
+      "label": "Character State",
+      "description": "Character status, capability, and role state."
+    },
+    "event": {
+      "label": "Event",
+      "description": "Specific Culling Game story turn or consequence."
+    },
+    "faction": {
+      "label": "Faction",
+      "description": "Faction pressure, participant pool, or group alignment."
+    },
+    "knowledge": {
+      "label": "Knowledge Gate",
+      "description": "Information that should be gated to the right colony Context."
+    },
+    "rule": {
+      "label": "Rule",
+      "description": "Culling Game rule, points, or setting mechanic."
+    },
+    "secret": {
+      "label": "Secret",
+      "description": "Sensitive reveal or spoiler-bearing truth."
+    }
+  },
+  "relevanceLevels": [
+    "low",
+    "medium",
+    "high"
+  ],
+  "truthStatuses": [
+    "true",
+    "hidden",
+    "secret"
+  ],
+  "revealPolicies": [
+    "contextual",
+    "spoiler_guard",
+    "never_before_context"
+  ]
+}

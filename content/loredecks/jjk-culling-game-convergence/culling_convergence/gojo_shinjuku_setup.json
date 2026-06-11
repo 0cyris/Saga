@@ -1,0 +1,485 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "jjk_convergence_gojo_unsealed_changes_allied_endgame_posture",
+      "title": "Gojo Unsealed Changes Allied Endgame Posture",
+      "kind": "event",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "secret",
+      "revealPolicy": "spoiler_guard",
+      "priority": 94,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.convergence.gojo-unsealed",
+        "validToAnchor": "jjk.convergence.shinjuku-setup",
+        "sortKeyFrom": 13000,
+        "sortKeyTo": 13200,
+        "precision": "anchor_window",
+        "windowKind": "focused",
+        "label": "After Gojo is unsealed"
+      },
+      "coordinates": [
+        {
+          "axis": "gojo_state",
+          "id": "unsealed",
+          "label": "Gojo is unsealed",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:gojo-satoru",
+          "jjk:angel",
+          "jjk:hana-kurusu",
+          "jjk:jujutsu-allies"
+        ],
+        "characters": [
+          "Satoru Gojo",
+          "Angel",
+          "Hana Kurusu"
+        ],
+        "locations": [],
+        "objects": [
+          "Prison Realm"
+        ],
+        "factions": [
+          "Jujutsu allies"
+        ],
+        "topics": [
+          "Gojo unsealed",
+          "Prison Realm opened",
+          "endgame posture"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:culling-game-convergence",
+        "character:gojo-satoru",
+        "character:angel",
+        "character:hana-kurusu",
+        "faction:jujutsu-allies",
+        "secret:gojo-unsealed",
+        "topic:gojo-unsealed",
+        "topic:angel-unsealing"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Satoru Gojo",
+            "Angel",
+            "Hana Kurusu"
+          ],
+          "topicsAny": [
+            "Gojo unsealed",
+            "Prison Realm opened",
+            "after Gojo returns"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen late Culling Game convergence through Gojo unsealing and Shinjuku setup."
+      },
+      "content": {
+        "fact": "Gojo's unsealing changes the allies' endgame posture and moves the story from Culling Game convergence toward direct Shinjuku confrontation setup.",
+        "injection": "After the unsealing anchor, write Gojo as available again and let the allies' plans shift toward the looming Sukuna confrontation.",
+        "constraints": [
+          "Do not reveal Shinjuku battle outcomes from this unsealing card."
+        ],
+        "antiLore": [
+          "Do not keep Gojo sealed or unavailable after this anchor."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Culling Game Convergence",
+        "chapterRange": "Gojo unsealing",
+        "confidence": 0.86,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-culling-game-convergence",
+          "status": "initial_convergence_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_convergence_allies_regroup_for_shinjuku_setup",
+      "title": "Allies Regroup For Shinjuku Setup",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.convergence.shinjuku-setup",
+        "validToAnchor": "jjk.convergence.shinjuku-setup",
+        "sortKeyFrom": 13200,
+        "sortKeyTo": 13200,
+        "precision": "anchor_exact",
+        "windowKind": "point",
+        "label": "Shinjuku setup begins"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "shinjuku-setup",
+          "label": "Shinjuku setup",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:jujutsu-allies",
+          "jjk:gojo-satoru",
+          "jjk:itadori-yuji",
+          "jjk:maki-zenin"
+        ],
+        "characters": [
+          "Satoru Gojo",
+          "Yuji Itadori",
+          "Maki Zenin"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Jujutsu allies"
+        ],
+        "topics": [
+          "Shinjuku setup",
+          "ally regrouping",
+          "endgame planning"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:culling-game-convergence",
+        "arc:shinjuku-setup",
+        "character:gojo-satoru",
+        "character:itadori-yuji",
+        "character:maki-zenin",
+        "faction:jujutsu-allies",
+        "topic:shinjuku-setup"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Satoru Gojo",
+            "Yuji Itadori",
+            "Maki Zenin"
+          ],
+          "topicsAny": [
+            "Shinjuku setup",
+            "ally regrouping",
+            "endgame planning"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen late Culling Game convergence through Gojo unsealing and Shinjuku setup."
+      },
+      "content": {
+        "fact": "After Gojo's return and the late Culling Game ruptures, the allies regroup toward Shinjuku with Sukuna, Kenjaku, and Megumi's state defining the stakes.",
+        "injection": "At Shinjuku setup, let allies act from a concentrated endgame posture rather than ordinary colony objectives.",
+        "constraints": [
+          "Use the Shinjuku deck for fight sequence outcomes and final resolutions."
+        ],
+        "antiLore": [
+          "Do not resolve the Shinjuku confrontation in this setup window."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Shinjuku setup",
+        "chapterRange": "Pre-showdown setup",
+        "confidence": 0.82,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-culling-game-convergence",
+          "status": "initial_convergence_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_convergence_gojo_sukuna_showdown_is_setup_not_resolved",
+      "title": "Gojo And Sukuna Showdown Is Setup, Not Resolved",
+      "kind": "event",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.convergence.shinjuku-setup",
+        "validToAnchor": "jjk.convergence.shinjuku-setup",
+        "sortKeyFrom": 13200,
+        "sortKeyTo": 13200,
+        "precision": "anchor_exact",
+        "windowKind": "point",
+        "label": "Before Gojo versus Sukuna"
+      },
+      "coordinates": [
+        {
+          "axis": "gojo_state",
+          "id": "unsealed",
+          "label": "Gojo is unsealed",
+          "required": false
+        },
+        {
+          "axis": "sukuna_state",
+          "id": "megumi-vessel",
+          "label": "Sukuna has taken Megumi as vessel",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:gojo-satoru",
+          "jjk:ryomen-sukuna",
+          "jjk:megumi-fushiguro"
+        ],
+        "characters": [
+          "Satoru Gojo",
+          "Ryomen Sukuna",
+          "Megumi Fushiguro"
+        ],
+        "locations": [
+          "Shinjuku"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Gojo versus Sukuna setup",
+          "Megumi vessel stakes",
+          "Shinjuku showdown"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:culling-game-convergence",
+        "arc:shinjuku-setup",
+        "character:gojo-satoru",
+        "character:ryomen-sukuna",
+        "character:megumi-fushiguro",
+        "topic:shinjuku-setup",
+        "topic:megumi-vessel",
+        "secret:megumi-vessel"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Satoru Gojo",
+            "Ryomen Sukuna",
+            "Megumi Fushiguro"
+          ],
+          "topicsAny": [
+            "Gojo versus Sukuna setup",
+            "before Shinjuku showdown",
+            "Megumi vessel stakes"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen late Culling Game convergence through Gojo unsealing and Shinjuku setup."
+      },
+      "content": {
+        "fact": "This deck reaches the setup for Gojo and Sukuna's Shinjuku confrontation, but does not resolve that battle.",
+        "injection": "At the Shinjuku setup anchor, frame Gojo versus Sukuna as imminent and high-stakes while withholding battle outcomes.",
+        "constraints": [
+          "Use the Shinjuku Showdown deck for the fight itself, casualties, plans, and final resolution."
+        ],
+        "antiLore": [
+          "Do not mention who wins, who dies, or how the final battle resolves from this deck."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Shinjuku setup",
+        "chapterRange": "Pre-showdown setup",
+        "confidence": 0.82,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-culling-game-convergence",
+          "status": "initial_convergence_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_convergence_future_guard_keeps_shinjuku_outcomes_gated",
+      "title": "Future Guard Keeps Shinjuku Outcomes Gated",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "never_before_context",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.convergence.sakurajima-maki",
+        "validToAnchor": "jjk.convergence.shinjuku-setup",
+        "sortKeyFrom": 11600,
+        "sortKeyTo": 13200,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Culling Game Convergence future-leak guard"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "culling-game-convergence",
+          "label": "Culling Game Convergence",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:gojo-satoru",
+          "jjk:ryomen-sukuna",
+          "jjk:jujutsu-allies",
+          "jjk:kenjaku"
+        ],
+        "characters": [
+          "Satoru Gojo",
+          "Ryomen Sukuna",
+          "Kenjaku"
+        ],
+        "locations": [
+          "Shinjuku"
+        ],
+        "objects": [],
+        "factions": [
+          "Jujutsu allies"
+        ],
+        "topics": [
+          "future spoilers",
+          "Shinjuku outcomes",
+          "final arc guard"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:culling-game-convergence",
+        "arc:shinjuku-setup",
+        "character:gojo-satoru",
+        "character:ryomen-sukuna",
+        "character:kenjaku",
+        "faction:jujutsu-allies",
+        "topic:future-shinjuku-guard",
+        "topic:shinjuku-setup"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Satoru Gojo",
+            "Ryomen Sukuna",
+            "Kenjaku"
+          ],
+          "topicsAny": [
+            "Shinjuku future guard",
+            "final arc spoilers",
+            "showdown outcomes"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen late Culling Game convergence through Gojo unsealing and Shinjuku setup."
+      },
+      "content": {
+        "fact": "Culling Game Convergence sets up Shinjuku, but Gojo/Sukuna battle results, Kenjaku's final fate, Sukuna's final resolution, and epilogue states belong to the Shinjuku deck.",
+        "injection": "Use this deck for convergence setup and pre-showdown state only; keep Shinjuku and final outcome facts gated unless the Shinjuku deck is loaded.",
+        "constraints": [
+          "Do not reveal Gojo/Sukuna battle results, rotating plan outcomes, Kenjaku's final fate, Sukuna's final resolution, or epilogue states from this deck."
+        ],
+        "antiLore": [
+          "Do not let late Culling Game Context automatically spoil the final arc."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Culling Game Convergence",
+        "chapterRange": "Deck-level future guard",
+        "confidence": 0.78,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-culling-game-convergence",
+          "status": "initial_convergence_slice"
+        }
+      }
+    }
+  ]
+}

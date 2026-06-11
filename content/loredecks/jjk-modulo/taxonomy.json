@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "categories": {
+    "event": {
+      "label": "Event",
+      "description": "Specific Modulo story turn or sequel-continuity consequence."
+    },
+    "knowledge": {
+      "label": "Knowledge Gate",
+      "description": "Information that should be gated to the right Modulo Context."
+    },
+    "relationship": {
+      "label": "Relationship",
+      "description": "Relationship or legacy state that changes scene behavior."
+    },
+    "rule": {
+      "label": "Rule",
+      "description": "Power-system, continuity-boundary, or retrieval rule."
+    },
+    "secret": {
+      "label": "Secret",
+      "description": "Sensitive reveal or spoiler-bearing Modulo truth."
+    }
+  },
+  "relevanceLevels": [
+    "low",
+    "medium",
+    "high"
+  ],
+  "truthStatuses": [
+    "true",
+    "hidden",
+    "secret"
+  ],
+  "revealPolicies": [
+    "contextual",
+    "spoiler_guard",
+    "never_before_context"
+  ]
+}

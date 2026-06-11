@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "id": "jjk-shinjuku-showdown",
+  "type": "bundled",
+  "title": "Jujutsu Kaisen: Shinjuku Showdown and Aftermath",
+  "description": "Final manga-main Loredeck for Gojo versus Sukuna, Shinjuku rotating plans, Kashimo, Higuruma, Yuta, Maki, Yuji and Megumi's final stakes, Sukuna's defeat, and epilogue-state guards.",
+  "fandom": "Jujutsu Kaisen",
+  "era": "Shinjuku Showdown and Aftermath",
+  "contentKind": "fandom",
+  "author": "Saga",
+  "version": "0.1.0",
+  "defaultLocale": "en",
+  "tags": [
+    "fandom:jjk",
+    "continuity:jjk-manga-main",
+    "adaptation:manga",
+    "arc:shinjuku-showdown",
+    "quality:draft-reference"
+  ],
+  "source": {
+    "kind": "bundled",
+    "url": ""
+  },
+  "update": {
+    "checkForUpdates": false,
+    "url": "",
+    "lastCheckedAt": 0
+  },
+  "registries": {
+    "taxonomy": "taxonomy.json",
+    "tags": "tags.json",
+    "entities": "entities.json",
+    "timeline": "timeline.json",
+    "gateTypes": "gate-types.json",
+    "scoring": "scoring.json"
+  },
+  "resolver": "resolver.json",
+  "continuity": {
+    "continuityId": "jjk-manga-main",
+    "canonTier": "primary",
+    "adaptation": "manga",
+    "medium": "manga",
+    "sourceBoundary": "Jujutsu Kaisen Shinjuku Showdown through chapter 271 manga aftermath.",
+    "notes": "Jujutsu Kaisen Modulo, anime-only changes, guidebook-only material, games, and light novels should remain separate decks unless explicitly loaded."
+  },
+  "runtimeDefaults": {
+    "scanDepth": null,
+    "recursiveTriggers": false,
+    "tokenBudget": null
+  },
+  "files": [
+    "shinjuku/gojo_sukuna_opening.json",
+    "shinjuku/rotating_plans.json",
+    "shinjuku/final_resolution.json"
+  ],
+  "compatibility": {
+    "sagaSchemaMin": 3,
+    "sagaSchemaMax": 3
+  },
+  "dependencies": [
+    {
+      "packId": "jjk-core",
+      "versionMin": "0.1.0",
+      "versionMax": "",
+      "required": false,
+      "reason": "Uses core Jujutsu Kaisen cursed energy, jujutsu society, Sukuna vessel, technique, domain, and spoiler-gate assumptions."
+    }
+  ],
+  "stats": {
+    "entryCount": 12,
+    "categoryCounts": {
+      "event": 5,
+      "knowledge": 2,
+      "relationship": 1,
+      "rule": 2,
+      "secret": 2
+    },
+    "timelineAnchorCount": 9,
+    "timelineWindowCount": 4
+  },
+  "license": {
+    "name": "Draft fan reference data",
+    "notes": "For local testing. Requires human canon review before reference release."
+  },
+  "health": {
+    "status": "good",
+    "notes": "Initial Shinjuku Showdown scaffold passes local structural health checks; not a substitute for human canon review."
+  },
+  "library": {
+    "suggestedPath": [
+      "Jujutsu Kaisen",
+      "Manga Main"
+    ],
+    "familyOrder": 90
+  },
+  "entrySchemaVersion": 3,
+  "updatedAt": 1781136000000
+}

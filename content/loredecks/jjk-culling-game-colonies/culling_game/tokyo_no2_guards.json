@@ -1,0 +1,467 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "jjk_culling_yuta_resolves_sendai_without_making_colonies_safe",
+      "title": "Yuta Resolves Sendai Without Making Colonies Safe",
+      "kind": "event",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.culling.yuta-sendai-resolution",
+        "validToAnchor": "jjk.culling.tokyo-no2-hakari-kashimo",
+        "sortKeyFrom": 11150,
+        "sortKeyTo": 11300,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "After Sendai resolution"
+      },
+      "coordinates": [
+        {
+          "axis": "colony",
+          "id": "sendai",
+          "label": "Sendai Colony",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:yuta-okkotsu",
+          "jjk:takako-uro",
+          "jjk:ryu-ishigori"
+        ],
+        "characters": [
+          "Yuta Okkotsu",
+          "Takako Uro",
+          "Ryu Ishigori"
+        ],
+        "locations": [
+          "Sendai Colony"
+        ],
+        "objects": [],
+        "factions": [
+          "Culling Game players"
+        ],
+        "topics": [
+          "Sendai resolution",
+          "Yuta capability",
+          "colony risk remains"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:culling-game-colonies",
+        "character:okkotsu-yuta",
+        "character:takako-uro",
+        "character:ryu-ishigori",
+        "faction:culling-game-players",
+        "topic:sendai-deadlock",
+        "topic:culling-game-rules"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuta Okkotsu",
+            "Takako Uro",
+            "Ryu Ishigori"
+          ],
+          "topicsAny": [
+            "Sendai resolution",
+            "Yuta Sendai",
+            "Culling Game remains dangerous"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen early and middle Culling Game colony action through Tokyo No. 2 Hakari/Kashimo material."
+      },
+      "content": {
+        "fact": "Yuta's Sendai resolution demonstrates his strength and gains, but it does not make the Culling Game as a whole safe or solved.",
+        "injection": "After Sendai resolves, let Yuta's success matter while keeping the broader Culling Game dangerous and unresolved.",
+        "constraints": [
+          "Use later decks for convergence-scale uses of Sendai outcomes."
+        ],
+        "antiLore": [
+          "Do not treat one colony resolution as ending the Culling Game."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Sendai Colony",
+        "chapterRange": "Sendai resolution",
+        "confidence": 0.82,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-culling-game-colonies",
+          "status": "initial_culling_colonies_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_culling_kashimo_is_ancient_player_pressure",
+      "title": "Kashimo Is Ancient Player Pressure",
+      "kind": "character_state",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "character_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.culling.tokyo-no2-hakari-kashimo",
+        "validToAnchor": "jjk.culling.tokyo-no2-hakari-kashimo",
+        "sortKeyFrom": 11300,
+        "sortKeyTo": 11300,
+        "precision": "anchor_exact",
+        "windowKind": "point",
+        "label": "Kashimo in Tokyo No. 2"
+      },
+      "coordinates": [
+        {
+          "axis": "colony",
+          "id": "tokyo-no2",
+          "label": "Tokyo No. 2 Colony",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:kashimo-hajime",
+          "jjk:hakari-kinji"
+        ],
+        "characters": [
+          "Hajime Kashimo",
+          "Kinji Hakari"
+        ],
+        "locations": [
+          "Tokyo No. 2 Colony"
+        ],
+        "objects": [],
+        "factions": [
+          "Culling Game players"
+        ],
+        "topics": [
+          "ancient player pressure",
+          "Kashimo",
+          "Tokyo No. 2"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:culling-game-colonies",
+        "character:kashimo-hajime",
+        "character:hakari-kinji",
+        "faction:culling-game-players",
+        "topic:ancient-sorcerers",
+        "topic:tokyo-no2-colony"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Hajime Kashimo",
+            "Kinji Hakari"
+          ],
+          "topicsAny": [
+            "Kashimo",
+            "ancient sorcerer",
+            "Tokyo No. 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen early and middle Culling Game colony action through Tokyo No. 2 Hakari/Kashimo material."
+      },
+      "content": {
+        "fact": "Hajime Kashimo brings ancient-player pressure into Tokyo No. 2, with motives and combat expectations that differ from modern rescue-oriented participants.",
+        "injection": "In Tokyo No. 2 scenes, write Kashimo as a dangerous reincarnated player with his own combat-driven priorities, not as a generic point holder.",
+        "constraints": [
+          "Keep later Shinjuku Kashimo material gated to later decks."
+        ],
+        "antiLore": [
+          "Do not make Kashimo's colony role equivalent to a modern ally or rescue target."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Tokyo No. 2 Colony",
+        "chapterRange": "Kashimo pressure",
+        "confidence": 0.82,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-culling-game-colonies",
+          "status": "initial_culling_colonies_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_culling_hakari_kashimo_fight_defines_tokyo_no2_risk",
+      "title": "Hakari And Kashimo Define Tokyo No. 2 Risk",
+      "kind": "event",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.culling.tokyo-no2-hakari-kashimo",
+        "validToAnchor": "jjk.culling.tokyo-no2-hakari-kashimo",
+        "sortKeyFrom": 11300,
+        "sortKeyTo": 11300,
+        "precision": "anchor_exact",
+        "windowKind": "point",
+        "label": "Hakari and Kashimo in Tokyo No. 2"
+      },
+      "coordinates": [
+        {
+          "axis": "colony",
+          "id": "tokyo-no2",
+          "label": "Tokyo No. 2 Colony",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:hakari-kinji",
+          "jjk:kashimo-hajime"
+        ],
+        "characters": [
+          "Kinji Hakari",
+          "Hajime Kashimo"
+        ],
+        "locations": [
+          "Tokyo No. 2 Colony"
+        ],
+        "objects": [],
+        "factions": [
+          "Culling Game players"
+        ],
+        "topics": [
+          "Hakari versus Kashimo",
+          "Tokyo No. 2 risk",
+          "recruitment and points"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:culling-game-colonies",
+        "character:hakari-kinji",
+        "character:kashimo-hajime",
+        "faction:culling-game-players",
+        "topic:tokyo-no2-colony",
+        "topic:ancient-sorcerers"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kinji Hakari",
+            "Hajime Kashimo"
+          ],
+          "topicsAny": [
+            "Hakari versus Kashimo",
+            "Tokyo No. 2",
+            "Culling Game recruitment"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen early and middle Culling Game colony action through Tokyo No. 2 Hakari/Kashimo material."
+      },
+      "content": {
+        "fact": "Hakari's Tokyo No. 2 clash with Kashimo defines one of the colony arc's major risk-and-recruitment pressure points.",
+        "injection": "When Tokyo No. 2 is active, let Hakari and Kashimo's clash carry both combat risk and strategic recruitment value.",
+        "constraints": [
+          "Do not reveal later Kashimo target shifts or Shinjuku participation from this colony card."
+        ],
+        "antiLore": [
+          "Do not treat Hakari's Tokyo No. 2 role as detached from the group's wider Culling Game objectives."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Tokyo No. 2 Colony",
+        "chapterRange": "Hakari and Kashimo",
+        "confidence": 0.82,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-culling-game-colonies",
+          "status": "initial_culling_colonies_slice"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "jjk_culling_tsumiki_and_late_convergence_remain_gated",
+      "title": "Tsumiki And Late Convergence Remain Gated",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "secret",
+      "revealPolicy": "never_before_context",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "jjk.culling.colony-entry",
+        "validToAnchor": "jjk.culling.tokyo-no2-hakari-kashimo",
+        "sortKeyFrom": 10000,
+        "sortKeyTo": 11300,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Culling Game Colonies future-leak guard"
+      },
+      "coordinates": [
+        {
+          "axis": "future_guard",
+          "id": "late-convergence-gated",
+          "label": "Late Culling Game convergence remains gated",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "jjk:tsumiki-fushiguro",
+          "jjk:megumi-fushiguro",
+          "jjk:culling-game-players"
+        ],
+        "characters": [
+          "Tsumiki Fushiguro",
+          "Megumi Fushiguro"
+        ],
+        "locations": [
+          "Culling Game colonies"
+        ],
+        "objects": [],
+        "factions": [
+          "Culling Game players"
+        ],
+        "topics": [
+          "Tsumiki status",
+          "late convergence",
+          "future spoilers"
+        ]
+      },
+      "tags": [
+        "fandom:jjk",
+        "continuity:jjk-manga-main",
+        "adaptation:manga",
+        "arc:culling-game-colonies",
+        "character:tsumiki-fushiguro",
+        "character:fushiguro-megumi",
+        "faction:culling-game-players",
+        "secret:tsumiki-status",
+        "topic:future-convergence-guard",
+        "topic:culling-game-rules"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Tsumiki Fushiguro",
+            "Megumi Fushiguro"
+          ],
+          "topicsAny": [
+            "Tsumiki status",
+            "late Culling Game",
+            "future convergence"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen early and middle Culling Game colony action through Tokyo No. 2 Hakari/Kashimo material."
+      },
+      "content": {
+        "fact": "This colony deck should not reveal Tsumiki's later status turns, late Culling Game convergence, Angel, Gojo unsealing, Sakurajima, Shinjuku, or final outcomes.",
+        "injection": "Use this deck for active colony play and early/middle outcomes only; keep late convergence and endgame facts gated unless later decks are loaded.",
+        "constraints": [
+          "Do not reveal Angel, Prison Realm resolution, Gojo unsealing, Sukuna vessel changes, Shinjuku, or final arc events from this deck."
+        ],
+        "antiLore": [
+          "Do not let early colony Context automatically spoil the late Culling Game or final arc."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Culling Game",
+        "chapterRange": "Deck-level future guard",
+        "confidence": 0.78,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaJjkScaffold": {
+          "targetPackId": "jjk-culling-game-colonies",
+          "status": "initial_culling_colonies_slice"
+        }
+      }
+    }
+  ]
+}

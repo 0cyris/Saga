@@ -1,0 +1,202 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "sortKeyScale": "pack_local",
+  "anchors": [
+    {
+      "id": "jjk.culling.colony-entry",
+      "label": "Characters enter the Culling Game colonies",
+      "sortKey": 10000,
+      "aliases": [
+        "enter Culling Game colonies",
+        "Culling Game entry"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Culling Game"
+      }
+    },
+    {
+      "id": "jjk.culling.rules-points-active",
+      "label": "Culling Game rules and points become active pressure",
+      "sortKey": 10100,
+      "aliases": [
+        "Culling Game points",
+        "Culling Game rule pressure"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Culling Game"
+      }
+    },
+    {
+      "id": "jjk.culling.tokyo-no1-higuruma",
+      "label": "Yuji encounters Higuruma in Tokyo No. 1",
+      "sortKey": 10300,
+      "aliases": [
+        "Yuji meets Higuruma",
+        "Tokyo No. 1 Higuruma"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Tokyo No. 1 Colony"
+      }
+    },
+    {
+      "id": "jjk.culling.point-transfer-added",
+      "label": "Point transfer rule is added",
+      "sortKey": 10500,
+      "aliases": [
+        "point transfer rule",
+        "Higuruma adds rule"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Tokyo No. 1 Colony"
+      }
+    },
+    {
+      "id": "jjk.culling.tokyo-no1-reggie-fight",
+      "label": "Megumi's Tokyo No. 1 fight with Reggie",
+      "sortKey": 10700,
+      "aliases": [
+        "Megumi versus Reggie",
+        "Reggie fight"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Tokyo No. 1 Colony"
+      }
+    },
+    {
+      "id": "jjk.culling.sendai-deadlock",
+      "label": "Sendai colony multi-way deadlock",
+      "sortKey": 11000,
+      "aliases": [
+        "Sendai deadlock",
+        "Yuta in Sendai"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Sendai Colony"
+      }
+    },
+    {
+      "id": "jjk.culling.yuta-sendai-resolution",
+      "label": "Yuta resolves the Sendai colony fight",
+      "sortKey": 11150,
+      "aliases": [
+        "Yuta resolves Sendai",
+        "Sendai battle resolution"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Sendai Colony"
+      }
+    },
+    {
+      "id": "jjk.culling.tokyo-no2-hakari-kashimo",
+      "label": "Hakari and Kashimo clash in Tokyo No. 2",
+      "sortKey": 11300,
+      "aliases": [
+        "Hakari versus Kashimo",
+        "Tokyo No. 2 colony"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "sourceType": "manga",
+        "title": "Tokyo No. 2 Colony"
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "jjk.culling.window.full-colonies",
+      "label": "Culling Game Colonies",
+      "anchorFrom": "jjk.culling.colony-entry",
+      "anchorTo": "jjk.culling.tokyo-no2-hakari-kashimo",
+      "sortKeyFrom": 10000,
+      "sortKeyTo": 11300,
+      "aliases": [
+        "Culling Game Colonies",
+        "early Culling Game"
+      ]
+    },
+    {
+      "id": "jjk.culling.window.tokyo-no1",
+      "label": "Tokyo No. 1 Colony",
+      "anchorFrom": "jjk.culling.colony-entry",
+      "anchorTo": "jjk.culling.tokyo-no1-reggie-fight",
+      "sortKeyFrom": 10000,
+      "sortKeyTo": 10700,
+      "aliases": [
+        "Tokyo No. 1 Colony",
+        "Yuji and Megumi colony"
+      ]
+    },
+    {
+      "id": "jjk.culling.window.sendai",
+      "label": "Sendai Colony",
+      "anchorFrom": "jjk.culling.sendai-deadlock",
+      "anchorTo": "jjk.culling.yuta-sendai-resolution",
+      "sortKeyFrom": 11000,
+      "sortKeyTo": 11150,
+      "aliases": [
+        "Sendai Colony",
+        "Yuta Sendai"
+      ]
+    },
+    {
+      "id": "jjk.culling.window.tokyo-no2",
+      "label": "Tokyo No. 2 Colony",
+      "anchorFrom": "jjk.culling.tokyo-no2-hakari-kashimo",
+      "anchorTo": "jjk.culling.tokyo-no2-hakari-kashimo",
+      "sortKeyFrom": 11300,
+      "sortKeyTo": 11300,
+      "aliases": [
+        "Tokyo No. 2 Colony",
+        "Hakari and Kashimo"
+      ]
+    }
+  ],
+  "coordinateAxes": [
+    {
+      "axis": "arc",
+      "label": "Arc",
+      "values": [
+        "culling-game-colonies"
+      ]
+    },
+    {
+      "axis": "colony",
+      "label": "Colony",
+      "values": [
+        "tokyo-no1",
+        "sendai",
+        "tokyo-no2"
+      ]
+    },
+    {
+      "axis": "rule_state",
+      "label": "Rule State",
+      "values": [
+        "points-active",
+        "point-transfer-added"
+      ]
+    },
+    {
+      "axis": "future_guard",
+      "label": "Future Guard",
+      "values": [
+        "late-convergence-gated"
+      ]
+    }
+  ]
+}

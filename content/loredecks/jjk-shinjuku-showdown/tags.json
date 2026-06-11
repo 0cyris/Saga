@@ -1,0 +1,292 @@
+{
+  "schemaVersion": 1,
+  "tags": {
+    "adaptation:manga": {
+      "label": "Manga",
+      "color": "#5b677a",
+      "textColor": "#ffffff",
+      "description": "Manga-primary continuity tag for Jujutsu Kaisen retrieval and filtering.",
+      "aliases": [
+        "manga"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "arc:epilogue": {
+      "label": "Epilogue",
+      "color": "#7b3f00",
+      "textColor": "#ffffff",
+      "description": "Chapter 271 and post-battle state tag.",
+      "aliases": [
+        "JJK chapter 271 epilogue"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "arc:shinjuku-showdown": {
+      "label": "Shinjuku Showdown",
+      "color": "#7b3f00",
+      "textColor": "#ffffff",
+      "description": "Final Shinjuku Showdown arc tag.",
+      "aliases": [
+        "Shinjuku Showdown arc"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:gojo-satoru": {
+      "label": "Satoru Gojo",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Satoru Gojo final battle state tag.",
+      "aliases": [
+        "Gojo Shinjuku final battle"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:higuruma-hiromi": {
+      "label": "Hiromi Higuruma",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Hiromi Higuruma final battle plan tag.",
+      "aliases": [
+        "Higuruma Shinjuku plan"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:itadori-yuji": {
+      "label": "Yuji Itadori",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Yuji Itadori final battle and epilogue state tag.",
+      "aliases": [
+        "Yuji Shinjuku final"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:kashimo-hajime": {
+      "label": "Hajime Kashimo",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Hajime Kashimo post-Gojo final battle tag.",
+      "aliases": [
+        "Kashimo Shinjuku"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:maki-zenin": {
+      "label": "Maki Zenin",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Maki Zenin Shinjuku plan tag.",
+      "aliases": [
+        "Maki Shinjuku plan"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:megumi-fushiguro": {
+      "label": "Megumi Fushiguro",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Megumi Fushiguro final rescue state tag.",
+      "aliases": [
+        "Megumi final rescue"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:nobara-kugisaki": {
+      "label": "Nobara Kugisaki",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Nobara Kugisaki final battle status tag.",
+      "aliases": [
+        "Nobara final status"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:okkotsu-yuta": {
+      "label": "Yuta Okkotsu",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Yuta Okkotsu Shinjuku backup plan tag.",
+      "aliases": [
+        "Yuta Shinjuku plan"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:ryomen-sukuna": {
+      "label": "Ryomen Sukuna",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Ryomen Sukuna final battle and resolution tag.",
+      "aliases": [
+        "Sukuna Shinjuku final"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "continuity:jjk-manga-main": {
+      "label": "JJK Manga Main",
+      "color": "#4c5c68",
+      "textColor": "#ffffff",
+      "description": "Primary Jujutsu Kaisen manga continuity.",
+      "aliases": [
+        "JJK manga main"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:jujutsu-allies": {
+      "label": "Jujutsu Allies",
+      "color": "#7d3c98",
+      "textColor": "#ffffff",
+      "description": "Final battle allied plan group.",
+      "aliases": [
+        "Shinjuku allied plan group"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "fandom:jjk": {
+      "label": "Jujutsu Kaisen",
+      "color": "#4c5c68",
+      "textColor": "#ffffff",
+      "description": "Jujutsu Kaisen fandom tag.",
+      "aliases": [
+        "JJK",
+        "Jujutsu Kaisen"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "relationship:yuji-megumi-rescue": {
+      "label": "Yuji And Megumi Rescue",
+      "color": "#b04a7a",
+      "textColor": "#ffffff",
+      "description": "Yuji and Megumi final separation/rescue stakes.",
+      "aliases": [
+        "Yuji Megumi final rescue"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:gojo-fate": {
+      "label": "Gojo Fate",
+      "color": "#922b21",
+      "textColor": "#ffffff",
+      "description": "Spoiler tag for Gojo's Shinjuku fate.",
+      "aliases": [
+        "Gojo Shinjuku fate spoiler"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:sukuna-defeat": {
+      "label": "Sukuna Defeat",
+      "color": "#922b21",
+      "textColor": "#ffffff",
+      "description": "Spoiler tag for Sukuna's final defeat.",
+      "aliases": [
+        "Sukuna final defeat spoiler"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:domain-adaptation": {
+      "label": "Domain And Adaptation",
+      "color": "#2e86c1",
+      "textColor": "#ffffff",
+      "description": "Gojo/Sukuna domain clash and Mahoraga adaptation topic.",
+      "aliases": [
+        "Shinjuku domain adaptation"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:epilogue-state": {
+      "label": "Epilogue State",
+      "color": "#2e86c1",
+      "textColor": "#ffffff",
+      "description": "Post-battle chapter 271 state topic.",
+      "aliases": [
+        "JJK ending state"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:final-resolution": {
+      "label": "Final Resolution",
+      "color": "#2e86c1",
+      "textColor": "#ffffff",
+      "description": "Final Sukuna resolution and aftermath topic.",
+      "aliases": [
+        "JJK final resolution"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:rotating-plans": {
+      "label": "Rotating Plans",
+      "color": "#2e86c1",
+      "textColor": "#ffffff",
+      "description": "Layered Shinjuku allied plan sequence.",
+      "aliases": [
+        "Shinjuku rotating plans"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    }
+  }
+}

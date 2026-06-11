@@ -6,7 +6,6 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const ROOT = process.cwd();
 const LOREDECK_ROOT = path.join(ROOT, 'content', 'loredecks');
-const JJK_FOLDER_PATH = ['Jujutsu Kaisen', 'Manga Main'];
 
 function readJson(relativePath) {
   return JSON.parse(fs.readFileSync(path.join(ROOT, relativePath), 'utf8'));
@@ -95,8 +94,8 @@ for (const deckId of DEFAULT_JJK_LOREDECK_IDS) {
   assert.ok(defaultRecord, `${deckId} should exist in default bundled library packs.`);
   assert.equal(normalizeManifestRef(defaultRecord.manifest), `${deckId}/loredeck.json`, `${deckId} default manifest reference should point to deck-local loredeck.json.`);
   assert.equal(normalizeManifestRef(indexRecord.manifest), `${deckId}/loredeck.json`, `${deckId} index manifest reference should point to deck-local loredeck.json.`);
-  assert.deepEqual(defaultRecord.library?.suggestedPath, JJK_FOLDER_PATH, `${deckId} should live under the Jujutsu Kaisen Manga Main folder.`);
-  assert.deepEqual(indexRecord.library?.suggestedPath, JJK_FOLDER_PATH, `${deckId} index record should live under the Jujutsu Kaisen Manga Main folder.`);
+  assert.deepEqual(defaultRecord.library?.suggestedPath, manifest.library?.suggestedPath, `${deckId} default suggested path should match manifest.`);
+  assert.deepEqual(indexRecord.library?.suggestedPath, manifest.library?.suggestedPath, `${deckId} index suggested path should match manifest.`);
   assert.equal(DEFAULT_BUNDLED_LOREDECK_CONTEXTS[deckId].contextType, 'anchor_window', `${deckId} should use anchor-window Context defaults.`);
 
   for (const field of ['title', 'description', 'fandom', 'era', 'author', 'version', 'entrySchemaVersion', 'updatedAt']) {

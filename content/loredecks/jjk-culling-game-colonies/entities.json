@@ -1,0 +1,329 @@
+{
+  "schemaVersion": 1,
+  "entities": {
+    "jjk:culling-game-players": {
+      "type": "faction",
+      "label": "Culling Game players",
+      "aliases": [
+        "Culling Game participants"
+      ],
+      "canonicalNames": [
+        "Culling Game players"
+      ],
+      "tags": [
+        "faction:culling-game-players"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen early and middle Culling Game colony action through Tokyo No. 2 Hakari/Kashimo material."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "jjk:higuruma-hiromi": {
+      "type": "character",
+      "label": "Hiromi Higuruma",
+      "aliases": [
+        "Higuruma"
+      ],
+      "canonicalNames": [
+        "Hiromi Higuruma"
+      ],
+      "tags": [
+        "character:higuruma-hiromi",
+        "topic:tokyo-no1-colony"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen early and middle Culling Game colony action through Tokyo No. 2 Hakari/Kashimo material."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    },
+    "jjk:hakari-kinji": {
+      "type": "character",
+      "label": "Kinji Hakari",
+      "aliases": [
+        "Hakari"
+      ],
+      "canonicalNames": [
+        "Kinji Hakari"
+      ],
+      "tags": [
+        "character:hakari-kinji",
+        "topic:tokyo-no2-colony"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen early and middle Culling Game colony action through Tokyo No. 2 Hakari/Kashimo material."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    },
+    "jjk:itadori-yuji": {
+      "type": "character",
+      "label": "Yuji Itadori",
+      "aliases": [
+        "Yuji"
+      ],
+      "canonicalNames": [
+        "Yuji Itadori"
+      ],
+      "tags": [
+        "character:itadori-yuji",
+        "topic:tokyo-no1-colony"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen early and middle Culling Game colony action through Tokyo No. 2 Hakari/Kashimo material."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.84
+      },
+      "extensions": {}
+    },
+    "jjk:kashimo-hajime": {
+      "type": "character",
+      "label": "Hajime Kashimo",
+      "aliases": [
+        "Kashimo"
+      ],
+      "canonicalNames": [
+        "Hajime Kashimo"
+      ],
+      "tags": [
+        "character:kashimo-hajime",
+        "topic:tokyo-no2-colony",
+        "topic:ancient-sorcerers"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen early and middle Culling Game colony action through Tokyo No. 2 Hakari/Kashimo material."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    },
+    "jjk:kurourushi": {
+      "type": "character",
+      "label": "Kurourushi",
+      "aliases": [
+        "Kurourushi"
+      ],
+      "canonicalNames": [
+        "Kurourushi"
+      ],
+      "tags": [
+        "character:kurourushi",
+        "topic:sendai-deadlock"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen early and middle Culling Game colony action through Tokyo No. 2 Hakari/Kashimo material."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "jjk:megumi-fushiguro": {
+      "type": "character",
+      "label": "Megumi Fushiguro",
+      "aliases": [
+        "Megumi"
+      ],
+      "canonicalNames": [
+        "Megumi Fushiguro"
+      ],
+      "tags": [
+        "character:fushiguro-megumi",
+        "topic:tokyo-no1-colony"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen early and middle Culling Game colony action through Tokyo No. 2 Hakari/Kashimo material."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.84
+      },
+      "extensions": {}
+    },
+    "jjk:reggie-star": {
+      "type": "character",
+      "label": "Reggie Star",
+      "aliases": [
+        "Reggie"
+      ],
+      "canonicalNames": [
+        "Reggie Star"
+      ],
+      "tags": [
+        "character:reggie-star",
+        "topic:tokyo-no1-colony"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen early and middle Culling Game colony action through Tokyo No. 2 Hakari/Kashimo material."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "jjk:ryu-ishigori": {
+      "type": "character",
+      "label": "Ryu Ishigori",
+      "aliases": [
+        "Ryu"
+      ],
+      "canonicalNames": [
+        "Ryu Ishigori"
+      ],
+      "tags": [
+        "character:ryu-ishigori",
+        "topic:sendai-deadlock"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen early and middle Culling Game colony action through Tokyo No. 2 Hakari/Kashimo material."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "jjk:takako-uro": {
+      "type": "character",
+      "label": "Takako Uro",
+      "aliases": [
+        "Uro"
+      ],
+      "canonicalNames": [
+        "Takako Uro"
+      ],
+      "tags": [
+        "character:takako-uro",
+        "topic:sendai-deadlock"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen early and middle Culling Game colony action through Tokyo No. 2 Hakari/Kashimo material."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "jjk:tsumiki-fushiguro": {
+      "type": "character",
+      "label": "Tsumiki Fushiguro",
+      "aliases": [
+        "Tsumiki"
+      ],
+      "canonicalNames": [
+        "Tsumiki Fushiguro"
+      ],
+      "tags": [
+        "character:tsumiki-fushiguro",
+        "secret:tsumiki-status"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen early and middle Culling Game colony action through Tokyo No. 2 Hakari/Kashimo material."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "jjk:yuta-okkotsu": {
+      "type": "character",
+      "label": "Yuta Okkotsu",
+      "aliases": [
+        "Yuta"
+      ],
+      "canonicalNames": [
+        "Yuta Okkotsu"
+      ],
+      "tags": [
+        "character:okkotsu-yuta",
+        "topic:sendai-deadlock"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "jjk-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "Jujutsu Kaisen early and middle Culling Game colony action through Tokyo No. 2 Hakari/Kashimo material."
+      },
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen",
+        "confidence": 0.84
+      },
+      "extensions": {}
+    }
+  }
+}

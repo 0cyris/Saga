@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve Jujutsu Kaisen Culling Game colony Context from active colony entry through Tokyo No. 2 Hakari/Kashimo material.",
+  "preferredFields": [
+    "arc",
+    "chapter",
+    "beforeAfter",
+    "majorEvent",
+    "colony",
+    "ruleState",
+    "futureGuard"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer Culling Game colony, rule, points, Higuruma, Reggie, Sendai, Yuta, Hakari, and Kashimo anchors. Do not infer late convergence, Sakurajima, Angel, Gojo unsealing, Shinjuku, or final outcomes from this deck.",
+  "localPatterns": [
+    {
+      "pattern": "during culling game colonies",
+      "result": {
+        "anchorFrom": "jjk.culling.colony-entry",
+        "anchorTo": "jjk.culling.tokyo-no2-hakari-kashimo",
+        "label": "Culling Game Colonies"
+      }
+    },
+    {
+      "pattern": "during tokyo no 1",
+      "result": {
+        "anchorFrom": "jjk.culling.colony-entry",
+        "anchorTo": "jjk.culling.tokyo-no1-reggie-fight",
+        "label": "Tokyo No. 1 Colony"
+      }
+    },
+    {
+      "pattern": "after point transfer",
+      "result": {
+        "anchorFrom": "jjk.culling.point-transfer-added",
+        "label": "After point transfer rule is added"
+      }
+    },
+    {
+      "pattern": "during sendai",
+      "result": {
+        "anchorFrom": "jjk.culling.sendai-deadlock",
+        "anchorTo": "jjk.culling.yuta-sendai-resolution",
+        "label": "Sendai Colony"
+      }
+    },
+    {
+      "pattern": "hakari versus kashimo",
+      "result": {
+        "anchorId": "jjk.culling.tokyo-no2-hakari-kashimo",
+        "label": "Hakari and Kashimo in Tokyo No. 2"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "sceneDate": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "label": "string",
+    "branchId": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

@@ -1,0 +1,223 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "sortKeyScale": "pack_local",
+  "anchors": [
+    {
+      "id": "jjk.modulo.after-mainline-gap",
+      "label": "Modulo sequel gap after manga mainline",
+      "sortKey": 20000,
+      "aliases": [
+        "Modulo future sequel",
+        "after JJK mainline"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen Modulo",
+        "sourceType": "manga",
+        "title": "Modulo premise"
+      }
+    },
+    {
+      "id": "jjk.modulo.future-tokyo-status",
+      "label": "Future Tokyo jujutsu status established",
+      "sortKey": 20100,
+      "aliases": [
+        "future Tokyo",
+        "future jujutsu world"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen Modulo",
+        "sourceType": "manga",
+        "title": "Future setting"
+      }
+    },
+    {
+      "id": "jjk.modulo.simurian-arrival",
+      "label": "Simurian arrival reframes cursed energy",
+      "sortKey": 20200,
+      "aliases": [
+        "Simurian arrival",
+        "aliens and jujutsu"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen Modulo",
+        "sourceType": "manga",
+        "title": "Simurian arrival"
+      }
+    },
+    {
+      "id": "jjk.modulo.maru-diplomatic-mission",
+      "label": "Maru's diplomatic mission begins",
+      "sortKey": 20300,
+      "aliases": [
+        "Maru mission",
+        "Marulu mission"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen Modulo",
+        "sourceType": "manga",
+        "title": "Maru mission"
+      }
+    },
+    {
+      "id": "jjk.modulo.okkotsu-siblings-assigned",
+      "label": "Yuka and Tsurugi Okkotsu become central leads",
+      "sortKey": 20400,
+      "aliases": [
+        "Yuka and Tsurugi",
+        "Okkotsu siblings"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen Modulo",
+        "sourceType": "manga",
+        "title": "Okkotsu sibling lead context"
+      }
+    },
+    {
+      "id": "jjk.modulo.coexistence-test-escalates",
+      "label": "Coexistence test escalates",
+      "sortKey": 20500,
+      "aliases": [
+        "coexistence test",
+        "Simurian coexistence"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen Modulo",
+        "sourceType": "manga",
+        "title": "Coexistence test"
+      }
+    },
+    {
+      "id": "jjk.modulo.alien-jujutsu-conflict",
+      "label": "Alien jujutsu conflict intensifies",
+      "sortKey": 20600,
+      "aliases": [
+        "alien jujutsu conflict",
+        "Modulo conflict"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen Modulo",
+        "sourceType": "manga",
+        "title": "Alien jujutsu conflict"
+      }
+    },
+    {
+      "id": "jjk.modulo.final-resolution",
+      "label": "Modulo final resolution",
+      "sortKey": 20700,
+      "aliases": [
+        "Modulo ending",
+        "chapter 25 resolution"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen Modulo",
+        "sourceType": "manga",
+        "title": "Final resolution"
+      }
+    },
+    {
+      "id": "jjk.modulo.epilogue-state",
+      "label": "Modulo epilogue state",
+      "sortKey": 20800,
+      "aliases": [
+        "Modulo aftermath",
+        "post-Modulo state"
+      ],
+      "sourceInfo": {
+        "work": "Jujutsu Kaisen Modulo",
+        "sourceType": "manga",
+        "title": "Modulo aftermath"
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "jjk.modulo.window.full-series",
+      "label": "Jujutsu Kaisen Modulo",
+      "anchorFrom": "jjk.modulo.after-mainline-gap",
+      "anchorTo": "jjk.modulo.epilogue-state",
+      "sortKeyFrom": 20000,
+      "sortKeyTo": 20800,
+      "aliases": [
+        "Modulo full series",
+        "JJK sequel spinoff"
+      ]
+    },
+    {
+      "id": "jjk.modulo.window.arrival-mission",
+      "label": "Arrival And Mission",
+      "anchorFrom": "jjk.modulo.simurian-arrival",
+      "anchorTo": "jjk.modulo.okkotsu-siblings-assigned",
+      "sortKeyFrom": 20200,
+      "sortKeyTo": 20400,
+      "aliases": [
+        "Simurian arrival",
+        "Maru mission setup"
+      ]
+    },
+    {
+      "id": "jjk.modulo.window.coexistence-conflict",
+      "label": "Coexistence And Conflict",
+      "anchorFrom": "jjk.modulo.okkotsu-siblings-assigned",
+      "anchorTo": "jjk.modulo.alien-jujutsu-conflict",
+      "sortKeyFrom": 20400,
+      "sortKeyTo": 20600,
+      "aliases": [
+        "coexistence test",
+        "alien jujutsu conflict"
+      ]
+    },
+    {
+      "id": "jjk.modulo.window.final-resolution",
+      "label": "Final Resolution",
+      "anchorFrom": "jjk.modulo.final-resolution",
+      "anchorTo": "jjk.modulo.epilogue-state",
+      "sortKeyFrom": 20700,
+      "sortKeyTo": 20800,
+      "aliases": [
+        "Modulo ending",
+        "chapter 25 aftermath"
+      ]
+    }
+  ],
+  "coordinateAxes": [
+    {
+      "axis": "arc",
+      "label": "Arc",
+      "values": [
+        "future-sequel",
+        "arrival-mission",
+        "coexistence-conflict",
+        "resolution"
+      ]
+    },
+    {
+      "axis": "simurian_state",
+      "label": "Simurian State",
+      "values": [
+        "arriving",
+        "diplomatic-mission",
+        "coexistence-tested",
+        "conflict-active",
+        "resolved"
+      ]
+    },
+    {
+      "axis": "okkotsu_legacy_state",
+      "label": "Okkotsu Legacy State",
+      "values": [
+        "future-inheritance",
+        "active-leads"
+      ]
+    },
+    {
+      "axis": "knowledge_state",
+      "label": "Knowledge State",
+      "values": [
+        "premise",
+        "sequel-spoiler",
+        "final-resolution"
+      ]
+    }
+  ]
+}
