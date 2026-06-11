@@ -31,6 +31,9 @@ import {
     createThemeIconSetPanel,
     getThemeIconCoverage,
 } from './theme-panel.js';
+import {
+    sanitizeFileStem,
+} from '../runtime/runtime-formatters.js';
 
 let themeActionDeps = {};
 
@@ -370,13 +373,4 @@ function defaultDownloadJson(data, filename) {
     a.click();
     a.remove();
     setTimeout(() => URL.revokeObjectURL(url), 0);
-}
-
-function sanitizeFileStem(value) {
-    const text = String(value || '')
-        .trim()
-        .toLowerCase()
-        .replace(/[^a-z0-9._-]+/g, '-')
-        .replace(/^-+|-+$/g, '');
-    return text || 'saga-export';
 }

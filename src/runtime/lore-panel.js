@@ -136,6 +136,8 @@ import {
 } from '../ui/runtime-ui-kit.js';
 import {
     estimateTokens,
+    formatCategoryCounts,
+    sanitizeFileStem,
     truncateText,
 } from './runtime-formatters.js';
 import {
@@ -15450,16 +15452,6 @@ function selectLoredeckForDetails(packId, options = {}) {
     }
 }
 
-function formatCategoryCounts(categoryCounts = {}) {
-    if (!categoryCounts || typeof categoryCounts !== 'object' || Array.isArray(categoryCounts)) return '';
-    return Object.entries(categoryCounts)
-        .filter(([, count]) => Number(count) > 0)
-        .sort((a, b) => Number(b[1]) - Number(a[1]))
-        .slice(0, 6)
-        .map(([category, count]) => `${humanizeScopeKey(category)}: ${count}`)
-        .join(', ');
-}
-
 function getLoredeckSourceSummary(pack) {
     const source = pack?.source && typeof pack.source === 'object' && !Array.isArray(pack.source) ? pack.source : {};
     const kind = source.kind || (pack?.manifest ? (/^https?:\/\//i.test(pack.manifest) ? 'url' : 'path') : 'unknown');
@@ -17044,15 +17036,6 @@ function downloadBytes(data, filename, mimeType = 'application/octet-stream') {
     a.click();
     a.remove();
     setTimeout(() => URL.revokeObjectURL(url), 0);
-}
-
-function sanitizeFileStem(value) {
-    const text = String(value || '')
-        .trim()
-        .toLowerCase()
-        .replace(/[^a-z0-9._-]+/g, '-')
-        .replace(/^-+|-+$/g, '');
-    return text || 'saga-export';
 }
 
 function cloneJson(value) {

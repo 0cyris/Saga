@@ -1,6 +1,6 @@
 # Saga Lore Panel Decomposition Plan
 
-Status: Phase 9 Lorecards tab shell, compact/full Lore Timeline, Pending Lorecard Review wrapper/cards/bulk controls/mutation helpers, Accepted Lorecards section shell/list renderer/bulk controls/mutation helpers, New Lore dialog, Auto-Relevance card, accepted Lorecard card/tag-row rendering, accepted Lorecard edit/mutation helpers, shared Lorecard source/context badge helpers, accepted-list refresh/filter orchestration, Lorecard Workbench boundary, residual continuity delta review card extraction, and Phase 10 runtime tour/controller/guide/shell/navigation/formatter utility extraction plus Lorecard wrapper, shell-scroll, shell viewport-position, shell layout-normalization, and shell action cleanup implemented. Next queued Phase 10 slice: continue residual feature-neutral utility cleanup.
+Status: Phase 9 Lorecards tab shell, compact/full Lore Timeline, Pending Lorecard Review wrapper/cards/bulk controls/mutation helpers, Accepted Lorecards section shell/list renderer/bulk controls/mutation helpers, New Lore dialog, Auto-Relevance card, accepted Lorecard card/tag-row rendering, accepted Lorecard edit/mutation helpers, shared Lorecard source/context badge helpers, accepted-list refresh/filter orchestration, Lorecard Workbench boundary, residual continuity delta review card extraction, and Phase 10 runtime tour/controller/guide/shell/navigation/formatter utility extraction plus Lorecard wrapper, shell-scroll, shell viewport-position, shell layout-normalization, shell action cleanup, and shared filename/category formatter cleanup implemented. Next queued Phase 10 slice: continue residual feature-neutral utility cleanup.
 
 Date: 2026-06-07.
 
@@ -810,7 +810,7 @@ Phase 10 progress:
 - `runtime-guide-content.js` now owns static Basic/Advanced guide steps, Session guide copy, and guide-step normalization helpers.
 - `runtime-shell.js` now owns shell geometry constants, runtime panel layout-state normalization, rail/drawer sizing math, drawer scroll metric updates, nested scroll handoff, active scroll-element lookup, viewport centering/clamping actions, reset/tab-toggle/rail-mode actions, rail drag controller state, drawer resize controller state, and geometry persistence bridges.
 - `runtime-navigation.js` now owns runtime tab labels/icons/tooltips, automation mode definitions, Basic/Advanced tab lists, and experience/automation normalization helpers.
-- `runtime-formatters.js` now owns shared text truncation and approximate token-count helpers used by the runtime shell and extracted Lorecards panel.
+- `runtime-formatters.js` now owns shared text truncation, approximate token-count, filename-stem sanitizing, and category-count summary helpers used by runtime, Theme, Library, and extracted Lorecards surfaces.
 - `lorecards-panel.js` now owns pending batch-label formatting plus accepted category count/tooltip helpers instead of receiving them back through the `lore-panel.js` configuration bridge.
 - `lore-panel.js` configures the tour module with guide-content accessors and shell callbacks for section expansion, panel layout normalization, tab normalization, panel display, and root lookup.
 - `lore-panel.js` configures the shell module with root lookup, state access, layout-state normalization, and accepted-list resize refresh callbacks.
@@ -826,6 +826,7 @@ Tasks:
 - Done: Move runtime reset, drawer-tab toggle, and rail-mode toggle actions; remove dead local shell wrappers.
 - Done: Move runtime tab metadata, automation mode definitions, and experience/navigation normalization helpers.
 - Done: Move shared text truncation and approximate token-count helpers.
+- Done: Move shared filename-stem sanitizing and category-count summary formatting.
 - Done: Remove Lorecards-owned category and pending-batch wrapper callbacks from `lore-panel.js`.
 - Continue moving remaining feature-neutral utilities.
 - Remove dead wrappers that no extracted module uses.

@@ -1,3 +1,5 @@
+import { humanizeScopeKey } from '../ui/runtime-ui-kit.js';
+
 export function estimateTokens(text) {
     return Math.ceil(String(text || '').length / 4);
 }
@@ -12,4 +14,23 @@ export function truncateCleanText(text, maxLen) {
     const clean = String(text || '').replace(/\s+/g, ' ').trim();
     if (clean.length <= maxLen) return clean;
     return `${clean.slice(0, Math.max(0, maxLen - 1))}...`;
+}
+
+export function sanitizeFileStem(value) {
+    const text = String(value || '')
+        .trim()
+        .toLowerCase()
+        .replace(/[^a-z0-9._-]+/g, '-')
+        .replace(/^-+|-+$/g, '');
+    return text || 'saga-export';
+}
+
+export function formatCategoryCounts(categoryCounts = {}) {
+    if (!categoryCounts || typeof categoryCounts !== 'object' || Array.isArray(categoryCounts)) return '';
+    return Object.entries(categoryCounts)
+        .filter(([, count]) => Number(count) > 0)
+        .sort((a, b) => Number(b[1]) - Number(a[1]))
+        .slice(0, 6)
+        .map(([category, count]) => `${humanizeScopeKey(category)}: ${count}`)
+        .join(', ');
 }
