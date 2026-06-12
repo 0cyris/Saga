@@ -1071,7 +1071,7 @@ configureLoredeckCreatorPanel({
     getLoredeckCreatorPlanningAcceptedBatchIds,
     getLoredeckCreatorEntryDraftProgress,
     getLoredeckCreatorEntryTargetTitles,
-    getLoredeckCreatorDraftChanges: packId => getLoredeckAssistantDraftChanges(loredeckAssistantDraftCache.get(packId) || {}),
+    getLoredeckCreatorDraftChanges: packId => getLoredeckAssistantDraftChanges(getLoredeckCreatorDraftCacheForPack(packId)),
     getLoredeckCreatorPendingEntryCount: pack => getLoredeckPendingChanges(pack).filter(change => (change.affectedEntryIds || []).length).length,
     getLoredeckCreatorAcceptedEntryCount: pack => Object.keys(pack?.entryOverrides || {}).length,
     getFreshLoredeckLibraryPack,
@@ -1088,7 +1088,7 @@ configureLoredeckCreatorPanel({
     },
     createLoredeckCreatorDraftReviewSection: pack => {
         if (!pack?.packId) return null;
-        const draftCache = loredeckAssistantDraftCache.get(pack.packId);
+        const draftCache = getLoredeckCreatorDraftCacheForPack(pack.packId);
         const rows = getLoredeckEditableEntryRows(pack, []);
         return createLoredeckAssistantDraftBatchCard(pack, draftCache, rows, rows);
     },
@@ -2734,7 +2734,7 @@ function collectLoredeckCreatorCoverageEvidence(cached = {}, pack = null) {
             .filter(Boolean)
     );
     const pendingChanges = pack ? getLoredeckPendingChanges(pack) : [];
-    const draftChanges = pack ? getLoredeckAssistantDraftChanges(loredeckAssistantDraftCache.get(pack.packId) || {}) : [];
+    const draftChanges = pack ? getLoredeckAssistantDraftChanges(getLoredeckCreatorDraftCacheForPack(pack.packId)) : [];
     const getPreviewCoverageIds = (change = {}) => normalizeLoredeckCreatorCoverageIdList([
         ...(change.preview?.creatorEntryBatch?.coverageDimensionIds || []),
         ...Object.values(change.preview?.creatorEntryBatch?.titleCoverageMap || {}).flatMap(record => record?.coverageDimensionIds || []),
@@ -2971,7 +2971,7 @@ function getLoredeckCreatorPipelineModel(cached = {}) {
     const plannedSetCount = eligiblePlanningSets.filter(batch => plannedSetIds.has(batch.id)).length;
     const acceptedPlanningSetIds = getLoredeckCreatorPlanningAcceptedBatchIds(cached);
     const acceptedPlanningSetCount = eligiblePlanningSets.filter(batch => acceptedPlanningSetIds.has(batch.id)).length;
-    const draftChanges = generatedPack ? getLoredeckAssistantDraftChanges(loredeckAssistantDraftCache.get(generatedPack.packId) || {}) : [];
+    const draftChanges = generatedPack ? getLoredeckAssistantDraftChanges(getLoredeckCreatorDraftCacheForPack(generatedPack.packId)) : [];
     const pendingEntryCount = generatedPack ? getLoredeckPendingChanges(generatedPack).filter(change => (change.affectedEntryIds || []).length).length : 0;
     const creatorCoverage = getLoredeckCreatorCoverageModel(cached, generatedPack);
     const pipeline = generatedPack ? getLoredeckCreatorPipelineReadiness(generatedPack, cached) : null;
@@ -6244,11 +6244,12 @@ function compactLoredeckCreatorTagRegistryForPrompt(registry = {}) {
 function getLoredeckCreatorBlockedEntryIds(pack = {}, draftCache = null) {
     pack = pack || {};
     const blocked = new Set(Object.keys(pack.entryOverrides || {}).map(id => normalizeLoredeckEntryId(id)).filter(Boolean));
-    for (const id of normalizeLoredeckPendingChanges(pack.pendingChanges).flatMap(change => change.affectedEntryIds || [])) {
+    for (const id of collectLoredeckCreatorChangeEntryIds(normalizeLoredeckPendingChanges(pack.pendingChanges))) {
         const clean = normalizeLoredeckEntryId(id);
         if (clean) blocked.add(clean);
     }
-    for (const id of getLoredeckAssistantDraftChanges(draftCache || loredeckAssistantDraftCache.get(pack.packId) || {}).flatMap(change => change.affectedEntryIds || [])) {
+    const effectiveDraftCache = draftCache || getLoredeckCreatorDraftCacheForPack(pack.packId);
+    for (const id of collectLoredeckCreatorChangeEntryIds(getLoredeckAssistantDraftChanges(effectiveDraftCache))) {
         const clean = normalizeLoredeckEntryId(id);
         if (clean) blocked.add(clean);
     }
@@ -6290,7 +6291,8 @@ function getLoredeckCreatorEntryDraftPool(cached = {}, pack = {}) {
     const eligibleBatchIds = getLoredeckCreatorEntryEligibleBatchIds(cached, planning, pack);
     const approved = getLoredeckCreatorApprovedTitleDrafts(cached);
     const eligibleApproved = approved.filter(draft => eligibleBatchIds.has(getLoredeckCreatorDraftBatchId(draft)));
-    const blocked = getLoredeckCreatorBlockedEntryIds(pack || {});
+    const draftCache = Array.isArray(cached?.draftChanges) ? cached : null;
+    const blocked = getLoredeckCreatorBlockedEntryIds(pack || {}, draftCache);
     const selectedIds = getLoredeckCreatorSelectedTitleIds(cached);
     const selectedApproved = eligibleApproved.filter(draft => selectedIds.has(draft.titleId));
     const preferred = selectedApproved.length ? selectedApproved : eligibleApproved;
@@ -6349,23 +6351,35 @@ function getLoredeckCreatorEntryTargetTitles(cached = {}, pack = {}, limit = nul
     return getLoredeckCreatorEntryDraftPool(cached, pack || {}).remaining.slice(0, batchLimit);
 }
 
+function getLoredeckCreatorEntryTargetTitlesForOptions(cached = {}, pack = {}, options = {}, limit = null) {
+    const batchLimit = getLoredeckCreatorEntryBatchLimit(limit ?? options.batchSize, cached);
+    const targetTitleIds = new Set(normalizeLoredeckCreatorTitleIdList(options.targetTitleIds || [], 200, 180));
+    const targetPlanningBatchId = normalizeLoredeckCreatorTitleId(options.targetPlanningBatchId || options.targetPlanningBatch?.id || '', '');
+    if (!targetTitleIds.size && !targetPlanningBatchId) return getLoredeckCreatorEntryTargetTitles(cached, pack, batchLimit);
+    const pool = getLoredeckCreatorEntryDraftPool(cached, pack || {});
+    return pool.totalRemaining
+        .filter(draft => {
+            const draftId = normalizeLoredeckCreatorTitleId(draft.titleId || draft.id || '', '');
+            if (targetTitleIds.size && !targetTitleIds.has(draftId)) return false;
+            if (targetPlanningBatchId && getLoredeckCreatorDraftBatchId(draft) !== targetPlanningBatchId) return false;
+            return true;
+        })
+        .slice(0, batchLimit);
+}
+
 function getLoredeckCreatorExistingEntryIdsForPrompt(pack = {}) {
     const ids = new Set();
     for (const id of Object.keys(pack.entryOverrides || {})) {
         const clean = normalizeLoredeckEntryId(id);
         if (clean) ids.add(clean);
     }
-    for (const change of normalizeLoredeckPendingChanges(pack.pendingChanges)) {
-        for (const id of change.affectedEntryIds || []) {
-            const clean = normalizeLoredeckEntryId(id);
-            if (clean) ids.add(clean);
-        }
+    for (const id of collectLoredeckCreatorChangeEntryIds(normalizeLoredeckPendingChanges(pack.pendingChanges))) {
+        const clean = normalizeLoredeckEntryId(id);
+        if (clean) ids.add(clean);
     }
-    for (const change of getLoredeckAssistantDraftChanges(loredeckAssistantDraftCache.get(pack.packId) || {})) {
-        for (const id of change.affectedEntryIds || []) {
-            const clean = normalizeLoredeckEntryId(id);
-            if (clean) ids.add(clean);
-        }
+    for (const id of collectLoredeckCreatorChangeEntryIds(getLoredeckAssistantDraftChanges(getLoredeckCreatorDraftCacheForPack(pack.packId)))) {
+        const clean = normalizeLoredeckEntryId(id);
+        if (clean) ids.add(clean);
     }
     return [...ids].slice(0, 240);
 }
@@ -6660,9 +6674,10 @@ function commitLoredeckCreatorEntryDraftResult(parsed = {}, options = {}) {
     }
     const freshCache = getLoredeckCreatorBriefCache();
     const freshProgress = getLoredeckCreatorEntryDraftProgress(freshCache, pack);
-    const allDrafts = getLoredeckAssistantDraftChanges(loredeckAssistantDraftCache.get(pack.packId) || {});
+    const allDrafts = getLoredeckAssistantDraftChanges(getLoredeckCreatorDraftCacheForPack(pack.packId));
     setLoredeckCreatorBriefCache({
         ...freshCache,
+        draftChanges: allDrafts,
         entryDraftSummary: parsed.summary,
         entryDraftQuestions: parsed.clarifyingQuestions,
         entryDraftWarnings: warnings,
@@ -6691,22 +6706,8 @@ function commitLoredeckCreatorEntryDraftResult(parsed = {}, options = {}) {
 async function draftLoredeckCreatorEntryBatch(cached = {}, pack = {}, planning = {}, options = {}) {
     const brief = cached.brief || {};
     const batchSize = getLoredeckCreatorEntryBatchLimit(options.batchSize, cached);
-    const targetTitleIds = new Set(normalizeLoredeckCreatorTitleIdList(options.targetTitleIds || [], 200, 180));
     const targetPlanningBatchId = normalizeLoredeckCreatorTitleId(options.targetPlanningBatchId || options.targetPlanningBatch?.id || '', '');
-    let targetTitles = [];
-    if (targetTitleIds.size || targetPlanningBatchId) {
-        const pool = getLoredeckCreatorEntryDraftPool(cached, pack || {});
-        targetTitles = pool.totalRemaining
-            .filter(draft => {
-                const draftId = normalizeLoredeckCreatorTitleId(draft.titleId || draft.id || '', '');
-                if (targetTitleIds.size && !targetTitleIds.has(draftId)) return false;
-                if (targetPlanningBatchId && getLoredeckCreatorDraftBatchId(draft) !== targetPlanningBatchId) return false;
-                return true;
-            })
-            .slice(0, batchSize);
-    } else {
-        targetTitles = getLoredeckCreatorEntryTargetTitles(cached, pack, batchSize);
-    }
+    const targetTitles = getLoredeckCreatorEntryTargetTitlesForOptions(cached, pack, options, batchSize);
     if (!targetTitles.length) return { status: 'empty_pool', changeCount: 0, targetCount: 0 };
 
     const rows = getLoredeckEditableEntryRows(pack, []);
@@ -6935,7 +6936,7 @@ async function handleLoredeckCreatorEntryDraft(button = null, options = {}) {
             toast('Accept at least one planned Context and Tag set before drafting Lorecards.', 'warning');
             return;
         }
-        if (!getLoredeckCreatorEntryTargetTitles(cached, pack).length) {
+        if (!getLoredeckCreatorEntryTargetTitlesForOptions(cached, pack, options).length) {
             toast('No undrafted approved titles are available for Lorecard generation.', 'info');
             return;
         }
@@ -6965,7 +6966,7 @@ async function handleLoredeckCreatorEntryDraft(button = null, options = {}) {
                 pack = cached.generatedPackId ? getFreshLoredeckLibraryPack(cached.generatedPackId, pack) : pack;
                 planning = getLoredeckCreatorAcceptedPlanningStatus(pack);
                 if (!pack || !planning.ready) break;
-                if (!getLoredeckCreatorEntryTargetTitles(cached, pack).length) break;
+                if (!getLoredeckCreatorEntryTargetTitlesForOptions(cached, pack, options).length) break;
                 lastResult = await draftLoredeckCreatorEntryBatch(cached, pack, planning, {
                     generation,
                     batchIndex: batchIndex + 1,
@@ -8357,16 +8358,75 @@ async function registerLoredeckManifestFromInput(manifestRef, options = {}) {
     }
 }
 
-function getLoredeckCreatorJobForPack(pack = {}) {
-    const packId = String(pack?.packId || '').trim();
-    if (!packId || !isGeneratedLoredeckPack(pack)) return null;
+function getLoredeckCreatorJobForPackId(packId = '') {
+    const id = String(packId || '').trim();
+    if (!id) return null;
     const active = getActiveLoredeckCreatorJob(getState());
-    if (active && String(active.generatedPackId || active.brief?.packId || '').trim() === packId) return active;
+    if (active && String(active.generatedPackId || active.brief?.packId || '').trim() === id) return active;
     const registry = getLoredeckCreatorRegistry(getState());
     const jobs = registry?.jobs && typeof registry.jobs === 'object' && !Array.isArray(registry.jobs)
         ? Object.values(registry.jobs)
         : [];
-    return jobs.find(job => String(job?.generatedPackId || job?.brief?.packId || '').trim() === packId) || null;
+    return jobs.find(job => String(job?.generatedPackId || job?.brief?.packId || '').trim() === id) || null;
+}
+
+function getLoredeckCreatorJobForPack(pack = {}) {
+    const packId = String(pack?.packId || '').trim();
+    if (!packId || !isGeneratedLoredeckPack(pack)) return null;
+    return getLoredeckCreatorJobForPackId(packId);
+}
+
+function isLoredeckCreatorDraftCache(cache = {}) {
+    const changes = getLoredeckAssistantDraftChanges(cache);
+    return String(cache?.source || '').trim() === 'loredeck_creator'
+        || changes.some(change => String(change?.source || '').trim() === 'loredeck_creator');
+}
+
+function getLoredeckCreatorDraftCacheForPack(packId = '') {
+    const id = String(packId || '').trim();
+    if (!id) return {};
+    const current = loredeckAssistantDraftCache.get(id) || {};
+    if (getLoredeckAssistantDraftChanges(current).length) return current;
+    const job = getLoredeckCreatorJobForPackId(id);
+    const draftChanges = getLoredeckAssistantDraftChanges(job || {});
+    if (!draftChanges.length) return current;
+    const hydrated = {
+        ...current,
+        source: 'loredeck_creator',
+        summary: job.entryDraftSummary || current.summary || `Creator drafted ${draftChanges.length} schema v3 Lorecard${draftChanges.length === 1 ? '' : 's'}.`,
+        questions: Array.isArray(job.entryDraftQuestions) ? job.entryDraftQuestions : [],
+        warnings: Array.isArray(job.entryDraftWarnings) ? job.entryDraftWarnings : [],
+        draftChanges,
+        selectedDraftChangeIds: draftChanges.map(change => change.changeId),
+        mode: 'creator_entry_generation',
+        targetScope: 'approved_titles',
+        creatorEntryDraftCount: draftChanges.length,
+        creatorEntryBatchCount: countLoredeckCreatorEntryDraftUnits(draftChanges),
+        createdAt: job.entryDraftedAt || job.updatedAt || Date.now(),
+        updatedAt: job.updatedAt || Date.now(),
+    };
+    hydrated.qualityWarningCount = countLoredeckAssistantQualityWarningsForChanges(draftChanges);
+    loredeckAssistantDraftCache.set(id, hydrated);
+    return hydrated;
+}
+
+function syncLoredeckCreatorDraftCacheToJob(packId = '', draftCache = null) {
+    const id = String(packId || '').trim();
+    if (!id) return null;
+    const job = getLoredeckCreatorJobForPackId(id);
+    if (!job) return null;
+    const cache = draftCache || loredeckAssistantDraftCache.get(id) || {};
+    const draftChanges = getLoredeckAssistantDraftChanges(cache)
+        .filter(change => String(change?.source || '').trim() === 'loredeck_creator');
+    if (!isLoredeckCreatorDraftCache(cache) && !Array.isArray(job.draftChanges)) return null;
+    const pack = getFreshLoredeckLibraryPack(id, getLoredeckDefinition(id));
+    const progress = pack ? getLoredeckCreatorEntryDraftProgress({ ...job, draftChanges }, pack) : null;
+    return setLoredeckCreatorBriefCache({
+        ...job,
+        draftChanges,
+        entryDraftCount: draftChanges.length,
+        ...(progress ? { entryDraftRemainingCount: progress.remainingCount } : {}),
+    }, { suppressWorkbenchRefresh: true });
 }
 
 function collectLoredeckCreatorChangeEntryIds(changes = []) {
@@ -8398,7 +8458,7 @@ function getLoredeckCreatorPipelineReadiness(pack = {}, creatorJob = null) {
     const acceptedEntries = getAcceptedGeneratedLoredeckEntries(pack);
     const acceptedEntryIds = new Set(acceptedEntries.map(entry => normalizeLoredeckEntryId(entry.id)).filter(Boolean));
     const pendingChanges = getLoredeckPendingChanges(pack);
-    const draftChanges = getLoredeckAssistantDraftChanges(loredeckAssistantDraftCache.get(pack.packId) || {});
+    const draftChanges = getLoredeckAssistantDraftChanges(getLoredeckCreatorDraftCacheForPack(pack.packId));
     const pendingEntryIds = collectLoredeckCreatorChangeEntryIds(pendingChanges);
     const draftEntryIds = collectLoredeckCreatorChangeEntryIds(draftChanges);
     const warnings = [];
@@ -9483,7 +9543,7 @@ function refreshLoredeckAssistantDraftSelectionUi(pack) {
     if (typeof document === 'undefined' || !pack?.packId) return false;
     const scope = panelRoot || document;
     const packId = String(pack.packId || '').trim();
-    const cached = loredeckAssistantDraftCache.get(packId) || {};
+    const cached = getLoredeckCreatorDraftCacheForPack(packId);
     const changes = getLoredeckAssistantDraftChanges(cached);
     if (!changes.length) return false;
 
@@ -9532,7 +9592,7 @@ function refreshLoredeckAssistantDraftSurfaces() {
 }
 
 function updateLoredeckAssistantDraftAfterRemoval(packId, removedIds = new Set(), queuedCountDelta = 0) {
-    return updateLoredeckAssistantDraftCache(packId, cached => {
+    const nextCache = updateLoredeckAssistantDraftCache(packId, cached => {
         const changes = getLoredeckAssistantDraftChanges(cached);
         const selectedIds = getLoredeckAssistantSelectedDraftIds(cached);
         for (const id of removedIds) selectedIds.delete(id);
@@ -9546,10 +9606,12 @@ function updateLoredeckAssistantDraftAfterRemoval(packId, removedIds = new Set()
             updatedAt: Date.now(),
         };
     });
+    syncLoredeckCreatorDraftCacheToJob(packId, nextCache);
+    return nextCache;
 }
 
 function queueLoredeckAssistantDraftSelection(pack, selectedIds = new Set()) {
-    const cached = loredeckAssistantDraftCache.get(pack.packId) || {};
+    const cached = getLoredeckCreatorDraftCacheForPack(pack.packId);
     const draftChanges = getLoredeckAssistantDraftChanges(cached);
     const creatorBatch = String(cached?.source || '').trim() === 'loredeck_creator'
         || (draftChanges.length > 0 && draftChanges.every(change => String(change.source || '').trim() === 'loredeck_creator'));
@@ -9574,7 +9636,7 @@ function queueLoredeckAssistantDraftSelection(pack, selectedIds = new Set()) {
 }
 
 function dropLoredeckAssistantDraftSelection(pack, selectedIds = new Set()) {
-    const cached = loredeckAssistantDraftCache.get(pack.packId) || {};
+    const cached = getLoredeckCreatorDraftCacheForPack(pack.packId);
     const draftChanges = getLoredeckAssistantDraftChanges(cached);
     const creatorBatch = String(cached?.source || '').trim() === 'loredeck_creator'
         || (draftChanges.length > 0 && draftChanges.every(change => String(change.source || '').trim() === 'loredeck_creator'));
@@ -9934,7 +9996,7 @@ function openLoredeckAssistantDraftJsonEditor(pack, change = {}) {
                 toast('Edited draft is not a valid pending-change record.', 'warning');
                 return;
             }
-            updateLoredeckAssistantDraftCache(pack.packId, cached => {
+            const nextCache = updateLoredeckAssistantDraftCache(pack.packId, cached => {
                 const wasSelected = getLoredeckAssistantSelectedDraftIds(cached).has(change.changeId);
                 const draftChanges = getLoredeckAssistantDraftChanges(cached).map(item => item.changeId === change.changeId ? normalized : item);
                 const selectedIds = getLoredeckAssistantSelectedDraftIds({ ...cached, draftChanges });
@@ -9947,6 +10009,7 @@ function openLoredeckAssistantDraftJsonEditor(pack, change = {}) {
                     updatedAt: Date.now(),
                 };
             });
+            syncLoredeckCreatorDraftCacheToJob(pack.packId, nextCache);
             overlay.remove();
             refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
             toast('Assistant draft updated.', 'success');

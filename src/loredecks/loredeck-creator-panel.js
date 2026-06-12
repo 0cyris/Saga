@@ -1371,8 +1371,14 @@ function createLoredeckCreatorEntryDraftBatchRows(cached = {}, progress = null, 
 
         const actions = document.createElement('div');
         actions.className = 'saga-loredeck-row-actions';
-        const draftSet = createButton('Draft Set', `Draft Lorecards for ${model.label || model.id}.`, async (btn) => {
-            await handleLoredeckCreatorEntryDraft(btn, { targetPlanningBatchId: model.id });
+        const batchSize = Math.max(1, Number(progress?.batchSize) || 1);
+        const batchCount = Math.max(1, Math.ceil((Number(model.remainingCount) || 0) / batchSize));
+        const draftSet = createButton('Draft Set', `Draft all remaining Lorecards for ${model.label || model.id} in ${batchCount} model call${batchCount === 1 ? '' : 's'}.`, async (btn) => {
+            if (batchCount > 1) {
+                const confirmed = await confirmAction('Draft Category Set', `Saga will make up to ${batchCount} separate Reasoning Provider call${batchCount === 1 ? '' : 's'} for ${model.label || model.id}, with at most ${batchSize} Lorecards per call. Continue?`);
+                if (!confirmed) return;
+            }
+            await handleLoredeckCreatorEntryDraft(btn, { targetPlanningBatchId: model.id, maxBatches: batchCount });
         }, model.remainingCount ? 'saga-primary-button' : '');
         draftSet.disabled = !canDraftEntries || !model.remainingCount;
         actions.appendChild(lockLoredeckCreatorGenerationButton(draftSet, cached, `Lorecard batch draft: ${model.label || model.id}`));

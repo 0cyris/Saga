@@ -271,8 +271,38 @@ const linkedGeneratedProject = updateLoredeckCreatorProject('creator_one_piece_a
   generatedPackId,
   generatedPackTitle: 'One Piece: Arlong Park',
   planningQueuedCount: 1,
+  draftChanges: [
+    {
+      changeId: 'creator_entry_arlong_pressure',
+      source: 'loredeck_creator',
+      action: 'creator_upsert_entry',
+      targetKind: 'entry',
+      title: 'Draft entry: Arlong pressure',
+      affectedEntryIds: ['arlong-pressure'],
+      payload: {
+        entryOverrides: {
+          'arlong-pressure': {
+            id: 'arlong-pressure',
+            title: 'Arlong pressure over Cocoyasi Village',
+            content: { fact: 'Arlong holds Cocoyasi hostage through Nami.' },
+          },
+        },
+      },
+      preview: {
+        creatorEntryBatch: {
+          id: 'characters-pressure',
+          label: 'Characters and pressure',
+        },
+      },
+    },
+  ],
+  entryDraftCount: 1,
 }, { syncPrompt: false });
 assert.equal(linkedGeneratedProject.ok, true);
+assert.equal(linkedGeneratedProject.job.draftChanges.length, 1);
+assert.equal(linkedGeneratedProject.job.draftChanges[0].affectedEntryIds[0], 'arlong-pressure');
+assert.equal(extensionSettings[MODULE_KEY].loredeckCreatorProjects.jobs.creator_one_piece_arlong.draftChanges[0].payload.entryOverrides['arlong-pressure'].title, 'Arlong pressure over Cocoyasi Village');
+assert.equal(chatMetadata[MODULE_KEY].loredeckCreator.jobs.creator_one_piece_arlong.draftChanges[0].preview.creatorEntryBatch.id, 'characters-pressure');
 
 const titleOnlyGeneratedProject = upsertLoredeckCreatorJob({
   jobId: 'creator_one_piece_arlong_title_only',

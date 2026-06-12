@@ -24,6 +24,27 @@ function normalizeLoredeckCreatorStringList(value = [], limit = 80, maxLength = 
     return output;
 }
 
+function normalizeLoredeckCreatorDraftChangeList(value = [], limit = 500) {
+    const input = Array.isArray(value) ? value : [];
+    const output = [];
+    const seen = new Set();
+    for (const raw of input) {
+        if (!raw || typeof raw !== 'object' || Array.isArray(raw)) continue;
+        const changeId = normalizeLoredeckCreatorString(raw.changeId || raw.id || '', 240);
+        if (!changeId || seen.has(changeId)) continue;
+        const cloned = cloneLoredeckPlainObject({
+            ...raw,
+            changeId,
+            status: 'pending',
+        }, 120000);
+        if (!cloned || typeof cloned !== 'object' || Array.isArray(cloned)) continue;
+        seen.add(changeId);
+        output.push(cloned);
+        if (output.length >= limit) break;
+    }
+    return output;
+}
+
 const CREATOR_GENERATION_RUN_STATUSES = new Set(GENERATION_RUN_STATUSES);
 const CREATOR_GENERATION_UNIT_STATUSES = new Set(GENERATION_UNIT_STATUSES);
 export const CREATOR_ACTIVE_GENERATION_STATUSES = new Set(['queued', 'running', 'retrying']);
@@ -272,6 +293,7 @@ export function normalizeLoredeckCreatorJob(value = {}, index = 0) {
     const titleBatchDraftedIds = normalizeLoredeckCreatorStringList(value.titleBatchDraftedIds, 1200, 180);
     const planningBatchQueuedIds = normalizeLoredeckCreatorStringList(value.planningBatchQueuedIds, 1200, 180);
     const planningBatchAcceptedIds = normalizeLoredeckCreatorStringList(value.planningBatchAcceptedIds, 1200, 180);
+    const draftChanges = normalizeLoredeckCreatorDraftChangeList(value.draftChanges, 500);
     const generationRuns = normalizeLoredeckCreatorGenerationMap(value.generationRuns, normalizeLoredeckCreatorGenerationRun, 'runId', 80);
     const generationUnits = normalizeLoredeckCreatorGenerationMap(value.generationUnits, normalizeLoredeckCreatorGenerationUnit, 'unitId', 1200);
     const job = {
@@ -319,6 +341,7 @@ export function normalizeLoredeckCreatorJob(value = {}, index = 0) {
     if (titleBatchDraftedIds.length) job.titleBatchDraftedIds = titleBatchDraftedIds;
     if (planningBatchQueuedIds.length) job.planningBatchQueuedIds = planningBatchQueuedIds;
     if (planningBatchAcceptedIds.length) job.planningBatchAcceptedIds = planningBatchAcceptedIds;
+    if (draftChanges.length) job.draftChanges = draftChanges;
     job.generationRuns = generationRuns;
     job.generationUnits = generationUnits;
     const activeGeneration = normalizeLoredeckCreatorActiveGeneration(value.activeGeneration, jobId);
