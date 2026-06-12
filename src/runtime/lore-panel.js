@@ -6696,7 +6696,7 @@ async function draftLoredeckCreatorEntryBatch(cached = {}, pack = {}, planning =
     let targetTitles = [];
     if (targetTitleIds.size || targetPlanningBatchId) {
         const pool = getLoredeckCreatorEntryDraftPool(cached, pack || {});
-        targetTitles = pool.remaining
+        targetTitles = pool.totalRemaining
             .filter(draft => {
                 const draftId = normalizeLoredeckCreatorTitleId(draft.titleId || draft.id || '', '');
                 if (targetTitleIds.size && !targetTitleIds.has(draftId)) return false;

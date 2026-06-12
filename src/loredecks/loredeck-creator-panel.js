@@ -14,6 +14,9 @@ import {
     createLoredeckJobStatusRow,
     formatLoredeckJobElapsed,
 } from './loredeck-job-view.js';
+import {
+    getLoredeckCreatorEntryDraftBatchModels,
+} from './loredeck-creator-entry-draft-pool.js';
 
 let creatorPanelDeps = {};
 let loredeckCreatorWorkbenchRefreshQueued = false;
@@ -1314,6 +1317,77 @@ export function createLoredeckCreatorPlanningCard(brief = {}, cached = {}) {
     return wrap;
 }
 
+function createLoredeckCreatorEntryDraftBatchRows(cached = {}, progress = null, options = {}) {
+    if (!progress || !progress.eligibleBatchCount) return null;
+    const canDraftEntries = options.canDraftEntries === true;
+    const activeBatchId = String(progress.activeBatchId || '').trim();
+    const eligibleBatchIds = progress.eligibleBatchIds instanceof Set ? progress.eligibleBatchIds : new Set();
+    const batchModels = getLoredeckCreatorEntryDraftBatchModels({
+        batches: getLoredeckCreatorPlanningBatchRows(cached).filter(batch => !eligibleBatchIds.size || eligibleBatchIds.has(batch.id)),
+        drafts: Array.isArray(progress.preferred) ? progress.preferred : [],
+        remainingDrafts: Array.isArray(progress.totalRemaining) ? progress.totalRemaining : [],
+    });
+    if (!batchModels.length) return null;
+
+    const section = document.createElement('div');
+    section.className = 'saga-loredeck-entry-list saga-loredeck-creator-entry-batch-list';
+
+    const heading = document.createElement('div');
+    heading.className = 'saga-loredeck-row-title';
+    heading.textContent = 'Draft by Category';
+    section.appendChild(heading);
+
+    for (const model of batchModels.slice(0, 12)) {
+        const row = document.createElement('div');
+        row.className = 'saga-loredeck-entry-row saga-loredeck-creator-entry-batch-row';
+        if (activeBatchId && model.id === activeBatchId) row.classList.add('saga-loredeck-creator-entry-batch-row-active');
+
+        const main = document.createElement('div');
+        main.className = 'saga-loredeck-row-main';
+        const label = document.createElement('div');
+        label.className = 'saga-loredeck-row-title';
+        label.textContent = model.label || model.id;
+        main.appendChild(label);
+
+        const desc = document.createElement('div');
+        desc.className = 'saga-loredeck-row-description';
+        const nextTitles = model.remainingTitles.slice(0, 3).map(draft => draft.title || draft.titleId).filter(Boolean);
+        desc.textContent = nextTitles.length
+            ? nextTitles.join(' | ')
+            : (model.summary || 'All approved titles in this category are already handled.');
+        main.appendChild(desc);
+
+        const meta = document.createElement('div');
+        meta.className = 'saga-loredeck-row-meta';
+        if (activeBatchId && model.id === activeBatchId && model.remainingCount) {
+            meta.appendChild(createStatusPill('Next', 'This category is the next default Lorecard drafting set.', { tone: 'info', kind: 'status' }));
+        }
+        meta.appendChild(createStatusPill(`${model.remainingCount} remaining`, 'Approved titles in this category not yet accepted, pending, or sitting in Draft Review.', { tone: model.remainingCount ? 'warning' : 'success', kind: 'count' }));
+        meta.appendChild(createStatusPill(`${model.approvedCount} approved`, 'Approved Creator titles in this category.', { tone: 'success', kind: 'count' }));
+        if (!model.remainingCount) meta.appendChild(createStatusPill('Complete', 'Every approved title in this category is already handled.', { tone: 'success', kind: 'status' }));
+        main.appendChild(meta);
+        row.appendChild(main);
+
+        const actions = document.createElement('div');
+        actions.className = 'saga-loredeck-row-actions';
+        const draftSet = createButton('Draft Set', `Draft Lorecards for ${model.label || model.id}.`, async (btn) => {
+            await handleLoredeckCreatorEntryDraft(btn, { targetPlanningBatchId: model.id });
+        }, model.remainingCount ? 'saga-primary-button' : '');
+        draftSet.disabled = !canDraftEntries || !model.remainingCount;
+        actions.appendChild(lockLoredeckCreatorGenerationButton(draftSet, cached, `Lorecard batch draft: ${model.label || model.id}`));
+        row.appendChild(actions);
+        section.appendChild(row);
+    }
+
+    if (batchModels.length > 12) {
+        const more = document.createElement('div');
+        more.className = 'saga-runtime-help';
+        more.textContent = `Showing 12 of ${batchModels.length} Lorecard categories.`;
+        section.appendChild(more);
+    }
+    return section;
+}
+
 export function createLoredeckCreatorEntryDraftCard(brief = {}, cached = {}) {
     const generationSettings = getLoredeckCreatorGenerationSettings(cached);
     const generatedPack = cached.generatedPackId ? getLoredeckDefinition(cached.generatedPackId) : null;
@@ -1376,6 +1450,9 @@ export function createLoredeckCreatorEntryDraftCard(brief = {}, cached = {}) {
         result.textContent = parts.join(' ');
         wrap.appendChild(result);
     }
+
+    const batchRows = createLoredeckCreatorEntryDraftBatchRows(cached, progress, { canDraftEntries });
+    if (batchRows) wrap.appendChild(batchRows);
 
     const actions = document.createElement('div');
     actions.className = 'saga-primary-actions';

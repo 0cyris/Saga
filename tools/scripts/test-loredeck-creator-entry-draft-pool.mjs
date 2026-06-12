@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import {
+  getLoredeckCreatorEntryDraftBatchModels,
   getLoredeckCreatorUnhandledEntryDrafts,
   selectLoredeckCreatorEntryDraftBatchId,
 } from '../../src/loredecks/loredeck-creator-entry-draft-pool.js';
@@ -56,6 +57,23 @@ const batchOrder = [
       'nojiko-waits-for-the-right-moment',
       'eight-years-of-silent-maps',
     ]
+  );
+  assert.deepEqual(
+    getLoredeckCreatorEntryDraftBatchModels({
+      batches: batchOrder.map((id, index) => ({ id, label: id, order: index + 1 })),
+      drafts: titleDrafts,
+      remainingDrafts: getLoredeckCreatorUnhandledEntryDrafts(titleDrafts, blocked),
+    }).map(batch => ({
+      id: batch.id,
+      approvedCount: batch.approvedCount,
+      remainingCount: batch.remainingCount,
+    })),
+    [
+      { id: 'characters-pressure', approvedCount: 3, remainingCount: 0 },
+      { id: 'emotional-symbols', approvedCount: 3, remainingCount: 3 },
+      { id: 'backstory-timing', approvedCount: 2, remainingCount: 2 },
+    ],
+    'The category model should expose remaining counts for every draftable title batch.'
   );
 }
 
