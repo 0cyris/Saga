@@ -36,6 +36,18 @@ function getDefaultState() {
     return typeof storeDeps.getDefaultState === 'function' ? storeDeps.getDefaultState() : createDefaultState();
 }
 
+function getLoredeckLibraryPersistenceErrorMessage(error = {}, fallback = 'Loredeck library persistence failed.') {
+    return String(error?.message || error || fallback).trim().replace(/\s+/g, ' ').slice(0, 500) || fallback;
+}
+
+function failLoredeckLibraryPersistence(error = {}, fallback = 'Loredeck library persistence failed.') {
+    console.warn('[Saga] Loredeck Library persistence failed:', error);
+    return {
+        ok: false,
+        error: getLoredeckLibraryPersistenceErrorMessage(error, fallback),
+    };
+}
+
 export function getLoredeckLibraryRegistry(state = null) {
     const settings = getSettings();
     const globalLibrary = normalizeLoredeckRegistry(settings.loredeckLibrary, DEFAULT_SETTINGS.loredeckLibrary);
@@ -94,7 +106,11 @@ export function upsertLoredeckLibraryPack(packRecord = {}) {
     }
     library.packs[packId] = nextPack;
     settings.loredeckLibrary = normalizeLoredeckRegistry(library, DEFAULT_SETTINGS.loredeckLibrary);
-    saveSettings(settings);
+    try {
+        saveSettings(settings);
+    } catch (error) {
+        return failLoredeckLibraryPersistence(error);
+    }
     return { ok: true, pack: settings.loredeckLibrary.packs[packId], library: settings.loredeckLibrary };
 }
 

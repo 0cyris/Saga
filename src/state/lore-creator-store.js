@@ -45,6 +45,18 @@ function getDefaultState() {
     return typeof storeDeps.getDefaultState === 'function' ? storeDeps.getDefaultState() : createDefaultState();
 }
 
+function getLoredeckCreatorPersistenceErrorMessage(error = {}, fallback = 'Creator project persistence failed.') {
+    return normalizeLoredeckCreatorString(error?.message || error || fallback, 500) || fallback;
+}
+
+function failLoredeckCreatorPersistence(error = {}, fallback = 'Creator project persistence failed.') {
+    console.warn('[Saga] Loredeck Creator project persistence failed:', error);
+    return {
+        ok: false,
+        error: getLoredeckCreatorPersistenceErrorMessage(error, fallback),
+    };
+}
+
 function createLoredeckCreatorJobId(seed = '') {
     const stem = normalizeLoredeckCreatorString(seed, 100)
         .toLowerCase()
@@ -92,20 +104,25 @@ export function upsertLoredeckCreatorJob(jobRecord = {}, options = {}) {
     });
     if (!job) return { ok: false, error: 'Creator job could not be normalized.' };
 
-    const settings = getSettings();
-    const projectRegistry = getLoredeckCreatorSettingsRegistry(settings);
-    projectRegistry.jobs[job.jobId] = job;
-    projectRegistry.activeJobId = job.jobId;
-    projectRegistry.lastJobId = job.jobId;
-    settings.loredeckCreatorProjects = normalizeLoredeckCreatorRegistry(projectRegistry);
-    saveSettings(settings);
+    let settings;
+    try {
+        settings = getSettings();
+        const projectRegistry = getLoredeckCreatorSettingsRegistry(settings);
+        projectRegistry.jobs[job.jobId] = job;
+        projectRegistry.activeJobId = job.jobId;
+        projectRegistry.lastJobId = job.jobId;
+        settings.loredeckCreatorProjects = normalizeLoredeckCreatorRegistry(projectRegistry);
+        saveSettings(settings);
 
-    const localRegistry = normalizeLoredeckCreatorRegistry(state.loredeckCreator || getDefaultState().loredeckCreator);
-    localRegistry.jobs[job.jobId] = job;
-    localRegistry.activeJobId = job.jobId;
-    localRegistry.lastJobId = job.jobId;
-    state.loredeckCreator = normalizeLoredeckCreatorRegistry(localRegistry);
-    saveState(state, { syncPrompt: options.syncPrompt !== false, sanitize: true });
+        const localRegistry = normalizeLoredeckCreatorRegistry(state.loredeckCreator || getDefaultState().loredeckCreator);
+        localRegistry.jobs[job.jobId] = job;
+        localRegistry.activeJobId = job.jobId;
+        localRegistry.lastJobId = job.jobId;
+        state.loredeckCreator = normalizeLoredeckCreatorRegistry(localRegistry);
+        saveState(state, { syncPrompt: options.syncPrompt !== false, sanitize: true });
+    } catch (error) {
+        return failLoredeckCreatorPersistence(error);
+    }
     return {
         ok: true,
         job: state.loredeckCreator.jobs[job.jobId],
@@ -181,18 +198,22 @@ export function updateLoredeckCreatorProject(jobId = '', patch = {}, options = {
     });
     if (!job) return { ok: false, error: 'Creator project could not be normalized.' };
 
-    projectRegistry.jobs[id] = job;
-    projectRegistry.activeJobId = projectActiveJobId;
-    projectRegistry.lastJobId = projectLastJobId;
-    settings.loredeckCreatorProjects = normalizeLoredeckCreatorRegistry(projectRegistry);
-    saveSettings(settings);
+    try {
+        projectRegistry.jobs[id] = job;
+        projectRegistry.activeJobId = projectActiveJobId;
+        projectRegistry.lastJobId = projectLastJobId;
+        settings.loredeckCreatorProjects = normalizeLoredeckCreatorRegistry(projectRegistry);
+        saveSettings(settings);
 
-    if (localRegistry.jobs[id] || localRegistry.activeJobId === id || options.syncLocal === true) {
-        localRegistry.jobs[id] = job;
-        localRegistry.activeJobId = localActiveJobId;
-        localRegistry.lastJobId = localLastJobId;
-        state.loredeckCreator = normalizeLoredeckCreatorRegistry(localRegistry);
-        saveState(state, { syncPrompt: options.syncPrompt !== false, sanitize: true });
+        if (localRegistry.jobs[id] || localRegistry.activeJobId === id || options.syncLocal === true) {
+            localRegistry.jobs[id] = job;
+            localRegistry.activeJobId = localActiveJobId;
+            localRegistry.lastJobId = localLastJobId;
+            state.loredeckCreator = normalizeLoredeckCreatorRegistry(localRegistry);
+            saveState(state, { syncPrompt: options.syncPrompt !== false, sanitize: true });
+        }
+    } catch (error) {
+        return failLoredeckCreatorPersistence(error);
     }
 
     return {

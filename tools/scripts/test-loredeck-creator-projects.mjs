@@ -50,6 +50,7 @@ let chatMetadata = {
 };
 let saveSettingsCount = 0;
 let saveStateCount = 0;
+let throwSettingsSave = false;
 
 globalThis.SillyTavern = {
   getContext() {
@@ -57,6 +58,7 @@ globalThis.SillyTavern = {
       extensionSettings,
       chatMetadata,
       saveSettingsDebounced() {
+        if (throwSettingsSave) throw new Error('settings save exploded');
         saveSettingsCount += 1;
       },
       saveMetadata() {
@@ -326,6 +328,35 @@ const cleared = clearLoredeckCreatorJob('creator_naruto_chunin', { syncPrompt: f
 assert.equal(cleared.ok, true);
 assert.ok(!extensionSettings[MODULE_KEY].loredeckCreatorProjects.jobs.creator_naruto_chunin);
 assert.ok(!chatMetadata[MODULE_KEY].loredeckCreator.jobs.creator_naruto_chunin);
+assert.deepEqual(Object.keys(getLoredeckCreatorProjectRegistry().jobs), []);
+
+throwSettingsSave = true;
+const failedCreatorPersistence = upsertLoredeckCreatorJob({
+  jobId: 'creator_storage_failure',
+  fandom: 'One Piece',
+  scope: 'Storage failure fixture',
+}, { syncPrompt: false });
+assert.equal(failedCreatorPersistence.ok, false);
+assert.match(failedCreatorPersistence.error, /settings save exploded/);
+
+const failedLibraryPersistence = upsertLoredeckLibraryPack({
+  packId: 'storage-failure-pack',
+  type: 'generated',
+  title: 'Storage Failure Pack',
+  source: { kind: 'generated' },
+});
+assert.equal(failedLibraryPersistence.ok, false);
+assert.match(failedLibraryPersistence.error, /settings save exploded/);
+throwSettingsSave = false;
+
+if (extensionSettings[MODULE_KEY].loredeckCreatorProjects.jobs.creator_storage_failure) {
+  const cleanedFailureJob = clearLoredeckCreatorJob('creator_storage_failure', { syncPrompt: false });
+  assert.equal(cleanedFailureJob.ok, true);
+}
+if (extensionSettings[MODULE_KEY].loredeckLibrary.packs['storage-failure-pack']) {
+  const cleanedFailurePack = removeLoredeckLibraryPack('storage-failure-pack', { clearCreatorProjects: false, syncPrompt: false });
+  assert.equal(cleanedFailurePack.ok, true);
+}
 assert.deepEqual(Object.keys(getLoredeckCreatorProjectRegistry().jobs), []);
 
 console.log('Loredeck Creator project registry tests passed.');

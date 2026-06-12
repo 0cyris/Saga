@@ -5805,6 +5805,11 @@ function countLoredeckCreatorPlanningPendingChanges(pack = {}) {
 function upsertLoredeckCreatorPlanningPendingChanges(pack = {}, changes = [], targetPlanningBatch = {}, message = '', options = {}) {
     const pendingChanges = normalizeLoredeckPendingChanges(changes);
     if (!pendingChanges.length) {
+        if (options.throwOnFailure === true) {
+            const error = new Error('Creator planning proposals were normalized away before Pending Review queueing.');
+            error.code = 'creator_planning_queue_empty';
+            throw error;
+        }
         return {
             queued: false,
             changeCount: 0,
@@ -5862,7 +5867,11 @@ function commitLoredeckCreatorPlanningResult(parsed = {}, options = {}) {
         throwOnFailure: options.throwOnFailure === true,
     });
     if (!queueResult.queued) {
-        if (options.throwOnFailure) throw new Error('Could not queue Creator planning proposals for Pending Review.');
+        if (options.throwOnFailure) {
+            const error = new Error('Could not queue Creator planning proposals for Pending Review.');
+            error.code = 'loredeck_queue_failed';
+            throw error;
+        }
         return {
             ...queueResult,
             ignoredCount,
@@ -5872,20 +5881,24 @@ function commitLoredeckCreatorPlanningResult(parsed = {}, options = {}) {
     const fresh = getFreshLoredeckLibraryPack(pack.packId, pack);
     const nextQueuedBatchIds = getLoredeckCreatorPlanningQueuedBatchIds(getLoredeckCreatorBriefCache());
     if (targetBatchId) nextQueuedBatchIds.add(targetBatchId);
-    setLoredeckCreatorBriefCache({
-        ...getLoredeckCreatorBriefCache(),
-        planningSummary: parsed.summary,
-        planningQuestions: parsed.clarifyingQuestions,
-        planningWarnings: warnings,
-        planningQueuedCount: countLoredeckCreatorPlanningPendingChanges(fresh),
-        planningBatchQueuedIds: [...nextQueuedBatchIds],
-        planningCurrentBatchId: targetBatchId,
-        planningCurrentBatchLabel: targetPlanningBatch.label || targetBatchId,
-        planningQueuedAt: Date.now(),
-        generatedPackId: pack.packId,
-        generatedPackTitle: pack.title || pack.packId,
-        status: 'draft',
-    });
+    try {
+        setLoredeckCreatorBriefCache({
+            ...getLoredeckCreatorBriefCache(),
+            planningSummary: parsed.summary,
+            planningQuestions: parsed.clarifyingQuestions,
+            planningWarnings: warnings,
+            planningQueuedCount: countLoredeckCreatorPlanningPendingChanges(fresh),
+            planningBatchQueuedIds: [...nextQueuedBatchIds],
+            planningCurrentBatchId: targetBatchId,
+            planningCurrentBatchLabel: targetPlanningBatch.label || targetBatchId,
+            planningQueuedAt: Date.now(),
+            generatedPackId: pack.packId,
+            generatedPackTitle: pack.title || pack.packId,
+            status: 'draft',
+        });
+    } catch (error) {
+        console.warn('[Saga] Creator planning proposals were queued, but job cache refresh failed:', error);
+    }
     return {
         ...queueResult,
         ignoredCount,
