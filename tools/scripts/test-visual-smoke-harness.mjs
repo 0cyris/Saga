@@ -1334,6 +1334,9 @@ assert(runtimePanelSource.includes('createLoredeckCreatorAdvancedGenerationSetti
 assert(runtimePanelSource.includes('getLoredeckCreatorGenerationSettings'), 'Creator generation must read normalized per-project generation settings.');
 assert(runtimePanelSource.includes('setLoredeckCreatorGenerationSettings'), 'Creator generation settings must persist per project.');
 assert(runtimePanelSource.includes('showStreamingProgress'), 'Creator generation settings must control streaming progress snippets.');
+assert(/\.saga-loredeck-creator-generation-grid\s*\{[\s\S]*grid-template-columns:\s*repeat\(auto-fit,\s*minmax\(min\(100%,\s*300px\),\s*1fr\)\)/.test(style)
+    && /\.saga-loredeck-creator-generation-row input\[type="range"\]\s*\{[\s\S]*width:\s*calc\(100% - 14px\);[\s\S]*max-width:\s*calc\(100% - 14px\);[\s\S]*margin-inline:\s*7px;[\s\S]*justify-self:\s*center;/.test(style),
+    'Creator advanced generation sliders must reserve range thumb space inside their setting cards.');
 assert(runtimePanelSource.includes('forceVisibleOutput'), 'Creator generation requests must ask reasoning profiles for visible final output on the first call.');
 assert(llm.includes('prepareLoreRequestPrompts'), 'Lore LLM client must prepare first-pass visible-output prompts when requested.');
 assert(llm.includes('options.forceVisibleOutput === true'), 'Lore LLM client must expose an explicit visible-output opt-in.');
@@ -1367,6 +1370,7 @@ assert(runtimePanelSource.includes('acceptLoredeckPendingChanges(pack, pending.m
 assert(runtimePanelSource.includes('const freshPack = getFreshLoredeckLibraryPack(pack?.packId, pack);'), 'Loredeck pending acceptance must re-read the freshest pack before applying changes.');
 assert(runtimePanelSource.includes('else next.pendingChanges = [];'), 'Loredeck pending acceptance must pass an explicit empty pendingChanges field through persistence.');
 assert(runtimePanelSource.includes('refreshOpenLoredeckMetadataEditor(next.packId)'), 'Loredeck pending mutations must refresh an already-open metadata editor instead of leaving stale Pending Review counts.');
+assert(runtimePanelSource.includes("console.warn('[Saga] Loredeck save succeeded, but surface refresh failed:'") && runtimePanelSource.includes('throwOnFailure: options.throwOnFailure === true'), 'Loredeck pending mutation commits must distinguish actual save failures from post-save surface refresh failures.');
 assert(runtimePanelSource.includes("generated_shell_without_entries"), 'Generated Loredeck planning accepts must skip health rerun while the shell has no accepted Lorecards.');
 assert(!runtimePanelSource.includes('no valid manifest or accepted embedded data yet'), 'Generated Loredeck planning accepts must not warn about missing embedded data after each proposal.');
 assert(stateSource.includes('clearableOptionalFields'), 'Loredeck library upsert must track optional fields that were intentionally supplied.');

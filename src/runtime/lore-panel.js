@@ -5802,7 +5802,7 @@ function countLoredeckCreatorPlanningPendingChanges(pack = {}) {
     return getLoredeckPendingChanges(pack).filter(change => isLoredeckCreatorPlanningPendingChange(change)).length;
 }
 
-function upsertLoredeckCreatorPlanningPendingChanges(pack = {}, changes = [], targetPlanningBatch = {}, message = '') {
+function upsertLoredeckCreatorPlanningPendingChanges(pack = {}, changes = [], targetPlanningBatch = {}, message = '', options = {}) {
     const pendingChanges = normalizeLoredeckPendingChanges(changes);
     if (!pendingChanges.length) {
         return {
@@ -5825,6 +5825,7 @@ function upsertLoredeckCreatorPlanningPendingChanges(pack = {}, changes = [], ta
         next.pendingChanges = normalizeLoredeckPendingChanges([...retained, ...pendingChanges]);
     }, message, {
         errorMessage: 'Loredeck Creator planning proposal save failed.',
+        throwOnFailure: options.throwOnFailure === true,
     });
     return {
         queued,
@@ -5857,7 +5858,9 @@ function commitLoredeckCreatorPlanningResult(parsed = {}, options = {}) {
             warnings,
         };
     }
-    const queueResult = upsertLoredeckCreatorPlanningPendingChanges(pack, changes, targetPlanningBatch);
+    const queueResult = upsertLoredeckCreatorPlanningPendingChanges(pack, changes, targetPlanningBatch, '', {
+        throwOnFailure: options.throwOnFailure === true,
+    });
     if (!queueResult.queued) {
         if (options.throwOnFailure) throw new Error('Could not queue Creator planning proposals for Pending Review.');
         return {
@@ -11593,11 +11596,24 @@ function getFreshLoredeckLibraryPack(packId, fallback = null) {
     return getLoredeckDefinition(packId) || fallback;
 }
 
+function failLoredeckLibraryRecordMutation(message = 'Loredeck save failed.', options = {}, toastType = 'error') {
+    const text = String(message || options.errorMessage || 'Loredeck save failed.').trim() || 'Loredeck save failed.';
+    toast(text, toastType);
+    if (options.throwOnFailure === true) {
+        const error = new Error(text);
+        error.code = options.errorCode || 'loredeck_save_failed';
+        throw error;
+    }
+    return false;
+}
+
 function persistLoredeckLibraryRecordMutation(pack, mutator, message, options = {}) {
-    const fresh = getFreshLoredeckLibraryPack(pack.packId, pack);
+    const fresh = getFreshLoredeckLibraryPack(pack?.packId, pack);
     if (!fresh || fresh.type === 'bundled') {
-        toast('Bundled Loredecks cannot be edited directly. Duplicate as Custom first.', 'warning');
-        return false;
+        return failLoredeckLibraryRecordMutation('Bundled Loredecks cannot be edited directly. Duplicate as Custom first.', {
+            ...options,
+            errorCode: 'loredeck_readonly',
+        }, 'warning');
     }
     const next = {
         ...fresh,
@@ -11626,13 +11642,22 @@ function persistLoredeckLibraryRecordMutation(pack, mutator, message, options = 
     if (isVirtualLoredeckPack(next)) {
         next.manifestData = buildEmbeddedCustomManifest(next.manifestData, next);
     }
-    const result = upsertLoredeckLibraryPack(next);
-    if (!result.ok) {
-        toast(result.error || options.errorMessage || 'Loredeck save failed.', 'error');
-        return false;
+    let result;
+    try {
+        result = upsertLoredeckLibraryPack(next);
+    } catch (error) {
+        console.warn('[Saga] Loredeck save failed:', error);
+        return failLoredeckLibraryRecordMutation(error?.message || options.errorMessage || 'Loredeck save failed.', options, 'error');
     }
-    refreshLoredeckSurfaces({ clearCanon: true, clearContext: true });
-    refreshOpenLoredeckMetadataEditor(next.packId);
+    if (!result.ok) {
+        return failLoredeckLibraryRecordMutation(result.error || options.errorMessage || 'Loredeck save failed.', options, 'error');
+    }
+    try {
+        refreshLoredeckSurfaces({ clearCanon: true, clearContext: true });
+        refreshOpenLoredeckMetadataEditor(next.packId);
+    } catch (error) {
+        console.warn('[Saga] Loredeck save succeeded, but surface refresh failed:', error);
+    }
     if (message) toast(message, 'success');
     return true;
 }

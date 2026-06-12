@@ -1657,7 +1657,7 @@
 
 .saga-loredeck-creator-generation-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
     gap: 8px;
 }
 
@@ -1694,8 +1694,12 @@
 }
 
 .saga-loredeck-creator-generation-row input[type="range"] {
-    width: 100%;
+    width: calc(100% - 14px);
+    max-width: calc(100% - 14px);
     min-width: 0;
+    margin-inline: 7px;
+    box-sizing: border-box;
+    justify-self: center;
 }
 
 .saga-loredeck-creator-generation-toggles {
