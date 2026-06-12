@@ -1,5 +1,9 @@
 import assert from 'node:assert/strict';
 import { __loredeckLoaderTestHooks, loadLoredeckSourceById } from '../../src/loredecks/loredeck-loader.js';
+import {
+  normalizeLoredeckTagRegistry as normalizeStateLoredeckTagRegistry,
+  normalizeLoredeckTimelineRegistry as normalizeStateLoredeckTimelineRegistry,
+} from '../../src/state/lore-state-normalizers.js';
 
 const {
   createHealth,
@@ -19,6 +23,27 @@ const {
   analyzeTagRegistryDefinitionHealth,
   analyzeEntryTagHealth,
 } = __loredeckLoaderTestHooks;
+
+const creatorAliasTimeline = normalizeStateLoredeckTimelineRegistry({
+  windows: [{
+    id: 'creator.window',
+    label: 'Creator window',
+    sortKeyStart: 10,
+    sortKeyEnd: 20,
+  }],
+});
+assert.equal(creatorAliasTimeline.windows[0].sortKeyFrom, 10);
+assert.equal(creatorAliasTimeline.windows[0].sortKeyTo, 20);
+
+const creatorNotesTagRegistry = normalizeStateLoredeckTagRegistry({
+  tags: {
+    'state:nami-buyback-secret': {
+      label: "Nami's buyback secret active",
+      notes: "State tag for when Nami's buyback arrangement is unknown.",
+    },
+  },
+});
+assert.equal(creatorNotesTagRegistry.tags['state:nami-buyback-secret'].description, "State tag for when Nami's buyback arrangement is unknown.");
 
 const timeline = createTimelineHealthIndex({
   ...normalizeTimelineRegistryForHealth({

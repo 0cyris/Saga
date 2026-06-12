@@ -18,6 +18,12 @@ import {
   parseLoredeckCreatorOutlineResponse,
   parseLoredeckCreatorTitleResponse,
 } from '../../src/loredecks/loredeck-assistant.js';
+import {
+  normalizeLoredeckPendingRubricLevel,
+} from '../../src/runtime/loredeck-review-helpers.js';
+
+assert.equal(normalizeLoredeckPendingRubricLevel('strong'), 'high');
+assert.equal(normalizeLoredeckPendingRubricLevel('n/a'), 'not_applicable');
 
 const parsed = parseLoredeckAssistantResponse(`\`\`\`json
 {

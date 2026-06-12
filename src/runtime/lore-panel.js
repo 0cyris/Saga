@@ -172,6 +172,7 @@ import {
     getLoredeckPendingRisk,
     getLoredeckPendingSourceTooltip,
     isLoredeckHealthStatusStale,
+    normalizeLoredeckPendingRubricLevel,
 } from './loredeck-review-helpers.js';
 import {
     configureLoredeckPendingChangeModel,
@@ -2967,7 +2968,7 @@ function getLoredeckCreatorPipelineModel(cached = {}) {
     const generatedPack = cached.generatedPackId ? getLoredeckDefinition(cached.generatedPackId) : null;
     const planningSets = getLoredeckCreatorPlanningBatchRows(cached);
     const eligiblePlanningSets = planningSets.filter(batch => batch.approvedTitleCount > 0);
-    const plannedSetIds = getLoredeckCreatorPlanningQueuedBatchIds(cached);
+    const plannedSetIds = getLoredeckCreatorPlanningPlannedBatchIds(cached, generatedPack);
     const plannedSetCount = eligiblePlanningSets.filter(batch => plannedSetIds.has(batch.id)).length;
     const acceptedPlanningSetIds = getLoredeckCreatorPlanningAcceptedBatchIds(cached);
     const acceptedPlanningSetCount = eligiblePlanningSets.filter(batch => acceptedPlanningSetIds.has(batch.id)).length;
@@ -5627,8 +5628,34 @@ function markLoredeckCreatorPlanningChange(change = {}) {
     };
 }
 
-function getLoredeckCreatorPlanningQueuedBatchIds(cached = {}) {
-    return new Set(normalizeLoredeckCreatorTitleIdList(cached?.planningBatchQueuedIds || [], 1200));
+function getLoredeckCreatorPackFromCache(cached = {}, fallback = null) {
+    const packId = String(cached?.generatedPackId || fallback?.packId || '').trim();
+    if (!packId) return fallback;
+    return getFreshLoredeckLibraryPack(packId, fallback || getLoredeckDefinition(packId));
+}
+
+function getLoredeckCreatorPlanningPendingBatchIds(pack = {}) {
+    const ids = new Set();
+    for (const change of getLoredeckPendingChanges(pack)) {
+        if (!isLoredeckCreatorPlanningPendingChange(change)) continue;
+        const id = normalizeLoredeckCreatorTitleId(change.preview?.creatorPlanningBatch?.id || '', '');
+        if (id) ids.add(id);
+    }
+    return ids;
+}
+
+function getLoredeckCreatorPlanningQueuedBatchIds(cached = {}, pack = null) {
+    const ids = new Set(normalizeLoredeckCreatorTitleIdList(cached?.planningBatchQueuedIds || [], 1200));
+    const generatedPack = pack || getLoredeckCreatorPackFromCache(cached);
+    for (const id of getLoredeckCreatorPlanningPendingBatchIds(generatedPack)) ids.add(id);
+    return ids;
+}
+
+function getLoredeckCreatorPlanningPlannedBatchIds(cached = {}, pack = null) {
+    return new Set([
+        ...getLoredeckCreatorPlanningQueuedBatchIds(cached, pack),
+        ...getLoredeckCreatorPlanningAcceptedBatchIds(cached),
+    ]);
 }
 
 const LOREDECK_CREATOR_PLANNING_ACTIONS = new Set([
@@ -5718,9 +5745,9 @@ function getLoredeckCreatorPlanningBatchRows(cached = {}) {
 }
 
 function getLoredeckCreatorNextPlanningBatch(cached = {}) {
-    const queued = getLoredeckCreatorPlanningQueuedBatchIds(cached);
+    const planned = getLoredeckCreatorPlanningPlannedBatchIds(cached);
     return getLoredeckCreatorPlanningBatchRows(cached)
-        .find(batch => batch.approvedTitleCount > 0 && !queued.has(batch.id)) || null;
+        .find(batch => batch.approvedTitleCount > 0 && !planned.has(batch.id)) || null;
 }
 
 function compactLoredeckCreatorPlanningBatchForPrompt(batch = {}) {
@@ -5879,7 +5906,7 @@ function commitLoredeckCreatorPlanningResult(parsed = {}, options = {}) {
         };
     }
     const fresh = getFreshLoredeckLibraryPack(pack.packId, pack);
-    const nextQueuedBatchIds = getLoredeckCreatorPlanningQueuedBatchIds(getLoredeckCreatorBriefCache());
+    const nextQueuedBatchIds = getLoredeckCreatorPlanningQueuedBatchIds(getLoredeckCreatorBriefCache(), fresh);
     if (targetBatchId) nextQueuedBatchIds.add(targetBatchId);
     try {
         setLoredeckCreatorBriefCache({
@@ -6269,10 +6296,10 @@ function getLoredeckCreatorPlanningAcceptedBatchIds(cached = {}) {
     return new Set(normalizeLoredeckCreatorTitleIdList(cached?.planningBatchAcceptedIds || [], 1200));
 }
 
-function getLoredeckCreatorEntryEligibleBatchIds(cached = {}, planning = null) {
+function getLoredeckCreatorEntryEligibleBatchIds(cached = {}, planning = null, pack = null) {
     const accepted = getLoredeckCreatorPlanningAcceptedBatchIds(cached);
     if (accepted.size) return accepted;
-    const queued = getLoredeckCreatorPlanningQueuedBatchIds(cached);
+    const queued = getLoredeckCreatorPlanningQueuedBatchIds(cached, pack);
     if (queued.size) return new Set();
     if (planning?.ready) {
         return new Set(getLoredeckCreatorTitleBatchRows(cached).map(batch => batch.id).filter(Boolean));
@@ -6291,7 +6318,7 @@ function getLoredeckCreatorDraftBatchId(draft = {}) {
 
 function getLoredeckCreatorEntryDraftPool(cached = {}, pack = {}) {
     const planning = getLoredeckCreatorAcceptedPlanningStatus(pack || {});
-    const eligibleBatchIds = getLoredeckCreatorEntryEligibleBatchIds(cached, planning);
+    const eligibleBatchIds = getLoredeckCreatorEntryEligibleBatchIds(cached, planning, pack);
     const approved = getLoredeckCreatorApprovedTitleDrafts(cached);
     const eligibleApproved = approved.filter(draft => eligibleBatchIds.has(getLoredeckCreatorDraftBatchId(draft)));
     const blocked = getLoredeckCreatorBlockedEntryIds(pack || {});
@@ -6941,7 +6968,7 @@ async function handleLoredeckCreatorEntryDraft(button = null, options = {}) {
             toast('Accept Context and Tag planning proposals before drafting Lorecards.', 'warning');
             return;
         }
-        const eligibleBatchIds = getLoredeckCreatorEntryEligibleBatchIds(cached, planning);
+        const eligibleBatchIds = getLoredeckCreatorEntryEligibleBatchIds(cached, planning, pack);
         if (!eligibleBatchIds.size) {
             toast('Accept at least one planned Context and Tag set before drafting Lorecards.', 'warning');
             return;
@@ -8448,7 +8475,7 @@ function getLoredeckCreatorPipelineReadiness(pack = {}, creatorJob = null) {
     const planningBatches = getLoredeckCreatorPlanningBatchRows(job);
     const eligiblePlanningBatches = planningBatches.filter(batch => batch.approvedTitleCount > 0);
     const eligiblePlanningBatchIds = new Set(eligiblePlanningBatches.map(batch => batch.id).filter(Boolean));
-    const queuedPlanningBatchIds = getLoredeckCreatorPlanningQueuedBatchIds(job);
+    const queuedPlanningBatchIds = getLoredeckCreatorPlanningQueuedBatchIds(job, pack);
     const acceptedPlanningBatchIds = getLoredeckCreatorPlanningAcceptedBatchIds(job);
     const queuedPlanningBatchCount = [...queuedPlanningBatchIds].filter(id => eligiblePlanningBatchIds.has(id)).length;
     const acceptedPlanningBatchCount = [...acceptedPlanningBatchIds].filter(id => eligiblePlanningBatchIds.has(id)).length;
@@ -8805,7 +8832,7 @@ function normalizeLoredeckTagDefinition(raw = {}, tagId = '') {
         label: String(input.label || '').trim().slice(0, 160),
         color: normalizeLoredeckTagColor(input.color),
         textColor: normalizeLoredeckTagColor(input.textColor),
-        description: String(input.description || '').trim().slice(0, 1000),
+        description: String(input.description || input.notes || '').trim().slice(0, 1000),
         aliases: normalizeLoredeckTagTextList(input.aliases, 64, false),
         parents: normalizeLoredeckTagTextList(input.parents, 64, true),
         sensitive: input.sensitive === true,
@@ -8921,8 +8948,8 @@ function normalizeLoredeckTimelineWindow(raw = {}, fallbackId = '', index = 0) {
         contextType: String(raw.contextType || raw.type || 'anchor_window').trim().slice(0, 80),
         anchorFrom: normalizeLoredeckTimelineId(raw.anchorFrom || raw.from || raw.validFromAnchor),
         anchorTo: normalizeLoredeckTimelineId(raw.anchorTo || raw.to || raw.validToAnchor),
-        sortKeyFrom: normalizeLoredeckTimelineNumber(raw.sortKeyFrom),
-        sortKeyTo: normalizeLoredeckTimelineNumber(raw.sortKeyTo),
+        sortKeyFrom: normalizeLoredeckTimelineNumber(raw.sortKeyFrom ?? raw.fromSortKey ?? raw.sortKeyStart),
+        sortKeyTo: normalizeLoredeckTimelineNumber(raw.sortKeyTo ?? raw.toSortKey ?? raw.sortKeyEnd),
         dateRange: normalizeLoredeckTimelineDateRange(raw.dateRange || raw.date),
         aliases: normalizeLoredeckTimelineTextList(raw.aliases || raw.triggers, 64),
         tags: normalizeLoredeckTimelineTextList(raw.tags, 64),

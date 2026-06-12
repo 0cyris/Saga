@@ -142,7 +142,7 @@ export function createLoredeckPendingRiskPill(risk = '') {
     return createStatusPill(`Risk: ${humanizeScopeKey(normalized)}`, 'Estimated proposal risk. Higher-risk proposals need closer manual review before acceptance.', { tone, kind: 'severity' });
 }
 
-function normalizeLoredeckPendingRubricLevel(value = '') {
+export function normalizeLoredeckPendingRubricLevel(value = '') {
     const raw = String(value || '')
         .trim()
         .toLowerCase()
