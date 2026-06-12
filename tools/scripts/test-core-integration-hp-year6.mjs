@@ -227,6 +227,7 @@ function selectEntriesForApproval(entries = []) {
     'future_guard_dumbledore_alive_before_tower',
     'spell_gate_sectumsempra',
     'knowledge_pre_horcrux_knowledge',
+    'canon_secret_disclosure_requires_trust',
   ];
   const byId = new Map(entries.map(entry => [entry.id, entry]));
   const selected = requiredIds.map(id => byId.get(id)).filter(Boolean);
@@ -358,6 +359,7 @@ async function main() {
   assertNoJan25ExcludedCoreEntries(preview.entries);
   assert.ok(preview.entries.some(entry => entry.id === 'future_guard_dumbledore_alive_before_tower'), 'Expected Dumbledore tower future guard before the tower.');
   assert.ok(preview.entries.some(entry => entry.id === 'spell_gate_sectumsempra'), 'Expected Sectumsempra gate in Year 6 suggestions.');
+  assert.ok(preview.entries.some(entry => entry.id === 'canon_secret_disclosure_requires_trust'), 'Expected secret disclosure trust guard in Jan 25 Year 6 suggestions.');
   assert.ok(!preview.entries.some(entry => getPackId(entry) === 'hp-year-7-deathly-hallows'), 'Year 7 Lorecards should not appear when Year 7 is not loaded.');
 
   const acceptedCandidates = selectEntriesForApproval(preview.entries);
@@ -393,12 +395,17 @@ async function main() {
   });
   const pinnedAudit = audit.entries.find(entry => entry.id === pinned.id);
   const mutedAudit = audit.entries.find(entry => entry.id === muted.id);
+  const trustGuard = acceptedState.loreMatrix.find(entry => entry.id === 'canon_secret_disclosure_requires_trust');
+  const trustGuardAudit = audit.entries.find(entry => entry.id === 'canon_secret_disclosure_requires_trust');
   assert.equal(pinnedAudit?.decision, 'injected', 'Pinned eligible Lorecard should inject.');
   assert.equal(mutedAudit?.decision, 'muted', 'Muted Lorecard should not inject.');
+  assert.ok(trustGuard, 'Secret disclosure trust guard should be accepted in the Jan 25 Year 6 smoke.');
+  assert.equal(trustGuardAudit?.decision, 'injected', 'Secret disclosure trust guard should inject when accepted and eligible.');
 
   const memo = buildLoreMemo(acceptedState, getSettings());
   assert.ok(memo.includes(getInjectionNeedle(pinned)), 'Lore memo should include the pinned Lorecard content.');
   assert.ok(!memo.includes(getInjectionNeedle(muted)), 'Lore memo should omit the muted Lorecard content.');
+  assert.ok(memo.includes(getInjectionNeedle(trustGuard)), 'Lore memo should include the secret disclosure trust guard content.');
 
   const chatMessages = await loadJsonlChat(args.chatPath);
   const chatProgression = summarizeChatProgression(chatMessages, args.messageCounts);

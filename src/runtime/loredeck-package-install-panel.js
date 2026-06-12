@@ -14,6 +14,10 @@ import {
     wireOverlayBackdropClose,
 } from '../ui/runtime-ui-kit.js';
 import {
+    createLoredeckActionRow,
+    withLoredeckActionButtonBusy,
+} from '../loredecks/loredeck-action-rows.js';
+import {
     buildGeneratedLoredeckEntryCache,
     canUseVirtualLoredeckData,
 } from './loredeck-virtual-data.js';
@@ -65,35 +69,35 @@ export async function commitLoredeckPackageInstall(packageInstall = {}, installs
         toast('Select at least one valid Loredeck package deck to install.', 'warning');
         return;
     }
-    const originalText = button?.textContent;
-    if (button) {
-        button.disabled = true;
-        button.textContent = 'Installing...';
-    }
-    try {
-        createStateBackup('before_loredeck_package_import', {
-            label: `Before importing ${selected.length} Loredeck package deck${selected.length === 1 ? '' : 's'}.`,
-        });
-        const registry = buildLoredeckPackageRegistryForInstall(packageInstall, selected);
-        const result = importLoredeckLibraryRegistry(registry, { replace: false });
-        if (!result.ok) throw new Error(result.error || 'Loredeck package install failed.');
-        for (const install of selected) {
-            const installed = result.library?.packs?.[install.record.packId] || install.record;
-            cacheInstalledLoredeckBundle(installed, { health: null });
-            selectLoredeckForDetails(installed.packId, { refresh: false });
+    await withLoredeckActionButtonBusy(button, { busyText: 'Installing...', fallbackLabel: 'Install Selected' }, async () => {
+        try {
+            createStateBackup('before_loredeck_package_import', {
+                label: `Before importing ${selected.length} Loredeck package deck${selected.length === 1 ? '' : 's'}.`,
+            });
+            const registry = buildLoredeckPackageRegistryForInstall(packageInstall, selected);
+            const result = importLoredeckLibraryRegistry(registry, { replace: false });
+            if (!result.ok) throw new Error(result.error || 'Loredeck package install failed.');
+            const importedPackIds = new Set(Array.isArray(result.importedPackIds) ? result.importedPackIds : []);
+            const installedRecords = [...importedPackIds]
+                .map(packId => result.library?.packs?.[packId] || null)
+                .filter(Boolean);
+            for (const installed of installedRecords) {
+                cacheInstalledLoredeckBundle(installed, { health: null });
+                selectLoredeckForDetails(installed.packId, { refresh: false });
+            }
+            overlay?.remove?.();
+            refreshLoredeckSurfaces({ clearCanon: true, clearContext: true });
+            const installedCount = installedRecords.length;
+            const skippedCount = Math.max(0, Number(result.skippedCount) || 0);
+            const installedText = installedCount
+                ? `Installed ${installedCount} Custom Loredeck${installedCount === 1 ? '' : 's'} from package.`
+                : 'No Custom Loredecks were installed from package.';
+            const skipped = skippedCount ? ` Skipped ${skippedCount} bundled-id conflict${skippedCount === 1 ? '' : 's'}.` : '';
+            toast(`${installedText}${skipped}`, skippedCount ? 'warning' : 'success');
+        } catch (e) {
+            toast(e?.message || 'Loredeck package install failed.', 'error');
         }
-        overlay?.remove?.();
-        refreshLoredeckSurfaces({ clearCanon: true, clearContext: true });
-        const skipped = result.skippedCount ? ` Skipped ${result.skippedCount} bundled-id conflict${result.skippedCount === 1 ? '' : 's'}.` : '';
-        toast(`Installed ${result.importedCount || selected.length} Custom Loredeck${selected.length === 1 ? '' : 's'} from package.${skipped}`, result.skippedCount ? 'warning' : 'success');
-    } catch (e) {
-        toast(e?.message || 'Loredeck package install failed.', 'error');
-    } finally {
-        if (button) {
-            button.disabled = false;
-            button.textContent = originalText || 'Install Selected';
-        }
-    }
+    });
 }
 
 export function openLoredeckPackageInstallPreviewDialog(packageInstall = {}) {
@@ -200,8 +204,7 @@ export function openLoredeckPackageInstallPreviewDialog(packageInstall = {}) {
     }
     form.appendChild(list);
 
-    const actions = document.createElement('div');
-    actions.className = 'saga-primary-actions';
+    const actions = createLoredeckActionRow();
     const installButton = createButton('Install Selected', 'Install checked package decks as editable Custom Loredecks.', async (btn) => {
         const selected = [...list.querySelectorAll('input[type="checkbox"]:checked')]
             .map(input => packageInstall.installs[Number(input.dataset.index)])

@@ -91,6 +91,7 @@ export function renderInjectionTab(container, state) {
             next.injectContinuity = checked;
             next.injectMemo = checked;
             saveSettings(next);
+            syncPromptInjectionFromCurrentSettings();
             refreshPanelBody({ preserveScroll: false });
             refreshHeader();
         }
@@ -103,6 +104,7 @@ export function renderInjectionTab(container, state) {
             const next = getSettings();
             next.injectLore = checked;
             saveSettings(next);
+            syncPromptInjectionFromCurrentSettings();
             refreshPanelBody({ preserveScroll: false });
             refreshHeader();
         }
@@ -266,7 +268,9 @@ function createLoreTierHandlingCard(tier, state, settings) {
         const next = getSettings();
         next[tierSettingKey(tier, 'InjectionEnabled')] = enabled.checked;
         saveSettings(next);
+        syncPromptInjectionFromCurrentSettings();
         refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+        refreshHeader();
     });
     enabledLabel.appendChild(enabled);
     enabledLabel.appendChild(document.createTextNode(' Enable this lore injection'));
@@ -304,6 +308,7 @@ function createLoreTierModeButton(tier, mode, label, tooltip) {
         const next = getSettings();
         next[tierSettingKey(tier, 'InjectionMode')] = mode;
         saveSettings(next);
+        syncPromptInjectionFromCurrentSettings();
         refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
         refreshHeader();
     });
@@ -540,10 +545,9 @@ function createInjectionPlacementCard(settings) {
 
     const promptInjection = getPromptInjectionApi();
     const status = promptInjection.getStatus ? promptInjection.getStatus() : null;
-    const statusText = status
-        ? `${status.transport || 'unknown'} | continuity ${status.continuityChars || 0} chars | high ${status.loreHighChars || 0} chars | normal ${status.loreNormalChars || 0} chars | low ${status.loreLowChars || 0} chars`
-        : 'Prompt sync status unavailable until extension initialization completes.';
-    card.appendChild(createKeyValue('Current sync', statusText, 'Shows the last Saga prompt sync result.'));
+    const syncStatus = createKeyValue('Current sync', getPromptInjectionStatusText(status), 'Shows the last Saga prompt sync result.');
+    syncStatus.classList.add('saga-prompt-sync-status');
+    card.appendChild(syncStatus);
 
     const actions = document.createElement('div');
     actions.className = 'saga-primary-actions';
@@ -551,6 +555,7 @@ function createInjectionPlacementCard(settings) {
         const syncPromptInjection = getPromptInjectionApi().sync;
         if (typeof syncPromptInjection === 'function') {
             const info = syncPromptInjection();
+            refreshPromptInjectionStatusUi(info);
             toast(`Synced injection: ${info.transport}, continuity ${info.continuityChars || 0} chars, lore ${info.loreChars || 0} chars.`, 'info');
         } else {
             toast('Saga prompt sync function is not available.', 'error');
@@ -559,6 +564,29 @@ function createInjectionPlacementCard(settings) {
     card.appendChild(actions);
 
     return card;
+}
+
+function getPromptInjectionStatusText(status = null) {
+    return status
+        ? `${status.transport || 'unknown'} | continuity ${status.continuityChars || 0} chars | high ${status.loreHighChars || 0} chars | normal ${status.loreNormalChars || 0} chars | low ${status.loreLowChars || 0} chars`
+        : 'Prompt sync status unavailable until extension initialization completes.';
+}
+
+function refreshPromptInjectionStatusUi(status = null) {
+    const row = getPanelRoot()?.querySelector('.saga-prompt-sync-status');
+    const value = row?.querySelector('.saga-value');
+    if (!value) return false;
+    const nextStatus = status || getPromptInjectionApi().getStatus?.() || null;
+    value.textContent = getPromptInjectionStatusText(nextStatus);
+    return true;
+}
+
+function syncPromptInjectionFromCurrentSettings() {
+    const syncPromptInjection = getPromptInjectionApi().sync;
+    if (typeof syncPromptInjection !== 'function') return null;
+    const info = syncPromptInjection();
+    refreshPromptInjectionStatusUi(info);
+    return info;
 }
 
 function createPromptPlacementLine(labelText, controls) {
@@ -604,6 +632,7 @@ function createPlacementSelect(labelText, settingKey, value, options, tooltip, e
             next[settingKey] = select.value;
         }
         saveSettings(next);
+        syncPromptInjectionFromCurrentSettings();
         refreshPanelBody({ preserveScroll: false });
     });
     label.appendChild(span);
@@ -626,6 +655,7 @@ function createPlacementNumber(labelText, settingKey, value, min, max, tooltip, 
         const next = getSettings();
         next[settingKey] = Math.max(min, Math.min(max, parseInt(input.value, 10) || Number(value) || 0));
         saveSettings(next);
+        syncPromptInjectionFromCurrentSettings();
         refreshPanelBody({ preserveScroll: false });
     });
     label.appendChild(span);
@@ -717,7 +747,8 @@ function refreshInjectionPreviewOnly() {
 
     const syncPromptInjection = getPromptInjectionApi().sync;
     if (typeof syncPromptInjection === 'function') {
-        syncPromptInjection();
+        const info = syncPromptInjection();
+        refreshPromptInjectionStatusUi(info);
     }
 }
 
@@ -1108,6 +1139,7 @@ function createInjectionModeButton(mode, label, tooltip, settings) {
         const next = getSettings();
         next.loreInjectionMode = mode;
         saveSettings(next);
+        syncPromptInjectionFromCurrentSettings();
         if (mode === 'compressed' && !hasValidModelCompression('lore')) {
             const directText = buildLorePreview(getState(), 'direct');
             if (!hasCompressibleText(directText)) {
@@ -1135,6 +1167,7 @@ function createContinuityModeButton(mode, label, tooltip, settings) {
         const next = getSettings();
         next.continuityInjectionMode = mode;
         saveSettings(next);
+        syncPromptInjectionFromCurrentSettings();
         if (mode === 'compressed' && !hasValidModelCompression('continuity')) {
             const directText = buildContinuityPreview(getState(), 'direct');
             if (!hasCompressibleText(directText)) {

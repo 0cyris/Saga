@@ -9,6 +9,10 @@ import {
     toast,
     wireOverlayBackdropClose,
 } from '../ui/runtime-ui-kit.js';
+import {
+    createLoredeckJobStatusRow,
+    formatLoredeckJobElapsed,
+} from './loredeck-job-view.js';
 
 let creatorPanelDeps = {};
 let loredeckCreatorWorkbenchRefreshQueued = false;
@@ -47,7 +51,7 @@ function handleLoredeckCreatorRemainingTitleBatches(button) { return dep('handle
 function approveLoredeckCreatorTitleSelection(selectedIds) { return dep('approveLoredeckCreatorTitleSelection', () => false)(selectedIds); }
 function unapproveLoredeckCreatorTitleSelection(selectedIds) { return dep('unapproveLoredeckCreatorTitleSelection', () => false)(selectedIds); }
 function dropLoredeckCreatorTitleSelection(selectedIds) { return dep('dropLoredeckCreatorTitleSelection', () => false)(selectedIds); }
-function setLoredeckCreatorTitleSelectionBulk(mode) { return dep('setLoredeckCreatorTitleSelectionBulk', () => false)(mode); }
+function setLoredeckCreatorTitleSelectionBulk(mode, options) { return dep('setLoredeckCreatorTitleSelectionBulk', () => false)(mode, options); }
 function setLoredeckCreatorTitleSelection(titleId, selected, options) { return dep('setLoredeckCreatorTitleSelection', () => false)(titleId, selected, options); }
 function getLoredeckCreatorSelectedTitleDrafts(cached) { return dep('getLoredeckCreatorSelectedTitleDrafts', () => [])(cached); }
 function getLoredeckCreatorTitleRevisionInstruction() { return dep('getLoredeckCreatorTitleRevisionInstruction', () => '')(); }
@@ -179,6 +183,51 @@ export function queueLoredeckCreatorWorkbenchRefresh(options = {}) {
     };
     if (typeof requestAnimationFrame === 'function') requestAnimationFrame(refresh);
     else setTimeout(refresh, 0);
+    return true;
+}
+
+export function refreshLoredeckCreatorTitleSelectionUi() {
+    if (typeof document === 'undefined') return false;
+    const card = document.querySelector('.saga-loredeck-creator-title-pass');
+    if (!card) return false;
+
+    const cached = getLoredeckCreatorBriefCache();
+    const drafts = getLoredeckCreatorTitleDrafts(cached);
+    if (!drafts.length) return false;
+
+    const selectedIds = getLoredeckCreatorSelectedTitleIds(cached);
+    const approvedIds = getLoredeckCreatorApprovedTitleIds(cached);
+    const selectedCount = drafts.filter(draft => selectedIds.has(draft.titleId)).length;
+    const selectedApprovedCount = drafts.filter(draft => selectedIds.has(draft.titleId) && approvedIds.has(draft.titleId)).length;
+    const allSelected = selectedCount >= drafts.length;
+    const noneSelected = selectedCount <= 0;
+
+    card.querySelectorAll('.saga-loredeck-creator-title-selected-count').forEach(element => {
+        element.textContent = `${selectedCount} selected`;
+    });
+    card.querySelectorAll('[data-saga-creator-title-action="approve-selected"], [data-saga-creator-title-action="drop-selected"]').forEach(button => {
+        button.disabled = noneSelected;
+    });
+    card.querySelectorAll('[data-saga-creator-title-action="unapprove-selected"]').forEach(button => {
+        button.disabled = selectedApprovedCount <= 0;
+    });
+    card.querySelectorAll('[data-saga-creator-title-action="revise-selected"]').forEach(button => {
+        button.disabled = noneSelected || button.dataset.sagaCreatorGenerationLocked === 'true';
+    });
+    card.querySelectorAll('[data-saga-creator-title-action="select-all"]').forEach(button => {
+        button.disabled = allSelected;
+    });
+    card.querySelectorAll('[data-saga-creator-title-action="clear-selection"]').forEach(button => {
+        button.disabled = noneSelected;
+    });
+
+    card.querySelectorAll('.saga-loredeck-creator-title-row[data-saga-creator-title-id]').forEach(row => {
+        const id = String(row.dataset.sagaCreatorTitleId || '');
+        const selected = selectedIds.has(id);
+        row.classList.toggle('saga-loredeck-creator-title-row-selected', selected);
+        const checkbox = row.querySelector('input[type="checkbox"]');
+        if (checkbox) checkbox.checked = selected;
+    });
     return true;
 }
 
@@ -750,7 +799,9 @@ export function createLoredeckCreatorTitlePassCard(brief = {}, cached = {}) {
     summary.appendChild(createStatusPill(drafts.length ? 'Drafted' : 'Ready', 'Title-pass generation status.'));
     summary.appendChild(createStatusPill(`${drafts.length} title${drafts.length === 1 ? '' : 's'}`, 'Reviewable title drafts in this batch.'));
     summary.appendChild(createStatusPill(`${draftedBatchIds.size}/${titleBatches.length} batches`, 'Title batches drafted from the approved Story Outline.'));
-    summary.appendChild(createStatusPill(`${selectedCount} selected`, 'Selected titles are affected by approve, drop, and revise actions.'));
+    const selectedPill = createStatusPill(`${selectedCount} selected`, 'Selected titles are affected by approve, drop, and revise actions.');
+    selectedPill.classList.add('saga-loredeck-creator-title-selected-count');
+    summary.appendChild(selectedPill);
     if (approvedIds.size) summary.appendChild(createStatusPill(`${approvedIds.size} approved`, 'Approved titles are ready for the next Creator stage.'));
     if (qualityWarningCount) summary.appendChild(createStatusPill(`${qualityWarningCount} quality flag${qualityWarningCount === 1 ? '' : 's'}`, 'Model-provided quality warnings across title drafts.'));
     if (cached.titleBatch?.label) summary.appendChild(createStatusPill(cached.titleBatch.label, 'Current title set label.'));
@@ -786,7 +837,7 @@ export function createLoredeckCreatorTitlePassCard(brief = {}, cached = {}) {
     }
 
     const list = document.createElement('div');
-    list.className = 'saga-loredeck-entry-list';
+    list.className = 'saga-loredeck-entry-list saga-loredeck-creator-title-list';
     for (const draft of drafts.slice(0, 80)) {
         list.appendChild(createLoredeckCreatorTitleRow(draft, selectedIds.has(draft.titleId), approvedIds.has(draft.titleId)));
     }
@@ -840,27 +891,36 @@ function createLoredeckCreatorTitlePassActions(brief = {}, cached = {}, context 
     const approveSelected = createButton('Approve Selected Titles', 'Approve selected title drafts for the next Creator stage.', () => {
         approveLoredeckCreatorTitleSelection(getLoredeckCreatorSelectedTitleIds(getLoredeckCreatorBriefCache()));
     });
+    approveSelected.dataset.sagaCreatorTitleAction = 'approve-selected';
     approveSelected.disabled = !selectedCount;
     actions.appendChild(approveSelected);
 
     const unapproveSelected = createButton('Unapprove Selected', 'Remove selected title drafts from the approved set.', () => {
         unapproveLoredeckCreatorTitleSelection(getLoredeckCreatorSelectedTitleIds(getLoredeckCreatorBriefCache()));
     });
+    unapproveSelected.dataset.sagaCreatorTitleAction = 'unapprove-selected';
     unapproveSelected.disabled = !selectedApprovedCount;
     actions.appendChild(unapproveSelected);
 
     const dropSelected = createButton('Drop Selected', 'Remove selected title drafts from this Creator batch.', () => {
         dropLoredeckCreatorTitleSelection(getLoredeckCreatorSelectedTitleIds(getLoredeckCreatorBriefCache()));
     }, 'saga-danger-button');
+    dropSelected.dataset.sagaCreatorTitleAction = 'drop-selected';
     dropSelected.disabled = !selectedCount;
     actions.appendChild(dropSelected);
 
-    actions.appendChild(createButton('Select All', 'Select every title draft in this batch.', () => {
-        setLoredeckCreatorTitleSelectionBulk('all');
-    }));
-    actions.appendChild(createButton('Clear Selection', 'Clear the current title draft selection.', () => {
-        setLoredeckCreatorTitleSelectionBulk('none');
-    }));
+    const selectAll = createButton('Select All', 'Select every title draft in this batch.', () => {
+        setLoredeckCreatorTitleSelectionBulk('all', { refresh: true });
+    });
+    selectAll.dataset.sagaCreatorTitleAction = 'select-all';
+    selectAll.disabled = selectedCount >= getLoredeckCreatorTitleDrafts(cached).length;
+    actions.appendChild(selectAll);
+    const clearSelection = createButton('Clear Selection', 'Clear the current title draft selection.', () => {
+        setLoredeckCreatorTitleSelectionBulk('none', { refresh: true });
+    });
+    clearSelection.dataset.sagaCreatorTitleAction = 'clear-selection';
+    clearSelection.disabled = !selectedCount;
+    actions.appendChild(clearSelection);
     return actions;
 }
 
@@ -899,6 +959,7 @@ function createLoredeckCreatorTitleRevisionForm(brief = {}, cached = {}, context
             selectedTitleDrafts: getLoredeckCreatorSelectedTitleDrafts(fresh).map(compactLoredeckCreatorTitleDraftForRevision),
         }, btn);
     });
+    reviseButton.dataset.sagaCreatorTitleAction = 'revise-selected';
     reviseButton.disabled = !selectedCount;
     reviseActions.appendChild(lockLoredeckCreatorGenerationButton(reviseButton, cached, 'title revision'));
     reviseForm.appendChild(reviseActions);
@@ -909,6 +970,8 @@ function createLoredeckCreatorTitleRevisionForm(brief = {}, cached = {}, context
 function createLoredeckCreatorTitleRow(draft = {}, selected = false, approved = false) {
     const row = document.createElement('div');
     row.className = 'saga-loredeck-entry-row saga-loredeck-creator-title-row';
+    row.classList.toggle('saga-loredeck-creator-title-row-selected', selected);
+    row.dataset.sagaCreatorTitleId = draft.titleId || '';
 
     const main = document.createElement('div');
     main.className = 'saga-loredeck-row-main';
@@ -1576,10 +1639,7 @@ function createLoredeckCreatorJobPanel(cached = {}, pipeline = {}) {
 }
 
 export function formatLoredeckCreatorGenerationElapsed(ms = 0) {
-    const seconds = Math.max(0, Math.floor(Number(ms) / 1000));
-    const minutes = Math.floor(seconds / 60);
-    const remainder = seconds % 60;
-    return `${minutes}:${String(remainder).padStart(2, '0')}`;
+    return formatLoredeckJobElapsed(ms);
 }
 
 export function formatLoredeckCreatorLiveSnippet(text = '', limit = 760) {
@@ -1615,52 +1675,24 @@ export function createLoredeckCreatorGenerationStatus(cached = {}, actionIds = [
     const result = !active && loredeckCreatorGenerationMatches(cached.lastGenerationResult, actionIds, options) ? cached.lastGenerationResult : null;
     const model = active || result;
     if (!model) return null;
-
-    const row = document.createElement('div');
-    row.className = `saga-generation-live-status saga-generation-live-status-${active ? 'running' : model.status || 'complete'}`;
-    if (options.compact) row.classList.add('saga-generation-live-status-compact');
-
-    const icon = document.createElement('div');
-    icon.className = active ? 'saga-generation-thinking-icon' : 'saga-generation-result-icon';
     const status = String(model.status || '').toLowerCase();
-    icon.textContent = active ? '' : (['error', 'failed', 'interrupted'].includes(status) ? '!' : status === 'cancelled' ? 'X' : status === 'warning' ? '?' : 'OK');
-    row.appendChild(icon);
-
-    const main = document.createElement('div');
-    main.className = 'saga-generation-live-main';
-    const line = document.createElement('div');
-    line.className = 'saga-generation-live-line';
-    const label = document.createElement('span');
-    label.className = 'saga-generation-live-label';
-    label.textContent = model.label || 'Generation';
-    line.appendChild(label);
-    const text = document.createElement('span');
-    text.className = 'saga-generation-live-text';
-    text.textContent = active
-        ? getLoredeckCreatorGenerationWaitMessage(model)
-        : (model.message || (status === 'interrupted' ? 'Previous generation was interrupted. Review saved batches, then rerun this stage.' : 'Generation complete.'));
-    line.appendChild(text);
-    const elapsed = document.createElement('span');
-    elapsed.className = 'saga-generation-live-elapsed';
-    elapsed.textContent = formatLoredeckCreatorGenerationElapsed(active ? Date.now() - Number(model.startedAt || Date.now()) : model.elapsedMs);
-    line.appendChild(elapsed);
-    if (active) {
-        const cancel = createButton('Cancel', 'Cancel this generation. Any late provider response will be ignored.', () => {
-            cancelLoredeckCreatorGeneration(model.id);
-        }, 'saga-generation-cancel-button');
-        line.appendChild(cancel);
-    }
-    main.appendChild(line);
-
-    const meta = document.createElement('div');
-    meta.className = 'saga-generation-live-meta';
-    const streamText = model.streamSupported === true ? 'streaming' : model.streamSupported === false ? 'final response' : 'provider pending';
-    const chars = Number(model.receivedChars || 0);
-    meta.textContent = `${streamText}${chars ? ` | ${chars} chars` : ''}${model.batchLabel ? ` | ${model.batchLabel}` : ''}`;
-    main.appendChild(meta);
-
-    row.appendChild(main);
-    return row;
+    const activeJob = Boolean(active);
+    return createLoredeckJobStatusRow({
+        active: activeJob,
+        status: status || (activeJob ? 'running' : 'complete'),
+        label: model.label || 'Generation',
+        message: activeJob
+            ? getLoredeckCreatorGenerationWaitMessage(model)
+            : (model.message || (status === 'interrupted' ? 'Previous generation was interrupted. Review saved batches, then rerun this stage.' : 'Generation complete.')),
+        elapsedMs: activeJob ? Date.now() - Number(model.startedAt || Date.now()) : model.elapsedMs,
+        streamSupported: model.streamSupported,
+        receivedChars: model.receivedChars,
+        batchLabel: model.batchLabel,
+    }, {
+        compact: options.compact,
+        onCancel: activeJob ? () => cancelLoredeckCreatorGeneration(model.id) : null,
+        cancelTooltip: 'Cancel this generation. Any late provider response will be ignored.',
+    });
 }
 
 export function appendLoredeckCreatorGenerationStatus(container, cached = {}, actionIds = [], options = {}) {

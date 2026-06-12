@@ -1278,6 +1278,11 @@
     border-left-color: rgba(126, 166, 219, 0.76);
 }
 
+.saga-loredeck-assistant-draft-row-selected {
+    border-color: rgba(126, 166, 219, 0.5);
+    background: rgba(25, 39, 59, 0.34);
+}
+
 .saga-loredeck-assistant-draft-title {
     display: flex;
     align-items: flex-start;
@@ -1748,6 +1753,11 @@
 
 .saga-loredeck-creator-title-row {
     border-left-color: rgba(215, 181, 109, 0.78);
+}
+
+.saga-loredeck-creator-title-row-selected {
+    border-color: rgba(215, 181, 109, 0.5);
+    background: rgba(65, 48, 22, 0.34);
 }
 
 .saga-loredeck-creator-title-label {

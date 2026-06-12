@@ -9,6 +9,13 @@ const loredeckIndexPath = path.join(root, 'content', 'loredecks', 'index.json');
 const panelPath = sourcePath('runtime', 'lore-panel.js');
 const libraryPanelPath = sourcePath('loredecks', 'loredeck-library-panel.js');
 const loredecksTabPanelPath = sourcePath('loredecks', 'loredecks-tab-panel.js');
+const loredeckWorkbenchPanelPath = sourcePath('loredecks', 'loredeck-workbench-panel.js');
+const loredeckUiKitPath = sourcePath('loredecks', 'loredeck-ui-kit.js');
+const loredeckFilterControlsPath = sourcePath('loredecks', 'loredeck-filter-controls.js');
+const loredeckSelectionToolbarPath = sourcePath('loredecks', 'loredeck-selection-toolbar.js');
+const loredeckValidationViewPath = sourcePath('loredecks', 'loredeck-validation-view.js');
+const loredeckJobViewPath = sourcePath('loredecks', 'loredeck-job-view.js');
+const loredeckActionRowsPath = sourcePath('loredecks', 'loredeck-action-rows.js');
 const lorecardsPanelPath = sourcePath('lorecards', 'lorecards-panel.js');
 const creatorPanelPath = sourcePath('loredecks', 'loredeck-creator-panel.js');
 const creatorCoveragePath = sourcePath('loredecks', 'loredeck-creator-coverage.js');
@@ -26,6 +33,16 @@ const runtimeUiKitPath = sourcePath('ui', 'runtime-ui-kit.js');
 const runtimeActiveStackPanelPath = sourcePath('runtime', 'active-stack-panel.js');
 const runtimeLoredeckGeneratedExportCardPath = sourcePath('runtime', 'loredeck-generated-export-card.js');
 const runtimeLoredeckGeneratedReadinessPath = sourcePath('runtime', 'loredeck-generated-readiness.js');
+const runtimeLoredeckEditorActionsPath = sourcePath('runtime', 'loredeck-editor-actions.js');
+const runtimeLoredeckEntryOverridesPath = sourcePath('runtime', 'loredeck-entry-overrides-panel.js');
+const runtimeLoredeckTimelineRegistryPath = sourcePath('runtime', 'loredeck-timeline-registry-panel.js');
+const runtimeLoredeckTagManagerPath = sourcePath('runtime', 'loredeck-tag-manager-panel.js');
+const runtimeLoredeckPendingReviewPath = sourcePath('runtime', 'loredeck-pending-review-panel.js');
+const runtimeLoredeckAssistantReviewPath = sourcePath('runtime', 'loredeck-assistant-review-panel.js');
+const runtimeLoredeckReviewHelpersPath = sourcePath('runtime', 'loredeck-review-helpers.js');
+const runtimeLoredeckPendingChangeModelPath = sourcePath('runtime', 'loredeck-pending-change-model.js');
+const runtimeLoredeckPendingChangeActionsPath = sourcePath('runtime', 'loredeck-pending-change-actions.js');
+const runtimeLoredeckEditProposalsPath = sourcePath('runtime', 'loredeck-edit-proposals.js');
 const runtimeLoredeckEditorFieldsPath = sourcePath('runtime', 'loredeck-editor-fields.js');
 const runtimeLoredeckEditorLoaderPath = sourcePath('runtime', 'loredeck-editor-loader.js');
 const runtimeLoredeckEditorValidationPath = sourcePath('runtime', 'loredeck-editor-validation.js');
@@ -43,6 +60,7 @@ const runtimeSafetyPanelPath = sourcePath('runtime', 'runtime-safety-panel.js');
 const runtimeFeatureProgressPath = sourcePath('runtime', 'runtime-feature-progress.js');
 const runtimeLoreRegistryPath = sourcePath('runtime', 'runtime-lore-registry.js');
 const runtimeRailMetricsPath = sourcePath('runtime', 'runtime-rail-metrics.js');
+const runtimeShellPath = sourcePath('runtime', 'runtime-shell.js');
 const runtimeShellViewPath = sourcePath('runtime', 'runtime-shell-view.js');
 const runtimeTabRegistryPath = sourcePath('runtime', 'tab-registry.js');
 const runtimeNavigationPath = sourcePath('runtime', 'runtime-navigation.js');
@@ -450,10 +468,28 @@ const injectionPanel = read(injectionPanelPath);
 const contextPanel = read(contextPanelPath);
 const contextWorkbenchPanel = read(contextWorkbenchPanelPath);
 const settingsPanel = read(settingsPanelPath);
+const loredeckWorkbenchPanel = read(loredeckWorkbenchPanelPath);
+const loredeckUiKit = read(loredeckUiKitPath);
+const loredeckFilterControls = read(loredeckFilterControlsPath);
+const loredeckSelectionToolbar = read(loredeckSelectionToolbarPath);
+const loredeckValidationView = read(loredeckValidationViewPath);
+const loredeckJobView = read(loredeckJobViewPath);
+const loredeckActionRows = read(loredeckActionRowsPath);
+const healthPanel = read(healthPanelPath);
 const runtimeSettingsTab = read(runtimeSettingsTabPath);
 const runtimeActiveStackPanel = read(runtimeActiveStackPanelPath);
 const runtimeLoredeckGeneratedExportCard = read(runtimeLoredeckGeneratedExportCardPath);
 const runtimeLoredeckGeneratedReadiness = read(runtimeLoredeckGeneratedReadinessPath);
+const runtimeLoredeckEditorActions = read(runtimeLoredeckEditorActionsPath);
+const runtimeLoredeckEntryOverrides = read(runtimeLoredeckEntryOverridesPath);
+const runtimeLoredeckTimelineRegistry = read(runtimeLoredeckTimelineRegistryPath);
+const runtimeLoredeckTagManager = read(runtimeLoredeckTagManagerPath);
+const runtimeLoredeckPendingReview = read(runtimeLoredeckPendingReviewPath);
+const runtimeLoredeckAssistantReview = read(runtimeLoredeckAssistantReviewPath);
+const runtimeLoredeckReviewHelpers = read(runtimeLoredeckReviewHelpersPath);
+const runtimeLoredeckPendingChangeModel = read(runtimeLoredeckPendingChangeModelPath);
+const runtimeLoredeckPendingChangeActions = read(runtimeLoredeckPendingChangeActionsPath);
+const runtimeLoredeckEditProposals = read(runtimeLoredeckEditProposalsPath);
 const runtimeLoredeckEditorFields = read(runtimeLoredeckEditorFieldsPath);
 const runtimeLoredeckEditorLoader = read(runtimeLoredeckEditorLoaderPath);
 const runtimeLoredeckEditorValidation = read(runtimeLoredeckEditorValidationPath);
@@ -473,6 +509,7 @@ const runtimeSafetyPanel = read(runtimeSafetyPanelPath);
 const runtimeFeatureProgress = read(runtimeFeatureProgressPath);
 const runtimeLoreRegistry = read(runtimeLoreRegistryPath);
 const runtimeRailMetrics = read(runtimeRailMetricsPath);
+const runtimeShell = read(runtimeShellPath);
 const runtimeShellView = read(runtimeShellViewPath);
 const runtimeTabRegistry = read(runtimeTabRegistryPath);
 const runtimeSettingControls = read(runtimeSettingControlsPath);
@@ -481,6 +518,16 @@ const runtimePanelSource = [
     runtimeActiveStackPanel,
     runtimeLoredeckGeneratedExportCard,
     runtimeLoredeckGeneratedReadiness,
+    runtimeLoredeckEditorActions,
+    runtimeLoredeckEntryOverrides,
+    runtimeLoredeckTimelineRegistry,
+    runtimeLoredeckTagManager,
+    runtimeLoredeckPendingReview,
+    runtimeLoredeckAssistantReview,
+    runtimeLoredeckReviewHelpers,
+    runtimeLoredeckPendingChangeModel,
+    runtimeLoredeckPendingChangeActions,
+    runtimeLoredeckEditProposals,
     runtimeLoredeckEditorFields,
     runtimeLoredeckEditorLoader,
     runtimeLoredeckEditorValidation,
@@ -500,14 +547,22 @@ const runtimePanelSource = [
     runtimeFeatureProgress,
     runtimeLoreRegistry,
     runtimeRailMetrics,
+    runtimeShell,
     runtimeShellView,
     runtimeTabRegistry,
     runtimeSettingControls,
     lorecardsPanel,
     libraryPanel,
     loredecksTabPanel,
+    loredeckWorkbenchPanel,
+    loredeckUiKit,
+    loredeckFilterControls,
+    loredeckSelectionToolbar,
+    loredeckValidationView,
+    loredeckJobView,
+    loredeckActionRows,
     read(creatorPanelPath),
-    read(healthPanelPath),
+    healthPanel,
     continuityPanel,
     injectionPanel,
     contextPanel,
@@ -685,6 +740,7 @@ assert(!style.includes('saga-basic-loredeck-stack-card') && !style.includes('sag
 assert(settingsPanel.includes('export function createBasicProviderQuickSetupCard') && settingsPanel.includes('function createBasicProviderQuickSetupRow'), 'Basic Settings must render a simplified Providers surface.');
 assert(settingsPanel.includes('getProviderModelStatus') && settingsPanel.includes("createBasicProviderSummaryRow('Model'"), 'Basic provider setup must summarize the resolved model or fallback profile label.');
 assert(settingsPanel.includes('Open Advanced Provider Settings') && settingsPanel.includes('Use Current Model') && settingsPanel.includes('Test ${cfg.shortTitle}'), 'Basic Providers must test providers and hand off to Advanced provider controls.');
+assert(/function saveProviderSetting[\s\S]*saveSettings\(next\);[\s\S]*refreshRuntimeHeader\(\);[\s\S]*if \(options\.refresh !== false\)/.test(settingsPanel), 'Provider setting saves must update runtime rail/header metrics even when field-level saves skip panel rerender.');
 assert(runtimePanelSource.includes("'settings.providers'") && runtimePanelSource.includes("'settings.themePack'") && !runtimePanelSource.includes("'settings.experienceMode'"), 'Basic Settings must expose Providers and Theme Pack without a redundant Experience Mode section.');
 assert(!runtimePanelSource.includes('function createBasicAppearanceSettingsCard') && /if \(basic\)[\s\S]*'settings\.themePack'[\s\S]*createThemeSettingsCard\(settings\)/.test(runtimePanelSource), 'Basic Settings must render the same Theme Pack section as Advanced.');
 assert(!runtimePanelSource.includes('function createBasicExperienceSettingsCard') && !style.includes('saga-basic-experience-switch-wrap'), 'Basic Settings must not keep a dedicated Experience Mode card.');
@@ -752,7 +808,11 @@ assert(runtimePanelSource.includes('return selectedId ? (library.find(pack => pa
 assert(style.includes('saga-loredeck-library-details-empty'), 'Loredeck Library empty-selection details panel must have centered styling.');
 assert(style.includes('.saga-loredeck-library-details-empty .saga-lore-empty::before') && style.includes('.saga-loredeck-library-details-empty .saga-lore-empty::after'), 'Loredeck Library empty-selection label must use CSS divider lines instead of literal dashes.');
 assert(runtimePanelSource.includes('source.originalType || pack.type || manifest.type') && runtimePanelSource.includes("kind: 'package_export'"), 'Loredeck package exporter must write original source type into package index metadata.');
+assert(runtimeLoredeckPackageExport.includes('sourceInfo.originalType || fresh.type || source.manifest.type'), 'Loredeck package exporter manifest metadata must preserve original source type before current library type.');
 assert(runtimePanelSource.includes('sourceInfo.originalType || indexRecord.originalType') && runtimePanelSource.includes("storageMode: 'bundled_manifest_reference'"), 'Loredeck package importer must use exported original type for lightweight bundled reimports.');
+assert(loredeckLibraryStore.includes('importedPackIds.push(packId)') && loredeckLibraryStore.includes('skippedPackIds.push(packId)'), 'Loredeck library import must report exact imported and skipped pack IDs.');
+assert(runtimeLoredeckPackageInstallPanel.includes('new Set(Array.isArray(result.importedPackIds) ? result.importedPackIds : [])'), 'Loredeck package install panel must use imported pack IDs instead of selected rows when caching installed decks.');
+assert(runtimeLoredeckPackageInstallPanel.includes('No Custom Loredecks were installed from package.') && runtimeLoredeckPackageInstallPanel.includes('Installed ${installedCount} Custom Loredeck'), 'Loredeck package install toast must report the actual imported count, including zero-install skips.');
 assert(runtimePanelSource.includes('requestAnimationFrame(() =>') && runtimePanelSource.includes('refreshLoredeckLibrarySelectionSurfaces();'), 'Loredeck Library folder selection refresh should defer heavier detail work to an animation frame.');
 assert(runtimePanelSource.includes('scheduleLoredeckLibrarySelectionSurfaceRefresh();'), 'Loredeck Library folder clicks must use the in-place selection refresh path.');
 assert(runtimePanelSource.includes('function scheduleLoredeckLibraryOverlayRefresh'), 'Loredeck Library stack/drop refreshes must support deferred overlay rebuilds.');
@@ -814,6 +874,87 @@ assert(runtimePanelSource.includes('No loaded Loredecks'), 'Context tab must sho
 assert(runtimePanelSource.includes('if (stack.length) {') && runtimePanelSource.includes('formatContextIndexSummary(contextIndex)'), 'Context index summaries must be gated behind a loaded Loredeck stack.');
 assert(runtimePanelSource.includes('state?.contextBrief'), 'Context Brief status UI must read from chat state.');
 assert(runtimePanelSource.includes('refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });'), 'Context detection completion must preserve runtime scroll position.');
+assert(panel.includes('function openPendingLoreReviewSections()') && panel.includes("setSectionCollapsed('lore.pendingReview', false);"), 'Canon add actions must have a local Pending Lore Review opener after guide prep extraction.');
+assert(panel.includes('function refreshCanonPreviewSelectionUi()'), 'Canon preview selection must refresh row/count/button state without rebuilding the full Lorecards tab.');
+assert(panel.includes("addSelected.dataset.sagaCanonPreviewAction = 'add-selected';"), 'Canon preview Add Selected button must be addressable by selection refresh.');
+assert(panel.includes("row.dataset.canonPreviewEntryId = id;"), 'Canon preview rows must expose entry ids for in-place selection state refresh.');
+assert(panel.includes('if (!refreshCanonPreviewSelectionUi()) refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });'), 'Canon preview selection fallback must preserve drawer and page scroll if a full refresh is needed.');
+assert(runtimeShell.includes("'.saga-canon-preview-list'"), 'Canon preview list must participate in nested scroll preservation and wheel handoff.');
+assert(panel.includes('function refreshLoredeckAssistantDraftSelectionUi(pack)'), 'Assistant draft selection must refresh row/count/button state without rebuilding the full Lorecards tab.');
+assert(panel.includes('if (options.refresh && !refreshLoredeckAssistantDraftSelectionUi(pack))'), 'Assistant draft checkbox fallback must preserve drawer and page scroll if a full refresh is needed.');
+assert(panel.includes("Object.prototype.hasOwnProperty.call(current, 'selectedDraftChangeIds')") && panel.includes('delete currentForMutation.selectedDraftChangeIds'), 'Assistant draft cache updates must preserve default-all selection when no explicit selection exists.');
+assert(runtimeLoredeckAssistantReview.includes("queueSelected.dataset.sagaAssistantDraftAction = 'queue-selected';"), 'Assistant draft Queue Selected button must be addressable by selection refresh.');
+assert(runtimeLoredeckAssistantReview.includes("row.dataset.sagaAssistantDraftChangeId = change.changeId || '';"), 'Assistant draft rows must expose change ids for in-place selection state refresh.');
+assert(runtimeShell.includes("'.saga-loredeck-assistant-draft-list'"), 'Assistant draft list must participate in nested scroll preservation and wheel handoff.');
+assert(style.includes('.saga-loredeck-assistant-draft-row-selected'), 'Assistant draft selected rows must have dedicated runtime styling.');
+assert(loredeckUiKit.includes('export function createLoredeckRenderErrorCard') && loredeckUiKit.includes('export function appendLoredeckStatusPills'), 'Loredeck UI kit must own shared render-error and status-pill helpers.');
+assert(libraryPanel.includes("from './loredeck-ui-kit.js'") && libraryPanel.includes('createLoredeckRenderErrorBody') && libraryPanel.includes('appendLoredeckStatusPills(meta'), 'Loredeck Library must use shared Loredeck UI kit primitives for render errors and header status.');
+assert(loredeckWorkbenchPanel.includes("from './loredeck-ui-kit.js'") && loredeckWorkbenchPanel.includes('createLoredeckEmptyState') && loredeckWorkbenchPanel.includes('appendLoredeckStatusPills(chips'), 'Loredeck Workbench must use shared Loredeck UI kit primitives for shell empty/status surfaces.');
+assert(healthPanel.includes("from './loredeck-ui-kit.js'") && healthPanel.includes('createLoredeckRenderErrorCard') && healthPanel.includes('appendLoredeckStatusPills(meta'), 'Deck Health Center must use shared Loredeck UI kit primitives for render errors and hero status.');
+assert(loredeckFilterControls.includes('export function createLoredeckSearchInput') && loredeckFilterControls.includes('export function createLoredeckSelectControl') && loredeckFilterControls.includes('export function createLoredeckFilterCount'), 'Loredeck filter controls must own shared search, select, and count primitives.');
+assert(loredeckSelectionToolbar.includes('export function createLoredeckSelectionSummary') && loredeckSelectionToolbar.includes('export function formatLoredeckSelectionSummary'), 'Loredeck selection toolbar must own shared selection summary rendering.');
+assert(libraryPanel.includes("from './loredeck-filter-controls.js'") && libraryPanel.includes('createLoredeckSearchInput({') && libraryPanel.includes('createLoredeckSelectControl({'), 'Loredeck Library must use shared filter controls for search, view, and sort controls.');
+assert(libraryPanel.includes("from './loredeck-selection-toolbar.js'") && libraryPanel.includes('createLoredeckSelectionSummary({') && libraryPanel.includes('visibleSelectedCount: selectedVisibleCount'), 'Loredeck Library must use shared selection summary rendering.');
+assert(loredeckWorkbenchPanel.includes("from './loredeck-filter-controls.js'") && loredeckWorkbenchPanel.includes('createLoredeckSearchInput({') && loredeckWorkbenchPanel.includes('createLoredeckFilterCount({') && loredeckWorkbenchPanel.includes('return createLoredeckSelectControl({'), 'Loredeck Workbench must use shared filter controls for search, selects, and filtered counts.');
+assert(loredeckWorkbenchPanel.includes("from './loredeck-selection-toolbar.js'") && loredeckWorkbenchPanel.includes("emptyText: 'No bulk selection'"), 'Loredeck Workbench bulk toolbar must use shared selection summary rendering.');
+assert(loredeckValidationView.includes('export function createLoredeckValidationSeverityGrid') && loredeckValidationView.includes('export function createLoredeckValidationIssueList'), 'Loredeck validation view must own shared severity-grid and issue-list primitives.');
+assert(loredeckValidationView.includes('export function createLoredeckValidationMetric') && loredeckValidationView.includes('export function createLoredeckValidationCategoryList'), 'Loredeck validation view must own shared metric and category-list primitives.');
+assert(healthPanel.includes("from './loredeck-validation-view.js'") && healthPanel.includes('createLoredeckValidationSeverityGrid([') && healthPanel.includes('return createLoredeckValidationIssueList(titleText, issues'), 'Deck Health Center must use shared validation view primitives for severity and raw issue lists.');
+assert(healthPanel.includes('return createLoredeckValidationCategoryList(getLoredeckHealthCategories(context.report)') && healthPanel.includes('return createLoredeckValidationMetric(label, value, tooltip);'), 'Deck Health Center must use shared validation view primitives for categories and metrics.');
+assert(loredeckJobView.includes('export function createLoredeckJobStatusRow') && loredeckJobView.includes('export function formatLoredeckJobElapsed') && loredeckJobView.includes('export function createLoredeckJobProgressBar'), 'Loredeck job view must own shared async job status-row and progress-bar primitives.');
+assert(creatorPanel.includes("from './loredeck-job-view.js'") && creatorPanel.includes('return createLoredeckJobStatusRow({') && creatorPanel.includes('cancelLoredeckCreatorGeneration(model.id)'), 'Loredeck Creator generation status must render through the shared job view while retaining Creator-owned cancellation.');
+assert(loredecksTabPanel.includes("from './loredeck-job-view.js'") && loredecksTabPanel.includes('createLoredeckJobProgressBar(model.progress'), 'Loredecks Creator project shelf must render progress bars through the shared job view.');
+assert(loredeckActionRows.includes('export function createLoredeckActionRow') && loredeckActionRows.includes('export function setLoredeckActionButtonBusy') && loredeckActionRows.includes('export async function withLoredeckActionButtonBusy') && loredeckActionRows.includes('export async function withLoredeckConfirmedActionButton'), 'Loredeck action rows must own shared action-row and busy-button primitives.');
+assert(runtimeLoredeckPackageInstallPanel.includes("from '../loredecks/loredeck-action-rows.js'") && runtimeLoredeckPackageInstallPanel.includes('createLoredeckActionRow()') && runtimeLoredeckPackageInstallPanel.includes("withLoredeckActionButtonBusy(button, { busyText: 'Installing...'"), 'Loredeck package install panel must use shared action row and busy-button helpers.');
+assert(runtimeLoredeckPackageExport.includes("from '../loredecks/loredeck-action-rows.js'") && runtimeLoredeckPackageExport.includes("withLoredeckActionButtonBusy(button, { busyText: 'Exporting...'"), 'Loredeck package export must use shared busy-button helper.');
+assert(healthPanel.includes("from './loredeck-action-rows.js'") && healthPanel.includes("withLoredeckActionButtonBusy(button, { busyText: 'Scanning...'"), 'Deck Health refresh scan must use shared busy-button helper.');
+assert(healthPanel.includes('function createLoredeckHealthIssueActionRow') && healthPanel.includes('panel.appendChild(createLoredeckHealthIssueActionRow(group, context, issueState, editable));') && healthPanel.includes("Queue Tag ID Repair") && healthPanel.includes("Draft With Assistant"), 'Deck Health grouped issue repair actions must be isolated behind the shared action-row helper.');
+assert(runtimeLoredeckEditorLoader.includes("from '../loredecks/loredeck-action-rows.js'") && runtimeLoredeckEditorLoader.includes('setLoredeckActionButtonBusy(button,') && runtimeLoredeckEditorValidation.includes("from '../loredecks/loredeck-action-rows.js'"), 'Loredeck editor loader and validation must use the shared busy-button helper.');
+assert(runtimeLoredeckEditorFields.includes('export function createLoredeckCheckbox') && panel.includes('createLoredeckCheckbox,') && !panel.includes('function createLoredeckCheckbox(container'), 'Runtime Loredeck checkbox field creation must live in the shared editor field module.');
+assert(runtimeLoredeckEditorActions.includes("from '../loredecks/loredeck-action-rows.js'") && runtimeLoredeckEditorActions.includes("setLoredeckActionButtonBusy(button, 'Finalizing...'") && runtimeLoredeckEditorActions.includes("setLoredeckActionButtonBusy(button, 'Creating...'") && runtimeLoredeckEditorActions.includes("setLoredeckActionButtonBusy(button, 'Repairing...'"), 'Runtime Loredeck editor actions must use the shared busy-button helper for finalize, duplicate, and repair flows.');
+assert(runtimeLoredeckEditorActions.includes('export function configureLoredeckEditorActions') && runtimeLoredeckEditorActions.includes('export async function repairLoredeckSafeHealthIssues') && runtimeLoredeckEditorActions.includes('export async function finalizeGeneratedLoredeckAsCustom'), 'Runtime Loredeck editor actions must live in the extracted action module.');
+assert(panel.includes("} from './loredeck-editor-actions.js';") && panel.includes('configureLoredeckEditorActions({') && panel.includes('repairLoredeckSafeHealthIssues,') && panel.includes('finalizeGeneratedLoredeckAsCustom,') && !panel.includes('repairLoredeckSafeHealthIssuesAction'), 'Runtime panel must import shared Loredeck editor actions directly from loredeck-editor-actions.');
+assert(runtimeLoredeckEntryOverrides.includes('export function configureLoredeckEntryOverridesPanel') && runtimeLoredeckEntryOverrides.includes('export function createLoredeckEntryOverrideCard') && runtimeLoredeckEntryOverrides.includes('export function createLoredeckEntryOverrideRow'), 'Runtime Loredeck entry override card and row renderers must live in the extracted entry overrides panel.');
+assert(panel.includes("from './loredeck-entry-overrides-panel.js'") && panel.includes('configureLoredeckEntryOverridesPanel({') && !panel.includes('function createLoredeckEntryOverrideCard(pack)'), 'Runtime panel must delegate Loredeck entry override rendering to loredeck-entry-overrides-panel.');
+assert(runtimeLoredeckTimelineRegistry.includes('export function configureLoredeckTimelineRegistryPanel') && runtimeLoredeckTimelineRegistry.includes('export function createLoredeckTimelineRegistryCard') && runtimeLoredeckTimelineRegistry.includes('export function createLoredeckTimelineRegistryRow'), 'Runtime Loredeck timeline registry card and row renderers must live in the extracted timeline registry panel.');
+assert(panel.includes("from './loredeck-timeline-registry-panel.js'") && panel.includes('configureLoredeckTimelineRegistryPanel({') && !panel.includes('function createLoredeckTimelineRegistryCard(pack'), 'Runtime panel must delegate Loredeck timeline registry rendering to loredeck-timeline-registry-panel.');
+assert(runtimeLoredeckTagManager.includes('export function configureLoredeckTagManagerPanel') && runtimeLoredeckTagManager.includes('export function createLoredeckTagManagerCard') && runtimeLoredeckTagManager.includes('export function createLoredeckTagManagerRow'), 'Runtime Loredeck tag manager card and row renderers must live in the extracted tag manager panel.');
+assert(panel.includes("from './loredeck-tag-manager-panel.js'") && panel.includes('configureLoredeckTagManagerPanel({') && !panel.includes('function createLoredeckTagManagerCard(pack'), 'Runtime panel must delegate Loredeck tag manager rendering to loredeck-tag-manager-panel.');
+assert(runtimeLoredeckPendingReview.includes('export function configureLoredeckPendingReviewPanel') && runtimeLoredeckPendingReview.includes('export function createLoredeckPendingReviewCard') && runtimeLoredeckPendingReview.includes('export function createLoredeckPendingChangeRow') && runtimeLoredeckPendingReview.includes('const actions = createLoredeckActionRow();') && runtimeLoredeckPendingReview.includes('Accept All'), 'Runtime Loredeck Pending Review card and row renderers must live in the extracted pending review panel.');
+assert(panel.includes("from './loredeck-pending-review-panel.js'") && panel.includes('configureLoredeckPendingReviewPanel({') && !panel.includes('function createLoredeckPendingReviewCard(pack'), 'Runtime panel must delegate Loredeck Pending Review rendering to loredeck-pending-review-panel.');
+assert(runtimeLoredeckAssistantReview.includes('export function configureLoredeckAssistantReviewPanel') && runtimeLoredeckAssistantReview.includes('export function createLoredeckAssistantCard') && runtimeLoredeckAssistantReview.includes('export function createLoredeckAssistantDraftBatchCard') && runtimeLoredeckAssistantReview.includes('export function createLoredeckAssistantDraftRow') && runtimeLoredeckAssistantReview.includes('queueSelected.dataset.sagaAssistantDraftAction'), 'Runtime Loredeck Assistant review card, batch, and row renderers must live in the extracted assistant review panel.');
+assert(panel.includes("from './loredeck-assistant-review-panel.js'") && panel.includes('configureLoredeckAssistantReviewPanel({') && !panel.includes('function createLoredeckAssistantCard(pack') && !panel.includes('function createLoredeckAssistantDraftBatchCard(pack'), 'Runtime panel must delegate Loredeck Assistant review rendering to loredeck-assistant-review-panel.');
+assert(runtimeLoredeckReviewHelpers.includes('export function configureLoredeckReviewHelpers') && runtimeLoredeckReviewHelpers.includes('export function createLoredeckPendingDiffList') && runtimeLoredeckReviewHelpers.includes('export function appendLoredeckPendingQualityPills') && runtimeLoredeckReviewHelpers.includes('export function doesLoredeckPendingChangeAffectPackHealth'), 'Runtime Loredeck review diff, quality, and health-impact helpers must live in the extracted review helper module.');
+assert(panel.includes("from './loredeck-review-helpers.js'") && panel.includes('configureLoredeckReviewHelpers({') && !panel.includes('function createLoredeckPendingDiffList(pack') && !panel.includes('function appendLoredeckPendingQualityPills(meta') && !panel.includes('function doesLoredeckPendingChangeAffectPackHealth(change'), 'Runtime panel must delegate Loredeck review helpers to loredeck-review-helpers.');
+assert(runtimeLoredeckPendingChangeModel.includes('export function configureLoredeckPendingChangeModel') && runtimeLoredeckPendingChangeModel.includes('export function normalizeLoredeckPendingChanges') && runtimeLoredeckPendingChangeModel.includes('export function createLoredeckRecordPatchChange') && runtimeLoredeckPendingChangeModel.includes('export function applyLoredeckRecordPatch'), 'Runtime Loredeck pending-change normalization and patch application must live in the extracted pending-change model.');
+assert(panel.includes("from './loredeck-pending-change-model.js'") && panel.includes('configureLoredeckPendingChangeModel({') && !panel.includes('function normalizeLoredeckPendingChanges(value') && !panel.includes('function createLoredeckRecordPatchChange(fields') && !panel.includes('function applyLoredeckRecordPatch(record'), 'Runtime panel must delegate pending-change model helpers to loredeck-pending-change-model.');
+assert(runtimeLoredeckPendingChangeActions.includes('export function configureLoredeckPendingChangeActions') && runtimeLoredeckPendingChangeActions.includes('export function queueLoredeckPendingChange') && runtimeLoredeckPendingChangeActions.includes('export async function acceptLoredeckPendingChanges') && runtimeLoredeckPendingChangeActions.includes('export function rejectLoredeckPendingChanges') && runtimeLoredeckPendingChangeActions.includes('refreshLoredeckHealthAfterAcceptedPendingChanges'), 'Runtime Loredeck pending-change queue, accept, reject, and health refresh lifecycle must live in the extracted pending-change action module.');
+assert(panel.includes("from './loredeck-pending-change-actions.js'") && panel.includes('configureLoredeckPendingChangeActions({') && !panel.includes('function queueLoredeckPendingChange(pack') && !panel.includes('async function acceptLoredeckPendingChanges(pack') && !panel.includes('function rejectLoredeckPendingChanges(pack'), 'Runtime panel must delegate pending-change actions to loredeck-pending-change-actions.');
+assert(runtimeLoredeckEditProposals.includes('export function configureLoredeckEditProposals') && runtimeLoredeckEditProposals.includes('export function saveLoredeckEntryOverride') && runtimeLoredeckEditProposals.includes('export function queueLoredeckBulkTagUpdate') && runtimeLoredeckEditProposals.includes('export function queueLoredeckBulkContextUpdate') && runtimeLoredeckEditProposals.includes('export function queueLoredeckTagRenameProposal') && runtimeLoredeckEditProposals.includes('export function buildBulkLoredeckTagOverrideEntry') && runtimeLoredeckEditProposals.includes('export function computeLoredeckBulkTagUpdates'), 'Runtime Loredeck edit proposal queue builders must live in the extracted edit proposal module.');
+assert(panel.includes("from './loredeck-edit-proposals.js'") && panel.includes('configureLoredeckEditProposals({') && !panel.includes('function saveLoredeckEntryOverride(pack') && !panel.includes('function saveLoredeckTimelineAnchorDefinition(pack') && !panel.includes('function saveLoredeckTagRegistryDefinition(pack') && !panel.includes('function buildBulkLoredeckTagOverrideEntry(pack') && !panel.includes('function computeLoredeckBulkTagUpdates(pack') && panel.includes('queueLoredeckBulkTagUpdate(pack, {') && panel.includes('queueLoredeckBulkContextUpdate(pack, { entries, contextGate })') && panel.includes('queueLoredeckTagRenameProposal(pack, {'), 'Runtime panel must delegate Loredeck edit proposal builders to loredeck-edit-proposals.');
+assert(libraryPanel.includes("from './loredeck-action-rows.js'") && libraryPanel.includes("setLoredeckActionButtonBusy(button, 'Refreshing...'"), 'Loredeck Library refresh must use the shared busy-button helper.');
+assert(healthPanel.includes("setLoredeckActionButtonBusy(button, 'Refreshing...'"), 'Deck Health report refresh must use the shared busy-button helper.');
+assert(loredeckWorkbenchPanel.includes("from './loredeck-action-rows.js'") && loredeckWorkbenchPanel.includes("setLoredeckActionButtonBusy(button, 'Saving...'") && loredeckWorkbenchPanel.includes("setLoredeckActionButtonBusy(button, 'Loading...'") && loredeckWorkbenchPanel.includes("setLoredeckActionButtonBusy(btn, 'Creating...'"), 'Loredeck Workbench save, create, and load flows must use the shared busy-button helper.');
+assert(loredeckWorkbenchPanel.includes('withLoredeckConfirmedActionButton,') && loredeckWorkbenchPanel.includes("busyText: 'Deleting...'") && loredeckWorkbenchPanel.includes("busyText: 'Applying...'") && loredeckWorkbenchPanel.includes("busyText: 'Restoring...'") && loredeckWorkbenchPanel.includes("busyText: 'Duplicating...'"), 'Loredeck Workbench delete, bulk, restore, and duplicate confirmations must use the shared confirmed-busy helper.');
+assert(libraryPanel.includes('createLoredeckActionRow({ className:') && healthPanel.includes('createLoredeckActionRow({ className:') && loredeckWorkbenchPanel.includes('createLoredeckActionRow({ className:'), 'Loredeck Library, Health, and Workbench primary action rows must use the shared action-row helper.');
+assert(/export function createLoredeckAssistantDraftBatchCard[\s\S]*const actions = createLoredeckActionRow\(\);[\s\S]*queueSelected\.dataset\.sagaAssistantDraftAction[\s\S]*const reviseActions = createLoredeckActionRow\(\);/.test(runtimeLoredeckAssistantReview), 'Runtime Assistant draft review and revision actions must use the shared action-row helper.');
+assert(/function openDuplicateLoredeckDialog[\s\S]*const actions = createLoredeckActionRow\(\);[\s\S]*Create Custom Loredeck/.test(panel), 'Runtime duplicate-as-Custom dialog must use the shared action-row helper.');
+assert(/function openLoredeckEntryOverrideDialog[\s\S]*const actions = createLoredeckActionRow\(\);[\s\S]*Queue Change/.test(panel), 'Runtime entry override review handoff must use the shared action-row helper.');
+assert(/function openLoredeckBulkTagsDialog[\s\S]*const actions = createLoredeckActionRow\(\);[\s\S]*Queue Tags/.test(panel) && /function openLoredeckBulkContextDialog[\s\S]*const actions = createLoredeckActionRow\(\);[\s\S]*Queue For Review/.test(panel), 'Runtime bulk tag and Context review handoffs must use the shared action-row helper.');
+assert(creatorPanel.includes('export function refreshLoredeckCreatorTitleSelectionUi()'), 'Creator title selection must refresh row/count/button state without rebuilding the Creator workbench.');
+assert(panel.includes('refreshLoredeckCreatorTitleSelectionUi') && panel.includes("button.dataset.sagaCreatorGenerationLocked = 'true';"), 'Creator title selection refresh must preserve generation-locked button state.');
+assert(creatorPanel.includes("approveSelected.dataset.sagaCreatorTitleAction = 'approve-selected';"), 'Creator title Approve Selected button must be addressable by selection refresh.');
+assert(creatorPanel.includes("row.dataset.sagaCreatorTitleId = draft.titleId || '';"), 'Creator title rows must expose title ids for in-place selection state refresh.');
+assert(runtimeShell.includes("'.saga-loredeck-creator-title-list'"), 'Creator title list must participate in nested scroll preservation and wheel handoff.');
+assert(style.includes('.saga-loredeck-creator-title-row-selected'), 'Creator title selected rows must have dedicated runtime styling.');
+assert(loredeckWorkbenchPanel.includes('captureLoredeckWorkbenchScrollState') && loredeckWorkbenchPanel.includes('restoreLoredeckWorkbenchScrollState'), 'Loredeck Workbench rerenders must preserve selectable table scroll.');
+assert(loredeckWorkbenchPanel.includes("['.saga-loredeck-workbench-table', snapshot.table]"), 'Loredeck Workbench must restore the table scroll position after selection rerenders.');
+assert(loredeckWorkbenchPanel.includes('overlay.focus?.({ preventScroll: true });'), 'Loredeck Workbench rerender focus must not scroll the overlay back to the top.');
+assert(runtimePanelSource.includes('captureContextWorkbenchScrollState') && runtimePanelSource.includes('restoreContextWorkbenchScrollState'), 'Context Workbench rerenders must preserve selectable table scroll.');
+assert(runtimePanelSource.includes("['.saga-context-workbench-table', overlay.querySelector('.saga-context-workbench-table')?.scrollTop || 0]"), 'Context Workbench must capture timeline table scroll before rerenders.');
+assert(contextWorkbenchPanel.includes('row.dataset.sagaContextWorkbenchItemKey = key;'), 'Context Workbench timeline rows must expose stable item keys for selection refresh and diagnostics.');
+assert(contextWorkbenchPanel.includes('row.dataset.sagaContextWorkbenchPackId = item.packId;'), 'Context Workbench context rows must expose stable pack ids for selection refresh and diagnostics.');
+assert(runtimePanelSource.includes('overlay.focus?.({ preventScroll: true });'), 'Context Workbench rerender focus must not scroll the overlay back to the top.');
 assert(style.includes('saga-context-brief-status'), 'Context Brief status row must have dedicated compact styling.');
 assert(runtimePanelSource.includes("createKeyValue('Active chat', getActiveChatMetricName()"), 'Session Metrics must identify the active chat before showing counters.');
 assert(harness.includes("chatName: 'Saga Smoke Harness Chat'"), 'Visual smoke harness must seed an active chat name for Session Metrics.');
@@ -970,6 +1111,7 @@ assert(runtimePanelSource.includes('No linked Creator job was found'), 'Generate
 assert(runtimePanelSource.includes('acceptLoredeckPendingChanges(pack, pending.map(change => change.changeId))'), 'Loredeck Pending Review Accept All must pass explicit pending change IDs.');
 assert(runtimePanelSource.includes('const freshPack = getFreshLoredeckLibraryPack(pack?.packId, pack);'), 'Loredeck pending acceptance must re-read the freshest pack before applying changes.');
 assert(runtimePanelSource.includes('else next.pendingChanges = [];'), 'Loredeck pending acceptance must pass an explicit empty pendingChanges field through persistence.');
+assert(runtimePanelSource.includes('refreshOpenLoredeckMetadataEditor(next.packId)'), 'Loredeck pending mutations must refresh an already-open metadata editor instead of leaving stale Pending Review counts.');
 assert(runtimePanelSource.includes("generated_shell_without_entries"), 'Generated Loredeck planning accepts must skip health rerun while the shell has no accepted Lorecards.');
 assert(!runtimePanelSource.includes('no valid manifest or accepted embedded data yet'), 'Generated Loredeck planning accepts must not warn about missing embedded data after each proposal.');
 assert(stateSource.includes('clearableOptionalFields'), 'Loredeck library upsert must track optional fields that were intentionally supplied.');
@@ -1042,6 +1184,11 @@ for (const token of [
     'createLoredeckCreatorCurrentTaskCard',
     'createLoredeckCreatorCurrentTaskActions',
     'createLoredeckCreatorArtifactDisclosure',
+    'renderLoredeckCreatorGenerationSettingsSummary',
+    'onChange?.(nextSettings || getLoredeckCreatorGenerationSettings())',
+    'refreshSummary(next)',
+    'hasPersistableLoredeckCreatorProject',
+    'setLocalLoredeckCreatorGenerationSettings',
     'Draft Story Outline',
     'Approve Outline and Unlock Title Pass',
     'Finalize as Custom Loredeck',

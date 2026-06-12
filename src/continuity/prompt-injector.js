@@ -13,6 +13,7 @@ import { LOG_PREFIX, MEMO_MAX_TOKENS } from '../state/constants.js';
 import { getSettings, getState } from '../state/state-manager.js';
 import { buildMemo, buildContinuityMemo, buildLoreMemo } from './memo-builder.js';
 import { buildLoreInjectionAudit, recordLoreInjectionAudit } from '../lorecards/retrieval-audit.js';
+import { getSagaNamespaceSection } from '../saga-namespace.js';
 
 const COMBINED_MARKER = '[SAGA CONTINUITY STATE]';
 const CONTINUITY_PROMPT_KEY = 'saga_continuity_state';
@@ -61,21 +62,8 @@ function getSillyTavernContextSafe() {
     return null;
 }
 
-function getSagaNamespace() {
-    const namespace = globalThis.Saga && typeof globalThis.Saga === 'object'
-        ? globalThis.Saga
-        : {};
-    globalThis.Saga = namespace;
-    return namespace;
-}
-
 function getPromptInjectionNamespace() {
-    const saga = getSagaNamespace();
-    const namespace = saga.promptInjection && typeof saga.promptInjection === 'object'
-        ? saga.promptInjection
-        : {};
-    saga.promptInjection = namespace;
-    return namespace;
+    return getSagaNamespaceSection('promptInjection');
 }
 
 let lastSyncInfo = {

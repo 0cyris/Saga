@@ -9,6 +9,7 @@ import {
 } from '../state/state-manager.js';
 import { getCanonLoreDatabaseSync, loadCanonLoreDatabase } from '../context/canon-lore-db.js';
 import { buildLoredeckCreatorProjectCardModels } from './loredeck-creator-projects.js';
+import { createLoredeckJobProgressBar } from './loredeck-job-view.js';
 import { buildFolderTree, getFolderPath } from './loredeck-library-index.js';
 import { isLoredeckLibraryFolderDescendant, moveLoredecksToLibraryFolderPlacement } from './loredeck-library-service.js';
 import {
@@ -658,13 +659,10 @@ function createLoredeckCreatorProjectCard(model = {}, options = {}) {
     }
     main.appendChild(chips);
 
-    const progress = document.createElement('div');
-    progress.className = 'saga-loredeck-creator-project-progress';
-    const fill = document.createElement('span');
-    fill.style.width = `${Math.max(0, Math.min(100, Number(model.progress) || 0))}%`;
-    progress.appendChild(fill);
-    addTooltip(progress, `${Math.max(0, Math.min(100, Number(model.progress) || 0))}% through the staged Creator workflow.`);
-    main.appendChild(progress);
+    main.appendChild(createLoredeckJobProgressBar(model.progress, {
+        className: 'saga-loredeck-creator-project-progress',
+        tooltip: percent => `${percent}% through the staged Creator workflow.`,
+    }));
 
     const footer = document.createElement('div');
     footer.className = 'saga-loredeck-creator-project-footer';

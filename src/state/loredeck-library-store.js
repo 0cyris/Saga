@@ -168,10 +168,13 @@ export function importLoredeckLibraryRegistry(registry = {}, options = {}) {
 
     let importedCount = 0;
     let skippedCount = 0;
+    const importedPackIds = [];
+    const skippedPackIds = [];
     for (const [packId, pack] of Object.entries(incoming.packs || {})) {
         const bundledDefault = DEFAULT_SETTINGS.loredeckLibrary?.packs?.[packId];
         if (bundledDefault?.type === 'bundled' && pack.type !== 'bundled') {
             skippedCount += 1;
+            skippedPackIds.push(packId);
             continue;
         }
         current.packs[packId] = {
@@ -181,6 +184,7 @@ export function importLoredeckLibraryRegistry(registry = {}, options = {}) {
             updatedAt: Date.now(),
         };
         importedCount += 1;
+        importedPackIds.push(packId);
     }
     current.folders = [
         ...(current.folders || []),
@@ -196,7 +200,7 @@ export function importLoredeckLibraryRegistry(registry = {}, options = {}) {
 
     settings.loredeckLibrary = normalizeLoredeckRegistry(current, DEFAULT_SETTINGS.loredeckLibrary);
     saveSettings(settings);
-    return { ok: true, importedCount, skippedCount, library: settings.loredeckLibrary };
+    return { ok: true, importedCount, skippedCount, importedPackIds, skippedPackIds, library: settings.loredeckLibrary };
 }
 
 export function promoteChatLoredeckRegistryToSettings(state = {}) {

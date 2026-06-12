@@ -661,9 +661,9 @@ function saveProviderSetting(kind, suffix, value, options = {}) {
     const next = getSettings();
     next[getProviderSettingKey(kind, suffix)] = value;
     saveSettings(next);
+    refreshRuntimeHeader();
     if (options.refresh !== false) {
         refreshSettingsPanel({ preserveScroll: true, preserveWindowScroll: true });
-        refreshRuntimeHeader();
     }
 }
 

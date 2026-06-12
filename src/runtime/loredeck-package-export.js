@@ -15,6 +15,7 @@ import {
     normalizeLoredeckTimelineRegistry,
 } from '../state/lore-state-normalizers.js';
 import { toast } from '../ui/runtime-ui-kit.js';
+import { withLoredeckActionButtonBusy } from '../loredecks/loredeck-action-rows.js';
 import { downloadBytes } from './runtime-downloads.js';
 import { sanitizeFileStem } from './runtime-formatters.js';
 import {
@@ -59,7 +60,7 @@ async function buildLoredeckZipPackageFilesForPack(pack = {}, registry = getLore
     const sourceInfo = source.manifest.source && typeof source.manifest.source === 'object' && !Array.isArray(source.manifest.source)
         ? source.manifest.source
         : {};
-    const originalType = String(fresh.type || sourceInfo.originalType || source.manifest.type || '').trim();
+    const originalType = String(sourceInfo.originalType || fresh.type || source.manifest.type || '').trim();
     const manifest = {
         ...(cloneLoredeckJson(source.manifest) || {}),
         id: fresh.packId,
@@ -195,22 +196,14 @@ export async function exportSelectedLoredeckBundles(packs = [], button = null) {
         toast('Select one or more Loredecks before exporting.', 'warning');
         return;
     }
-    const originalText = button?.textContent;
-    if (button) {
-        button.disabled = true;
-        button.textContent = 'Exporting...';
-    }
-    try {
-        const result = await buildLoredeckZipPackageForExport(selected);
-        downloadBytes(result.zipBytes, result.filename, 'application/zip');
-        toast(`Exported ${result.deckCount} Loredeck${result.deckCount === 1 ? '' : 's'} as ${result.filename}.`, 'success');
-    } catch (e) {
-        toast(e?.message || 'Loredeck package export failed.', 'error');
-        console.warn('[Saga] Loredeck package export failed:', e);
-    } finally {
-        if (button) {
-            button.disabled = false;
-            button.textContent = originalText || 'Export Selected';
+    await withLoredeckActionButtonBusy(button, { busyText: 'Exporting...', fallbackLabel: 'Export Selected' }, async () => {
+        try {
+            const result = await buildLoredeckZipPackageForExport(selected);
+            downloadBytes(result.zipBytes, result.filename, 'application/zip');
+            toast(`Exported ${result.deckCount} Loredeck${result.deckCount === 1 ? '' : 's'} as ${result.filename}.`, 'success');
+        } catch (e) {
+            toast(e?.message || 'Loredeck package export failed.', 'error');
+            console.warn('[Saga] Loredeck package export failed:', e);
         }
-    }
+    });
 }

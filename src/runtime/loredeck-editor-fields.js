@@ -27,6 +27,19 @@ export function createLoredeckEditorField(container, labelText, value = '', opti
     return input;
 }
 
+export function createLoredeckCheckbox(container, labelText, tooltip, checked = false) {
+    const label = document.createElement('label');
+    label.className = 'saga-inline-toggle';
+    addTooltip(label, tooltip);
+    const input = document.createElement('input');
+    input.type = 'checkbox';
+    input.checked = !!checked;
+    label.appendChild(input);
+    label.appendChild(document.createTextNode(` ${labelText}`));
+    container.appendChild(label);
+    return input;
+}
+
 export function getLoredeckEntryEditorString(value, maxLength = 240) {
     return String(value || '').trim().slice(0, maxLength);
 }

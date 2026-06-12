@@ -14,6 +14,21 @@ import {
     toast,
     wireOverlayBackdropClose,
 } from '../ui/runtime-ui-kit.js';
+import {
+    appendLoredeckStatusPills,
+    createLoredeckRenderErrorBody,
+} from './loredeck-ui-kit.js';
+import {
+    createLoredeckSearchInput,
+    createLoredeckSelectControl,
+} from './loredeck-filter-controls.js';
+import {
+    createLoredeckSelectionSummary,
+} from './loredeck-selection-toolbar.js';
+import {
+    createLoredeckActionRow,
+    setLoredeckActionButtonBusy,
+} from './loredeck-action-rows.js';
 import { getAssetSrc, normalizeAssetRef, normalizePassiveAssetPath } from '../theme/runtime-theme.js';
 import {
     buildFolderTree,
@@ -210,19 +225,11 @@ export function closeLoredeckLibraryWindow() {
 }
 
 function createLoredeckLibraryRenderErrorCard(error) {
-    const body = document.createElement('div');
-    body.className = 'saga-loredeck-library-body';
-    const card = document.createElement('div');
-    card.className = 'saga-runtime-card saga-runtime-error-card';
-    const title = document.createElement('h4');
-    title.textContent = 'Loredeck Library could not render.';
-    card.appendChild(title);
-    const message = document.createElement('div');
-    message.className = 'saga-runtime-help';
-    message.textContent = error?.message || String(error || 'Unknown render error.');
-    card.appendChild(message);
-    body.appendChild(card);
-    return body;
+    return createLoredeckRenderErrorBody({
+        bodyClassName: 'saga-loredeck-library-body',
+        title: 'Loredeck Library could not render.',
+        error,
+    });
 }
 
 function normalizeBundledLoredeckIndexRecord(record = {}) {
@@ -381,8 +388,7 @@ export function renderLoredeckLibraryOverlay(options = {}) {
     titleWrap.appendChild(titleRow);
     header.appendChild(titleWrap);
 
-    const actions = document.createElement('div');
-    actions.className = 'saga-primary-actions saga-loredeck-library-header-actions';
+    const actions = createLoredeckActionRow({ className: 'saga-primary-actions saga-loredeck-library-header-actions' });
     const importButton = createButton('Import Deck', 'Import a Saga Loredeck zip package into the Library.', () => {
         installLoredeckBundleFromFile();
     });
@@ -840,11 +846,7 @@ function createLoredeckLibraryResizeHandle(collapsed = false) {
 }
 
 export async function refreshLoredeckLibraryWindowData(button = null) {
-    const originalText = button?.textContent;
-    if (button) {
-        button.disabled = true;
-        button.textContent = 'Refreshing...';
-    }
+    const restoreBusy = setLoredeckActionButtonBusy(button, 'Refreshing...', { fallbackLabel: 'Refresh Library' });
     try {
         bundledLoredeckIndexCache = null;
         bundledLoredeckIndexLoadAttempted = false;
@@ -859,10 +861,7 @@ export async function refreshLoredeckLibraryWindowData(button = null) {
     } catch (e) {
         toast(e?.message || 'Loredeck Library refresh failed.', 'error');
     } finally {
-        if (button) {
-            button.disabled = false;
-            button.textContent = originalText || 'Refresh Library';
-        }
+        restoreBusy();
     }
 }
 
@@ -1101,13 +1100,14 @@ function createLoredeckLibraryHeaderMeta(stack = [], library = [], canonDb = nul
     const stats = getLoredeckLibraryStackStats(stack, library, canonDb, health);
     const meta = document.createElement('div');
     meta.className = 'saga-loredeck-library-title-meta';
-    meta.appendChild(createStatusPill(`${library.length} decks available`, 'Total registered Loredecks available to this session.'));
-    meta.appendChild(createStatusPill(`${stats.activeCount} active`, 'Enabled Loredecks in the current session stack.'));
-    meta.appendChild(createStatusPill(`${stats.entryCount} active Lorecards`, 'Approximate active Lorecards available from enabled Loredecks.'));
-    meta.appendChild(createStatusPill(`${getLoredeckLibraryBulkSelectedIds(library).length} selected`, 'Loredecks selected for bulk Library actions such as export and stack changes.'));
-    meta.appendChild(createStatusPill(`${stats.errorCount} errors`, 'Current stack Deck Health error count.'));
-    meta.appendChild(createStatusPill(`${stats.warningCount} warnings`, 'Current stack Deck Health warning count.'));
-    return meta;
+    return appendLoredeckStatusPills(meta, [
+        [`${library.length} decks available`, 'Total registered Loredecks available to this session.'],
+        [`${stats.activeCount} active`, 'Enabled Loredecks in the current session stack.'],
+        [`${stats.entryCount} active Lorecards`, 'Approximate active Lorecards available from enabled Loredecks.'],
+        [`${getLoredeckLibraryBulkSelectedIds(library).length} selected`, 'Loredecks selected for bulk Library actions such as export and stack changes.'],
+        [`${stats.errorCount} errors`, 'Current stack Deck Health error count.'],
+        [`${stats.warningCount} warnings`, 'Current stack Deck Health warning count.'],
+    ]);
 }
 
 function createLoredeckLibraryPane(packs = [], stack = [], canonDb = null, health = null, libraryIndex = {}, library = getLoredeckLibrary(getState()), scopedLibrary = packs, activeViewId = 'all') {
@@ -1118,68 +1118,53 @@ function createLoredeckLibraryPane(packs = [], stack = [], canonDb = null, healt
     const controls = document.createElement('div');
     controls.className = 'saga-loredeck-library-controls';
     markTourTarget(controls, 'loredecks.library.filters');
-    const search = document.createElement('input');
-    search.type = 'search';
-    search.className = 'text_pole saga-loredeck-library-search';
-    search.placeholder = 'Search decks...';
-    search.value = loredeckLibraryQuery || '';
-    addTooltip(search, 'Search deck title, description, fandom, era, tags, manifest path, and deck ID. Press Enter or leave the field to apply.');
-    search.addEventListener('click', e => e.stopPropagation());
-    search.addEventListener('mousedown', e => e.stopPropagation());
-    search.addEventListener('keydown', e => {
-        if (e.key !== 'Enter') return;
-        e.preventDefault();
-        loredeckLibraryQuery = search.value;
-        renderLoredeckLibraryOverlay();
-    });
-    search.addEventListener('change', () => {
-        loredeckLibraryQuery = search.value;
-        renderLoredeckLibraryOverlay();
-    });
-    controls.appendChild(search);
+    controls.appendChild(createLoredeckSearchInput({
+        className: 'text_pole saga-loredeck-library-search',
+        placeholder: 'Search decks...',
+        value: loredeckLibraryQuery || '',
+        tooltip: 'Search deck title, description, fandom, era, tags, manifest path, and deck ID. Press Enter or leave the field to apply.',
+        onEnter: value => {
+            loredeckLibraryQuery = value;
+            renderLoredeckLibraryOverlay();
+        },
+        onChange: value => {
+            loredeckLibraryQuery = value;
+            renderLoredeckLibraryOverlay();
+        },
+    }));
 
-    const view = document.createElement('select');
-    view.className = 'text_pole saga-loredeck-library-view';
-    addTooltip(view, 'Filter the Library without changing folder organization.');
-    for (const item of LOREDECK_LIBRARY_SPECIAL_VIEWS) {
-        const option = document.createElement('option');
-        option.value = item.id;
-        option.textContent = item.title;
-        option.selected = activeViewId === item.id;
-        view.appendChild(option);
-    }
-    view.addEventListener('click', e => e.stopPropagation());
-    view.addEventListener('change', () => {
-        loredeckLibrarySelectedFolderId = view.value || 'all';
-        loredeckLibrarySelectedFolderDetailsId = '';
-        setLoredeckLibraryBulkSelection([], '');
-        renderLoredeckLibraryOverlay();
-    });
-    controls.appendChild(view);
+    controls.appendChild(createLoredeckSelectControl({
+        className: 'text_pole saga-loredeck-library-view',
+        value: activeViewId,
+        fallbackValue: 'all',
+        tooltip: 'Filter the Library without changing folder organization.',
+        options: LOREDECK_LIBRARY_SPECIAL_VIEWS.map(item => [item.id, item.title, item.tooltip]),
+        onChange: value => {
+            loredeckLibrarySelectedFolderId = value || 'all';
+            loredeckLibrarySelectedFolderDetailsId = '';
+            setLoredeckLibraryBulkSelection([], '');
+            renderLoredeckLibraryOverlay();
+        },
+    }));
 
-    const sort = document.createElement('select');
-    sort.className = 'text_pole saga-loredeck-library-sort';
-    addTooltip(sort, 'Sort the visible Loredeck Library list.');
-    for (const [value, label] of [
-        ['manual', 'Manual'],
-        ['name', 'Name'],
-        ['type', 'Type'],
-        ['health', 'Health'],
-        ['entries', 'Lorecards'],
-        ['updated', 'Updated'],
-    ]) {
-        const option = document.createElement('option');
-        option.value = value;
-        option.textContent = label;
-        option.selected = loredeckLibrarySort === value;
-        sort.appendChild(option);
-    }
-    sort.addEventListener('click', e => e.stopPropagation());
-    sort.addEventListener('change', () => {
-        loredeckLibrarySort = sort.value;
-        renderLoredeckLibraryOverlay();
-    });
-    controls.appendChild(sort);
+    controls.appendChild(createLoredeckSelectControl({
+        className: 'text_pole saga-loredeck-library-sort',
+        value: loredeckLibrarySort,
+        fallbackValue: 'manual',
+        tooltip: 'Sort the visible Loredeck Library list.',
+        options: [
+            ['manual', 'Manual'],
+            ['name', 'Name'],
+            ['type', 'Type'],
+            ['health', 'Health'],
+            ['entries', 'Lorecards'],
+            ['updated', 'Updated'],
+        ],
+        onChange: value => {
+            loredeckLibrarySort = value;
+            renderLoredeckLibraryOverlay();
+        },
+    }));
     const newFolderButton = createButton('New Folder', 'Create a new top-level Library folder.', () => {
         void promptCreateLoredeckLibraryFolder('');
     }, 'saga-loredeck-library-small-button saga-loredeck-library-new-folder-button');
@@ -1908,11 +1893,12 @@ function createLoredeckLibrarySelectionToolbar(visiblePacks = [], libraryIndex =
     toolbar.className = 'saga-loredeck-library-selection-toolbar';
     const selectedIds = getLoredeckLibraryBulkSelectedIds();
     const selectedVisibleCount = visiblePacks.filter(pack => selectedIds.includes(pack.packId)).length;
-    const summary = document.createElement('div');
-    summary.className = 'saga-loredeck-library-selection-summary';
-    summary.textContent = `${selectedIds.length} selected${selectedVisibleCount !== selectedIds.length ? ` (${selectedVisibleCount} visible)` : ''}`;
-    addTooltip(summary, 'Use click for single selection, Ctrl/Cmd-click to toggle a deck, and Shift-click to select a visible range.');
-    toolbar.appendChild(summary);
+    toolbar.appendChild(createLoredeckSelectionSummary({
+        className: 'saga-loredeck-library-selection-summary',
+        selectedCount: selectedIds.length,
+        visibleSelectedCount: selectedVisibleCount,
+        tooltip: 'Use click for single selection, Ctrl/Cmd-click to toggle a deck, and Shift-click to select a visible range.',
+    }));
 
     const selectVisible = createButton('Select Visible', 'Select every Loredeck currently shown by the active search and filters.', () => {
         setLoredeckLibraryBulkSelection(visiblePacks.map(pack => pack.packId), visiblePacks[0]?.packId || '');
@@ -3522,8 +3508,7 @@ function createLoredeckLibraryFolderDetailsPanel(folder = {}, stack = [], canonD
 function createLoredeckLibraryFolderActionBar(folder = {}, libraryIndex = {}, selectedIds = []) {
     const folderId = String(folder.id || '').trim();
     const isUnfiled = folderId === 'unfiled';
-    const actions = document.createElement('div');
-    actions.className = 'saga-primary-actions saga-loredeck-library-folder-actions';
+    const actions = createLoredeckActionRow({ className: 'saga-primary-actions saga-loredeck-library-folder-actions' });
 
     actions.appendChild(createButton(isUnfiled ? 'New Root Folder' : 'New Subfolder', isUnfiled ? 'Create a new top-level Library folder.' : 'Create a nested folder inside this folder.', () => {
         void promptCreateLoredeckLibraryFolder(isUnfiled ? '' : folderId);
@@ -3703,8 +3688,7 @@ function createLoredeckLibraryHealthDetail(pack, healthInfo) {
     } else {
         wrap.appendChild(createEmptyMessage(healthInfo.health ? 'No Deck Health issues found.' : 'No scan has been run for this Loredeck yet.'));
     }
-    const actions = document.createElement('div');
-    actions.className = 'saga-primary-actions';
+    const actions = createLoredeckActionRow();
     actions.appendChild(createButton('Open Health Center', 'Open the fullscreen Deck Health Center for this Loredeck.', () => {
         openLoredeckHealthCenter(pack.packId);
     }, 'saga-primary-button'));
@@ -3763,8 +3747,7 @@ function createLoredeckLibraryFilesDetail(pack, healthInfo) {
     grid.appendChild(createKeyValue('Files', String(files.length || healthInfo.cached.fileCount || 0), 'Manifest file count when known.'));
     grid.appendChild(createKeyValue('Loaded Files', String(healthInfo.cached.loadedFileCount || 0), 'Files loaded during the latest validation run.'));
     wrap.appendChild(grid);
-    const actions = document.createElement('div');
-    actions.className = 'saga-primary-actions';
+    const actions = createLoredeckActionRow();
     const inspect = createButton('Inspect Manifest', 'Fetch and preview this Loredeck manifest.', async (btn) => {
         await loadLoredeckManifestPreview(pack, btn);
         renderLoredeckLibraryOverlay();
@@ -3795,8 +3778,7 @@ function createLoredeckLibraryFilesDetail(pack, healthInfo) {
 }
 
 function createLoredeckLibraryDetailActions(pack, stackItem = null, healthInfo = null) {
-    const actions = document.createElement('div');
-    actions.className = 'saga-primary-actions saga-loredeck-library-detail-actions';
+    const actions = createLoredeckActionRow({ className: 'saga-primary-actions saga-loredeck-library-detail-actions' });
     const inStack = !!stackItem;
     const add = createButton(inStack ? (stackItem.enabled ? 'In Stack' : 'Enable Deck') : 'Add to Stack', inStack ? 'This Loredeck is already in the current stack.' : 'Add this Loredeck to the active stack.', () => {
         if (inStack && stackItem.enabled) return;
@@ -3967,8 +3949,7 @@ function createLoredeckMetadataEditorCard(pack) {
     });
     card.appendChild(edit);
 
-    const actions = document.createElement('div');
-    actions.className = 'saga-primary-actions';
+    const actions = createLoredeckActionRow();
     const inspectButton = createButton('Inspect Manifest', 'Fetch and preview this Loredeck manifest.', async (btn) => {
         await loadLoredeckManifestPreview(pack, btn);
         openLoredeckMetadataEditor(pack.packId);

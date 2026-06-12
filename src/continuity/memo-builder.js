@@ -417,5 +417,3 @@ export function getMemoSignature(state, mode = null, kind = 'combined') {
     };
     return JSON.stringify(payload);
 }
-
-globalThis._sagaBuildMemo = buildMemo;

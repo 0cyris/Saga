@@ -14,10 +14,15 @@ import { runContinuityScan } from './continuity-scanner.js';
 import { validateLoreProviderConfiguration } from '../providers/lore-llm-client.js';
 import { buildContextResolutionAudit, buildResolverContextFromState } from '../context/context-resolver.js';
 import { resolveLoredeckStackItems } from '../loredecks/loredeck-library-index.js';
+import { getSagaNamespaceSection } from '../saga-namespace.js';
 
 /** Guard flag to prevent concurrent continuity scans. */
 let _extractionRunning = false;
 let _continuityProgressResetTimer = null;
+
+function refreshSagaUi() {
+    globalThis.Saga?.bridge?.refreshUI?.();
+}
 
 function setContinuityProgressState(message, percent = 0) {
     const state = getState();
@@ -30,7 +35,7 @@ function setContinuityProgressState(message, percent = 0) {
     state.lorePanel.continuityStatus = message;
     state.lorePanel.continuityProgress = safePercent;
     saveState(state, { syncPrompt: false, sanitize: false });
-    if (typeof globalThis._sagaRefreshUI === 'function') globalThis._sagaRefreshUI();
+    refreshSagaUi();
     if (safePercent >= 100 && globalThis.setTimeout) {
         if (_continuityProgressResetTimer && globalThis.clearTimeout) globalThis.clearTimeout(_continuityProgressResetTimer);
         _continuityProgressResetTimer = globalThis.setTimeout(() => {
@@ -39,7 +44,7 @@ function setContinuityProgressState(message, percent = 0) {
                 fresh.lorePanel.continuityStatus = 'Idle.';
                 fresh.lorePanel.continuityProgress = 0;
                 saveState(fresh, { syncPrompt: false, sanitize: false });
-                if (typeof globalThis._sagaRefreshUI === 'function') globalThis._sagaRefreshUI();
+                refreshSagaUi();
             }
             _continuityProgressResetTimer = null;
         }, 2200);
@@ -95,7 +100,7 @@ export async function onExtractionTriggered(options = {}) {
             progress,
         });
 
-        if (typeof globalThis._sagaRefreshUI === 'function') globalThis._sagaRefreshUI();
+        refreshSagaUi();
         return result;
     } catch (e) {
         console.error(`${LOG_PREFIX} Continuity scan failed:`, e);
@@ -329,7 +334,7 @@ export async function onGenerationEndedAutomation() {
         }
     }
 
-    if (typeof globalThis._sagaRefreshUI === 'function') globalThis._sagaRefreshUI();
+    refreshSagaUi();
     return { status: 'complete', results };
 }
 
@@ -338,9 +343,14 @@ export function isExtractionRunning() {
     return _extractionRunning;
 }
 
-globalThis._sagaRunExtraction = onExtractionTriggered;
-globalThis._sagaRunAutomation = onGenerationEndedAutomation;
-globalThis._sagaIsExtractionRunning = isExtractionRunning;
+function exposeContinuityDebugBridge() {
+    const continuity = getSagaNamespaceSection('continuity');
+    continuity.runExtraction = onExtractionTriggered;
+    continuity.runAutomation = onGenerationEndedAutomation;
+    continuity.isExtractionRunning = isExtractionRunning;
+}
+
+exposeContinuityDebugBridge();
 
 /** Resets the automatic continuity throttle counter. Called on chat change. */
 export function resetExtractionCounter() {

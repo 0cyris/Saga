@@ -81,6 +81,9 @@ assert(runtimeSource.includes('Export State'), 'State Safety card must support o
 assert(runtimeSource.includes('Restore From File'), 'State Safety card must support one-click restore from exported state.');
 assert(runtimeSource.includes('Restore Latest Backup'), 'State Safety card must support restoring a saved in-chat backup.');
 assert(runtimeSource.includes('Latest migration log'), 'State Safety card must show migration diagnostics.');
+assert(runtimeSafetyPanel.includes('refreshRuntimeThemeSurfaces(next);'), 'Section settings resets must refresh runtime theme/rail surfaces after saving defaults.');
+assert(runtimeSafetyPanel.includes('const settings = resetAllSettingsToDefaults();') && runtimeSafetyPanel.includes('refreshRuntimeThemeSurfaces(settings);'), 'Reset All Settings must refresh runtime theme/rail surfaces from the saved defaults.');
+assert(runtimePanel.includes('refreshRuntimeThemeSurfaces: (settings = getSettings())') && runtimePanel.includes('refreshRuntimeRailIcons(settings)'), 'Runtime safety wiring must refresh shelf icons after theme-affecting settings reset.');
 
 assert(visualSmoke.includes('State Safety backup/export/restore card'), 'Visual smoke source contract must guard State Safety UI.');
 

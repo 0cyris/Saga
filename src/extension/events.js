@@ -7,6 +7,7 @@ import { runRuntimeAction } from '../runtime/runtime-actions.js';
 import { clearExtensionPrompts, uninstallInterceptor } from '../continuity/prompt-injector.js';
 import { onGenerationEndedAutomation, resetExtractionCounter } from '../continuity/extractor.js';
 import { onGenerationEndedAutoRelevance } from '../context/auto-relevance.js';
+import { removeGlobalBridge } from './global-bridge.js';
 
 export function clearSagaPromptInjectionSafely(reason = 'clearing prompt injection') {
     try {
@@ -51,9 +52,7 @@ export function handleChatChanged() {
         resetExtractionCounter();
         clearSagaPromptInjectionSafely('clearing prompt injection after chat switch');
         runRuntimeAction('runtime.refresh');
-        if (typeof globalThis._sagaRefreshUI === 'function') {
-            globalThis._sagaRefreshUI();
-        }
+        globalThis.Saga?.bridge?.refreshUI?.();
         runRuntimeAction('prompt.sync');
     } catch (e) {
         console.error(`${LOG_PREFIX} Error in chat-changed handler:`, e);
@@ -72,6 +71,11 @@ export function handleExtensionDisabled() {
         runRuntimeAction('runtime.hide');
     } catch (e) {
         console.error(`${LOG_PREFIX} Error while hiding Saga runtime during disable:`, e);
+    }
+    try {
+        removeGlobalBridge();
+    } catch (e) {
+        console.error(`${LOG_PREFIX} Error while removing Saga global bridge during disable:`, e);
     }
 }
 

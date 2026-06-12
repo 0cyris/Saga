@@ -8,29 +8,67 @@ import { buildMemo } from '../continuity/memo-builder.js';
 import { hasRuntimeAction, listRuntimeActions, runRuntimeAction } from '../runtime/runtime-actions.js';
 import { getLastLoreInjectionAudit, getLastLoredeckRetrievalAudit, searchAcceptedLorecards } from '../lorecards/retrieval-audit.js';
 import { registerSagaToolManagerTools } from './saga-tool-registry.js';
+import { getSagaNamespace, getSagaNamespaceSection } from '../saga-namespace.js';
+
+const LEGACY_GLOBAL_BRIDGE_KEYS = Object.freeze([
+    '_sagaBuildMemo',
+    '_sagaRefreshUI',
+    '_sagaGetState',
+    '_sagaShowLorePanel',
+    '_sagaHideLorePanel',
+    '_sagaRefreshLorePanel',
+    '_sagaRunAction',
+    '_sagaListActions',
+    '_sagaGetLastLoreInjectionAudit',
+    '_sagaGetLastLoredeckRetrievalAudit',
+    '_sagaSearchLorecards',
+    '_sagaRegisterToolManagerTools',
+]);
+
+let exposedBridge = null;
+let exposedActions = null;
+
+function clearLegacyGlobalBridgeAliases() {
+    for (const key of LEGACY_GLOBAL_BRIDGE_KEYS) {
+        delete globalThis[key];
+    }
+}
 
 export function exposeGlobalBridge() {
-    const sagaNamespace = globalThis.Saga && typeof globalThis.Saga === 'object'
-        ? globalThis.Saga
-        : {};
-    globalThis.Saga = sagaNamespace;
-    sagaNamespace.actions = {
+    const sagaNamespace = getSagaNamespace();
+    exposedActions = {
         has: hasRuntimeAction,
         list: listRuntimeActions,
         run: runRuntimeAction,
     };
+    sagaNamespace.actions = exposedActions;
 
-    globalThis._sagaBuildMemo = buildMemo;
-    globalThis._sagaRefreshUI = () => runRuntimeAction('ui.refresh');
-    globalThis._sagaGetState = getState;
-    globalThis._sagaShowLorePanel = () => runRuntimeAction('runtime.show');
-    globalThis._sagaHideLorePanel = () => runRuntimeAction('runtime.hide');
-    globalThis._sagaRefreshLorePanel = () => runRuntimeAction('runtime.refresh');
-    globalThis._sagaRunAction = runRuntimeAction;
-    globalThis._sagaListActions = listRuntimeActions;
-    globalThis._sagaGetLastLoreInjectionAudit = getLastLoreInjectionAudit;
-    globalThis._sagaGetLastLoredeckRetrievalAudit = getLastLoredeckRetrievalAudit;
-    globalThis._sagaSearchLorecards = (query, options = {}) => searchAcceptedLorecards(getState(), query, options);
-    globalThis._sagaRegisterToolManagerTools = registerSagaToolManagerTools;
+    exposedBridge = getSagaNamespaceSection('bridge');
+    Object.assign(exposedBridge, {
+        buildMemo,
+        refreshUI: () => runRuntimeAction('ui.refresh'),
+        getState,
+        showRuntime: () => runRuntimeAction('runtime.show'),
+        hideRuntime: () => runRuntimeAction('runtime.hide'),
+        refreshRuntime: () => runRuntimeAction('runtime.refresh'),
+        runAction: runRuntimeAction,
+        listActions: listRuntimeActions,
+        getLastLoreInjectionAudit,
+        getLastLoredeckRetrievalAudit,
+        searchLorecards: (query, options = {}) => searchAcceptedLorecards(getState(), query, options),
+        registerToolManagerTools: registerSagaToolManagerTools,
+    });
+    clearLegacyGlobalBridgeAliases();
     console.log(`${LOG_PREFIX} Global bridge exposed`);
+}
+
+export function removeGlobalBridge() {
+    const sagaNamespace = globalThis.Saga;
+    if (sagaNamespace && typeof sagaNamespace === 'object') {
+        if (sagaNamespace.bridge === exposedBridge) delete sagaNamespace.bridge;
+        if (sagaNamespace.actions === exposedActions) delete sagaNamespace.actions;
+    }
+    exposedBridge = null;
+    exposedActions = null;
+    clearLegacyGlobalBridgeAliases();
 }

@@ -230,6 +230,9 @@ export function getActiveNestedScrollElement(root = getPanelRoot()) {
     if (!root) return null;
     return root.querySelector('.saga-accepted-lore-scroll-region')
         || root.querySelector('.saga-pending-lore-list')
+        || root.querySelector('.saga-canon-preview-list')
+        || root.querySelector('.saga-loredeck-assistant-draft-list')
+        || root.querySelector('.saga-loredeck-creator-title-list')
         || root.querySelector('.saga-injection-preview')
         || root.querySelector('.saga-continuity-json-editor');
 }
@@ -239,6 +242,9 @@ export function installNestedScrollHandoff(tabBody) {
     const nestedScrolls = tabBody.querySelectorAll([
         '.saga-accepted-lore-scroll-region',
         '.saga-pending-lore-list',
+        '.saga-canon-preview-list',
+        '.saga-loredeck-assistant-draft-list',
+        '.saga-loredeck-creator-title-list',
         '.saga-injection-preview',
         '.saga-continuity-json-editor',
         'textarea'

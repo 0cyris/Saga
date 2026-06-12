@@ -10,6 +10,7 @@ import {
 import {
     toast,
 } from '../ui/runtime-ui-kit.js';
+import { setLoredeckActionButtonBusy } from '../loredecks/loredeck-action-rows.js';
 import {
     entryListFromLoredeckFileJson,
     getLoredeckTagRegistryCount,
@@ -108,11 +109,7 @@ export async function loadLoredeckTimelineRegistryForEditor(pack, button = null,
     const getFreshLoredeckLibraryPack = dep('getFreshLoredeckLibraryPack', (_packId, fallback) => fallback);
     const setLoredeckTimelineRegistryCacheRecord = dep('setLoredeckTimelineRegistryCacheRecord');
     const refreshPanelBody = dep('refreshPanelBody');
-    const originalText = button?.textContent;
-    if (button) {
-        button.disabled = true;
-        button.textContent = 'Loading...';
-    }
+    const restoreBusy = setLoredeckActionButtonBusy(button, 'Loading...', { fallbackLabel: 'Load Timeline' });
     try {
         const fresh = getFreshLoredeckLibraryPack(pack.packId, pack);
         const manifest = options.manifest || await getDisplayManifestForPack(fresh, { requireFetch: !canUseVirtualLoredeckData(fresh) });
@@ -159,10 +156,7 @@ export async function loadLoredeckTimelineRegistryForEditor(pack, button = null,
         }
         return normalizeLoredeckTimelineRegistry(null);
     } finally {
-        if (button) {
-            button.disabled = false;
-            button.textContent = originalText || 'Load Timeline';
-        }
+        restoreBusy();
     }
 }
 
@@ -184,11 +178,7 @@ export async function loadLoredeckTagRegistryForEditor(pack, button = null, opti
     const getFreshLoredeckLibraryPack = dep('getFreshLoredeckLibraryPack', (_packId, fallback) => fallback);
     const setLoredeckTagRegistryCacheRecord = dep('setLoredeckTagRegistryCacheRecord');
     const refreshPanelBody = dep('refreshPanelBody');
-    const originalText = button?.textContent;
-    if (button) {
-        button.disabled = true;
-        button.textContent = 'Loading...';
-    }
+    const restoreBusy = setLoredeckActionButtonBusy(button, 'Loading...', { fallbackLabel: 'Load Registry' });
     try {
         const fresh = getFreshLoredeckLibraryPack(pack.packId, pack);
         const manifest = options.manifest || await getDisplayManifestForPack(fresh, { requireFetch: !canUseVirtualLoredeckData(fresh) });
@@ -235,21 +225,14 @@ export async function loadLoredeckTagRegistryForEditor(pack, button = null, opti
         }
         return { schemaVersion: 1, tags: {} };
     } finally {
-        if (button) {
-            button.disabled = false;
-            button.textContent = originalText || 'Load Registry';
-        }
+        restoreBusy();
     }
 }
 
 export async function loadLoredeckEntriesForEditor(pack, button = null) {
     const setLoredeckEntryPreviewCacheRecord = dep('setLoredeckEntryPreviewCacheRecord');
     const refreshPanelBody = dep('refreshPanelBody');
-    const originalText = button?.textContent;
-    if (button) {
-        button.disabled = true;
-        button.textContent = 'Loading...';
-    }
+    const restoreBusy = setLoredeckActionButtonBusy(button, 'Loading...', { fallbackLabel: 'Load Entries' });
     try {
         const { manifest, baseUrl, entries, entryFiles } = await fetchLoredeckEntryFilesForEditor(pack);
         await loadLoredeckTimelineRegistryForEditor(pack, null, { manifest, baseUrl, quiet: true });
@@ -273,21 +256,14 @@ export async function loadLoredeckEntriesForEditor(pack, button = null) {
         toast(e?.message || 'Entry load failed.', 'error');
         return [];
     } finally {
-        if (button) {
-            button.disabled = false;
-            button.textContent = originalText || 'Load Entries';
-        }
+        restoreBusy();
     }
 }
 
 export async function loadLoredeckManifestPreview(pack, button = null) {
     const setLoredeckManifestPreviewCacheRecord = dep('setLoredeckManifestPreviewCacheRecord');
     const refreshPanelBody = dep('refreshPanelBody');
-    const originalText = button?.textContent;
-    if (button) {
-        button.disabled = true;
-        button.textContent = 'Inspecting...';
-    }
+    const restoreBusy = setLoredeckActionButtonBusy(button, 'Inspecting...', { fallbackLabel: 'Inspect Manifest' });
     try {
         const manifest = await getDisplayManifestForPack(pack, { requireFetch: !canUseVirtualLoredeckData(pack) });
         setLoredeckManifestPreviewCacheRecord(pack.packId, {
@@ -308,9 +284,6 @@ export async function loadLoredeckManifestPreview(pack, button = null) {
         toast(e?.message || 'Manifest inspection failed.', 'error');
         return null;
     } finally {
-        if (button) {
-            button.disabled = false;
-            button.textContent = originalText || 'Inspect Manifest';
-        }
+        restoreBusy();
     }
 }

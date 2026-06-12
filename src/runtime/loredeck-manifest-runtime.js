@@ -10,11 +10,24 @@ import {
     isVirtualLoredeckPack,
 } from './loredeck-virtual-data.js';
 
+const EXTENSION_ROOT_URL = new URL('../../', import.meta.url);
+const BUNDLED_LOREDECKS_ROOT_URL = new URL('content/loredecks/', EXTENSION_ROOT_URL);
+
 export function resolveManifestUrlForFetch(manifestRef) {
     const text = String(manifestRef || '').trim();
     if (!text) return null;
+    const normalized = text.replace(/\\/g, '/');
+    if (!/^[a-z][a-z0-9+.-]*:/i.test(normalized)) {
+        const relative = normalized.replace(/^\.?\//, '');
+        if (/^content\/loredecks\//i.test(relative)) {
+            return new URL(relative.replace(/^content\/loredecks\//i, ''), BUNDLED_LOREDECKS_ROOT_URL);
+        }
+        if (/^content\//i.test(relative)) {
+            return new URL(relative, EXTENSION_ROOT_URL);
+        }
+    }
     try {
-        return new URL(text, import.meta.url);
+        return new URL(normalized, import.meta.url);
     } catch (_) {
         return null;
     }

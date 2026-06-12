@@ -99,6 +99,7 @@ import {
     appendLoredeckEntryEditorSection,
     buildLoredeckContextFromEditorFields,
     buildLoredeckRetrievalFromEditorFields,
+    createLoredeckCheckbox,
     createLoredeckEditorField,
     getLoredeckEntryEditorNumber,
     getLoredeckEntryEditorNumberText,
@@ -119,8 +120,94 @@ import {
     validateLoredeckForEditor,
 } from './loredeck-editor-validation.js';
 import {
+    buildCustomDuplicateLoredeckRecord,
+    buildFinalizedCustomLoredeckRecordFromGenerated,
+    configureLoredeckEditorActions,
+    createCustomDuplicateLoredeckRecord,
+    duplicateLoredeckAsCustom,
+    exportValidatedLoredeckDraft,
+    finalizeGeneratedLoredeckAsCustom,
+    finalizeGeneratedLoredeckEntry,
+    getDefaultDuplicateLoredeckTags,
+    getFinalizedGeneratedLoredeckTags,
+    getLoredeckDuplicateTitle,
+    getUniqueLoredeckPackId,
+    repairLoredeckSafeHealthIssues,
+    saveLoredeckMetadataFromInputs,
+    syncLoredeckMetadataFromManifest,
+} from './loredeck-editor-actions.js';
+import {
+    configureLoredeckEntryOverridesPanel,
+    createLoredeckEntryOverrideCard,
+} from './loredeck-entry-overrides-panel.js';
+import {
+    configureLoredeckTimelineRegistryPanel,
+    createLoredeckTimelineRegistryCard,
+} from './loredeck-timeline-registry-panel.js';
+import {
+    configureLoredeckTagManagerPanel,
+    createLoredeckTagManagerCard,
+} from './loredeck-tag-manager-panel.js';
+import {
+    configureLoredeckPendingReviewPanel,
+    createLoredeckPendingReviewCard,
+} from './loredeck-pending-review-panel.js';
+import {
+    configureLoredeckAssistantReviewPanel,
+    createLoredeckAssistantCard,
+    createLoredeckAssistantDraftBatchCard,
+} from './loredeck-assistant-review-panel.js';
+import {
+    appendLoredeckPendingQualityPills,
+    configureLoredeckReviewHelpers,
+    createLoredeckPendingDiffList,
+    createLoredeckPendingHealthImpactPill,
+    createLoredeckPendingHealthStalePill,
+    createLoredeckPendingQualityList,
+    createLoredeckPendingRiskPill,
+    doesLoredeckPendingChangeAffectPackHealth,
+    formatLoredeckPendingActionLabel,
+    formatLoredeckPendingSourceLabel,
+    formatLoredeckPendingTargetKindLabel,
+    getLoredeckPendingConfidence,
+    getLoredeckPendingRisk,
+    getLoredeckPendingSourceTooltip,
+    isLoredeckHealthStatusStale,
+} from './loredeck-review-helpers.js';
+import {
+    configureLoredeckPendingChangeModel,
+    createLoredeckRecordPatchChange,
+    getLoredeckPendingChanges,
+    normalizeLoredeckPendingChanges,
+    normalizeLoredeckPendingIdList,
+    normalizeLoredeckPendingTimelineIdList,
+} from './loredeck-pending-change-model.js';
+import {
+    acceptLoredeckPendingChanges,
+    configureLoredeckPendingChangeActions,
+    queueLoredeckPendingChange,
+    queueLoredeckPendingChanges,
+    rejectLoredeckPendingChanges,
+} from './loredeck-pending-change-actions.js';
+import {
+    buildBulkLoredeckTagOverrideEntry,
+    computeLoredeckBulkTagUpdates,
+    configureLoredeckEditProposals,
+    queueLoredeckBulkContextUpdate,
+    queueLoredeckBulkTagUpdate,
+    queueLoredeckTagRenameProposal,
+    removeLoredeckEntryOverride,
+    removeLoredeckTagRegistryDefinition,
+    removeLoredeckTimelineDefinition,
+    saveLoredeckEntryOverride,
+    saveLoredeckTagRegistryDefinition,
+    saveLoredeckTimelineAnchorDefinition,
+    saveLoredeckTimelineWindowDefinition,
+    setLoredeckEntryDisabled,
+    setLoredeckTimelineItemDisabled,
+} from './loredeck-edit-proposals.js';
+import {
     buildEmbeddedCustomManifest,
-    buildLoredeckStatsFromEntries,
     cloneLoredeckJson,
     getLoredeckTagRegistryCount,
     getLoredeckTimelineRegistryCount,
@@ -129,7 +216,6 @@ import {
     parseLoredeckTags,
 } from './loredeck-package-helpers.js';
 import {
-    buildLoredeckZipPackageForExport,
     configureLoredeckPackageExport,
     exportSelectedLoredeckBundles,
 } from './loredeck-package-export.js';
@@ -138,9 +224,12 @@ import {
     installLoredeckBundleFromFile,
 } from './loredeck-package-install-panel.js';
 import {
+    createLoredeckActionRow,
+    setLoredeckActionButtonBusy,
+} from '../loredecks/loredeck-action-rows.js';
+import {
     buildLoredeckRecordFromManifest,
     fetchLoredeckManifest,
-    getDisplayManifestForPack,
     resolveManifestUrlForFetch,
 } from './loredeck-manifest-runtime.js';
 import {
@@ -198,7 +287,7 @@ import {
     validateLoreProviderConfiguration,
 } from '../providers/lore-llm-client.js';
 import { proposeCanonLoreForContext, previewCanonLoreForContext, addCanonLorePreviewEntriesToPending, loadCanonLoreDatabase, getCanonLoreDatabaseSync, clearCanonLoreDatabaseCache } from '../context/canon-lore-db.js';
-import { mergeLoredeckTimelineRegistries, normalizeLoredeckEntryForSchemaV3, repairLoredeckEntryForHealth } from '../loredecks/loredeck-loader.js';
+import { mergeLoredeckTimelineRegistries, normalizeLoredeckEntryForSchemaV3 } from '../loredecks/loredeck-loader.js';
 import {
     buildLoredeckAssistantSystemPrompt,
     buildLoredeckAssistantUserPrompt,
@@ -409,6 +498,7 @@ import {
     normalizeLoredeckCreatorTitleIdList,
     openLoredeckCreatorWorkbench as openLoredeckCreatorWorkbenchBase,
     queueLoredeckCreatorWorkbenchRefresh,
+    refreshLoredeckCreatorTitleSelectionUi,
     refreshLoredeckCreatorWorkbenchBody,
     scrollLoredeckCreatorWorkbenchToAnchor,
 } from '../loredecks/loredeck-creator-panel.js';
@@ -570,6 +660,230 @@ let loredeckCreatorGenerationTicker = null;
 const loredeckCreatorGenerationControllers = new Map();
 const loredeckCreatorLiveGenerationsByJobId = new Map();
 const loredeckCreatorLiveGenerationJobs = new Map();
+
+configureLoredeckEditorActions({
+    getState,
+    getLoredeckLibrary,
+    getLoredeckDefinition,
+    getFreshLoredeckLibraryPack,
+    upsertLoredeckLibraryPack,
+    validateLoredeckForEditor,
+    getExpectedLoredeckEntrySchemaVersion,
+    getLoredeckPendingChanges,
+    normalizeLoredeckTagRegistry,
+    normalizeLoredeckTimelineRegistry,
+    clearCanonLoreDatabaseCache,
+    clearContextIndexCache,
+    refreshLoredeckSurfaces,
+    toast,
+    downloadBytes,
+    selectLoredeckForDetails,
+    confirmAction,
+    createStateBackup,
+    getLoredeckCreatorJobForPack,
+    buildLoredeckCreatorCoverageFinalizationProvenance,
+    openLoredeckMetadataEditor,
+    isLoredeckLibraryOpen,
+    renderLoredeckLibraryOverlay,
+    addLoredeckToStack,
+    setLoredeckManifestPreviewCacheRecord: (packId, record) => loredeckManifestPreviewCache.set(String(packId || '').trim(), record),
+    deleteLoredeckManifestPreviewCacheRecord: packId => loredeckManifestPreviewCache.delete(String(packId || '').trim()),
+    deleteLoredeckEntryPreviewCacheRecord: packId => loredeckEntryPreviewCache.delete(String(packId || '').trim()),
+    deleteLoredeckTimelineRegistryCacheRecord: packId => loredeckTimelineRegistryCache.delete(String(packId || '').trim()),
+    deleteLoredeckTagRegistryCacheRecord: packId => loredeckTagRegistryCache.delete(String(packId || '').trim()),
+});
+
+configureLoredeckEntryOverridesPanel({
+    getLoredeckOverrideState,
+    getLoredeckEntryPreviewCacheRecord: packId => loredeckEntryPreviewCache.get(String(packId || '').trim()) || null,
+    getLoredeckEditableEntryRows,
+    filterLoredeckEditableEntryRows,
+    getLoredeckEntryOverrideQuery: () => loredeckEntryOverrideQuery,
+    setLoredeckEntryOverrideQuery: value => { loredeckEntryOverrideQuery = String(value || '').trim(); },
+    refreshPanelBody,
+    loadLoredeckEntriesForEditor,
+    canValidateLoredeckInEditor,
+    openLoredeckEntryOverrideDialog,
+    openLoredeckBulkTagsDialog,
+    openLoredeckBulkContextDialog,
+    repairLoredeckSafeHealthIssues,
+    createLoredeckPendingReviewCard,
+    createLoredeckAssistantCard,
+    createLoredeckTimelineRegistryCard,
+    createLoredeckTagManagerCard,
+    setLoredeckEntryDisabled,
+    removeLoredeckEntryOverride,
+});
+
+configureLoredeckTimelineRegistryPanel({
+    getLoredeckTimelineRegistryCacheRecord: packId => loredeckTimelineRegistryCache.get(String(packId || '').trim()) || null,
+    getLoredeckEmbeddedTimelineRegistry,
+    buildLoredeckTimelineRegistryItems,
+    buildMergedLoredeckTimelineRegistryForExport,
+    getLoredeckTimelineRegistryCount,
+    getLoredeckTimelineRegistryQuery: () => loredeckTimelineRegistryQuery,
+    setLoredeckTimelineRegistryQuery: value => { loredeckTimelineRegistryQuery = String(value || '').trim(); },
+    setLoredeckEntryOverrideQuery: value => { loredeckEntryOverrideQuery = String(value || '').trim(); },
+    refreshPanelBody,
+    loadLoredeckTimelineRegistryForEditor,
+    openLoredeckTimelineAnchorDialog,
+    openLoredeckTimelineWindowDialog,
+    setLoredeckTimelineItemDisabled,
+    removeLoredeckTimelineDefinition,
+    downloadJson,
+    sanitizeFileStem,
+    toast,
+});
+
+configureLoredeckTagManagerPanel({
+    getLoredeckTagRegistryCacheRecord: packId => loredeckTagRegistryCache.get(String(packId || '').trim()) || null,
+    getLoredeckEmbeddedTagRegistry,
+    buildLoredeckTagManagerItems,
+    buildMergedLoredeckTagRegistryForExport,
+    getLoredeckTagRegistryCount,
+    getLoredeckEntryOverrideQuery: () => loredeckEntryOverrideQuery,
+    getLoredeckTagManagerQuery: () => loredeckTagManagerQuery,
+    setLoredeckTagManagerQuery: value => { loredeckTagManagerQuery = String(value || '').trim(); },
+    setLoredeckEntryOverrideQuery: value => { loredeckEntryOverrideQuery = String(value || '').trim(); },
+    getLoredeckEntryRowsForBulk,
+    getLoredeckEntryTags,
+    humanizeLoredeckTagId,
+    refreshPanelBody,
+    loadLoredeckTagRegistryForEditor,
+    openLoredeckTagRegistryDialog,
+    openLoredeckTagRenameDialog,
+    openLoredeckBulkTagsDialog,
+    removeLoredeckTagRegistryDefinition,
+    downloadJson,
+    sanitizeFileStem,
+    toast,
+});
+
+configureLoredeckPendingChangeModel({
+    normalizeLoredeckTagId,
+    normalizeLoredeckTimelineId,
+    normalizeLoredeckTimelineDisabledIds,
+    normalizeLoredeckTagDefinition,
+    normalizeLoredeckTimelineAnchor,
+    normalizeLoredeckTimelineWindow,
+});
+
+configureLoredeckReviewHelpers({
+    getLoredeckEntryPreviewCacheRecord: packId => loredeckEntryPreviewCache.get(String(packId || '').trim()) || null,
+    parseLoredeckEntryTags,
+    normalizeLoredeckPendingIdList,
+    normalizeLoredeckTagId,
+    getLoredeckEmbeddedTagRegistry,
+    getLoredeckCachedSourceTagRegistry,
+    normalizeLoredeckTagDefinition,
+    normalizeLoredeckTimelineId,
+    getLoredeckEmbeddedTimelineRegistry,
+    getLoredeckCachedSourceTimelineRegistry,
+    normalizeLoredeckTimelineAnchor,
+    normalizeLoredeckTimelineWindow,
+    normalizeLoredeckTimelineDisabledIds,
+});
+
+configureLoredeckPendingChangeActions({
+    toast,
+    persistLoredeckLibraryRecordMutation,
+    getFreshLoredeckLibraryPack,
+    canValidateLoredeckInEditor,
+    refreshLoredeckSurfaces,
+    isGeneratedLoredeckPack,
+    getAcceptedVirtualLoredeckEntries,
+    validateLoredeckForEditor,
+    clearCanonLoreDatabaseCache,
+    clearContextIndexCache,
+    normalizeLoredeckCreatorTitleId,
+    normalizeLoredeckCreatorTitleIdList,
+    refreshGeneratedLoredeckDerivedMetadata,
+    getLoredeckCreatorBriefCache,
+    setLoredeckCreatorBriefCache,
+    isLoredeckCreatorPlanningPendingChange,
+    refreshLoredeckCreatorWorkbenchBody,
+    refreshHeader,
+});
+
+configureLoredeckEditProposals({
+    toast,
+    queueLoredeckPendingChange,
+    createLoredeckRecordPatchChange,
+    normalizeLoredeckTimelineId,
+    normalizeLoredeckTimelineAnchor,
+    normalizeLoredeckTimelineWindow,
+    normalizeLoredeckTagId,
+    normalizeLoredeckTagDefinition,
+    parseLoredeckEntryTags,
+    humanizeLoredeckTagId,
+    getExpectedLoredeckEntrySchemaVersion,
+    normalizeLoreEntry,
+    normalizeLoredeckEntryForSchemaV3,
+    getLoredeckEntryTags,
+});
+
+configureLoredeckPendingReviewPanel({
+    getLoredeckPendingChanges,
+    doesLoredeckPendingChangeAffectPackHealth,
+    isLoredeckHealthStatusStale,
+    createLoredeckPendingHealthStalePill,
+    createLoredeckPendingHealthImpactPill,
+    formatLoredeckPendingActionLabel,
+    formatLoredeckPendingTargetKindLabel,
+    formatLoredeckPendingSourceLabel,
+    getLoredeckPendingSourceTooltip,
+    getLoredeckPendingConfidence,
+    getLoredeckPendingRisk,
+    createLoredeckPendingRiskPill,
+    appendLoredeckPendingQualityPills,
+    createLoredeckPendingDiffList,
+    createLoredeckPendingQualityList,
+    createStateBackup,
+    confirmAction,
+    runBusyAction,
+    acceptLoredeckPendingChanges,
+    rejectLoredeckPendingChanges,
+    validateLoredeckForEditor,
+    canValidateLoredeckInEditor,
+});
+
+configureLoredeckAssistantReviewPanel({
+    getLoredeckAssistantInstruction: () => loredeckAssistantInstruction,
+    setLoredeckAssistantInstruction: value => { loredeckAssistantInstruction = String(value || '').trim(); },
+    getLoredeckAssistantMode: () => loredeckAssistantMode,
+    setLoredeckAssistantMode: value => { loredeckAssistantMode = String(value || 'revise_entries').trim() || 'revise_entries'; },
+    getLoredeckAssistantTargetScope: () => loredeckAssistantTargetScope,
+    setLoredeckAssistantTargetScope: value => { loredeckAssistantTargetScope = String(value || 'current_filter').trim() || 'current_filter'; },
+    getLoredeckAssistantRevisionInstruction: () => loredeckAssistantRevisionInstruction,
+    setLoredeckAssistantRevisionInstruction: value => { loredeckAssistantRevisionInstruction = String(value || '').trim(); },
+    getLoredeckAssistantTargetRows,
+    getLoredeckAssistantDraftCacheRecord: packId => loredeckAssistantDraftCache.get(String(packId || '').trim()) || {},
+    getLoredeckAssistantDraftChanges,
+    getLoredeckAssistantSelectedDraftIds,
+    countLoredeckAssistantQualityWarningsForChanges,
+    humanizeScopeKey,
+    createNewLoreInput,
+    createNewLoreSelect,
+    handleLoredeckAssistantDraft,
+    handleLoredeckAssistantDraftRevision,
+    loadLoredeckEntriesForEditor,
+    canValidateLoredeckInEditor,
+    queueLoredeckAssistantDraftSelection,
+    dropLoredeckAssistantDraftSelection,
+    setLoredeckAssistantDraftSelectionBulk,
+    setLoredeckAssistantDraftSelection,
+    openLoredeckAssistantDraftJsonEditor,
+    formatLoredeckPendingActionLabel,
+    formatLoredeckPendingTargetKindLabel,
+    getLoredeckPendingConfidence,
+    getLoredeckPendingRisk,
+    createLoredeckPendingRiskPill,
+    appendLoredeckPendingQualityPills,
+    doesLoredeckPendingChangeAffectPackHealth,
+    createLoredeckPendingHealthImpactPill,
+    createLoredeckPendingDiffList,
+    createLoredeckPendingQualityList,
+});
 
 configureLoredeckHealthPanel({
     getState,
@@ -989,6 +1303,10 @@ configureRuntimeTabRegistry({
 configureRuntimeSafetyPanel({
     refreshPanelBody,
     refreshHeader,
+    refreshRuntimeThemeSurfaces: (settings = getSettings()) => {
+        applyRuntimeTheme(panelRoot, settings);
+        refreshRuntimeRailIcons(settings);
+    },
     resetCanonPreviewUiState,
 });
 
@@ -1968,6 +2286,7 @@ function applyLoredeckCreatorGenerationButtonLock(button, cached = getLoredeckCr
     if (!button) return button;
     const active = getActiveLoredeckCreatorGeneration(cached);
     if (!active) return button;
+    button.dataset.sagaCreatorGenerationLocked = 'true';
     button.disabled = true;
     addTooltip(button, `${active.label || 'Creator generation'} is running. Cancel it or wait for it to finish before starting another ${label}.`);
     return button;
@@ -2779,6 +3098,7 @@ function createLoredeckCreatorCurrentTaskActions(cached = {}, pipeline = {}, con
 function createLoredeckCreatorGenerationRangeRow(settings = {}, key = '', labelText = '', tooltip = '', options = {}) {
     const [min, max] = LOREDECK_CREATOR_GENERATION_SETTING_LIMITS[key] || [0, 10];
     const suffix = options.suffix || '';
+    const onChange = typeof options.onChange === 'function' ? options.onChange : null;
     const row = document.createElement('label');
     row.className = 'saga-loredeck-creator-generation-row';
     const label = document.createElement('span');
@@ -2807,7 +3127,8 @@ function createLoredeckCreatorGenerationRangeRow(settings = {}, key = '', labelT
         const nextValue = clampLoredeckCreatorInteger(input.value, min, max, initial);
         input.value = String(nextValue);
         renderLabel(nextValue);
-        setLoredeckCreatorGenerationSettings({ [key]: nextValue });
+        const nextSettings = setLoredeckCreatorGenerationSettings({ [key]: nextValue })?.generationSettings;
+        onChange?.(nextSettings || getLoredeckCreatorGenerationSettings());
     });
     row.appendChild(input);
     return {
@@ -2820,7 +3141,8 @@ function createLoredeckCreatorGenerationRangeRow(settings = {}, key = '', labelT
     };
 }
 
-function createLoredeckCreatorGenerationToggleRow(settings = {}, key = '', labelText = '', tooltip = '') {
+function createLoredeckCreatorGenerationToggleRow(settings = {}, key = '', labelText = '', tooltip = '', options = {}) {
+    const onChange = typeof options.onChange === 'function' ? options.onChange : null;
     const row = document.createElement('label');
     row.className = 'saga-loredeck-creator-generation-toggle';
     addTooltip(row, tooltip);
@@ -2840,7 +3162,8 @@ function createLoredeckCreatorGenerationToggleRow(settings = {}, key = '', label
     row.appendChild(state);
     input.addEventListener('change', () => {
         renderState();
-        setLoredeckCreatorGenerationSettings({ [key]: input.checked });
+        const nextSettings = setLoredeckCreatorGenerationSettings({ [key]: input.checked })?.generationSettings;
+        onChange?.(nextSettings || getLoredeckCreatorGenerationSettings());
     });
     return {
         element: row,
@@ -2851,17 +3174,27 @@ function createLoredeckCreatorGenerationToggleRow(settings = {}, key = '', label
     };
 }
 
+function renderLoredeckCreatorGenerationSettingsSummary(summary, settings = {}) {
+    if (!summary) return;
+    summary.replaceChildren(
+        createStatusPill(`${settings.titleBatchLimit} titles/call`, 'Maximum title drafts requested in one Title Pass call.'),
+        createStatusPill(`${settings.entryBatchSize} Lorecards/call`, 'Maximum Lorecards requested in one Lorecard drafting call.'),
+        createStatusPill(`${settings.retryAttempts} retry${settings.retryAttempts === 1 ? '' : 'ies'}`, 'Automatic retry attempts for failed units before surfacing failure.'),
+        createStatusPill(settings.showStreamingProgress ? 'Streaming snippets on' : 'Streaming snippets off', 'Whether active model calls show short transient streaming snippets.'),
+    );
+}
+
 function createLoredeckCreatorAdvancedGenerationSettings(cached = {}) {
     const settings = getLoredeckCreatorGenerationSettings(cached);
     const body = document.createElement('div');
     body.className = 'saga-loredeck-creator-generation-settings';
     const summary = document.createElement('div');
     summary.className = 'saga-loredeck-entry-summary';
-    summary.appendChild(createStatusPill(`${settings.titleBatchLimit} titles/call`, 'Maximum title drafts requested in one Title Pass call.'));
-    summary.appendChild(createStatusPill(`${settings.entryBatchSize} Lorecards/call`, 'Maximum Lorecards requested in one Lorecard drafting call.'));
-    summary.appendChild(createStatusPill(`${settings.retryAttempts} retry${settings.retryAttempts === 1 ? '' : 'ies'}`, 'Automatic retry attempts for failed units before surfacing failure.'));
-    summary.appendChild(createStatusPill(settings.showStreamingProgress ? 'Streaming snippets on' : 'Streaming snippets off', 'Whether active model calls show short transient streaming snippets.'));
+    renderLoredeckCreatorGenerationSettingsSummary(summary, settings);
     body.appendChild(summary);
+    const refreshSummary = nextSettings => {
+        renderLoredeckCreatorGenerationSettingsSummary(summary, normalizeLoredeckCreatorGenerationSettings(nextSettings));
+    };
 
     const help = document.createElement('div');
     help.className = 'saga-runtime-help';
@@ -2872,12 +3205,12 @@ function createLoredeckCreatorAdvancedGenerationSettings(cached = {}) {
     const grid = document.createElement('div');
     grid.className = 'saga-loredeck-creator-generation-grid';
     for (const row of [
-        createLoredeckCreatorGenerationRangeRow(settings, 'titleBatchLimit', 'Title batch limit', 'Maximum title drafts Saga asks for in one Title Pass provider call.'),
-        createLoredeckCreatorGenerationRangeRow(settings, 'planningProposalLimit', 'Planning proposals', 'Maximum Context and Tag proposals Saga asks for in one planning call.'),
-        createLoredeckCreatorGenerationRangeRow(settings, 'entryBatchSize', 'Lorecards per call', 'Maximum full Lorecards Saga asks for in one micro-batch call.'),
-        createLoredeckCreatorGenerationRangeRow(settings, 'titleRunRemainingLimit', 'Title run limit', 'Maximum separate title-batch calls made by Generate Remaining.'),
-        createLoredeckCreatorGenerationRangeRow(settings, 'entryRunRemainingLimit', 'Lorecard run limit', 'Maximum separate Lorecard calls made by Auto-Draft before review or failure stops the run.'),
-        createLoredeckCreatorGenerationRangeRow(settings, 'retryAttempts', 'Retry attempts', 'Automatic retry attempts after a malformed, empty, or failed generation unit.'),
+        createLoredeckCreatorGenerationRangeRow(settings, 'titleBatchLimit', 'Title batch limit', 'Maximum title drafts Saga asks for in one Title Pass provider call.', { onChange: refreshSummary }),
+        createLoredeckCreatorGenerationRangeRow(settings, 'planningProposalLimit', 'Planning proposals', 'Maximum Context and Tag proposals Saga asks for in one planning call.', { onChange: refreshSummary }),
+        createLoredeckCreatorGenerationRangeRow(settings, 'entryBatchSize', 'Lorecards per call', 'Maximum full Lorecards Saga asks for in one micro-batch call.', { onChange: refreshSummary }),
+        createLoredeckCreatorGenerationRangeRow(settings, 'titleRunRemainingLimit', 'Title run limit', 'Maximum separate title-batch calls made by Generate Remaining.', { onChange: refreshSummary }),
+        createLoredeckCreatorGenerationRangeRow(settings, 'entryRunRemainingLimit', 'Lorecard run limit', 'Maximum separate Lorecard calls made by Auto-Draft before review or failure stops the run.', { onChange: refreshSummary }),
+        createLoredeckCreatorGenerationRangeRow(settings, 'retryAttempts', 'Retry attempts', 'Automatic retry attempts after a malformed, empty, or failed generation unit.', { onChange: refreshSummary }),
     ]) {
         rows.push(row);
         grid.appendChild(row.element);
@@ -2887,19 +3220,19 @@ function createLoredeckCreatorAdvancedGenerationSettings(cached = {}) {
     const toggles = document.createElement('div');
     toggles.className = 'saga-loredeck-creator-generation-toggles';
     for (const row of [
-        createLoredeckCreatorGenerationToggleRow(settings, 'retrySmaller', 'Prefer smaller retries', 'When a failed unit is retried smaller, prefer splitting it into a lower-size replacement unit.'),
-        createLoredeckCreatorGenerationToggleRow(settings, 'showStreamingProgress', 'Show streaming progress snippets', 'Show short transient snippets while a provider call is running. Completed raw output is not rendered.'),
+        createLoredeckCreatorGenerationToggleRow(settings, 'retrySmaller', 'Prefer smaller retries', 'When a failed unit is retried smaller, prefer splitting it into a lower-size replacement unit.', { onChange: refreshSummary }),
+        createLoredeckCreatorGenerationToggleRow(settings, 'showStreamingProgress', 'Show streaming progress snippets', 'Show short transient snippets while a provider call is running. Completed raw output is not rendered.', { onChange: refreshSummary }),
     ]) {
         rows.push(row);
         toggles.appendChild(row.element);
     }
     body.appendChild(toggles);
 
-    const actions = document.createElement('div');
-    actions.className = 'saga-primary-actions';
+    const actions = createLoredeckActionRow();
     actions.appendChild(createButton('Reset Advanced Settings', 'Restore conservative Creator generation defaults.', () => {
         const next = resetLoredeckCreatorGenerationSettings()?.generationSettings || { ...LOREDECK_CREATOR_GENERATION_SETTING_DEFAULTS };
         for (const row of rows) row.setValue(next);
+        refreshSummary(next);
         toast('Creator generation settings reset.', 'info');
     }));
     body.appendChild(actions);
@@ -3336,12 +3669,41 @@ function getLoredeckCreatorGenerationSettings(cached = getLoredeckCreatorBriefCa
     return normalizeLoredeckCreatorGenerationSettings(cached?.generationSettings || {});
 }
 
+function hasPersistableLoredeckCreatorProject(cached = {}) {
+    return !!(
+        cached?.jobId
+        || cached?.brief
+        || cached?.activeGeneration
+        || cached?.status
+        || cached?.createdAt
+        || cached?.fandom
+        || cached?.scope
+        || cached?.generatedPackId
+        || cached?.outline
+        || (Array.isArray(cached?.titleDrafts) && cached.titleDrafts.length)
+        || (Array.isArray(cached?.draftChanges) && cached.draftChanges.length)
+        || (Array.isArray(cached?.pendingChanges) && cached.pendingChanges.length)
+    );
+}
+
+function setLocalLoredeckCreatorGenerationSettings(cached = {}, generationSettings = {}) {
+    const localJob = {
+        ...(cached || {}),
+        generationSettings: normalizeLoredeckCreatorGenerationSettings(generationSettings),
+    };
+    loredeckCreatorBriefCache.set('current', localJob);
+    return localJob;
+}
+
 function setLoredeckCreatorGenerationSettings(patch = {}) {
     const cached = getLoredeckCreatorBriefCache();
     const next = normalizeLoredeckCreatorGenerationSettings({
         ...getLoredeckCreatorGenerationSettings(cached),
         ...(patch || {}),
     });
+    if (!hasPersistableLoredeckCreatorProject(cached)) {
+        return setLocalLoredeckCreatorGenerationSettings(cached, next);
+    }
     return setLoredeckCreatorBriefCache({
         ...cached,
         generationSettings: next,
@@ -3350,6 +3712,9 @@ function setLoredeckCreatorGenerationSettings(patch = {}) {
 
 function resetLoredeckCreatorGenerationSettings() {
     const cached = getLoredeckCreatorBriefCache();
+    if (!hasPersistableLoredeckCreatorProject(cached)) {
+        return setLocalLoredeckCreatorGenerationSettings(cached, LOREDECK_CREATOR_GENERATION_SETTING_DEFAULTS);
+    }
     return setLoredeckCreatorBriefCache({
         ...cached,
         generationSettings: { ...LOREDECK_CREATOR_GENERATION_SETTING_DEFAULTS },
@@ -3360,8 +3725,7 @@ function createLoredeckCreatorBriefRevisionForm(brief = {}, cached = {}) {
     const reviseForm = document.createElement('div');
     reviseForm.className = 'saga-new-lore-form saga-loredeck-creator-revise-form';
     const reviseInput = createNewLoreInput(reviseForm, 'Revision', 'Instruction for revising this brief before approval.', loredeckCreatorRevisionInstruction || '', true, 'Narrow this to Cocoyasi Village and Nami/Arlong pressure. Keep it focused rather than dense.');
-    const actions = document.createElement('div');
-    actions.className = 'saga-primary-actions';
+    const actions = createLoredeckActionRow();
     const reviseBriefButton = createButton('Revise Brief', 'Ask the Reasoning Provider to revise this Creator brief.', async (btn) => {
         loredeckCreatorRevisionInstruction = reviseInput.value.trim();
         await handleLoredeckCreatorBriefDraft({
@@ -4030,8 +4394,7 @@ function createLoredeckCreatorOutlineActionForm(brief = {}, cached = {}, outline
     const reviseForm = document.createElement('div');
     reviseForm.className = 'saga-new-lore-form saga-loredeck-creator-revise-form';
     const reviseInput = createNewLoreInput(reviseForm, 'Outline Revision', 'Instruction for revising the outline before approval.', loredeckCreatorOutlineRevisionInstruction || '', true, 'Add more high-value Context points around the betrayal reveal and final battle.');
-    const actions = document.createElement('div');
-    actions.className = 'saga-primary-actions';
+    const actions = createLoredeckActionRow();
     const draftOutlineButton = createButton(outline ? 'Redraft Outline' : 'Draft Outline', 'Ask the Reasoning Provider to draft this reviewable story outline.', async (btn) => {
         loredeckCreatorOutlineRevisionInstruction = '';
         await handleLoredeckCreatorOutlineDraft({}, btn);
@@ -4272,15 +4635,19 @@ function setLoredeckCreatorTitleSelection(titleId = '', selected = false, option
         else selectedIds.delete(id);
         return { ...cached, selectedTitleDraftIds: [...selectedIds] };
     });
-    if (options.refresh) refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+    if (options.refresh && !refreshLoredeckCreatorTitleSelectionUi()) {
+        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+    }
 }
 
-function setLoredeckCreatorTitleSelectionBulk(mode = 'all') {
+function setLoredeckCreatorTitleSelectionBulk(mode = 'all', options = {}) {
     updateLoredeckCreatorTitleCache(cached => ({
         ...cached,
         selectedTitleDraftIds: mode === 'all' ? getLoredeckCreatorTitleDrafts(cached).map(draft => draft.titleId) : [],
     }));
-    refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+    if (!refreshLoredeckCreatorTitleSelectionUi()) {
+        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+    }
 }
 
 function getLoredeckCreatorSelectedTitleDrafts(cached = {}) {
@@ -4564,8 +4931,7 @@ function openLoredeckCreatorTitleJsonEditor(draft = {}) {
     textarea.value = JSON.stringify(draft, null, 2);
     addTooltip(textarea, 'Editable title-draft JSON. Save validates the draft before replacing it in the Creator title pass.');
     shell.appendChild(textarea);
-    const actions = document.createElement('div');
-    actions.className = 'saga-primary-actions';
+    const actions = createLoredeckActionRow();
     actions.appendChild(createButton('Save Draft', 'Validate and save this edited title draft.', () => {
         try {
             const parsed = JSON.parse(textarea.value || '{}');
@@ -7182,6 +7548,25 @@ function ensureContextWorkbenchSelection(state = getState(), contextIndex = getC
     }
 }
 
+function captureContextWorkbenchScrollState(overlay = document.getElementById(CONTEXT_WORKBENCH_ID)) {
+    if (!overlay) return null;
+    return [
+        ['.saga-context-workbench-table', overlay.querySelector('.saga-context-workbench-table')?.scrollTop || 0],
+        ['.saga-context-workbench-inspector', overlay.querySelector('.saga-context-workbench-inspector')?.scrollTop || 0],
+        ['.saga-context-workbench-context-table', overlay.querySelector('.saga-context-workbench-context-table')?.scrollTop || 0],
+        ['.saga-context-workbench-alias-table', overlay.querySelector('.saga-context-workbench-alias-table')?.scrollTop || 0],
+        ['.saga-context-workbench-validation-table', overlay.querySelector('.saga-context-workbench-validation-table')?.scrollTop || 0],
+    ];
+}
+
+function restoreContextWorkbenchScrollState(overlay, snapshot = null) {
+    if (!overlay || !Array.isArray(snapshot)) return;
+    for (const [selector, scrollTop] of snapshot) {
+        const element = overlay.querySelector(selector);
+        if (element) element.scrollTop = Number(scrollTop) || 0;
+    }
+}
+
 function renderContextWorkbench() {
     if (!contextWorkbenchOpen) return;
     const state = getState();
@@ -7201,8 +7586,14 @@ function renderContextWorkbench() {
         document.body.appendChild(overlay);
     }
 
+    const scrollState = captureContextWorkbenchScrollState(overlay);
     overlay.replaceChildren(createContextWorkbenchShell(state, contextIndex));
-    requestAnimationFrame(() => overlay.focus?.());
+    const restore = () => {
+        restoreContextWorkbenchScrollState(overlay, scrollState);
+        overlay.focus?.({ preventScroll: true });
+    };
+    if (typeof requestAnimationFrame === 'function') requestAnimationFrame(restore);
+    else restore();
 }
 
 function getContextResolverMissReasons(pack, analysis = {}, packIndex = null) {
@@ -7521,6 +7912,14 @@ function getContextTimelineItemContextText(item = {}) {
     return def.sortKey !== null && def.sortKey !== undefined ? String(def.sortKey) : '';
 }
 
+function formatTimelineDateRange(dateRange = {}) {
+    const range = dateRange && typeof dateRange === 'object' && !Array.isArray(dateRange) ? dateRange : {};
+    const from = String(range.from || '').trim();
+    const to = String(range.to || '').trim();
+    if (from && to && from !== to) return `${from} to ${to}`;
+    return from || to || '';
+}
+
 function getContextTimelineItemCoordinateText(item = {}) {
     const def = item.definition || {};
     return [
@@ -7694,11 +8093,7 @@ function applyContextAnchorBoundary(packId, item = {}, mode = 'from') {
 
 async function registerLoredeckManifestFromInput(manifestRef, options = {}) {
     const button = options.button || null;
-    const originalText = button?.textContent;
-    if (button) {
-        button.disabled = true;
-        button.textContent = 'Registering...';
-    }
+    const restoreBusy = setLoredeckActionButtonBusy(button, 'Registering...', { fallbackLabel: 'Register' });
     try {
         const ref = String(manifestRef || '').trim();
         if (!ref) throw new Error('Enter a loredeck.json path or URL.');
@@ -7713,10 +8108,7 @@ async function registerLoredeckManifestFromInput(manifestRef, options = {}) {
         toast(e?.message || 'Loredeck registration failed.', 'error');
         return null;
     } finally {
-        if (button) {
-            button.disabled = false;
-            button.textContent = originalText || 'Register';
-        }
+        restoreBusy();
     }
 }
 
@@ -7994,8 +8386,7 @@ function createLoredeckHealthRepairPlanner(pack, health = null) {
         : 'Bundled Loredecks are read-only. Duplicate as Custom before drafting repair proposals.';
     wrap.appendChild(help);
 
-    const actions = document.createElement('div');
-    actions.className = 'saga-primary-actions';
+    const actions = createLoredeckActionRow();
     const draftButton = createButton('Draft Repairs', 'Ask the Lore Assistant to convert selected Deck Health issues into reviewable draft proposals.', async (btn) => {
         await handleLoredeckAssistantHealthRepairDraft(pack, health, btn);
     }, 'saga-primary-button');
@@ -8061,719 +8452,6 @@ function createLoredeckHealthRepairIssueRow(pack, issue = {}, selected = false, 
     main.appendChild(meta);
     label.appendChild(main);
     return label;
-}
-
-function createLoredeckEntryOverrideCard(pack) {
-    const state = getLoredeckOverrideState(pack);
-    const cached = loredeckEntryPreviewCache.get(pack.packId);
-    const card = document.createElement('div');
-    card.className = 'saga-loredeck-entry-overrides';
-
-    const title = document.createElement('div');
-    title.className = 'saga-runtime-card-title';
-    title.textContent = 'Lorecard Overrides';
-    card.appendChild(title);
-
-    const summary = document.createElement('div');
-    summary.className = 'saga-loredeck-entry-summary';
-    summary.appendChild(createStatusPill(`${state.overrideCount} override${state.overrideCount === 1 ? '' : 's'}`, 'Saved edited or added Lorecards in this Custom Loredeck.'));
-    summary.appendChild(createStatusPill(`${state.disabledEntryIds.length} disabled`, 'Source Lorecard IDs suppressed by this Custom Loredeck.'));
-    summary.appendChild(createStatusPill(`${state.pendingCount} pending`, 'Loredeck edits queued for review before they affect runtime injection.'));
-    if (cached?.entries?.length) summary.appendChild(createStatusPill(`${cached.entries.length} source Lorecards`, 'Source Lorecards loaded for browsing and editing.'));
-    card.appendChild(summary);
-
-    const help = document.createElement('div');
-    help.className = 'saga-runtime-help';
-    help.textContent = 'Accepted overrides are stored in the Custom Loredeck library record. New edits are queued for review first and do not edit bundled files.';
-    card.appendChild(help);
-
-    const rows = getLoredeckEditableEntryRows(pack, cached?.entries || []);
-    const filteredRows = filterLoredeckEditableEntryRows(rows, loredeckEntryOverrideQuery);
-    const bulkRows = loredeckEntryOverrideQuery ? filteredRows : rows;
-
-    const actions = document.createElement('div');
-    actions.className = 'saga-primary-actions';
-    const loadButton = createButton(cached?.entries?.length ? 'Reload Lorecards' : 'Load Lorecards', 'Fetch source Lorecard files for browsing and editing.', async (btn) => {
-        await loadLoredeckEntriesForEditor(pack, btn);
-    }, 'saga-primary-button');
-    loadButton.disabled = !canValidateLoredeckInEditor(pack);
-    actions.appendChild(loadButton);
-    actions.appendChild(createButton('New Lorecard', 'Create a new custom Lorecard in this Loredeck.', () => {
-        openLoredeckEntryOverrideDialog(pack, null);
-    }));
-    const bulkTagsButton = createButton('Bulk Tags', 'Add, remove, or rename tags for loaded Lorecards or the current search result.', () => {
-        openLoredeckBulkTagsDialog(pack, bulkRows);
-    });
-    bulkTagsButton.disabled = !bulkRows.length;
-    actions.appendChild(bulkTagsButton);
-    const bulkButton = createButton('Bulk Context', 'Apply one Context and retrieval block to loaded Lorecards or the current search result.', () => {
-        openLoredeckBulkContextDialog(pack, bulkRows);
-    });
-    bulkButton.disabled = !bulkRows.length;
-    actions.appendChild(bulkButton);
-    if (state.overrideCount) {
-        actions.appendChild(createButton('Repair Overrides', 'Apply safe schema v3 repairs to saved override Lorecards.', async (btn) => {
-            await repairLoredeckSafeHealthIssues(pack, btn);
-        }));
-    }
-    card.appendChild(actions);
-
-    if (cached?.error) {
-        card.appendChild(createKeyValue('Load Error', cached.error, 'Last entry load error.'));
-    }
-
-    if (pack.type !== 'bundled' || state.pendingCount) {
-        card.appendChild(createLoredeckPendingReviewCard(pack));
-    }
-
-    card.appendChild(createLoredeckAssistantCard(pack, rows, filteredRows));
-    card.appendChild(createLoredeckTimelineRegistryCard(pack, rows));
-    card.appendChild(createLoredeckTagManagerCard(pack, rows, filteredRows));
-
-    if (rows.length) {
-        const search = document.createElement('input');
-        search.type = 'text';
-        search.className = 'saga-loredeck-entry-search';
-        search.placeholder = 'Search entries...';
-        search.value = loredeckEntryOverrideQuery || '';
-        addTooltip(search, 'Search loaded source entries, saved overrides, and disabled IDs. Press Enter or leave the field to refresh.');
-        search.addEventListener('click', e => e.stopPropagation());
-        search.addEventListener('mousedown', e => e.stopPropagation());
-        search.addEventListener('keydown', e => {
-            if (e.key === 'Enter') {
-                e.preventDefault();
-                loredeckEntryOverrideQuery = search.value;
-                refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
-            }
-        });
-        search.addEventListener('change', () => {
-            loredeckEntryOverrideQuery = search.value;
-            refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
-        });
-        card.appendChild(search);
-
-        const list = document.createElement('div');
-        list.className = 'saga-loredeck-entry-list';
-        const visible = filteredRows.slice(0, 30);
-        for (const row of visible) {
-            list.appendChild(createLoredeckEntryOverrideRow(pack, row));
-        }
-        if (visible.length < rows.length) {
-            const more = document.createElement('div');
-            more.className = 'saga-runtime-help';
-            more.textContent = `Showing ${visible.length} of ${rows.length}. Narrow search to reduce the list.`;
-            list.appendChild(more);
-        }
-        card.appendChild(list);
-    } else {
-        card.appendChild(createEmptyMessage('Load Lorecards or create a new Lorecard to begin editing this Custom Loredeck.'));
-    }
-
-    return card;
-}
-
-function createLoredeckPendingReviewCard(pack) {
-    const pending = getLoredeckPendingChanges(pack);
-    const wrap = document.createElement('div');
-    wrap.className = 'saga-loredeck-manifest-preview saga-loredeck-pending-review';
-
-    const title = document.createElement('div');
-    title.className = 'saga-runtime-card-title';
-    title.textContent = 'Pending Review Queue';
-    wrap.appendChild(title);
-
-    const summary = document.createElement('div');
-    summary.className = 'saga-loredeck-entry-summary';
-    summary.appendChild(createStatusPill(`${pending.length} pending`, 'Loredeck edit proposals waiting for acceptance.'));
-    const affectedEntries = new Set(pending.flatMap(change => change.affectedEntryIds || []));
-    const affectedTags = new Set(pending.flatMap(change => change.affectedTagIds || []));
-    const affectedTimeline = new Set(pending.flatMap(change => change.affectedTimelineIds || []));
-    const healthImpactCount = pending.filter(change => doesLoredeckPendingChangeAffectPackHealth(change)).length;
-    if (affectedEntries.size) summary.appendChild(createStatusPill(`${affectedEntries.size} Lorecard${affectedEntries.size === 1 ? '' : 's'}`, 'Lorecards affected by pending proposals.'));
-    if (affectedTags.size) summary.appendChild(createStatusPill(`${affectedTags.size} tag${affectedTags.size === 1 ? '' : 's'}`, 'Tags affected by pending proposals.'));
-    if (affectedTimeline.size) summary.appendChild(createStatusPill(`${affectedTimeline.size} timeline`, 'Timeline anchors/windows affected by pending proposals.'));
-    if (healthImpactCount) summary.appendChild(createStatusPill(`${healthImpactCount} health impact`, 'Pending proposals that will mark Deck Health stale when accepted because they change entries, tags, or timeline data.'));
-    if (isLoredeckHealthStatusStale(pack)) summary.appendChild(createLoredeckPendingHealthStalePill());
-    wrap.appendChild(summary);
-
-    const help = document.createElement('div');
-    help.className = 'saga-runtime-help';
-    help.textContent = isLoredeckHealthStatusStale(pack)
-        ? 'Accepted changes have made the saved Deck Health status stale. Rerun validation before sharing or treating this Loredeck as clean.'
-        : 'Pending changes do not affect runtime injection until accepted. This is the review path for manual edits, bulk edits, and Lore Assistant patches.';
-    wrap.appendChild(help);
-
-    const actions = document.createElement('div');
-    actions.className = 'saga-primary-actions';
-    const acceptAll = createButton('Accept All', 'Apply every pending Loredeck change to this Custom Loredeck, then refresh Deck Health if accepted changes affect validation.', async (btn) => {
-        const proceed = await confirmAction(
-            'Accept all pending Loredeck changes?',
-            `Apply all ${pending.length} pending Loredeck change${pending.length === 1 ? '' : 's'} to this Custom Loredeck?`
-        );
-        if (!proceed) return;
-        createStateBackup('before_accept_loredeck_pending_changes', {
-            label: `Before accepting ${pending.length} pending Loredeck change${pending.length === 1 ? '' : 's'}.`,
-        });
-        await runBusyAction(btn, 'Accepting...', async () => {
-            await acceptLoredeckPendingChanges(pack, pending.map(change => change.changeId));
-        });
-    }, 'saga-primary-button');
-    acceptAll.disabled = !pending.length;
-    actions.appendChild(acceptAll);
-    const rejectAll = createButton('Reject All', 'Discard every pending Loredeck change without applying it.', async () => {
-        const proceed = await confirmAction(
-            'Reject all pending Loredeck changes?',
-            `Discard all ${pending.length} pending Loredeck change${pending.length === 1 ? '' : 's'} without applying them?`
-        );
-        if (!proceed) return;
-        createStateBackup('before_reject_loredeck_pending_changes', {
-            label: `Before rejecting ${pending.length} pending Loredeck change${pending.length === 1 ? '' : 's'}.`,
-        });
-        rejectLoredeckPendingChanges(pack);
-    }, 'saga-danger-button');
-    rejectAll.disabled = !pending.length;
-    actions.appendChild(rejectAll);
-    const validateButton = createButton('Validate Deck', 'Run Deck Health on the currently accepted Loredeck data. Pending proposals are not included until accepted.', async (btn) => {
-        await validateLoredeckForEditor(pack, btn);
-    });
-    validateButton.disabled = !canValidateLoredeckInEditor(pack);
-    actions.appendChild(validateButton);
-    wrap.appendChild(actions);
-
-    if (!pending.length) {
-        wrap.appendChild(createEmptyMessage('No pending Loredeck edits.'));
-        return wrap;
-    }
-
-    const list = document.createElement('div');
-    list.className = 'saga-loredeck-entry-list';
-    for (const change of pending.slice(0, 20)) {
-        list.appendChild(createLoredeckPendingChangeRow(pack, change));
-    }
-    if (pending.length > 20) {
-        const more = document.createElement('div');
-        more.className = 'saga-runtime-help';
-        more.textContent = `Showing 20 of ${pending.length} pending changes.`;
-        list.appendChild(more);
-    }
-    wrap.appendChild(list);
-    return wrap;
-}
-
-function createLoredeckPendingChangeRow(pack, change = {}) {
-    const row = document.createElement('div');
-    row.className = 'saga-loredeck-entry-row saga-loredeck-pending-row';
-
-    const main = document.createElement('div');
-    main.className = 'saga-loredeck-row-main';
-    const title = document.createElement('div');
-    title.className = 'saga-loredeck-row-title';
-    title.textContent = change.title || change.changeId || 'Pending Loredeck Change';
-    main.appendChild(title);
-
-    const desc = document.createElement('div');
-    desc.className = 'saga-loredeck-row-description';
-    const preview = change.preview || {};
-    desc.textContent = change.description || preview.after || preview.before || 'Pending record patch.';
-    main.appendChild(desc);
-
-    const meta = document.createElement('div');
-    meta.className = 'saga-loredeck-row-meta';
-    meta.appendChild(createStatusPill(`Action: ${formatLoredeckPendingActionLabel(change.action)}`, `Pending change action: ${change.action || 'record_patch'}.`));
-    meta.appendChild(createStatusPill(`Target: ${formatLoredeckPendingTargetKindLabel(change.targetKind)}`, `Pending change target kind: ${change.targetKind || 'loredeck'}.`));
-    if (change.source) meta.appendChild(createStatusPill(`Source: ${formatLoredeckPendingSourceLabel(change.source)}`, getLoredeckPendingSourceTooltip(change.source)));
-    const confidence = getLoredeckPendingConfidence(change);
-    if (confidence !== null) meta.appendChild(createStatusPill(`Confidence ${Math.round(confidence * 100)}%`, 'Model or tool confidence for this pending proposal. Review remains required before acceptance.'));
-    const risk = getLoredeckPendingRisk(change);
-    if (risk) meta.appendChild(createLoredeckPendingRiskPill(risk));
-    appendLoredeckPendingQualityPills(meta, change);
-    if (doesLoredeckPendingChangeAffectPackHealth(change)) meta.appendChild(createLoredeckPendingHealthImpactPill());
-    if (change.affectedEntryIds?.length) meta.appendChild(createStatusPill(`${change.affectedEntryIds.length} entr${change.affectedEntryIds.length === 1 ? 'y' : 'ies'}`, change.affectedEntryIds.slice(0, 10).join(', ')));
-    if (change.affectedTagIds?.length) meta.appendChild(createStatusPill(`${change.affectedTagIds.length} tag${change.affectedTagIds.length === 1 ? '' : 's'}`, change.affectedTagIds.slice(0, 10).join(', ')));
-    if (change.affectedTimelineIds?.length) meta.appendChild(createStatusPill(`${change.affectedTimelineIds.length} timeline`, change.affectedTimelineIds.slice(0, 10).join(', ')));
-    if (change.createdAt) meta.appendChild(createStatusPill(new Date(change.createdAt).toLocaleString(), 'Created at.'));
-    main.appendChild(meta);
-    const diffs = createLoredeckPendingDiffList(pack, change);
-    if (diffs) main.appendChild(diffs);
-    const quality = createLoredeckPendingQualityList(change);
-    if (quality) main.appendChild(quality);
-    row.appendChild(main);
-
-    const actions = document.createElement('div');
-    actions.className = 'saga-loredeck-row-actions';
-    actions.appendChild(createButton('Accept', 'Apply this pending Loredeck change, then refresh Deck Health if it affects validation.', async (btn) => {
-        await runBusyAction(btn, 'Accepting...', async () => {
-            await acceptLoredeckPendingChanges(pack, [change.changeId]);
-        });
-    }, 'saga-primary-button'));
-    actions.appendChild(createButton('Reject', 'Discard this pending Loredeck change.', () => {
-        rejectLoredeckPendingChanges(pack, [change.changeId]);
-    }, 'saga-danger-button'));
-    row.appendChild(actions);
-    return row;
-}
-
-function formatLoredeckPendingActionLabel(action = '') {
-    const key = String(action || 'record_patch').trim();
-    const known = {
-        record_patch: 'Record Patch',
-        upsert_entry: 'Upsert Entry',
-        assistant_upsert_entry: 'Assistant Upsert Entry',
-        assistant_disable_entry: 'Assistant Disable Entry',
-        assistant_restore_entry: 'Assistant Restore Entry',
-        assistant_upsert_tag_definition: 'Assistant Upsert Tag',
-        assistant_upsert_timeline_anchor: 'Assistant Upsert Anchor',
-        assistant_upsert_timeline_window: 'Assistant Upsert Window',
-        creator_upsert_entry: 'Creator Upsert Entry',
-        creator_upsert_tag_definition: 'Creator Upsert Tag',
-        creator_upsert_timeline_anchor: 'Creator Upsert Anchor',
-        creator_upsert_timeline_window: 'Creator Upsert Window',
-        remove_entry_override: 'Remove Override',
-        disable_entry: 'Disable Entry',
-        restore_entry: 'Restore Entry',
-        bulk_context_update: 'Bulk Context Update',
-        normalize_malformed_tag_ids: 'Normalize Tag IDs',
-        upsert_tag_definition: 'Upsert Tag',
-        rename_tag: 'Rename Tag',
-        merge_tag: 'Merge Tag',
-        remove_tag_definition: 'Remove Tag',
-        upsert_timeline_anchor: 'Upsert Anchor',
-        upsert_timeline_window: 'Upsert Window',
-        disable_timeline_anchor: 'Disable Anchor',
-        disable_timeline_window: 'Disable Window',
-        restore_timeline_anchor: 'Restore Anchor',
-        restore_timeline_window: 'Restore Window',
-    };
-    return known[key] || humanizeScopeKey(key);
-}
-
-function formatLoredeckPendingTargetKindLabel(targetKind = '') {
-    const key = String(targetKind || 'loredeck').trim();
-    const known = {
-        loredeck: 'Loredeck',
-        entry: 'Entry',
-        entries: 'Entries',
-        tag: 'Tag',
-        tags: 'Tags',
-        timeline_anchor: 'Timeline Anchor',
-        timeline_window: 'Timeline Window',
-        timeline: 'Timeline',
-    };
-    return known[key] || humanizeScopeKey(key);
-}
-
-function formatLoredeckPendingSourceLabel(source = '') {
-    const key = String(source || 'manual').trim();
-    const known = {
-        manual: 'Manual',
-        bulk_edit: 'Bulk Edit',
-        lore_assistant: 'Lore Assistant',
-        loredeck_creator: 'Loredeck Creator',
-        safe_repair: 'Safe Repair',
-        import: 'Import',
-    };
-    return known[key] || humanizeScopeKey(key);
-}
-
-function getLoredeckPendingSourceTooltip(source = '') {
-    const key = String(source || 'manual').trim();
-    if (key === 'lore_assistant') return 'Created by Saga Lore Assistant. Treat as a proposal until reviewed and accepted.';
-    if (key === 'loredeck_creator') return 'Created by Saga Loredeck Creator. Treat as a generated planning proposal until reviewed and accepted.';
-    if (key === 'bulk_edit') return 'Created by a bulk-edit tool. Review the field diffs before acceptance.';
-    if (key === 'safe_repair') return 'Created by an automated Deck Health repair path.';
-    return 'Proposal source.';
-}
-
-function getLoredeckPendingPreviewMetadata(change = {}) {
-    return change?.preview && typeof change.preview === 'object' && !Array.isArray(change.preview) ? change.preview : {};
-}
-
-function getLoredeckPendingConfidence(change = {}) {
-    const preview = getLoredeckPendingPreviewMetadata(change);
-    const raw = preview.confidence ?? change.confidence;
-    if (raw === undefined || raw === null || raw === '') return null;
-    let confidence = Number(raw);
-    if (!Number.isFinite(confidence)) return null;
-    if (confidence > 1 && confidence <= 100) confidence /= 100;
-    return Math.max(0, Math.min(1, confidence));
-}
-
-function getLoredeckPendingRisk(change = {}) {
-    const preview = getLoredeckPendingPreviewMetadata(change);
-    const raw = String(preview.risk || change.risk || '').trim();
-    if (!raw) return '';
-    const lower = raw.toLowerCase();
-    if (/critical|severe|high/.test(lower)) return 'high';
-    if (/medium|moderate|med/.test(lower)) return 'medium';
-    if (/low|minor|minimal/.test(lower)) return 'low';
-    return raw.slice(0, 60);
-}
-
-function createLoredeckPendingRiskPill(risk = '') {
-    const normalized = String(risk || '').trim();
-    const pill = createStatusPill(`Risk: ${humanizeScopeKey(normalized)}`, 'Estimated proposal risk. Higher-risk proposals need closer manual review before acceptance.');
-    const classKey = /high/i.test(normalized)
-        ? 'high'
-        : (/medium|moderate|med/i.test(normalized) ? 'medium' : (/low|minor|minimal/i.test(normalized) ? 'low' : 'unknown'));
-    pill.classList.add(`saga-status-pill-risk-${classKey}`);
-    return pill;
-}
-
-function normalizeLoredeckPendingRubricLevel(value = '') {
-    const raw = String(value || '')
-        .trim()
-        .toLowerCase()
-        .replace(/[^a-z0-9]+/g, '_')
-        .replace(/^_+|_+$/g, '');
-    if (!raw) return '';
-    if (raw === 'n_a' || raw === 'na' || raw === 'none') return 'not_applicable';
-    if (raw === 'med' || raw === 'moderate') return 'medium';
-    if (raw === 'minor' || raw === 'minimal') return 'low';
-    if (raw === 'strong') return 'high';
-    return ['high', 'medium', 'low', 'not_applicable'].includes(raw) ? raw : '';
-}
-
-function getLoredeckPendingRubric(change = {}) {
-    const preview = getLoredeckPendingPreviewMetadata(change);
-    const rubric = preview.rubric || preview.qualityRubric || preview.quality;
-    return rubric && typeof rubric === 'object' && !Array.isArray(rubric) ? rubric : {};
-}
-
-function getLoredeckPendingQualityWarnings(change = {}) {
-    const preview = getLoredeckPendingPreviewMetadata(change);
-    const warnings = Array.isArray(preview.qualityWarnings)
-        ? preview.qualityWarnings
-        : (Array.isArray(preview.rubric?.warnings) ? preview.rubric.warnings : []);
-    return warnings.map(item => String(item || '').trim()).filter(Boolean).slice(0, 8);
-}
-
-function getLoredeckPendingRubricNotes(change = {}) {
-    const rubric = getLoredeckPendingRubric(change);
-    return Array.isArray(rubric.notes)
-        ? rubric.notes.map(item => String(item || '').trim()).filter(Boolean).slice(0, 6)
-        : [];
-}
-
-function createLoredeckPendingQualityPill(label, level, tooltip) {
-    const normalized = normalizeLoredeckPendingRubricLevel(level);
-    if (!normalized) return null;
-    const pill = createStatusPill(`${label}: ${humanizeScopeKey(normalized)}`, tooltip);
-    pill.classList.add(`saga-status-pill-quality-${normalized}`);
-    return pill;
-}
-
-function appendLoredeckPendingQualityPills(meta, change = {}) {
-    const rubric = getLoredeckPendingRubric(change);
-    const sceneUtility = createLoredeckPendingQualityPill('Utility', rubric.sceneUtility, 'Lore Value Rubric: whether this proposal improves scene behavior, tension, characterization, or setting response.');
-    if (sceneUtility) meta.appendChild(sceneUtility);
-    const behavioralImpact = createLoredeckPendingQualityPill('Behavior', rubric.behavioralImpact, 'Lore Value Rubric: whether this proposal changes what characters do, say, know, hide, avoid, or expect.');
-    if (behavioralImpact) meta.appendChild(behavioralImpact);
-    const contextFit = createLoredeckPendingQualityPill('Context Fit', rubric.contextFit, 'Lore Value Rubric: whether this proposal fits the intended Context without future leakage.');
-    if (contextFit) meta.appendChild(contextFit);
-    const wikiRisk = createLoredeckPendingQualityPill('Wiki Risk', rubric.wikiSummaryRisk || rubric.wikiRisk, 'Risk that this proposal reads like generic wiki summary instead of playable Saga lore.');
-    if (wikiRisk) meta.appendChild(wikiRisk);
-    const warnings = getLoredeckPendingQualityWarnings(change);
-    if (warnings.length) {
-        const pill = createStatusPill(`${warnings.length} quality flag${warnings.length === 1 ? '' : 's'}`, warnings.join(' | '));
-        pill.classList.add('saga-status-pill-quality-flag');
-        meta.appendChild(pill);
-    }
-}
-
-function createLoredeckPendingQualityList(change = {}) {
-    const warnings = getLoredeckPendingQualityWarnings(change);
-    const notes = getLoredeckPendingRubricNotes(change);
-    if (!warnings.length && !notes.length) return null;
-    const wrap = document.createElement('div');
-    wrap.className = 'saga-loredeck-pending-quality-list';
-    for (const warning of warnings) {
-        const item = document.createElement('div');
-        item.className = 'saga-runtime-help saga-warning-text';
-        item.textContent = `Quality flag: ${warning}`;
-        wrap.appendChild(item);
-    }
-    for (const note of notes) {
-        const item = document.createElement('div');
-        item.className = 'saga-runtime-help';
-        item.textContent = `Rubric note: ${note}`;
-        wrap.appendChild(item);
-    }
-    return wrap;
-}
-
-function createLoredeckPendingHealthImpactPill() {
-    const pill = createStatusPill('Health impact', 'Accepting this proposal changes entries, tags, or timeline data and will mark Deck Health stale until validation reruns.');
-    pill.classList.add('saga-status-pill-health-impact');
-    return pill;
-}
-
-function createLoredeckPendingHealthStalePill() {
-    const pill = createStatusPill('Health stale', 'Deck Health was computed before the latest accepted Loredeck edits. Rerun validation.');
-    pill.classList.add('saga-status-pill-health-stale');
-    return pill;
-}
-
-function isLoredeckHealthStatusStale(pack = {}) {
-    return String(pack?.healthStatus || '').trim().toLowerCase() === 'stale';
-}
-
-function doesLoredeckPendingChangeAffectPackHealth(change = {}) {
-    const payload = change?.payload && typeof change.payload === 'object' && !Array.isArray(change.payload) ? change.payload : {};
-    const hasObjectEntries = value => value && typeof value === 'object' && !Array.isArray(value) && Object.keys(value).length > 0;
-    const hasArrayItems = value => Array.isArray(value) && value.length > 0;
-    return hasObjectEntries(payload.entryOverrides)
-        || hasArrayItems(payload.disabledEntryIdsAdd)
-        || hasArrayItems(payload.disabledEntryIdsRemove)
-        || hasObjectEntries(payload.tagDefinitions)
-        || hasObjectEntries(payload.timelineAnchors)
-        || hasObjectEntries(payload.timelineWindows)
-        || hasArrayItems(payload.timelineAnchorIdsDisable)
-        || hasArrayItems(payload.timelineAnchorIdsEnable)
-        || hasArrayItems(payload.timelineWindowIdsDisable)
-        || hasArrayItems(payload.timelineWindowIdsEnable);
-}
-
-function createLoredeckPendingDiffList(pack, change = {}) {
-    const diffs = buildLoredeckPendingDiffs(pack, change);
-    if (!diffs.length) return null;
-    const wrap = document.createElement('div');
-    wrap.className = 'saga-loredeck-pending-diff-list';
-    for (const diff of diffs.slice(0, 10)) {
-        const item = document.createElement('div');
-        item.className = 'saga-runtime-help';
-        const before = formatLoredeckPendingDiffValue(diff.before);
-        const after = formatLoredeckPendingDiffValue(diff.after);
-        item.textContent = `${diff.scope ? `${diff.scope} | ` : ''}${diff.field}: ${before} => ${after}`;
-        wrap.appendChild(item);
-    }
-    if (diffs.length > 10) {
-        const more = document.createElement('div');
-        more.className = 'saga-runtime-help';
-        more.textContent = `+${diffs.length - 10} more field change${diffs.length - 10 === 1 ? '' : 's'}.`;
-        wrap.appendChild(more);
-    }
-    return wrap;
-}
-
-function formatLoredeckPendingDiffValue(value) {
-    if (value === null || value === undefined || value === '') return '(empty)';
-    if (Array.isArray(value)) return truncateText(value.join(', ') || '(empty)', 180);
-    if (typeof value === 'object') {
-        try {
-            return truncateText(JSON.stringify(value), 180);
-        } catch (_) {
-            return '[object]';
-        }
-    }
-    if (typeof value === 'boolean') return value ? 'true' : 'false';
-    return truncateText(String(value), 180);
-}
-
-function buildLoredeckPendingDiffs(pack, change = {}) {
-    const patch = change.payload && typeof change.payload === 'object' && !Array.isArray(change.payload) ? change.payload : {};
-    const diffs = [];
-    collectLoredeckPendingEntryDiffs(diffs, pack, patch);
-    collectLoredeckPendingEntryDisableDiffs(diffs, pack, patch);
-    collectLoredeckPendingTagDiffs(diffs, pack, patch);
-    collectLoredeckPendingTimelineDiffs(diffs, pack, patch);
-    if (!diffs.length && (change.preview?.before || change.preview?.after)) {
-        addLoredeckPendingDiff(diffs, 'Preview', 'summary', change.preview?.before || '', change.preview?.after || '');
-    }
-    return diffs;
-}
-
-function addLoredeckPendingDiff(diffs, scope, field, before, after) {
-    if (isLoredeckPendingDiffEqual(before, after)) return;
-    diffs.push({ scope, field, before, after });
-}
-
-function isLoredeckPendingDiffEqual(before, after) {
-    return JSON.stringify(normalizeLoredeckPendingDiffComparable(before)) === JSON.stringify(normalizeLoredeckPendingDiffComparable(after));
-}
-
-function normalizeLoredeckPendingDiffComparable(value) {
-    if (value === undefined || value === null) return '';
-    if (Array.isArray(value)) return value.map(item => normalizeLoredeckPendingDiffComparable(item));
-    if (typeof value === 'object') {
-        return Object.fromEntries(Object.entries(value)
-            .filter(([, nested]) => nested !== undefined && nested !== null && nested !== '')
-            .sort(([a], [b]) => a.localeCompare(b))
-            .map(([key, nested]) => [key, normalizeLoredeckPendingDiffComparable(nested)]));
-    }
-    return value;
-}
-
-function getLoredeckPendingCachedSourceEntry(pack, entryId = '') {
-    const id = String(entryId || '').trim();
-    if (!id) return null;
-    const cached = loredeckEntryPreviewCache.get(String(pack?.packId || '').trim());
-    return (cached?.entries || []).find(entry => String(entry?.id || '').trim() === id) || null;
-}
-
-function getLoredeckPendingCurrentEntry(pack, entryId = '') {
-    const id = String(entryId || '').trim();
-    if (!id) return null;
-    const overrides = pack?.entryOverrides && typeof pack.entryOverrides === 'object' && !Array.isArray(pack.entryOverrides)
-        ? pack.entryOverrides
-        : {};
-    return overrides[id] || getLoredeckPendingCachedSourceEntry(pack, id) || null;
-}
-
-function getLoredeckPendingEntryField(entry = {}, field = '') {
-    if (!entry || typeof entry !== 'object') return '';
-    const content = entry.content && typeof entry.content === 'object' && !Array.isArray(entry.content) ? entry.content : {};
-    const contextGate = entry.context && typeof entry.context === 'object' && !Array.isArray(entry.context) ? entry.context : {};
-    const retrieval = entry.retrieval && typeof entry.retrieval === 'object' && !Array.isArray(entry.retrieval) ? entry.retrieval : {};
-    if (field === 'fact') return content.fact || entry.fact || '';
-    if (field === 'injection') return content.injection || entry.injection || '';
-    if (field === 'notes') return content.notes || entry.notes || '';
-    if (field === 'canon') return entry.canon || entry.canonStatus || '';
-    if (field === 'tags') return parseLoredeckEntryTags(entry.tags || []);
-    if (field === 'context.validFromAnchor') return contextGate.validFromAnchor || contextGate.anchorFrom || '';
-    if (field === 'context.validToAnchor') return contextGate.validToAnchor || contextGate.anchorTo || '';
-    if (field.startsWith('context.')) return contextGate[field.slice('context.'.length)] ?? '';
-    if (field.startsWith('retrieval.')) return retrieval[field.slice('retrieval.'.length)] ?? '';
-    return entry[field] ?? '';
-}
-
-function collectLoredeckPendingEntryDiffs(diffs, pack, patch = {}) {
-    const entryOverrides = patch.entryOverrides && typeof patch.entryOverrides === 'object' && !Array.isArray(patch.entryOverrides)
-        ? patch.entryOverrides
-        : {};
-    const fields = [
-        ['title', 'title'],
-        ['category', 'category'],
-        ['canon', 'canon'],
-        ['relevance', 'relevance'],
-        ['priority', 'priority'],
-        ['tags', 'tags'],
-        ['context.scope', 'context scope'],
-        ['context.anchorId', 'context anchor'],
-        ['context.validFromAnchor', 'context from'],
-        ['context.validToAnchor', 'context to'],
-        ['context.sortKeyFrom', 'sort from'],
-        ['context.sortKeyTo', 'sort to'],
-        ['context.precision', 'context precision'],
-        ['context.windowKind', 'window kind'],
-        ['context.label', 'context label'],
-        ['retrieval.activation', 'retrieval activation'],
-        ['retrieval.frequency', 'retrieval frequency'],
-        ['retrieval.contextBoost', 'context boost'],
-        ['fact', 'lore text'],
-        ['injection', 'injection'],
-        ['notes', 'notes'],
-    ];
-    for (const [rawId, rawEntry] of Object.entries(entryOverrides)) {
-        const id = String(rawEntry?.id || rawId || '').trim();
-        if (!id) continue;
-        const scope = `Entry ${id}`;
-        const beforeEntry = getLoredeckPendingCurrentEntry(pack, id);
-        if (rawEntry === null) {
-            addLoredeckPendingDiff(diffs, scope, 'override', beforeEntry ? 'present' : '(none)', 'removed');
-            continue;
-        }
-        if (!beforeEntry) {
-            addLoredeckPendingDiff(diffs, scope, 'entry', '(new)', rawEntry.title || id);
-        }
-        for (const [field, label] of fields) {
-            addLoredeckPendingDiff(
-                diffs,
-                scope,
-                label,
-                getLoredeckPendingEntryField(beforeEntry || {}, field),
-                getLoredeckPendingEntryField(rawEntry || {}, field)
-            );
-        }
-    }
-}
-
-function collectLoredeckPendingEntryDisableDiffs(diffs, pack, patch = {}) {
-    const disabled = new Set(Array.isArray(pack?.disabledEntryIds) ? pack.disabledEntryIds : []);
-    for (const id of normalizeLoredeckPendingIdList(patch.disabledEntryIdsAdd || [])) {
-        addLoredeckPendingDiff(diffs, `Entry ${id}`, 'enabled state', disabled.has(id) ? 'disabled' : 'active', 'disabled');
-    }
-    for (const id of normalizeLoredeckPendingIdList(patch.disabledEntryIdsRemove || [])) {
-        addLoredeckPendingDiff(diffs, `Entry ${id}`, 'enabled state', disabled.has(id) ? 'disabled' : 'active', 'active');
-    }
-}
-
-function getLoredeckPendingCurrentTagDefinition(pack, tagId = '') {
-    const id = normalizeLoredeckTagId(tagId);
-    if (!id) return null;
-    const custom = getLoredeckEmbeddedTagRegistry(pack);
-    const source = getLoredeckCachedSourceTagRegistry(pack?.packId);
-    return custom.tags?.[id] || source.tags?.[id] || null;
-}
-
-function collectLoredeckPendingTagDiffs(diffs, pack, patch = {}) {
-    const tagDefinitions = patch.tagDefinitions && typeof patch.tagDefinitions === 'object' && !Array.isArray(patch.tagDefinitions)
-        ? patch.tagDefinitions
-        : {};
-    const fields = ['label', 'description', 'color', 'textColor', 'aliases', 'parents', 'sensitive', 'deprecated', 'replacement'];
-    for (const [rawId, rawDef] of Object.entries(tagDefinitions)) {
-        const id = normalizeLoredeckTagId(rawDef?.id || rawId);
-        if (!id) continue;
-        const scope = `Tag ${id}`;
-        const beforeDef = getLoredeckPendingCurrentTagDefinition(pack, id);
-        const before = beforeDef || {};
-        if (rawDef === null) {
-            addLoredeckPendingDiff(diffs, scope, 'definition', beforeDef ? 'present' : '(none)', 'removed');
-            continue;
-        }
-        const after = normalizeLoredeckTagDefinition(rawDef, id);
-        for (const field of fields) addLoredeckPendingDiff(diffs, scope, field, before[field] ?? '', after[field] ?? '');
-    }
-}
-
-function getLoredeckPendingCurrentTimelineItem(pack, kind = 'anchor', itemId = '') {
-    const id = normalizeLoredeckTimelineId(itemId);
-    if (!id) return null;
-    const custom = getLoredeckEmbeddedTimelineRegistry(pack);
-    const source = getLoredeckCachedSourceTimelineRegistry(pack?.packId);
-    const customList = kind === 'window' ? custom.windows : custom.anchors;
-    const sourceList = kind === 'window' ? source.windows : source.anchors;
-    return (customList || []).find(item => item.id === id) || (sourceList || []).find(item => item.id === id) || null;
-}
-
-function collectLoredeckPendingTimelineDiffs(diffs, pack, patch = {}) {
-    collectLoredeckPendingTimelineDefinitionDiffs(diffs, pack, patch.timelineAnchors, 'anchor');
-    collectLoredeckPendingTimelineDefinitionDiffs(diffs, pack, patch.timelineWindows, 'window');
-    collectLoredeckPendingTimelineDisabledDiffs(diffs, pack, patch.timelineAnchorIdsDisable, patch.timelineAnchorIdsEnable, 'anchor');
-    collectLoredeckPendingTimelineDisabledDiffs(diffs, pack, patch.timelineWindowIdsDisable, patch.timelineWindowIdsEnable, 'window');
-}
-
-function collectLoredeckPendingTimelineDefinitionDiffs(diffs, pack, definitions, kind = 'anchor') {
-    if (!definitions || typeof definitions !== 'object' || Array.isArray(definitions)) return;
-    const fields = kind === 'window'
-        ? ['label', 'anchorFrom', 'anchorTo', 'sortKeyFrom', 'sortKeyTo', 'dateRange', 'aliases', 'tags', 'notes']
-        : ['label', 'sortKey', 'dateRange', 'arc', 'phase', 'season', 'episode', 'chapter', 'aliases', 'tags', 'notes'];
-    for (const [rawId, rawDef] of Object.entries(definitions)) {
-        const id = normalizeLoredeckTimelineId(rawDef?.id || rawId);
-        if (!id) continue;
-        const scope = `${kind === 'window' ? 'Timeline window' : 'Timeline anchor'} ${id}`;
-        const beforeDef = getLoredeckPendingCurrentTimelineItem(pack, kind, id);
-        const before = beforeDef || {};
-        if (rawDef === null) {
-            addLoredeckPendingDiff(diffs, scope, 'definition', beforeDef ? 'present' : '(none)', 'removed');
-            continue;
-        }
-        const after = kind === 'window'
-            ? normalizeLoredeckTimelineWindow(rawDef, id)
-            : normalizeLoredeckTimelineAnchor(rawDef, id);
-        for (const field of fields) addLoredeckPendingDiff(diffs, scope, field, before[field] ?? '', after?.[field] ?? '');
-    }
-}
-
-function collectLoredeckPendingTimelineDisabledDiffs(diffs, pack, disableIds = [], enableIds = [], kind = 'anchor') {
-    const custom = getLoredeckEmbeddedTimelineRegistry(pack);
-    const disabled = new Set(kind === 'window' ? custom.disabledWindowIds : custom.disabledAnchorIds);
-    const scopeType = kind === 'window' ? 'Timeline window' : 'Timeline anchor';
-    for (const id of normalizeLoredeckTimelineDisabledIds(disableIds || [])) {
-        addLoredeckPendingDiff(diffs, `${scopeType} ${id}`, 'enabled state', disabled.has(id) ? 'disabled' : 'active', 'disabled');
-    }
-    for (const id of normalizeLoredeckTimelineDisabledIds(enableIds || [])) {
-        addLoredeckPendingDiff(diffs, `${scopeType} ${id}`, 'enabled state', disabled.has(id) ? 'disabled' : 'active', 'active');
-    }
 }
 
 function getLoredeckOverrideState(pack = {}) {
@@ -9068,34 +8746,6 @@ function mergeLoredeckTagDefinition(sourceDef = {}, customDef = {}) {
     });
 }
 
-function normalizeLoredeckPendingIdList(value = [], limit = 500) {
-    if (!Array.isArray(value)) return [];
-    const out = [];
-    const seen = new Set();
-    for (const raw of value) {
-        const id = String(raw || '').trim();
-        if (!id || seen.has(id)) continue;
-        seen.add(id);
-        out.push(id);
-        if (out.length >= limit) break;
-    }
-    return out;
-}
-
-function normalizeLoredeckPendingTagIdList(value = [], limit = 500) {
-    if (!Array.isArray(value)) return [];
-    const out = [];
-    const seen = new Set();
-    for (const raw of value) {
-        const id = normalizeLoredeckTagId(raw);
-        if (!id || seen.has(id.toLowerCase())) continue;
-        seen.add(id.toLowerCase());
-        out.push(id);
-        if (out.length >= limit) break;
-    }
-    return out;
-}
-
 function normalizeLoredeckHealthIssueStates(value = {}) {
     if (!value || typeof value !== 'object' || Array.isArray(value)) return {};
     const output = {};
@@ -9120,207 +8770,6 @@ function normalizeLoredeckHealthIssueStates(value = {}) {
     return output;
 }
 
-function normalizeLoredeckPendingTimelineIdList(value = [], limit = 500) {
-    if (!Array.isArray(value)) return [];
-    const out = [];
-    const seen = new Set();
-    for (const raw of value) {
-        const id = normalizeLoredeckTimelineId(raw);
-        if (!id || seen.has(id)) continue;
-        seen.add(id);
-        out.push(id);
-        if (out.length >= limit) break;
-    }
-    return out;
-}
-
-function normalizeLoredeckPendingChanges(value = []) {
-    if (!Array.isArray(value)) return [];
-    const out = [];
-    const seen = new Set();
-    for (const raw of value) {
-        if (!raw || typeof raw !== 'object' || Array.isArray(raw)) continue;
-        const changeId = String(raw.changeId || raw.id || '').trim();
-        if (!changeId || seen.has(changeId)) continue;
-        seen.add(changeId);
-        out.push({
-            schemaVersion: Number.isFinite(Number(raw.schemaVersion)) ? Number(raw.schemaVersion) : 1,
-            changeId,
-            status: 'pending',
-            source: String(raw.source || 'manual').trim().slice(0, 80),
-            action: String(raw.action || 'record_patch').trim().slice(0, 80),
-            targetKind: String(raw.targetKind || 'loredeck').trim().slice(0, 80),
-            title: String(raw.title || changeId).trim().slice(0, 240),
-            description: String(raw.description || '').trim().slice(0, 1000),
-            affectedEntryIds: normalizeLoredeckPendingIdList(raw.affectedEntryIds),
-            affectedTagIds: normalizeLoredeckPendingTagIdList(raw.affectedTagIds),
-            affectedTimelineIds: normalizeLoredeckPendingTimelineIdList(raw.affectedTimelineIds),
-            payload: cloneLoredeckJson(raw.payload) || {},
-            preview: cloneLoredeckJson(raw.preview) || {},
-            createdAt: Number.isFinite(Number(raw.createdAt)) ? Number(raw.createdAt) : Date.now(),
-            updatedAt: Number.isFinite(Number(raw.updatedAt)) ? Number(raw.updatedAt) : Date.now(),
-        });
-        if (out.length >= 500) break;
-    }
-    return out;
-}
-
-function getLoredeckPendingChanges(pack = {}) {
-    return normalizeLoredeckPendingChanges(pack?.pendingChanges);
-}
-
-function createLoredeckPendingChangeId(action = 'change') {
-    return `lpchg_${String(action || 'change').replace(/[^a-z0-9_-]+/gi, '_').toLowerCase()}_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
-}
-
-function createLoredeckRecordPatchChange(fields = {}) {
-    const now = Date.now();
-    return {
-        schemaVersion: 1,
-        changeId: fields.changeId || createLoredeckPendingChangeId(fields.action || 'record_patch'),
-        status: 'pending',
-        source: fields.source || 'manual',
-        action: fields.action || 'record_patch',
-        targetKind: fields.targetKind || 'loredeck',
-        title: String(fields.title || 'Pending Loredeck Change').trim(),
-        description: String(fields.description || '').trim(),
-        affectedEntryIds: normalizeLoredeckPendingIdList(fields.affectedEntryIds),
-        affectedTagIds: normalizeLoredeckPendingTagIdList(fields.affectedTagIds),
-        affectedTimelineIds: normalizeLoredeckPendingTimelineIdList(fields.affectedTimelineIds),
-        payload: cloneLoredeckJson(fields.payload) || {},
-        preview: cloneLoredeckJson(fields.preview) || {},
-        createdAt: now,
-        updatedAt: now,
-    };
-}
-
-function ensureLoredeckPatchTagRegistry(record) {
-    if (!record.tagRegistry || typeof record.tagRegistry !== 'object' || Array.isArray(record.tagRegistry)) {
-        record.tagRegistry = { schemaVersion: 1, tags: {} };
-    }
-    if (!record.tagRegistry.tags || typeof record.tagRegistry.tags !== 'object' || Array.isArray(record.tagRegistry.tags)) {
-        record.tagRegistry.tags = {};
-    }
-}
-
-function ensureLoredeckPatchTimelineRegistry(record) {
-    if (!record.timelineRegistry || typeof record.timelineRegistry !== 'object' || Array.isArray(record.timelineRegistry)) {
-        record.timelineRegistry = { schemaVersion: 1, timelineMode: 'hybrid', sortKeyScale: 'pack_local', anchors: [], windows: [] };
-    }
-    if (!Array.isArray(record.timelineRegistry.anchors)) record.timelineRegistry.anchors = [];
-    if (!Array.isArray(record.timelineRegistry.windows)) record.timelineRegistry.windows = [];
-    if (!Array.isArray(record.timelineRegistry.disabledAnchorIds)) record.timelineRegistry.disabledAnchorIds = [];
-    if (!Array.isArray(record.timelineRegistry.disabledWindowIds)) record.timelineRegistry.disabledWindowIds = [];
-}
-
-function upsertLoredeckTimelineItem(list = [], item = null, normalizer = null) {
-    const normalized = typeof normalizer === 'function' ? normalizer(item) : item;
-    const id = String(normalized?.id || '').trim();
-    if (!id) return list;
-    const next = (Array.isArray(list) ? list : []).filter(existing => String(existing?.id || '').trim() !== id);
-    next.push(normalized);
-    return next;
-}
-
-function removeLoredeckTimelineItem(list = [], id = '') {
-    const target = normalizeLoredeckTimelineId(id);
-    if (!target) return Array.isArray(list) ? list : [];
-    return (Array.isArray(list) ? list : []).filter(item => String(item?.id || '').trim() !== target);
-}
-
-function updateLoredeckDisabledTimelineIds(current = [], add = [], remove = []) {
-    const set = new Set(normalizeLoredeckTimelineDisabledIds(current));
-    for (const id of normalizeLoredeckTimelineDisabledIds(add)) set.add(id);
-    for (const id of normalizeLoredeckTimelineDisabledIds(remove)) set.delete(id);
-    return Array.from(set);
-}
-
-function applyLoredeckRecordPatch(record, payload = {}) {
-    const patch = payload && typeof payload === 'object' && !Array.isArray(payload) ? payload : {};
-    const entryOverrides = patch.entryOverrides && typeof patch.entryOverrides === 'object' && !Array.isArray(patch.entryOverrides)
-        ? patch.entryOverrides
-        : {};
-    for (const [rawId, rawEntry] of Object.entries(entryOverrides)) {
-        const id = String(rawEntry?.id || rawId || '').trim();
-        if (!id) continue;
-        if (rawEntry === null) {
-            delete record.entryOverrides[id];
-            continue;
-        }
-        record.entryOverrides[id] = rawEntry;
-    }
-
-    const disabledSet = new Set(Array.isArray(record.disabledEntryIds) ? record.disabledEntryIds : []);
-    for (const id of normalizeLoredeckPendingIdList(patch.disabledEntryIdsAdd || [])) disabledSet.add(id);
-    for (const id of normalizeLoredeckPendingIdList(patch.disabledEntryIdsRemove || [])) disabledSet.delete(id);
-    record.disabledEntryIds = Array.from(disabledSet);
-
-    const tagDefinitions = patch.tagDefinitions && typeof patch.tagDefinitions === 'object' && !Array.isArray(patch.tagDefinitions)
-        ? patch.tagDefinitions
-        : {};
-    if (Object.keys(tagDefinitions).length) ensureLoredeckPatchTagRegistry(record);
-    for (const [rawId, rawDef] of Object.entries(tagDefinitions)) {
-        const id = normalizeLoredeckTagId(rawDef?.id || rawId);
-        if (!id) continue;
-        if (rawDef === null) {
-            delete record.tagRegistry.tags[id];
-            continue;
-        }
-        const def = normalizeLoredeckTagDefinition(rawDef, id);
-        delete def.id;
-        record.tagRegistry.tags[id] = def;
-    }
-
-    const timelineAnchors = patch.timelineAnchors && typeof patch.timelineAnchors === 'object' && !Array.isArray(patch.timelineAnchors)
-        ? patch.timelineAnchors
-        : {};
-    const timelineWindows = patch.timelineWindows && typeof patch.timelineWindows === 'object' && !Array.isArray(patch.timelineWindows)
-        ? patch.timelineWindows
-        : {};
-    const hasTimelinePatch = Object.keys(timelineAnchors).length
-        || Object.keys(timelineWindows).length
-        || normalizeLoredeckTimelineDisabledIds(patch.timelineAnchorIdsDisable || []).length
-        || normalizeLoredeckTimelineDisabledIds(patch.timelineAnchorIdsEnable || []).length
-        || normalizeLoredeckTimelineDisabledIds(patch.timelineWindowIdsDisable || []).length
-        || normalizeLoredeckTimelineDisabledIds(patch.timelineWindowIdsEnable || []).length;
-    if (hasTimelinePatch) ensureLoredeckPatchTimelineRegistry(record);
-
-    for (const [rawId, rawAnchor] of Object.entries(timelineAnchors)) {
-        const id = normalizeLoredeckTimelineId(rawAnchor?.id || rawId);
-        if (!id) continue;
-        if (rawAnchor === null) {
-            record.timelineRegistry.anchors = removeLoredeckTimelineItem(record.timelineRegistry.anchors, id);
-            continue;
-        }
-        record.timelineRegistry.anchors = upsertLoredeckTimelineItem(record.timelineRegistry.anchors, { ...rawAnchor, id }, normalizeLoredeckTimelineAnchor);
-        record.timelineRegistry.disabledAnchorIds = updateLoredeckDisabledTimelineIds(record.timelineRegistry.disabledAnchorIds, [], [id]);
-    }
-
-    for (const [rawId, rawWindow] of Object.entries(timelineWindows)) {
-        const id = normalizeLoredeckTimelineId(rawWindow?.id || rawId);
-        if (!id) continue;
-        if (rawWindow === null) {
-            record.timelineRegistry.windows = removeLoredeckTimelineItem(record.timelineRegistry.windows, id);
-            continue;
-        }
-        record.timelineRegistry.windows = upsertLoredeckTimelineItem(record.timelineRegistry.windows, { ...rawWindow, id }, normalizeLoredeckTimelineWindow);
-        record.timelineRegistry.disabledWindowIds = updateLoredeckDisabledTimelineIds(record.timelineRegistry.disabledWindowIds, [], [id]);
-    }
-
-    if (hasTimelinePatch) {
-        record.timelineRegistry.disabledAnchorIds = updateLoredeckDisabledTimelineIds(
-            record.timelineRegistry?.disabledAnchorIds,
-            patch.timelineAnchorIdsDisable || [],
-            patch.timelineAnchorIdsEnable || []
-        );
-        record.timelineRegistry.disabledWindowIds = updateLoredeckDisabledTimelineIds(
-            record.timelineRegistry?.disabledWindowIds,
-            patch.timelineWindowIdsDisable || [],
-            patch.timelineWindowIdsEnable || []
-        );
-    }
-}
-
 function parseLoredeckEntryTags(value, limit = 64) {
     const rawItems = Array.isArray(value)
         ? value.flatMap(item => Array.isArray(item) ? item : [item])
@@ -9337,32 +8786,6 @@ function parseLoredeckEntryTags(value, limit = 64) {
         if (tags.length >= limit) break;
     }
     return tags;
-}
-
-function mergeLoredeckEntryTags(current = [], additions = []) {
-    const tags = parseLoredeckEntryTags(current);
-    const seen = new Set(tags.map(tag => tag.toLowerCase()));
-    for (const tag of parseLoredeckEntryTags(additions)) {
-        const key = tag.toLowerCase();
-        if (seen.has(key)) continue;
-        seen.add(key);
-        tags.push(tag);
-    }
-    return tags.slice(0, 64);
-}
-
-function removeLoredeckEntryTags(current = [], removals = []) {
-    const removeSet = new Set(parseLoredeckEntryTags(removals).map(tag => tag.toLowerCase()));
-    if (!removeSet.size) return parseLoredeckEntryTags(current);
-    return parseLoredeckEntryTags(current).filter(tag => !removeSet.has(tag.toLowerCase()));
-}
-
-function replaceLoredeckEntryTag(current = [], fromTag = '', toTag = '') {
-    const from = parseLoredeckEntryTags([fromTag])[0] || '';
-    if (!from) return parseLoredeckEntryTags(current);
-    const to = parseLoredeckEntryTags([toTag])[0] || '';
-    const next = removeLoredeckEntryTags(current, [from]);
-    return to ? mergeLoredeckEntryTags(next, [to]) : next;
 }
 
 function getLoredeckEntryTags(entry = {}) {
@@ -9633,190 +9056,6 @@ function buildMergedLoredeckTimelineRegistryForExport(pack) {
     return exportRegistry;
 }
 
-function createLoredeckTimelineRegistryCard(pack, rows = []) {
-    const wrap = document.createElement('div');
-    wrap.className = 'saga-loredeck-manifest-preview';
-
-    const title = document.createElement('div');
-    title.className = 'saga-runtime-card-title';
-    title.textContent = 'Timeline Registry';
-    wrap.appendChild(title);
-
-    const sourceCache = loredeckTimelineRegistryCache.get(pack.packId);
-    const customRegistry = getLoredeckEmbeddedTimelineRegistry(pack);
-    const allItems = buildLoredeckTimelineRegistryItems(pack, rows);
-    const anchors = allItems.filter(item => item.kind === 'anchor');
-    const windows = allItems.filter(item => item.kind === 'window');
-    const disabledCount = allItems.filter(item => item.disabled).length;
-    const undefinedCount = allItems.filter(item => item.registryState === 'undefined').length;
-    const attachedCount = allItems.filter(item => item.entryIds.length).length;
-
-    const summary = document.createElement('div');
-    summary.className = 'saga-loredeck-entry-summary';
-    summary.appendChild(createStatusPill(`${anchors.length} anchors`, 'Timeline anchor definitions visible in this editor.'));
-    summary.appendChild(createStatusPill(`${windows.length} windows`, 'Timeline window definitions visible in this editor.'));
-    summary.appendChild(createStatusPill(`${attachedCount} attached`, 'Timeline definitions referenced by loaded entries.'));
-    if (undefinedCount) summary.appendChild(createStatusPill(`${undefinedCount} undefined`, 'Loaded entries reference anchors that are not defined in the active timeline registry.'));
-    if (disabledCount) summary.appendChild(createStatusPill(`${disabledCount} disabled`, 'Source timeline definitions suppressed by this Custom Loredeck overlay.'));
-    if (sourceCache?.loadedAt && !sourceCache.missing && !sourceCache.error) summary.appendChild(createStatusPill('timeline.json loaded', 'Source timeline registry has been fetched for this editor session.'));
-    if (sourceCache?.missing) summary.appendChild(createStatusPill('no source timeline', 'The manifest does not currently declare registries.timeline.'));
-    if (getLoredeckTimelineRegistryCount(customRegistry)) summary.appendChild(createStatusPill('custom overlay', 'This Loredeck has saved editable timeline registry metadata.'));
-    wrap.appendChild(summary);
-
-    const help = document.createElement('div');
-    help.className = 'saga-runtime-help';
-    help.textContent = 'Timeline edits queue Custom overlay proposals. Accepted overlays affect Context search, Deck Health, and runtime Context gating.';
-    wrap.appendChild(help);
-    if (sourceCache?.error) {
-        wrap.appendChild(createKeyValue('Registry Load Error', sourceCache.error, 'Last timeline.json load error for this Loredeck.'));
-    }
-
-    const actions = document.createElement('div');
-    actions.className = 'saga-primary-actions';
-    const loadRegistry = createButton('Load Timeline', 'Fetch source timeline.json for this Loredeck if the manifest declares one.', async (btn) => {
-        await loadLoredeckTimelineRegistryForEditor(pack, btn);
-    });
-    loadRegistry.disabled = !pack.manifest;
-    actions.appendChild(loadRegistry);
-    actions.appendChild(createButton('New Anchor', 'Create a new timeline anchor in this Custom Loredeck overlay.', () => {
-        openLoredeckTimelineAnchorDialog(pack, null);
-    }, 'saga-primary-button'));
-    actions.appendChild(createButton('New Window', 'Create a new timeline window in this Custom Loredeck overlay.', () => {
-        openLoredeckTimelineWindowDialog(pack, null);
-    }));
-    const exportButton = createButton('Export Timeline', 'Download the currently merged active timeline registry as timeline.json.', () => {
-        downloadJson(buildMergedLoredeckTimelineRegistryForExport(pack), `${sanitizeFileStem(pack.packId || 'saga-loredeck')}.timeline.json`);
-        toast('Timeline registry exported.', 'info');
-    });
-    exportButton.disabled = !allItems.length;
-    actions.appendChild(exportButton);
-    wrap.appendChild(actions);
-
-    const search = document.createElement('input');
-    search.type = 'search';
-    search.className = 'saga-loredeck-entry-search';
-    search.placeholder = 'Search timeline anchors/windows...';
-    search.value = loredeckTimelineRegistryQuery || '';
-    addTooltip(search, 'Search timeline IDs, labels, arcs, aliases, tags, and attachment status.');
-    search.addEventListener('click', e => e.stopPropagation());
-    search.addEventListener('mousedown', e => e.stopPropagation());
-    search.addEventListener('keydown', e => {
-        if (e.key !== 'Enter') return;
-        e.preventDefault();
-        loredeckTimelineRegistryQuery = search.value;
-        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
-    });
-    search.addEventListener('change', () => {
-        loredeckTimelineRegistryQuery = search.value;
-        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
-    });
-    wrap.appendChild(search);
-
-    const q = String(loredeckTimelineRegistryQuery || '').trim().toLowerCase();
-    const visible = allItems
-        .filter(item => {
-            if (!q) return true;
-            const def = item.definition || {};
-            return [
-                item.kind,
-                item.id,
-                item.registryState,
-                def.label,
-                def.arc,
-                def.phase,
-                def.season,
-                def.episode,
-                def.chapter,
-                def.anchorFrom,
-                def.anchorTo,
-                def.notes,
-                ...(Array.isArray(def.aliases) ? def.aliases : []),
-                ...(Array.isArray(def.tags) ? def.tags : []),
-            ].filter(Boolean).join(' ').toLowerCase().includes(q);
-        })
-        .slice(0, 32);
-
-    if (!visible.length) {
-        wrap.appendChild(createEmptyMessage(allItems.length ? 'No matching timeline definitions.' : 'Load entries, load timeline.json, or create an anchor/window to begin editing the registry.'));
-        return wrap;
-    }
-
-    const list = document.createElement('div');
-    list.className = 'saga-loredeck-entry-list';
-    for (const item of visible) {
-        list.appendChild(createLoredeckTimelineRegistryRow(pack, item));
-    }
-    if (visible.length < allItems.length) {
-        const more = document.createElement('div');
-        more.className = 'saga-runtime-help';
-        more.textContent = `Showing ${visible.length} of ${allItems.length} timeline definitions. Search to narrow the list.`;
-        list.appendChild(more);
-    }
-    wrap.appendChild(list);
-    return wrap;
-}
-
-function formatTimelineDateRange(dateRange = {}) {
-    const range = dateRange && typeof dateRange === 'object' && !Array.isArray(dateRange) ? dateRange : {};
-    const from = String(range.from || '').trim();
-    const to = String(range.to || '').trim();
-    if (from && to && from !== to) return `${from} to ${to}`;
-    return from || to || '';
-}
-
-function createLoredeckTimelineRegistryRow(pack, item = {}) {
-    const row = document.createElement('div');
-    row.className = `saga-loredeck-entry-row${item.disabled ? ' saga-loredeck-entry-row-disabled' : ''}`.trim();
-
-    const main = document.createElement('div');
-    main.className = 'saga-loredeck-row-main';
-    const title = document.createElement('div');
-    title.className = 'saga-loredeck-row-title';
-    title.textContent = item.definition?.label || item.id;
-    main.appendChild(title);
-    const desc = document.createElement('div');
-    desc.className = 'saga-loredeck-row-description';
-    if (item.kind === 'anchor') {
-        const range = formatTimelineDateRange(item.definition?.dateRange);
-        desc.textContent = `${item.id}${range ? ` | ${range}` : ''}${item.definition?.notes ? ` | ${truncateText(item.definition.notes, 120)}` : ''}`;
-    } else {
-        desc.textContent = `${item.id} | ${item.definition?.anchorFrom || '?'} -> ${item.definition?.anchorTo || '?'}`;
-    }
-    main.appendChild(desc);
-    const meta = document.createElement('div');
-    meta.className = 'saga-loredeck-row-meta';
-    meta.appendChild(createStatusPill(item.kind, 'Timeline registry item type.'));
-    meta.appendChild(createStatusPill(item.registryState, 'Timeline registry source state.'));
-    if (item.kind === 'anchor') meta.appendChild(createStatusPill(`sort ${item.definition?.sortKey ?? '?'}`, 'Timeline sort key.'));
-    if (item.kind === 'window') meta.appendChild(createStatusPill(`${item.definition?.sortKeyFrom ?? '?'}-${item.definition?.sortKeyTo ?? '?'}`, 'Timeline sort key window.'));
-    if (item.entryIds.length) meta.appendChild(createStatusPill(`${item.entryIds.length} entr${item.entryIds.length === 1 ? 'y' : 'ies'}`, item.entryIds.slice(0, 12).join(', ')));
-    main.appendChild(meta);
-    row.appendChild(main);
-
-    const actions = document.createElement('div');
-    actions.className = 'saga-loredeck-row-actions';
-    const filterButton = createButton('Entries', 'Filter the entry list to entries attached to this timeline definition.', () => {
-        loredeckEntryOverrideQuery = item.id || '';
-        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
-    });
-    filterButton.disabled = !item.entryIds.length;
-    actions.appendChild(filterButton);
-    actions.appendChild(createButton('Edit', 'Edit this timeline definition as a Custom overlay proposal.', () => {
-        if (item.kind === 'anchor') openLoredeckTimelineAnchorDialog(pack, item);
-        else openLoredeckTimelineWindowDialog(pack, item);
-    }, item.customDefined ? 'saga-primary-button' : ''));
-    actions.appendChild(createButton(item.disabled ? 'Enable' : 'Disable', item.disabled ? 'Restore this source timeline definition.' : 'Suppress this timeline definition in this Custom overlay.', () => {
-        setLoredeckTimelineItemDisabled(pack, item.kind, item.id, !item.disabled);
-    }));
-    if (item.customDefined) {
-        actions.appendChild(createButton('Forget Overlay', 'Remove this Custom timeline definition and fall back to source if one exists.', () => {
-            removeLoredeckTimelineDefinition(pack, item.kind, item.id);
-        }, 'saga-danger-button'));
-    }
-    row.appendChild(actions);
-    return row;
-}
-
 function getLoredeckAssistantTargetRows(rows = [], filteredRows = [], targetScope = 'current_filter') {
     if (targetScope === 'all_loaded') return rows || [];
     const scoped = loredeckEntryOverrideQuery ? filteredRows : rows;
@@ -9903,85 +9142,6 @@ function buildLoredeckAssistantContext(pack, rows = [], filteredRows = [], optio
     };
 }
 
-function createLoredeckAssistantCard(pack, rows = [], filteredRows = []) {
-    const wrap = document.createElement('div');
-    wrap.className = 'saga-loredeck-manifest-preview';
-
-    const title = document.createElement('div');
-    title.className = 'saga-runtime-card-title';
-    title.textContent = 'Lore Assistant';
-    wrap.appendChild(title);
-
-    const targetRows = getLoredeckAssistantTargetRows(rows, filteredRows, loredeckAssistantTargetScope).filter(row => row?.id && !row.disabled);
-    const cached = loredeckAssistantDraftCache.get(pack.packId);
-    const summary = document.createElement('div');
-    summary.className = 'saga-loredeck-entry-summary';
-    summary.appendChild(createStatusPill(`${targetRows.length} target entr${targetRows.length === 1 ? 'y' : 'ies'}`, 'Entries included in the assistant context. Current search can narrow this set.'));
-    summary.appendChild(createStatusPill(loredeckAssistantMode.replace(/_/g, ' '), 'Current assistant task mode.'));
-    summary.appendChild(createStatusPill('Value rubric', 'Assistant proposals are asked to score scene utility, behavior impact, Context fit, injection quality, and wiki-summary risk.'));
-    if (cached?.draftChanges?.length) {
-        const selectedCount = getLoredeckAssistantSelectedDraftIds(cached).size;
-        summary.appendChild(createStatusPill(`${cached.draftChanges.length} drafted`, 'Assistant proposals waiting for batch review before they enter Pending Review.'));
-        summary.appendChild(createStatusPill(`${selectedCount} selected`, 'Draft proposals selected for queue, drop, or revision actions.'));
-    }
-    if (cached?.queuedCount) summary.appendChild(createStatusPill(`${cached.queuedCount} queued`, 'Last assistant proposal count queued into Pending Review.'));
-    if (cached?.selectedHealthIssueCount) summary.appendChild(createStatusPill(`${cached.selectedHealthIssueCount} health issue${cached.selectedHealthIssueCount === 1 ? '' : 's'}`, 'Last assistant draft was generated from selected Deck Health issues.'));
-    if (cached?.qualityWarningCount) summary.appendChild(createStatusPill(`${cached.qualityWarningCount} quality flag${cached.qualityWarningCount === 1 ? '' : 's'}`, 'Last assistant draft included local quality guardrail flags.'));
-    if (cached?.questions?.length) summary.appendChild(createStatusPill(`${cached.questions.length} question${cached.questions.length === 1 ? '' : 's'}`, 'Last assistant response requested clarification.'));
-    wrap.appendChild(summary);
-
-    const help = document.createElement('div');
-    help.className = 'saga-runtime-help';
-    help.textContent = 'The assistant drafts reviewable proposals only. Accepted Loredeck data changes after you accept the queued Pending Review items.';
-    wrap.appendChild(help);
-
-    const form = document.createElement('div');
-    form.className = 'saga-new-lore-form';
-    const instructionInput = createNewLoreInput(form, 'Instruction', 'Describe the revision, missing lore, tag definitions, or timeline anchors/windows you want proposed.', loredeckAssistantInstruction || '', true, 'Revise Arlong and crew entries so their cruelty creates more pressure and danger without turning every line into generic villain biography.');
-    const grid = document.createElement('div');
-    grid.className = 'saga-new-lore-meta-grid';
-    form.appendChild(grid);
-    const modeSelect = createNewLoreSelect(grid, 'Mode', ['revise_entries', 'suggest_entries', 'draft_tags', 'draft_timeline', 'mixed'], loredeckAssistantMode, value => humanizeScopeKey(value));
-    const scopeSelect = createNewLoreSelect(grid, 'Target', ['current_filter', 'all_loaded'], loredeckAssistantTargetScope, value => value === 'current_filter' ? 'Current Search' : 'All Loaded');
-    wrap.appendChild(form);
-
-    const actions = document.createElement('div');
-    actions.className = 'saga-primary-actions';
-    const draftButton = createButton('Draft Proposals', 'Ask the Reasoning Provider to draft structured Loredeck changes for batch review before they enter Pending Review.', async (btn) => {
-        loredeckAssistantInstruction = instructionInput.value.trim();
-        loredeckAssistantMode = modeSelect.value;
-        loredeckAssistantTargetScope = scopeSelect.value;
-        await handleLoredeckAssistantDraft(pack, rows, filteredRows, {
-            instruction: loredeckAssistantInstruction,
-            mode: loredeckAssistantMode,
-            targetScope: loredeckAssistantTargetScope,
-        }, btn);
-    }, 'saga-primary-button');
-    actions.appendChild(draftButton);
-    const loadButton = createButton('Load Context', 'Load entries, tags, and timeline registries so the assistant has current context.', async (btn) => {
-        await loadLoredeckEntriesForEditor(pack, btn);
-    });
-    loadButton.disabled = !canValidateLoredeckInEditor(pack);
-    actions.appendChild(loadButton);
-    wrap.appendChild(actions);
-
-    if (cached?.summary || cached?.questions?.length || cached?.warnings?.length) {
-        const result = document.createElement('div');
-        result.className = 'saga-runtime-help';
-        const parts = [];
-        if (cached.summary) parts.push(cached.summary);
-        if (cached.questions?.length) parts.push(`Questions: ${cached.questions.join(' | ')}`);
-        if (cached.warnings?.length) parts.push(`Warnings: ${cached.warnings.join(' | ')}`);
-        result.textContent = parts.join(' ');
-        wrap.appendChild(result);
-    }
-
-    const draftBatch = createLoredeckAssistantDraftBatchCard(pack, cached, rows, filteredRows);
-    if (draftBatch) wrap.appendChild(draftBatch);
-
-    return wrap;
-}
-
 function getLoredeckAssistantDraftChanges(cached = {}) {
     return normalizeLoredeckPendingChanges(cached?.draftChanges);
 }
@@ -10019,16 +9179,25 @@ function updateLoredeckAssistantDraftCache(packId = '', mutator = null) {
     const id = String(packId || '').trim();
     if (!id || typeof mutator !== 'function') return null;
     const current = loredeckAssistantDraftCache.get(id) || {};
-    const next = mutator({
+    const currentForMutation = {
         ...current,
         draftChanges: getLoredeckAssistantDraftChanges(current),
-        selectedDraftChangeIds: normalizeLoredeckAssistantDraftChangeIds(current.selectedDraftChangeIds || []),
-    }) || current;
+    };
+    if (Object.prototype.hasOwnProperty.call(current, 'selectedDraftChangeIds')) {
+        currentForMutation.selectedDraftChangeIds = normalizeLoredeckAssistantDraftChangeIds(current.selectedDraftChangeIds || []);
+    } else {
+        delete currentForMutation.selectedDraftChangeIds;
+    }
+    const next = mutator(currentForMutation) || currentForMutation;
     const normalized = {
         ...next,
         draftChanges: getLoredeckAssistantDraftChanges(next),
-        selectedDraftChangeIds: normalizeLoredeckAssistantDraftChangeIds(next.selectedDraftChangeIds || []),
     };
+    if (Object.prototype.hasOwnProperty.call(next, 'selectedDraftChangeIds')) {
+        normalized.selectedDraftChangeIds = normalizeLoredeckAssistantDraftChangeIds(next.selectedDraftChangeIds || []);
+    } else {
+        delete normalized.selectedDraftChangeIds;
+    }
     if (!normalized.draftChanges.length) {
         delete normalized.draftChanges;
         delete normalized.selectedDraftChangeIds;
@@ -10047,7 +9216,9 @@ function setLoredeckAssistantDraftSelection(pack, changeId = '', selected = fals
         else selectedIds.delete(id);
         return { ...cached, selectedDraftChangeIds: [...selectedIds] };
     });
-    if (options.refresh) refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+    if (options.refresh && !refreshLoredeckAssistantDraftSelectionUi(pack)) {
+        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+    }
 }
 
 function setLoredeckAssistantDraftSelectionBulk(pack, mode = 'all') {
@@ -10058,154 +9229,50 @@ function setLoredeckAssistantDraftSelectionBulk(pack, mode = 'all') {
             selectedDraftChangeIds: mode === 'all' ? changes.map(change => change.changeId) : [],
         };
     });
-    refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+    if (!refreshLoredeckAssistantDraftSelectionUi(pack)) {
+        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+    }
 }
 
-function createLoredeckAssistantDraftBatchCard(pack, cached = null, rows = [], filteredRows = []) {
+function refreshLoredeckAssistantDraftSelectionUi(pack) {
+    if (typeof document === 'undefined' || !pack?.packId) return false;
+    const scope = panelRoot || document;
+    const packId = String(pack.packId || '').trim();
+    const cached = loredeckAssistantDraftCache.get(packId) || {};
     const changes = getLoredeckAssistantDraftChanges(cached);
-    if (!changes.length) return null;
+    if (!changes.length) return false;
+
+    const batch = Array.from(scope.querySelectorAll('.saga-loredeck-assistant-draft-batch'))
+        .find(element => String(element.dataset.sagaAssistantPackId || '') === packId);
+    if (!batch) return false;
+
     const selectedIds = getLoredeckAssistantSelectedDraftIds(cached);
     const selectedCount = changes.filter(change => selectedIds.has(change.changeId)).length;
-    const creatorBatch = String(cached?.source || '').trim() === 'loredeck_creator'
-        || changes.every(change => String(change.source || '').trim() === 'loredeck_creator');
-    const wrap = document.createElement('div');
-    wrap.className = 'saga-loredeck-manifest-preview saga-loredeck-assistant-draft-batch';
+    const allSelected = selectedCount >= changes.length;
+    const noneSelected = selectedCount <= 0;
 
-    const title = document.createElement('div');
-    title.className = 'saga-runtime-card-title';
-    title.textContent = creatorBatch ? 'Creator Lorecard Draft Review' : 'Assistant Draft Batch';
-    wrap.appendChild(title);
-
-    const summary = document.createElement('div');
-    summary.className = 'saga-loredeck-entry-summary';
-    summary.appendChild(createStatusPill(`${changes.length} drafted`, creatorBatch ? 'Creator Lorecard drafts waiting for edit-before-review.' : 'Draft proposals waiting for edit-before-queue review.'));
-    summary.appendChild(createStatusPill(`${selectedCount} selected`, creatorBatch ? 'Selected drafts are affected by send, drop, and revise actions.' : 'Selected proposals are affected by queue, drop, and revise actions.'));
-    const qualityWarningCount = countLoredeckAssistantQualityWarningsForChanges(changes);
-    if (qualityWarningCount) summary.appendChild(createStatusPill(`${qualityWarningCount} quality flag${qualityWarningCount === 1 ? '' : 's'}`, 'Local guardrail flags across this assistant draft batch.'));
-    wrap.appendChild(summary);
-
-    const actions = document.createElement('div');
-    actions.className = 'saga-primary-actions';
-    const queueSelected = createButton(creatorBatch ? 'Send Selected to Review' : 'Queue Selected', creatorBatch ? 'Move selected Creator Lorecard drafts into Pending Review.' : 'Move selected assistant draft proposals into Pending Review.', () => {
-        queueLoredeckAssistantDraftSelection(pack, getLoredeckAssistantSelectedDraftIds(loredeckAssistantDraftCache.get(pack.packId) || {}));
-    }, 'saga-primary-button');
-    queueSelected.disabled = !selectedCount;
-    actions.appendChild(queueSelected);
-    const queueAll = createButton(creatorBatch ? 'Send All to Review' : 'Queue All', creatorBatch ? 'Move every Creator Lorecard draft into Pending Review.' : 'Move every assistant draft proposal into Pending Review.', () => {
-        queueLoredeckAssistantDraftSelection(pack, new Set(changes.map(change => change.changeId)));
+    scope.querySelectorAll('.saga-loredeck-assistant-selected-count, .saga-loredeck-assistant-draft-selected-count').forEach(element => {
+        element.textContent = `${selectedCount} selected`;
     });
-    queueAll.disabled = !changes.length;
-    actions.appendChild(queueAll);
-    const dropSelected = createButton('Drop Selected', creatorBatch ? 'Remove selected Creator Lorecard drafts without sending them to Pending Review.' : 'Remove selected assistant draft proposals without queueing them.', () => {
-        dropLoredeckAssistantDraftSelection(pack, getLoredeckAssistantSelectedDraftIds(loredeckAssistantDraftCache.get(pack.packId) || {}));
-    }, 'saga-danger-button');
-    dropSelected.disabled = !selectedCount;
-    actions.appendChild(dropSelected);
-    actions.appendChild(createButton('Select All', creatorBatch ? 'Select every Creator Lorecard draft.' : 'Select every assistant draft proposal.', () => {
-        setLoredeckAssistantDraftSelectionBulk(pack, 'all');
-    }));
-    actions.appendChild(createButton('Clear Selection', creatorBatch ? 'Clear the Creator draft selection.' : 'Clear the assistant draft selection.', () => {
-        setLoredeckAssistantDraftSelectionBulk(pack, 'none');
-    }));
-    wrap.appendChild(actions);
 
-    const reviseForm = document.createElement('div');
-    reviseForm.className = 'saga-new-lore-form saga-loredeck-assistant-revise-form';
-    const reviseInput = createNewLoreInput(reviseForm, 'Revision', creatorBatch ? 'Instruction for revising selected Creator Lorecard drafts before sending them to Pending Review.' : 'Instruction for revising selected draft proposals before queueing them.', loredeckAssistantRevisionInstruction || '', true, 'Tighten selected entries so the injection text creates more pressure and less biography.');
-    const reviseActions = document.createElement('div');
-    reviseActions.className = 'saga-primary-actions';
-    const reviseButton = createButton('Revise Selected', creatorBatch ? 'Ask the Reasoning Provider to revise only the selected Creator Lorecard drafts.' : 'Ask the Reasoning Provider to revise only the selected assistant draft proposals.', async (btn) => {
-        loredeckAssistantRevisionInstruction = reviseInput.value.trim();
-        await handleLoredeckAssistantDraftRevision(pack, rows, filteredRows, {
-            instruction: loredeckAssistantRevisionInstruction,
-        }, btn);
+    batch.querySelectorAll('[data-saga-assistant-draft-action="queue-selected"], [data-saga-assistant-draft-action="drop-selected"], [data-saga-assistant-draft-action="revise-selected"]').forEach(button => {
+        button.disabled = noneSelected;
     });
-    reviseButton.disabled = !selectedCount;
-    reviseActions.appendChild(reviseButton);
-    reviseForm.appendChild(reviseActions);
-    wrap.appendChild(reviseForm);
-
-    const list = document.createElement('div');
-    list.className = 'saga-loredeck-entry-list';
-    for (const change of changes.slice(0, 30)) {
-        list.appendChild(createLoredeckAssistantDraftRow(pack, change, selectedIds.has(change.changeId), { creatorBatch }));
-    }
-    if (changes.length > 30) {
-        const more = document.createElement('div');
-        more.className = 'saga-runtime-help';
-        more.textContent = creatorBatch
-            ? `Showing 30 of ${changes.length} Creator Lorecard drafts. Send or drop some to reduce the list.`
-            : `Showing 30 of ${changes.length} draft proposals. Queue or drop some to reduce the list.`;
-        list.appendChild(more);
-    }
-    wrap.appendChild(list);
-    return wrap;
-}
-
-function createLoredeckAssistantDraftRow(pack, change = {}, selected = false, options = {}) {
-    const creatorDraft = options.creatorBatch || String(change.source || '').trim() === 'loredeck_creator';
-    const row = document.createElement('div');
-    row.className = 'saga-loredeck-entry-row saga-loredeck-assistant-draft-row';
-
-    const main = document.createElement('div');
-    main.className = 'saga-loredeck-row-main';
-    const titleLine = document.createElement('label');
-    titleLine.className = 'saga-loredeck-assistant-draft-title';
-    const checkbox = document.createElement('input');
-    checkbox.type = 'checkbox';
-    checkbox.checked = selected;
-    addTooltip(checkbox, selected ? 'Remove this draft proposal from the current batch selection.' : 'Add this draft proposal to the current batch selection.');
-    checkbox.addEventListener('click', event => event.stopPropagation());
-    checkbox.addEventListener('change', () => {
-        setLoredeckAssistantDraftSelection(pack, change.changeId, checkbox.checked, { refresh: true });
+    batch.querySelectorAll('[data-saga-assistant-draft-action="select-all"]').forEach(button => {
+        button.disabled = allSelected;
     });
-    titleLine.appendChild(checkbox);
-    const title = document.createElement('span');
-    title.className = 'saga-loredeck-row-title';
-    title.textContent = change.title || change.changeId || 'Assistant Draft Proposal';
-    titleLine.appendChild(title);
-    main.appendChild(titleLine);
+    batch.querySelectorAll('[data-saga-assistant-draft-action="clear-selection"]').forEach(button => {
+        button.disabled = noneSelected;
+    });
 
-    const desc = document.createElement('div');
-    desc.className = 'saga-loredeck-row-description';
-    const preview = change.preview || {};
-    desc.textContent = change.description || preview.after || preview.before || (creatorDraft ? 'Creator Lorecard draft.' : 'Assistant draft proposal.');
-    main.appendChild(desc);
-
-    const meta = document.createElement('div');
-    meta.className = 'saga-loredeck-row-meta';
-    meta.appendChild(createStatusPill(`Action: ${formatLoredeckPendingActionLabel(change.action)}`, `Draft action: ${change.action || 'record_patch'}.`));
-    meta.appendChild(createStatusPill(`Target: ${formatLoredeckPendingTargetKindLabel(change.targetKind)}`, `Draft target kind: ${change.targetKind || 'loredeck'}.`));
-    const confidence = getLoredeckPendingConfidence(change);
-    if (confidence !== null) meta.appendChild(createStatusPill(`Confidence ${Math.round(confidence * 100)}%`, 'Model confidence for this draft proposal.'));
-    const risk = getLoredeckPendingRisk(change);
-    if (risk) meta.appendChild(createLoredeckPendingRiskPill(risk));
-    appendLoredeckPendingQualityPills(meta, change);
-    if (doesLoredeckPendingChangeAffectPackHealth(change)) meta.appendChild(createLoredeckPendingHealthImpactPill());
-    if (change.affectedEntryIds?.length) meta.appendChild(createStatusPill(`${change.affectedEntryIds.length} entr${change.affectedEntryIds.length === 1 ? 'y' : 'ies'}`, change.affectedEntryIds.slice(0, 10).join(', ')));
-    if (change.affectedTagIds?.length) meta.appendChild(createStatusPill(`${change.affectedTagIds.length} tag${change.affectedTagIds.length === 1 ? '' : 's'}`, change.affectedTagIds.slice(0, 10).join(', ')));
-    if (change.affectedTimelineIds?.length) meta.appendChild(createStatusPill(`${change.affectedTimelineIds.length} timeline`, change.affectedTimelineIds.slice(0, 10).join(', ')));
-    main.appendChild(meta);
-
-    const diffs = createLoredeckPendingDiffList(pack, change);
-    if (diffs) main.appendChild(diffs);
-    const quality = createLoredeckPendingQualityList(change);
-    if (quality) main.appendChild(quality);
-    row.appendChild(main);
-
-    const actions = document.createElement('div');
-    actions.className = 'saga-loredeck-row-actions';
-    actions.appendChild(createButton(creatorDraft ? 'Send to Review' : 'Queue', creatorDraft ? 'Move this Creator Lorecard draft into Pending Review.' : 'Move this assistant draft proposal into Pending Review.', () => {
-        queueLoredeckAssistantDraftSelection(pack, new Set([change.changeId]));
-    }, 'saga-primary-button'));
-    actions.appendChild(createButton('Edit JSON', creatorDraft ? 'Edit this Creator Lorecard draft record before sending it to Pending Review.' : 'Edit this draft proposal record before queueing.', () => {
-        openLoredeckAssistantDraftJsonEditor(pack, change);
-    }));
-    actions.appendChild(createButton('Drop', creatorDraft ? 'Remove this Creator Lorecard draft without sending it to Pending Review.' : 'Remove this draft proposal without queueing it.', () => {
-        dropLoredeckAssistantDraftSelection(pack, new Set([change.changeId]));
-    }, 'saga-danger-button'));
-    row.appendChild(actions);
-    return row;
+    batch.querySelectorAll('.saga-loredeck-assistant-draft-row[data-saga-assistant-draft-change-id]').forEach(row => {
+        const id = String(row.dataset.sagaAssistantDraftChangeId || '');
+        const selected = selectedIds.has(id);
+        row.classList.toggle('saga-loredeck-assistant-draft-row-selected', selected);
+        const checkbox = row.querySelector('input[type="checkbox"]');
+        if (checkbox) checkbox.checked = selected;
+    });
+    return true;
 }
 
 function updateLoredeckAssistantDraftAfterRemoval(packId, removedIds = new Set(), queuedCountDelta = 0) {
@@ -10516,8 +9583,7 @@ function openLoredeckAssistantDraftJsonEditor(pack, change = {}) {
     textarea.value = JSON.stringify(change, null, 2);
     addTooltip(textarea, 'Editable pending-change JSON. Save validates the draft record before replacing it in the assistant batch.');
     shell.appendChild(textarea);
-    const actions = document.createElement('div');
-    actions.className = 'saga-primary-actions';
+    const actions = createLoredeckActionRow();
     actions.appendChild(createButton('Save Draft', 'Validate and save this edited assistant draft proposal.', () => {
         try {
             const parsed = JSON.parse(textarea.value || '{}');
@@ -10881,97 +9947,6 @@ function buildLoredeckAssistantTimelineWindowChange(proposal = {}) {
     });
 }
 
-function saveLoredeckTimelineAnchorDefinition(pack, anchor, message = '') {
-    const id = normalizeLoredeckTimelineId(anchor?.id);
-    if (!id) {
-        toast('Timeline anchor needs a valid ID.', 'warning');
-        return false;
-    }
-    const def = normalizeLoredeckTimelineAnchor({ ...anchor, id }, id);
-    return queueLoredeckPendingChange(pack, createLoredeckRecordPatchChange({
-        action: 'upsert_timeline_anchor',
-        targetKind: 'timeline_anchor',
-        title: `Save timeline anchor: ${id}`,
-        description: 'Creates or updates a Custom timeline anchor overlay after review.',
-        affectedTimelineIds: [id],
-        payload: {
-            timelineAnchors: { [id]: def },
-            timelineAnchorIdsEnable: [id],
-        },
-        preview: {
-            after: def.label || id,
-        },
-    }), message || `Queued timeline anchor for ${id}.`);
-}
-
-function saveLoredeckTimelineWindowDefinition(pack, windowDef, message = '') {
-    const id = normalizeLoredeckTimelineId(windowDef?.id);
-    if (!id) {
-        toast('Timeline window needs a valid ID.', 'warning');
-        return false;
-    }
-    const def = normalizeLoredeckTimelineWindow({ ...windowDef, id }, id);
-    return queueLoredeckPendingChange(pack, createLoredeckRecordPatchChange({
-        action: 'upsert_timeline_window',
-        targetKind: 'timeline_window',
-        title: `Save timeline window: ${id}`,
-        description: 'Creates or updates a Custom timeline window overlay after review.',
-        affectedTimelineIds: [id, def.anchorFrom, def.anchorTo].filter(Boolean),
-        payload: {
-            timelineWindows: { [id]: def },
-            timelineWindowIdsEnable: [id],
-        },
-        preview: {
-            after: def.label || `${def.anchorFrom || '?'} -> ${def.anchorTo || '?'}`,
-        },
-    }), message || `Queued timeline window for ${id}.`);
-}
-
-function removeLoredeckTimelineDefinition(pack, kind = 'anchor', id = '') {
-    const cleanId = normalizeLoredeckTimelineId(id);
-    if (!cleanId) return false;
-    const isWindow = kind === 'window';
-    return queueLoredeckPendingChange(pack, createLoredeckRecordPatchChange({
-        action: isWindow ? 'remove_timeline_window' : 'remove_timeline_anchor',
-        targetKind: isWindow ? 'timeline_window' : 'timeline_anchor',
-        title: `Forget timeline ${isWindow ? 'window' : 'anchor'}: ${cleanId}`,
-        description: 'Removes the Custom timeline overlay after review. Source definitions remain unless disabled.',
-        affectedTimelineIds: [cleanId],
-        payload: isWindow
-            ? { timelineWindows: { [cleanId]: null } }
-            : { timelineAnchors: { [cleanId]: null } },
-        preview: {
-            after: 'Custom timeline overlay will be removed.',
-        },
-    }), `Queued timeline overlay removal for ${cleanId}.`);
-}
-
-function setLoredeckTimelineItemDisabled(pack, kind = 'anchor', id = '', disabled = true) {
-    const cleanId = normalizeLoredeckTimelineId(id);
-    if (!cleanId) return false;
-    const isWindow = kind === 'window';
-    const payload = isWindow
-        ? {
-            timelineWindowIdsDisable: disabled ? [cleanId] : [],
-            timelineWindowIdsEnable: disabled ? [] : [cleanId],
-        }
-        : {
-            timelineAnchorIdsDisable: disabled ? [cleanId] : [],
-            timelineAnchorIdsEnable: disabled ? [] : [cleanId],
-        };
-    return queueLoredeckPendingChange(pack, createLoredeckRecordPatchChange({
-        action: disabled ? 'disable_timeline_definition' : 'enable_timeline_definition',
-        targetKind: isWindow ? 'timeline_window' : 'timeline_anchor',
-        title: `${disabled ? 'Disable' : 'Enable'} timeline ${isWindow ? 'window' : 'anchor'}: ${cleanId}`,
-        description: `${disabled ? 'Suppresses' : 'Restores'} this timeline definition after review.`,
-        affectedTimelineIds: [cleanId],
-        payload,
-        preview: {
-            after: disabled ? 'Definition will be disabled in this Custom overlay.' : 'Definition will be restored in this Custom overlay.',
-        },
-    }), `Queued timeline ${disabled ? 'disable' : 'enable'} for ${cleanId}.`);
-}
-
 function openLoredeckTimelineAnchorDialog(pack, item = null) {
     if (pack.type === 'bundled') {
         toast('Bundled Loredeck timelines are read-only. Duplicate as Custom first.', 'warning');
@@ -11030,8 +10005,7 @@ function openLoredeckTimelineAnchorDialog(pack, item = null) {
     const tagsInput = createNewLoreInput(form, 'Tags', 'Comma-separated timeline tags.', (definition.tags || []).join(', '), false, 'arc:arlong-park, event:turning-point');
     const notesInput = createNewLoreInput(form, 'Notes', 'Private notes for this timeline anchor.', definition.notes || '', true, 'Why this anchor matters.');
 
-    const actions = document.createElement('div');
-    actions.className = 'saga-primary-actions';
+    const actions = createLoredeckActionRow();
     actions.appendChild(createButton('Queue Anchor', 'Queue this timeline anchor for Pending Review.', () => {
         const id = isExisting ? definition.id : normalizeLoredeckTimelineId(idInput.value);
         if (!id || !labelInput.value.trim()) {
@@ -11126,8 +10100,7 @@ function openLoredeckTimelineWindowDialog(pack, item = null) {
     const tagsInput = createNewLoreInput(form, 'Tags', 'Comma-separated timeline tags.', (definition.tags || []).join(', '), false, 'arc:arlong-park, saga:east-blue');
     const notesInput = createNewLoreInput(form, 'Notes', 'Private notes for this timeline window.', definition.notes || '', true, 'Window authoring notes.');
 
-    const actions = document.createElement('div');
-    actions.className = 'saga-primary-actions';
+    const actions = createLoredeckActionRow();
     actions.appendChild(createButton('Queue Window', 'Queue this timeline window for Pending Review.', () => {
         const id = isExisting ? definition.id : normalizeLoredeckTimelineId(idInput.value);
         if (!id || !labelInput.value.trim()) {
@@ -11168,189 +10141,6 @@ function openLoredeckTimelineWindowDialog(pack, item = null) {
     form.appendChild(actions);
 
     requestAnimationFrame(() => (isExisting ? labelInput : idInput).focus());
-}
-
-function createLoredeckTagManagerCard(pack, rows = [], filteredRows = []) {
-    const wrap = document.createElement('div');
-    wrap.className = 'saga-loredeck-manifest-preview';
-
-    const title = document.createElement('div');
-    title.className = 'saga-runtime-card-title';
-    title.textContent = 'Tag Manager';
-    wrap.appendChild(title);
-
-    const sourceCache = loredeckTagRegistryCache.get(pack.packId);
-    const customRegistry = getLoredeckEmbeddedTagRegistry(pack);
-    const allItems = buildLoredeckTagManagerItems(pack, rows);
-    const registryCount = allItems.filter(item => item.sourceDefined || item.customDefined).length;
-    const undefinedCount = allItems.filter(item => item.count && !item.sourceDefined && !item.customDefined).length;
-    const targetRows = loredeckEntryOverrideQuery ? filteredRows : rows;
-    const editableTargetCount = getLoredeckEntryRowsForBulk(targetRows).length;
-
-    const summary = document.createElement('div');
-    summary.className = 'saga-loredeck-entry-summary';
-    summary.appendChild(createStatusPill(`${registryCount} defined`, 'Tags defined by source tags.json or this Custom Loredeck registry layer.'));
-    summary.appendChild(createStatusPill(`${undefinedCount} undefined`, 'Entry tags currently used but not defined by a loaded registry.'));
-    summary.appendChild(createStatusPill(`${allItems.length} visible`, 'Total registry and entry-discovered tags in this manager.'));
-    summary.appendChild(createStatusPill(`${editableTargetCount} target entr${editableTargetCount === 1 ? 'y' : 'ies'}`, 'Entries affected by bulk tag actions. Current entry search narrows this target set.'));
-    if (sourceCache?.loadedAt && !sourceCache.missing && !sourceCache.error) summary.appendChild(createStatusPill('tags.json loaded', 'Source tag registry has been fetched for this editor session.'));
-    if (sourceCache?.missing) summary.appendChild(createStatusPill('no source registry', 'The manifest does not currently declare registries.tags.'));
-    if (getLoredeckTagRegistryCount(customRegistry)) summary.appendChild(createStatusPill('custom registry', 'This Loredeck has saved editable tag registry metadata.'));
-    if (loredeckEntryOverrideQuery) summary.appendChild(createStatusPill('Search scoped', 'Bulk tag actions will target the current entry search result.'));
-    wrap.appendChild(summary);
-
-    const help = document.createElement('div');
-    help.className = 'saga-runtime-help';
-    help.textContent = pack.type === 'bundled'
-        ? 'Bundled tag registries are read-only here. Duplicate this pack as Custom to define, rename, or deprecate tags.'
-        : 'Registry definitions are saved in this Custom Loredeck record. Entry tag changes still use Custom overrides.';
-    wrap.appendChild(help);
-    if (sourceCache?.error) {
-        wrap.appendChild(createKeyValue('Registry Load Error', sourceCache.error, 'Last tags.json load error for this Loredeck.'));
-    }
-
-    const actions = document.createElement('div');
-    actions.className = 'saga-primary-actions';
-    const loadRegistry = createButton('Load Registry', 'Fetch source tags.json for this Loredeck if the manifest declares one.', async (btn) => {
-        await loadLoredeckTagRegistryForEditor(pack, btn);
-    });
-    loadRegistry.disabled = !pack.manifest;
-    actions.appendChild(loadRegistry);
-    const newTag = createButton('New Tag', 'Create a new tag definition in this Custom Loredeck registry.', () => {
-        openLoredeckTagRegistryDialog(pack, null);
-    }, 'saga-primary-button');
-    newTag.disabled = pack.type === 'bundled';
-    actions.appendChild(newTag);
-    const bulk = createButton('Bulk Tags', 'Add, remove, or rename tags for the current target entries.', () => {
-        openLoredeckBulkTagsDialog(pack, targetRows);
-    });
-    bulk.disabled = !editableTargetCount;
-    actions.appendChild(bulk);
-    const exportButton = createButton('Export Registry', 'Download the currently merged tag registry as tags.json.', () => {
-        downloadJson(buildMergedLoredeckTagRegistryForExport(pack, rows), `${sanitizeFileStem(pack.packId || 'saga-loredeck')}.tags.json`);
-        toast('Tag registry exported.', 'info');
-    });
-    exportButton.disabled = !registryCount;
-    actions.appendChild(exportButton);
-    wrap.appendChild(actions);
-
-    const search = document.createElement('input');
-    search.type = 'search';
-    search.className = 'saga-loredeck-entry-search';
-    search.placeholder = 'Search tags...';
-    search.value = loredeckTagManagerQuery || '';
-    addTooltip(search, 'Search tags by namespace or label.');
-    search.addEventListener('click', e => e.stopPropagation());
-    search.addEventListener('mousedown', e => e.stopPropagation());
-    search.addEventListener('keydown', e => {
-        if (e.key !== 'Enter') return;
-        e.preventDefault();
-        loredeckTagManagerQuery = search.value;
-        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
-    });
-    search.addEventListener('change', () => {
-        loredeckTagManagerQuery = search.value;
-        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
-    });
-    wrap.appendChild(search);
-
-    const q = String(loredeckTagManagerQuery || '').trim().toLowerCase();
-    const visible = allItems
-        .filter(item => {
-            if (!q) return true;
-            const def = item.definition || {};
-            return [
-                item.tag,
-                def.label,
-                def.description,
-                ...(Array.isArray(def.aliases) ? def.aliases : []),
-                ...(Array.isArray(def.parents) ? def.parents : []),
-                def.replacement,
-                item.registryState,
-            ].filter(Boolean).join(' ').toLowerCase().includes(q);
-        })
-        .slice(0, 24);
-
-    if (!visible.length) {
-        wrap.appendChild(createEmptyMessage(allItems.length ? 'No matching tags.' : 'No tags found. Load entries, load tags.json, or create a new tag definition.'));
-        return wrap;
-    }
-
-    const list = document.createElement('div');
-    list.className = 'saga-loredeck-entry-list';
-    for (const item of visible) {
-        list.appendChild(createLoredeckTagManagerRow(pack, rows, item));
-    }
-    if (visible.length < allItems.length) {
-        const more = document.createElement('div');
-        more.className = 'saga-runtime-help';
-        more.textContent = `Showing ${visible.length} of ${allItems.length} tags. Search to narrow the list.`;
-        list.appendChild(more);
-    }
-    wrap.appendChild(list);
-    return wrap;
-}
-
-function createLoredeckTagManagerRow(pack, rows = [], item = {}) {
-    const row = document.createElement('div');
-    row.className = 'saga-loredeck-entry-row';
-
-    const main = document.createElement('div');
-    main.className = 'saga-loredeck-row-main';
-    const title = document.createElement('div');
-    title.className = 'saga-loredeck-row-title';
-    title.textContent = item.tag || 'tag';
-    main.appendChild(title);
-    const desc = document.createElement('div');
-    desc.className = 'saga-loredeck-row-description';
-    const def = item.definition || {};
-    const label = def.label || humanizeLoredeckTagId(item.tag);
-    const description = def.description || `${item.count || 0} entr${item.count === 1 ? 'y' : 'ies'} use this tag.`;
-    desc.textContent = `${label}${description ? ` | ${description}` : ''}`;
-    main.appendChild(desc);
-    const meta = document.createElement('div');
-    meta.className = 'saga-loredeck-row-meta';
-    meta.appendChild(createStatusPill(`${item.count || 0} total`, 'Total entries with this tag.'));
-    if (item.overrideCount) meta.appendChild(createStatusPill(`${item.overrideCount} override${item.overrideCount === 1 ? '' : 's'}`, 'Saved overrides using this tag.'));
-    if (item.sourceCount) meta.appendChild(createStatusPill(`${item.sourceCount} source`, 'Source entries using this tag.'));
-    meta.appendChild(createStatusPill(item.registryState || 'undefined', 'Registry definition source for this tag.'));
-    if (def.deprecated) meta.appendChild(createStatusPill('deprecated', def.replacement ? `Replacement: ${def.replacement}` : 'Tag is marked deprecated.'));
-    if (def.sensitive) meta.appendChild(createStatusPill('sensitive', 'Tag marks sensitive, secret, or spoiler-prone lore.'));
-    if (Array.isArray(def.aliases) && def.aliases.length) meta.appendChild(createStatusPill(`${def.aliases.length} alias${def.aliases.length === 1 ? '' : 'es'}`, 'Search aliases defined for this tag.'));
-    main.appendChild(meta);
-    row.appendChild(main);
-
-    const tagRows = rows.filter(entryRow => getLoredeckEntryTags(entryRow.entry || {}).some(tag => tag.toLowerCase() === String(item.tag || '').toLowerCase()));
-    const actions = document.createElement('div');
-    actions.className = 'saga-loredeck-row-actions';
-    const filterButton = createButton('Filter', 'Filter entry rows to this tag.', () => {
-        loredeckEntryOverrideQuery = item.tag || '';
-        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
-    });
-    filterButton.disabled = !(item.count || 0);
-    actions.appendChild(filterButton);
-    const editButton = createButton(item.sourceDefined || item.customDefined ? 'Edit Def' : 'Define', 'Edit this tag definition in the Custom registry layer.', () => {
-        openLoredeckTagRegistryDialog(pack, item);
-    });
-    editButton.disabled = pack.type === 'bundled';
-    actions.appendChild(editButton);
-    const renameButton = createButton('Rename', 'Rename this tag across entries that currently use it.', () => {
-        openLoredeckTagRenameDialog(pack, tagRows, item);
-    });
-    renameButton.disabled = pack.type === 'bundled';
-    actions.appendChild(renameButton);
-    const removeEntriesButton = createButton('Remove Entries', 'Remove this tag across entries that currently use it.', () => {
-        openLoredeckBulkTagsDialog(pack, tagRows, { mode: 'remove', removeTags: item.tag || '' });
-    }, 'saga-danger-button');
-    removeEntriesButton.disabled = pack.type === 'bundled' || !tagRows.length;
-    actions.appendChild(removeEntriesButton);
-    if (item.customDefined) {
-        actions.appendChild(createButton('Forget Def', 'Remove the saved Custom registry definition without changing entry tags.', () => {
-            removeLoredeckTagRegistryDefinition(pack, item.tag);
-        }, 'saga-danger-button'));
-    }
-    row.appendChild(actions);
-    return row;
 }
 
 function getLoredeckEditableEntryRows(pack, sourceEntries = []) {
@@ -11406,296 +10196,6 @@ function filterLoredeckEditableEntryRows(rows, query) {
     });
 }
 
-function createLoredeckEntryOverrideRow(pack, row) {
-    const wrap = document.createElement('div');
-    wrap.className = `saga-loredeck-entry-row saga-loredeck-entry-row-${row.status}`.trim();
-    const main = document.createElement('div');
-    main.className = 'saga-loredeck-row-main';
-    const title = document.createElement('div');
-    title.className = 'saga-loredeck-row-title';
-    title.textContent = row.entry?.title || row.id;
-    main.appendChild(title);
-
-    const desc = document.createElement('div');
-    desc.className = 'saga-loredeck-row-description';
-    desc.textContent = truncateText(row.entry?.fact || row.entry?.content?.fact || row.entry?.content?.notes || row.id, 180);
-    main.appendChild(desc);
-
-    const meta = document.createElement('div');
-    meta.className = 'saga-loredeck-row-meta';
-    meta.appendChild(createStatusPill(row.status, 'Entry override status in this Custom Loredeck.'));
-    meta.appendChild(createStatusPill(row.id, 'Lore entry ID.'));
-    if (row.entry?.category) meta.appendChild(createStatusPill(row.entry.category, 'Entry category.'));
-    if (row.entry?.relevance) meta.appendChild(createStatusPill(row.entry.relevance, 'Entry relevance tier.'));
-    if (row.entry?.context?.label) meta.appendChild(createStatusPill(row.entry.context.label, 'Context label for this entry.'));
-    if (row.entry?.retrieval?.activation) meta.appendChild(createStatusPill(row.entry.retrieval.activation, 'Retrieval activation mode.'));
-    main.appendChild(meta);
-    wrap.appendChild(main);
-
-    const actions = document.createElement('div');
-    actions.className = 'saga-loredeck-row-actions';
-    actions.appendChild(createButton('Edit', 'Edit or create an override for this entry.', () => {
-        openLoredeckEntryOverrideDialog(pack, row);
-    }, row.overrideEntry ? 'saga-primary-button' : ''));
-    actions.appendChild(createButton(row.disabled ? 'Restore' : 'Disable', row.disabled ? 'Restore this source/custom entry.' : 'Suppress this entry inside this Custom Loredeck.', () => {
-        setLoredeckEntryDisabled(pack, row.id, !row.disabled);
-    }));
-    if (row.overrideEntry) {
-        actions.appendChild(createButton('Remove Override', 'Remove the saved override. Source entry remains unless disabled.', () => {
-            removeLoredeckEntryOverride(pack, row.id);
-        }, 'saga-danger-button'));
-    }
-    wrap.appendChild(actions);
-    return wrap;
-}
-
-async function repairLoredeckSafeHealthIssues(pack, button = null) {
-    const originalText = button?.textContent;
-    if (button) {
-        button.disabled = true;
-        button.textContent = 'Repairing...';
-    }
-    try {
-        const fresh = getFreshLoredeckLibraryPack(pack.packId, pack);
-        if (!fresh || fresh.type === 'bundled') {
-            toast('Bundled Loredecks cannot be repaired directly. Duplicate as Custom first.', 'warning');
-            return false;
-        }
-        const validation = await validateLoredeckForEditor(fresh, null, { quiet: true, updateLibrary: false });
-        if (!validation.health) throw new Error(validation.error || 'Validation failed before repair.');
-        const summary = validation.health.summary || {};
-        const entrySchemaVersion = getExpectedLoredeckEntrySchemaVersion(fresh, validation.manifest);
-        const next = {
-            ...fresh,
-            entrySchemaVersion,
-            healthStatus: validation.health.status,
-            stats: {
-                entryCount: Number(summary.entryCount) || 0,
-                categoryCounts: summary.categoryCounts && typeof summary.categoryCounts === 'object' && !Array.isArray(summary.categoryCounts)
-                    ? { ...summary.categoryCounts }
-                    : {},
-            },
-            entryOverrides: { ...(fresh.entryOverrides || {}) },
-            disabledEntryIds: Array.isArray(fresh.disabledEntryIds) ? [...fresh.disabledEntryIds] : [],
-            localModified: true,
-            updatedAt: Date.now(),
-        };
-
-        let overrideRepairCount = 0;
-        if (entrySchemaVersion >= 3) {
-            for (const [id, raw] of Object.entries(next.entryOverrides || {})) {
-                const repaired = repairLoredeckEntryForHealth(raw, { forceSchemaVersion: 3 });
-                if (JSON.stringify(repaired) !== JSON.stringify(raw)) {
-                    next.entryOverrides[id] = repaired;
-                    overrideRepairCount += 1;
-                }
-            }
-        }
-        if (isGeneratedLoredeckPack(next)) {
-            refreshGeneratedLoredeckDerivedMetadata(next);
-        } else if (isVirtualLoredeckPack(next)) {
-            next.manifestData = buildEmbeddedCustomManifest(next.manifestData || validation.manifest, next);
-        }
-        const result = upsertLoredeckLibraryPack(next);
-        if (!result.ok) throw new Error(result.error || 'Safe repair failed.');
-        clearCanonLoreDatabaseCache();
-        clearContextIndexCache();
-        loredeckEntryPreviewCache.delete(next.packId);
-        await validateLoredeckForEditor(next, null, { quiet: true, updateLibrary: true });
-        refreshLoredeckSurfaces();
-        toast(`Safe repairs applied: stats refreshed${overrideRepairCount ? `, ${overrideRepairCount} override${overrideRepairCount === 1 ? '' : 's'} repaired` : ''}.`, 'success');
-        return true;
-    } catch (e) {
-        toast(e?.message || 'Safe repair failed.', 'error');
-        return false;
-    } finally {
-        if (button) {
-            button.disabled = false;
-            button.textContent = originalText || 'Repair Safe Issues';
-        }
-    }
-}
-
-async function exportValidatedLoredeckDraft(pack, button = null) {
-    const originalText = button?.textContent;
-    if (button) {
-        button.disabled = true;
-        button.textContent = 'Exporting...';
-    }
-    try {
-        const fresh = getFreshLoredeckLibraryPack(pack.packId, pack) || pack;
-        const packageResult = await buildLoredeckZipPackageForExport([fresh]);
-        downloadBytes(packageResult.zipBytes, packageResult.filename, 'application/zip');
-        toast(`Loredeck package exported with ${packageResult.fileCount} file${packageResult.fileCount === 1 ? '' : 's'}.`, 'success');
-    } catch (e) {
-        toast(e?.message || 'Loredeck export failed.', 'error');
-    } finally {
-        if (button) {
-            button.disabled = false;
-            button.textContent = originalText || 'Export Package';
-        }
-    }
-}
-
-async function syncLoredeckMetadataFromManifest(pack, button = null) {
-    const originalText = button?.textContent;
-    if (button) {
-        button.disabled = true;
-        button.textContent = 'Syncing...';
-    }
-    try {
-        if (isVirtualLoredeckPack(pack)) {
-            const baseManifest = await fetchLoredeckManifest(pack.manifest);
-            const record = {
-                ...pack,
-                type: 'custom',
-                entrySchemaVersion: Number.isFinite(Number(baseManifest.entrySchemaVersion)) ? Number(baseManifest.entrySchemaVersion) : (Number(pack.entrySchemaVersion) || 0),
-                stats: {
-                    entryCount: Number.isFinite(Number(baseManifest.stats?.entryCount)) && Number(baseManifest.stats.entryCount) > 0
-                        ? Math.max(0, Number(baseManifest.stats.entryCount))
-                        : Math.max(0, Number(pack.entryCount || pack.stats?.entryCount) || 0),
-                    categoryCounts: baseManifest.stats?.categoryCounts && typeof baseManifest.stats.categoryCounts === 'object' && !Array.isArray(baseManifest.stats.categoryCounts)
-                        ? { ...baseManifest.stats.categoryCounts }
-                        : (pack.stats?.categoryCounts || {}),
-                },
-            };
-            record.manifestData = buildEmbeddedCustomManifest(baseManifest, record);
-            if (getLoredeckTimelineRegistryCount(pack.timelineRegistry)) record.timelineRegistry = normalizeLoredeckTimelineRegistry(pack.timelineRegistry);
-            if (getLoredeckTagRegistryCount(pack.tagRegistry)) record.tagRegistry = normalizeLoredeckTagRegistry(pack.tagRegistry);
-            const result = upsertLoredeckLibraryPack(record);
-            if (!result.ok) throw new Error(result.error || 'Metadata sync failed.');
-            loredeckManifestPreviewCache.set(record.packId, {
-                manifest: record.manifestData,
-                error: '',
-                loadedAt: Date.now(),
-            });
-            refreshLoredeckSurfaces({ clearCanon: true });
-            toast(`${record.title} refreshed from its base manifest.`, 'success');
-            return;
-        }
-        const manifest = await fetchLoredeckManifest(pack.manifest);
-        const record = buildLoredeckRecordFromManifest(manifest, pack.manifest);
-        if (record.packId !== pack.packId) {
-            throw new Error(`Manifest id ${record.packId} does not match selected Loredeck id ${pack.packId}. Register it as a separate Loredeck instead.`);
-        }
-        record.type = pack.type === 'generated' ? 'generated' : 'custom';
-        record.installedAt = pack.installedAt || Date.now();
-        record.entryOverrides = pack.entryOverrides || {};
-        record.disabledEntryIds = Array.isArray(pack.disabledEntryIds) ? [...pack.disabledEntryIds] : [];
-        record.localModified = pack.localModified === true;
-        const pendingChanges = getLoredeckPendingChanges(pack);
-        if (pendingChanges.length) record.pendingChanges = pendingChanges;
-        if (getLoredeckTimelineRegistryCount(pack.timelineRegistry)) record.timelineRegistry = normalizeLoredeckTimelineRegistry(pack.timelineRegistry);
-        if (getLoredeckTagRegistryCount(pack.tagRegistry)) record.tagRegistry = normalizeLoredeckTagRegistry(pack.tagRegistry);
-        const result = upsertLoredeckLibraryPack(record);
-        if (!result.ok) throw new Error(result.error || 'Metadata sync failed.');
-        loredeckManifestPreviewCache.set(record.packId, {
-            manifest,
-            error: '',
-            loadedAt: Date.now(),
-        });
-        selectLoredeckForDetails(record.packId, { refresh: false });
-        clearCanonLoreDatabaseCache();
-        refreshLoredeckSurfaces();
-        toast(`${record.title} metadata synced from manifest.`, 'success');
-    } catch (e) {
-        toast(e?.message || 'Metadata sync failed.', 'error');
-    } finally {
-        if (button) {
-            button.disabled = false;
-            button.textContent = originalText || 'Sync From Manifest';
-        }
-    }
-}
-
-async function saveLoredeckMetadataFromInputs(pack, fields, button = null) {
-    const originalText = button?.textContent;
-    if (button) {
-        button.disabled = true;
-        button.textContent = 'Saving...';
-    }
-    try {
-        const title = fields.titleInput.value.trim() || pack.title || pack.packId;
-        const nextManifest = fields.manifestInput.value.trim();
-        if (nextManifest && nextManifest !== pack.manifest) {
-            const manifest = await fetchLoredeckManifest(nextManifest);
-            const manifestId = String(manifest?.id || '').trim();
-            if (!manifestId) throw new Error('Manifest is missing required id.');
-            if (manifestId !== pack.packId) {
-                throw new Error(`Manifest id ${manifestId} does not match selected Loredeck id ${pack.packId}. Register it as a separate Loredeck instead.`);
-            }
-            loredeckManifestPreviewCache.set(pack.packId, {
-                manifest,
-                error: '',
-                loadedAt: Date.now(),
-            });
-        }
-        const record = {
-            ...pack,
-            type: pack.type === 'generated' ? 'generated' : 'custom',
-            title,
-            description: fields.descriptionInput.value.trim(),
-            fandom: fields.fandomInput.value.trim(),
-            era: fields.eraInput.value.trim(),
-            author: fields.authorInput.value.trim(),
-            version: fields.versionInput.value.trim(),
-            manifest: nextManifest,
-            tags: parseLoredeckTags(fields.tagsInput.value),
-            localModified: true,
-            updatedAt: Date.now(),
-        };
-        if (isGeneratedLoredeckPack(record)) {
-            refreshGeneratedLoredeckDerivedMetadata(record);
-        } else if (isVirtualLoredeckPack(pack)) {
-            record.manifestData = buildEmbeddedCustomManifest(pack.manifestData, record);
-        }
-        const result = upsertLoredeckLibraryPack(record);
-        if (!result.ok) throw new Error(result.error || 'Loredeck metadata save failed.');
-        if (record.manifest !== pack.manifest) {
-            loredeckManifestPreviewCache.delete(pack.packId);
-            loredeckEntryPreviewCache.delete(pack.packId);
-            loredeckTimelineRegistryCache.delete(pack.packId);
-            loredeckTagRegistryCache.delete(pack.packId);
-        }
-        clearCanonLoreDatabaseCache();
-        refreshLoredeckSurfaces();
-        toast(`${title} metadata saved.`, 'success');
-    } catch (e) {
-        toast(e?.message || 'Loredeck metadata save failed.', 'error');
-    } finally {
-        if (button) {
-            button.disabled = false;
-            button.textContent = originalText || 'Save Metadata';
-        }
-    }
-}
-
-function getUniqueLoredeckPackId(baseId, library = getLoredeckLibrary(getState())) {
-    const existing = new Set(library.map(pack => pack.packId));
-    const base = normalizeLoredeckPackId(baseId) || 'custom-loredeck';
-    if (!existing.has(base)) return base;
-    for (let index = 2; index < 1000; index += 1) {
-        const candidate = `${base}-${index}`;
-        if (!existing.has(candidate)) return candidate;
-    }
-    return `${base}-${Date.now()}`;
-}
-
-function getDefaultDuplicateLoredeckTags(pack, manifest = {}) {
-    const sourceTags = Array.isArray(pack?.tags) && pack.tags.length ? pack.tags : (Array.isArray(manifest.tags) ? manifest.tags : []);
-    return parseLoredeckTags([
-        ...sourceTags.filter(tag => !String(tag || '').toLowerCase().startsWith('quality:')),
-        'origin:duplicate',
-        'quality:user-managed',
-    ].join(', '));
-}
-
-function getLoredeckDuplicateTitle(sourcePack = {}, suffix = 'Copy') {
-    const title = String(sourcePack.title || sourcePack.packId || 'Loredeck').trim();
-    const cleanSuffix = String(suffix || 'Copy').trim() || 'Copy';
-    return /\bcopy(?:\s+\d+)?$/i.test(title) ? title : `${title} ${cleanSuffix}`;
-}
-
 function getUniqueLoredeckLibraryFolderTitle(parentId = '', title = '', folders = []) {
     const base = String(title || 'Folder').trim() || 'Folder';
     const siblings = new Set(getLoredeckLibraryFolderSiblingRecords(parentId, folders).map(folder => String(folder.title || '').trim().toLowerCase()));
@@ -11705,254 +10205,6 @@ function getUniqueLoredeckLibraryFolderTitle(parentId = '', title = '', folders 
         if (!siblings.has(candidate.toLowerCase())) return candidate;
     }
     return `${base} ${Date.now()}`;
-}
-
-async function buildCustomDuplicateLoredeckRecord(sourcePack, options = {}) {
-    const packId = normalizeLoredeckPackId(options.packId);
-    if (!packId) throw new Error('Custom Loredeck needs a valid pack ID.');
-    if (getLoredeckDefinition(packId)) throw new Error(`A Loredeck with id ${packId} already exists.`);
-    const title = String(options.title || sourcePack.title || packId).trim() || packId;
-    const sourceManifest = await getDisplayManifestForPack(sourcePack);
-    const baseManifest = sourcePack.manifest || sourcePack.source?.url || '';
-    if (!baseManifest) throw new Error('Source Loredeck does not have a fetchable manifest path.');
-    const stats = {
-        entryCount: Number.isFinite(Number(sourcePack.entryCount)) ? Math.max(0, Number(sourcePack.entryCount)) : (Number(sourceManifest.stats?.entryCount) || 0),
-        categoryCounts: sourceManifest.stats?.categoryCounts && typeof sourceManifest.stats.categoryCounts === 'object' && !Array.isArray(sourceManifest.stats.categoryCounts)
-            ? { ...sourceManifest.stats.categoryCounts }
-            : (sourcePack.stats?.categoryCounts || {}),
-    };
-    const derivedFrom = {
-        packId: sourcePack.packId,
-        title: sourcePack.title || sourcePack.packId,
-        type: sourcePack.type || 'custom',
-        version: sourcePack.version || sourceManifest.version || '',
-        manifest: baseManifest,
-        duplicatedAt: Date.now(),
-    };
-    const record = {
-        packId,
-        type: 'custom',
-        title,
-        description: String(options.description ?? sourcePack.description ?? '').trim(),
-        fandom: sourcePack.fandom || sourceManifest.fandom || '',
-        era: sourcePack.era || sourceManifest.era || '',
-        author: String(options.author || 'User').trim(),
-        version: String(options.version || '1.0.0').trim() || '1.0.0',
-        entrySchemaVersion: Number.isFinite(Number(sourceManifest.entrySchemaVersion)) ? Number(sourceManifest.entrySchemaVersion) : (Number(sourcePack.entrySchemaVersion) || 0),
-        manifest: baseManifest,
-        source: {
-            kind: 'derived',
-            url: baseManifest,
-            updateUrl: '',
-        },
-        tags: Array.isArray(options.tags) ? options.tags : parseLoredeckTags(options.tags || getDefaultDuplicateLoredeckTags(sourcePack, sourceManifest).join(', ')),
-        stats,
-        healthStatus: '',
-        derivedFrom,
-        entryOverrides: {},
-        disabledEntryIds: [],
-        installedAt: Date.now(),
-        updatedAt: Date.now(),
-    };
-    if (getLoredeckTagRegistryCount(sourcePack.tagRegistry)) {
-        record.tagRegistry = normalizeLoredeckTagRegistry(sourcePack.tagRegistry);
-    }
-    if (getLoredeckTimelineRegistryCount(sourcePack.timelineRegistry)) {
-        record.timelineRegistry = normalizeLoredeckTimelineRegistry(sourcePack.timelineRegistry);
-    }
-    record.manifestData = buildEmbeddedCustomManifest(sourceManifest, record);
-    return record;
-}
-
-async function createCustomDuplicateLoredeckRecord(sourcePack, options = {}) {
-    const record = await buildCustomDuplicateLoredeckRecord(sourcePack, options);
-    const result = upsertLoredeckLibraryPack(record);
-    if (!result.ok) throw new Error(result.error || 'Loredeck duplication failed.');
-    loredeckManifestPreviewCache.set(record.packId, {
-        manifest: record.manifestData,
-        error: '',
-        loadedAt: Date.now(),
-    });
-    return record;
-}
-
-function getFinalizedGeneratedLoredeckTags(pack = {}) {
-    const sourceTags = Array.isArray(pack.tags) ? pack.tags : [];
-    const tags = sourceTags.filter(tag => {
-        const key = String(tag || '').trim().toLowerCase();
-        return key
-            && key !== 'origin:generated'
-            && key !== 'quality:model-drafted'
-            && key !== 'saga:creator';
-    });
-    tags.push('origin:custom', 'source:generated', 'quality:user-managed', 'saga:creator-finalized');
-    return parseLoredeckTags(tags.join(', '));
-}
-
-function finalizeGeneratedLoredeckEntry(entry = {}, targetPackId = '', sourcePackId = '', finalizedAt = Date.now()) {
-    const next = cloneLoredeckJson(entry) || { ...(entry || {}) };
-    next.source = `saga-loredeck:${targetPackId}:custom`;
-    const extensions = next.extensions && typeof next.extensions === 'object' && !Array.isArray(next.extensions)
-        ? { ...next.extensions }
-        : {};
-    delete extensions.sagaLoredeckCreator;
-    extensions.sagaLoredeckFinalizedFrom = {
-        packId: sourcePackId,
-        source: 'loredeck_creator',
-        finalizedAt,
-    };
-    if (extensions.sagaLoredeckOverride && typeof extensions.sagaLoredeckOverride === 'object' && !Array.isArray(extensions.sagaLoredeckOverride)) {
-        extensions.sagaLoredeckOverride = {
-            ...extensions.sagaLoredeckOverride,
-            packId: targetPackId,
-            source: 'custom_finalized',
-        };
-    }
-    next.extensions = extensions;
-    return next;
-}
-
-function buildFinalizedCustomLoredeckRecordFromGenerated(sourcePack = {}, options = {}) {
-    if (!isGeneratedLoredeckPack(sourcePack)) throw new Error('Only Generated Loredecks can be finalized as Custom.');
-    const packId = normalizeLoredeckPackId(options.packId || getUniqueLoredeckPackId(`${sourcePack.packId}-custom`));
-    if (!packId) throw new Error('Finalized Custom Loredeck needs a valid pack ID.');
-    if (getLoredeckDefinition(packId)) throw new Error(`A Loredeck with id ${packId} already exists.`);
-    const finalizedAt = Date.now();
-    const entries = getAcceptedGeneratedLoredeckEntries(sourcePack);
-    if (!entries.length) throw new Error('Generated Loredeck needs accepted Lorecards before it can be finalized.');
-    const entryOverrides = {};
-    for (const entry of entries) {
-        const id = normalizeLoredeckEntryId(entry.id);
-        if (!id) continue;
-        entryOverrides[id] = finalizeGeneratedLoredeckEntry(entry, packId, sourcePack.packId, finalizedAt);
-    }
-    const stats = buildLoredeckStatsFromEntries(Object.values(entryOverrides));
-    const title = String(options.title || getLoredeckDuplicateTitle(sourcePack, 'Custom') || packId).trim() || packId;
-    const manifestSeed = {
-        ...(cloneLoredeckJson(sourcePack.manifestData) || {}),
-        id: packId,
-        type: 'custom',
-        title,
-        description: String(options.description ?? sourcePack.description ?? '').trim(),
-        fandom: sourcePack.fandom || sourcePack.manifestData?.fandom || '',
-        era: sourcePack.era || sourcePack.manifestData?.era || '',
-        author: String(options.author || 'User').trim(),
-        version: String(options.version || '1.0.0').trim() || '1.0.0',
-        entrySchemaVersion: Math.max(3, Number(sourcePack.entrySchemaVersion || sourcePack.manifestData?.entrySchemaVersion) || 0),
-        files: [],
-        tags: getFinalizedGeneratedLoredeckTags(sourcePack),
-        stats,
-        update: {
-            checkForUpdates: false,
-            url: '',
-        },
-    };
-    const record = {
-        packId,
-        type: 'custom',
-        title,
-        description: manifestSeed.description,
-        fandom: manifestSeed.fandom,
-        era: manifestSeed.era,
-        author: manifestSeed.author,
-        version: manifestSeed.version,
-        entrySchemaVersion: manifestSeed.entrySchemaVersion,
-        manifest: '',
-        source: {
-            kind: 'generated_finalized',
-            url: '',
-            updateUrl: '',
-            originalPackId: sourcePack.packId,
-        },
-        tags: manifestSeed.tags,
-        stats,
-        healthStatus: options.healthStatus || sourcePack.healthStatus || '',
-        derivedFrom: {
-            packId: sourcePack.packId,
-            title: sourcePack.title || sourcePack.packId,
-            type: 'generated',
-            version: sourcePack.version || '',
-            creatorJobId: options.creatorJob?.jobId || getLoredeckCreatorJobForPack(sourcePack)?.jobId || '',
-            finalizedAt,
-            ...(options.creatorCoverageProvenance ? { creatorCoverage: options.creatorCoverageProvenance } : {}),
-        },
-        entryOverrides,
-        disabledEntryIds: Array.isArray(sourcePack.disabledEntryIds) ? [...sourcePack.disabledEntryIds] : [],
-        tagRegistry: normalizeLoredeckTagRegistry(sourcePack.tagRegistry),
-        timelineRegistry: normalizeLoredeckTimelineRegistry(sourcePack.timelineRegistry),
-        pendingChanges: [],
-        localModified: true,
-        installedAt: finalizedAt,
-        updatedAt: finalizedAt,
-    };
-    record.manifestData = buildEmbeddedCustomManifest(manifestSeed, record);
-    return record;
-}
-
-async function finalizeGeneratedLoredeckAsCustom(pack, button = null) {
-    const originalText = button?.textContent;
-    if (button) {
-        button.disabled = true;
-        button.textContent = 'Finalizing...';
-    }
-    try {
-        const fresh = getFreshLoredeckLibraryPack(pack.packId, pack);
-        if (!isGeneratedLoredeckPack(fresh)) throw new Error('Only Generated Loredecks can be finalized as Custom.');
-        const validation = await validateLoredeckForEditor(fresh, null, { quiet: true, updateLibrary: true });
-        if (!validation.health) throw new Error(validation.error || 'Validation failed before finalizing.');
-        const validated = getFreshLoredeckLibraryPack(fresh.packId, fresh);
-        const creatorJob = getLoredeckCreatorJobForPack(validated);
-        const readiness = getGeneratedLoredeckExportReadiness(validated, validation.health, creatorJob);
-        if (!readiness.ready) {
-            throw new Error(`Generated Loredeck is not ready to finalize: ${readiness.blockers[0] || 'resolve pending generated draft state first.'}`);
-        }
-        if (readiness.warnings.length) {
-            const proceed = await confirmAction(
-                'Finalize Generated Loredeck with warnings?',
-                [
-                    `${validated.title || validated.packId} has readiness warnings:`,
-                    ...readiness.warnings.slice(0, 6).map(item => `- ${item}`),
-                    readiness.warnings.length > 6 ? `- ...and ${readiness.warnings.length - 6} more` : '',
-                    '',
-                    'Finalize anyway as a Custom Loredeck copy?',
-                ].filter(Boolean).join('\n')
-            );
-            if (!proceed) return null;
-        }
-        const record = buildFinalizedCustomLoredeckRecordFromGenerated(validated, {
-            healthStatus: validation.health.status,
-            creatorJob,
-            creatorCoverageProvenance: buildLoredeckCreatorCoverageFinalizationProvenance(readiness.pipeline?.coverage),
-        });
-        createStateBackup('before_creator_finalization', {
-            label: `Before finalizing ${validated.title || validated.packId} as Custom.`,
-        });
-        const result = upsertLoredeckLibraryPack(record);
-        if (!result.ok) throw new Error(result.error || 'Generated Loredeck finalization failed.');
-        loredeckManifestPreviewCache.set(record.packId, {
-            manifest: record.manifestData,
-            health: null,
-            error: '',
-            loadedAt: Date.now(),
-        });
-        selectLoredeckForDetails(record.packId, { refresh: false });
-        clearCanonLoreDatabaseCache();
-        clearContextIndexCache();
-        await validateLoredeckForEditor(record, null, { quiet: true, updateLibrary: true });
-        refreshLoredeckSurfaces({ clearCanon: true, clearContext: true });
-        openLoredeckMetadataEditor(record.packId);
-        if (isLoredeckLibraryOpen()) renderLoredeckLibraryOverlay();
-        toast(`${record.title || record.packId} finalized as a Custom Loredeck.`, 'success');
-        return record;
-    } catch (e) {
-        toast(e?.message || 'Generated Loredeck finalization failed.', 'error');
-        return null;
-    } finally {
-        if (button) {
-            button.disabled = false;
-            button.textContent = originalText || 'Finalize as Custom';
-        }
-    }
 }
 
 function saveLoredeckLibraryDeckPlacementAssignments(assignments = []) {
@@ -12056,8 +10308,7 @@ function openDuplicateLoredeckDialog(sourcePack) {
     addTooltip(options, 'Adds the new Custom Loredeck to the active stack after creating it. You can still reorder priority later.');
     form.appendChild(options);
 
-    const actions = document.createElement('div');
-    actions.className = 'saga-primary-actions';
+    const actions = createLoredeckActionRow();
     actions.appendChild(createButton('Create Custom Loredeck', 'Duplicate this pack into the Custom Loredeck Library.', async (btn) => {
         await duplicateLoredeckAsCustom(sourcePack, {
             overlay,
@@ -12074,39 +10325,6 @@ function openDuplicateLoredeckDialog(sourcePack) {
     form.appendChild(actions);
 
     requestAnimationFrame(() => idInput.focus());
-}
-
-async function duplicateLoredeckAsCustom(sourcePack, fields, button = null) {
-    const originalText = button?.textContent;
-    if (button) {
-        button.disabled = true;
-        button.textContent = 'Creating...';
-    }
-    try {
-        const packId = normalizeLoredeckPackId(fields.idInput.value);
-        const title = fields.titleInput.value.trim() || packId;
-        const record = await createCustomDuplicateLoredeckRecord(sourcePack, {
-            packId,
-            title,
-            description: fields.descriptionInput.value.trim(),
-            author: fields.authorInput.value.trim(),
-            version: fields.versionInput.value.trim() || '1.0.0',
-            tags: parseLoredeckTags(fields.tagsInput.value),
-        });
-        fields.overlay?.remove?.();
-        selectLoredeckForDetails(record.packId, { refresh: false });
-        if (fields.addToStackInput.checked) {
-            addLoredeckToStack(record.packId);
-        }
-        refreshLoredeckSurfaces({ clearCanon: true, clearContext: true });
-    } catch (e) {
-        toast(e?.message || 'Loredeck duplication failed.', 'error');
-    } finally {
-        if (button) {
-            button.disabled = false;
-            button.textContent = originalText || 'Create Custom Loredeck';
-        }
-    }
 }
 
 function formatLoredeckBulkDuplicateList(packs = [], limit = 10) {
@@ -12361,8 +10579,7 @@ function openLoredeckEntryOverrideDialog(pack, row = null) {
         };
     }
 
-    const actions = document.createElement('div');
-    actions.className = 'saga-primary-actions';
+    const actions = createLoredeckActionRow();
     actions.appendChild(createButton('Queue Change', 'Queue this entry override for Pending Review.', () => {
         const id = isExisting ? row.id : normalizeLoredeckEntryId(idInput.value);
         const fact = factInput.value.trim();
@@ -12447,70 +10664,6 @@ function openLoredeckEntryOverrideDialog(pack, row = null) {
     form.appendChild(actions);
 
     requestAnimationFrame(() => (isExisting ? titleInput : idInput).focus());
-}
-
-function buildBulkLoredeckTagOverrideEntry(pack, row, tags = []) {
-    const baseEntry = row.overrideEntry || row.sourceEntry || row.entry || {};
-    const entrySchemaVersion = Math.max(Number(baseEntry.schemaVersion) || 0, getExpectedLoredeckEntrySchemaVersion(pack));
-    const id = String(row.id || baseEntry.id || '').trim();
-    const title = String(baseEntry.title || id || 'Lorecard').trim();
-    const fact = String(baseEntry.content?.fact || baseEntry.fact || baseEntry.description || baseEntry.detail || title).trim();
-    const injection = String(baseEntry.content?.injection || baseEntry.injection || fact).trim();
-    const cleanTags = parseLoredeckEntryTags(tags);
-    let entry = normalizeLoreEntry({
-        ...baseEntry,
-        id,
-        title,
-        tags: cleanTags,
-        content: {
-            ...(baseEntry.content || {}),
-            fact,
-            injection,
-        },
-        userEditable: true,
-        userEdited: true,
-        extensions: {
-            ...(baseEntry.extensions || {}),
-            sagaLoredeckOverride: {
-                kind: row.sourceEntry ? 'override' : 'addition',
-                packId: pack.packId,
-                sourceEntryId: row.sourceEntry?.id || '',
-                updatedAt: Date.now(),
-            },
-        },
-    });
-    entry.id = id;
-    entry.tags = cleanTags;
-    if (entrySchemaVersion >= 3) {
-        entry = normalizeLoredeckEntryForSchemaV3({
-            ...entry,
-            id,
-            schemaVersion: 3,
-            tags: cleanTags,
-        });
-        entry.tags = cleanTags;
-    }
-    return entry;
-}
-
-function computeLoredeckBulkTagUpdates(pack, rows = [], mode = 'add', fields = {}) {
-    const updates = [];
-    const addTags = parseLoredeckEntryTags(fields.addTags);
-    const removeTags = parseLoredeckEntryTags(fields.removeTags);
-    const fromTag = parseLoredeckEntryTags([fields.fromTag])[0] || '';
-    const toTag = parseLoredeckEntryTags([fields.toTag])[0] || '';
-
-    for (const row of getLoredeckEntryRowsForBulk(rows)) {
-        const current = getLoredeckEntryTags(row.entry || {});
-        let next = current;
-        if (mode === 'add') next = mergeLoredeckEntryTags(current, addTags);
-        else if (mode === 'remove') next = removeLoredeckEntryTags(current, removeTags);
-        else if (mode === 'replace') next = replaceLoredeckEntryTag(current, fromTag, toTag);
-
-        if (JSON.stringify(current.map(tag => tag.toLowerCase()).sort()) === JSON.stringify(next.map(tag => tag.toLowerCase()).sort())) continue;
-        updates.push(buildBulkLoredeckTagOverrideEntry(pack, row, next));
-    }
-    return updates;
 }
 
 function isLoredeckMalformedTagIssueGroup(group = {}) {
@@ -12741,8 +10894,7 @@ function openLoredeckBulkTagsDialog(pack, rows = [], options = {}) {
     const fromInput = createNewLoreInput(grid, 'Rename From', 'Existing tag to rename or delete in Replace mode.', options.fromTag || '', false, 'character:old-name');
     const toInput = createNewLoreInput(grid, 'Rename To', 'Replacement tag in Replace mode. Leave blank to delete Rename From.', options.toTag || '', false, 'character:new-name');
 
-    const actions = document.createElement('div');
-    actions.className = 'saga-primary-actions';
+    const actions = createLoredeckActionRow();
     actions.appendChild(createButton('Queue Tags', 'Queue this tag operation for Pending Review.', () => {
         const mode = modeSelect.value;
         if (mode === 'add' && !parseLoredeckEntryTags(addInput.value).length) {
@@ -12768,33 +10920,14 @@ function openLoredeckBulkTagsDialog(pack, rows = [], options = {}) {
             toast('No tag changes were needed for the target entries.', 'info');
             return;
         }
-        const entryOverrides = {};
-        const entryIds = [];
-        for (const entry of updates) {
-            if (!entry.id) continue;
-            entryOverrides[entry.id] = entry;
-            entryIds.push(entry.id);
-        }
-        const applied = queueLoredeckPendingChange(pack, createLoredeckRecordPatchChange({
-            action: 'bulk_tag_update',
-            targetKind: 'entries',
-            title: `Bulk tag ${mode}`,
-            description: `Updates tags on ${entryIds.length} entr${entryIds.length === 1 ? 'y' : 'ies'} after review.`,
-            affectedEntryIds: entryIds,
-            affectedTagIds: [
-                ...parseLoredeckEntryTags(addInput.value),
-                ...parseLoredeckEntryTags(removeInput.value),
-                ...parseLoredeckEntryTags([fromInput.value]),
-                ...parseLoredeckEntryTags([toInput.value]),
-            ],
-            payload: {
-                entryOverrides,
-                disabledEntryIdsRemove: entryIds,
-            },
-            preview: {
-                after: `Tag changes will apply to ${entryIds.length} entr${entryIds.length === 1 ? 'y' : 'ies'}.`,
-            },
-        }), `Queued bulk tag update for ${entryIds.length} entr${entryIds.length === 1 ? 'y' : 'ies'}.`);
+        const applied = queueLoredeckBulkTagUpdate(pack, {
+            mode,
+            updates,
+            addTags: addInput.value,
+            removeTags: removeInput.value,
+            fromTag: fromInput.value,
+            toTag: toInput.value,
+        });
         if (applied) overlay.remove();
     }, 'saga-primary-button'));
     actions.appendChild(createButton('Cancel', 'Close without applying bulk tag edits.', () => overlay.remove()));
@@ -12805,60 +10938,6 @@ function openLoredeckBulkTagsDialog(pack, rows = [], options = {}) {
         else if (options.mode === 'remove') removeInput.focus();
         else addInput.focus();
     });
-}
-
-function createLoredeckCheckbox(container, labelText, tooltip, checked = false) {
-    const label = document.createElement('label');
-    label.className = 'saga-inline-toggle';
-    addTooltip(label, tooltip);
-    const input = document.createElement('input');
-    input.type = 'checkbox';
-    input.checked = !!checked;
-    label.appendChild(input);
-    label.appendChild(document.createTextNode(` ${labelText}`));
-    container.appendChild(label);
-    return input;
-}
-
-function saveLoredeckTagRegistryDefinition(pack, tagId, definition, message = '') {
-    const id = normalizeLoredeckTagId(tagId);
-    if (!id) {
-        toast('Tag definition needs a valid tag ID.', 'warning');
-        return false;
-    }
-    const def = normalizeLoredeckTagDefinition(definition, id);
-    delete def.id;
-    return queueLoredeckPendingChange(pack, createLoredeckRecordPatchChange({
-        action: 'upsert_tag_definition',
-        targetKind: 'tag',
-        title: `Save tag definition: ${id}`,
-        description: 'Creates or updates a Custom tag registry definition after review.',
-        affectedTagIds: [id],
-        payload: {
-            tagDefinitions: { [id]: def },
-        },
-        preview: {
-            after: def.description || def.label || id,
-        },
-    }), message || `Queued pending tag definition for ${id}.`);
-}
-
-function removeLoredeckTagRegistryDefinition(pack, tagId) {
-    const id = normalizeLoredeckTagId(tagId);
-    if (!id) return false;
-    return queueLoredeckPendingChange(pack, createLoredeckRecordPatchChange({
-        action: 'remove_tag_definition',
-        targetKind: 'tag',
-        title: `Forget tag definition: ${id}`,
-        description: 'Removes the Custom tag registry definition after review without changing entry tags.',
-        affectedTagIds: [id],
-        payload: {
-            tagDefinitions: { [id]: null },
-        },
-        preview: {
-            after: 'Custom tag definition will be removed.',
-        },
-    }), `Queued pending tag definition removal for ${id}.`);
 }
 
 function openLoredeckTagRegistryDialog(pack, item = null) {
@@ -12916,8 +10995,7 @@ function openLoredeckTagRegistryDialog(pack, item = null) {
     const sensitiveInput = createLoredeckCheckbox(grid, 'Sensitive', 'Mark this tag as sensitive, secret, or spoiler-prone.', definition.sensitive === true);
     const deprecatedInput = createLoredeckCheckbox(grid, 'Deprecated', 'Mark this tag as deprecated while keeping it visible for cleanup.', definition.deprecated === true);
 
-    const actions = document.createElement('div');
-    actions.className = 'saga-primary-actions';
+    const actions = createLoredeckActionRow();
     actions.appendChild(createButton('Queue Definition', 'Queue this tag definition for Pending Review.', () => {
         const id = isExisting ? tagId : normalizeLoredeckTagId(idInput.value);
         if (!id) {
@@ -13002,8 +11080,7 @@ function openLoredeckTagRenameDialog(pack, rows = [], item = {}) {
     const updateEntriesInput = createLoredeckCheckbox(form, 'Update entry tags', 'Create Custom overrides that replace this tag on affected entries.', true);
     const deprecatedInput = createLoredeckCheckbox(form, 'Deprecate old tag', 'Keep the old tag definition as deprecated with a replacement pointer.', true);
 
-    const actions = document.createElement('div');
-    actions.className = 'saga-primary-actions';
+    const actions = createLoredeckActionRow();
     actions.appendChild(createButton('Queue Rename', 'Queue this tag rename or merge for Pending Review.', () => {
         const toTag = normalizeLoredeckTagId(toInput.value);
         if (!toTag) {
@@ -13017,56 +11094,13 @@ function openLoredeckTagRenameDialog(pack, rows = [], item = {}) {
         const updates = updateEntriesInput.checked
             ? computeLoredeckBulkTagUpdates(pack, rows, 'replace', { fromTag, toTag })
             : [];
-        const sourceDef = normalizeLoredeckTagDefinition(item.definition || {}, fromTag);
-        const tagDefinitions = {};
-        const targetDef = normalizeLoredeckTagDefinition({
-            ...sourceDef,
-            label: sourceDef.label && sourceDef.label !== humanizeLoredeckTagId(fromTag)
-                ? sourceDef.label
-                : humanizeLoredeckTagId(toTag),
-            deprecated: false,
-            replacement: '',
-        }, toTag);
-        delete targetDef.id;
-        tagDefinitions[toTag] = targetDef;
-
-        if (deprecatedInput.checked || item.sourceDefined) {
-            const oldDef = normalizeLoredeckTagDefinition({
-                ...sourceDef,
-                deprecated: true,
-                replacement: toTag,
-            }, fromTag);
-            delete oldDef.id;
-            tagDefinitions[fromTag] = oldDef;
-        } else {
-            tagDefinitions[fromTag] = null;
-        }
-
-        const entryOverrides = {};
-        const entryIds = [];
-        for (const entry of updates) {
-            if (!entry.id) continue;
-            entryOverrides[entry.id] = entry;
-            entryIds.push(entry.id);
-        }
-
-        const applied = queueLoredeckPendingChange(pack, createLoredeckRecordPatchChange({
-            action: 'rename_tag',
-            targetKind: 'tags',
-            title: `Rename tag: ${fromTag} -> ${toTag}`,
-            description: `Renames or merges a tag definition${entryIds.length ? ` and updates ${entryIds.length} entr${entryIds.length === 1 ? 'y' : 'ies'}` : ''} after review.`,
-            affectedEntryIds: entryIds,
-            affectedTagIds: [fromTag, toTag],
-            payload: {
-                tagDefinitions,
-                entryOverrides,
-                disabledEntryIdsRemove: entryIds,
-            },
-            preview: {
-                before: fromTag,
-                after: toTag,
-            },
-        }), `Queued tag rename ${fromTag} -> ${toTag}.`);
+        const applied = queueLoredeckTagRenameProposal(pack, {
+            fromTag,
+            toTag,
+            item,
+            updates,
+            deprecateOld: deprecatedInput.checked,
+        });
         if (applied) overlay.remove();
     }, 'saga-primary-button'));
     actions.appendChild(createButton('Cancel', 'Close without renaming this tag.', () => overlay.remove()));
@@ -13203,8 +11237,7 @@ function openLoredeckBulkContextDialog(pack, rows = []) {
         contextBoostSelect,
     };
 
-    const actions = document.createElement('div');
-    actions.className = 'saga-primary-actions';
+    const actions = createLoredeckActionRow();
     actions.appendChild(createButton('Queue For Review', 'Queue Custom overrides with this Context and retrieval metadata.', () => {
         const contextGate = buildLoredeckContextFromEditorFields(contextFields);
         const retrieval = buildLoredeckRetrievalFromEditorFields(retrievalFields);
@@ -13213,28 +11246,13 @@ function openLoredeckBulkContextDialog(pack, rows = []) {
             toast(`Schema v3 entries need: ${v3Errors.join(', ')}.`, 'warning');
             return;
         }
-        const entryOverrides = {};
-        const entryIds = [];
+        const entries = [];
         for (const row of editableRows) {
             const entry = buildBulkLoredeckContextOverrideEntry(pack, row, contextGate, retrieval);
             if (!entry.id) continue;
-            entryOverrides[entry.id] = entry;
-            entryIds.push(entry.id);
+            entries.push(entry);
         }
-        const applied = queueLoredeckPendingChange(pack, createLoredeckRecordPatchChange({
-            action: 'bulk_context_update',
-            targetKind: 'entries',
-            title: 'Bulk Context update',
-            description: `Applies one Context/retrieval block to ${entryIds.length} entr${entryIds.length === 1 ? 'y' : 'ies'} after review.`,
-            affectedEntryIds: entryIds,
-            payload: {
-                entryOverrides,
-                disabledEntryIdsRemove: entryIds,
-            },
-            preview: {
-                after: context.label || 'Context metadata will be updated.',
-            },
-        }), `Queued Context update for ${entryIds.length} entr${entryIds.length === 1 ? 'y' : 'ies'}.`);
+        const applied = queueLoredeckBulkContextUpdate(pack, { entries, contextGate });
         if (applied) overlay.remove();
     }, 'saga-primary-button'));
     actions.appendChild(createButton('Cancel', 'Close without applying bulk Context edits.', () => overlay.remove()));
@@ -13286,6 +11304,7 @@ function persistLoredeckLibraryRecordMutation(pack, mutator, message, options = 
         return false;
     }
     refreshLoredeckSurfaces({ clearCanon: true, clearContext: true });
+    refreshOpenLoredeckMetadataEditor(next.packId);
     if (message) toast(message, 'success');
     return true;
 }
@@ -13302,207 +11321,10 @@ function persistLoredeckTagRegistryLayer(pack, mutator, message) {
     });
 }
 
-function queueLoredeckPendingChange(pack, change, message = '') {
-    const pendingChange = normalizeLoredeckPendingChanges([change])[0];
-    if (!pendingChange) {
-        toast('Could not queue Loredeck change.', 'error');
-        return false;
-    }
-    return persistLoredeckLibraryRecordMutation(pack, next => {
-        const pending = normalizeLoredeckPendingChanges(next.pendingChanges);
-        pending.push(pendingChange);
-        next.pendingChanges = pending;
-    }, message || `Queued pending change: ${pendingChange.title}.`, {
-        errorMessage: 'Loredeck pending change save failed.',
-    });
-}
-
-function queueLoredeckPendingChanges(pack, changes = [], message = '') {
-    const pendingChanges = normalizeLoredeckPendingChanges(changes);
-    if (!pendingChanges.length) {
-        toast('Could not queue Loredeck changes.', 'error');
-        return false;
-    }
-    return persistLoredeckLibraryRecordMutation(pack, next => {
-        const pending = normalizeLoredeckPendingChanges(next.pendingChanges);
-        pending.push(...pendingChanges);
-        next.pendingChanges = pending;
-    }, message || `Queued ${pendingChanges.length} pending Loredeck change${pendingChanges.length === 1 ? '' : 's'}.`, {
-        errorMessage: 'Loredeck pending change save failed.',
-    });
-}
-
-async function refreshLoredeckHealthAfterAcceptedPendingChanges(pack = {}, acceptedCount = 0) {
-    const fresh = getFreshLoredeckLibraryPack(pack.packId, pack);
-    if (!fresh) return null;
-    if (!canValidateLoredeckInEditor(fresh)) {
-        refreshLoredeckSurfaces({ clearCanon: true, clearContext: true });
-        if (isGeneratedLoredeckPack(fresh) && !getAcceptedVirtualLoredeckEntries(fresh).length) {
-            return { skipped: true, reason: 'generated_shell_without_entries' };
-        }
-        toast('Accepted changes, but Deck Health could not rerun because this Loredeck is not validatable yet.', 'warning');
-        return { skipped: true, reason: 'not_validatable' };
-    }
-    const validation = await validateLoredeckForEditor(fresh, null, { quiet: true, updateLibrary: true });
-    if (!validation.health) {
-        refreshLoredeckSurfaces({ clearCanon: true, clearContext: true });
-        toast(validation.error || 'Accepted changes, but Deck Health rerun failed. Health remains stale.', 'warning');
-        return null;
-    }
-    clearCanonLoreDatabaseCache();
-    clearContextIndexCache();
-    refreshLoredeckSurfaces({ clearCanon: true, clearContext: true });
-    const summary = validation.health.summary || {};
-    const issueText = `${summary.errorCount || 0} error${(summary.errorCount || 0) === 1 ? '' : 's'}, ${summary.warningCount || 0} warning${(summary.warningCount || 0) === 1 ? '' : 's'}`;
-    toast(`Accepted ${acceptedCount} change${acceptedCount === 1 ? '' : 's'} and refreshed Deck Health: ${validation.health.status || 'checked'} (${issueText}).`, validation.health.errors?.length ? 'error' : (validation.health.warnings?.length ? 'warning' : 'success'));
-    return validation;
-}
-
-async function acceptLoredeckPendingChanges(pack, changeIds = []) {
-    const freshPack = getFreshLoredeckLibraryPack(pack?.packId, pack);
-    if (!freshPack?.packId) {
-        toast('Loredeck is no longer available.', 'warning');
-        return false;
-    }
-    const idSet = new Set(normalizeLoredeckPendingIdList(changeIds));
-    const pending = getLoredeckPendingChanges(freshPack);
-    const selected = idSet.size ? pending.filter(change => idSet.has(change.changeId)) : pending;
-    if (!selected.length) {
-        toast('No pending Loredeck changes selected.', 'warning');
-        return false;
-    }
-    const affectsHealth = selected.some(change => doesLoredeckPendingChangeAffectPackHealth(change));
-    const shouldReportStaleHealth = affectsHealth && canValidateLoredeckInEditor(freshPack);
-    const selectedCreatorPlanningBatchIds = selected
-        .filter(change => String(change.source || '').trim() === 'loredeck_creator' && ['timeline_anchor', 'timeline_window', 'tag'].includes(change.targetKind))
-        .map(change => normalizeLoredeckCreatorTitleId(change.preview?.creatorPlanningBatch?.id || '', ''))
-        .filter(Boolean);
-    const accepted = persistLoredeckLibraryRecordMutation(freshPack, next => {
-        const current = normalizeLoredeckPendingChanges(next.pendingChanges);
-        const selectedIds = new Set(selected.map(change => change.changeId));
-        for (const change of current) {
-            if (!selectedIds.has(change.changeId)) continue;
-            applyLoredeckRecordPatch(next, change.payload);
-        }
-        next.pendingChanges = current.filter(change => !selectedIds.has(change.changeId));
-        if (isGeneratedLoredeckPack(next)) refreshGeneratedLoredeckDerivedMetadata(next);
-        if (affectsHealth) next.healthStatus = 'stale';
-    }, shouldReportStaleHealth
-        ? `Accepted ${selected.length} pending Loredeck change${selected.length === 1 ? '' : 's'}. Deck Health marked stale.`
-        : `Accepted ${selected.length} pending Loredeck change${selected.length === 1 ? '' : 's'}.`, {
-        errorMessage: 'Pending Loredeck change acceptance failed.',
-    });
-    if (accepted && selectedCreatorPlanningBatchIds.length) {
-        const cached = getLoredeckCreatorBriefCache();
-        if (cached.generatedPackId === pack.packId) {
-            const fresh = getFreshLoredeckLibraryPack(pack.packId, pack);
-            const remainingPending = getLoredeckPendingChanges(fresh);
-            const acceptedIds = new Set(normalizeLoredeckCreatorTitleIdList(cached.planningBatchAcceptedIds || [], 1200));
-            for (const id of selectedCreatorPlanningBatchIds) {
-                const stillPending = remainingPending.some(change => isLoredeckCreatorPlanningPendingChange(change, id));
-                if (!stillPending) acceptedIds.add(id);
-            }
-            setLoredeckCreatorBriefCache({
-                ...cached,
-                planningBatchAcceptedIds: [...acceptedIds],
-                planningAcceptedAt: Date.now(),
-            });
-        }
-    }
-    if (accepted && affectsHealth) {
-        await refreshLoredeckHealthAfterAcceptedPendingChanges(pack, selected.length);
-    }
-    if (accepted) {
-        refreshLoredeckCreatorWorkbenchBody({ preserveScroll: true });
-        refreshHeader();
-    }
-    return accepted;
-}
-
-function rejectLoredeckPendingChanges(pack, changeIds = []) {
-    const freshPack = getFreshLoredeckLibraryPack(pack?.packId, pack);
-    if (!freshPack?.packId) {
-        toast('Loredeck is no longer available.', 'warning');
-        return false;
-    }
-    const idSet = new Set(normalizeLoredeckPendingIdList(changeIds));
-    const pending = getLoredeckPendingChanges(freshPack);
-    const selected = idSet.size ? pending.filter(change => idSet.has(change.changeId)) : pending;
-    if (!selected.length) {
-        toast('No pending Loredeck changes selected.', 'warning');
-        return false;
-    }
-    const rejected = persistLoredeckLibraryRecordMutation(freshPack, next => {
-        const selectedIds = new Set(selected.map(change => change.changeId));
-        next.pendingChanges = normalizeLoredeckPendingChanges(next.pendingChanges).filter(change => !selectedIds.has(change.changeId));
-    }, `Rejected ${selected.length} pending Loredeck change${selected.length === 1 ? '' : 's'}.`, {
-        errorMessage: 'Pending Loredeck change rejection failed.',
-    });
-    if (rejected) {
-        refreshLoredeckCreatorWorkbenchBody({ preserveScroll: true });
-        refreshHeader();
-    }
-    return rejected;
-}
-
-function saveLoredeckEntryOverride(pack, entry) {
-    const id = String(entry?.id || '').trim();
-    if (!id) {
-        toast('Entry override needs an ID.', 'warning');
-        return false;
-    }
-    return queueLoredeckPendingChange(pack, createLoredeckRecordPatchChange({
-        action: 'upsert_entry',
-        targetKind: 'entry',
-        title: `Save entry: ${entry.title || id}`,
-        description: 'Creates or updates a Custom Loredeck entry override after review.',
-        affectedEntryIds: [id],
-        payload: {
-            entryOverrides: { [id]: entry },
-            disabledEntryIdsRemove: [id],
-        },
-        preview: {
-            after: entry.content?.fact || entry.fact || entry.title || id,
-        },
-    }), `Queued pending entry change for ${entry.title || id}.`);
-}
-
-function removeLoredeckEntryOverride(pack, entryId) {
-    const id = String(entryId || '').trim();
-    if (!id) return false;
-    return queueLoredeckPendingChange(pack, createLoredeckRecordPatchChange({
-        action: 'remove_entry_override',
-        targetKind: 'entry',
-        title: `Remove override: ${id}`,
-        description: 'Removes the Custom override after review. Source entry remains unless disabled.',
-        affectedEntryIds: [id],
-        payload: {
-            entryOverrides: { [id]: null },
-        },
-        preview: {
-            after: 'Custom override will be removed.',
-        },
-    }), `Queued pending override removal for ${id}.`);
-}
-
-function setLoredeckEntryDisabled(pack, entryId, disabled) {
-    const id = String(entryId || '').trim();
-    if (!id) return false;
-    return queueLoredeckPendingChange(pack, createLoredeckRecordPatchChange({
-        action: disabled ? 'disable_entry' : 'restore_entry',
-        targetKind: 'entry',
-        title: `${disabled ? 'Disable' : 'Restore'} entry: ${id}`,
-        description: disabled
-            ? 'Suppresses this entry in the Custom Loredeck after review.'
-            : 'Removes this entry from the Custom disabled list after review.',
-        affectedEntryIds: [id],
-        payload: disabled
-            ? { disabledEntryIdsAdd: [id] }
-            : { disabledEntryIdsRemove: [id] },
-        preview: {
-            after: disabled ? 'Entry will be disabled.' : 'Entry will be restored.',
-        },
-    }), `Queued pending ${disabled ? 'disable' : 'restore'} for ${id}.`);
+function refreshOpenLoredeckMetadataEditor(packId = '') {
+    if (typeof document === 'undefined') return;
+    if (!document.querySelector('.saga-loredeck-metadata-overlay')) return;
+    openLoredeckMetadataEditor(packId);
 }
 
 function selectLoredeckForDetails(packId, options = {}) {
@@ -14129,6 +11951,10 @@ function setCanonPreviewSelectedIds(ids = []) {
     canonPreviewUiState.selectedEntryIds = Array.from(new Set((ids || []).map(id => String(id || '')).filter(Boolean)));
 }
 
+function openPendingLoreReviewSections() {
+    setSectionCollapsed('lore.pendingReview', false);
+}
+
 function getCanonPreviewEntrySummary(entry = {}) {
     const content = entry.content || {};
     return content.injection
@@ -14176,6 +12002,59 @@ function getCanonPreviewEntryDetailLevel(entry = {}) {
 function canonPreviewDetailAllows(entry = {}, detailLevel = getCanonPreviewDetailLevel()) {
     if (detailLevel === 'all') return true;
     return getCanonPreviewDetailRank(getCanonPreviewEntryDetailLevel(entry)) <= getCanonPreviewDetailRank(detailLevel);
+}
+
+function getCanonPreviewActivePack(preview = canonPreviewUiState.preview) {
+    const packs = Array.isArray(preview?.packs) ? preview.packs : [];
+    return packs.find(pack => pack.id === canonPreviewUiState.selectedPackId)
+        || packs.find(pack => pack.newCount > 0)
+        || packs[0]
+        || null;
+}
+
+function isCanonPreviewStale(state = getState()) {
+    const preview = canonPreviewUiState.preview;
+    if (!preview || !canonPreviewUiState.contextKey) return false;
+    return canonPreviewUiState.contextKey !== getCanonPreviewContextKey(getCanonSuggestionContext(state), state);
+}
+
+function refreshCanonPreviewSelectionUi() {
+    if (typeof document === 'undefined') return false;
+    const section = panelRoot?.querySelector?.('.saga-canon-preview-section') || document.querySelector('.saga-canon-preview-section');
+    const preview = canonPreviewUiState.preview;
+    if (!section || !preview) return false;
+
+    const state = getState();
+    const stale = isCanonPreviewStale(state);
+    const detailLevel = getCanonPreviewDetailLevel();
+    const entryMap = getCanonPreviewEntryMap(preview);
+    const activePack = getCanonPreviewActivePack(preview);
+    const packEntries = (activePack?.entryIds || [])
+        .map(id => entryMap.get(String(id)))
+        .filter(Boolean)
+        .filter(entry => canonPreviewDetailAllows(entry, detailLevel));
+    const addablePackIds = packEntries.filter(isCanonPreviewEntryAddable).map(entry => String(entry.id || '')).filter(Boolean);
+    const selectedIds = getCanonPreviewSelectedIds();
+    const selectedAddableCount = Array.from(selectedIds)
+        .filter(id => isCanonPreviewEntryAddable(entryMap.get(String(id)) || {}))
+        .length;
+
+    const count = section.querySelector('.saga-canon-preview-selected-count');
+    if (count) count.textContent = `${selectedAddableCount} selected`;
+
+    const addSelected = section.querySelector('[data-saga-canon-preview-action="add-selected"]');
+    if (addSelected) addSelected.disabled = stale || selectedAddableCount <= 0;
+    const addPack = section.querySelector('[data-saga-canon-preview-action="add-pack"]');
+    if (addPack) addPack.disabled = stale || addablePackIds.length <= 0;
+
+    section.querySelectorAll('.saga-canon-preview-row[data-canon-preview-entry-id]').forEach(row => {
+        const id = String(row.dataset.canonPreviewEntryId || '');
+        const selected = selectedIds.has(id);
+        row.classList.toggle('saga-canon-preview-row-selected', selected);
+        const checkbox = row.querySelector('input[type="checkbox"]');
+        if (checkbox) checkbox.checked = selected;
+    });
+    return true;
 }
 
 function createCanonPreviewDetailControls() {
@@ -14314,20 +12193,22 @@ function createCanonPreviewSection(state) {
     controls.appendChild(count);
     controls.appendChild(createButton('Select Pack', `Selects all visible new entries in ${activePack.label} at the current detail level.`, () => {
         setCanonPreviewSelectedIds([...selectedIds, ...addablePackIds]);
-        refreshPanelBody({ preserveScroll: true });
+        if (!refreshCanonPreviewSelectionUi()) refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
     }, 'saga-small-button'));
     controls.appendChild(createButton('Clear', 'Clears the current canon preview selection.', () => {
         setCanonPreviewSelectedIds([]);
-        refreshPanelBody({ preserveScroll: true });
+        if (!refreshCanonPreviewSelectionUi()) refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
     }, 'saga-small-button'));
     const addSelected = createButton('Add Selected to Pending Lore', 'Adds selected canon preview entries to the existing Pending Lore Review list for full inspection before accepting.', async (btn) => {
         await handleAddCanonPreviewEntries(btn, Array.from(getCanonPreviewSelectedIds()));
     }, 'saga-primary-button');
+    addSelected.dataset.sagaCanonPreviewAction = 'add-selected';
     addSelected.disabled = isStale || selectedAddableCount <= 0;
     controls.appendChild(addSelected);
     const addPack = createButton('Add Pack to Pending Lore', `Adds all new entries in ${activePack.label} to Pending Lore Review.`, async (btn) => {
         await handleAddCanonPreviewEntries(btn, addablePackIds);
     }, 'saga-secondary-button');
+    addPack.dataset.sagaCanonPreviewAction = 'add-pack';
     addPack.disabled = isStale || addablePackIds.length <= 0;
     controls.appendChild(addPack);
     section.appendChild(controls);
@@ -14365,6 +12246,7 @@ function createCanonPreviewEntryRow(entry, selectedIds, isStale = false) {
     const addable = !isStale && duplicateStatus === 'new';
     const row = document.createElement('label');
     row.className = `saga-canon-preview-row ${selectedIds.has(id) ? 'saga-canon-preview-row-selected' : ''} ${addable ? '' : 'saga-canon-preview-row-disabled'}`.trim();
+    row.dataset.canonPreviewEntryId = id;
     markTourTarget(row, 'lore.canon.entry');
 
     const checkbox = document.createElement('input');
@@ -14377,7 +12259,7 @@ function createCanonPreviewEntryRow(entry, selectedIds, isStale = false) {
         if (checkbox.checked) next.add(id);
         else next.delete(id);
         setCanonPreviewSelectedIds(Array.from(next));
-        refreshPanelBody({ preserveScroll: true });
+        if (!refreshCanonPreviewSelectionUi()) refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
     });
     row.appendChild(checkbox);
 

@@ -43,6 +43,7 @@ function dep(name, fallback = null) {
 
 function refreshPanelBody(options = {}) { return dep('refreshPanelBody', () => null)(options); }
 function refreshHeader() { return dep('refreshHeader', () => null)(); }
+function refreshRuntimeThemeSurfaces(settings = getSettings()) { return dep('refreshRuntimeThemeSurfaces', () => null)(settings); }
 function resetCanonPreviewUiState(options = {}) { return dep('resetCanonPreviewUiState', () => null)(options); }
 function cloneJson(value) {
     if (typeof structuredClone === 'function') return structuredClone(value);
@@ -72,6 +73,7 @@ function resetAllSettingsToDefaults() {
     const defaults = cloneDefaultSettings();
     copyStoredApiKeySettings(current, defaults);
     saveSettings(defaults);
+    return defaults;
 }
 
 export function resetSettingKeysToDefaults(settingKeys, label = 'Settings') {
@@ -88,7 +90,9 @@ export function resetSettingKeysToDefaults(settingKeys, label = 'Settings') {
 
     if (!changed) return;
     saveSettings(next);
+    refreshRuntimeThemeSurfaces(next);
     refreshPanelBody({ preserveScroll: true });
+    refreshHeader();
     toast(`${label} reset to defaults.`, 'info');
 }
 
@@ -277,7 +281,8 @@ export function createDangerZoneCard(state) {
     actions.appendChild(createButton('Reset All Settings', 'Resets Saga preferences and provider settings to bundled defaults. Stored API keys are preserved.', async () => {
         const proceed = await confirmAction('Are you sure? Reset all Saga settings?', 'You are about to reset Saga preferences, workflow settings, provider selections, generation settings, injection settings, and UI defaults. Stored API keys are preserved. Chat state, accepted lore, pending lore, and Lore Timeline are not changed. Continue?');
         if (!proceed) return;
-        resetAllSettingsToDefaults();
+        const settings = resetAllSettingsToDefaults();
+        refreshRuntimeThemeSurfaces(settings);
         refreshPanelBody({ preserveScroll: false });
         refreshHeader();
         toast('Saga settings reset to defaults. Stored API keys were preserved.', 'info');

@@ -9,6 +9,21 @@ import {
     wireOverlayBackdropClose,
 } from '../ui/runtime-ui-kit.js';
 import {
+    appendLoredeckStatusPills,
+    createLoredeckRenderErrorCard,
+} from './loredeck-ui-kit.js';
+import {
+    createLoredeckValidationCategoryList,
+    createLoredeckValidationIssueList,
+    createLoredeckValidationMetric,
+    createLoredeckValidationSeverityGrid,
+} from './loredeck-validation-view.js';
+import {
+    createLoredeckActionRow,
+    setLoredeckActionButtonBusy,
+    withLoredeckActionButtonBusy,
+} from './loredeck-action-rows.js';
+import {
     redactDiagnosticValue,
     stringifyRedactedDiagnostic,
 } from '../runtime/runtime-redaction.js';
@@ -172,8 +187,7 @@ export function renderLoredeckHealthCenterOverlay(options = {}) {
         titleWrap.appendChild(subtitle);
         header.appendChild(titleWrap);
 
-        const actions = document.createElement('div');
-        actions.className = 'saga-primary-actions saga-loredeck-health-center-actions';
+        const actions = createLoredeckActionRow({ className: 'saga-primary-actions saga-loredeck-health-center-actions' });
         markTourTarget(actions, 'loredecks.health.actions');
         actions.appendChild(createButton('Refresh Scan', context.pack ? 'Validate this Loredeck and refresh its Deck Health report.' : 'Reload active Loredecks and recompute stack Deck Health.', async (btn) => {
             await refreshLoredeckHealthCenterScan(context, btn);
@@ -234,19 +248,17 @@ function createLoredeckHealthCenterRenderErrorOverlay(error = null) {
     titleWrap.appendChild(subtitle);
     header.appendChild(titleWrap);
 
-    const actions = document.createElement('div');
-    actions.className = 'saga-primary-actions saga-loredeck-health-center-actions';
+    const actions = createLoredeckActionRow({ className: 'saga-primary-actions saga-loredeck-health-center-actions' });
     actions.appendChild(createButton('Close', 'Close the Deck Health Center.', closeLoredeckHealthCenter));
     header.appendChild(actions);
     shell.appendChild(header);
 
     const body = document.createElement('div');
     body.className = 'saga-loredeck-health-center-body';
-    body.appendChild(createEmptyMessage('Deck Health Center could not render this report. Close and reopen the Health Center after rerunning the scan.'));
-    const detail = document.createElement('div');
-    detail.className = 'saga-runtime-help';
-    detail.textContent = error?.message || 'Unknown render error.';
-    body.appendChild(detail);
+    body.appendChild(createLoredeckRenderErrorCard({
+        title: 'Deck Health Center could not render this report.',
+        message: error?.message || 'Close and reopen the Health Center after rerunning the scan.',
+    }));
     shell.appendChild(body);
     return overlay;
 }
@@ -569,8 +581,7 @@ function createLoredeckHealthFilesView(context) {
 function createLoredeckHealthAdvancedView(context) {
     const wrap = document.createElement('div');
     wrap.className = 'saga-loredeck-health-advanced-view';
-    const actions = document.createElement('div');
-    actions.className = 'saga-primary-actions';
+    const actions = createLoredeckActionRow();
     actions.appendChild(createButton('Copy Diagnostics', 'Copy the current Deck Health report JSON to clipboard.', async () => {
         await copyTextToClipboard(stringifyRedactedDiagnostic(context.report), 'Deck Health diagnostics copied.');
     }));
@@ -631,9 +642,11 @@ function createLoredeckHealthSummaryHero(context, options = {}) {
     const meta = document.createElement('div');
     meta.className = 'saga-loredeck-row-meta';
     const pack = context.pack || context.report.packs?.[0] || null;
-    if (pack) meta.appendChild(createStatusPill(pack.typeLabel || getLoredeckTypeLabel(pack.packId), 'Loredeck type.'));
-    meta.appendChild(createStatusPill(`${context.report.summary?.entryCount || 0} Lorecards`, 'Lorecards checked in this report.'));
-    meta.appendChild(createStatusPill(`Last scan: ${context.health ? formatRelativeHealthTime(context.generatedAt) : 'not scanned'}`, 'Last Deck Health scan time.'));
+    appendLoredeckStatusPills(meta, [
+        { text: pack ? (pack.typeLabel || getLoredeckTypeLabel(pack.packId)) : '', tooltip: 'Loredeck type.', show: !!pack },
+        [`${context.report.summary?.entryCount || 0} Lorecards`, 'Lorecards checked in this report.'],
+        [`Last scan: ${context.health ? formatRelativeHealthTime(context.generatedAt) : 'not scanned'}`, 'Last Deck Health scan time.'],
+    ]);
     main.appendChild(meta);
     const status = document.createElement('div');
     status.className = 'saga-loredeck-health-status-label';
@@ -655,47 +668,18 @@ function createLoredeckHealthSummaryHero(context, options = {}) {
 
 function createLoredeckHealthSeverityGrid(context, options = {}) {
     const summary = context.report.summary || {};
-    const grid = document.createElement('div');
-    grid.className = `saga-loredeck-health-severity-grid${options.compact ? ' saga-loredeck-health-severity-grid-compact' : ''}`;
-    grid.appendChild(createLoredeckHealthSeverityCard('Errors', String(summary.errorCount || 0), (summary.errorCount || 0) ? 'Fix first' : 'None found', 'error'));
-    grid.appendChild(createLoredeckHealthSeverityCard('Warnings', String(summary.warningCount || 0), (summary.warningCount || 0) ? 'Needs review' : 'Clear', 'warning'));
-    grid.appendChild(createLoredeckHealthSeverityCard('Suggestions', String(summary.suggestionCount || 0), (summary.suggestionCount || 0) ? 'Optional' : 'None', 'suggestion'));
-    grid.appendChild(createLoredeckHealthSeverityCard('Checked', String(summary.entryCount || 0), 'Lorecards', 'checked'));
-    return grid;
-}
-
-function createLoredeckHealthSeverityCard(label, value, detail, tone = 'checked') {
-    const card = document.createElement('div');
-    card.className = `saga-loredeck-health-severity-card saga-loredeck-health-severity-card-${tone}`;
-    const labelEl = document.createElement('span');
-    labelEl.textContent = label;
-    card.appendChild(labelEl);
-    const valueEl = document.createElement('strong');
-    valueEl.textContent = value;
-    card.appendChild(valueEl);
-    const detailEl = document.createElement('small');
-    detailEl.textContent = detail;
-    card.appendChild(detailEl);
-    return card;
+    return createLoredeckValidationSeverityGrid([
+        { label: 'Errors', value: String(summary.errorCount || 0), detail: (summary.errorCount || 0) ? 'Fix first' : 'None found', tone: 'error' },
+        { label: 'Warnings', value: String(summary.warningCount || 0), detail: (summary.warningCount || 0) ? 'Needs review' : 'Clear', tone: 'warning' },
+        { label: 'Suggestions', value: String(summary.suggestionCount || 0), detail: (summary.suggestionCount || 0) ? 'Optional' : 'None', tone: 'suggestion' },
+        { label: 'Checked', value: String(summary.entryCount || 0), detail: 'Lorecards', tone: 'checked' },
+    ], options);
 }
 
 function createLoredeckHealthCategoryList(context, options = {}) {
-    const categories = getLoredeckHealthCategories(context.report);
-    const list = document.createElement('div');
-    list.className = `${options.asPanel ? 'saga-loredeck-health-panel ' : ''}saga-loredeck-health-category-list`.trim();
-    for (const category of categories) {
-        const row = document.createElement('div');
-        row.className = `saga-loredeck-health-category-row saga-loredeck-health-category-row-${category.tone}`;
-        const name = document.createElement('span');
-        name.textContent = category.label;
-        row.appendChild(name);
-        const status = document.createElement('span');
-        status.textContent = category.status;
-        row.appendChild(status);
-        addTooltip(row, category.tooltip);
-        list.appendChild(row);
-    }
-    return list;
+    return createLoredeckValidationCategoryList(getLoredeckHealthCategories(context.report), {
+        asPanel: options.asPanel,
+    });
 }
 
 function getLoredeckHealthCategories(report = {}) {
@@ -862,8 +846,12 @@ function createLoredeckHealthIssueDetailPanel(group, context, options = {}) {
     const affected = createLoredeckHealthAffectedList(group);
     if (affected) panel.appendChild(affected);
 
-    const actions = document.createElement('div');
-    actions.className = 'saga-primary-actions';
+    panel.appendChild(createLoredeckHealthIssueActionRow(group, context, issueState, editable));
+    return panel;
+}
+
+function createLoredeckHealthIssueActionRow(group, context = {}, issueState = null, editable = false) {
+    const actions = createLoredeckActionRow();
     actions.appendChild(createButton('Copy Details', 'Copy this grouped issue summary to clipboard.', async () => {
         await copyTextToClipboard(formatLoredeckHealthGroupForCopy(group), 'Deck Health issue copied.');
     }));
@@ -912,8 +900,7 @@ function createLoredeckHealthIssueDetailPanel(group, context, options = {}) {
             actions.appendChild(repairButton);
         }
     }
-    panel.appendChild(actions);
-    return panel;
+    return actions;
 }
 
 function createLoredeckHealthAffectedList(group) {
@@ -1460,32 +1447,24 @@ async function copyTextToClipboard(text = '', successMessage = 'Copied.') {
 }
 
 async function refreshLoredeckHealthCenterScan(context = getLoredeckHealthCenterContext(), button = null) {
-    const originalText = button?.textContent;
-    if (button) {
-        button.disabled = true;
-        button.textContent = 'Scanning...';
-    }
-    try {
-        if (context.pack) {
-            const result = await validateLoredeckForEditor(context.pack, null, { quiet: true, updateLibrary: true });
-            if (!result.health) throw new Error(result.error || 'Deck Health scan failed.');
-            refreshLoredeckSurfaces();
-        } else {
-            clearCanonLoreDatabaseCache();
-            clearContextIndexCache();
-            await loadCanonLoreDatabase();
-            refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
-            refreshHeader();
+    await withLoredeckActionButtonBusy(button, { busyText: 'Scanning...', fallbackLabel: 'Refresh Scan' }, async () => {
+        try {
+            if (context.pack) {
+                const result = await validateLoredeckForEditor(context.pack, null, { quiet: true, updateLibrary: true });
+                if (!result.health) throw new Error(result.error || 'Deck Health scan failed.');
+                refreshLoredeckSurfaces();
+            } else {
+                clearCanonLoreDatabaseCache();
+                clearContextIndexCache();
+                await loadCanonLoreDatabase();
+                refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+                refreshHeader();
+            }
+        } catch (e) {
+            toast(e?.message || 'Deck Health scan failed.', 'error');
         }
-    } catch (e) {
-        toast(e?.message || 'Deck Health scan failed.', 'error');
-    } finally {
-        if (button) {
-            button.disabled = false;
-            button.textContent = originalText || 'Refresh Scan';
-        }
-        renderLoredeckHealthCenterOverlay();
-    }
+    });
+    renderLoredeckHealthCenterOverlay();
 }
 
 function exportLoredeckHealthCenterReport(context = getLoredeckHealthCenterContext()) {
@@ -1498,16 +1477,7 @@ function exportLoredeckHealthCenterReport(context = getLoredeckHealthCenterConte
 }
 
 function createLoredeckHealthMetric(label, value, tooltip) {
-    const metric = document.createElement('div');
-    metric.className = 'saga-loredeck-health-metric';
-    addTooltip(metric, tooltip || label);
-    const k = document.createElement('span');
-    k.textContent = label;
-    metric.appendChild(k);
-    const v = document.createElement('strong');
-    v.textContent = value || '0';
-    metric.appendChild(v);
-    return metric;
+    return createLoredeckValidationMetric(label, value, tooltip);
 }
 
 function createLoredeckHealthPackRow(pack) {
@@ -1539,54 +1509,20 @@ function createLoredeckHealthPackRow(pack) {
 }
 
 function createLoredeckHealthIssueList(titleText, issues = [], severity = 'suggestion') {
-    const wrap = document.createElement('div');
-    wrap.className = `saga-loredeck-health-issue-section saga-loredeck-health-issue-section-${severity}`;
-
-    const title = document.createElement('div');
-    title.className = 'saga-runtime-card-title';
-    title.textContent = `${titleText}: ${issues.length}`;
-    wrap.appendChild(title);
-
-    if (!issues.length) {
-        wrap.appendChild(createEmptyMessage(`No ${titleText.toLowerCase()}.`));
-        return wrap;
-    }
-
-    const list = document.createElement('div');
-    list.className = 'saga-loredeck-health-issue-list';
-    for (const issue of issues.slice(0, 12)) {
-        const item = document.createElement('div');
-        item.className = `saga-loredeck-health-issue saga-loredeck-health-issue-${severity}`;
-        const code = document.createElement('div');
-        code.className = 'saga-loredeck-health-issue-code';
-        code.textContent = issue.code || severity;
-        item.appendChild(code);
-        const message = document.createElement('div');
-        message.className = 'saga-loredeck-health-issue-message';
-        message.textContent = issue.message || 'No message.';
-        item.appendChild(message);
-        const meta = document.createElement('div');
-        meta.className = 'saga-loredeck-row-meta';
-        if (issue.packId) meta.appendChild(createStatusPill(issue.packId, 'Affected pack ID.'));
-        if (Array.isArray(issue.entryIds) && issue.entryIds.length) meta.appendChild(createStatusPill(`${issue.entryIds.length} entr${issue.entryIds.length === 1 ? 'y' : 'ies'}`, 'Affected entry IDs.'));
-        if (issue.file) meta.appendChild(createStatusPill(issue.file, 'Affected file.'));
-        if (issue.anchorId) meta.appendChild(createStatusPill(`anchor: ${issue.anchorId}`, 'Affected Context anchor.'));
-        if (Array.isArray(issue.anchorIds) && issue.anchorIds.length) meta.appendChild(createStatusPill(`${issue.anchorIds.length} anchor${issue.anchorIds.length === 1 ? '' : 's'}`, 'Affected Context anchors.'));
-        if (issue.timelineWindowId) meta.appendChild(createStatusPill(`window: ${issue.timelineWindowId}`, 'Affected Context timeline window.'));
-        if (issue.contextField) meta.appendChild(createStatusPill(issue.contextField, 'Affected Context field.'));
-        if (Array.isArray(issue.contextFields) && issue.contextFields.length) meta.appendChild(createStatusPill(issue.contextFields.join(', '), 'Affected Context fields.'));
-        if (issue.winningPackId) meta.appendChild(createStatusPill(`winner: ${issue.winningPackId}`, 'Winning pack after stack duplicate resolution.'));
-        item.appendChild(meta);
-        list.appendChild(item);
-    }
-    if (issues.length > 12) {
-        const more = document.createElement('div');
-        more.className = 'saga-runtime-help';
-        more.textContent = `Showing first 12 of ${issues.length}. Export Health JSON for the full list.`;
-        list.appendChild(more);
-    }
-    wrap.appendChild(list);
-    return wrap;
+    return createLoredeckValidationIssueList(titleText, issues, {
+        severity,
+        getMetaItems: issue => [
+            { text: issue.packId, tooltip: 'Affected pack ID.', show: !!issue.packId },
+            { text: Array.isArray(issue.entryIds) && issue.entryIds.length ? `${issue.entryIds.length} entr${issue.entryIds.length === 1 ? 'y' : 'ies'}` : '', tooltip: 'Affected entry IDs.', show: Array.isArray(issue.entryIds) && issue.entryIds.length > 0 },
+            { text: issue.file, tooltip: 'Affected file.', show: !!issue.file },
+            { text: issue.anchorId ? `anchor: ${issue.anchorId}` : '', tooltip: 'Affected Context anchor.', show: !!issue.anchorId },
+            { text: Array.isArray(issue.anchorIds) && issue.anchorIds.length ? `${issue.anchorIds.length} anchor${issue.anchorIds.length === 1 ? '' : 's'}` : '', tooltip: 'Affected Context anchors.', show: Array.isArray(issue.anchorIds) && issue.anchorIds.length > 0 },
+            { text: issue.timelineWindowId ? `window: ${issue.timelineWindowId}` : '', tooltip: 'Affected Context timeline window.', show: !!issue.timelineWindowId },
+            { text: issue.contextField, tooltip: 'Affected Context field.', show: !!issue.contextField },
+            { text: Array.isArray(issue.contextFields) && issue.contextFields.length ? issue.contextFields.join(', ') : '', tooltip: 'Affected Context fields.', show: Array.isArray(issue.contextFields) && issue.contextFields.length > 0 },
+            { text: issue.winningPackId ? `winner: ${issue.winningPackId}` : '', tooltip: 'Winning pack after stack duplicate resolution.', show: !!issue.winningPackId },
+        ],
+    });
 }
 
 export function buildLoredeckHealthReport(state, canonDb = null, health = null) {
@@ -1720,11 +1656,7 @@ function getLoredeckStackHealthInsights(state, loadedPacks = []) {
 }
 
 export async function refreshLoredeckHealthReport(button = null) {
-    const originalText = button?.textContent;
-    if (button) {
-        button.disabled = true;
-        button.textContent = 'Refreshing...';
-    }
+    const restoreBusy = setLoredeckActionButtonBusy(button, 'Refreshing...', { fallbackLabel: 'Refresh Health' });
     try {
         clearCanonLoreDatabaseCache();
         clearContextIndexCache();
@@ -1733,10 +1665,7 @@ export async function refreshLoredeckHealthReport(button = null) {
     } catch (e) {
         toast(e?.message || 'Deck Health refresh failed.', 'error');
     } finally {
-        if (button) {
-            button.disabled = false;
-            button.textContent = originalText || 'Refresh Health';
-        }
+        restoreBusy();
     }
 }
 

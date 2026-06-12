@@ -208,7 +208,7 @@ class CdpClient {
     }
 
     async connect() {
-        this.ws = typeof WebSocket === 'function'
+        this.ws = process.env.SAGA_SMOKE_NATIVE_WS === '1' && typeof WebSocket === 'function'
             ? new NativeWebSocket(this.wsUrl)
             : new RawWebSocket(this.wsUrl);
         this.ws.onMessage(async data => {
@@ -1174,12 +1174,10 @@ async function main() {
     try {
         const { browserWsUrl, pageWsUrl, pageTargetId } = await waitForDevtools(port);
         await wait(1000);
-        client = new CdpClient(pageWsUrl || browserWsUrl);
+        client = new CdpClient(browserWsUrl);
         await client.connect();
-        if (!pageWsUrl) {
-            const attached = await client.send('Target.attachToTarget', { targetId: pageTargetId, flatten: true });
-            client.sessionId = attached.sessionId;
-        }
+        const attached = await client.send('Target.attachToTarget', { targetId: pageTargetId, flatten: true });
+        client.sessionId = attached.sessionId;
         await client.send('Page.enable');
         await client.send('Runtime.enable');
         await client.send('Log.enable');

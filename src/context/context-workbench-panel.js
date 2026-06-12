@@ -218,6 +218,7 @@ function createContextWorkbenchTimelineTable(pack, items = [], selected = null) 
         const def = item.definition || {};
         const row = document.createElement('div');
         row.className = 'saga-context-workbench-table-row';
+        row.dataset.sagaContextWorkbenchItemKey = key;
         if (selected && key === getContextTimelineItemKey(selected)) row.classList.add('saga-context-workbench-row-active');
         if (item.disabled) row.classList.add('saga-context-workbench-row-disabled');
         row.addEventListener('click', () => {
@@ -508,6 +509,7 @@ export function createContextWorkbenchContextView(state = {}, contextIndex = nul
         const packIndex = getContextPackSummary(contextIndex, item.packId);
         const row = document.createElement('div');
         row.className = 'saga-context-workbench-context-row';
+        row.dataset.sagaContextWorkbenchPackId = item.packId;
         markTourTarget(row, 'context.workbench.loadedLoredeck');
         if (item.packId === selectedPackId) row.classList.add('saga-context-workbench-row-active');
         row.addEventListener('click', () => {

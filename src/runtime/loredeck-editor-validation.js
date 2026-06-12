@@ -16,6 +16,7 @@ import {
 import {
     toast,
 } from '../ui/runtime-ui-kit.js';
+import { setLoredeckActionButtonBusy } from '../loredecks/loredeck-action-rows.js';
 import {
     fetchLoredeckEntryFilesForEditor,
     fetchLoredeckTimelineForEditor,
@@ -101,11 +102,7 @@ export async function validateLoredeckForEditor(pack, button = null, options = {
     const setLoredeckTimelineRegistryCacheRecord = dep('setLoredeckTimelineRegistryCacheRecord');
     const setLoredeckTagRegistryCacheRecord = dep('setLoredeckTagRegistryCacheRecord');
     const refreshLoredeckSurfaces = dep('refreshLoredeckSurfaces');
-    const originalText = button?.textContent;
-    if (button) {
-        button.disabled = true;
-        button.textContent = 'Validating...';
-    }
+    const restoreBusy = setLoredeckActionButtonBusy(button, 'Validating...', { fallbackLabel: 'Validate Deck' });
     try {
         const fresh = getFreshLoredeckLibraryPack(pack.packId, pack);
         if (!canValidateLoredeckInEditor(fresh)) throw new Error('Loredeck needs a fetchable manifest path or accepted generated data to validate.');
@@ -193,9 +190,6 @@ export async function validateLoredeckForEditor(pack, button = null, options = {
         if (options.quiet !== true) toast(e?.message || 'Loredeck validation failed.', 'error');
         return { health: null, manifest: null, entryCache: null, error: e?.message || 'Loredeck validation failed.' };
     } finally {
-        if (button) {
-            button.disabled = false;
-            button.textContent = originalText || 'Validate Deck';
-        }
+        restoreBusy();
     }
 }
