@@ -1363,8 +1363,9 @@ function createLoredeckCreatorEntryDraftBatchRows(cached = {}, progress = null, 
             meta.appendChild(createStatusPill('Next', 'This category is the next default Lorecard drafting set.', { tone: 'info', kind: 'status' }));
         }
         meta.appendChild(createStatusPill(`${model.remainingCount} remaining`, 'Approved titles in this category not yet accepted, pending, or sitting in Draft Review.', { tone: model.remainingCount ? 'warning' : 'success', kind: 'count' }));
+        if (model.handledCount) meta.appendChild(createStatusPill(`${model.handledCount} handled`, 'Approved titles in this category already accepted, pending, or sitting in Draft Review.', { tone: 'review', kind: 'count' }));
         meta.appendChild(createStatusPill(`${model.approvedCount} approved`, 'Approved Creator titles in this category.', { tone: 'success', kind: 'count' }));
-        if (!model.remainingCount) meta.appendChild(createStatusPill('Complete', 'Every approved title in this category is already handled.', { tone: 'success', kind: 'status' }));
+        if (!model.remainingCount) meta.appendChild(createStatusPill('Handled', 'Every approved title in this category is accepted, pending, or sitting in Draft Review.', { tone: 'success', kind: 'status' }));
         main.appendChild(meta);
         row.appendChild(main);
 
@@ -1967,6 +1968,16 @@ function createLoredeckCreatorDiagnosticBlock(unit = {}) {
     return block;
 }
 
+function countLoredeckCreatorCompletedEntryUnits(cached = {}) {
+    const units = cached?.generationUnits && typeof cached.generationUnits === 'object' && !Array.isArray(cached.generationUnits)
+        ? Object.values(cached.generationUnits)
+        : [];
+    return units.filter(unit => {
+        const actionId = String(unit?.meta?.actionId || unit?.actionId || '').trim();
+        return actionId === 'entry_batch_draft' && String(unit?.status || '').trim().toLowerCase() === 'complete';
+    }).length;
+}
+
 function createLoredeckCreatorJobPanel(cached = {}, pipeline = {}) {
     const panel = document.createElement('div');
     panel.className = 'saga-loredeck-creator-side-panel';
@@ -1977,10 +1988,19 @@ function createLoredeckCreatorJobPanel(cached = {}, pipeline = {}) {
     const active = pipeline.activeGeneration;
     const interrupted = String(cached.lastGenerationResult?.status || '').toLowerCase() === 'interrupted';
     const failedUnit = getLoredeckCreatorLatestRecoverableUnit(cached);
+    const titleBatchCount = Array.isArray(cached.titleBatchDraftedIds) ? cached.titleBatchDraftedIds.length : 0;
+    const contextBatchCount = Array.isArray(cached.planningBatchQueuedIds) ? cached.planningBatchQueuedIds.length : 0;
+    const entryBatchCount = countLoredeckCreatorCompletedEntryUnits(cached);
+    const liveDraftCount = Array.isArray(pipeline.draftChanges) ? pipeline.draftChanges.length : 0;
+    const cachedDraftCount = Number(cached.entryDraftCount) || 0;
+    const pendingLorecardCount = Number(pipeline.pendingLorecardCount) || 0;
     const rows = [
         ['Status', active ? 'Running' : (interrupted ? 'Interrupted' : 'Idle')],
-        ['Cached batches', String((cached.titleBatchDraftedIds || []).length + (cached.planningBatchQueuedIds || []).length)],
-        ['Drafted items', String((pipeline.draftChanges || []).length)],
+        ['Cached batches', String(titleBatchCount + contextBatchCount + entryBatchCount)],
+        ['Lorecard batches', String(entryBatchCount)],
+        ['Draft Review', String(liveDraftCount)],
+        ...(!liveDraftCount && cachedDraftCount ? [['Last drafted', String(cachedDraftCount)]] : []),
+        ['Pending Review', String(pendingLorecardCount)],
         ...(failedUnit ? [['Recoverable', formatLoredeckCreatorRecoveryStageLabel(failedUnit)]] : []),
         ['Last activity', cached.updatedAt ? formatRelativeHealthTime(cached.updatedAt) : '-'],
     ];
