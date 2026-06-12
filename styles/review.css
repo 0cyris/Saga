@@ -2,7 +2,7 @@
 .saga-lore-entry-list,
 .saga-pending-lore-list {
     scrollbar-width: thin;
-    scrollbar-color: rgba(120, 138, 156, 0.78) rgba(10, 12, 16, 0.38);
+    scrollbar-color: var(--saga-border-strong, rgba(215, 181, 109, 0.58)) var(--saga-input, rgba(18, 18, 24, 0.76));
 }
 
 .saga-lore-entry-list::-webkit-scrollbar,
@@ -12,27 +12,28 @@
 
 .saga-lore-entry-list::-webkit-scrollbar-track,
 .saga-pending-lore-list::-webkit-scrollbar-track {
-    background: rgba(10, 12, 16, 0.38);
+    background: var(--saga-input, rgba(18, 18, 24, 0.76));
     border-radius: 8px;
 }
 
 .saga-lore-entry-list::-webkit-scrollbar-thumb,
 .saga-pending-lore-list::-webkit-scrollbar-thumb {
-    background: rgba(120, 138, 156, 0.78);
+    background: var(--saga-border-strong, rgba(215, 181, 109, 0.58));
     border-radius: 8px;
 }
 
 .saga-lore-show-more,
 .saga-small-button {
-    background: rgba(42, 52, 64, 0.88) !important;
-    border-color: rgba(126, 145, 165, 0.52) !important;
-    color: #d7e1ea !important;
+    background: var(--saga-button, rgba(18, 18, 24, 0.72)) !important;
+    border-color: var(--saga-border-soft, rgba(185, 139, 54, 0.18)) !important;
+    color: var(--saga-button-text, var(--saga-text, #f1ead8)) !important;
 }
 
 .saga-lore-show-more:hover,
 .saga-small-button:hover {
-    background: rgba(58, 72, 88, 0.96) !important;
-    border-color: rgba(155, 176, 196, 0.72) !important;
+    background: var(--saga-button-hover, rgba(92, 23, 36, 0.48)) !important;
+    border-color: var(--saga-border-strong, rgba(215, 181, 109, 0.58)) !important;
+    color: var(--saga-gold, #d7b56d) !important;
 }
 
 .saga-settings-reset-row {
@@ -80,8 +81,8 @@
 }
 
 .saga-lore-lifecycle-select option {
-    background: #1b1d22;
-    color: #f3f4f6;
+    background: var(--saga-input, #1b1d22);
+    color: var(--saga-text, #f3f4f6);
 }
 
 /* Title/tags should align with card content, not indent past metadata chips. */
@@ -107,7 +108,7 @@
     min-height: 28px;
     padding: 6px 8px;
     cursor: pointer;
-    color: #d4c8a8;
+    color: var(--saga-gold, #d7b56d);
     list-style: none;
     user-select: none;
 }
@@ -259,23 +260,23 @@
     width: 14px;
     height: 14px;
     margin: 0 2px 0 0;
-    accent-color: #6f879a;
+    accent-color: var(--saga-gold, #d7b56d);
     flex: 0 0 auto;
 }
 
 .saga-lore-entry-selected {
-    border-color: rgba(120, 155, 190, 0.75) !important;
-    box-shadow: 0 0 0 1px rgba(120, 155, 190, 0.25), 0 0 10px rgba(80, 120, 160, 0.12);
+    border-color: var(--saga-border-strong, rgba(215, 181, 109, 0.58)) !important;
+    box-shadow: 0 0 0 1px var(--saga-gold-surface, rgba(185, 139, 54, 0.12)), 0 0 10px var(--saga-gold-surface, rgba(185, 139, 54, 0.12));
 }
 
 .saga-lore-entry-editor {
     display: flex;
     flex-direction: column;
     gap: 6px;
-    border: 1px solid rgba(120, 150, 170, 0.18);
+    border: 1px solid var(--saga-border-soft, rgba(185, 139, 54, 0.18));
     border-radius: 8px;
     padding: 7px;
-    background: rgba(0, 0, 0, 0.2);
+    background: var(--saga-surface-2, rgba(18, 18, 24, 0.62));
     margin-bottom: 8px;
 }
 
@@ -284,17 +285,17 @@
     flex-direction: column;
     gap: 3px;
     font-size: 0.76em;
-    color: #c8d1d8;
+    color: var(--saga-muted, rgba(241, 234, 216, 0.68));
 }
 
 .saga-lore-editor-input,
 .saga-lore-editor-textarea {
     width: 100%;
     box-sizing: border-box;
-    border: 1px solid rgba(180, 160, 140, 0.25);
+    border: 1px solid var(--saga-input-border, rgba(185, 139, 54, 0.34));
     border-radius: 6px;
-    background: rgba(0, 0, 0, 0.34);
-    color: var(--SmartThemeBodyColor, #e0e0e0);
+    background: var(--saga-input, rgba(18, 18, 24, 0.76));
+    color: var(--saga-text, var(--SmartThemeBodyColor, #e0e0e0));
     font: inherit;
     padding: 5px 6px;
 }
@@ -927,7 +928,7 @@
 .saga-lore-entry-list,
 .saga-pending-lore-list {
     scrollbar-width: thin !important;
-    scrollbar-color: rgba(120, 138, 156, 0.78) rgba(10, 12, 16, 0.38) !important;
+    scrollbar-color: var(--saga-border-strong, rgba(215, 181, 109, 0.58)) var(--saga-input, rgba(18, 18, 24, 0.76)) !important;
 }
 
 .saga-lore-entry-list::-webkit-scrollbar,
@@ -937,13 +938,13 @@
 
 .saga-lore-entry-list::-webkit-scrollbar-track,
 .saga-pending-lore-list::-webkit-scrollbar-track {
-    background: rgba(10, 12, 16, 0.38) !important;
+    background: var(--saga-input, rgba(18, 18, 24, 0.76)) !important;
     border-radius: 8px !important;
 }
 
 .saga-lore-entry-list::-webkit-scrollbar-thumb,
 .saga-pending-lore-list::-webkit-scrollbar-thumb {
-    background: rgba(120, 138, 156, 0.78) !important;
+    background: var(--saga-border-strong, rgba(215, 181, 109, 0.58)) !important;
     border-radius: 8px !important;
 }
 
@@ -1227,7 +1228,7 @@
     overscroll-behavior: contain !important;
     scrollbar-gutter: stable both-edges !important;
     scrollbar-width: thin !important;
-    scrollbar-color: rgba(120, 138, 156, 0.78) rgba(10, 12, 16, 0.38) !important;
+    scrollbar-color: var(--saga-border-strong, rgba(215, 181, 109, 0.58)) var(--saga-input, rgba(18, 18, 24, 0.76)) !important;
     padding-right: 6px !important;
     touch-action: pan-y !important;
 }
@@ -1237,12 +1238,12 @@
 }
 
 .saga-lore-panel .saga-accepted-lore-section .saga-accepted-lore-scroll-region::-webkit-scrollbar-track {
-    background: rgba(10, 12, 16, 0.38) !important;
+    background: var(--saga-input, rgba(18, 18, 24, 0.76)) !important;
     border-radius: 8px !important;
 }
 
 .saga-lore-panel .saga-accepted-lore-section .saga-accepted-lore-scroll-region::-webkit-scrollbar-thumb {
-    background: rgba(120, 138, 156, 0.78) !important;
+    background: var(--saga-border-strong, rgba(215, 181, 109, 0.58)) !important;
     border-radius: 8px !important;
 }
 
@@ -1336,7 +1337,7 @@
     overscroll-behavior: contain !important;
     scrollbar-gutter: stable both-edges !important;
     scrollbar-width: thin !important;
-    scrollbar-color: rgba(120, 138, 156, 0.78) rgba(10, 12, 16, 0.38) !important;
+    scrollbar-color: var(--saga-border-strong, rgba(215, 181, 109, 0.58)) var(--saga-input, rgba(18, 18, 24, 0.76)) !important;
     padding-right: 6px !important;
     touch-action: pan-y !important;
 }

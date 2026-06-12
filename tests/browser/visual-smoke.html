@@ -248,6 +248,93 @@
                 ],
             },
         };
+        const creatorGeneratedPack = {
+            packId: 'smoke-generated-creator-project',
+            type: 'generated',
+            title: 'Smoke Generated: Arlong Park',
+            description: 'Generated Loredeck shell seeded so visual smoke renders an in-progress Creator project card.',
+            fandom: 'One Piece',
+            era: 'Arlong Park Arc',
+            library: {
+                type: 'generated',
+                source: 'creator',
+                folderId: 'unfiled',
+            },
+            source: {
+                kind: 'generated',
+                originalType: 'generated',
+                creatorJobId: 'smoke-creator-project',
+            },
+            tags: ['fandom:one-piece', 'arc:arlong-park', 'source:generated', 'smoke:test'],
+            stats: {
+                entryCount: 1,
+                categoryCounts: {
+                    character: 1,
+                },
+            },
+            manifestData: {
+                schemaVersion: 3,
+                id: 'smoke-generated-creator-project',
+                type: 'generated',
+                title: 'Smoke Generated: Arlong Park',
+                description: 'Generated Loredeck shell seeded for Creator project visual smoke.',
+                fandom: 'One Piece',
+                era: 'Arlong Park Arc',
+                entrySchemaVersion: 3,
+                files: [],
+                stats: { entryCount: 1 },
+            },
+            entryOverrides: {
+                smoke_generated_nami_pressure: {
+                    id: 'smoke_generated_nami_pressure',
+                    schemaVersion: 3,
+                    title: 'Nami Under Pressure',
+                    category: 'character',
+                    canon: 'canon',
+                    relevance: 'high',
+                    priority: 88,
+                    tags: ['character:nami', 'arc:arlong-park'],
+                    content: {
+                        fact: 'Nami is under sustained pressure from Arlong during the Cocoyasi Village conflict.',
+                        injection: 'Nami should feel controlled, guarded, and volatile around Arlong Park pressure.',
+                    },
+                    context: { type: 'anchor_window', anchorsAny: ['op_arlong_park_start'] },
+                    retrieval: { cuesAny: ['Nami', 'Arlong', 'Cocoyasi'] },
+                },
+            },
+        };
+        const creatorProjectJob = {
+            schemaVersion: 1,
+            jobId: 'smoke-creator-project',
+            status: 'running',
+            currentStage: 'entries_drafting',
+            fandom: 'One Piece',
+            scope: 'Arlong Park Arc',
+            granularity: 'scene_loom',
+            projectTitle: 'Smoke Creator Project',
+            generatedPackId: creatorGeneratedPack.packId,
+            approved: true,
+            outlineApproved: true,
+            createdAt: Date.now() - 420000,
+            updatedAt: Date.now() - 90000,
+            titleDrafts: [
+                { titleId: 'smoke_title_nami_pressure', title: 'Nami Under Pressure' },
+                { titleId: 'smoke_title_cocoyasi_revolt', title: 'Cocoyasi Revolt' },
+            ],
+            approvedTitleDraftIds: ['smoke_title_nami_pressure', 'smoke_title_cocoyasi_revolt'],
+            planningQueuedCount: 2,
+            planningAcceptedAt: Date.now() - 180000,
+            planningBatchQueuedIds: ['smoke_context_nami', 'smoke_context_cocoyasi'],
+            planningBatchAcceptedIds: ['smoke_context_nami'],
+            entryDraftCount: 3,
+            entryDraftRemainingCount: 2,
+            activeGeneration: {
+                jobId: 'smoke-creator-project',
+                status: 'running',
+                currentStage: 'entries_drafting',
+                startedAt: Date.now() - 45000,
+            },
+        };
 
         const settings = {
             ...DEFAULT_SETTINGS,
@@ -257,6 +344,15 @@
                 packs: {
                     ...(DEFAULT_SETTINGS.loredeckLibrary?.packs || {}),
                     [customPack.packId]: customPack,
+                    [creatorGeneratedPack.packId]: creatorGeneratedPack,
+                },
+            },
+            loredeckCreatorProjects: {
+                schemaVersion: 1,
+                activeJobId: creatorProjectJob.jobId,
+                lastJobId: creatorProjectJob.jobId,
+                jobs: {
+                    [creatorProjectJob.jobId]: creatorProjectJob,
                 },
             },
         };
@@ -331,6 +427,14 @@
                     newChars: 0,
                     characterThreshold: 8000,
                 },
+            },
+        };
+        state.loredeckCreator = {
+            schemaVersion: 1,
+            activeJobId: creatorProjectJob.jobId,
+            lastJobId: creatorProjectJob.jobId,
+            jobs: {
+                [creatorProjectJob.jobId]: creatorProjectJob,
             },
         };
         state.contextBrief = {

@@ -295,13 +295,13 @@ Use inside dense card rows, Creator lists, Lorecard metadata, Library rows, and 
 Recommended CSS target:
 
 ```css
-font-size: 11px;
-line-height: 16px;
-min-height: 16px;
-padding: 0 5px;
+font-size: 10px;
+line-height: 14px;
+min-height: 14px;
+padding: 0 4px;
 border-radius: 6px;
 gap: 3px;
-font-weight: 500;
+font-weight: 400;
 ```
 
 Use when:
@@ -318,13 +318,13 @@ Use in headers, summaries, section tops, and less dense cards.
 Recommended CSS target:
 
 ```css
-font-size: 12px;
-line-height: 18px;
-min-height: 18px;
-padding: 1px 6px;
+font-size: 10px;
+line-height: 15px;
+min-height: 15px;
+padding: 0 5px;
 border-radius: 7px;
 gap: 4px;
-font-weight: 500;
+font-weight: 400;
 ```
 
 Use when:
@@ -340,13 +340,13 @@ Use only for interactive filter chips, removable tags, or mobile-first controls.
 Recommended CSS target:
 
 ```css
-font-size: 12px;
-line-height: 18px;
+font-size: 10px;
+line-height: 15px;
 min-height: 24px;
 padding: 2px 8px;
 border-radius: 8px;
 gap: 4px;
-font-weight: 500;
+font-weight: 400;
 ```
 
 Use when:
@@ -979,14 +979,14 @@ Suggested shared variables:
 
 ```css
 :root {
-  --saga-chip-font-size-compact: 11px;
-  --saga-chip-font-size-standard: 12px;
-  --saga-chip-line-height-compact: 16px;
-  --saga-chip-line-height-standard: 18px;
+  --saga-chip-font-size-compact: 10px;
+  --saga-chip-font-size-standard: 10px;
+  --saga-chip-line-height-compact: 14px;
+  --saga-chip-line-height-standard: 15px;
   --saga-chip-radius: 6px;
   --saga-chip-gap: 3px;
-  --saga-chip-padding-compact: 0 5px;
-  --saga-chip-padding-standard: 1px 6px;
+  --saga-chip-padding-compact: 0 4px;
+  --saga-chip-padding-standard: 0 5px;
 }
 ```
 

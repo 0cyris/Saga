@@ -63,14 +63,14 @@
     --saga-text: #f1ead8;
     --saga-muted: rgba(241, 234, 216, 0.68);
     --saga-text-muted: rgba(241, 234, 216, 0.68);
-    --saga-chip-font-size-compact: 11px;
-    --saga-chip-font-size-standard: 12px;
-    --saga-chip-line-height-compact: 16px;
-    --saga-chip-line-height-standard: 18px;
+    --saga-chip-font-size-compact: 10px;
+    --saga-chip-font-size-standard: 10px;
+    --saga-chip-line-height-compact: 14px;
+    --saga-chip-line-height-standard: 15px;
     --saga-chip-radius: 6px;
     --saga-chip-gap: 3px;
-    --saga-chip-padding-compact: 0 5px;
-    --saga-chip-padding-standard: 1px 6px;
+    --saga-chip-padding-compact: 0 4px;
+    --saga-chip-padding-standard: 0 5px;
     --saga-chip-neutral-bg: rgba(216, 198, 163, 0.08);
     --saga-chip-neutral-border: rgba(216, 198, 163, 0.22);
     --saga-chip-neutral-fg: #d8c6a3;
@@ -285,7 +285,7 @@
     top: 0;
     z-index: 3;
     padding-bottom: 6px;
-    background: linear-gradient(180deg, rgba(18, 12, 18, 0.98), rgba(18, 12, 18, 0.92));
+    background: linear-gradient(180deg, var(--saga-bg-gradient-start, rgba(18, 12, 18, 0.98)), var(--saga-bg, rgba(18, 12, 18, 0.92)));
     border-bottom: 1px solid var(--saga-border-soft);
 }
 
