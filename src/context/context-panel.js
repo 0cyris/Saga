@@ -128,6 +128,24 @@ function getAdvancedContextBriefSummary(state = {}) {
     return parts.length ? parts.join(' | ') : 'Collapsed legacy/global Context fields';
 }
 
+function getContextAuditChipTone(value = '') {
+    const normalized = String(value || '').trim().toLowerCase();
+    if (!normalized) return 'muted';
+    if (/\b(error|failed|provider issue|provider_error|blocked)\b/.test(normalized)) return 'danger';
+    if (/\b(proposed|proposal|review|low confidence|unresolved|issue|warning)\b/.test(normalized)) return 'warning';
+    if (/\b(applied|complete|completed|ready|success|detected|current)\b/.test(normalized)) return 'success';
+    if (/\b(cached|skipped|waiting|manual|locked|no loaded|no_loaded|cadence|in flight)\b/.test(normalized)) return 'muted';
+    return 'info';
+}
+
+function getContextConfidenceChipTone(confidence) {
+    const value = Number(confidence);
+    if (!Number.isFinite(value)) return 'muted';
+    if (value >= 0.8) return 'success';
+    if (value >= 0.55) return 'info';
+    return 'warning';
+}
+
 export function createContextAutomationPanel() {
     const settings = getSettings();
     const selectedMode = String(settings.contextDetectionMode || 'manual').toLowerCase();
@@ -142,7 +160,10 @@ export function createContextAutomationPanel() {
     title.textContent = 'Automation';
     addTooltip(title, 'Controls automatic Context detection cadence. Manual locks still prevent overwrites.');
     header.appendChild(title);
-    const modePill = createStatusPill(getContextAutomationModeLabel(selectedMode), 'Current Context detection automation mode.');
+    const modePill = createStatusPill(getContextAutomationModeLabel(selectedMode), 'Current Context detection automation mode.', {
+        tone: selectedMode === 'manual' ? 'muted' : (selectedMode === 'automatic' ? 'warning' : 'info'),
+        kind: 'status',
+    });
     header.appendChild(modePill);
     wrap.appendChild(header);
 
@@ -398,13 +419,14 @@ export function createContextCommandCenterCard(state = {}, contextIndex = null) 
 
     const chips = document.createElement('div');
     chips.className = 'saga-loredeck-row-meta saga-context-command-chips';
-    chips.appendChild(createStatusPill(`${stack.length} loaded`, 'Enabled Loredecks currently participating in Context resolution.'));
-    chips.appendChild(createStatusPill(formatContextIndexSummary(contextIndex), 'Context timeline registry status for the enabled Loredeck stack.'));
+    chips.appendChild(createStatusPill(`${stack.length} loaded`, 'Enabled Loredecks currently participating in Context resolution.', { tone: stack.length ? 'success' : 'muted', kind: 'count' }));
+    chips.appendChild(createStatusPill(formatContextIndexSummary(contextIndex), 'Context timeline registry status for the enabled Loredeck stack.', { tone: contextIndex?.summary?.issueCount ? 'warning' : (contextIndex?.hasIndex ? 'source' : 'muted'), kind: 'source' }));
     chips.appendChild(createContextBriefStatusPill(getContextBriefStatusLabel(briefStatus), 'Latest detector status from the saved Context Brief.', getContextBriefStatusTone(briefStatus)));
     if (!basic || proposals.length) {
         chips.appendChild(createStatusPill(
             `${proposals.length} proposal${proposals.length === 1 ? '' : 's'}`,
-            'Reasoner-backed Context proposals waiting for review.'
+            'Reasoner-backed Context proposals waiting for review.',
+            { tone: proposals.length ? 'review' : 'muted', kind: 'count' }
         ));
     }
     header.appendChild(chips);
@@ -463,9 +485,13 @@ export function createContextCommandCenterCard(state = {}, contextIndex = null) 
 }
 
 function createContextBriefStatusPill(text, tooltip, tone = '') {
-    const pill = createStatusPill(text, tooltip);
-    if (tone) pill.classList.add(`saga-status-pill-risk-${tone}`);
-    return pill;
+    const normalizedTone = tone === 'high'
+        ? 'danger'
+        : (tone === 'medium' ? 'warning' : (tone === 'low' ? 'success' : (tone || 'muted')));
+    return createStatusPill(text, tooltip, {
+        tone: normalizedTone,
+        kind: normalizedTone === 'danger' || normalizedTone === 'warning' ? 'severity' : 'status',
+    });
 }
 
 export function createLoredeckContextCard(state = {}, contextIndex = null) {
@@ -488,13 +514,14 @@ export function createLoredeckContextCard(state = {}, contextIndex = null) {
     if (stack.length) {
         indexMeta.appendChild(createStatusPill(
             basic ? `${stack.length} loaded` : formatContextIndexSummary(contextIndex),
-            basic ? 'Loaded Loredecks available for story-position selection.' : 'Context timeline registry status for the enabled Loredeck stack.'
+            basic ? 'Loaded Loredecks available for story-position selection.' : 'Context timeline registry status for the enabled Loredeck stack.',
+            { tone: basic ? 'success' : (contextIndex?.summary?.issueCount ? 'warning' : (contextIndex?.hasIndex ? 'source' : 'muted')), kind: basic ? 'count' : 'source' }
         ));
         if (!basic && contextIndex?.summary?.issueCount) {
-            indexMeta.appendChild(createStatusPill(`${contextIndex.summary.issueCount} index issue${contextIndex.summary.issueCount === 1 ? '' : 's'}`, 'Timeline registry load warnings or suggestions.'));
+            indexMeta.appendChild(createStatusPill(`${contextIndex.summary.issueCount} index issue${contextIndex.summary.issueCount === 1 ? '' : 's'}`, 'Timeline registry load warnings or suggestions.', { tone: 'warning', kind: 'severity' }));
         }
     } else {
-        indexMeta.appendChild(createStatusPill('No loaded Loredecks', 'Load Loredecks into the active stack before setting per-Loredeck Context.'));
+        indexMeta.appendChild(createStatusPill('No loaded Loredecks', 'Load Loredecks into the active stack before setting per-Loredeck Context.', { tone: 'muted', kind: 'status' }));
     }
     header.appendChild(indexMeta);
     card.appendChild(header);
@@ -529,17 +556,17 @@ export function createContextResolutionAuditPanel(state = {}) {
 
     const chips = document.createElement('div');
     chips.className = 'saga-loredeck-row-meta';
-    chips.appendChild(createStatusPill(audit.status || 'unknown', 'Final resolver status for the latest check.'));
-    if (audit.reason) chips.appendChild(createStatusPill(formatContextAuditReason(audit.reason), audit.message || audit.reason));
-    if (audit.cached) chips.appendChild(createStatusPill('Cached', 'This result came from the repeated-check cache.'));
-    if (audit.inFlight) chips.appendChild(createStatusPill('In flight skipped', 'Saga skipped a duplicate Context Reasoner request because one was already running.'));
-    if (audit.counts?.localApplied) chips.appendChild(createStatusPill(`${audit.counts.localApplied} local applied`, 'High-confidence local Context updates applied to unlocked Loredecks.'));
-    if (audit.counts?.proposed) chips.appendChild(createStatusPill(`${audit.counts.proposed} proposed`, 'Bounded Reasoner proposals waiting for review.'));
-    if (audit.counts?.skipped && !audit.counts?.skippedLocked && !audit.counts?.skippedLowConfidence) chips.appendChild(createStatusPill(`${audit.counts.skipped} skipped`, 'Resolver or automation skipped one or more Context targets.'));
-    if (audit.counts?.skippedLocked) chips.appendChild(createStatusPill(`${audit.counts.skippedLocked} locked`, 'Loredecks skipped because manual lock is enabled.'));
-    if (audit.counts?.skippedLowConfidence) chips.appendChild(createStatusPill(`${audit.counts.skippedLowConfidence} low confidence`, 'Local or model results left unresolved because confidence was too low.'));
-    if (audit.counts?.unresolved) chips.appendChild(createStatusPill(`${audit.counts.unresolved} unresolved`, 'Loredecks that still need clearer Context or manual selection.'));
-    chips.appendChild(createStatusPill(new Date(audit.createdAt).toLocaleTimeString(), 'When this resolver check completed.'));
+    chips.appendChild(createStatusPill(audit.status || 'unknown', 'Final resolver status for the latest check.', { tone: getContextAuditChipTone(audit.status), kind: getContextAuditChipTone(audit.status) === 'danger' || getContextAuditChipTone(audit.status) === 'warning' ? 'severity' : 'status' }));
+    if (audit.reason) chips.appendChild(createStatusPill(formatContextAuditReason(audit.reason), audit.message || audit.reason, { tone: getContextAuditChipTone(audit.reason), kind: 'status' }));
+    if (audit.cached) chips.appendChild(createStatusPill('Cached', 'This result came from the repeated-check cache.', { tone: 'muted', kind: 'source' }));
+    if (audit.inFlight) chips.appendChild(createStatusPill('In flight skipped', 'Saga skipped a duplicate Context Reasoner request because one was already running.', { tone: 'muted', kind: 'status' }));
+    if (audit.counts?.localApplied) chips.appendChild(createStatusPill(`${audit.counts.localApplied} local applied`, 'High-confidence local Context updates applied to unlocked Loredecks.', { tone: 'success', kind: 'count' }));
+    if (audit.counts?.proposed) chips.appendChild(createStatusPill(`${audit.counts.proposed} proposed`, 'Bounded Reasoner proposals waiting for review.', { tone: 'review', kind: 'count' }));
+    if (audit.counts?.skipped && !audit.counts?.skippedLocked && !audit.counts?.skippedLowConfidence) chips.appendChild(createStatusPill(`${audit.counts.skipped} skipped`, 'Resolver or automation skipped one or more Context targets.', { tone: 'muted', kind: 'count' }));
+    if (audit.counts?.skippedLocked) chips.appendChild(createStatusPill(`${audit.counts.skippedLocked} locked`, 'Loredecks skipped because manual lock is enabled.', { tone: 'muted', kind: 'count' }));
+    if (audit.counts?.skippedLowConfidence) chips.appendChild(createStatusPill(`${audit.counts.skippedLowConfidence} low confidence`, 'Local or model results left unresolved because confidence was too low.', { tone: 'warning', kind: 'severity' }));
+    if (audit.counts?.unresolved) chips.appendChild(createStatusPill(`${audit.counts.unresolved} unresolved`, 'Loredecks that still need clearer Context or manual selection.', { tone: 'warning', kind: 'severity' }));
+    chips.appendChild(createStatusPill(new Date(audit.createdAt).toLocaleTimeString(), 'When this resolver check completed.', { tone: 'source', kind: 'source' }));
     header.appendChild(chips);
     wrap.appendChild(header);
 
@@ -581,15 +608,15 @@ export function createContextAutomationAuditPanel(state = {}) {
 
     const chips = document.createElement('div');
     chips.className = 'saga-loredeck-row-meta';
-    chips.appendChild(createStatusPill(audit.status || 'unknown', audit.message || 'Latest Context automation status.'));
-    if (audit.reason) chips.appendChild(createStatusPill(formatContextAuditReason(audit.reason), audit.message || audit.reason));
-    if (audit.mode) chips.appendChild(createStatusPill(getContextAutomationModeLabel(audit.mode), 'Context automation mode used for this decision.'));
+    chips.appendChild(createStatusPill(audit.status || 'unknown', audit.message || 'Latest Context automation status.', { tone: getContextAuditChipTone(audit.status), kind: getContextAuditChipTone(audit.status) === 'danger' || getContextAuditChipTone(audit.status) === 'warning' ? 'severity' : 'status' }));
+    if (audit.reason) chips.appendChild(createStatusPill(formatContextAuditReason(audit.reason), audit.message || audit.reason, { tone: getContextAuditChipTone(audit.reason), kind: 'status' }));
+    if (audit.mode) chips.appendChild(createStatusPill(getContextAutomationModeLabel(audit.mode), 'Context automation mode used for this decision.', { tone: String(audit.mode).toLowerCase() === 'manual' ? 'muted' : 'info', kind: 'status' }));
     if (audit.cadence) {
-        chips.appendChild(createStatusPill(`${audit.cadence.turns || 0}/${audit.cadence.minTurns || 0} turns`, 'Completed model turns since the last automatic Context check.'));
-        chips.appendChild(createStatusPill(`${audit.cadence.newChars || 0}/${audit.cadence.characterThreshold || 0} chars`, 'New story characters since the last automatic Context check baseline.'));
+        chips.appendChild(createStatusPill(`${audit.cadence.turns || 0}/${audit.cadence.minTurns || 0} turns`, 'Completed model turns since the last automatic Context check.', { kind: 'count' }));
+        chips.appendChild(createStatusPill(`${audit.cadence.newChars || 0}/${audit.cadence.characterThreshold || 0} chars`, 'New story characters since the last automatic Context check baseline.', { kind: 'count' }));
     }
-    if (audit.providerError) chips.appendChild(createStatusPill('Provider issue', audit.providerError));
-    chips.appendChild(createStatusPill(new Date(audit.createdAt).toLocaleTimeString(), 'When this automation decision was recorded.'));
+    if (audit.providerError) chips.appendChild(createStatusPill('Provider issue', audit.providerError, { tone: 'danger', kind: 'severity' }));
+    chips.appendChild(createStatusPill(new Date(audit.createdAt).toLocaleTimeString(), 'When this automation decision was recorded.', { tone: 'source', kind: 'source' }));
     header.appendChild(chips);
     wrap.appendChild(header);
 
@@ -625,9 +652,10 @@ export function createContextResolutionProposalPanel(state = {}) {
     chips.className = 'saga-loredeck-row-meta';
     chips.appendChild(createStatusPill(
         `${proposals.length} proposal${proposals.length === 1 ? '' : 's'}`,
-        'Pending Context proposals from the Reasoning Provider.'
+        'Pending Context proposals from the Reasoning Provider.',
+        { tone: 'review', kind: 'count' }
     ));
-    if (meta.createdAt) chips.appendChild(createStatusPill(`Drafted ${new Date(meta.createdAt).toLocaleTimeString()}`, 'When these Context proposals were drafted.'));
+    if (meta.createdAt) chips.appendChild(createStatusPill(`Drafted ${new Date(meta.createdAt).toLocaleTimeString()}`, 'When these Context proposals were drafted.', { tone: 'source', kind: 'source' }));
     header.appendChild(chips);
     wrap.appendChild(header);
 
@@ -737,11 +765,12 @@ export function createContextProposalReviewShell(state = {}) {
     chips.className = 'saga-context-workbench-header-chips';
     chips.appendChild(createStatusPill(
         `${proposals.length} proposal${proposals.length === 1 ? '' : 's'}`,
-        'Pending Context proposals from the Reasoning Provider.'
+        'Pending Context proposals from the Reasoning Provider.',
+        { tone: 'review', kind: 'count' }
     ));
-    if (meta.createdAt) chips.appendChild(createStatusPill(`Drafted ${new Date(meta.createdAt).toLocaleTimeString()}`, 'When these Context proposals were drafted.'));
-    if (!basic && meta.cached) chips.appendChild(createStatusPill('Cached', 'This proposal batch came from the repeated-check cache.'));
-    if (!basic && meta.source) chips.appendChild(createStatusPill(formatContextProposalSource(meta.source), 'Source of this Context proposal batch.'));
+    if (meta.createdAt) chips.appendChild(createStatusPill(`Drafted ${new Date(meta.createdAt).toLocaleTimeString()}`, 'When these Context proposals were drafted.', { tone: 'source', kind: 'source' }));
+    if (!basic && meta.cached) chips.appendChild(createStatusPill('Cached', 'This proposal batch came from the repeated-check cache.', { tone: 'muted', kind: 'source' }));
+    if (!basic && meta.source) chips.appendChild(createStatusPill(formatContextProposalSource(meta.source), 'Source of this Context proposal batch.', { tone: 'source', kind: 'source' }));
     titleWrap.appendChild(chips);
     header.appendChild(titleWrap);
 
@@ -806,9 +835,10 @@ function createContextProposalReviewRow(proposal = {}, options = {}) {
     if (!basic) {
         const chips = document.createElement('div');
         chips.className = 'saga-loredeck-row-meta';
-        chips.appendChild(createStatusPill(`${Math.round((Number(proposal.confidence) || 0) * 100)}%`, 'Reasoner confidence for this bounded proposal.'));
-        if (proposal.candidateType) chips.appendChild(createStatusPill(proposal.candidateType, 'Timeline candidate type.'));
-        if (proposal.candidateId) chips.appendChild(createStatusPill(proposal.candidateId, 'Bounded candidate ID selected by the Reasoner.'));
+        const confidence = Number(proposal.confidence) || 0;
+        chips.appendChild(createStatusPill(`${Math.round(confidence * 100)}%`, 'Reasoner confidence for this bounded proposal.', { tone: getContextConfidenceChipTone(confidence), kind: 'metadata' }));
+        if (proposal.candidateType) chips.appendChild(createStatusPill(proposal.candidateType, 'Timeline candidate type.', { tone: 'source', kind: 'metadata' }));
+        if (proposal.candidateId) chips.appendChild(createStatusPill(proposal.candidateId, 'Bounded candidate ID selected by the Reasoner.', { tone: 'source', kind: 'source', maxChars: 38 }));
         main.appendChild(chips);
     }
 
@@ -873,21 +903,21 @@ function createLoredeckContextRow(item, state = {}, contextIndex = null, options
     const chips = document.createElement('div');
     chips.className = 'saga-loredeck-row-meta';
     if (basic) {
-        chips.appendChild(createStatusPill(hasSelectedContext ? 'Context selected' : 'No Context set', hasSelectedContext ? 'This Loredeck has an active Context.' : 'Browse Context for this Loredeck.'));
-        chips.appendChild(createStatusPill(`Updated: ${formatLoredeckContextUpdatedAt(context)}`, 'When this Loredeck Context was last updated.'));
+        chips.appendChild(createStatusPill(hasSelectedContext ? 'Context selected' : 'No Context set', hasSelectedContext ? 'This Loredeck has an active Context.' : 'Browse Context for this Loredeck.', { tone: hasSelectedContext ? 'success' : 'muted', kind: 'status' }));
+        chips.appendChild(createStatusPill(`Updated: ${formatLoredeckContextUpdatedAt(context)}`, 'When this Loredeck Context was last updated.', { tone: 'source', kind: 'source' }));
         if (packIndex?.hasIndex) {
-            chips.appendChild(createStatusPill(`${packIndex.anchorCount || 0} anchors`, 'Timeline anchors available from this Loredeck.'));
+            chips.appendChild(createStatusPill(`${packIndex.anchorCount || 0} anchors`, 'Timeline anchors available from this Loredeck.', { tone: 'source', kind: 'count' }));
         }
     } else {
-        chips.appendChild(createStatusPill(getContextTypeLabel(context.contextType), 'Context mode for this Loredeck.'));
-        chips.appendChild(createStatusPill(formatContextSource(context.source), 'How this Context was last set.'));
-        chips.appendChild(createStatusPill(context.manualLock ? 'Locked' : 'Unlocked', 'Locked Contexts should not be overwritten by automatic resolvers.'));
-        chips.appendChild(createStatusPill(`${Math.round((Number(context.confidence) || 0) * 100)}%`, 'Resolver confidence. Manual choices default to high confidence.'));
-        chips.appendChild(createStatusPill(`Updated: ${formatLoredeckContextUpdatedAt(context)}`, 'When this Loredeck Context was last updated.'));
+        chips.appendChild(createStatusPill(getContextTypeLabel(context.contextType), 'Context mode for this Loredeck.', { tone: 'category', kind: 'metadata' }));
+        chips.appendChild(createStatusPill(formatContextSource(context.source), 'How this Context was last set.', { tone: 'source', kind: 'source' }));
+        chips.appendChild(createStatusPill(context.manualLock ? 'Locked' : 'Unlocked', 'Locked Contexts should not be overwritten by automatic resolvers.', { tone: context.manualLock ? 'muted' : 'success', kind: 'status' }));
+        chips.appendChild(createStatusPill(`${Math.round((Number(context.confidence) || 0) * 100)}%`, 'Resolver confidence. Manual choices default to high confidence.', { tone: getContextConfidenceChipTone(context.confidence), kind: 'metadata' }));
+        chips.appendChild(createStatusPill(`Updated: ${formatLoredeckContextUpdatedAt(context)}`, 'When this Loredeck Context was last updated.', { tone: 'source', kind: 'source' }));
         if (packIndex?.hasIndex) {
-            chips.appendChild(createStatusPill(`${packIndex.anchorCount || 0}/${packIndex.windowCount || 0}`, 'Timeline anchors/windows available from this Loredeck registry.'));
+            chips.appendChild(createStatusPill(`${packIndex.anchorCount || 0}/${packIndex.windowCount || 0}`, 'Timeline anchors/windows available from this Loredeck registry.', { tone: 'source', kind: 'count' }));
         } else {
-            chips.appendChild(createStatusPill(contextIndex ? 'No index' : 'Index loading', 'This Loredeck has no loaded timeline registry yet.'));
+            chips.appendChild(createStatusPill(contextIndex ? 'No index' : 'Index loading', 'This Loredeck has no loaded timeline registry yet.', { tone: 'muted', kind: 'source' }));
         }
     }
     header.appendChild(chips);

@@ -16,6 +16,7 @@ globalThis.fetch = async (url) => {
 
 const { loadContextIndexForState } = await import('../../src/context/context-index.js');
 const { resolveContextsWithModel, __contextResolverTestHooks } = await import('../../src/context/context-resolver.js');
+const { LORE_PARSE_ERROR_CODES } = await import('../../src/providers/lore-response-normalizer.js');
 
 const {
   buildResolverContextFromState,
@@ -161,6 +162,13 @@ assert.equal(cachedAudit.outcomes.some(outcome => outcome.reason === 'no_local_m
 const fenced = `\`\`\`json\n{"contexts":[{"packId":"${YEAR_7_DECK_ID}","status":"resolved","candidateId":"anchor:${MINISTRY_FALLS_ANCHOR_ID}","candidateType":"anchor","confidence":0.82,"reason":"The user says after the Ministry falls."}]}\n\`\`\``;
 assert.equal(parseContextModelResponse(fenced).contexts.length, 1);
 
+const malformedModelResponse = parseContextModelResponse('{"contexts":[');
+assert.equal(malformedModelResponse.contexts.length, 0);
+assert.equal(malformedModelResponse.errorCode, LORE_PARSE_ERROR_CODES.JSON_INVALID);
+const wrongShapeModelResponse = parseContextModelResponse('{"summary":"valid JSON without contexts"}');
+assert.equal(wrongShapeModelResponse.contexts.length, 0);
+assert.equal(wrongShapeModelResponse.errorCode, undefined);
+
 const resolved = resolveContextsFromModelResponse(fenced, {
   canonBoundary: 'after the Ministry falls',
   branchId: 'main',
@@ -231,6 +239,15 @@ const lockedModelAudit = buildContextResolutionAudit({
 assert.equal(lockedModelAudit.counts.skippedLocked, 1);
 assert.equal(lockedModelAudit.counts.proposed, 0);
 assert.equal(lockedModelAudit.outcomes.some(outcome => outcome.phase === 'model' && outcome.reason === 'manual_lock'), true);
+
+const malformedResolution = resolveContextsFromModelResponse('{"contexts":[', {}, {
+  state,
+  index,
+  targetPackIds: [YEAR_7_DECK_ID],
+});
+assert.equal(malformedResolution.errorCode, LORE_PARSE_ERROR_CODES.JSON_INVALID);
+assert.equal(malformedResolution.results[0].status, 'unresolved');
+assert.equal(malformedResolution.results[0].reason, 'model_parse_failed');
 
 const inFlightAudit = buildContextResolutionAudit({
   status: 'in_flight',

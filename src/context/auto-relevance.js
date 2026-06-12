@@ -12,6 +12,10 @@ import { getSettings, getState, saveState } from '../state/state-manager.js';
 import { normalizeLoreMatrix } from '../lorecards/lore-matrix.js';
 import { computeLocalLoreRelevance, normalizeLoreRelevance, relevanceWeight } from '../lorecards/lore-relevance.js';
 import { sendLoreRequest, validateLoreProviderConfiguration } from '../providers/lore-llm-client.js';
+import {
+    extractLoreResponseText,
+    LORE_PARSE_ERROR_CODES,
+} from '../providers/lore-response-normalizer.js';
 import { captureLoreTimelineState, recordLoreTimelineEvent } from '../lorecards/lore-timeline.js';
 
 let turnCounter = 0;
@@ -24,7 +28,8 @@ function stripJsonFences(text) {
 }
 
 function parseJsonObject(text) {
-    const cleaned = stripJsonFences(text).replace(/^\uFEFF/, '').trim();
+    const responseText = extractLoreResponseText(text);
+    const cleaned = stripJsonFences(responseText).replace(/^\uFEFF/, '').trim();
     try { return JSON.parse(cleaned); } catch (_) {}
     const start = cleaned.indexOf('{');
     const end = cleaned.lastIndexOf('}');
@@ -97,6 +102,15 @@ Task:
     return { system, user: JSON.stringify(payload, null, 2) };
 }
 
+function buildAutoRelevanceModelParseFailure() {
+    return {
+        changes: [],
+        status: 'failed_parse',
+        errorCode: LORE_PARSE_ERROR_CODES.JSON_INVALID,
+        error: 'Auto-Relevance model returned malformed JSON.',
+    };
+}
+
 async function adjudicateCandidatesWithModel(candidates, state, settings, recentText) {
     if (!settings.autoRelevanceUseModel) return { changes: [], status: 'skipped' };
     const validation = validateLoreProviderConfiguration('continuity');
@@ -111,6 +125,9 @@ async function adjudicateCandidatesWithModel(candidates, state, settings, recent
         maxTokens: Math.max(512, Math.min(4096, Number(settings.autoRelevanceModelMaxTokens) || 2048)),
     });
     const parsed = parseJsonObject(response);
+    if (!parsed) {
+        return buildAutoRelevanceModelParseFailure();
+    }
     const rawChanges = Array.isArray(parsed?.changes) ? parsed.changes : [];
     const candidateById = new Map(modelCandidates.map(item => [item.entry.id, item]));
     const changes = [];
@@ -433,3 +450,8 @@ export function onGenerationEndedAutoRelevance() {
     runAutoRelevance().catch(e => console.error('[Saga Auto-Relevance] failed:', e));
     return { status: 'scheduled' };
 }
+
+export const __autoRelevanceTestHooks = Object.freeze({
+    buildAutoRelevanceModelParseFailure,
+    parseJsonObject,
+});

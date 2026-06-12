@@ -154,11 +154,11 @@ function createLoredeckLibraryLaunchCard(state = getState(), canonDb = null, hea
     main.appendChild(help);
     const chips = document.createElement('div');
     chips.className = 'saga-loredeck-row-meta';
-    chips.appendChild(createStatusPill(`${library.length} decks`, 'Total Loredecks available in the Library.'));
-    chips.appendChild(createStatusPill(`${stats.activeCount} active`, 'Enabled Loredecks currently participating in retrieval, including folder groups.'));
-    chips.appendChild(createStatusPill(`${stats.entryCount} active Lorecards`, 'Approximate Lorecards from enabled stack decks.'));
-    chips.appendChild(createStatusPill(`${stats.errorCount} errors`, 'Current stack Deck Health error count.'));
-    chips.appendChild(createStatusPill(`${stats.warningCount} warnings`, 'Current stack Deck Health warning count.'));
+    chips.appendChild(createStatusPill(`${library.length} decks`, 'Total Loredecks available in the Library.', { kind: 'count' }));
+    chips.appendChild(createStatusPill(`${stats.activeCount} active`, 'Enabled Loredecks currently participating in retrieval, including folder groups.', { tone: stats.activeCount ? 'success' : 'muted', kind: 'count' }));
+    chips.appendChild(createStatusPill(`${stats.entryCount} active Lorecards`, 'Approximate Lorecards from enabled stack decks.', { kind: 'count' }));
+    chips.appendChild(createStatusPill(`${stats.errorCount} errors`, 'Current stack Deck Health error count.', { tone: stats.errorCount ? 'danger' : 'muted', kind: 'severity' }));
+    chips.appendChild(createStatusPill(`${stats.warningCount} warnings`, 'Current stack Deck Health warning count.', { tone: stats.warningCount ? 'warning' : 'muted', kind: 'severity' }));
     main.appendChild(chips);
     card.appendChild(main);
 
@@ -249,10 +249,10 @@ function renderLoredeckCreatorProjectShelfContent(card, state = getState(), pres
     const generatedCount = allModels.filter(model => model.hasGeneratedPack).length;
     const reviewCount = allModels.filter(model => model.nextAction?.tone === 'review' || model.stage?.tone === 'review').length;
     const selectedCount = getLoredeckCreatorProjectSelectedIds(allModels).length;
-    meta.appendChild(createStatusPill(`${allModels.length} unfinished`, 'Unfinished Loredeck Creator projects saved across chats.'));
-    if (generatedCount) meta.appendChild(createStatusPill(`${generatedCount} generated`, 'Projects with a Generated Loredeck shell already created.'));
-    if (reviewCount) meta.appendChild(createStatusPill(`${reviewCount} needs review`, 'Projects waiting on manual review before continuing.'));
-    if (selectedCount) meta.appendChild(createStatusPill(`${selectedCount} selected`, 'Creator projects selected for bulk shelf actions.'));
+    meta.appendChild(createStatusPill(`${allModels.length} unfinished`, 'Unfinished Loredeck Creator projects saved across chats.', { kind: 'count' }));
+    if (generatedCount) meta.appendChild(createStatusPill(`${generatedCount} generated`, 'Projects with a Generated Loredeck shell already created.', { tone: 'source', kind: 'count' }));
+    if (reviewCount) meta.appendChild(createStatusPill(`${reviewCount} needs review`, 'Projects waiting on manual review before continuing.', { tone: 'review', kind: 'count' }));
+    if (selectedCount) meta.appendChild(createStatusPill(`${selectedCount} selected`, 'Creator projects selected for bulk shelf actions.', { tone: 'selected', kind: 'count' }));
     header.appendChild(meta);
     card.appendChild(header);
 
@@ -639,10 +639,11 @@ function createLoredeckCreatorProjectCard(model = {}, options = {}) {
         onCommit: nextTitle => renameLoredeckCreatorProjectTitle(model.jobId, nextTitle),
     }));
     top.appendChild(title);
-    const stage = document.createElement('span');
-    stage.className = `saga-loredeck-creator-project-stage saga-loredeck-creator-project-stage-${model.stage?.tone || 'neutral'}`;
-    stage.textContent = model.stage?.label || 'Intake';
-    addTooltip(stage, 'Current Creator project stage.');
+    const stage = createStatusPill(model.stage?.label || 'Intake', 'Current Creator project stage.', {
+        tone: model.stage?.tone || 'neutral',
+        kind: 'status',
+        className: 'saga-loredeck-creator-project-stage',
+    });
     top.appendChild(stage);
     main.appendChild(top);
 
@@ -653,9 +654,9 @@ function createLoredeckCreatorProjectCard(model = {}, options = {}) {
 
     const chips = document.createElement('div');
     chips.className = 'saga-loredeck-row-meta';
-    chips.appendChild(createStatusPill(model.folderLabel || 'Unfiled', model.folderPathText ? `Library folder: ${model.folderPathText}.` : 'Creator project folder.'));
+    chips.appendChild(createStatusPill(model.folderLabel || 'Unfiled', model.folderPathText ? `Library folder: ${model.folderPathText}.` : 'Creator project folder.', { kind: 'source', tone: model.folderPathText ? 'source' : 'muted' }));
     for (const chip of model.chips || []) {
-        chips.appendChild(createStatusPill(chip.label, chip.tooltip));
+        chips.appendChild(createStatusPill(chip.label, chip.tooltip, { tone: chip.tone, kind: chip.label?.match(/\\d/) ? 'count' : 'status' }));
     }
     main.appendChild(chips);
 

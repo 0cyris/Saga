@@ -17,6 +17,7 @@ const loredeckValidationViewPath = sourcePath('loredecks', 'loredeck-validation-
 const loredeckJobViewPath = sourcePath('loredecks', 'loredeck-job-view.js');
 const loredeckActionRowsPath = sourcePath('loredecks', 'loredeck-action-rows.js');
 const lorecardsPanelPath = sourcePath('lorecards', 'lorecards-panel.js');
+const loreTimelinePanelPath = sourcePath('lorecards', 'lore-timeline-panel.js');
 const creatorPanelPath = sourcePath('loredecks', 'loredeck-creator-panel.js');
 const creatorCoveragePath = sourcePath('loredecks', 'loredeck-creator-coverage.js');
 const healthPanelPath = sourcePath('loredecks', 'loredeck-health-panel.js');
@@ -113,10 +114,165 @@ function readCssBundle(file, seen = new Set()) {
     return [source, ...imports.map(importFile => readCssBundle(importFile, seen))].join('\n');
 }
 
+function listJsFiles(dir) {
+    const files = [];
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+        if (entry.name === '.git' || entry.name === 'node_modules') continue;
+        const file = path.join(dir, entry.name);
+        if (entry.isDirectory()) files.push(...listJsFiles(file));
+        else if (/\.(js|mjs)$/.test(entry.name)) files.push(file);
+    }
+    return files;
+}
+
+function getLineNumber(source, index) {
+    return source.slice(0, index).split(/\r?\n/).length;
+}
+
+function skipQuoted(source, index, quote) {
+    for (let i = index + 1; i < source.length; i += 1) {
+        if (source[i] === '\\') {
+            i += 1;
+            continue;
+        }
+        if (source[i] === quote) return i;
+    }
+    return source.length - 1;
+}
+
+function skipTemplate(source, index) {
+    for (let i = index + 1; i < source.length; i += 1) {
+        if (source[i] === '\\') {
+            i += 1;
+            continue;
+        }
+        if (source[i] === '`') return i;
+        if (source[i] === '$' && source[i + 1] === '{') {
+            i += 2;
+            let depth = 1;
+            for (; i < source.length; i += 1) {
+                if (source[i] === '"' || source[i] === "'") {
+                    i = skipQuoted(source, i, source[i]);
+                    continue;
+                }
+                if (source[i] === '`') {
+                    i = skipTemplate(source, i);
+                    continue;
+                }
+                if (source[i] === '\\') {
+                    i += 1;
+                    continue;
+                }
+                if (source[i] === '{') depth += 1;
+                else if (source[i] === '}') {
+                    depth -= 1;
+                    if (depth === 0) break;
+                }
+            }
+        }
+    }
+    return source.length - 1;
+}
+
+function countTopLevelCommas(source) {
+    let depth = 0;
+    let commas = 0;
+    for (let i = 0; i < source.length; i += 1) {
+        const char = source[i];
+        if (char === '"' || char === "'") {
+            i = skipQuoted(source, i, char);
+            continue;
+        }
+        if (char === '`') {
+            i = skipTemplate(source, i);
+            continue;
+        }
+        if (char === '(' || char === '{' || char === '[') depth += 1;
+        else if (char === ')' || char === '}' || char === ']') depth = Math.max(0, depth - 1);
+        else if (char === ',' && depth === 0) commas += 1;
+    }
+    return commas;
+}
+
+function findUntypedChipWrapperCalls(source, functionName) {
+    const calls = [];
+    const prefix = `${functionName}(`;
+    let searchIndex = 0;
+    while (true) {
+        const start = source.indexOf(prefix, searchIndex);
+        if (start < 0) break;
+        let depth = 1;
+        let end = start + prefix.length;
+        for (; end < source.length; end += 1) {
+            const char = source[end];
+            if (char === '"' || char === "'") {
+                end = skipQuoted(source, end, char);
+                continue;
+            }
+            if (char === '`') {
+                end = skipTemplate(source, end);
+                continue;
+            }
+            if (char === '(' || char === '{' || char === '[') depth += 1;
+            else if (char === ')' || char === '}' || char === ']') {
+                depth -= 1;
+                if (depth === 0) break;
+            }
+        }
+        if (depth === 0) {
+            const args = source.slice(start + prefix.length, end);
+            if (countTopLevelCommas(args) < 2) calls.push(getLineNumber(source, start));
+            searchIndex = end + 1;
+        } else {
+            searchIndex = start + prefix.length;
+        }
+    }
+    return calls;
+}
+
+function findUntypedStatusPills(source) {
+    return findUntypedChipWrapperCalls(source, 'createStatusPill');
+}
+
+function findUntypedBadges(source) {
+    return findUntypedChipWrapperCalls(source, 'createBadge');
+}
+
+function getUntypedStatusPillCalls() {
+    const calls = [];
+    for (const file of listJsFiles(sourcePath())) {
+        const lines = findUntypedStatusPills(read(file));
+        for (const line of lines) calls.push(`${path.relative(root, file)}:${line}`);
+    }
+    return calls;
+}
+
+function getUntypedBadgeCalls() {
+    const calls = [];
+    for (const file of listJsFiles(sourcePath())) {
+        const lines = findUntypedBadges(read(file));
+        for (const line of lines) calls.push(`${path.relative(root, file)}:${line}`);
+    }
+    return calls;
+}
+
 function assert(condition, message) {
     if (!condition) {
         throw new Error(message);
     }
+}
+
+function escapeRegex(value = '') {
+    return String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function cssRuleDeclares(source, selector, properties = []) {
+    const prop = new RegExp(`(?:^|\\n)\\s*(?:${properties.map(escapeRegex).join('|')})\\s*:`, 'm');
+    const rule = /([^{}]+)\{([^{}]*)\}/g;
+    return [...String(source || '').matchAll(rule)].some(match => {
+        const selectors = String(match[1] || '').split(',').map(part => part.trim());
+        return selectors.includes(selector) && prop.test(match[2] || '');
+    });
 }
 
 function parseSingleQuotedValues(source) {
@@ -461,6 +617,7 @@ const panel = read(panelPath);
 const libraryPanel = read(libraryPanelPath);
 const loredecksTabPanel = read(loredecksTabPanelPath);
 const lorecardsPanel = read(lorecardsPanelPath);
+const loreTimelinePanel = read(loreTimelinePanelPath);
 const creatorPanel = read(creatorPanelPath);
 const creatorCoverage = read(creatorCoveragePath);
 const continuityPanel = read(continuityPanelPath);
@@ -513,6 +670,8 @@ const runtimeShell = read(runtimeShellPath);
 const runtimeShellView = read(runtimeShellViewPath);
 const runtimeTabRegistry = read(runtimeTabRegistryPath);
 const runtimeSettingControls = read(runtimeSettingControlsPath);
+const runtimeUiKit = read(runtimeUiKitPath);
+const themePanel = read(themePanelPath);
 const runtimePanelSource = [
     panel,
     runtimeActiveStackPanel,
@@ -569,10 +728,10 @@ const runtimePanelSource = [
     contextWorkbenchPanel,
     settingsPanel,
     runtimeSettingsTab,
-    read(themePanelPath),
+    themePanel,
     read(themeActionsPath),
     read(runtimeThemePath),
-    read(runtimeUiKitPath),
+    runtimeUiKit,
     read(runtimeCollapsiblePath),
 ].join('\n');
 const assistant = read(assistantPath);
@@ -620,9 +779,95 @@ assert(!runtimePanelSource.includes("scope.textContent = 'Global'"), 'Loredecks 
 assert(style.includes('.saga-runtime-rail-tab-global') && style.includes('.saga-runtime-rail-tab-divider'), 'Loredecks shelf grouping must have dedicated accent and divider styling.');
 assert(style.includes('border-color: var(--saga-border') && style.includes('var(--saga-border-soft'), 'Loredecks shelf accent must reuse existing theme border variables.');
 assert(!style.includes('2px 0 0 rgba(215, 181, 109') && !style.includes('2px 0 0 rgba(212, 200, 168'), 'Loredecks shelf accent must not use a left inset that visually offsets the tab.');
-assert(/lorePanel:\s*\{[\s\S]*isOpen:\s*false,[\s\S]*collapsed:\s*true,[\s\S]*railMode:\s*'compact',[\s\S]*drawerOpen:\s*false,/.test(defaultState), 'Fresh Saga installs must not auto-open the runtime shelf or drawer.');
+assert(/lorePanel:\s*\{[\s\S]*isOpen:\s*true,[\s\S]*collapsed:\s*true,[\s\S]*railMode:\s*'compact',[\s\S]*drawerOpen:\s*false,/.test(defaultState), 'Fresh Saga installs must show the runtime shelf while keeping the drawer closed.');
 assert(defaultState.includes('hasOpenedRuntime: false') && defaultState.includes('launcherDismissed: false'), 'Fresh Saga installs must track first-open/onboarding separately from panel visibility.');
 assert(runtimePanelSource.includes('state.lorePanel.hasOpenedRuntime = true') && runtimePanelSource.includes('state.lorePanel.firstOpenedAt') && runtimePanelSource.includes('state.lorePanel.lastOpenedAt'), 'Opening the runtime must stamp first-open state separately from isOpen.');
+assert(runtimePanelSource.includes("focused: 'Chapter Lens (balanced)'"), 'Creator granularity labels must pair mystical names with plain descriptors.');
+assert(runtimePanelSource.includes('Balanced default. Best for one arc, season, book section, or scenario;'), 'Creator granularity blurbs must explain practical scope plainly.');
+assert(runtimeUiKit.includes('export function createChip') && runtimeUiKit.includes('export function setChipTone') && runtimeUiKit.includes('inferChipKindFromLabel') && runtimeUiKit.includes('saga-chip-kind-${kind}') && runtimeUiKit.includes('saga-chip-tone-${tone}') && runtimeUiKit.includes('chip.dataset.sagaChipTone = tone'), 'Runtime UI kit must expose shared semantic chip helpers with inferred kind/tone metadata.');
+assert(style.includes('--saga-chip-font-size-compact: 11px') && style.includes('.saga-chip-tone-review') && style.includes('.saga-chip-tone-danger') && style.includes('.saga-chip-tone-tag') && style.includes('font-size: var(--saga-chip-font-size-compact, 11px)'), 'Runtime stylesheet must define compact semantic chip tokens and tones.');
+assert(style.includes('.saga-status-pill') && !/\\.saga-status-pill,\\s*\\n\\.saga-runtime-card/.test(style), 'Theme token layer must not force status pills to share card surface styling.');
+const untypedStatusPills = getUntypedStatusPillCalls();
+assert(untypedStatusPills.length === 0, `Status pills must pass chip schema options. Untyped calls: ${untypedStatusPills.slice(0, 12).join(', ')}`);
+const untypedBadges = getUntypedBadgeCalls();
+assert(untypedBadges.length === 0, `Lore badges must pass chip schema options. Untyped calls: ${untypedBadges.slice(0, 12).join(', ')}`);
+const legacyChipSource = [
+    style,
+    panel,
+    libraryPanel,
+    loredecksTabPanel,
+    healthPanel,
+    contextWorkbenchPanel,
+    runtimeUiKit,
+    lorecardsPanel,
+    loreTimelinePanel,
+    runtimeLoreRegistry,
+    runtimeLoredeckReviewHelpers,
+].join('\n');
+assert(!/saga-status-pill-(?:risk|quality|health)|saga-provider-status-(?:ready|warning)|saga-loredeck-health-chip(?:-[a-z0-9-]+)?|saga-loredeck-creator-project-stage-(?:review|running|warning|success)|saga-loredeck-library-folder-loredeck-health-(?:error|warning|ok)|saga-loredeck-library-stack-folder-preview-(?:chip-(?:active|suppressed|disabled|kept)|health-chip(?:-[a-z0-9-]+)?)|saga-loredeck-library-drag-copy-(?:invalid|root|remove)|saga-loredeck-library-deck-side|saga-lore-badge-(?:character|event|item|knowledge|place|faction|spell|artifact|divergent|fanon|unknown|true|false|public-belief|contested|hidden|public|private|do-not-reveal|only-if-knower-present|only-if-user-reveals|muted|pinned|canon|au|secret|rumor|lie|relationship|location|rule|timeline|truth|pending|priority|source|source-detail|context|context-match|date-gate|context-unresolved|context-blocked|clickable)/.test(legacyChipSource), 'Migrated chips must not reintroduce legacy text-derived badge/status-palette classes.');
+assert(!runtimeUiKit.includes('getLoreBadgeClass') && !runtimeLoreRegistry.includes('applyLoreRegistryStyle') && !lorecardsPanel.includes('applyLoreRegistryStyle'), 'Chip color semantics must route through shared tone/kind classes, not text-derived or registry inline style helpers.');
+const migratedChipBridgeSelectors = [
+    '.saga-lore-badge',
+    '.saga-lore-badge-saga-meta',
+    '.saga-lore-tag-chip',
+    '.saga-lore-timeline-ref-chip',
+    '.saga-lore-timeline-event-counts',
+    '.saga-continuity-filter-chip',
+    '.saga-continuity-status',
+    '.saga-lore-registry-badge',
+    '.saga-lore-workbench-count',
+    '.saga-lore-meta-select-wrap',
+    '.saga-lore-lifecycle-select-wrap',
+    '.saga-instructions-section-header .saga-status-pill',
+    '.saga-context-workbench-resolver-score',
+    '.saga-canon-preview-selected-count',
+    '.saga-loredeck-creator-project-stage',
+    '.saga-loredeck-library-stack-folder-preview-chip',
+    '.saga-loredeck-library-folder-loredeck-entry-count',
+    '.saga-loredeck-library-folder-loredeck-health',
+    '.saga-loredeck-library-drag-copy',
+    '.saga-loredeck-library-detail-kicker',
+    '.saga-loredeck-health-card .saga-status-pill',
+    '.saga-loredeck-health-center-overlay .saga-status-pill',
+    '.saga-theme-accessibility-score',
+    '.saga-theme-icon-status',
+    '.saga-provider-runtime-status',
+    '.saga-prompt-sync-status-value',
+    '.saga-preset-status-stat-value',
+    '.saga-loredeck-creator-side-value',
+    '.saga-loredeck-creator-queue-value',
+    '.saga-loredeck-creator-diagnostic-value',
+    '.saga-loredeck-creator-generation-toggle-value',
+];
+for (const selector of migratedChipBridgeSelectors) {
+    assert(!cssRuleDeclares(style, selector, ['background', 'border', 'border-color', 'color']), `${selector} must stay layout-only; shared chip tone classes own color, fill, and border.`);
+    assert(!cssRuleDeclares(style, selector, ['font-size', 'font-weight', 'line-height', 'padding', 'padding-inline', 'padding-left', 'padding-right', 'border-radius', 'min-height', 'height']), `${selector} must not restate chip density; shared chip density classes own size, padding, radius, and typography.`);
+}
+assert(!style.includes('.saga-lore-panel-badge'), 'Unused legacy lore panel badge class must not return.');
+assert(!style.includes('.saga-continuity-filter-chip-active') && !legacyChipSource.includes('--wl-chip-color'), 'Lore Timeline filter chips must use selected/muted schema tones instead of local chip color variables.');
+assert(!cssRuleDeclares(style, '.saga-lore-meta-select', ['height', 'min-height', 'border-radius', 'padding', 'font-size', 'font-weight', 'line-height']) && !/\.saga-lore-meta-select\s*\{[^}]*background:\s*rgba/.test(style), 'Editable metadata dropdowns must let the schema chip wrapper own density and visible fill.');
+assert(!cssRuleDeclares(style, '.saga-lore-lifecycle-select', ['height', 'min-height', 'border-radius', 'padding', 'font-size', 'font-weight', 'line-height']) && !/\.saga-lore-lifecycle-select\s*\{[^}]*background:\s*rgba/.test(style), 'Editable lifecycle dropdowns must let the schema chip wrapper own density and visible fill.');
+assert(lorecardsPanel.includes("className: 'saga-lore-workbench-count'") && contextWorkbenchPanel.includes("className: 'saga-lore-workbench-count'") && !/(?:count|filterCount)\.className = 'saga-lore-workbench-count'/.test(`${lorecardsPanel}\n${contextWorkbenchPanel}`), 'Lorecard and Context workbench count indicators must render through schema-backed count chips.');
+assert(loreTimelinePanel.includes("className: 'saga-continuity-status'") && loreTimelinePanel.includes("className: 'saga-lore-timeline-event-counts'") && !/status\.className = 'saga-continuity-status'|counts\.className = 'saga-lore-timeline-event-counts'/.test(loreTimelinePanel), 'Lore Timeline summary and event counts must render through schema-backed count chips.');
+assert(contextWorkbenchPanel.includes('createContextWorkbenchResolverScorePill') && !/score\.className = 'saga-context-workbench-resolver-score'/.test(contextWorkbenchPanel), 'Context resolver score bubbles must render through schema-backed status pills.');
+assert(panel.includes("className: 'saga-canon-preview-selected-count'") && panel.includes('setChipTone(count') && !/count\.className = 'saga-canon-preview-selected-count'/.test(panel), 'Canon Preview selected count must render through a schema chip and update semantic tone directly.');
+assert(libraryPanel.includes("createStatusPill('', 'Current Loredeck drag action.'") && libraryPanel.includes('setChipTone(label') && !/saga-loredeck-library-drag-copy-(?:invalid|root|remove)/.test(libraryPanel), 'Loredeck Library drag-copy feedback must render through a schema chip and update semantic tone directly.');
+assert(/saga-loredeck-library-root-drop-active::before[\s\S]{0,520}var\(--saga-chip-warning-border/.test(style) && /saga-loredeck-library-stack-remove-active::before[\s\S]{0,220}var\(--saga-chip-danger-border/.test(style), 'Loredeck Library pseudo drag/drop labels must use shared semantic chip token colors.');
+assert(/function createLoredeckLibraryDetailKicker[\s\S]{0,220}createStatusPill/.test(libraryPanel), 'Loredeck Library detail kicker must render through a schema-backed status pill.');
+assert(themePanel.includes('function createThemeAccessibilityRow') && themePanel.includes('const score = createStatusPill(') && themePanel.includes("className: 'saga-theme-accessibility-score'"), 'Theme accessibility score chips must render through schema-backed status pills.');
+assert(themePanel.includes("className: 'saga-theme-icon-status'") && !/status\.className = 'saga-theme-icon-status'/.test(themePanel), 'Theme Icon Set coverage status must render through a schema-backed status pill.');
+assert(!settingsPanel.includes('saga-provider-status-ready') && !settingsPanel.includes('saga-provider-status-warning'), 'Provider setup status pills must rely on shared success/warning schema tones without local palette suffix classes.');
+assert(settingsPanel.includes('function createProviderRuntimeStatusPill') && settingsPanel.includes('updateProviderRuntimeStatusPill(modelStatus') && !/saga-provider-runtime-status';[\s\S]{0,140}(?:textContent|appendChild\(status\))/.test(settingsPanel), 'Provider runtime model/key statuses must render through schema-backed status pills.');
+assert(injectionPanel.includes('function createPromptInjectionStatusRow') && injectionPanel.includes("className: 'saga-prompt-sync-status-value'") && injectionPanel.includes('setChipTone(value') && !/row\?\.querySelector\('\.saga-value'\)/.test(injectionPanel), 'Prompt injection sync status value must render through a schema-backed status pill and update tone in place.');
+assert(/function createCompactPresetStat[\s\S]{0,520}createStatusPill/.test(runtimeUiKit) && !/function createCompactPresetStat[\s\S]{0,360}document\.createElement\('strong'\)/.test(runtimeUiKit), 'Provider preset compact stats must render value chips through schema-backed status pills.');
+assert(creatorPanel.includes('function createLoredeckCreatorSideValueChip') && creatorPanel.includes("className: options.className || 'saga-loredeck-creator-side-value'") && !/saga-loredeck-creator-side-row[\s\S]{0,260}document\.createElement\('strong'\)/.test(creatorPanel), 'Loredeck Creator sidebar metadata values must render through schema-backed status pills.');
+assert(creatorPanel.includes("className: 'saga-loredeck-creator-queue-value'") && creatorPanel.includes("className: 'saga-loredeck-creator-diagnostic-value'") && !/saga-loredeck-creator-(?:queue|diagnostic)-row[\s\S]{0,260}document\.createElement\('strong'\)/.test(creatorPanel), 'Loredeck Creator queue and diagnostic values must render through schema-backed status pills.');
+assert(panel.includes("className: 'saga-loredeck-creator-generation-toggle-value'") && panel.includes('setChipTone(state') && !/createLoredeckCreatorGenerationToggleRow[\s\S]{0,520}document\.createElement\('strong'\)/.test(panel), 'Loredeck Creator generation toggle states must render through schema-backed status pills and update semantic tone directly.');
+assert(loredecksTabPanel.includes("tone: chip.tone") && loredecksTabPanel.includes("kind: chip.label?.match"), 'Creator project shelf must render model chip tone metadata.');
+assert(creatorProjects.includes('createProjectChipDescriptor') && !creatorProjects.includes('function createChip('), 'Creator project models must produce chip descriptors without shadowing the shared createChip DOM helper.');
+assert(lorecardsPanel.includes("createChip({") && lorecardsPanel.includes("className: 'saga-lore-tag-chip'"), 'Lorecard tag rows must render through the shared chip helper.');
+assert(!/saga-loredeck-creator-project-stage[\s\S]{0,260}border-radius:\s*999px/.test(style), 'Creator project stage chips must not use legacy full-pill radius styling.');
+assert(!cssRuleDeclares(style, '.saga-loredeck-health-card .saga-status-pill', ['font-size']) && !cssRuleDeclares(style, '.saga-loredeck-health-center-overlay .saga-status-pill', ['font-size']), 'Pack Health status chips must not override the compact chip font with legacy tiny/large em sizing.');
 assert(defaultState.includes('stateSafety:') && defaultSettings.includes("'settings.stateSafety'"), 'Default state and settings collapse map must expose State Safety.');
 assert(runtimePanelSource.includes('createStateSafetyCard') && runtimePanelSource.includes("'settings.stateSafety'"), 'Advanced settings must render the State Safety backup/export/restore card.');
 assert(runtimePanelSource.includes('before_loredeck_package_import') && runtimePanelSource.includes('before_total_reset'), 'Destructive import and reset actions must create State Safety backups.');
@@ -924,6 +1169,9 @@ assert(runtimeLoredeckPendingReview.includes('export function configureLoredeckP
 assert(panel.includes("from './loredeck-pending-review-panel.js'") && panel.includes('configureLoredeckPendingReviewPanel({') && !panel.includes('function createLoredeckPendingReviewCard(pack'), 'Runtime panel must delegate Loredeck Pending Review rendering to loredeck-pending-review-panel.');
 assert(runtimeLoredeckAssistantReview.includes('export function configureLoredeckAssistantReviewPanel') && runtimeLoredeckAssistantReview.includes('export function createLoredeckAssistantCard') && runtimeLoredeckAssistantReview.includes('export function createLoredeckAssistantDraftBatchCard') && runtimeLoredeckAssistantReview.includes('export function createLoredeckAssistantDraftRow') && runtimeLoredeckAssistantReview.includes('queueSelected.dataset.sagaAssistantDraftAction'), 'Runtime Loredeck Assistant review card, batch, and row renderers must live in the extracted assistant review panel.');
 assert(panel.includes("from './loredeck-assistant-review-panel.js'") && panel.includes('configureLoredeckAssistantReviewPanel({') && !panel.includes('function createLoredeckAssistantCard(pack') && !panel.includes('function createLoredeckAssistantDraftBatchCard(pack'), 'Runtime panel must delegate Loredeck Assistant review rendering to loredeck-assistant-review-panel.');
+assert(runtimePanelSource.includes('async function requestAndParseLoredeckAssistantResponse') && runtimePanelSource.includes('annotateLoredeckAssistantParseError') && runtimePanelSource.includes('warnLoredeckAssistantRequestFailure'), 'Direct Lore Assistant generation flows must share a code-aware request and parse helper.');
+assert(runtimePanelSource.includes("stage: 'pack_health_repair'") && runtimePanelSource.includes("stage: 'assistant_draft_revision'") && runtimePanelSource.includes("stage: 'assistant_draft'"), 'Lore Assistant repair, revision, and draft flows must identify their generation stage for diagnostics.');
+assert(!/const responseText = await sendLoreRequest\(\s*buildLoredeckAssistantSystemPrompt\(\)/.test(runtimePanelSource) && (runtimePanelSource.match(/parseLoredeckAssistantResponse\(responseText\)/g) || []).length === 1, 'Lore Assistant generation flows must not bypass normalized request parsing.');
 assert(runtimeLoredeckReviewHelpers.includes('export function configureLoredeckReviewHelpers') && runtimeLoredeckReviewHelpers.includes('export function createLoredeckPendingDiffList') && runtimeLoredeckReviewHelpers.includes('export function appendLoredeckPendingQualityPills') && runtimeLoredeckReviewHelpers.includes('export function doesLoredeckPendingChangeAffectPackHealth'), 'Runtime Loredeck review diff, quality, and health-impact helpers must live in the extracted review helper module.');
 assert(panel.includes("from './loredeck-review-helpers.js'") && panel.includes('configureLoredeckReviewHelpers({') && !panel.includes('function createLoredeckPendingDiffList(pack') && !panel.includes('function appendLoredeckPendingQualityPills(meta') && !panel.includes('function doesLoredeckPendingChangeAffectPackHealth(change'), 'Runtime panel must delegate Loredeck review helpers to loredeck-review-helpers.');
 assert(runtimeLoredeckPendingChangeModel.includes('export function configureLoredeckPendingChangeModel') && runtimeLoredeckPendingChangeModel.includes('export function normalizeLoredeckPendingChanges') && runtimeLoredeckPendingChangeModel.includes('export function createLoredeckRecordPatchChange') && runtimeLoredeckPendingChangeModel.includes('export function applyLoredeckRecordPatch'), 'Runtime Loredeck pending-change normalization and patch application must live in the extracted pending-change model.');
@@ -1089,6 +1337,7 @@ assert(runtimePanelSource.includes('showStreamingProgress'), 'Creator generation
 assert(runtimePanelSource.includes('forceVisibleOutput'), 'Creator generation requests must ask reasoning profiles for visible final output on the first call.');
 assert(llm.includes('prepareLoreRequestPrompts'), 'Lore LLM client must prepare first-pass visible-output prompts when requested.');
 assert(llm.includes('options.forceVisibleOutput === true'), 'Lore LLM client must expose an explicit visible-output opt-in.');
+assert(llm.includes('createLoreResponseError') && llm.includes('LORE_RESPONSE_ERROR_CODES.TOKEN_LIMIT') && llm.includes('LORE_RESPONSE_ERROR_CODES.REASONING_ONLY') && llm.includes('LORE_RESPONSE_ERROR_CODES.EMPTY_CONTENT'), 'Lore LLM client must throw shared typed provider response errors for token-limit, reasoning-only, and empty-content failures.');
 assert(runtimePanelSource.includes('titleRunRemainingLimit'), 'Creator title Generate Remaining must use a configurable run limit.');
 assert(runtimePanelSource.includes('entryRunRemainingLimit'), 'Creator Lorecard auto-draft must use a configurable run limit.');
 assert(runtimePanelSource.includes('retryAttempts: Number.isFinite(Number(config.retryAttempts))'), 'Creator runner calls must support configured retry attempts.');
@@ -1101,6 +1350,12 @@ assert(runtimePanelSource.includes('buildLoredeckCreatorRetryUnitId'), 'Creator 
 assert(runtimePanelSource.includes('Retry Failed'), 'Creator current task controls must expose Retry Failed.');
 assert(runtimePanelSource.includes('Retry Smaller'), 'Creator current task controls must expose Retry Smaller.');
 assert(runtimePanelSource.includes('Cancel Generation'), 'Creator current task controls must expose Cancel while a generation is active.');
+assert(creatorPanel.includes('createLoredeckCreatorDiagnosticBlock') && creatorPanel.includes('Failure Diagnostic') && creatorPanel.includes('buildLoredeckCreatorDiagnosticCopyPayload') && creatorPanel.includes('globalThis.navigator.clipboard.writeText(JSON.stringify(payload, null, 2))'), 'Creator Job panel must expose a copyable compact sanitized failure diagnostic.');
+assert(style.includes('saga-loredeck-creator-diagnostic') && style.includes('saga-loredeck-creator-diagnostic-sample'), 'Creator failure diagnostics must have dedicated compact sidebar styling.');
+assert(runtimePanelSource.includes('formatLoredeckCreatorGenerationFailureMessage') && runtimePanelSource.includes('provider_reasoning_only') && runtimePanelSource.includes('json_invalid') && runtimePanelSource.includes('commit_failed'), 'Creator generation failures must map stable provider/parser/commit codes to user-facing messages.');
+assert(runtimePanelSource.includes('warnLoredeckCreatorGenerationFailure(error, { stage, unitId, unitLabel })'), 'Creator generation failures must log stage, unit, and error code diagnostics without raw provider payloads.');
+assert(runtimePanelSource.includes("prepareLoredeckCreatorStageFailure(e, 'Context and Tag Planning generation failed.', 'Context and Tag Planning')"), 'Creator Context and Tag Planning failures must use code-aware stage messages.');
+assert(runtimePanelSource.includes("prepareLoredeckCreatorStageFailure(e, 'Lorecard entry drafting failed.', 'Lorecard Drafting')"), 'Creator Lorecard drafting failures must use code-aware stage messages.');
 assert(runtimePanelSource.includes('titlePassLimitOverride'), 'Creator Retry Smaller must reduce Title Pass batch size.');
 assert(runtimePanelSource.includes('planningProposalLimitOverride'), 'Creator Retry Smaller must reduce Context/Tag planning proposal size.');
 assert(runtimePanelSource.includes('targetTitleIds'), 'Creator Lorecard retries must preserve target title IDs.');
@@ -1435,9 +1690,8 @@ for (const token of [
     'saga-loredeck-library-stack-folder-card-has-suppressed',
     'saga-loredeck-library-stack-card-suppressed',
     'saga-loredeck-library-stack-duplicate-summary',
-    'saga-loredeck-library-stack-folder-preview-chip-kept',
+    'saga-loredeck-library-stack-folder-preview-chip',
     'saga-loredeck-library-drag-copy',
-    'saga-loredeck-library-drag-copy-remove',
     'saga-loredeck-library-drag-drop-invalid',
     'saga-loredeck-library-root-drop-active',
     'saga-loredeck-library-stack-remove-active',
@@ -1478,7 +1732,7 @@ assert(!style.includes('max-height: 160px;'), 'Folder details contained Loredeck
 assert(/\.saga-loredeck-library-details\s*\{[\s\S]*?height:\s*100%;/.test(style), 'Loredeck Library details panel must fill the resized details region.');
 assert(/\.saga-loredeck-library-folder-detail-visual\s*\{[\s\S]*?align-self:\s*start;[\s\S]*?justify-self:\s*start;/.test(style), 'Folder detail cover previews must stay pinned to the top-left while details resize.');
 assert(style.includes('display: inline-grid !important;') && style.includes('grid-area: 1 / 1;'), 'Loredeck Library square icon actions must center their SVG artwork.');
-assert(style.includes('var(--saga-chip-bg') && style.includes('var(--saga-chip-fg'), 'Loredeck Library metadata/status pills must use theme chip tokens.');
+assert(style.includes('var(--saga-chip-neutral-bg') && style.includes('var(--saga-chip-source-fg') && style.includes('var(--saga-chip-review-bg'), 'Loredeck Library metadata/status pills must use semantic theme chip tokens.');
 assert(style.includes('calc(var(--saga-grip-dot-rows, 6) * 7px)'), 'Loredeck Library drag handles must size dot grids without clipping short 2x2 or 2x3 handles.');
 
 console.log('Visual smoke harness contract passed.');

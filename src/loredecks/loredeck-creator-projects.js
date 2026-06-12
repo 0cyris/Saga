@@ -341,7 +341,7 @@ export function isLoredeckCreatorProjectUnfinished(job = {}, context = {}) {
   return stage.id !== 'complete';
 }
 
-function createChip(label, tooltip = '', tone = 'neutral') {
+function createProjectChipDescriptor(label, tooltip = '', tone = 'neutral') {
   const cleanLabel = cleanString(label, 120);
   if (!cleanLabel) return null;
   return {
@@ -356,21 +356,21 @@ export function buildLoredeckCreatorProjectChips(job = {}, context = {}) {
   const stage = getLoredeckCreatorProjectStageDescriptor(job, context);
   const counts = getLoredeckCreatorProjectCounts(job, context);
   const chips = [
-    createChip(pack ? 'Generated' : 'Draft', pack ? 'This project has a linked Generated Loredeck shell.' : 'This project has not created a Generated Loredeck shell yet.', pack ? 'generated' : 'draft'),
-    createChip(stage.label, 'Current Creator stage.', stage.tone),
+    createProjectChipDescriptor(pack ? 'Generated' : 'Draft', pack ? 'This project has a linked Generated Loredeck shell.' : 'This project has not created a Generated Loredeck shell yet.', pack ? 'source' : 'review'),
+    createProjectChipDescriptor(stage.label, 'Current Creator stage.', stage.tone),
   ];
   if (counts.approvedTitleCount || counts.titleDraftCount) {
-    chips.push(createChip(`${counts.approvedTitleCount}/${counts.titleDraftCount} titles`, 'Approved title drafts over total drafted titles.', 'neutral'));
+    chips.push(createProjectChipDescriptor(`${counts.approvedTitleCount}/${counts.titleDraftCount} titles`, 'Approved title drafts over total drafted titles.', 'neutral'));
   }
   if (counts.planningQueuedCount || counts.planningAcceptedCount) {
-    chips.push(createChip(`${counts.planningAcceptedCount}/${counts.planningQueuedCount} Context sets`, 'Accepted Context and Tag planning sets over queued planning sets.', 'neutral'));
+    chips.push(createProjectChipDescriptor(`${counts.planningAcceptedCount}/${counts.planningQueuedCount} Context sets`, 'Accepted Context and Tag planning sets over queued planning sets.', 'neutral'));
   }
   if (counts.acceptedEntryCount || counts.draftChangeCount || counts.pendingChangeCount) {
-    chips.push(createChip(`${counts.acceptedEntryCount} accepted`, 'Accepted generated Lorecards.', 'success'));
+    chips.push(createProjectChipDescriptor(`${counts.acceptedEntryCount} accepted`, 'Accepted generated Lorecards.', 'success'));
   }
-  if (counts.draftChangeCount) chips.push(createChip(`${counts.draftChangeCount} drafted`, 'Drafted Lorecards waiting for review.', 'review'));
-  if (counts.pendingChangeCount) chips.push(createChip(`${counts.pendingChangeCount} pending`, 'Pending Review Lorecards waiting for acceptance or rejection.', 'review'));
-  if (counts.blockerCount || counts.errorCount) chips.push(createChip(`${counts.blockerCount + counts.errorCount} issue${counts.blockerCount + counts.errorCount === 1 ? '' : 's'}`, 'Blocking Creator or export-readiness issues.', 'warning'));
+  if (counts.draftChangeCount) chips.push(createProjectChipDescriptor(`${counts.draftChangeCount} drafted`, 'Drafted Lorecards waiting for review.', 'review'));
+  if (counts.pendingChangeCount) chips.push(createProjectChipDescriptor(`${counts.pendingChangeCount} pending`, 'Pending Review Lorecards waiting for acceptance or rejection.', 'review'));
+  if (counts.blockerCount || counts.errorCount) chips.push(createProjectChipDescriptor(`${counts.blockerCount + counts.errorCount} issue${counts.blockerCount + counts.errorCount === 1 ? '' : 's'}`, 'Blocking Creator or export-readiness issues.', 'warning'));
   return chips.filter(Boolean).slice(0, MAX_CHIPS);
 }
 

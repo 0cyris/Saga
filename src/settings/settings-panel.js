@@ -30,6 +30,7 @@ import {
     createStatusPill,
     isPlainObjectValue,
     runBusyAction,
+    setChipTone,
     showNoticePopup,
     toast,
 } from '../ui/runtime-ui-kit.js';
@@ -146,8 +147,7 @@ function createBasicProviderQuickSetupRow(kind, settings = getSettings()) {
         : 'Used when Saga creates Lorecards, detects Context with a model, or builds generated lore.';
     titleGroup.appendChild(description);
     header.appendChild(titleGroup);
-    const status = createStatusPill(validation.ok ? 'Ready' : 'Needs setup', validation.message || `${cfg.shortTitle} provider status.`);
-    status.classList.add(validation.ok ? 'saga-provider-status-ready' : 'saga-provider-status-warning');
+    const status = createStatusPill(validation.ok ? 'Ready' : 'Needs setup', validation.message || `${cfg.shortTitle} provider status.`, { tone: validation.ok ? 'success' : 'warning', kind: 'status' });
     header.appendChild(status);
     block.appendChild(header);
 
@@ -215,8 +215,7 @@ function createRuntimeProviderBlock(kind, settings = getSettings()) {
     description.textContent = cfg.description;
     titleGroup.appendChild(description);
     header.appendChild(titleGroup);
-    const status = createStatusPill(validation.ok ? 'Ready' : 'Needs setup', validation.message || `${cfg.title} provider status.`);
-    status.classList.add(validation.ok ? 'saga-provider-status-ready' : 'saga-provider-status-warning');
+    const status = createStatusPill(validation.ok ? 'Ready' : 'Needs setup', validation.message || `${cfg.title} provider status.`, { tone: validation.ok ? 'success' : 'warning', kind: 'status' });
     header.appendChild(status);
     block.appendChild(header);
 
@@ -397,9 +396,11 @@ function createProviderOpenAiSection(kind, settings = getSettings()) {
         saveProviderSetting(kind, 'OpenAIModel', modelSelect.value);
     });
 
-    const modelStatus = document.createElement('small');
-    modelStatus.className = 'saga-provider-runtime-status';
-    modelStatus.textContent = settings[`${prefix}OpenAIModel`] ? `Saved model: ${settings[`${prefix}OpenAIModel`]}` : 'Fetch models or type an exact model ID.';
+    const modelStatus = createProviderRuntimeStatusPill(
+        settings[`${prefix}OpenAIModel`] ? `Saved model: ${settings[`${prefix}OpenAIModel`]}` : 'Fetch models or type an exact model ID.',
+        settings[`${prefix}OpenAIModel`] ? `Saved ${cfg.shortTitle.toLowerCase()} model ID.` : `Fetch models from the ${cfg.shortTitle.toLowerCase()} endpoint or type an exact model ID.`,
+        { tone: settings[`${prefix}OpenAIModel`] ? 'source' : 'muted', kind: settings[`${prefix}OpenAIModel`] ? 'source' : 'status' }
+    );
 
     const modelRow = document.createElement('div');
     modelRow.className = 'saga-provider-runtime-control-row';
@@ -408,10 +409,15 @@ function createProviderOpenAiSection(kind, settings = getSettings()) {
         await runBusyAction(btn, 'Fetching...', async () => {
             saveProviderSetting(kind, 'OpenAIBaseUrl', baseInput.value.trim(), { refresh: false });
             saveProviderSetting(kind, 'OpenAIModel', modelInput.value.trim(), { refresh: false });
-            modelStatus.textContent = 'Fetching models...';
+            updateProviderRuntimeStatusPill(modelStatus, 'Fetching models...', `Fetching models from the ${cfg.shortTitle.toLowerCase()} endpoint.`, 'info');
             fetchedModels = await fetchLoreModels(kind);
             renderProviderModelOptions(modelSelect, fetchedModels, modelInput.value, modelInput.value);
-            modelStatus.textContent = `${fetchedModels.length} model${fetchedModels.length === 1 ? '' : 's'} fetched.`;
+            updateProviderRuntimeStatusPill(
+                modelStatus,
+                `${fetchedModels.length} model${fetchedModels.length === 1 ? '' : 's'} fetched.`,
+                `Fetched ${fetchedModels.length} model${fetchedModels.length === 1 ? '' : 's'} from the ${cfg.shortTitle.toLowerCase()} endpoint.`,
+                fetchedModels.length ? 'success' : 'warning'
+            );
         });
     }));
 
@@ -431,6 +437,42 @@ function createProviderOpenAiSection(kind, settings = getSettings()) {
 
     section.appendChild(createProviderApiKeyField(kind, settings));
     return section;
+}
+
+function getProviderRuntimeStatusTone(text = '') {
+    const value = String(text || '').trim().toLowerCase();
+    if (!value || value.includes('not stored') || value.includes('fetch models') || value.includes('type an exact model')) return 'muted';
+    if (value.includes('fallback obfuscation') || value.includes('unavailable') || value.includes('no matching')) return 'warning';
+    if (value.includes('fetching')) return 'info';
+    if (value.includes('fetched') || value.includes('encrypted at rest')) return 'success';
+    if (value.includes('saved model') || value === 'stored.' || value.includes('stored with')) return 'source';
+    return 'neutral';
+}
+
+function getProviderRuntimeStatusKind(text = '') {
+    return /\b\d+\b/.test(String(text || '')) ? 'count' : 'status';
+}
+
+function createProviderRuntimeStatusPill(text = '', tooltip = '', options = {}) {
+    const label = String(text || '').trim() || 'Not set.';
+    return createStatusPill(label, tooltip || label, {
+        tone: options.tone || getProviderRuntimeStatusTone(label),
+        kind: options.kind || getProviderRuntimeStatusKind(label),
+        density: 'compact',
+        className: `saga-provider-runtime-status ${options.className || ''}`.trim(),
+        maxChars: options.maxChars || 64,
+    });
+}
+
+function updateProviderRuntimeStatusPill(pill, text = '', tooltip = '', tone = '') {
+    if (!pill) return;
+    const label = String(text || '').trim() || 'Not set.';
+    pill.textContent = label;
+    if (tooltip || pill.dataset?.sagaTooltip) {
+        pill.dataset.sagaTooltip = tooltip || label;
+        pill.setAttribute('aria-label', tooltip || label);
+    }
+    setChipTone(pill, tone || getProviderRuntimeStatusTone(label));
 }
 
 function renderProviderModelOptions(select, models, filterText = '', currentModel = '') {
@@ -521,10 +563,14 @@ function createProviderApiKeyField(kind, settings = getSettings()) {
     }, 'saga-danger-button'));
     stack.appendChild(row);
 
-    const status = document.createElement('small');
-    status.className = 'saga-provider-runtime-status';
-    status.textContent = formatProviderKeyStorageInfo(storageInfo, settings[`${prefix}OpenAIKeySet`]);
-    addTooltip(status, getProviderKeyStorageTooltip(storageInfo));
+    const status = createProviderRuntimeStatusPill(
+        formatProviderKeyStorageInfo(storageInfo, settings[`${prefix}OpenAIKeySet`]),
+        getProviderKeyStorageTooltip(storageInfo),
+        {
+            tone: getProviderKeyStorageTone(storageInfo, settings[`${prefix}OpenAIKeySet`]),
+            kind: 'status',
+        }
+    );
     stack.appendChild(status);
 
     field.appendChild(stack);
@@ -536,6 +582,13 @@ function formatProviderKeyStorageInfo(info, keySetFallback = false) {
     if (info?.compatibilityStorage) return 'Stored with fallback obfuscation.';
     if (info?.encryptedAtRest) return 'Stored encrypted at rest.';
     return 'Stored.';
+}
+
+function getProviderKeyStorageTone(info, keySetFallback = false) {
+    if (!info?.isStored && !keySetFallback) return 'muted';
+    if (info?.compatibilityStorage) return 'warning';
+    if (info?.encryptedAtRest) return 'success';
+    return 'source';
 }
 
 function getProviderKeyStorageTooltip(info) {
@@ -743,7 +796,7 @@ async function refreshProviderPresetStatusCard(card) {
     title.textContent = 'Provider Preset';
     addTooltip(title, 'Thin bundled preset for SillyTavern Connection Profile provider calls.');
     header.appendChild(title);
-    header.appendChild(createStatusPill(status.pill || 'Unknown', status.message || 'Provider preset status'));
+    header.appendChild(createStatusPill(status.pill || 'Unknown', status.message || 'Provider preset status', { tone: getProviderPresetStatusChipTone(status), kind: 'status' }));
     card.appendChild(header);
 
     const message = document.createElement('div');
@@ -774,6 +827,15 @@ async function refreshProviderPresetStatusCard(card) {
         }));
     }
     if (actions.childElementCount) card.appendChild(actions);
+}
+
+function getProviderPresetStatusChipTone(status = {}) {
+    const state = String(status.state || '').toLowerCase();
+    if (['current', 'ahead'].includes(state)) return 'success';
+    if (['missing', 'behind', 'unknown'].includes(state)) return 'warning';
+    if (state === 'error') return 'danger';
+    if (state === 'unavailable') return 'muted';
+    return 'info';
 }
 
 async function getProviderPresetStatus() {

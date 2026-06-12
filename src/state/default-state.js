@@ -232,7 +232,7 @@ export function getDefaultState() {
         // Runtime rail + drawer UI state (schema v16). Legacy x/y/width/height
         // remain as migration aliases for older saved Saga panels.
         lorePanel: {
-            isOpen: false,
+            isOpen: true,
             hasOpenedRuntime: false,
             launcherDismissed: false,
             firstOpenedAt: 0,

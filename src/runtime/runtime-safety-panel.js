@@ -160,10 +160,10 @@ export function createStateSafetyCard(state = getState()) {
 
     const summary = document.createElement('div');
     summary.className = 'saga-loredeck-entry-summary';
-    summary.appendChild(createStatusPill(`${safety.backups.length} backup${safety.backups.length === 1 ? '' : 's'}`, 'Automatic and manual Saga state backups stored in this chat.'));
-    summary.appendChild(createStatusPill(`${safety.migrationLog.length} log${safety.migrationLog.length === 1 ? '' : 's'}`, 'Schema migration and restore log entries.'));
-    if (safety.lastBackupAt) summary.appendChild(createStatusPill(`Last backup ${formatStateSafetyTimestamp(safety.lastBackupAt)}`, `Reason: ${safety.lastBackupReason || 'unknown'}`));
-    if (safety.lastRestoreAt) summary.appendChild(createStatusPill(`Last restore ${formatStateSafetyTimestamp(safety.lastRestoreAt)}`, `Source: ${safety.lastRestoreSource || 'unknown'}`));
+    summary.appendChild(createStatusPill(`${safety.backups.length} backup${safety.backups.length === 1 ? '' : 's'}`, 'Automatic and manual Saga state backups stored in this chat.', { tone: safety.backups.length ? 'source' : 'muted', kind: 'count' }));
+    summary.appendChild(createStatusPill(`${safety.migrationLog.length} log${safety.migrationLog.length === 1 ? '' : 's'}`, 'Schema migration and restore log entries.', { tone: safety.migrationLog.length ? 'info' : 'muted', kind: 'count' }));
+    if (safety.lastBackupAt) summary.appendChild(createStatusPill(`Last backup ${formatStateSafetyTimestamp(safety.lastBackupAt)}`, `Reason: ${safety.lastBackupReason || 'unknown'}`, { tone: 'source', kind: 'source', maxChars: 36 }));
+    if (safety.lastRestoreAt) summary.appendChild(createStatusPill(`Last restore ${formatStateSafetyTimestamp(safety.lastRestoreAt)}`, `Source: ${safety.lastRestoreSource || 'unknown'}`, { tone: 'source', kind: 'source', maxChars: 36 }));
     card.appendChild(summary);
 
     const actions = document.createElement('div');

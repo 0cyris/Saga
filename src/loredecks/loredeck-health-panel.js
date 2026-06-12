@@ -488,10 +488,10 @@ function createLoredeckHealthIssuesView(context) {
     const header = document.createElement('div');
     header.className = 'saga-loredeck-health-view-header';
     const stateCounts = getLoredeckHealthIssueStateCounts(context, groups);
-    header.appendChild(createStatusPill(`${groups.length} grouped issue${groups.length === 1 ? '' : 's'}`, 'Issues are grouped by severity, code, and affected file when possible.'));
-    header.appendChild(createStatusPill(`${getLoredeckHealthAllIssues(context.report).length} raw finding${getLoredeckHealthAllIssues(context.report).length === 1 ? '' : 's'}`, 'Raw Deck Health findings before grouping.'));
-    if (stateCounts.ignored) header.appendChild(createStatusPill(`${stateCounts.ignored} ignored`, 'Ignored issue groups are hidden from Overview priority issues but remain visible here.'));
-    if (stateCounts.resolved) header.appendChild(createStatusPill(`${stateCounts.resolved} resolved`, 'Issue groups marked resolved by the user. Rerun Deck Health after repairs to verify they disappear.'));
+    header.appendChild(createStatusPill(`${groups.length} grouped issue${groups.length === 1 ? '' : 's'}`, 'Issues are grouped by severity, code, and affected file when possible.', { tone: groups.length ? 'warning' : 'muted', kind: 'count' }));
+    header.appendChild(createStatusPill(`${getLoredeckHealthAllIssues(context.report).length} raw finding${getLoredeckHealthAllIssues(context.report).length === 1 ? '' : 's'}`, 'Raw Deck Health findings before grouping.', { tone: getLoredeckHealthAllIssues(context.report).length ? 'warning' : 'muted', kind: 'count' }));
+    if (stateCounts.ignored) header.appendChild(createStatusPill(`${stateCounts.ignored} ignored`, 'Ignored issue groups are hidden from Overview priority issues but remain visible here.', { tone: 'muted', kind: 'count' }));
+    if (stateCounts.resolved) header.appendChild(createStatusPill(`${stateCounts.resolved} resolved`, 'Issue groups marked resolved by the user. Rerun Deck Health after repairs to verify they disappear.', { tone: 'success', kind: 'count' }));
     wrap.appendChild(header);
     if (!groups.length) {
         wrap.appendChild(createEmptyMessage('No issues found in this Deck Health report.'));
@@ -643,9 +643,9 @@ function createLoredeckHealthSummaryHero(context, options = {}) {
     meta.className = 'saga-loredeck-row-meta';
     const pack = context.pack || context.report.packs?.[0] || null;
     appendLoredeckStatusPills(meta, [
-        { text: pack ? (pack.typeLabel || getLoredeckTypeLabel(pack.packId)) : '', tooltip: 'Loredeck type.', show: !!pack },
-        [`${context.report.summary?.entryCount || 0} Lorecards`, 'Lorecards checked in this report.'],
-        [`Last scan: ${context.health ? formatRelativeHealthTime(context.generatedAt) : 'not scanned'}`, 'Last Deck Health scan time.'],
+        { text: pack ? (pack.typeLabel || getLoredeckTypeLabel(pack.packId)) : '', tooltip: 'Loredeck type.', show: !!pack, tone: 'source', kind: 'source' },
+        [`${context.report.summary?.entryCount || 0} Lorecards`, 'Lorecards checked in this report.', { kind: 'count' }],
+        [`Last scan: ${context.health ? formatRelativeHealthTime(context.generatedAt) : 'not scanned'}`, 'Last Deck Health scan time.', { tone: context.health ? 'info' : 'muted', kind: 'status' }],
     ]);
     main.appendChild(meta);
     const status = document.createElement('div');
@@ -766,26 +766,22 @@ function createLoredeckHealthIssueGroupCard(group, context, options = {}) {
     main.appendChild(title);
     const meta = document.createElement('div');
     meta.className = 'saga-loredeck-row-meta';
-    const severityPill = createStatusPill(humanizeScopeKey(group.severity), 'Issue severity.');
-    severityPill.classList.add('saga-loredeck-health-chip', `saga-loredeck-health-chip-${group.severity}`);
+    const severityTone = group.severity === 'error' ? 'danger' : (group.severity === 'warning' ? 'warning' : 'info');
+    const severityPill = createStatusPill(humanizeScopeKey(group.severity), 'Issue severity.', { tone: severityTone, kind: 'severity' });
     meta.appendChild(severityPill);
-    const affectedPill = createStatusPill(group.affectedLabel, 'Affected scope.');
-    affectedPill.classList.add('saga-loredeck-health-chip', 'saga-loredeck-health-chip-affected');
+    const affectedPill = createStatusPill(group.affectedLabel, 'Affected scope.', { tone: 'neutral', kind: 'metadata' });
     meta.appendChild(affectedPill);
     if (group.files.length) {
-        const filePill = createStatusPill(`${group.files.length} file${group.files.length === 1 ? '' : 's'}`, group.files.join(', '));
-        filePill.classList.add('saga-loredeck-health-chip', 'saga-loredeck-health-chip-file');
+        const filePill = createStatusPill(`${group.files.length} file${group.files.length === 1 ? '' : 's'}`, group.files.join(', '), { tone: 'source', kind: 'count' });
         meta.appendChild(filePill);
     }
     if (group.autoFixLabel) {
-        const fixPill = createStatusPill(group.autoFixLabel, group.autoFixTooltip);
-        fixPill.classList.add('saga-loredeck-health-chip', 'saga-loredeck-health-chip-fix');
+        const fixPill = createStatusPill(group.autoFixLabel, group.autoFixTooltip, { tone: 'success', kind: 'status' });
         meta.appendChild(fixPill);
     }
     if (issueState?.status) {
         const stateLabel = getLoredeckHealthIssueStateLabel(issueState, group);
-        const statePill = createStatusPill(stateLabel, issueState.note || 'User-set Deck Health issue state.');
-        statePill.classList.add('saga-loredeck-health-chip', `saga-loredeck-health-chip-state-${issueState.status}`);
+        const statePill = createStatusPill(stateLabel, issueState.note || 'User-set Deck Health issue state.', { tone: issueState.status === 'resolved' ? 'success' : 'muted', kind: 'status' });
         meta.appendChild(statePill);
     }
     main.appendChild(meta);
@@ -1497,12 +1493,12 @@ function createLoredeckHealthPackRow(pack) {
 
     const meta = document.createElement('div');
     meta.className = 'saga-loredeck-row-meta';
-    meta.appendChild(createStatusPill(pack.typeLabel || pack.type || 'Custom', 'Loredeck type.'));
-    meta.appendChild(createStatusPill(`${pack.entryCount || 0} entries`, 'Loaded entries from this pack.'));
-    meta.appendChild(createStatusPill(pack.healthStatus || 'unknown', 'Per-pack health status.'));
-    if (pack.overrideCount) meta.appendChild(createStatusPill(`${pack.overrideCount} overrides`, 'Saved entry overrides in the library record.'));
-    if (pack.disabledCount) meta.appendChild(createStatusPill(`${pack.disabledCount} disabled`, 'Disabled source entry IDs in the library record.'));
-    if (pack.derivedFrom) meta.appendChild(createStatusPill(`from ${pack.derivedFrom}`, 'Source pack recorded in derivedFrom metadata.'));
+    meta.appendChild(createStatusPill(pack.typeLabel || pack.type || 'Custom', 'Loredeck type.', { tone: 'source', kind: 'source' }));
+    meta.appendChild(createStatusPill(`${pack.entryCount || 0} entries`, 'Loaded entries from this pack.', { kind: 'count' }));
+    meta.appendChild(createStatusPill(pack.healthStatus || 'unknown', 'Per-pack health status.', { tone: pack.healthStatus === 'ok' ? 'success' : (pack.healthStatus === 'warning' ? 'warning' : (pack.healthStatus === 'error' ? 'danger' : 'muted')), kind: 'severity' }));
+    if (pack.overrideCount) meta.appendChild(createStatusPill(`${pack.overrideCount} overrides`, 'Saved entry overrides in the library record.', { tone: 'info', kind: 'count' }));
+    if (pack.disabledCount) meta.appendChild(createStatusPill(`${pack.disabledCount} disabled`, 'Disabled source entry IDs in the library record.', { tone: 'muted', kind: 'count' }));
+    if (pack.derivedFrom) meta.appendChild(createStatusPill(`from ${pack.derivedFrom}`, 'Source pack recorded in derivedFrom metadata.', { tone: 'source', kind: 'source', maxChars: 34 }));
     main.appendChild(meta);
     row.appendChild(main);
     return row;

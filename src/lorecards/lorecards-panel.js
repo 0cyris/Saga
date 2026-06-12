@@ -17,11 +17,13 @@ import {
     addTooltip,
     createBadge,
     createButton,
+    createChip,
     createEmptyMessage,
     confirmAction,
     createIconButton,
     createKeyValue,
     createSectionHeader,
+    createStatusPill,
     formatLoreScope,
     getLoreScopeSpecificity,
     hasDisplayableScope,
@@ -413,10 +415,12 @@ function createAcceptedWorkbenchControls(state) {
         { className: 'saga-lore-workbench-select', tooltip: 'Filter accepted Lorecards by relevance, card type, canon/AU, pin, or mute state.' }
     ));
 
-    const count = document.createElement('div');
-    count.className = 'saga-lore-workbench-count';
-    count.textContent = `${getFilteredLoreEntries(state).length} matching`;
-    controls.appendChild(count);
+    const matchingCount = getFilteredLoreEntries(state).length;
+    controls.appendChild(createStatusPill(`${matchingCount} matching`, 'Accepted Lorecards matching the current Workbench filters.', {
+        tone: matchingCount ? 'selected' : 'muted',
+        kind: 'count',
+        className: 'saga-lore-workbench-count',
+    }));
 
     return controls;
 }
@@ -565,10 +569,11 @@ function createPendingWorkbenchControls(state) {
     ));
 
     const rows = getPendingWorkbenchRows(state);
-    const count = document.createElement('div');
-    count.className = 'saga-lore-workbench-count';
-    count.textContent = `${rows.length} matching pending`;
-    controls.appendChild(count);
+    controls.appendChild(createStatusPill(`${rows.length} matching pending`, 'Pending Lorecards matching the current Workbench filters.', {
+        tone: rows.length ? 'selected' : 'muted',
+        kind: 'count',
+        className: 'saga-lore-workbench-count',
+    }));
 
     const selectFiltered = createButton('Select Filtered', 'Select every pending entry matching the current Workbench search and type filter.', () => {
         setPendingReviewSelection(rows.map(row => getLoreReviewId(row.entry)));
@@ -801,10 +806,7 @@ export function createPendingLoreReviewCard(entry, index, selected = false, opti
     const actions = document.createElement('div');
     actions.className = 'saga-lore-entry-actions';
     if (!basicReview) actions.appendChild(createEditableLifecycleBadge(entry, { pending: true }));
-    const status = document.createElement('span');
-    status.className = 'saga-lore-badge saga-lore-badge-pending';
-    status.textContent = 'pending';
-    addTooltip(status, 'This lore entry has not been accepted into the accepted lore matrix yet.');
+    const status = createBadge('pending', 'This lore entry has not been accepted into the accepted lore matrix yet.', { tone: 'review', kind: 'status' });
     actions.appendChild(status);
     headerRow.appendChild(actions);
     card.appendChild(headerRow);
@@ -818,16 +820,16 @@ export function createPendingLoreReviewCard(entry, index, selected = false, opti
     const reviewMeta = entry.extensions?.sagaPendingReview || {};
     if (!basicReview) {
         appendEntrySourceAndContextBadges(meta, entry);
-        meta.appendChild(createBadge(`P${Number(entry.priority || 50)}`, 'Priority used for sorting, injection preference, and canon-lore suggestion limits.'));
-        if (generation.operation) meta.appendChild(createBadge(`Op: ${generation.operation}`, 'Generated lore operation proposed by the story-lore scan.'));
-        if (generation.qualityRoute || reviewMeta.qualityRoute) meta.appendChild(createBadge(`Quality: ${generation.qualityRoute || reviewMeta.qualityRoute}`, generation.qualityReason || reviewMeta.qualityReason || 'Generated-lore quality route.'));
-        if (generation.similarityRoute || reviewMeta.reviewRoute) meta.appendChild(createBadge(`Route: ${generation.similarityRoute || reviewMeta.reviewRoute}`, generation.similarityReason || reviewMeta.similarityReason || 'Similarity/update routing result.'));
+        meta.appendChild(createBadge(`P${Number(entry.priority || 50)}`, 'Priority used for sorting, injection preference, and canon-lore suggestion limits.', { tone: 'relevance', kind: 'metadata' }));
+        if (generation.operation) meta.appendChild(createBadge(`Op: ${generation.operation}`, 'Generated lore operation proposed by the story-lore scan.', { tone: 'source', kind: 'source', maxChars: 34 }));
+        if (generation.qualityRoute || reviewMeta.qualityRoute) meta.appendChild(createBadge(`Quality: ${generation.qualityRoute || reviewMeta.qualityRoute}`, generation.qualityReason || reviewMeta.qualityReason || 'Generated-lore quality route.', { tone: 'warning', kind: 'severity', maxChars: 34 }));
+        if (generation.similarityRoute || reviewMeta.reviewRoute) meta.appendChild(createBadge(`Route: ${generation.similarityRoute || reviewMeta.reviewRoute}`, generation.similarityReason || reviewMeta.similarityReason || 'Similarity/update routing result.', { tone: 'source', kind: 'source', maxChars: 34 }));
     }
-    if (generation.recommendedPin) meta.appendChild(createBadge('pin suggested', 'Generator recommends pinning/protecting this entry after acceptance.'));
-    if (generation.recommendedMute) meta.appendChild(createBadge('mute suggested', 'Generator recommends storing but muting this entry after acceptance.'));
+    if (generation.recommendedPin) meta.appendChild(createBadge('pin suggested', 'Generator recommends pinning/protecting this entry after acceptance.', { tone: 'success', kind: 'status' }));
+    if (generation.recommendedMute) meta.appendChild(createBadge('mute suggested', 'Generator recommends storing but muting this entry after acceptance.', { tone: 'muted', kind: 'status' }));
     if (!basicReview) {
         meta.appendChild(createSpellMetadataBadges(entry));
-        if (entry.confidence !== undefined) meta.appendChild(createBadge(`confidence ${entry.confidence}`, 'Model-provided confidence for this entry.'));
+        if (entry.confidence !== undefined) meta.appendChild(createBadge(`confidence ${entry.confidence}`, 'Model-provided confidence for this entry.', { tone: Number(entry.confidence) >= 0.75 ? 'success' : 'warning', kind: 'metadata' }));
     }
     card.appendChild(meta);
 
@@ -951,8 +953,14 @@ function createReadOnlyTags(tags) {
     const row = document.createElement('div');
     row.className = 'saga-lore-entry-tags';
     for (const tag of tags) {
-        const chip = document.createElement('span');
-        chip.className = 'saga-lore-tag-chip';
+        const chip = createChip({
+            label: '',
+            tooltip: `Lorecard tag: ${tag}`,
+            kind: 'tag',
+            tone: 'tag',
+            density: 'compact',
+            className: 'saga-lore-tag-chip',
+        });
         const label = document.createElement('span');
         label.className = 'saga-lore-tag-label';
         label.textContent = tag;
@@ -1040,17 +1048,41 @@ function getLoreRegistryMeta(registryName, value) {
     return dep('getLoreRegistryMeta', () => null)(registryName, value);
 }
 
-function applyLoreRegistryStyle(el, field, value) {
-    return dep('applyLoreRegistryStyle', element => element)(el, field, value);
+function getLoreRegistryChipTone(field, value) {
+    const normalized = String(value || '').trim().toLowerCase();
+    if (field === 'category') return 'category';
+    if (field === 'relevance') return 'relevance';
+    if (field === 'canon' || field === 'canonStatus') return normalized === 'canon' ? 'success' : 'warning';
+    if (field === 'truthStatus') {
+        if (normalized === 'true') return 'success';
+        if (normalized === 'false') return 'danger';
+        if (normalized === 'hidden' || normalized === 'unknown') return 'muted';
+        return 'warning';
+    }
+    if (field === 'revealPolicy') {
+        if (normalized === 'public') return 'success';
+        if (normalized === 'do_not_reveal') return 'danger';
+        if (normalized === 'private' || normalized === 'hidden') return 'muted';
+        return 'warning';
+    }
+    return 'info';
+}
+
+function applyManualChipSchema(el, { tone = 'neutral', kind = 'metadata', density = 'compact' } = {}) {
+    if (!el) return el;
+    el.classList.add('saga-chip', `saga-chip-kind-${kind}`, `saga-chip-tone-${tone}`, `saga-chip-density-${density}`);
+    el.dataset.sagaChipKind = kind;
+    el.dataset.sagaChipTone = tone;
+    el.dataset.sagaChipDensity = density;
+    return el;
 }
 
 function createEditableLifecycleBadge(entry, options = {}) {
     const value = getLifecycleStatus(entry);
-    const meta = RELEVANCE_META[value] || RELEVANCE_META.normal;
     const wrap = document.createElement('label');
     wrap.className = 'saga-lore-lifecycle-select-wrap';
-    wrap.style.setProperty('--saga-chip-bg', meta.color);
-    wrap.style.setProperty('--saga-chip-fg', meta.textColor);
+    applyManualChipSchema(wrap, { tone: 'relevance', kind: 'metadata', density: 'standard' });
+    const meta = RELEVANCE_META[value] || RELEVANCE_META.normal;
     addTooltip(wrap, `${meta.label} Relevance: ${meta.tooltip}`);
 
     const select = document.createElement('select');
@@ -1106,16 +1138,19 @@ function createEditableLifecycleBadge(entry, options = {}) {
 
 function createRegistryBadge(field, value, tooltip = '') {
     const label = getLoreDisplayLabel(field, value);
-    const badge = createBadge(label, tooltip || `${field}: ${label}. Expand the entry to edit.`);
+    const badge = createBadge(label, tooltip || `${field}: ${label}. Expand the entry to edit.`, {
+        tone: getLoreRegistryChipTone(field, value),
+        kind: 'metadata',
+        maxChars: 32,
+    });
     badge.classList.add('saga-lore-registry-badge');
-    applyLoreRegistryStyle(badge, field, value);
     return badge;
 }
 
 function createLorePurposeBadge(entry) {
     const purpose = normalizeLorePurpose(entry?.lorePurpose || entry?.purpose, entry) || 'unspecified';
     const label = LORE_PURPOSE_LABELS[purpose] || String(purpose || 'unspecified').replace(/[_-]+/g, ' ').replace(/\b\w/g, ch => ch.toUpperCase());
-    return createBadge(`Purpose: ${label}`, 'Lore purpose explains why this is specific Saga lore rather than a generic reference fact.');
+    return createBadge(`Purpose: ${label}`, 'Lore purpose explains why this is specific Saga lore rather than a generic reference fact.', { tone: 'info', kind: 'metadata', maxChars: 42 });
 }
 
 function getLoredeckDisplayName(packId) {
@@ -1206,13 +1241,13 @@ function getReadableEntrySource(entry = {}) {
     return null;
 }
 
-function createSagaMetadataBadge(label, tooltip, classes = []) {
-    const badge = createBadge(label, tooltip);
-    badge.classList.add('saga-lore-badge-saga-meta');
-    for (const className of classes) {
-        if (className) badge.classList.add(className);
-    }
-    return badge;
+function createSagaMetadataBadge(label, tooltip, options = {}) {
+    return createBadge(label, tooltip, {
+        tone: options.tone || 'source',
+        kind: options.kind || 'source',
+        maxChars: options.maxChars || 42,
+        className: 'saga-lore-badge-saga-meta',
+    });
 }
 
 function createEntrySourceBadges(entry = {}) {
@@ -1220,9 +1255,9 @@ function createEntrySourceBadges(entry = {}) {
     const source = getReadableEntrySource(entry);
     if (!source?.label) return fragment;
 
-    fragment.appendChild(createSagaMetadataBadge(source.label, source.tooltip || 'Lore source metadata.', ['saga-lore-badge-source']));
+    fragment.appendChild(createSagaMetadataBadge(source.label, source.tooltip || 'Lore source metadata.', { tone: 'source', kind: 'source' }));
     if (source.detailLabel) {
-        fragment.appendChild(createSagaMetadataBadge(`Ref: ${truncateText(source.detailLabel, 32)}`, source.detailTooltip || source.tooltip, ['saga-lore-badge-source-detail']));
+        fragment.appendChild(createSagaMetadataBadge(`Ref: ${truncateText(source.detailLabel, 32)}`, source.detailTooltip || source.tooltip, { tone: 'source', kind: 'source' }));
     }
     return fragment;
 }
@@ -1259,13 +1294,13 @@ function getContextGateChipLabel(gate = {}) {
     return matchedBy ? `Gate: ${matchedBy.replace(/_/g, ' ')}` : '';
 }
 
-function getContextGateClass(gate = {}) {
+function getContextGateTone(gate = {}) {
     const matchedBy = String(gate.matchedBy || '');
-    if (gate.status === 'mismatch' || matchedBy.includes('mismatch') || matchedBy.includes('conflict')) return 'saga-lore-badge-context-blocked';
-    if (gate.status === 'unresolved' || matchedBy.includes('unresolved')) return 'saga-lore-badge-context-unresolved';
-    if (gate.status === 'match' || matchedBy.includes('context')) return 'saga-lore-badge-context-match';
-    if (matchedBy === 'date') return 'saga-lore-badge-date-gate';
-    return 'saga-lore-badge-context';
+    if (gate.status === 'mismatch' || matchedBy.includes('mismatch') || matchedBy.includes('conflict')) return 'danger';
+    if (gate.status === 'unresolved' || matchedBy.includes('unresolved')) return 'warning';
+    if (gate.status === 'match' || matchedBy.includes('context')) return 'success';
+    if (matchedBy === 'date') return 'info';
+    return 'source';
 }
 
 function hasEntryContextMetadata(entry = {}) {
@@ -1319,12 +1354,12 @@ function createEntryContextBadges(entry = {}) {
             gate.packId ? `Deck ID: ${gate.packId}` : '',
             gate.reason,
         ].filter(Boolean).join(' | ');
-        fragment.appendChild(createSagaMetadataBadge(gateLabel, tooltip, ['saga-lore-badge-context', getContextGateClass(gate)]));
+        fragment.appendChild(createSagaMetadataBadge(gateLabel, tooltip, { tone: getContextGateTone(gate), kind: 'source' }));
     }
 
     const summary = formatEntryContextSummary(entry);
     if (summary) {
-        fragment.appendChild(createSagaMetadataBadge(`Ctx: ${truncateText(summary, 36)}`, summary, ['saga-lore-badge-context']));
+        fragment.appendChild(createSagaMetadataBadge(`Ctx: ${truncateText(summary, 36)}`, summary, { tone: 'source', kind: 'source' }));
     }
     return fragment;
 }
@@ -1347,9 +1382,7 @@ function createSpellMetadataBadges(entry) {
     }
 
     for (const spell of spells) {
-        const badge = createBadge(`Spell: ${spell}`, 'Spell metadata. This identifies spell knowledge, spell-learning gates, or magic-ability constraints attached to this lore entry.');
-        badge.classList.add('saga-lore-badge-spell');
-        row.appendChild(badge);
+        row.appendChild(createBadge(`Spell: ${spell}`, 'Spell metadata. This identifies spell knowledge, spell-learning gates, or magic-ability constraints attached to this lore entry.', { tone: 'tag', kind: 'tag', maxChars: 36 }));
     }
 
     return row;
@@ -2547,7 +2580,7 @@ function createEditableLoreMetaBadge(entry, field, value, values = null, tooltip
 
     const wrap = document.createElement('label');
     wrap.className = 'saga-lore-meta-select-wrap';
-    applyLoreRegistryStyle(wrap, field, currentValue);
+    applyManualChipSchema(wrap, { tone: getLoreRegistryChipTone(field, currentValue), kind: 'metadata' });
     addTooltip(wrap, help);
 
     const prefix = document.createElement('span');
@@ -2603,6 +2636,7 @@ function createEditablePriorityBadge(entry) {
     const current = Number(entry.priority || 50);
     const wrap = document.createElement('label');
     wrap.className = 'saga-lore-meta-select-wrap saga-lore-meta-select-priority';
+    applyManualChipSchema(wrap, { tone: 'relevance', kind: 'metadata' });
     addTooltip(wrap, 'Priority controls sorting and injection preference. Choose P10 through P100.');
 
     const prefix = document.createElement('span');
@@ -2888,12 +2922,12 @@ export function createEntryCard(entry, state, options = {}) {
         metaRow.appendChild(createRegistryBadge('category', entry.category || 'other', `Category: ${entry.category || 'canon'}. Expand the entry to edit.`));
         metaRow.appendChild(createLorePurposeBadge(entry));
         metaRow.appendChild(createRegistryBadge('canonStatus', entry.canon || entry.canonStatus || 'canon', `Canon/Story: ${entry.canon || entry.canonStatus || 'canon'}. Expand the entry to edit.`));
-        if (!basicReview) metaRow.appendChild(createBadge(`P${Number(entry.priority || 50)}`, 'Priority. Expand the entry to edit.'));
+        if (!basicReview) metaRow.appendChild(createBadge(`P${Number(entry.priority || 50)}`, 'Priority. Expand the entry to edit.', { tone: 'relevance', kind: 'metadata' }));
     }
     if (!basicReview) metaRow.appendChild(createSpellMetadataBadges(entry));
-    if (entry.isPending) metaRow.appendChild(createBadge('pending', 'This entry is pending review.'));
-    if (entry.isPinned) metaRow.appendChild(createBadge('pinned', 'Pinned entries are prioritized for injection.'));
-    if (entry.isSuppressed) metaRow.appendChild(createBadge('muted', 'Muted entries are excluded from injection.'));
+    if (entry.isPending) metaRow.appendChild(createBadge('pending', 'This entry is pending review.', { tone: 'review', kind: 'status' }));
+    if (entry.isPinned) metaRow.appendChild(createBadge('pinned', 'Pinned entries are prioritized for injection.', { tone: 'success', kind: 'status' }));
+    if (entry.isSuppressed) metaRow.appendChild(createBadge('muted', 'Muted entries are excluded from injection.', { tone: 'muted', kind: 'status' }));
     card.appendChild(metaRow);
 
     card.appendChild(createTagsRow(entry));
@@ -2994,8 +3028,14 @@ function createTagsRow(entry) {
 
     const tags = Array.isArray(entry.tags) ? entry.tags : [];
     for (const tag of tags) {
-        const chip = document.createElement('span');
-        chip.className = 'saga-lore-tag-chip';
+        const chip = createChip({
+            label: '',
+            tooltip: `Lorecard tag: ${tag}`,
+            kind: 'tag',
+            tone: 'tag',
+            density: 'compact',
+            className: 'saga-lore-tag-chip',
+        });
 
         const removeBtn = document.createElement('button');
         removeBtn.className = 'saga-lore-tag-remove';
@@ -3186,10 +3226,11 @@ export function createPendingLoreReviewSection(state, options = {}) {
             },
             { tooltip: 'Filter pending Lorecards by relevance, card type, canon/AU, pin, or mute state.' }
         ));
-        const filterCount = document.createElement('div');
-        filterCount.className = 'saga-lore-workbench-count';
-        filterCount.textContent = `${filteredPendingRows.length} matching`;
-        filterRow.appendChild(filterCount);
+        filterRow.appendChild(createStatusPill(`${filteredPendingRows.length} matching`, 'Pending Lorecards matching the current review filter.', {
+            tone: filteredPendingRows.length ? 'selected' : 'muted',
+            kind: 'count',
+            className: 'saga-lore-workbench-count',
+        }));
         section.appendChild(filterRow);
 
         if (!basicReview) {

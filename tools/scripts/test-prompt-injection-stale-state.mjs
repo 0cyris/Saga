@@ -134,7 +134,7 @@ assert(runtimeInjectionSource.includes('No Loredecks are loaded for Lore injecti
 assert(runtimeInjectionSource.includes('No accepted Lorecards are available to inject'), 'Lore preview must explain empty accepted Lorecard state.');
 assert(runtimeInjectionSource.includes('Continuity injection has no scene'), 'Continuity preview must explain empty continuity state.');
 assert(runtimeInjectionSource.includes('refreshInjectionPreviewOnly') && runtimeInjectionSource.includes('getInjectionEmptyReason'), 'Refresh-only path must preserve empty-reason text.');
-assert(runtimeInjectionSource.includes('function refreshPromptInjectionStatusUi') && runtimeInjectionSource.includes("syncStatus.classList.add('saga-prompt-sync-status')"), 'Injection preview sync actions must refresh the Current sync row in place.');
+assert(runtimeInjectionSource.includes('function createPromptInjectionStatusRow') && runtimeInjectionSource.includes("row.classList.add('saga-prompt-sync-status')") && runtimeInjectionSource.includes("row?.querySelector('.saga-prompt-sync-status-value')"), 'Injection preview sync actions must refresh the Current sync chip in place.');
 assert(runtimeInjectionSource.includes('const info = syncPromptInjection();\n        refreshPromptInjectionStatusUi(info);'), 'Injection preview refresh-only sync must update visible prompt sync status.');
 assert(runtimeInjectionSource.includes('function syncPromptInjectionFromCurrentSettings()'), 'Injection preview setting controls must share an immediate prompt-sync helper.');
 for (const settingKey of [

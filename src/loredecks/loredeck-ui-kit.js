@@ -50,7 +50,13 @@ export function appendLoredeckStatusPills(parent, items = []) {
         if (!item || item.show === false) continue;
         const text = String(item.text ?? '').trim();
         if (!text) continue;
-        const pill = createStatusPill(text, item.tooltip);
+        const pill = createStatusPill(text, item.tooltip, {
+            tone: item.tone,
+            kind: item.kind,
+            density: item.density,
+            maxChars: item.maxChars,
+            testId: item.testId,
+        });
         appendClassName(pill, item.className);
         if (item.dataset && typeof item.dataset === 'object') {
             Object.entries(item.dataset).forEach(([key, value]) => {

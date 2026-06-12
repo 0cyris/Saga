@@ -12,6 +12,7 @@ import {
   buildLoredeckCreatorPlanningUserPrompt,
   buildLoredeckCreatorEntrySystemPrompt,
   buildLoredeckCreatorEntryUserPrompt,
+  LOREDECK_ASSISTANT_RESPONSE_CODES,
   parseLoredeckAssistantResponse,
   parseLoredeckCreatorBriefResponse,
   parseLoredeckCreatorOutlineResponse,
@@ -70,6 +71,67 @@ assert.equal(parsed.proposals[0].rubric.relationshipImpact, 'not_applicable');
 assert.equal(parsed.proposals[0].rubric.wikiSummaryRisk, 'low');
 assert.equal(parsed.proposals[0].rubric.notes[0], 'Playable behavior, not biography.');
 assert.equal(parsed.warnings.length, 1);
+
+const planningChatContent = JSON.stringify({
+  summary: "Timeline anchors for Nami's pressure beats and a core tag definition.",
+  clarifyingQuestions: [],
+  warnings: [],
+  proposals: [
+    {
+      action: 'upsert_timeline_anchor',
+      title: "Create anchor: Nami's Arlong allegiance exposed",
+      timelineId: 'one-piece.arlong.nami-betrayal-reveal',
+      timelineAnchor: {
+        id: 'one-piece.arlong.nami-betrayal-reveal',
+        label: "Nami's Arlong allegiance exposed",
+        contextType: 'reveal',
+        sortKey: 20,
+        arc: 'Arlong Park',
+        aliases: ['nami betrayal', 'crew sees nami as enemy'],
+        tags: ['arc:arlong-park', 'character:nami'],
+        notes: "Trust fracture start; before this, Nami's deal is unknown to crew.",
+      },
+      reason: "Critical before/after boundary for canon leakage on Nami's secret.",
+      confidence: 0.9,
+      risk: 'low',
+      rubric: { sceneUtility: 'high', contextFit: 'high', wikiSummaryRisk: 'low' },
+    },
+    {
+      action: 'upsert_tag_definition',
+      title: 'Define tag: character:nami',
+      tagDefinition: {
+        id: 'character:nami',
+        label: 'Nami',
+        category: 'character',
+        description: 'Navigator of the Straw Hats; central pressure point of the Arlong Park arc.',
+        aliases: ['cat burglar'],
+        parentTagId: null,
+        coverageDimensionIds: ['character-pressure'],
+      },
+      reason: 'Core character for this batch.',
+      confidence: 0.95,
+      risk: 'low',
+    },
+  ],
+});
+const planningFromChatCompletion = parseLoredeckAssistantResponse({
+  id: 'chatcmpl-planning-fixture',
+  object: 'chat.completion',
+  choices: [{
+    index: 0,
+    message: {
+      role: 'assistant',
+      content: planningChatContent,
+    },
+    finish_reason: 'stop',
+  }],
+});
+assert.equal(planningFromChatCompletion.summary, "Timeline anchors for Nami's pressure beats and a core tag definition.");
+assert.equal(planningFromChatCompletion.proposals.length, 2);
+assert.equal(planningFromChatCompletion.proposals[0].action, 'upsert_timeline_anchor');
+assert.equal(planningFromChatCompletion.proposals[0].timelineId, 'one-piece.arlong.nami-betrayal-reveal');
+assert.equal(planningFromChatCompletion.proposals[0].timelineAnchor.label, "Nami's Arlong allegiance exposed");
+assert.equal(planningFromChatCompletion.proposals[1].tagId, 'character:nami');
 
 const clarification = parseLoredeckAssistantResponse({
   toString() {
@@ -303,6 +365,7 @@ assert.equal(creatorTitlePass.titleDrafts[0].titleId, 'nami-hides-her-bargain');
 assert.equal(creatorTitlePass.titleDrafts[0].rubric.wikiSummaryRisk, 'low');
 assert.equal(creatorTitlePass.titleDrafts[0].coverageDimensionIds[0], 'character-pressure');
 assert.equal(creatorTitlePass.batch.nextBatchHint, 'Faction and setting constraints.');
+assert.deepEqual(creatorTitlePass.warningCodes, []);
 
 const truncatedCreatorTitlePass = parseLoredeckCreatorTitleResponse(`\`\`\`json
 {
@@ -345,6 +408,7 @@ const truncatedCreatorTitlePass = parseLoredeckCreatorTitleResponse(`\`\`\`json
 assert.equal(truncatedCreatorTitlePass.titleDrafts.length, 2);
 assert.equal(truncatedCreatorTitlePass.titleDrafts[1].titleId, 'arlong-iron-tribute');
 assert.ok(truncatedCreatorTitlePass.warnings.some(item => item.includes('salvaged complete title drafts')));
+assert.deepEqual(truncatedCreatorTitlePass.warningCodes, [LOREDECK_ASSISTANT_RESPONSE_CODES.JSON_TRUNCATED_SALVAGED]);
 assert.equal(truncatedCreatorTitlePass.batch.nextBatchHint, 'Locations next.');
 
 const creatorTitleSystemPrompt = buildLoredeckCreatorTitleSystemPrompt();
@@ -422,6 +486,7 @@ const truncatedPlanningPass = parseLoredeckAssistantResponse(`\`\`\`json
 assert.equal(truncatedPlanningPass.proposals.length, 1);
 assert.equal(truncatedPlanningPass.proposals[0].action, 'upsert_timeline_anchor');
 assert.ok(truncatedPlanningPass.warnings.some(item => item.includes('salvaged complete proposals')));
+assert.deepEqual(truncatedPlanningPass.warningCodes, [LOREDECK_ASSISTANT_RESPONSE_CODES.JSON_TRUNCATED_SALVAGED]);
 
 const creatorPlanningUserPrompt = buildLoredeckCreatorPlanningUserPrompt({
   generatedPackId: 'one-piece-arlong-park',
@@ -492,6 +557,7 @@ const truncatedCreatorEntryPass = parseLoredeckAssistantResponse(`{
 assert.equal(truncatedCreatorEntryPass.proposals.length, 1);
 assert.equal(truncatedCreatorEntryPass.proposals[0].entryId, 'nami-hides-her-bargain');
 assert.ok(truncatedCreatorEntryPass.warnings.some(item => item.includes('salvaged complete proposals')));
+assert.deepEqual(truncatedCreatorEntryPass.warningCodes, [LOREDECK_ASSISTANT_RESPONSE_CODES.JSON_TRUNCATED_SALVAGED]);
 
 const creatorEntryUserPrompt = buildLoredeckCreatorEntryUserPrompt({
   generatedPackId: 'one-piece-arlong-park',

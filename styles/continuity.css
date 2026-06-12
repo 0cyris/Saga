@@ -251,93 +251,12 @@
     border-color: rgba(190, 145, 75, 0.28);
 }
 
-.saga-lore-badge-clickable {
-    cursor: pointer;
-    user-select: none;
-    transition: background 0.15s ease, border-color 0.15s ease, transform 0.08s ease;
-}
-
-.saga-lore-badge-clickable:hover {
-    border-color: rgba(235, 203, 125, 0.65);
-    background: rgba(235, 203, 125, 0.18);
-    transform: translateY(-1px);
-}
-
-.saga-lore-badge-character { color: #e8c58a; background: rgba(150, 100, 30, 0.22); }
-.saga-lore-badge-event { color: #c8d8ff; background: rgba(65, 85, 150, 0.22); }
-.saga-lore-badge-item { color: #d8d0b0; background: rgba(135, 115, 60, 0.22); }
-.saga-lore-badge-knowledge { color: #b8d8e8; background: rgba(55, 105, 135, 0.22); }
-.saga-lore-badge-place { color: #a8d8b8; background: rgba(55, 130, 75, 0.22); }
-.saga-lore-badge-faction { color: #e0b8e8; background: rgba(120, 65, 140, 0.22); }
-.saga-lore-badge-spell { color: #b8c8ff; background: rgba(75, 85, 155, 0.22); }
-.saga-lore-badge-artifact { color: #f0d090; background: rgba(160, 115, 40, 0.25); }
-.saga-lore-badge-divergent { color: #e8b070; background: rgba(170, 95, 30, 0.20); }
-.saga-lore-badge-fanon { color: #c0a0d8; background: rgba(100, 65, 135, 0.20); }
-.saga-lore-badge-unknown { color: #b8b8b8; background: rgba(100, 100, 100, 0.18); }
-.saga-lore-badge-true { color: #a8d8a8; background: rgba(70, 135, 70, 0.18); }
-.saga-lore-badge-false { color: #e8a0a0; background: rgba(145, 55, 55, 0.20); }
-.saga-lore-badge-public-belief { color: #e8d8a0; background: rgba(140, 120, 55, 0.22); }
-.saga-lore-badge-contested { color: #f0c078; background: rgba(180, 115, 35, 0.24); }
-.saga-lore-badge-hidden { color: #b0b8d8; background: rgba(70, 75, 130, 0.24); }
-.saga-lore-badge-public { color: #a8d8b0; background: rgba(55, 130, 70, 0.18); }
-.saga-lore-badge-private { color: #d8c098; background: rgba(130, 100, 45, 0.20); }
-.saga-lore-badge-do-not-reveal { color: #f0a0a0; background: rgba(160, 45, 45, 0.24); }
-.saga-lore-badge-only-if-knower-present,
-.saga-lore-badge-only-if-user-reveals { color: #d8b8f0; background: rgba(100, 65, 150, 0.22); }
-.saga-lore-badge-muted { color: #a8a8a8; background: rgba(80, 80, 80, 0.2); }
-.saga-lore-badge-pinned { color: #f0d080; background: rgba(170, 120, 35, 0.25); }
 .saga-lore-badge-saga-meta {
-    display: inline-block;
     max-width: 190px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    vertical-align: bottom;
 }
-.saga-lore-badge-source {
-    color: #9dd5c6;
-    background: rgba(42, 112, 96, 0.24);
-    border-color: rgba(119, 196, 174, 0.28);
-}
-.saga-lore-badge-source-detail {
-    color: #c8d8e0;
-    background: rgba(70, 100, 120, 0.22);
-    border-color: rgba(150, 180, 195, 0.22);
-}
-.saga-lore-badge-context,
-.saga-lore-badge-context-match {
-    color: #bdd7ff;
-    background: rgba(62, 95, 155, 0.24);
-    border-color: rgba(135, 165, 220, 0.26);
-}
-.saga-lore-badge-date-gate {
-    color: #d8cfaa;
-    background: rgba(132, 116, 62, 0.24);
-    border-color: rgba(198, 178, 108, 0.24);
-}
-.saga-lore-badge-context-unresolved {
-    color: #f0c98f;
-    background: rgba(154, 102, 44, 0.24);
-    border-color: rgba(220, 162, 86, 0.28);
-}
-.saga-lore-badge-context-blocked {
-    color: #efa6a6;
-    background: rgba(148, 56, 56, 0.24);
-    border-color: rgba(218, 112, 112, 0.3);
-}
-
 /* ── Metadata dropdown chips ─────────────────────────────────────────────── */
 .saga-lore-meta-select-wrap {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    border: 1px solid rgba(214, 180, 105, 0.35);
-    border-radius: 999px;
-    background: rgba(45, 29, 28, 0.78);
-    color: #f0e2c1;
-    font-size: 0.72em;
-    line-height: 1;
-    padding: 2px 4px 2px 7px;
-    max-width: 190px;
+    max-width: 168px;
 }
 
 .saga-lore-meta-select-prefix {
@@ -347,15 +266,12 @@
 }
 
 .saga-lore-meta-select {
-    max-width: 126px;
-    min-width: 72px;
+    max-width: 102px;
+    min-width: 54px;
     border: none;
-    border-radius: 999px;
-    background: rgba(0, 0, 0, 0.28);
+    background: transparent;
     color: inherit;
     font: inherit;
-    font-size: 1em;
-    padding: 2px 18px 2px 6px;
     outline: none;
     cursor: pointer;
 }
@@ -363,11 +279,6 @@
 .saga-lore-meta-select option {
     background: #1d1415;
     color: #f0e2c1;
-}
-
-.saga-lore-meta-select-priority {
-    background: rgba(125, 92, 38, 0.36);
-    border-color: rgba(235, 203, 125, 0.45);
 }
 
 .saga-small-button {
@@ -385,31 +296,8 @@
     scrollbar-width: thin;
 }
 
-.saga-lore-meta-select-wrap {
-    gap: 2px;
-    min-height: 18px;
-    padding: 1px 3px 1px 5px;
-    font-size: 0.66em;
-    line-height: 1.05;
-    max-width: 162px;
-}
-
-.saga-lore-meta-select-prefix {
-    font-size: 0.88em;
-}
-
-.saga-lore-meta-select {
-    min-width: 54px;
-    max-width: 102px;
-    height: 16px;
-    padding: 0 14px 0 4px;
-    font-size: 0.95em;
-    line-height: 1;
-}
-
 .saga-lore-meta-select-priority .saga-lore-meta-select {
-    min-width: 48px;
-    max-width: 58px;
+    max-width: 50px;
 }
 
 .saga-lore-entry-title {
@@ -421,34 +309,7 @@
 }
 
 
-/* ── Live feedback patch: compact metadata chips, stronger titles, title/tag margin ── */
-.saga-lore-meta-select-wrap {
-    min-height: 0 !important;
-    height: 16px !important;
-    padding: 0 2px 0 4px !important;
-    gap: 2px !important;
-    align-items: center !important;
-    line-height: 1 !important;
-    font-size: 0.62em !important;
-}
-
-.saga-lore-meta-select-prefix {
-    display: inline-flex !important;
-    align-items: center !important;
-    height: 14px !important;
-    line-height: 1 !important;
-}
-
-.saga-lore-meta-select {
-    height: 14px !important;
-    min-height: 14px !important;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-    line-height: 1 !important;
-    display: inline-flex !important;
-    align-items: center !important;
-}
-
+/* ── Live feedback patch: stronger titles, title/tag margin ── */
 .saga-lore-entry-title-wrap {
     margin-left: 8px !important;
 }
@@ -489,24 +350,11 @@
 }
 
 .saga-lore-registry-badge {
-    display: inline-flex;
-    align-items: center;
-    min-height: 14px;
-    line-height: 1;
     max-width: 180px;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .saga-lore-entry-card:not(.saga-lore-entry-expanded) .saga-lore-entry-meta {
     gap: 2px;
-}
-
-.saga-lore-entry-card:not(.saga-lore-entry-expanded) .saga-lore-badge,
-.saga-lore-entry-card:not(.saga-lore-entry-expanded) .saga-lore-registry-badge {
-    font-size: 0.64em;
-    padding: 0 4px;
-    min-height: 13px;
 }
 
 /* ── Injection placement compact layout and final live feedback polish ─────── */

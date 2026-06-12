@@ -155,9 +155,7 @@
 }
 
 .saga-lore-workbench-count {
-    color: var(--saga-muted, rgba(241, 234, 216, 0.68));
-    font-size: 0.78em;
-    white-space: nowrap;
+    justify-self: start;
 }
 
 .saga-workbench-bulk-toolbar {
@@ -916,16 +914,7 @@
 .saga-context-workbench-resolver-score {
     justify-self: center;
     min-width: 34px;
-    border: 1px solid rgba(215, 181, 109, 0.32);
-    border-radius: 999px;
-    background: rgba(215, 181, 109, 0.10);
-    color: var(--saga-gold, #d7b56d);
-    font-size: 0.72em;
-    font-weight: 800;
-    line-height: 1;
     text-align: center;
-    padding: 5px 7px;
-    box-sizing: border-box;
 }
 
 .saga-context-workbench-resolver-reason {

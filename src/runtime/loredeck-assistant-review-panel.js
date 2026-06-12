@@ -73,20 +73,20 @@ export function createLoredeckAssistantCard(pack = {}, rows = [], filteredRows =
     const cached = getLoredeckAssistantDraftCacheRecord(pack.packId);
     const summary = document.createElement('div');
     summary.className = 'saga-loredeck-entry-summary';
-    summary.appendChild(createStatusPill(`${targetRows.length} target entr${targetRows.length === 1 ? 'y' : 'ies'}`, 'Entries included in the assistant context. Current search can narrow this set.'));
-    summary.appendChild(createStatusPill(String(getLoredeckAssistantMode() || 'revise_entries').replace(/_/g, ' '), 'Current assistant task mode.'));
-    summary.appendChild(createStatusPill('Value rubric', 'Assistant proposals are asked to score scene utility, behavior impact, Context fit, injection quality, and wiki-summary risk.'));
+    summary.appendChild(createStatusPill(`${targetRows.length} target entr${targetRows.length === 1 ? 'y' : 'ies'}`, 'Entries included in the assistant context. Current search can narrow this set.', { kind: 'count' }));
+    summary.appendChild(createStatusPill(String(getLoredeckAssistantMode() || 'revise_entries').replace(/_/g, ' '), 'Current assistant task mode.', { tone: 'source', kind: 'status' }));
+    summary.appendChild(createStatusPill('Value rubric', 'Assistant proposals are asked to score scene utility, behavior impact, Context fit, injection quality, and wiki-summary risk.', { tone: 'info', kind: 'metadata' }));
     if (cached?.draftChanges?.length) {
         const selectedCount = getLoredeckAssistantSelectedDraftIds(cached).size;
-        summary.appendChild(createStatusPill(`${cached.draftChanges.length} drafted`, 'Assistant proposals waiting for batch review before they enter Pending Review.'));
-        const selectedPill = createStatusPill(`${selectedCount} selected`, 'Draft proposals selected for queue, drop, or revision actions.');
+        summary.appendChild(createStatusPill(`${cached.draftChanges.length} drafted`, 'Assistant proposals waiting for batch review before they enter Pending Review.', { tone: 'review', kind: 'count' }));
+        const selectedPill = createStatusPill(`${selectedCount} selected`, 'Draft proposals selected for queue, drop, or revision actions.', { tone: selectedCount ? 'selected' : 'muted', kind: 'count' });
         selectedPill.classList.add('saga-loredeck-assistant-selected-count');
         summary.appendChild(selectedPill);
     }
-    if (cached?.queuedCount) summary.appendChild(createStatusPill(`${cached.queuedCount} queued`, 'Last assistant proposal count queued into Pending Review.'));
-    if (cached?.selectedHealthIssueCount) summary.appendChild(createStatusPill(`${cached.selectedHealthIssueCount} health issue${cached.selectedHealthIssueCount === 1 ? '' : 's'}`, 'Last assistant draft was generated from selected Deck Health issues.'));
-    if (cached?.qualityWarningCount) summary.appendChild(createStatusPill(`${cached.qualityWarningCount} quality flag${cached.qualityWarningCount === 1 ? '' : 's'}`, 'Last assistant draft included local quality guardrail flags.'));
-    if (cached?.questions?.length) summary.appendChild(createStatusPill(`${cached.questions.length} question${cached.questions.length === 1 ? '' : 's'}`, 'Last assistant response requested clarification.'));
+    if (cached?.queuedCount) summary.appendChild(createStatusPill(`${cached.queuedCount} queued`, 'Last assistant proposal count queued into Pending Review.', { tone: 'review', kind: 'count' }));
+    if (cached?.selectedHealthIssueCount) summary.appendChild(createStatusPill(`${cached.selectedHealthIssueCount} health issue${cached.selectedHealthIssueCount === 1 ? '' : 's'}`, 'Last assistant draft was generated from selected Deck Health issues.', { tone: 'warning', kind: 'severity' }));
+    if (cached?.qualityWarningCount) summary.appendChild(createStatusPill(`${cached.qualityWarningCount} quality flag${cached.qualityWarningCount === 1 ? '' : 's'}`, 'Last assistant draft included local quality guardrail flags.', { tone: 'warning', kind: 'severity' }));
+    if (cached?.questions?.length) summary.appendChild(createStatusPill(`${cached.questions.length} question${cached.questions.length === 1 ? '' : 's'}`, 'Last assistant response requested clarification.', { tone: 'review', kind: 'count' }));
     wrap.appendChild(summary);
 
     const help = document.createElement('div');
@@ -158,12 +158,12 @@ export function createLoredeckAssistantDraftBatchCard(pack = {}, cached = null, 
 
     const summary = document.createElement('div');
     summary.className = 'saga-loredeck-entry-summary';
-    summary.appendChild(createStatusPill(`${changes.length} drafted`, creatorBatch ? 'Creator Lorecard drafts waiting for edit-before-review.' : 'Draft proposals waiting for edit-before-queue review.'));
-    const selectedPill = createStatusPill(`${selectedCount} selected`, creatorBatch ? 'Selected drafts are affected by send, drop, and revise actions.' : 'Selected proposals are affected by queue, drop, and revise actions.');
+    summary.appendChild(createStatusPill(`${changes.length} drafted`, creatorBatch ? 'Creator Lorecard drafts waiting for edit-before-review.' : 'Draft proposals waiting for edit-before-queue review.', { tone: 'review', kind: 'count' }));
+    const selectedPill = createStatusPill(`${selectedCount} selected`, creatorBatch ? 'Selected drafts are affected by send, drop, and revise actions.' : 'Selected proposals are affected by queue, drop, and revise actions.', { tone: selectedCount ? 'selected' : 'muted', kind: 'count' });
     selectedPill.classList.add('saga-loredeck-assistant-draft-selected-count');
     summary.appendChild(selectedPill);
     const qualityWarningCount = countLoredeckAssistantQualityWarningsForChanges(changes);
-    if (qualityWarningCount) summary.appendChild(createStatusPill(`${qualityWarningCount} quality flag${qualityWarningCount === 1 ? '' : 's'}`, 'Local guardrail flags across this assistant draft batch.'));
+    if (qualityWarningCount) summary.appendChild(createStatusPill(`${qualityWarningCount} quality flag${qualityWarningCount === 1 ? '' : 's'}`, 'Local guardrail flags across this assistant draft batch.', { tone: 'warning', kind: 'severity' }));
     wrap.appendChild(summary);
 
     const actions = createLoredeckActionRow();
@@ -265,10 +265,10 @@ export function createLoredeckAssistantDraftRow(pack = {}, change = {}, selected
 
     const meta = document.createElement('div');
     meta.className = 'saga-loredeck-row-meta';
-    meta.appendChild(createStatusPill(`Action: ${formatLoredeckPendingActionLabel(change.action)}`, `Draft action: ${change.action || 'record_patch'}.`));
-    meta.appendChild(createStatusPill(`Target: ${formatLoredeckPendingTargetKindLabel(change.targetKind)}`, `Draft target kind: ${change.targetKind || 'loredeck'}.`));
+    meta.appendChild(createStatusPill(`Action: ${formatLoredeckPendingActionLabel(change.action)}`, `Draft action: ${change.action || 'record_patch'}.`, { tone: 'source', kind: 'source', maxChars: 34 }));
+    meta.appendChild(createStatusPill(`Target: ${formatLoredeckPendingTargetKindLabel(change.targetKind)}`, `Draft target kind: ${change.targetKind || 'loredeck'}.`, { tone: 'category', kind: 'metadata', maxChars: 34 }));
     const confidence = getLoredeckPendingConfidence(change);
-    if (confidence !== null) meta.appendChild(createStatusPill(`Confidence ${Math.round(confidence * 100)}%`, 'Model confidence for this draft proposal.'));
+    if (confidence !== null) meta.appendChild(createStatusPill(`Confidence ${Math.round(confidence * 100)}%`, 'Model confidence for this draft proposal.', { tone: confidence >= 0.8 ? 'success' : (confidence >= 0.55 ? 'info' : 'warning'), kind: 'metadata' }));
     const risk = getLoredeckPendingRisk(change);
     if (risk) {
         const pill = createLoredeckPendingRiskPill(risk);
@@ -279,9 +279,9 @@ export function createLoredeckAssistantDraftRow(pack = {}, change = {}, selected
         const pill = createLoredeckPendingHealthImpactPill();
         if (pill) meta.appendChild(pill);
     }
-    if (change.affectedEntryIds?.length) meta.appendChild(createStatusPill(`${change.affectedEntryIds.length} entr${change.affectedEntryIds.length === 1 ? 'y' : 'ies'}`, change.affectedEntryIds.slice(0, 10).join(', ')));
-    if (change.affectedTagIds?.length) meta.appendChild(createStatusPill(`${change.affectedTagIds.length} tag${change.affectedTagIds.length === 1 ? '' : 's'}`, change.affectedTagIds.slice(0, 10).join(', ')));
-    if (change.affectedTimelineIds?.length) meta.appendChild(createStatusPill(`${change.affectedTimelineIds.length} timeline`, change.affectedTimelineIds.slice(0, 10).join(', ')));
+    if (change.affectedEntryIds?.length) meta.appendChild(createStatusPill(`${change.affectedEntryIds.length} entr${change.affectedEntryIds.length === 1 ? 'y' : 'ies'}`, change.affectedEntryIds.slice(0, 10).join(', '), { kind: 'count' }));
+    if (change.affectedTagIds?.length) meta.appendChild(createStatusPill(`${change.affectedTagIds.length} tag${change.affectedTagIds.length === 1 ? '' : 's'}`, change.affectedTagIds.slice(0, 10).join(', '), { tone: 'tag', kind: 'tag' }));
+    if (change.affectedTimelineIds?.length) meta.appendChild(createStatusPill(`${change.affectedTimelineIds.length} timeline`, change.affectedTimelineIds.slice(0, 10).join(', '), { tone: 'source', kind: 'count' }));
     main.appendChild(meta);
 
     const diffs = createLoredeckPendingDiffList(pack, change);

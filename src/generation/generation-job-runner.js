@@ -31,6 +31,13 @@ export const GENERATION_UNIT_STATUSES = Object.freeze([
     'skipped',
 ]);
 
+export const GENERATION_ERROR_CODES = Object.freeze({
+    NO_USABLE_RESULT: 'generation_no_usable_result',
+    STAGE_CONTRACT_FAILED: 'creator_stage_contract_failed',
+    JSON_INVALID: 'json_invalid',
+    COMMIT_FAILED: 'commit_failed',
+});
+
 const RUN_STATUS_SET = new Set(GENERATION_RUN_STATUSES);
 const UNIT_STATUS_SET = new Set(GENERATION_UNIT_STATUSES);
 
@@ -146,9 +153,54 @@ function normalizeError(error) {
     if (!error) return { message: '', name: '' };
     return {
         name: cleanString(error.name || '', 80),
+        code: cleanString(error.code || error.errorCode || '', 120),
         message: cleanString(error.message || String(error), 1000),
         stack: typeof error.stack === 'string' ? error.stack.slice(0, 4000) : '',
     };
+}
+
+function normalizeDiagnosticValue(value, depth = 0, seen = new WeakSet()) {
+    if (value === null || value === undefined) return value;
+    if (typeof value === 'string') return cleanString(value, depth > 1 ? 500 : 1000);
+    if (typeof value === 'number') return Number.isFinite(value) ? value : 0;
+    if (typeof value === 'boolean') return value;
+    if (typeof value !== 'object') return cleanString(value, 500);
+    if (seen.has(value)) return '[Circular]';
+    seen.add(value);
+
+    if (Array.isArray(value)) {
+        return value.slice(0, 20).map(item => normalizeDiagnosticValue(item, depth + 1, seen));
+    }
+
+    if (depth >= 2) {
+        try { return cleanString(JSON.stringify(value), 1000); } catch (_) { return '[Object]'; }
+    }
+
+    const output = {};
+    for (const [rawKey, nested] of Object.entries(value).slice(0, 40)) {
+        const key = cleanId(rawKey, '');
+        if (!key) continue;
+        output[key] = normalizeDiagnosticValue(nested, depth + 1, seen);
+    }
+    return output;
+}
+
+function normalizeFailureDiagnostic(value) {
+    if (!value || typeof value !== 'object' || Array.isArray(value)) return null;
+    const diagnostic = normalizeDiagnosticValue(value);
+    return diagnostic && typeof diagnostic === 'object' && !Array.isArray(diagnostic) && Object.keys(diagnostic).length
+        ? diagnostic
+        : null;
+}
+
+async function buildFailureDiagnostic(options = {}, payload = {}) {
+    if (typeof options.diagnoseFailure !== 'function') return null;
+    try {
+        return normalizeFailureDiagnostic(await options.diagnoseFailure(payload));
+    } catch (error) {
+        console.warn('[Saga] Generation runner diagnostic callback failed:', error);
+        return null;
+    }
 }
 
 function unitPatch(unit = {}, patch = {}) {
@@ -197,25 +249,58 @@ async function checkpointUnit(options = {}, run = {}, unit = {}, event = {}) {
     await callOptional(options.checkpointUnit, { run, unit, event }, null);
 }
 
-function isUsableParsedResult(result, options = {}) {
+async function assertUsableParsedResult(result, context, options = {}) {
     if (typeof options.validateResult === 'function') {
-        return options.validateResult(result) !== false;
+        const validation = await options.validateResult(result, context);
+        if (validation instanceof Error) throw validation;
+        if (validation === false) throw makeNoUsableResultError();
+        if (typeof validation === 'string' && validation.trim()) {
+            throw makeNoUsableResultError(validation, GENERATION_ERROR_CODES.STAGE_CONTRACT_FAILED);
+        }
+        if (validation && typeof validation === 'object' && !Array.isArray(validation)) {
+            const failed = validation.ok === false || validation.valid === false || validation.usable === false;
+            if (failed) {
+                throw makeNoUsableResultError(
+                    validation.message || validation.error || 'Generation unit returned no usable result.',
+                    validation.code || validation.errorCode || GENERATION_ERROR_CODES.STAGE_CONTRACT_FAILED
+                );
+            }
+        }
+        return;
     }
-    if (options.allowEmptyResult === true) return true;
-    return result !== undefined && result !== null;
+    if (options.allowEmptyResult === true) return;
+    if (result === undefined || result === null) throw makeNoUsableResultError();
 }
 
-function makeNoUsableResultError() {
-    const error = new Error('Generation unit returned no usable result.');
+function makeNoUsableResultError(message = 'Generation unit returned no usable result.', code = GENERATION_ERROR_CODES.NO_USABLE_RESULT) {
+    const error = new Error(message);
     error.name = 'GenerationNoUsableResultError';
+    error.code = code;
     return error;
 }
 
+function annotateGenerationError(error, code, fallbackMessage = 'Generation failed.') {
+    if (error && typeof error === 'object') {
+        if (!error.code && !error.errorCode) {
+            try { error.code = code; } catch (_) {}
+        }
+        return error;
+    }
+    const wrapped = new Error(cleanString(error || fallbackMessage, 1000) || fallbackMessage);
+    wrapped.code = code;
+    return wrapped;
+}
+
 async function parseUnitResult(rawResult, context, options = {}) {
-    const parsed = typeof options.parseResult === 'function'
-        ? await options.parseResult(rawResult, context)
-        : rawResult;
-    if (!isUsableParsedResult(parsed, options)) throw makeNoUsableResultError();
+    let parsed = rawResult;
+    if (typeof options.parseResult === 'function') {
+        try {
+            parsed = await options.parseResult(rawResult, context);
+        } catch (error) {
+            throw annotateGenerationError(error, GENERATION_ERROR_CODES.JSON_INVALID, 'Generation returned invalid JSON.');
+        }
+    }
+    await assertUsableParsedResult(parsed, context, options);
     return parsed;
 }
 
@@ -228,7 +313,7 @@ async function repairAndParseUnitResult(rawResult, error, context, options = {})
     const parsed = repaired && typeof repaired === 'object' && Object.prototype.hasOwnProperty.call(repaired, 'parsedResult')
         ? repaired.parsedResult
         : await parseUnitResult(repairRaw, context, options);
-    if (!isUsableParsedResult(parsed, options)) throw makeNoUsableResultError();
+    await assertUsableParsedResult(parsed, context, options);
     return { rawResult: repairRaw, parsedResult: parsed };
 }
 
@@ -252,7 +337,11 @@ async function maybeSkipUnit(options = {}, context = {}) {
 
 async function commitUnitResult(options = {}, context = {}) {
     if (typeof options.commitResult !== 'function') return null;
-    return await options.commitResult(context);
+    try {
+        return await options.commitResult(context);
+    } catch (error) {
+        throw annotateGenerationError(error, GENERATION_ERROR_CODES.COMMIT_FAILED, 'Generation result could not be saved.');
+    }
 }
 
 async function runSingleUnit(options, run, unit, runState) {
@@ -269,6 +358,7 @@ async function runSingleUnit(options, run, unit, runState) {
 
     let rawResult = undefined;
     let lastError = null;
+    let lastDiagnostic = null;
     let repairAttempted = false;
 
     for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
@@ -278,12 +368,15 @@ async function runSingleUnit(options, run, unit, runState) {
             attempts: attempt,
             startedAt: unit.startedAt || now(),
             error: '',
+            diagnostic: null,
         });
         await checkpointUnit(options, run, running, {
             type: attempt === 1 ? 'unit_started' : 'unit_retrying',
             attempt,
         });
 
+        rawResult = undefined;
+        let failurePhase = 'request';
         try {
             const attemptContext = { ...contextBase, unit: running, attempt, emitProgress: event => emitProgress(options, { run, unit: running, ...event }) };
             rawResult = await options.callUnit(attemptContext);
@@ -296,6 +389,7 @@ async function runSingleUnit(options, run, unit, runState) {
             }
 
             let parsedResult;
+            failurePhase = 'parse';
             try {
                 parsedResult = await parseUnitResult(rawResult, attemptContext, options);
             } catch (parseError) {
@@ -308,6 +402,7 @@ async function runSingleUnit(options, run, unit, runState) {
                     attempt,
                     error: normalizeError(parseError),
                 });
+                failurePhase = 'repair';
                 const repaired = await repairAndParseUnitResult(rawResult, parseError, attemptContext, options);
                 rawResult = repaired.rawResult;
                 parsedResult = repaired.parsedResult;
@@ -320,6 +415,7 @@ async function runSingleUnit(options, run, unit, runState) {
                 return { status: 'superseded', unit: superseded, stop: true };
             }
 
+            failurePhase = 'commit';
             const commitResult = await commitUnitResult(options, {
                 ...attemptContext,
                 rawResult,
@@ -331,6 +427,7 @@ async function runSingleUnit(options, run, unit, runState) {
                 outputHash: cleanString(commitResult?.outputHash || commitResult?.hash || running.outputHash || '', 160),
                 resultRef: commitResult?.resultRef || running.resultRef || null,
                 error: '',
+                diagnostic: null,
             });
             await checkpointUnit(options, run, complete, {
                 type: 'unit_completed',
@@ -348,15 +445,29 @@ async function runSingleUnit(options, run, unit, runState) {
         } catch (error) {
             if (isGenerationAbortError(error)) throw error;
             lastError = error;
+            const normalizedError = normalizeError(error);
+            lastDiagnostic = await buildFailureDiagnostic(options, {
+                run,
+                unit: running,
+                attempt,
+                maxAttempts,
+                phase: failurePhase,
+                rawResult,
+                error,
+                normalizedError,
+                repairAttempted,
+            });
             const retry = attempt < maxAttempts && await isRetryable(error, { ...contextBase, unit: running, attempt, rawResult }, options);
             await checkpointUnit(options, run, unitPatch(running, {
                 status: retry ? 'retrying' : 'failed',
-                error: normalizeError(error).message,
+                error: normalizedError.message,
+                diagnostic: lastDiagnostic || null,
                 failedAt: retry ? 0 : now(),
             }), {
                 type: retry ? 'unit_retry_scheduled' : 'unit_failed',
                 attempt,
-                error: normalizeError(error),
+                error: normalizedError,
+                diagnostic: lastDiagnostic || null,
             });
             if (retry) continue;
         }
@@ -366,6 +477,7 @@ async function runSingleUnit(options, run, unit, runState) {
         status: 'failed',
         attempts: maxAttempts,
         error: normalizeError(lastError).message || 'Generation unit failed.',
+        diagnostic: lastDiagnostic || null,
         failedAt: now(),
     });
     return {

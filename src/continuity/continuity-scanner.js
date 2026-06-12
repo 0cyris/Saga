@@ -15,6 +15,10 @@ import {
     validateDelta,
 } from '../state/state-manager.js';
 import { sendLoreRequest, validateLoreProviderConfiguration } from '../providers/lore-llm-client.js';
+import {
+    extractLoreResponseText,
+    LORE_PARSE_ERROR_CODES,
+} from '../providers/lore-response-normalizer.js';
 
 const ACTIVE_CONTINUITY_SECTIONS = ['canon', 'scene', 'characters', 'inventory', 'objectives', 'threads'];
 const RETIRED_CONTINUITY_SECTIONS = ['knowledge', 'secrets', 'relationships', 'storyMilestones', 'continuityFlags', 'flags'];
@@ -601,7 +605,7 @@ async function runWithConcurrency(items, limit, worker) {
 }
 
 function extractJsonText(text) {
-    let source = String(text || '').trim();
+    let source = extractLoreResponseText(text).trim();
     const fence = source.match(/```(?:json)?\s*([\s\S]*?)```/i);
     if (fence) source = fence[1].trim();
     return source;
@@ -720,6 +724,16 @@ function parseDeltaResponse(text) {
     return { ...delta, sectionDecisions: delta.sectionDecisions || parsed?.sectionDecisions || null };
 }
 
+function buildContinuityReducerParseFailure(group = {}) {
+    return {
+        status: 'failed_parse',
+        group,
+        delta: null,
+        error: 'Reducer returned no valid continuity delta.',
+        errorCode: LORE_PARSE_ERROR_CODES.JSON_INVALID,
+    };
+}
+
 function getCharacterContinuityGuidance(stateProjection = {}) {
     const cfg = stateProjection?.continuityConfig || {};
     const lines = [];
@@ -827,14 +841,14 @@ async function extractChunkObservations({ chunk, plan, batchId, settings, stateP
             },
         });
         try {
-            rawResponse = await sendLoreRequest(systemPrompt, userPrompt, {
+            rawResponse = extractLoreResponseText(await sendLoreRequest(systemPrompt, userPrompt, {
                 providerKind: 'continuity',
                 maxTokens: clampInt(settings.continuityObservationMaxTokens || Math.min(Number(settings.continuityMaxTokens || 4096), 1536), 512, 8192, 1536),
                 prefill: '',
                 signal,
                 expectedOutput: 'json',
-            });
-            if (!rawResponse || !String(rawResponse).trim()) {
+            }));
+            if (!rawResponse.trim()) {
                 lastError = 'Empty continuity observation response.';
                 continue;
             }
@@ -897,13 +911,15 @@ async function reduceObservationGroup({ group, observations, plan, settings, sta
             expectedOutput: 'json',
         });
         const parsedDelta = parseDeltaResponse(response);
-        if (!parsedDelta) return { status: 'failed_parse', group, delta: null, error: 'Reducer returned no valid continuity delta.' };
+        if (!parsedDelta) {
+            return buildContinuityReducerParseFailure(group);
+        }
         const delta = restrictDeltaToGroup(parsedDelta, group);
         const validation = validateDelta(delta);
         if (!validation.valid) return { status: 'failed_parse', group, delta: null, error: validation.errors.join('; ') };
         return { status: 'complete', group, delta };
     } catch (e) {
-        return { status: 'failed_exception', group, delta: null, error: e?.message || String(e || '') };
+        return { status: 'failed_exception', group, delta: null, error: e?.message || String(e || ''), errorCode: e?.code || e?.errorCode || '' };
     }
 }
 
@@ -1427,6 +1443,7 @@ async function runBulkContinuityScan(options = {}) {
 }
 
 export const __continuityScanTestHooks = {
+    buildContinuityReducerParseFailure,
     buildContinuityProjection,
     buildContinuityScanPlan,
     parseObservationResponse,

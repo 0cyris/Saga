@@ -396,7 +396,7 @@ function createBasicReadinessRow(row) {
     main.appendChild(state);
 
     item.appendChild(main);
-    item.appendChild(createStatusPill(row.ready ? 'Ready' : (row.optional ? 'Optional' : 'Needs setup'), row.ready ? row.readyText : row.missingText));
+    item.appendChild(createStatusPill(row.ready ? 'Ready' : (row.optional ? 'Optional' : 'Needs setup'), row.ready ? row.readyText : row.missingText, { tone: row.ready ? 'success' : (row.optional ? 'info' : 'warning'), kind: 'status' }));
 
     const action = getBasicReadinessAction(row);
     if (!row.ready && row.actionLabel && typeof action === 'function') {
@@ -414,7 +414,7 @@ export function createBasicStartReadinessCard(state = getState(), settings = get
     const next = document.createElement('div');
     next.className = 'saga-basic-next-action';
     const nextLabel = model.nextAction?.label || 'Continue roleplay';
-    next.appendChild(createStatusPill(model.nextAction?.ready ? 'Ready' : 'Next', model.nextAction?.missingText || model.nextAction?.readyText || nextLabel));
+    next.appendChild(createStatusPill(model.nextAction?.ready ? 'Ready' : 'Next', model.nextAction?.missingText || model.nextAction?.readyText || nextLabel, { tone: model.nextAction?.ready ? 'success' : 'info', kind: 'status' }));
     const nextText = document.createElement('span');
     nextText.textContent = model.nextAction?.ready ? 'Continue roleplay' : (model.nextAction?.actionLabel || nextLabel);
     next.appendChild(nextText);

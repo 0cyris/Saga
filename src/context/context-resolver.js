@@ -18,6 +18,11 @@ import {
     rankContextAnchors,
 } from './context-index.js';
 import { sendLoreRequest } from '../providers/lore-llm-client.js';
+import {
+    createLoreJsonInvalidDiagnostic,
+    extractLoreResponseText,
+    LORE_PARSE_ERROR_CODES,
+} from '../providers/lore-response-normalizer.js';
 
 const MIN_ALIAS_SCORE = 40;
 const DEFAULT_LOCAL_APPLY_MIN_CONFIDENCE = 0.78;
@@ -1414,20 +1419,38 @@ function findBalancedJsonObject(text = '') {
 }
 
 function parseContextModelResponse(text = '') {
+    const responseText = extractLoreResponseText(text);
     const candidates = [
-        stripJsonFences(text),
-        findBalancedJsonObject(text),
-        findBalancedJsonObject(stripJsonFences(text)),
+        stripJsonFences(responseText),
+        findBalancedJsonObject(responseText),
+        findBalancedJsonObject(stripJsonFences(responseText)),
     ].filter(Boolean);
+    let parseError = '';
+    let parsedAnyJson = false;
     for (const candidate of candidates) {
         try {
             const parsed = JSON.parse(candidate);
+            parsedAnyJson = true;
             if (Array.isArray(parsed)) return { contexts: parsed };
             if (Array.isArray(parsed?.contexts)) return { contexts: parsed.contexts };
             if (isPlainObject(parsed?.result) && Array.isArray(parsed.result.contexts)) return { contexts: parsed.result.contexts };
-        } catch (_) {
+        } catch (error) {
+            parseError = error?.message || 'Invalid JSON';
             // Try the next candidate.
         }
+    }
+    if (responseText.trim() && !parsedAnyJson) {
+        const diagnostic = createLoreJsonInvalidDiagnostic('Context resolver model returned malformed JSON.', {
+            visibleContentLength: responseText.length,
+            sample: responseText.slice(0, 240),
+            parserMessage: parseError,
+        });
+        return {
+            contexts: [],
+            errorCode: diagnostic.code,
+            error: diagnostic.message,
+            diagnostic,
+        };
     }
     return { contexts: [] };
 }
@@ -1585,6 +1608,30 @@ export function resolveContextsFromModelResponse(responseText = '', context = {}
     ]));
     const parsed = parseContextModelResponse(responseText);
     const results = [];
+
+    if (parsed.errorCode === LORE_PARSE_ERROR_CODES.JSON_INVALID) {
+        for (const packId of targetPackIds) {
+            results.push({
+                packId,
+                status: 'unresolved',
+                reason: 'model_parse_failed',
+                errorCode: parsed.errorCode,
+                error: parsed.error,
+            });
+        }
+        return {
+            status: 'unresolved',
+            resolvedCount: 0,
+            changedCount: 0,
+            skippedCount: 0,
+            unresolvedCount: results.length,
+            proposals: [],
+            results,
+            errorCode: parsed.errorCode,
+            error: parsed.error,
+            diagnostic: parsed.diagnostic || null,
+        };
+    }
 
     for (const rawChoice of parsed.contexts || []) {
         if (!isPlainObject(rawChoice)) continue;

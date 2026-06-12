@@ -150,8 +150,13 @@ export function createCompactPresetStat(label, value) {
     row.className = 'saga-preset-status-stat';
     const key = document.createElement('span');
     key.textContent = label;
-    const val = document.createElement('strong');
-    val.textContent = value;
+    const val = createStatusPill(formatKeyValueDisplay(label, value), `${label}: ${formatKeyValueDisplay(label, value)}`, {
+        tone: String(value || '').toLowerCase().includes('not found') || String(value || '').toLowerCase().includes('unknown') ? 'muted' : 'source',
+        kind: 'source',
+        density: 'compact',
+        className: 'saga-preset-status-stat-value',
+        maxChars: 28,
+    });
     row.appendChild(key);
     row.appendChild(val);
     return row;
@@ -232,29 +237,182 @@ export function createIconButton(label, tooltip, className, handler) {
     return btn;
 }
 
-function getLoreBadgeClass(text) {
-    const normalized = String(text || '')
+function normalizeChipClassToken(value = '', fallback = 'neutral') {
+    const normalized = String(value || '')
         .trim()
         .toLowerCase()
-        .replace(/^p\d+$/, 'priority')
-        .replace(/[^a-z0-9]+/g, '-');
-    return normalized ? `saga-lore-badge-${normalized}` : '';
+        .replace(/_/g, '-')
+        .replace(/[^a-z0-9-]+/g, '-')
+        .replace(/^-+|-+$/g, '');
+    return normalized || fallback;
 }
 
-export function createBadge(text, tooltip) {
-    const badge = document.createElement('span');
-    badge.className = `saga-lore-badge ${getLoreBadgeClass(text)}`.trim();
-    badge.textContent = text;
-    addTooltip(badge, tooltip);
+function normalizeChipDensity(value = '') {
+    const density = normalizeChipClassToken(value, 'compact');
+    return ['compact', 'standard', 'touch'].includes(density) ? density : 'compact';
+}
+
+function normalizeChipKind(value = '') {
+    const kind = normalizeChipClassToken(value, 'metadata');
+    return ['metadata', 'status', 'severity', 'count', 'source', 'tag', 'action'].includes(kind)
+        ? kind
+        : 'metadata';
+}
+
+const CHIP_TONES = Object.freeze([
+    'neutral',
+    'source',
+    'category',
+    'relevance',
+    'info',
+    'review',
+    'success',
+    'warning',
+    'danger',
+    'muted',
+    'selected',
+    'tag',
+]);
+
+function normalizeChipTone(value = '') {
+    const tone = normalizeChipClassToken(value, 'neutral');
+    const aliases = {
+        active: 'success',
+        approved: 'success',
+        complete: 'success',
+        completed: 'success',
+        current: 'success',
+        editable: 'success',
+        ok: 'success',
+        ready: 'success',
+        resolved: 'success',
+        running: 'info',
+        generated: 'source',
+        cached: 'info',
+        local: 'info',
+        selected: 'selected',
+        draft: 'review',
+        drafted: 'review',
+        pending: 'review',
+        'needs-approval': 'review',
+        'needs-review': 'review',
+        review: 'review',
+        blocked: 'danger',
+        danger: 'danger',
+        error: 'danger',
+        failed: 'danger',
+        failure: 'danger',
+        high: 'danger',
+        issue: 'warning',
+        stale: 'warning',
+        medium: 'warning',
+        warning: 'warning',
+        disabled: 'muted',
+        empty: 'muted',
+        locked: 'muted',
+        missing: 'muted',
+        none: 'muted',
+        unavailable: 'muted',
+        waiting: 'muted',
+        'not-applicable': 'muted',
+        'not-ready': 'muted',
+        low: 'success',
+        neutral: 'neutral',
+        source: 'source',
+        tag: 'tag',
+    };
+    return aliases[tone] || (CHIP_TONES.includes(tone) ? tone : 'neutral');
+}
+
+function inferChipToneFromLabel(label = '') {
+    const text = String(label || '').trim().toLowerCase();
+    if (!text) return 'neutral';
+    if (/\b(error|errors|failed|failure|blocked|blocker|blockers)\b/.test(text)) return 'danger';
+    if (/\b(warning|warnings|stale|quality flag|quality flags|issue|issues|risk: high|low confidence|unresolved)\b/.test(text)) return 'warning';
+    if (/\b(needs review|needs approval|pending|drafted|draft|review|question|questions)\b/.test(text)) return 'review';
+    if (/\b(approved|ready|accepted|active|health clear|current|editable|success)\b/.test(text)) return 'success';
+    if (/\b(disabled|locked|waiting|not ready|not scanned|none|no |unavailable|read-only|unfiled|unloaded|missing)\b/.test(text)) return 'muted';
+    if (/\b(generated|running|in flight|cached|local|manual|auto allowed|selected|resumable)\b/.test(text)) return 'info';
+    if (/\b(bundled|custom|imported|json-only|source|overlay|tags\.json|timeline\.json)\b/.test(text)) return 'source';
+    return 'neutral';
+}
+
+function inferChipKindFromLabel(label = '') {
+    const text = String(label || '').trim().toLowerCase();
+    if (!text) return 'status';
+    if (/^\d/.test(text) || /\b\d+([/.]\d+)?\b/.test(text) || /%\b/.test(text)) return 'count';
+    if (/\b(error|errors|warning|warnings|issue|issues|risk|health impact|quality flag|blocked|failed)\b/.test(text)) return 'severity';
+    if (/^(source|op|operation|route|ref|gate):/.test(text) || /\b(bundled|generated|custom|imported|json-only|registry|overlay|tags\.json|timeline\.json)\b/.test(text)) return 'source';
+    if (/\b(tag|tags|anchor|anchors|window|windows|timeline|category|type|relevance)\b/.test(text)) return 'metadata';
+    return 'status';
+}
+
+export function createChip(options = {}) {
+    const input = options && typeof options === 'object' && !Array.isArray(options) ? options : { label: options };
+    const label = String(input.label ?? input.text ?? '').trim();
+    const chip = document.createElement(input.interactive ? 'button' : 'span');
+    const kind = normalizeChipKind(input.kind);
+    const tone = normalizeChipTone(input.tone || inferChipToneFromLabel(label));
+    const density = normalizeChipDensity(input.density);
+    const classes = [
+        'saga-chip',
+        `saga-chip-kind-${kind}`,
+        `saga-chip-tone-${tone}`,
+        `saga-chip-density-${density}`,
+        input.className,
+    ].filter(Boolean);
+    chip.className = classes.join(' ');
+    chip.textContent = label;
+    if (input.interactive) {
+        chip.type = 'button';
+        chip.classList.add('saga-chip-interactive');
+    }
+    chip.dataset.sagaChipKind = kind;
+    chip.dataset.sagaChipTone = tone;
+    chip.dataset.sagaChipDensity = density;
+    if (input.testId) chip.dataset.testid = String(input.testId);
+    if (input.maxChars && label.length > Number(input.maxChars)) {
+        chip.textContent = `${label.slice(0, Math.max(1, Number(input.maxChars) - 3))}...`;
+        chip.title = label;
+    }
+    addTooltip(chip, input.tooltip || input.title || '');
+    return chip;
+}
+
+export function setChipTone(chip, tone = 'neutral') {
+    if (!chip?.classList) return chip;
+    const normalized = normalizeChipTone(tone);
+    for (const knownTone of CHIP_TONES) chip.classList.remove(`saga-chip-tone-${knownTone}`);
+    chip.classList.add(`saga-chip-tone-${normalized}`);
+    chip.dataset.sagaChipTone = normalized;
+    return chip;
+}
+
+export function createBadge(text, tooltip, options = {}) {
+    const badge = createChip({
+        label: text,
+        tooltip,
+        kind: options.kind || 'metadata',
+        tone: options.tone || 'category',
+        density: options.density || 'compact',
+        className: `saga-lore-badge ${options.className || ''}`.trim(),
+        maxChars: options.maxChars,
+        testId: options.testId,
+    });
     return badge;
 }
 
-export function createStatusPill(text, tooltip) {
-    const pill = document.createElement('span');
-    pill.className = 'saga-status-pill';
-    pill.textContent = text;
-    addTooltip(pill, tooltip);
-    return pill;
+export function createStatusPill(text, tooltip, options = {}) {
+    return createChip({
+        label: text,
+        tooltip,
+        kind: options.kind || inferChipKindFromLabel(text),
+        tone: options.tone,
+        density: options.density || 'compact',
+        className: `saga-status-pill ${options.className || ''}`.trim(),
+        maxChars: options.maxChars,
+        testId: options.testId,
+    });
 }
 
 export function createEmptyMessage(text) {

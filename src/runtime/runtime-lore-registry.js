@@ -70,13 +70,3 @@ export function getLoreDisplayLabel(field, value) {
     const meta = registryName ? getLoreRegistryMeta(registryName, value) : null;
     return meta?.label || CATEGORY_LABELS[value] || String(value || '');
 }
-
-export function applyLoreRegistryStyle(el, field, value) {
-    const registryName = getLoreFieldRegistry(field);
-    const meta = registryName ? getLoreRegistryMeta(registryName, value) : null;
-    if (!meta) return el;
-    if (meta.color) el.style.background = meta.color;
-    if (meta.textColor) el.style.color = meta.textColor;
-    if (meta.color) el.style.borderColor = meta.color;
-    return el;
-}

@@ -52,9 +52,11 @@ assert(!redactDiagnosticText(`Authorization: ${bearerValue}`).includes('abcdefgh
 
 const healthPanel = await readFile(path.join(repoRoot, 'src/loredecks/loredeck-health-panel.js'), 'utf8');
 const liveSmoke = await readFile(path.join(repoRoot, 'tools/scripts/smoke-live-st-cdp.mjs'), 'utf8');
+const lorePanel = await readFile(path.join(repoRoot, 'src/runtime/lore-panel.js'), 'utf8');
 
 assert(healthPanel.includes('stringifyRedactedDiagnostic(context.report)'), 'Deck Health Copy Diagnostics must redact report JSON.');
 assert(healthPanel.includes('downloadJson(redactDiagnosticValue(context.report)'), 'Deck Health Export Report must redact report JSON.');
 assert(liveSmoke.includes('redactDiagnosticValue(payload)') && liveSmoke.includes('redactDiagnosticText(raw)'), 'Live smoke debug-frame logs must redact CDP payloads.');
+assert(lorePanel.includes('buildLoredeckCreatorGenerationFailureDiagnostic') && lorePanel.includes('redactDiagnosticValue(diagnostic)'), 'Loredeck Creator failure diagnostics must be redacted before persistence.');
 
 console.log('Diagnostic redaction contract passed.');

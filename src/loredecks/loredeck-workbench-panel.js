@@ -200,18 +200,18 @@ function createLoredeckWorkbenchHeader(pack = null) {
     chips.className = 'saga-loredeck-workbench-header-chips saga-loredeck-row-meta';
     if (pack?.packId) {
         appendLoredeckStatusPills(chips, [
-            [getLoredeckTypeLabel(pack.packId), 'Loredeck source type.'],
-            [`${loredeckWorkbenchCache.rows.length} Lorecards`, 'Loaded Lorecards in this workbench cache.'],
+            [getLoredeckTypeLabel(pack.packId), 'Loredeck source type.', { tone: 'source', kind: 'source' }],
+            [`${loredeckWorkbenchCache.rows.length} Lorecards`, 'Loaded Lorecards in this workbench cache.', { kind: 'count' }],
         ]);
-        const savePill = createStatusPill(getLoredeckWorkbenchSaveStateLabel(pack), getLoredeckWorkbenchSaveTooltip(pack));
+        const savePill = createStatusPill(getLoredeckWorkbenchSaveStateLabel(pack), getLoredeckWorkbenchSaveTooltip(pack), { tone: pack?.type === 'bundled' ? 'muted' : 'success', kind: 'status' });
         savePill.dataset.loredeckWorkbenchSaveChip = 'true';
         chips.appendChild(savePill);
         appendLoredeckStatusPills(chips, [
-            { text: 'Loading...', tooltip: 'Lorecards are loading from this Loredeck source.', show: loredeckWorkbenchCache.status === 'loading' },
-            { text: 'Load failed', tooltip: loredeckWorkbenchCache.error, show: !!loredeckWorkbenchCache.error },
+            { text: 'Loading...', tooltip: 'Lorecards are loading from this Loredeck source.', show: loredeckWorkbenchCache.status === 'loading', tone: 'info' },
+            { text: 'Load failed', tooltip: loredeckWorkbenchCache.error, show: !!loredeckWorkbenchCache.error, tone: 'danger', kind: 'severity' },
         ]);
     } else {
-        appendLoredeckStatusPills(chips, [['No deck', 'No Loredeck is selected.']]);
+        appendLoredeckStatusPills(chips, [['No deck', 'No Loredeck is selected.', { tone: 'muted' }]]);
     }
     titleWrap.appendChild(chips);
     header.appendChild(titleWrap);
@@ -334,13 +334,13 @@ function createLoredeckWorkbenchRegistriesView(pack = {}) {
     summary.className = 'saga-loredeck-workbench-registry-summary';
     const tagRegistry = normalizeWorkbenchTagRegistry(pack.tagRegistry);
     const timelineRegistry = normalizeWorkbenchTimelineRegistry(pack.timelineRegistry);
-    summary.appendChild(createStatusPill(`${Object.keys(tagRegistry.tags || {}).length} tags`, 'Deck-owned tag definitions saved on this Loredeck.'));
-    summary.appendChild(createStatusPill(`${timelineRegistry.anchors.length} anchors`, 'Deck-owned timeline anchors saved on this Loredeck.'));
-    summary.appendChild(createStatusPill(`${timelineRegistry.windows.length} windows`, 'Deck-owned timeline windows saved on this Loredeck.'));
+    summary.appendChild(createStatusPill(`${Object.keys(tagRegistry.tags || {}).length} tags`, 'Deck-owned tag definitions saved on this Loredeck.', { tone: 'tag', kind: 'count' }));
+    summary.appendChild(createStatusPill(`${timelineRegistry.anchors.length} anchors`, 'Deck-owned timeline anchors saved on this Loredeck.', { tone: 'source', kind: 'count' }));
+    summary.appendChild(createStatusPill(`${timelineRegistry.windows.length} windows`, 'Deck-owned timeline windows saved on this Loredeck.', { tone: 'source', kind: 'count' }));
     if (timelineRegistry.disabledAnchorIds.length || timelineRegistry.disabledWindowIds.length) {
-        summary.appendChild(createStatusPill(`${timelineRegistry.disabledAnchorIds.length + timelineRegistry.disabledWindowIds.length} disabled timeline`, 'Suppressed source timeline definitions.'));
+        summary.appendChild(createStatusPill(`${timelineRegistry.disabledAnchorIds.length + timelineRegistry.disabledWindowIds.length} disabled timeline`, 'Suppressed source timeline definitions.', { tone: 'muted', kind: 'count' }));
     }
-    summary.appendChild(createStatusPill(pack.type === 'bundled' ? 'Read-only' : 'Editable', pack.type === 'bundled' ? 'Duplicate this Bundled Loredeck to edit registries.' : 'Registry changes save directly to this Loredeck record.'));
+    summary.appendChild(createStatusPill(pack.type === 'bundled' ? 'Read-only' : 'Editable', pack.type === 'bundled' ? 'Duplicate this Bundled Loredeck to edit registries.' : 'Registry changes save directly to this Loredeck record.', { tone: pack.type === 'bundled' ? 'muted' : 'success', kind: 'status' }));
     view.appendChild(summary);
 
     const layout = document.createElement('div');
@@ -461,10 +461,10 @@ function createLoredeckWorkbenchTagRegistryRow(pack = {}, id = '', def = {}) {
     main.appendChild(title);
     const meta = document.createElement('div');
     meta.className = 'saga-loredeck-row-meta';
-    meta.appendChild(createStatusPill(id, 'Tag ID.'));
-    if (def.parents?.length) meta.appendChild(createStatusPill(`${def.parents.length} parents`, 'Parent tag count.'));
-    if (def.aliases?.length) meta.appendChild(createStatusPill(`${def.aliases.length} aliases`, 'Alias count.'));
-    if (def.deprecated) meta.appendChild(createStatusPill('Deprecated', 'This tag is marked deprecated.'));
+    meta.appendChild(createStatusPill(id, 'Tag ID.', { tone: 'tag', kind: 'tag', maxChars: 36 }));
+    if (def.parents?.length) meta.appendChild(createStatusPill(`${def.parents.length} parents`, 'Parent tag count.', { tone: 'tag', kind: 'count' }));
+    if (def.aliases?.length) meta.appendChild(createStatusPill(`${def.aliases.length} aliases`, 'Alias count.', { kind: 'count' }));
+    if (def.deprecated) meta.appendChild(createStatusPill('Deprecated', 'This tag is marked deprecated.', { tone: 'warning', kind: 'severity' }));
     main.appendChild(meta);
     if (def.description) {
         const description = document.createElement('div');
@@ -567,10 +567,10 @@ function createLoredeckWorkbenchTimelineRegistryPanel(pack = {}, timelineRegistr
 
     const meta = document.createElement('div');
     meta.className = 'saga-loredeck-row-meta';
-    meta.appendChild(createStatusPill(timelineRegistry.timelineMode || 'hybrid', 'Timeline mode.'));
-    meta.appendChild(createStatusPill(timelineRegistry.sortKeyScale || 'pack_local', 'Sort key scale.'));
-    meta.appendChild(createStatusPill(`${timelineRegistry.anchors.length} anchors`, 'Deck-owned anchors.'));
-    meta.appendChild(createStatusPill(`${timelineRegistry.windows.length} windows`, 'Deck-owned windows.'));
+    meta.appendChild(createStatusPill(timelineRegistry.timelineMode || 'hybrid', 'Timeline mode.', { tone: 'source', kind: 'source' }));
+    meta.appendChild(createStatusPill(timelineRegistry.sortKeyScale || 'pack_local', 'Sort key scale.', { tone: 'source', kind: 'source' }));
+    meta.appendChild(createStatusPill(`${timelineRegistry.anchors.length} anchors`, 'Deck-owned anchors.', { tone: 'source', kind: 'count' }));
+    meta.appendChild(createStatusPill(`${timelineRegistry.windows.length} windows`, 'Deck-owned windows.', { tone: 'source', kind: 'count' }));
     panel.appendChild(meta);
 
     const help = document.createElement('div');
@@ -628,10 +628,10 @@ function createLoredeckWorkbenchTimelinePreviewList(titleText, items = [], pack 
         main.appendChild(label);
         const meta = document.createElement('div');
         meta.className = 'saga-loredeck-row-meta';
-        meta.appendChild(createStatusPill(item.id, `${titleText} ID.`));
-        if (Number.isFinite(Number(item.sortKey))) meta.appendChild(createStatusPill(`sort ${item.sortKey}`, 'Anchor sort key.'));
-        if (Number.isFinite(Number(item.sortKeyFrom)) || Number.isFinite(Number(item.sortKeyTo))) meta.appendChild(createStatusPill(`${item.sortKeyFrom ?? '?'} -> ${item.sortKeyTo ?? '?'}`, 'Window sort range.'));
-        if (item.anchorFrom || item.anchorTo) meta.appendChild(createStatusPill(`${item.anchorFrom || '?'} -> ${item.anchorTo || '?'}`, 'Window anchor range.'));
+        meta.appendChild(createStatusPill(item.id, `${titleText} ID.`, { tone: 'source', kind: 'source', maxChars: 38 }));
+        if (Number.isFinite(Number(item.sortKey))) meta.appendChild(createStatusPill(`sort ${item.sortKey}`, 'Anchor sort key.', { kind: 'metadata' }));
+        if (Number.isFinite(Number(item.sortKeyFrom)) || Number.isFinite(Number(item.sortKeyTo))) meta.appendChild(createStatusPill(`${item.sortKeyFrom ?? '?'} -> ${item.sortKeyTo ?? '?'}`, 'Window sort range.', { kind: 'metadata' }));
+        if (item.anchorFrom || item.anchorTo) meta.appendChild(createStatusPill(`${item.anchorFrom || '?'} -> ${item.anchorTo || '?'}`, 'Window anchor range.', { tone: 'source', kind: 'source', maxChars: 42 }));
         main.appendChild(meta);
         if (item.notes) {
             const notes = document.createElement('div');
@@ -1522,11 +1522,11 @@ function createLoredeckWorkbenchDetail(pack = {}, rows = []) {
 
     const chips = document.createElement('div');
     chips.className = 'saga-loredeck-row-meta';
-    chips.appendChild(createStatusPill(getEntryRelevance(entry), 'Lorecard relevance tier.'));
-    chips.appendChild(createStatusPill(getEntryCategory(entry), 'Lorecard category/type.'));
-    if (selected.disabled) chips.appendChild(createStatusPill('Disabled', 'This Lorecard is suppressed by this editable Loredeck.'));
-    chips.appendChild(createStatusPill(selected.sourceFile || 'embedded', 'Source file for this Lorecard.'));
-    chips.appendChild(createStatusPill('Read-only', 'Bundled Loredecks must be duplicated before editing.'));
+    chips.appendChild(createStatusPill(getEntryRelevance(entry), 'Lorecard relevance tier.', { tone: 'relevance', kind: 'metadata' }));
+    chips.appendChild(createStatusPill(getEntryCategory(entry), 'Lorecard category/type.', { tone: 'category', kind: 'metadata' }));
+    if (selected.disabled) chips.appendChild(createStatusPill('Disabled', 'This Lorecard is suppressed by this editable Loredeck.', { tone: 'muted', kind: 'status' }));
+    chips.appendChild(createStatusPill(selected.sourceFile || 'embedded', 'Source file for this Lorecard.', { tone: 'source', kind: 'source', maxChars: 36 }));
+    chips.appendChild(createStatusPill('Read-only', 'Bundled Loredecks must be duplicated before editing.', { tone: 'muted', kind: 'status' }));
     detail.appendChild(chips);
 
     const grid = document.createElement('div');
@@ -1546,8 +1546,8 @@ function createLoredeckWorkbenchDetail(pack = {}, rows = []) {
     if (tags.length) {
         const tagWrap = document.createElement('div');
         tagWrap.className = 'saga-loredeck-row-meta saga-loredeck-workbench-tags';
-        for (const tag of tags.slice(0, 32)) tagWrap.appendChild(createStatusPill(tag, 'Lorecard tag.'));
-        if (tags.length > 32) tagWrap.appendChild(createStatusPill(`+${tags.length - 32}`, 'Additional tags hidden in this compact view.'));
+        for (const tag of tags.slice(0, 32)) tagWrap.appendChild(createStatusPill(tag, 'Lorecard tag.', { tone: 'tag', kind: 'tag', maxChars: 32 }));
+        if (tags.length > 32) tagWrap.appendChild(createStatusPill(`+${tags.length - 32}`, 'Additional tags hidden in this compact view.', { tone: 'muted', kind: 'count' }));
         detail.appendChild(tagWrap);
     }
 
@@ -1575,9 +1575,9 @@ function createLoredeckWorkbenchEditableDetail(pack = {}, selected = {}) {
 
     const chips = document.createElement('div');
     chips.className = 'saga-loredeck-row-meta';
-    chips.appendChild(createStatusPill(selected.draft ? 'Draft' : (selected.disabled ? 'Disabled' : 'Editable'), selected.draft ? 'This Lorecard has not been created yet.' : (selected.disabled ? 'Saving this Lorecard will restore it.' : 'Manual field edits save directly to this Loredeck.')));
-    chips.appendChild(createStatusPill(selected.sourceFile || 'embedded', 'Source file for this Lorecard.'));
-    chips.appendChild(createStatusPill(selected.id, 'Stable Lorecard machine ID.'));
+    chips.appendChild(createStatusPill(selected.draft ? 'Draft' : (selected.disabled ? 'Disabled' : 'Editable'), selected.draft ? 'This Lorecard has not been created yet.' : (selected.disabled ? 'Saving this Lorecard will restore it.' : 'Manual field edits save directly to this Loredeck.'), { tone: selected.draft ? 'review' : (selected.disabled ? 'muted' : 'success'), kind: 'status' }));
+    chips.appendChild(createStatusPill(selected.sourceFile || 'embedded', 'Source file for this Lorecard.', { tone: 'source', kind: 'source', maxChars: 36 }));
+    chips.appendChild(createStatusPill(selected.id, 'Stable Lorecard machine ID.', { tone: 'source', kind: 'source', maxChars: 38 }));
     detail.appendChild(chips);
 
     const form = document.createElement('div');

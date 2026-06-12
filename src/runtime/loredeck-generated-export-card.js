@@ -67,28 +67,29 @@ export function createGeneratedLoredeckExportReadinessCard(pack = {}) {
 
     const summary = document.createElement('div');
     summary.className = 'saga-loredeck-entry-summary';
-    summary.appendChild(createStatusPill(readiness.ready ? 'Clean' : 'Review state', 'Export is available; this summarizes accepted entries, pending review, and draft batch state.'));
-    summary.appendChild(createStatusPill(readiness.pipeline?.statusLabel || 'Pipeline check', 'Creator pipeline status from staged generation metadata.'));
-    summary.appendChild(createStatusPill(`${readiness.acceptedEntryCount} accepted`, 'Accepted generated Lorecards that will export and load at runtime.'));
-    summary.appendChild(createStatusPill(`${readiness.pendingChangeCount} pending`, 'Pending Review proposals are excluded from export until accepted.'));
-    summary.appendChild(createStatusPill(`${readiness.draftChangeCount} drafted`, 'Creator/Assistant draft proposals are excluded from export until accepted.'));
+    summary.appendChild(createStatusPill(readiness.ready ? 'Clean' : 'Review state', 'Export is available; this summarizes accepted entries, pending review, and draft batch state.', { tone: readiness.ready ? 'success' : 'review', kind: 'status' }));
+    summary.appendChild(createStatusPill(readiness.pipeline?.statusLabel || 'Pipeline check', 'Creator pipeline status from staged generation metadata.', { tone: readiness.ready ? 'success' : 'warning', kind: readiness.ready ? 'status' : 'severity' }));
+    summary.appendChild(createStatusPill(`${readiness.acceptedEntryCount} accepted`, 'Accepted generated Lorecards that will export and load at runtime.', { tone: readiness.acceptedEntryCount ? 'success' : 'muted', kind: 'count' }));
+    summary.appendChild(createStatusPill(`${readiness.pendingChangeCount} pending`, 'Pending Review proposals are excluded from export until accepted.', { tone: readiness.pendingChangeCount ? 'review' : 'muted', kind: 'count' }));
+    summary.appendChild(createStatusPill(`${readiness.draftChangeCount} drafted`, 'Creator/Assistant draft proposals are excluded from export until accepted.', { tone: readiness.draftChangeCount ? 'review' : 'muted', kind: 'count' }));
     if (readiness.pipeline?.titleBatchCount) {
-        summary.appendChild(createStatusPill(`${readiness.pipeline.titleBatchDraftedCount}/${readiness.pipeline.titleBatchCount} title sets`, 'Title sets drafted from the approved Story Outline.'));
+        summary.appendChild(createStatusPill(`${readiness.pipeline.titleBatchDraftedCount}/${readiness.pipeline.titleBatchCount} title sets`, 'Title sets drafted from the approved Story Outline.', { kind: 'count' }));
     }
     if (readiness.pipeline?.eligiblePlanningBatchCount) {
-        summary.appendChild(createStatusPill(`${readiness.pipeline.acceptedPlanningBatchCount}/${readiness.pipeline.eligiblePlanningBatchCount} Context sets accepted`, 'Context and Tag sets accepted into the Generated Loredeck registry.'));
+        summary.appendChild(createStatusPill(`${readiness.pipeline.acceptedPlanningBatchCount}/${readiness.pipeline.eligiblePlanningBatchCount} Context sets accepted`, 'Context and Tag sets accepted into the Generated Loredeck registry.', { tone: 'source', kind: 'count' }));
     }
     if (readiness.pipeline?.approvedTitleCount) {
-        summary.appendChild(createStatusPill(`${readiness.pipeline.approvedTitleAcceptedCount}/${readiness.pipeline.approvedTitleCount} titles covered`, 'Approved title plan covered by accepted generated Lorecards.'));
+        summary.appendChild(createStatusPill(`${readiness.pipeline.approvedTitleAcceptedCount}/${readiness.pipeline.approvedTitleCount} titles covered`, 'Approved title plan covered by accepted generated Lorecards.', { tone: 'success', kind: 'count' }));
     }
     if (readiness.pipeline?.coverage?.available) {
         summary.appendChild(createStatusPill(
             `Coverage: ${readiness.pipeline.coverage.statusLabel || 'Review'}`,
-            'Adaptive Creator coverage status. This is advisory and does not enforce a fixed Lorecard count.'
+            'Adaptive Creator coverage status. This is advisory and does not enforce a fixed Lorecard count.',
+            { tone: readiness.pipeline.coverage.ready ? 'success' : 'warning', kind: readiness.pipeline.coverage.ready ? 'status' : 'severity' }
         ));
     }
-    summary.appendChild(createStatusPill(`${getLoredeckTimelineRegistryCount(pack.timelineRegistry)} timeline`, 'Saved local timeline anchors/windows.'));
-    summary.appendChild(createStatusPill(`${getLoredeckTagRegistryCount(pack.tagRegistry)} tags`, 'Saved local tag definitions.'));
+    summary.appendChild(createStatusPill(`${getLoredeckTimelineRegistryCount(pack.timelineRegistry)} timeline`, 'Saved local timeline anchors/windows.', { tone: 'source', kind: 'count' }));
+    summary.appendChild(createStatusPill(`${getLoredeckTagRegistryCount(pack.tagRegistry)} tags`, 'Saved local tag definitions.', { tone: 'tag', kind: 'count' }));
     wrap.appendChild(summary);
 
     const help = document.createElement('div');

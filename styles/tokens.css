@@ -63,6 +63,38 @@
     --saga-text: #f1ead8;
     --saga-muted: rgba(241, 234, 216, 0.68);
     --saga-text-muted: rgba(241, 234, 216, 0.68);
+    --saga-chip-font-size-compact: 11px;
+    --saga-chip-font-size-standard: 12px;
+    --saga-chip-line-height-compact: 16px;
+    --saga-chip-line-height-standard: 18px;
+    --saga-chip-radius: 6px;
+    --saga-chip-gap: 3px;
+    --saga-chip-padding-compact: 0 5px;
+    --saga-chip-padding-standard: 1px 6px;
+    --saga-chip-neutral-bg: rgba(180, 160, 140, 0.08);
+    --saga-chip-neutral-border: rgba(180, 160, 140, 0.24);
+    --saga-chip-neutral-fg: #d8d0c0;
+    --saga-chip-source-bg: rgba(74, 113, 170, 0.12);
+    --saga-chip-source-border: rgba(112, 155, 214, 0.34);
+    --saga-chip-source-fg: #c5d6f2;
+    --saga-chip-info-bg: rgba(64, 124, 170, 0.13);
+    --saga-chip-info-border: rgba(92, 161, 214, 0.38);
+    --saga-chip-info-fg: #bdddf5;
+    --saga-chip-review-bg: rgba(120, 88, 180, 0.14);
+    --saga-chip-review-border: rgba(157, 128, 214, 0.42);
+    --saga-chip-review-fg: #d8c8ff;
+    --saga-chip-success-bg: rgba(94, 178, 126, 0.12);
+    --saga-chip-success-border: rgba(94, 178, 126, 0.42);
+    --saga-chip-success-fg: #bfe8ca;
+    --saga-chip-warning-bg: rgba(226, 177, 98, 0.13);
+    --saga-chip-warning-border: rgba(226, 177, 98, 0.48);
+    --saga-chip-warning-fg: #efd49b;
+    --saga-chip-danger-bg: rgba(219, 105, 105, 0.14);
+    --saga-chip-danger-border: rgba(219, 105, 105, 0.52);
+    --saga-chip-danger-fg: #f0b4b4;
+    --saga-chip-muted-bg: rgba(159, 174, 194, 0.08);
+    --saga-chip-muted-border: rgba(159, 174, 194, 0.3);
+    --saga-chip-muted-fg: #aeb7c5;
     background:
         radial-gradient(circle at top left, rgba(92, 23, 36, 0.42), transparent 36%),
         linear-gradient(145deg, var(--saga-bg-gradient-start), var(--saga-bg-gradient-end));
@@ -85,7 +117,6 @@
     color: var(--saga-gold);
 }
 
-.saga-status-pill,
 .saga-runtime-card,
 .saga-review-lore-card,
 .saga-toggle-card,

@@ -107,9 +107,9 @@ export function createActiveThemePanel(activePreset, settings = {}, colors = {},
     main.appendChild(title);
     const chips = document.createElement('div');
     chips.className = 'saga-loredeck-row-meta';
-    chips.appendChild(createStatusPill(activePreset?.type === 'custom' ? 'Custom' : 'Bundled', 'Theme Pack source type.'));
-    chips.appendChild(createStatusPill(getThemeStyleLabel(activePreset), 'Theme Pack style tags.'));
-    chips.appendChild(createStatusPill('JSON-only', 'Theme Packs are data-only and cannot run code.'));
+    chips.appendChild(createStatusPill(activePreset?.type === 'custom' ? 'Custom' : 'Bundled', 'Theme Pack source type.', { tone: 'source', kind: 'source' }));
+    chips.appendChild(createStatusPill(getThemeStyleLabel(activePreset), 'Theme Pack style tags.', { tone: 'tag', kind: 'tag' }));
+    chips.appendChild(createStatusPill('JSON-only', 'Theme Packs are data-only and cannot run code.', { tone: 'source', kind: 'source' }));
     main.appendChild(chips);
     const description = document.createElement('div');
     description.className = 'saga-theme-description';
@@ -147,7 +147,7 @@ export function createInstalledThemePackGallery(themeLibrary = [], activePreset,
     title.className = 'saga-runtime-card-title';
     title.textContent = 'Installed Theme Packs';
     header.appendChild(title);
-    header.appendChild(createStatusPill(`${themeLibrary.length} installed`, 'Bundled and Custom Theme Packs available in this settings profile.'));
+    header.appendChild(createStatusPill(`${themeLibrary.length} installed`, 'Bundled and Custom Theme Packs available in this settings profile.', { kind: 'count' }));
     panel.appendChild(header);
 
     const gallery = document.createElement('div');
@@ -174,8 +174,8 @@ function createThemePackGalleryCard(preset, activePreset, settings = {}, options
     main.appendChild(title);
     const chips = document.createElement('div');
     chips.className = 'saga-loredeck-row-meta';
-    chips.appendChild(createStatusPill(preset.type === 'custom' ? 'Custom' : 'Bundled', 'Theme Pack source type.'));
-    chips.appendChild(createStatusPill(getThemeStyleLabel(preset), 'Theme style metadata.'));
+    chips.appendChild(createStatusPill(preset.type === 'custom' ? 'Custom' : 'Bundled', 'Theme Pack source type.', { tone: 'source', kind: 'source' }));
+    chips.appendChild(createStatusPill(getThemeStyleLabel(preset), 'Theme style metadata.', { tone: 'tag', kind: 'tag' }));
     main.appendChild(chips);
     main.appendChild(createThemeSwatchStrip(colors));
     const actions = document.createElement('div');
@@ -223,13 +223,17 @@ export function createThemeIconSetPanel(activePreset, settings = {}, options = {
     title.className = 'saga-runtime-card-title';
     title.textContent = 'Shelf Icon Set';
     header.appendChild(title);
-    header.appendChild(createStatusPill(`Current: ${iconSet.title || iconSet.id}`, 'Current reusable Icon Set selected independently from the active Theme Pack.'));
+    header.appendChild(createStatusPill(`Current: ${iconSet.title || iconSet.id}`, 'Current reusable Icon Set selected independently from the active Theme Pack.', { tone: 'source', kind: 'source', maxChars: 42 }));
     panel.appendChild(header);
 
-    const status = document.createElement('div');
-    status.className = 'saga-theme-icon-status';
-    status.textContent = `${coverage.loaded} / ${coverage.total} icon paths available | ${coverage.missing} using text fallback | ${coverage.invalid} invalid paths`;
-    panel.appendChild(status);
+    const coverageText = `${coverage.loaded} / ${coverage.total} icon paths available | ${coverage.missing} using text fallback | ${coverage.invalid} invalid paths`;
+    panel.appendChild(createStatusPill(coverageText, 'Icon Set coverage for the runtime shelf icons.', {
+        tone: coverage.invalid ? 'danger' : (coverage.missing ? 'warning' : 'success'),
+        kind: coverage.invalid || coverage.missing ? 'severity' : 'count',
+        density: 'compact',
+        className: 'saga-theme-icon-status',
+        maxChars: 72,
+    }));
 
     panel.appendChild(createThemeIconSetSelector(iconSet, settings, options));
 
@@ -365,7 +369,7 @@ export function createThemeColorOverridesPanel(settings = {}, activePreset, colo
     title.className = 'saga-runtime-card-title';
     title.textContent = 'Color Overrides';
     header.appendChild(title);
-    header.appendChild(createStatusPill(`Overrides: ${settings.themeCustomEnabled === true ? 'On' : 'Off'}`, 'Overrides are user color changes layered over the Theme Pack.'));
+    header.appendChild(createStatusPill(`Overrides: ${settings.themeCustomEnabled === true ? 'On' : 'Off'}`, 'Overrides are user color changes layered over the Theme Pack.', { tone: settings.themeCustomEnabled === true ? 'info' : 'muted', kind: 'status' }));
     panel.appendChild(header);
 
     if (settings.themeCustomEnabled !== true) {
@@ -540,7 +544,7 @@ export function createThemeAccessibilityCard(colors = {}, options = {}) {
     const title = document.createElement('strong');
     title.textContent = 'Accessibility';
     header.appendChild(title);
-    header.appendChild(createStatusPill(`Overall: ${report.status}`, 'Theme contrast health is advisory and does not block use.'));
+    header.appendChild(createStatusPill(`Overall: ${report.status}`, 'Theme contrast health is advisory and does not block use.', { tone: report.failedCount ? 'warning' : 'success', kind: 'severity' }));
     shell.appendChild(header);
 
     const help = document.createElement('div');
@@ -591,10 +595,12 @@ function createThemeAccessibilityRow(check = {}) {
     main.appendChild(purpose);
     row.appendChild(main);
 
-    const score = document.createElement('span');
-    score.className = 'saga-theme-accessibility-score';
-    score.textContent = `${formatContrastRatio(check.ratio)} / ${check.target}:1`;
-    addTooltip(score, check.passes ? 'Passes the advisory contrast target.' : 'Below the advisory contrast target.');
+    const score = createStatusPill(`${formatContrastRatio(check.ratio)} / ${check.target}:1`, check.passes ? 'Passes the advisory contrast target.' : 'Below the advisory contrast target.', {
+        tone: check.passes ? 'success' : 'warning',
+        kind: 'severity',
+        density: 'compact',
+        className: 'saga-theme-accessibility-score',
+    });
     row.appendChild(score);
     return row;
 }

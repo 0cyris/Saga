@@ -51,6 +51,36 @@ function normalizeLoredeckCreatorResultRef(value = {}, maxLength = 12000) {
     return cloned && typeof cloned === 'object' && !Array.isArray(cloned) ? cloned : null;
 }
 
+function normalizeLoredeckCreatorGenerationDiagnostic(value = {}) {
+    if (!value || typeof value !== 'object' || Array.isArray(value)) return null;
+    const diagnostic = {
+        kind: normalizeLoredeckCreatorString(value.kind || 'generation_failure', 80),
+        stage: normalizeLoredeckCreatorId(value.stage || '', ''),
+        unitId: normalizeLoredeckCreatorId(value.unitId || '', ''),
+        unitLabel: normalizeLoredeckCreatorString(value.unitLabel || '', 180),
+        providerKind: normalizeLoredeckCreatorId(value.providerKind || '', ''),
+        resultType: normalizeLoredeckCreatorString(value.resultType || '', 80),
+        finishReason: normalizeLoredeckCreatorString(value.finishReason || '', 120),
+        parsePhase: normalizeLoredeckCreatorString(value.parsePhase || value.phase || '', 80),
+        errorCode: normalizeLoredeckCreatorString(value.errorCode || value.code || '', 160),
+        errorName: normalizeLoredeckCreatorString(value.errorName || '', 120),
+        errorMessage: normalizeLoredeckCreatorString(value.errorMessage || value.message || '', 500),
+        visibleContentLength: normalizeLoredeckCreatorNumber(value.visibleContentLength),
+        reasoningLength: normalizeLoredeckCreatorNumber(value.reasoningLength),
+        attempt: normalizeLoredeckCreatorNumber(value.attempt),
+        recordedAt: Number.isFinite(Number(value.recordedAt)) ? Number(value.recordedAt) : 0,
+        repairAttempted: value.repairAttempted === true,
+        sample: normalizeLoredeckCreatorString(value.sample, 500),
+    };
+    const hasUsefulSignal = diagnostic.errorCode
+        || diagnostic.errorMessage
+        || diagnostic.finishReason
+        || diagnostic.visibleContentLength > 0
+        || diagnostic.reasoningLength > 0
+        || diagnostic.sample;
+    return hasUsefulSignal ? diagnostic : null;
+}
+
 export function normalizeLoredeckCreatorGenerationRun(value = {}, index = 0) {
     if (!value || typeof value !== 'object' || Array.isArray(value)) return null;
     const runId = normalizeLoredeckCreatorId(value.runId || value.id || '', `run_${index + 1}`);
@@ -105,6 +135,8 @@ export function normalizeLoredeckCreatorGenerationUnit(value = {}, index = 0) {
     };
     const resultRef = normalizeLoredeckCreatorResultRef(value.resultRef, 12000);
     if (resultRef) unit.resultRef = resultRef;
+    const diagnostic = normalizeLoredeckCreatorGenerationDiagnostic(value.diagnostic || value.failureDiagnostic);
+    if (diagnostic) unit.diagnostic = diagnostic;
     const meta = normalizeLoredeckCreatorResultRef(value.meta, 12000);
     if (meta) unit.meta = meta;
     return unit;

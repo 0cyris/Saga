@@ -98,6 +98,38 @@ function normalizeLoredeckTimelineNumber(value) { return dep('normalizeLoredeckT
     const number = Number(value);
     return Number.isFinite(number) ? number : null;
 })(value); }
+
+function getContextWorkbenchConfidenceTone(confidence) {
+    const value = Number(confidence);
+    if (!Number.isFinite(value)) return 'muted';
+    if (value >= 0.8) return 'success';
+    if (value >= 0.55) return 'info';
+    return 'warning';
+}
+
+function getContextWorkbenchResolverScoreTone(score) {
+    const value = Number(score);
+    if (!Number.isFinite(value)) return 'muted';
+    if (value >= 80) return 'success';
+    if (value >= 55) return 'info';
+    return 'warning';
+}
+
+function createContextWorkbenchResolverScorePill(score, tooltip) {
+    return createStatusPill(String(Math.round(Number(score) || 0)), tooltip, {
+        tone: getContextWorkbenchResolverScoreTone(score),
+        kind: 'count',
+        density: 'standard',
+        className: 'saga-context-workbench-resolver-score',
+    });
+}
+
+function getContextRegistryStateTone(state = '') {
+    const normalized = String(state || '').trim().toLowerCase();
+    if (normalized === 'undefined') return 'warning';
+    if (normalized === 'disabled') return 'muted';
+    return 'source';
+}
 function openLoredeckEditorForQuery(packId, query, message) { return dep('openLoredeckEditorForQuery', () => null)(packId, query, message); }
 function openLoredeckTimelineAnchorDialog(pack, item) { return dep('openLoredeckTimelineAnchorDialog', () => null)(pack, item); }
 function openLoredeckTimelineWindowDialog(pack, item) { return dep('openLoredeckTimelineWindowDialog', () => null)(pack, item); }
@@ -167,10 +199,11 @@ function createContextWorkbenchTimelineControls(state, contextIndex, pack, allIt
     });
     controls.appendChild(type);
 
-    const count = document.createElement('div');
-    count.className = 'saga-lore-workbench-count';
-    count.textContent = `${visibleItems.length} / ${allItems.length} shown`;
-    controls.appendChild(count);
+    controls.appendChild(createStatusPill(`${visibleItems.length} / ${allItems.length} shown`, 'Timeline rows shown after search and type filters.', {
+        tone: visibleItems.length ? 'selected' : 'muted',
+        kind: 'count',
+        className: 'saga-lore-workbench-count',
+    }));
 
     const loadButton = createButton('Load Context', 'Load entries, tags, and timeline files so attachment counts and source registry rows are current.', async (btn) => {
         await loadLoredeckEntriesForEditor(pack, btn);
@@ -260,10 +293,10 @@ function createContextWorkbenchInspector(pack, selected = null, allItems = [], c
 
     const chips = document.createElement('div');
     chips.className = 'saga-loredeck-row-meta';
-    chips.appendChild(createStatusPill(selected.kind === 'window' ? 'Window' : 'Anchor', 'Timeline registry object type.'));
-    chips.appendChild(createStatusPill(selected.registryState || 'source', 'Source/custom overlay state.'));
-    chips.appendChild(createStatusPill(`${selected.entryIds?.length || 0} attached`, 'Lorecards attached to this timeline Context.'));
-    if (selected.disabled) chips.appendChild(createStatusPill('Disabled', 'This definition is suppressed by the Custom overlay.'));
+    chips.appendChild(createStatusPill(selected.kind === 'window' ? 'Window' : 'Anchor', 'Timeline registry object type.', { tone: 'source', kind: 'metadata' }));
+    chips.appendChild(createStatusPill(selected.registryState || 'source', 'Source/custom overlay state.', { tone: getContextRegistryStateTone(selected.registryState), kind: 'source' }));
+    chips.appendChild(createStatusPill(`${selected.entryIds?.length || 0} attached`, 'Lorecards attached to this timeline Context.', { tone: selected.entryIds?.length ? 'selected' : 'muted', kind: 'count' }));
+    if (selected.disabled) chips.appendChild(createStatusPill('Disabled', 'This definition is suppressed by the Custom overlay.', { tone: 'muted', kind: 'status' }));
     detail.appendChild(chips);
 
     const grid = document.createElement('div');
@@ -385,14 +418,14 @@ function createContextWorkbenchHeader(state = {}, contextIndex = null) {
 
     const chips = document.createElement('div');
     chips.className = 'saga-context-workbench-header-chips';
-    chips.appendChild(createStatusPill(formatContextIndexSummary(contextIndex), 'Loaded Context timeline registry status.'));
+    chips.appendChild(createStatusPill(formatContextIndexSummary(contextIndex), 'Loaded Context timeline registry status.', { tone: contextIndex?.summary?.issueCount ? 'warning' : (contextIndex?.hasIndex ? 'source' : 'muted'), kind: 'source' }));
     if (selectedPack) {
         const context = getLoredeckContext(state, selectedPack.packId);
-        chips.appendChild(createStatusPill(context.manualLock ? 'Manual lock' : 'Auto allowed', 'Manual lock prevents automatic Context resolvers from overwriting this deck.'));
-        chips.appendChild(createStatusPill(formatContextSource(context.source), 'How this Context was last set.'));
+        chips.appendChild(createStatusPill(context.manualLock ? 'Manual lock' : 'Auto allowed', 'Manual lock prevents automatic Context resolvers from overwriting this deck.', { tone: context.manualLock ? 'muted' : 'success', kind: 'status' }));
+        chips.appendChild(createStatusPill(formatContextSource(context.source), 'How this Context was last set.', { tone: 'source', kind: 'source' }));
     }
     if (contextIndex?.summary?.issueCount) {
-        chips.appendChild(createStatusPill(`${contextIndex.summary.issueCount} index issue${contextIndex.summary.issueCount === 1 ? '' : 's'}`, 'Timeline registry load issues from the active stack.'));
+        chips.appendChild(createStatusPill(`${contextIndex.summary.issueCount} index issue${contextIndex.summary.issueCount === 1 ? '' : 's'}`, 'Timeline registry load issues from the active stack.', { tone: 'warning', kind: 'severity' }));
     }
     titleWrap.appendChild(chips);
     header.appendChild(titleWrap);
@@ -578,11 +611,11 @@ function createContextWorkbenchContextEditor(state = {}, contextIndex = null) {
 
     const chips = document.createElement('div');
     chips.className = 'saga-loredeck-row-meta';
-    chips.appendChild(createStatusPill(getContextTypeLabel(context.contextType), 'Context mode for this Loredeck.'));
-    chips.appendChild(createStatusPill(formatContextSource(context.source), 'How this Context was last set.'));
-    chips.appendChild(createStatusPill(context.manualLock ? 'Locked' : 'Unlocked', 'Locked Contexts are protected from automatic resolver overwrites.'));
-    chips.appendChild(createStatusPill(`${Math.round((Number(context.confidence) || 0) * 100)}%`, 'Resolver confidence for this Context.'));
-    chips.appendChild(createStatusPill(packIndex?.hasIndex ? `${packIndex.anchorCount || 0} anchors / ${packIndex.windowCount || 0} windows` : 'No timeline index', 'Loaded timeline registry coverage for this Loredeck.'));
+    chips.appendChild(createStatusPill(getContextTypeLabel(context.contextType), 'Context mode for this Loredeck.', { tone: 'category', kind: 'metadata' }));
+    chips.appendChild(createStatusPill(formatContextSource(context.source), 'How this Context was last set.', { tone: 'source', kind: 'source' }));
+    chips.appendChild(createStatusPill(context.manualLock ? 'Locked' : 'Unlocked', 'Locked Contexts are protected from automatic resolver overwrites.', { tone: context.manualLock ? 'muted' : 'success', kind: 'status' }));
+    chips.appendChild(createStatusPill(`${Math.round((Number(context.confidence) || 0) * 100)}%`, 'Resolver confidence for this Context.', { tone: getContextWorkbenchConfidenceTone(context.confidence), kind: 'metadata' }));
+    chips.appendChild(createStatusPill(packIndex?.hasIndex ? `${packIndex.anchorCount || 0} anchors / ${packIndex.windowCount || 0} windows` : 'No timeline index', 'Loaded timeline registry coverage for this Loredeck.', { tone: packIndex?.hasIndex ? 'source' : 'muted', kind: packIndex?.hasIndex ? 'count' : 'source' }));
     panel.appendChild(chips);
 
     const summary = document.createElement('div');
@@ -710,13 +743,13 @@ function createContextWorkbenchStoryPositionPicker(pack, context = {}, contextIn
     meta.className = 'saga-loredeck-row-meta';
     const firstClassCount = allItems.filter(item => item.source === 'timeline').length;
     const eventCount = allItems.filter(item => item.source === 'lorecard').length;
-    meta.appendChild(createStatusPill(`${firstClassCount} timeline`, 'First-class anchors/windows from the Loredeck timeline registry.'));
-    meta.appendChild(createStatusPill(cachedEntries?.loadedAt ? `${eventCount} events` : 'Events unloaded', 'Lorecard-derived Context candidates are optional and loaded on demand.'));
-    meta.appendChild(createStatusPill(`${rowItems.length} shown`, 'Story positions shown after current selection pinning, search, and filtering.'));
+    meta.appendChild(createStatusPill(`${firstClassCount} timeline`, 'First-class anchors/windows from the Loredeck timeline registry.', { tone: 'source', kind: 'count' }));
+    meta.appendChild(createStatusPill(cachedEntries?.loadedAt ? `${eventCount} events` : 'Events unloaded', 'Lorecard-derived Context candidates are optional and loaded on demand.', { tone: cachedEntries?.loadedAt ? 'info' : 'muted', kind: cachedEntries?.loadedAt ? 'count' : 'status' }));
+    meta.appendChild(createStatusPill(`${rowItems.length} shown`, 'Story positions shown after current selection pinning, search, and filtering.', { tone: rowItems.length ? 'selected' : 'muted', kind: 'count' }));
     if (activeFilter === 'major') {
-        meta.appendChild(createStatusPill('Major only', 'Major shows first-class timeline anchors/windows by default. Search or load Events for denser event selection.'));
+        meta.appendChild(createStatusPill('Major only', 'Major shows first-class timeline anchors/windows by default. Search or load Events for denser event selection.', { tone: 'info', kind: 'status' }));
     }
-    if (currentKey) meta.appendChild(createStatusPill('Current pinned', 'The current selected Context row is kept visible when possible.'));
+    if (currentKey) meta.appendChild(createStatusPill('Current pinned', 'The current selected Context row is kept visible when possible.', { tone: 'selected', kind: 'status' }));
     wrap.appendChild(meta);
 
     const list = document.createElement('div');
@@ -754,9 +787,9 @@ function createContextWorkbenchWindowBuilderSummary(pack, context = {}) {
 
     const meta = document.createElement('div');
     meta.className = 'saga-loredeck-row-meta';
-    meta.appendChild(createStatusPill(context.anchorFrom ? `After: ${formatContextAnchorBoundaryLabel(context.anchorFrom, context)}` : 'After: unset', 'Lower Context bound.'));
-    meta.appendChild(createStatusPill(context.anchorTo ? `Before: ${formatContextAnchorBoundaryLabel(context.anchorTo, context)}` : 'Before: unset', 'Upper Context bound.'));
-    meta.appendChild(createStatusPill(context.manualLock ? 'Locked' : 'Unlocked', 'Locked Contexts are protected from automatic updates.'));
+    meta.appendChild(createStatusPill(context.anchorFrom ? `After: ${formatContextAnchorBoundaryLabel(context.anchorFrom, context)}` : 'After: unset', 'Lower Context bound.', { tone: context.anchorFrom ? 'source' : 'muted', kind: 'source', maxChars: 42 }));
+    meta.appendChild(createStatusPill(context.anchorTo ? `Before: ${formatContextAnchorBoundaryLabel(context.anchorTo, context)}` : 'Before: unset', 'Upper Context bound.', { tone: context.anchorTo ? 'source' : 'muted', kind: 'source', maxChars: 42 }));
+    meta.appendChild(createStatusPill(context.manualLock ? 'Locked' : 'Unlocked', 'Locked Contexts are protected from automatic updates.', { tone: context.manualLock ? 'muted' : 'success', kind: 'status' }));
     wrap.appendChild(meta);
 
     const summary = document.createElement('div');
@@ -1122,16 +1155,16 @@ function createContextWorkbenchResolverTester(pack, context = {}, contextIndex =
     const meta = document.createElement('div');
     meta.className = 'saga-loredeck-row-meta';
     const packIndex = getContextPackSummary(contextIndex, pack?.packId);
-    meta.appendChild(createStatusPill('Local match', 'This test does not call a model.'));
-    meta.appendChild(createStatusPill(packIndex?.hasIndex ? `${packIndex.anchorCount || 0} anchors` : 'No index', 'Anchor count available to the local resolver.'));
+    meta.appendChild(createStatusPill('Local match', 'This test does not call a model.', { tone: 'info', kind: 'status' }));
+    meta.appendChild(createStatusPill(packIndex?.hasIndex ? `${packIndex.anchorCount || 0} anchors` : 'No index', 'Anchor count available to the local resolver.', { tone: packIndex?.hasIndex ? 'source' : 'muted', kind: packIndex?.hasIndex ? 'count' : 'source' }));
     if (cachedEntries?.loadedAt) {
-        meta.appendChild(createStatusPill(`${cachedEntries.entries?.length || 0} Lorecards loaded`, 'Loaded Lorecards are included as Lorecard-derived Context candidates.'));
+        meta.appendChild(createStatusPill(`${cachedEntries.entries?.length || 0} Lorecards loaded`, 'Loaded Lorecards are included as Lorecard-derived Context candidates.', { tone: 'success', kind: 'count' }));
     } else {
-        meta.appendChild(createStatusPill('Lorecards not loaded', 'Click Load Lorecards to include event-level Context candidates in resolver testing.'));
+        meta.appendChild(createStatusPill('Lorecards not loaded', 'Click Load Lorecards to include event-level Context candidates in resolver testing.', { tone: 'muted', kind: 'status' }));
     }
     const resolverQuery = getContextWorkbenchResolverQuery();
     if (resolverQuery) {
-        meta.appendChild(createStatusPill(`Query: ${truncateText(resolverQuery, 42)}`, 'Current resolver test phrase.'));
+        meta.appendChild(createStatusPill(`Query: ${truncateText(resolverQuery, 42)}`, 'Current resolver test phrase.', { tone: 'source', kind: 'source', maxChars: 52 }));
     }
     wrap.appendChild(meta);
 
@@ -1141,10 +1174,10 @@ function createContextWorkbenchResolverTester(pack, context = {}, contextIndex =
     const analysis = analyzeContextQuery(query);
     if (query) {
         if (analysis.terms?.length) {
-            meta.appendChild(createStatusPill(`Terms: ${analysis.terms.join(', ')}`, 'Search terms used by the local resolver after cleanup.'));
+            meta.appendChild(createStatusPill(`Terms: ${analysis.terms.join(', ')}`, 'Search terms used by the local resolver after cleanup.', { tone: 'tag', kind: 'tag', maxChars: 52 }));
         }
         if (analysis.ignoredTerms?.length) {
-            meta.appendChild(createStatusPill(`Ignored: ${analysis.ignoredTerms.join(', ')}`, 'Direction/filler words ignored so they do not cause false matches.'));
+            meta.appendChild(createStatusPill(`Ignored: ${analysis.ignoredTerms.join(', ')}`, 'Direction/filler words ignored so they do not cause false matches.', { tone: 'muted', kind: 'metadata', maxChars: 52 }));
         }
     }
     if (!contextIndex) {
@@ -1281,10 +1314,7 @@ function createContextWorkbenchResolverResult(pack, match = {}, currentAnchorId 
     main.appendChild(reason);
     row.appendChild(main);
 
-    const score = document.createElement('div');
-    score.className = 'saga-context-workbench-resolver-score';
-    score.textContent = String(Math.round(Number(match.score) || 0));
-    addTooltip(score, 'Local resolver match score. Higher is better; this is not model confidence.');
+    const score = createContextWorkbenchResolverScorePill(match.score, 'Local resolver match score. Higher is better; this is not model confidence.');
     row.appendChild(score);
 
     const actions = document.createElement('div');
@@ -1345,10 +1375,7 @@ function createContextWorkbenchEntryResolverResult(pack, match = {}) {
     main.appendChild(reason);
     row.appendChild(main);
 
-    const score = document.createElement('div');
-    score.className = 'saga-context-workbench-resolver-score';
-    score.textContent = String(Math.round(Number(match.score) || 0));
-    addTooltip(score, 'Entry-derived resolver match score. Higher is better; this is not model confidence.');
+    const score = createContextWorkbenchResolverScorePill(match.score, 'Entry-derived resolver match score. Higher is better; this is not model confidence.');
     row.appendChild(score);
 
     const actions = document.createElement('div');
@@ -1479,10 +1506,11 @@ export function createContextWorkbenchAliasesView(state = {}, contextIndex = nul
         renderContextWorkbench();
     });
     controls.appendChild(search);
-    const count = document.createElement('div');
-    count.className = 'saga-lore-workbench-count';
-    count.textContent = `${aliasRows.length} aliases`;
-    controls.appendChild(count);
+    controls.appendChild(createStatusPill(`${aliasRows.length} aliases`, 'Resolver alias rows matching the current filters.', {
+        tone: aliasRows.length ? 'selected' : 'muted',
+        kind: 'count',
+        className: 'saga-lore-workbench-count',
+    }));
     controls.appendChild(createButton('Timeline', 'Return to the timeline spreadsheet.', () => {
         setContextWorkbenchTab('timeline');
         renderContextWorkbench();
@@ -1573,9 +1601,9 @@ export function createContextWorkbenchValidationView(state = {}, contextIndex = 
         warning: issues.filter(issue => issue.severity === 'warning').length,
         suggestion: issues.filter(issue => issue.severity === 'suggestion').length,
     };
-    controls.appendChild(createStatusPill(`${counts.error} errors`, 'Structural timeline issues that can break resolution.'));
-    controls.appendChild(createStatusPill(`${counts.warning} warnings`, 'Timeline issues that should be reviewed.'));
-    controls.appendChild(createStatusPill(`${counts.suggestion} suggestions`, 'Optional improvements for resolver coverage.'));
+    controls.appendChild(createStatusPill(`${counts.error} errors`, 'Structural timeline issues that can break resolution.', { tone: counts.error ? 'danger' : 'muted', kind: 'severity' }));
+    controls.appendChild(createStatusPill(`${counts.warning} warnings`, 'Timeline issues that should be reviewed.', { tone: counts.warning ? 'warning' : 'muted', kind: 'severity' }));
+    controls.appendChild(createStatusPill(`${counts.suggestion} suggestions`, 'Optional improvements for resolver coverage.', { tone: counts.suggestion ? 'info' : 'muted', kind: 'severity' }));
     controls.appendChild(createButton('Validate Deck', 'Run Deck Health validation and refresh timeline diagnostics.', async (btn) => {
         await validateLoredeckForEditor(pack, btn);
         await loadContextIndex({ force: true }).catch(() => null);

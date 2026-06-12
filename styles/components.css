@@ -152,15 +152,6 @@
     text-overflow: ellipsis;
 }
 
-.saga-lore-panel-badge {
-    font-size: 0.75em;
-    background: rgba(80, 140, 255, 0.25);
-    color: #88b4f0;
-    padding: 1px 6px;
-    border-radius: 8px;
-    white-space: nowrap;
-}
-
 .saga-lore-panel-collapse-btn,
 .saga-lore-panel-close-btn {
     background: none;
@@ -411,27 +402,6 @@
     margin-top: 2px;
 }
 
-.saga-lore-badge {
-    font-size: 0.68em;
-    padding: 0px 5px;
-    border-radius: 6px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    white-space: nowrap;
-}
-
-.saga-lore-badge-canon { color: #c8b0d0; background: rgba(120, 80, 150, 0.2); }
-.saga-lore-badge-au { color: #d0a0b0; background: rgba(150, 60, 90, 0.2); }
-.saga-lore-badge-secret { color: #b0c8d0; background: rgba(60, 100, 130, 0.2); }
-.saga-lore-badge-rumor { color: #d0c8a0; background: rgba(140, 120, 40, 0.2); }
-.saga-lore-badge-lie { color: #d0a0a0; background: rgba(160, 60, 60, 0.2); }
-.saga-lore-badge-relationship { color: #c0d0b0; background: rgba(80, 120, 60, 0.2); }
-.saga-lore-badge-location { color: #b0c8c0; background: rgba(50, 100, 90, 0.2); }
-.saga-lore-badge-rule { color: #d0c0b0; background: rgba(120, 90, 50, 0.2); }
-.saga-lore-badge-timeline { color: #b8c8d0; background: rgba(60, 90, 110, 0.2); }
-.saga-lore-badge-truth { color: #d0b0b0; background: rgba(140, 70, 70, 0.15); }
-.saga-lore-badge-pending { color: #88b4f0; background: rgba(80, 140, 255, 0.15); }
-.saga-lore-badge-priority { color: #a0c0a0; background: rgba(80, 140, 80, 0.15); }
-
 /* ── Entry fact preview ──────────────────────────────────────────────────────── */
 .saga-lore-entry-fact {
     font-size: 0.78em;
@@ -494,15 +464,7 @@
 
 /* ── Tag chip ────────────────────────────────────────────────────────────────── */
 .saga-lore-tag-chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 1px;
-    background: rgba(80, 140, 200, 0.2);
-    border: 1px solid rgba(80, 140, 200, 0.3);
-    border-radius: 8px;
-    padding: 0 2px 0 5px;
-    font-size: 0.7em;
-    white-space: nowrap;
+    max-width: 160px;
 }
 
 .saga-lore-tag-remove {
@@ -520,7 +482,10 @@
 }
 
 .saga-lore-tag-label {
-    color: #88b4f0;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .saga-lore-tag-add {

@@ -3,7 +3,9 @@ import {
   runGenerationUnits,
   normalizeGenerationUnit,
   isGenerationAbortError,
+  GENERATION_ERROR_CODES,
 } from '../../src/generation/generation-job-runner.js';
+import { extractLoreResponseText } from '../../src/providers/lore-response-normalizer.js';
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -116,6 +118,50 @@ const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 }
 
 {
+  const result = await runGenerationUnits({
+    runId: 'run_parse_failure_code',
+    jobId: 'creator_test',
+    kind: 'loredeck_creator',
+    stage: 'planning',
+    units: [{ unitId: 'broken_json_no_repair' }],
+    callUnit: async () => '{"proposals":[',
+    parseResult: raw => JSON.parse(raw),
+    commitResult: async () => {
+      throw new Error('Should not commit invalid JSON.');
+    },
+  });
+
+  assert.equal(result.status, 'failed');
+  assert.equal(result.failedUnits, 1);
+  assert.equal(result.results[0].error.name, 'SyntaxError');
+  assert.equal(result.results[0].error.code, GENERATION_ERROR_CODES.JSON_INVALID);
+  assert.match(result.results[0].unit.error, /JSON|Unexpected|unterminated/i);
+}
+
+{
+  const result = await runGenerationUnits({
+    runId: 'run_parse_preserves_provider_code',
+    jobId: 'creator_test',
+    kind: 'loredeck_creator',
+    stage: 'planning',
+    units: [{ unitId: 'provider_empty_content' }],
+    callUnit: async () => '',
+    parseResult: () => {
+      const error = new Error('Provider returned empty visible content.');
+      error.code = 'provider_empty_content';
+      throw error;
+    },
+    commitResult: async () => {
+      throw new Error('Should not commit provider parser failure.');
+    },
+  });
+
+  assert.equal(result.status, 'failed');
+  assert.equal(result.results[0].error.code, 'provider_empty_content');
+  assert.equal(result.results[0].unit.error, 'Provider returned empty visible content.');
+}
+
+{
   let repaired = false;
   const result = await runGenerationUnits({
     runId: 'run_repair',
@@ -129,6 +175,7 @@ const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
       repaired = true;
       assert.equal(rawResult, '{"titleDrafts":[');
       assert.equal(error.name, 'SyntaxError');
+      assert.equal(error.code, GENERATION_ERROR_CODES.JSON_INVALID);
       return '{"titleDrafts":[{"titleId":"nami","title":"Nami pressure"}]}';
     },
     validateResult: parsed => Array.isArray(parsed.titleDrafts),
@@ -141,6 +188,181 @@ const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
   assert.equal(result.status, 'complete');
   assert.equal(repaired, true);
   assert.equal(result.results[0].unit.outputHash, 'hash_repaired');
+}
+
+{
+  const result = await runGenerationUnits({
+    runId: 'run_commit_failure_code',
+    jobId: 'creator_test',
+    kind: 'loredeck_creator',
+    stage: 'titles',
+    units: [{ unitId: 'commit_fails' }],
+    callUnit: async () => JSON.stringify({ ok: true }),
+    parseResult: raw => JSON.parse(raw),
+    commitResult: async () => {
+      throw new Error('Commit exploded.');
+    },
+  });
+
+  assert.equal(result.status, 'failed');
+  assert.equal(result.failedUnits, 1);
+  assert.equal(result.results[0].error.code, GENERATION_ERROR_CODES.COMMIT_FAILED);
+  assert.equal(result.results[0].unit.error, 'Commit exploded.');
+}
+
+{
+  const rawContent = JSON.stringify({ ok: true, unitId: 'chat_object_unit' });
+  let parsedText = '';
+  let committedText = '';
+  const result = await runGenerationUnits({
+    runId: 'run_chat_completion_object',
+    jobId: 'creator_test',
+    kind: 'loredeck_creator',
+    stage: 'planning',
+    units: [{ unitId: 'chat_object_unit' }],
+    callUnit: async () => ({
+      id: 'chatcmpl-runner-fixture',
+      object: 'chat.completion',
+      choices: [{
+        message: { role: 'assistant', content: rawContent },
+        finish_reason: 'stop',
+      }],
+    }),
+    parseResult: raw => {
+      parsedText = extractLoreResponseText(raw);
+      return JSON.parse(parsedText);
+    },
+    commitResult: async ({ rawResult, parsedResult }) => {
+      committedText = extractLoreResponseText(rawResult);
+      assert.equal(parsedResult.unitId, 'chat_object_unit');
+      return {
+        outputHash: 'hash_chat_object_unit',
+        resultRef: { type: 'creator_context_tag_plan', unitId: parsedResult.unitId },
+      };
+    },
+  });
+
+  assert.equal(result.status, 'complete');
+  assert.equal(parsedText, rawContent);
+  assert.equal(committedText, rawContent);
+  assert.equal(result.results[0].unit.outputHash, 'hash_chat_object_unit');
+  assert.equal(result.results[0].commitResult.resultRef.type, 'creator_context_tag_plan');
+}
+
+{
+  let repaired = false;
+  const result = await runGenerationUnits({
+    runId: 'run_contract_repair',
+    jobId: 'creator_test',
+    kind: 'loredeck_creator',
+    stage: 'planning',
+    units: [{ unitId: 'planning_wrong_actions' }],
+    callUnit: async () => JSON.stringify({
+      proposals: [{ action: 'upsert_entry', entryId: 'wrong_stage' }],
+    }),
+    parseResult: raw => JSON.parse(raw),
+    validateResult: parsed => {
+      const proposals = Array.isArray(parsed.proposals) ? parsed.proposals : [];
+      if (proposals.some(proposal => proposal.action === 'upsert_timeline_anchor')) return true;
+      return {
+        ok: false,
+        code: 'creator_planning_no_supported_actions',
+        message: 'Valid JSON returned no supported Context or Tag planning proposals.',
+      };
+    },
+    repairResult: async ({ error }) => {
+      repaired = true;
+      assert.equal(error.code, 'creator_planning_no_supported_actions');
+      return JSON.stringify({
+        proposals: [{
+          action: 'upsert_timeline_anchor',
+          timelineAnchor: { id: 'one-piece.arlong.start', label: 'Arlong Park starts' },
+        }],
+      });
+    },
+    commitResult: async ({ parsedResult }) => {
+      assert.equal(parsedResult.proposals[0].action, 'upsert_timeline_anchor');
+      return { outputHash: 'hash_contract_repair' };
+    },
+  });
+
+  assert.equal(result.status, 'complete');
+  assert.equal(repaired, true);
+  assert.equal(result.results[0].unit.outputHash, 'hash_contract_repair');
+}
+
+{
+  const result = await runGenerationUnits({
+    runId: 'run_contract_failure',
+    jobId: 'creator_test',
+    kind: 'loredeck_creator',
+    stage: 'planning',
+    units: [{ unitId: 'planning_empty' }],
+    callUnit: async () => JSON.stringify({ proposals: [] }),
+    parseResult: raw => JSON.parse(raw),
+    validateResult: () => ({
+      ok: false,
+      code: 'creator_planning_no_proposals',
+      message: 'Valid JSON returned no Context or Tag planning proposals.',
+    }),
+    commitResult: async () => {
+      throw new Error('Should not commit invalid planning output.');
+    },
+  });
+
+  assert.equal(result.status, 'failed');
+  assert.equal(result.failedUnits, 1);
+  assert.equal(result.results[0].error.code, 'creator_planning_no_proposals');
+  assert.equal(result.results[0].unit.error, 'Valid JSON returned no Context or Tag planning proposals.');
+}
+
+{
+  const unitDiagnostics = [];
+  const rawContent = JSON.stringify({ proposals: [] });
+  const result = await runGenerationUnits({
+    runId: 'run_failure_diagnostic',
+    jobId: 'creator_test',
+    kind: 'loredeck_creator',
+    stage: 'planning',
+    units: [{ unitId: 'planning_diagnostic' }],
+    checkpointUnit: ({ unit }) => {
+      if (unit.status === 'failed') unitDiagnostics.push(unit.diagnostic);
+    },
+    callUnit: async () => ({
+      id: 'chatcmpl-diagnostic-fixture',
+      object: 'chat.completion',
+      choices: [{
+        message: { role: 'assistant', content: rawContent },
+        finish_reason: 'length',
+      }],
+    }),
+    parseResult: raw => JSON.parse(extractLoreResponseText(raw)),
+    validateResult: () => ({
+      ok: false,
+      code: 'creator_planning_no_proposals',
+      message: 'Valid JSON returned no Context or Tag planning proposals.',
+    }),
+    diagnoseFailure: ({ rawResult, phase, normalizedError, attempt }) => ({
+      stage: 'planning',
+      resultType: typeof rawResult,
+      finishReason: rawResult?.choices?.[0]?.finish_reason || '',
+      visibleContentLength: extractLoreResponseText(rawResult).length,
+      parsePhase: normalizedError.code === 'creator_planning_no_proposals' ? 'validation' : phase,
+      errorCode: normalizedError.code,
+      attempt,
+      sample: extractLoreResponseText(rawResult),
+    }),
+    commitResult: async () => {
+      throw new Error('Should not commit invalid planning output.');
+    },
+  });
+
+  assert.equal(result.status, 'failed');
+  assert.equal(result.results[0].unit.diagnostic.errorCode, 'creator_planning_no_proposals');
+  assert.equal(result.results[0].unit.diagnostic.finishReason, 'length');
+  assert.equal(result.results[0].unit.diagnostic.visibleContentLength, rawContent.length);
+  assert.equal(result.results[0].unit.diagnostic.parsePhase, 'validation');
+  assert.equal(unitDiagnostics[0].sample, rawContent);
 }
 
 {

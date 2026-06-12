@@ -47,6 +47,14 @@ function createLoredeckTagManagerCard(pack = {}, rows = [], filteredRows = []) {
 function setLoredeckEntryDisabled(pack = {}, entryId = '', disabled = false) { return dep('setLoredeckEntryDisabled')(pack, entryId, disabled); }
 function removeLoredeckEntryOverride(pack = {}, entryId = '') { return dep('removeLoredeckEntryOverride')(pack, entryId); }
 
+function getLoredeckEntryOverrideStatusTone(status = '') {
+    const normalized = String(status || '').trim().toLowerCase();
+    if (['override', 'edited', 'custom', 'added', 'addition'].includes(normalized)) return 'success';
+    if (['pending', 'draft'].includes(normalized)) return 'review';
+    if (['disabled', 'suppressed'].includes(normalized)) return 'muted';
+    return 'source';
+}
+
 export function createLoredeckEntryOverrideCard(pack = {}) {
     const state = getLoredeckOverrideState(pack);
     const cached = getLoredeckEntryPreviewCacheRecord(pack.packId) || {};
@@ -60,10 +68,10 @@ export function createLoredeckEntryOverrideCard(pack = {}) {
 
     const summary = document.createElement('div');
     summary.className = 'saga-loredeck-entry-summary';
-    summary.appendChild(createStatusPill(`${state.overrideCount} override${state.overrideCount === 1 ? '' : 's'}`, 'Saved edited or added Lorecards in this Custom Loredeck.'));
-    summary.appendChild(createStatusPill(`${state.disabledEntryIds.length} disabled`, 'Source Lorecard IDs suppressed by this Custom Loredeck.'));
-    summary.appendChild(createStatusPill(`${state.pendingCount} pending`, 'Loredeck edits queued for review before they affect runtime injection.'));
-    if (cached?.entries?.length) summary.appendChild(createStatusPill(`${cached.entries.length} source Lorecards`, 'Source Lorecards loaded for browsing and editing.'));
+    summary.appendChild(createStatusPill(`${state.overrideCount} override${state.overrideCount === 1 ? '' : 's'}`, 'Saved edited or added Lorecards in this Custom Loredeck.', { tone: state.overrideCount ? 'success' : 'muted', kind: 'count' }));
+    summary.appendChild(createStatusPill(`${state.disabledEntryIds.length} disabled`, 'Source Lorecard IDs suppressed by this Custom Loredeck.', { tone: 'muted', kind: 'count' }));
+    summary.appendChild(createStatusPill(`${state.pendingCount} pending`, 'Loredeck edits queued for review before they affect runtime injection.', { tone: state.pendingCount ? 'review' : 'muted', kind: 'count' }));
+    if (cached?.entries?.length) summary.appendChild(createStatusPill(`${cached.entries.length} source Lorecards`, 'Source Lorecards loaded for browsing and editing.', { tone: 'source', kind: 'count' }));
     card.appendChild(summary);
 
     const help = document.createElement('div');
@@ -177,12 +185,12 @@ export function createLoredeckEntryOverrideRow(pack = {}, row = {}) {
 
     const meta = document.createElement('div');
     meta.className = 'saga-loredeck-row-meta';
-    meta.appendChild(createStatusPill(row.status, 'Entry override status in this Custom Loredeck.'));
-    meta.appendChild(createStatusPill(row.id, 'Lore entry ID.'));
-    if (row.entry?.category) meta.appendChild(createStatusPill(row.entry.category, 'Entry category.'));
-    if (row.entry?.relevance) meta.appendChild(createStatusPill(row.entry.relevance, 'Entry relevance tier.'));
-    if (row.entry?.context?.label) meta.appendChild(createStatusPill(row.entry.context.label, 'Context label for this entry.'));
-    if (row.entry?.retrieval?.activation) meta.appendChild(createStatusPill(row.entry.retrieval.activation, 'Retrieval activation mode.'));
+    meta.appendChild(createStatusPill(row.status, 'Entry override status in this Custom Loredeck.', { tone: getLoredeckEntryOverrideStatusTone(row.status), kind: 'status' }));
+    meta.appendChild(createStatusPill(row.id, 'Lore entry ID.', { tone: 'source', kind: 'source', maxChars: 38 }));
+    if (row.entry?.category) meta.appendChild(createStatusPill(row.entry.category, 'Entry category.', { tone: 'category', kind: 'metadata' }));
+    if (row.entry?.relevance) meta.appendChild(createStatusPill(row.entry.relevance, 'Entry relevance tier.', { tone: 'relevance', kind: 'metadata' }));
+    if (row.entry?.context?.label) meta.appendChild(createStatusPill(row.entry.context.label, 'Context label for this entry.', { tone: 'source', kind: 'source', maxChars: 36 }));
+    if (row.entry?.retrieval?.activation) meta.appendChild(createStatusPill(row.entry.retrieval.activation, 'Retrieval activation mode.', { tone: 'info', kind: 'metadata' }));
     main.appendChild(meta);
     wrap.appendChild(main);
 

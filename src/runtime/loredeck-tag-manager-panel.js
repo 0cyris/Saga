@@ -65,14 +65,14 @@ export function createLoredeckTagManagerCard(pack = {}, rows = [], filteredRows 
 
     const summary = document.createElement('div');
     summary.className = 'saga-loredeck-entry-summary';
-    summary.appendChild(createStatusPill(`${registryCount} defined`, 'Tags defined by source tags.json or this Custom Loredeck registry layer.'));
-    summary.appendChild(createStatusPill(`${undefinedCount} undefined`, 'Entry tags currently used but not defined by a loaded registry.'));
-    summary.appendChild(createStatusPill(`${allItems.length} visible`, 'Total registry and entry-discovered tags in this manager.'));
-    summary.appendChild(createStatusPill(`${editableTargetCount} target entr${editableTargetCount === 1 ? 'y' : 'ies'}`, 'Entries affected by bulk tag actions. Current entry search narrows this target set.'));
-    if (sourceCache?.loadedAt && !sourceCache.missing && !sourceCache.error) summary.appendChild(createStatusPill('tags.json loaded', 'Source tag registry has been fetched for this editor session.'));
-    if (sourceCache?.missing) summary.appendChild(createStatusPill('no source registry', 'The manifest does not currently declare registries.tags.'));
-    if (getLoredeckTagRegistryCount(customRegistry)) summary.appendChild(createStatusPill('custom registry', 'This Loredeck has saved editable tag registry metadata.'));
-    if (getLoredeckEntryOverrideQuery()) summary.appendChild(createStatusPill('Search scoped', 'Bulk tag actions will target the current entry search result.'));
+    summary.appendChild(createStatusPill(`${registryCount} defined`, 'Tags defined by source tags.json or this Custom Loredeck registry layer.', { tone: 'tag', kind: 'count' }));
+    summary.appendChild(createStatusPill(`${undefinedCount} undefined`, 'Entry tags currently used but not defined by a loaded registry.', { tone: undefinedCount ? 'warning' : 'muted', kind: 'count' }));
+    summary.appendChild(createStatusPill(`${allItems.length} visible`, 'Total registry and entry-discovered tags in this manager.', { kind: 'count' }));
+    summary.appendChild(createStatusPill(`${editableTargetCount} target entr${editableTargetCount === 1 ? 'y' : 'ies'}`, 'Entries affected by bulk tag actions. Current entry search narrows this target set.', { tone: editableTargetCount ? 'selected' : 'muted', kind: 'count' }));
+    if (sourceCache?.loadedAt && !sourceCache.missing && !sourceCache.error) summary.appendChild(createStatusPill('tags.json loaded', 'Source tag registry has been fetched for this editor session.', { tone: 'source', kind: 'source' }));
+    if (sourceCache?.missing) summary.appendChild(createStatusPill('no source registry', 'The manifest does not currently declare registries.tags.', { tone: 'muted', kind: 'source' }));
+    if (getLoredeckTagRegistryCount(customRegistry)) summary.appendChild(createStatusPill('custom registry', 'This Loredeck has saved editable tag registry metadata.', { tone: 'source', kind: 'source' }));
+    if (getLoredeckEntryOverrideQuery()) summary.appendChild(createStatusPill('Search scoped', 'Bulk tag actions will target the current entry search result.', { tone: 'selected', kind: 'status' }));
     wrap.appendChild(summary);
 
     const help = document.createElement('div');
@@ -187,13 +187,13 @@ export function createLoredeckTagManagerRow(pack = {}, rows = [], item = {}) {
     main.appendChild(desc);
     const meta = document.createElement('div');
     meta.className = 'saga-loredeck-row-meta';
-    meta.appendChild(createStatusPill(`${item.count || 0} total`, 'Total entries with this tag.'));
-    if (item.overrideCount) meta.appendChild(createStatusPill(`${item.overrideCount} override${item.overrideCount === 1 ? '' : 's'}`, 'Saved overrides using this tag.'));
-    if (item.sourceCount) meta.appendChild(createStatusPill(`${item.sourceCount} source`, 'Source entries using this tag.'));
-    meta.appendChild(createStatusPill(item.registryState || 'undefined', 'Registry definition source for this tag.'));
-    if (def.deprecated) meta.appendChild(createStatusPill('deprecated', def.replacement ? `Replacement: ${def.replacement}` : 'Tag is marked deprecated.'));
-    if (def.sensitive) meta.appendChild(createStatusPill('sensitive', 'Tag marks sensitive, secret, or spoiler-prone lore.'));
-    if (Array.isArray(def.aliases) && def.aliases.length) meta.appendChild(createStatusPill(`${def.aliases.length} alias${def.aliases.length === 1 ? '' : 'es'}`, 'Search aliases defined for this tag.'));
+    meta.appendChild(createStatusPill(`${item.count || 0} total`, 'Total entries with this tag.', { tone: item.count ? 'tag' : 'muted', kind: 'count' }));
+    if (item.overrideCount) meta.appendChild(createStatusPill(`${item.overrideCount} override${item.overrideCount === 1 ? '' : 's'}`, 'Saved overrides using this tag.', { tone: 'source', kind: 'count' }));
+    if (item.sourceCount) meta.appendChild(createStatusPill(`${item.sourceCount} source`, 'Source entries using this tag.', { tone: 'source', kind: 'count' }));
+    meta.appendChild(createStatusPill(item.registryState || 'undefined', 'Registry definition source for this tag.', { tone: item.registryState === 'undefined' ? 'warning' : 'source', kind: 'source' }));
+    if (def.deprecated) meta.appendChild(createStatusPill('deprecated', def.replacement ? `Replacement: ${def.replacement}` : 'Tag is marked deprecated.', { tone: 'warning', kind: 'severity' }));
+    if (def.sensitive) meta.appendChild(createStatusPill('sensitive', 'Tag marks sensitive, secret, or spoiler-prone lore.', { tone: 'review', kind: 'severity' }));
+    if (Array.isArray(def.aliases) && def.aliases.length) meta.appendChild(createStatusPill(`${def.aliases.length} alias${def.aliases.length === 1 ? '' : 'es'}`, 'Search aliases defined for this tag.', { kind: 'count' }));
     main.appendChild(meta);
     row.appendChild(main);
 

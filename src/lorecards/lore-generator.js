@@ -40,6 +40,10 @@ import {
 } from './lore-matrix.js';
 
 import { sendLoreRequest, validateLoreProviderConfiguration } from '../providers/lore-llm-client.js';
+import {
+    extractLoreResponseText,
+    LORE_PARSE_ERROR_CODES,
+} from '../providers/lore-response-normalizer.js';
 import { proposeCanonLoreForContext } from '../context/canon-lore-db.js';
 import { normalizeLorePurpose, computeSpecificityScore } from './lore-relevance.js';
 import { buildContextResolutionAudit, buildResolverContextFromContextBrief, resolveAndApplyContextsFromContext, resolveContextsWithModel } from '../context/context-resolver.js';
@@ -69,7 +73,7 @@ async function quietPrompt(systemPrompt, userMessage, options = {}) {
     try {
         const settings = getSettings();
         if (options.signal?.aborted) throw new DOMException('Request aborted', 'AbortError');
-        return await sendLoreRequest(systemPrompt, userMessage, {
+        return extractLoreResponseText(await sendLoreRequest(systemPrompt, userMessage, {
             maxTokens: options.maxTokens || settings.loreMaxTokens || 8192,
             prefill: '',
             signal: options.signal,
@@ -77,7 +81,7 @@ async function quietPrompt(systemPrompt, userMessage, options = {}) {
             expectedOutput: options.expectedOutput || 'json',
             stream: options.stream === true,
             onProgress: options.onProgress,
-        });
+        }));
     } catch (e) {
         if (e?.name === 'AbortError' || /aborted|cancelled|canceled/i.test(e?.message || '')) {
             throw e;
@@ -288,11 +292,12 @@ function coerceLoreShape(parsed) {
  * @returns {Object|null} Parsed JSON or null
  */
 function parseJsonResponse(text) {
-    if (!text || typeof text !== 'string') return null;
+    const responseText = extractLoreResponseText(text);
+    if (!responseText.trim()) return null;
 
     const candidates = [];
 
-    const noReasoning = removeLikelyReasoningBlocks(text);
+    const noReasoning = removeLikelyReasoningBlocks(responseText);
     candidates.push(noReasoning);
     candidates.push(stripJsonFences(noReasoning));
     if (noReasoning && !noReasoning.trim().startsWith('{') && !noReasoning.trim().startsWith('[')) {
@@ -1628,9 +1633,10 @@ function parseJsonLinesAsFacts(text) {
 }
 
 function parseBulkCandidateResponse(text, chunk = {}) {
-    if (!text || typeof text !== 'string') return null;
-    const jsonl = parseJsonLinesAsFacts(text);
-    const parsed = parseJsonResponse(text);
+    const responseText = extractLoreResponseText(text);
+    if (!responseText.trim()) return null;
+    const jsonl = parseJsonLinesAsFacts(responseText);
+    const parsed = parseJsonResponse(responseText);
     const shaped = coerceBulkFactsShape(parsed);
     if (shaped) {
         const shapedFacts = shaped.facts.map(f => normalizeCandidateFact(f, chunk)).filter(Boolean);
@@ -1645,6 +1651,16 @@ function parseBulkCandidateResponse(text, chunk = {}) {
         return { chunkSummary: jsonl.chunkSummary || '', facts };
     }
     return null;
+}
+
+function getBulkCandidateParseFailure(rawResponse = '') {
+    const hadVisibleResponse = String(rawResponse || '').trim().length > 0;
+    return {
+        error: hadVisibleResponse
+            ? 'Story lore extraction returned malformed JSON that could not be repaired.'
+            : 'Story lore extraction returned no visible response.',
+        errorCode: hadVisibleResponse ? LORE_PARSE_ERROR_CODES.JSON_INVALID : '',
+    };
 }
 
 function priorityFromHint(hint, category = '') {
@@ -1925,6 +1941,7 @@ async function extractBulkChunkCandidates({ chunk, plan, batchId, profile, setti
     const systemPrompt = buildBulkCandidateSystemPrompt(settings, profile);
     const userMessage = buildBulkCandidateUserMessage({ stateSummary, loreIndex, chunk, plan, profile });
     let lastError = '';
+    let lastErrorCode = '';
     let rawResponse = '';
 
     for (let attempt = 1; attempt <= maxAttempts; attempt++) {
@@ -1952,7 +1969,9 @@ async function extractBulkChunkCandidates({ chunk, plan, batchId, profile, setti
                 parsed = await repairBulkCandidateJsonResponse(rawResponse, chunk);
             }
             if (!parsed) {
-                lastError = 'Response was empty or unparseable.';
+                const failure = getBulkCandidateParseFailure(rawResponse);
+                lastError = failure.error;
+                lastErrorCode = failure.errorCode;
                 continue;
             }
 
@@ -1981,6 +2000,7 @@ async function extractBulkChunkCandidates({ chunk, plan, batchId, profile, setti
         } catch (e) {
             if (isAbortError(e)) throw e;
             lastError = e?.message || String(e || 'Unknown provider error');
+            lastErrorCode = e?.code || e?.errorCode || '';
         }
     }
 
@@ -1995,12 +2015,13 @@ async function extractBulkChunkCandidates({ chunk, plan, batchId, profile, setti
             messageHash: chunk.messageHash,
             messageCount: chunk.messageCount,
             error: lastError || 'Bulk extraction failed.',
+            errorCode: lastErrorCode,
             rawResponse: settings.debugMode || settings.loreBulkRetainRawResponses ? String(rawResponse || '').slice(0, 20000) : '',
             lastScannedAt: Date.now(),
             failedAt: Date.now(),
         },
     }, { full: false, syncPrompt: false });
-    return { status: 'failed', chunk, candidates: [], summary: '', error: lastError || 'Bulk extraction failed.' };
+    return { status: 'failed', chunk, candidates: [], summary: '', error: lastError || 'Bulk extraction failed.', errorCode: lastErrorCode };
 }
 
 /**
@@ -2439,6 +2460,7 @@ export const __bulkLoreTestHooks = {
     normalizeScanMessage,
     buildLoreBulkScanPlan,
     parseBulkCandidateResponse,
+    getBulkCandidateParseFailure,
     candidateFactToLoreEntry,
     classifyGeneratedLoreValue,
     applyGeneratedLoreQualityRouting,

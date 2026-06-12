@@ -65,14 +65,14 @@ export function createLoredeckTimelineRegistryCard(pack = {}, rows = []) {
 
     const summary = document.createElement('div');
     summary.className = 'saga-loredeck-entry-summary';
-    summary.appendChild(createStatusPill(`${anchors.length} anchors`, 'Timeline anchor definitions visible in this editor.'));
-    summary.appendChild(createStatusPill(`${windows.length} windows`, 'Timeline window definitions visible in this editor.'));
-    summary.appendChild(createStatusPill(`${attachedCount} attached`, 'Timeline definitions referenced by loaded entries.'));
-    if (undefinedCount) summary.appendChild(createStatusPill(`${undefinedCount} undefined`, 'Loaded entries reference anchors that are not defined in the active timeline registry.'));
-    if (disabledCount) summary.appendChild(createStatusPill(`${disabledCount} disabled`, 'Source timeline definitions suppressed by this Custom Loredeck overlay.'));
-    if (sourceCache?.loadedAt && !sourceCache.missing && !sourceCache.error) summary.appendChild(createStatusPill('timeline.json loaded', 'Source timeline registry has been fetched for this editor session.'));
-    if (sourceCache?.missing) summary.appendChild(createStatusPill('no source timeline', 'The manifest does not currently declare registries.timeline.'));
-    if (getLoredeckTimelineRegistryCount(customRegistry)) summary.appendChild(createStatusPill('custom overlay', 'This Loredeck has saved editable timeline registry metadata.'));
+    summary.appendChild(createStatusPill(`${anchors.length} anchors`, 'Timeline anchor definitions visible in this editor.', { tone: 'source', kind: 'count' }));
+    summary.appendChild(createStatusPill(`${windows.length} windows`, 'Timeline window definitions visible in this editor.', { tone: 'source', kind: 'count' }));
+    summary.appendChild(createStatusPill(`${attachedCount} attached`, 'Timeline definitions referenced by loaded entries.', { tone: attachedCount ? 'selected' : 'muted', kind: 'count' }));
+    if (undefinedCount) summary.appendChild(createStatusPill(`${undefinedCount} undefined`, 'Loaded entries reference anchors that are not defined in the active timeline registry.', { tone: 'warning', kind: 'count' }));
+    if (disabledCount) summary.appendChild(createStatusPill(`${disabledCount} disabled`, 'Source timeline definitions suppressed by this Custom Loredeck overlay.', { tone: 'muted', kind: 'count' }));
+    if (sourceCache?.loadedAt && !sourceCache.missing && !sourceCache.error) summary.appendChild(createStatusPill('timeline.json loaded', 'Source timeline registry has been fetched for this editor session.', { tone: 'source', kind: 'source' }));
+    if (sourceCache?.missing) summary.appendChild(createStatusPill('no source timeline', 'The manifest does not currently declare registries.timeline.', { tone: 'muted', kind: 'source' }));
+    if (getLoredeckTimelineRegistryCount(customRegistry)) summary.appendChild(createStatusPill('custom overlay', 'This Loredeck has saved editable timeline registry metadata.', { tone: 'source', kind: 'source' }));
     wrap.appendChild(summary);
 
     const help = document.createElement('div');
@@ -198,11 +198,11 @@ export function createLoredeckTimelineRegistryRow(pack = {}, item = {}) {
     main.appendChild(desc);
     const meta = document.createElement('div');
     meta.className = 'saga-loredeck-row-meta';
-    meta.appendChild(createStatusPill(item.kind, 'Timeline registry item type.'));
-    meta.appendChild(createStatusPill(item.registryState, 'Timeline registry source state.'));
-    if (item.kind === 'anchor') meta.appendChild(createStatusPill(`sort ${item.definition?.sortKey ?? '?'}`, 'Timeline sort key.'));
-    if (item.kind === 'window') meta.appendChild(createStatusPill(`${item.definition?.sortKeyFrom ?? '?'}-${item.definition?.sortKeyTo ?? '?'}`, 'Timeline sort key window.'));
-    if (item.entryIds.length) meta.appendChild(createStatusPill(`${item.entryIds.length} entr${item.entryIds.length === 1 ? 'y' : 'ies'}`, item.entryIds.slice(0, 12).join(', ')));
+    meta.appendChild(createStatusPill(item.kind, 'Timeline registry item type.', { tone: 'source', kind: 'metadata' }));
+    meta.appendChild(createStatusPill(item.registryState, 'Timeline registry source state.', { tone: item.registryState === 'undefined' ? 'warning' : (item.disabled ? 'muted' : 'source'), kind: 'source' }));
+    if (item.kind === 'anchor') meta.appendChild(createStatusPill(`sort ${item.definition?.sortKey ?? '?'}`, 'Timeline sort key.', { kind: 'metadata' }));
+    if (item.kind === 'window') meta.appendChild(createStatusPill(`${item.definition?.sortKeyFrom ?? '?'}-${item.definition?.sortKeyTo ?? '?'}`, 'Timeline sort key window.', { kind: 'metadata' }));
+    if (item.entryIds.length) meta.appendChild(createStatusPill(`${item.entryIds.length} entr${item.entryIds.length === 1 ? 'y' : 'ies'}`, item.entryIds.slice(0, 12).join(', '), { tone: 'selected', kind: 'count' }));
     main.appendChild(meta);
     row.appendChild(main);
 

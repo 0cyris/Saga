@@ -16,11 +16,16 @@ import {
     validateLoreProviderConfiguration,
 } from '../providers/lore-llm-client.js';
 import {
+    extractLoreResponseText,
+} from '../providers/lore-response-normalizer.js';
+import {
     addTooltip,
     createButton,
     createKeyValue,
     createSectionHeader,
+    createStatusPill,
     createToggleCard,
+    setChipTone,
     toast,
 } from '../ui/runtime-ui-kit.js';
 import { isBasicExperience } from './runtime-navigation.js';
@@ -545,9 +550,7 @@ function createInjectionPlacementCard(settings) {
 
     const promptInjection = getPromptInjectionApi();
     const status = promptInjection.getStatus ? promptInjection.getStatus() : null;
-    const syncStatus = createKeyValue('Current sync', getPromptInjectionStatusText(status), 'Shows the last Saga prompt sync result.');
-    syncStatus.classList.add('saga-prompt-sync-status');
-    card.appendChild(syncStatus);
+    card.appendChild(createPromptInjectionStatusRow(status));
 
     const actions = document.createElement('div');
     actions.className = 'saga-primary-actions';
@@ -572,12 +575,34 @@ function getPromptInjectionStatusText(status = null) {
         : 'Prompt sync status unavailable until extension initialization completes.';
 }
 
+function getPromptInjectionStatusTone(status = null) {
+    return status ? 'source' : 'muted';
+}
+
+function createPromptInjectionStatusRow(status = null) {
+    const row = createKeyValue('Current sync', '', 'Shows the last Saga prompt sync result.');
+    row.classList.add('saga-prompt-sync-status');
+    const value = row.querySelector('.saga-value');
+    const chip = createStatusPill(getPromptInjectionStatusText(status), 'Shows the last Saga prompt sync result.', {
+        tone: getPromptInjectionStatusTone(status),
+        kind: status ? 'source' : 'status',
+        density: 'compact',
+        className: 'saga-prompt-sync-status-value',
+        maxChars: 84,
+    });
+    value?.replaceWith(chip);
+    return row;
+}
+
 function refreshPromptInjectionStatusUi(status = null) {
     const row = getPanelRoot()?.querySelector('.saga-prompt-sync-status');
-    const value = row?.querySelector('.saga-value');
+    const value = row?.querySelector('.saga-prompt-sync-status-value');
     if (!value) return false;
     const nextStatus = status || getPromptInjectionApi().getStatus?.() || null;
     value.textContent = getPromptInjectionStatusText(nextStatus);
+    value.dataset.sagaTooltip = 'Shows the last Saga prompt sync result.';
+    value.setAttribute('aria-label', 'Shows the last Saga prompt sync result.');
+    setChipTone(value, getPromptInjectionStatusTone(nextStatus));
     return true;
 }
 
@@ -1000,7 +1025,7 @@ Compression length contract:
 
 
 function cleanCompressedText(text) {
-    let cleaned = String(text || '')
+    let cleaned = extractLoreResponseText(text)
         .replace(/```(?:text|markdown)?\s*([\s\S]*?)```/i, '$1')
         .trim();
     if (/^\{[\s\S]*\}$/.test(cleaned)) {
@@ -1011,6 +1036,10 @@ function cleanCompressedText(text) {
     }
     return cleaned;
 }
+
+export const __injectionPreviewTestHooks = Object.freeze({
+    cleanCompressedText,
+});
 
 function parseLoreCompressionKind(kind = 'lore') {
     const raw = String(kind || 'lore').toLowerCase().replace(/_/g, '-');

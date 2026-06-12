@@ -140,11 +140,11 @@ export function openLoredeckPackageInstallPreviewDialog(packageInstall = {}) {
     summary.appendChild(summaryTitle);
     const chips = document.createElement('div');
     chips.className = 'saga-loredeck-entry-summary';
-    chips.appendChild(createStatusPill(`${packageInstall.installs?.length || 0} installable`, 'Loredecks in this package that can be installed.'));
-    chips.appendChild(createStatusPill(`${packageInstall.packageModel?.entryCountHint || 0} Lorecards`, 'Manifest-declared Lorecard count in this package.'));
-    chips.appendChild(createStatusPill(`${packageInstall.packageModel?.folderCount || 0} folders`, 'Folder records declared by the package index.'));
-    chips.appendChild(createStatusPill(packageInstall.fileName || 'local zip', 'Selected package file.'));
-    if (packageInstall.failures?.length) chips.appendChild(createStatusPill(`${packageInstall.failures.length} failed`, 'Deck records that could not be parsed or installed.'));
+    chips.appendChild(createStatusPill(`${packageInstall.installs?.length || 0} installable`, 'Loredecks in this package that can be installed.', { tone: 'success', kind: 'count' }));
+    chips.appendChild(createStatusPill(`${packageInstall.packageModel?.entryCountHint || 0} Lorecards`, 'Manifest-declared Lorecard count in this package.', { kind: 'count' }));
+    chips.appendChild(createStatusPill(`${packageInstall.packageModel?.folderCount || 0} folders`, 'Folder records declared by the package index.', { kind: 'count' }));
+    chips.appendChild(createStatusPill(packageInstall.fileName || 'local zip', 'Selected package file.', { tone: 'source', kind: 'source', maxChars: 36 }));
+    if (packageInstall.failures?.length) chips.appendChild(createStatusPill(`${packageInstall.failures.length} failed`, 'Deck records that could not be parsed or installed.', { tone: 'danger', kind: 'severity' }));
     summary.appendChild(chips);
     form.appendChild(summary);
 

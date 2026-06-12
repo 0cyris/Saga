@@ -236,7 +236,7 @@ function createInstructionsCard(guideMode = normalizeExperienceMode(getSettings(
         title.textContent = section.label;
         header.appendChild(title);
         if (firstStepIndex >= 0) {
-            header.appendChild(createStatusPill(formatGuideStartLabel(mode, firstStepIndex), `Starts at ${firstStep?.title || section.label}.`));
+            header.appendChild(createStatusPill(formatGuideStartLabel(mode, firstStepIndex), `Starts at ${firstStep?.title || section.label}.`, { tone: 'info', kind: 'status' }));
         }
         main.appendChild(header);
         const body = document.createElement('div');
@@ -245,8 +245,8 @@ function createInstructionsCard(guideMode = normalizeExperienceMode(getSettings(
         main.appendChild(body);
         const meta = document.createElement('div');
         meta.className = 'saga-instructions-section-meta';
-        meta.appendChild(createStatusPill(`${section.stepCount} guided stop${section.stepCount === 1 ? '' : 's'}`, `${section.label} module stops; this is a guide path, not a feature limit.`));
-        meta.appendChild(createStatusPill(getTabLabelForExperience(section.tab, getSettings()), `Opens the ${getTabLabelForExperience(section.tab, getSettings())} tab first.`));
+        meta.appendChild(createStatusPill(`${section.stepCount} guided stop${section.stepCount === 1 ? '' : 's'}`, `${section.label} module stops; this is a guide path, not a feature limit.`, { kind: 'count' }));
+        meta.appendChild(createStatusPill(getTabLabelForExperience(section.tab, getSettings()), `Opens the ${getTabLabelForExperience(section.tab, getSettings())} tab first.`, { tone: 'source', kind: 'source' }));
         main.appendChild(meta);
         card.appendChild(main);
         const action = createButton('Start', `Start the ${section.label} walkthrough.`, () => {

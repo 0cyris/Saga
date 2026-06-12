@@ -11,6 +11,16 @@
 
 import { getSettings } from '../state/state-manager.js';
 import { loadNamedApiKey } from '../state/secure-keyring.js';
+import {
+    LORE_RESPONSE_ERROR_CODES,
+    collectLoreResponseFinishReasons as collectFinishReasons,
+    createLoreResponseError,
+    extractLoreContentText as extractTextFromContent,
+    extractLoreResponseReasoning as extractChatCompletionReasoning,
+    extractLoreResponseText as extractChatCompletionText,
+    isLoreResponseTokenLimitFinishReason as isTokenLimitFinishReason,
+    normalizeLoreResponseFinishReason as normalizeFinishReason,
+} from './lore-response-normalizer.js';
 
 const PROVIDER_KINDS = new Set(['continuity', 'lore']);
 const CONNECTION_PROFILE_ID_FIELDS = Object.freeze(['id', 'name', 'profileId', 'uuid', 'profile_id', 'label']);
@@ -77,61 +87,6 @@ function normalizeOpenAIBaseUrl(baseUrl) {
     return `${base}/v1`;
 }
 
-function extractTextFromContent(value) {
-    if (typeof value === 'string') return value;
-    if (Array.isArray(value)) {
-        return value.map(part => {
-            if (typeof part === 'string') return part;
-            if (part?.type === 'text' && typeof part.text === 'string') return part.text;
-            if (typeof part?.text === 'string') return part.text;
-            if (typeof part?.content === 'string') return part.content;
-            return '';
-        }).filter(Boolean).join('');
-    }
-    if (value && typeof value === 'object') {
-        if (typeof value.text === 'string') return value.text;
-        if (typeof value.content === 'string') return value.content;
-        if (typeof value.value === 'string') return value.value;
-    }
-    return '';
-}
-
-function extractChatCompletionText(json) {
-    return extractTextFromContent(json?.choices?.[0]?.message?.content)
-        || extractTextFromContent(json?.choices?.[0]?.delta?.content)
-        || extractTextFromContent(json?.choices?.[0]?.text)
-        || extractTextFromContent(json?.message?.content)
-        || extractTextFromContent(json?.content)
-        || extractTextFromContent(json?.response)
-        || extractTextFromContent(json?.text)
-        || '';
-}
-
-
-function extractChatCompletionReasoning(json) {
-    const message = json?.choices?.[0]?.message || json?.message || json || {};
-    const parts = [];
-    const direct = [
-        message.reasoning,
-        message.reasoning_content,
-        message.reasoningContent,
-        json?.choices?.[0]?.reasoning,
-        json?.reasoning,
-    ];
-    for (const value of direct) {
-        const text = extractTextFromContent(value);
-        if (text) parts.push(text);
-    }
-    const details = message.reasoning_details || json?.choices?.[0]?.message?.reasoning_details || json?.reasoning_details;
-    if (Array.isArray(details)) {
-        for (const detail of details) {
-            if (typeof detail?.text === 'string') parts.push(detail.text);
-            else if (typeof detail?.content === 'string') parts.push(detail.content);
-        }
-    }
-    return parts.join('').slice(0, 12000);
-}
-
 function emitLoreRequestProgress(options = {}, event = {}) {
     if (typeof options.onProgress !== 'function') return;
     try {
@@ -167,84 +122,16 @@ function extractStreamReasoningDelta(json) {
         || '';
 }
 
-function normalizeFinishReason(value) {
-    if (value === undefined || value === null || value === '') return '';
-    if (typeof value === 'object') {
-        return normalizeFinishReason(
-            value.reason
-            ?? value.type
-            ?? value.code
-            ?? value.status
-            ?? value.finish_reason
-            ?? value.finishReason
-            ?? value.stop_reason
-            ?? value.stopReason
-            ?? value.native_finish_reason
-            ?? value.nativeFinishReason
-        );
-    }
-    return String(value).trim().toLowerCase().replace(/[\s-]+/g, '_');
-}
-
-function collectFinishReasons(json) {
-    if (!json || typeof json !== 'object') return [];
-
-    const choice = Array.isArray(json.choices) ? json.choices[0] : null;
-    const message = choice?.message || json.message || {};
-    const candidate = Array.isArray(json.candidates) ? json.candidates[0] : null;
-    const output = Array.isArray(json.outputs) ? json.outputs[0] : Array.isArray(json.output) ? json.output[0] : null;
-    const details = choice?.finish_details || choice?.finishDetails || json.finish_details || json.finishDetails;
-    const metadata = json.response_metadata || json.responseMetadata || json.metadata || {};
-
-    return [
-        choice?.finish_reason,
-        choice?.finishReason,
-        choice?.native_finish_reason,
-        choice?.nativeFinishReason,
-        choice?.stop_reason,
-        choice?.stopReason,
-        message?.finish_reason,
-        message?.finishReason,
-        message?.stop_reason,
-        message?.stopReason,
-        json.finish_reason,
-        json.finishReason,
-        json.native_finish_reason,
-        json.nativeFinishReason,
-        json.stop_reason,
-        json.stopReason,
-        details,
-        metadata?.finish_reason,
-        metadata?.finishReason,
-        metadata?.stop_reason,
-        metadata?.stopReason,
-        candidate?.finish_reason,
-        candidate?.finishReason,
-        candidate?.stop_reason,
-        candidate?.stopReason,
-        output?.finish_reason,
-        output?.finishReason,
-        output?.stop_reason,
-        output?.stopReason,
-    ].map(normalizeFinishReason).filter(Boolean);
-}
-
-function isTokenLimitFinishReason(reason) {
-    const normalized = normalizeFinishReason(reason);
-    if (!normalized) return false;
-    if (['length', 'max_tokens', 'max_token', 'max_completion_tokens', 'max_output_tokens', 'token_limit', 'token_limit_reached', 'length_limit', 'truncated', 'incomplete'].includes(normalized)) return true;
-    return normalized.includes('max_token')
-        || normalized.includes('token_limit')
-        || normalized.includes('length_limit')
-        || normalized.includes('output_limit');
-}
-
 function assertNotTokenLimitedResponse(cfg, json, options = {}) {
     const reason = collectFinishReasons(json).find(isTokenLimitFinishReason);
     if (!reason) return;
 
     const maxTokens = Math.max(1, Number(options.maxTokens || cfg.maxTokens || 8192) || 8192);
-    throw new Error(`${cfg.title} provider stopped because it hit the response token limit (${reason}; max ${maxTokens}). Increase ${cfg.title} Max Tokens, reduce source messages/chunk size, or use a model/provider with a larger output limit.`);
+    throw createLoreResponseError(LORE_RESPONSE_ERROR_CODES.TOKEN_LIMIT, `${cfg.title} provider stopped because it hit the response token limit (${reason}; max ${maxTokens}). Increase ${cfg.title} Max Tokens, reduce source messages/chunk size, or use a model/provider with a larger output limit.`, {
+        providerTitle: cfg.title,
+        finishReason: reason,
+        maxTokens,
+    });
 }
 
 function makeFinalOnlyRetryPrompts(systemPrompt, userPrompt, options = {}) {
@@ -842,9 +729,16 @@ async function sendViaOpenAICompatible(cfg, systemPrompt, userPrompt, options = 
                 content = extractChatCompletionText(retry.json);
                 if (content && content.trim()) return content;
             }
-            throw new Error(`${cfg.title} OpenAI-compatible endpoint returned reasoning-only output with empty message.content. Retried with final-only visible-output instructions but still received no visible content. Use a non-thinking model, raise max tokens, or lower the model's reasoning effort. Reasoning preview: ${reasoning.slice(0, 300)}`);
+            throw createLoreResponseError(LORE_RESPONSE_ERROR_CODES.REASONING_ONLY, `${cfg.title} OpenAI-compatible endpoint returned reasoning-only output with empty message.content. Retried with final-only visible-output instructions but still received no visible content. Use a non-thinking model, raise max tokens, or lower the model's reasoning effort. Reasoning preview: ${reasoning.slice(0, 300)}`, {
+                providerTitle: cfg.title,
+                reasoningPreview: reasoning.slice(0, 300),
+                retried: true,
+            });
         }
-        throw new Error(`${cfg.title} OpenAI-compatible endpoint returned empty content. Raw response: ${attempt.text.slice(0, 300)}`);
+        throw createLoreResponseError(LORE_RESPONSE_ERROR_CODES.EMPTY_CONTENT, `${cfg.title} OpenAI-compatible endpoint returned empty content. Raw response: ${attempt.text.slice(0, 300)}`, {
+            providerTitle: cfg.title,
+            rawResponsePreview: attempt.text.slice(0, 300),
+        });
     }
     return content;
 }
@@ -952,11 +846,17 @@ async function sendViaSillyTavernRaw(cfg, systemPrompt, userPrompt, options = {}
     }
 
     if (reasoningPreview) {
-        throw new Error(`${cfg.title} provider returned reasoning-only output with empty visible content. Retried with final-only visible-output instructions but still received no visible content. Increase max tokens, reduce reasoning effort, or use a non-thinking model. Reasoning preview: ${reasoningPreview.slice(0, 300)}`);
+        throw createLoreResponseError(LORE_RESPONSE_ERROR_CODES.REASONING_ONLY, `${cfg.title} provider returned reasoning-only output with empty visible content. Retried with final-only visible-output instructions but still received no visible content. Increase max tokens, reduce reasoning effort, or use a non-thinking model. Reasoning preview: ${reasoningPreview.slice(0, 300)}`, {
+            providerTitle: cfg.title,
+            reasoningPreview: reasoningPreview.slice(0, 300),
+            retried: true,
+        });
     }
 
     if (typeof ctx?.generateRaw === 'function' || typeof ctx?.generateQuietPrompt === 'function') {
-        return '';
+        throw createLoreResponseError(LORE_RESPONSE_ERROR_CODES.EMPTY_CONTENT, `${cfg.title} provider returned empty visible content.`, {
+            providerTitle: cfg.title,
+        });
     }
 
     throw new Error('No SillyTavern raw generation API available.');
@@ -1040,9 +940,15 @@ async function sendViaConnectionProfile(cfg, systemPrompt, userPrompt, options =
             });
             return content;
         }
-        throw new Error(`${cfg.title} connection profile returned reasoning-only output with empty visible content. Retried with final-only visible-output instructions but still received no visible content. Increase max tokens, reduce reasoning effort in the profile/preset, or use a non-thinking model. Reasoning preview: ${reasoning.slice(0, 300)}`);
+        throw createLoreResponseError(LORE_RESPONSE_ERROR_CODES.REASONING_ONLY, `${cfg.title} connection profile returned reasoning-only output with empty visible content. Retried with final-only visible-output instructions but still received no visible content. Increase max tokens, reduce reasoning effort in the profile/preset, or use a non-thinking model. Reasoning preview: ${reasoning.slice(0, 300)}`, {
+            providerTitle: cfg.title,
+            reasoningPreview: reasoning.slice(0, 300),
+            retried: true,
+        });
     }
-    return content;
+    throw createLoreResponseError(LORE_RESPONSE_ERROR_CODES.EMPTY_CONTENT, `${cfg.title} connection profile returned empty visible content.`, {
+        providerTitle: cfg.title,
+    });
 }
 
 export async function fetchLoreModels(kind = 'lore') {

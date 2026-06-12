@@ -11,6 +11,7 @@ import {
     hideFloatingTooltip,
     humanizeScopeKey,
     promptTextAction,
+    setChipTone,
     toast,
     wireOverlayBackdropClose,
 } from '../ui/runtime-ui-kit.js';
@@ -1098,15 +1099,16 @@ function wireLoredeckLibraryBlankSelectionClear(pane) {
 
 function createLoredeckLibraryHeaderMeta(stack = [], library = [], canonDb = null, health = null) {
     const stats = getLoredeckLibraryStackStats(stack, library, canonDb, health);
+    const selectedCount = getLoredeckLibraryBulkSelectedIds(library).length;
     const meta = document.createElement('div');
     meta.className = 'saga-loredeck-library-title-meta';
     return appendLoredeckStatusPills(meta, [
-        [`${library.length} decks available`, 'Total registered Loredecks available to this session.'],
-        [`${stats.activeCount} active`, 'Enabled Loredecks in the current session stack.'],
-        [`${stats.entryCount} active Lorecards`, 'Approximate active Lorecards available from enabled Loredecks.'],
-        [`${getLoredeckLibraryBulkSelectedIds(library).length} selected`, 'Loredecks selected for bulk Library actions such as export and stack changes.'],
-        [`${stats.errorCount} errors`, 'Current stack Deck Health error count.'],
-        [`${stats.warningCount} warnings`, 'Current stack Deck Health warning count.'],
+        [`${library.length} decks available`, 'Total registered Loredecks available to this session.', { kind: 'count' }],
+        [`${stats.activeCount} active`, 'Enabled Loredecks in the current session stack.', { tone: stats.activeCount ? 'success' : 'muted', kind: 'count' }],
+        [`${stats.entryCount} active Lorecards`, 'Approximate active Lorecards available from enabled Loredecks.', { kind: 'count' }],
+        [`${selectedCount} selected`, 'Loredecks selected for bulk Library actions such as export and stack changes.', { tone: selectedCount ? 'selected' : 'muted', kind: 'count' }],
+        [`${stats.errorCount} errors`, 'Current stack Deck Health error count.', { tone: stats.errorCount ? 'danger' : 'muted', kind: 'severity' }],
+        [`${stats.warningCount} warnings`, 'Current stack Deck Health warning count.', { tone: stats.warningCount ? 'warning' : 'muted', kind: 'severity' }],
     ]);
 }
 
@@ -1751,12 +1753,12 @@ function createLoredeckLibraryInlineFolderRow(folder = {}, options = {}) {
     }));
     const meta = document.createElement('div');
     meta.className = 'saga-loredeck-row-meta saga-loredeck-library-folder-meta';
-    meta.appendChild(createStatusPill(`${stats.deckCount || 0} deck${(stats.deckCount || 0) === 1 ? '' : 's'}`, 'Nested Loredecks in this folder.'));
-    if (stats.childFolderCount) meta.appendChild(createStatusPill(`${stats.childFolderCount} folder${stats.childFolderCount === 1 ? '' : 's'}`, 'Direct child folders.'));
-    if (searchState === 'match') meta.appendChild(createStatusPill('Folder match', 'This folder title or path matches the Library search.'));
-    else if (searchState === 'context') meta.appendChild(createStatusPill('Context', 'Shown to preserve the matching Loredeck hierarchy.'));
-    if (stats.errorCount) meta.appendChild(createStatusPill(`${stats.errorCount} error${stats.errorCount === 1 ? '' : 's'}`, 'Nested Deck Health errors.'));
-    else if (stats.warningCount) meta.appendChild(createStatusPill(`${stats.warningCount} warning${stats.warningCount === 1 ? '' : 's'}`, 'Nested Deck Health warnings.'));
+    meta.appendChild(createStatusPill(`${stats.deckCount || 0} deck${(stats.deckCount || 0) === 1 ? '' : 's'}`, 'Nested Loredecks in this folder.', { kind: 'count' }));
+    if (stats.childFolderCount) meta.appendChild(createStatusPill(`${stats.childFolderCount} folder${stats.childFolderCount === 1 ? '' : 's'}`, 'Direct child folders.', { kind: 'count' }));
+    if (searchState === 'match') meta.appendChild(createStatusPill('Folder match', 'This folder title or path matches the Library search.', { tone: 'selected', kind: 'status' }));
+    else if (searchState === 'context') meta.appendChild(createStatusPill('Context', 'Shown to preserve the matching Loredeck hierarchy.', { tone: 'info', kind: 'status' }));
+    if (stats.errorCount) meta.appendChild(createStatusPill(`${stats.errorCount} error${stats.errorCount === 1 ? '' : 's'}`, 'Nested Deck Health errors.', { tone: 'danger', kind: 'severity' }));
+    else if (stats.warningCount) meta.appendChild(createStatusPill(`${stats.warningCount} warning${stats.warningCount === 1 ? '' : 's'}`, 'Nested Deck Health warnings.', { tone: 'warning', kind: 'severity' }));
     top.appendChild(meta);
     main.appendChild(top);
     main.appendChild(createLoredeckLibraryFolderCoverStrip(options.coverPacks || [], Number(options.totalCoverableCount) || 0));
@@ -2151,10 +2153,10 @@ function createLoredeckActiveStackPane(stack = [], library = [], canonDb = null,
     head.appendChild(titleWrap);
     const stackMeta = document.createElement('div');
     stackMeta.className = 'saga-loredeck-row-meta';
-    stackMeta.appendChild(createStatusPill(`${stats.entryCount} Lorecards`, 'Approximate active Lorecards in the enabled stack.'));
-    if (stats.duplicateCount) stackMeta.appendChild(createStatusPill(`${stats.duplicateCount} suppressed`, 'Duplicate Loredeck load attempts suppressed by higher-priority stack items.'));
-    stackMeta.appendChild(createStatusPill(`${stats.warningCount} warnings`, 'Current stack warning count.'));
-    stackMeta.appendChild(createStatusPill(`${stats.errorCount} errors`, 'Current stack error count.'));
+    stackMeta.appendChild(createStatusPill(`${stats.entryCount} Lorecards`, 'Approximate active Lorecards in the enabled stack.', { kind: 'count' }));
+    if (stats.duplicateCount) stackMeta.appendChild(createStatusPill(`${stats.duplicateCount} suppressed`, 'Duplicate Loredeck load attempts suppressed by higher-priority stack items.', { tone: 'muted', kind: 'count' }));
+    stackMeta.appendChild(createStatusPill(`${stats.warningCount} warnings`, 'Current stack warning count.', { tone: stats.warningCount ? 'warning' : 'muted', kind: 'severity' }));
+    stackMeta.appendChild(createStatusPill(`${stats.errorCount} errors`, 'Current stack error count.', { tone: stats.errorCount ? 'danger' : 'muted', kind: 'severity' }));
     head.appendChild(stackMeta);
     pane.appendChild(head);
 
@@ -2264,11 +2266,11 @@ function createLoredeckLibraryDeckCard(pack, stack = [], canonDb = null, health 
     main.appendChild(desc);
     const chips = document.createElement('div');
     chips.className = 'saga-loredeck-row-meta';
-    chips.appendChild(createStatusPill(getLoredeckLibraryPackTypeLabel(pack), 'Loredeck source type.'));
-    if (pack.fandom) chips.appendChild(createStatusPill(pack.fandom, 'Fandom or setting.'));
-    if (pack.era) chips.appendChild(createStatusPill(pack.era, 'Era, arc, continuity slice, or scope.'));
-    if (healthTone !== 'ok') chips.appendChild(createStatusPill(healthInfo.status.label, healthInfo.status.summary));
-    if (activeItem) chips.appendChild(createStatusPill(activeItem.enabled ? 'In Stack' : 'Disabled', 'Current session stack state.'));
+    chips.appendChild(createStatusPill(getLoredeckLibraryPackTypeLabel(pack), 'Loredeck source type.', { tone: 'source', kind: 'source' }));
+    if (pack.fandom) chips.appendChild(createStatusPill(pack.fandom, 'Fandom or setting.', { tone: 'source', kind: 'metadata' }));
+    if (pack.era) chips.appendChild(createStatusPill(pack.era, 'Era, arc, continuity slice, or scope.', { tone: 'info', kind: 'metadata' }));
+    if (healthTone !== 'ok') chips.appendChild(createStatusPill(healthInfo.status.label, healthInfo.status.summary, { tone: healthTone === 'error' ? 'danger' : 'warning', kind: 'severity' }));
+    if (activeItem) chips.appendChild(createStatusPill(activeItem.enabled ? 'In Stack' : 'Disabled', 'Current session stack state.', { tone: activeItem.enabled ? 'success' : 'muted', kind: 'status' }));
     main.appendChild(chips);
     const statsLine = document.createElement('div');
     statsLine.className = 'saga-loredeck-library-card-stats';
@@ -2349,10 +2351,11 @@ function createLoredeckActiveStackCard(pack, item, index, stackLength, canonDb =
         isSuppressed ? 'Suppressed' : (item.enabled ? 'Active' : 'Disabled'),
         isSuppressed
             ? 'This Loredeck is already loaded by a higher-priority stack item.'
-            : (item.enabled ? 'This Loredeck participates in retrieval.' : 'Disabled Loredecks remain in the stack but do not participate in retrieval.')
+            : (item.enabled ? 'This Loredeck participates in retrieval.' : 'Disabled Loredecks remain in the stack but do not participate in retrieval.'),
+        { tone: isSuppressed || !item.enabled ? 'muted' : 'success', kind: 'status' }
     ));
-    chips.appendChild(createStatusPill(`Priority ${index + 1}`, 'Top decks have higher priority.'));
-    if (keptSourceLabel) chips.appendChild(createStatusPill(`Kept: ${keptSourceLabel}`, 'Higher-priority stack source that currently loads this Loredeck.'));
+    chips.appendChild(createStatusPill(`Priority ${index + 1}`, 'Top decks have higher priority.', { kind: 'count' }));
+    if (keptSourceLabel) chips.appendChild(createStatusPill(`Kept: ${keptSourceLabel}`, 'Higher-priority stack source that currently loads this Loredeck.', { tone: 'warning', kind: 'source', maxChars: 38 }));
     main.appendChild(chips);
     const statsLine = document.createElement('div');
     statsLine.className = 'saga-loredeck-library-card-stats';
@@ -2455,12 +2458,12 @@ function createLoredeckActiveStackFolderCard(item, index, stackLength, library =
     }));
     const chips = document.createElement('div');
     chips.className = 'saga-loredeck-row-meta';
-    chips.appendChild(createStatusPill(item.enabled ? 'Active Folder' : 'Disabled Folder', 'Folder groups load the Loredecks nested inside this Library folder.'));
-    chips.appendChild(createStatusPill(`Priority ${index + 1}`, 'Top stack items have higher priority.'));
-    chips.appendChild(createStatusPill(`${stats.activeCount}/${stats.deckCount} active`, 'Active Loredecks from this folder after stack duplicate suppression.'));
-    if (stats.suppressedCount) chips.appendChild(createStatusPill(`${stats.suppressedCount} suppressed`, 'Loredecks already loaded by a higher-priority stack item.'));
-    if (stats.errorCount) chips.appendChild(createStatusPill(`${stats.errorCount} errors`, 'Contained Loredecks with Deck Health errors.'));
-    else if (stats.warningCount) chips.appendChild(createStatusPill(`${stats.warningCount} warnings`, 'Contained Loredecks with Deck Health warnings.'));
+    chips.appendChild(createStatusPill(item.enabled ? 'Active Folder' : 'Disabled Folder', 'Folder groups load the Loredecks nested inside this Library folder.', { tone: item.enabled ? 'success' : 'muted', kind: 'status' }));
+    chips.appendChild(createStatusPill(`Priority ${index + 1}`, 'Top stack items have higher priority.', { kind: 'count' }));
+    chips.appendChild(createStatusPill(`${stats.activeCount}/${stats.deckCount} active`, 'Active Loredecks from this folder after stack duplicate suppression.', { tone: stats.activeCount ? 'success' : 'muted', kind: 'count' }));
+    if (stats.suppressedCount) chips.appendChild(createStatusPill(`${stats.suppressedCount} suppressed`, 'Loredecks already loaded by a higher-priority stack item.', { tone: 'muted', kind: 'count' }));
+    if (stats.errorCount) chips.appendChild(createStatusPill(`${stats.errorCount} errors`, 'Contained Loredecks with Deck Health errors.', { tone: 'danger', kind: 'severity' }));
+    else if (stats.warningCount) chips.appendChild(createStatusPill(`${stats.warningCount} warnings`, 'Contained Loredecks with Deck Health warnings.', { tone: 'warning', kind: 'severity' }));
     main.appendChild(chips);
     const statsLine = document.createElement('div');
     statsLine.className = 'saga-loredeck-library-card-stats';
@@ -2644,10 +2647,11 @@ function createLoredeckStackFolderPreviewFolderRow(folder = {}, depth = 0, libra
     label.className = 'saga-loredeck-library-stack-folder-preview-title';
     label.textContent = folder.title || folder.id || 'Folder';
     row.appendChild(label);
-    const chip = document.createElement('span');
-    chip.className = 'saga-loredeck-library-stack-folder-preview-chip';
     const count = getLoredeckLibraryFolderDeckIds(folder.id, libraryIndex, { includeNested: true }).length;
-    chip.textContent = `${count} deck${count === 1 ? '' : 's'}`;
+    const chip = createStatusPill(`${count} deck${count === 1 ? '' : 's'}`, 'Folder Loredeck count.', {
+        kind: 'count',
+        className: 'saga-loredeck-library-stack-folder-preview-chip',
+    });
     row.appendChild(chip);
     return row;
 }
@@ -2677,28 +2681,38 @@ function createLoredeckStackFolderPreviewDeckRow(summary = {}, depth = 0, librar
     title.textContent = pack.title || pack.packId || 'Loredeck';
     row.appendChild(title);
 
-    const status = document.createElement('span');
-    status.className = `saga-loredeck-library-stack-folder-preview-chip saga-loredeck-library-stack-folder-preview-chip-${stackStatus}`;
-    status.textContent = stackStatus === 'suppressed'
+    const statusLabel = stackStatus === 'suppressed'
         ? 'Suppressed'
         : stackStatus === 'disabled'
             ? 'Disabled'
             : stackStatus === 'active'
                 ? 'Active'
                 : 'Inactive';
+    const statusTone = stackStatus === 'active'
+        ? 'success'
+        : (stackStatus === 'suppressed' || stackStatus === 'disabled' ? 'muted' : 'neutral');
+    const status = createStatusPill(statusLabel, 'Active stack status for this Loredeck.', {
+        tone: statusTone,
+        kind: 'status',
+        className: 'saga-loredeck-library-stack-folder-preview-chip',
+    });
     row.appendChild(status);
 
     if (keptSourceLabel) {
-        const kept = document.createElement('span');
-        kept.className = 'saga-loredeck-library-stack-folder-preview-chip saga-loredeck-library-stack-folder-preview-chip-kept';
-        kept.textContent = `Kept: ${keptSourceLabel}`;
-        addTooltip(kept, `This duplicate is suppressed because ${keptSourceLabel} appears earlier in the active stack.`);
+        const kept = createStatusPill(`Kept: ${keptSourceLabel}`, `This duplicate is suppressed because ${keptSourceLabel} appears earlier in the active stack.`, {
+            tone: 'warning',
+            kind: 'source',
+            className: 'saga-loredeck-library-stack-folder-preview-chip',
+            maxChars: 34,
+        });
         row.appendChild(kept);
     }
 
-    const health = document.createElement('span');
-    health.className = `saga-loredeck-library-stack-folder-preview-chip saga-loredeck-library-stack-folder-preview-health-chip saga-loredeck-library-stack-folder-preview-health-chip-${healthTone}`;
-    health.textContent = healthTone === 'error' ? 'Error' : healthTone === 'warning' ? 'Warn' : 'OK';
+    const health = createStatusPill(healthTone === 'error' ? 'Error' : healthTone === 'warning' ? 'Warn' : 'OK', 'Deck Health status for this Loredeck.', {
+        tone: healthTone === 'error' ? 'danger' : (healthTone === 'warning' ? 'warning' : 'success'),
+        kind: 'severity',
+        className: 'saga-loredeck-library-stack-folder-preview-chip',
+    });
     row.appendChild(health);
     return row;
 }
@@ -2769,9 +2783,7 @@ function updateLoredeckLibraryDragFeedback(state = {}) {
     const label = ensureLoredeckLibraryDragCopyLabel(state.ghost);
     if (label) {
         label.textContent = state.dropActionText || (state.dropValid ? 'Drop to apply' : 'Not a valid drop target');
-        label.classList.toggle('saga-loredeck-library-drag-copy-invalid', !state.dropValid);
-        label.classList.toggle('saga-loredeck-library-drag-copy-root', !!feedback.root);
-        label.classList.toggle('saga-loredeck-library-drag-copy-remove', !!feedback.remove);
+        setChipTone(label, (!state.dropValid || feedback.remove) ? 'danger' : (feedback.root ? 'warning' : 'success'));
     }
 }
 
@@ -2779,8 +2791,12 @@ function ensureLoredeckLibraryDragCopyLabel(ghost = null) {
     if (!ghost) return null;
     let label = ghost.querySelector?.('.saga-loredeck-library-drag-copy');
     if (!label) {
-        label = document.createElement('div');
-        label.className = 'saga-loredeck-library-drag-copy';
+        label = createStatusPill('', 'Current Loredeck drag action.', {
+            tone: 'success',
+            kind: 'status',
+            density: 'standard',
+            className: 'saga-loredeck-library-drag-copy',
+        });
         ghost.appendChild(label);
     }
     return label;
@@ -3373,10 +3389,10 @@ function createLoredeckLibraryDetailsPanel(pack = null, stack = [], canonDb = nu
     }));
     const chips = document.createElement('div');
     chips.className = 'saga-loredeck-row-meta';
-    chips.appendChild(createStatusPill(getLoredeckLibraryPackTypeLabel(pack), 'Loredeck source type.'));
-    chips.appendChild(createStatusPill(`${stats.entryCount} Lorecards`, 'Approximate Lorecard count.'));
-    chips.appendChild(createStatusPill(healthInfo.status.label, healthInfo.status.summary));
-    if (stackItem) chips.appendChild(createStatusPill(stackItem.enabled ? `Priority ${stack.findIndex(item => item.packId === pack.packId) + 1}` : 'Stacked disabled', 'Current active stack state.'));
+    chips.appendChild(createStatusPill(getLoredeckLibraryPackTypeLabel(pack), 'Loredeck source type.', { tone: 'source', kind: 'source' }));
+    chips.appendChild(createStatusPill(`${stats.entryCount} Lorecards`, 'Approximate Lorecard count.', { kind: 'count' }));
+    chips.appendChild(createStatusPill(healthInfo.status.label, healthInfo.status.summary, { tone: healthInfo.tone === 'error' ? 'danger' : (healthInfo.tone === 'warning' ? 'warning' : 'success'), kind: 'severity' }));
+    if (stackItem) chips.appendChild(createStatusPill(stackItem.enabled ? `Priority ${stack.findIndex(item => item.packId === pack.packId) + 1}` : 'Stacked disabled', 'Current active stack state.', { tone: stackItem.enabled ? 'selected' : 'muted', kind: stackItem.enabled ? 'count' : 'status' }));
     main.appendChild(chips);
     const desc = document.createElement('div');
     desc.className = 'saga-loredeck-library-detail-description';
@@ -3457,12 +3473,12 @@ function createLoredeckLibraryFolderDetailsPanel(folder = {}, stack = [], canonD
     }));
     const chips = document.createElement('div');
     chips.className = 'saga-loredeck-row-meta';
-    chips.appendChild(createStatusPill(`${childFolders.length} sub-folder${childFolders.length === 1 ? '' : 's'}`, 'Direct child folders in this folder.'));
-    chips.appendChild(createStatusPill(`${packs.length} Loredeck${packs.length === 1 ? '' : 's'}`, 'Loredecks contained in this folder, including nested folders.'));
-    chips.appendChild(createStatusPill(`${totalEntries} Lorecards`, 'Total Lorecards across contained Loredecks.'));
-    if (errorCount) chips.appendChild(createStatusPill(`${errorCount} health error${errorCount === 1 ? '' : 's'}`, 'Contained Loredecks with Deck Health errors.'));
-    else if (warningCount) chips.appendChild(createStatusPill(`${warningCount} warning${warningCount === 1 ? '' : 's'}`, 'Contained Loredecks with Deck Health warnings.'));
-    else chips.appendChild(createStatusPill('Health clear', 'No visible Deck Health warnings or errors in this folder.'));
+    chips.appendChild(createStatusPill(`${childFolders.length} sub-folder${childFolders.length === 1 ? '' : 's'}`, 'Direct child folders in this folder.', { kind: 'count' }));
+    chips.appendChild(createStatusPill(`${packs.length} Loredeck${packs.length === 1 ? '' : 's'}`, 'Loredecks contained in this folder, including nested folders.', { kind: 'count' }));
+    chips.appendChild(createStatusPill(`${totalEntries} Lorecards`, 'Total Lorecards across contained Loredecks.', { kind: 'count' }));
+    if (errorCount) chips.appendChild(createStatusPill(`${errorCount} health error${errorCount === 1 ? '' : 's'}`, 'Contained Loredecks with Deck Health errors.', { tone: 'danger', kind: 'severity' }));
+    else if (warningCount) chips.appendChild(createStatusPill(`${warningCount} warning${warningCount === 1 ? '' : 's'}`, 'Contained Loredecks with Deck Health warnings.', { tone: 'warning', kind: 'severity' }));
+    else chips.appendChild(createStatusPill('Health clear', 'No visible Deck Health warnings or errors in this folder.', { tone: 'success', kind: 'severity' }));
     main.appendChild(chips);
     const desc = document.createElement('div');
     desc.className = 'saga-loredeck-library-detail-description';
@@ -3555,11 +3571,12 @@ function createLoredeckLibraryFolderActionBar(folder = {}, libraryIndex = {}, se
 }
 
 function createLoredeckLibraryDetailKicker(label = '', tooltip = '') {
-    const kicker = document.createElement('div');
-    kicker.className = 'saga-loredeck-library-detail-kicker';
-    kicker.textContent = label;
-    if (tooltip) addTooltip(kicker, tooltip);
-    return kicker;
+    return createStatusPill(label, tooltip, {
+        tone: 'selected',
+        kind: 'status',
+        density: 'compact',
+        className: 'saga-loredeck-library-detail-kicker',
+    });
 }
 
 function createLoredeckLibraryFolderLoredeckRow(summary = {}, maxEntries = 1) {
@@ -3590,22 +3607,24 @@ function createLoredeckLibraryFolderLoredeckRow(summary = {}, maxEntries = 1) {
     meter.appendChild(fill);
     row.appendChild(meter);
 
-    const entries = document.createElement('span');
-    entries.className = 'saga-loredeck-library-folder-loredeck-entry-count';
-    entries.textContent = String(entryCount);
-    addTooltip(entries, `${entryCount} Lorecards.`);
+    const entries = createStatusPill(String(entryCount), `${entryCount} Lorecards.`, {
+        kind: 'count',
+        className: 'saga-loredeck-library-folder-loredeck-entry-count',
+    });
     row.appendChild(entries);
 
-    const health = document.createElement('span');
-    health.className = `saga-loredeck-library-folder-loredeck-health saga-loredeck-library-folder-loredeck-health-${tone || 'unknown'}`;
-    health.textContent = tone === 'error'
+    const healthLabel = tone === 'error'
         ? `${healthInfo?.errorCount || 0}E`
         : tone === 'warning'
             ? `${healthInfo?.warningCount || 0}W`
             : tone === 'suggestion'
                 ? `${healthInfo?.suggestionCount || 0}S`
                 : 'OK';
-    addTooltip(health, healthInfo?.status?.summary || healthInfo?.status?.label || 'Deck Health status.');
+    const health = createStatusPill(healthLabel, healthInfo?.status?.summary || healthInfo?.status?.label || 'Deck Health status.', {
+        tone: tone === 'error' ? 'danger' : (tone === 'warning' || tone === 'suggestion' ? 'warning' : 'success'),
+        kind: 'severity',
+        className: 'saga-loredeck-library-folder-loredeck-health',
+    });
     row.appendChild(health);
     return row;
 }
@@ -3682,7 +3701,7 @@ function createLoredeckLibraryHealthDetail(pack, healthInfo) {
         detail.className = 'saga-runtime-help';
         detail.textContent = groups[0].summary || groups[0].fixShort || 'Open Health Center for grouped findings and repair actions.';
         issue.appendChild(detail);
-        issue.appendChild(createStatusPill(groups[0].affectedLabel || `${groups[0].rawCount || 1} finding${(groups[0].rawCount || 1) === 1 ? '' : 's'}`, 'Grouped Deck Health finding count.'));
+        issue.appendChild(createStatusPill(groups[0].affectedLabel || `${groups[0].rawCount || 1} finding${(groups[0].rawCount || 1) === 1 ? '' : 's'}`, 'Grouped Deck Health finding count.', { tone: groups[0].severity === 'error' ? 'danger' : (groups[0].severity === 'warning' ? 'warning' : 'info'), kind: 'severity' }));
         top.appendChild(issue);
         wrap.appendChild(top);
     } else {
@@ -3878,18 +3897,19 @@ function createLoredeckMetadataEditorCard(pack) {
     main.appendChild(title);
     const chips = document.createElement('div');
     chips.className = 'saga-loredeck-row-meta';
-    chips.appendChild(createStatusPill(getLoredeckLibraryPackTypeLabel(pack), 'Loredeck source type.'));
+    chips.appendChild(createStatusPill(getLoredeckLibraryPackTypeLabel(pack), 'Loredeck source type.', { tone: 'source', kind: 'source' }));
     if (virtualDuplicate) {
         chips.appendChild(createStatusPill(
             pack.type === 'generated' ? 'Generated Draft' : 'Virtual Copy',
             pack.type === 'generated'
                 ? 'Generated Loredeck draft with embedded manifest metadata and no source entry files yet.'
-                : 'Custom duplicate that uses embedded manifest metadata and resolves files from its source manifest.'
+                : 'Custom duplicate that uses embedded manifest metadata and resolves files from its source manifest.',
+            { tone: pack.type === 'generated' ? 'source' : 'info', kind: 'source' }
         ));
     }
-    chips.appendChild(createStatusPill(`${entryCount} Lorecards`, 'Lorecard count from loaded Deck Health or registered metadata.'));
-    chips.appendChild(createStatusPill(healthInfo.status?.label || 'Not scanned', 'Deck Health is advisory and does not block use.'));
-    for (const tag of (pack.tags || []).slice(0, 6)) chips.appendChild(createStatusPill(tag, 'Loredeck tag.'));
+    chips.appendChild(createStatusPill(`${entryCount} Lorecards`, 'Lorecard count from loaded Deck Health or registered metadata.', { kind: 'count' }));
+    chips.appendChild(createStatusPill(healthInfo.status?.label || 'Not scanned', 'Deck Health is advisory and does not block use.', { tone: healthInfo.tone === 'error' ? 'danger' : (healthInfo.tone === 'warning' ? 'warning' : (healthInfo.tone === 'ok' ? 'success' : 'muted')), kind: 'severity' }));
+    for (const tag of (pack.tags || []).slice(0, 6)) chips.appendChild(createStatusPill(tag, 'Loredeck tag.', { tone: 'tag', kind: 'tag', maxChars: 28 }));
     main.appendChild(chips);
     heading.appendChild(main);
     card.appendChild(heading);

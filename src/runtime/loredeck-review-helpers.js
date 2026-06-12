@@ -133,12 +133,13 @@ export function getLoredeckPendingRisk(change = {}) {
 
 export function createLoredeckPendingRiskPill(risk = '') {
     const normalized = String(risk || '').trim();
-    const pill = createStatusPill(`Risk: ${humanizeScopeKey(normalized)}`, 'Estimated proposal risk. Higher-risk proposals need closer manual review before acceptance.');
     const classKey = /high/i.test(normalized)
         ? 'high'
         : (/medium|moderate|med/i.test(normalized) ? 'medium' : (/low|minor|minimal/i.test(normalized) ? 'low' : 'unknown'));
-    pill.classList.add(`saga-status-pill-risk-${classKey}`);
-    return pill;
+    const tone = classKey === 'high'
+        ? 'danger'
+        : (classKey === 'medium' ? 'warning' : (classKey === 'low' ? 'success' : 'muted'));
+    return createStatusPill(`Risk: ${humanizeScopeKey(normalized)}`, 'Estimated proposal risk. Higher-risk proposals need closer manual review before acceptance.', { tone, kind: 'severity' });
 }
 
 function normalizeLoredeckPendingRubricLevel(value = '') {
@@ -179,9 +180,10 @@ function getLoredeckPendingRubricNotes(change = {}) {
 function createLoredeckPendingQualityPill(label, level, tooltip) {
     const normalized = normalizeLoredeckPendingRubricLevel(level);
     if (!normalized) return null;
-    const pill = createStatusPill(`${label}: ${humanizeScopeKey(normalized)}`, tooltip);
-    pill.classList.add(`saga-status-pill-quality-${normalized}`);
-    return pill;
+    const tone = normalized === 'high'
+        ? 'success'
+        : (normalized === 'medium' ? 'warning' : (normalized === 'low' ? 'danger' : 'muted'));
+    return createStatusPill(`${label}: ${humanizeScopeKey(normalized)}`, tooltip, { tone, kind: 'metadata' });
 }
 
 export function appendLoredeckPendingQualityPills(meta, change = {}) {
@@ -196,9 +198,7 @@ export function appendLoredeckPendingQualityPills(meta, change = {}) {
     if (wikiRisk) meta.appendChild(wikiRisk);
     const warnings = getLoredeckPendingQualityWarnings(change);
     if (warnings.length) {
-        const pill = createStatusPill(`${warnings.length} quality flag${warnings.length === 1 ? '' : 's'}`, warnings.join(' | '));
-        pill.classList.add('saga-status-pill-quality-flag');
-        meta.appendChild(pill);
+        meta.appendChild(createStatusPill(`${warnings.length} quality flag${warnings.length === 1 ? '' : 's'}`, warnings.join(' | '), { tone: 'warning', kind: 'severity' }));
     }
 }
 
@@ -224,15 +224,11 @@ export function createLoredeckPendingQualityList(change = {}) {
 }
 
 export function createLoredeckPendingHealthImpactPill() {
-    const pill = createStatusPill('Health impact', 'Accepting this proposal changes entries, tags, or timeline data and will mark Deck Health stale until validation reruns.');
-    pill.classList.add('saga-status-pill-health-impact');
-    return pill;
+    return createStatusPill('Health impact', 'Accepting this proposal changes entries, tags, or timeline data and will mark Deck Health stale until validation reruns.', { tone: 'warning', kind: 'severity' });
 }
 
 export function createLoredeckPendingHealthStalePill() {
-    const pill = createStatusPill('Health stale', 'Deck Health was computed before the latest accepted Loredeck edits. Rerun validation.');
-    pill.classList.add('saga-status-pill-health-stale');
-    return pill;
+    return createStatusPill('Health stale', 'Deck Health was computed before the latest accepted Loredeck edits. Rerun validation.', { tone: 'warning', kind: 'severity' });
 }
 
 export function isLoredeckHealthStatusStale(pack = {}) {

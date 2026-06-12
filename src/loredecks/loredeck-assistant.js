@@ -3,6 +3,13 @@
  * Prompt and response helpers for Loredeck Assistant proposal drafting.
  */
 
+import { extractLoreResponseText } from '../providers/lore-response-normalizer.js';
+
+export const extractLoredeckAssistantResponseText = extractLoreResponseText;
+export const LOREDECK_ASSISTANT_RESPONSE_CODES = Object.freeze({
+    JSON_TRUNCATED_SALVAGED: 'json_truncated_salvaged',
+});
+
 const ASSISTANT_SUPPORTED_ACTIONS = Object.freeze(new Set([
     'upsert_entry',
     'disable_entry',
@@ -304,7 +311,7 @@ function looksLikeTruncatedJson(text = '') {
 }
 
 function parseAssistantJson(text = '') {
-    const cleaned = sanitizeJsonish(stripJsonFences(removeReasoningBlocks(text)));
+    const cleaned = sanitizeJsonish(stripJsonFences(removeReasoningBlocks(extractLoredeckAssistantResponseText(text))));
     const candidates = [
         cleaned,
         findBalancedJson(cleaned, '{', '}'),
@@ -406,7 +413,7 @@ function extractCompleteObjectsFromJsonArray(text = '', key = '') {
 }
 
 function extractPartialCreatorTitleResponse(text = '') {
-    const cleaned = sanitizeJsonish(stripJsonFences(removeReasoningBlocks(text)));
+    const cleaned = sanitizeJsonish(stripJsonFences(removeReasoningBlocks(extractLoredeckAssistantResponseText(text))));
     const rows = extractCompleteObjectsFromJsonArray(cleaned, 'titleDrafts')
         .concat(extractCompleteObjectsFromJsonArray(cleaned, 'titles'))
         .concat(extractCompleteObjectsFromJsonArray(cleaned, 'entries'));
@@ -425,7 +432,7 @@ function extractPartialCreatorTitleResponse(text = '') {
 }
 
 function extractPartialAssistantResponse(text = '') {
-    const cleaned = sanitizeJsonish(stripJsonFences(removeReasoningBlocks(text)));
+    const cleaned = sanitizeJsonish(stripJsonFences(removeReasoningBlocks(extractLoredeckAssistantResponseText(text))));
     const proposalRows = extractCompleteObjectsFromJsonArray(cleaned, 'proposals')
         .concat(extractCompleteObjectsFromJsonArray(cleaned, 'changes'));
     if (!proposalRows.length) return null;
@@ -498,13 +505,16 @@ export function parseLoredeckAssistantResponse(text = '') {
     const parsed = parsedJson ? coerceAssistantShape(parsedJson) : { proposals: [] };
     const raw = isPlainObject(parsedJson) ? parsedJson : {};
     const directHasProposalObjects = (parsed.proposals || []).some(row => isPlainObject(row));
-    const proposalRows = partial?.proposals?.length && !directHasProposalObjects
+    const usedSalvagedRows = partial?.proposals?.length && !directHasProposalObjects;
+    const proposalRows = usedSalvagedRows
         ? partial.proposals
         : (parsed.proposals || []);
     const proposals = [];
     const warnings = cleanStringArray(partial?.warnings?.length ? partial.warnings : raw.warnings, 12, 300);
-    if (partial?.salvaged && !directHasProposalObjects) {
+    const warningCodes = [];
+    if (usedSalvagedRows) {
         warnings.push('Assistant response was truncated; Saga salvaged complete proposals before the cutoff.');
+        warningCodes.push(LOREDECK_ASSISTANT_RESPONSE_CODES.JSON_TRUNCATED_SALVAGED);
     }
     for (const [index, raw] of proposalRows.entries()) {
         const proposal = normalizeAssistantProposal(raw, index);
@@ -519,6 +529,7 @@ export function parseLoredeckAssistantResponse(text = '') {
         clarifyingQuestions: cleanStringArray(partial?.clarifyingQuestions?.length ? partial.clarifyingQuestions : parsed.clarifyingQuestions, 8, 300),
         proposals,
         warnings,
+        warningCodes,
     };
 }
 
@@ -734,13 +745,16 @@ export function parseLoredeckCreatorTitleResponse(text = '') {
                 ? raw.titles
                 : (Array.isArray(raw.entries) ? raw.entries : [])));
     const directHasTitleObjects = directTitleRows.some(row => isPlainObject(row));
-    const titleRows = partial?.titleRows?.length && !directHasTitleObjects
+    const usedSalvagedRows = partial?.titleRows?.length && !directHasTitleObjects;
+    const titleRows = usedSalvagedRows
         ? partial.titleRows
         : directTitleRows;
     const titleDrafts = [];
     const warnings = cleanStringArray(partial?.warnings?.length ? partial.warnings : raw.warnings, 12, 300);
-    if (partial?.salvaged) {
+    const warningCodes = [];
+    if (usedSalvagedRows) {
         warnings.push('Title response was truncated; Saga salvaged complete title drafts before the cutoff.');
+        warningCodes.push(LOREDECK_ASSISTANT_RESPONSE_CODES.JSON_TRUNCATED_SALVAGED);
     }
     const seenIds = new Set();
     for (const [index, row] of titleRows.entries()) {
@@ -761,6 +775,7 @@ export function parseLoredeckCreatorTitleResponse(text = '') {
         summary: cleanString(partial?.summary || raw.summary || parsed.summary, 1000),
         clarifyingQuestions: cleanStringArray(partial?.clarifyingQuestions?.length ? partial.clarifyingQuestions : (raw.clarifyingQuestions || raw.questions || parsed.clarifyingQuestions), 8, 300),
         warnings,
+        warningCodes,
         titleDrafts,
         batch: {
             label: cleanString(batch.label || batch.name, 160),

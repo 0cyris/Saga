@@ -306,6 +306,56 @@ function checkpointCreatorUnit(jobId, currentStage = 'titles_drafting', statuses
 }
 
 {
+  const jobId = seedJob('creator_phase_11_failure_diagnostic');
+  const runId = 'run_planning_failed_diagnostic';
+  const unitId = 'creator_context_tag_plan:arlong';
+
+  const updated = updateLoredeckCreatorGenerationUnit(jobId, unitId, {
+    runId,
+    stage: 'context_tag_planning',
+    status: 'failed',
+    label: 'Context plan: Arlong Park',
+    error: 'Valid JSON returned no Context or Tag planning proposals.',
+    diagnostic: {
+      kind: 'loredeck_creator_generation_failure',
+      stage: 'context_tag_planning',
+      unitId,
+      unitLabel: 'Context plan: Arlong Park',
+      providerKind: 'lore',
+      resultType: 'object',
+      finishReason: 'length',
+      parsePhase: 'validation',
+      errorCode: 'creator_planning_no_proposals',
+      errorName: 'GenerationNoUsableResultError',
+      errorMessage: 'Valid JSON returned no Context or Tag planning proposals.',
+      visibleContentLength: 16,
+      reasoningLength: 0,
+      attempt: 1,
+      recordedAt: 1234,
+      repairAttempted: true,
+      sample: '{"proposals":[]}',
+      rawResult: { choices: [{ message: { content: 'must not persist' } }] },
+      providerHeaders: { Authorization: 'Bearer must-not-persist' },
+    },
+  }, {
+    syncPrompt: false,
+    currentStage: 'planning_drafting',
+    label: 'Context plan: Arlong Park',
+  });
+
+  assert.equal(updated.ok, true);
+  const unit = getStoredJob(jobId).generationUnits[unitId];
+  assert.equal(unit.status, 'failed');
+  assert.equal(unit.diagnostic.errorCode, 'creator_planning_no_proposals');
+  assert.equal(unit.diagnostic.finishReason, 'length');
+  assert.equal(unit.diagnostic.visibleContentLength, 16);
+  assert.equal(unit.diagnostic.parsePhase, 'validation');
+  assert.equal(unit.diagnostic.sample, '{"proposals":[]}');
+  assert.equal(unit.diagnostic.rawResult, undefined, 'Failed unit diagnostics must not persist raw provider responses.');
+  assert.equal(unit.diagnostic.providerHeaders, undefined, 'Failed unit diagnostics must not persist provider headers.');
+}
+
+{
   const jobId = seedJob('creator_phase_11_partial_success');
   const committed = [];
 

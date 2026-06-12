@@ -46,57 +46,107 @@
     opacity: 0.9;
 }
 
+.saga-chip,
 .saga-status-pill {
     display: inline-flex;
     align-items: center;
-    border: 1px solid rgba(180, 160, 140, 0.24);
-    border-radius: 999px;
-    background: rgba(180, 160, 140, 0.08);
-    padding: 1px 6px;
+    justify-content: center;
+    gap: var(--saga-chip-gap, 3px);
+    min-height: var(--saga-chip-line-height-compact, 16px);
+    border: 1px solid var(--saga-chip-neutral-border, rgba(180, 160, 140, 0.24));
+    border-radius: var(--saga-chip-radius, 6px);
+    background: var(--saga-chip-neutral-bg, rgba(180, 160, 140, 0.08));
+    color: var(--saga-chip-neutral-fg, #d8d0c0);
+    padding: var(--saga-chip-padding-compact, 0 5px);
+    font-size: var(--saga-chip-font-size-compact, 11px);
+    font-weight: 500;
+    line-height: var(--saga-chip-line-height-compact, 16px);
+    letter-spacing: 0;
+    box-sizing: border-box;
     white-space: nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    font-family: inherit;
 }
 
-.saga-status-pill-risk-low {
-    border-color: rgba(94, 178, 126, 0.42);
-    background: rgba(94, 178, 126, 0.12);
+.saga-chip-density-standard {
+    min-height: var(--saga-chip-line-height-standard, 18px);
+    padding: var(--saga-chip-padding-standard, 1px 6px);
+    font-size: var(--saga-chip-font-size-standard, 12px);
+    line-height: var(--saga-chip-line-height-standard, 18px);
 }
 
-.saga-status-pill-risk-medium,
-.saga-status-pill-health-impact,
-.saga-status-pill-health-stale {
-    border-color: rgba(226, 177, 98, 0.48);
-    background: rgba(226, 177, 98, 0.13);
+.saga-chip-density-touch {
+    min-height: 24px;
+    padding: 2px 8px;
+    font-size: var(--saga-chip-font-size-standard, 12px);
+    line-height: var(--saga-chip-line-height-standard, 18px);
+    border-radius: 8px;
 }
 
-.saga-status-pill-risk-high {
-    border-color: rgba(219, 105, 105, 0.52);
-    background: rgba(219, 105, 105, 0.13);
+.saga-chip-interactive {
+    cursor: pointer;
+    appearance: none;
+    font-family: inherit;
 }
 
-.saga-status-pill-risk-unknown {
-    border-color: rgba(159, 174, 194, 0.4);
-    background: rgba(159, 174, 194, 0.1);
+.saga-chip-tone-neutral {
+    border-color: var(--saga-chip-neutral-border, rgba(180, 160, 140, 0.24));
+    background: var(--saga-chip-neutral-bg, rgba(180, 160, 140, 0.08));
+    color: var(--saga-chip-neutral-fg, #d8d0c0);
 }
 
-.saga-status-pill-quality-high {
-    border-color: rgba(94, 178, 126, 0.42);
-    background: rgba(94, 178, 126, 0.11);
+.saga-chip-tone-source {
+    border-color: var(--saga-chip-source-border, rgba(112, 155, 214, 0.34));
+    background: var(--saga-chip-source-bg, rgba(74, 113, 170, 0.12));
+    color: var(--saga-chip-source-fg, #c5d6f2);
 }
 
-.saga-status-pill-quality-medium,
-.saga-status-pill-quality-flag {
-    border-color: rgba(226, 177, 98, 0.48);
-    background: rgba(226, 177, 98, 0.13);
+.saga-chip-tone-tag {
+    border-color: var(--saga-chip-source-border, rgba(112, 155, 214, 0.28));
+    background: var(--saga-chip-source-bg, rgba(74, 113, 170, 0.1));
+    color: var(--saga-chip-source-fg, #c5d6f2);
 }
 
-.saga-status-pill-quality-low {
-    border-color: rgba(219, 105, 105, 0.52);
-    background: rgba(219, 105, 105, 0.13);
+.saga-chip-tone-category,
+.saga-chip-tone-relevance,
+.saga-chip-tone-info {
+    border-color: var(--saga-chip-info-border, rgba(92, 161, 214, 0.38));
+    background: var(--saga-chip-info-bg, rgba(64, 124, 170, 0.13));
+    color: var(--saga-chip-info-fg, #bdddf5);
 }
 
-.saga-status-pill-quality-not_applicable {
-    border-color: rgba(159, 174, 194, 0.4);
-    background: rgba(159, 174, 194, 0.1);
+.saga-chip-tone-review,
+.saga-chip-tone-selected {
+    border-color: var(--saga-chip-review-border, rgba(157, 128, 214, 0.42));
+    background: var(--saga-chip-review-bg, rgba(120, 88, 180, 0.14));
+    color: var(--saga-chip-review-fg, #d8c8ff);
+}
+
+.saga-chip-tone-success {
+    border-color: var(--saga-chip-success-border, rgba(94, 178, 126, 0.42));
+    background: var(--saga-chip-success-bg, rgba(94, 178, 126, 0.12));
+    color: var(--saga-chip-success-fg, #bfe8ca);
+}
+
+.saga-chip-tone-warning {
+    border-color: var(--saga-chip-warning-border, rgba(226, 177, 98, 0.48));
+    background: var(--saga-chip-warning-bg, rgba(226, 177, 98, 0.13));
+    color: var(--saga-chip-warning-fg, #efd49b);
+}
+
+.saga-chip-tone-danger {
+    border-color: var(--saga-chip-danger-border, rgba(219, 105, 105, 0.52));
+    background: var(--saga-chip-danger-bg, rgba(219, 105, 105, 0.14));
+    color: var(--saga-chip-danger-fg, #f0b4b4);
+}
+
+.saga-chip-tone-muted {
+    border-color: var(--saga-chip-muted-border, rgba(159, 174, 194, 0.3));
+    background: var(--saga-chip-muted-bg, rgba(159, 174, 194, 0.08));
+    color: var(--saga-chip-muted-fg, #aeb7c5);
 }
 
 .saga-lore-panel-body {
@@ -363,53 +413,6 @@
 
 .saga-loredeck-row-meta .saga-status-pill {
     max-width: 100%;
-    white-space: nowrap;
-}
-
-.saga-runtime-tab-body-loredecks .saga-status-pill,
-.saga-runtime-tab-body-loredecks .saga-loredeck-row-meta .saga-status-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 3px;
-    min-height: 16px;
-    padding: 0 5px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 6px;
-    background: rgba(255, 255, 255, 0.08);
-    color: #d8d0c0;
-    font-size: 0.68em;
-    font-weight: 500;
-    line-height: 1.45;
-    letter-spacing: 0;
-    box-sizing: border-box;
-    white-space: nowrap;
-}
-
-.saga-runtime-tab-body-loredecks .saga-status-pill-risk-low,
-.saga-runtime-tab-body-loredecks .saga-status-pill-quality-high {
-    border-color: rgba(94, 178, 126, 0.42);
-    background: rgba(94, 178, 126, 0.12);
-}
-
-.saga-runtime-tab-body-loredecks .saga-status-pill-risk-medium,
-.saga-runtime-tab-body-loredecks .saga-status-pill-health-impact,
-.saga-runtime-tab-body-loredecks .saga-status-pill-health-stale,
-.saga-runtime-tab-body-loredecks .saga-status-pill-quality-medium,
-.saga-runtime-tab-body-loredecks .saga-status-pill-quality-flag {
-    border-color: rgba(226, 177, 98, 0.48);
-    background: rgba(226, 177, 98, 0.13);
-}
-
-.saga-runtime-tab-body-loredecks .saga-status-pill-risk-high,
-.saga-runtime-tab-body-loredecks .saga-status-pill-quality-low {
-    border-color: rgba(219, 105, 105, 0.52);
-    background: rgba(219, 105, 105, 0.13);
-}
-
-.saga-runtime-tab-body-loredecks .saga-status-pill-risk-unknown,
-.saga-runtime-tab-body-loredecks .saga-status-pill-quality-not_applicable {
-    border-color: rgba(159, 174, 194, 0.4);
-    background: rgba(159, 174, 194, 0.1);
 }
 
 .saga-loredeck-creator-launch-row {
@@ -598,37 +601,6 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    padding: 2px 6px;
-    border: 1px solid rgba(159, 174, 194, 0.24);
-    border-radius: 999px;
-    color: var(--saga-muted, rgba(241, 234, 216, 0.74));
-    background: rgba(10, 12, 16, 0.34);
-    font-size: 0.68em;
-    line-height: 1.25;
-}
-
-.saga-loredeck-creator-project-stage-review {
-    border-color: rgba(154, 145, 229, 0.38);
-    color: #d9d2ff;
-    background: rgba(95, 83, 180, 0.14);
-}
-
-.saga-loredeck-creator-project-stage-running {
-    border-color: rgba(226, 177, 98, 0.44);
-    color: #f2d08a;
-    background: rgba(226, 177, 98, 0.12);
-}
-
-.saga-loredeck-creator-project-stage-warning {
-    border-color: rgba(219, 105, 105, 0.5);
-    color: #ffb1a8;
-    background: rgba(105, 25, 31, 0.24);
-}
-
-.saga-loredeck-creator-project-stage-success {
-    border-color: rgba(125, 205, 117, 0.38);
-    color: #c2efa8;
-    background: rgba(61, 122, 53, 0.16);
 }
 
 .saga-loredeck-creator-project-subtitle {
@@ -1564,10 +1536,67 @@
     line-height: 1.3;
 }
 
-.saga-loredeck-creator-side-row strong,
-.saga-loredeck-creator-queue-row strong {
-    color: var(--saga-text, #f1ead8);
-    font-weight: 700;
+.saga-loredeck-creator-side-value,
+.saga-loredeck-creator-queue-value {
+    justify-self: end;
+}
+
+.saga-loredeck-creator-diagnostic {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 9px;
+    border-top: 1px solid rgba(180, 160, 140, 0.12);
+    padding-top: 9px;
+}
+
+.saga-loredeck-creator-diagnostic-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.saga-loredeck-creator-diagnostic-header strong {
+    color: var(--saga-gold, #d7b56d);
+    font-size: 0.76rem;
+    font-weight: 800;
+}
+
+.saga-loredeck-creator-diagnostic-copy {
+    min-height: 26px;
+    padding: 4px 8px;
+    font-size: 0.72rem;
+}
+
+.saga-loredeck-creator-diagnostic-row {
+    min-width: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 8px;
+    color: var(--saga-muted, rgba(241, 234, 216, 0.72));
+    font-size: 0.74rem;
+    line-height: 1.3;
+}
+
+.saga-loredeck-creator-diagnostic-value {
+    min-width: 0;
+    justify-self: stretch;
+}
+
+.saga-loredeck-creator-diagnostic-sample {
+    max-height: 5.8em;
+    overflow: auto;
+    border: 1px solid rgba(190, 80, 92, 0.24);
+    border-radius: 6px;
+    background: rgba(88, 24, 32, 0.16);
+    color: var(--saga-muted, rgba(241, 234, 216, 0.78));
+    font-family: var(--monoFontFamily, ui-monospace, SFMono-Regular, Consolas, monospace);
+    font-size: 0.72rem;
+    line-height: 1.35;
+    padding: 6px;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
 }
 
 .saga-loredeck-creator-check-list {
@@ -1655,10 +1684,13 @@
     white-space: nowrap;
 }
 
-.saga-loredeck-creator-generation-label strong,
-.saga-loredeck-creator-generation-toggle strong {
+.saga-loredeck-creator-generation-label strong {
     color: var(--saga-gold, #d7b56d);
     font-weight: 800;
+}
+
+.saga-loredeck-creator-generation-toggle-value {
+    justify-self: end;
 }
 
 .saga-loredeck-creator-generation-row input[type="range"] {
@@ -2200,11 +2232,6 @@
     align-items: center;
     flex-wrap: wrap;
     gap: 5px;
-}
-
-.saga-loredeck-library-title-meta .saga-status-pill {
-    font-size: 0.67em;
-    padding: 2px 7px;
 }
 
 .saga-loredeck-library-emblem {
@@ -3091,26 +3118,6 @@
     white-space: nowrap;
 }
 
-.saga-loredeck-library-deck-side {
-    position: absolute;
-    top: 7px;
-    right: 7px;
-    min-width: 24px;
-    max-width: 30px;
-    min-height: 22px;
-    display: inline-grid;
-    place-items: center;
-    border: 1px solid rgba(185, 139, 54, 0.2);
-    border-radius: 999px;
-    background: rgba(0, 0, 0, 0.24);
-    color: var(--saga-gold, #d7b56d);
-    font-size: 0.66em;
-    font-weight: 800;
-    line-height: 1;
-    text-align: center;
-    pointer-events: none;
-}
-
 .saga-loredeck-library-transfer-pane {
     min-width: 0;
     min-height: 0;
@@ -3360,22 +3367,23 @@
     max-width: calc(100% - 12px);
     display: inline-grid;
     place-items: center;
-    border: 1px solid rgba(245, 196, 91, 0.58);
-    border-radius: 999px;
-    background: rgba(30, 20, 10, 0.92);
-    color: var(--saga-gold, #d7b56d);
-    padding: 3px 8px;
-    font-size: 0.68em;
-    font-weight: 800;
-    line-height: 1;
+    border: 1px solid var(--saga-chip-warning-border, rgba(226, 177, 98, 0.48));
+    border-radius: var(--saga-chip-radius, 6px);
+    background: var(--saga-chip-warning-bg, rgba(226, 177, 98, 0.13));
+    color: var(--saga-chip-warning-fg, #efd49b);
+    min-height: var(--saga-chip-line-height-standard, 18px);
+    padding: var(--saga-chip-padding-standard, 1px 6px);
+    font-size: var(--saga-chip-font-size-standard, 12px);
+    font-weight: 700;
+    line-height: var(--saga-chip-line-height-standard, 18px);
     pointer-events: none;
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.28);
 }
 
 .saga-loredeck-library-deck-list.saga-loredeck-library-stack-remove-active::before {
-    border-color: rgba(219, 105, 105, 0.62);
-    background: rgba(42, 12, 18, 0.94);
-    color: #ffb3aa;
+    border-color: var(--saga-chip-danger-border, rgba(219, 105, 105, 0.52));
+    background: var(--saga-chip-danger-bg, rgba(219, 105, 105, 0.14));
+    color: var(--saga-chip-danger-fg, #f0b4b4);
 }
 
 .saga-loredeck-library-stack-ghost {
@@ -3402,14 +3410,6 @@
     bottom: -30px;
     max-width: calc(100% - 16px);
     display: block;
-    border: 1px solid rgba(119, 184, 93, 0.52);
-    border-radius: 999px;
-    background: rgba(8, 20, 14, 0.94);
-    color: #d9f0ca;
-    padding: 4px 8px;
-    font-size: 0.72em;
-    font-weight: 800;
-    line-height: 1;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -3418,24 +3418,6 @@
         background 150ms ease,
         border-color 150ms ease,
         color 150ms ease;
-}
-
-.saga-loredeck-library-drag-copy-invalid {
-    border-color: rgba(219, 105, 105, 0.62);
-    background: rgba(42, 12, 18, 0.95);
-    color: #ffb3aa;
-}
-
-.saga-loredeck-library-drag-copy-root {
-    border-color: rgba(245, 196, 91, 0.64);
-    background: rgba(35, 23, 10, 0.95);
-    color: var(--saga-gold, #d7b56d);
-}
-
-.saga-loredeck-library-drag-copy-remove {
-    border-color: rgba(219, 105, 105, 0.62);
-    background: rgba(42, 12, 18, 0.95);
-    color: #ffb3aa;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -3552,46 +3534,6 @@
 
 .saga-loredeck-library-stack-folder-preview-chip {
     min-width: 0;
-    display: inline-grid;
-    place-items: center;
-    border: 1px solid rgba(185, 139, 54, 0.18);
-    border-radius: 999px;
-    background: rgba(0, 0, 0, 0.18);
-    color: var(--saga-muted, rgba(241, 234, 216, 0.72));
-    padding: 2px 5px;
-    font-size: 0.62em;
-    font-weight: 800;
-    line-height: 1;
-    white-space: nowrap;
-}
-
-.saga-loredeck-library-stack-folder-preview-chip-active,
-.saga-loredeck-library-stack-folder-preview-health-chip-ok {
-    color: #bce4a7;
-    border-color: rgba(119, 184, 93, 0.42);
-}
-
-.saga-loredeck-library-stack-folder-preview-chip-suppressed,
-.saga-loredeck-library-stack-folder-preview-chip-disabled {
-    color: rgba(241, 234, 216, 0.66);
-}
-
-.saga-loredeck-library-stack-folder-preview-chip-kept {
-    max-width: 150px;
-    color: #ffd58a;
-    border-color: rgba(226, 177, 98, 0.42);
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.saga-loredeck-library-stack-folder-preview-health-chip-warning {
-    color: #ffd58a;
-    border-color: rgba(226, 177, 98, 0.48);
-}
-
-.saga-loredeck-library-stack-folder-preview-health-chip-error {
-    color: #ffb3aa;
-    border-color: rgba(219, 105, 105, 0.5);
 }
 
 .saga-loredeck-library-stack-toggle-button {
@@ -3864,19 +3806,6 @@
 .saga-loredeck-library-detail-kicker {
     width: fit-content;
     max-width: 100%;
-    border: 1px solid rgba(255, 207, 105, 0.28);
-    border-radius: 6px;
-    background: rgba(255, 207, 105, 0.1);
-    color: #ffe1a2;
-    padding: 1px 6px;
-    font-size: 0.66em;
-    font-weight: 800;
-    line-height: 1.45;
-    letter-spacing: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    box-sizing: border-box;
 }
 
 .saga-loredeck-library-detail-content {
@@ -4042,34 +3971,10 @@
 .saga-loredeck-library-folder-loredeck-health {
     justify-self: end;
     min-width: 0;
-    color: var(--saga-muted, rgba(241, 234, 216, 0.72));
-    font-size: 0.72em;
-    font-weight: 800;
-    line-height: 1;
 }
 
 .saga-loredeck-library-folder-loredeck-health {
     min-width: 30px;
-    display: inline-grid;
-    place-items: center;
-    border: 1px solid var(--saga-border-soft, rgba(185, 139, 54, 0.18));
-    border-radius: 999px;
-    padding: 3px 5px;
-}
-
-.saga-loredeck-library-folder-loredeck-health-error {
-    color: color-mix(in srgb, var(--saga-red, #ffb3aa) 45%, var(--saga-text, #f1ead8));
-    border-color: var(--saga-red-soft, rgba(219, 105, 105, 0.5));
-}
-
-.saga-loredeck-library-folder-loredeck-health-warning {
-    color: color-mix(in srgb, var(--saga-warning, #ffd58a) 68%, var(--saga-text, #f1ead8));
-    border-color: var(--saga-warning-soft, rgba(226, 177, 98, 0.5));
-}
-
-.saga-loredeck-library-folder-loredeck-health-ok {
-    color: color-mix(in srgb, var(--saga-green, #bce4a7) 46%, var(--saga-text, #f1ead8));
-    border-color: var(--saga-green-soft, rgba(119, 184, 93, 0.46));
 }
 
 .saga-loredeck-library-health-top-issue {
@@ -4102,21 +4007,7 @@
 }
 
 .saga-loredeck-library-overlay .saga-status-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 3px;
-    min-height: 16px;
-    padding: 0 5px;
-    border: 1px solid var(--saga-border-soft, rgba(255, 255, 255, 0.1));
-    border-radius: 6px;
-    background: var(--saga-chip-bg, rgba(255, 255, 255, 0.08));
-    color: var(--saga-chip-fg, #d8d0c0);
-    font-size: 0.68em;
-    font-weight: 500;
-    line-height: 1.45;
-    letter-spacing: 0;
-    box-sizing: border-box;
-    white-space: nowrap;
+    max-width: 100%;
 }
 
 @media (max-width: 980px) {
@@ -4604,70 +4495,7 @@
 
 .saga-loredeck-health-card .saga-status-pill,
 .saga-loredeck-health-center-overlay .saga-status-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 3px;
-    min-height: 14px;
     max-width: 100%;
-    padding: 0 4px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 6px;
-    background: rgba(255, 255, 255, 0.08);
-    color: #d8d0c0;
-    font-size: 0.64em;
-    font-weight: 500;
-    line-height: 1.25;
-    letter-spacing: 0;
-    white-space: nowrap;
-    box-sizing: border-box;
-}
-
-.saga-loredeck-health-chip-error {
-    color: #efa6a6 !important;
-    background: rgba(148, 56, 56, 0.2) !important;
-    border-color: rgba(218, 112, 112, 0.3) !important;
-}
-
-.saga-loredeck-health-chip-warning {
-    color: #f0d080 !important;
-    background: rgba(170, 120, 35, 0.22) !important;
-    border-color: rgba(235, 190, 92, 0.28) !important;
-}
-
-.saga-loredeck-health-chip-suggestion {
-    color: #bdd7ff !important;
-    background: rgba(62, 95, 155, 0.22) !important;
-    border-color: rgba(135, 165, 220, 0.26) !important;
-}
-
-.saga-loredeck-health-chip-affected {
-    color: #d8cfaa !important;
-    background: rgba(132, 116, 62, 0.2) !important;
-    border-color: rgba(198, 178, 108, 0.24) !important;
-}
-
-.saga-loredeck-health-chip-file {
-    color: #b8d8e8 !important;
-    background: rgba(55, 105, 135, 0.2) !important;
-    border-color: rgba(105, 155, 185, 0.24) !important;
-}
-
-.saga-loredeck-health-chip-fix {
-    color: #a8d8a8 !important;
-    background: rgba(70, 135, 70, 0.18) !important;
-    border-color: rgba(105, 175, 105, 0.24) !important;
-}
-
-.saga-loredeck-health-chip-state-ignored {
-    color: #c6bda8 !important;
-    background: rgba(112, 103, 85, 0.18) !important;
-    border-color: rgba(180, 160, 140, 0.22) !important;
-}
-
-.saga-loredeck-health-chip-state-resolved {
-    color: #a8d8a8 !important;
-    background: rgba(70, 135, 70, 0.18) !important;
-    border-color: rgba(105, 175, 105, 0.24) !important;
 }
 
 .saga-loredeck-health-group-title {

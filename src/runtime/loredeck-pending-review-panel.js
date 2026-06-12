@@ -57,15 +57,15 @@ export function createLoredeckPendingReviewCard(pack = {}) {
 
     const summary = document.createElement('div');
     summary.className = 'saga-loredeck-entry-summary';
-    summary.appendChild(createStatusPill(`${pending.length} pending`, 'Loredeck edit proposals waiting for acceptance.'));
+    summary.appendChild(createStatusPill(`${pending.length} pending`, 'Loredeck edit proposals waiting for acceptance.', { tone: pending.length ? 'review' : 'muted', kind: 'count' }));
     const affectedEntries = new Set(pending.flatMap(change => change.affectedEntryIds || []));
     const affectedTags = new Set(pending.flatMap(change => change.affectedTagIds || []));
     const affectedTimeline = new Set(pending.flatMap(change => change.affectedTimelineIds || []));
     const healthImpactCount = pending.filter(change => doesLoredeckPendingChangeAffectPackHealth(change)).length;
-    if (affectedEntries.size) summary.appendChild(createStatusPill(`${affectedEntries.size} Lorecard${affectedEntries.size === 1 ? '' : 's'}`, 'Lorecards affected by pending proposals.'));
-    if (affectedTags.size) summary.appendChild(createStatusPill(`${affectedTags.size} tag${affectedTags.size === 1 ? '' : 's'}`, 'Tags affected by pending proposals.'));
-    if (affectedTimeline.size) summary.appendChild(createStatusPill(`${affectedTimeline.size} timeline`, 'Timeline anchors/windows affected by pending proposals.'));
-    if (healthImpactCount) summary.appendChild(createStatusPill(`${healthImpactCount} health impact`, 'Pending proposals that will mark Deck Health stale when accepted because they change entries, tags, or timeline data.'));
+    if (affectedEntries.size) summary.appendChild(createStatusPill(`${affectedEntries.size} Lorecard${affectedEntries.size === 1 ? '' : 's'}`, 'Lorecards affected by pending proposals.', { kind: 'count' }));
+    if (affectedTags.size) summary.appendChild(createStatusPill(`${affectedTags.size} tag${affectedTags.size === 1 ? '' : 's'}`, 'Tags affected by pending proposals.', { tone: 'tag', kind: 'tag' }));
+    if (affectedTimeline.size) summary.appendChild(createStatusPill(`${affectedTimeline.size} timeline`, 'Timeline anchors/windows affected by pending proposals.', { tone: 'source', kind: 'count' }));
+    if (healthImpactCount) summary.appendChild(createStatusPill(`${healthImpactCount} health impact`, 'Pending proposals that will mark Deck Health stale when accepted because they change entries, tags, or timeline data.', { tone: 'warning', kind: 'severity' }));
     if (isLoredeckHealthStatusStale(pack)) {
         const stale = createLoredeckPendingHealthStalePill();
         if (stale) summary.appendChild(stale);
@@ -154,11 +154,11 @@ export function createLoredeckPendingChangeRow(pack = {}, change = {}) {
 
     const meta = document.createElement('div');
     meta.className = 'saga-loredeck-row-meta';
-    meta.appendChild(createStatusPill(`Action: ${formatLoredeckPendingActionLabel(change.action)}`, `Pending change action: ${change.action || 'record_patch'}.`));
-    meta.appendChild(createStatusPill(`Target: ${formatLoredeckPendingTargetKindLabel(change.targetKind)}`, `Pending change target kind: ${change.targetKind || 'loredeck'}.`));
-    if (change.source) meta.appendChild(createStatusPill(`Source: ${formatLoredeckPendingSourceLabel(change.source)}`, getLoredeckPendingSourceTooltip(change.source)));
+    meta.appendChild(createStatusPill(`Action: ${formatLoredeckPendingActionLabel(change.action)}`, `Pending change action: ${change.action || 'record_patch'}.`, { tone: 'source', kind: 'source', maxChars: 34 }));
+    meta.appendChild(createStatusPill(`Target: ${formatLoredeckPendingTargetKindLabel(change.targetKind)}`, `Pending change target kind: ${change.targetKind || 'loredeck'}.`, { tone: 'category', kind: 'metadata', maxChars: 34 }));
+    if (change.source) meta.appendChild(createStatusPill(`Source: ${formatLoredeckPendingSourceLabel(change.source)}`, getLoredeckPendingSourceTooltip(change.source), { tone: 'source', kind: 'source', maxChars: 34 }));
     const confidence = getLoredeckPendingConfidence(change);
-    if (confidence !== null) meta.appendChild(createStatusPill(`Confidence ${Math.round(confidence * 100)}%`, 'Model or tool confidence for this pending proposal. Review remains required before acceptance.'));
+    if (confidence !== null) meta.appendChild(createStatusPill(`Confidence ${Math.round(confidence * 100)}%`, 'Model or tool confidence for this pending proposal. Review remains required before acceptance.', { tone: confidence >= 0.8 ? 'success' : (confidence >= 0.55 ? 'info' : 'warning'), kind: 'metadata' }));
     const risk = getLoredeckPendingRisk(change);
     if (risk) {
         const pill = createLoredeckPendingRiskPill(risk);
@@ -169,10 +169,10 @@ export function createLoredeckPendingChangeRow(pack = {}, change = {}) {
         const pill = createLoredeckPendingHealthImpactPill();
         if (pill) meta.appendChild(pill);
     }
-    if (change.affectedEntryIds?.length) meta.appendChild(createStatusPill(`${change.affectedEntryIds.length} entr${change.affectedEntryIds.length === 1 ? 'y' : 'ies'}`, change.affectedEntryIds.slice(0, 10).join(', ')));
-    if (change.affectedTagIds?.length) meta.appendChild(createStatusPill(`${change.affectedTagIds.length} tag${change.affectedTagIds.length === 1 ? '' : 's'}`, change.affectedTagIds.slice(0, 10).join(', ')));
-    if (change.affectedTimelineIds?.length) meta.appendChild(createStatusPill(`${change.affectedTimelineIds.length} timeline`, change.affectedTimelineIds.slice(0, 10).join(', ')));
-    if (change.createdAt) meta.appendChild(createStatusPill(new Date(change.createdAt).toLocaleString(), 'Created at.'));
+    if (change.affectedEntryIds?.length) meta.appendChild(createStatusPill(`${change.affectedEntryIds.length} entr${change.affectedEntryIds.length === 1 ? 'y' : 'ies'}`, change.affectedEntryIds.slice(0, 10).join(', '), { kind: 'count' }));
+    if (change.affectedTagIds?.length) meta.appendChild(createStatusPill(`${change.affectedTagIds.length} tag${change.affectedTagIds.length === 1 ? '' : 's'}`, change.affectedTagIds.slice(0, 10).join(', '), { tone: 'tag', kind: 'tag' }));
+    if (change.affectedTimelineIds?.length) meta.appendChild(createStatusPill(`${change.affectedTimelineIds.length} timeline`, change.affectedTimelineIds.slice(0, 10).join(', '), { tone: 'source', kind: 'count' }));
+    if (change.createdAt) meta.appendChild(createStatusPill(new Date(change.createdAt).toLocaleString(), 'Created at.', { tone: 'source', kind: 'source', maxChars: 34 }));
     main.appendChild(meta);
     const diffs = createLoredeckPendingDiffList(pack, change);
     if (diffs) main.appendChild(diffs);

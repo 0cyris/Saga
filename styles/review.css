@@ -47,40 +47,6 @@
     font-size: 0.76em;
 }
 
-/* Final chip compaction: outer chip is ~20px shorter than the old oversized rows. */
-.saga-lore-meta-select-wrap {
-    height: 14px !important;
-    min-height: 14px !important;
-    padding: 0 2px 0 4px !important;
-    gap: 2px !important;
-    align-items: center !important;
-    max-width: 148px !important;
-    font-size: 0.58em !important;
-    line-height: 1 !important;
-}
-
-.saga-lore-meta-select-prefix {
-    height: 12px !important;
-    min-height: 12px !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    line-height: 1 !important;
-}
-
-.saga-lore-meta-select {
-    height: 12px !important;
-    min-height: 12px !important;
-    max-width: 92px !important;
-    line-height: 1 !important;
-    padding: 0 12px 0 3px !important;
-    font-size: 0.92em !important;
-    vertical-align: middle !important;
-}
-
-.saga-lore-meta-select-priority .saga-lore-meta-select {
-    max-width: 50px !important;
-}
-
 .saga-lore-entry-title-wrap,
 .saga-review-lore-title {
     margin-left: 12px !important;
@@ -98,33 +64,17 @@
 
 /* Lore lifecycle status control */
 .saga-lore-lifecycle-select-wrap {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    height: 20px;
-    min-height: 20px;
     max-width: 116px;
-    border-radius: 6px;
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    background: var(--saga-chip-bg, #166534);
-    color: var(--saga-chip-fg, #dcfce7);
     overflow: hidden;
     flex-shrink: 0;
 }
 
 .saga-lore-lifecycle-select {
-    height: 18px;
-    min-height: 18px;
     max-width: 112px;
     border: 0;
-    border-radius: 5px;
     background: transparent;
     color: inherit;
     font: inherit;
-    font-size: 0.68em;
-    font-weight: 700;
-    line-height: 1;
-    padding: 0 14px 0 4px;
     outline: none;
     cursor: pointer;
 }
@@ -532,8 +482,6 @@
 }
 
 .saga-canon-preview-selected-count {
-    font-size: 0.72em;
-    color: #c6d2dd;
     margin-right: 2px;
 }
 
@@ -1099,24 +1047,6 @@
     flex-wrap: wrap;
     gap: 4px;
     margin-top: 5px;
-}
-
-.saga-instructions-section-card .saga-status-pill {
-    min-height: 15px;
-    border-color: rgba(148, 158, 172, 0.22);
-    background: rgba(148, 158, 172, 0.11);
-    color: rgba(226, 231, 238, 0.76);
-    padding: 1px 5px;
-    font-size: 0.66em;
-    font-weight: 600;
-    line-height: 1;
-    letter-spacing: 0;
-}
-
-.saga-instructions-section-header .saga-status-pill {
-    min-height: 14px;
-    padding-inline: 4px;
-    font-size: 0.62em;
 }
 
 .saga-guide-step-button {

@@ -33,6 +33,8 @@ const gateScripts = [
   'tools/scripts/test-context-gating.mjs',
   'tools/scripts/test-canon-context-retrieval.mjs',
   'tools/scripts/test-retrieval-audit.mjs',
+  'tools/scripts/test-lore-response-normalizer.mjs',
+  'tools/scripts/test-generation-response-shapes.mjs',
   'tools/scripts/test-prompt-compression-contract.mjs',
   'tools/scripts/test-context-model-resolver.mjs',
   'tools/scripts/test-hp-reference-deck-conformance.mjs',

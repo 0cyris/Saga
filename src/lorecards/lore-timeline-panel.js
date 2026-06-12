@@ -6,6 +6,7 @@ import {
     addTooltip,
     confirmAction,
     createButton,
+    createChip,
     createCompactPresetStat,
     createEmptyMessage,
     createKeyValue,
@@ -86,7 +87,7 @@ export function createLoreTimelineCard(state) {
     addTooltip(title, basic ? 'Create manual lore and review suggested/generated entries below.' : 'Story-aware audit trail for accepted lore changes and recoverable lore versions.');
     top.appendChild(title);
     if (!basic) {
-        top.appendChild(createStatusPill(summary.eventCount ? `${summary.eventCount} events` : 'No events', 'Lore timeline event count for this chat.'));
+        top.appendChild(createStatusPill(summary.eventCount ? `${summary.eventCount} events` : 'No events', 'Lore timeline event count for this chat.', { tone: summary.eventCount ? 'source' : 'muted', kind: 'count' }));
     }
     card.appendChild(top);
 
@@ -295,23 +296,28 @@ function createLoreTimelineFilterBar(model, summary) {
     label.className = 'saga-continuity-filter-label';
     label.textContent = 'Lore Timeline Visualizer';
     heading.appendChild(label);
-    const status = document.createElement('div');
-    status.className = 'saga-continuity-status';
-    status.textContent = `${summary.eventCount || 0} lore nodes | +${summary.counts.added || 0} added | -${summary.counts.deleted || 0} deleted | ${summary.counts.updated || 0} updated`;
-    heading.appendChild(status);
+    heading.appendChild(createStatusPill(`${summary.eventCount || 0} lore nodes | +${summary.counts.added || 0} added | -${summary.counts.deleted || 0} deleted | ${summary.counts.updated || 0} updated`, 'Lore Timeline event summary for the current chat.', {
+        tone: summary.eventCount ? 'source' : 'muted',
+        kind: 'count',
+        density: 'compact',
+        className: 'saga-continuity-status',
+        maxChars: 72,
+    }));
     bar.appendChild(heading);
 
     const chips = document.createElement('div');
     chips.className = 'saga-continuity-filter-chips';
     for (const filter of LORE_TIMELINE_NODE_FILTERS) {
         const count = model.nodes.filter(node => node.type === filter.id).length;
-        const chip = document.createElement('button');
-        chip.type = 'button';
-        chip.className = 'saga-continuity-filter-chip';
-        if (isLoreTimelineFilterActive(filter.id)) chip.classList.add('saga-continuity-filter-chip-active');
-        chip.style.setProperty('--wl-chip-color', filter.color);
-        chip.textContent = `${filter.short} ${filter.label}${count ? ` ${count}` : ''}`;
-        addTooltip(chip, `Toggle ${filter.label} nodes in the timeline graph.`);
+        const chip = createChip({
+            label: `${filter.short} ${filter.label}${count ? ` ${count}` : ''}`,
+            tooltip: `Toggle ${filter.label} nodes in the timeline graph.`,
+            kind: 'tag',
+            tone: isLoreTimelineFilterActive(filter.id) ? 'selected' : 'muted',
+            density: 'touch',
+            interactive: true,
+            className: 'saga-continuity-filter-chip',
+        });
         chip.addEventListener('click', () => {
             if (isLoreTimelineFilterActive(filter.id)) loreTimelineActiveFilters.delete(filter.id);
             else loreTimelineActiveFilters.add(filter.id);
@@ -1168,10 +1174,14 @@ function createLoreTimelineEventRow(event, selected = false) {
     main.appendChild(meta);
     row.appendChild(main);
 
-    const counts = document.createElement('span');
-    counts.className = 'saga-lore-timeline-event-counts';
-    counts.textContent = formatTimelineCounts(event.counts);
-    row.appendChild(counts);
+    const countText = formatTimelineCounts(event.counts);
+    row.appendChild(createStatusPill(countText, 'Lore changes recorded in this timeline event.', {
+        tone: countText === 'no visible changes' ? 'muted' : 'source',
+        kind: 'count',
+        density: 'compact',
+        className: 'saga-lore-timeline-event-counts',
+        maxChars: 32,
+    }));
     return row;
 }
 
@@ -1204,16 +1214,26 @@ function createLoreTimelineEventDetail(event) {
     refTitle.textContent = refs.length ? `Affected entries (${refs.length})` : 'No entry references stored.';
     refBox.appendChild(refTitle);
     for (const ref of refs.slice(0, 24)) {
-        const chip = document.createElement('span');
-        chip.className = 'saga-lore-timeline-ref-chip';
-        chip.textContent = ref.title || ref.id;
-        addTooltip(chip, `${ref.category || 'lore'} | ${ref.relevance || 'normal'} | ${ref.canon || 'canon'}`);
+        const chip = createChip({
+            label: ref.title || ref.id,
+            tooltip: `${ref.category || 'lore'} | ${ref.relevance || 'normal'} | ${ref.canon || 'canon'}`,
+            kind: 'source',
+            tone: 'source',
+            density: 'compact',
+            className: 'saga-lore-timeline-ref-chip',
+            maxChars: 42,
+        });
         refBox.appendChild(chip);
     }
     if (refs.length > 24) {
-        const more = document.createElement('span');
-        more.className = 'saga-lore-timeline-ref-chip';
-        more.textContent = `+${refs.length - 24} more`;
+        const more = createChip({
+            label: `+${refs.length - 24} more`,
+            tooltip: 'Additional affected entries are hidden in this compact timeline view.',
+            kind: 'count',
+            tone: 'muted',
+            density: 'compact',
+            className: 'saga-lore-timeline-ref-chip',
+        });
         refBox.appendChild(more);
     }
     wrap.appendChild(refBox);
