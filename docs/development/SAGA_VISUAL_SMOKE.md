@@ -273,6 +273,7 @@ Use a desktop-width browser first, then repeat at a narrow/mobile-ish width.
 - Theme Pack surfaces render without clipped labels.
 - Installed Theme Packs scroll when there are many bundled presets.
 - Live Preview shows rail, card, buttons, inputs, status states, and focus ring.
+- Metadata Chips color controls are visible and remain visually quieter than primary actions.
 - Accessibility ratios are visible and advisory.
 - Icon Set preview shows loaded/missing icon state.
 - Color controls remain readable against the active theme.

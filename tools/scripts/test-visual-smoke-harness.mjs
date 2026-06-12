@@ -78,6 +78,7 @@ const creatorProjectsPath = sourcePath('loredecks', 'loredeck-creator-projects.j
 const stateManagerPath = sourcePath('state', 'state-manager.js');
 const loreCreatorStatePath = sourcePath('state', 'lore-creator-state.js');
 const loredeckLibraryStorePath = sourcePath('state', 'loredeck-library-store.js');
+const themeLibraryStorePath = sourcePath('state', 'theme-library-store.js');
 const constantsPath = sourcePath('state', 'constants.js');
 const defaultSettingsPath = sourcePath('state', 'default-settings.js');
 const defaultStatePath = sourcePath('state', 'default-state.js');
@@ -672,6 +673,7 @@ const runtimeTabRegistry = read(runtimeTabRegistryPath);
 const runtimeSettingControls = read(runtimeSettingControlsPath);
 const runtimeUiKit = read(runtimeUiKitPath);
 const themePanel = read(themePanelPath);
+const runtimeTheme = read(runtimeThemePath);
 const runtimePanelSource = [
     panel,
     runtimeActiveStackPanel,
@@ -730,7 +732,7 @@ const runtimePanelSource = [
     runtimeSettingsTab,
     themePanel,
     read(themeActionsPath),
-    read(runtimeThemePath),
+    runtimeTheme,
     runtimeUiKit,
     read(runtimeCollapsiblePath),
 ].join('\n');
@@ -742,6 +744,7 @@ const extractor = read(sourcePath('continuity', 'extractor.js'));
 const stateManager = read(stateManagerPath);
 const loreCreatorState = read(loreCreatorStatePath);
 const loredeckLibraryStore = read(loredeckLibraryStorePath);
+const themeLibraryStore = read(themeLibraryStorePath);
 const stateSource = [stateManager, loreCreatorState, loredeckLibraryStore].join('\n');
 const constants = read(constantsPath);
 const defaultSettings = read(defaultSettingsPath);
@@ -1020,6 +1023,12 @@ assert(!settingsTemplate.includes('Provider Settings'), 'Extension menu settings
 assert(!settingsTemplate.includes('API and model controls'), 'Extension menu settings must not expose legacy API/model controls.');
 assert(runtimePanelSource.includes('writeRuntimeThemeVars(document.documentElement'), 'Runtime themes must publish CSS tokens globally for fullscreen windows.');
 assert(runtimePanelSource.includes("'--saga-red-surface'"), 'Runtime themes must expose derived danger surface tokens.');
+assert(runtimeTheme.includes("['Chip Metadata', 'themeChipNeutralColor', 'chipNeutral']") && runtimeTheme.includes("['Chip Warning', 'themeChipWarningColor', 'chipWarning']"), 'Runtime themes must expose Theme Pack color fields for metadata chip tones.');
+assert(runtimeTheme.includes("target.style.setProperty('--saga-chip-neutral-bg', hexToRgba(colors.chipNeutral, 0.08))") && runtimeTheme.includes("target.style.setProperty('--saga-chip-warning-border', hexToRgba(colors.chipWarning, 0.32))"), 'Runtime themes must derive quiet chip fill/border CSS tokens from Theme Pack chip colors.');
+assert(runtimeTheme.includes("merged.chipSuccess = merged.chipSuccess || '#b9d8b8'") && runtimeTheme.includes("merged.chipDanger = merged.chipDanger || '#e1a0a0'"), 'Incomplete Theme Packs must fall back to readable chip foreground colors instead of dark status surfaces.');
+assert(defaultSettings.includes("themeChipNeutralColor: '#d8c6a3'") && defaultSettings.includes("themeChipWarningColor: '#e0c184'"), 'Default settings must include warm Saga Archive metadata chip color overrides.');
+assert(themePanel.includes("createThemeColorGroup('Metadata Chips'") && themePanel.includes("['Source / Tag', 'themeChipSourceColor', 'chipSource']"), 'Theme settings must expose a Metadata Chips color group.');
+assert(themeLibraryStore.includes("'chipNeutral'") && themeLibraryStore.includes("'chipDanger'"), 'Theme Pack import/export sanitization must preserve metadata chip color keys.');
 const workbenchThemeScope = style.match(/\.saga-lore-workbench-shell,\s*[\r\n]+\.saga-new-lore-shell\s*\{[\s\S]*?\}/)?.[0] || '';
 assert(!workbenchThemeScope.includes('--saga-bg:'), 'Fullscreen workbench shells must not redeclare default theme tokens locally.');
 assert(style.includes('var(--saga-red-surface'), 'Danger Zone and health danger surfaces must use runtime theme tokens.');
@@ -1737,6 +1746,7 @@ assert(/\.saga-loredeck-library-details\s*\{[\s\S]*?height:\s*100%;/.test(style)
 assert(/\.saga-loredeck-library-folder-detail-visual\s*\{[\s\S]*?align-self:\s*start;[\s\S]*?justify-self:\s*start;/.test(style), 'Folder detail cover previews must stay pinned to the top-left while details resize.');
 assert(style.includes('display: inline-grid !important;') && style.includes('grid-area: 1 / 1;'), 'Loredeck Library square icon actions must center their SVG artwork.');
 assert(style.includes('var(--saga-chip-neutral-bg') && style.includes('var(--saga-chip-source-fg') && style.includes('var(--saga-chip-review-bg'), 'Loredeck Library metadata/status pills must use semantic theme chip tokens.');
+assert(style.includes('--saga-chip-source-fg: #d6bd86') && style.includes('--saga-chip-review-fg: #d8b66d') && !style.includes('--saga-chip-source-fg: #c5d6f2') && !style.includes('--saga-chip-review-fg: #d8c8ff'), 'Static chip fallbacks must use warm Saga Archive colors instead of the old cool badge palette.');
 assert(style.includes('calc(var(--saga-grip-dot-rows, 6) * 7px)'), 'Loredeck Library drag handles must size dot grids without clipping short 2x2 or 2x3 handles.');
 
 console.log('Visual smoke harness contract passed.');

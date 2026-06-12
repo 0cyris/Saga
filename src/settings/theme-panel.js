@@ -412,6 +412,16 @@ export function createThemeColorOverridesPanel(settings = {}, activePreset, colo
         ['Danger', 'themeDangerColor', 'danger'],
         ['Focus Ring', 'themeFocusColor', 'focus'],
     ], options));
+    panel.appendChild(createThemeColorGroup('Metadata Chips', colors, [
+        ['Metadata', 'themeChipNeutralColor', 'chipNeutral'],
+        ['Source / Tag', 'themeChipSourceColor', 'chipSource'],
+        ['Info / Category', 'themeChipInfoColor', 'chipInfo'],
+        ['Review / Selected', 'themeChipReviewColor', 'chipReview'],
+        ['Success', 'themeChipSuccessColor', 'chipSuccess'],
+        ['Warning', 'themeChipWarningColor', 'chipWarning'],
+        ['Danger', 'themeChipDangerColor', 'chipDanger'],
+        ['Muted', 'themeChipMutedColor', 'chipMuted'],
+    ], options));
     panel.appendChild(createThemeColorGroup('Controls', colors, [
         ['Button', 'themeButtonColor', 'button'],
         ['Button Hover', 'themeButtonHoverColor', 'buttonHover'],

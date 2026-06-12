@@ -411,7 +411,7 @@ Purpose:
 
 Visual:
 
-- Cool accent border/text.
+- Theme-native subdued accent border/text, warm by default.
 - Low-saturation fill.
 
 Example use:
@@ -430,8 +430,9 @@ Purpose:
 
 Visual:
 
-- Purple or blue-violet accent, used sparingly.
+- Selected/review accent, usually warm gold or amber.
 - More visible than neutral, less urgent than warning.
+- Purple or blue-violet belongs here only when the active Theme Pack is explicitly cool or neon.
 
 Example use:
 
@@ -989,7 +990,20 @@ Suggested shared variables:
 }
 ```
 
-Tone variables should reuse existing theme colors where possible. Do not add broad theme clutter just to support chips.
+Tone variables are derived from eight Theme Pack metadata chip base colors. Theme Packs expose those base colors in the `Metadata Chips` color group, while runtime CSS derives fill, border, and foreground variables from them. Do not expose separate public knobs for every fill/border/foreground token.
+
+Theme Pack color fields:
+
+```js
+chipNeutral
+chipSource
+chipInfo
+chipReview
+chipSuccess
+chipWarning
+chipDanger
+chipMuted
+```
 
 Suggested tone variables:
 
@@ -1017,7 +1031,7 @@ Suggested tone variables:
 --saga-chip-muted-fg
 ```
 
-If this adds too many public theme controls, keep these as derived internal variables rather than user-facing theme settings.
+Default Saga Archive metadata chips should stay warm, low-saturation, and secondary to headings/actions. Other Theme Packs may shift the base colors, but the fill and border opacities should keep passive metadata quieter than buttons.
 
 ## Class Schema
 

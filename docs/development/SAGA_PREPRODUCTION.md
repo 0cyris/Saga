@@ -145,7 +145,15 @@ Themepacks should be pure data, like Loredecks. They should not contain executab
     "input": "#121218",
     "inputBorder": "#b98b36",
     "text": "#f1ead8",
-    "mutedText": "#cfc5ad"
+    "mutedText": "#cfc5ad",
+    "chipNeutral": "#d8c6a3",
+    "chipSource": "#d6bd86",
+    "chipInfo": "#caa76b",
+    "chipReview": "#d8b66d",
+    "chipSuccess": "#b9d8b8",
+    "chipWarning": "#e0c184",
+    "chipDanger": "#e1a0a0",
+    "chipMuted": "#b8ad98"
   },
   "tags": [
     "theme:dark",
@@ -187,6 +195,7 @@ Reasonable first-wave color tokens:
 - Borders: normal border and stronger selected/focus-adjacent border.
 - Controls: button, button hover, button text, input background, input border.
 - Status and accents: accent, danger, success, warning, focus.
+- Metadata chips: neutral, source, info, review, success, warning, danger, and muted base colors. Runtime CSS derives quiet fills and borders from these base colors.
 - Text: primary text and muted/help text.
 
 Icon mappings are keyed by UI target, such as `brand.compact`, `brand.expanded`, `tab.loredecks`, `tab.context`, or `tab.settings`. Values must be passive image paths, data image URLs, or fetchable image URLs. They do not grant code execution.

@@ -15,6 +15,11 @@ const BUNDLED_THEME_PACK_IDS = Object.freeze([
     'monster-index',
     'holo-rail',
     'midnight-evidence',
+    'radioactive-romance',
+    'velvet-autopsy',
+    'bubblegum-brutalist',
+    'blacksite-mint',
+    'fever-chapel',
 ]);
 
 const BUNDLED_THEME_ICON_SET_IDS = Object.freeze([
@@ -44,6 +49,14 @@ const THEME_COLOR_KEYS = Object.freeze([
     'inputBorder',
     'text',
     'mutedText',
+    'chipNeutral',
+    'chipSource',
+    'chipInfo',
+    'chipReview',
+    'chipSuccess',
+    'chipWarning',
+    'chipDanger',
+    'chipMuted',
 ]);
 
 function normalizeThemeHexColor(value) {

@@ -38,6 +38,14 @@ export const THEMEPACK_PRESETS = Object.freeze([
             inputBorder: '#b98b36',
             text: '#f1ead8',
             mutedText: '#cfc5ad',
+            chipNeutral: '#d8c6a3',
+            chipSource: '#d6bd86',
+            chipInfo: '#caa76b',
+            chipReview: '#d8b66d',
+            chipSuccess: '#b9d8b8',
+            chipWarning: '#e0c184',
+            chipDanger: '#e1a0a0',
+            chipMuted: '#b8ad98',
         },
         tags: ['theme:dark', 'style:archive', 'genre:general', 'genre:fantasy', 'quality:bundled'],
     },
@@ -69,6 +77,14 @@ export const THEMEPACK_PRESETS = Object.freeze([
             inputBorder: '#b89955',
             text: '#f7efd8',
             mutedText: '#d8c99f',
+            chipNeutral: '#d8c99f',
+            chipSource: '#d4bd84',
+            chipInfo: '#cbb26f',
+            chipReview: '#f0d58a',
+            chipSuccess: '#b2d8bf',
+            chipWarning: '#e2bd72',
+            chipDanger: '#d99aa7',
+            chipMuted: '#b8af95',
         },
         tags: ['theme:dark', 'style:royal', 'genre:high-fantasy', 'genre:politics', 'quality:bundled'],
     },
@@ -100,6 +116,14 @@ export const THEMEPACK_PRESETS = Object.freeze([
             inputBorder: '#7f6a32',
             text: '#f3ead4',
             mutedText: '#c5bda8',
+            chipNeutral: '#c5bda8',
+            chipSource: '#b9a868',
+            chipInfo: '#a99258',
+            chipReview: '#d0ad4f',
+            chipSuccess: '#a4c1a7',
+            chipWarning: '#d1a45d',
+            chipDanger: '#cc8d8d',
+            chipMuted: '#aaa28f',
         },
         tags: ['theme:dark', 'style:grimdark', 'style:occult', 'genre:dark-sci-fi', 'genre:gothic-horror', 'quality:bundled'],
     },
@@ -131,6 +155,14 @@ export const THEMEPACK_PRESETS = Object.freeze([
             inputBorder: '#4ea3c7',
             text: '#eef7ff',
             mutedText: '#bdd5e3',
+            chipNeutral: '#bdd5e3',
+            chipSource: '#9fc8d8',
+            chipInfo: '#caa76b',
+            chipReview: '#d6b76f',
+            chipSuccess: '#a5d0c5',
+            chipWarning: '#e0c184',
+            chipDanger: '#d49aa4',
+            chipMuted: '#9fb3bf',
         },
         tags: ['theme:dark', 'style:cartography', 'genre:sci-fi', 'genre:space-opera', 'quality:bundled'],
     },
@@ -162,6 +194,14 @@ export const THEMEPACK_PRESETS = Object.freeze([
             inputBorder: '#13d4d9',
             text: '#f7f3ff',
             mutedText: '#c9c2df',
+            chipNeutral: '#c9c2df',
+            chipSource: '#a7dbe0',
+            chipInfo: '#d6c36c',
+            chipReview: '#e0b16e',
+            chipSuccess: '#99d7c6',
+            chipWarning: '#f0d770',
+            chipDanger: '#e290ad',
+            chipMuted: '#b5acc8',
         },
         tags: ['theme:dark', 'style:neon', 'genre:anime', 'genre:cyberpunk', 'quality:bundled'],
     },
@@ -193,6 +233,14 @@ export const THEMEPACK_PRESETS = Object.freeze([
             inputBorder: '#f2c94c',
             text: '#fff8e8',
             mutedText: '#d9d4c4',
+            chipNeutral: '#d9d4c4',
+            chipSource: '#e2c86f',
+            chipInfo: '#d6b05e',
+            chipReview: '#f0d28a',
+            chipSuccess: '#b7d8b4',
+            chipWarning: '#f0c06b',
+            chipDanger: '#d99696',
+            chipMuted: '#c0b8a3',
         },
         tags: ['theme:dark', 'style:academy', 'genre:shonen', 'genre:superhero', 'quality:bundled'],
     },
@@ -224,6 +272,14 @@ export const THEMEPACK_PRESETS = Object.freeze([
             inputBorder: '#d8a857',
             text: '#f7efd8',
             mutedText: '#cfd8c3',
+            chipNeutral: '#d5c9a3',
+            chipSource: '#e0ba73',
+            chipInfo: '#d8a857',
+            chipReview: '#f3d48b',
+            chipSuccess: '#b8d5b8',
+            chipWarning: '#e0b976',
+            chipDanger: '#d39a8f',
+            chipMuted: '#b8c5b2',
         },
         tags: ['theme:dark', 'style:nautical', 'genre:adventure', 'genre:journey', 'quality:bundled'],
     },
@@ -255,6 +311,14 @@ export const THEMEPACK_PRESETS = Object.freeze([
             inputBorder: '#8fb06f',
             text: '#f6f0df',
             mutedText: '#d4d2b8',
+            chipNeutral: '#d4d2b8',
+            chipSource: '#c8d78f',
+            chipInfo: '#b6c47a',
+            chipReview: '#d2b36a',
+            chipSuccess: '#b9d6a6',
+            chipWarning: '#d7bb72',
+            chipDanger: '#ce9686',
+            chipMuted: '#b8b8a4',
         },
         tags: ['theme:dark', 'style:field-guide', 'genre:creatures', 'genre:monster-catalog', 'quality:bundled'],
     },
@@ -286,6 +350,14 @@ export const THEMEPACK_PRESETS = Object.freeze([
             inputBorder: '#7ddbd0',
             text: '#faf4ff',
             mutedText: '#d5cceb',
+            chipNeutral: '#d8cce2',
+            chipSource: '#b8d8d4',
+            chipInfo: '#d8c18a',
+            chipReview: '#e5c779',
+            chipSuccess: '#add1c5',
+            chipWarning: '#e0b879',
+            chipDanger: '#d49ab8',
+            chipMuted: '#b8b0c8',
         },
         tags: ['theme:dark', 'style:holographic', 'genre:anime', 'genre:space-fantasy', 'quality:bundled'],
     },
@@ -317,6 +389,14 @@ export const THEMEPACK_PRESETS = Object.freeze([
             inputBorder: '#8f6a3a',
             text: '#f1f1e6',
             mutedText: '#c7d0c2',
+            chipNeutral: '#c7d0c2',
+            chipSource: '#c6b17d',
+            chipInfo: '#b89058',
+            chipReview: '#e0b86b',
+            chipSuccess: '#b0d0b6',
+            chipWarning: '#d6a458',
+            chipDanger: '#c98f88',
+            chipMuted: '#aeb8aa',
         },
         tags: ['theme:dark', 'style:evidence', 'genre:mystery', 'genre:survival-horror', 'quality:bundled'],
     },
@@ -348,6 +428,14 @@ export const THEMEPACK_PRESETS = Object.freeze([
             inputBorder: '#a6ff3d',
             text: '#f6ffe8',
             mutedText: '#c4d7a6',
+            chipNeutral: '#c4d7a6',
+            chipSource: '#c7e474',
+            chipInfo: '#d0c86a',
+            chipReview: '#e6d071',
+            chipSuccess: '#acd89f',
+            chipWarning: '#f0ce69',
+            chipDanger: '#e280a0',
+            chipMuted: '#aebd96',
         },
         tags: ['theme:dark', 'style:toxic-glamour', 'genre:romance', 'genre:post-apocalyptic', 'quality:bundled'],
     },
@@ -379,6 +467,14 @@ export const THEMEPACK_PRESETS = Object.freeze([
             inputBorder: '#5ed6c2',
             text: '#f7efe2',
             mutedText: '#c8d6d0',
+            chipNeutral: '#c8d6d0',
+            chipSource: '#a9d6ce',
+            chipInfo: '#d9bd82',
+            chipReview: '#e2c790',
+            chipSuccess: '#a9d0bd',
+            chipWarning: '#e0bb72',
+            chipDanger: '#d68ea0',
+            chipMuted: '#abbab5',
         },
         tags: ['theme:dark', 'style:forensic-gothic', 'genre:horror', 'genre:medical-drama', 'quality:bundled'],
     },
@@ -410,6 +506,14 @@ export const THEMEPACK_PRESETS = Object.freeze([
             inputBorder: '#ff5c8a',
             text: '#fff7f8',
             mutedText: '#d4c5cc',
+            chipNeutral: '#d4c5cc',
+            chipSource: '#e0a0b8',
+            chipInfo: '#d8c36d',
+            chipReview: '#ffc1d7',
+            chipSuccess: '#acd8bb',
+            chipWarning: '#e6cf73',
+            chipDanger: '#e48aa4',
+            chipMuted: '#bdb0b6',
         },
         tags: ['theme:dark', 'style:brutalist-pop', 'genre:punk', 'genre:superhero', 'quality:bundled'],
     },
@@ -441,6 +545,14 @@ export const THEMEPACK_PRESETS = Object.freeze([
             inputBorder: '#217b68',
             text: '#eafff7',
             mutedText: '#b6cdc4',
+            chipNeutral: '#b6cdc4',
+            chipSource: '#9bcdbd',
+            chipInfo: '#c2b66a',
+            chipReview: '#d7b84a',
+            chipSuccess: '#9dd1b5',
+            chipWarning: '#d6c56f',
+            chipDanger: '#ce8e83',
+            chipMuted: '#95aaa2',
         },
         tags: ['theme:dark', 'style:blacksite', 'genre:spycraft', 'genre:techno-thriller', 'quality:bundled'],
     },
@@ -472,6 +584,14 @@ export const THEMEPACK_PRESETS = Object.freeze([
             inputBorder: '#b06a2c',
             text: '#fff1dc',
             mutedText: '#dac8b5',
+            chipNeutral: '#dac8b5',
+            chipSource: '#d6aa72',
+            chipInfo: '#ca8e54',
+            chipReview: '#ffd15f',
+            chipSuccess: '#b2d0a5',
+            chipWarning: '#e6b26b',
+            chipDanger: '#d78c99',
+            chipMuted: '#bca894',
         },
         tags: ['theme:dark', 'style:ritual', 'genre:occult', 'genre:gothic-drama', 'quality:bundled'],
     },
@@ -498,6 +618,14 @@ export const THEME_COLOR_FIELDS = Object.freeze([
     ['Input Border', 'themeInputBorderColor', 'inputBorder'],
     ['Text', 'themeTextColor', 'text'],
     ['Muted Text', 'themeMutedTextColor', 'mutedText'],
+    ['Chip Metadata', 'themeChipNeutralColor', 'chipNeutral'],
+    ['Chip Source', 'themeChipSourceColor', 'chipSource'],
+    ['Chip Info', 'themeChipInfoColor', 'chipInfo'],
+    ['Chip Review', 'themeChipReviewColor', 'chipReview'],
+    ['Chip Success', 'themeChipSuccessColor', 'chipSuccess'],
+    ['Chip Warning', 'themeChipWarningColor', 'chipWarning'],
+    ['Chip Danger', 'themeChipDangerColor', 'chipDanger'],
+    ['Chip Muted', 'themeChipMutedColor', 'chipMuted'],
 ]);
 
 export const TAB_ICON_PATHS = {
@@ -800,6 +928,14 @@ export function completeThemeColors(colors = {}) {
     merged.focus = merged.focus || merged.accent;
     merged.success = merged.success || '#1f4a38';
     merged.warning = merged.warning || merged.accent;
+    merged.chipNeutral = merged.chipNeutral || merged.mutedText || '#d8c6a3';
+    merged.chipSource = merged.chipSource || merged.accent || merged.chipNeutral;
+    merged.chipInfo = merged.chipInfo || merged.accent || merged.chipSource;
+    merged.chipReview = merged.chipReview || merged.borderStrong || merged.accent;
+    merged.chipSuccess = merged.chipSuccess || '#b9d8b8';
+    merged.chipWarning = merged.chipWarning || merged.warning || '#e0c184';
+    merged.chipDanger = merged.chipDanger || '#e1a0a0';
+    merged.chipMuted = merged.chipMuted || merged.mutedText || merged.chipNeutral;
 
     const output = {};
     for (const [, , colorKey] of THEME_COLOR_FIELDS) {
@@ -858,6 +994,30 @@ function writeRuntimeThemeVars(target, colors) {
     target.style.setProperty('--saga-text', colors.text);
     target.style.setProperty('--saga-muted', hexToRgba(colors.mutedText, 0.68));
     target.style.setProperty('--saga-text-muted', hexToRgba(colors.mutedText, 0.68));
+    target.style.setProperty('--saga-chip-neutral-bg', hexToRgba(colors.chipNeutral, 0.08));
+    target.style.setProperty('--saga-chip-neutral-border', hexToRgba(colors.chipNeutral, 0.22));
+    target.style.setProperty('--saga-chip-neutral-fg', colors.chipNeutral);
+    target.style.setProperty('--saga-chip-source-bg', hexToRgba(colors.chipSource, 0.08));
+    target.style.setProperty('--saga-chip-source-border', hexToRgba(colors.chipSource, 0.24));
+    target.style.setProperty('--saga-chip-source-fg', colors.chipSource);
+    target.style.setProperty('--saga-chip-info-bg', hexToRgba(colors.chipInfo, 0.09));
+    target.style.setProperty('--saga-chip-info-border', hexToRgba(colors.chipInfo, 0.26));
+    target.style.setProperty('--saga-chip-info-fg', colors.chipInfo);
+    target.style.setProperty('--saga-chip-review-bg', hexToRgba(colors.chipReview, 0.12));
+    target.style.setProperty('--saga-chip-review-border', hexToRgba(colors.chipReview, 0.32));
+    target.style.setProperty('--saga-chip-review-fg', colors.chipReview);
+    target.style.setProperty('--saga-chip-success-bg', hexToRgba(colors.chipSuccess, 0.11));
+    target.style.setProperty('--saga-chip-success-border', hexToRgba(colors.chipSuccess, 0.30));
+    target.style.setProperty('--saga-chip-success-fg', colors.chipSuccess);
+    target.style.setProperty('--saga-chip-warning-bg', hexToRgba(colors.chipWarning, 0.12));
+    target.style.setProperty('--saga-chip-warning-border', hexToRgba(colors.chipWarning, 0.32));
+    target.style.setProperty('--saga-chip-warning-fg', colors.chipWarning);
+    target.style.setProperty('--saga-chip-danger-bg', hexToRgba(colors.chipDanger, 0.12));
+    target.style.setProperty('--saga-chip-danger-border', hexToRgba(colors.chipDanger, 0.34));
+    target.style.setProperty('--saga-chip-danger-fg', colors.chipDanger);
+    target.style.setProperty('--saga-chip-muted-bg', hexToRgba(colors.chipMuted, 0.06));
+    target.style.setProperty('--saga-chip-muted-border', hexToRgba(colors.chipMuted, 0.18));
+    target.style.setProperty('--saga-chip-muted-fg', colors.chipMuted);
 }
 
 export function applyRuntimeTheme(root, settings = getSettings()) {
