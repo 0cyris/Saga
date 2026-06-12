@@ -286,7 +286,6 @@ export function normalizeLoredeckCreatorJob(value = {}, index = 0) {
         notes: normalizeLoredeckCreatorString(value.notes || intake.notes, 4000),
         summary: normalizeLoredeckCreatorString(value.summary, 1500),
         questions: normalizeLoredeckCreatorStringList(value.questions || value.clarifyingQuestions, 20, 400),
-        warnings: normalizeLoredeckCreatorStringList(value.warnings, 40, 400),
         approved: value.approved === true,
         outlineApproved: value.outlineApproved === true,
         createdAt: Number.isFinite(Number(value.createdAt)) ? Number(value.createdAt) : now,
@@ -356,7 +355,7 @@ export function normalizeLoredeckCreatorJob(value = {}, index = 0) {
         const text = normalizeLoredeckCreatorString(value[key], key.includes('Summary') ? 1500 : 200);
         if (text) job[key] = text;
     }
-    for (const key of ['outlineQuestions', 'outlineWarnings', 'titlePassQuestions', 'titlePassWarnings', 'planningQuestions', 'planningWarnings', 'entryDraftQuestions', 'entryDraftWarnings']) {
+    for (const key of ['outlineQuestions', 'titlePassQuestions', 'planningQuestions', 'entryDraftQuestions']) {
         const list = normalizeLoredeckCreatorStringList(value[key], 40, 400);
         if (list.length) job[key] = list;
     }

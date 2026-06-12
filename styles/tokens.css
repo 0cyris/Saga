@@ -166,6 +166,17 @@
     background: var(--saga-input, rgba(18, 18, 24, 0.76));
     border-color: var(--saga-input-border, rgba(185, 139, 54, 0.34));
     color: var(--saga-text, #f1ead8);
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: 0.82em;
+    line-height: 1.25;
+    padding: 4px 7px;
+}
+
+.saga-lore-panel textarea,
+.saga-lore-panel textarea.text_pole {
+    line-height: 1.35;
+    padding: 6px 7px;
 }
 
 .saga-danger-zone-card {

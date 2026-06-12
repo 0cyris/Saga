@@ -43,7 +43,7 @@ function enableSagaRuntime() {
 function getUsableLoredeckContextCount(state = getState()) {
     return getEnabledLoredeckStackPackIds(state).filter(packId => {
         const row = state?.loredeckContexts?.[packId] || getLoredeckContext(state, packId);
-        return hasUsableLoredeckContext(row);
+        return hasSelectedLoredeckContext(row);
     }).length;
 }
 

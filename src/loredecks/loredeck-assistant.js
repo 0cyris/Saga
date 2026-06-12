@@ -211,8 +211,6 @@ function normalizeAssistantRubric(raw = {}) {
     if (wikiRisk) rubric.wikiSummaryRisk = wikiRisk;
     const notes = cleanStringList(source.notes || source.rationale || raw.qualityNotes, 6, 220);
     if (notes.length) rubric.notes = notes;
-    const warnings = cleanStringList(source.warnings || raw.qualityWarnings, 6, 220);
-    if (warnings.length) rubric.warnings = warnings;
     return Object.keys(rubric).length ? rubric : null;
 }
 
@@ -576,7 +574,6 @@ function normalizeCreatorBrief(raw = {}) {
         titlePassPlan: cleanStringArray(source.titlePassPlan || source.entryTitlePassPlan || source.titlePlan, 8, 180),
         assumptions: cleanStringArray(source.assumptions, 5, 160),
         exclusions: cleanStringArray(source.exclusions || source.outOfScope, 5, 160),
-        risks: cleanStringArray(source.risks || source.openRisks, 5, 160),
         nextStage: cleanString(source.nextStage, 500),
     };
     return Object.values(brief).some(value => {
@@ -598,7 +595,6 @@ function compactCreatorBriefForPrompt(raw = {}) {
         coverageSummary: brief.coverageSummary || brief.coverage,
         creatorCoverage: compactCreatorCoverageForPrompt(brief.creatorCoverage),
         assumptions: brief.assumptions,
-        risks: brief.risks,
     };
 }
 
@@ -622,7 +618,6 @@ function normalizeCreatorTitleDraft(raw = {}, index = 0) {
         creatorTitleBatchLabel: cleanString(raw.creatorTitleBatchLabel || raw.batchLabel || raw.sourceBatchLabel, 180),
         coverageDimensionIds: cleanStringArray(raw.coverageDimensionIds || raw.coverageDimensions || raw.coverageIds, 12, 140),
         rubric: normalizeAssistantRubric(raw),
-        warnings: cleanStringArray(raw.warnings || raw.qualityWarnings, 8, 240),
     };
     return draft;
 }
@@ -643,7 +638,7 @@ export function parseLoredeckCreatorBriefResponse(text = '') {
         summary: cleanString(raw.summary || parsed.summary, 1000),
         clarifyingQuestions: cleanStringArray(raw.clarifyingQuestions || raw.questions || parsed.clarifyingQuestions, 8, 300),
         brief,
-        warnings: cleanStringArray(raw.warnings, 8, 300),
+        warnings: [],
     };
 }
 
@@ -708,7 +703,6 @@ function normalizeCreatorOutline(raw = {}) {
         contextMilestones,
         titleBatches,
         assumptions: cleanStringArray(source.assumptions, 5, 160),
-        risks: cleanStringArray(source.risks || source.openRisks, 5, 160),
     };
     return Object.values(outline).some(value => Array.isArray(value) ? value.length : !!value) ? outline : null;
 }
@@ -721,7 +715,7 @@ export function parseLoredeckCreatorOutlineResponse(text = '') {
         summary: cleanString(raw.summary || parsed.summary, 1000),
         clarifyingQuestions: cleanStringArray(raw.clarifyingQuestions || raw.questions || parsed.clarifyingQuestions, 8, 300),
         outline: normalizeCreatorOutline(raw),
-        warnings: cleanStringArray(raw.warnings, 8, 300),
+        warnings: [],
     };
 }
 
@@ -750,7 +744,7 @@ export function parseLoredeckCreatorTitleResponse(text = '') {
         ? partial.titleRows
         : directTitleRows;
     const titleDrafts = [];
-    const warnings = cleanStringArray(partial?.warnings?.length ? partial.warnings : raw.warnings, 12, 300);
+    const warnings = [];
     const warningCodes = [];
     if (usedSalvagedRows) {
         warnings.push('Title response was truncated; Saga salvaged complete title drafts before the cutoff.');
@@ -801,7 +795,7 @@ Creator principles:
 - Build an adaptive creatorCoverage plan with meaningful dimensions for this story shape; do not use a fixed entry-count threshold.
 - Mark sparse, toy-like, or low-lore content as intentionally_light or not_applicable instead of padding filler dimensions.
 - Prefer high-value roleplay/fanfic scene context over wiki completeness.
-- Flag assumptions and risks clearly.
+- State only practical scope assumptions that need user review.
 - If the request is too broad or ambiguous, ask 1-3 clarifying questions and leave brief null.
 - Do not generate Lorecards at intake.
 - Keep the whole JSON compact. Do not include lore entry titles, wiki facts, timeline plans, tag plans, title-pass plans, entry counts, or generation plans.
@@ -816,8 +810,6 @@ Field limits:
 - summary: 1 sentence.
 - coverageSummary: 1-2 sentences, under 60 words.
 - assumptions: at most 4 short items.
-- risks: at most 4 short items.
-- warnings: at most 4 short items.
 - creatorCoverage.dimensions: 3-10 meaningful dimensions unless the source genuinely has less lore.
 - creatorCoverage statuses: missing, thin, adequate, rich, not_applicable, intentionally_light.
 
@@ -825,7 +817,6 @@ Output shape:
 {
   "summary": "short summary",
   "clarifyingQuestions": [],
-  "warnings": [],
   "brief": {
     "title": "Arlong Park Arc",
     "packId": "one-piece-arlong-park",
@@ -853,8 +844,7 @@ Output shape:
         }
       ]
     },
-    "assumptions": ["Assumption to confirm."],
-    "risks": ["Known risk."]
+    "assumptions": ["Assumption to confirm."]
   }
 }`;
 }
@@ -912,7 +902,7 @@ Field limits:
 - beats: 4-12 items unless the scope is tiny.
 - contextMilestones: 4-16 items.
 - titleBatches: 2-8 items.
-- assumptions/risks: at most 4 short items each.
+- assumptions: at most 4 short items.
 - Each row summary/contextRole: one short sentence.
 - titleTargets: at most 4 short strings.
 - creatorCoverage.dimensions: keep meaningful dimensions only; do not invent filler for sparse content.
@@ -922,7 +912,6 @@ Output shape:
 {
   "summary": "short summary",
   "clarifyingQuestions": [],
-  "warnings": [],
   "outline": {
     "label": "Arlong Park Arc outline",
     "coverageSummary": "Reviewable story shape for the approved scope.",
@@ -978,8 +967,7 @@ Output shape:
         "coverageDimensionIds": ["character-pressure"]
       }
     ],
-    "assumptions": ["Assumption to confirm."],
-    "risks": ["Known risk."]
+    "assumptions": ["Assumption to confirm."]
   }
 }`;
 }
@@ -1039,7 +1027,6 @@ Output shape:
 {
   "summary": "short summary",
   "clarifyingQuestions": [],
-  "warnings": [],
   "batch": {
     "label": "Characters and pressure",
     "coverage": "What this title batch covers.",
@@ -1061,8 +1048,7 @@ Output shape:
         "sceneUtility": "high",
         "contextFit": "high",
         "wikiSummaryRisk": "low"
-      },
-      "warnings": []
+      }
     }
   ]
 }`;
@@ -1141,7 +1127,6 @@ Output shape:
 {
   "summary": "short summary",
   "clarifyingQuestions": [],
-  "warnings": [],
   "proposals": [
     {
       "action": "upsert_timeline_anchor",
@@ -1248,7 +1233,6 @@ Output shape:
 {
   "summary": "short summary",
   "clarifyingQuestions": [],
-  "warnings": [],
   "proposals": [
     {
       "action": "upsert_entry",

@@ -564,7 +564,6 @@ export function createLoredeckCreatorBriefReview(brief = {}, cached = {}) {
     wrap.appendChild(grid);
 
     appendLoredeckCreatorBriefList(wrap, 'Assumptions', brief.assumptions);
-    appendLoredeckCreatorBriefList(wrap, 'Risks', brief.risks);
     wrap.appendChild(createLoredeckCreatorBriefRevisionForm(brief, cached));
     return wrap;
 }
@@ -674,16 +673,14 @@ export function createLoredeckCreatorOutlineCard(brief = {}, cached = {}) {
         createLoredeckCreatorOutlineRows(wrap, 'Context Milestones', contextMilestones);
         createLoredeckCreatorOutlineRows(wrap, 'Title Batch Plan', titleBatches);
         appendLoredeckCreatorBriefList(wrap, 'Assumptions', outline.assumptions);
-        appendLoredeckCreatorBriefList(wrap, 'Risks', outline.risks);
     }
 
-    if (cached.outlineSummary || cached.outlineQuestions?.length || cached.outlineWarnings?.length) {
+    if (cached.outlineSummary || cached.outlineQuestions?.length) {
         const result = document.createElement('div');
         result.className = 'saga-runtime-help';
         const parts = [];
         if (cached.outlineSummary) parts.push(cached.outlineSummary);
         if (cached.outlineQuestions?.length) parts.push(`Questions: ${cached.outlineQuestions.join(' | ')}`);
-        if (cached.outlineWarnings?.length) parts.push(`Warnings: ${cached.outlineWarnings.join(' | ')}`);
         result.textContent = parts.join(' ');
         wrap.appendChild(result);
     }
@@ -738,9 +735,6 @@ export function normalizeLoredeckCreatorTitleDrafts(value = []) {
             creatorTitleBatchLabel: String(raw.creatorTitleBatchLabel || raw.batchLabel || raw.sourceBatchLabel || '').trim().slice(0, 180),
             coverageDimensionIds: normalizeLoredeckCreatorStringList(raw.coverageDimensionIds || raw.coverageDimensions || raw.coverageIds || [], 12),
             rubric: isPlainObjectValue(raw.rubric) ? raw.rubric : null,
-            warnings: Array.isArray(raw.warnings || raw.qualityWarnings)
-                ? (raw.warnings || raw.qualityWarnings).map(item => String(item || '').trim()).filter(Boolean).slice(0, 8)
-                : [],
         });
     }
     return drafts;
@@ -811,7 +805,7 @@ export function getLoredeckCreatorTitleBatchIdentity(batch = {}) {
 }
 
 export function countLoredeckCreatorTitleQualityWarnings(drafts = []) {
-    return drafts.reduce((total, draft) => total + (Array.isArray(draft.warnings) ? draft.warnings.length : 0), 0);
+    return 0;
 }
 
 function truncateLoredeckCreatorText(text = '', maxLength = 700) {
@@ -903,7 +897,6 @@ export function createLoredeckCreatorTitlePassCard(brief = {}, cached = {}) {
     const approvedIds = getLoredeckCreatorApprovedTitleIds(cached);
     const selectedCount = drafts.filter(draft => selectedIds.has(draft.titleId)).length;
     const selectedApprovedCount = drafts.filter(draft => selectedIds.has(draft.titleId) && approvedIds.has(draft.titleId)).length;
-    const qualityWarningCount = countLoredeckCreatorTitleQualityWarnings(drafts);
     const context = {
         drafts,
         titleBatches,
@@ -914,7 +907,6 @@ export function createLoredeckCreatorTitlePassCard(brief = {}, cached = {}) {
         approvedIds,
         selectedCount,
         selectedApprovedCount,
-        qualityWarningCount,
     };
 
     const wrap = document.createElement('div');
@@ -936,7 +928,6 @@ export function createLoredeckCreatorTitlePassCard(brief = {}, cached = {}) {
     selectedPill.classList.add('saga-loredeck-creator-title-selected-count');
     summary.appendChild(selectedPill);
     if (approvedIds.size) summary.appendChild(createStatusPill(`${approvedIds.size} approved`, 'Approved titles are ready for the next Creator stage.', { tone: 'success', kind: 'count' }));
-    if (qualityWarningCount) summary.appendChild(createStatusPill(`${qualityWarningCount} quality flag${qualityWarningCount === 1 ? '' : 's'}`, 'Model-provided quality warnings across title drafts.', { tone: 'warning', kind: 'severity' }));
     if (cached.titleBatch?.label) summary.appendChild(createStatusPill(cached.titleBatch.label, 'Current title set label.', { tone: 'info', kind: 'metadata', maxChars: 34 }));
     wrap.appendChild(summary);
 
@@ -947,7 +938,7 @@ export function createLoredeckCreatorTitlePassCard(brief = {}, cached = {}) {
 
     wrap.appendChild(createLoredeckCreatorTitleBatchPlanner(brief, cached));
 
-    if (cached.titlePassSummary || cached.titlePassQuestions?.length || cached.titlePassWarnings?.length || cached.titleBatch?.coverage || cached.titleBatch?.nextBatchHint) {
+    if (cached.titlePassSummary || cached.titlePassQuestions?.length || cached.titleBatch?.coverage || cached.titleBatch?.nextBatchHint) {
         const result = document.createElement('div');
         result.className = 'saga-runtime-help';
         const parts = [];
@@ -955,7 +946,6 @@ export function createLoredeckCreatorTitlePassCard(brief = {}, cached = {}) {
         if (cached.titleBatch?.coverage) parts.push(`Coverage: ${cached.titleBatch.coverage}`);
         if (cached.titleBatch?.nextBatchHint) parts.push(`Next batch: ${cached.titleBatch.nextBatchHint}`);
         if (cached.titlePassQuestions?.length) parts.push(`Questions: ${cached.titlePassQuestions.join(' | ')}`);
-        if (cached.titlePassWarnings?.length) parts.push(`Warnings: ${cached.titlePassWarnings.join(' | ')}`);
         result.textContent = parts.join(' ');
         wrap.appendChild(result);
     }
@@ -1146,7 +1136,6 @@ function createLoredeckCreatorTitleRow(draft = {}, selected = false, approved = 
     const qualityChange = {
         preview: {
             rubric: draft.rubric || {},
-            qualityWarnings: draft.warnings || [],
         },
     };
     appendLoredeckPendingQualityPills(meta, qualityChange);
@@ -1274,13 +1263,12 @@ export function createLoredeckCreatorPlanningCard(brief = {}, cached = {}) {
 
     wrap.appendChild(createLoredeckCreatorPlanningBatchPlanner(brief, cached));
 
-    if (cached.planningSummary || cached.planningQuestions?.length || cached.planningWarnings?.length) {
+    if (cached.planningSummary || cached.planningQuestions?.length) {
         const result = document.createElement('div');
         result.className = 'saga-runtime-help';
         const parts = [];
         if (cached.planningSummary) parts.push(cached.planningSummary);
         if (cached.planningQuestions?.length) parts.push(`Questions: ${cached.planningQuestions.join(' | ')}`);
-        if (cached.planningWarnings?.length) parts.push(`Warnings: ${cached.planningWarnings.join(' | ')}`);
         result.textContent = parts.join(' ');
         wrap.appendChild(result);
     }
@@ -1340,7 +1328,7 @@ export function createLoredeckCreatorEntryDraftCard(brief = {}, cached = {}) {
     const entryCount = generatedPack ? getLoredeckCreatorAcceptedEntryCount(generatedPack) : 0;
     const progress = generatedPack ? getLoredeckCreatorEntryDraftProgress(cached, generatedPack) : null;
     const targetTitles = generatedPack ? getLoredeckCreatorEntryTargetTitles(cached, generatedPack) : [];
-    const canDraftEntries = !!generatedPack && planning.ready && !!targetTitles.length && !hasDraftsAwaitingReview;
+    const canDraftEntries = !!generatedPack && planning.ready && !!targetTitles.length;
     const wrap = document.createElement('div');
     wrap.className = 'saga-loredeck-creator-brief saga-loredeck-creator-entry-drafts';
     markTourTarget(wrap, 'loredecks.creator.entries');
@@ -1374,25 +1362,24 @@ export function createLoredeckCreatorEntryDraftCard(brief = {}, cached = {}) {
 
     if (hasDraftsAwaitingReview) {
         const reviewHelp = document.createElement('div');
-        reviewHelp.className = 'saga-runtime-help saga-loredeck-creator-review-blocker';
-        reviewHelp.textContent = 'Review the current Lorecard drafts below before drafting more. Send useful drafts to Pending Review, edit or revise them, or drop the ones that do not fit.';
+        reviewHelp.className = 'saga-runtime-help saga-loredeck-creator-review-note';
+        reviewHelp.textContent = 'Current Lorecard drafts can stay here while you draft more batches. Send useful drafts to Pending Review, edit or revise them, or drop the ones that do not fit.';
         wrap.appendChild(reviewHelp);
     }
 
-    if (cached.entryDraftSummary || cached.entryDraftQuestions?.length || cached.entryDraftWarnings?.length) {
+    if (cached.entryDraftSummary || cached.entryDraftQuestions?.length) {
         const result = document.createElement('div');
         result.className = 'saga-runtime-help';
         const parts = [];
         if (cached.entryDraftSummary) parts.push(cached.entryDraftSummary);
         if (cached.entryDraftQuestions?.length) parts.push(`Questions: ${cached.entryDraftQuestions.join(' | ')}`);
-        if (cached.entryDraftWarnings?.length) parts.push(`Warnings: ${cached.entryDraftWarnings.join(' | ')}`);
         result.textContent = parts.join(' ');
         wrap.appendChild(result);
     }
 
     const actions = document.createElement('div');
     actions.className = 'saga-primary-actions';
-    const draftButton = createButton('Draft Lorecards', hasDraftsAwaitingReview ? 'Review the current Lorecard drafts before drafting more.' : 'Generate the next small schema v3 Lorecard set for approved titles that are not accepted, pending, or already drafted.', async (btn) => {
+    const draftButton = createButton('Draft Lorecards', 'Generate the next small schema v3 Lorecard set for approved titles that are not accepted, pending, or already drafted.', async (btn) => {
         await handleLoredeckCreatorEntryDraft(btn);
     }, 'saga-primary-button');
     draftButton.disabled = !canDraftEntries;
@@ -1404,7 +1391,7 @@ export function createLoredeckCreatorEntryDraftCard(brief = {}, cached = {}) {
     const entryBatchSize = Number.isFinite(Number(generationSettings.entryBatchSize))
         ? Number(generationSettings.entryBatchSize)
         : 1;
-    const multiBatchButton = createButton(`Auto-Draft Up To ${entryRunLimit}`, hasDraftsAwaitingReview ? 'Review the current Lorecard drafts before auto-drafting more.' : `Advanced: run up to ${entryRunLimit} separate small Lorecard drafting calls, stopping as soon as draft-review items exist.`, async (btn) => {
+    const multiBatchButton = createButton(`Auto-Draft Up To ${entryRunLimit}`, `Advanced: run up to ${entryRunLimit} separate small Lorecard drafting calls. Titles already accepted, pending, or in Draft Review are skipped.`, async (btn) => {
         const freshPack = cached.generatedPackId ? getFreshLoredeckLibraryPack(cached.generatedPackId, generatedPack) : null;
         const freshCache = getLoredeckCreatorBriefCache();
         const freshSettings = getLoredeckCreatorGenerationSettings(freshCache);
@@ -1413,7 +1400,7 @@ export function createLoredeckCreatorEntryDraftCard(brief = {}, cached = {}) {
         const freshBatchSize = Number.isFinite(Number(freshSettings.entryBatchSize)) ? Number(freshSettings.entryBatchSize) : entryBatchSize;
         const callCount = Math.min(freshRunLimit, freshProgress?.batchCount || 0);
         if (!callCount) return;
-        const confirmed = await confirmAction('Auto-Draft Lorecards', `Saga will make up to ${callCount} separate Reasoning Provider call${callCount === 1 ? '' : 's'}, with at most ${freshBatchSize} Lorecards per call. It will stop as soon as the Creator Lorecard Draft Review has items. Continue?`);
+        const confirmed = await confirmAction('Auto-Draft Lorecards', `Saga will make up to ${callCount} separate Reasoning Provider call${callCount === 1 ? '' : 's'}, with at most ${freshBatchSize} Lorecards per call. Existing Creator Lorecard Draft Review items will stay available while Saga drafts the next pending titles. Continue?`);
         if (!confirmed) return;
         await handleLoredeckCreatorEntryDraft(btn, { maxBatches: freshRunLimit });
     });
@@ -1569,12 +1556,12 @@ function getLoredeckCreatorCurrentTaskDescription(cached = {}, pipeline = {}) {
     if (pipeline.activeGeneration) return 'Saga is waiting on the Reasoning Provider. Cached batches already completed by earlier calls remain preserved.';
     const step = pipeline.currentStep || {};
     if (step.id === 'scope') return cached.brief && !cached.approved
-        ? 'Confirm the deck ID, coverage, assumptions, and risks before Saga uses them as the source of truth.'
-        : 'Define the fandom, scope, granularity, assumptions, and risks before any large generation call.';
+        ? 'Confirm the deck ID, coverage, and assumptions before Saga uses them as the source of truth.'
+        : 'Define the fandom, scope, granularity, and assumptions before any large generation call.';
     if (step.id === 'outline') return pipeline.outline && !cached.outlineApproved
-        ? 'Approve the story beats, Context milestones, title-batch slices, and risk notes before title generation.'
-        : 'Saga will generate major story beats, high-value Context milestones, title-batch slices, and leakage-risk notes.';
-    if (step.id === 'titles') return 'Review generated title rows for scene pressure, entities, Context gates, and risk before approving selected titles.';
+        ? 'Approve the story beats, Context milestones, and title-batch slices before title generation.'
+        : 'Saga will generate major story beats, high-value Context milestones, and title-batch slices.';
+    if (step.id === 'titles') return 'Review generated title rows for scene pressure, entities, and Context gates before approving selected titles.';
     if (step.id === 'context') return 'Accept selected timeline anchors, windows, and tags into the Generated Loredeck before drafting Lorecards.';
     if (step.id === 'lorecards') return 'Draft small Lorecard batches, then edit, repair, drop, or send them to Pending Review.';
     if (step.id === 'review') return 'Pending changes are not runtime-active. Accept or reject them before Deck Health and finalization.';
@@ -1590,15 +1577,15 @@ function createLoredeckCreatorCurrentTaskOutputs(pipeline = {}) {
     grid.className = 'saga-loredeck-creator-output-grid';
     const outputsByStep = {
         scope: [
-            ['Scope boundary', 'Fandom, story slice, granularity, assumptions, and risks.'],
+            ['Scope boundary', 'Fandom, story slice, granularity, assumptions, and exclusions.'],
             ['Deck identity', 'Stable generated deck ID and metadata.'],
-            ['Leakage notes', 'Known spoiler, hidden-knowledge, or timing risks.'],
+            ['Context boundary', 'Spoiler, hidden-knowledge, and timing limits.'],
         ],
         outline: [
             ['Major story beats', 'Key events and turning points in the arc.'],
             ['Context milestones', 'High-value anchors and windows for gating.'],
             ['Title-batch slices', 'Suggested chunks for Title Pass generation.'],
-            ['Risk notes', 'Potential future leaks and hidden knowledge.'],
+            ['Context limits', 'Timing and hidden-knowledge boundaries.'],
         ],
         titles: [
             ['Review table', 'Keep, edit, drop, merge, split, or regenerate title drafts.'],
@@ -1737,9 +1724,9 @@ function createLoredeckCreatorGuidancePanel(pipeline = {}) {
     const list = document.createElement('ul');
     list.className = 'saga-loredeck-creator-check-list';
     const items = pipeline.currentStep?.id === 'outline'
-        ? ['Story beats', 'Context milestones', 'Title-batch slices', 'Risks and assumptions']
+        ? ['Story beats', 'Context milestones', 'Title-batch slices', 'Assumptions']
         : pipeline.currentStep?.id === 'titles'
-            ? ['Status', 'Title', 'Beat', 'Primary entities', 'Context gate', 'Risk']
+            ? ['Status', 'Title', 'Beat', 'Primary entities', 'Context gate']
             : ['Generate', 'Review', 'Approve', 'Unlock next stage'];
     for (const item of items) {
         const li = document.createElement('li');

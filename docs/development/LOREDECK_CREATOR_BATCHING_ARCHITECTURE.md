@@ -293,14 +293,15 @@ Commit rule:
 - Upsert draft-review records by stable Creator entry draft IDs.
 - Replace existing draft-review records for the same micro-batch unit before adding the new batch slice.
 - Mark drafted title IDs with the micro-batch unit ID that produced them.
-- Do not draft more entries while draft-review proposals are unresolved unless the user explicitly drops or queues them.
+- Allow additional Lorecard batches while earlier draft-review proposals remain unresolved.
+- Continue excluding accepted, pending, and draft-review entry IDs from later batch targets.
 
 Recommended default:
 
 - `entryBatchLimit`: 3.
-- `Run Remaining Lorecard Batches` should stop when any batch fails, asks clarification, or creates non-empty draft-review items.
-- If a batch creates drafts, the UI must visibly acknowledge the new draft-review items before stopping: update the draft count, show the new draft cards or a compact `new drafts ready` row, and expose a clear `Review Drafts` action.
-- Do not silently continue Lorecard drafting while the draft-review queue is non-empty. Review is the safety boundary for full Lorecard content.
+- `Run Remaining Lorecard Batches` should stop when any batch fails, asks clarification, reaches the configured call limit, or exhausts eligible undrafted titles.
+- If a batch creates drafts, the UI must visibly acknowledge the new draft-review items while allowing the next eligible batch to continue.
+- The Creator Lorecard Draft Review remains the edit-before-Pending Review boundary, but it is not a generation blocker.
 
 ### Stage 6: Deck Health And Finalize
 
@@ -573,7 +574,7 @@ Integration tests:
 - Story Outline parsing fills the UI.
 - Title Pass runs one outline batch per call.
 - `Generate Remaining` uses separate calls.
-- `Generate Remaining` stops when Lorecard draft-review items appear and visually advertises the new review work.
+- `Generate Remaining` can continue while Lorecard draft-review items accumulate, and it visually advertises the new review work.
 - Closing and reopening Creator preserves running state.
 - Token-limit error surfaces as retryable and does not wipe previous batches.
 - Review queues remain the only path to activation.
@@ -590,8 +591,8 @@ Visual tests:
 
 ## Resolved Decisions
 
-- `Run Remaining` should continue across separate calls until the draft-review queue becomes non-empty, a unit fails, a unit asks for clarification, the configured call limit is reached, or the stage is complete.
-- When a Lorecard batch creates draft-review items, Saga should stop and visually surface those drafts instead of continuing silently.
+- `Run Remaining` should continue across separate calls until a unit fails, a unit asks for clarification, the configured call limit is reached, or the stage is complete.
+- When a Lorecard batch creates draft-review items, Saga should visually surface those drafts without making them block the next eligible batch.
 - Users should have a default-collapsed advanced settings dropdown for batch sizes and generation behavior.
 - Streaming snippets should default on only if streaming is actually used to show meaningful progress; otherwise snippets default off and remain user-configurable.
 

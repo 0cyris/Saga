@@ -2291,13 +2291,7 @@ async function runLoredeckCreatorSingleUnitGeneration(config = {}) {
                 if (typeof config.isRepairUsable === 'function' && !config.isRepairUsable(repaired)) throw error;
                 return {
                     rawResult: repairedResponseText,
-                    parsedResult: {
-                        ...repaired,
-                        warnings: [
-                            ...((repaired?.warnings || [])),
-                            config.repairWarning || 'Creator response was normalized into Saga format.',
-                        ],
-                    },
+                    parsedResult: repaired,
                 };
             }
             : null,
@@ -3160,7 +3154,7 @@ function createLoredeckCreatorCurrentTaskActions(cached = {}, pipeline = {}, con
         }
     } else if (step.id === 'outline') {
         if (!pipeline.outline) {
-            const draftOutline = createButton('Draft Story Outline', 'Generate major story beats, Context milestones, title-batch slices, and risk notes.', async (btn) => {
+            const draftOutline = createButton('Draft Story Outline', 'Generate major story beats, Context milestones, and title-batch slices.', async (btn) => {
                 await handleLoredeckCreatorOutlineDraft({}, btn);
             }, 'saga-primary-button');
             actions.appendChild(applyLoredeckCreatorGenerationButtonLock(draftOutline, cached, 'story outline draft'));
@@ -3653,13 +3647,12 @@ function createLoredeckCreatorCard(state = getState(), options = {}) {
     }
     card.appendChild(createLoredeckCreatorAdvancedGenerationSettings(cached));
 
-    if (cached.summary || cached.questions?.length || cached.warnings?.length) {
+    if (cached.summary || cached.questions?.length) {
         const result = document.createElement('div');
         result.className = 'saga-loredeck-creator-inline-note';
         const parts = [];
         if (cached.summary) parts.push(cached.summary);
         if (cached.questions?.length) parts.push(`Questions: ${cached.questions.join(' | ')}`);
-        if (cached.warnings?.length) parts.push(`Warnings: ${cached.warnings.join(' | ')}`);
         result.textContent = parts.join(' ');
         card.appendChild(result);
     }
@@ -4003,7 +3996,6 @@ Convert the malformed or overlong response into the compact scope-brief contract
         expectedShape: {
             summary: 'one sentence',
             clarifyingQuestions: [],
-            warnings: [],
             brief: {
                 title: 'string',
                 packId: 'machine-safe-id',
@@ -4030,7 +4022,6 @@ Convert the malformed or overlong response into the compact scope-brief contract
                     }],
                 },
                 assumptions: [],
-                risks: [],
             },
         },
         malformedResponse: truncateText(responseText, 5000),
@@ -4082,7 +4073,7 @@ async function repairLoredeckCreatorOutlineResponse(responseText = '', context =
 
 Return JSON only. Do not include markdown.
 
-Convert the malformed, partial, or overlong response into the compact Story Outline contract. Preserve only reviewable story beats, Context milestones, title-batch slices, creatorCoverage, assumptions, risks, and warnings. Do not generate Lorecards, Lorecard titles, tag registries, timeline registry records, facts, or injection text. If there is not enough usable information, ask 1-3 clarifyingQuestions and set outline null.`;
+Convert the malformed, partial, or overlong response into the compact Story Outline contract. Preserve only reviewable story beats, Context milestones, title-batch slices, creatorCoverage, and assumptions. Do not generate Lorecards, Lorecard titles, tag registries, timeline registry records, facts, or injection text. If there is not enough usable information, ask 1-3 clarifyingQuestions and set outline null.`;
     const userPrompt = JSON.stringify({
         sourceInputs: {
             approvedBrief: context.brief || null,
@@ -4093,7 +4084,6 @@ Convert the malformed, partial, or overlong response into the compact Story Outl
         expectedShape: {
             summary: 'one sentence',
             clarifyingQuestions: [],
-            warnings: [],
             outline: {
                 label: 'string',
                 coverageSummary: 'under 70 words',
@@ -4120,7 +4110,6 @@ Convert the malformed, partial, or overlong response into the compact Story Outl
                 contextMilestones: [{ id: 'machine-safe-id', label: 'string', type: 'before_after', order: 10, summary: 'short sentence', contextRole: 'short sentence', coverageDimensionIds: [] }],
                 titleBatches: [{ id: 'machine-safe-id', label: 'string', type: 'title_batch', order: 10, summary: 'short sentence', coverageDimensionIds: [] }],
                 assumptions: [],
-                risks: [],
             },
         },
         limits: {
@@ -4169,7 +4158,7 @@ RETRY MODE:
 - The previous attempt failed before valid visible JSON was returned.
 - Return only the compact Title Pass JSON object from the schema.
 - Generate at most ${Math.max(1, Math.min(12, Number(context.titlePassLimit || 8)))} titles for the supplied targetTitleBatch.
-- Omit rubric unless a title needs a specific quality warning; if included, use only wikiSummaryRisk and one useful key.
+- Omit rubric unless a compact quality score adds useful review context; if included, use only wikiSummaryRisk and one useful key.
 - Keep each reason under 18 words and each contextHint under 18 words.
 - Do not include prose outside JSON.`;
         return await sendLoreRequest(retrySystemPrompt, userPrompt, requestOptions);
@@ -4193,7 +4182,6 @@ Convert the malformed, partial, overlong, or structurally wrong response into th
         expectedShape: {
             summary: 'one sentence',
             clarifyingQuestions: [],
-            warnings: [],
             batch: {
                 label: 'string',
                 coverage: 'under 40 words',
@@ -4211,7 +4199,6 @@ Convert the malformed, partial, overlong, or structurally wrong response into th
                 reason: 'short review rationale',
                 coverageDimensionIds: [],
                 rubric: { wikiSummaryRisk: 'low' },
-                warnings: [],
             }],
         },
         limits: {
@@ -4256,7 +4243,7 @@ RETRY MODE:
 - Return only the compact proposal JSON object from the schema.
 - Return at most ${Math.max(1, Math.min(24, Number(context.proposalLimit || 16)))} planning proposals.
 - Supported actions only: upsert_timeline_anchor, upsert_timeline_window, upsert_tag_definition.
-- Omit rubric unless a proposal needs a specific quality warning; if included, use only wikiSummaryRisk and one useful key.
+- Omit rubric unless a compact quality score adds useful review context; if included, use only wikiSummaryRisk and one useful key.
 - Keep each reason under 18 words.
 - Do not include prose outside JSON.`;
         return await sendLoreRequest(retrySystemPrompt, userPrompt, requestOptions);
@@ -4282,7 +4269,6 @@ Convert the malformed, partial, overlong, or structurally wrong response into th
         expectedShape: {
             summary: 'one sentence',
             clarifyingQuestions: [],
-            warnings: [],
             proposals: [{
                 action: 'upsert_timeline_anchor|upsert_timeline_window|upsert_tag_definition',
                 title: 'string',
@@ -4363,7 +4349,6 @@ Convert the malformed, partial, overlong, or structurally wrong response into th
         expectedShape: {
             summary: 'one sentence',
             clarifyingQuestions: [],
-            warnings: [],
             proposals: [{
                 action: 'upsert_entry',
                 title: 'Draft entry: title',
@@ -4481,13 +4466,7 @@ async function handleLoredeckCreatorBriefDraft(options = {}, button = null) {
                 if (ignoreStaleLoredeckCreatorGeneration(generation, 'scope brief repair')) return;
                 const repaired = parseLoredeckCreatorBriefResponse(repairedText);
                 if (repaired.brief || repaired.clarifyingQuestions.length) {
-                    parsed = {
-                        ...repaired,
-                        warnings: [
-                            ...((repaired.warnings || [])),
-                            'Creator brief response was normalized into Saga scope-brief format.',
-                        ],
-                    };
+                    parsed = repaired;
                 }
             } catch (repairError) {
                 console.warn('[Saga] Loredeck Creator brief repair failed:', repairError);
@@ -4497,7 +4476,7 @@ async function handleLoredeckCreatorBriefDraft(options = {}, button = null) {
         setLoredeckCreatorBriefCache({
             summary: parsed.summary,
             questions: parsed.clarifyingQuestions,
-            warnings: parsed.warnings,
+            warnings: [],
             brief: parsed.brief,
             creatorCoverage: parsed.brief?.creatorCoverage || null,
             approved: false,
@@ -4541,8 +4520,8 @@ async function handleLoredeckCreatorBriefDraft(options = {}, button = null) {
             return;
         }
         if (!parsed.brief) {
-            finishLoredeckCreatorGeneration(generation, 'warning', parsed.warnings?.[0] || 'No scope brief returned.');
-            toast(parsed.warnings?.[0] || 'Loredeck Creator returned no brief.', 'warning');
+            finishLoredeckCreatorGeneration(generation, 'warning', 'No scope brief returned.');
+            toast('Loredeck Creator returned no brief.', 'warning');
             return;
         }
         finishLoredeckCreatorGeneration(generation, 'success', 'Scope brief drafted. Ready for review.');
@@ -4671,13 +4650,7 @@ async function handleLoredeckCreatorOutlineDraft(options = {}, button = null) {
                 if (ignoreStaleLoredeckCreatorGeneration(generation, 'story outline repair')) return;
                 const repaired = parseLoredeckCreatorOutlineResponse(repairedText);
                 if (repaired.outline || repaired.clarifyingQuestions.length) {
-                    parsed = {
-                        ...repaired,
-                        warnings: [
-                            ...((repaired.warnings || [])),
-                            'Creator Story Outline response was normalized into Saga outline format.',
-                        ],
-                    };
+                    parsed = repaired;
                 }
             } catch (repairError) {
                 console.warn('[Saga] Loredeck Creator outline repair failed:', repairError);
@@ -4689,7 +4662,7 @@ async function handleLoredeckCreatorOutlineDraft(options = {}, button = null) {
                 ...getLoredeckCreatorBriefCache(),
                 outlineSummary: parsed.summary,
                 outlineQuestions: parsed.clarifyingQuestions,
-                outlineWarnings: parsed.warnings,
+                outlineWarnings: [],
                 outlineApproved: false,
                 status: 'needs_input',
                 lastCompletedAt: Date.now(),
@@ -4704,21 +4677,21 @@ async function handleLoredeckCreatorOutlineDraft(options = {}, button = null) {
                 ...getLoredeckCreatorBriefCache(),
                 outlineSummary: parsed.summary,
                 outlineQuestions: parsed.clarifyingQuestions,
-                outlineWarnings: parsed.warnings,
+                outlineWarnings: [],
                 outlineApproved: false,
                 status: 'needs_input',
                 lastCompletedAt: Date.now(),
             });
             refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
-            finishLoredeckCreatorGeneration(generation, 'warning', parsed.warnings?.[0] || 'No Story Outline returned.');
-            toast(parsed.warnings?.[0] || 'Loredeck Creator returned no Story Outline.', 'warning');
+            finishLoredeckCreatorGeneration(generation, 'warning', 'No Story Outline returned.');
+            toast('Loredeck Creator returned no Story Outline.', 'warning');
             return;
         }
         setLoredeckCreatorBriefCache({
             ...getLoredeckCreatorBriefCache(),
             outlineSummary: parsed.summary,
             outlineQuestions: parsed.clarifyingQuestions,
-            outlineWarnings: parsed.warnings,
+            outlineWarnings: [],
             outline: parsed.outline,
             creatorCoverage: mergeLoredeckCreatorCoveragePlans(
                 getLoredeckCreatorCoveragePlan(getLoredeckCreatorBriefCache()),
@@ -4961,7 +4934,7 @@ function commitLoredeckCreatorTitleDraftResult(parsed = {}, options = {}) {
                 ...current,
                 titlePassSummary: parsed.summary,
                 titlePassQuestions: parsed.clarifyingQuestions,
-                titlePassWarnings: parsed.warnings,
+                titlePassWarnings: [],
                 titleBatch: {
                     ...(parsed.batch || {}),
                     targetTitleBatchId: targetBatchId,
@@ -5003,7 +4976,7 @@ function commitLoredeckCreatorTitleDraftResult(parsed = {}, options = {}) {
             ...current,
             titlePassSummary: parsed.summary || current.titlePassSummary || '',
             titlePassQuestions: parsed.clarifyingQuestions,
-            titlePassWarnings: parsed.warnings,
+            titlePassWarnings: [],
             titleBatch: {
                 ...(parsed.batch || {}),
                 targetTitleBatchId: normalizedBatch.id,
@@ -5307,13 +5280,7 @@ async function performLoredeckCreatorTitleDraft(options = {}) {
                 if (ignoreStaleLoredeckCreatorGeneration(generation, 'title draft repair')) return { status: 'stale' };
                 const repaired = parseLoredeckCreatorTitleResponse(repairedText);
                 if (repaired.titleDrafts.length || repaired.clarifyingQuestions.length) {
-                    parsed = {
-                        ...repaired,
-                        warnings: [
-                            ...((repaired.warnings || [])),
-                            'Creator Title Pass response was normalized into Saga title-draft format.',
-                        ],
-                    };
+                    parsed = repaired;
                     if (parsed.titleDrafts.length) {
                         titleCommit = commitLoredeckCreatorTitleDraftResult(parsed, {
                             revisionInstruction,
@@ -5332,7 +5299,7 @@ async function performLoredeckCreatorTitleDraft(options = {}) {
                 ...current,
                 titlePassSummary: parsed.summary || current.titlePassSummary || '',
                 titlePassQuestions: parsed.clarifyingQuestions,
-                titlePassWarnings: parsed.warnings,
+                titlePassWarnings: [],
                 titleBatch: parsed.batch,
                 status: 'needs_input',
                 updatedAt: Date.now(),
@@ -5347,15 +5314,15 @@ async function performLoredeckCreatorTitleDraft(options = {}) {
                 ...current,
                 titlePassSummary: parsed.summary || current.titlePassSummary || '',
                 titlePassQuestions: parsed.clarifyingQuestions,
-                titlePassWarnings: parsed.warnings,
+                titlePassWarnings: [],
                 titleBatch: parsed.batch,
                 status: 'needs_input',
                 updatedAt: Date.now(),
             }));
             refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
-            finishLoredeckCreatorGeneration(generation, 'warning', parsed.warnings[0] || 'No title drafts returned.');
-            toast(parsed.warnings[0] || 'Loredeck Creator returned no title drafts.', 'warning');
-            return { status: 'empty', warnings: parsed.warnings, batchId, batchLabel };
+            finishLoredeckCreatorGeneration(generation, 'warning', 'No title drafts returned.');
+            toast('Loredeck Creator returned no title drafts.', 'warning');
+            return { status: 'empty', warnings: [], batchId, batchLabel };
         }
         const revisedMode = revisionInstruction && selectedTitleDrafts.length;
         if (!titleCommit) {
@@ -5877,7 +5844,6 @@ function commitLoredeckCreatorPlanningResult(parsed = {}, options = {}) {
     }
     const { ignoredCount, changes } = buildLoredeckCreatorPlanningChanges(pack, parsed, targetPlanningBatch);
     const warnings = [
-        ...(Array.isArray(parsed?.warnings) ? parsed.warnings : []),
         ...(ignoredCount ? [`Ignored ${ignoredCount} non-planning proposal${ignoredCount === 1 ? '' : 's'}.`] : []),
     ];
     if (!changes.length) {
@@ -6091,7 +6057,6 @@ async function handleLoredeckCreatorPlanningDraft(options = {}, button = null) {
                     return {
                         ...repaired,
                         warnings: [
-                            ...((repaired.warnings || [])),
                             warningMessage,
                         ],
                     };
@@ -6119,7 +6084,6 @@ async function handleLoredeckCreatorPlanningDraft(options = {}, button = null) {
         }
         const preview = buildLoredeckCreatorPlanningChanges(pack, parsed, targetPlanningBatch);
         const warnings = planningCommit?.warnings || [
-            ...(parsed.warnings || []),
             ...(preview.ignoredCount ? [`Ignored ${preview.ignoredCount} non-planning proposal${preview.ignoredCount === 1 ? '' : 's'}.`] : []),
         ];
         if (!planningCommit?.queued && parsed.clarifyingQuestions.length && !preview.changes.length) {
@@ -6661,7 +6625,6 @@ function commitLoredeckCreatorEntryDraftResult(parsed = {}, options = {}) {
     }
     const { ignoredCount, changes } = buildLoredeckCreatorEntryDraftChanges(pack, parsed, rows, targetTitles, targetPlanningBatch, unitId);
     const warnings = [
-        ...(Array.isArray(parsed?.warnings) ? parsed.warnings : []),
         ...(ignoredCount ? [`Ignored ${ignoredCount} proposal${ignoredCount === 1 ? '' : 's'} outside this micro-batch.`] : []),
     ];
     if (!changes.length) {
@@ -6866,7 +6829,6 @@ async function draftLoredeckCreatorEntryBatch(cached = {}, pack = {}, planning =
                     parsed: {
                         ...repaired,
                         warnings: [
-                            ...((repaired.warnings || [])),
                             warningMessage,
                         ],
                     },
@@ -6892,7 +6854,6 @@ async function draftLoredeckCreatorEntryBatch(cached = {}, pack = {}, planning =
     }
     const preview = buildLoredeckCreatorEntryDraftChanges(pack, parsed, rows, targetTitles, targetPlanningBatch, unitId);
     const warnings = entryCommit?.warnings || [
-        ...(parsed.warnings || []),
         ...(preview.ignoredCount ? [`Ignored ${preview.ignoredCount} proposal${preview.ignoredCount === 1 ? '' : 's'} outside this micro-batch.`] : []),
     ];
 
@@ -6958,11 +6919,6 @@ async function handleLoredeckCreatorEntryDraft(button = null, options = {}) {
             toast('Create and accept Creator planning before drafting Lorecards.', 'warning');
             return;
         }
-        const openDrafts = getLoredeckAssistantDraftChanges(loredeckAssistantDraftCache.get(pack.packId) || {});
-        if (openDrafts.length) {
-            toast('Review the current Lorecard drafts before drafting more.', 'warning');
-            return;
-        }
         let planning = getLoredeckCreatorAcceptedPlanningStatus(pack);
         if (!planning.ready) {
             toast('Accept Context and Tag planning proposals before drafting Lorecards.', 'warning');
@@ -7003,7 +6959,6 @@ async function handleLoredeckCreatorEntryDraft(button = null, options = {}) {
                 pack = cached.generatedPackId ? getFreshLoredeckLibraryPack(cached.generatedPackId, pack) : pack;
                 planning = getLoredeckCreatorAcceptedPlanningStatus(pack);
                 if (!pack || !planning.ready) break;
-                if (getLoredeckAssistantDraftChanges(loredeckAssistantDraftCache.get(pack.packId) || {}).length) break;
                 if (!getLoredeckCreatorEntryTargetTitles(cached, pack).length) break;
                 lastResult = await draftLoredeckCreatorEntryBatch(cached, pack, planning, {
                     generation,
@@ -7021,7 +6976,6 @@ async function handleLoredeckCreatorEntryDraft(button = null, options = {}) {
                 if (lastResult.status === 'questions' || lastResult.status === 'empty' || lastResult.status === 'empty_pool') break;
                 totalChanges += lastResult.changeCount || 0;
                 completedBatches += 1;
-                if (getLoredeckAssistantDraftChanges(loredeckAssistantDraftCache.get(pack.packId) || {}).length) break;
             }
         } catch (e) {
             if (isLoredeckCreatorAbortError(e) || ignoreStaleLoredeckCreatorGeneration(generation, 'entry draft')) return;
@@ -9527,30 +9481,35 @@ function refreshLoredeckAssistantDraftSelectionUi(pack) {
     const changes = getLoredeckAssistantDraftChanges(cached);
     if (!changes.length) return false;
 
-    const batch = Array.from(scope.querySelectorAll('.saga-loredeck-assistant-draft-batch'))
+    let batch = Array.from(scope.querySelectorAll('.saga-loredeck-assistant-draft-batch'))
         .find(element => String(element.dataset.sagaAssistantPackId || '') === packId);
+    if (!batch && scope !== document) {
+        batch = Array.from(document.querySelectorAll('.saga-loredeck-assistant-draft-batch'))
+            .find(element => String(element.dataset.sagaAssistantPackId || '') === packId);
+    }
     if (!batch) return false;
+    const uiScope = batch.closest('.saga-loredeck-assistant-card, .saga-loredeck-creator-entry-drafts') || batch;
 
     const selectedIds = getLoredeckAssistantSelectedDraftIds(cached);
     const selectedCount = changes.filter(change => selectedIds.has(change.changeId)).length;
     const allSelected = selectedCount >= changes.length;
     const noneSelected = selectedCount <= 0;
 
-    scope.querySelectorAll('.saga-loredeck-assistant-selected-count, .saga-loredeck-assistant-draft-selected-count').forEach(element => {
+    uiScope.querySelectorAll('.saga-loredeck-assistant-selected-count, .saga-loredeck-assistant-draft-selected-count').forEach(element => {
         element.textContent = `${selectedCount} selected`;
     });
 
-    batch.querySelectorAll('[data-saga-assistant-draft-action="queue-selected"], [data-saga-assistant-draft-action="drop-selected"], [data-saga-assistant-draft-action="revise-selected"]').forEach(button => {
+    uiScope.querySelectorAll('[data-saga-assistant-draft-action="queue-selected"], [data-saga-assistant-draft-action="drop-selected"], [data-saga-assistant-draft-action="revise-selected"]').forEach(button => {
         button.disabled = noneSelected;
     });
-    batch.querySelectorAll('[data-saga-assistant-draft-action="select-all"]').forEach(button => {
+    uiScope.querySelectorAll('[data-saga-assistant-draft-action="select-all"]').forEach(button => {
         button.disabled = allSelected;
     });
-    batch.querySelectorAll('[data-saga-assistant-draft-action="clear-selection"]').forEach(button => {
+    uiScope.querySelectorAll('[data-saga-assistant-draft-action="clear-selection"]').forEach(button => {
         button.disabled = noneSelected;
     });
 
-    batch.querySelectorAll('.saga-loredeck-assistant-draft-row[data-saga-assistant-draft-change-id]').forEach(row => {
+    uiScope.querySelectorAll('.saga-loredeck-assistant-draft-row[data-saga-assistant-draft-change-id]').forEach(row => {
         const id = String(row.dataset.sagaAssistantDraftChangeId || '');
         const selected = selectedIds.has(id);
         row.classList.toggle('saga-loredeck-assistant-draft-row-selected', selected);
@@ -9558,6 +9517,12 @@ function refreshLoredeckAssistantDraftSelectionUi(pack) {
         if (checkbox) checkbox.checked = selected;
     });
     return true;
+}
+
+function refreshLoredeckAssistantDraftSurfaces() {
+    refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+    refreshLoredeckCreatorWorkbenchBody({ preserveScroll: true });
+    refreshHeader();
 }
 
 function updateLoredeckAssistantDraftAfterRemoval(packId, removedIds = new Set(), queuedCountDelta = 0) {
@@ -9598,7 +9563,7 @@ function queueLoredeckAssistantDraftSelection(pack, selectedIds = new Set()) {
     );
     if (!queued) return false;
     updateLoredeckAssistantDraftAfterRemoval(pack.packId, new Set(selected.map(change => change.changeId)), selected.length);
-    refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+    refreshLoredeckAssistantDraftSurfaces();
     return true;
 }
 
@@ -9614,7 +9579,7 @@ function dropLoredeckAssistantDraftSelection(pack, selectedIds = new Set()) {
         return false;
     }
     updateLoredeckAssistantDraftAfterRemoval(pack.packId, new Set(selected.map(change => change.changeId)), 0);
-    refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+    refreshLoredeckAssistantDraftSurfaces();
     toast(creatorBatch
         ? `Dropped ${selected.length} Creator Lorecard draft${selected.length === 1 ? '' : 's'}.`
         : `Dropped ${selected.length} assistant draft proposal${selected.length === 1 ? '' : 's'}.`, 'info');

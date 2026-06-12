@@ -456,15 +456,15 @@ function createContextWorkbenchHeader(state = {}, contextIndex = null) {
 
     const actions = document.createElement('div');
     actions.className = 'saga-primary-actions saga-context-workbench-header-actions';
-    actions.appendChild(createButton('Refresh Index', 'Reload loaded Loredeck timeline registries and refresh the workbench.', async (btn) => {
+    actions.appendChild(markTourTarget(createButton('Refresh Index', 'Reload loaded Loredeck timeline registries and refresh the workbench.', async (btn) => {
         await runBusyAction(btn, 'Refreshing...', async () => {
             clearContextIndexCache();
             await loadContextIndex({ force: true }).catch(() => null);
             renderContextWorkbench();
             refreshContextHeader();
         });
-    }));
-    actions.appendChild(createButton('Done', 'Close the Context Workbench.', closeContextWorkbench, 'saga-primary-button'));
+    }), 'context.workbench.refreshIndex'));
+    actions.appendChild(markTourTarget(createButton('Done', 'Close the Context Workbench.', closeContextWorkbench, 'saga-primary-button'), 'context.workbench.done'));
     header.appendChild(actions);
     return header;
 }
@@ -510,18 +510,18 @@ export function createContextWorkbenchContextView(state = {}, contextIndex = nul
     const controls = document.createElement('div');
     controls.className = 'saga-context-workbench-controls';
     markTourTarget(controls, 'context.workbench.resolvers');
-    controls.appendChild(createButton('Resolve From Context', 'Use current Context and loaded timeline aliases to update unlocked Contexts.', async (btn) => {
+    controls.appendChild(markTourTarget(createButton('Resolve From Context', 'Use current Context and loaded timeline aliases to update unlocked Contexts.', async (btn) => {
         await resolveContextsFromContext(btn);
         renderContextWorkbench();
-    }, 'saga-primary-button'));
-    controls.appendChild(createButton('Resolve With Reasoner', 'Ask the configured Reasoning Provider to resolve unresolved Contexts using bounded known candidates.', async (btn) => {
+    }, 'saga-primary-button'), 'context.workbench.resolveFromContext'));
+    controls.appendChild(markTourTarget(createButton('Resolve With Reasoner', 'Ask the configured Reasoning Provider to resolve unresolved Contexts using bounded known candidates.', async (btn) => {
         await modelResolveContexts(btn);
         renderContextWorkbench();
-    }));
-    controls.appendChild(createButton('Open Selected Timeline', 'Jump to the Timeline tab for the selected Loredeck.', () => {
+    }), 'context.workbench.resolveWithReasoner'));
+    controls.appendChild(markTourTarget(createButton('Open Selected Timeline', 'Jump to the Timeline tab for the selected Loredeck.', () => {
         setContextWorkbenchTab('timeline');
         renderContextWorkbench();
-    }));
+    }), 'context.workbench.openSelectedTimeline'));
     view.appendChild(controls);
 
     const table = document.createElement('div');
@@ -556,6 +556,7 @@ export function createContextWorkbenchContextView(state = {}, contextIndex = nul
 
         const lockCell = document.createElement('label');
         lockCell.className = 'saga-context-workbench-lock';
+        markTourTarget(lockCell, 'context.workbench.loadedLoredeck.lock');
         const check = document.createElement('input');
         check.type = 'checkbox';
         check.checked = context.manualLock === true;
@@ -571,15 +572,15 @@ export function createContextWorkbenchContextView(state = {}, contextIndex = nul
 
         const actions = document.createElement('div');
         actions.className = 'saga-context-workbench-row-actions';
-        actions.appendChild(createButton('Timeline', 'Open this Loredeck in the Timeline tab.', () => {
+        actions.appendChild(markTourTarget(createButton('Timeline', 'Open this Loredeck in the Timeline tab.', () => {
             setContextWorkbenchPackId(item.packId);
             setContextWorkbenchTab('timeline');
             clearContextWorkbenchSelectedKey();
             renderContextWorkbench();
-        }));
-        actions.appendChild(createButton('Reset', 'Clear this Loredeck Context.', async () => {
+        }), 'context.workbench.loadedLoredeck.timeline'));
+        actions.appendChild(markTourTarget(createButton('Reset', 'Clear this Loredeck Context.', async () => {
             await resetLoredeckContextFromWorkbench(item.packId);
-        }, 'saga-danger-button'));
+        }, 'saga-danger-button'), 'context.workbench.loadedLoredeck.reset'));
         row.appendChild(actions);
         table.appendChild(row);
     }
@@ -633,17 +634,17 @@ function createContextWorkbenchContextEditor(state = {}, contextIndex = null) {
 
     const actions = document.createElement('div');
     actions.className = 'saga-primary-actions saga-context-workbench-inspector-actions';
-    actions.appendChild(createButton('Seed From Context', 'Seed this Context from the current Context fields.', () => {
+    actions.appendChild(markTourTarget(createButton('Seed From Context', 'Seed this Context from the current Context fields.', () => {
         seedLoredeckContextFromRuntimeContext(pack.packId, context);
-    }));
-    actions.appendChild(createButton('Timeline', 'Open this Loredeck in the Timeline tab.', () => {
+    }), 'context.workbench.seedFromContext'));
+    actions.appendChild(markTourTarget(createButton('Timeline', 'Open this Loredeck in the Timeline tab.', () => {
         setContextWorkbenchTab('timeline');
         clearContextWorkbenchSelectedKey();
         renderContextWorkbench();
-    }));
-    actions.appendChild(createButton('Reset Context', 'Clear this Loredeck Context.', async () => {
+    }), 'context.workbench.editorTimeline'));
+    actions.appendChild(markTourTarget(createButton('Reset Context', 'Clear this Loredeck Context.', async () => {
         await resetLoredeckContextFromWorkbench(pack.packId);
-    }, 'saga-danger-button'));
+    }, 'saga-danger-button'), 'context.workbench.resetContext'));
     panel.appendChild(actions);
     return panel;
 }
@@ -705,16 +706,17 @@ function createContextWorkbenchStoryPositionPicker(pack, context = {}, contextIn
     });
     top.appendChild(filter);
 
-    top.appendChild(createButton('Find', 'Search story positions.', () => {
+    top.appendChild(markTourTarget(createButton('Find', 'Search story positions.', () => {
         setContextWorkbenchStoryPositionQuery(search.value.trim());
         renderContextWorkbench();
-    }, 'saga-primary-button'));
+    }, 'saga-primary-button'), 'context.workbench.storyPositionFind'));
 
     const cachedEntries = getLoredeckEntryPreview(pack?.packId);
     const loadEvents = createButton(cachedEntries?.loadedAt ? 'Reload Events' : 'Load Events', 'Load Lorecards so this picker can include event-level story positions.', async (btn) => {
         await loadLoredeckEntriesForEditor(pack, btn);
         renderContextWorkbench();
     });
+    markTourTarget(loadEvents, 'context.workbench.loadEvents');
     loadEvents.disabled = !canValidateLoredeckInEditor(pack);
     top.appendChild(loadEvents);
     wrap.appendChild(top);
@@ -804,6 +806,7 @@ function createContextWorkbenchWindowBuilderSummary(pack, context = {}) {
     const lockButton = createButton(context.manualLock ? 'Unlock' : 'Lock Context', 'Toggle whether automatic Context detection may replace this selected window.', () => {
         commitLoredeckContextPatch(pack.packId, { manualLock: !context.manualLock }, { manual: false });
     });
+    markTourTarget(lockButton, 'context.workbench.lockRange');
     actions.appendChild(lockButton);
     const clearBounds = createButton('Clear Selection', 'Clear the selected Anchor or After/Before bounds for this Loredeck Context.', () => {
         commitLoredeckContextPatch(pack.packId, {
@@ -817,6 +820,7 @@ function createContextWorkbenchWindowBuilderSummary(pack, context = {}) {
             contextSortKeyTo: null,
         });
     });
+    markTourTarget(clearBounds, 'context.workbench.clearSelection');
     clearBounds.disabled = !context.anchorFrom && !context.anchorTo && !context.anchorId;
     actions.appendChild(clearBounds);
     wrap.appendChild(actions);
@@ -1129,7 +1133,7 @@ function createContextWorkbenchResolverTester(pack, context = {}, contextIndex =
     }, 'saga-primary-button');
     markTourTarget(testPhrase, 'context.workbench.testPhrase');
     top.appendChild(testPhrase);
-    top.appendChild(createButton('Use Context', 'Use the current Context and runtime context text as the test phrase.', () => {
+    top.appendChild(markTourTarget(createButton('Use Context', 'Use the current Context and runtime context text as the test phrase.', () => {
         const seed = getContextResolverSeedText(context);
         if (!seed) {
             toast('No Context text is available to test.', 'warning');
@@ -1137,11 +1141,11 @@ function createContextWorkbenchResolverTester(pack, context = {}, contextIndex =
         }
         setContextWorkbenchResolverQuery(seed);
         renderContextWorkbench();
-    }));
-    top.appendChild(createButton('Clear', 'Clear the phrase resolver test.', () => {
+    }), 'context.workbench.phraseUseContext'));
+    top.appendChild(markTourTarget(createButton('Clear', 'Clear the phrase resolver test.', () => {
         setContextWorkbenchResolverQuery('');
         renderContextWorkbench();
-    }));
+    }), 'context.workbench.phraseClear'));
     const cachedEntries = getLoredeckEntryPreview(pack?.packId);
     const loadEntriesButton = createButton(cachedEntries?.loadedAt ? 'Reload Lorecards' : 'Load Lorecards', 'Load this Loredeck\'s Lorecards so the resolver can include Lorecard-derived Context candidates.', async (btn) => {
         await loadLoredeckEntriesForEditor(pack, btn);

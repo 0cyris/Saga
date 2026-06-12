@@ -208,7 +208,6 @@ const creatorBrief = parseLoredeckCreatorBriefResponse(`{
     "titlePassPlan": ["Generate character pressure titles first."],
     "assumptions": ["Anime/manga broad canon treated together."],
     "exclusions": ["Post-Arlong Park material."],
-    "risks": ["Avoid broad biography."],
     "nextStage": "Draft timeline anchors/windows."
   }
 }`);
@@ -230,6 +229,8 @@ const creatorSystemPrompt = buildLoredeckCreatorBriefSystemPrompt();
 assert.ok(creatorSystemPrompt.includes('Do not generate Lorecards'));
 assert.ok(creatorSystemPrompt.includes('Lorecard count is derived from granularity'));
 assert.ok(creatorSystemPrompt.includes('adaptive creatorCoverage plan'));
+assert.equal(creatorSystemPrompt.includes('"warnings"'), false);
+assert.equal(creatorSystemPrompt.includes('"risks"'), false);
 
 const creatorUserPrompt = buildLoredeckCreatorBriefUserPrompt({
   fandom: 'One Piece',
@@ -304,8 +305,7 @@ const creatorOutline = parseLoredeckCreatorOutlineResponse(`{
         "coverageDimensionIds": ["character-pressure"]
       }
     ],
-    "assumptions": ["Broad manga/anime canon blend."],
-    "risks": ["Avoid leaking later crew history."]
+    "assumptions": ["Broad manga/anime canon blend."]
   }
 }`);
 assert.equal(creatorOutline.outline.beats.length, 1);
@@ -322,6 +322,8 @@ assert.throws(
 const creatorOutlineSystemPrompt = buildLoredeckCreatorOutlineSystemPrompt();
 assert.ok(creatorOutlineSystemPrompt.includes('Aim for under 1600 visible JSON tokens'));
 assert.ok(creatorOutlineSystemPrompt.includes('coverageDimensionIds'));
+assert.equal(creatorOutlineSystemPrompt.includes('"warnings"'), false);
+assert.equal(creatorOutlineSystemPrompt.includes('"risks"'), false);
 const creatorOutlineUserPrompt = buildLoredeckCreatorOutlineUserPrompt({
   brief: creatorBrief.brief,
   notes: 'Keep the outline compact.',
@@ -424,6 +426,8 @@ assert.ok(creatorTitleSystemPrompt.includes('selectedTitleDrafts'));
 assert.ok(creatorTitleSystemPrompt.includes('Generate no more than titlePassLimit titles'));
 assert.ok(creatorTitleSystemPrompt.includes('Keep the whole JSON compact'));
 assert.ok(creatorTitleSystemPrompt.includes('coverageDimensionIds'));
+assert.equal(creatorTitleSystemPrompt.includes('"warnings"'), false);
+assert.equal(creatorTitleSystemPrompt.includes('quality warning'), false);
 
 const creatorTitleUserPrompt = buildLoredeckCreatorTitleUserPrompt({
   brief: creatorBrief.brief,
@@ -465,6 +469,7 @@ assert.ok(creatorPlanningSystemPrompt.includes('Return no more than proposalLimi
 assert.ok(creatorPlanningSystemPrompt.includes('Prefer 6-10 strong proposals'));
 assert.ok(creatorPlanningSystemPrompt.includes('final answer first'));
 assert.ok(creatorPlanningSystemPrompt.includes('Keep the whole JSON compact'));
+assert.equal(creatorPlanningSystemPrompt.includes('"warnings"'), false);
 
 const truncatedPlanningPass = parseLoredeckAssistantResponse(`\`\`\`json
 {
@@ -524,6 +529,7 @@ assert.ok(creatorEntrySystemPrompt.includes('schemaVersion 3'));
 assert.ok(creatorEntrySystemPrompt.includes('content.fact'));
 assert.ok(creatorEntrySystemPrompt.includes('content.injection'));
 assert.ok(creatorEntrySystemPrompt.includes('Keep the whole JSON compact'));
+assert.equal(creatorEntrySystemPrompt.includes('"warnings"'), false);
 
 const truncatedCreatorEntryPass = parseLoredeckAssistantResponse(`{
   "summary": "Drafted Lorecard proposals.",

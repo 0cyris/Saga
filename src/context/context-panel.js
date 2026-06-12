@@ -445,7 +445,7 @@ export function createContextCommandCenterCard(state = {}, contextIndex = null) 
         await handleDetectStoryContext(btn);
     }, 'saga-primary-button'), 'context.detect'));
     if (!basic || proposals.length) {
-        actions.appendChild(createButton(
+        actions.appendChild(markTourTarget(createButton(
             proposals.length
                 ? `Review Proposals (${proposals.length})`
                 : 'Review Proposals',
@@ -453,19 +453,19 @@ export function createContextCommandCenterCard(state = {}, contextIndex = null) 
             () => {
                 openContextProposalReview();
             }
-        ));
+        ), 'context.proposals.review'));
     }
     card.appendChild(actions);
 
     if (!basic) {
         const resolverActions = document.createElement('div');
         resolverActions.className = 'saga-primary-actions saga-context-resolver-actions';
-        resolverActions.appendChild(createButton('Resolve Local', 'Use current Context Brief signals and loaded timeline aliases to update unlocked Loredeck Contexts without a model call.', async (btn) => {
+        resolverActions.appendChild(markTourTarget(createButton('Resolve Local', 'Use current Context Brief signals and loaded timeline aliases to update unlocked Loredeck Contexts without a model call.', async (btn) => {
             await handleResolveContextsFromContext(btn);
-        }));
-        resolverActions.appendChild(createButton('Ask Reasoner', 'Ask the configured Reasoning Provider to choose from bounded known timeline candidates for unresolved loaded Loredecks.', async (btn) => {
+        }), 'context.resolve.local'));
+        resolverActions.appendChild(markTourTarget(createButton('Ask Reasoner', 'Ask the configured Reasoning Provider to choose from bounded known timeline candidates for unresolved loaded Loredecks.', async (btn) => {
             await handleModelResolveContexts(btn);
-        }));
+        }), 'context.resolve.reasoner'));
         card.appendChild(resolverActions);
     }
 
@@ -930,23 +930,23 @@ function createLoredeckContextRow(item, state = {}, contextIndex = null, options
 
     const actions = document.createElement('div');
     actions.className = 'saga-primary-actions saga-loredeck-context-actions';
-    actions.appendChild(createButton('Browse', 'Open this Loredeck in the fullscreen Context Browser.', () => {
+    actions.appendChild(markTourTarget(createButton('Browse', 'Open this Loredeck in the fullscreen Context Browser.', () => {
         openContextWorkbenchForPack(packId, 'context');
-    }, 'saga-primary-button'));
+    }, 'saga-primary-button'), 'context.loadedLoredeck.browse'));
     if (!basic) {
-        actions.appendChild(createButton(context.manualLock ? 'Unlock' : 'Lock', context.manualLock ? 'Allow automatic Context resolvers to update this Loredeck.' : 'Prevent automatic Context resolvers from overwriting this Loredeck.', () => {
+        actions.appendChild(markTourTarget(createButton(context.manualLock ? 'Unlock' : 'Lock', context.manualLock ? 'Allow automatic Context resolvers to update this Loredeck.' : 'Prevent automatic Context resolvers from overwriting this Loredeck.', () => {
             toggleLoredeckContextManualLock(packId, !context.manualLock);
-        }));
-        actions.appendChild(createButton('Seed From Brief', 'Seed this Loredeck Context from the advanced global Context Brief projection.', () => {
+        }), 'context.loadedLoredeck.lock'));
+        actions.appendChild(markTourTarget(createButton('Seed From Brief', 'Seed this Loredeck Context from the advanced global Context Brief projection.', () => {
             seedLoredeckContextFromRuntimeContext(packId, context);
-        }));
-        actions.appendChild(createButton('Timeline', 'Open this Loredeck in the fullscreen Timeline registry view.', () => {
+        }), 'context.loadedLoredeck.seedFromBrief'));
+        actions.appendChild(markTourTarget(createButton('Timeline', 'Open this Loredeck in the fullscreen Timeline registry view.', () => {
             openContextWorkbenchForPack(packId, 'timeline');
-        }));
+        }), 'context.loadedLoredeck.timeline'));
     }
-    actions.appendChild(createButton('Reset Context', 'Clear this Loredeck Context back to an empty default.', async () => {
+    actions.appendChild(markTourTarget(createButton('Reset Context', 'Clear this Loredeck Context back to an empty default.', async () => {
         await resetLoredeckContextFromPanel(packId);
-    }, 'saga-danger-button'));
+    }, 'saga-danger-button'), 'context.loadedLoredeck.reset'));
     row.appendChild(actions);
 
     return row;
