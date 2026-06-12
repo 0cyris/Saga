@@ -17,6 +17,9 @@ import {
 import {
     getLoredeckCreatorEntryDraftBatchModels,
 } from './loredeck-creator-entry-draft-pool.js';
+import {
+    getLoredeckCreatorResetAvailability,
+} from './loredeck-creator-reset.js';
 
 let creatorPanelDeps = {};
 let loredeckCreatorWorkbenchRefreshQueued = false;
@@ -66,6 +69,7 @@ function appendLoredeckPendingQualityPills(meta, change) { return dep('appendLor
 function createLoredeckPendingQualityList(change) { return dep('createLoredeckPendingQualityList', () => null)(change); }
 function openLoredeckCreatorTitleJsonEditor(draft) { return dep('openLoredeckCreatorTitleJsonEditor', () => null)(draft); }
 function acknowledgeLoredeckCreatorCoverageForFinalize() { return dep('acknowledgeLoredeckCreatorCoverageForFinalize', async () => false)(); }
+function handleLoredeckCreatorResetToStep(stepId) { return dep('handleLoredeckCreatorResetToStep', async () => false)(stepId); }
 function getLoredeckCreatorPlanningBatchRows(cached) { return dep('getLoredeckCreatorPlanningBatchRows', () => [])(cached); }
 function getLoredeckCreatorPlanningQueuedBatchIds(cached) { return dep('getLoredeckCreatorPlanningQueuedBatchIds', () => new Set())(cached); }
 function getLoredeckCreatorNextPlanningBatch(cached) { return dep('getLoredeckCreatorNextPlanningBatch', () => null)(cached); }
@@ -398,7 +402,6 @@ export function createLoredeckCreatorPipelineHeader(cached = {}, pipeline = getL
 }
 
 export function createLoredeckCreatorStageGuide(cached = {}, pipeline = getLoredeckCreatorPipelineModel(cached)) {
-    void cached;
     const wrap = document.createElement('div');
     wrap.className = 'saga-loredeck-creator-stage-guide';
     markTourTarget(wrap, 'loredecks.creator.stages');
@@ -406,15 +409,18 @@ export function createLoredeckCreatorStageGuide(cached = {}, pipeline = getLored
 
     const list = document.createElement('div');
     list.className = 'saga-loredeck-creator-stage-list';
+    const generatedPack = pipeline.generatedPack || (cached.generatedPackId ? getLoredeckDefinition(cached.generatedPackId) : null);
     for (const [index, stage] of (pipeline.stages || []).entries()) {
-        const item = document.createElement('button');
-        item.type = 'button';
+        const item = document.createElement('div');
         item.className = `saga-loredeck-creator-stage-item saga-loredeck-creator-stage-${stage.status}`;
         if (pipeline.currentStep?.id === stage.id) item.classList.add('saga-loredeck-creator-stage-active');
+        const main = document.createElement('button');
+        main.type = 'button';
+        main.className = 'saga-loredeck-creator-stage-main';
         const number = document.createElement('div');
         number.className = 'saga-loredeck-creator-stage-number';
         number.textContent = String(index + 1);
-        item.appendChild(number);
+        main.appendChild(number);
         const body = document.createElement('div');
         body.className = 'saga-loredeck-creator-stage-body';
         const label = document.createElement('div');
@@ -425,15 +431,39 @@ export function createLoredeckCreatorStageGuide(cached = {}, pipeline = getLored
         detail.className = 'saga-loredeck-creator-stage-detail';
         detail.textContent = stage.detail;
         body.appendChild(detail);
-        item.appendChild(body);
-        addTooltip(item, stage.status === 'locked' ? stage.dependency : `${stage.label}: ${stage.detail}`);
-        item.addEventListener('click', () => {
+        main.appendChild(body);
+        addTooltip(main, stage.status === 'locked' ? stage.dependency : `${stage.label}: ${stage.detail}`);
+        main.addEventListener('click', () => {
             if (stage.status === 'locked' && stage.dependency) {
                 toast(stage.dependency, 'info');
                 return;
             }
             scrollLoredeckCreatorWorkbenchToAnchor(stage.anchor || 'current-task');
         });
+        item.appendChild(main);
+        const resetAvailability = getLoredeckCreatorResetAvailability(cached, generatedPack, stage.id, {
+            activeGeneration: pipeline.activeGeneration,
+        });
+        if (resetAvailability.show && stage.status !== 'locked' && stage.status !== 'not-ready') {
+            item.classList.add('saga-loredeck-creator-stage-resettable');
+            const reset = document.createElement('button');
+            reset.type = 'button';
+            reset.className = 'saga-loredeck-creator-stage-reset';
+            reset.textContent = '↶';
+            reset.disabled = resetAvailability.disabled;
+            addTooltip(reset, resetAvailability.disabled ? resetAvailability.reason : 'Reset to this step');
+            reset.setAttribute('aria-label', `Reset to ${stage.label}`);
+            reset.addEventListener('click', async event => {
+                event.preventDefault();
+                event.stopPropagation();
+                if (reset.disabled) {
+                    if (resetAvailability.reason) toast(resetAvailability.reason, 'warning');
+                    return;
+                }
+                await handleLoredeckCreatorResetToStep(stage.id);
+            });
+            item.appendChild(reset);
+        }
         list.appendChild(item);
     }
     wrap.appendChild(list);

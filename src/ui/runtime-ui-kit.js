@@ -489,7 +489,7 @@ export async function runBusyAction(btn, busyText, action) {
     }
 }
 
-function showSagaConfirmDialog(title, message) {
+function showSagaConfirmDialog(title, message, options = {}) {
     if (typeof document === 'undefined' || !document.body) return Promise.resolve(false);
     return new Promise(resolve => {
         document.querySelector('.saga-confirm-overlay')?.remove();
@@ -518,8 +518,10 @@ function showSagaConfirmDialog(title, message) {
 
         const actions = document.createElement('div');
         actions.className = 'saga-primary-actions saga-confirm-actions';
-        const cancel = createButton('Cancel', 'Cancel this action.', () => finish(false));
-        const confirm = createButton('Confirm', 'Confirm and continue.', () => finish(true), 'saga-danger-button');
+        const cancelLabel = String(options.cancelLabel || 'Cancel').trim() || 'Cancel';
+        const confirmLabel = String(options.confirmLabel || 'Confirm').trim() || 'Confirm';
+        const cancel = createButton(cancelLabel, options.cancelTooltip || 'Cancel this action.', () => finish(false));
+        const confirm = createButton(confirmLabel, options.confirmTooltip || 'Confirm and continue.', () => finish(true), options.confirmClassName || 'saga-danger-button');
         actions.appendChild(cancel);
         actions.appendChild(confirm);
         shell.appendChild(actions);
@@ -704,9 +706,9 @@ function showSagaChoiceDialog(title, message, choices = []) {
     });
 }
 
-export async function confirmAction(title, message) {
+export async function confirmAction(title, message, options = {}) {
     if (typeof document !== 'undefined' && document.body) {
-        return await showSagaConfirmDialog(title, message);
+        return await showSagaConfirmDialog(title, message, options);
     }
     const hasPopupConfirm = typeof Popup !== 'undefined' && Popup.show && typeof Popup.show.confirm === 'function';
     if (hasPopupConfirm) return await Popup.show.confirm(title, message);

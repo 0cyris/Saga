@@ -27,6 +27,8 @@ const gateScripts = [
   'tools/scripts/test-basic-readiness.mjs',
   'tools/scripts/test-experience-modes.mjs',
   'tools/scripts/test-loredeck-context-health.mjs',
+  'tools/scripts/test-loredeck-creator-reset.mjs',
+  'tools/scripts/test-loredeck-creator-stage-reset-ui.mjs',
   'tools/scripts/test-hp-loredeck-health.mjs',
   'tools/scripts/test-loredeck-health-center-refresh.mjs',
   'tools/scripts/test-context-resolver.mjs',
@@ -48,6 +50,7 @@ const gateScripts = [
   'tools/scripts/test-prompt-injection-event-lifecycle-smoke.mjs',
   'tools/scripts/test-basic-workflow-smoke-contract.mjs',
   'tools/scripts/test-css-sanity.mjs',
+  'tools/scripts/test-runtime-ui-confirm-dialog.mjs',
   'tools/scripts/test-visual-smoke-harness.mjs',
   'tools/scripts/scan-secrets.mjs',
 ];

@@ -29,6 +29,7 @@ The harness seeds:
 
 - Expanded Saga shelf with the Loredecks tab open.
 - A Custom Loredeck named `Smoke Test: Arlong Park`.
+- A normalized in-progress Creator project named `Smoke Creator Project`.
 - A loaded Loredeck stack with the Custom deck above `hp-golden-trio`.
 - Embedded schema v3 Lorecards.
 - A Pending Review proposal on the Custom deck.
@@ -62,6 +63,24 @@ assets/documentation/renders/saga-smoke/context-harness-02-workbench.png
 ```
 
 It verifies the Runtime Context command center, proposal review overlay, proposal apply flow, loaded Loredeck Context rows, lock state, and Context Workbench tabs.
+
+## Repo-Local Creator Reset Screenshot Helper
+
+Run the current-code Creator reset smoke without depending on the installed SillyTavern extension copy:
+
+```powershell
+$env:SAGA_SMOKE_TARGET='creator-harness'
+node tools\scripts\smoke-live-st-cdp.mjs
+```
+
+This starts the local harness, opens the Loredecks tab, resumes the seeded in-progress Creator project, clicks `Reset to Title Pass`, and cancels the destructive confirmation. It captures:
+
+```text
+assets/documentation/renders/saga-smoke/creator-harness-01-reset-controls.png
+assets/documentation/renders/saga-smoke/creator-harness-02-reset-confirm.png
+```
+
+It verifies the top-bar reset buttons render outside the main stage navigation button, `Finalize` has no reset control, the reset controls are enabled when generation is not active, and the confirmation names the target step plus the later steps that will be erased.
 
 ## Repo-Local Walkthrough Screenshot Helper
 

@@ -517,6 +517,14 @@ import {
     getLoredeckCreatorUnhandledEntryDrafts,
     selectLoredeckCreatorEntryDraftBatchId,
 } from '../loredecks/loredeck-creator-entry-draft-pool.js';
+import {
+    buildLoredeckCreatorResetWarning,
+    getLoredeckCreatorResetStepLabel,
+    hasLoredeckCreatorResetForwardData,
+    resetGeneratedLoredeckPackAfterStep,
+    resetLoredeckCreatorJobAfterStep,
+    shouldRemoveGeneratedPackForCreatorReset,
+} from '../loredecks/loredeck-creator-reset.js';
 import * as loredeckCreatorCoverage from '../loredecks/loredeck-creator-coverage.js';
 import {
     configureContextPanel,
@@ -1058,6 +1066,7 @@ configureLoredeckCreatorPanel({
     createLoredeckPendingQualityList,
     openLoredeckCreatorTitleJsonEditor,
     acknowledgeLoredeckCreatorCoverageForFinalize,
+    handleLoredeckCreatorResetToStep,
     getLoredeckCreatorPlanningBatchRows,
     getLoredeckCreatorPlanningQueuedBatchIds,
     getLoredeckCreatorNextPlanningBatch,
@@ -2955,6 +2964,135 @@ async function acknowledgeLoredeckCreatorCoverageForFinalize() {
     refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
     refreshLoredeckCreatorWorkbenchBody({ preserveScroll: true });
     toast(coverage.available ? 'Creator Coverage acknowledged for finalization.' : 'Missing Creator Coverage plan acknowledged for finalization.', 'success');
+    return true;
+}
+
+const LOREDECK_CREATOR_RESET_ANCHORS = Object.freeze({
+    scope: 'scope-brief',
+    outline: 'story-outline',
+    titles: 'title-sets',
+    context: 'context-plan',
+    lorecards: 'lorecards',
+    review: 'review-queue',
+    health: 'deck-health',
+});
+
+function getLoredeckCreatorResetAnchor(stepId = '', cached = {}) {
+    const id = String(stepId || '').trim();
+    if (id === 'scope') return cached?.brief ? 'scope-brief' : 'intake';
+    return LOREDECK_CREATOR_RESET_ANCHORS[id] || 'current-task';
+}
+
+function clearLoredeckCreatorResetPackCaches(packId = '', options = {}) {
+    const id = String(packId || '').trim();
+    if (!id) return;
+    loredeckManifestPreviewCache.delete(id);
+    loredeckEntryPreviewCache.delete(id);
+    loredeckTimelineRegistryCache.delete(id);
+    loredeckTagRegistryCache.delete(id);
+    loredeckHealthRepairSelectionCache.delete(id);
+    if (options.clearDraftCache === true) loredeckAssistantDraftCache.delete(id);
+}
+
+function removeLoredeckCreatorGeneratedPackFromStack(packId = '') {
+    const id = String(packId || '').trim();
+    if (!id) return false;
+    const stackKey = createLoredeckStackDeckKey(id);
+    const inStack = getLoredeckStack(getState()).some(item => getLoredeckStackItemKey(item) === stackKey);
+    if (!inStack) return false;
+    commitLoredeckStackMutation(stack => {
+        const index = stack.findIndex(item => getLoredeckStackItemKey(item) === stackKey);
+        if (index >= 0) stack.splice(index, 1);
+    });
+    return true;
+}
+
+function clearLoredeckCreatorSelectedPackIfMatches(packId = '') {
+    const id = String(packId || '').trim();
+    if (!id) return;
+    const state = getState();
+    if (state?.lorePanel?.selectedLoredeckId !== id) return;
+    state.lorePanel.selectedLoredeckId = '';
+    saveState(state, { syncPrompt: false });
+}
+
+async function handleLoredeckCreatorResetToStep(targetStepId = '') {
+    const stepId = String(targetStepId || '').trim();
+    const cached = getLoredeckCreatorBriefCache();
+    const activeGeneration = getActiveLoredeckCreatorGeneration(cached);
+    if (activeGeneration) {
+        toast('Cancel or finish the current Creator generation before resetting.', 'warning');
+        return false;
+    }
+    const label = getLoredeckCreatorResetStepLabel(stepId);
+    const packId = String(cached.generatedPackId || '').trim();
+    const generatedPack = packId ? getFreshLoredeckLibraryPack(packId, getLoredeckDefinition(packId)) : null;
+    const creatorPack = generatedPack && isGeneratedLoredeckPack(generatedPack) ? generatedPack : null;
+    if (!hasLoredeckCreatorResetForwardData(cached, creatorPack || null, stepId)) {
+        toast(`No later Creator data exists after ${label}.`, 'info');
+        return false;
+    }
+    const proceed = await confirmAction(
+        `Reset to ${label}?`,
+        buildLoredeckCreatorResetWarning(stepId),
+        {
+            confirmLabel: `Reset to ${label}`,
+            confirmTooltip: `Permanently erase later Creator data and return to ${label}.`,
+        }
+    );
+    if (!proceed) return false;
+
+    const removeGeneratedPack = shouldRemoveGeneratedPackForCreatorReset(stepId);
+    let packMutationOk = true;
+    if (creatorPack?.packId && removeGeneratedPack) {
+        removeLoredeckCreatorGeneratedPackFromStack(creatorPack.packId);
+        const result = removeLoredeckLibraryPack(creatorPack.packId, { clearCreatorProjects: false });
+        if (!result.ok) {
+            toast(result.error || 'Generated Loredeck shell could not be reset.', 'warning');
+            packMutationOk = false;
+        } else {
+            clearLoredeckCreatorResetPackCaches(creatorPack.packId, { clearDraftCache: true });
+            clearLoredeckCreatorSelectedPackIfMatches(creatorPack.packId);
+        }
+    } else if (creatorPack?.packId) {
+        const resetPack = resetGeneratedLoredeckPackAfterStep(creatorPack, stepId);
+        if (resetPack) {
+            if (isVirtualLoredeckPack(resetPack)) {
+                resetPack.manifestData = buildEmbeddedCustomManifest(resetPack.manifestData || {}, resetPack);
+            }
+            const result = upsertLoredeckLibraryPack(resetPack);
+            if (!result.ok) {
+                toast(result.error || 'Generated Loredeck state could not be reset.', 'warning');
+                packMutationOk = false;
+            } else {
+                clearLoredeckCreatorResetPackCaches(creatorPack.packId, {
+                    clearDraftCache: stepId === 'scope' || stepId === 'outline' || stepId === 'titles' || stepId === 'context',
+                });
+            }
+        }
+    } else if (packId) {
+        if (removeGeneratedPack) {
+            removeLoredeckCreatorGeneratedPackFromStack(packId);
+            clearLoredeckCreatorSelectedPackIfMatches(packId);
+        }
+        clearLoredeckCreatorResetPackCaches(packId, {
+            clearDraftCache: removeGeneratedPack || stepId === 'context',
+        });
+    }
+    if (!packMutationOk) return false;
+
+    const resetJob = resetLoredeckCreatorJobAfterStep(cached, stepId);
+    const nextJob = setLoredeckCreatorBriefCache(resetJob, { refreshWorkbench: true });
+    clearCanonLoreDatabaseCache();
+    clearContextIndexCache();
+    refreshLoredeckSurfaces({ clearCanon: true, clearContext: true });
+    refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+    refreshLoredeckCreatorWorkbenchBody({ preserveScroll: false });
+    const anchor = getLoredeckCreatorResetAnchor(stepId, nextJob || resetJob);
+    const scroll = () => scrollLoredeckCreatorWorkbenchToAnchor(anchor);
+    scroll();
+    if (typeof requestAnimationFrame === 'function') requestAnimationFrame(scroll);
+    toast(`Reset to ${label}.`, 'success');
     return true;
 }
 

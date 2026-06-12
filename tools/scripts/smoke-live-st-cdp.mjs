@@ -17,7 +17,7 @@ const VIEWPORT = {
 const LIVE_CONTEXT_LOADED_PACK_ID = 'hp-year-6-half-blood-prince';
 const LIVE_CONTEXT_LOADED_PACK_TITLE = 'Harry Potter Year 6: Half-Blood Prince';
 const LIVE_CONTEXT_REASONER_TARGET = 'live-context-reasoner';
-const REPO_LOCAL_HARNESS_TARGETS = new Set(['context-harness', 'guide-harness']);
+const REPO_LOCAL_HARNESS_TARGETS = new Set(['context-harness', 'guide-harness', 'creator-harness']);
 const LIVE_CONTEXT_METADATA_TARGETS = new Set([
     'live-context-loaded',
     'live-context-loaded-narrow',
@@ -116,6 +116,7 @@ function getStaticMimeType(filePath) {
 function getVisualSmokeHarnessQuery(target = SMOKE_TARGET) {
     if (target === 'context-harness') return '?tab=context&review=context-proposals';
     if (target === 'guide-harness') return '?mode=basic&tab=session';
+    if (target === 'creator-harness') return '?tab=loredecks';
     return '';
 }
 
@@ -605,6 +606,20 @@ async function clickButtonText(client, text, options = {}) {
         target.click();
         return true;
     }, text, options.root || '', options.enabledOnly !== false), { userGesture: true });
+}
+
+async function openSummaryText(client, text, options = {}) {
+    return await evaluate(client, script((label, rootSelector) => {
+        const root = rootSelector ? document.querySelector(rootSelector) : document;
+        if (!root) return false;
+        const summaries = [...root.querySelectorAll('summary')];
+        const target = summaries.find(summary => (summary.innerText || summary.textContent || '').includes(label));
+        if (!target) return false;
+        target.scrollIntoView({ block: 'center', inline: 'center' });
+        const details = target.closest('details');
+        if (details && !details.open) target.click();
+        return true;
+    }, text, options.root || ''), { userGesture: true });
 }
 
 async function setInputValue(client, selector, value, options = {}) {
@@ -1114,6 +1129,96 @@ async function runGuideHarnessSmoke(client, screenshots, findings, smokeUrl, dia
     }, null, 2));
 }
 
+async function runCreatorHarnessSmoke(client, screenshots, findings, smokeUrl, dialogEvents) {
+    await waitFor(client, 'window.__sagaSmokeReady === true', 'Creator smoke ready marker', 20000);
+    await waitFor(client, 'document.querySelector(".saga-runtime-rail-tab-active")?.getAttribute("data-tab-id") === "loredecks"', 'Creator smoke Loredecks tab active', 10000);
+    const projectPanelOpened = await openSummaryText(client, 'In-Progress Creator Projects');
+    if (!projectPanelOpened) findings.push('Creator harness could not open In-Progress Creator Projects.');
+    await wait(700);
+    const creatorOpened = await clickSelector(client, '.saga-loredeck-creator-project-card');
+    if (!creatorOpened) findings.push('Creator harness could not resume the seeded Creator project.');
+    await waitFor(client, '!!document.querySelector(".saga-loredeck-creator-workbench-overlay")', 'Creator harness workbench overlay', 10000);
+    await wait(900);
+    screenshots.push(await screenshot(client, 'creator-harness-01-reset-controls'));
+
+    const resetState = await evaluate(client, script(() => {
+        const overlay = document.querySelector('.saga-loredeck-creator-workbench-overlay');
+        const buttons = [...overlay?.querySelectorAll('.saga-loredeck-creator-stage-reset') || []];
+        const labels = buttons.map(button => button.getAttribute('aria-label') || '').filter(Boolean);
+        const cards = [...overlay?.querySelectorAll('.saga-loredeck-creator-stage-item') || []];
+        return {
+            overlayOpen: !!overlay,
+            activeTab: document.querySelector('.saga-runtime-rail-tab-active')?.getAttribute('data-tab-id') || '',
+            resetCount: buttons.length,
+            labels,
+            disabledCount: buttons.filter(button => button.disabled).length,
+            resettableCount: overlay?.querySelectorAll('.saga-loredeck-creator-stage-resettable').length || 0,
+            finalizeHasReset: labels.some(label => label === 'Reset to Finalize'),
+            hasNestedStageButtons: cards.some(card => !!card.querySelector('button button')),
+            titleResetTooltip: buttons.find(button => button.getAttribute('aria-label') === 'Reset to Title Pass')?.dataset?.sagaTooltip || '',
+            titleResetText: buttons.find(button => button.getAttribute('aria-label') === 'Reset to Title Pass')?.textContent || '',
+            workbenchText: overlay?.innerText?.slice(0, 1200) || '',
+        };
+    }));
+    if (!resetState.overlayOpen) findings.push('Creator harness workbench did not remain open for reset validation.');
+    if (resetState.activeTab !== 'loredecks') findings.push('Creator harness did not remain on the Loredecks tab.');
+    if (resetState.resetCount < 3) findings.push(`Creator harness rendered ${resetState.resetCount} reset controls instead of several completed-stage controls.`);
+    if (resetState.disabledCount !== 0) findings.push('Creator harness reset controls were disabled even though no generation is active.');
+    if (resetState.resettableCount !== resetState.resetCount) findings.push('Creator harness resettable card count did not match reset button count.');
+    if (resetState.finalizeHasReset) findings.push('Creator harness exposed a reset control on Finalize.');
+    if (resetState.hasNestedStageButtons) findings.push('Creator harness rendered nested buttons in the stage guide.');
+    if (!resetState.labels.includes('Reset to Title Pass')) findings.push('Creator harness did not expose Reset to Title Pass.');
+    if (!resetState.titleResetTooltip.includes('Reset to this step')) findings.push('Creator reset tooltip did not use the expected reset affordance copy.');
+    if (!resetState.titleResetText.trim()) findings.push('Creator reset icon text did not render.');
+    if (findings.length === 0) {
+        const clickedReset = await clickSelector(client, '.saga-loredeck-creator-stage-reset[aria-label="Reset to Title Pass"]');
+        if (!clickedReset) {
+            findings.push('Creator harness could not click Reset to Title Pass.');
+        } else {
+            await waitFor(client, '!!document.querySelector(".saga-confirm-overlay")', 'Creator reset confirmation overlay', 10000);
+            await wait(300);
+            const confirmState = await evaluate(client, script(() => {
+                const overlay = document.querySelector('.saga-confirm-overlay');
+                const text = overlay?.innerText || '';
+                return {
+                    open: !!overlay,
+                    text,
+                    hasTitle: text.includes('Reset to Title Pass?'),
+                    hasWarning: text.includes('permanently erase all Creator data after Title Pass'),
+                    namesForwardSteps: text.includes('Context Plan') && text.includes('Lorecards') && text.includes('Review Queue') && text.includes('Deck Health') && text.includes('Finalize'),
+                    hasConfirmLabel: [...overlay?.querySelectorAll('button') || []].some(button => (button.innerText || button.textContent || '').trim() === 'Reset to Title Pass'),
+                    hasCancelLabel: [...overlay?.querySelectorAll('button') || []].some(button => (button.innerText || button.textContent || '').trim() === 'Cancel'),
+                };
+            }));
+            if (!confirmState.open) findings.push('Creator reset confirmation did not open.');
+            if (!confirmState.hasTitle) findings.push('Creator reset confirmation title was not target-specific.');
+            if (!confirmState.hasWarning || !confirmState.namesForwardSteps) findings.push('Creator reset confirmation did not name the destructive forward-step wipe.');
+            if (!confirmState.hasConfirmLabel || !confirmState.hasCancelLabel) findings.push('Creator reset confirmation did not render expected action labels.');
+            screenshots.push(await screenshot(client, 'creator-harness-02-reset-confirm'));
+            const cancelled = await clickButtonText(client, 'Cancel', { root: '.saga-confirm-overlay', enabledOnly: false });
+            if (!cancelled) findings.push('Creator reset confirmation Cancel button was not clickable.');
+            await wait(300);
+            const closed = await evaluate(client, '!document.querySelector(".saga-confirm-overlay")');
+            if (!closed) findings.push('Creator reset confirmation did not close after Cancel.');
+            resetState.confirmState = confirmState;
+        }
+    }
+
+    const errors = client.events
+        .filter(event => event.method === 'Log.entryAdded' && event.params?.entry?.level === 'error')
+        .map(event => formatLogEntry(event.params.entry));
+    console.log(JSON.stringify({
+        ok: findings.length === 0 && errors.length === 0,
+        target: SMOKE_TARGET,
+        url: smokeUrl,
+        screenshots,
+        findings,
+        errors,
+        dialogEvents,
+        resetState,
+    }, null, 2));
+}
+
 async function main() {
     await fs.mkdir(OUT_DIR, { recursive: true });
     const chrome = await findChrome();
@@ -1194,6 +1299,11 @@ async function main() {
 
         if (SMOKE_TARGET === 'guide-harness') {
             await runGuideHarnessSmoke(client, screenshots, findings, smokeUrl, dialogEvents);
+            return;
+        }
+
+        if (SMOKE_TARGET === 'creator-harness') {
+            await runCreatorHarnessSmoke(client, screenshots, findings, smokeUrl, dialogEvents);
             return;
         }
 

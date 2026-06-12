@@ -1339,17 +1339,74 @@
 
 .saga-loredeck-creator-stage-item {
     min-width: 0;
-    display: grid;
-    grid-template-columns: 30px minmax(0, 1fr);
-    gap: 7px;
-    align-items: center;
+    position: relative;
     border: 1px solid var(--saga-border-soft, rgba(185, 139, 54, 0.18));
     border-radius: 8px;
     background: var(--saga-surface-2, rgba(18, 18, 24, 0.62));
     color: var(--saga-text, #f1ead8);
+    overflow: hidden;
+}
+
+.saga-loredeck-creator-stage-main {
+    width: 100%;
+    min-width: 0;
+    display: grid;
+    grid-template-columns: 30px minmax(0, 1fr);
+    gap: 7px;
+    align-items: center;
+    border: 0;
+    background: transparent;
+    color: inherit;
     text-align: left;
     padding: 7px;
     cursor: pointer;
+}
+
+.saga-loredeck-creator-stage-main:focus-visible {
+    outline: 2px solid var(--saga-border-strong, rgba(215, 181, 109, 0.58));
+    outline-offset: -2px;
+}
+
+.saga-loredeck-creator-stage-resettable .saga-loredeck-creator-stage-main {
+    padding-right: 30px;
+}
+
+.saga-loredeck-creator-stage-reset {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 22px;
+    height: 22px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--saga-border-soft, rgba(185, 139, 54, 0.22));
+    border-radius: 6px;
+    background: var(--saga-surface, rgba(43, 28, 28, 0.72));
+    color: var(--saga-muted, rgba(241, 234, 216, 0.74));
+    font-size: 0.86rem;
+    font-weight: 800;
+    line-height: 1;
+    opacity: 0;
+    cursor: pointer;
+    transition: opacity 0.12s ease, border-color 0.12s ease, color 0.12s ease, background 0.12s ease;
+}
+
+.saga-loredeck-creator-stage-item:hover .saga-loredeck-creator-stage-reset,
+.saga-loredeck-creator-stage-reset:focus-visible {
+    opacity: 1;
+}
+
+.saga-loredeck-creator-stage-reset:hover,
+.saga-loredeck-creator-stage-reset:focus-visible {
+    border-color: var(--saga-red-soft, rgba(176, 58, 58, 0.48));
+    background: var(--saga-red-surface, rgba(92, 23, 36, 0.28));
+    color: var(--saga-danger, #ff9a9a);
+}
+
+.saga-loredeck-creator-stage-reset:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+    color: var(--saga-muted, rgba(241, 234, 216, 0.58));
 }
 
 .saga-loredeck-creator-stage-number {
@@ -1737,6 +1794,10 @@
 @media (max-width: 980px) {
     .saga-loredeck-creator-stage-list {
         grid-template-columns: repeat(4, minmax(92px, 1fr));
+    }
+
+    .saga-loredeck-creator-stage-reset {
+        opacity: 1;
     }
 
     .saga-loredeck-creator-current-task,
