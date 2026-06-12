@@ -121,5 +121,7 @@ const compressionPrompt = __injectionPreviewTestHooks.buildCompressionPrompt('lo
 assert.match(compressionPrompt, /Compression retention contract/);
 assert.match(compressionPrompt, /Acceptable range:/);
 assert.match(compressionPrompt, /Do not compress below the minimum range/);
+assert.match(__injectionPreviewTestHooks.COMPRESSION_RETRY_SYSTEM_PROMPT, /outside the requested retention band/);
+assert.doesNotMatch(__injectionPreviewTestHooks.COMPRESSION_RETRY_SYSTEM_PROMPT, /shorter|insufficiently compressed/);
 
 console.log('Prompt compression contract passed.');

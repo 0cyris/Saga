@@ -60,6 +60,7 @@ const RELEVANCE_META = Object.freeze({
     normal: { label: 'Normal' },
     low: { label: 'Low' },
 });
+const COMPRESSION_RETRY_SYSTEM_PROMPT = 'You are Saga Compression. Your previous visible output was outside the requested retention band. Output only the corrected plain-text injection block within that band. No markdown, JSON, reasoning, or commentary.';
 // Injection tab ---------------------------------------------------------------
 
 export function renderInjectionTab(container, state) {
@@ -863,7 +864,7 @@ async function runModelCompression(kind = 'lore', btn = null) {
         if (!validationResult.ok && shouldRetryCompression(validationResult, directText, level)) {
             const retryPrompt = buildCompressionRetryPrompt(kind, level, context, directText, cleaned, budget, validationResult.message);
             const retry = await sendLoreRequest(
-                'You are Saga Compression. Your previous visible output was too long or insufficiently compressed. Output only the corrected shorter plain-text injection block. No markdown, JSON, reasoning, or commentary.',
+                COMPRESSION_RETRY_SYSTEM_PROMPT,
                 retryPrompt,
                 {
                     providerKind,
@@ -1066,6 +1067,7 @@ export const __injectionPreviewTestHooks = Object.freeze({
     estimateTokenBudgetForCompression,
     validateCompressedText,
     buildCompressionPrompt,
+    COMPRESSION_RETRY_SYSTEM_PROMPT,
 });
 
 function parseLoreCompressionKind(kind = 'lore') {
