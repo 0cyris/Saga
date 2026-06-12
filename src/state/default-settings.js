@@ -230,18 +230,22 @@ export const DEFAULT_SETTINGS = {
     continuityEmotionStaleBehavior: 'omit', // 'omit' | 'keep_as_recent' | 'keep'
 
     // Advanced compression prompt templates. Variables: {{kind}}, {{compressionLevel}},
-    // {{compressionLabel}}, {{directTokens}}, {{targetTokens}}, {{hardTokenLimit}},
-    // {{directCharacters}}, {{targetCharacters}}, {{hardCharacterLimit}},
-    // {{storyContext}}, {{directText}}.
+    // {{compressionLabel}}, {{compressionPolicy}}, {{directTokens}},
+    // {{minimumTokens}}, {{targetTokens}}, {{maximumTokens}}, {{hardTokenLimit}},
+    // {{directCharacters}}, {{minimumCharacters}}, {{targetCharacters}},
+    // {{maximumCharacters}}, {{hardCharacterLimit}}, {{storyContext}}, {{directText}}.
     continuityCompressionPromptTemplate: `Compress the following Saga {{kind}} injection block for a fandom roleplay.
 
 Context:
 {{storyContext}}
 
-Compression level {{compressionLevel}} — {{compressionLabel}}.
+Compression level {{compressionLevel}} - {{compressionLabel}}.
+Policy: {{compressionPolicy}}.
 Source length: about {{directTokens}} tokens / {{directCharacters}} characters.
-Target length: at most {{targetTokens}} tokens / {{targetCharacters}} characters.
-Hard maximum visible output: {{hardTokenLimit}} tokens / {{hardCharacterLimit}} characters.
+Target length: about {{targetTokens}} tokens / {{targetCharacters}} characters.
+Acceptable range: {{minimumTokens}}-{{maximumTokens}} tokens / {{minimumCharacters}}-{{maximumCharacters}} characters.
+Do not compress below the minimum range; restore useful details if the output is too short.
+Do not exceed the maximum range; remove lower-value wording if the output is too long.
 
 Rules:
 - Preserve current scene/timeline state, active character state, key items, and active goals/threads.
@@ -258,10 +262,13 @@ Direct injection block:
 Context:
 {{storyContext}}
 
-Compression level {{compressionLevel}} — {{compressionLabel}}.
+Compression level {{compressionLevel}} - {{compressionLabel}}.
+Policy: {{compressionPolicy}}.
 Source length: about {{directTokens}} tokens / {{directCharacters}} characters.
-Target length: at most {{targetTokens}} tokens / {{targetCharacters}} characters.
-Hard maximum visible output: {{hardTokenLimit}} tokens / {{hardCharacterLimit}} characters.
+Target length: about {{targetTokens}} tokens / {{targetCharacters}} characters.
+Acceptable range: {{minimumTokens}}-{{maximumTokens}} tokens / {{minimumCharacters}}-{{maximumCharacters}} characters.
+Do not compress below the minimum range; restore useful details if the output is too short.
+Do not exceed the maximum range; remove lower-value wording if the output is too long.
 
 Rules:
 - Preserve secrets, knowledge boundaries, canon or story-established constraints, current-scene relevant facts, and active hazards.

@@ -358,7 +358,7 @@ function createCompressionPromptEditorCard() {
 
     const help = document.createElement('div');
     help.className = 'saga-runtime-help';
-    help.textContent = 'Variables: {{kind}}, {{compressionLevel}}, {{compressionLabel}}, {{directTokens}}, {{targetTokens}}, {{hardTokenLimit}}, {{directCharacters}}, {{targetCharacters}}, {{hardCharacterLimit}}, {{storyContext}}, {{directText}}.';
+    help.textContent = 'Variables: {{kind}}, {{compressionLevel}}, {{compressionLabel}}, {{compressionPolicy}}, {{directTokens}}, {{minimumTokens}}, {{targetTokens}}, {{maximumTokens}}, {{hardTokenLimit}}, {{directCharacters}}, {{minimumCharacters}}, {{targetCharacters}}, {{maximumCharacters}}, {{hardCharacterLimit}}, {{storyContext}}, {{directText}}.';
     card.appendChild(help);
 
     card.appendChild(createCompressionPromptTextarea('Continuity Compression Prompt', 'continuityCompressionPromptTemplate', DEFAULT_SETTINGS.continuityCompressionPromptTemplate));
@@ -422,11 +422,11 @@ function formatPlacementSummary(settings, kind) {
 
 function getCompressionProfile(level) {
     const profiles = {
-        1: { label: 'Light', ratio: 0.8, description: 'preserve most details; remove redundancy only' },
-        2: { label: 'Moderate', ratio: 0.6, description: 'concise but still descriptive' },
-        3: { label: 'Balanced', ratio: 0.4, description: 'keep roleplay-relevant facts and current-scene implications' },
-        4: { label: 'Heavy', ratio: 0.25, description: 'short bullets; preserve critical secrets, constraints, and protected details' },
-        5: { label: 'Minimal', ratio: 0.15, description: 'minimum viable context; only essential facts, constraints, secrets, and hazards' },
+        1: { label: 'Light', targetRatio: 0.8, minimumRatio: 0.7, maximumRatio: 0.9, description: 'preserve most details; remove redundancy only' },
+        2: { label: 'Moderate', targetRatio: 0.6, minimumRatio: 0.5, maximumRatio: 0.7, description: 'preserve important entries while shortening descriptions' },
+        3: { label: 'Balanced', targetRatio: 0.4, minimumRatio: 0.32, maximumRatio: 0.48, description: 'keep roleplay-relevant facts and current-scene implications' },
+        4: { label: 'Heavy', targetRatio: 0.2, minimumRatio: 0.14, maximumRatio: 0.28, description: 'short bullets; preserve critical secrets, constraints, and protected details' },
+        5: { label: 'Maximum', targetRatio: 0.1, minimumRatio: 0.07, maximumRatio: 0.16, description: 'maximum compression; only essential facts, constraints, secrets, and hazards' },
     };
     return profiles[Math.max(1, Math.min(5, Number(level) || 2))] || profiles[2];
 }
@@ -436,16 +436,24 @@ function estimateTokenBudgetForCompression(text, level) {
     const directTokens = estimateTokens(source);
     const directCharacters = source.length;
     const profile = getCompressionProfile(level);
-    const targetTokens = Math.max(96, Math.ceil(directTokens * profile.ratio));
-    const hardTokenLimit = Math.max(128, Math.ceil(targetTokens * 1.2));
-    const targetCharacters = Math.max(420, Math.ceil(directCharacters * profile.ratio));
-    const hardCharacterLimit = Math.max(560, Math.ceil(targetCharacters * 1.18));
+    const minimumTokens = Math.max(1, Math.ceil(directTokens * profile.minimumRatio));
+    const targetTokens = Math.max(1, Math.ceil(directTokens * profile.targetRatio));
+    const maximumTokens = Math.max(targetTokens, Math.ceil(directTokens * profile.maximumRatio));
+    const hardTokenLimit = maximumTokens;
+    const minimumCharacters = Math.max(1, Math.ceil(directCharacters * profile.minimumRatio));
+    const targetCharacters = Math.max(1, Math.ceil(directCharacters * profile.targetRatio));
+    const maximumCharacters = Math.max(targetCharacters, Math.ceil(directCharacters * profile.maximumRatio));
+    const hardCharacterLimit = maximumCharacters;
     return {
         directTokens,
         directCharacters,
+        minimumTokens,
         targetTokens,
-        targetCharacters,
+        maximumTokens,
         hardTokenLimit,
+        minimumCharacters,
+        targetCharacters,
+        maximumCharacters,
         hardCharacterLimit,
         profile,
     };
@@ -462,7 +470,7 @@ function getCompressionBudgetSummary(kind, state) {
         : parsed.tier ? buildLorePreview(state, 'direct', parsed.tier) : buildLorePreview(state, 'direct');
     if (!directText || !directText.trim()) return 'No source text';
     const budget = estimateTokenBudgetForCompression(directText, level);
-    return `~${budget.targetTokens} tokens / ${budget.targetCharacters} chars target; max ${budget.hardTokenLimit} tokens / ${budget.hardCharacterLimit} chars from ~${budget.directTokens} tokens / ${budget.directCharacters} chars`;
+    return `~${budget.targetTokens} tokens / ${budget.targetCharacters} chars target; range ${budget.minimumTokens}-${budget.maximumTokens} tokens / ${budget.minimumCharacters}-${budget.maximumCharacters} chars from ~${budget.directTokens} tokens / ${budget.directCharacters} chars`;
 }
 
 function getCompressionStatusTextForSummary(state, kind) {
@@ -898,8 +906,12 @@ async function runModelCompression(kind = 'lore', btn = null) {
             lastCharacterCount: cleaned.length,
             lastDirectTokenEstimate: budget.directTokens,
             lastDirectCharacterCount: budget.directCharacters,
+            lastMinimumTokenEstimate: budget.minimumTokens,
+            lastMinimumCharacterCount: budget.minimumCharacters,
             lastTargetTokenEstimate: budget.targetTokens,
             lastTargetCharacterCount: budget.targetCharacters,
+            lastMaximumTokenEstimate: budget.maximumTokens,
+            lastMaximumCharacterCount: budget.maximumCharacters,
             lastHardTokenLimit: budget.hardTokenLimit,
             lastHardCharacterLimit: budget.hardCharacterLimit,
             lastCompressionRatio: budget.directCharacters ? Number((cleaned.length / budget.directCharacters).toFixed(3)) : 0,
@@ -948,11 +960,11 @@ function validateCompressedText(cleaned, directText, budget, level) {
     if (budget.directTokens >= 220 && outputTokens > Math.ceil(budget.hardTokenLimit * 1.1)) {
         return { ok: false, message: `Compressed output is too long: ~${outputTokens} tokens; hard limit is ~${budget.hardTokenLimit} tokens.` };
     }
-    if (level >= 3 && sourceChars >= 1200 && outputChars > Math.ceil(sourceChars * 0.72)) {
-        return { ok: false, message: `Compression level ${level} did not significantly reduce the source: ${outputChars} chars from ${sourceChars} chars.` };
+    if (sourceChars >= 1200 && outputChars < budget.minimumCharacters) {
+        return { ok: false, message: `Compression level ${level} overcompressed the source: ${outputChars} chars from ${sourceChars} chars; minimum for ${budget.profile.label} is ${budget.minimumCharacters} chars.` };
     }
-    if (level >= 4 && sourceChars >= 1200 && outputChars > Math.ceil(sourceChars * 0.55)) {
-        return { ok: false, message: `Compression level ${level} did not meet heavy-reduction expectations: ${outputChars} chars from ${sourceChars} chars.` };
+    if (sourceChars >= 1200 && outputChars > budget.maximumCharacters) {
+        return { ok: false, message: `Compression level ${level} did not meet its target band: ${outputChars} chars from ${sourceChars} chars; maximum for ${budget.profile.label} is ${budget.maximumCharacters} chars.` };
     }
     return { ok: true, message: '' };
 }
@@ -968,16 +980,19 @@ function buildCompressionRetryPrompt(kind, level, context, directText, previousO
     const kindLabel = parsedKind.base === 'continuity' ? 'Continuity State' : parsedKind.tier ? `${RELEVANCE_META[parsedKind.tier]?.label || parsedKind.tier} Relevance Lorecards` : 'Lorecards';
     return `Compress the Saga ${kindLabel} injection again. The previous output failed validation: ${reason}
 
-Required visible-output limits:
+Required visible-output band:
 - Source: about ${budget.directTokens} tokens / ${budget.directCharacters} characters.
-- Target: <= ${budget.targetTokens} tokens / <= ${budget.targetCharacters} characters.
-- Hard maximum: <= ${budget.hardTokenLimit} tokens / <= ${budget.hardCharacterLimit} characters.
-- Compression level ${level}: ${budget.profile.description}.
+- Target: about ${budget.targetTokens} tokens / ${budget.targetCharacters} characters.
+- Minimum acceptable: ${budget.minimumTokens} tokens / ${budget.minimumCharacters} characters.
+- Maximum acceptable: ${budget.maximumTokens} tokens / ${budget.maximumCharacters} characters.
+- Compression level ${level} (${budget.profile.label}): ${budget.profile.description}.
+- If the previous output was too short, restore supporting facts until it reaches the minimum band without adding new facts.
+- If the previous output was too long, remove lower-value wording while preserving protected lore.
 
 Context:
 ${context}
 
-Previous too-long output:
+Previous output outside the target band:
 ${previousOutput || '(empty)'}
 
 Direct injection block to compress:
@@ -999,26 +1014,34 @@ function buildCompressionPrompt(kind, level, context, directText, budget = null)
     const vars = {
         kind: kindLabel,
         compressionLevel: String(level),
-        compressionLabel: computedBudget.profile.description,
+        compressionLabel: computedBudget.profile.label,
+        compressionPolicy: computedBudget.profile.description,
         directTokens: String(computedBudget.directTokens),
+        minimumTokens: String(computedBudget.minimumTokens),
         targetTokens: String(computedBudget.targetTokens),
+        maximumTokens: String(computedBudget.maximumTokens),
         hardTokenLimit: String(computedBudget.hardTokenLimit),
         directCharacters: String(computedBudget.directCharacters),
+        minimumCharacters: String(computedBudget.minimumCharacters),
         targetCharacters: String(computedBudget.targetCharacters),
+        maximumCharacters: String(computedBudget.maximumCharacters),
         hardCharacterLimit: String(computedBudget.hardCharacterLimit),
         storyContext: context,
         directText,
     };
     const rendered = template.replace(/{{\s*(\w+)\s*}}/g, (_, key) => Object.prototype.hasOwnProperty.call(vars, key) ? vars[key] : '');
-    if (/{{\s*(targetCharacters|hardCharacterLimit|directCharacters)\s*}}/i.test(template)) return rendered;
+    if (/{{\s*(minimumCharacters|maximumCharacters|minimumTokens|maximumTokens|compressionPolicy)\s*}}/i.test(template)) return rendered;
     // Preserve older/custom advanced templates, but append the dynamic length
-    // contract that prevents level 3+ compression from becoming a same-size rewrite.
+    // contract that prevents the slider tiers from collapsing into one size.
     return `${rendered}
 
-Compression length contract:
+Compression retention contract:
 - Source length: about ${vars.directTokens} tokens / ${vars.directCharacters} characters.
-- Target length: <= ${vars.targetTokens} tokens / <= ${vars.targetCharacters} characters.
-- Hard maximum visible output: <= ${vars.hardTokenLimit} tokens / <= ${vars.hardCharacterLimit} characters.
+- Compression level ${vars.compressionLevel} (${vars.compressionLabel}): ${vars.compressionPolicy}.
+- Target length: about ${vars.targetTokens} tokens / ${vars.targetCharacters} characters.
+- Acceptable range: ${vars.minimumTokens}-${vars.maximumTokens} tokens / ${vars.minimumCharacters}-${vars.maximumCharacters} characters.
+- Do not compress below the minimum range; restore useful details if the output is too short.
+- Do not exceed the maximum range; remove lower-value wording if the output is too long.
 - If information must be sacrificed, preserve active continuity constraints, secrets, knowledge boundaries, pinned/protected details, and current-scene hazards first.
 - Output only the compressed injection text.`;
 }
@@ -1039,6 +1062,10 @@ function cleanCompressedText(text) {
 
 export const __injectionPreviewTestHooks = Object.freeze({
     cleanCompressedText,
+    getCompressionProfile,
+    estimateTokenBudgetForCompression,
+    validateCompressedText,
+    buildCompressionPrompt,
 });
 
 function parseLoreCompressionKind(kind = 'lore') {
