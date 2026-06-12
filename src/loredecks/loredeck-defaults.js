@@ -39,14 +39,14 @@ const HP_SPLIT_LOREDECKS = Object.freeze([
             "structure:split-loredeck"
         ],
         "stats": {
-                  "entryCount": 79,
+                  "entryCount": 80,
                   "categoryCounts": {
                             "character": 47,
                             "faction": 1,
                             "item": 4,
                             "knowledge": 12,
                             "location": 4,
-                            "rule": 1,
+                            "rule": 2,
                             "secret": 2,
                             "spell": 6,
                             "timeline": 2

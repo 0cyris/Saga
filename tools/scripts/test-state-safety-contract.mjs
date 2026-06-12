@@ -23,9 +23,11 @@ const extensionLifecycle = await readText('src/extension/lifecycle.js');
 const stateManager = await readText('src/state/state-manager.js');
 const stateImportExport = await readText('src/state/import-export.js');
 const runtimePanel = await readText('src/runtime/lore-panel.js');
+const runtimeLoredeckEditorActions = await readText('src/runtime/loredeck-editor-actions.js');
+const runtimeLoredeckPendingReviewPanel = await readText('src/runtime/loredeck-pending-review-panel.js');
 const runtimePackageInstallPanel = await readText('src/runtime/loredeck-package-install-panel.js');
 const runtimeSafetyPanel = await readText('src/runtime/runtime-safety-panel.js');
-const runtimeSource = `${runtimePanel}\n${runtimePackageInstallPanel}\n${runtimeSafetyPanel}`;
+const runtimeSource = `${runtimePanel}\n${runtimeLoredeckEditorActions}\n${runtimeLoredeckPendingReviewPanel}\n${runtimePackageInstallPanel}\n${runtimeSafetyPanel}`;
 const visualSmoke = await readText('tools/scripts/test-visual-smoke-harness.mjs');
 
 assert.deepEqual(
