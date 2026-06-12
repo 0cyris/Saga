@@ -512,6 +512,11 @@ import {
     refreshLoredeckCreatorWorkbenchBody,
     scrollLoredeckCreatorWorkbenchToAnchor,
 } from '../loredecks/loredeck-creator-panel.js';
+import {
+    getLoredeckCreatorEntryDraftBatchId,
+    getLoredeckCreatorUnhandledEntryDrafts,
+    selectLoredeckCreatorEntryDraftBatchId,
+} from '../loredecks/loredeck-creator-entry-draft-pool.js';
 import * as loredeckCreatorCoverage from '../loredecks/loredeck-creator-coverage.js';
 import {
     configureContextPanel,
@@ -6277,7 +6282,7 @@ function getLoredeckCreatorTitleBatchById(cached = {}, batchId = '') {
 }
 
 function getLoredeckCreatorDraftBatchId(draft = {}) {
-    return normalizeLoredeckCreatorTitleId(draft.creatorTitleBatchId || 'unbatched', 'unbatched');
+    return normalizeLoredeckCreatorTitleId(getLoredeckCreatorEntryDraftBatchId(draft), 'unbatched');
 }
 
 function getLoredeckCreatorEntryDraftPool(cached = {}, pack = {}) {
@@ -6290,18 +6295,12 @@ function getLoredeckCreatorEntryDraftPool(cached = {}, pack = {}) {
     const selectedApproved = eligibleApproved.filter(draft => selectedIds.has(draft.titleId));
     const preferred = selectedApproved.length ? selectedApproved : eligibleApproved;
     const batchOrder = getLoredeckCreatorTitleBatchRows(cached).map(batch => batch.id);
-    let activeBatchId = selectedApproved.length
-        ? getLoredeckCreatorDraftBatchId(selectedApproved[0])
-        : '';
-    if (!activeBatchId) {
-        activeBatchId = batchOrder.find(batchId => eligibleBatchIds.has(batchId)
-            && preferred.some(draft => getLoredeckCreatorDraftBatchId(draft) === batchId && !blocked.has(normalizeLoredeckEntryId(draft.titleId)))) || '';
-    }
-    if (!activeBatchId) {
-        activeBatchId = preferred.find(draft => !blocked.has(normalizeLoredeckEntryId(draft.titleId)))
-            ? getLoredeckCreatorDraftBatchId(preferred.find(draft => !blocked.has(normalizeLoredeckEntryId(draft.titleId))))
-            : '';
-    }
+    const totalRemaining = getLoredeckCreatorUnhandledEntryDrafts(preferred, blocked);
+    const activeBatchId = selectLoredeckCreatorEntryDraftBatchId(
+        preferred,
+        batchOrder.filter(batchId => eligibleBatchIds.has(batchId)),
+        blocked
+    );
     const source = activeBatchId
         ? preferred.filter(draft => getLoredeckCreatorDraftBatchId(draft) === activeBatchId)
         : preferred;
@@ -6316,23 +6315,30 @@ function getLoredeckCreatorEntryDraftPool(cached = {}, pack = {}) {
         activeBatchId,
         activeBatch: getLoredeckCreatorTitleBatchById(cached, activeBatchId),
         selectedApproved,
+        preferred,
         source,
         blocked,
+        totalRemaining,
         remaining,
     };
 }
 
 function getLoredeckCreatorEntryDraftProgress(cached = {}, pack = {}) {
     const pool = getLoredeckCreatorEntryDraftPool(cached, pack || {});
-    const remainingCount = pool.remaining.length;
+    const remainingCount = pool.totalRemaining.length;
+    const activeBatchRemainingCount = pool.remaining.length;
     const sourceCount = pool.source.length;
+    const preferredCount = pool.preferred.length;
     const batchSize = getLoredeckCreatorEntryBatchLimit(null, cached);
     return {
         ...pool,
         batchSize,
         remainingCount,
-        handledCount: Math.max(0, sourceCount - remainingCount),
+        activeBatchRemainingCount,
+        handledCount: Math.max(0, preferredCount - remainingCount),
+        activeBatchHandledCount: Math.max(0, sourceCount - activeBatchRemainingCount),
         batchCount: remainingCount ? Math.ceil(remainingCount / batchSize) : 0,
+        activeBatchCount: activeBatchRemainingCount ? Math.ceil(activeBatchRemainingCount / batchSize) : 0,
         eligibleBatchCount: pool.eligibleBatchIds?.size || 0,
         activeBatchLabel: pool.activeBatch?.label || pool.activeBatchId || '',
     };
