@@ -29,6 +29,7 @@ const gateScripts = [
   'tools/scripts/test-loredeck-context-health.mjs',
   'tools/scripts/test-loredeck-creator-reset.mjs',
   'tools/scripts/test-loredeck-creator-stage-reset-ui.mjs',
+  'tools/scripts/test-loredeck-creator-auto-draft-all-ui.mjs',
   'tools/scripts/test-hp-loredeck-health.mjs',
   'tools/scripts/test-loredeck-health-center-refresh.mjs',
   'tools/scripts/test-context-resolver.mjs',

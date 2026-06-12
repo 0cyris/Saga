@@ -283,6 +283,30 @@
     cursor: progress;
 }
 
+.saga-runtime-button[data-saga-action-busy="true"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    white-space: nowrap;
+    opacity: 0.9;
+}
+
+.saga-runtime-button-spinner {
+    width: 0.85em;
+    height: 0.85em;
+    flex: 0 0 auto;
+    border: 2px solid var(--saga-gold-surface, rgba(185, 139, 54, 0.16));
+    border-top-color: var(--saga-border-strong, rgba(215, 181, 109, 0.72));
+    border-radius: 50%;
+    box-sizing: border-box;
+    animation: saga-generation-spin 0.9s linear infinite;
+}
+
+.saga-runtime-button-busy-text {
+    min-width: 0;
+}
+
 .saga-loredeck-creator-done-button,
 .saga-loredeck-creator-done-button:disabled {
     border-color: rgba(104, 186, 132, 0.54);

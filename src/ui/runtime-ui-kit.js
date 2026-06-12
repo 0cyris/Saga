@@ -473,19 +473,55 @@ export function hideFloatingTooltip() {
     if (floatingTooltip) floatingTooltip.style.display = 'none';
 }
 
+function setRuntimeButtonBusyContent(btn, label) {
+    if (!btn) return;
+    const cleanLabel = String(label || 'Working...').trim() || 'Working...';
+    btn.textContent = '';
+
+    const spinner = document.createElement('span');
+    spinner.className = 'saga-runtime-button-spinner';
+    spinner.setAttribute('aria-hidden', 'true');
+    btn.appendChild(spinner);
+
+    const text = document.createElement('span');
+    text.className = 'saga-runtime-button-busy-text';
+    text.textContent = cleanLabel;
+    btn.appendChild(text);
+
+    btn.setAttribute('aria-label', cleanLabel);
+}
+
 export async function runBusyAction(btn, busyText, action) {
     if (!btn || typeof action !== 'function') return;
     const original = btn.textContent;
+    const originalDisabled = btn.disabled === true;
+    const originalAriaLabel = btn.getAttribute?.('aria-label');
+    const originalMinWidth = btn.style?.minWidth || '';
+    const rect = typeof btn.getBoundingClientRect === 'function' ? btn.getBoundingClientRect() : null;
+    if (btn.style && !btn.style.minWidth && Number(rect?.width) > 0) {
+        btn.style.minWidth = `${Math.ceil(Number(rect.width))}px`;
+    }
     btn.disabled = true;
-    btn.textContent = busyText;
+    btn.dataset.sagaActionBusy = 'true';
+    btn.setAttribute('aria-busy', 'true');
+    const setText = nextText => setRuntimeButtonBusyContent(btn, nextText || busyText);
+    setText(busyText);
     try {
-        await action();
+        await action({ setText });
     } catch (e) {
         console.error('[Saga] Runtime action failed:', e);
         toast(e?.message ? `Action failed: ${e.message}` : 'Action failed.', 'error');
     } finally {
-        btn.disabled = false;
+        btn.disabled = originalDisabled;
         btn.textContent = original;
+        if (originalAriaLabel) {
+            btn.setAttribute('aria-label', originalAriaLabel);
+        } else {
+            btn.removeAttribute?.('aria-label');
+        }
+        btn.removeAttribute?.('aria-busy');
+        delete btn.dataset.sagaActionBusy;
+        if (btn.style) btn.style.minWidth = originalMinWidth;
     }
 }
 

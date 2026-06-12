@@ -60,7 +60,7 @@ Start here when the next response needs current-scene state such as date, locati
 
 Coverage: A112-A130.
 
-Use this track to create and complete Generated Lorepack projects. It covers **Create Deck**, intake, scope brief, outline, title pass, title review, Context and tag planning, planning review, Lorecard drafting, bounded auto-draft, Creator draft review, sending drafts to Pending Review, review queue jumps, current task controls, generation settings, project shelf, project management, generated-pack inspection, and readiness gates.
+Use this track to create and complete Generated Lorepack projects. It covers **Create Deck**, intake, scope brief, outline, title pass, title review, Context and tag planning, planning review, Lorecard drafting, confirmed Auto-Draft All, Creator draft review, sending drafts to Pending Review, review queue jumps, current task controls, generation settings, project shelf, project management, generated-pack inspection, and readiness gates.
 
 Start here when you need Saga to help author a new Generated Lorepack rather than import or edit an existing pack.
 

@@ -328,7 +328,7 @@ This order teaches dependencies before diagnostics: source packs first, then Con
 | A118 | `advanced-creator-planning` | Creator And Generated Lorepack Authoring | Generate Context and tag planning proposals before downstream Lorecard drafting. |
 | A119 | `advanced-creator-planning-review` | Creator And Generated Lorepack Authoring | Review Context and tag proposals before they shape generated entries. |
 | A120 | `advanced-creator-entry-draft` | Creator And Generated Lorepack Authoring | Draft Lorecards in small batches from approved planning and titles. |
-| A121 | `advanced-creator-entry-auto-draft` | Creator And Generated Lorepack Authoring | Use bounded auto-draft controls only when the project is ready for repeated generation. |
+| A121 | `advanced-creator-entry-auto-draft` | Creator And Generated Lorepack Authoring | Use Auto-Draft All when the project is ready to generate every remaining Lorecard after confirmation. |
 | A122 | `advanced-creator-draft-review` | Creator And Generated Lorepack Authoring | Review Creator Lorecard drafts before they enter Pending Review. |
 | A123 | `advanced-creator-send-to-review` | Creator And Generated Lorepack Authoring | Send Creator drafts to Pending Lorecard Review when they are ready for normal lore review. |
 | A124 | `advanced-creator-pending-review-link` | Creator And Generated Lorepack Authoring | Jump from Creator to the relevant review queue for generated entries. |

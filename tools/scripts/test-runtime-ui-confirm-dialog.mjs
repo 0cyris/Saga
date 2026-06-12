@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import {
   confirmAction,
+  runBusyAction,
 } from '../../src/ui/runtime-ui-kit.js';
 
 class FakeClassList {
@@ -160,6 +161,30 @@ class FakeDocument extends FakeElement {
 globalThis.document = new FakeDocument();
 globalThis.window = { innerWidth: 1280, innerHeight: 720, document: globalThis.document };
 globalThis.requestAnimationFrame = callback => setTimeout(callback, 0);
+
+{
+  const button = document.createElement('button');
+  button.textContent = 'Auto-Draft All';
+  let firstBusyLabel = '';
+  let secondBusyLabel = '';
+  await runBusyAction(button, 'Drafting batches...', async busy => {
+    assert.equal(button.disabled, true);
+    assert.equal(button.dataset.sagaActionBusy, 'true');
+    assert.equal(button.getAttribute('aria-busy'), 'true');
+    assert.ok(button.querySelector('.saga-runtime-button-spinner'), 'Busy button should render a spinner element.');
+    busy.setText('0 / 3 calls | 7 remain');
+    firstBusyLabel = button.textContent;
+    busy.setText('1 / 3 calls | 4 remain');
+    secondBusyLabel = button.textContent;
+  });
+  assert.equal(firstBusyLabel, '0 / 3 calls | 7 remain');
+  assert.equal(secondBusyLabel, '1 / 3 calls | 4 remain');
+  assert.equal(button.textContent, 'Auto-Draft All');
+  assert.equal(button.disabled, false);
+  assert.equal(button.dataset.sagaActionBusy, undefined);
+  assert.equal(button.getAttribute('aria-busy'), null);
+  assert.equal(button.querySelector('.saga-runtime-button-spinner'), null);
+}
 
 {
   const pending = confirmAction('Delete Loredeck?', 'Delete this Loredeck?');

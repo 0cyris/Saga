@@ -88,7 +88,7 @@ function getLoredeckCreatorPendingEntryCount(pack) { return dep('getLoredeckCrea
 function getLoredeckCreatorAcceptedEntryCount(pack) { return dep('getLoredeckCreatorAcceptedEntryCount', () => 0)(pack); }
 function getFreshLoredeckLibraryPack(packId, fallback) { return dep('getFreshLoredeckLibraryPack', (packId, fallback) => fallback || null)(packId, fallback); }
 function handleLoredeckCreatorEntryDraft(button, options) { return dep('handleLoredeckCreatorEntryDraft', async () => null)(button, options); }
-function confirmAction(title, message) { return dep('confirmAction', async () => false)(title, message); }
+function confirmAction(title, message, options) { return dep('confirmAction', async () => false)(title, message, options); }
 function createLoredeckCreatorDraftReviewSection(pack) { return dep('createLoredeckCreatorDraftReviewSection', () => null)(pack); }
 function createLoredeckPendingReviewCard(pack) { return dep('createLoredeckPendingReviewCard', () => null)(pack); }
 function getLoredeckCreatorPipelineReadinessView(pack, cached) { return dep('getLoredeckCreatorPipelineReadinessView', () => null)(pack, cached); }
@@ -1408,7 +1408,7 @@ function createLoredeckCreatorEntryDraftBatchRows(cached = {}, progress = null, 
                 const confirmed = await confirmAction('Draft Category Set', `Saga will make up to ${batchCount} separate Reasoning Provider call${batchCount === 1 ? '' : 's'} for ${model.label || model.id}, with at most ${batchSize} Lorecards per call. Continue?`);
                 if (!confirmed) return;
             }
-            await handleLoredeckCreatorEntryDraft(btn, { targetPlanningBatchId: model.id, maxBatches: batchCount });
+            await handleLoredeckCreatorEntryDraft(btn, { targetPlanningBatchId: model.id, maxBatches: batchCount, bypassRunLimit: true });
         }, model.remainingCount ? 'saga-primary-button' : '');
         draftSet.disabled = !canDraftEntries || !model.remainingCount;
         actions.appendChild(lockLoredeckCreatorGenerationButton(draftSet, cached, `Lorecard batch draft: ${model.label || model.id}`));
@@ -1499,26 +1499,30 @@ export function createLoredeckCreatorEntryDraftCard(brief = {}, cached = {}) {
     draftButton.disabled = !canDraftEntries;
     actions.appendChild(lockLoredeckCreatorGenerationButton(draftButton, cached, 'Lorecard batch draft'));
 
-    const entryRunLimit = Number.isFinite(Number(generationSettings.entryRunRemainingLimit))
-        ? Number(generationSettings.entryRunRemainingLimit)
-        : 1;
     const entryBatchSize = Number.isFinite(Number(generationSettings.entryBatchSize))
         ? Number(generationSettings.entryBatchSize)
         : 1;
-    const multiBatchButton = createButton(`Auto-Draft Up To ${entryRunLimit}`, `Advanced: run up to ${entryRunLimit} separate small Lorecard drafting calls. Titles already accepted, pending, or in Draft Review are skipped.`, async (btn) => {
+    const multiBatchButton = createButton('Auto-Draft All', 'Draft every remaining approved title that is not accepted, pending, or in Draft Review.', async (btn) => {
         const freshPack = cached.generatedPackId ? getFreshLoredeckLibraryPack(cached.generatedPackId, generatedPack) : null;
         const freshCache = getLoredeckCreatorBriefCache();
         const freshSettings = getLoredeckCreatorGenerationSettings(freshCache);
         const freshProgress = freshPack ? getLoredeckCreatorEntryDraftProgress(freshCache, freshPack) : null;
-        const freshRunLimit = Number.isFinite(Number(freshSettings.entryRunRemainingLimit)) ? Number(freshSettings.entryRunRemainingLimit) : entryRunLimit;
         const freshBatchSize = Number.isFinite(Number(freshSettings.entryBatchSize)) ? Number(freshSettings.entryBatchSize) : entryBatchSize;
-        const callCount = Math.min(freshRunLimit, freshProgress?.batchCount || 0);
-        if (!callCount) return;
-        const confirmed = await confirmAction('Auto-Draft Lorecards', `Saga will make up to ${callCount} separate Reasoning Provider call${callCount === 1 ? '' : 's'}, with at most ${freshBatchSize} Lorecards per call. Existing Creator Lorecard Draft Review items will stay available while Saga drafts the next pending titles. Continue?`);
+        const remainingCount = Math.max(0, Number(freshProgress?.remainingCount) || 0);
+        const callCount = Math.max(0, Number(freshProgress?.batchCount) || 0);
+        if (!remainingCount || !callCount) return;
+        const confirmed = await confirmAction(
+            'Auto-Draft All Lorecards?',
+            `Are you sure you want to auto-generate ${remainingCount} Lorecard${remainingCount === 1 ? '' : 's'}? Saga will make up to ${callCount} separate Reasoning Provider call${callCount === 1 ? '' : 's'}, with at most ${freshBatchSize} Lorecards per call. Existing Creator Lorecard Draft Review items will stay available while Saga drafts every remaining pending title.`,
+            {
+                confirmLabel: `Auto-Draft ${remainingCount} Lorecard${remainingCount === 1 ? '' : 's'}`,
+                confirmTooltip: `Auto-generate ${remainingCount} remaining Creator Lorecard${remainingCount === 1 ? '' : 's'}.`,
+            }
+        );
         if (!confirmed) return;
-        await handleLoredeckCreatorEntryDraft(btn, { maxBatches: freshRunLimit });
+        await handleLoredeckCreatorEntryDraft(btn, { maxBatches: callCount, bypassRunLimit: true });
     });
-    multiBatchButton.disabled = !canDraftEntries || (progress?.batchCount || 0) <= 1;
+    multiBatchButton.disabled = !canDraftEntries || (progress?.remainingCount || 0) <= 0;
     actions.appendChild(lockLoredeckCreatorGenerationButton(multiBatchButton, cached, 'Lorecard batch draft'));
     if (generatedPack) {
         actions.appendChild(createButton('Inspect in Library', 'Open the Generated Loredeck in the fullscreen Loredeck Library details panel.', () => {

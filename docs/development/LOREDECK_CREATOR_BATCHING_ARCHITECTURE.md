@@ -383,7 +383,7 @@ Add a default-collapsed `Advanced Generation Settings` disclosure in the Creator
 - Title batch size / title limit per model call.
 - Planning proposal limit per model call.
 - Lorecard micro-batch size.
-- Run-remaining call limit.
+- Title run-remaining call limit.
 - Retry attempts.
 - Retry smaller behavior.
 - Streaming progress toggle.
@@ -393,7 +393,7 @@ Implemented defaults are conservative:
 - Title batch limit: 8.
 - Planning proposal limit: 12.
 - Lorecard micro-batch size: 3.
-- Run-remaining call limit: 5.
+- Title run-remaining call limit: 5.
 - Retry attempts: 1.
 - Retry smaller: on.
 - Streaming progress: on because Creator status uses short transient snippets as the live progress surface.
@@ -404,7 +404,7 @@ Implemented behavior:
 - Scope Brief, Story Outline, Title Pass, Context/Tag Planning, and Lorecard Drafting share the configured retry count through the generation runner.
 - Title Pass uses `titleBatchLimit` for title count and `titleRunRemainingLimit` for `Generate Remaining`.
 - Context/Tag Planning uses `planningProposalLimit`.
-- Lorecard Drafting uses `entryBatchSize` for micro-batches and `entryRunRemainingLimit` for Auto-Draft.
+- Lorecard Drafting uses `entryBatchSize` for micro-batches. Auto-Draft All confirms the remaining Lorecard count and then drafts every remaining micro-batch.
 - The streaming toggle controls whether provider calls request live snippets; completed raw output is still not rendered.
 - The `retrySmaller` preference is persisted for explicit Retry Smaller controls and future automatic retry behavior.
 

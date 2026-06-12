@@ -1310,7 +1310,9 @@ assert(liveSmoke.includes('contextResolutionProposals'), 'Live Context Reasoner 
 assert(liveSmoke.includes('live-context-reasoner-02-proposals'), 'Live Context Reasoner smoke must capture the live provider proposal review overlay.');
 assert(runtimePanelSource.includes('LOREDECK_CREATOR_ENTRY_BATCH_SIZE = 3'), 'Creator entry drafting must keep the default micro-batch size small.');
 assert(runtimePanelSource.includes('Draft Lorecards'), 'Creator entry drafting must expose a guided one-batch action.');
-assert(runtimePanelSource.includes('Auto-Draft Up To ${entryRunLimit}'), 'Creator entry drafting must expose a settings-driven bounded advanced auto-draft action.');
+assert(creatorPanel.includes("createButton('Auto-Draft All'"), 'Creator entry drafting must expose a full remaining-count auto-draft action.');
+assert(creatorPanel.includes("'Auto-Draft All Lorecards?'") && creatorPanel.includes('auto-generate ${remainingCount} Lorecard'), 'Creator Auto-Draft All must confirm the exact Lorecard count before repeated generation.');
+assert(creatorPanel.includes('confirmLabel: `Auto-Draft ${remainingCount} Lorecard'), 'Creator Auto-Draft All confirmation must name the destructive bulk action on the confirm button.');
 assert(runtimePanelSource.includes('Current Lorecard drafts can stay here while you draft more batches.'), 'Creator entry drafting must allow additional generation while review drafts are open.');
 assert(runtimePanelSource.includes('refreshLoredeckAssistantDraftSurfaces') && runtimePanelSource.includes('refreshLoredeckCreatorWorkbenchBody({ preserveScroll: true });'), 'Creator draft review handoff must refresh the workbench overlay after queueing or dropping drafts.');
 assert(runtimePanelSource.includes('Creator Lorecard Draft Review'), 'Creator draft review must use Creator-specific review language.');
@@ -1323,6 +1325,8 @@ assert(runtimePanelSource.includes('handleLoredeckCreatorResetToStep') && runtim
 assert(runtimePanelSource.includes('removeLoredeckLibraryPack(creatorPack.packId, { clearCreatorProjects: false })'), 'Creator reset before Context Plan must remove the generated shell without deleting the active Creator project.');
 assert(runtimePanelSource.includes('} else if (packId) {') && runtimePanelSource.includes('clearLoredeckCreatorResetPackCaches(packId'), 'Creator reset must clear stale generated-pack caches even when the pack record is already missing.');
 assert(runtimeUiKit.includes('options.confirmLabel') && runtimePanelSource.includes('confirmLabel: `Reset to ${label}`'), 'Creator reset confirmation must name the destructive reset action on the confirm button.');
+assert(runtimeUiKit.includes('saga-runtime-button-spinner') && runtimeUiKit.includes('await action({ setText })') && runtimeUiKit.includes("btn.setAttribute('aria-busy', 'true')"), 'Runtime busy buttons must support spinner-backed live text updates.');
+assert(style.includes('.saga-runtime-button-spinner') && style.includes('animation: saga-generation-spin 0.9s linear infinite'), 'Runtime busy buttons must render the shared generation spinner animation.');
 assert(style.includes('saga-loredeck-creator-stage-reset') && style.includes('saga-loredeck-creator-stage-resettable'), 'Creator reset buttons must have dedicated roadmap styling.');
 assert(harness.includes("jobId: 'smoke-creator-project'") && harness.includes("brief: {") && harness.includes("outline: {") && harness.includes("currentStage: 'entries_drafted'"), 'Visual smoke harness must seed a normalized in-progress Creator project for reset controls.');
 assert(liveSmoke.includes('creator-harness-01-reset-controls') && liveSmoke.includes('creator-harness-02-reset-confirm') && liveSmoke.includes('Reset to Title Pass?'), 'Creator reset smoke must capture reset controls and destructive confirmation copy.');
@@ -1366,6 +1370,8 @@ assert(runtimePanelSource.includes('createLoredeckCreatorAdvancedGenerationSetti
 assert(runtimePanelSource.includes('getLoredeckCreatorGenerationSettings'), 'Creator generation must read normalized per-project generation settings.');
 assert(runtimePanelSource.includes('setLoredeckCreatorGenerationSettings'), 'Creator generation settings must persist per project.');
 assert(runtimePanelSource.includes('showStreamingProgress'), 'Creator generation settings must control streaming progress snippets.');
+assert(runtimePanelSource.includes('options.bypassRunLimit === true') && creatorPanel.includes('bypassRunLimit: true'), 'Creator Auto-Draft All must bypass the old run cap after confirming the full remaining count.');
+assert(runtimePanelSource.includes('updateLoredeckCreatorEntryDraftBusyProgress') && runtimePanelSource.includes('getLoredeckCreatorEntryDraftProgressForOptions') && runtimePanelSource.includes('busy.setText(`${prefix} | ${remainingCount} remain`)'), 'Creator Lorecard drafting must update the active button with fresh remaining-count progress.');
 assert(/\.saga-loredeck-creator-generation-grid\s*\{[\s\S]*grid-template-columns:\s*repeat\(auto-fit,\s*minmax\(min\(100%,\s*300px\),\s*1fr\)\)/.test(style)
     && /\.saga-loredeck-creator-generation-row input\[type="range"\]\s*\{[\s\S]*width:\s*calc\(100% - 14px\);[\s\S]*max-width:\s*calc\(100% - 14px\);[\s\S]*margin-inline:\s*7px;[\s\S]*justify-self:\s*center;/.test(style),
     'Creator advanced generation sliders must reserve range thumb space inside their setting cards.');
@@ -1374,7 +1380,7 @@ assert(llm.includes('prepareLoreRequestPrompts'), 'Lore LLM client must prepare 
 assert(llm.includes('options.forceVisibleOutput === true'), 'Lore LLM client must expose an explicit visible-output opt-in.');
 assert(llm.includes('createLoreResponseError') && llm.includes('LORE_RESPONSE_ERROR_CODES.TOKEN_LIMIT') && llm.includes('LORE_RESPONSE_ERROR_CODES.REASONING_ONLY') && llm.includes('LORE_RESPONSE_ERROR_CODES.EMPTY_CONTENT'), 'Lore LLM client must throw shared typed provider response errors for token-limit, reasoning-only, and empty-content failures.');
 assert(runtimePanelSource.includes('titleRunRemainingLimit'), 'Creator title Generate Remaining must use a configurable run limit.');
-assert(runtimePanelSource.includes('entryRunRemainingLimit'), 'Creator Lorecard auto-draft must use a configurable run limit.');
+assert(creatorPanel.includes('const callCount = Math.max(0, Number(freshProgress?.batchCount) || 0);'), 'Creator Auto-Draft All must derive its run count from remaining Lorecard batches.');
 assert(runtimePanelSource.includes('retryAttempts: Number.isFinite(Number(config.retryAttempts))'), 'Creator runner calls must support configured retry attempts.');
 assert(stateSource.includes('generationSettings'), 'Creator project persistence must preserve generation settings.');
 assert(runtimePanelSource.includes('unitMeta'), 'Creator generation units must persist compact retry metadata.');
