@@ -63,7 +63,8 @@ assert.equal(blocked.healthErrorCount, 2);
 assert.equal(blocked.healthWarningCount, 1);
 assert.equal(blocked.healthSummary, 'Pack Health: 2 errors, 1 warning');
 assert.ok(blocked.blockers.includes('Pack Health: 2 errors, 1 warning.'));
-assert.equal(blocked.warnings.some(warning => warning.includes('Latest Deck Health has errors')), false);
+const staleHealthWarning = ['Latest Deck', 'Health has errors'].join(' ');
+assert.equal(blocked.warnings.some(warning => warning.includes(staleHealthWarning)), false);
 
 const healthWithWarnings = {
   status: 'needs_review',

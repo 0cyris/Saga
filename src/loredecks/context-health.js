@@ -1,5 +1,5 @@
 /**
- * Timeline and Context Deck Health helpers for Saga Loredecks.
+ * Timeline and Context Pack Health helpers for Saga Loredecks.
  */
 
 import { normalizeLoreEntry } from '../lorecards/lore-matrix.js';

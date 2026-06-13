@@ -22,10 +22,10 @@ for (const deckId of DEFAULT_HP_LOREDECK_IDS) {
   const issueSummary = [...health.errors, ...health.warnings, ...health.suggestions]
     .map(issue => `${issue.severity}:${issue.code}`)
     .join(', ');
-  assert.equal(health.errors.length, 0, `${deckId} should have no Deck Health errors. ${issueSummary}`);
-  assert.equal(health.warnings.length, 0, `${deckId} should have no Deck Health warnings. ${issueSummary}`);
-  assert.equal(health.suggestions.length, 0, `${deckId} should have no Deck Health suggestions. ${issueSummary}`);
-  assert.equal(health.status, 'good', `${deckId} should report good Deck Health.`);
+  assert.equal(health.errors.length, 0, `${deckId} should have no Pack Health errors. ${issueSummary}`);
+  assert.equal(health.warnings.length, 0, `${deckId} should have no Pack Health warnings. ${issueSummary}`);
+  assert.equal(health.suggestions.length, 0, `${deckId} should have no Pack Health suggestions. ${issueSummary}`);
+  assert.equal(health.status, 'good', `${deckId} should report good Pack Health.`);
 }
 
 console.log('HP Loredeck health tests passed.');

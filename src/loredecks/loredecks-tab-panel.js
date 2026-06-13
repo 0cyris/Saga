@@ -157,8 +157,8 @@ function createLoredeckLibraryLaunchCard(state = getState(), canonDb = null, hea
     chips.appendChild(createStatusPill(`${library.length} decks`, 'Total Loredecks available in the Library.', { kind: 'count' }));
     chips.appendChild(createStatusPill(`${stats.activeCount} active`, 'Enabled Loredecks currently participating in retrieval, including folder groups.', { tone: stats.activeCount ? 'success' : 'muted', kind: 'count' }));
     chips.appendChild(createStatusPill(`${stats.entryCount} active Lorecards`, 'Approximate Lorecards from enabled stack decks.', { kind: 'count' }));
-    chips.appendChild(createStatusPill(`${stats.errorCount} errors`, 'Current stack Deck Health error count.', { tone: stats.errorCount ? 'danger' : 'muted', kind: 'severity' }));
-    chips.appendChild(createStatusPill(`${stats.warningCount} warnings`, 'Current stack Deck Health warning count.', { tone: stats.warningCount ? 'warning' : 'muted', kind: 'severity' }));
+    chips.appendChild(createStatusPill(`${stats.errorCount} errors`, 'Current stack Pack Health error count.', { tone: stats.errorCount ? 'danger' : 'muted', kind: 'severity' }));
+    chips.appendChild(createStatusPill(`${stats.warningCount} warnings`, 'Current stack Pack Health warning count.', { tone: stats.warningCount ? 'warning' : 'muted', kind: 'severity' }));
     main.appendChild(chips);
     card.appendChild(main);
 

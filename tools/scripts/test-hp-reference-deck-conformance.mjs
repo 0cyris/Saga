@@ -238,13 +238,13 @@ for (const deckId of bundledDefaultIds) {
   }
 
   const source = await loadLoredeckSourceById(deckId);
-  assert.equal(source.health.errors.length, 0, `${deckId} should have no Deck Health errors.`);
+  assert.equal(source.health.errors.length, 0, `${deckId} should have no Pack Health errors.`);
   if (hpDefaultIds.includes(deckId) || mhaDefaultIds.includes(deckId) || jjkDefaultIds.includes(deckId)) {
-    assert.equal(source.health.status, 'good', `${deckId} Deck Health should be good.`);
-    assert.equal(source.health.warnings.length, 0, `${deckId} should have no Deck Health warnings.`);
+    assert.equal(source.health.status, 'good', `${deckId} Pack Health should be good.`);
+    assert.equal(source.health.warnings.length, 0, `${deckId} should have no Pack Health warnings.`);
   }
   if (hpDefaultIds.includes(deckId) || jjkDefaultIds.includes(deckId)) {
-    assert.equal(source.health.suggestions.length, 0, `${deckId} should have no Deck Health suggestions.`);
+    assert.equal(source.health.suggestions.length, 0, `${deckId} should have no Pack Health suggestions.`);
   }
   assert.equal(source.health.summary.entryCount, manifest.stats.entryCount, `${deckId} health entry count should match manifest.`);
   assert.deepEqual(clone(source.health.summary.categoryCounts), manifest.stats.categoryCounts, `${deckId} health category counts should match manifest.`);

@@ -1735,7 +1735,7 @@ function getLoredeckCreatorCurrentTaskDescription(cached = {}, pipeline = {}) {
     if (step.id === 'titles') return 'Review generated title rows for scene pressure, entities, and Context gates before approving selected titles.';
     if (step.id === 'context') return 'Accept selected timeline anchors, windows, and tags into the Generated Loredeck before drafting Lorecards.';
     if (step.id === 'lorecards') return 'Draft small Lorecard batches, then edit, repair, drop, or send them to Pending Review.';
-    if (step.id === 'review') return 'Pending changes are not runtime-active. Accept or reject them before Deck Health and finalization.';
+    if (step.id === 'review') return 'Pending changes are not runtime-active. Accept or reject them before Pack Health and finalization.';
     if (step.id === 'health') return 'Validate accepted data and fix blockers before this Generated Loredeck can become a Custom Loredeck.';
     if (step.id === 'finalize') return pipeline.readiness?.coverageAcknowledgementRequired
         ? 'Expand missing/thin Creator Coverage or explicitly accept the current scope as intentionally light before finalization.'

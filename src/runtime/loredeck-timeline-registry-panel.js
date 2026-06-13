@@ -77,7 +77,7 @@ export function createLoredeckTimelineRegistryCard(pack = {}, rows = []) {
 
     const help = document.createElement('div');
     help.className = 'saga-runtime-help';
-    help.textContent = 'Timeline edits queue Custom overlay proposals. Accepted overlays affect Context search, Deck Health, and runtime Context gating.';
+    help.textContent = 'Timeline edits queue Custom overlay proposals. Accepted overlays affect Context search, Pack Health, and runtime Context gating.';
     wrap.appendChild(help);
     if (sourceCache?.error) {
         wrap.appendChild(createKeyValue('Registry Load Error', sourceCache.error, 'Last timeline.json load error for this Loredeck.'));

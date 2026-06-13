@@ -255,7 +255,7 @@ async function waitForRefreshToSettle(deckId, entryPreviewCache) {
     if (overlay && hasRestoredRefreshButton && hasCachedHealth) return;
     await wait(25);
   }
-  throw new Error(`${deckId} Deck Health refresh did not settle.`);
+  throw new Error(`${deckId} Pack Health refresh did not settle.`);
 }
 
 async function runHealthCenterRefresh(deckId) {
@@ -332,17 +332,17 @@ async function runHealthCenterRefresh(deckId) {
 
   try {
     openLoredeckHealthCenter(deckId);
-    assert.ok(document.querySelector('.saga-loredeck-health-center-overlay'), `${deckId} should open the Deck Health Center.`);
+    assert.ok(document.querySelector('.saga-loredeck-health-center-overlay'), `${deckId} should open the Pack Health Center.`);
     const refreshButton = document.body.querySelectorAll('button').find(button => button.textContent === 'Refresh Scan');
     assert.ok(refreshButton, `${deckId} should render a Refresh Scan button.`);
 
     await refreshButton.click();
     await waitForRefreshToSettle(deckId, entryPreviewCache);
 
-    assert.ok(document.querySelector('.saga-loredeck-health-center-overlay'), `${deckId} should keep the Deck Health Center visible after refresh.`);
+    assert.ok(document.querySelector('.saga-loredeck-health-center-overlay'), `${deckId} should keep the Pack Health Center visible after refresh.`);
     assert.ok(buttonLabels().includes('Refresh Scan'), `${deckId} should restore the Refresh Scan button after refresh.`);
-    assert.equal(entryPreviewCache.get(deckId)?.health?.status, 'good', `${deckId} should cache good Deck Health after refresh.`);
-    assert.equal(errors.some(error => error.includes('Deck Health Center render failed')), false, `${deckId} should not hit the Health Center render fallback.`);
+    assert.equal(entryPreviewCache.get(deckId)?.health?.status, 'good', `${deckId} should cache good Pack Health after refresh.`);
+    assert.equal(errors.some(error => error.includes('Pack Health Center render failed')), false, `${deckId} should not hit the Health Center render fallback.`);
     assert.equal(errors.some(error => error.includes('normalizeLoredeckTagId')), false, `${deckId} should not crash on tag affected rows.`);
   } finally {
     console.error = originalConsoleError;
@@ -354,4 +354,4 @@ for (const deckId of DEFAULT_MHA_LOREDECK_IDS) {
   await runHealthCenterRefresh(deckId);
 }
 
-console.log('Loredeck Health Center refresh tests passed for My Hero decks.');
+console.log('Loredeck Pack Health Center refresh tests passed for My Hero decks.');

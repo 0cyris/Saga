@@ -1,6 +1,6 @@
 /**
  * loredeck-editor-validation.js - Saga
- * Deck Health validation lifecycle for runtime Loredeck editing.
+ * Pack Health validation lifecycle for runtime Loredeck editing.
  */
 
 import {
@@ -102,7 +102,7 @@ export async function validateLoredeckForEditor(pack, button = null, options = {
     const setLoredeckTimelineRegistryCacheRecord = dep('setLoredeckTimelineRegistryCacheRecord');
     const setLoredeckTagRegistryCacheRecord = dep('setLoredeckTagRegistryCacheRecord');
     const refreshLoredeckSurfaces = dep('refreshLoredeckSurfaces');
-    const restoreBusy = setLoredeckActionButtonBusy(button, 'Validating...', { fallbackLabel: 'Validate Deck' });
+    const restoreBusy = setLoredeckActionButtonBusy(button, 'Validating...', { fallbackLabel: 'Run Pack Health' });
     try {
         const fresh = getFreshLoredeckLibraryPack(pack.packId, pack);
         if (!canValidateLoredeckInEditor(fresh)) throw new Error('Loredeck needs a fetchable manifest path or accepted generated data to validate.');
@@ -177,12 +177,12 @@ export async function validateLoredeckForEditor(pack, button = null, options = {
             if (isGeneratedLoredeckPack(record)) refreshGeneratedLoredeckDerivedMetadata(record);
             else if (isVirtualLoredeckPack(record)) record.manifestData = buildEmbeddedCustomManifest(record.manifestData || manifest, record);
             const result = upsertLoredeckLibraryPack(record);
-            if (!result.ok) throw new Error(result.error || 'Deck Health status save failed.');
+            if (!result.ok) throw new Error(result.error || 'Pack Health status save failed.');
         }
 
         if (options.quiet !== true) {
             const summary = health.summary || {};
-            toast(`Deck Health: ${health.status} (${summary.errorCount || 0} errors, ${summary.warningCount || 0} warnings).`, health.errors?.length ? 'error' : (health.warnings?.length ? 'warning' : 'success'));
+            toast(`Pack Health: ${health.status} (${summary.errorCount || 0} errors, ${summary.warningCount || 0} warnings).`, health.errors?.length ? 'error' : (health.warnings?.length ? 'warning' : 'success'));
             refreshLoredeckSurfaces();
         }
         return { health, manifest, entryCache };

@@ -161,7 +161,7 @@ const generatedPack = {
   assert.ok(warning.includes('Context Plan'));
   assert.ok(warning.includes('Lorecards'));
   assert.ok(warning.includes('Review Queue'));
-  assert.ok(warning.includes('Deck Health'));
+  assert.ok(warning.includes('Pack Health'));
   assert.ok(warning.includes('Finalize'));
   assert.ok(warning.includes('cannot be undone'));
 }

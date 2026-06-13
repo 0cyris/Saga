@@ -1,5 +1,5 @@
 /**
- * Tag registry Deck Health helpers for Saga Loredecks.
+ * Tag registry Pack Health helpers for Saga Loredecks.
  */
 
 import {

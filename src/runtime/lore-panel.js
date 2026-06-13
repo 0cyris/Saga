@@ -3232,10 +3232,10 @@ function getLoredeckCreatorPipelineModel(cached = {}) {
         },
         {
             id: 'health',
-            label: 'Deck Health',
+            label: 'Pack Health',
             status: !generatedPack ? 'not-ready' : (hasHealthBlockers ? 'blocked' : (deckHealthReady ? 'approved' : (hasHealthWarnings || readiness ? 'needs-review' : 'ready'))),
             detail: !generatedPack ? 'Not ready' : (deckHealthReady ? 'Ready' : (hasHealthBlockers ? 'Blocked' : (hasHealthWarnings ? 'Warnings' : 'Run scan'))),
-            dependency: generatedPack ? '' : 'Deck Health is available after Saga creates the Generated Loredeck shell.',
+            dependency: generatedPack ? '' : 'Pack Health is available after Saga creates the Generated Loredeck shell.',
             anchor: 'deck-health',
         },
         {
@@ -3245,7 +3245,7 @@ function getLoredeckCreatorPipelineModel(cached = {}) {
             detail: healthReady ? 'Ready' : (hasCoverageAcknowledgementBlocker && deckHealthReady ? 'Acknowledge coverage' : 'Locked'),
             dependency: hasCoverageAcknowledgementBlocker
                 ? 'Finalize is waiting for Creator Coverage expansion or an explicit light-coverage acknowledgement.'
-                : 'Finalize is locked until Lorecards are reviewed, Pending Review is clear, and Deck Health is ready.',
+                : 'Finalize is locked until Lorecards are reviewed, Pending Review is clear, and Pack Health is ready.',
             anchor: 'finalize',
         },
     ];
@@ -8928,7 +8928,7 @@ function createLoredeckHealthRepairPlanner(pack, health = null) {
 
     const summary = document.createElement('div');
     summary.className = 'saga-loredeck-entry-summary';
-    summary.appendChild(createStatusPill(`${allIssues.length} issue${allIssues.length === 1 ? '' : 's'}`, 'Deck Health issues from the latest validation run.', { tone: allIssues.length ? 'warning' : 'muted', kind: 'count' }));
+    summary.appendChild(createStatusPill(`${allIssues.length} issue${allIssues.length === 1 ? '' : 's'}`, 'Pack Health issues from the latest validation run.', { tone: allIssues.length ? 'warning' : 'muted', kind: 'count' }));
     summary.appendChild(createStatusPill(`${selectedCount} selected`, 'Selected issues will be sent to the Lore Assistant for repair planning.', { tone: selectedCount ? 'selected' : 'muted', kind: 'count' }));
     if (!editable) summary.appendChild(createStatusPill('Read-only', 'Bundled Loredecks must be duplicated as Custom before assistant repair planning can create proposals.', { tone: 'muted', kind: 'status' }));
     wrap.appendChild(summary);
@@ -8936,20 +8936,20 @@ function createLoredeckHealthRepairPlanner(pack, health = null) {
     const help = document.createElement('div');
     help.className = 'saga-runtime-help';
     help.textContent = editable
-        ? 'Select Deck Health issues and draft repair proposals. Repairs enter the Assistant Draft Batch first, then Pending Review if you queue them.'
+        ? 'Select Pack Health issues and draft repair proposals. Repairs enter the Assistant Draft Batch first, then Pending Review if you queue them.'
         : 'Bundled Loredecks are read-only. Duplicate as Custom before drafting repair proposals.';
     wrap.appendChild(help);
 
     const actions = createLoredeckActionRow();
-    const draftButton = createButton('Draft Repairs', 'Ask the Lore Assistant to convert selected Deck Health issues into reviewable draft proposals.', async (btn) => {
+    const draftButton = createButton('Draft Repairs', 'Ask the Lore Assistant to convert selected Pack Health issues into reviewable draft proposals.', async (btn) => {
         await handleLoredeckAssistantHealthRepairDraft(pack, health, btn);
     }, 'saga-primary-button');
     draftButton.disabled = !editable || !selectedCount;
     actions.appendChild(draftButton);
-    actions.appendChild(createButton('Select All', 'Select every Deck Health issue in this validation report.', () => {
+    actions.appendChild(createButton('Select All', 'Select every Pack Health issue in this validation report.', () => {
         setLoredeckHealthRepairSelectionBulk(pack, health, 'all');
     }));
-    actions.appendChild(createButton('Clear Selection', 'Clear selected Deck Health issues.', () => {
+    actions.appendChild(createButton('Clear Selection', 'Clear selected Pack Health issues.', () => {
         setLoredeckHealthRepairSelectionBulk(pack, health, 'none');
     }));
     wrap.appendChild(actions);
@@ -8978,7 +8978,7 @@ function createLoredeckHealthRepairIssueRow(pack, issue = {}, selected = false, 
     checkbox.type = 'checkbox';
     checkbox.checked = selected;
     checkbox.disabled = !editable;
-    addTooltip(checkbox, selected ? 'Remove this Deck Health issue from the assistant repair plan.' : 'Include this Deck Health issue in the assistant repair plan.');
+    addTooltip(checkbox, selected ? 'Remove this Pack Health issue from the assistant repair plan.' : 'Include this Pack Health issue in the assistant repair plan.');
     checkbox.addEventListener('click', event => event.stopPropagation());
     checkbox.addEventListener('change', () => {
         setLoredeckHealthRepairSelection(pack.packId, issue.issueId, checkbox.checked);
@@ -8998,7 +8998,7 @@ function createLoredeckHealthRepairIssueRow(pack, issue = {}, selected = false, 
     main.appendChild(message);
     const meta = document.createElement('div');
     meta.className = 'saga-loredeck-row-meta';
-    meta.appendChild(createStatusPill(issue.severity || 'suggestion', 'Deck Health issue severity.', { tone: getLoredeckHealthSeverityTone(issue.severity), kind: 'severity' }));
+    meta.appendChild(createStatusPill(issue.severity || 'suggestion', 'Pack Health issue severity.', { tone: getLoredeckHealthSeverityTone(issue.severity), kind: 'severity' }));
     if (issue.entryIds?.length) meta.appendChild(createStatusPill(`${issue.entryIds.length} Lorecard${issue.entryIds.length === 1 ? '' : 's'}`, issue.entryIds.slice(0, 10).join(', '), { kind: 'count' }));
     if (issue.tagIds?.length) meta.appendChild(createStatusPill(`${issue.tagIds.length} tag${issue.tagIds.length === 1 ? '' : 's'}`, issue.tagIds.slice(0, 10).join(', '), { tone: 'tag', kind: 'tag' }));
     if (issue.timelineIds?.length) meta.appendChild(createStatusPill(`${issue.timelineIds.length} timeline`, issue.timelineIds.slice(0, 10).join(', '), { tone: 'source', kind: 'count' }));
@@ -10053,7 +10053,7 @@ async function requestAndParseLoredeckAssistantResponse(context = {}, options = 
 
 async function handleLoredeckAssistantHealthRepairDraft(pack, health = null, button = null, options = {}) {
     await runBusyAction(button, 'Drafting...', async () => {
-        if (!ensureLoreProviderReadyForAction('Deck Health repair planning', 'lore')) return;
+        if (!ensureLoreProviderReadyForAction('Pack Health repair planning', 'lore')) return;
         const fresh = getFreshLoredeckLibraryPack(pack.packId, pack);
         if (!fresh || fresh.type === 'bundled') {
             toast('Bundled Loredecks cannot be repaired directly. Duplicate as Custom first.', 'warning');
@@ -10063,7 +10063,7 @@ async function handleLoredeckAssistantHealthRepairDraft(pack, health = null, but
             ? options.selectedIssues.map((issue, index) => issue?.issueId ? issue : normalizeLoredeckHealthIssueForRepair(issue, issue?.severity || 'suggestion', index)).filter(issue => issue?.issueId)
             : collectLoredeckHealthRepairSelectedIssues(fresh, health);
         if (!selectedIssues.length) {
-            toast('Select Deck Health issues to plan repairs.', 'warning');
+            toast('Select Pack Health issues to plan repairs.', 'warning');
             return;
         }
         const entryCache = loredeckEntryPreviewCache.get(fresh.packId) || {};
@@ -10073,7 +10073,7 @@ async function handleLoredeckAssistantHealthRepairDraft(pack, health = null, but
             ? rows.filter(row => relatedEntryIds.has(row.id))
             : rows;
         const instruction = [
-            'Draft repair proposals for the selected Deck Health issues.',
+            'Draft repair proposals for the selected Pack Health issues.',
             'Use supported proposal actions only. Put every repair into reviewable proposals; do not claim fixes are applied.',
             'If an issue cannot be repaired with entry, tag, or timeline proposals, explain that in warnings or ask a clarifying question.',
         ].join(' ');
@@ -10082,7 +10082,7 @@ async function handleLoredeckAssistantHealthRepairDraft(pack, health = null, but
             mode: 'pack_health_repair',
             targetScope: 'all_loaded',
         });
-        context.task = 'Turn selected Deck Health issues into reviewable assistant draft proposals.';
+        context.task = 'Turn selected Pack Health issues into reviewable assistant draft proposals.';
         context.targetEntries = targetRows
             .filter(row => row?.id && !row.disabled)
             .slice(0, 80)
@@ -10096,7 +10096,7 @@ async function handleLoredeckAssistantHealthRepairDraft(pack, health = null, but
         const changes = buildLoredeckAssistantPendingChanges(fresh, parsed.proposals, rows);
         const qualityWarningCount = countLoredeckAssistantQualityWarningsForChanges(changes);
         loredeckAssistantDraftCache.set(fresh.packId, {
-            summary: parsed.summary || `Repair plan for ${selectedIssues.length} Deck Health issue${selectedIssues.length === 1 ? '' : 's'}.`,
+            summary: parsed.summary || `Repair plan for ${selectedIssues.length} Pack Health issue${selectedIssues.length === 1 ? '' : 's'}.`,
             questions: parsed.clarifyingQuestions,
             warnings: parsed.warnings,
             proposalCount: parsed.proposals.length,
@@ -11464,7 +11464,7 @@ async function queueLoredeckMalformedTagRepairFromHealthGroup(pack, group = {}, 
             return;
         }
         const validation = await validateLoredeckForEditor(fresh, null, { quiet: true, updateLibrary: false });
-        if (!validation.health) throw new Error(validation.error || 'Deck Health validation failed before repair planning.');
+        if (!validation.health) throw new Error(validation.error || 'Pack Health validation failed before repair planning.');
         const plan = buildLoredeckMalformedTagRepairPlan(fresh, group, validation.entryCache?.entries || []);
         if (!plan || (!Object.keys(plan.entryOverrides).length && !Object.keys(plan.tagDefinitions).length)) {
             toast('No deterministic malformed tag repair could be queued from this health group.', 'info');
@@ -11490,7 +11490,7 @@ async function queueLoredeckMalformedTagRepairFromHealthGroup(pack, group = {}, 
                 repairMap: plan.pairs,
                 healthIssueCode: group.code || 'malformed_tag_namespace',
             },
-        }), `Queued malformed tag ID repair for ${plan.pairs.length} tag${plan.pairs.length === 1 ? '' : 's'}. Accept it in Pending Review, then rerun Deck Health.`);
+        }), `Queued malformed tag ID repair for ${plan.pairs.length} tag${plan.pairs.length === 1 ? '' : 's'}. Accept it in Pending Review, then rerun Pack Health.`);
         if (queued) {
             loredeckHealthRepairSelectionCache.delete(fresh.packId);
         }

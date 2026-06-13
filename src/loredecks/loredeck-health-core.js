@@ -1,5 +1,5 @@
 /**
- * Core Deck Health helpers for Saga Loredecks.
+ * Core Pack Health helpers for Saga Loredecks.
  */
 
 export function createHealth(packId = '') {

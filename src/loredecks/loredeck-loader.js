@@ -1,6 +1,6 @@
 /**
  * loredeck-loader.js -- Saga
- * Minimal Loredeck manifest, entry-file loading, and Deck Health helpers.
+ * Minimal Loredeck manifest, entry-file loading, and Pack Health helpers.
  *
  * This module is intentionally data-only: it does not own canon scoring,
  * preprocessing, prompt injection, or UI state.

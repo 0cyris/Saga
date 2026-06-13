@@ -1,5 +1,5 @@
 /**
- * Schema v3 Deck Health and repair helpers for Saga Loredecks.
+ * Schema v3 Pack Health and repair helpers for Saga Loredecks.
  */
 
 import { hasFiniteContextNumber } from './context-health.js';

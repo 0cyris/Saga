@@ -5,7 +5,7 @@ export const LOREDECK_CREATOR_RESET_STEPS = Object.freeze([
     Object.freeze({ id: 'context', label: 'Context Plan' }),
     Object.freeze({ id: 'lorecards', label: 'Lorecards' }),
     Object.freeze({ id: 'review', label: 'Review Queue' }),
-    Object.freeze({ id: 'health', label: 'Deck Health' }),
+    Object.freeze({ id: 'health', label: 'Pack Health' }),
     Object.freeze({ id: 'finalize', label: 'Finalize' }),
 ]);
 

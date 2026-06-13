@@ -38,7 +38,7 @@ function dep(name, fallback = null) {
     const value = healthPanelDeps?.[name];
     if (typeof value === 'function') return value;
     if (typeof fallback === 'function') return fallback;
-    throw new Error(`Saga Deck Health dependency is not configured: ${name}`);
+    throw new Error(`Saga Pack Health dependency is not configured: ${name}`);
 }
 
 function getState() { return dep('getState', () => ({}))(); }
@@ -180,7 +180,7 @@ export function renderLoredeckHealthCenterOverlay(options = {}) {
         titleWrap.className = 'saga-lore-workbench-title-wrap';
         const title = document.createElement('div');
         title.className = 'saga-lore-workbench-title';
-        title.textContent = 'Deck Health Center';
+        title.textContent = 'Pack Health Center';
         titleWrap.appendChild(title);
         const subtitle = document.createElement('div');
         subtitle.className = 'saga-lore-workbench-subtitle';
@@ -190,13 +190,13 @@ export function renderLoredeckHealthCenterOverlay(options = {}) {
 
         const actions = createLoredeckActionRow({ className: 'saga-primary-actions saga-loredeck-health-center-actions' });
         markTourTarget(actions, 'loredecks.health.actions');
-        actions.appendChild(createButton('Refresh Scan', context.pack ? 'Validate this Loredeck and refresh its Deck Health report.' : 'Reload active Loredecks and recompute stack Deck Health.', async (btn) => {
+        actions.appendChild(createButton('Refresh Scan', context.pack ? 'Validate this Loredeck and refresh its Pack Health report.' : 'Reload active Loredecks and recompute stack Pack Health.', async (btn) => {
             await refreshLoredeckHealthCenterScan(context, btn);
         }, 'saga-primary-button'));
-        const exportButton = createButton('Export Report', 'Download this Deck Health report as JSON.', () => exportLoredeckHealthCenterReport(context));
+        const exportButton = createButton('Export Report', 'Download this Pack Health report as JSON.', () => exportLoredeckHealthCenterReport(context));
         exportButton.disabled = !context.health;
         actions.appendChild(exportButton);
-        actions.appendChild(createButton('Close', 'Close the Deck Health Center.', closeLoredeckHealthCenter));
+        actions.appendChild(createButton('Close', 'Close the Pack Health Center.', closeLoredeckHealthCenter));
         header.appendChild(actions);
         shell.appendChild(header);
 
@@ -213,8 +213,8 @@ export function renderLoredeckHealthCenterOverlay(options = {}) {
         body.appendChild(content);
         shell.appendChild(body);
     } catch (e) {
-        console.error('[Saga] Deck Health Center render failed:', e);
-        toast('Deck Health Center failed to render. Keeping the previous view open.', 'error');
+        console.error('[Saga] Pack Health Center render failed:', e);
+        toast('Pack Health Center failed to render. Keeping the previous view open.', 'error');
         if (!previousOverlay) {
             document.body.appendChild(createLoredeckHealthCenterRenderErrorOverlay(e));
         }
@@ -241,7 +241,7 @@ function createLoredeckHealthCenterRenderErrorOverlay(error = null) {
     titleWrap.className = 'saga-lore-workbench-title-wrap';
     const title = document.createElement('div');
     title.className = 'saga-lore-workbench-title';
-    title.textContent = 'Deck Health Center';
+    title.textContent = 'Pack Health Center';
     titleWrap.appendChild(title);
     const subtitle = document.createElement('div');
     subtitle.className = 'saga-lore-workbench-subtitle';
@@ -250,14 +250,14 @@ function createLoredeckHealthCenterRenderErrorOverlay(error = null) {
     header.appendChild(titleWrap);
 
     const actions = createLoredeckActionRow({ className: 'saga-primary-actions saga-loredeck-health-center-actions' });
-    actions.appendChild(createButton('Close', 'Close the Deck Health Center.', closeLoredeckHealthCenter));
+    actions.appendChild(createButton('Close', 'Close the Pack Health Center.', closeLoredeckHealthCenter));
     header.appendChild(actions);
     shell.appendChild(header);
 
     const body = document.createElement('div');
     body.className = 'saga-loredeck-health-center-body';
     body.appendChild(createLoredeckRenderErrorCard({
-        title: 'Deck Health Center could not render this report.',
+        title: 'Pack Health Center could not render this report.',
         message: error?.message || 'Close and reopen the Health Center after rerunning the scan.',
     }));
     shell.appendChild(body);
@@ -393,7 +393,7 @@ export function getLoredeckHealthStatusDescriptor(report = {}, health = null) {
             label: 'Not scanned',
             tone: 'unknown',
             summary: 'Run a scan to check this deck for schema, tag, timeline, and file issues.',
-            detail: 'No current Deck Health report is available for this target.',
+            detail: 'No current Pack Health report is available for this target.',
         };
     }
     if (errors > 0 || raw === 'error') {
@@ -402,7 +402,7 @@ export function getLoredeckHealthStatusDescriptor(report = {}, health = null) {
             label: 'Blocked',
             tone: 'error',
             summary: 'This deck has errors that should be fixed before relying on it.',
-            detail: 'Start with errors, then rerun Deck Health before sharing or stacking this deck.',
+            detail: 'Start with errors, then rerun Pack Health before sharing or stacking this deck.',
         };
     }
     if (warnings > 0 || raw === 'needs_review') {
@@ -436,7 +436,7 @@ export function getLoredeckHealthStatusDescriptor(report = {}, health = null) {
         key: 'healthy',
         label: 'Healthy',
         tone: 'ok',
-        summary: 'This deck passed the current Deck Health checks.',
+        summary: 'This deck passed the current Pack Health checks.',
         detail: 'No blocking or review-worthy issues were found in the latest scan.',
     };
 }
@@ -490,12 +490,12 @@ function createLoredeckHealthIssuesView(context) {
     header.className = 'saga-loredeck-health-view-header';
     const stateCounts = getLoredeckHealthIssueStateCounts(context, groups);
     header.appendChild(createStatusPill(`${groups.length} grouped issue${groups.length === 1 ? '' : 's'}`, 'Issues are grouped by severity, code, and affected file when possible.', { tone: groups.length ? 'warning' : 'muted', kind: 'count' }));
-    header.appendChild(createStatusPill(`${getLoredeckHealthAllIssues(context.report).length} raw finding${getLoredeckHealthAllIssues(context.report).length === 1 ? '' : 's'}`, 'Raw Deck Health findings before grouping.', { tone: getLoredeckHealthAllIssues(context.report).length ? 'warning' : 'muted', kind: 'count' }));
+    header.appendChild(createStatusPill(`${getLoredeckHealthAllIssues(context.report).length} raw finding${getLoredeckHealthAllIssues(context.report).length === 1 ? '' : 's'}`, 'Raw Pack Health findings before grouping.', { tone: getLoredeckHealthAllIssues(context.report).length ? 'warning' : 'muted', kind: 'count' }));
     if (stateCounts.ignored) header.appendChild(createStatusPill(`${stateCounts.ignored} ignored`, 'Ignored issue groups are hidden from Overview priority issues but remain visible here.', { tone: 'muted', kind: 'count' }));
-    if (stateCounts.resolved) header.appendChild(createStatusPill(`${stateCounts.resolved} resolved`, 'Issue groups marked resolved by the user. Rerun Deck Health after repairs to verify they disappear.', { tone: 'success', kind: 'count' }));
+    if (stateCounts.resolved) header.appendChild(createStatusPill(`${stateCounts.resolved} resolved`, 'Issue groups marked resolved by the user. Rerun Pack Health after repairs to verify they disappear.', { tone: 'success', kind: 'count' }));
     wrap.appendChild(header);
     if (!groups.length) {
-        wrap.appendChild(createEmptyMessage('No issues found in this Deck Health report.'));
+        wrap.appendChild(createEmptyMessage('No issues found in this Pack Health report.'));
         return wrap;
     }
     const table = document.createElement('div');
@@ -583,17 +583,17 @@ function createLoredeckHealthAdvancedView(context) {
     const wrap = document.createElement('div');
     wrap.className = 'saga-loredeck-health-advanced-view';
     const actions = createLoredeckActionRow();
-    actions.appendChild(createButton('Copy Diagnostics', 'Copy the current Deck Health report JSON to clipboard.', async () => {
-        await copyTextToClipboard(stringifyRedactedDiagnostic(context.report), 'Deck Health diagnostics copied.');
+    actions.appendChild(createButton('Copy Diagnostics', 'Copy the current Pack Health report JSON to clipboard.', async () => {
+        await copyTextToClipboard(stringifyRedactedDiagnostic(context.report), 'Pack Health diagnostics copied.');
     }));
-    actions.appendChild(createButton('Export Report', 'Download this Deck Health report as JSON.', () => exportLoredeckHealthCenterReport(context), 'saga-primary-button'));
+    actions.appendChild(createButton('Export Report', 'Download this Pack Health report as JSON.', () => exportLoredeckHealthCenterReport(context), 'saga-primary-button'));
     wrap.appendChild(actions);
 
     const summary = context.report.summary || {};
     const grid = document.createElement('div');
     grid.className = 'saga-loredeck-health-grid';
     const metrics = [
-        ['Status', context.report.status || 'unknown', 'Raw Deck Health status.'],
+        ['Status', context.report.status || 'unknown', 'Raw Pack Health status.'],
         ['Entries', String(summary.entryCount || 0), 'Loaded entry count after Custom overrides and stack dedupe.'],
         ['Files', `${summary.loadedFileCount || 0}/${summary.fileCount || 0}`, 'Loaded files over declared files.'],
         ['Overrides', String(summary.entryOverrideCount || 0), 'Custom entry overrides applied in loaded packs.'],
@@ -603,7 +603,7 @@ function createLoredeckHealthAdvancedView(context) {
         ['Context Gates', String(summary.contextGateCount || 0), 'Entries with Context gates.'],
         ['Timeline', `${summary.timelineAnchorCount || 0}/${summary.timelineWindowCount || 0}`, 'Loaded Context anchors/windows.'],
         ['Schema v3', String(summary.schemaV3EntryCount || 0), 'Loaded entries checked against Saga schema v3 rules.'],
-        ['v3 Issues', String(summary.schemaV3IssueCount || 0), 'Schema v3 Deck Health issues across loaded entries.'],
+        ['v3 Issues', String(summary.schemaV3IssueCount || 0), 'Schema v3 Pack Health issues across loaded entries.'],
         ['Stats Drift', String(summary.manifestStatsMismatchCount || 0), 'Manifest stats mismatches found during validation.'],
         ['Tag Issues', String((summary.undefinedTagCount || 0) + (summary.deprecatedTagUsageCount || 0) + (summary.duplicateTagAliasCount || 0) + (summary.malformedTagCount || 0)), 'Undefined, deprecated, duplicate-alias, or malformed tag issues.'],
         ['Anchor Issues', String(summary.brokenAnchorReferenceCount || 0), 'Broken Context anchor references.'],
@@ -646,7 +646,7 @@ function createLoredeckHealthSummaryHero(context, options = {}) {
     appendLoredeckStatusPills(meta, [
         { text: pack ? (pack.typeLabel || getLoredeckTypeLabel(pack.packId)) : '', tooltip: 'Loredeck type.', show: !!pack, tone: 'source', kind: 'source' },
         [`${context.report.summary?.entryCount || 0} Lorecards`, 'Lorecards checked in this report.', { kind: 'count' }],
-        [`Last scan: ${context.health ? formatRelativeHealthTime(context.generatedAt) : 'not scanned'}`, 'Last Deck Health scan time.', { tone: context.health ? 'info' : 'muted', kind: 'status' }],
+        [`Last scan: ${context.health ? formatRelativeHealthTime(context.generatedAt) : 'not scanned'}`, 'Last Pack Health scan time.', { tone: context.health ? 'info' : 'muted', kind: 'status' }],
     ]);
     main.appendChild(meta);
     const status = document.createElement('div');
@@ -782,7 +782,7 @@ function createLoredeckHealthIssueGroupCard(group, context, options = {}) {
     }
     if (issueState?.status) {
         const stateLabel = getLoredeckHealthIssueStateLabel(issueState, group);
-        const statePill = createStatusPill(stateLabel, issueState.note || 'User-set Deck Health issue state.', { tone: issueState.status === 'resolved' ? 'success' : 'muted', kind: 'status' });
+        const statePill = createStatusPill(stateLabel, issueState.note || 'User-set Pack Health issue state.', { tone: issueState.status === 'resolved' ? 'success' : 'muted', kind: 'status' });
         meta.appendChild(statePill);
     }
     main.appendChild(meta);
@@ -834,7 +834,7 @@ function createLoredeckHealthIssueDetailPanel(group, context, options = {}) {
         workflow.appendChild(workflowTitle);
         const workflowText = document.createElement('p');
         workflowText.textContent = editable
-            ? 'Queue deterministic fixes or assistant drafts, review them in Pending Review, accept the changes, then rerun Refresh Scan. Accepted entry, tag, or timeline changes mark Deck Health stale until the rerun.'
+            ? 'Queue deterministic fixes or assistant drafts, review them in Pending Review, accept the changes, then rerun Refresh Scan. Accepted entry, tag, or timeline changes mark Pack Health stale until the rerun.'
             : 'Bundled Loredecks are read-only. Duplicate as Custom before repairing, ignoring, or marking issue state.';
         workflow.appendChild(workflowText);
         panel.appendChild(workflow);
@@ -850,7 +850,7 @@ function createLoredeckHealthIssueDetailPanel(group, context, options = {}) {
 function createLoredeckHealthIssueActionRow(group, context = {}, issueState = null, editable = false) {
     const actions = createLoredeckActionRow();
     actions.appendChild(createButton('Copy Details', 'Copy this grouped issue summary to clipboard.', async () => {
-        await copyTextToClipboard(formatLoredeckHealthGroupForCopy(group), 'Deck Health issue copied.');
+        await copyTextToClipboard(formatLoredeckHealthGroupForCopy(group), 'Pack Health issue copied.');
     }));
     if (group.files.length) {
         actions.appendChild(createButton('Copy File Path', 'Copy the first affected source file path.', async () => {
@@ -1093,15 +1093,15 @@ function setLoredeckHealthIssueGroupState(pack = {}, group = {}, status = '') {
     const normalizedStatus = String(status || '').trim().toLowerCase();
     const issueKey = String(group.issueKey || getLoredeckHealthIssueGroupKey(group)).trim();
     if (!issueKey) {
-        toast('Deck Health issue state needs a stable issue key.', 'warning');
+        toast('Pack Health issue state needs a stable issue key.', 'warning');
         return false;
     }
     const title = group.title || getLoredeckHealthIssueTitle(group.code);
     const message = normalizedStatus === 'ignored'
-        ? `Marked Deck Health issue ignored: ${title}.`
+        ? `Marked Pack Health issue ignored: ${title}.`
         : (normalizedStatus === 'resolved'
-            ? `Marked Deck Health issue resolved: ${title}. Rerun Deck Health to verify.`
-            : `Cleared Deck Health issue state: ${title}.`);
+            ? `Marked Pack Health issue resolved: ${title}. Rerun Pack Health to verify.`
+            : `Cleared Pack Health issue state: ${title}.`);
     return persistLoredeckLibraryRecordMutation(fresh, next => {
         const states = normalizeLoredeckHealthIssueStates(next.healthIssueStates);
         if (['ignored', 'resolved'].includes(normalizedStatus)) {
@@ -1112,7 +1112,7 @@ function setLoredeckHealthIssueGroupState(pack = {}, group = {}, status = '') {
                 severity: normalizeLoredeckHealthSeverity(group.severity || ''),
                 title,
                 note: normalizedStatus === 'resolved'
-                    ? 'Marked resolved by user. Rerun Deck Health after accepted repairs to verify it no longer appears.'
+                    ? 'Marked resolved by user. Rerun Pack Health after accepted repairs to verify it no longer appears.'
                     : 'Ignored by user. The finding remains in diagnostics but is no longer a priority for this deck.',
                 updatedAt: Date.now(),
             };
@@ -1121,7 +1121,7 @@ function setLoredeckHealthIssueGroupState(pack = {}, group = {}, status = '') {
         }
         next.healthIssueStates = states;
     }, message, {
-        errorMessage: 'Deck Health issue state save failed.',
+        errorMessage: 'Pack Health issue state save failed.',
     });
 }
 
@@ -1186,15 +1186,15 @@ function getLoredeckHealthIssueTitle(code = '') {
         custom_duplicate_has_no_entry_changes: 'Custom duplicate has no Lorecard changes',
         empty_loredeck_stack: 'No Loredecks are loaded',
     };
-    return titles[key] || humanizeScopeKey(key || 'Deck Health issue');
+    return titles[key] || humanizeScopeKey(key || 'Pack Health issue');
 }
 
 function getLoredeckHealthIssueAdvice(code = '', severity = 'suggestion') {
     const key = String(code || '').trim();
     const generic = {
         summary: severity === 'error' ? 'This issue can prevent reliable deck loading.' : 'This issue may reduce reliability, search, or future editing quality.',
-        why: 'Deck Health checks help keep Loredecks predictable when they are loaded, stacked, edited, exported, or shared.',
-        fix: 'Review the affected records, correct the underlying metadata, then rerun Deck Health.',
+        why: 'Pack Health checks help keep Loredecks predictable when they are loaded, stacked, edited, exported, or shared.',
+        fix: 'Review the affected records, correct the underlying metadata, then rerun Pack Health.',
         fixShort: 'Review',
     };
     const advice = {
@@ -1281,7 +1281,7 @@ function getLoredeckHealthIssueAdvice(code = '', severity = 'suggestion') {
         manifest_entry_count_mismatch: {
             summary: 'Manifest stats do not match the loaded deck.',
             why: 'Stale stats make library cards and sharing metadata misleading.',
-            fix: 'Refresh manifest stats from Deck Health before exporting or sharing.',
+            fix: 'Refresh manifest stats from Pack Health before exporting or sharing.',
             fixShort: 'Refresh stats',
         },
     };
@@ -1448,7 +1448,7 @@ async function refreshLoredeckHealthCenterScan(context = getLoredeckHealthCenter
         try {
             if (context.pack) {
                 const result = await validateLoredeckForEditor(context.pack, null, { quiet: true, updateLibrary: true });
-                if (!result.health) throw new Error(result.error || 'Deck Health scan failed.');
+                if (!result.health) throw new Error(result.error || 'Pack Health scan failed.');
                 refreshLoredeckSurfaces();
             } else {
                 clearCanonLoreDatabaseCache();
@@ -1458,7 +1458,7 @@ async function refreshLoredeckHealthCenterScan(context = getLoredeckHealthCenter
                 refreshHeader();
             }
         } catch (e) {
-            toast(e?.message || 'Deck Health scan failed.', 'error');
+            toast(e?.message || 'Pack Health scan failed.', 'error');
         }
     });
     renderLoredeckHealthCenterOverlay();
@@ -1466,7 +1466,7 @@ async function refreshLoredeckHealthCenterScan(context = getLoredeckHealthCenter
 
 function exportLoredeckHealthCenterReport(context = getLoredeckHealthCenterContext()) {
     if (!context.health) {
-        toast('Deck Health has not loaded yet.', 'warning');
+        toast('Pack Health has not loaded yet.', 'warning');
         return;
     }
     const fileStem = sanitizeFileStem(context.pack?.packId || context.report.databaseId || 'saga-deck-health');
@@ -1660,7 +1660,7 @@ export async function refreshLoredeckHealthReport(button = null) {
         await loadCanonLoreDatabase();
         refreshLoredeckSurfaces();
     } catch (e) {
-        toast(e?.message || 'Deck Health refresh failed.', 'error');
+        toast(e?.message || 'Pack Health refresh failed.', 'error');
     } finally {
         restoreBusy();
     }
@@ -1668,7 +1668,7 @@ export async function refreshLoredeckHealthReport(button = null) {
 
 export function exportLoredeckHealthReport(state, canonDb = null, health = null) {
     if (!health) {
-        toast('Deck Health has not loaded yet.', 'warning');
+        toast('Pack Health has not loaded yet.', 'warning');
         return;
     }
     downloadJson(buildLoredeckHealthReport(state, canonDb, health), 'saga-pack-health.json');

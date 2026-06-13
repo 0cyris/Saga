@@ -222,7 +222,7 @@ function createLoredeckWorkbenchHeader(pack = null) {
             await loadLoredeckWorkbenchRows(pack.packId, { force: true, button: btn });
         });
         actions.appendChild(refresh);
-        actions.appendChild(createButton('Open Health', 'Open the Deck Health Center for this Loredeck.', () => {
+        actions.appendChild(createButton('Open Pack Health', 'Open the Pack Health Center for this Loredeck.', () => {
             openLoredeckHealthCenter(pack.packId);
         }));
         if (pack.type === 'bundled') {
@@ -270,7 +270,7 @@ function createLoredeckWorkbenchTabs() {
     for (const [id, label, count, tip] of [
         ['lorecards', 'Lorecards', loredeckWorkbenchCache.rows.length, 'Browse Lorecards inside this Loredeck.'],
         ['registries', 'Registries', getLoredeckWorkbenchRegistryCount(getWorkbenchPack()), 'Manage deck-owned tag and timeline registry metadata.'],
-        ['health', 'Health', 0, 'Use Open Health for the full Health Center in this phase.'],
+        ['health', 'Health', 0, 'Use Open Pack Health for the full Pack Health Center in this phase.'],
         ['files', 'Files', getSourceFileCount(loredeckWorkbenchCache.source), 'Package file inspection will be expanded after the browser foundation.'],
     ]) {
         const btn = document.createElement('button');
@@ -1285,7 +1285,7 @@ async function applyLoredeckWorkbenchBulkEntryEdit(pack = {}, actionLabel = 'Bul
     }
     if (typeof updateFields !== 'function') return false;
     return withLoredeckConfirmedActionButton(button, {
-        confirm: () => confirmAction(actionLabel, `${actionLabel} will update ${selectedIds.length} Lorecard${selectedIds.length === 1 ? '' : 's'} in ${pack.title || pack.packId}. This saves directly and marks Deck Health stale. Continue?`),
+        confirm: () => confirmAction(actionLabel, `${actionLabel} will update ${selectedIds.length} Lorecard${selectedIds.length === 1 ? '' : 's'} in ${pack.title || pack.packId}. This saves directly and marks Pack Health stale. Continue?`),
         busyText: 'Applying...',
         fallbackLabel: actionLabel,
         cancelValue: false,
@@ -1338,7 +1338,7 @@ async function deleteLoredeckWorkbenchSelectedEntries(pack = {}, rawIds = [], bu
     return withLoredeckConfirmedActionButton(button, {
         confirm: () => confirmAction(
             'Delete Selected Lorecards',
-            `Delete ${selectedIds.length} selected Lorecard${selectedIds.length === 1 ? '' : 's'} from ${pack.title || pack.packId}? Custom additions will be removed. Source Lorecards will be suppressed in this editable deck. This saves directly and marks Deck Health stale.`
+            `Delete ${selectedIds.length} selected Lorecard${selectedIds.length === 1 ? '' : 's'} from ${pack.title || pack.packId}? Custom additions will be removed. Source Lorecards will be suppressed in this editable deck. This saves directly and marks Pack Health stale.`
         ),
         busyText: 'Deleting...',
         fallbackLabel: 'Delete Selected',
@@ -1396,7 +1396,7 @@ async function restoreLoredeckWorkbenchSelectedEntries(pack = {}, rawIds = [], b
     return withLoredeckConfirmedActionButton(button, {
         confirm: () => confirmAction(
             'Restore Selected Lorecards',
-            `Restore ${disabledSelected.length} disabled Lorecard${disabledSelected.length === 1 ? '' : 's'} in ${pack.title || pack.packId}? This saves directly and marks Deck Health stale.`
+            `Restore ${disabledSelected.length} disabled Lorecard${disabledSelected.length === 1 ? '' : 's'} in ${pack.title || pack.packId}? This saves directly and marks Pack Health stale.`
         ),
         busyText: 'Restoring...',
         fallbackLabel: 'Restore Selected',
@@ -1433,7 +1433,7 @@ async function duplicateLoredeckWorkbenchSelectedEntries(pack = {}, rawIds = [],
     return withLoredeckConfirmedActionButton(button, {
         confirm: () => confirmAction(
             'Duplicate Selected Lorecards',
-            `Duplicate ${selectedIds.length} selected Lorecard${selectedIds.length === 1 ? '' : 's'} as Custom additions in ${pack.title || pack.packId}? This saves directly and marks Deck Health stale.`
+            `Duplicate ${selectedIds.length} selected Lorecard${selectedIds.length === 1 ? '' : 's'} as Custom additions in ${pack.title || pack.packId}? This saves directly and marks Pack Health stale.`
         ),
         busyText: 'Duplicating...',
         fallbackLabel: 'Duplicate Selected',
@@ -1590,7 +1590,7 @@ function createLoredeckWorkbenchEditableDetail(pack = {}, selected = {}) {
         form.appendChild(createLoredeckWorkbenchReadonlyField('Machine ID', selected.id, 'Stable Lorecard machine ID. ID editing will be handled by the bulk ID tools.'));
     }
     form.appendChild(createLoredeckWorkbenchInputField('Title', 'title', fields.title, 'Lorecard display title.', { full: true, required: true }));
-    form.appendChild(createLoredeckWorkbenchInputField('Category', 'category', fields.category, 'Type/category used by filters and Deck Health.'));
+    form.appendChild(createLoredeckWorkbenchInputField('Category', 'category', fields.category, 'Type/category used by filters and Pack Health.'));
     form.appendChild(createLoredeckWorkbenchSelectField('Relevance', 'relevance', fields.relevance, getEntryRelevanceOptions(), 'Lorecard relevance tier.'));
     form.appendChild(createLoredeckWorkbenchSelectField('Canon', 'canonStatus', fields.canonStatus, getEntryCanonStatusOptions(fields.canonStatus), 'Canon/AU/custom status.'));
     form.appendChild(createLoredeckWorkbenchInputField('Tags', 'tags', fields.tags.join(', '), 'Comma-separated Lorecard tags.', { full: true }));

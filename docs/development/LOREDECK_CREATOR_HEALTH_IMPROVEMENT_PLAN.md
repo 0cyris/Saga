@@ -1,6 +1,6 @@
 # Loredeck Creator Health Improvement Plan
 
-Status: In progress. Phase 1 regression coverage, the schema-aware persistence fix from Phase 2, and the core Creator entry guardrails from Phase 3 have started. This plan covers the improvement cycle for Creator-generated Loredecks that can reach the final readiness gate with Pack Health errors.
+Status: Implementation pass complete. Regression coverage, schema-aware persistence, Creator entry guardrails, Pending Review hardening, final Pack Health UX, deterministic repair, and the alpha-gate verification sweep are in place. The only deferred item is an optional resolver UI for ambiguous repairs.
 
 ## Problem Statement
 
@@ -32,7 +32,7 @@ The Creator entry stage also accepts too much on trust. It asks the provider for
 
 ## Phase 1: Lock The Failure With Tests
 
-Status: Implemented for schema v3 override persistence and initial Creator entry semantic-gate fixtures.
+Status: Implemented for schema v3 override persistence, accepted Creator-style entry changes, and semantic-gate fixtures.
 
 Objective: make the observed failure reproducible without depending on the user's live `settings.json`.
 
@@ -52,7 +52,7 @@ Acceptance:
 
 ## Phase 2: Make Loredeck Override Persistence Schema-Aware
 
-Status: Core persistence fix implemented for schema v3 `entryOverrides`; Pending Review patch application now also sanitizes schema v3 entry overrides before writing them into a live pack.
+Status: Implemented. Schema v3 `entryOverrides` use the schema-aware Loredeck path, and Pending Review patch application sanitizes schema v3 entry overrides before writing them into a live pack.
 
 Objective: stop the shared settings normalizer from converting schema v3 Loredeck overrides back into hybrid v2/v3 entries.
 
@@ -74,7 +74,7 @@ Acceptance:
 
 ## Phase 3: Add Creator Entry Semantic Gates
 
-Status: Started. Creator Lorecard drafts now run through deterministic schema v3 guardrails before entering Draft Review. Regression coverage now includes malformed context, retrieval, content, unknown tag, unknown anchor, and wrong micro-batch payloads.
+Status: Implemented. Creator Lorecard drafts run through deterministic schema v3 guardrails before entering Draft Review. Regression coverage includes malformed context, retrieval, content, unknown tag, unknown anchor, wrong micro-batch payloads, Lorecards stage continuation, current-task UI, and Draft Review handoff state.
 
 Objective: reject or repair bad Creator Lorecard drafts before they can become accepted Generated Loredeck entries.
 
@@ -95,13 +95,13 @@ Tasks:
 
 Acceptance:
 
-- Started: compacted tags are mapped to accepted registry IDs only when unambiguous, generic `kind` / `category` tags are dropped, unknown tags are rejected, unknown Context anchor references are rejected, and entry IDs outside the micro-batch are rejected.
+- Implemented: compacted tags are mapped to accepted registry IDs only when unambiguous, generic `kind` / `category` tags are dropped, unknown tags are rejected, unknown Context anchor references are rejected, and entry IDs outside the micro-batch are rejected.
 - Covered: malformed provider payloads with missing context labels, reversed sort keys, missing retrieval fields, missing content, unknown tags, unknown anchors, and wrong micro-batch IDs are rejected before Draft Review.
-- Remaining: broaden integration coverage around the live generation UI.
+- Covered: UI contract tests verify Lorecards-stage continuation, current-task copy, and Draft Review queue handoff state.
 
 ## Phase 4: Harden Pending Review And Acceptance
 
-Status: Started. `applyLoredeckRecordPatch()` now accepts a schema-aware entry override sanitizer from runtime configuration and uses it before writing `entryOverrides`. Pending Review also surfaces non-clean Pack Health status with a direct `Open Pack Health Center` route, and health-impacting acceptance reports refreshed Pack Health issue counts.
+Status: Implemented. `applyLoredeckRecordPatch()` accepts a schema-aware entry override sanitizer from runtime configuration and uses it before writing `entryOverrides`. Pending Review surfaces non-clean Pack Health status with a direct `Open Pack Health Center` route, and health-impacting acceptance reports refreshed Pack Health issue counts.
 
 Objective: make the review pipeline preserve the same schema guarantees as the Creator stage.
 
@@ -116,13 +116,13 @@ Acceptance:
 
 - A clean Draft Review entry remains clean after Pending Review acceptance.
 - A malformed manually edited pending change cannot silently poison a Generated Loredeck.
-- Started: acceptance reruns Pack Health after health-impacting changes, reports `Pack Health: status (N errors, M warnings)`, and points users to the Pack Health Center when errors remain.
-- Started: Pending Review cards with `has_errors` or `needs_review` Pack Health expose `Open Pack Health Center` directly to the Issues tab.
-- Started: the review lists behave consistently after Draft Review queue handoff and Pending Review accept/reject.
+- Implemented: acceptance reruns Pack Health after health-impacting changes, reports `Pack Health: status (N errors, M warnings)`, and points users to the Pack Health Center when errors remain.
+- Implemented: Pending Review cards with `has_errors` or `needs_review` Pack Health expose `Open Pack Health Center` directly to the Issues tab.
+- Covered: the review lists behave consistently after Draft Review queue handoff and Pending Review accept/reject.
 
 ## Phase 5: Fix Creator Final Readiness And Health UX
 
-Status: Started. Creator readiness now receives cached Pack Health, treats cached Pack Health errors as blockers, summarizes issue counts, opens the Health Center to Issues when errors exist, and exposes final-card Pack Health actions.
+Status: Implemented. Creator readiness receives cached Pack Health, treats cached Pack Health errors as blockers, summarizes issue counts, opens the Pack Health Center to Issues when errors exist, exposes final-card Pack Health actions, and uses `Pack Health` wording across the primary Creator, Library, Workbench, Pending Review, assistant repair, and validation routes.
 
 Objective: make the final Creator surface explain and block structural health problems.
 
@@ -135,18 +135,20 @@ Tasks:
   - `Run Pack Health`
   - `Open Pack Health Center`
   - `Repair Safe Issues` when deterministic repairs are available
-- Replace generic `Latest Deck Health has errors.` copy with a compact summary such as `Pack Health: 56 errors, 3 warnings`.
+- Replace generic latest-health error copy with a compact summary such as `Pack Health: 56 errors, 3 warnings`.
 - Let Pack Health Center open directly to the Issues tab for packs with errors.
+- Align user-facing health labels so the Creator final gate, Pending Review, Library, Workbench, and Health Center all refer to `Pack Health`.
 
 Acceptance:
 
-- Started: the final card cannot display `Finalize ready` while cached Pack Health contains errors.
-- Started: the final card shows `Pack Health: N errors, M warnings` and exposes `Run Pack Health`, `Open Pack Health Center`, and `Repair Safe Issues` when issue counts exist.
+- Implemented: the final card cannot display `Finalize ready` while cached Pack Health contains errors.
+- Implemented: the final card shows `Pack Health: N errors, M warnings` and exposes `Run Pack Health`, `Open Pack Health Center`, and `Repair Safe Issues` when issue counts exist.
+- Implemented: the health overlay now presents as `Pack Health Center`, and Library/Workbench buttons use `Open Pack Health Center`, `Open Pack Health`, or `Run Pack Health`.
 - Covered: Generated-to-Custom finalization blocks on Pack Health errors and still succeeds for a clean validated Generated Loredeck.
 
 ## Phase 6: Add Deterministic Repair For Existing Generated Packs
 
-Status: Started. `Repair Safe Issues` now repairs schema v3 generated/custom entry overrides with the same shared tag and anchor rules used by the Creator draft guard. It strips legacy schema fields, maps compacted tags only when there is one exact registry target, drops generic schema tags, reruns Pack Health, and reports before/after error and warning counts. Unknown specific tags or Context anchors are preserved and reported as still needing review. Context anchor repairs inferred from a single exact sort-key match are queued to Pending Review instead of being applied directly, and Pending Review rows now show the inferred repair reason beside the normal field diff. Multiple-candidate tag or anchor matches do not queue no-op review rows; the repair toast reports how many ambiguous candidates remain for Pack Health review.
+Status: Implemented. `Repair Safe Issues` repairs schema v3 generated/custom entry overrides with the same shared tag and anchor rules used by the Creator draft guard. It strips legacy schema fields, maps compacted tags only when there is one exact registry target, drops generic schema tags, reruns Pack Health, and reports before/after error and warning counts. Unknown specific tags or Context anchors are preserved and reported as still needing review. Context anchor repairs inferred from a single exact sort-key match are queued to Pending Review instead of being applied directly, and Pending Review rows show the inferred repair reason beside the normal field diff. Multiple-candidate tag or anchor matches do not queue no-op review rows; the repair toast reports how many ambiguous candidates remain for Pack Health review.
 
 Objective: provide a practical recovery path for packs already affected by this bug.
 
@@ -163,15 +165,17 @@ Tasks:
 
 Acceptance:
 
-- Started: the affected Arlong Park-style compact-tag/generic-tag/schema-v3-residue shape repairs to `good` without manual JSON editing.
-- Started: ambiguous or unknown specific tags and anchors are not silently changed; they remain visible in Pack Health and the repair toast reports that review is still needed.
-- Started: a Context anchor typo with exactly one sort-key-matched anchor target queues a `Review Context Anchor Repair` Pending Review patch; accepting it applies the concrete entry override and can clear the Pack Health warning.
-- Started: queued Context anchor repair rows show the specific field, original anchor, proposed anchor, and sort-key reason before acceptance.
-- Started: multiple-candidate compact-tag and sort-key anchor matches remain unqueued and visible as unresolved Pack Health review work.
+- Implemented: the affected Arlong Park-style compact-tag/generic-tag/schema-v3-residue shape repairs to `good` without manual JSON editing.
+- Implemented: ambiguous or unknown specific tags and anchors are not silently changed; they remain visible in Pack Health and the repair toast reports that review is still needed.
+- Implemented: a Context anchor typo with exactly one sort-key-matched anchor target queues a `Review Context Anchor Repair` Pending Review patch; accepting it applies the concrete entry override and can clear the Pack Health warning.
+- Implemented: queued Context anchor repair rows show the specific field, original anchor, proposed anchor, and sort-key reason before acceptance.
+- Implemented: multiple-candidate compact-tag and sort-key anchor matches remain unqueued and visible as unresolved Pack Health review work.
 - Bundled Loredecks still route to duplicate-as-Custom before direct repair.
-- Remaining: optional future resolver UI for selecting among multiple candidates; current behavior intentionally avoids silent or no-op changes.
+- Deferred: optional future resolver UI for selecting among multiple candidates; current behavior intentionally avoids silent or no-op changes.
 
 ## Phase 7: Verification And Smoke Coverage
+
+Status: Implemented for automated contract coverage. `tools/scripts/run-alpha-gate.mjs` now includes the Creator, Pending Review, Pack Health, library, workbench, visual smoke, schema guard, and repair tests added during this cycle.
 
 Objective: prove the full improvement cycle works from generation through finalization.
 

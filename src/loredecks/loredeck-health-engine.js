@@ -1,5 +1,5 @@
 /**
- * Deck Health assembly for loaded and in-memory Saga Loredeck data.
+ * Pack Health assembly for loaded and in-memory Saga Loredeck data.
  */
 
 import {
@@ -40,7 +40,7 @@ export function analyzeManifestStatsHealth(health, manifest = {}) {
     const expectedEntryCount = Number(stats.entryCount);
     if (Number.isFinite(expectedEntryCount) && expectedEntryCount !== health.summary.entryCount) {
         health.summary.manifestStatsMismatchCount += 1;
-        addHealthIssue(health, 'warning', 'manifest_entry_count_mismatch', `Manifest stats.entryCount is ${expectedEntryCount}, but Deck Health counted ${health.summary.entryCount} loaded Lorecards.`, {
+        addHealthIssue(health, 'warning', 'manifest_entry_count_mismatch', `Manifest stats.entryCount is ${expectedEntryCount}, but Pack Health counted ${health.summary.entryCount} loaded Lorecards.`, {
             expectedEntryCount,
             actualEntryCount: health.summary.entryCount,
         });

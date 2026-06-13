@@ -84,7 +84,7 @@ export function createLoredeckAssistantCard(pack = {}, rows = [], filteredRows =
         summary.appendChild(selectedPill);
     }
     if (cached?.queuedCount) summary.appendChild(createStatusPill(`${cached.queuedCount} queued`, 'Last assistant proposal count queued into Pending Review.', { tone: 'review', kind: 'count' }));
-    if (cached?.selectedHealthIssueCount) summary.appendChild(createStatusPill(`${cached.selectedHealthIssueCount} health issue${cached.selectedHealthIssueCount === 1 ? '' : 's'}`, 'Last assistant draft was generated from selected Deck Health issues.', { tone: 'warning', kind: 'severity' }));
+    if (cached?.selectedHealthIssueCount) summary.appendChild(createStatusPill(`${cached.selectedHealthIssueCount} health issue${cached.selectedHealthIssueCount === 1 ? '' : 's'}`, 'Last assistant draft was generated from selected Pack Health issues.', { tone: 'warning', kind: 'severity' }));
     if (cached?.qualityWarningCount) summary.appendChild(createStatusPill(`${cached.qualityWarningCount} quality flag${cached.qualityWarningCount === 1 ? '' : 's'}`, 'Last assistant draft included local quality guardrail flags.', { tone: 'warning', kind: 'severity' }));
     if (cached?.questions?.length) summary.appendChild(createStatusPill(`${cached.questions.length} question${cached.questions.length === 1 ? '' : 's'}`, 'Last assistant response requested clarification.', { tone: 'review', kind: 'count' }));
     wrap.appendChild(summary);

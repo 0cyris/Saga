@@ -412,7 +412,7 @@ export function renderLoredeckLibraryOverlay(options = {}) {
             openLoredeckCreatorWorkbench();
         }));
     }
-    actions.appendChild(createButton('Refresh Library', 'Reload active Loredecks and recompute Deck Health.', async (btn) => {
+    actions.appendChild(createButton('Refresh Library', 'Reload active Loredecks and recompute Pack Health.', async (btn) => {
         await refreshLoredeckLibraryWindowData(btn);
     }));
     const doneButton = createButton('Done', 'Close the Loredeck Library.', closeLoredeckLibraryWindow, 'saga-primary-button');
@@ -1107,8 +1107,8 @@ function createLoredeckLibraryHeaderMeta(stack = [], library = [], canonDb = nul
         [`${stats.activeCount} active`, 'Enabled Loredecks in the current session stack.', { tone: stats.activeCount ? 'success' : 'muted', kind: 'count' }],
         [`${stats.entryCount} active Lorecards`, 'Approximate active Lorecards available from enabled Loredecks.', { kind: 'count' }],
         [`${selectedCount} selected`, 'Loredecks selected for bulk Library actions such as export and stack changes.', { tone: selectedCount ? 'selected' : 'muted', kind: 'count' }],
-        [`${stats.errorCount} errors`, 'Current stack Deck Health error count.', { tone: stats.errorCount ? 'danger' : 'muted', kind: 'severity' }],
-        [`${stats.warningCount} warnings`, 'Current stack Deck Health warning count.', { tone: stats.warningCount ? 'warning' : 'muted', kind: 'severity' }],
+        [`${stats.errorCount} errors`, 'Current stack Pack Health error count.', { tone: stats.errorCount ? 'danger' : 'muted', kind: 'severity' }],
+        [`${stats.warningCount} warnings`, 'Current stack Pack Health warning count.', { tone: stats.warningCount ? 'warning' : 'muted', kind: 'severity' }],
     ]);
 }
 
@@ -1757,8 +1757,8 @@ function createLoredeckLibraryInlineFolderRow(folder = {}, options = {}) {
     if (stats.childFolderCount) meta.appendChild(createStatusPill(`${stats.childFolderCount} folder${stats.childFolderCount === 1 ? '' : 's'}`, 'Direct child folders.', { kind: 'count' }));
     if (searchState === 'match') meta.appendChild(createStatusPill('Folder match', 'This folder title or path matches the Library search.', { tone: 'selected', kind: 'status' }));
     else if (searchState === 'context') meta.appendChild(createStatusPill('Context', 'Shown to preserve the matching Loredeck hierarchy.', { tone: 'info', kind: 'status' }));
-    if (stats.errorCount) meta.appendChild(createStatusPill(`${stats.errorCount} error${stats.errorCount === 1 ? '' : 's'}`, 'Nested Deck Health errors.', { tone: 'danger', kind: 'severity' }));
-    else if (stats.warningCount) meta.appendChild(createStatusPill(`${stats.warningCount} warning${stats.warningCount === 1 ? '' : 's'}`, 'Nested Deck Health warnings.', { tone: 'warning', kind: 'severity' }));
+    if (stats.errorCount) meta.appendChild(createStatusPill(`${stats.errorCount} error${stats.errorCount === 1 ? '' : 's'}`, 'Nested Pack Health errors.', { tone: 'danger', kind: 'severity' }));
+    else if (stats.warningCount) meta.appendChild(createStatusPill(`${stats.warningCount} warning${stats.warningCount === 1 ? '' : 's'}`, 'Nested Pack Health warnings.', { tone: 'warning', kind: 'severity' }));
     top.appendChild(meta);
     main.appendChild(top);
     main.appendChild(createLoredeckLibraryFolderCoverStrip(options.coverPacks || [], Number(options.totalCoverableCount) || 0));
@@ -2462,8 +2462,8 @@ function createLoredeckActiveStackFolderCard(item, index, stackLength, library =
     chips.appendChild(createStatusPill(`Priority ${index + 1}`, 'Top stack items have higher priority.', { kind: 'count' }));
     chips.appendChild(createStatusPill(`${stats.activeCount}/${stats.deckCount} active`, 'Active Loredecks from this folder after stack duplicate suppression.', { tone: stats.activeCount ? 'success' : 'muted', kind: 'count' }));
     if (stats.suppressedCount) chips.appendChild(createStatusPill(`${stats.suppressedCount} suppressed`, 'Loredecks already loaded by a higher-priority stack item.', { tone: 'muted', kind: 'count' }));
-    if (stats.errorCount) chips.appendChild(createStatusPill(`${stats.errorCount} errors`, 'Contained Loredecks with Deck Health errors.', { tone: 'danger', kind: 'severity' }));
-    else if (stats.warningCount) chips.appendChild(createStatusPill(`${stats.warningCount} warnings`, 'Contained Loredecks with Deck Health warnings.', { tone: 'warning', kind: 'severity' }));
+    if (stats.errorCount) chips.appendChild(createStatusPill(`${stats.errorCount} errors`, 'Contained Loredecks with Pack Health errors.', { tone: 'danger', kind: 'severity' }));
+    else if (stats.warningCount) chips.appendChild(createStatusPill(`${stats.warningCount} warnings`, 'Contained Loredecks with Pack Health warnings.', { tone: 'warning', kind: 'severity' }));
     main.appendChild(chips);
     const statsLine = document.createElement('div');
     statsLine.className = 'saga-loredeck-library-card-stats';
@@ -2708,7 +2708,7 @@ function createLoredeckStackFolderPreviewDeckRow(summary = {}, depth = 0, librar
         row.appendChild(kept);
     }
 
-    const health = createStatusPill(healthTone === 'error' ? 'Error' : healthTone === 'warning' ? 'Warn' : 'OK', 'Deck Health status for this Loredeck.', {
+    const health = createStatusPill(healthTone === 'error' ? 'Error' : healthTone === 'warning' ? 'Warn' : 'OK', 'Pack Health status for this Loredeck.', {
         tone: healthTone === 'error' ? 'danger' : (healthTone === 'warning' ? 'warning' : 'success'),
         kind: 'severity',
         className: 'saga-loredeck-library-stack-folder-preview-chip',
@@ -3476,9 +3476,9 @@ function createLoredeckLibraryFolderDetailsPanel(folder = {}, stack = [], canonD
     chips.appendChild(createStatusPill(`${childFolders.length} sub-folder${childFolders.length === 1 ? '' : 's'}`, 'Direct child folders in this folder.', { kind: 'count' }));
     chips.appendChild(createStatusPill(`${packs.length} Loredeck${packs.length === 1 ? '' : 's'}`, 'Loredecks contained in this folder, including nested folders.', { kind: 'count' }));
     chips.appendChild(createStatusPill(`${totalEntries} Lorecards`, 'Total Lorecards across contained Loredecks.', { kind: 'count' }));
-    if (errorCount) chips.appendChild(createStatusPill(`${errorCount} health error${errorCount === 1 ? '' : 's'}`, 'Contained Loredecks with Deck Health errors.', { tone: 'danger', kind: 'severity' }));
-    else if (warningCount) chips.appendChild(createStatusPill(`${warningCount} warning${warningCount === 1 ? '' : 's'}`, 'Contained Loredecks with Deck Health warnings.', { tone: 'warning', kind: 'severity' }));
-    else chips.appendChild(createStatusPill('Health clear', 'No visible Deck Health warnings or errors in this folder.', { tone: 'success', kind: 'severity' }));
+    if (errorCount) chips.appendChild(createStatusPill(`${errorCount} health error${errorCount === 1 ? '' : 's'}`, 'Contained Loredecks with Pack Health errors.', { tone: 'danger', kind: 'severity' }));
+    else if (warningCount) chips.appendChild(createStatusPill(`${warningCount} warning${warningCount === 1 ? '' : 's'}`, 'Contained Loredecks with Pack Health warnings.', { tone: 'warning', kind: 'severity' }));
+    else chips.appendChild(createStatusPill('Health clear', 'No visible Pack Health warnings or errors in this folder.', { tone: 'success', kind: 'severity' }));
     main.appendChild(chips);
     const desc = document.createElement('div');
     desc.className = 'saga-loredeck-library-detail-description';
@@ -3620,7 +3620,7 @@ function createLoredeckLibraryFolderLoredeckRow(summary = {}, maxEntries = 1) {
             : tone === 'suggestion'
                 ? `${healthInfo?.suggestionCount || 0}S`
                 : 'OK';
-    const health = createStatusPill(healthLabel, healthInfo?.status?.summary || healthInfo?.status?.label || 'Deck Health status.', {
+    const health = createStatusPill(healthLabel, healthInfo?.status?.summary || healthInfo?.status?.label || 'Pack Health status.', {
         tone: tone === 'error' ? 'danger' : (tone === 'warning' || tone === 'suggestion' ? 'warning' : 'success'),
         kind: 'severity',
         className: 'saga-loredeck-library-folder-loredeck-health',
@@ -3634,7 +3634,7 @@ function createLoredeckLibraryDetailTabs() {
     tabs.className = 'saga-lore-workbench-mode-tabs saga-loredeck-library-detail-tabs';
     for (const [id, label, tooltip] of [
         ['overview', 'Overview', 'Description, stats, and common Loredeck actions.'],
-        ['health', 'Health', 'Deck Health summary and top issue.'],
+        ['health', 'Health', 'Pack Health summary and top issue.'],
     ]) {
         const btn = document.createElement('button');
         btn.type = 'button';
@@ -3676,11 +3676,11 @@ function createLoredeckLibraryHealthDetail(pack, healthInfo) {
     const grid = document.createElement('div');
     grid.className = 'saga-loredeck-detail-grid';
     grid.appendChild(createKeyValue('Status', healthInfo.status.label, healthInfo.status.summary));
-    grid.appendChild(createKeyValue('Errors', String(healthInfo.errorCount), 'Blocking Deck Health findings.'));
-    grid.appendChild(createKeyValue('Warnings', String(healthInfo.warningCount), 'Deck Health findings that should be reviewed.'));
-    grid.appendChild(createKeyValue('Suggestions', String(healthInfo.suggestionCount), 'Optional Deck Health suggestions.'));
+    grid.appendChild(createKeyValue('Errors', String(healthInfo.errorCount), 'Blocking Pack Health findings.'));
+    grid.appendChild(createKeyValue('Warnings', String(healthInfo.warningCount), 'Pack Health findings that should be reviewed.'));
+    grid.appendChild(createKeyValue('Suggestions', String(healthInfo.suggestionCount), 'Optional Pack Health suggestions.'));
     grid.appendChild(createKeyValue('Checked', String(summary.entryCount || healthInfo.cached.entryCount || 0), 'Lorecards covered by the latest available report.'));
-    grid.appendChild(createKeyValue('Last Scan', healthInfo.cached.loadedAt ? formatRelativeHealthTime(healthInfo.cached.loadedAt) : 'not scanned', 'Most recent Deck Health validation cached for this Loredeck.'));
+    grid.appendChild(createKeyValue('Last Scan', healthInfo.cached.loadedAt ? formatRelativeHealthTime(healthInfo.cached.loadedAt) : 'not scanned', 'Most recent Pack Health validation cached for this Loredeck.'));
     wrap.appendChild(grid);
 
     const groups = groupLoredeckHealthIssues(healthInfo.report);
@@ -3695,23 +3695,23 @@ function createLoredeckLibraryHealthDetail(pack, healthInfo) {
         issue.className = 'saga-loredeck-library-health-top-issue';
         const title = document.createElement('div');
         title.className = 'saga-loredeck-library-health-top-title';
-        title.textContent = groups[0].title || 'Deck Health issue';
+        title.textContent = groups[0].title || 'Pack Health issue';
         issue.appendChild(title);
         const detail = document.createElement('div');
         detail.className = 'saga-runtime-help';
-        detail.textContent = groups[0].summary || groups[0].fixShort || 'Open Health Center for grouped findings and repair actions.';
+        detail.textContent = groups[0].summary || groups[0].fixShort || 'Open Pack Health Center for grouped findings and repair actions.';
         issue.appendChild(detail);
-        issue.appendChild(createStatusPill(groups[0].affectedLabel || `${groups[0].rawCount || 1} finding${(groups[0].rawCount || 1) === 1 ? '' : 's'}`, 'Grouped Deck Health finding count.', { tone: groups[0].severity === 'error' ? 'danger' : (groups[0].severity === 'warning' ? 'warning' : 'info'), kind: 'severity' }));
+        issue.appendChild(createStatusPill(groups[0].affectedLabel || `${groups[0].rawCount || 1} finding${(groups[0].rawCount || 1) === 1 ? '' : 's'}`, 'Grouped Pack Health finding count.', { tone: groups[0].severity === 'error' ? 'danger' : (groups[0].severity === 'warning' ? 'warning' : 'info'), kind: 'severity' }));
         top.appendChild(issue);
         wrap.appendChild(top);
     } else {
-        wrap.appendChild(createEmptyMessage(healthInfo.health ? 'No Deck Health issues found.' : 'No scan has been run for this Loredeck yet.'));
+        wrap.appendChild(createEmptyMessage(healthInfo.health ? 'No Pack Health issues found.' : 'No scan has been run for this Loredeck yet.'));
     }
     const actions = createLoredeckActionRow();
-    actions.appendChild(createButton('Open Health Center', 'Open the fullscreen Deck Health Center for this Loredeck.', () => {
+    actions.appendChild(createButton('Open Pack Health Center', 'Open the fullscreen Pack Health Center for this Loredeck.', () => {
         openLoredeckHealthCenter(pack.packId);
     }, 'saga-primary-button'));
-    const validate = createButton('Run Validation', 'Load this Loredeck data and run Deck Health validation.', async (btn) => {
+    const validate = createButton('Run Pack Health', 'Load this Loredeck data and run Pack Health validation.', async (btn) => {
         await validateLoredeckForEditor(pack, btn);
         renderLoredeckLibraryOverlay();
     });
@@ -3810,7 +3810,7 @@ function createLoredeckLibraryDetailActions(pack, stackItem = null, healthInfo =
         closeLoredeckLibraryWindow();
         openLoredeckWorkbench(pack.packId);
     }, 'saga-primary-button'));
-    actions.appendChild(createButton('Open Health Center', 'Open the fullscreen Deck Health Center for this Loredeck.', () => {
+    actions.appendChild(createButton('Open Pack Health Center', 'Open the fullscreen Pack Health Center for this Loredeck.', () => {
         void healthInfo;
         openLoredeckHealthCenter(pack.packId);
     }));
@@ -3907,8 +3907,8 @@ function createLoredeckMetadataEditorCard(pack) {
             { tone: pack.type === 'generated' ? 'source' : 'info', kind: 'source' }
         ));
     }
-    chips.appendChild(createStatusPill(`${entryCount} Lorecards`, 'Lorecard count from loaded Deck Health or registered metadata.', { kind: 'count' }));
-    chips.appendChild(createStatusPill(healthInfo.status?.label || 'Not scanned', 'Deck Health is advisory and does not block use.', { tone: healthInfo.tone === 'error' ? 'danger' : (healthInfo.tone === 'warning' ? 'warning' : (healthInfo.tone === 'ok' ? 'success' : 'muted')), kind: 'severity' }));
+    chips.appendChild(createStatusPill(`${entryCount} Lorecards`, 'Lorecard count from loaded Pack Health or registered metadata.', { kind: 'count' }));
+    chips.appendChild(createStatusPill(healthInfo.status?.label || 'Not scanned', 'Pack Health is advisory and does not block use.', { tone: healthInfo.tone === 'error' ? 'danger' : (healthInfo.tone === 'warning' ? 'warning' : (healthInfo.tone === 'ok' ? 'success' : 'muted')), kind: 'severity' }));
     for (const tag of (pack.tags || []).slice(0, 6)) chips.appendChild(createStatusPill(tag, 'Loredeck tag.', { tone: 'tag', kind: 'tag', maxChars: 28 }));
     main.appendChild(chips);
     heading.appendChild(main);
@@ -3977,7 +3977,7 @@ function createLoredeckMetadataEditorCard(pack) {
     inspectButton.disabled = !editorCanValidate;
     actions.appendChild(inspectButton);
 
-    const validateButton = createButton('Validate Deck', 'Load this Loredeck data and run Deck Health validation with the same rules used at runtime.', async (btn) => {
+    const validateButton = createButton('Run Pack Health', 'Load this Loredeck data and run Pack Health validation with the same rules used at runtime.', async (btn) => {
         await validateLoredeckForEditor(pack, btn);
         openLoredeckMetadataEditor(pack.packId);
         renderLoredeckLibraryOverlay();
@@ -3985,7 +3985,7 @@ function createLoredeckMetadataEditorCard(pack) {
     validateButton.disabled = !editorCanValidate;
     actions.appendChild(validateButton);
 
-    actions.appendChild(createButton('Open Health Center', 'Open the fullscreen Deck Health Center for this Loredeck.', () => {
+    actions.appendChild(createButton('Open Pack Health Center', 'Open the fullscreen Pack Health Center for this Loredeck.', () => {
         openLoredeckHealthCenter(pack.packId);
     }));
     actions.appendChild(createButton('Duplicate', 'Create an editable Custom Loredeck copy.', () => {
@@ -4038,7 +4038,7 @@ function createLoredeckMetadataEditorCard(pack) {
         syncButton.disabled = !pack.manifest;
         actions.appendChild(syncButton);
 
-        const repairButton = createButton('Repair Safe Issues', 'Apply safe Deck Health repairs to Custom metadata and existing overrides.', async (btn) => {
+        const repairButton = createButton('Repair Safe Issues', 'Apply safe Pack Health repairs to Custom metadata and existing overrides.', async (btn) => {
             await repairLoredeckSafeHealthIssues(pack, btn);
             openLoredeckMetadataEditor(pack.packId);
             renderLoredeckLibraryOverlay();

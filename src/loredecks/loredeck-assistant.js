@@ -1101,7 +1101,7 @@ Hard limits:
 - Do not claim proposals are applied. They are drafts for Pending Review.
 - Preserve stable IDs and namespaced tags.
 - Timeline anchors/windows should be useful for Context gating and should prevent future canon leakage.
-- Tags should support retrieval, filtering, Deck Health, and future Lorecard generation. Avoid tag spam and avoid vague unnamespaced tags when a namespace is natural.
+- Tags should support retrieval, filtering, Pack Health, and future Lorecard generation. Avoid tag spam and avoid vague unnamespaced tags when a namespace is natural.
 - Use approvedTitleDrafts from the supplied targetPlanningBatch only. Do not continue into other title batches or attempt full deck completeness in one pass.
 - Return no more than proposalLimit proposals. Prefer fewer high-value planning records over noisy coverage.
 - Prefer 6-10 strong proposals when that is enough for the current title batch; do not pad to proposalLimit.
@@ -1339,7 +1339,7 @@ Core rule: propose changes for Pending Review. Do not claim changes are already 
 
 When selectedDraftProposals are supplied, revise only those draft proposals and return replacement proposals for them. Do not rewrite unrelated entries unless the user explicitly asks.
 
-When selectedHealthIssues are supplied, draft repair proposals for those Deck Health issues only. Use supported proposal actions; if an issue needs manifest/stat repair or another unsupported edit, report it in warnings or ask a clarifying question.
+When selectedHealthIssues are supplied, draft repair proposals for those Pack Health issues only. Use supported proposal actions; if an issue needs manifest/stat repair or another unsupported edit, report it in warnings or ask a clarifying question.
 
 Prioritize high-value scene context over wiki summaries:
 - Good lore changes what characters know, hide, want, fear, expect, avoid, reveal, misunderstand, or react to.

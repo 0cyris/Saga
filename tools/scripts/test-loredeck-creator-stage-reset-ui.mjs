@@ -161,7 +161,7 @@ const stageDefs = [
   ['context', 'Context Plan', '7/7 accepted', 'approved', 'context-plan'],
   ['lorecards', 'Lorecards', '47 remaining', 'ready', 'lorecards'],
   ['review', 'Review Queue', 'Empty', 'empty', 'review-queue'],
-  ['health', 'Deck Health', 'Ready', 'approved', 'deck-health'],
+  ['health', 'Pack Health', 'Ready', 'approved', 'deck-health'],
   ['finalize', 'Finalize', 'Ready', 'ready', 'finalize'],
 ];
 

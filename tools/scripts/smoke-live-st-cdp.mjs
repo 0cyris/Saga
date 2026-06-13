@@ -1185,7 +1185,7 @@ async function runCreatorHarnessSmoke(client, screenshots, findings, smokeUrl, d
                     text,
                     hasTitle: text.includes('Reset to Title Pass?'),
                     hasWarning: text.includes('permanently erase all Creator data after Title Pass'),
-                    namesForwardSteps: text.includes('Context Plan') && text.includes('Lorecards') && text.includes('Review Queue') && text.includes('Deck Health') && text.includes('Finalize'),
+                    namesForwardSteps: text.includes('Context Plan') && text.includes('Lorecards') && text.includes('Review Queue') && text.includes('Pack Health') && text.includes('Finalize'),
                     hasConfirmLabel: [...overlay?.querySelectorAll('button') || []].some(button => (button.innerText || button.textContent || '').trim() === 'Reset to Title Pass'),
                     hasCancelLabel: [...overlay?.querySelectorAll('button') || []].some(button => (button.innerText || button.textContent || '').trim() === 'Cancel'),
                 };
@@ -2016,13 +2016,13 @@ async function main() {
         const librarySelection = await selectFirstLoredeckInLibrary(client);
         await wait(500);
         if (!librarySelection.selected) {
-            findings.push(`Live ST could not select a Loredeck before opening Deck Health Center (${librarySelection.mode}).`);
+            findings.push(`Live ST could not select a Loredeck before opening Pack Health Center (${librarySelection.mode}).`);
         } else {
-            const healthClicked = await clickButtonText(client, 'Open Health Center', { root: '.saga-loredeck-library-overlay' });
+            const healthClicked = await clickButtonText(client, 'Open Pack Health Center', { root: '.saga-loredeck-library-overlay' });
             if (!healthClicked) {
-                findings.push(`Live ST selected a Loredeck through ${librarySelection.mode}, but Open Health Center was not clickable.`);
+                findings.push(`Live ST selected a Loredeck through ${librarySelection.mode}, but Open Pack Health Center was not clickable.`);
             } else {
-                await waitFor(client, '!!document.querySelector(".saga-loredeck-health-center-overlay")', 'Deck Health Center');
+                await waitFor(client, '!!document.querySelector(".saga-loredeck-health-center-overlay")', 'Pack Health Center');
                 await wait(1000);
                 screenshots.push(await screenshot(client, 'live-st-04-health'));
                 await clickButtonText(client, 'Close', { root: '.saga-loredeck-health-center-overlay', enabledOnly: false });

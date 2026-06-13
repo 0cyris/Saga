@@ -89,7 +89,7 @@ export function createLoredeckManifestPreview(pack) {
         const validation = document.createElement('div');
         validation.className = 'saga-loredeck-detail-grid';
         const healthSummary = cached.health.summary || {};
-        validation.appendChild(createKeyValue('Validation', cached.health.status || 'unknown', 'Latest Deck Health validation run from the Loredeck editor/export path.'));
+        validation.appendChild(createKeyValue('Validation', cached.health.status || 'unknown', 'Latest Pack Health validation run from the Loredeck editor/export path.'));
         validation.appendChild(createKeyValue('Validation Issues', `${healthSummary.errorCount || 0} errors / ${healthSummary.warningCount || 0} warnings / ${healthSummary.suggestionCount || 0} suggestions`, 'Issue counts from latest validation.'));
         validation.appendChild(createKeyValue('Schema v3', `${healthSummary.schemaV3EntryCount || 0} Lorecards / ${healthSummary.schemaV3IssueCount || 0} issues`, 'Schema v3 conformance count from latest validation.'));
         validation.appendChild(createKeyValue('Stats Drift', String(healthSummary.manifestStatsMismatchCount || 0), 'Manifest stats mismatches from latest validation.'));
