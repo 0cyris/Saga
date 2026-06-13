@@ -9316,14 +9316,107 @@ function isLoredeckCreatorDraftCache(cache = {}) {
         || changes.some(change => String(change?.source || '').trim() === 'loredeck_creator');
 }
 
+function stableLoredeckCreatorReviewJson(value) {
+    if (value === null || typeof value !== 'object') return JSON.stringify(value);
+    if (Array.isArray(value)) return `[${value.map(item => stableLoredeckCreatorReviewJson(item)).join(',')}]`;
+    return `{${Object.keys(value).sort().map(key => `${JSON.stringify(key)}:${stableLoredeckCreatorReviewJson(value[key])}`).join(',')}}`;
+}
+
+function getLoredeckCreatorReviewEntryOverrides(change = {}) {
+    const payload = change?.payload && typeof change.payload === 'object' && !Array.isArray(change.payload)
+        ? change.payload
+        : {};
+    const overrides = payload.entryOverrides && typeof payload.entryOverrides === 'object' && !Array.isArray(payload.entryOverrides)
+        ? payload.entryOverrides
+        : {};
+    return Object.keys(overrides).length ? overrides : null;
+}
+
+function isLoredeckCreatorReviewSupplementalPayloadApplied(pack = {}, change = {}) {
+    const payload = change?.payload && typeof change.payload === 'object' && !Array.isArray(change.payload)
+        ? change.payload
+        : {};
+    const supportedKeys = new Set(['entryOverrides', 'disabledEntryIdsRemove']);
+    const payloadKeys = Object.keys(payload).filter(key => payload[key] !== undefined);
+    if (!payloadKeys.length || payloadKeys.some(key => !supportedKeys.has(key))) return false;
+    const disabled = new Set(normalizeLoredeckPendingIdList(pack?.disabledEntryIds || []));
+    return normalizeLoredeckPendingIdList(payload.disabledEntryIdsRemove || [])
+        .every(id => !disabled.has(id));
+}
+
+function isLoredeckCreatorReviewChangeAlreadyAccepted(pack = {}, change = {}) {
+    const overrides = getLoredeckCreatorReviewEntryOverrides(change);
+    if (!overrides) return false;
+    const accepted = pack?.entryOverrides && typeof pack.entryOverrides === 'object' && !Array.isArray(pack.entryOverrides)
+        ? pack.entryOverrides
+        : {};
+    return isLoredeckCreatorReviewSupplementalPayloadApplied(pack, change)
+        && Object.entries(overrides).every(([entryId, nextEntry]) => (
+            Object.prototype.hasOwnProperty.call(accepted, entryId)
+            && stableLoredeckCreatorReviewJson(accepted[entryId]) === stableLoredeckCreatorReviewJson(nextEntry)
+        ));
+}
+
+function isLoredeckCreatorReviewChangeAlreadyPending(pack = {}, change = {}) {
+    const changeId = String(change?.changeId || '').trim();
+    const pending = normalizeLoredeckPendingChanges(pack?.pendingChanges);
+    if (changeId && pending.some(item => item.changeId === changeId)) return true;
+    const overrides = getLoredeckCreatorReviewEntryOverrides(change);
+    if (!overrides) return false;
+    const changeText = stableLoredeckCreatorReviewJson(overrides);
+    return pending.some(item => {
+        const pendingOverrides = getLoredeckCreatorReviewEntryOverrides(item);
+        return pendingOverrides && stableLoredeckCreatorReviewJson(pendingOverrides) === changeText;
+    });
+}
+
+function filterLoredeckCreatorActiveDraftChanges(draftChanges = [], pack = null) {
+    if (!pack) return getLoredeckAssistantDraftChanges({ draftChanges });
+    return getLoredeckAssistantDraftChanges({ draftChanges }).filter(change => {
+        if (String(change?.source || '').trim() !== 'loredeck_creator') return true;
+        return !isLoredeckCreatorReviewChangeAlreadyPending(pack, change)
+            && !isLoredeckCreatorReviewChangeAlreadyAccepted(pack, change);
+    });
+}
+
+function reconcileLoredeckCreatorDraftCacheWithPack(packId = '', cache = {}, pack = null, options = {}) {
+    const id = String(packId || '').trim();
+    const changes = getLoredeckAssistantDraftChanges(cache);
+    if (!id || !changes.length) return cache || {};
+    const freshPack = pack || getFreshLoredeckLibraryPack(id, getLoredeckDefinition(id));
+    const retained = filterLoredeckCreatorActiveDraftChanges(changes, freshPack);
+    if (retained.length === changes.length) return cache;
+    const retainedIds = new Set(retained.map(change => change.changeId));
+    const selectedIds = getLoredeckAssistantSelectedDraftIds(cache);
+    const next = {
+        ...(cache || {}),
+        draftChanges: retained,
+        selectedDraftChangeIds: [...selectedIds].filter(changeId => retainedIds.has(changeId)),
+        updatedAt: Date.now(),
+    };
+    if (!retained.length) {
+        delete next.draftChanges;
+        delete next.selectedDraftChangeIds;
+    }
+    next.qualityWarningCount = countLoredeckAssistantQualityWarningsForChanges(retained);
+    loredeckAssistantDraftCache.set(id, next);
+    if (options.syncJob !== false) syncLoredeckCreatorDraftCacheToJob(id, next);
+    return next;
+}
+
 function getLoredeckCreatorDraftCacheForPack(packId = '') {
     const id = String(packId || '').trim();
     if (!id) return {};
     const current = loredeckAssistantDraftCache.get(id) || {};
-    if (getLoredeckAssistantDraftChanges(current).length) return current;
+    const currentDraftChanges = getLoredeckAssistantDraftChanges(current);
+    if (currentDraftChanges.length) {
+        return reconcileLoredeckCreatorDraftCacheWithPack(id, current);
+    }
     const job = getLoredeckCreatorJobForPackId(id);
-    const draftChanges = getLoredeckAssistantDraftChanges(job || {});
-    if (!draftChanges.length) return current;
+    const rawDraftChanges = getLoredeckAssistantDraftChanges(job || {});
+    if (!rawDraftChanges.length) return current;
+    const pack = getFreshLoredeckLibraryPack(id, getLoredeckDefinition(id));
+    const draftChanges = filterLoredeckCreatorActiveDraftChanges(rawDraftChanges, pack);
     const hydrated = {
         ...current,
         source: 'loredeck_creator',
@@ -9341,6 +9434,7 @@ function getLoredeckCreatorDraftCacheForPack(packId = '') {
     };
     hydrated.qualityWarningCount = countLoredeckAssistantQualityWarningsForChanges(draftChanges);
     loredeckAssistantDraftCache.set(id, hydrated);
+    if (draftChanges.length !== rawDraftChanges.length) syncLoredeckCreatorDraftCacheToJob(id, hydrated);
     return hydrated;
 }
 

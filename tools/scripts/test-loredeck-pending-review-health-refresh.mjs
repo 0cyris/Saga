@@ -211,6 +211,59 @@ assert.deepEqual(toasts.at(-1), {
   type: 'success',
 });
 
+const alreadyAppliedChange = createLoredeckRecordPatchChange({
+  source: 'test',
+  action: 'upsert_entry',
+  targetKind: 'entry',
+  title: 'Already applied pending payload',
+  affectedEntryIds: ['already-applied-entry'],
+  payload: {
+    entryOverrides: {
+      'already-applied-entry': {
+        id: 'already-applied-entry',
+        title: 'Already applied entry',
+        schemaVersion: 3,
+      },
+    },
+    disabledEntryIdsRemove: ['already-applied-entry'],
+  },
+});
+
+let alreadyAppliedPack = {
+  packId: 'already-applied-pending-review-pack',
+  type: 'custom',
+  title: 'Already Applied Pending Review Pack',
+  pendingChanges: [alreadyAppliedChange],
+  entryOverrides: {
+    'already-applied-entry': {
+      id: 'already-applied-entry',
+      title: 'Already applied entry',
+      schemaVersion: 3,
+    },
+  },
+};
+configureLoredeckPendingChangeActions({
+  toast: (message, type) => {
+    toasts.push({ message, type });
+  },
+  persistLoredeckLibraryRecordMutation: (_pack, mutator, message) => {
+    mutator(alreadyAppliedPack);
+    if (message) persistMessages.push(message);
+    return true;
+  },
+  getFreshLoredeckLibraryPack: () => alreadyAppliedPack,
+  canValidateLoredeckInEditor: () => false,
+  refreshLoredeckSurfaces: () => {},
+  isGeneratedLoredeckPack: () => false,
+  getAcceptedVirtualLoredeckEntries: () => [],
+  refreshLoredeckCreatorWorkbenchBody: () => {},
+  refreshHeader: () => {},
+});
+
+assert.equal(await acceptLoredeckPendingChanges(alreadyAppliedPack, [alreadyAppliedChange.changeId]), true);
+assert.deepEqual(alreadyAppliedPack.pendingChanges, []);
+assert.equal(alreadyAppliedPack.entryOverrides['already-applied-entry'].title, 'Already applied entry');
+
 console.warn = originalConsoleWarn;
 
 console.log('Loredeck Pending Review health refresh tests passed.');

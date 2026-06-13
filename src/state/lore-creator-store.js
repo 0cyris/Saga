@@ -125,6 +125,9 @@ function preserveLoredeckCreatorExplicitGenerationClears(job = {}, patch = {}) {
     if (Object.prototype.hasOwnProperty.call(patch, 'lastGenerationResult') && patch.lastGenerationResult === null) {
         delete job.lastGenerationResult;
     }
+    if (Object.prototype.hasOwnProperty.call(patch, 'draftChanges') && Array.isArray(patch.draftChanges) && !patch.draftChanges.length) {
+        delete job.draftChanges;
+    }
     return job;
 }
 
@@ -136,6 +139,9 @@ function applyLoredeckCreatorExplicitGenerationClearsForStorage(job = {}, patch 
     }
     if (Object.prototype.hasOwnProperty.call(patch, 'lastGenerationResult') && patch.lastGenerationResult === null) {
         output.lastGenerationResult = null;
+    }
+    if (Object.prototype.hasOwnProperty.call(patch, 'draftChanges') && Array.isArray(patch.draftChanges) && !patch.draftChanges.length) {
+        output.draftChanges = [];
     }
     return output;
 }

@@ -53,6 +53,45 @@ function getErrorMessage(error) {
     return String(error?.message || error || '').trim() || 'Unknown error';
 }
 
+function stableLoredeckPendingJson(value) {
+    if (value === null || typeof value !== 'object') return JSON.stringify(value);
+    if (Array.isArray(value)) return `[${value.map(item => stableLoredeckPendingJson(item)).join(',')}]`;
+    return `{${Object.keys(value).sort().map(key => `${JSON.stringify(key)}:${stableLoredeckPendingJson(value[key])}`).join(',')}}`;
+}
+
+function isPlainLoredeckPendingObject(value) {
+    return !!value && typeof value === 'object' && !Array.isArray(value);
+}
+
+function isLoredeckPendingEntryChangeAlreadyApplied(pack = {}, change = {}) {
+    const payload = isPlainLoredeckPendingObject(change?.payload) ? change.payload : {};
+    const payloadKeys = Object.keys(payload).filter(key => payload[key] !== undefined);
+    const supportedKeys = new Set(['entryOverrides', 'disabledEntryIdsRemove']);
+    if (!payloadKeys.length || payloadKeys.some(key => !supportedKeys.has(key))) return false;
+    const overrides = isPlainLoredeckPendingObject(payload.entryOverrides) ? payload.entryOverrides : {};
+    const overrideEntries = Object.entries(overrides);
+    if (!overrideEntries.length) return false;
+    const accepted = isPlainLoredeckPendingObject(pack.entryOverrides) ? pack.entryOverrides : {};
+    const disabled = new Set(normalizeLoredeckPendingIdList(pack.disabledEntryIds || []));
+    const removesAlreadyApplied = normalizeLoredeckPendingIdList(payload.disabledEntryIdsRemove || [])
+        .every(id => !disabled.has(id));
+    return removesAlreadyApplied && overrideEntries.every(([entryId, nextEntry]) => (
+        Object.prototype.hasOwnProperty.call(accepted, entryId)
+        && stableLoredeckPendingJson(accepted[entryId]) === stableLoredeckPendingJson(nextEntry)
+    ));
+}
+
+function pruneAlreadyAppliedLoredeckPendingChanges(next = {}) {
+    const pending = normalizeLoredeckPendingChanges(next.pendingChanges);
+    const retained = pending.filter(change => !isLoredeckPendingEntryChangeAlreadyApplied(next, change));
+    if (retained.length === pending.length) {
+        next.pendingChanges = pending;
+        return 0;
+    }
+    next.pendingChanges = retained;
+    return pending.length - retained.length;
+}
+
 function getAcceptableLoredeckPendingChanges(pack = {}, selected = []) {
     const accepted = [];
     const failed = [];
@@ -98,6 +137,7 @@ function applyAcceptedLoredeckPendingChanges(next = {}, acceptedChanges = []) {
     }
     next.pendingChanges = normalizeLoredeckPendingChanges(next.pendingChanges)
         .filter(change => !acceptedIds.has(change.changeId));
+    pruneAlreadyAppliedLoredeckPendingChanges(next);
     return true;
 }
 

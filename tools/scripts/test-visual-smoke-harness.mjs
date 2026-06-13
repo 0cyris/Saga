@@ -1498,6 +1498,7 @@ assert(runtimePanelSource.includes('Export this Bundled Loredeck as a .saga-lore
 assert(runtimePanelSource.includes('refreshLoredeckHealthAfterAcceptedPendingChanges'), 'Pending Review acceptance must rerun Pack Health after health-impact changes.');
 assert(runtimePanelSource.includes('and refreshed Pack Health'), 'Pending Review health rerun must report refreshed Pack Health to the user.');
 assert(runtimePanelSource.includes('Open Pack Health Center') && runtimePanelSource.includes('openLoredeckHealthCenter(pack.packId, { tab: healthState.tab })'), 'Pending Review health errors must expose a direct Pack Health Center route.');
+assert(runtimeLoredeckPendingChangeActions.includes('pruneAlreadyAppliedLoredeckPendingChanges') && runtimeLoredeckPendingChangeActions.includes('isLoredeckPendingEntryChangeAlreadyApplied'), 'Pending Review acceptance must prune stale rows whose entry payload is already accepted.');
 assert(runtimePanelSource.includes('hashLoredeckBundleJson'), 'Loredeck package import must use a canonical content hash.');
 assert(runtimePanelSource.includes('Import Loredeck Package'), 'Loredeck package import must use the zip package preview dialog.');
 assert(runtimePanelSource.includes('installed Loredeck') && runtimePanelSource.includes('same content hash'), 'Loredeck package import must warn about exact duplicate package content.');
@@ -1523,6 +1524,10 @@ for (const token of [
     'ignoreStaleLoredeckCreatorGeneration',
     'recoverLoredeckCreatorInterruptedActiveGeneration',
     'recoverLoredeckCreatorCurrentActiveGenerationOnOpen',
+    'clearStaleLoredeckCreatorInterruptedResult',
+    'isStaleLoredeckCreatorInterruptedResult',
+    'reconcileLoredeckCreatorDraftCacheWithPack',
+    'filterLoredeckCreatorActiveDraftChanges',
     'isLoredeckCreatorActiveGenerationStillLive',
     'buildLoredeckCreatorInterruptedResult',
     "status: 'interrupted'",

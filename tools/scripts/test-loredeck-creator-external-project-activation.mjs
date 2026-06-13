@@ -17,6 +17,7 @@ import {
   activateLoredeckCreatorJobAsync,
   getLoredeckCreatorProjectRegistry,
   getState,
+  updateLoredeckCreatorProject,
   upsertLoredeckCreatorJob,
 } from '../../src/state/state-manager.js';
 
@@ -149,5 +150,18 @@ assert.equal(getState().loredeckCreator.activeJobId, 'creator_cold_reload');
 assert.equal(getLoredeckCreatorProjectRegistry().jobs.creator_cold_reload.titleDrafts[0].title, 'Nami hidden bargain');
 assert.equal(saveSettingsCount, 0, 'Async Creator resume should not rehydrate full projects into settings.');
 assert.ok(saveStateCount >= 1, 'Async Creator resume should mirror the loaded project into chat metadata.');
+
+const clearedDrafts = updateLoredeckCreatorProject('creator_cold_reload', {
+  draftChanges: [],
+  entryDraftCount: 0,
+}, { syncPrompt: false, syncLocal: true });
+assert.equal(clearedDrafts.ok, true);
+assert.equal(Object.prototype.hasOwnProperty.call(clearedDrafts.job, 'draftChanges'), false);
+assert.equal(clearedDrafts.job.entryDraftCount, 0);
+const clearFlush = await flushSagaCreatorProjectStorageWrites();
+assert.equal(clearFlush.ok, true);
+const clearedPayload = JSON.parse(stored.get('/user/files/saga-creator-project-creator_cold_reload.v1.json'));
+assert.equal(Object.prototype.hasOwnProperty.call(clearedPayload, 'draftChanges'), false, 'External Creator project payload must drop cleared draft rows.');
+assert.equal(clearedPayload.entryDraftCount, 0);
 
 console.log('Loredeck Creator external project activation tests passed.');
