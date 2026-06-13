@@ -100,6 +100,11 @@ const fileApi = createSagaFileApi({
       return response(true, 200, JSON.stringify(Object.fromEntries((body.urls || []).map(path => [path, stored.has(path)]))));
     }
 
+    if (url === '/api/files/delete' && method === 'POST') {
+      stored.delete(body.path);
+      return response(true, 200, JSON.stringify({ ok: true }));
+    }
+
     if (method === 'GET') {
       if (!stored.has(url)) return response(false, 404, 'missing');
       return response(true, 200, stored.get(url));
@@ -136,5 +141,50 @@ assert.equal(loadedIndex.packs['arlong-theme'].title, 'Arlong Park');
 const masterIndex = await domainStorage.readMasterIndex();
 assert.equal(masterIndex.files[SAGA_STORAGE_DOMAIN_INDEX_FILES.themes].kind, 'theme_index');
 assert(calls.some(call => call.url === '/api/files/upload' && call.body.name === 'saga-storage-index.v1.json'), 'Master index must be written through the files API.');
+
+const failingStored = new Map();
+const failingCalls = [];
+const failingFileApi = createSagaFileApi({
+  getRequestHeaders: () => ({ 'X-CSRF-Token': 'domain-failure-test' }),
+  fetchImpl: async (url, init = {}) => {
+    const method = init.method || 'GET';
+    const body = init.body ? JSON.parse(init.body) : null;
+    failingCalls.push({ url, method, body });
+
+    if (url === '/api/files/upload' && method === 'POST') {
+      if (body.name === 'saga-storage-index.v1.json') {
+        return response(false, 500, JSON.stringify({ error: 'master index write failed' }));
+      }
+      const path = `/user/files/${body.name}`;
+      failingStored.set(path, __sagaFileApiTestHooks.base64ToUtf8(body.data));
+      return response(true, 200, JSON.stringify({ path }));
+    }
+
+    if (url === '/api/files/delete' && method === 'POST') {
+      failingStored.delete(body.path);
+      return response(true, 200, JSON.stringify({ ok: true }));
+    }
+
+    if (method === 'GET') {
+      if (!failingStored.has(url)) return response(false, 404, 'missing');
+      return response(true, 200, failingStored.get(url));
+    }
+
+    return response(false, 404, 'unexpected request');
+  },
+});
+
+const failingDomainStorage = createSagaDomainStorage({ fileApi: failingFileApi, now: () => 6000 });
+await assert.rejects(
+  failingDomainStorage.writePayload('themes', 'Rollback Theme', {
+    schemaVersion: 1,
+    id: 'rollback-theme',
+    title: 'Rollback Theme',
+  }),
+  /master index write failed/,
+);
+assert.equal(failingStored.has('/user/files/saga-theme-pack-rollback-theme.v1.json'), false, 'Payload upload should roll back when master-index registration fails.');
+assert(failingCalls.some(call => call.url === '/api/files/delete' && call.body.path === '/user/files/saga-theme-pack-rollback-theme.v1.json'), 'Rollback should delete the just-uploaded payload file.');
+assert.equal(failingStored.has(SAGA_STORAGE_INDEX_PATH), false, 'Failed master index writes should not leave a stored master index payload.');
 
 console.log('Saga domain storage tests passed.');

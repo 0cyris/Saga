@@ -123,14 +123,18 @@ import {
     buildFinalizedCustomLoredeckRecordFromGenerated,
     configureLoredeckEditorActions,
     createCustomDuplicateLoredeckRecord,
+    cancelLoredeckHealthRepairRun,
+    continueLoredeckHealthModelRepairSession,
     duplicateLoredeckAsCustom,
     exportValidatedLoredeckDraft,
     finalizeGeneratedLoredeckAsCustom,
     finalizeGeneratedLoredeckEntry,
+    getLoredeckHealthRepairActiveRun,
     getDefaultDuplicateLoredeckTags,
     getFinalizedGeneratedLoredeckTags,
     getLoredeckDuplicateTitle,
     getUniqueLoredeckPackId,
+    applyLoredeckHealthRepairChoice,
     repairLoredeckSafeHealthIssues,
     saveLoredeckMetadataFromInputs,
     syncLoredeckMetadataFromManifest,
@@ -958,6 +962,10 @@ configureLoredeckHealthPanel({
     canValidateLoredeckInEditor,
     isLoredeckMalformedTagIssueGroup,
     queueLoredeckMalformedTagRepairFromHealthGroup,
+    applyLoredeckHealthRepairChoice,
+    cancelLoredeckHealthRepairRun,
+    continueLoredeckHealthModelRepairSession,
+    getLoredeckHealthRepairActiveRun,
     repairLoredeckSafeHealthIssues,
     normalizeLoredeckHealthIssueStates,
     normalizeLoredeckPendingIdList,
@@ -8928,27 +8936,27 @@ function createLoredeckHealthRepairPlanner(pack, health = null) {
 
     const title = document.createElement('div');
     title.className = 'saga-runtime-card-title';
-    title.textContent = 'Assistant Repair Planning';
+    title.textContent = 'Assistant Draft Fallback';
     wrap.appendChild(title);
 
     const summary = document.createElement('div');
     summary.className = 'saga-loredeck-entry-summary';
     summary.appendChild(createStatusPill(`${allIssues.length} issue${allIssues.length === 1 ? '' : 's'}`, 'Pack Health issues from the latest validation run.', { tone: allIssues.length ? 'warning' : 'muted', kind: 'count' }));
-    summary.appendChild(createStatusPill(`${selectedCount} selected`, 'Selected issues will be sent to the Lore Assistant for repair planning.', { tone: selectedCount ? 'selected' : 'muted', kind: 'count' }));
-    if (!editable) summary.appendChild(createStatusPill('Read-only', 'Bundled Loredecks must be duplicated as Custom before assistant repair planning can create proposals.', { tone: 'muted', kind: 'status' }));
+    summary.appendChild(createStatusPill(`${selectedCount} selected`, 'Selected issues will be sent to the legacy assistant drafting route.', { tone: selectedCount ? 'selected' : 'muted', kind: 'count' }));
+    if (!editable) summary.appendChild(createStatusPill('Read-only', 'Bundled Loredecks must be duplicated as Custom before assistant drafting can create proposals.', { tone: 'muted', kind: 'status' }));
     wrap.appendChild(summary);
 
     const help = document.createElement('div');
     help.className = 'saga-runtime-help';
     help.textContent = editable
-        ? 'Select Pack Health issues and draft repair proposals. Large selections are split into smaller assistant batches. Repairs enter the Assistant Draft Batch first, then Pending Review if you queue them.'
+        ? 'Use Attempt Fixing first. This legacy route can draft review proposals for selected Pack Health issues when automated fixing cannot continue yet.'
         : 'Bundled Loredecks are read-only. Duplicate as Custom before drafting repair proposals.';
     wrap.appendChild(help);
 
     const actions = createLoredeckActionRow();
-    const draftButton = createButton('Draft Repair Batches', 'Ask the Lore Assistant to convert selected Pack Health issues into reviewable draft proposals in bounded batches.', async (btn) => {
+    const draftButton = createButton('Draft With Assistant', 'Ask the Lore Assistant to convert selected Pack Health issues into reviewable draft proposals in bounded batches.', async (btn) => {
         await handleLoredeckAssistantHealthRepairDraft(pack, health, btn);
-    }, 'saga-primary-button');
+    });
     draftButton.disabled = !editable || !selectedCount;
     actions.appendChild(draftButton);
     actions.appendChild(createButton('Select All', 'Select every Pack Health issue in this validation report.', () => {
@@ -8983,7 +8991,7 @@ function createLoredeckHealthRepairIssueRow(pack, issue = {}, selected = false, 
     checkbox.type = 'checkbox';
     checkbox.checked = selected;
     checkbox.disabled = !editable;
-    addTooltip(checkbox, selected ? 'Remove this Pack Health issue from the assistant repair plan.' : 'Include this Pack Health issue in the assistant repair plan.');
+    addTooltip(checkbox, selected ? 'Remove this Pack Health issue from the assistant draft fallback.' : 'Include this Pack Health issue in the assistant draft fallback.');
     checkbox.addEventListener('click', event => event.stopPropagation());
     checkbox.addEventListener('change', () => {
         setLoredeckHealthRepairSelection(pack.packId, issue.issueId, checkbox.checked);

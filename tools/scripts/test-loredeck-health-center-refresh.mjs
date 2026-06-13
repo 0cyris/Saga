@@ -247,6 +247,10 @@ function buttonLabels() {
   return document.body.querySelectorAll('button').map(button => button.textContent);
 }
 
+function bodyText() {
+  return document.body.textContent || '';
+}
+
 async function waitForRefreshToSettle(deckId, entryPreviewCache) {
   for (let attempt = 0; attempt < 120; attempt += 1) {
     const overlay = document.querySelector('.saga-loredeck-health-center-overlay');
@@ -256,6 +260,14 @@ async function waitForRefreshToSettle(deckId, entryPreviewCache) {
     await wait(25);
   }
   throw new Error(`${deckId} Pack Health refresh did not settle.`);
+}
+
+async function waitForBodyText(text) {
+  for (let attempt = 0; attempt < 120; attempt += 1) {
+    if (bodyText().includes(text)) return;
+    await wait(25);
+  }
+  throw new Error(`Pack Health Center never rendered expected text: ${text}`);
 }
 
 async function runHealthCenterRefresh(deckId) {
@@ -354,4 +366,209 @@ for (const deckId of DEFAULT_MHA_LOREDECK_IDS) {
   await runHealthCenterRefresh(deckId);
 }
 
-console.log('Loredeck Pack Health Center refresh tests passed for My Hero decks.');
+async function runHealthCenterRepairSessionPanel() {
+  installFakeDom();
+  const pack = {
+    packId: 'health-session-ui-pack',
+    title: 'Health Session UI Pack',
+    type: 'custom',
+    stats: { entryCount: 2, categoryCounts: { knowledge: 2 } },
+  };
+  const health = {
+    packId: pack.packId,
+    status: 'has_errors',
+    summary: {
+      errorCount: 1,
+      warningCount: 1,
+      suggestionCount: 0,
+      issueCount: 2,
+      entryCount: 2,
+      categoryCounts: { knowledge: 2 },
+    },
+    errors: [{
+      severity: 'error',
+      code: 'schema_v3_missing_content',
+      message: 'Missing schema v3 content.',
+      entryIds: ['entry-1'],
+    }],
+    warnings: [{
+      severity: 'warning',
+      code: 'broken_anchor_reference',
+      message: 'Broken Context anchor.',
+      entryIds: ['entry-2'],
+      timelineIds: ['old-anchor'],
+    }],
+    suggestions: [],
+  };
+  const state = {
+    loredeckStack: [{ packId: pack.packId, enabled: true, priority: 100 }],
+    loredeckRegistry: { schemaVersion: 1, packs: { [pack.packId]: pack } },
+  };
+  let loadCount = 0;
+  let appliedChoice = null;
+  let continuedSession = null;
+  let activeRun = {
+    runId: 'run-ui-model-pending',
+    packId: pack.packId,
+    label: 'Continue Model Batches',
+    startedAt: Date.now(),
+    cancellable: true,
+  };
+  let cancelRunCount = 0;
+
+  configureLoredeckHealthPanel({
+    getState: () => state,
+    getCanonLoreDatabaseSync: () => null,
+    getLoredeckLibrary: () => [pack],
+    getLoredeckStack: () => state.loredeckStack,
+    getLoredeckLibraryIndexForPacks: (currentState, library = [pack]) => normalizeLoredeckLibraryIndex(currentState.loredeckRegistry || {}, {
+      packs: Object.fromEntries((library || []).map(item => [item.packId, item])),
+    }),
+    resolveLoredeckStackItems,
+    buildLoredeckPackScopedHealth: () => health,
+    getLoredeckPackSummaryCounts: () => ({
+      entryCount: 2,
+      fileCount: 1,
+      loadedFileCount: 1,
+      categoryCounts: { knowledge: 2 },
+    }),
+    getLoredeckTypeLabel: () => 'Custom',
+    getLoredeckEntryPreviewCacheRecord: () => null,
+    getLoredeckManifestPreviewCacheRecord: () => null,
+    validateLoredeckForEditor: async () => ({ health }),
+    refreshLoredeckSurfaces: () => {},
+    clearCanonLoreDatabaseCache: () => {},
+    clearContextIndexCache: () => {},
+    loadCanonLoreDatabase: async () => null,
+    refreshPanelBody: () => {},
+    refreshHeader: () => {},
+    sanitizeFileStem: value => String(value || 'deck-health').replace(/[^a-z0-9._-]+/gi, '-'),
+    downloadJson: () => {},
+    openDuplicateLoredeckDialog: () => {},
+    handleLoredeckAssistantHealthRepairDraft: async () => {},
+    normalizeLoredeckHealthGroupIssuesForRepair: group => group?.issues || [],
+    canValidateLoredeckInEditor: () => true,
+    isLoredeckMalformedTagIssueGroup: () => false,
+    queueLoredeckMalformedTagRepairFromHealthGroup: async () => {},
+    getLoredeckHealthRepairActiveRun: () => activeRun,
+    cancelLoredeckHealthRepairRun: () => {
+      cancelRunCount += 1;
+      activeRun = null;
+      return true;
+    },
+    applyLoredeckHealthRepairChoice: async (_pack, choice, option, session) => {
+      appliedChoice = {
+        choiceSetId: choice?.choiceSetId,
+        optionId: option?.optionId,
+        sessionId: session?.sessionId,
+      };
+      return {
+        ok: true,
+        changed: true,
+        summary: {
+          initialHealth: { errorCount: 1, warningCount: 1, suggestionCount: 0 },
+          finalHealth: { errorCount: 0, warningCount: 1, suggestionCount: 0 },
+        },
+        remaining: { choiceSets: [], modelUnits: [], deferredUnits: [], manualBuckets: [] },
+      };
+    },
+    continueLoredeckHealthModelRepairSession: async (_pack, session) => {
+      continuedSession = session?.sessionId || '';
+      return {
+        ok: true,
+        changed: true,
+        appliedPatches: [{ patchId: 'patch-model-1' }],
+        summary: {
+          initialHealth: { errorCount: 1, warningCount: 1, suggestionCount: 0 },
+          finalHealth: { errorCount: 0, warningCount: 1, suggestionCount: 0 },
+        },
+        remaining: { choiceSets: [], modelUnits: [], deferredUnits: [], manualBuckets: [] },
+      };
+    },
+    repairLoredeckSafeHealthIssues: async () => {},
+    normalizeLoredeckHealthIssueStates: value => (value && typeof value === 'object' && !Array.isArray(value) ? value : {}),
+    normalizeLoredeckPendingIdList: value => (Array.isArray(value) ? value : [value]).map(item => String(item || '').trim()).filter(Boolean),
+    normalizeLoredeckPendingTimelineIdList: value => (Array.isArray(value) ? value : [value]).map(item => String(item || '').trim()).filter(Boolean),
+    loadLoredeckHealthRepairSessions: async () => {
+      loadCount += 1;
+      await wait(0);
+      return {
+        ok: true,
+        sessions: [{
+          sessionId: 'session-ui-model-pending',
+          packId: pack.packId,
+          status: 'model_pending',
+          outcome: 'model_pending',
+          updatedAt: Date.now(),
+          summary: {
+            finalHealth: { status: 'has_errors', errorCount: 1, warningCount: 1, suggestionCount: 0, issueCount: 2 },
+          },
+          remaining: {
+            choiceSets: [{
+              choiceSetId: 'choice-1',
+              findingIds: ['finding-1'],
+              severity: 'warning',
+              code: 'broken_anchor_reference',
+              question: 'Which Context anchor should be used?',
+              reason: 'Multiple anchors could match this repair.',
+              options: [{
+                optionId: 'A',
+                label: 'Use arlong.start',
+                confidence: 0.75,
+                reason: 'The anchor shares the expected sort key.',
+                patch: {
+                  operations: [{ op: 'upsert_entry_override', entryId: 'entry-2', fields: ['context.validFromAnchor'] }],
+                },
+              }],
+            }],
+            choiceSetCount: 1,
+            modelUnits: [{ unitId: 'unit-1' }],
+            deferredUnits: [{ unitId: 'unit-2', deferred: true }],
+            manualBuckets: [{ bucketId: 'manual-1' }],
+          },
+          diagnostics: [],
+        }],
+        diagnostics: [],
+      };
+    },
+  });
+
+  openLoredeckHealthCenter(pack.packId);
+  assert.ok(bodyText().includes('Continue Model Batches running'), 'Health Center should show active repair run state before session loading text.');
+  await waitForBodyText('Model pending');
+  assert.ok(bodyText().includes('1 needs choice'), 'Health Center should show saved review choice count.');
+  assert.ok(bodyText().includes('Which Context anchor should be used?'), 'Health Center should render saved review choice questions.');
+  assert.ok(bodyText().includes('Use arlong.start'), 'Health Center should render saved review choice options.');
+  assert.ok(bodyText().includes('1 model batch'), 'Health Center should show saved model batch count.');
+  assert.ok(bodyText().includes('1 deferred'), 'Health Center should show deferred model batch count.');
+  assert.ok(bodyText().includes('1 manual'), 'Health Center should show manual remaining count.');
+  assert.ok(bodyText().includes('Continue Model Batches running'), 'Health Center should show the active repair run state.');
+  assert.ok(buttonLabels().includes('Refresh Sessions'), 'Health Center should expose repair session refresh.');
+  assert.ok(buttonLabels().includes('Cancel Repair Run'), 'Health Center should expose an active repair cancellation action.');
+  assert.ok(buttonLabels().includes('Continue Model Batches'), 'Health Center should expose a model continuation action for model-pending sessions.');
+  assert.ok(buttonLabels().includes('Attempt Fixing'), 'Health Center should expose Attempt Fixing from the repair session card.');
+  assert.ok(buttonLabels().includes('Apply A'), 'Health Center should expose an apply button for saved review choices.');
+  assert.equal(loadCount, 1, 'Health Center should load repair sessions once on open.');
+  const cancelButton = document.body.querySelectorAll('button').find(button => button.textContent === 'Cancel Repair Run');
+  await cancelButton.click();
+  await wait(25);
+  assert.equal(cancelRunCount, 1, 'Health Center should call the active repair cancellation action.');
+  const continueButton = document.body.querySelectorAll('button').find(button => button.textContent === 'Continue Model Batches');
+  await continueButton.click();
+  await wait(25);
+  assert.equal(continuedSession, 'session-ui-model-pending', 'Health Center should pass the saved repair session to the model continuation action.');
+  const applyButton = document.body.querySelectorAll('button').find(button => button.textContent === 'Apply A');
+  await applyButton.click();
+  await wait(25);
+  assert.deepEqual(appliedChoice, {
+    choiceSetId: 'choice-1',
+    optionId: 'A',
+    sessionId: 'session-ui-model-pending',
+  }, 'Health Center should pass the selected review choice to the repair action.');
+  assert.equal(loadCount, 3, 'Continuing model batches and applying a review choice should refresh saved repair sessions.');
+  closeLoredeckHealthCenter();
+}
+
+await runHealthCenterRepairSessionPanel();
+
+console.log('Loredeck Pack Health Center refresh and repair session tests passed.');

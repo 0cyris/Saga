@@ -552,20 +552,30 @@ export async function importExternalThemePack(packRecord = {}, options = {}) {
     const normalized = normalizeThemePackInput(packRecord, options);
     if (!normalized.ok) return normalized;
     const domainStorage = getDomainStorage(options);
-    const payloadResult = await domainStorage.writePayload('themes', normalized.themeId, normalized.pack, {
-        ...options,
-        kind: 'theme_pack_payload',
-        deletion: 'delete_with_owner',
-    });
-    const indexRecord = buildThemeIndexRecord(normalized.pack, payloadResult.path);
-    await domainStorage.upsertRecord('themes', indexRecord, options);
-    setCachedThemePack({ ...normalized.pack, payloadFile: payloadResult.path });
-    return {
-        ok: true,
-        pack: { ...normalized.pack, payloadFile: payloadResult.path },
-        payloadFile: payloadResult.path,
-        library: getExternalThemePackLibraryRegistry(),
-    };
+    const existingIndex = await domainStorage.readDomainIndex('themes', { allowMissing: true });
+    const hadExistingRecord = !!existingIndex.packs?.[normalized.themeId];
+    let payloadResult = null;
+    try {
+        payloadResult = await domainStorage.writePayload('themes', normalized.themeId, normalized.pack, {
+            ...options,
+            kind: 'theme_pack_payload',
+            deletion: 'delete_with_owner',
+        });
+        const indexRecord = buildThemeIndexRecord(normalized.pack, payloadResult.path);
+        await domainStorage.upsertRecord('themes', indexRecord, options);
+        setCachedThemePack({ ...normalized.pack, payloadFile: payloadResult.path });
+        return {
+            ok: true,
+            pack: { ...normalized.pack, payloadFile: payloadResult.path },
+            payloadFile: payloadResult.path,
+            library: getExternalThemePackLibraryRegistry(),
+        };
+    } catch (error) {
+        if (!hadExistingRecord) {
+            await cleanupFailedExternalInstall('themes', normalized.themeId, options);
+        }
+        throw error;
+    }
 }
 
 export async function importExternalThemePackRegistry(registry = {}, options = {}) {
@@ -595,6 +605,9 @@ export async function importExternalThemePackRegistry(registry = {}, options = {
 export async function importExternalIconSet(iconSetRecord = {}, options = {}) {
     const normalized = normalizeIconSetInput(iconSetRecord, options);
     if (!normalized.ok) return normalized;
+    const domainStorage = getDomainStorage(options);
+    const existingIndex = await domainStorage.readDomainIndex('iconSets', { allowMissing: true });
+    const hadExistingRecord = !!existingIndex.iconSets?.[normalized.iconSetId];
     const rewritten = options.skipIconRewrite === true
         ? {
             ok: true,
@@ -602,27 +615,39 @@ export async function importExternalIconSet(iconSetRecord = {}, options = {}) {
             assets: isPlainObject(normalized.iconSet.assets) ? normalized.iconSet.assets : {},
         }
         : await rewriteIconSetAssetPaths(normalized.iconSetId, normalized.iconSet.icons, options);
-    if (!rewritten.ok) return rewritten;
+    if (!rewritten.ok) {
+        if (!hadExistingRecord) {
+            await cleanupFailedExternalInstall('iconSets', normalized.iconSetId, options);
+        }
+        return rewritten;
+    }
     const iconSet = {
         ...normalized.iconSet,
         icons: rewritten.icons,
         assets: rewritten.assets,
     };
-    const domainStorage = getDomainStorage(options);
-    const payloadResult = await domainStorage.writePayload('iconSets', normalized.iconSetId, iconSet, {
-        ...options,
-        kind: 'iconset_payload',
-        deletion: 'delete_with_owner',
-    });
-    const indexRecord = buildIconSetIndexRecord(iconSet, payloadResult.path);
-    await domainStorage.upsertRecord('iconSets', indexRecord, options);
-    setCachedIconSet({ ...iconSet, payloadFile: payloadResult.path });
-    return {
-        ok: true,
-        iconSet: { ...iconSet, payloadFile: payloadResult.path },
-        payloadFile: payloadResult.path,
-        library: getExternalThemeIconSetLibraryRegistry(),
-    };
+    let payloadResult = null;
+    try {
+        payloadResult = await domainStorage.writePayload('iconSets', normalized.iconSetId, iconSet, {
+            ...options,
+            kind: 'iconset_payload',
+            deletion: 'delete_with_owner',
+        });
+        const indexRecord = buildIconSetIndexRecord(iconSet, payloadResult.path);
+        await domainStorage.upsertRecord('iconSets', indexRecord, options);
+        setCachedIconSet({ ...iconSet, payloadFile: payloadResult.path });
+        return {
+            ok: true,
+            iconSet: { ...iconSet, payloadFile: payloadResult.path },
+            payloadFile: payloadResult.path,
+            library: getExternalThemeIconSetLibraryRegistry(),
+        };
+    } catch (error) {
+        if (!hadExistingRecord) {
+            await cleanupFailedExternalInstall('iconSets', normalized.iconSetId, options);
+        }
+        throw error;
+    }
 }
 
 export async function importExternalIconSetZip(input, options = {}) {
@@ -720,6 +745,28 @@ async function deleteExplicitStorageFiles(paths = [], options = {}) {
         deleted.push(path);
     }
     return deleted;
+}
+
+async function cleanupFailedExternalInstall(domain = '', ownerId = '', options = {}) {
+    try {
+        await deleteKnownOwnerFiles(ownerId, options);
+    } catch (error) {
+        console.warn('[Saga] Theme/Icon import cleanup could not delete owner files after failed index write:', ownerId, error);
+    }
+    try {
+        const domainStorage = getDomainStorage(options);
+        const index = await domainStorage.readDomainIndex(domain, { allowMissing: true });
+        const hasRecord = domain === 'themes'
+            ? !!index.packs?.[ownerId]
+            : !!index.iconSets?.[ownerId];
+        if (!hasRecord) return;
+        await domainStorage.removeRecord(domain, ownerId, {
+            ...options,
+            registerInMaster: false,
+        });
+    } catch (error) {
+        console.warn('[Saga] Theme/Icon import cleanup could not remove failed domain index record:', ownerId, error);
+    }
 }
 
 export async function removeExternalThemePack(themeId = '', options = {}) {

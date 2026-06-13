@@ -104,7 +104,7 @@ export function createLoredeckEntryOverrideCard(pack = {}) {
     bulkButton.disabled = !bulkRows.length;
     actions.appendChild(bulkButton);
     if (state.overrideCount) {
-        actions.appendChild(createButton('Repair Overrides', 'Apply safe schema v3 repairs to saved override Lorecards.', async (btn) => {
+        actions.appendChild(createButton('Attempt Fixing', 'Run Pack Health fixing for this Loredeck and save remaining review work when needed.', async (btn) => {
             await repairLoredeckSafeHealthIssues(pack, btn);
         }));
     }

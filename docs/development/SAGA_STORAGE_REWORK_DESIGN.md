@@ -1,6 +1,6 @@
 # Saga Storage Rework Design
 
-Status: Phase 8 implementation in progress. Theme/Icon externalization, Lorepack Library index persistence, Lorepack payload files, Creator project index files, Creator project payload files, async Creator project resume after cold reload, the first migration planner/executor, the State Safety migration action, State Safety storage integrity diagnostics, Pack Health external-payload validation coverage, Pack Health repair hydration/writes, indexed cleanup/write-settle actions, initial live browser smoke coverage, a repo-local storage persistence smoke target, and release-facing storage/operator docs are in place. Remaining hardening work is executing broader storage smoke in an environment with a working Chrome CDP transport and following up on any failures found by that run.
+Status: Phase 8 implementation in progress. Theme/Icon externalization, Lorepack Library index persistence, Lorepack payload files, Creator project index files, Creator project payload files, async Creator project resume after cold reload, the first migration planner/executor, the State Safety migration action, State Safety storage integrity diagnostics, Pack Health external-payload validation coverage, Pack Health repair hydration/writes, indexed cleanup/write-settle actions, read/write settings compaction guards, initial live browser smoke coverage, a repo-local storage persistence smoke target, and release-facing storage/operator docs are in place. Remaining hardening work is executing broader storage smoke in an environment with a working Chrome CDP transport and following up on any failures found by that run.
 
 ## Executive Summary
 
@@ -1969,6 +1969,7 @@ Implementation notes:
 - `src/state/state-manager.js` exposes `getSagaStorageMigrationPlan` and `runSagaStorageMigration` so runtime UI can trigger migration without importing storage adapters directly.
 - The Advanced Settings State Safety card shows migration readiness, exposes `Migrate Legacy Storage` when the planner finds legacy payloads, creates a pre-migration chat backup, and logs migration success/failure into the State Safety lifecycle log.
 - `src/state/settings-store.js` now preserves externalized compact settings after migration. When `sagaStorage.migrationVersion` is `external-files-v1`, ordinary settings saves keep `loredeckLibrary`, `loredeckCreatorProjects`, `themePackLibrary`, and `themeIconSetLibrary` as compact empty shells instead of re-expanding bundled or payload-heavy records into `settings.json`.
+- Migrated settings reads also keep the stored `extensionSettings.saga` bucket compact and ignore stale settings-backed payload rows, so a later non-Saga settings save cannot accidentally persist re-expanded Lorepack, Creator, Theme Pack, or Icon Set content.
 
 ### Phase 7: Pack Health And Repair Integration
 
@@ -1999,10 +2000,11 @@ Deliverables:
 Acceptance:
 
 - `settings.json` no longer contains heavy Saga payloads.
+- migrated settings stay compact on read and on ordinary preference saves.
 - import/export tests pass.
 - Creator resume tests pass.
 - Pack Health tests pass.
-- Theme/Icon tests pass.
+- Theme/Icon external storage and visible forget action tests pass.
 - delete cleanup tests pass.
 - browser smoke shows no console errors.
 
@@ -2012,6 +2014,8 @@ Implementation notes:
 - `src/state/state-manager.js` exposes `getSagaStorageDiagnostics` and `verifySagaStorageIntegrity`, updates `sagaStorage.lastVerifiedAt`, and records State Safety lifecycle log entries for successful checks and warnings.
 - The State Safety card exposes `Verify Storage`, shows the latest compact storage-integrity summary, and reports missing master index or missing indexed files without trying to infer unknown orphaned files.
 - This diagnostic is intentionally index-based. `Clean Missing Records` can remove stale non-index file records from the master index after verification, but broader unused-file cleanup remains limited because SillyTavern's flat files API does not list Saga-owned files.
+- Generic domain payload writes now roll back the just-uploaded payload file when master-index registration fails, so a failed index write does not strand an untracked `/user/files/saga-*.json` payload.
+- Theme/Icon imports also clean up new-install payloads and uploaded raster assets when the payload write succeeds but the Theme/Icon domain-index write fails. Existing records are not aggressively deleted on this path because restoring an overwritten same-id payload requires a separate restore strategy.
 - Pack Health external payload wiring is now covered by `tools/scripts/test-saga-lorepack-health-external-payloads.mjs`. The runtime validation path hydrates a compact external Lorepack payload after a cold cache reset, saves the updated health summary through the external payload service, and keeps the Library index/settings compact.
 - Pack Health repair entry points now hydrate payload-backed Lorepacks before building repair writes. Deterministic safe repair writes repaired Lorecards to the external payload file, while assistant repair drafting and malformed-tag repair planning hydrate before reading rows or queueing review changes.
 - The State Safety card exposes `Settle Storage Writes` for queued adapter writes and `Clean Missing Records` for verified missing non-index records. These actions are intentionally named around their actual scope rather than implying Saga can discover arbitrary orphan files.
@@ -2083,6 +2087,7 @@ Current implemented coverage:
 - `storage-harness` imports a fixture Loredeck through the runtime Library store path, flushes payload and Library writes, verifies the payload and cover asset land in `/user/files`, and fails if unique Lorecard payload content appears in settings.
 - `storage-harness` reloads the smoke page, hydrates the external Library index, loads the external payload through the Loredeck loader, deletes the pack through the visible Library delete action and Saga confirmation dialog, flushes delete writes, and verifies payload/asset files are deleted.
 - `storage-harness` imports custom Theme Pack and Icon Set fixtures through the external storage adapters, verifies Theme/Icon payload files and raster icon assets land in `/user/files`, reloads and hydrates those indexes, saves them as active compact settings, verifies the active choices resolve from hydrated external Theme/Icon storage, removes them through the visible Settings **Forget Theme Pack** and **Forget Icon Set** controls, and verifies payload/asset cleanup.
+- `test-saga-theme-icon-forget-actions.mjs` covers the same Theme/Icon forget action path against a fake DOM and mocked files API: it confirms the Saga dialogs, deletes the payload/raster asset files, clears external registries, resets active compact settings, and refreshes affected runtime surfaces.
 - `storage-harness` opens Pack Health Center for the external payload-backed Loredeck after reload, runs **Refresh Scan**, verifies cached health updates, verifies Library/payload health status writes stay external, and fails if Lorecard payload content leaks into settings.
 - `storage-harness` is source-contract covered by `test-visual-smoke-harness.mjs`.
 

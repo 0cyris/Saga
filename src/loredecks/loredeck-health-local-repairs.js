@@ -205,15 +205,16 @@ function repairEntryForSchemaHealthCode(pack = {}, raw = {}, entryId = '', code 
         id: raw.id || entryId,
     };
     if (code === 'schema_v3_wide_lore_retrieval') {
-        return repairLoredeckEntryForHealth(input, { forceSchemaVersion: 3 });
+        return buildSchemaV3PatchBase(pack, repairLoredeckEntryForHealth(input, { forceSchemaVersion: 3 })).entry;
     }
     if (RETRIEVAL_SCHEMA_REPAIR_CODES.has(code)) {
+        const base = buildSchemaV3PatchBase(pack, input).entry;
         return {
-            ...normalizeLoredeckEntryForSchemaV3(input),
+            ...base,
             retrieval: buildDefaultSchemaV3Retrieval(input),
         };
     }
-    return normalizeLoredeckEntryForSchemaV3(input);
+    return buildSchemaV3PatchBase(pack, input).entry;
 }
 
 function buildSchemaHealthPatch(pack = {}, bucket = {}) {

@@ -262,6 +262,15 @@ export function createSagaDomainStorage(options = {}) {
         return storageIndexStore.registerFile(path, record, registerOptions);
     }
 
+    async function cleanupUploadedFile(path = '') {
+        if (!path) return;
+        try {
+            await requireFileApi().deleteFile(path);
+        } catch (error) {
+            console.warn('[Saga] Domain payload cleanup failed after master-index registration error:', path, error);
+        }
+    }
+
     async function readDomainIndex(domain = '', readOptions = {}) {
         const api = requireFileApi();
         const config = getSagaDomainStorageConfig(domain);
@@ -309,15 +318,22 @@ export function createSagaDomainStorage(options = {}) {
         const result = await api.writeJsonFile(fileName, payload, {
             pretty: writeOptions.pretty,
         });
-        await registerInMaster(result.path, {
-            kind: writeOptions.kind || config.payloadRecordKind,
-            domain: config.domain,
-            ownerId: cleanOwnerId,
-            mime: 'application/json',
-            deletion: writeOptions.deletion || 'delete_with_owner',
-            bytes: Number(writeOptions.bytes) || 0,
-            sha256: writeOptions.sha256 || '',
-        }, writeOptions);
+        try {
+            await registerInMaster(result.path, {
+                kind: writeOptions.kind || config.payloadRecordKind,
+                domain: config.domain,
+                ownerId: cleanOwnerId,
+                mime: 'application/json',
+                deletion: writeOptions.deletion || 'delete_with_owner',
+                bytes: Number(writeOptions.bytes) || 0,
+                sha256: writeOptions.sha256 || '',
+            }, writeOptions);
+        } catch (error) {
+            if (writeOptions.rollbackOnMasterRegisterFailure !== false) {
+                await cleanupUploadedFile(result.path);
+            }
+            throw error;
+        }
         return { ...result, ownerId: cleanOwnerId };
     }
 

@@ -179,4 +179,87 @@ assert.equal(getExternalThemePackLibraryRegistry().packs['arlong-theme'], undefi
 assert.equal(JSON.parse(stored.get(SAGA_STORAGE_DOMAIN_INDEX_FILES.themes)).packs['arlong-theme'], undefined);
 assert(calls.some(call => call.url === '/api/files/delete' && call.body.path === themeResult.payloadFile), 'Theme Pack removal should delete the payload file.');
 
+const failingStored = new Map();
+const failingCalls = [];
+function createFailingThemeIconFileApi(failingIndexFileName) {
+  return createSagaFileApi({
+    getRequestHeaders: () => ({ 'X-CSRF-Token': 'theme-icon-failure-test' }),
+    fetchImpl: async (url, init = {}) => {
+      const method = init.method || 'GET';
+      const body = init.body ? JSON.parse(init.body) : null;
+      failingCalls.push({ url, method, body });
+
+      if (url === '/api/files/upload' && method === 'POST') {
+        if (body.name === failingIndexFileName) {
+          return response(false, 500, JSON.stringify({ error: `${failingIndexFileName} write failed` }));
+        }
+        const path = `/user/files/${body.name}`;
+        failingStored.set(path, __sagaFileApiTestHooks.base64ToUtf8(body.data));
+        return response(true, 200, JSON.stringify({ path }));
+      }
+
+      if (url === '/api/files/delete' && method === 'POST') {
+        failingStored.delete(body.path);
+        return response(true, 200, JSON.stringify({ ok: true }));
+      }
+
+      if (url === '/api/files/verify' && method === 'POST') {
+        return response(true, 200, JSON.stringify(Object.fromEntries((body.urls || []).map(path => [path, failingStored.has(path)]))));
+      }
+
+      if (method === 'GET') {
+        if (!failingStored.has(url)) return response(false, 404, 'missing');
+        return response(true, 200, failingStored.get(url));
+      }
+
+      return response(false, 404, 'unexpected request');
+    },
+  });
+}
+
+resetSagaThemeIconStorageCache();
+clock = 5000;
+const failingThemeFileApi = createFailingThemeIconFileApi('saga-theme-index.v1.json');
+await assert.rejects(
+  importExternalThemePack({
+    id: 'failed-theme',
+    title: 'Failed Theme',
+    colors: { accent: '#d7b56d' },
+  }, { fileApi: failingThemeFileApi, now }),
+  /saga-theme-index\.v1\.json write failed/,
+);
+assert.equal(failingStored.has('/user/files/saga-theme-pack-failed-theme.v1.json'), false, 'Failed Theme Pack index writes should roll back the payload file.');
+let failingMasterIndex = JSON.parse(failingStored.get(SAGA_STORAGE_INDEX_PATH));
+assert.equal(failingMasterIndex.files['/user/files/saga-theme-pack-failed-theme.v1.json'], undefined, 'Failed Theme Pack cleanup should unregister the payload file from the master index.');
+assert.equal(getExternalThemePackLibraryRegistry().packs['failed-theme'], undefined, 'Failed Theme Pack imports should not update the runtime cache.');
+
+resetSagaThemeIconStorageCache();
+failingStored.clear();
+failingCalls.length = 0;
+clock = 6000;
+const failingIconFileApi = createFailingThemeIconFileApi('saga-iconset-index.v1.json');
+await assert.rejects(
+  importExternalIconSet({
+    id: 'failed-icons',
+    title: 'Failed Icons',
+    preferredSize: 256,
+    icons: {
+      'tab.loredecks': tinyPngDataUrl,
+    },
+  }, { fileApi: failingIconFileApi, now }),
+  /saga-iconset-index\.v1\.json write failed/,
+);
+const failedIconPayloadPath = '/user/files/saga-iconset-failed-icons.v1.json';
+assert.equal(failingStored.has(failedIconPayloadPath), false, 'Failed Icon Set index writes should roll back the payload file.');
+const failedUploadedIconPath = failingCalls
+  .filter(call => call.url === '/api/files/delete')
+  .map(call => call.body.path)
+  .find(path => /^\/user\/files\/saga-iconset-asset-failed-icons-tab-loredecks-[a-f0-9]+\.png$/.test(path));
+assert.ok(failedUploadedIconPath, 'Failed Icon Set cleanup should delete uploaded raster assets.');
+assert.equal(failingStored.has(failedUploadedIconPath), false);
+failingMasterIndex = JSON.parse(failingStored.get(SAGA_STORAGE_INDEX_PATH));
+assert.equal(failingMasterIndex.files[failedIconPayloadPath], undefined, 'Failed Icon Set cleanup should unregister the payload file from the master index.');
+assert.equal(failingMasterIndex.files[failedUploadedIconPath], undefined, 'Failed Icon Set cleanup should unregister raster assets from the master index.');
+assert.equal(getExternalThemeIconSetLibraryRegistry().iconSets['failed-icons'], undefined, 'Failed Icon Set imports should not update the runtime cache.');
+
 console.log('Saga Theme/Icon external storage tests passed.');

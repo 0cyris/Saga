@@ -27,6 +27,12 @@ import {
     redactDiagnosticValue,
     stringifyRedactedDiagnostic,
 } from '../runtime/runtime-redaction.js';
+import {
+    listLoredeckHealthRepairSessions,
+} from './loredeck-health-repair-session-storage.js';
+import {
+    persistLoredeckHealthIssueState as persistLoredeckHealthIssueStateToStorage,
+} from './loredeck-health-issue-state-storage.js';
 
 let healthPanelDeps = {};
 
@@ -52,6 +58,7 @@ function getLoredeckPackSummaryCounts(pack, cached, loadedMeta, health, report) 
 function getLoredeckTypeLabel(packId) { return dep('getLoredeckTypeLabel', () => 'Custom')(packId); }
 function getFreshLoredeckLibraryPack(packId, fallback) { return dep('getFreshLoredeckLibraryPack', (_packId, _fallback) => _fallback || null)(packId, fallback); }
 function persistLoredeckLibraryRecordMutation(pack, mutator, message, options) { return dep('persistLoredeckLibraryRecordMutation', () => false)(pack, mutator, message, options); }
+function persistLoredeckHealthIssueState(pack, issueKey, stateRecord, message, options) { return dep('persistLoredeckHealthIssueState', persistLoredeckHealthIssueStateToStorage)(pack, issueKey, stateRecord, message, options); }
 function normalizeLoredeckHealthIssueStates(value) { return dep('normalizeLoredeckHealthIssueStates', () => ({}))(value); }
 function normalizeLoredeckPendingIdList(value, limit) { return dep('normalizeLoredeckPendingIdList', () => [])(value, limit); }
 function normalizeLoredeckPendingTimelineIdList(value, limit) { return dep('normalizeLoredeckPendingTimelineIdList', () => [])(value, limit); }
@@ -70,7 +77,12 @@ function normalizeLoredeckHealthGroupIssuesForRepair(group) { return dep('normal
 function canValidateLoredeckInEditor(pack) { return dep('canValidateLoredeckInEditor', () => false)(pack); }
 function isLoredeckMalformedTagIssueGroup(group) { return dep('isLoredeckMalformedTagIssueGroup', () => false)(group); }
 function queueLoredeckMalformedTagRepairFromHealthGroup(pack, group, button) { return dep('queueLoredeckMalformedTagRepairFromHealthGroup', async () => {})(pack, group, button); }
+function applyLoredeckHealthRepairChoice(pack, choiceSet, option, session, button) { return dep('applyLoredeckHealthRepairChoice', async () => null)(pack, choiceSet, option, session, button); }
+function cancelLoredeckHealthRepairRun(packId) { return dep('cancelLoredeckHealthRepairRun', () => false)(packId); }
+function continueLoredeckHealthModelRepairSession(pack, session, button) { return dep('continueLoredeckHealthModelRepairSession', async () => null)(pack, session, button); }
+function getLoredeckHealthRepairActiveRun(packId) { return dep('getLoredeckHealthRepairActiveRun', () => null)(packId); }
 function repairLoredeckSafeHealthIssues(pack, button) { return dep('repairLoredeckSafeHealthIssues', async () => {})(pack, button); }
+function loadLoredeckHealthRepairSessions(packId) { return dep('loadLoredeckHealthRepairSessions', listLoredeckHealthRepairSessions)(packId); }
 function markTourTarget(element, target) { return dep('markTourTarget', value => value)(element, target); }
 
 const loredeckEntryPreviewCache = { get: id => healthPanelDeps.getLoredeckEntryPreviewCacheRecord?.(id) || null };
@@ -79,6 +91,8 @@ const loredeckManifestPreviewCache = { get: id => healthPanelDeps.getLoredeckMan
 let loredeckHealthCenterOpen = false;
 let loredeckHealthCenterPackId = '';
 let loredeckHealthCenterTab = 'overview';
+const loredeckHealthRepairSessionCache = new Map();
+const loredeckHealthRepairSessionLoads = new Map();
 
 function hashLoredeckHealthRepairIssueId(value = '') {
     let hash = 2166136261;
@@ -88,6 +102,72 @@ function hashLoredeckHealthRepairIssueId(value = '') {
         hash = Math.imul(hash, 16777619);
     }
     return (hash >>> 0).toString(36);
+}
+
+function createLoredeckHealthRepairSessionDiagnostic(error = null, code = 'repair_session_load_failed') {
+    return {
+        severity: 'warning',
+        code,
+        message: String(error?.message || error || 'Repair session state could not be loaded.'),
+    };
+}
+
+function getLoredeckHealthRepairSessionState(packId = '') {
+    const id = String(packId || '').trim();
+    if (!id) return { status: 'idle', sessions: [], diagnostics: [] };
+    if (loredeckHealthRepairSessionLoads.has(id)) {
+        return loredeckHealthRepairSessionCache.get(id) || { status: 'loading', sessions: [], diagnostics: [] };
+    }
+    return loredeckHealthRepairSessionCache.get(id) || { status: 'idle', sessions: [], diagnostics: [] };
+}
+
+function ensureLoredeckHealthRepairSessionsLoaded(packId = '', options = {}) {
+    const id = String(packId || '').trim();
+    if (!id) return Promise.resolve(null);
+    if (!options.force && loredeckHealthRepairSessionLoads.has(id)) return loredeckHealthRepairSessionLoads.get(id);
+    const current = getLoredeckHealthRepairSessionState(id);
+    if (!options.force && current.status === 'ready') return Promise.resolve(current);
+    const loadingState = {
+        ...current,
+        status: 'loading',
+        sessions: Array.isArray(current.sessions) ? current.sessions : [],
+        diagnostics: Array.isArray(current.diagnostics) ? current.diagnostics : [],
+    };
+    loredeckHealthRepairSessionCache.set(id, loadingState);
+    const loadPromise = Promise.resolve()
+        .then(() => loadLoredeckHealthRepairSessions(id))
+        .then(result => {
+            const next = {
+                status: result?.ok === false && !result?.sessions?.length ? 'error' : 'ready',
+                ok: result?.ok !== false,
+                sessions: Array.isArray(result?.sessions) ? result.sessions : [],
+                diagnostics: Array.isArray(result?.diagnostics) ? result.diagnostics : [],
+                error: result?.error || '',
+                loadedAt: Date.now(),
+            };
+            loredeckHealthRepairSessionCache.set(id, next);
+            return next;
+        })
+        .catch(error => {
+            const next = {
+                status: 'error',
+                ok: false,
+                sessions: [],
+                diagnostics: [createLoredeckHealthRepairSessionDiagnostic(error)],
+                error: error?.message || String(error || 'Repair session state could not be loaded.'),
+                loadedAt: Date.now(),
+            };
+            loredeckHealthRepairSessionCache.set(id, next);
+            return next;
+        })
+        .finally(() => {
+            loredeckHealthRepairSessionLoads.delete(id);
+            if (loredeckHealthCenterOpen && loredeckHealthCenterPackId === id) {
+                renderLoredeckHealthCenterOverlay({ preserveScroll: true });
+            }
+        });
+    loredeckHealthRepairSessionLoads.set(id, loadPromise);
+    return loadPromise;
 }
 
 export function openLoredeckHealthCenter(packId = '', options = {}) {
@@ -320,6 +400,8 @@ function getLoredeckHealthCenterContext(packId = '') {
     const subtitle = pack
         ? `${getLoredeckTypeLabel(pack.packId)} Loredeck health report for ${title}.`
         : 'Active stack health report across loaded Loredecks.';
+    const repairSessionState = pack ? getLoredeckHealthRepairSessionState(pack.packId) : null;
+    if (pack) ensureLoredeckHealthRepairSessionsLoaded(pack.packId);
     return {
         state,
         canonDb,
@@ -331,6 +413,7 @@ function getLoredeckHealthCenterContext(packId = '') {
         title,
         subtitle,
         generatedAt: cached.loadedAt || report.generatedAt || Date.now(),
+        repairSessionState,
     };
 }
 
@@ -446,6 +529,8 @@ function createLoredeckHealthOverviewView(context) {
     wrap.className = 'saga-loredeck-health-overview';
     wrap.appendChild(createLoredeckHealthSummaryHero(context));
     wrap.appendChild(createLoredeckHealthSeverityGrid(context));
+    const repairSessions = createLoredeckHealthRepairSessionPanel(context);
+    if (repairSessions) wrap.appendChild(repairSessions);
 
     const main = document.createElement('div');
     main.className = 'saga-loredeck-health-overview-main';
@@ -491,9 +576,11 @@ function createLoredeckHealthIssuesView(context) {
     const stateCounts = getLoredeckHealthIssueStateCounts(context, groups);
     header.appendChild(createStatusPill(`${groups.length} grouped issue${groups.length === 1 ? '' : 's'}`, 'Issues are grouped by severity, code, and affected file when possible.', { tone: groups.length ? 'warning' : 'muted', kind: 'count' }));
     header.appendChild(createStatusPill(`${getLoredeckHealthAllIssues(context.report).length} raw finding${getLoredeckHealthAllIssues(context.report).length === 1 ? '' : 's'}`, 'Raw Pack Health findings before grouping.', { tone: getLoredeckHealthAllIssues(context.report).length ? 'warning' : 'muted', kind: 'count' }));
-    if (stateCounts.ignored) header.appendChild(createStatusPill(`${stateCounts.ignored} ignored`, 'Ignored issue groups are hidden from Overview priority issues but remain visible here.', { tone: 'muted', kind: 'count' }));
-    if (stateCounts.resolved) header.appendChild(createStatusPill(`${stateCounts.resolved} resolved`, 'Issue groups marked resolved by the user. Rerun Pack Health after repairs to verify they disappear.', { tone: 'success', kind: 'count' }));
+    if (stateCounts.ignored) header.appendChild(createStatusPill(`${stateCounts.ignored} accepted as-is`, 'Accepted issue groups are hidden from Overview priority issues but remain visible here.', { tone: 'muted', kind: 'count' }));
+    if (stateCounts.resolved) header.appendChild(createStatusPill(`${stateCounts.resolved} verification requested`, 'Issue groups marked for verification by the user. Rerun Pack Health after repairs to confirm they disappear.', { tone: 'success', kind: 'count' }));
     wrap.appendChild(header);
+    const repairSessions = createLoredeckHealthRepairSessionPanel(context, { compact: true });
+    if (repairSessions) wrap.appendChild(repairSessions);
     if (!groups.length) {
         wrap.appendChild(createEmptyMessage('No issues found in this Pack Health report.'));
         return wrap;
@@ -506,6 +593,266 @@ function createLoredeckHealthIssuesView(context) {
     }
     wrap.appendChild(table);
     return wrap;
+}
+
+function getLoredeckHealthRepairSessionStatusLabel(status = '') {
+    const key = String(status || '').trim();
+    if (key === 'needs_review') return 'Needs review';
+    if (key === 'model_pending') return 'Model pending';
+    if (key === 'manual_remaining') return 'Manual remaining';
+    if (key === 'blocked') return 'Blocked';
+    if (key === 'complete') return 'Complete';
+    if (key === 'loading') return 'Loading';
+    return key ? humanizeScopeKey(key) : 'Active';
+}
+
+function getLoredeckHealthRepairSessionStatusTone(status = '') {
+    const key = String(status || '').trim();
+    if (key === 'complete') return 'success';
+    if (key === 'blocked' || key === 'error') return 'danger';
+    if (key === 'needs_review') return 'review';
+    if (key === 'model_pending' || key === 'manual_remaining') return 'warning';
+    if (key === 'loading') return 'info';
+    return 'muted';
+}
+
+function getLoredeckHealthRepairSessionRemainingCounts(session = {}) {
+    const remaining = session.remaining || {};
+    return {
+        choice: Number(remaining.choiceSetCount || remaining.choiceSets?.length) || 0,
+        model: Number(remaining.modelUnits?.length) || 0,
+        deferred: Number(remaining.deferredUnits?.length) || 0,
+        manual: Number(remaining.manualBuckets?.length) || 0,
+    };
+}
+
+function appendLoredeckHealthRepairSessionPills(container, session = {}) {
+    const counts = getLoredeckHealthRepairSessionRemainingCounts(session);
+    container.appendChild(createStatusPill(getLoredeckHealthRepairSessionStatusLabel(session.status), 'Repair session status.', { tone: getLoredeckHealthRepairSessionStatusTone(session.status), kind: 'status' }));
+    if (counts.choice) container.appendChild(createStatusPill(`${counts.choice} needs choice`, 'Review choice sets saved in this repair session.', { tone: 'review', kind: 'count' }));
+    if (counts.model) container.appendChild(createStatusPill(`${counts.model} model batch${counts.model === 1 ? '' : 'es'}`, 'Model repair units ready for a provider-backed pass.', { tone: 'warning', kind: 'count' }));
+    if (counts.deferred) container.appendChild(createStatusPill(`${counts.deferred} deferred`, 'Model repair units deferred by batch limits.', { tone: 'warning', kind: 'count' }));
+    if (counts.manual) container.appendChild(createStatusPill(`${counts.manual} manual`, 'Manual-only repair groups saved in this repair session.', { tone: 'muted', kind: 'count' }));
+    if (session.updatedAt) container.appendChild(createStatusPill(`Updated ${formatRelativeHealthTime(session.updatedAt)}`, 'Repair session update time.', { tone: 'info', kind: 'status' }));
+}
+
+function createLoredeckHealthRepairSessionRow(session = {}) {
+    const row = document.createElement('div');
+    row.className = `saga-loredeck-health-issue saga-loredeck-health-repair-session-row saga-loredeck-health-repair-session-${session.status || 'active'}`;
+    const main = document.createElement('div');
+    main.className = 'saga-loredeck-row-main';
+    const title = document.createElement('div');
+    title.className = 'saga-loredeck-health-issue-code';
+    title.textContent = session.outcome ? `Attempt Fixing: ${getLoredeckHealthRepairSessionStatusLabel(session.outcome)}` : 'Attempt Fixing Session';
+    main.appendChild(title);
+    const meta = document.createElement('div');
+    meta.className = 'saga-loredeck-row-meta';
+    appendLoredeckHealthRepairSessionPills(meta, session);
+    main.appendChild(meta);
+    const summary = document.createElement('div');
+    summary.className = 'saga-loredeck-health-issue-message';
+    const health = session.summary?.finalHealth || {};
+    const issueCount = Number(health.issueCount) || ((Number(health.errorCount) || 0) + (Number(health.warningCount) || 0) + (Number(health.suggestionCount) || 0));
+    summary.textContent = issueCount
+        ? `${issueCount} Pack Health finding${issueCount === 1 ? '' : 's'} remained when this session was saved.`
+        : 'No remaining Pack Health findings were recorded in this session.';
+    main.appendChild(summary);
+    row.appendChild(main);
+    return row;
+}
+
+function formatLoredeckRepairChoiceConfidence(value) {
+    const number = Number(value);
+    if (!Number.isFinite(number) || number <= 0) return '';
+    return `${Math.round(Math.max(0, Math.min(1, number)) * 100)}% confidence`;
+}
+
+function createLoredeckHealthRepairChoiceOptionRow(context = {}, session = {}, choice = {}, option = {}) {
+    const row = document.createElement('div');
+    row.className = 'saga-loredeck-health-repair-choice-option';
+    const main = document.createElement('div');
+    main.className = 'saga-loredeck-row-main';
+    const title = document.createElement('div');
+    title.className = 'saga-loredeck-health-issue-code';
+    title.textContent = `${option.optionId || '?'}: ${option.label || 'Repair option'}`;
+    main.appendChild(title);
+    const meta = document.createElement('div');
+    meta.className = 'saga-loredeck-row-meta';
+    const confidence = formatLoredeckRepairChoiceConfidence(option.confidence);
+    if (confidence) meta.appendChild(createStatusPill(confidence, 'Model or local confidence for this repair option.', { tone: 'info', kind: 'status' }));
+    const opCount = Number(option.patch?.operations?.length) || 0;
+    if (opCount) meta.appendChild(createStatusPill(`${opCount} change${opCount === 1 ? '' : 's'}`, 'Storage operations this option will apply.', { tone: 'review', kind: 'count' }));
+    if (meta.children.length) main.appendChild(meta);
+    if (option.reason) {
+        const reason = document.createElement('div');
+        reason.className = 'saga-loredeck-health-issue-message';
+        reason.textContent = option.reason;
+        main.appendChild(reason);
+    }
+    row.appendChild(main);
+    const actions = createLoredeckActionRow();
+    const applyButton = createButton(`Apply ${option.optionId || ''}`.trim(), `Apply repair option ${option.optionId || option.label || ''}.`, async (btn) => {
+        await applyLoredeckHealthRepairChoice(context.pack, choice, option, session, btn);
+        await ensureLoredeckHealthRepairSessionsLoaded(context.pack.packId, { force: true });
+        renderLoredeckHealthCenterOverlay({ preserveScroll: true });
+    }, 'saga-primary-button');
+    applyButton.disabled = !canValidateLoredeckInEditor(context.pack);
+    actions.appendChild(applyButton);
+    row.appendChild(actions);
+    return row;
+}
+
+function createLoredeckHealthRepairChoiceRow(context = {}, session = {}, choice = {}) {
+    const row = document.createElement('div');
+    row.className = `saga-loredeck-health-issue saga-loredeck-health-repair-choice-row saga-loredeck-health-issue-${choice.severity || 'warning'}`;
+    const main = document.createElement('div');
+    main.className = 'saga-loredeck-row-main';
+    const title = document.createElement('div');
+    title.className = 'saga-loredeck-health-issue-code';
+    title.textContent = choice.question || 'Choose a repair option.';
+    main.appendChild(title);
+    const meta = document.createElement('div');
+    meta.className = 'saga-loredeck-row-meta';
+    meta.appendChild(createStatusPill('Needs Review', 'This repair choice needs an option before Saga can apply it.', { tone: 'review', kind: 'status' }));
+    if (choice.code) meta.appendChild(createStatusPill(choice.code, 'Pack Health finding code.', { tone: 'muted', kind: 'status' }));
+    const findingCount = Number(choice.findingIds?.length) || 0;
+    if (findingCount) meta.appendChild(createStatusPill(`${findingCount} finding${findingCount === 1 ? '' : 's'}`, 'Findings covered by this choice.', { tone: 'info', kind: 'count' }));
+    main.appendChild(meta);
+    if (choice.reason) {
+        const reason = document.createElement('div');
+        reason.className = 'saga-loredeck-health-issue-message';
+        reason.textContent = choice.reason;
+        main.appendChild(reason);
+    }
+    row.appendChild(main);
+    const options = document.createElement('div');
+    options.className = 'saga-loredeck-health-repair-choice-options';
+    for (const option of Array.isArray(choice.options) ? choice.options : []) {
+        options.appendChild(createLoredeckHealthRepairChoiceOptionRow(context, session, choice, option));
+    }
+    row.appendChild(options);
+    return row;
+}
+
+function createLoredeckHealthRepairChoiceList(context = {}, session = {}, options = {}) {
+    const choiceSets = Array.isArray(session.remaining?.choiceSets) ? session.remaining.choiceSets : [];
+    if (!choiceSets.length) return null;
+    const list = document.createElement('div');
+    list.className = 'saga-loredeck-health-repair-choice-list';
+    const limit = options.compact ? 1 : 6;
+    for (const choice of choiceSets.slice(0, limit)) {
+        list.appendChild(createLoredeckHealthRepairChoiceRow(context, session, choice));
+    }
+    if (choiceSets.length > limit) {
+        const more = document.createElement('div');
+        more.className = 'saga-runtime-help';
+        more.textContent = `${choiceSets.length - limit} more review choice${choiceSets.length - limit === 1 ? '' : 's'} saved. Apply or refresh to continue.`;
+        list.appendChild(more);
+    }
+    return list;
+}
+
+function createLoredeckHealthRepairSessionPanel(context = {}, options = {}) {
+    if (!context.pack) return null;
+    const state = context.repairSessionState || {};
+    const sessions = Array.isArray(state.sessions) ? state.sessions : [];
+    const diagnostics = Array.isArray(state.diagnostics) ? state.diagnostics : [];
+    const activeRun = getLoredeckHealthRepairActiveRun(context.pack.packId);
+    const loading = state.status === 'loading' || state.status === 'idle';
+    if (!activeRun && !loading && !sessions.length && !diagnostics.length && !state.error) return null;
+
+    const panel = document.createElement('div');
+    panel.className = `saga-loredeck-health-panel saga-loredeck-health-repair-session-panel${options.compact ? ' saga-loredeck-health-repair-session-panel-compact' : ''}`;
+    const title = document.createElement('div');
+    title.className = 'saga-runtime-card-title';
+    title.textContent = 'Attempt Fixing Session';
+    panel.appendChild(title);
+
+    const summary = document.createElement('div');
+    summary.className = 'saga-loredeck-entry-summary';
+    if (activeRun) {
+        summary.appendChild(createStatusPill(`${activeRun.label || 'Repair run'} running`, 'A Pack Health repair action is currently running for this Loredeck.', { tone: 'warning', kind: 'status' }));
+        if (activeRun.cancellable) summary.appendChild(createStatusPill('Cancellable', 'This active repair run can be asked to stop after the current provider/checkpoint step.', { tone: 'info', kind: 'status' }));
+        if (sessions.length) {
+            summary.appendChild(createStatusPill(`${sessions.length} saved`, 'Saved repair sessions for this Loredeck.', { tone: 'review', kind: 'count' }));
+            const latest = sessions[0];
+            if (latest) appendLoredeckHealthRepairSessionPills(summary, latest);
+        }
+    } else if (loading) {
+        summary.appendChild(createStatusPill('Loading sessions', 'Saga is checking storage for saved repair sessions.', { tone: 'info', kind: 'status' }));
+    } else if (sessions.length) {
+        summary.appendChild(createStatusPill(`${sessions.length} saved`, 'Saved repair sessions for this Loredeck.', { tone: 'review', kind: 'count' }));
+        const latest = sessions[0];
+        if (latest) appendLoredeckHealthRepairSessionPills(summary, latest);
+    } else {
+        summary.appendChild(createStatusPill('No saved sessions', 'No active repair sessions were found for this Loredeck.', { tone: 'muted', kind: 'status' }));
+    }
+    if (diagnostics.length || state.error) {
+        summary.appendChild(createStatusPill(`${diagnostics.length || 1} session diagnostic${(diagnostics.length || 1) === 1 ? '' : 's'}`, state.error || diagnostics[0]?.message || 'Repair session diagnostics are available.', { tone: 'warning', kind: 'severity' }));
+    }
+    panel.appendChild(summary);
+
+    for (const session of sessions.slice(0, options.compact ? 2 : 4)) {
+        panel.appendChild(createLoredeckHealthRepairSessionRow(session));
+    }
+    if (!options.compact) {
+        const choiceSession = sessions.find(session => Number(session.remaining?.choiceSetCount || session.remaining?.choiceSets?.length) > 0);
+        const choiceList = choiceSession ? createLoredeckHealthRepairChoiceList(context, choiceSession, options) : null;
+        if (choiceList) panel.appendChild(choiceList);
+    }
+    if (diagnostics.length && !options.compact) {
+        panel.appendChild(createLoredeckHealthIssueList('Session Diagnostics', diagnostics, 'warning'));
+    }
+
+    const editable = context.pack?.type !== 'bundled';
+    const activeSession = sessions.find(session => {
+        const counts = getLoredeckHealthRepairSessionRemainingCounts(session);
+        return counts.model || counts.deferred;
+    }) || sessions[0] || null;
+    const activeCounts = activeSession ? getLoredeckHealthRepairSessionRemainingCounts(activeSession) : null;
+    const actions = createLoredeckActionRow();
+    const refreshButton = createButton('Refresh Sessions', 'Reload saved repair sessions for this Loredeck.', async (btn) => {
+        const restore = setLoredeckActionButtonBusy(btn, 'Refreshing...', { fallbackLabel: 'Refresh Sessions' });
+        try {
+            await ensureLoredeckHealthRepairSessionsLoaded(context.pack.packId, { force: true });
+        } finally {
+            restore();
+        }
+    });
+    actions.appendChild(refreshButton);
+    if (editable) {
+        if (activeRun) {
+            const cancelButton = createButton('Cancel Repair Run', 'Ask the active Pack Health repair run to stop after the current provider or checkpoint step.', async (btn) => {
+                const restore = setLoredeckActionButtonBusy(btn, 'Cancelling...', { fallbackLabel: 'Cancel Repair Run' });
+                try {
+                    cancelLoredeckHealthRepairRun(context.pack.packId);
+                    renderLoredeckHealthCenterOverlay({ preserveScroll: true });
+                } finally {
+                    restore();
+                }
+            });
+            cancelButton.disabled = activeRun.cancellable === false;
+            actions.appendChild(cancelButton);
+        }
+        if (activeSession && ((activeCounts?.model || 0) + (activeCounts?.deferred || 0)) > 0) {
+            const continueButton = createButton('Continue Model Batches', 'Continue the saved model repair batches in this repair session.', async (btn) => {
+                await continueLoredeckHealthModelRepairSession(context.pack, activeSession, btn);
+                await ensureLoredeckHealthRepairSessionsLoaded(context.pack.packId, { force: true });
+                renderLoredeckHealthCenterOverlay({ preserveScroll: true });
+            }, 'saga-primary-button');
+            continueButton.disabled = !canValidateLoredeckInEditor(context.pack);
+            actions.appendChild(continueButton);
+        }
+        const attemptButton = createButton('Attempt Fixing', 'Run storage-backed Pack Health fixing again for this Loredeck.', async (btn) => {
+            await repairLoredeckSafeHealthIssues(context.pack, btn);
+            await ensureLoredeckHealthRepairSessionsLoaded(context.pack.packId, { force: true });
+            renderLoredeckHealthCenterOverlay({ preserveScroll: true });
+        }, activeSession && ((activeCounts?.model || 0) + (activeCounts?.deferred || 0)) > 0 ? '' : 'saga-primary-button');
+        attemptButton.disabled = !canValidateLoredeckInEditor(context.pack);
+        actions.appendChild(attemptButton);
+    }
+    panel.appendChild(actions);
+    return panel;
 }
 
 function createLoredeckHealthCoverageView(context) {
@@ -834,8 +1181,8 @@ function createLoredeckHealthIssueDetailPanel(group, context, options = {}) {
         workflow.appendChild(workflowTitle);
         const workflowText = document.createElement('p');
         workflowText.textContent = editable
-            ? 'Queue deterministic fixes or assistant drafts, review them in Pending Review, accept the changes, then rerun Refresh Scan. Accepted entry, tag, or timeline changes mark Pack Health stale until the rerun.'
-            : 'Bundled Loredecks are read-only. Duplicate as Custom before repairing, ignoring, or marking issue state.';
+            ? 'Run Attempt Fixing first. Saga applies deterministic local fixes, saves remaining model or review work to a repair session, then you rerun Refresh Scan after any later review choices are applied.'
+            : 'Bundled Loredecks are read-only. Duplicate as Custom before repairing, accepting, or verifying issue state.';
         workflow.appendChild(workflowText);
         panel.appendChild(workflow);
     }
@@ -863,17 +1210,23 @@ function createLoredeckHealthIssueActionRow(group, context = {}, issueState = nu
                 openDuplicateLoredeckDialog(context.pack);
             }));
         } else {
-            const ignoreButton = createButton(issueState?.status === 'ignored' ? 'Clear Dismissal' : 'Dismiss Finding', issueState?.status === 'ignored' ? 'Clear this user-set dismissal.' : 'Dismiss this grouped finding as intentionally accepted for this editable Loredeck. The finding remains in diagnostics.', () => {
-                setLoredeckHealthIssueGroupState(context.pack, group, issueState?.status === 'ignored' ? '' : 'ignored');
+            const ignoreButton = createButton(issueState?.status === 'ignored' ? 'Clear Accept As-Is' : 'Accept As-Is', issueState?.status === 'ignored' ? 'Clear this user-set accepted state.' : 'Accept this grouped finding as intentional for this editable Loredeck. The finding remains in diagnostics until Pack Health no longer reports it.', async () => {
+                await setLoredeckHealthIssueGroupState(context.pack, group, issueState?.status === 'ignored' ? '' : 'ignored');
                 renderLoredeckHealthCenterOverlay();
             });
             actions.appendChild(ignoreButton);
-            const resolveButton = createButton(issueState?.status === 'resolved' ? 'Clear Fixed Mark' : 'Mark Fixed', issueState?.status === 'resolved' ? 'Clear this user-set fixed marker.' : 'Mark this grouped finding fixed after you have repaired it. Rerun Pack Health to verify.', () => {
-                setLoredeckHealthIssueGroupState(context.pack, group, issueState?.status === 'resolved' ? '' : 'resolved');
+            const resolveButton = createButton(issueState?.status === 'resolved' ? 'Clear Verification' : 'Verify Fixed', issueState?.status === 'resolved' ? 'Clear this user-set verification marker.' : 'Mark this grouped finding as repaired only after you have changed the deck. Rerun Refresh Scan to confirm Pack Health no longer reports it.', async () => {
+                await setLoredeckHealthIssueGroupState(context.pack, group, issueState?.status === 'resolved' ? '' : 'resolved');
                 renderLoredeckHealthCenterOverlay();
             });
             actions.appendChild(resolveButton);
-            const assistantButton = createButton('Draft Repair Batches', 'Send this grouped finding to the Lore Assistant in bounded repair batches.', async (btn) => {
+            const repairButton = createButton('Attempt Fixing', 'Apply deterministic fixes now and save remaining model or review work as a repair session.', async (btn) => {
+                await repairLoredeckSafeHealthIssues(context.pack, btn);
+                renderLoredeckHealthCenterOverlay();
+            }, 'saga-primary-button');
+            repairButton.disabled = !canValidateLoredeckInEditor(context.pack);
+            actions.appendChild(repairButton);
+            const assistantButton = createButton('Draft With Assistant', 'Legacy assistant drafting route for this grouped finding. Use only when Attempt Fixing cannot continue yet.', async (btn) => {
                 await handleLoredeckAssistantHealthRepairDraft(context.pack, context.health, btn, {
                     selectedIssues: normalizeLoredeckHealthGroupIssuesForRepair(group),
                 });
@@ -882,19 +1235,13 @@ function createLoredeckHealthIssueActionRow(group, context = {}, issueState = nu
             assistantButton.disabled = !canValidateLoredeckInEditor(context.pack);
             actions.appendChild(assistantButton);
             if (isLoredeckMalformedTagIssueGroup(group)) {
-                const tagRepairButton = createButton('Queue Tag ID Repair', 'Queue deterministic malformed tag ID replacements for Pending Review.', async (btn) => {
+                const tagRepairButton = createButton('Queue Tag ID Review', 'Queue malformed tag ID replacements for manual review when Attempt Fixing cannot choose safely.', async (btn) => {
                     await queueLoredeckMalformedTagRepairFromHealthGroup(context.pack, group, btn);
                     renderLoredeckHealthCenterOverlay();
-                }, 'saga-primary-button');
+                });
                 tagRepairButton.disabled = !canValidateLoredeckInEditor(context.pack);
                 actions.appendChild(tagRepairButton);
             }
-            const repairButton = createButton('Auto-Repair Safe Findings', 'Apply deterministic safe repairs available to this editable Loredeck record.', async (btn) => {
-                await repairLoredeckSafeHealthIssues(context.pack, btn);
-                renderLoredeckHealthCenterOverlay();
-            });
-            repairButton.disabled = !canValidateLoredeckInEditor(context.pack);
-            actions.appendChild(repairButton);
         }
     }
     return actions;
@@ -1079,12 +1426,12 @@ function getLoredeckHealthIssueState(pack = {}, group = {}) {
 
 function getLoredeckHealthIssueStateLabel(state = null, group = {}) {
     const status = String(state?.status || '').trim();
-    if (status === 'ignored') return 'Ignored';
-    if (status === 'resolved') return 'Marked resolved';
+    if (status === 'ignored') return 'Accepted as-is';
+    if (status === 'resolved') return 'Verification requested';
     return '';
 }
 
-function setLoredeckHealthIssueGroupState(pack = {}, group = {}, status = '') {
+async function setLoredeckHealthIssueGroupState(pack = {}, group = {}, status = '') {
     const fresh = getFreshLoredeckLibraryPack(pack.packId, pack);
     if (!fresh || fresh.type === 'bundled') {
         toast('Bundled Loredecks are read-only. Duplicate as Custom before setting issue state.', 'warning');
@@ -1098,31 +1445,36 @@ function setLoredeckHealthIssueGroupState(pack = {}, group = {}, status = '') {
     }
     const title = group.title || getLoredeckHealthIssueTitle(group.code);
     const message = normalizedStatus === 'ignored'
-        ? `Marked Pack Health issue ignored: ${title}.`
+        ? `Accepted Pack Health issue as-is: ${title}.`
         : (normalizedStatus === 'resolved'
-            ? `Marked Pack Health issue resolved: ${title}. Rerun Pack Health to verify.`
+            ? `Marked Pack Health issue for verification: ${title}. Rerun Pack Health to verify.`
             : `Cleared Pack Health issue state: ${title}.`);
-    return persistLoredeckLibraryRecordMutation(fresh, next => {
-        const states = normalizeLoredeckHealthIssueStates(next.healthIssueStates);
-        if (['ignored', 'resolved'].includes(normalizedStatus)) {
-            states[issueKey] = {
-                issueKey,
-                status: normalizedStatus,
-                code: String(group.code || '').trim(),
-                severity: normalizeLoredeckHealthSeverity(group.severity || ''),
-                title,
-                note: normalizedStatus === 'resolved'
-                    ? 'Marked resolved by user. Rerun Pack Health after accepted repairs to verify it no longer appears.'
-                    : 'Ignored by user. The finding remains in diagnostics but is no longer a priority for this deck.',
-                updatedAt: Date.now(),
-            };
-        } else {
-            delete states[issueKey];
+    const stateRecord = ['ignored', 'resolved'].includes(normalizedStatus)
+        ? {
+            issueKey,
+            status: normalizedStatus,
+            code: String(group.code || '').trim(),
+            severity: normalizeLoredeckHealthSeverity(group.severity || ''),
+            title,
+            note: normalizedStatus === 'resolved'
+                ? 'Verification requested by user. Rerun Pack Health after repairs to confirm it no longer appears.'
+                : 'Accepted as-is by user. The finding remains in diagnostics but is no longer a priority for this deck.',
+            updatedAt: Date.now(),
         }
-        next.healthIssueStates = states;
-    }, message, {
+        : null;
+    const result = await persistLoredeckHealthIssueState(fresh, issueKey, stateRecord, message, {
         errorMessage: 'Pack Health issue state save failed.',
     });
+    if (!result?.ok) {
+        toast(result?.error || 'Pack Health issue state save failed.', 'error');
+        return false;
+    }
+    clearCanonLoreDatabaseCache();
+    clearContextIndexCache();
+    refreshLoredeckSurfaces({ clearCanon: true, clearContext: true });
+    refreshHeader();
+    if (message) toast(message, 'success');
+    return true;
 }
 
 export function normalizeLoredeckHealthSeverity(severity = '') {
@@ -1449,6 +1801,7 @@ async function refreshLoredeckHealthCenterScan(context = getLoredeckHealthCenter
             if (context.pack) {
                 const result = await validateLoredeckForEditor(context.pack, null, { quiet: true, updateLibrary: true });
                 if (!result.health) throw new Error(result.error || 'Pack Health scan failed.');
+                await ensureLoredeckHealthRepairSessionsLoaded(context.pack.packId, { force: true });
                 refreshLoredeckSurfaces();
             } else {
                 clearCanonLoreDatabaseCache();

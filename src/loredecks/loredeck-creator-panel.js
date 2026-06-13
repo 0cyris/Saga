@@ -1634,7 +1634,7 @@ function createLoredeckCreatorReadinessHealthActions(pack = {}, readiness = {}) 
     }));
     const issueCount = (Number(readiness.healthErrorCount) || 0) + (Number(readiness.healthWarningCount) || 0);
     if (issueCount > 0 && pack.type !== 'bundled') {
-        actions.appendChild(createButton('Auto-Repair Safe Findings', 'Apply deterministic safe repairs available for this Generated Loredeck.', async (btn) => {
+        actions.appendChild(createButton('Attempt Fixing', 'Apply deterministic fixes and save remaining model or review work for this Generated Loredeck.', async (btn) => {
             await repairLoredeckSafeHealthIssues(pack, btn);
             refreshRuntimePanelBody({ preserveScroll: true, preserveWindowScroll: true });
             queueLoredeckCreatorWorkbenchRefresh();

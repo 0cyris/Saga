@@ -4293,6 +4293,36 @@
     overflow-wrap: anywhere;
 }
 
+.saga-loredeck-health-repair-choice-list,
+.saga-loredeck-health-repair-choice-options {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.saga-loredeck-health-repair-choice-row {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.saga-loredeck-health-repair-choice-option {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 7px;
+    align-items: start;
+    border: 1px solid var(--saga-border-soft, rgba(185, 139, 54, 0.18));
+    border-radius: 6px;
+    padding: 7px;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+@media (max-width: 640px) {
+    .saga-loredeck-health-repair-choice-option {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
 .saga-loredeck-health-repair-planner {
     display: flex;
     flex-direction: column;

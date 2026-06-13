@@ -36,6 +36,9 @@ const {
   repairLoredeckSafeHealthIssues,
 } = await import('../../src/runtime/loredeck-editor-actions.js');
 const {
+  configureLoredeckHealthRepairSessionStorage,
+} = await import('../../src/loredecks/loredeck-health-repair-session-storage.js');
+const {
   upsertLoredeckLibraryPack,
 } = await import('../../src/state/state-manager.js');
 
@@ -85,10 +88,12 @@ let clock = 1000;
 const now = () => clock;
 configureSagaLorepackLibraryStorage({ fileApi, now });
 configureSagaLorepackPayloadStorage({ fileApi, now });
+configureLoredeckHealthRepairSessionStorage({ fileApi, now });
 resetSagaLorepackLibraryStorageCache();
 resetSagaLorepackPayloadStorageCache();
 configureSagaLorepackLibraryStorage({ fileApi, now });
 configureSagaLorepackPayloadStorage({ fileApi, now });
+configureLoredeckHealthRepairSessionStorage({ fileApi, now });
 
 let settingsSaveCount = 0;
 let metadataSaveCount = 0;
@@ -172,6 +177,7 @@ resetSagaLorepackPayloadStorageCache();
 resetSagaLorepackLibraryStorageCache();
 configureSagaLorepackLibraryStorage({ fileApi, now });
 configureSagaLorepackPayloadStorage({ fileApi, now });
+configureLoredeckHealthRepairSessionStorage({ fileApi, now });
 clock = 2000;
 await hydrateSagaLorepackLibraryStorage({ fileApi, now, force: true });
 
@@ -235,7 +241,7 @@ const repairPayload = normalizeExternalLorepackPayload({
   packId: 'health-repair-external-pack',
   type: 'custom',
   title: 'Health Repair External Pack',
-  description: 'External safe repair fixture.',
+  description: 'External Attempt Fixing fixture.',
   healthStatus: 'has_errors',
   stats: { entryCount: 1, categoryCounts: { knowledge: 1 } },
   manifestData: {
@@ -265,8 +271,8 @@ const repairPayload = normalizeExternalLorepackPayload({
         contextBoost: 'low',
       },
       content: {
-        fact: 'Generic tags should be dropped by deterministic safe repair.',
-        injection: 'Generic tags should be dropped by deterministic safe repair.',
+        fact: 'Generic tags should stay unchanged when Pack Health has no finding for them.',
+        injection: 'Generic tags should stay unchanged when Pack Health has no finding for them.',
       },
     },
   },
@@ -281,6 +287,7 @@ resetSagaLorepackPayloadStorageCache();
 resetSagaLorepackLibraryStorageCache();
 configureSagaLorepackLibraryStorage({ fileApi, now });
 configureSagaLorepackPayloadStorage({ fileApi, now });
+configureLoredeckHealthRepairSessionStorage({ fileApi, now });
 clock = 4000;
 await hydrateSagaLorepackLibraryStorage({ fileApi, now, force: true });
 
@@ -299,7 +306,7 @@ configureLoredeckEditorActions({
 });
 
 const compactRepairPack = getFreshPack('health-repair-external-pack');
-assert.deepEqual(compactRepairPack.entryOverrides, {}, 'Cold compact repair row should not contain payload entries before safe repair hydrates it.');
+assert.deepEqual(compactRepairPack.entryOverrides, {}, 'Cold compact repair row should not contain payload entries before Attempt Fixing hydrates it.');
 const repaired = await repairLoredeckSafeHealthIssues(compactRepairPack);
 assert.equal(repaired, true);
 await flushSagaLorepackPayloadStorageWrites();
@@ -307,14 +314,18 @@ await flushSagaLorepackLibraryStorageWrites();
 
 const repairedPayload = JSON.parse(stored.get(repairPayloadResult.libraryRecord.payloadFile));
 const repairedEntry = repairedPayload.entryOverrides['repair-me'];
-assert.equal(repairedEntry.content.fact, 'Generic tags should be dropped by deterministic safe repair.');
-assert.equal(repairedEntry.content.injection, 'Generic tags should be dropped by deterministic safe repair.');
+assert.equal(repairedEntry.content.fact, 'Generic tags should stay unchanged when Pack Health has no finding for them.');
+assert.equal(repairedEntry.content.injection, 'Generic tags should stay unchanged when Pack Health has no finding for them.');
 assert.equal(Object.hasOwn(repairedEntry, 'fact'), false);
-assert.deepEqual(repairedEntry.tags, []);
+assert.deepEqual(repairedEntry.tags, ['fact', 'other']);
 assert.equal(repairedPayload.healthStatus, 'good');
-assert.ok(repairToasts.some(toast => toast.type === 'success' && toast.message.includes('1 override repaired')));
+assert.ok(repairToasts.some(toast => toast.type === 'warning'
+  && toast.message.includes('Still needs 1 model batch')
+  && toast.message.includes('Repair session saved.')));
+const repairSessionPath = [...stored.keys()].find(path => path.includes('saga-repair-session-health-repair-external-pack-'));
+assert.ok(repairSessionPath, 'Attempt Fixing should save model-pending repair sessions outside settings.');
 const repairedLibraryIndex = JSON.parse(stored.get(SAGA_STORAGE_DOMAIN_INDEX_FILES.library));
-assert.equal(repairedLibraryIndex.packs['health-repair-external-pack'].entryOverrides, undefined, 'Safe repair must keep repaired Lorecards in the external payload, not the Library index.');
-assert.equal(JSON.stringify(extensionSettings[MODULE_KEY]).includes('Generic tags should be dropped'), false, 'Safe repair must not write repaired payload content into settings.');
+assert.equal(repairedLibraryIndex.packs['health-repair-external-pack'].entryOverrides, undefined, 'Attempt Fixing must keep repaired Lorecards in the external payload, not the Library index.');
+assert.equal(JSON.stringify(extensionSettings[MODULE_KEY]).includes('Generic tags should stay unchanged'), false, 'Attempt Fixing must not write payload content into settings.');
 
 console.log('Saga Lorepack Pack Health external payload tests passed.');

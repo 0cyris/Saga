@@ -104,6 +104,7 @@ export function getSettings() {
     }
     const { extensionSettings } = ctx;
     const stored = migrateSettingsBucket(extensionSettings) || {};
+    const externalStorageMigrated = isExternalStorageMigrated(stored);
     const merged = { ...DEFAULT_SETTINGS, ...stored };
     merged.collapsedSections = {
         ...(DEFAULT_SETTINGS.collapsedSections || {}),
@@ -115,20 +116,32 @@ export function getSettings() {
     };
     merged.sagaStorage = normalizeSagaStorageSettings(stored.sagaStorage || DEFAULT_SETTINGS.sagaStorage);
     merged.sagaStorageFallback = normalizeSagaStorageFallback(stored.sagaStorageFallback || DEFAULT_SETTINGS.sagaStorageFallback);
+    const storedLoredeckLibrary = externalStorageMigrated
+        ? EMPTY_EXTERNALIZED_LOREDECK_LIBRARY
+        : (stored.loredeckLibrary || DEFAULT_SETTINGS.loredeckLibrary);
+    const storedThemePackLibrary = externalStorageMigrated
+        ? EMPTY_EXTERNALIZED_THEME_PACK_LIBRARY
+        : (stored.themePackLibrary || DEFAULT_SETTINGS.themePackLibrary);
+    const storedThemeIconSetLibrary = externalStorageMigrated
+        ? EMPTY_EXTERNALIZED_ICON_SET_LIBRARY
+        : (stored.themeIconSetLibrary || DEFAULT_SETTINGS.themeIconSetLibrary);
+    const storedCreatorProjects = externalStorageMigrated
+        ? EMPTY_EXTERNALIZED_CREATOR_PROJECTS
+        : (stored.loredeckCreatorProjects || DEFAULT_SETTINGS.loredeckCreatorProjects);
     merged.loredeckLibrary = normalizeLoredeckRegistry(
-        stored.loredeckLibrary || DEFAULT_SETTINGS.loredeckLibrary,
+        storedLoredeckLibrary,
         DEFAULT_SETTINGS.loredeckLibrary
     );
     merged.themePackLibrary = normalizeThemePackRegistry(
-        stored.themePackLibrary || DEFAULT_SETTINGS.themePackLibrary,
+        storedThemePackLibrary,
         DEFAULT_SETTINGS.themePackLibrary
     );
     merged.themeIconSetLibrary = normalizeThemeIconSetRegistry(
-        stored.themeIconSetLibrary || DEFAULT_SETTINGS.themeIconSetLibrary,
+        storedThemeIconSetLibrary,
         DEFAULT_SETTINGS.themeIconSetLibrary
     );
     merged.loredeckCreatorProjects = normalizeLoredeckCreatorRegistry(
-        stored.loredeckCreatorProjects || DEFAULT_SETTINGS.loredeckCreatorProjects
+        storedCreatorProjects
     );
 
     const hasStoredSettings = hasStoredSagaSettings(stored);
@@ -294,7 +307,9 @@ export function getSettings() {
         merged.continuityPerformanceDefaultsMigrated20260603 = true;
     }
 
-    extensionSettings[MODULE_KEY] = merged;
+    extensionSettings[MODULE_KEY] = isExternalStorageMigrated(merged)
+        ? compactExternalizedStorageSettings(cloneJson(merged))
+        : merged;
     return merged;
 }
 

@@ -37,11 +37,47 @@ import {
     getGeneratedLoredeckExportReadiness,
 } from './loredeck-generated-readiness.js';
 import {
+    attemptLoredeckHealthFixes,
+} from '../loredecks/loredeck-health-attempt-fixing.js';
+import {
+    runLoredeckHealthModelRepairBatches,
+} from '../loredecks/loredeck-health-model-repair-runner.js';
+import {
+    applyLoredeckHealthRepairChoice as applyLoredeckHealthRepairChoiceStorage,
+} from '../loredecks/loredeck-health-review-choices.js';
+import {
     createLoredeckRecordPatchChange,
 } from './loredeck-pending-change-model.js';
-import { hydrateExternalLorepackPayloadRecord } from '../storage/saga-lorepack-payload-storage.js';
+import {
+    flushSagaLorepackPayloadStorageWrites,
+    hydrateExternalLorepackPayloadRecord,
+} from '../storage/saga-lorepack-payload-storage.js';
+import {
+    flushSagaLorepackLibraryStorageWrites,
+} from '../storage/saga-lorepack-library-storage.js';
+import {
+    sendLoreRequest,
+    validateLoreProviderConfiguration,
+} from '../providers/lore-llm-client.js';
+import {
+    extractLoreResponseText,
+} from '../providers/lore-response-normalizer.js';
 
 let editorActionDeps = {};
+const activeLoredeckHealthRepairRuns = new Map();
+
+const LOREDECK_HEALTH_MODEL_REPAIR_SYSTEM_PROMPT = `You repair Saga Loredeck Pack Health findings.
+
+Return JSON only. Do not include markdown, XML, analysis, or prose outside the JSON object.
+
+Follow the supplied prompt payload exactly:
+- Repair only the current repair unit.
+- Use only allowedOperations.
+- Change only allowedFields.
+- Target only IDs listed in the current unit.
+- Return direct repairs only when one clear safe fix exists.
+- Return choices when multiple plausible fixes exist.
+- Use the contract {"repairs":[],"choices":[],"warnings":[],"clarifyingQuestions":[]}.`;
 
 export function configureLoredeckEditorActions(deps = {}) {
     editorActionDeps = { ...editorActionDeps, ...(deps || {}) };
@@ -81,6 +117,113 @@ function deleteLoredeckEntryPreviewCacheRecord(packId) { return dep('deleteLored
 function deleteLoredeckTimelineRegistryCacheRecord(packId) { return dep('deleteLoredeckTimelineRegistryCacheRecord')(packId); }
 function deleteLoredeckTagRegistryCacheRecord(packId) { return dep('deleteLoredeckTagRegistryCacheRecord')(packId); }
 
+function normalizeLoredeckHealthRepairRunPackId(packId = '') {
+    return normalizeLoredeckPackId(packId) || String(packId || '').trim();
+}
+
+function beginLoredeckHealthRepairRun(packId = '', label = 'Pack Health repair') {
+    const id = normalizeLoredeckHealthRepairRunPackId(packId);
+    if (!id) {
+        return {
+            ok: false,
+            error: 'Pack Health repair needs a Loredeck.',
+        };
+    }
+    const active = activeLoredeckHealthRepairRuns.get(id);
+    if (active) {
+        return {
+            ok: false,
+            blocked: true,
+            active,
+            error: `${active.label || 'Pack Health repair'} is already running for this Loredeck.`,
+        };
+    }
+    const run = {
+        runId: `${Date.now()}_${Math.random().toString(36).slice(2, 8)}`,
+        packId: id,
+        label,
+        startedAt: Date.now(),
+        controller: typeof AbortController === 'function' ? new AbortController() : null,
+    };
+    activeLoredeckHealthRepairRuns.set(id, run);
+    return {
+        ok: true,
+        run,
+        signal: run.controller?.signal,
+        finish() {
+            if (activeLoredeckHealthRepairRuns.get(id)?.runId === run.runId) {
+                activeLoredeckHealthRepairRuns.delete(id);
+            }
+        },
+    };
+}
+
+function showLoredeckHealthRepairRunBlockedToast(block = {}) {
+    toast(block.error || 'Pack Health repair is already running for this Loredeck.', 'info');
+}
+
+export function getLoredeckHealthRepairActiveRun(packId = '') {
+    const id = normalizeLoredeckHealthRepairRunPackId(packId);
+    const run = id ? activeLoredeckHealthRepairRuns.get(id) : null;
+    if (!run) return null;
+    return {
+        runId: run.runId,
+        packId: run.packId,
+        label: run.label,
+        startedAt: run.startedAt,
+        cancellable: !!run.controller && !run.controller.signal?.aborted,
+        cancelled: run.controller?.signal?.aborted === true,
+    };
+}
+
+export function cancelLoredeckHealthRepairRun(packId = '') {
+    const id = normalizeLoredeckHealthRepairRunPackId(packId);
+    const run = id ? activeLoredeckHealthRepairRuns.get(id) : null;
+    if (!run) {
+        toast('No active Pack Health repair run is available to cancel.', 'info');
+        return false;
+    }
+    if (!run.controller || run.controller.signal?.aborted) {
+        toast(`${run.label || 'Pack Health repair'} is already stopping.`, 'info');
+        return false;
+    }
+    run.controller.abort(`${run.label || 'Pack Health repair'} cancelled by user.`);
+    toast(`${run.label || 'Pack Health repair'} cancellation requested.`, 'info');
+    return true;
+}
+
+function getInjectedLoredeckHealthModelRepairRequest() {
+    const request = dep('requestLoredeckHealthModelRepair', null);
+    return typeof request === 'function' ? request : null;
+}
+
+function validateLoredeckHealthModelRepairProvider() {
+    if (getInjectedLoredeckHealthModelRepairRequest()) {
+        return { ok: true, provider: 'injected', kind: 'lore' };
+    }
+    return validateLoreProviderConfiguration('lore');
+}
+
+async function requestLoredeckHealthModelRepair(context = {}, requestOptions = {}) {
+    const injected = getInjectedLoredeckHealthModelRepairRequest();
+    if (injected) return await injected(context, requestOptions);
+    const progress = requestOptions.onProgress || context.emitProgress;
+    const raw = await sendLoreRequest(
+        LOREDECK_HEALTH_MODEL_REPAIR_SYSTEM_PROMPT,
+        context.promptText || JSON.stringify(context.promptPayload || {}),
+        {
+            providerKind: 'lore',
+            maxTokens: Number.isFinite(Number(requestOptions.maxTokens)) ? Number(requestOptions.maxTokens) : 8192,
+            expectedOutput: 'json',
+            forceVisibleOutput: true,
+            signal: requestOptions.signal || context.signal,
+            onProgress: typeof progress === 'function' ? progress : undefined,
+            ...requestOptions,
+        }
+    );
+    return extractLoreResponseText(raw);
+}
+
 function getSafeRepairHealthCount(health = null, key = '') {
     return Number(health?.summary?.[key]) || 0;
 }
@@ -92,6 +235,201 @@ function formatSafeRepairHealthDelta(beforeHealth = null, afterHealth = null) {
     const beforeWarnings = getSafeRepairHealthCount(beforeHealth, 'warningCount');
     const afterWarnings = getSafeRepairHealthCount(afterHealth, 'warningCount');
     return `Pack Health ${beforeErrors}->${afterErrors} error${afterErrors === 1 ? '' : 's'}, ${beforeWarnings}->${afterWarnings} warning${afterWarnings === 1 ? '' : 's'}`;
+}
+
+function formatAttemptFixingHealthDelta(summary = {}) {
+    const before = summary.initialHealth || {};
+    const after = summary.finalHealth || {};
+    const beforeErrors = Number(before.errorCount) || 0;
+    const afterErrors = Number(after.errorCount) || 0;
+    const beforeWarnings = Number(before.warningCount) || 0;
+    const afterWarnings = Number(after.warningCount) || 0;
+    return `Pack Health ${beforeErrors}->${afterErrors} error${afterErrors === 1 ? '' : 's'}, ${beforeWarnings}->${afterWarnings} warning${afterWarnings === 1 ? '' : 's'}`;
+}
+
+function getAttemptFixingRemainingParts(result = {}) {
+    const remaining = result.remaining || {};
+    const parts = [];
+    const choiceCount = Number(remaining.choiceSetCount || remaining.choiceSets?.length) || 0;
+    const modelCount = Number(remaining.modelUnits?.length) || 0;
+    const deferredCount = Number(remaining.deferredUnits?.length) || 0;
+    const manualCount = Number(remaining.manualBuckets?.length) || 0;
+    if (choiceCount) parts.push(`${choiceCount} review choice${choiceCount === 1 ? '' : 's'}`);
+    if (modelCount) parts.push(`${modelCount} model batch${modelCount === 1 ? '' : 'es'}`);
+    if (deferredCount) parts.push(`${deferredCount} deferred model batch${deferredCount === 1 ? '' : 'es'}`);
+    if (manualCount) parts.push(`${manualCount} manual group${manualCount === 1 ? '' : 's'}`);
+    return parts;
+}
+
+function appendSentence(message = '', sentence = '') {
+    const cleanMessage = String(message || '').trim();
+    const cleanSentence = String(sentence || '').trim();
+    if (!cleanSentence) return cleanMessage;
+    return `${cleanMessage}${cleanMessage.endsWith('.') ? '' : '.'} ${cleanSentence}`;
+}
+
+function getAttemptFixingSessionText(...results) {
+    return results.some(result => result?.sessionPath) ? ' Repair session saved.' : '';
+}
+
+function formatRepairCountList(parts = []) {
+    const clean = parts.filter(Boolean);
+    if (!clean.length) return '';
+    if (clean.length === 1) return clean[0];
+    return `${clean.slice(0, -1).join(', ')} and ${clean[clean.length - 1]}`;
+}
+
+function getAttemptFixingSummaryIssueCount(summary = {}) {
+    const health = summary.finalHealth || {};
+    return (Number(health.errorCount) || 0) + (Number(health.warningCount) || 0) + (Number(health.suggestionCount) || 0);
+}
+
+function formatAttemptFixingToast(result = {}, options = {}) {
+    const summary = result.summary || {};
+    const appliedCount = Array.isArray(result.appliedPatches) ? result.appliedPatches.length : 0;
+    const remainingParts = getAttemptFixingRemainingParts(result);
+    const delta = formatAttemptFixingHealthDelta(summary);
+    const sessionText = getAttemptFixingSessionText(result);
+    const extraText = options.extraText || '';
+    const withExtra = message => appendSentence(message, extraText);
+    if (appliedCount) {
+        return {
+            type: summary.outcome === 'clean' ? 'success' : 'warning',
+            message: withExtra(`Attempt Fixing applied ${appliedCount} local repair${appliedCount === 1 ? '' : 's'}: ${delta}.${remainingParts.length ? ` Still needs ${remainingParts.join(', ')}.` : ''}${sessionText}`),
+        };
+    }
+    if (remainingParts.length) {
+        return {
+            type: 'warning',
+            message: withExtra(`Attempt Fixing found no deterministic local fixes. Still needs ${remainingParts.join(', ')}.${sessionText}`),
+        };
+    }
+    if (summary.outcome === 'clean') {
+        return {
+            type: 'success',
+            message: withExtra(`Attempt Fixing found no remaining Pack Health issues: ${delta}.`),
+        };
+    }
+    return {
+        type: 'info',
+        message: withExtra(`Attempt Fixing found no deterministic local fixes: ${delta}.`),
+    };
+}
+
+function formatAttemptFixingWithModelToast(localResult = {}, modelResult = {}) {
+    const localPatches = Array.isArray(localResult.appliedPatches) ? localResult.appliedPatches.length : 0;
+    const modelPatches = Array.isArray(modelResult.appliedPatches) ? modelResult.appliedPatches.length : 0;
+    const repairText = formatRepairCountList([
+        localPatches ? `${localPatches} local repair${localPatches === 1 ? '' : 's'}` : '',
+        modelPatches ? `${modelPatches} model repair${modelPatches === 1 ? '' : 's'}` : '',
+    ]);
+    const combinedSummary = {
+        initialHealth: localResult.summary?.initialHealth || modelResult.summary?.initialHealth,
+        finalHealth: modelResult.summary?.finalHealth || localResult.summary?.finalHealth,
+    };
+    const delta = formatAttemptFixingHealthDelta(combinedSummary);
+    const remainingParts = getAttemptFixingRemainingParts(modelResult);
+    const sessionText = getAttemptFixingSessionText(modelResult, localResult);
+    const modelError = modelResult.ok === false
+        ? ` Some model batches did not finish${modelResult.error ? `: ${modelResult.error}` : '.'}`
+        : '';
+    if (repairText) {
+        return {
+            type: modelResult.ok === false || remainingParts.length ? 'warning' : 'success',
+            message: `Attempt Fixing applied ${repairText}: ${delta}.${remainingParts.length ? ` Still needs ${remainingParts.join(', ')}.` : ''}${modelError}${sessionText}`,
+        };
+    }
+    if (remainingParts.length) {
+        return {
+            type: 'warning',
+            message: `Attempt Fixing ran model repair batches but still needs ${remainingParts.join(', ')}.${modelError}${sessionText}`,
+        };
+    }
+    if (getAttemptFixingSummaryIssueCount(combinedSummary) === 0) {
+        return {
+            type: 'success',
+            message: `Attempt Fixing found no remaining Pack Health issues: ${delta}.`,
+        };
+    }
+    return {
+        type: modelResult.ok === false ? 'warning' : 'info',
+        message: `Attempt Fixing completed model repair pass: ${delta}.${modelError}${sessionText}`,
+    };
+}
+
+function formatContinueModelRepairToast(result = {}) {
+    const modelPatches = Array.isArray(result.appliedPatches) ? result.appliedPatches.length : 0;
+    const delta = formatAttemptFixingHealthDelta(result.summary || {});
+    const remainingParts = getAttemptFixingRemainingParts(result);
+    const sessionText = getAttemptFixingSessionText(result);
+    const modelError = result.ok === false
+        ? ` Some model batches did not finish${result.error ? `: ${result.error}` : '.'}`
+        : '';
+    if (modelPatches) {
+        return {
+            type: result.ok === false || remainingParts.length ? 'warning' : 'success',
+            message: `Continue Model Batches applied ${modelPatches} model repair${modelPatches === 1 ? '' : 's'}: ${delta}.${remainingParts.length ? ` Still needs ${remainingParts.join(', ')}.` : ''}${modelError}${sessionText}`,
+        };
+    }
+    if (remainingParts.length) {
+        return {
+            type: 'warning',
+            message: `Continue Model Batches ran but still needs ${remainingParts.join(', ')}.${modelError}${sessionText}`,
+        };
+    }
+    if (getAttemptFixingSummaryIssueCount(result.summary || {}) === 0) {
+        return {
+            type: 'success',
+            message: `Continue Model Batches found no remaining Pack Health issues: ${delta}.`,
+        };
+    }
+    return {
+        type: result.ok === false ? 'warning' : 'info',
+        message: `Continue Model Batches completed: ${delta}.${modelError}${sessionText}`,
+    };
+}
+
+function clearLoredeckHealthRepairCaches(packId = '') {
+    deleteLoredeckManifestPreviewCacheRecord(packId);
+    deleteLoredeckEntryPreviewCacheRecord(packId);
+    deleteLoredeckTimelineRegistryCacheRecord(packId);
+    deleteLoredeckTagRegistryCacheRecord(packId);
+}
+
+function setAttemptFixingButtonText(button = null, text = '') {
+    if (!button || !text) return;
+    button.textContent = text;
+}
+
+function shouldContinueAttemptFixingWithModel(result = {}) {
+    const remaining = result.remaining || {};
+    return (Number(remaining.modelUnits?.length) || 0) + (Number(remaining.deferredUnits?.length) || 0) > 0;
+}
+
+function handleAttemptFixingModelProgress(button = null, event = {}) {
+    if (!button || !event?.type) return;
+    if (event.type === 'run_progress') {
+        const total = Math.max(1, Number(event.run?.totalUnits) || 1);
+        const index = Math.max(0, Number(event.index) || 0) + 1;
+        setAttemptFixingButtonText(button, `Model ${Math.min(index, total)}/${total}...`);
+        return;
+    }
+    if (event.type === 'unit_started' || event.type === 'unit_retrying') {
+        const label = event.type === 'unit_retrying' ? 'Retrying' : 'Model';
+        const attempts = Number(event.attempt) > 1 ? ` ${event.attempt}` : '';
+        setAttemptFixingButtonText(button, `${label} batch${attempts}...`);
+        return;
+    }
+    if (event.type === 'unit_completed') setAttemptFixingButtonText(button, 'Saving repair...');
+}
+
+async function flushLoredeckHealthRepairWrites() {
+    const payloadFlush = await flushSagaLorepackPayloadStorageWrites();
+    const libraryFlush = await flushSagaLorepackLibraryStorageWrites();
+    if (!payloadFlush.ok || !libraryFlush.ok) {
+        throw new Error(payloadFlush.error || libraryFlush.error || 'Attempt Fixing writes did not finish cleanly.');
+    }
+    return { payloadFlush, libraryFlush };
 }
 
 function getSchemaV3RepairCandidateKey(entryId = '', candidate = {}) {
@@ -168,8 +506,8 @@ function buildSchemaV3ContextAnchorRepairChange(entry = {}, candidates = [], exi
     });
 }
 
-export async function repairLoredeckSafeHealthIssues(pack, button = null) {
-    const restoreBusy = setLoredeckActionButtonBusy(button, 'Repairing...', { fallbackLabel: 'Auto-Repair Safe Findings' });
+async function repairLoredeckSafeHealthIssuesLegacy(pack, button = null) {
+    const restoreBusy = setLoredeckActionButtonBusy(button, 'Attempting...', { fallbackLabel: 'Attempt Fixing' });
     try {
         const source = getFreshLoredeckLibraryPack(pack.packId, pack);
         if (!source || source.type === 'bundled') {
@@ -233,8 +571,8 @@ export async function repairLoredeckSafeHealthIssues(pack, button = null) {
                 unresolvedRepairCount ? `${unresolvedRepairCount} override${unresolvedRepairCount === 1 ? '' : 's'} still need review` : '',
             ].filter(Boolean);
             toast(reviewParts.length
-                ? `No deterministic safe repairs were applied. ${reviewParts.join(', ')}. Use assistant batches or manual review for the remaining Pack Health findings.`
-                : 'No deterministic safe repairs are available for this Loredeck. Use assistant batches or manual review for the remaining Pack Health findings.',
+                ? `Attempt Fixing could not apply deterministic local fixes. ${reviewParts.join(', ')}. Use review choices, model batches, or manual review for the remaining Pack Health findings.`
+                : 'Attempt Fixing found no deterministic local fixes for this Loredeck. Use review choices, model batches, or manual review for the remaining Pack Health findings.',
             reviewParts.length ? 'warning' : 'info');
             return false;
         }
@@ -244,18 +582,206 @@ export async function repairLoredeckSafeHealthIssues(pack, button = null) {
             next.manifestData = buildEmbeddedCustomManifest(next.manifestData || validation.manifest, next);
         }
         const result = upsertLoredeckLibraryPack(next);
-        if (!result.ok) throw new Error(result.error || 'Safe repair failed.');
+        if (!result.ok) throw new Error(result.error || 'Attempt Fixing fallback failed.');
         clearCanonLoreDatabaseCache();
         clearContextIndexCache();
         deleteLoredeckEntryPreviewCacheRecord(next.packId);
         const afterValidation = await validateLoredeckForEditor(next, null, { quiet: true, updateLibrary: true });
         refreshLoredeckSurfaces();
-        toast(`Safe repairs applied: ${formatSafeRepairHealthDelta(validation.health, afterValidation?.health)}${overrideRepairCount ? `, ${overrideRepairCount} override${overrideRepairCount === 1 ? '' : 's'} repaired` : ''}${pendingRepairChanges.length ? `, ${pendingRepairChanges.length} review repair${pendingRepairChanges.length === 1 ? '' : 's'} queued` : ''}${ambiguousRepairCandidateCount ? `, ${ambiguousRepairCandidateCount} ambiguous candidate${ambiguousRepairCandidateCount === 1 ? '' : 's'} left for Pack Health review` : ''}${unresolvedRepairCount ? `, ${unresolvedRepairCount} override${unresolvedRepairCount === 1 ? '' : 's'} still need review` : ''}.`, 'success');
+        toast(`Attempt Fixing applied fallback repairs: ${formatSafeRepairHealthDelta(validation.health, afterValidation?.health)}${overrideRepairCount ? `, ${overrideRepairCount} override${overrideRepairCount === 1 ? '' : 's'} repaired` : ''}${pendingRepairChanges.length ? `, ${pendingRepairChanges.length} review repair${pendingRepairChanges.length === 1 ? '' : 's'} queued` : ''}${ambiguousRepairCandidateCount ? `, ${ambiguousRepairCandidateCount} ambiguous candidate${ambiguousRepairCandidateCount === 1 ? '' : 's'} left for Pack Health review` : ''}${unresolvedRepairCount ? `, ${unresolvedRepairCount} override${unresolvedRepairCount === 1 ? '' : 's'} still need review` : ''}.`, 'success');
         return true;
     } catch (e) {
-        toast(e?.message || 'Safe repair failed.', 'error');
+        toast(e?.message || 'Attempt Fixing fallback failed.', 'error');
         return false;
     } finally {
+        restoreBusy();
+    }
+}
+
+function shouldFallbackToLegacySafeRepair(result = {}, error = null) {
+    if (error) return true;
+    if (!result || result.ok !== false) return false;
+    if (result.notFound) return true;
+    return /not registered in external storage|payload could not be loaded|saga file read failed|failed to parse url|missing|not found|404/i.test(String(result.error || ''));
+}
+
+export async function repairLoredeckSafeHealthIssues(pack, button = null) {
+    const restoreBusy = setLoredeckActionButtonBusy(button, 'Attempting...', { fallbackLabel: 'Attempt Fixing' });
+    let runLock = null;
+    try {
+        const source = getFreshLoredeckLibraryPack(pack?.packId, pack);
+        if (!source?.packId) {
+            toast('Attempt Fixing needs a Loredeck to repair.', 'warning');
+            return false;
+        }
+        if (source.type === 'bundled') {
+            toast('Bundled Loredecks cannot be repaired directly. Duplicate as Custom first.', 'warning');
+            return false;
+        }
+        runLock = beginLoredeckHealthRepairRun(source.packId, 'Attempt Fixing');
+        if (!runLock.ok) {
+            showLoredeckHealthRepairRunBlockedToast(runLock);
+            return false;
+        }
+        let attemptResult = null;
+        let attemptError = null;
+        try {
+            setAttemptFixingButtonText(button, 'Checking health...');
+            attemptResult = await attemptLoredeckHealthFixes(source.packId, {
+                persistSession: true,
+            });
+        } catch (error) {
+            attemptError = error;
+        }
+        if (shouldFallbackToLegacySafeRepair(attemptResult, attemptError)) {
+            restoreBusy();
+            return await repairLoredeckSafeHealthIssuesLegacy(source, button);
+        }
+        if (!attemptResult?.ok) {
+            throw new Error(attemptResult?.error || attemptError?.message || 'Attempt Fixing failed.');
+        }
+        setAttemptFixingButtonText(button, 'Saving repairs...');
+        await flushLoredeckHealthRepairWrites();
+
+        let modelResult = null;
+        let providerSkipMessage = '';
+        if (shouldContinueAttemptFixingWithModel(attemptResult)) {
+            const providerValidation = validateLoredeckHealthModelRepairProvider();
+            if (providerValidation.ok) {
+                setAttemptFixingButtonText(button, 'Model batches...');
+                modelResult = await runLoredeckHealthModelRepairBatches(source.packId, {
+                    persistSession: true,
+                    session: attemptResult.session || null,
+                    requestModelRepair: requestLoredeckHealthModelRepair,
+                    onProgress: event => handleAttemptFixingModelProgress(button, event),
+                    retryAttempts: 1,
+                    signal: runLock.signal,
+                });
+                setAttemptFixingButtonText(button, 'Saving repairs...');
+                await flushLoredeckHealthRepairWrites();
+            } else {
+                providerSkipMessage = `Reasoning Provider not ready for model batches: ${providerValidation.message}`;
+            }
+        }
+        clearCanonLoreDatabaseCache();
+        clearContextIndexCache();
+        clearLoredeckHealthRepairCaches(source.packId);
+        refreshLoredeckSurfaces({ clearCanon: true, clearContext: true });
+        const formatted = modelResult
+            ? formatAttemptFixingWithModelToast(attemptResult, modelResult)
+            : formatAttemptFixingToast(attemptResult, { extraText: providerSkipMessage });
+        toast(formatted.message, formatted.type);
+        return modelResult ? (modelResult.ok !== false || modelResult.changed === true) : true;
+    } catch (e) {
+        toast(e?.message || 'Attempt Fixing failed.', 'error');
+        return false;
+    } finally {
+        runLock?.finish?.();
+        restoreBusy();
+    }
+}
+
+export async function applyLoredeckHealthRepairChoice(pack, choiceSet = {}, option = {}, session = {}, button = null) {
+    const restoreBusy = setLoredeckActionButtonBusy(button, 'Applying...', { fallbackLabel: 'Apply' });
+    let runLock = null;
+    try {
+        const source = getFreshLoredeckLibraryPack(pack?.packId || session?.packId, pack) || pack;
+        const packId = source?.packId || session?.packId || pack?.packId || '';
+        if (!packId) {
+            toast('Applying a repair choice needs a Loredeck.', 'warning');
+            return null;
+        }
+        if (source?.type === 'bundled') {
+            toast('Bundled Loredecks cannot be repaired directly. Duplicate as Custom first.', 'warning');
+            return null;
+        }
+        runLock = beginLoredeckHealthRepairRun(packId, 'Apply Repair Choice');
+        if (!runLock.ok) {
+            showLoredeckHealthRepairRunBlockedToast(runLock);
+            return null;
+        }
+        const result = await applyLoredeckHealthRepairChoiceStorage(packId, {
+            session,
+            sessionPath: session?.sessionFile || '',
+            choiceSetId: choiceSet?.choiceSetId || '',
+            optionId: option?.optionId || '',
+        });
+        if (!result?.ok) throw new Error(result?.error || 'Repair choice could not be applied.');
+        await flushLoredeckHealthRepairWrites();
+        clearCanonLoreDatabaseCache();
+        clearContextIndexCache();
+        clearLoredeckHealthRepairCaches(packId);
+        refreshLoredeckSurfaces({ clearCanon: true, clearContext: true });
+        const remainingParts = getAttemptFixingRemainingParts(result);
+        const label = option?.label ? ` "${option.label}"` : '';
+        const delta = formatAttemptFixingHealthDelta(result.summary || {});
+        const sessionText = result.sessionPath ? ' Repair session updated.' : (result.deletedSession ? ' Repair session cleared.' : '');
+        const sessionErrorText = result.sessionError ? ` Session update failed: ${result.sessionError}` : '';
+        toast(`Applied repair choice${label}: ${delta}.${remainingParts.length ? ` Still needs ${remainingParts.join(', ')}.` : ''}${sessionText}${sessionErrorText}`, remainingParts.length || result.sessionError ? 'warning' : 'success');
+        return result;
+    } catch (e) {
+        toast(e?.message || 'Repair choice could not be applied.', 'error');
+        return null;
+    } finally {
+        runLock?.finish?.();
+        restoreBusy();
+    }
+}
+
+export async function continueLoredeckHealthModelRepairSession(pack, session = {}, button = null) {
+    const restoreBusy = setLoredeckActionButtonBusy(button, 'Continuing...', { fallbackLabel: 'Continue Model Batches' });
+    let runLock = null;
+    try {
+        const source = getFreshLoredeckLibraryPack(pack?.packId || session?.packId, pack) || pack;
+        const packId = source?.packId || session?.packId || pack?.packId || '';
+        if (!packId) {
+            toast('Continuing model repair needs a Loredeck.', 'warning');
+            return null;
+        }
+        if (source?.type === 'bundled') {
+            toast('Bundled Loredecks cannot be repaired directly. Duplicate as Custom first.', 'warning');
+            return null;
+        }
+        const remaining = session?.remaining || {};
+        const modelCount = (Number(remaining.modelUnits?.length) || 0) + (Number(remaining.deferredUnits?.length) || 0);
+        if (!modelCount) {
+            toast('This repair session has no model batches to continue.', 'info');
+            return null;
+        }
+        const providerValidation = validateLoredeckHealthModelRepairProvider();
+        if (!providerValidation.ok) {
+            toast(`Reasoning Provider not ready for model batches: ${providerValidation.message}`, 'warning');
+            return null;
+        }
+        runLock = beginLoredeckHealthRepairRun(packId, 'Continue Model Batches');
+        if (!runLock.ok) {
+            showLoredeckHealthRepairRunBlockedToast(runLock);
+            return null;
+        }
+        setAttemptFixingButtonText(button, 'Model batches...');
+        const result = await runLoredeckHealthModelRepairBatches(packId, {
+            persistSession: true,
+            session,
+            requestModelRepair: requestLoredeckHealthModelRepair,
+            onProgress: event => handleAttemptFixingModelProgress(button, event),
+            retryAttempts: 1,
+            signal: runLock.signal,
+        });
+        if (!result?.ok && !result?.changed) throw new Error(result?.error || 'Model repair batches did not finish.');
+        setAttemptFixingButtonText(button, 'Saving repairs...');
+        await flushLoredeckHealthRepairWrites();
+        clearCanonLoreDatabaseCache();
+        clearContextIndexCache();
+        clearLoredeckHealthRepairCaches(packId);
+        refreshLoredeckSurfaces({ clearCanon: true, clearContext: true });
+        const formatted = formatContinueModelRepairToast(result);
+        toast(formatted.message, formatted.type);
+        return result;
+    } catch (e) {
+        toast(e?.message || 'Model repair batches could not continue.', 'error');
+        return null;
+    } finally {
+        runLock?.finish?.();
         restoreBusy();
     }
 }

@@ -92,7 +92,7 @@ export function formatLoredeckPendingSourceLabel(source = '') {
         bulk_edit: 'Bulk Edit',
         lore_assistant: 'Lore Assistant',
         loredeck_creator: 'Loredeck Creator',
-        safe_repair: 'Safe Repair',
+        safe_repair: 'Attempt Fixing',
         import: 'Import',
     };
     return known[key] || humanizeScopeKey(key);
@@ -103,7 +103,7 @@ export function getLoredeckPendingSourceTooltip(source = '') {
     if (key === 'lore_assistant') return 'Created by Saga Lore Assistant. Treat as a proposal until reviewed and accepted.';
     if (key === 'loredeck_creator') return 'Created by Saga Loredeck Creator. Treat as a generated planning proposal until reviewed and accepted.';
     if (key === 'bulk_edit') return 'Created by a bulk-edit tool. Review the field diffs before acceptance.';
-    if (key === 'safe_repair') return 'Created by an automated Pack Health repair path.';
+    if (key === 'safe_repair') return 'Created by Attempt Fixing or an earlier automated Pack Health repair path.';
     return 'Proposal source.';
 }
 
