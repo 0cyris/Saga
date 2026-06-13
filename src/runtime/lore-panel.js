@@ -3224,6 +3224,11 @@ function getLoredeckCreatorGeneratedPackDefinition(packId = '') {
         loredeckCreatorGeneratedPackPayloadCache.delete(id);
         return null;
     }
+    const hydrated = hydrateCachedExternalLorepackPayloadRecord(base || { packId: id });
+    if (hydrated?.payloadFile && (hydrated.manifestData || Object.keys(hydrated.entryOverrides || {}).length || getLoredeckTagRegistryCount(hydrated.tagRegistry) || getLoredeckTimelineRegistryCount(hydrated.timelineRegistry))) {
+        loredeckCreatorGeneratedPackPayloadCache.set(id, cloneLoredeckJson(hydrated));
+        return hydrated;
+    }
     const cached = loredeckCreatorGeneratedPackPayloadCache.get(id) || null;
     if (cached) {
         const baseRevision = Math.floor(Number(base?.revision) || 0);
@@ -3238,11 +3243,6 @@ function getLoredeckCreatorGeneratedPackDefinition(packId = '') {
             });
         }
         loredeckCreatorGeneratedPackPayloadCache.delete(id);
-    }
-    const hydrated = hydrateCachedExternalLorepackPayloadRecord(base || { packId: id });
-    if (hydrated?.payloadFile && (hydrated.manifestData || Object.keys(hydrated.entryOverrides || {}).length || getLoredeckTagRegistryCount(hydrated.tagRegistry) || getLoredeckTimelineRegistryCount(hydrated.timelineRegistry))) {
-        loredeckCreatorGeneratedPackPayloadCache.set(id, cloneLoredeckJson(hydrated));
-        return hydrated;
     }
     return base;
 }
@@ -12244,7 +12244,8 @@ function openLoredeckBulkContextDialog(pack, rows = []) {
 }
 
 function getFreshLoredeckLibraryPack(packId, fallback = null) {
-    return getLoredeckDefinition(packId) || fallback;
+    const fresh = getLoredeckDefinition(packId) || fallback;
+    return hydrateCachedExternalLorepackPayloadRecord(fresh) || fresh;
 }
 
 function failLoredeckLibraryRecordMutation(message = 'Loredeck save failed.', options = {}, toastType = 'error') {

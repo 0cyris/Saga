@@ -192,6 +192,19 @@ function collectAssetPaths(value = {}) {
     return [...paths].sort();
 }
 
+function collectPayloadAssetPaths(payload = {}) {
+    return [...new Set([
+        normalizeAnySagaStoragePath(payload?.coverFile || payload?.coverPath || payload?.coverImage || ''),
+        ...collectAssetPaths(payload?.cover || {}),
+        ...collectAssetPaths(payload?.coverImage || {}),
+        ...collectAssetPaths(payload?.assets || {}),
+        ...collectAssetPaths(payload?.manifestData?.assets || {}),
+        ...collectAssetPaths(payload?.manifestData?.cover || {}),
+        ...collectAssetPaths(payload?.manifestData?.coverImage || {}),
+        ...collectAssetPaths(payload?.assetRefs || {}),
+    ].filter(Boolean))].sort();
+}
+
 function getCoverAssetPath(pack = {}) {
     const direct = normalizeAnySagaStoragePath(pack.coverFile || pack.coverPath || pack.coverImage || '');
     if (direct) return direct;
@@ -342,6 +355,9 @@ function queueExternalLorepackPayloadWrite(payload = {}, options = {}) {
         updatedAt: getClockNow(merged),
     }, merged);
     const assetUploads = prepared.assetUploads;
+    const staleAssetDeletes = [...new Set((Array.isArray(merged.staleAssetDeletes) ? merged.staleAssetDeletes : [])
+        .map(normalizeAnySagaStoragePath)
+        .filter(Boolean))].sort();
     const cacheSequence = nextPayloadCacheSequence();
     setPayloadCache(payloadSnapshot, merged, { sequence: cacheSequence });
     pendingPayloadWriteCount += 1;
@@ -375,6 +391,16 @@ function queueExternalLorepackPayloadWrite(payload = {}, options = {}) {
                     deletion: 'delete_with_owner',
                 });
                 setPayloadCacheIfNotNewer(payloadSnapshot, merged, { sequence: cacheSequence });
+                const latestAssetPaths = new Set(collectPayloadAssetPaths(getCachedExternalLorepackPayload(payloadSnapshot.packId) || payloadSnapshot));
+                const obsoleteAssetPaths = staleAssetDeletes.filter(path => !latestAssetPaths.has(path));
+                for (const assetPath of obsoleteAssetPaths) {
+                    try {
+                        await fileApi.deleteFile(assetPath, { allowedExtensions: SAGA_STORAGE_RASTER_ASSET_EXTENSIONS });
+                    } catch (error) {
+                        if (!isMissingStorageFileError(error)) throw error;
+                    }
+                    if (storageIndexStore?.unregisterFile) await storageIndexStore.unregisterFile(assetPath, merged);
+                }
                 lastPayloadWriteError = '';
             } catch (error) {
                 recordQueuedWriteError(error, merged);
@@ -606,12 +632,16 @@ export async function hydrateExternalLorepackPayloadRecord(record = {}, options 
 
 export function upsertExternalLorepackPayloadSync(packRecord = {}, options = {}) {
     const normalized = normalizeExternalLorepackPayload(packRecord, options);
+    const previousAssetPaths = collectPayloadAssetPaths(getCachedExternalLorepackPayload(normalized.packId) || {});
     const prepared = prepareExternalLorepackPayloadAssets(normalized);
+    const nextAssetPaths = new Set(collectPayloadAssetPaths(prepared.payload));
+    const staleAssetDeletes = previousAssetPaths.filter(path => !nextAssetPaths.has(path));
     const payload = setPayloadCache(prepared.payload, options);
     if (!payload?.packId) return { ok: false, error: 'Lorepack payload must include a packId/id.' };
     queueExternalLorepackPayloadWrite(payload, {
         ...options,
         assetUploads: prepared.assetUploads,
+        staleAssetDeletes,
     });
     return {
         ok: true,

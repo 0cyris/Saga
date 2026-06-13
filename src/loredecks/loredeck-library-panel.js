@@ -4500,11 +4500,7 @@ async function saveLoredeckCoverImageAsset(packId = '', asset = null, message = 
         const assets = next.assets && typeof next.assets === 'object' && !Array.isArray(next.assets)
             ? { ...next.assets }
             : {};
-        if (asset) {
-            assets.cover = asset;
-        } else {
-            delete assets.cover;
-            delete assets.deckCover;
+        const clearDirectCoverPointers = () => {
             delete next.cover;
             delete next.coverImage;
             delete next.coverFile;
@@ -4515,25 +4511,46 @@ async function saveLoredeckCoverImageAsset(packId = '', asset = null, message = 
                 if (Object.keys(assetRefs).length) next.assetRefs = assetRefs;
                 else delete next.assetRefs;
             }
-            if (next.manifestData && typeof next.manifestData === 'object' && !Array.isArray(next.manifestData)) {
-                const manifestAssets = next.manifestData.assets && typeof next.manifestData.assets === 'object' && !Array.isArray(next.manifestData.assets)
-                    ? { ...next.manifestData.assets }
-                    : {};
-                delete manifestAssets.cover;
+            if (!next.assetRefs) next.assetRefs = {};
+        };
+        const setManifestCoverAsset = nextAsset => {
+            if (!next.manifestData || typeof next.manifestData !== 'object' || Array.isArray(next.manifestData)) return;
+            const manifestAssets = next.manifestData.assets && typeof next.manifestData.assets === 'object' && !Array.isArray(next.manifestData.assets)
+                ? { ...next.manifestData.assets }
+                : {};
+            if (nextAsset) {
+                manifestAssets.cover = nextAsset;
                 delete manifestAssets.deckCover;
-                if (Object.keys(manifestAssets).length) {
-                    next.manifestData = {
-                        ...next.manifestData,
-                        assets: manifestAssets,
-                    };
-                } else {
-                    next.manifestData = { ...next.manifestData };
-                    delete next.manifestData.assets;
-                }
+                next.manifestData = {
+                    ...next.manifestData,
+                    assets: manifestAssets,
+                };
+                return;
             }
+            delete manifestAssets.cover;
+            delete manifestAssets.deckCover;
+            if (Object.keys(manifestAssets).length) {
+                next.manifestData = {
+                    ...next.manifestData,
+                    assets: manifestAssets,
+                };
+            } else {
+                next.manifestData = { ...next.manifestData };
+                delete next.manifestData.assets;
+            }
+        };
+        clearDirectCoverPointers();
+        if (asset) {
+            assets.cover = asset;
+            delete assets.deckCover;
+            setManifestCoverAsset(asset);
+        } else {
+            delete assets.cover;
+            delete assets.deckCover;
+            setManifestCoverAsset(null);
         }
         if (Object.keys(assets).length) next.assets = assets;
-        else delete next.assets;
+        else next.assets = {};
     }, message, {
         errorMessage: 'Loredeck cover save failed.',
     });

@@ -168,6 +168,83 @@ assert.equal(stored.has(storedPayload.assets.cover.path), true, 'Data URL cover 
 assert.equal(JSON.parse(stored.get(SAGA_STORAGE_INDEX_PATH)).files[storedPayload.assets.cover.path].kind, 'lorepack_asset');
 assert.equal(JSON.parse(stored.get(SAGA_STORAGE_INDEX_PATH)).files['/user/files/saga-pack-arlong-payload.v1.json'].kind, 'lorepack_payload');
 
+const lifecyclePayload = normalizeExternalLorepackPayload({
+  packId: 'cover-lifecycle',
+  type: 'custom',
+  title: 'Cover Lifecycle',
+  manifestData: {
+    id: 'cover-lifecycle',
+    title: 'Cover Lifecycle',
+    entrySchemaVersion: 3,
+    assets: {
+      cover: {
+        path: 'data:image/png;base64,T0xE',
+        alt: 'Old lifecycle cover',
+      },
+    },
+  },
+  assets: {
+    cover: {
+      path: 'data:image/png;base64,T0xE',
+      alt: 'Old lifecycle cover',
+    },
+  },
+  entryOverrides: {
+    lifecycle: { id: 'lifecycle', title: 'Lifecycle', schemaVersion: 3, content: { fact: 'Cover replacement should clean stale assets.' } },
+  },
+});
+const lifecycleInitial = upsertExternalLorepackPayloadSync(lifecyclePayload);
+assert.equal(lifecycleInitial.ok, true);
+assert.equal((await flushSagaLorepackPayloadStorageWrites()).ok, true);
+const lifecycleStoredInitial = JSON.parse(stored.get(lifecycleInitial.payload.payloadFile));
+const lifecycleOldCover = lifecycleStoredInitial.assets.cover.path;
+assert(stored.has(lifecycleOldCover));
+
+resetSagaLorepackPayloadStorageCache();
+configureSagaLorepackPayloadStorage({ fileApi, now });
+let latestLifecyclePanelPack = lifecycleInitial.libraryRecord;
+configureLoredeckLibraryPanel({
+  getFreshLoredeckLibraryPack: (_packId, fallback) => latestLifecyclePanelPack || fallback || null,
+  isBundledLoredeckLibraryPack: () => false,
+  hydrateLoredeckPayloadRecord: async pack => {
+    const hydratedPack = await hydrateExternalLorepackPayloadRecord(pack);
+    latestLifecyclePanelPack = hydratedPack;
+    return hydratedPack;
+  },
+  persistLoredeckLibraryRecordMutation: (pack, mutator) => {
+    const next = JSON.parse(JSON.stringify(pack));
+    mutator(next);
+    const result = upsertExternalLorepackPayloadSync(next, { fileApi, now });
+    if (result.ok) latestLifecyclePanelPack = result.libraryRecord;
+    return result.ok;
+  },
+});
+const lifecycleReplaceOk = await __loredeckLibraryPanelTestHooks.saveLoredeckCoverImageAsset('cover-lifecycle', {
+  path: 'data:image/png;base64,TkVX',
+  alt: 'New lifecycle cover',
+});
+assert.equal(lifecycleReplaceOk, true);
+assert.equal((await flushSagaLorepackPayloadStorageWrites()).ok, true);
+const lifecycleStoredReplacement = JSON.parse(stored.get(lifecycleInitial.payload.payloadFile));
+const lifecycleNewCover = lifecycleStoredReplacement.assets.cover.path;
+assert.notEqual(lifecycleNewCover, lifecycleOldCover);
+assert.equal(lifecycleStoredReplacement.assets.cover.alt, 'New lifecycle cover');
+assert.equal(createExternalLorepackLibraryRecord(lifecycleStoredReplacement).coverFile, lifecycleNewCover);
+assert.equal(stored.has(lifecycleNewCover), true);
+assert.equal(stored.has(lifecycleOldCover), false, 'Replacing a cover should delete the previous Saga-owned cover asset.');
+assert.equal(JSON.parse(stored.get(SAGA_STORAGE_INDEX_PATH)).files[lifecycleOldCover], undefined);
+
+const lifecycleRemoveOk = await __loredeckLibraryPanelTestHooks.saveLoredeckCoverImageAsset('cover-lifecycle', null);
+assert.equal(lifecycleRemoveOk, true);
+assert.equal((await flushSagaLorepackPayloadStorageWrites()).ok, true);
+const lifecycleStoredRemoval = JSON.parse(stored.get(lifecycleInitial.payload.payloadFile));
+assert.equal(lifecycleStoredRemoval.assets?.cover, undefined);
+assert.equal(lifecycleStoredRemoval.assetRefs?.cover, undefined);
+assert.equal(lifecycleStoredRemoval.manifestData?.assets?.cover, undefined);
+assert.equal(createExternalLorepackLibraryRecord(lifecycleStoredRemoval).coverFile, undefined);
+assert.equal(stored.has(lifecycleNewCover), false, 'Removing a cover should delete the replaced Saga-owned cover asset.');
+assert.equal(JSON.parse(stored.get(SAGA_STORAGE_INDEX_PATH)).files[lifecycleNewCover], undefined);
+
 resetSagaLorepackPayloadStorageCache();
 configureSagaLorepackPayloadStorage({ fileApi, now });
 let latestPanelPack = upsert.libraryRecord;
