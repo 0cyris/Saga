@@ -54,6 +54,10 @@ function getOrCreateBatchModel(rowsById, rawBatch = {}, fallbackOrder = 0) {
             order: Number.isFinite(Number(rawBatch?.order)) ? Number(rawBatch.order) : fallbackOrder,
             approvedCount: 0,
             handledCount: 0,
+            acceptedCount: 0,
+            pendingCount: 0,
+            draftReviewCount: 0,
+            handledOtherCount: 0,
             remainingCount: 0,
             remainingTitles: [],
         });
@@ -69,6 +73,9 @@ export function getLoredeckCreatorEntryDraftBatchModels(options = {}) {
             ? options.remainingDrafts.map(getLoredeckCreatorEntryDraftTitleId)
             : options.remainingTitleIds
     );
+    const acceptedIds = toIdSet(options.acceptedTitleIds);
+    const pendingIds = toIdSet(options.pendingTitleIds);
+    const draftReviewIds = toIdSet(options.draftReviewTitleIds);
     const rowsById = new Map();
     batches.forEach((batch, index) => {
         getOrCreateBatchModel(rowsById, batch, index + 1);
@@ -83,10 +90,18 @@ export function getLoredeckCreatorEntryDraftBatchModels(options = {}) {
         if (titleId && remainingIds.has(titleId)) {
             batch.remainingCount += 1;
             batch.remainingTitles.push(draft);
+        } else if (titleId && acceptedIds.has(titleId)) {
+            batch.acceptedCount += 1;
+        } else if (titleId && pendingIds.has(titleId)) {
+            batch.pendingCount += 1;
+        } else if (titleId && draftReviewIds.has(titleId)) {
+            batch.draftReviewCount += 1;
         }
     }
     for (const batch of rowsById.values()) {
-        batch.handledCount = Math.max(0, batch.approvedCount - batch.remainingCount);
+        const knownHandled = batch.acceptedCount + batch.pendingCount + batch.draftReviewCount;
+        batch.handledOtherCount = Math.max(0, batch.approvedCount - batch.remainingCount - knownHandled);
+        batch.handledCount = knownHandled + batch.handledOtherCount;
     }
     return [...rowsById.values()]
         .filter(batch => batch.approvedCount > 0)

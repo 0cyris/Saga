@@ -79,6 +79,7 @@ const gateScripts = [
   'tools/scripts/test-loredeck-creator-entry-preflight.mjs',
   'tools/scripts/test-loredeck-creator-entry-rejection-recovery.mjs',
   'tools/scripts/test-loredeck-creator-lorecards-stage-status.mjs',
+  'tools/scripts/test-loredeck-creator-entry-draft-pool.mjs',
   'tools/scripts/test-loredeck-creator-current-task-lorecards-ui.mjs',
   'tools/scripts/test-loredeck-creator-draft-handoff-state.mjs',
   'tools/scripts/test-loredeck-health-legacy-cleanup.mjs',

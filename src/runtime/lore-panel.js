@@ -249,6 +249,7 @@ import {
     refreshGeneratedLoredeckDerivedMetadata,
 } from './loredeck-virtual-data.js';
 import {
+    hydrateCachedExternalLorepackPayloadRecord,
     hydrateExternalLorepackPayloadRecord,
 } from '../storage/saga-lorepack-payload-storage.js';
 import {
@@ -670,6 +671,8 @@ const loredeckTagRegistryCache = new Map();
 const loredeckTimelineRegistryCache = new Map();
 const loredeckAssistantDraftCache = new Map();
 const loredeckCreatorBriefCache = new Map();
+const loredeckCreatorGeneratedPackPayloadCache = new Map();
+const loredeckCreatorGeneratedPackHydrationRequests = new Map();
 const LOREDECK_CREATOR_TITLE_AUTORUN_BATCHES = 5;
 const LOREDECK_CREATOR_ENTRY_BATCH_SIZE = 3;
 const LOREDECK_CREATOR_ENTRY_BATCH_MAX = 6;
@@ -1116,7 +1119,7 @@ configureLoredeckCreatorPanel({
     getLoredeckCreatorPlanningQueuedBatchIds,
     getLoredeckCreatorNextPlanningBatch,
     countLoredeckCreatorPlanningPendingChanges,
-    getLoredeckDefinition,
+    getLoredeckDefinition: getLoredeckCreatorGeneratedPackDefinition,
     handleLoredeckCreatorPlanningDraft,
     openLoredeckLibraryDetails,
     getLoredeckStack,
@@ -1128,7 +1131,7 @@ configureLoredeckCreatorPanel({
     getLoredeckCreatorDraftChanges: packId => getLoredeckAssistantDraftChanges(getLoredeckCreatorDraftCacheForPack(packId)),
     getLoredeckCreatorPendingEntryCount: pack => getLoredeckPendingChanges(pack).filter(change => (change.affectedEntryIds || []).length).length,
     getLoredeckCreatorAcceptedEntryCount: pack => Object.keys(pack?.entryOverrides || {}).length,
-    getFreshLoredeckLibraryPack,
+    getFreshLoredeckLibraryPack: (packId, fallback = null) => getLoredeckCreatorGeneratedPackDefinition(packId) || getFreshLoredeckLibraryPack(packId, fallback),
     handleLoredeckCreatorEntryDraft,
     confirmAction,
     createLoredeckPendingReviewCard,
@@ -2950,7 +2953,7 @@ function reopenLoredeckCreatorCoverageDimension(dimension = {}) {
     const dimensionId = normalizeLoredeckCreatorCoverageId(dimension.id || dimension.label || '');
     if (!dimensionId) return false;
     const cached = getLoredeckCreatorBriefCache();
-    const generatedPack = cached.generatedPackId ? getLoredeckDefinition(cached.generatedPackId) : null;
+    const generatedPack = cached.generatedPackId ? getLoredeckCreatorGeneratedPackDefinition(cached.generatedPackId) : null;
     const coverage = getLoredeckCreatorCoverageModel(cached, generatedPack);
     const current = (coverage.dimensions || []).find(row => row.id === dimensionId) || dimension;
     const nextStatus = Number(current.acceptedEntryCount || 0)
@@ -2973,7 +2976,7 @@ function reopenLoredeckCreatorCoverageDimension(dimension = {}) {
 
 async function acknowledgeLoredeckCreatorCoverageForFinalize() {
     const cached = getLoredeckCreatorBriefCache();
-    const generatedPack = cached.generatedPackId ? getLoredeckDefinition(cached.generatedPackId) : null;
+    const generatedPack = cached.generatedPackId ? getLoredeckCreatorGeneratedPackDefinition(cached.generatedPackId) : null;
     const coverage = getLoredeckCreatorCoverageModel(cached, generatedPack);
     if (!coverage.available) {
         if (!coverage.finalizeAcknowledgementRequired) {
@@ -3053,6 +3056,8 @@ function clearLoredeckCreatorResetPackCaches(packId = '', options = {}) {
     loredeckEntryPreviewCache.delete(id);
     loredeckTimelineRegistryCache.delete(id);
     loredeckTagRegistryCache.delete(id);
+    loredeckCreatorGeneratedPackPayloadCache.delete(id);
+    loredeckCreatorGeneratedPackHydrationRequests.delete(id);
     if (options.clearDraftCache === true) loredeckAssistantDraftCache.delete(id);
 }
 
@@ -3211,13 +3216,79 @@ function getCachedLoredeckCreatorPackHealth(pack = {}) {
     return packId ? (loredeckManifestPreviewCache.get(packId)?.health || null) : null;
 }
 
+function getLoredeckCreatorGeneratedPackDefinition(packId = '') {
+    const id = String(packId || '').trim();
+    if (!id) return null;
+    const base = getLoredeckDefinition(id);
+    if (!base) {
+        loredeckCreatorGeneratedPackPayloadCache.delete(id);
+        return null;
+    }
+    const cached = loredeckCreatorGeneratedPackPayloadCache.get(id) || null;
+    if (cached) {
+        const baseRevision = Math.floor(Number(base?.revision) || 0);
+        const cachedRevision = Math.floor(Number(cached.revision) || 0);
+        if (!baseRevision || cachedRevision >= baseRevision) {
+            return cloneLoredeckJson({
+                ...(base || {}),
+                ...cached,
+                packId: id,
+                id,
+                payloadFile: base?.payloadFile || cached.payloadFile,
+            });
+        }
+        loredeckCreatorGeneratedPackPayloadCache.delete(id);
+    }
+    const hydrated = hydrateCachedExternalLorepackPayloadRecord(base || { packId: id });
+    if (hydrated?.payloadFile && (hydrated.manifestData || Object.keys(hydrated.entryOverrides || {}).length || getLoredeckTagRegistryCount(hydrated.tagRegistry) || getLoredeckTimelineRegistryCount(hydrated.timelineRegistry))) {
+        loredeckCreatorGeneratedPackPayloadCache.set(id, cloneLoredeckJson(hydrated));
+        return hydrated;
+    }
+    return base;
+}
+
+function maybeHydrateLoredeckCreatorGeneratedPack(cached = {}, options = {}) {
+    const packId = String(cached?.generatedPackId || '').trim();
+    if (!packId || loredeckCreatorGeneratedPackHydrationRequests.has(packId)) return false;
+    if (loredeckCreatorGeneratedPackPayloadCache.has(packId)) return false;
+    const base = getLoredeckDefinition(packId);
+    if (!base?.payloadFile) return false;
+    const current = getLoredeckCreatorGeneratedPackDefinition(packId);
+    const hasProgressPayload = current?.manifestData
+        || Object.keys(current?.entryOverrides || {}).length
+        || getLoredeckTagRegistryCount(current?.tagRegistry)
+        || getLoredeckTimelineRegistryCount(current?.timelineRegistry);
+    if (hasProgressPayload) return false;
+    const request = hydrateExternalLorepackPayloadRecord(base)
+        .then(pack => {
+            if (pack?.packId) {
+                loredeckCreatorGeneratedPackPayloadCache.set(pack.packId, cloneLoredeckJson(pack));
+                if (options.refresh !== false) {
+                    refreshLoredeckCreatorWorkbenchBody({ preserveScroll: true });
+                    refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+                }
+            }
+            return pack;
+        })
+        .catch(error => {
+            console.warn('[Saga] Creator generated Loredeck payload hydration failed:', error);
+            return null;
+        })
+        .finally(() => {
+            loredeckCreatorGeneratedPackHydrationRequests.delete(packId);
+        });
+    loredeckCreatorGeneratedPackHydrationRequests.set(packId, request);
+    return true;
+}
+
 function getLoredeckCreatorPipelineModel(cached = {}) {
     const outline = getLoredeckCreatorOutline(cached);
     const titleSets = getLoredeckCreatorTitleBatchRows(cached);
     const draftedTitleSetIds = getLoredeckCreatorTitleDraftedBatchIds(cached);
     const draftedTitleSetCount = titleSets.filter(batch => draftedTitleSetIds.has(batch.id)).length;
     const approvedTitles = getLoredeckCreatorApprovedTitleDrafts(cached);
-    const generatedPack = cached.generatedPackId ? getLoredeckDefinition(cached.generatedPackId) : null;
+    maybeHydrateLoredeckCreatorGeneratedPack(cached);
+    const generatedPack = cached.generatedPackId ? getLoredeckCreatorGeneratedPackDefinition(cached.generatedPackId) : null;
     const planningSets = getLoredeckCreatorPlanningBatchRows(cached);
     const eligiblePlanningSets = planningSets.filter(batch => batch.approvedTitleCount > 0);
     const plannedSetIds = getLoredeckCreatorPlanningPlannedBatchIds(cached, generatedPack);
@@ -3950,7 +4021,7 @@ function createLoredeckCreatorCard(state = getState(), options = {}) {
                 { open: !!outline && cached.outlineApproved !== true, state: outline ? (cached.outlineApproved ? 'Approved' : 'Needs review') : 'Ready', anchor: 'story-outline' }
             ));
             if (cached.outlineApproved && outline) {
-                const generatedPack = cached.generatedPackId ? getLoredeckDefinition(cached.generatedPackId) : null;
+                const generatedPack = cached.generatedPackId ? getLoredeckCreatorGeneratedPackDefinition(cached.generatedPackId) : null;
                 card.appendChild(createLoredeckCreatorArtifactDisclosure(
                     'Title Pass',
                     createLoredeckCreatorTitlePassCard(cached.brief, cached),
@@ -6588,6 +6659,28 @@ function getLoredeckCreatorBlockedEntryIds(pack = {}, draftCache = null) {
     return blocked;
 }
 
+function getLoredeckCreatorEntryDraftBlockState(pack = {}, draftCache = null) {
+    pack = pack || {};
+    const acceptedEntryIds = new Set(Object.keys(pack.entryOverrides || {}).map(id => normalizeLoredeckEntryId(id)).filter(Boolean));
+    const pendingEntryIds = new Set();
+    for (const id of collectLoredeckCreatorChangeEntryIds(normalizeLoredeckPendingChanges(pack.pendingChanges))) {
+        const clean = normalizeLoredeckEntryId(id);
+        if (clean && !acceptedEntryIds.has(clean)) pendingEntryIds.add(clean);
+    }
+    const draftReviewEntryIds = new Set();
+    const effectiveDraftCache = draftCache || getLoredeckCreatorDraftCacheForPack(pack.packId);
+    for (const id of collectLoredeckCreatorChangeEntryIds(getLoredeckAssistantDraftChanges(effectiveDraftCache))) {
+        const clean = normalizeLoredeckEntryId(id);
+        if (clean && !acceptedEntryIds.has(clean) && !pendingEntryIds.has(clean)) draftReviewEntryIds.add(clean);
+    }
+    return {
+        acceptedEntryIds,
+        pendingEntryIds,
+        draftReviewEntryIds,
+        blocked: new Set([...acceptedEntryIds, ...pendingEntryIds, ...draftReviewEntryIds]),
+    };
+}
+
 function getLoredeckCreatorEntryBatchLimit(limit = null, cached = getLoredeckCreatorBriefCache()) {
     const settings = getLoredeckCreatorGenerationSettings(cached);
     const fallback = settings.entryBatchSize || LOREDECK_CREATOR_ENTRY_BATCH_SIZE;
@@ -6624,7 +6717,8 @@ function getLoredeckCreatorEntryDraftPool(cached = {}, pack = {}) {
     const approved = getLoredeckCreatorApprovedTitleDrafts(cached);
     const eligibleApproved = approved.filter(draft => eligibleBatchIds.has(getLoredeckCreatorDraftBatchId(draft)));
     const draftCache = Array.isArray(cached?.draftChanges) ? cached : null;
-    const blocked = getLoredeckCreatorBlockedEntryIds(pack || {}, draftCache);
+    const blockState = getLoredeckCreatorEntryDraftBlockState(pack || {}, draftCache);
+    const blocked = blockState.blocked;
     const selectedIds = getLoredeckCreatorSelectedTitleIds(cached);
     const selectedApproved = eligibleApproved.filter(draft => selectedIds.has(draft.titleId));
     const preferred = selectedApproved.length ? selectedApproved : eligibleApproved;
@@ -6652,6 +6746,9 @@ function getLoredeckCreatorEntryDraftPool(cached = {}, pack = {}) {
         preferred,
         source,
         blocked,
+        acceptedEntryIds: blockState.acceptedEntryIds,
+        pendingEntryIds: blockState.pendingEntryIds,
+        draftReviewEntryIds: blockState.draftReviewEntryIds,
         totalRemaining,
         remaining,
     };

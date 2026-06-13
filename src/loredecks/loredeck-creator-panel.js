@@ -1398,6 +1398,9 @@ function createLoredeckCreatorEntryDraftBatchRows(cached = {}, progress = null, 
         batches: getLoredeckCreatorPlanningBatchRows(cached).filter(batch => !eligibleBatchIds.size || eligibleBatchIds.has(batch.id)),
         drafts: Array.isArray(progress.preferred) ? progress.preferred : [],
         remainingDrafts: Array.isArray(progress.totalRemaining) ? progress.totalRemaining : [],
+        acceptedTitleIds: progress.acceptedEntryIds,
+        pendingTitleIds: progress.pendingEntryIds,
+        draftReviewTitleIds: progress.draftReviewEntryIds,
     });
     if (!batchModels.length) return null;
 
@@ -1426,18 +1429,21 @@ function createLoredeckCreatorEntryDraftBatchRows(cached = {}, progress = null, 
         const nextTitles = model.remainingTitles.slice(0, 3).map(draft => draft.title || draft.titleId).filter(Boolean);
         desc.textContent = nextTitles.length
             ? nextTitles.join(' | ')
-            : (model.summary || 'All approved titles in this category are already handled.');
+            : (model.summary || 'All approved titles in this category are already accepted, pending, or in Draft Review.');
         main.appendChild(desc);
 
         const meta = document.createElement('div');
         meta.className = 'saga-loredeck-row-meta';
-        if (activeBatchId && model.id === activeBatchId && model.remainingCount) {
+        if (canDraftEntries && activeBatchId && model.id === activeBatchId && model.remainingCount) {
             meta.appendChild(createStatusPill('Next', 'This category is the next default Lorecard drafting set.', { tone: 'info', kind: 'status' }));
         }
         meta.appendChild(createStatusPill(`${model.remainingCount} remaining`, 'Approved titles in this category not yet accepted, pending, or sitting in Draft Review.', { tone: model.remainingCount ? 'warning' : 'success', kind: 'count' }));
-        if (model.handledCount) meta.appendChild(createStatusPill(`${model.handledCount} handled`, 'Approved titles in this category already accepted, pending, or sitting in Draft Review.', { tone: 'review', kind: 'count' }));
+        if (model.acceptedCount) meta.appendChild(createStatusPill(`${model.acceptedCount} accepted`, 'Approved titles in this category already accepted as generated Lorecards.', { tone: 'success', kind: 'count' }));
+        if (model.pendingCount) meta.appendChild(createStatusPill(`${model.pendingCount} pending`, 'Approved titles in this category already waiting in Pending Review.', { tone: 'review', kind: 'count' }));
+        if (model.draftReviewCount) meta.appendChild(createStatusPill(`${model.draftReviewCount} draft review`, 'Approved titles in this category already sitting in Creator Draft Review.', { tone: 'review', kind: 'count' }));
+        if (model.handledOtherCount) meta.appendChild(createStatusPill(`${model.handledOtherCount} covered`, 'Approved titles in this category already accounted for by Creator progress.', { tone: 'review', kind: 'count' }));
         meta.appendChild(createStatusPill(`${model.approvedCount} approved`, 'Approved Creator titles in this category.', { tone: 'success', kind: 'count' }));
-        if (!model.remainingCount) meta.appendChild(createStatusPill('Handled', 'Every approved title in this category is accepted, pending, or sitting in Draft Review.', { tone: 'success', kind: 'status' }));
+        if (!model.remainingCount) meta.appendChild(createStatusPill('Covered', 'Every approved title in this category is accepted, pending, or sitting in Draft Review.', { tone: 'success', kind: 'status' }));
         main.appendChild(meta);
         row.appendChild(main);
 

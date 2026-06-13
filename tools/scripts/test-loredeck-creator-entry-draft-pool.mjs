@@ -63,17 +63,21 @@ const batchOrder = [
       batches: batchOrder.map((id, index) => ({ id, label: id, order: index + 1 })),
       drafts: titleDrafts,
       remainingDrafts: getLoredeckCreatorUnhandledEntryDrafts(titleDrafts, blocked),
+      acceptedTitleIds: new Set(['nami-secret-buyback-bargain', 'arlong-holds-cocoyasi-hostage']),
+      draftReviewTitleIds: new Set(['crew-sees-nami-as-arlongs-ally']),
     }).map(batch => ({
       id: batch.id,
       approvedCount: batch.approvedCount,
       remainingCount: batch.remainingCount,
+      acceptedCount: batch.acceptedCount,
+      draftReviewCount: batch.draftReviewCount,
     })),
     [
-      { id: 'characters-pressure', approvedCount: 3, remainingCount: 0 },
-      { id: 'emotional-symbols', approvedCount: 3, remainingCount: 3 },
-      { id: 'backstory-timing', approvedCount: 2, remainingCount: 2 },
+      { id: 'characters-pressure', approvedCount: 3, remainingCount: 0, acceptedCount: 2, draftReviewCount: 1 },
+      { id: 'emotional-symbols', approvedCount: 3, remainingCount: 3, acceptedCount: 0, draftReviewCount: 0 },
+      { id: 'backstory-timing', approvedCount: 2, remainingCount: 2, acceptedCount: 0, draftReviewCount: 0 },
     ],
-    'The category model should expose remaining counts for every draftable title batch.'
+    'The category model should expose remaining and already-covered counts for every draftable title batch.'
   );
 }
 
