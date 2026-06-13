@@ -6,6 +6,7 @@ Saga documentation is being organized into release-facing topic folders. Older i
 
 - [Basic Workflow](user/BASIC_WORKFLOW.md): Basic Walkthrough module guide for First Run, Loredecks, Context, Lorecards, Continue Roleplay, and Settings without advanced prompt controls.
 - [Advanced Workflow](user/ADVANCED_WORKFLOW.md): Advanced Walkthrough task-track guide for Library mastery, runtime control, Context, Lorecards, Injection, Continuity, Creator, Pack Health, Settings, and troubleshooting.
+- [Operator's Manual](user/OPERATOR_MANUAL.md): full screenshot-backed guide to Session, Loredecks, Pack Health, Creator, Context, Lorecards, Continuity, Injection, Settings, and troubleshooting.
 - [Alpha Release Notes](release/0.1.0-alpha.1.md): versioned alpha compatibility, manual update, State Safety, and release-gate notes.
 - [Wandlight To Saga](user/WANDLIGHT_TO_SAGA.md): concept mapping for users moving from old Wandlight mental models to Saga-native Loredecks, Context, Lorecards, and Injection.
 - [Loredecks](loredecks/LOREDECK_AND_LORECARD_CREATION_GUIDE.md): Loredeck and Lorecard creation guidance, reference-deck expectations, authoring workflow, and schema links.
