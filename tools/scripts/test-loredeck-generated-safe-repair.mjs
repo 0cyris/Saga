@@ -249,4 +249,88 @@ assert.equal(ambiguousHealth.status, 'needs_review');
 assert.ok(ambiguousHealth.summary.undefinedTagCount > 0);
 assert.ok(ambiguousHealth.summary.brokenAnchorReferenceCount > 0);
 
+function buildArlongStylePack() {
+  const pack = buildPack(buildBadEntry(), 'one-piece-arlong-park-custom');
+  pack.type = 'custom';
+  pack.title = 'Arlong Park Arc Custom';
+  pack.source = {
+    kind: 'generated_finalized',
+    originalPackId: 'one-piece-arlong-park',
+  };
+  pack.tagRegistry.tags = {
+    'character:nami': { label: 'Nami' },
+    'character:arlong': { label: 'Arlong' },
+    'faction:arlong-pirates': { label: 'Arlong Pirates' },
+    'concept:buyback-deal': { label: 'Buyback Deal' },
+  };
+  pack.timelineRegistry.anchors = [
+    { id: 'one-piece.arlong.start', label: 'Arlong Park starts', sortKey: 10 },
+    { id: 'one-piece.arlong.arlong-betrays-buyback', label: 'Arlong betrays the buyback deal', sortKey: 20 },
+    { id: 'one-piece.arlong.end', label: 'Arlong Park ends', sortKey: 30 },
+  ];
+  pack.timelineRegistry.windows = [
+    { id: 'one-piece.arlong.arc', label: 'Arlong Park', anchorFrom: 'one-piece.arlong.start', anchorTo: 'one-piece.arlong.end', sortKeyFrom: 10, sortKeyTo: 30 },
+  ];
+  pack.entryOverrides = {};
+  for (let index = 1; index <= 56; index += 1) {
+    const id = index === 23 ? 'namis-childhood-under-arlongs-rule' : `arlong-style-entry-${String(index).padStart(2, '0')}`;
+    pack.entryOverrides[id] = buildBadEntry({
+      id,
+      title: `Arlong Style Entry ${index}`,
+      category: index === 1 ? 'secret' : 'other',
+      tags: index % 2 === 0
+        ? ['characterarlong', 'characternami', 'factionarlong-pirates', 'fact', 'other']
+        : ['characternami', 'factionarlong-pirates', 'conceptbuyback-deal', 'fact', 'other'],
+      context: {
+        ...buildBadEntry().context,
+        validFromAnchor: 'one-piece.arlong.start',
+        validToAnchor: index === 23 ? 'one-piece.arlong.arlong-betrays-buyback-deal' : 'one-piece.arlong.end',
+        sortKeyFrom: 10,
+        sortKeyTo: index === 23 ? 20 : 30,
+      },
+    });
+  }
+  pack.manifestData.stats = { entryCount: 56, categoryCounts: { secret: 1, other: 55 } };
+  return pack;
+}
+
+const arlongStyle = buildArlongStylePack();
+const arlongBeforeHealth = buildHealth(arlongStyle);
+assert.equal(arlongBeforeHealth.summary.errorCount, 56);
+assert.equal(arlongBeforeHealth.summary.schemaV3IssueCount, 56);
+assert.ok(arlongBeforeHealth.summary.undefinedTagCount > 0);
+
+const arlongResult = await runSafeRepair(arlongStyle);
+assert.equal(arlongResult.ok, true);
+assert.ok(arlongResult.toasts.some(toast => toast.type === 'success' && toast.message.includes('56 overrides repaired')));
+assert.ok(arlongResult.toasts.some(toast => toast.type === 'success' && toast.message.includes('1 review repair queued')));
+for (const entry of Object.values(arlongResult.pack.entryOverrides || {})) {
+  assert.equal(Object.hasOwn(entry, 'fact'), false);
+  assert.equal(Object.hasOwn(entry, 'date'), false);
+  assert.equal(Object.hasOwn(entry, 'whoKnowsTruth'), false);
+  assert.equal(entry.tags.includes('fact'), false);
+  assert.equal(entry.tags.includes('other'), false);
+}
+assert.deepEqual(arlongResult.pack.entryOverrides['arlong-style-entry-01'].tags, [
+  'character:nami',
+  'faction:arlong-pirates',
+  'concept:buyback-deal',
+]);
+assert.equal(arlongResult.pack.pendingChanges.length, 1);
+assert.equal(arlongResult.pack.pendingChanges[0].action, 'review_schema_v3_context_anchor');
+
+const arlongAfterRepairHealth = buildHealth(arlongResult.pack);
+assert.equal(arlongAfterRepairHealth.summary.errorCount, 0);
+assert.equal(arlongAfterRepairHealth.summary.schemaV3IssueCount, 0);
+assert.equal(arlongAfterRepairHealth.summary.undefinedTagCount, 0);
+assert.equal(arlongAfterRepairHealth.status, 'needs_review');
+
+const arlongAccepted = clone(arlongResult.pack);
+applyLoredeckRecordPatch(arlongAccepted, arlongAccepted.pendingChanges[0].payload);
+arlongAccepted.pendingChanges = [];
+const arlongAcceptedHealth = buildHealth(arlongAccepted);
+assert.equal(arlongAcceptedHealth.status, 'good');
+assert.equal(arlongAcceptedHealth.summary.errorCount, 0);
+assert.equal(arlongAcceptedHealth.summary.warningCount, 0);
+
 console.log('Loredeck generated safe repair tests passed.');

@@ -4038,7 +4038,7 @@ function createLoredeckMetadataEditorCard(pack) {
         syncButton.disabled = !pack.manifest;
         actions.appendChild(syncButton);
 
-        const repairButton = createButton('Repair Safe Issues', 'Apply safe Pack Health repairs to Custom metadata and existing overrides.', async (btn) => {
+        const repairButton = createButton('Auto-Repair Safe Findings', 'Apply deterministic safe Pack Health repairs to Custom metadata and existing overrides.', async (btn) => {
             await repairLoredeckSafeHealthIssues(pack, btn);
             openLoredeckMetadataEditor(pack.packId);
             renderLoredeckLibraryOverlay();

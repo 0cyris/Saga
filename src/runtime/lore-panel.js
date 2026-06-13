@@ -8936,12 +8936,12 @@ function createLoredeckHealthRepairPlanner(pack, health = null) {
     const help = document.createElement('div');
     help.className = 'saga-runtime-help';
     help.textContent = editable
-        ? 'Select Pack Health issues and draft repair proposals. Repairs enter the Assistant Draft Batch first, then Pending Review if you queue them.'
+        ? 'Select Pack Health issues and draft repair proposals. Large selections are split into smaller assistant batches. Repairs enter the Assistant Draft Batch first, then Pending Review if you queue them.'
         : 'Bundled Loredecks are read-only. Duplicate as Custom before drafting repair proposals.';
     wrap.appendChild(help);
 
     const actions = createLoredeckActionRow();
-    const draftButton = createButton('Draft Repairs', 'Ask the Lore Assistant to convert selected Pack Health issues into reviewable draft proposals.', async (btn) => {
+    const draftButton = createButton('Draft Repair Batches', 'Ask the Lore Assistant to convert selected Pack Health issues into reviewable draft proposals in bounded batches.', async (btn) => {
         await handleLoredeckAssistantHealthRepairDraft(pack, health, btn);
     }, 'saga-primary-button');
     draftButton.disabled = !editable || !selectedCount;
@@ -9967,6 +9967,104 @@ function collectLoredeckHealthRepairEntryIds(issues = []) {
     return ids;
 }
 
+const LOREDECK_ASSISTANT_HEALTH_REPAIR_ISSUE_BATCH_LIMIT = 8;
+const LOREDECK_ASSISTANT_HEALTH_REPAIR_ENTRY_BATCH_LIMIT = 12;
+const LOREDECK_ASSISTANT_HEALTH_REPAIR_TAG_BATCH_LIMIT = 8;
+
+function getLoredeckHealthRepairIssueEntryIds(issue = {}) {
+    return [...collectLoredeckHealthRepairEntryIds([issue])];
+}
+
+function getLoredeckHealthRepairIssueTagObjects(issue = {}) {
+    return Array.isArray(issue?.tags)
+        ? issue.tags.filter(tag => tag && typeof tag === 'object' && !Array.isArray(tag))
+        : [];
+}
+
+function makeLoredeckHealthRepairIssueBatchPiece(issue = {}, patch = {}, suffix = '') {
+    const next = {
+        ...(cloneLoredeckJson(issue) || {}),
+        ...(patch || {}),
+    };
+    const baseId = String(issue.issueId || '').trim();
+    if (baseId && suffix) next.issueId = `${baseId}_${suffix}`;
+    return next;
+}
+
+function splitLoredeckHealthIssueForAssistantBatches(issue = {}) {
+    const normalized = cloneLoredeckJson(issue) || {};
+    const tagObjects = getLoredeckHealthRepairIssueTagObjects(normalized);
+    if (tagObjects.length > LOREDECK_ASSISTANT_HEALTH_REPAIR_TAG_BATCH_LIMIT) {
+        const chunks = [];
+        for (let index = 0; index < tagObjects.length; index += LOREDECK_ASSISTANT_HEALTH_REPAIR_TAG_BATCH_LIMIT) {
+            const tags = tagObjects.slice(index, index + LOREDECK_ASSISTANT_HEALTH_REPAIR_TAG_BATCH_LIMIT);
+            const tagIds = normalizeLoredeckTagTextList(tags.map(tag => tag.tag || tag.id || '').filter(Boolean), 80, true);
+            const entryIds = normalizeLoredeckPendingIdList(tags.flatMap(tag => tag.entryIds || [])).slice(0, LOREDECK_ASSISTANT_HEALTH_REPAIR_ENTRY_BATCH_LIMIT);
+            chunks.push(makeLoredeckHealthRepairIssueBatchPiece(normalized, {
+                tags,
+                tagIds,
+                entryIds,
+                message: `${normalized.message || normalized.code || 'Pack Health issue'} Batch ${chunks.length + 1} of ${Math.ceil(tagObjects.length / LOREDECK_ASSISTANT_HEALTH_REPAIR_TAG_BATCH_LIMIT)}.`,
+            }, `tagbatch${chunks.length + 1}`));
+        }
+        return chunks;
+    }
+
+    const entryIds = normalizeLoredeckPendingIdList(normalized.entryIds || []);
+    if (entryIds.length > LOREDECK_ASSISTANT_HEALTH_REPAIR_ENTRY_BATCH_LIMIT) {
+        const chunks = [];
+        for (let index = 0; index < entryIds.length; index += LOREDECK_ASSISTANT_HEALTH_REPAIR_ENTRY_BATCH_LIMIT) {
+            const ids = entryIds.slice(index, index + LOREDECK_ASSISTANT_HEALTH_REPAIR_ENTRY_BATCH_LIMIT);
+            chunks.push(makeLoredeckHealthRepairIssueBatchPiece(normalized, {
+                entryIds: ids,
+                message: `${normalized.message || normalized.code || 'Pack Health issue'} Batch ${chunks.length + 1} of ${Math.ceil(entryIds.length / LOREDECK_ASSISTANT_HEALTH_REPAIR_ENTRY_BATCH_LIMIT)}.`,
+            }, `entrybatch${chunks.length + 1}`));
+        }
+        return chunks;
+    }
+
+    const tagIds = normalizeLoredeckTagTextList(normalized.tagIds || [], 80, true);
+    if (tagIds.length > LOREDECK_ASSISTANT_HEALTH_REPAIR_TAG_BATCH_LIMIT) {
+        const chunks = [];
+        for (let index = 0; index < tagIds.length; index += LOREDECK_ASSISTANT_HEALTH_REPAIR_TAG_BATCH_LIMIT) {
+            const ids = tagIds.slice(index, index + LOREDECK_ASSISTANT_HEALTH_REPAIR_TAG_BATCH_LIMIT);
+            chunks.push(makeLoredeckHealthRepairIssueBatchPiece(normalized, {
+                tagIds: ids,
+                message: `${normalized.message || normalized.code || 'Pack Health issue'} Batch ${chunks.length + 1} of ${Math.ceil(tagIds.length / LOREDECK_ASSISTANT_HEALTH_REPAIR_TAG_BATCH_LIMIT)}.`,
+            }, `tagidbatch${chunks.length + 1}`));
+        }
+        return chunks;
+    }
+
+    return [normalized];
+}
+
+function buildLoredeckAssistantHealthRepairBatches(selectedIssues = []) {
+    const pieces = selectedIssues.flatMap(splitLoredeckHealthIssueForAssistantBatches);
+    const batches = [];
+    let current = [];
+    let currentEntryIds = new Set();
+
+    const flush = () => {
+        if (!current.length) return;
+        batches.push({ issues: current, entryIds: currentEntryIds });
+        current = [];
+        currentEntryIds = new Set();
+    };
+
+    for (const piece of pieces) {
+        const entryIds = getLoredeckHealthRepairIssueEntryIds(piece);
+        const wouldOverflowIssues = current.length >= LOREDECK_ASSISTANT_HEALTH_REPAIR_ISSUE_BATCH_LIMIT;
+        const nextEntryIds = new Set([...currentEntryIds, ...entryIds]);
+        const wouldOverflowEntries = current.length > 0 && nextEntryIds.size > LOREDECK_ASSISTANT_HEALTH_REPAIR_ENTRY_BATCH_LIMIT;
+        if (wouldOverflowIssues || wouldOverflowEntries) flush();
+        current.push(piece);
+        currentEntryIds = new Set([...currentEntryIds, ...entryIds]);
+    }
+    flush();
+    return batches;
+}
+
 function formatLoredeckAssistantRequestFailureMessage(error = {}, fallbackMessage = 'Lore Assistant request failed.', stageLabel = 'Lore Assistant') {
     const label = formatLoredeckCreatorStageLabel(stageLabel, 'Lore Assistant');
     const code = getLoredeckCreatorFailureCode(error);
@@ -10052,7 +10150,7 @@ async function requestAndParseLoredeckAssistantResponse(context = {}, options = 
 }
 
 async function handleLoredeckAssistantHealthRepairDraft(pack, health = null, button = null, options = {}) {
-    await runBusyAction(button, 'Drafting...', async () => {
+    await runBusyAction(button, 'Drafting...', async (busy = {}) => {
         if (!ensureLoreProviderReadyForAction('Pack Health repair planning', 'lore')) return;
         const fresh = getFreshLoredeckLibraryPack(pack.packId, pack);
         if (!fresh || fresh.type === 'bundled') {
@@ -10068,60 +10166,89 @@ async function handleLoredeckAssistantHealthRepairDraft(pack, health = null, but
         }
         const entryCache = loredeckEntryPreviewCache.get(fresh.packId) || {};
         const rows = getLoredeckEditableEntryRows(fresh, entryCache.entries || []);
-        const relatedEntryIds = collectLoredeckHealthRepairEntryIds(selectedIssues);
-        const targetRows = relatedEntryIds.size
-            ? rows.filter(row => relatedEntryIds.has(row.id))
-            : rows;
+        const batches = buildLoredeckAssistantHealthRepairBatches(selectedIssues);
+        if (!batches.length) {
+            toast('No assistant repair batches could be built for the selected Pack Health issues.', 'warning');
+            return;
+        }
         const instruction = [
             'Draft repair proposals for the selected Pack Health issues.',
             'Use supported proposal actions only. Put every repair into reviewable proposals; do not claim fixes are applied.',
+            'This is one bounded batch from a larger Pack Health repair run; repair only the supplied batch records.',
             'If an issue cannot be repaired with entry, tag, or timeline proposals, explain that in warnings or ask a clarifying question.',
         ].join(' ');
-        const context = buildLoredeckAssistantContext(fresh, rows, targetRows, {
-            instruction,
-            mode: 'pack_health_repair',
-            targetScope: 'all_loaded',
-        });
-        context.task = 'Turn selected Pack Health issues into reviewable assistant draft proposals.';
-        context.targetEntries = targetRows
-            .filter(row => row?.id && !row.disabled)
-            .slice(0, 80)
-            .map(compactLoredeckAssistantEntry);
-        context.selectedHealthIssues = selectedIssues.map(compactLoredeckHealthIssueForAssistant);
-        const { parsed } = await requestAndParseLoredeckAssistantResponse(context, {
-            stage: 'pack_health_repair',
-            stageLabel: 'Lore Assistant repair planning',
-            maxTokens: 4096,
-        });
-        const changes = buildLoredeckAssistantPendingChanges(fresh, parsed.proposals, rows);
+        const changes = [];
+        const warnings = [];
+        const questions = [];
+        const warningCodes = [];
+        let proposalCount = 0;
+        for (let index = 0; index < batches.length; index += 1) {
+            const batch = batches[index];
+            const batchLabel = batches.length > 1 ? ` ${index + 1}/${batches.length}` : '';
+            if (typeof busy.setText === 'function') busy.setText(`Drafting${batchLabel}...`);
+            const relatedEntryIds = batch.entryIds || collectLoredeckHealthRepairEntryIds(batch.issues);
+            const targetRows = relatedEntryIds.size
+                ? rows.filter(row => relatedEntryIds.has(row.id))
+                : rows.slice(0, LOREDECK_ASSISTANT_HEALTH_REPAIR_ENTRY_BATCH_LIMIT);
+            const context = buildLoredeckAssistantContext(fresh, rows, targetRows, {
+                instruction,
+                mode: 'pack_health_repair',
+                targetScope: 'all_loaded',
+            });
+            context.task = batches.length > 1
+                ? `Turn Pack Health repair batch ${index + 1} of ${batches.length} into reviewable assistant draft proposals.`
+                : 'Turn selected Pack Health issues into reviewable assistant draft proposals.';
+            context.repairBatch = {
+                index: index + 1,
+                count: batches.length,
+                issueCount: batch.issues.length,
+                entryCount: relatedEntryIds.size,
+            };
+            context.targetEntries = targetRows
+                .filter(row => row?.id && !row.disabled)
+                .slice(0, LOREDECK_ASSISTANT_HEALTH_REPAIR_ENTRY_BATCH_LIMIT)
+                .map(compactLoredeckAssistantEntry);
+            context.selectedHealthIssues = batch.issues.map(compactLoredeckHealthIssueForAssistant);
+            const { parsed } = await requestAndParseLoredeckAssistantResponse(context, {
+                stage: 'pack_health_repair',
+                stageLabel: batches.length > 1 ? `Lore Assistant repair batch ${index + 1}/${batches.length}` : 'Lore Assistant repair planning',
+                maxTokens: 4096,
+            });
+            proposalCount += parsed.proposals.length;
+            warnings.push(...(parsed.warnings || []).map(item => batches.length > 1 ? `Batch ${index + 1}: ${item}` : item));
+            questions.push(...(parsed.clarifyingQuestions || []).map(item => batches.length > 1 ? `Batch ${index + 1}: ${item}` : item));
+            warningCodes.push(...(parsed.warningCodes || []));
+            changes.push(...buildLoredeckAssistantPendingChanges(fresh, parsed.proposals, rows));
+        }
         const qualityWarningCount = countLoredeckAssistantQualityWarningsForChanges(changes);
         loredeckAssistantDraftCache.set(fresh.packId, {
-            summary: parsed.summary || `Repair plan for ${selectedIssues.length} Pack Health issue${selectedIssues.length === 1 ? '' : 's'}.`,
-            questions: parsed.clarifyingQuestions,
-            warnings: parsed.warnings,
-            proposalCount: parsed.proposals.length,
-            warningCodes: parsed.warningCodes || [],
+            summary: `Repair plan for ${selectedIssues.length} Pack Health issue${selectedIssues.length === 1 ? '' : 's'} across ${batches.length} assistant batch${batches.length === 1 ? '' : 'es'}.`,
+            questions,
+            warnings,
+            proposalCount,
+            warningCodes: [...new Set(warningCodes.map(item => String(item || '').trim()).filter(Boolean))],
             queuedCount: 0,
             draftChanges: changes,
             selectedDraftChangeIds: changes.map(change => change.changeId),
             qualityWarningCount,
             mode: 'pack_health_repair',
-            targetScope: relatedEntryIds.size ? 'health_issue_entries' : 'all_loaded',
+            targetScope: 'health_issue_entries',
             selectedHealthIssueCount: selectedIssues.length,
+            repairBatchCount: batches.length,
             createdAt: Date.now(),
         });
-        if (parsed.clarifyingQuestions.length && !changes.length) {
+        if (questions.length && !changes.length) {
             refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
-            toast(`Lore Assistant needs clarification: ${parsed.clarifyingQuestions[0]}`, 'warning');
+            toast(`Lore Assistant needs clarification: ${questions[0]}`, 'warning');
             return;
         }
         if (!changes.length) {
             refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
-            toast(parsed.warnings[0] || 'Lore Assistant returned no repair proposals.', 'warning');
+            toast(warnings[0] || 'Lore Assistant returned no repair proposals.', 'warning');
             return;
         }
         refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
-        toast(`Lore Assistant drafted ${changes.length} repair proposal${changes.length === 1 ? '' : 's'} for batch review.`, 'success');
+        toast(`Lore Assistant drafted ${changes.length} repair proposal${changes.length === 1 ? '' : 's'} from ${batches.length} repair batch${batches.length === 1 ? '' : 'es'}.`, 'success');
     });
 }
 

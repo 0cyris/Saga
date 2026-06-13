@@ -863,17 +863,17 @@ function createLoredeckHealthIssueActionRow(group, context = {}, issueState = nu
                 openDuplicateLoredeckDialog(context.pack);
             }));
         } else {
-            const ignoreButton = createButton(issueState?.status === 'ignored' ? 'Clear Ignore' : 'Ignore Issue', issueState?.status === 'ignored' ? 'Clear this user-set ignored state.' : 'Mark this grouped issue as intentionally ignored for this editable Loredeck.', () => {
+            const ignoreButton = createButton(issueState?.status === 'ignored' ? 'Clear Dismissal' : 'Dismiss Finding', issueState?.status === 'ignored' ? 'Clear this user-set dismissal.' : 'Dismiss this grouped finding as intentionally accepted for this editable Loredeck. The finding remains in diagnostics.', () => {
                 setLoredeckHealthIssueGroupState(context.pack, group, issueState?.status === 'ignored' ? '' : 'ignored');
                 renderLoredeckHealthCenterOverlay();
             });
             actions.appendChild(ignoreButton);
-            const resolveButton = createButton(issueState?.status === 'resolved' ? 'Clear Resolved' : 'Mark Resolved', issueState?.status === 'resolved' ? 'Clear this user-set resolved state.' : 'Mark this grouped issue resolved after you have reviewed or repaired it.', () => {
+            const resolveButton = createButton(issueState?.status === 'resolved' ? 'Clear Fixed Mark' : 'Mark Fixed', issueState?.status === 'resolved' ? 'Clear this user-set fixed marker.' : 'Mark this grouped finding fixed after you have repaired it. Rerun Pack Health to verify.', () => {
                 setLoredeckHealthIssueGroupState(context.pack, group, issueState?.status === 'resolved' ? '' : 'resolved');
                 renderLoredeckHealthCenterOverlay();
             });
             actions.appendChild(resolveButton);
-            const assistantButton = createButton('Draft With Assistant', 'Send only this grouped issue to the Lore Assistant as repair-planning context.', async (btn) => {
+            const assistantButton = createButton('Draft Repair Batches', 'Send this grouped finding to the Lore Assistant in bounded repair batches.', async (btn) => {
                 await handleLoredeckAssistantHealthRepairDraft(context.pack, context.health, btn, {
                     selectedIssues: normalizeLoredeckHealthGroupIssuesForRepair(group),
                 });
@@ -889,7 +889,7 @@ function createLoredeckHealthIssueActionRow(group, context = {}, issueState = nu
                 tagRepairButton.disabled = !canValidateLoredeckInEditor(context.pack);
                 actions.appendChild(tagRepairButton);
             }
-            const repairButton = createButton('Repair Safe Issues', 'Apply deterministic safe repairs available to this editable Loredeck record.', async (btn) => {
+            const repairButton = createButton('Auto-Repair Safe Findings', 'Apply deterministic safe repairs available to this editable Loredeck record.', async (btn) => {
                 await repairLoredeckSafeHealthIssues(context.pack, btn);
                 renderLoredeckHealthCenterOverlay();
             });

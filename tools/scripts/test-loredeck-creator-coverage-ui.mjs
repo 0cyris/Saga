@@ -234,7 +234,7 @@ assert.ok(healthBlockedCard.textContent.includes('Needs review'));
 assert.ok(healthBlockedCard.textContent.includes('Pack Health: 2 errors, 1 warning'));
 assert.ok(healthBlockedCard.textContent.includes('Run Pack Health'));
 assert.ok(healthBlockedCard.textContent.includes('Open Pack Health Center'));
-assert.ok(healthBlockedCard.textContent.includes('Repair Safe Issues'));
+assert.ok(healthBlockedCard.textContent.includes('Auto-Repair Safe Findings'));
 
 const runHealth = healthBlockedCard.querySelectorAll('button')
   .find(button => button.textContent === 'Run Pack Health');
@@ -250,9 +250,9 @@ assert.deepEqual(healthOpenCall, {
 });
 
 const repairSafe = healthBlockedCard.querySelectorAll('button')
-  .find(button => button.textContent === 'Repair Safe Issues');
+  .find(button => button.textContent === 'Auto-Repair Safe Findings');
 await repairSafe.click();
-assert.equal(safeRepairCalls, 1, 'Repair Safe Issues should invoke deterministic repair.');
+assert.equal(safeRepairCalls, 1, 'Auto-Repair Safe Findings should invoke deterministic repair.');
 
 readinessView = {
   readiness: {

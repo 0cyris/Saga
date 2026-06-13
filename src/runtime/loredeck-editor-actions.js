@@ -168,7 +168,7 @@ function buildSchemaV3ContextAnchorRepairChange(entry = {}, candidates = [], exi
 }
 
 export async function repairLoredeckSafeHealthIssues(pack, button = null) {
-    const restoreBusy = setLoredeckActionButtonBusy(button, 'Repairing...', { fallbackLabel: 'Repair Safe Issues' });
+    const restoreBusy = setLoredeckActionButtonBusy(button, 'Repairing...', { fallbackLabel: 'Auto-Repair Safe Findings' });
     try {
         const fresh = getFreshLoredeckLibraryPack(pack.packId, pack);
         if (!fresh || fresh.type === 'bundled') {
@@ -223,6 +223,18 @@ export async function repairLoredeckSafeHealthIssues(pack, button = null) {
                 ...getLoredeckPendingChanges(next),
                 ...pendingRepairChanges,
             ];
+        }
+        const changedCount = overrideRepairCount + pendingRepairChanges.length;
+        if (!changedCount) {
+            const reviewParts = [
+                ambiguousRepairCandidateCount ? `${ambiguousRepairCandidateCount} ambiguous candidate${ambiguousRepairCandidateCount === 1 ? '' : 's'}` : '',
+                unresolvedRepairCount ? `${unresolvedRepairCount} override${unresolvedRepairCount === 1 ? '' : 's'} still need review` : '',
+            ].filter(Boolean);
+            toast(reviewParts.length
+                ? `No deterministic safe repairs were applied. ${reviewParts.join(', ')}. Use assistant batches or manual review for the remaining Pack Health findings.`
+                : 'No deterministic safe repairs are available for this Loredeck. Use assistant batches or manual review for the remaining Pack Health findings.',
+            reviewParts.length ? 'warning' : 'info');
+            return false;
         }
         if (isGeneratedLoredeckPack(next)) {
             refreshGeneratedLoredeckDerivedMetadata(next);
