@@ -6,6 +6,10 @@ import {
     DEFAULT_BUNDLED_LOREDECK_LIBRARY_PACKS,
     DEFAULT_HP_LOREDECK_STACK,
 } from '../loredecks/loredeck-defaults.js';
+import {
+    createDefaultSagaStorageFallback,
+    createDefaultSagaStorageSettings,
+} from '../storage/saga-storage-index.js';
 import { BASIC_EXPERIENCE_PROFILE_VERSION } from './basic-profile.js';
 
 export const DEFAULT_SETTINGS = {
@@ -21,6 +25,8 @@ export const DEFAULT_SETTINGS = {
     basicExperienceProfileVersion: BASIC_EXPERIENCE_PROFILE_VERSION,
     themePackId: 'saga-default',
     themeIconSetId: 'saga-hero',
+    sagaStorage: createDefaultSagaStorageSettings(),
+    sagaStorageFallback: createDefaultSagaStorageFallback(),
     themeCustomEnabled: false,
     themeBackgroundColor: '#120c12',
     themeBackgroundAltColor: '#241018',
@@ -42,14 +48,14 @@ export const DEFAULT_SETTINGS = {
     themeInputBorderColor: '#b98b36',
     themeTextColor: '#f1ead8',
     themeMutedTextColor: '#cfc5ad',
-    themeChipNeutralColor: '#d8c6a3',
-    themeChipSourceColor: '#d6bd86',
-    themeChipInfoColor: '#caa76b',
+    themeChipNeutralColor: '#c8cbd2',
+    themeChipSourceColor: '#cbb98a',
+    themeChipInfoColor: '#c7cfdd',
     themeChipReviewColor: '#d8b66d',
     themeChipSuccessColor: '#b9d8b8',
     themeChipWarningColor: '#e0c184',
     themeChipDangerColor: '#e1a0a0',
-    themeChipMutedColor: '#b8ad98',
+    themeChipMutedColor: '#aeb3bd',
     themePackLibrary: {
         schemaVersion: 1,
         packs: {},

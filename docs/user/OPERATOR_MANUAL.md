@@ -224,6 +224,14 @@ Saga is model/provider agnostic. Use stronger reasoning models for Context propo
 
 Theme Packs and Icon Sets are passive data. They can change the shelf's appearance without running code.
 
+## Storage And State Safety
+
+Saga keeps large Saga-owned payloads in SillyTavern `/user/files` instead of storing full Loredecks, Creator projects, Theme Packs, Icon Sets, and passive assets inside `settings.json`.
+
+Open **Settings**, switch to **Advanced**, then open **State Safety** to migrate legacy settings-backed payloads, verify tracked storage files, settle queued writes, or clean missing non-index file records. Cleanup removes stale storage-index records; delete Library items from the Library UI.
+
+For the full storage contract, see [Storage And State Safety](STORAGE_AND_STATE_SAFETY.md).
+
 ## Troubleshooting
 
 | Problem | First check |
@@ -233,4 +241,5 @@ Theme Packs and Icon Sets are passive data. They can change the shelf's appearan
 | Lore seems from the wrong point in the story | Open Context and check the active Context for each loaded Loredeck. |
 | Accepted Lorecards are not reaching the model | Open Injection and inspect the relevance preview, pin/mute state, Context gate, and injection enable toggles. |
 | Imported or generated deck behaves strangely | Run Pack Health and review grouped issues. |
+| Saga storage reports missing files | Open Advanced Settings, run State Safety **Verify Storage**, then use **Clean Missing Records** only for stale indexed files. |
 | Model-assisted actions fail | Check provider settings, model availability, and whether the action requires Utility or Reasoning configuration. |

@@ -4,6 +4,10 @@
  */
 
 import { getSettings, getThemeIconSetLibraryRegistry, getThemePackLibraryRegistry } from '../state/state-manager.js';
+import {
+    mergeExternalThemeIconSetLibraryRegistry,
+    mergeExternalThemePackLibraryRegistry,
+} from '../storage/saga-theme-icon-storage.js';
 
 export const DEFAULT_ICONSET_ID = 'saga-hero';
 const MYSTIC_ICONSET_ID = 'saga-mystic';
@@ -38,14 +42,14 @@ export const THEMEPACK_PRESETS = Object.freeze([
             inputBorder: '#b98b36',
             text: '#f1ead8',
             mutedText: '#cfc5ad',
-            chipNeutral: '#d8c6a3',
-            chipSource: '#d6bd86',
-            chipInfo: '#caa76b',
+            chipNeutral: '#c8cbd2',
+            chipSource: '#cbb98a',
+            chipInfo: '#c7cfdd',
             chipReview: '#d8b66d',
             chipSuccess: '#b9d8b8',
             chipWarning: '#e0c184',
             chipDanger: '#e1a0a0',
-            chipMuted: '#b8ad98',
+            chipMuted: '#aeb3bd',
         },
         tags: ['theme:dark', 'style:archive', 'genre:general', 'genre:fantasy', 'quality:bundled'],
     },
@@ -728,9 +732,10 @@ export const BUNDLED_ICONSET_PRESETS = Object.freeze([
     },
 ]);
 
-const PASSIVE_IMAGE_ASSET_PATTERN = /\.(png|jpe?g|webp)$/i;
+const PASSIVE_IMAGE_ASSET_PATTERN = /\.(png|jpe?g|webp|avif)$/i;
 const EXTENSION_ROOT_URL = new URL('../../', import.meta.url);
 const EXTENSION_ROOT_ASSET_PATTERN = /^(?:\.\/)?(?:assets|content)\//;
+const USER_FILES_SAGA_ASSET_PATTERN = /^\/user\/files\/saga-[a-z0-9_.-]+\.(?:png|jpe?g|webp|avif)$/i;
 
 export function getLocalAssetSrc(assetPath) {
     if (!assetPath) return '';
@@ -747,9 +752,10 @@ export function getLocalAssetSrc(assetPath) {
 export function normalizePassiveAssetPath(value = '') {
     const path = String(value || '').trim();
     if (!path) return '';
-    if (/^data:image\/(?:png|jpe?g|webp);base64,/i.test(path)) return path;
+    if (/^data:image\/(?:png|jpe?g|webp|avif);base64,/i.test(path)) return path;
     if (/^https?:\/\//i.test(path)) return path;
     if (/^(?:javascript|data:text|file|vbscript):/i.test(path)) return '';
+    if (USER_FILES_SAGA_ASSET_PATTERN.test(path)) return path;
     if (/^[a-z]:/i.test(path) || path.startsWith('/')) return '';
     if (path.includes('\\') || path.split('/').some(part => part === '..')) return '';
     if (!PASSIVE_IMAGE_ASSET_PATTERN.test(path)) return '';
@@ -805,7 +811,7 @@ function normalizeIconTargetKey(iconKey = '') {
 }
 
 export function getIconSetLibrary(settings = getSettings()) {
-    const registry = settings?.themeIconSetLibrary || getThemeIconSetLibraryRegistry();
+    const registry = mergeExternalThemeIconSetLibraryRegistry(settings?.themeIconSetLibrary || getThemeIconSetLibraryRegistry());
     const customIconSets = Object.values(registry?.iconSets || {})
         .filter(iconSet => iconSet && typeof iconSet === 'object')
         .map(iconSet => ({
@@ -887,7 +893,7 @@ function hexToRgba(hex, alpha = 1) {
 }
 
 export function getThemePackLibrary(settings = getSettings()) {
-    const registry = settings?.themePackLibrary || getThemePackLibraryRegistry();
+    const registry = mergeExternalThemePackLibraryRegistry(settings?.themePackLibrary || getThemePackLibraryRegistry());
     const customPacks = Object.values(registry?.packs || {})
         .filter(pack => pack && typeof pack === 'object')
         .map(pack => ({
@@ -928,14 +934,14 @@ export function completeThemeColors(colors = {}) {
     merged.focus = merged.focus || merged.accent;
     merged.success = merged.success || '#1f4a38';
     merged.warning = merged.warning || merged.accent;
-    merged.chipNeutral = merged.chipNeutral || merged.mutedText || '#d8c6a3';
+    merged.chipNeutral = merged.chipNeutral || merged.mutedText || '#c8cbd2';
     merged.chipSource = merged.chipSource || merged.accent || merged.chipNeutral;
     merged.chipInfo = merged.chipInfo || merged.accent || merged.chipSource;
     merged.chipReview = merged.chipReview || merged.borderStrong || merged.accent;
     merged.chipSuccess = merged.chipSuccess || '#b9d8b8';
     merged.chipWarning = merged.chipWarning || merged.warning || '#e0c184';
     merged.chipDanger = merged.chipDanger || '#e1a0a0';
-    merged.chipMuted = merged.chipMuted || merged.mutedText || merged.chipNeutral;
+    merged.chipMuted = merged.chipMuted || merged.mutedText || '#aeb3bd';
 
     const output = {};
     for (const [, , colorKey] of THEME_COLOR_FIELDS) {
@@ -1003,6 +1009,21 @@ function writeRuntimeThemeVars(target, colors) {
     target.style.setProperty('--saga-chip-info-bg', hexToRgba(colors.chipInfo, 0.09));
     target.style.setProperty('--saga-chip-info-border', hexToRgba(colors.chipInfo, 0.26));
     target.style.setProperty('--saga-chip-info-fg', colors.chipInfo);
+    target.style.setProperty('--saga-chip-category-bg', hexToRgba(colors.surfaceAlt, 0.86));
+    target.style.setProperty('--saga-chip-category-border', hexToRgba(colors.chipNeutral, 0.24));
+    target.style.setProperty('--saga-chip-category-fg', colors.chipNeutral);
+    target.style.setProperty('--saga-chip-tag-bg', hexToRgba(colors.surfaceAlt, 0.9));
+    target.style.setProperty('--saga-chip-tag-border', hexToRgba(colors.chipMuted, 0.26));
+    target.style.setProperty('--saga-chip-tag-fg', colors.chipMuted);
+    target.style.setProperty('--saga-chip-relevance-high-bg', hexToRgba('#166534', 0.46));
+    target.style.setProperty('--saga-chip-relevance-high-border', hexToRgba('#4ade80', 0.5));
+    target.style.setProperty('--saga-chip-relevance-high-fg', '#dcfce7');
+    target.style.setProperty('--saga-chip-relevance-normal-bg', hexToRgba('#1e40af', 0.42));
+    target.style.setProperty('--saga-chip-relevance-normal-border', hexToRgba('#60a5fa', 0.5));
+    target.style.setProperty('--saga-chip-relevance-normal-fg', '#dbeafe');
+    target.style.setProperty('--saga-chip-relevance-low-bg', hexToRgba('#475569', 0.42));
+    target.style.setProperty('--saga-chip-relevance-low-border', hexToRgba('#94a3b8', 0.5));
+    target.style.setProperty('--saga-chip-relevance-low-fg', '#e2e8f0');
     target.style.setProperty('--saga-chip-review-bg', hexToRgba(colors.chipReview, 0.12));
     target.style.setProperty('--saga-chip-review-border', hexToRgba(colors.chipReview, 0.32));
     target.style.setProperty('--saga-chip-review-fg', colors.chipReview);

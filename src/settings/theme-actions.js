@@ -2,12 +2,19 @@ import {
     getSettings,
     saveSettings,
     getThemePackLibraryRegistry,
-    upsertThemeIconSetLibraryPack,
-    upsertThemePackLibraryPack,
     removeThemePackLibraryPack,
-    importThemeIconSetLibraryRegistry,
-    importThemePackLibraryRegistry,
+    removeThemeIconSetLibraryPack,
 } from '../state/state-manager.js';
+import {
+    importExternalIconSet,
+    importExternalIconSetRegistry,
+    importExternalIconSetZip,
+    importExternalThemePack,
+    importExternalThemePackRegistry,
+    mergeExternalThemePackLibraryRegistry,
+    removeExternalIconSet,
+    removeExternalThemePack,
+} from '../storage/saga-theme-icon-storage.js';
 import {
     confirmAction,
     createButton,
@@ -80,6 +87,7 @@ export function createThemePanelOptions() {
     return {
         onApplyThemePreset: applyThemePreset,
         onForgetThemePack: forgetThemePack,
+        onForgetIconSet: forgetIconSet,
         onImportThemePack: importThemePackFromFile,
         onImportIconSet: importThemeIconSetFromFile,
         onApplyThemeIconSet: applyThemeIconSet,
@@ -129,14 +137,24 @@ export function updateThemeColorInput(settingKey, colorValue) {
 export function importThemeIconSetFromFile() {
     const input = document.createElement('input');
     input.type = 'file';
-    input.accept = 'application/json,.json';
+    input.accept = 'application/json,.json,.saga-iconset.zip,.zip,application/zip,application/x-zip-compressed';
     input.addEventListener('change', async () => {
         const file = input.files?.[0];
         if (!file) return;
         try {
+            if (isIconSetZipFile(file)) {
+                const result = await importExternalIconSetZip(file, {
+                    sourceFileName: file.name,
+                    fallbackId: normalizeIconSetImportId(file.name || 'custom-icon-set'),
+                });
+                if (!result.ok) throw new Error(result.error || 'Icon Set package import failed.');
+                refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+                toast(`Imported Icon Set: ${result.iconSet.title}. Use the Icon Set selector to activate it.`, 'success');
+                return;
+            }
             const parsed = JSON.parse(await file.text());
             if (parsed?.iconSets && typeof parsed.iconSets === 'object' && !Array.isArray(parsed.iconSets)) {
-                const result = importThemeIconSetLibraryRegistry(parsed, { replace: false });
+                const result = await importExternalIconSetRegistry(parsed, { sourceFileName: file.name });
                 if (!result.ok) throw new Error(result.error || 'Icon Set import failed.');
                 refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
                 const skipped = result.skippedCount ? ` Skipped ${result.skippedCount} bundled-id conflict(s).` : '';
@@ -148,7 +166,7 @@ export function importThemeIconSetFromFile() {
                 : parsed;
             if (!icons || typeof icons !== 'object' || Array.isArray(icons)) throw new Error('Icon Set import must be a JSON object with an icons object or iconSets registry.');
             const id = normalizeIconSetImportId(parsed.id || parsed.iconSetId || parsed.title || file.name || 'custom-icon-set');
-            const result = upsertThemeIconSetLibraryPack({
+            const result = await importExternalIconSet({
                 id,
                 type: 'custom',
                 title: parsed.title || id,
@@ -159,7 +177,7 @@ export function importThemeIconSetFromFile() {
                 icons,
                 tags: Array.isArray(parsed.tags) ? parsed.tags : ['icons:custom'],
                 source: { kind: 'local', url: file.name },
-            });
+            }, { sourceFileName: file.name });
             if (!result.ok) throw new Error(result.error || 'Icon Set import failed.');
             refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
             toast(`Imported Icon Set: ${result.iconSet.title}. Use the Icon Set selector to activate it.`, 'success');
@@ -168,6 +186,12 @@ export function importThemeIconSetFromFile() {
         }
     }, { once: true });
     input.click();
+}
+
+function isIconSetZipFile(file = {}) {
+    const name = String(file.name || '').toLowerCase();
+    const type = String(file.type || '').toLowerCase();
+    return name.endsWith('.zip') || name.endsWith('.saga-iconset.zip') || type.includes('zip');
 }
 
 function normalizeThemeImportId(value = '') {
@@ -304,7 +328,7 @@ export function exportActiveThemePack() {
 
 export function exportThemePackLibrary() {
     const settings = getSettings();
-    const library = settings.themePackLibrary || getThemePackLibraryRegistry();
+    const library = mergeExternalThemePackLibraryRegistry(settings.themePackLibrary || getThemePackLibraryRegistry());
     downloadJson(library, 'saga-theme-pack-library.json');
     toast('Theme Pack Library exported.', 'info');
 }
@@ -327,7 +351,7 @@ export function importThemePackFromFile() {
             }
 
             if (parsed.packs && typeof parsed.packs === 'object') {
-                const result = importThemePackLibraryRegistry(parsed, { replace: false });
+                const result = await importExternalThemePackRegistry(parsed, { sourceFileName: file.name });
                 if (!result.ok) throw new Error(result.error || 'Import failed.');
                 refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
                 const skipped = result.skippedCount ? ` Skipped ${result.skippedCount} bundled-id conflict(s).` : '';
@@ -335,7 +359,7 @@ export function importThemePackFromFile() {
                 return;
             }
 
-            const result = upsertThemePackLibraryPack({ ...parsed, id: normalizeThemeImportId(parsed.id || parsed.themeId || parsed.title || 'custom-theme'), type: 'custom' });
+            const result = await importExternalThemePack({ ...parsed, id: normalizeThemeImportId(parsed.id || parsed.themeId || parsed.title || 'custom-theme'), type: 'custom' }, { sourceFileName: file.name });
             if (!result.ok) throw new Error(result.error || 'Import failed.');
             refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
             toast(`Installed Theme Pack: ${result.pack.title}. Use Apply to activate it.`, 'success');
@@ -353,7 +377,10 @@ export async function forgetThemePack(themeId) {
         `Remove "${pack.title || themeId}" from installed Custom Theme Packs?`
     );
     if (!ok) return;
-    const result = removeThemePackLibraryPack(themeId);
+    let result = await removeExternalThemePack(themeId);
+    if (!result.ok && result.notFound) {
+        result = removeThemePackLibraryPack(themeId);
+    }
     if (!result.ok) {
         toast(result.error || 'Theme Pack could not be removed.', 'error');
         return;
@@ -363,5 +390,29 @@ export async function forgetThemePack(themeId) {
         resetThemeSettings();
     } else {
         refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+    }
+}
+
+export async function forgetIconSet(iconSetId) {
+    const iconSet = getIconSetPreset(iconSetId, getSettings());
+    const ok = await confirmAction(
+        'Forget Icon Set',
+        `Remove "${iconSet.title || iconSetId}" from installed Custom Icon Sets?`
+    );
+    if (!ok) return;
+    let result = await removeExternalIconSet(iconSetId);
+    if (!result.ok && result.notFound) {
+        result = removeThemeIconSetLibraryPack(iconSetId);
+    }
+    if (!result.ok) {
+        toast(result.error || 'Icon Set could not be removed.', 'error');
+        return;
+    }
+    const settings = getSettings();
+    if (settings.themeIconSetId === iconSetId) {
+        applyThemeIconSet(DEFAULT_ICONSET_ID);
+    } else {
+        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+        refreshRuntimeRailIcons(settings);
     }
 }

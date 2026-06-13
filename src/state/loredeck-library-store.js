@@ -5,8 +5,22 @@
 import { DEFAULT_SETTINGS, getDefaultState as createDefaultState } from './constants.js';
 import { getSettings as readSettings, saveSettings as writeSettings } from './settings-store.js';
 import { normalizeLoredeckCreatorRegistry, removeLoredeckCreatorJobsForGeneratedPackId } from './lore-creator-state.js';
-import { getLoredeckCreatorSettingsRegistry } from './lore-creator-store.js';
+import { getLoredeckCreatorProjectRegistry, getLoredeckCreatorSettingsRegistry } from './lore-creator-store.js';
 import { normalizeLoredeckRegistry } from './lore-state-normalizers.js';
+import {
+    importExternalLoredeckLibraryRegistrySync,
+    mergeExternalLoredeckLibraryRegistry,
+    removeExternalLoredeckLibraryRecordSync,
+    updateExternalLoredeckLibraryLayoutSync,
+    upsertExternalLoredeckLibraryRecordSync,
+} from '../storage/saga-lorepack-library-storage.js';
+import {
+    hydrateCachedExternalLorepackPayloadRecord,
+    isExternalLorepackPayloadHydratedRecord,
+    removeExternalLorepackPayloadSync,
+    upsertExternalLorepackPayloadSync,
+} from '../storage/saga-lorepack-payload-storage.js';
+import { removeExternalLoredeckCreatorProjectSync } from '../storage/saga-creator-project-storage.js';
 
 let storeDeps = {};
 
@@ -48,6 +62,38 @@ function failLoredeckLibraryPersistence(error = {}, fallback = 'Loredeck library
     };
 }
 
+function cleanupSettingsLoredeckLibraryPack(settings = {}, packId = '', options = {}) {
+    const id = String(packId || '').trim();
+    if (!id || !settings || typeof settings !== 'object') return false;
+    const library = normalizeLoredeckRegistry(settings.loredeckLibrary, DEFAULT_SETTINGS.loredeckLibrary);
+    if (!library.packs?.[id]) return false;
+    delete library.packs[id];
+    if (options.removeLayout === true) {
+        library.deckPlacements = (library.deckPlacements || []).filter(placement => placement.deckId !== id && placement.packId !== id);
+        library.activeStack = (library.activeStack || []).filter(item => item.packId !== id);
+    }
+    settings.loredeckLibrary = normalizeLoredeckRegistry(library, DEFAULT_SETTINGS.loredeckLibrary);
+    return true;
+}
+
+function cleanupSettingsLoredeckLibraryPacks(settings = {}, packIds = [], options = {}) {
+    let changed = false;
+    for (const packId of packIds || []) {
+        if (cleanupSettingsLoredeckLibraryPack(settings, packId, options)) changed = true;
+    }
+    return changed;
+}
+
+function saveSettingsCleanup(settings = {}) {
+    try {
+        saveSettings(settings);
+        return { ok: true };
+    } catch (error) {
+        console.warn('[Saga] Loredeck Library settings cleanup failed:', error);
+        return { ok: false, error: getLoredeckLibraryPersistenceErrorMessage(error, 'Loredeck Library settings cleanup failed.') };
+    }
+}
+
 export function getLoredeckLibraryRegistry(state = null) {
     const settings = getSettings();
     const globalLibrary = normalizeLoredeckRegistry(settings.loredeckLibrary, DEFAULT_SETTINGS.loredeckLibrary);
@@ -55,16 +101,7 @@ export function getLoredeckLibraryRegistry(state = null) {
         state?.loredeckRegistry,
         { schemaVersion: 1, packs: {} }
     );
-    return normalizeLoredeckRegistry({
-        schemaVersion: 1,
-        packs: {
-            ...(chatRegistry.packs || {}),
-            ...(globalLibrary.packs || {}),
-        },
-        folders: globalLibrary.folders || [],
-        deckPlacements: globalLibrary.deckPlacements || [],
-        activeStack: globalLibrary.activeStack || [],
-    }, DEFAULT_SETTINGS.loredeckLibrary);
+    return mergeExternalLoredeckLibraryRegistry(globalLibrary, chatRegistry);
 }
 
 export function upsertLoredeckLibraryPack(packRecord = {}) {
@@ -93,8 +130,15 @@ export function upsertLoredeckLibraryPack(packRecord = {}) {
     }
 
     const settings = getSettings();
-    const library = normalizeLoredeckRegistry(settings.loredeckLibrary, DEFAULT_SETTINGS.loredeckLibrary);
+    const library = getLoredeckLibraryRegistry(getState());
     const existing = library.packs[packId] || {};
+    if (existing.payloadFile && !isExternalLorepackPayloadHydratedRecord(pack)) {
+        return {
+            ok: false,
+            error: 'Loredeck payload must be loaded before saving changes to this external Loredeck.',
+            code: 'payload_not_loaded',
+        };
+    }
     const nextPack = {
         ...existing,
         ...pack,
@@ -104,14 +148,16 @@ export function upsertLoredeckLibraryPack(packRecord = {}) {
     for (const key of explicitOptionalFields) {
         if (!Object.prototype.hasOwnProperty.call(pack, key)) delete nextPack[key];
     }
-    library.packs[packId] = nextPack;
-    settings.loredeckLibrary = normalizeLoredeckRegistry(library, DEFAULT_SETTINGS.loredeckLibrary);
-    try {
-        saveSettings(settings);
-    } catch (error) {
-        return failLoredeckLibraryPersistence(error);
-    }
-    return { ok: true, pack: settings.loredeckLibrary.packs[packId], library: settings.loredeckLibrary };
+    const payloadResult = upsertExternalLorepackPayloadSync(nextPack);
+    if (!payloadResult.ok) return payloadResult;
+    const result = upsertExternalLoredeckLibraryRecordSync(payloadResult.libraryRecord);
+    if (!result.ok) return result;
+    if (cleanupSettingsLoredeckLibraryPack(settings, packId)) saveSettingsCleanup(settings);
+    return {
+        ok: true,
+        pack: hydrateCachedExternalLorepackPayloadRecord(result.pack),
+        library: getLoredeckLibraryRegistry(getState()),
+    };
 }
 
 export function removeLoredeckLibraryPack(packId, options = {}) {
@@ -124,10 +170,14 @@ export function removeLoredeckLibraryPack(packId, options = {}) {
     const state = getState();
     const settings = getSettings();
     const library = normalizeLoredeckRegistry(settings.loredeckLibrary, DEFAULT_SETTINGS.loredeckLibrary);
+    const mergedLibrary = getLoredeckLibraryRegistry(state);
     const chatRegistry = normalizeLoredeckRegistry(state?.loredeckRegistry, { schemaVersion: 1, packs: {} });
     let settingsChanged = false;
     let stateChanged = false;
     let removed = false;
+    const payloadRemoval = removeExternalLorepackPayloadSync(id, { payloadFile: mergedLibrary.packs[id]?.payloadFile });
+    const externalRemoval = removeExternalLoredeckLibraryRecordSync(id);
+    if (externalRemoval.ok || payloadRemoval.ok) removed = true;
     if (library.packs[id]) {
         delete library.packs[id];
         settingsChanged = true;
@@ -147,12 +197,19 @@ export function removeLoredeckLibraryPack(packId, options = {}) {
     const localRegistryResult = options.clearCreatorProjects === false
         ? { registry: normalizeLoredeckCreatorRegistry(state.loredeckCreator || getDefaultState().loredeckCreator), removedJobIds: [] }
         : removeLoredeckCreatorJobsForGeneratedPackId(state.loredeckCreator || getDefaultState().loredeckCreator, id);
+    const externalProjectRegistryResult = options.clearCreatorProjects === false
+        ? { registry: getLoredeckCreatorProjectRegistry(), removedJobIds: [] }
+        : removeLoredeckCreatorJobsForGeneratedPackId(getLoredeckCreatorProjectRegistry(), id);
     const clearedCreatorJobIds = [
         ...new Set([
             ...(projectRegistryResult.removedJobIds || []),
             ...(localRegistryResult.removedJobIds || []),
+            ...(externalProjectRegistryResult.removedJobIds || []),
         ]),
     ];
+    for (const jobId of externalProjectRegistryResult.removedJobIds || []) {
+        removeExternalLoredeckCreatorProjectSync(jobId);
+    }
     if (projectRegistryResult.removedJobIds.length) {
         settings.loredeckCreatorProjects = projectRegistryResult.registry;
         settingsChanged = true;
@@ -172,16 +229,12 @@ export function removeLoredeckLibraryPack(packId, options = {}) {
     if (stateChanged) {
         saveState(state, { syncPrompt: false, sanitize: true });
     }
-    return { ok: true, library: settings.loredeckLibrary, clearedCreatorJobIds };
+    return { ok: true, library: getLoredeckLibraryRegistry(state), clearedCreatorJobIds };
 }
 
 export function importLoredeckLibraryRegistry(registry = {}, options = {}) {
     const incoming = normalizeLoredeckRegistry(registry, { schemaVersion: 1, packs: {} });
     const settings = getSettings();
-    const current = options.replace === true
-        ? normalizeLoredeckRegistry(DEFAULT_SETTINGS.loredeckLibrary, DEFAULT_SETTINGS.loredeckLibrary)
-        : normalizeLoredeckRegistry(settings.loredeckLibrary, DEFAULT_SETTINGS.loredeckLibrary);
-
     let importedCount = 0;
     let skippedCount = 0;
     const importedPackIds = [];
@@ -193,30 +246,37 @@ export function importLoredeckLibraryRegistry(registry = {}, options = {}) {
             skippedPackIds.push(packId);
             continue;
         }
-        current.packs[packId] = {
-            ...(current.packs[packId] || {}),
-            ...pack,
-            installedAt: current.packs[packId]?.installedAt || pack.installedAt || Date.now(),
-            updatedAt: Date.now(),
-        };
         importedCount += 1;
         importedPackIds.push(packId);
     }
-    current.folders = [
-        ...(current.folders || []),
-        ...(incoming.folders || []),
-    ];
-    current.deckPlacements = [
-        ...(current.deckPlacements || []),
-        ...(incoming.deckPlacements || []),
-    ];
-    current.activeStack = (incoming.activeStack || []).length
-        ? incoming.activeStack
-        : (current.activeStack || []);
+    const payloadPacks = {};
+    for (const packId of importedPackIds) {
+        const payloadResult = upsertExternalLorepackPayloadSync(incoming.packs[packId], options);
+        if (!payloadResult.ok) return payloadResult;
+        payloadPacks[packId] = payloadResult.libraryRecord;
+    }
+    const result = importExternalLoredeckLibraryRegistrySync({
+        ...registry,
+        packs: payloadPacks,
+    }, options);
+    if (!result.ok) return result;
+    if (cleanupSettingsLoredeckLibraryPacks(settings, importedPackIds)) saveSettingsCleanup(settings);
+    return {
+        ...result,
+        importedCount,
+        skippedCount,
+        importedPackIds,
+        skippedPackIds,
+        library: getLoredeckLibraryRegistry(getState()),
+    };
+}
 
-    settings.loredeckLibrary = normalizeLoredeckRegistry(current, DEFAULT_SETTINGS.loredeckLibrary);
-    saveSettings(settings);
-    return { ok: true, importedCount, skippedCount, importedPackIds, skippedPackIds, library: settings.loredeckLibrary };
+export function persistLoredeckLibraryLayout(registry = {}, options = {}) {
+    const layout = {};
+    if (Array.isArray(registry.folders)) layout.folders = registry.folders;
+    if (Array.isArray(registry.deckPlacements)) layout.deckPlacements = registry.deckPlacements;
+    if (Array.isArray(registry.activeStack)) layout.activeStack = registry.activeStack;
+    return updateExternalLoredeckLibraryLayoutSync(layout, options);
 }
 
 export function promoteChatLoredeckRegistryToSettings(state = {}) {
@@ -231,12 +291,12 @@ export function promoteChatLoredeckRegistryToSettings(state = {}) {
     const globalLibrary = normalizeLoredeckRegistry(settings.loredeckLibrary, DEFAULT_SETTINGS.loredeckLibrary);
     let changed = false;
     for (const [packId, pack] of Object.entries(chatPacks)) {
-        if (!globalLibrary.packs[packId]) {
-            globalLibrary.packs[packId] = pack;
+        const mergedLibrary = mergeExternalLoredeckLibraryRegistry(globalLibrary, { schemaVersion: 1, packs: {} });
+        if (!mergedLibrary.packs[packId]) {
+            const payloadResult = upsertExternalLorepackPayloadSync(pack);
+            if (payloadResult.ok) upsertExternalLoredeckLibraryRecordSync(payloadResult.libraryRecord);
             changed = true;
         }
     }
     if (!changed) return;
-    settings.loredeckLibrary = globalLibrary;
-    saveSettings(settings);
 }

@@ -43,6 +43,9 @@
     </div>
 
     <script>
+        window.__sagaSmokeStoragePersistence = new URLSearchParams(window.location.search).get('storage') === '1';
+        window.__sagaSmokeSettingsStorageKey = '__sagaSmokeSettings';
+
         const smokeContext = {
             extensionSettings: {},
             chatMetadata: {},
@@ -57,7 +60,13 @@
             name1: 'User',
             name2: 'Narrator',
             saveMetadata() {},
-            saveSettingsDebounced() {},
+            saveSettingsDebounced() {
+                if (!window.__sagaSmokeStoragePersistence) return;
+                window.localStorage.setItem(
+                    window.__sagaSmokeSettingsStorageKey,
+                    JSON.stringify(smokeContext.extensionSettings.saga || {})
+                );
+            },
             setExtensionPrompt() {},
             eventSource: { on() {} },
             event_types: {
@@ -374,9 +383,22 @@
             entryDraftedAt: Date.now() - 120000,
         };
 
+        let persistedSettings = {};
+        if (window.__sagaSmokeStoragePersistence) {
+            try {
+                persistedSettings = JSON.parse(window.localStorage.getItem(window.__sagaSmokeSettingsStorageKey) || '{}') || {};
+            } catch (_) {
+                persistedSettings = {};
+            }
+        }
+
         const settings = {
             ...DEFAULT_SETTINGS,
             experienceMode: smokeMode,
+            themePackId: persistedSettings.themePackId || DEFAULT_SETTINGS.themePackId,
+            themeIconSetId: persistedSettings.themeIconSetId || DEFAULT_SETTINGS.themeIconSetId,
+            sagaStorage: persistedSettings.sagaStorage || DEFAULT_SETTINGS.sagaStorage,
+            sagaStorageFallback: persistedSettings.sagaStorageFallback || DEFAULT_SETTINGS.sagaStorageFallback,
             loredeckLibrary: {
                 schemaVersion: 1,
                 packs: {

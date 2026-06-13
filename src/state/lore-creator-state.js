@@ -4,6 +4,10 @@
 
 import { GENERATION_RUN_STATUSES, GENERATION_UNIT_STATUSES } from '../generation/generation-job-runner.js';
 import { cloneLoredeckPlainObject } from './lore-state-normalizers.js';
+import {
+    assertSagaUserFilesPath,
+    SAGA_STORAGE_JSON_EXTENSION,
+} from '../storage/saga-storage-filenames.js';
 export function normalizeLoredeckCreatorString(value = '', maxLength = 1000) {
     return String(value || '').trim().replace(/\s+/g, ' ').slice(0, maxLength).trim();
 }
@@ -55,6 +59,14 @@ export function normalizeLoredeckCreatorId(value = '', fallback = '') {
         .replace(/[^a-zA-Z0-9:._-]+/g, '_')
         .replace(/^_+|_+$/g, '');
     return text || fallback;
+}
+
+function normalizeCreatorProjectFilePointer(value = '') {
+    try {
+        return assertSagaUserFilesPath(value, { allowedExtensions: [SAGA_STORAGE_JSON_EXTENSION] });
+    } catch (_) {
+        return '';
+    }
 }
 
 function normalizeLoredeckCreatorNumber(value, fallback = 0) {
@@ -348,6 +360,8 @@ export function normalizeLoredeckCreatorJob(value = {}, index = 0) {
     if (activeGeneration) job.activeGeneration = activeGeneration;
     const lastGenerationResult = normalizeLoredeckCreatorGenerationResult(value.lastGenerationResult);
     if (lastGenerationResult) job.lastGenerationResult = lastGenerationResult;
+    const projectFile = normalizeCreatorProjectFilePointer(value.projectFile || value.payloadFile || '');
+    if (projectFile) job.projectFile = projectFile;
 
     const objectFields = {
         titleBatch: 20000,

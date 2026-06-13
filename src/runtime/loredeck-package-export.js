@@ -54,32 +54,36 @@ async function buildLoredeckZipPackageFilesForPack(pack = {}, registry = getLore
         registryRecord: fresh,
     });
     if (!source?.manifest) throw new Error(`${fresh.title || fresh.packId} has no loadable manifest.`);
-    const deckFolderName = sanitizeFileStem(fresh.packId || source.manifest.id || 'loredeck');
+    const exportPack = {
+        ...fresh,
+        ...(source.registryRecord || {}),
+    };
+    const deckFolderName = sanitizeFileStem(exportPack.packId || source.manifest.id || 'loredeck');
     const deckFolder = `loredecks/${deckFolderName}`;
     const files = [];
     const sourceInfo = source.manifest.source && typeof source.manifest.source === 'object' && !Array.isArray(source.manifest.source)
         ? source.manifest.source
         : {};
-    const originalType = String(sourceInfo.originalType || fresh.type || source.manifest.type || '').trim();
+    const originalType = String(sourceInfo.originalType || fresh.type || source.manifest.type || exportPack.type || '').trim();
     const manifest = {
         ...(cloneLoredeckJson(source.manifest) || {}),
-        id: fresh.packId,
+        id: exportPack.packId,
         type: 'custom',
-        title: fresh.title || source.manifest.title || fresh.packId,
-        description: fresh.description || source.manifest.description || '',
-        fandom: fresh.fandom || source.manifest.fandom || '',
-        era: fresh.era || source.manifest.era || '',
-        author: fresh.author || source.manifest.author || '',
-        version: fresh.version || source.manifest.version || '1.0.0',
-        entrySchemaVersion: Math.max(3, Number(fresh.entrySchemaVersion || source.manifest.entrySchemaVersion) || 0),
-        tags: Array.isArray(fresh.tags) ? fresh.tags : (Array.isArray(source.manifest.tags) ? source.manifest.tags : []),
-        library: normalizePackLibraryMetadata(fresh.library || source.manifest.library || {}),
-        stats: fresh.stats || source.manifest.stats || { entryCount: 0, categoryCounts: {} },
+        title: exportPack.title || source.manifest.title || exportPack.packId,
+        description: exportPack.description || source.manifest.description || '',
+        fandom: exportPack.fandom || source.manifest.fandom || '',
+        era: exportPack.era || source.manifest.era || '',
+        author: exportPack.author || source.manifest.author || '',
+        version: exportPack.version || source.manifest.version || '1.0.0',
+        entrySchemaVersion: Math.max(3, Number(exportPack.entrySchemaVersion || source.manifest.entrySchemaVersion) || 0),
+        tags: Array.isArray(exportPack.tags) ? exportPack.tags : (Array.isArray(source.manifest.tags) ? source.manifest.tags : []),
+        library: normalizePackLibraryMetadata(exportPack.library || source.manifest.library || {}),
+        stats: exportPack.stats || source.manifest.stats || { entryCount: 0, categoryCounts: {} },
         source: {
             ...(source.manifest.source || {}),
             kind: 'package_export',
             originalType,
-            originalPackId: fresh.packId,
+            originalPackId: exportPack.packId,
         },
         update: {
             ...(source.manifest.update || {}),
@@ -104,7 +108,7 @@ async function buildLoredeckZipPackageFilesForPack(pack = {}, registry = getLore
     });
     manifest.files = exportedEntryFiles;
 
-    const baseUrl = source.baseUrl || (fresh.manifest ? resolveManifestUrlForFetch(fresh.manifest) : null);
+    const baseUrl = source.baseUrl || (exportPack.manifest ? resolveManifestUrlForFetch(exportPack.manifest) : null);
     const copiedRefs = new Set(manifest.files);
     for (const ref of getLoredeckPackageRefPaths(manifest)) {
         if (copiedRefs.has(ref)) continue;
@@ -112,22 +116,22 @@ async function buildLoredeckZipPackageFilesForPack(pack = {}, registry = getLore
         await stageLoredeckPackageReferencedFile(files, deckFolder, baseUrl, ref);
         copiedRefs.add(ref);
     }
-    if (getLoredeckTimelineRegistryCount(fresh.timelineRegistry)) {
+    if (getLoredeckTimelineRegistryCount(exportPack.timelineRegistry)) {
         manifest.registries = { ...(manifest.registries || {}), timeline: 'timeline.json' };
-        addLoredeckPackageFile(files, `${deckFolder}/timeline.json`, loredeckPackageStringify(normalizeLoredeckTimelineRegistry(fresh.timelineRegistry)), { replace: true });
+        addLoredeckPackageFile(files, `${deckFolder}/timeline.json`, loredeckPackageStringify(normalizeLoredeckTimelineRegistry(exportPack.timelineRegistry)), { replace: true });
     }
-    if (getLoredeckTagRegistryCount(fresh.tagRegistry)) {
+    if (getLoredeckTagRegistryCount(exportPack.tagRegistry)) {
         manifest.registries = { ...(manifest.registries || {}), tags: 'tags.json' };
-        addLoredeckPackageFile(files, `${deckFolder}/tags.json`, loredeckPackageStringify(normalizeLoredeckTagRegistry(fresh.tagRegistry)), { replace: true });
+        addLoredeckPackageFile(files, `${deckFolder}/tags.json`, loredeckPackageStringify(normalizeLoredeckTagRegistry(exportPack.tagRegistry)), { replace: true });
     }
-    const exportedAssets = await stageLoredeckPackageAssets(files, fresh, manifest, baseUrl, deckFolder);
+    const exportedAssets = await stageLoredeckPackageAssets(files, exportPack, manifest, baseUrl, deckFolder);
     if (Object.keys(exportedAssets).length) manifest.assets = exportedAssets;
     else delete manifest.assets;
 
     addLoredeckPackageFile(files, `${deckFolder}/loredeck.json`, loredeckPackageStringify(manifest));
     return {
         files,
-        indexRecord: buildLoredeckPackageIndexRecord(fresh, manifest, deckFolderName),
+        indexRecord: buildLoredeckPackageIndexRecord(exportPack, manifest, deckFolderName),
         manifest,
     };
 }

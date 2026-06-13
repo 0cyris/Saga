@@ -4,15 +4,21 @@ import { clearCanonLoreDatabaseCache } from '../context/canon-lore-db.js';
 import { clearContextIndexCache } from '../context/context-index.js';
 import { DEFAULT_SETTINGS, getDefaultState } from '../state/constants.js';
 import {
+    cleanMissingSagaStorageIndexRecords,
     createStateBackup,
     exportSagaState,
     getSettings,
+    getSagaStorageDiagnostics,
+    getSagaStorageMigrationPlan,
     getState,
     getStateSafety,
     restoreStateFromBackup,
     restoreStateFromExport,
+    runSagaStorageMigration,
     saveSettings,
     saveState,
+    settleSagaStorageWrites,
+    verifySagaStorageIntegrity,
 } from '../state/state-manager.js';
 import {
     addTooltip,
@@ -20,6 +26,7 @@ import {
     createButton,
     createKeyValue,
     createStatusPill,
+    runBusyAction,
     toast,
 } from '../ui/runtime-ui-kit.js';
 import { downloadJson } from './runtime-downloads.js';
@@ -147,8 +154,112 @@ function restoreSagaStateFromFile() {
     input.click();
 }
 
+function formatStorageMigrationCounts(plan = {}) {
+    const counts = plan.counts || {};
+    const parts = [
+        counts.libraryPacks ? `${counts.libraryPacks} Loredeck${counts.libraryPacks === 1 ? '' : 's'}` : '',
+        counts.creatorProjects ? `${counts.creatorProjects} Creator project${counts.creatorProjects === 1 ? '' : 's'}` : '',
+        counts.themePacks ? `${counts.themePacks} Theme Pack${counts.themePacks === 1 ? '' : 's'}` : '',
+        counts.iconSets ? `${counts.iconSets} Icon Set${counts.iconSets === 1 ? '' : 's'}` : '',
+    ].filter(Boolean);
+    if (parts.length) return parts.join(', ');
+    return plan.alreadyMigrated ? 'external-files-v1' : 'none';
+}
+
+function getStorageMigrationLabel(plan = {}) {
+    if (plan.needsMigration) return 'Storage migration needed';
+    if (plan.alreadyMigrated) return 'Storage externalized';
+    return 'Storage current';
+}
+
+function getStorageDiagnosticsLabel(diagnostics = {}) {
+    if (diagnostics.status === 'ok') return 'Storage verified';
+    if (diagnostics.status === 'missing_files') return `${diagnostics.missingFileCount || 0} missing file${diagnostics.missingFileCount === 1 ? '' : 's'}`;
+    if (diagnostics.status === 'missing_index') return 'Storage index missing';
+    if (diagnostics.status === 'write_errors') return 'Storage write errors';
+    return diagnostics.checkedAt ? 'Storage check stale' : 'Storage not checked';
+}
+
+function getStorageDiagnosticsTone(diagnostics = {}) {
+    if (diagnostics.status === 'ok') return 'success';
+    if (['missing_files', 'missing_index', 'write_errors', 'errors'].includes(diagnostics.status)) return 'warning';
+    return 'muted';
+}
+
+function formatStorageDiagnosticsSummary(diagnostics = {}) {
+    if (diagnostics.status === 'ok') return `${diagnostics.fileCount || 0} tracked`;
+    if (diagnostics.status === 'missing_files') return `${diagnostics.fileCount || 0} tracked, ${diagnostics.missingFileCount || 0} missing`;
+    if (diagnostics.status === 'write_errors') return `${diagnostics.writeErrors?.length || 0} write error${diagnostics.writeErrors?.length === 1 ? '' : 's'}`;
+    if (diagnostics.status === 'missing_index') return 'index missing';
+    if (diagnostics.pendingWrites) return `${diagnostics.pendingWrites} pending write${diagnostics.pendingWrites === 1 ? '' : 's'}`;
+    return diagnostics.checkedAt ? `last checked ${formatStateSafetyTimestamp(diagnostics.checkedAt)}` : 'not checked';
+}
+
+async function runStorageMigrationFromButton(button) {
+    const plan = getSagaStorageMigrationPlan();
+    if (!plan.needsMigration) {
+        toast(plan.alreadyMigrated ? 'Saga storage is already externalized.' : 'No legacy Saga storage payloads were found.', 'info');
+        return;
+    }
+    const proceed = await confirmAction(
+        'Migrate Saga storage?',
+        `Externalize ${formatStorageMigrationCounts(plan)} into Saga-owned /user/files JSON. Settings will keep compact pointers. Continue?`
+    );
+    if (!proceed) return;
+    await runBusyAction(button, 'Migrating...', async ({ setText }) => {
+        setText('Writing files...');
+        const result = await runSagaStorageMigration();
+        if (!result.ok) throw new Error(result.error || 'Saga storage migration failed.');
+        refreshPanelBody({ preserveScroll: false });
+        refreshHeader();
+        toast(`Saga storage migrated: ${formatStorageMigrationCounts(result.plan)}.`, 'success');
+    });
+}
+
+async function verifyStorageFromButton(button) {
+    await runBusyAction(button, 'Verifying...', async () => {
+        const result = await verifySagaStorageIntegrity({ write: true });
+        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+        const summary = formatStorageDiagnosticsSummary(result);
+        toast(result.ok ? `Saga storage verified: ${summary}.` : `Saga storage needs attention: ${summary}.`, result.ok ? 'success' : 'warning');
+    });
+}
+
+async function settleStorageWritesFromButton(button) {
+    await runBusyAction(button, 'Settling...', async () => {
+        const result = await settleSagaStorageWrites({ write: true });
+        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+        const summary = formatStorageDiagnosticsSummary(result);
+        toast(result.ok ? `Saga storage writes settled: ${summary}.` : `Saga storage writes need attention: ${summary}.`, result.ok ? 'success' : 'warning');
+    });
+}
+
+async function cleanMissingStorageRecordsFromButton(button) {
+    const proceed = await confirmAction(
+        'Clean missing Saga storage records?',
+        'Saga will verify the master storage index and remove records for missing non-index files. It will not scan for unknown orphan files or delete Library rows. Continue?'
+    );
+    if (!proceed) return;
+    await runBusyAction(button, 'Cleaning...', async () => {
+        const result = await cleanMissingSagaStorageIndexRecords({ write: true });
+        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+        const cleaned = result.cleanedFileCount || 0;
+        const protectedCount = result.protectedMissingFileCount || 0;
+        if (cleaned) {
+            toast(`Cleaned ${cleaned} missing storage record${cleaned === 1 ? '' : 's'}${protectedCount ? `; ${protectedCount} protected missing index record${protectedCount === 1 ? '' : 's'} still need review` : ''}.`, protectedCount ? 'warning' : 'success');
+            return;
+        }
+        toast(protectedCount
+            ? `${protectedCount} missing protected storage record${protectedCount === 1 ? '' : 's'} still need review.`
+            : 'No missing non-index storage records were found.',
+        protectedCount ? 'warning' : 'info');
+    });
+}
+
 export function createStateSafetyCard(state = getState()) {
     const safety = getStateSafety(state);
+    const storageMigrationPlan = getSagaStorageMigrationPlan();
+    const storageDiagnostics = getSagaStorageDiagnostics();
     const card = document.createElement('div');
     card.className = 'saga-runtime-card saga-state-safety-card';
 
@@ -162,6 +273,8 @@ export function createStateSafetyCard(state = getState()) {
     summary.className = 'saga-loredeck-entry-summary';
     summary.appendChild(createStatusPill(`${safety.backups.length} backup${safety.backups.length === 1 ? '' : 's'}`, 'Automatic and manual Saga state backups stored in this chat.', { tone: safety.backups.length ? 'source' : 'muted', kind: 'count' }));
     summary.appendChild(createStatusPill(`${safety.migrationLog.length} log${safety.migrationLog.length === 1 ? '' : 's'}`, 'Schema migration and restore log entries.', { tone: safety.migrationLog.length ? 'info' : 'muted', kind: 'count' }));
+    summary.appendChild(createStatusPill(getStorageMigrationLabel(storageMigrationPlan), `Legacy payloads: ${formatStorageMigrationCounts(storageMigrationPlan)}`, { tone: storageMigrationPlan.needsMigration ? 'warning' : 'success', kind: 'status', maxChars: 34 }));
+    summary.appendChild(createStatusPill(getStorageDiagnosticsLabel(storageDiagnostics), formatStorageDiagnosticsSummary(storageDiagnostics), { tone: getStorageDiagnosticsTone(storageDiagnostics), kind: 'status', maxChars: 34 }));
     if (safety.lastBackupAt) summary.appendChild(createStatusPill(`Last backup ${formatStateSafetyTimestamp(safety.lastBackupAt)}`, `Reason: ${safety.lastBackupReason || 'unknown'}`, { tone: 'source', kind: 'source', maxChars: 36 }));
     if (safety.lastRestoreAt) summary.appendChild(createStatusPill(`Last restore ${formatStateSafetyTimestamp(safety.lastRestoreAt)}`, `Source: ${safety.lastRestoreSource || 'unknown'}`, { tone: 'source', kind: 'source', maxChars: 36 }));
     card.appendChild(summary);
@@ -178,6 +291,26 @@ export function createStateSafetyCard(state = getState()) {
     }));
     actions.appendChild(createButton('Restore From File', 'Restore Saga chat state from an exported Saga state JSON file.', () => {
         restoreSagaStateFromFile();
+    }));
+    const migrateStorage = createButton(
+        storageMigrationPlan.needsMigration ? 'Migrate Legacy Storage' : 'Storage Current',
+        storageMigrationPlan.needsMigration
+            ? 'Move legacy settings-backed Saga content into flat /user/files JSON storage.'
+            : 'No legacy settings-backed Saga content needs migration.',
+        button => runStorageMigrationFromButton(button)
+    );
+    migrateStorage.disabled = !storageMigrationPlan.needsMigration;
+    actions.appendChild(migrateStorage);
+    actions.appendChild(createButton('Verify Storage', 'Verify Saga-owned /user/files records listed in the storage index.', button => {
+        verifyStorageFromButton(button);
+    }));
+    const settleWrites = createButton('Settle Storage Writes', 'Wait for queued Saga storage writes to finish, then verify the storage index.', button => {
+        settleStorageWritesFromButton(button);
+    });
+    settleWrites.disabled = !(storageDiagnostics.pendingWrites || (storageDiagnostics.writeErrors || []).length);
+    actions.appendChild(settleWrites);
+    actions.appendChild(createButton('Clean Missing Records', 'Verify the storage index and remove missing non-index file records. This does not scan for unknown orphan files.', button => {
+        cleanMissingStorageRecordsFromButton(button);
     }));
     const latest = safety.backups[0] || null;
     const restoreLatest = createButton('Restore Latest Backup', 'Restore the newest in-chat Saga state backup. A new backup is created before restoring.', async () => {
@@ -204,6 +337,8 @@ export function createStateSafetyCard(state = getState()) {
     latestRows.className = 'saga-runtime-kv-list';
     latestRows.appendChild(createKeyValue('Latest backup', latest ? `${latest.reason} | ${formatStateSafetyTimestamp(latest.createdAt)}` : 'none', 'Most recent automatic or manual backup.'));
     latestRows.appendChild(createKeyValue('Latest migration log', safety.migrationLog[0]?.message || 'none', 'Most recent schema migration or restore event.'));
+    latestRows.appendChild(createKeyValue('Storage migration', formatStorageMigrationCounts(storageMigrationPlan), 'Legacy settings-backed payloads that can be moved to external Saga storage.'));
+    latestRows.appendChild(createKeyValue('Storage integrity', formatStorageDiagnosticsSummary(storageDiagnostics), 'Latest Saga storage verification summary from the master index.'));
     card.appendChild(latestRows);
 
     return card;

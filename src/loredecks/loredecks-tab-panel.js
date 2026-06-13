@@ -1,11 +1,11 @@
 import {
     getState,
     saveSettings,
+    activateLoredeckCreatorJobAsync,
     getLoredeckCreatorProjectRegistry,
     getActiveLoredeckCreatorJob,
     updateLoredeckCreatorProject,
     clearLoredeckCreatorJob,
-    activateLoredeckCreatorJob,
 } from '../state/state-manager.js';
 import { getCanonLoreDatabaseSync, loadCanonLoreDatabase } from '../context/canon-lore-db.js';
 import { buildLoredeckCreatorProjectCardModels } from './loredeck-creator-projects.js';
@@ -801,8 +801,13 @@ async function deleteSelectedLoredeckCreatorProjectsWithConfirm(models = []) {
     return deleted > 0;
 }
 
-function openLoredeckCreatorProject(jobId = '') {
-    const result = activateLoredeckCreatorJob(jobId, { syncPrompt: false });
+async function openLoredeckCreatorProject(jobId = '') {
+    let result;
+    try {
+        result = await activateLoredeckCreatorJobAsync(jobId, { syncPrompt: false });
+    } catch (error) {
+        result = { ok: false, error: error?.message || String(error || 'Creator project could not be opened.') };
+    }
     if (!result.ok || !result.job) {
         toast(result.error || 'Creator project could not be opened.', 'error');
         return false;

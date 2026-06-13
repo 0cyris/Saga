@@ -60,6 +60,9 @@ assert(stateImportExport.includes('getImportedStateSchemaError'), 'State import 
 assert(stateImportExport.includes('Unsupported Saga state schema'), 'Old state imports must fail with a clear unsupported-schema error.');
 assert(stateImportExport.includes('Unsupported future Saga state schema'), 'Future state imports must fail with a clear unsupported-schema error.');
 assert(stateManager.includes('recordStateSafetyEvent'), 'State manager must expose a State Safety lifecycle log helper.');
+assert(stateManager.includes('runSagaStorageMigration') && stateManager.includes('getSagaStorageMigrationPlan'), 'State manager must expose State Safety storage migration helpers.');
+assert(stateManager.includes('verifySagaStorageIntegrity') && stateManager.includes('getSagaStorageDiagnostics'), 'State manager must expose State Safety storage diagnostics helpers.');
+assert(stateManager.includes('settleSagaStorageWrites') && stateManager.includes('cleanMissingSagaStorageIndexRecords'), 'State manager must expose State Safety storage cleanup and queued-write helpers.');
 assert(stateManager.includes('before_schema_migration'), 'Stored current-chat migrations must create a pre-migration backup.');
 assert(stateManager.includes('schema_migration'), 'Stored current-chat migrations must add a visible migration log entry.');
 assert(stateManager.includes('state_restore_failed'), 'Failed state restores must be visible in State Safety diagnostics.');
@@ -82,6 +85,10 @@ assert(runtimeSource.includes('createStateSafetyCard'), 'Runtime settings must e
 assert(runtimeSource.includes('Export State'), 'State Safety card must support one-click export.');
 assert(runtimeSource.includes('Restore From File'), 'State Safety card must support one-click restore from exported state.');
 assert(runtimeSource.includes('Restore Latest Backup'), 'State Safety card must support restoring a saved in-chat backup.');
+assert(runtimeSafetyPanel.includes('Migrate Legacy Storage') && runtimeSafetyPanel.includes('runSagaStorageMigration'), 'State Safety card must expose external storage migration through the state manager.');
+assert(runtimeSafetyPanel.includes('Verify Storage') && runtimeSafetyPanel.includes('verifySagaStorageIntegrity'), 'State Safety card must expose storage integrity verification through the state manager.');
+assert(runtimeSafetyPanel.includes('Settle Storage Writes') && runtimeSafetyPanel.includes('settleSagaStorageWrites'), 'State Safety card must expose queued storage write settling.');
+assert(runtimeSafetyPanel.includes('Clean Missing Records') && runtimeSafetyPanel.includes('cleanMissingSagaStorageIndexRecords'), 'State Safety card must expose missing indexed file cleanup.');
 assert(runtimeSource.includes('Latest migration log'), 'State Safety card must show migration diagnostics.');
 assert(runtimeSafetyPanel.includes('refreshRuntimeThemeSurfaces(next);'), 'Section settings resets must refresh runtime theme/rail surfaces after saving defaults.');
 assert(runtimeSafetyPanel.includes('const settings = resetAllSettingsToDefaults();') && runtimeSafetyPanel.includes('refreshRuntimeThemeSurfaces(settings);'), 'Reset All Settings must refresh runtime theme/rail surfaces from the saved defaults.');

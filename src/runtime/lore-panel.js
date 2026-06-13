@@ -244,6 +244,9 @@ import {
     refreshGeneratedLoredeckDerivedMetadata,
 } from './loredeck-virtual-data.js';
 import {
+    hydrateExternalLorepackPayloadRecord,
+} from '../storage/saga-lorepack-payload-storage.js';
+import {
     getLoredeckSourceSummary,
 } from './loredeck-source-summary.js';
 import {
@@ -271,6 +274,7 @@ import {
     setLoredeckContext,
     resetLoredeckContext,
     getLoredeckLibraryRegistry,
+    persistLoredeckLibraryLayout,
     upsertLoredeckLibraryPack,
     removeLoredeckLibraryPack,
     getLoredeckCreatorRegistry,
@@ -983,6 +987,7 @@ configureLoredeckLibraryPanel({
     getLoredeckStack,
     getLoredeckLibrary,
     getLoredeckLibraryRegistry,
+    persistLoredeckLibraryLayout,
     normalizeLoredeckLibraryPack,
     getLoredeckDefinition,
     getLoredeckTypeLabel,
@@ -10152,11 +10157,12 @@ async function requestAndParseLoredeckAssistantResponse(context = {}, options = 
 async function handleLoredeckAssistantHealthRepairDraft(pack, health = null, button = null, options = {}) {
     await runBusyAction(button, 'Drafting...', async (busy = {}) => {
         if (!ensureLoreProviderReadyForAction('Pack Health repair planning', 'lore')) return;
-        const fresh = getFreshLoredeckLibraryPack(pack.packId, pack);
-        if (!fresh || fresh.type === 'bundled') {
+        const source = getFreshLoredeckLibraryPack(pack.packId, pack);
+        if (!source || source.type === 'bundled') {
             toast('Bundled Loredecks cannot be repaired directly. Duplicate as Custom first.', 'warning');
             return;
         }
+        const fresh = await hydrateExternalLorepackPayloadRecord(source);
         const selectedIssues = Array.isArray(options.selectedIssues) && options.selectedIssues.length
             ? options.selectedIssues.map((issue, index) => issue?.issueId ? issue : normalizeLoredeckHealthIssueForRepair(issue, issue?.severity || 'suggestion', index)).filter(issue => issue?.issueId)
             : collectLoredeckHealthRepairSelectedIssues(fresh, health);
@@ -11585,11 +11591,12 @@ function buildLoredeckMalformedTagRepairPlan(pack = {}, group = {}, sourceEntrie
 
 async function queueLoredeckMalformedTagRepairFromHealthGroup(pack, group = {}, button = null) {
     await runBusyAction(button, 'Queueing...', async () => {
-        const fresh = getFreshLoredeckLibraryPack(pack.packId, pack);
-        if (!fresh || fresh.type === 'bundled') {
+        const source = getFreshLoredeckLibraryPack(pack.packId, pack);
+        if (!source || source.type === 'bundled') {
             toast('Bundled Loredecks cannot be repaired directly. Duplicate as Custom first.', 'warning');
             return;
         }
+        const fresh = await hydrateExternalLorepackPayloadRecord(source);
         const validation = await validateLoredeckForEditor(fresh, null, { quiet: true, updateLibrary: false });
         if (!validation.health) throw new Error(validation.error || 'Pack Health validation failed before repair planning.');
         const plan = buildLoredeckMalformedTagRepairPlan(fresh, group, validation.entryCache?.entries || []);

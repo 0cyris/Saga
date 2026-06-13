@@ -7,6 +7,11 @@ import { normalizeLoreEntry } from '../lorecards/lore-matrix.js';
 import { normalizeLoredeckLibraryIndex, normalizePackLibraryMetadata } from '../loredecks/loredeck-library-index.js';
 import { normalizeLoredeckEntryForSchemaV3 } from '../loredecks/schema-v3-health.js';
 import {
+    assertSagaUserFilesPath,
+    SAGA_STORAGE_JSON_EXTENSION,
+    SAGA_STORAGE_RASTER_ASSET_EXTENSIONS,
+} from '../storage/saga-storage-filenames.js';
+import {
     DEFAULT_BUNDLED_LOREDECK_CONTEXTS,
     DEFAULT_BUNDLED_LOREDECK_LIBRARY_PACKS,
     DEFAULT_HP_LOREDECK_FOLDER_ID,
@@ -38,6 +43,14 @@ const LOREDECK_CONTEXT_SOURCES = Object.freeze([
     'imported',
     'unknown',
 ]);
+
+function normalizeSagaUserFilesPointer(value = '', allowedExtensions = []) {
+    try {
+        return assertSagaUserFilesPath(value, { allowedExtensions });
+    } catch (_) {
+        return '';
+    }
+}
 function getLoredeckStackItemKey(item = {}) {
     const type = item?.type === 'folder' || item?.folderId ? 'folder' : 'deck';
     const id = type === 'folder'
@@ -914,6 +927,10 @@ export function normalizeLoredeckRegistry(value, defaults = getDefaultState().lo
             installedAt: Number.isFinite(Number(raw.installedAt)) ? Number(raw.installedAt) : 0,
             updatedAt: Number.isFinite(Number(raw.updatedAt)) ? Number(raw.updatedAt) : 0,
         };
+        const payloadFile = normalizeSagaUserFilesPointer(raw.payloadFile || raw.payloadPath || '', [SAGA_STORAGE_JSON_EXTENSION]);
+        if (payloadFile) pack.payloadFile = payloadFile;
+        const coverFile = normalizeSagaUserFilesPointer(raw.coverFile || raw.coverPath || raw.coverImage || '', SAGA_STORAGE_RASTER_ASSET_EXTENSIONS);
+        if (coverFile) pack.coverFile = coverFile;
         const assets = cloneLoredeckPlainObject(raw.assets, 1500000);
         if (assets) pack.assets = assets;
         else if (raw.cover || raw.coverImage) {

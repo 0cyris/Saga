@@ -1,0 +1,182 @@
+import assert from 'node:assert/strict';
+
+const {
+  getExternalThemeIconSetLibraryRegistry,
+  getExternalThemePackLibraryRegistry,
+  hydrateSagaThemeIconStorage,
+  importExternalIconSet,
+  importExternalIconSetZip,
+  importExternalThemePack,
+  removeExternalIconSet,
+  removeExternalThemePack,
+  resetSagaThemeIconStorageCache,
+} = await import('../../src/storage/saga-theme-icon-storage.js');
+const {
+  SAGA_STORAGE_DOMAIN_INDEX_FILES,
+  SAGA_STORAGE_INDEX_PATH,
+} = await import('../../src/storage/saga-storage-index.js');
+const {
+  __sagaFileApiTestHooks,
+  createSagaFileApi,
+} = await import('../../src/storage/saga-file-api.js');
+const {
+  getIconSetLibrary,
+  getThemePackLibrary,
+  normalizePassiveAssetPath,
+} = await import('../../src/theme/runtime-theme.js');
+const {
+  createStoredZipArchive,
+} = await import('../../src/loredecks/loredeck-package-zip.js');
+
+const stored = new Map();
+const calls = [];
+
+function response(ok, status, body = '') {
+  return {
+    ok,
+    status,
+    async text() {
+      return body;
+    },
+  };
+}
+
+const fileApi = createSagaFileApi({
+  getRequestHeaders: () => ({ 'X-CSRF-Token': 'theme-icon-test' }),
+  fetchImpl: async (url, init = {}) => {
+    const method = init.method || 'GET';
+    const body = init.body ? JSON.parse(init.body) : null;
+    calls.push({ url, method, body });
+
+    if (url === '/api/files/upload' && method === 'POST') {
+      const path = `/user/files/${body.name}`;
+      stored.set(path, __sagaFileApiTestHooks.base64ToUtf8(body.data));
+      return response(true, 200, JSON.stringify({ path }));
+    }
+
+    if (url === '/api/files/verify' && method === 'POST') {
+      return response(true, 200, JSON.stringify(Object.fromEntries((body.urls || []).map(path => [path, stored.has(path)]))));
+    }
+
+    if (url === '/api/files/delete' && method === 'POST') {
+      stored.delete(body.path);
+      return response(true, 200, '');
+    }
+
+    if (method === 'GET') {
+      if (!stored.has(url)) return response(false, 404, 'missing');
+      return response(true, 200, stored.get(url));
+    }
+
+    return response(false, 404, 'unexpected request');
+  },
+});
+
+resetSagaThemeIconStorageCache();
+let clock = 1000;
+const now = () => clock;
+
+const themeResult = await importExternalThemePack({
+  id: 'arlong-theme',
+  title: 'Arlong Park',
+  description: 'Externalized custom theme.',
+  author: 'Saga Test',
+  version: '1.0.0',
+  colors: {
+    background: '#120c12',
+    surface: '#2b1c1c',
+    accent: '#d7b56d',
+    chipDanger: '#e1a0a0',
+  },
+  tags: ['theme:custom'],
+  source: { kind: 'local', url: 'arlong.theme.json' },
+}, { fileApi, now, sourceFileName: 'arlong.theme.json' });
+
+assert.equal(themeResult.ok, true);
+assert.equal(themeResult.payloadFile, '/user/files/saga-theme-pack-arlong-theme.v1.json');
+assert.equal(JSON.parse(stored.get(themeResult.payloadFile)).kind, 'saga_theme_pack');
+assert.equal(JSON.parse(stored.get(themeResult.payloadFile)).colors.accent, '#d7b56d');
+assert.equal(JSON.parse(stored.get(SAGA_STORAGE_DOMAIN_INDEX_FILES.themes)).packs['arlong-theme'].payloadFile, themeResult.payloadFile);
+assert.equal(JSON.parse(stored.get(SAGA_STORAGE_INDEX_PATH)).files[themeResult.payloadFile].kind, 'theme_pack_payload');
+assert.equal(getExternalThemePackLibraryRegistry().packs['arlong-theme'].colors.chipDanger, '#e1a0a0');
+assert(getThemePackLibrary({ themePackLibrary: { schemaVersion: 1, packs: {} } }).some(pack => pack.id === 'arlong-theme'), 'Runtime Theme Pack library should merge external storage cache.');
+
+const tinyPngDataUrl = 'data:image/png;base64,iVBORw0KGgo=';
+clock = 2000;
+const iconSetResult = await importExternalIconSet({
+  id: 'mystic-tabs',
+  title: 'Mystic Tabs',
+  preferredSize: 256,
+  icons: {
+    'tab.loredecks': tinyPngDataUrl,
+    'tab.settings': './assets/iconsets/saga-hero/hero-tab-settings-256.png',
+  },
+  tags: ['icons:custom'],
+}, { fileApi, now, sourceFileName: 'mystic-tabs.iconset.json' });
+
+assert.equal(iconSetResult.ok, true);
+assert.equal(iconSetResult.payloadFile, '/user/files/saga-iconset-mystic-tabs.v1.json');
+const iconPayload = JSON.parse(stored.get(iconSetResult.payloadFile));
+const uploadedIconPath = iconPayload.icons['tab.loredecks'];
+assert.match(uploadedIconPath, /^\/user\/files\/saga-iconset-asset-mystic-tabs-tab-loredecks-[a-f0-9]+\.png$/);
+assert.equal(normalizePassiveAssetPath(uploadedIconPath), uploadedIconPath);
+assert.equal(iconPayload.icons['tab.settings'], './assets/iconsets/saga-hero/hero-tab-settings-256.png');
+assert.equal(JSON.parse(stored.get(SAGA_STORAGE_DOMAIN_INDEX_FILES.iconSets)).iconSets['mystic-tabs'].payloadFile, iconSetResult.payloadFile);
+assert.equal(JSON.parse(stored.get(SAGA_STORAGE_INDEX_PATH)).files[uploadedIconPath].kind, 'iconset_asset');
+assert.equal(getExternalThemeIconSetLibraryRegistry().iconSets['mystic-tabs'].icons['tab.loredecks'], uploadedIconPath);
+assert(getIconSetLibrary({ themeIconSetLibrary: { schemaVersion: 1, iconSets: {} } }).some(iconSet => iconSet.id === 'mystic-tabs'), 'Runtime Icon Set library should merge external storage cache.');
+
+const iconRemoval = await removeExternalIconSet('mystic-tabs', { fileApi, now });
+assert.equal(iconRemoval.ok, true);
+assert.equal(stored.has(iconSetResult.payloadFile), false);
+assert.equal(stored.has(uploadedIconPath), false);
+assert.equal(getExternalThemeIconSetLibraryRegistry().iconSets['mystic-tabs'], undefined);
+assert.equal(JSON.parse(stored.get(SAGA_STORAGE_DOMAIN_INDEX_FILES.iconSets)).iconSets['mystic-tabs'], undefined);
+assert(calls.some(call => call.url === '/api/files/delete' && call.body.path === uploadedIconPath), 'Icon Set removal should delete uploaded icon assets.');
+
+clock = 2500;
+const zipBytes = await createStoredZipArchive([
+  {
+    path: 'saga-iconset.json',
+    data: JSON.stringify({
+      schemaVersion: 1,
+      id: 'zip-tabs',
+      title: 'Zip Tabs',
+      preferredSize: 256,
+      icons: {
+        'tab.loredecks': 'icons/tab-loredecks.png',
+        'tab.settings': './icons/tab-settings.webp',
+      },
+    }),
+  },
+  { path: 'icons/tab-loredecks.png', data: new Uint8Array([137, 80, 78, 71, 13, 10, 26, 10]) },
+  { path: 'icons/tab-settings.webp', data: new Uint8Array([82, 73, 70, 70, 0, 0, 0, 0, 87, 69, 66, 80]) },
+]);
+const zipImport = await importExternalIconSetZip(zipBytes, {
+  fileApi,
+  now,
+  sourceFileName: 'zip-tabs.saga-iconset.zip',
+});
+assert.equal(zipImport.ok, true);
+assert.equal(zipImport.payloadFile, '/user/files/saga-iconset-zip-tabs.v1.json');
+const zipPayload = JSON.parse(stored.get(zipImport.payloadFile));
+assert.match(zipPayload.icons['tab.loredecks'], /^\/user\/files\/saga-iconset-asset-zip-tabs-tab-loredecks-[a-f0-9]+\.png$/);
+assert.match(zipPayload.icons['tab.settings'], /^\/user\/files\/saga-iconset-asset-zip-tabs-tab-settings-[a-f0-9]+\.webp$/);
+assert.equal(zipPayload.source.kind, 'local_zip');
+assert.equal(zipPayload.source.importedFrom, 'zip-tabs.saga-iconset.zip');
+
+resetSagaThemeIconStorageCache();
+clock = 3000;
+await hydrateSagaThemeIconStorage({ fileApi, now, force: true });
+assert.equal(getExternalThemePackLibraryRegistry().packs['arlong-theme'].title, 'Arlong Park');
+assert.equal(getExternalThemeIconSetLibraryRegistry().iconSets['zip-tabs'].icons['tab.loredecks'], zipPayload.icons['tab.loredecks']);
+
+clock = 4000;
+const removal = await removeExternalThemePack('arlong-theme', { fileApi, now });
+assert.equal(removal.ok, true);
+assert.equal(stored.has(themeResult.payloadFile), false);
+assert.equal(getExternalThemePackLibraryRegistry().packs['arlong-theme'], undefined);
+assert.equal(JSON.parse(stored.get(SAGA_STORAGE_DOMAIN_INDEX_FILES.themes)).packs['arlong-theme'], undefined);
+assert(calls.some(call => call.url === '/api/files/delete' && call.body.path === themeResult.payloadFile), 'Theme Pack removal should delete the payload file.');
+
+console.log('Saga Theme/Icon external storage tests passed.');

@@ -99,23 +99,46 @@
 }
 
 .saga-chip-tone-source {
-    border-color: var(--saga-chip-source-border, rgba(214, 189, 134, 0.24));
-    background: var(--saga-chip-source-bg, rgba(214, 189, 134, 0.08));
-    color: var(--saga-chip-source-fg, #d6bd86);
+    border-color: var(--saga-chip-source-border, rgba(214, 189, 134, 0.22));
+    background: var(--saga-chip-source-bg, rgba(34, 30, 23, 0.78));
+    color: var(--saga-chip-source-fg, #cbb98a);
 }
 
 .saga-chip-tone-tag {
-    border-color: var(--saga-chip-source-border, rgba(214, 189, 134, 0.24));
-    background: var(--saga-chip-source-bg, rgba(214, 189, 134, 0.08));
-    color: var(--saga-chip-source-fg, #d6bd86);
+    border-color: var(--saga-chip-tag-border, rgba(211, 216, 225, 0.26));
+    background: var(--saga-chip-tag-bg, rgba(22, 23, 28, 0.9));
+    color: var(--saga-chip-tag-fg, #ced3dc);
 }
 
-.saga-chip-tone-category,
+.saga-chip-tone-category {
+    border-color: var(--saga-chip-category-border, rgba(203, 207, 216, 0.24));
+    background: var(--saga-chip-category-bg, rgba(25, 26, 31, 0.86));
+    color: var(--saga-chip-category-fg, #c9cdd6);
+}
+
 .saga-chip-tone-relevance,
 .saga-chip-tone-info {
-    border-color: var(--saga-chip-info-border, rgba(202, 167, 107, 0.26));
-    background: var(--saga-chip-info-bg, rgba(202, 167, 107, 0.09));
-    color: var(--saga-chip-info-fg, #caa76b);
+    border-color: var(--saga-chip-info-border, rgba(166, 180, 205, 0.24));
+    background: var(--saga-chip-info-bg, rgba(24, 27, 35, 0.82));
+    color: var(--saga-chip-info-fg, #c7cfdd);
+}
+
+.saga-chip-tone-relevance-high {
+    border-color: var(--saga-chip-relevance-high-border, rgba(74, 222, 128, 0.5));
+    background: var(--saga-chip-relevance-high-bg, rgba(22, 101, 52, 0.46));
+    color: var(--saga-chip-relevance-high-fg, #dcfce7);
+}
+
+.saga-chip-tone-relevance-normal {
+    border-color: var(--saga-chip-relevance-normal-border, rgba(96, 165, 250, 0.5));
+    background: var(--saga-chip-relevance-normal-bg, rgba(30, 64, 175, 0.42));
+    color: var(--saga-chip-relevance-normal-fg, #dbeafe);
+}
+
+.saga-chip-tone-relevance-low {
+    border-color: var(--saga-chip-relevance-low-border, rgba(148, 163, 184, 0.5));
+    background: var(--saga-chip-relevance-low-bg, rgba(71, 85, 105, 0.42));
+    color: var(--saga-chip-relevance-low-fg, #e2e8f0);
 }
 
 .saga-chip-tone-review,

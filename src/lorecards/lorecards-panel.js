@@ -1077,11 +1077,17 @@ function applyManualChipSchema(el, { tone = 'neutral', kind = 'metadata', densit
     return el;
 }
 
+function getRelevanceChipTone(value) {
+    const relevance = normalizeLoreRelevance(value || 'normal');
+    return `relevance-${relevance}`;
+}
+
 function createEditableLifecycleBadge(entry, options = {}) {
     const value = getLifecycleStatus(entry);
     const wrap = document.createElement('label');
     wrap.className = 'saga-lore-lifecycle-select-wrap';
-    applyManualChipSchema(wrap, { tone: 'relevance', kind: 'metadata', density: 'standard' });
+    applyManualChipSchema(wrap, { tone: getRelevanceChipTone(value), kind: 'metadata', density: 'standard' });
+    wrap.dataset.sagaRelevance = value;
     const meta = RELEVANCE_META[value] || RELEVANCE_META.normal;
     addTooltip(wrap, `${meta.label} Relevance: ${meta.tooltip}`);
 

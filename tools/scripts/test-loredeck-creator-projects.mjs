@@ -1,6 +1,21 @@
 import assert from 'node:assert/strict';
 import { MODULE_KEY, SCHEMA_VERSION } from '../../src/state/constants.js';
 import {
+  configureSagaLorepackLibraryStorage,
+  getExternalLoredeckLibraryRegistry,
+  resetSagaLorepackLibraryStorageCache,
+} from '../../src/storage/saga-lorepack-library-storage.js';
+import {
+  getCachedExternalLorepackPayload,
+  resetSagaLorepackPayloadStorageCache,
+} from '../../src/storage/saga-lorepack-payload-storage.js';
+import {
+  configureSagaCreatorProjectStorage,
+  getCachedExternalLoredeckCreatorProject,
+  getExternalLoredeckCreatorIndex,
+  resetSagaCreatorProjectStorageCache,
+} from '../../src/storage/saga-creator-project-storage.js';
+import {
   activateLoredeckCreatorJob,
   clearLoredeckCreatorJob,
   getLoredeckCreatorProjectRegistry,
@@ -68,20 +83,27 @@ globalThis.SillyTavern = {
   },
 };
 
+resetSagaLorepackLibraryStorageCache();
+resetSagaLorepackPayloadStorageCache();
+resetSagaCreatorProjectStorageCache();
+configureSagaLorepackLibraryStorage({ persistWrites: false, now: () => 1000 });
+configureSagaCreatorProjectStorage({ persistWrites: false, now: () => 1000 });
+
 const state = getState();
 assert.equal(state.loredeckCreator.activeJobId, 'creator_one_piece_arlong');
 
 const settingsAfterMigration = getSettings();
 assert.equal(settingsAfterMigration.loredeckCreatorProjects.schemaVersion, 1);
-assert.equal(settingsAfterMigration.loredeckCreatorProjects.activeJobId, 'creator_one_piece_arlong');
-assert.equal(settingsAfterMigration.loredeckCreatorProjects.jobs.creator_one_piece_arlong.scope, 'Arlong Park Arc');
-assert.ok(saveSettingsCount >= 1, 'Opening a chat with local Creator jobs should promote them to global settings.');
+assert.equal(settingsAfterMigration.loredeckCreatorProjects.activeJobId, '');
+assert.equal(settingsAfterMigration.loredeckCreatorProjects.jobs.creator_one_piece_arlong, undefined);
+assert.equal(saveSettingsCount, 0, 'Opening a chat with local Creator jobs should externalize them without saving full projects to settings.');
 
 const globalRegistry = getLoredeckCreatorProjectRegistry();
 assert.equal(globalRegistry.activeJobId, 'creator_one_piece_arlong');
 assert.equal(globalRegistry.jobs.creator_one_piece_arlong.currentStage, 'titles_drafted');
 assert.deepEqual(globalRegistry.jobs.creator_one_piece_arlong.generationRuns, {});
 assert.deepEqual(globalRegistry.jobs.creator_one_piece_arlong.generationUnits, {});
+assert.equal(getExternalLoredeckCreatorIndex().projects.creator_one_piece_arlong.projectFile, '/user/files/saga-creator-project-creator_one_piece_arlong.v1.json');
 
 const runStarted = updateLoredeckCreatorGenerationRun('creator_one_piece_arlong', {
   runId: 'run_titles_1',
@@ -100,7 +122,7 @@ assert.equal(runStarted.job.generationRuns.run_titles_1.status, 'running');
 assert.equal(runStarted.job.activeGeneration.runId, 'run_titles_1');
 assert.equal(runStarted.job.activeGeneration.status, 'running');
 assert.equal(runStarted.job.currentStage, 'titles_drafting');
-assert.equal(extensionSettings[MODULE_KEY].loredeckCreatorProjects.jobs.creator_one_piece_arlong.activeGeneration.runId, 'run_titles_1');
+assert.equal(getCachedExternalLoredeckCreatorProject('creator_one_piece_arlong').activeGeneration.runId, 'run_titles_1');
 assert.equal(chatMetadata[MODULE_KEY].loredeckCreator.jobs.creator_one_piece_arlong.activeGeneration.runId, 'run_titles_1');
 
 const unitStarted = updateLoredeckCreatorGenerationUnit('creator_one_piece_arlong', 'unit_title_1', {
@@ -236,7 +258,7 @@ assert.equal(upserted.ok, true);
 assert.equal(upserted.job.projectTitle, 'Naruto: Chunin Exams');
 assert.equal(upserted.job.titleDrafts, undefined, 'Creating a different project must not inherit title drafts from the previously active project.');
 assert.equal(upserted.projectRegistry.activeJobId, 'creator_naruto_chunin');
-assert.equal(extensionSettings[MODULE_KEY].loredeckCreatorProjects.jobs.creator_naruto_chunin.folderId, 'naruto');
+assert.equal(getLoredeckCreatorProjectRegistry().jobs.creator_naruto_chunin.folderId, 'naruto');
 assert.equal(chatMetadata[MODULE_KEY].loredeckCreator.jobs.creator_naruto_chunin.folderId, 'naruto');
 assert.ok(saveStateCount >= 1, 'Creator project upsert should keep the current chat mirror in sync.');
 
@@ -249,7 +271,7 @@ const activated = activateLoredeckCreatorJob('creator_one_piece_arlong', { syncP
 assert.equal(activated.ok, true);
 assert.equal(activated.job.scope, 'Arlong Park Arc');
 assert.equal(activated.registry.activeJobId, 'creator_one_piece_arlong');
-assert.equal(extensionSettings[MODULE_KEY].loredeckCreatorProjects.activeJobId, 'creator_one_piece_arlong');
+assert.equal(getLoredeckCreatorProjectRegistry().activeJobId, 'creator_one_piece_arlong');
 assert.equal(chatMetadata[MODULE_KEY].loredeckCreator.activeJobId, 'creator_one_piece_arlong');
 assert.equal(activated.job.projectTitle, undefined, 'Activating an older project must not inherit fields from the previously active project.');
 
@@ -301,7 +323,7 @@ const linkedGeneratedProject = updateLoredeckCreatorProject('creator_one_piece_a
 assert.equal(linkedGeneratedProject.ok, true);
 assert.equal(linkedGeneratedProject.job.draftChanges.length, 1);
 assert.equal(linkedGeneratedProject.job.draftChanges[0].affectedEntryIds[0], 'arlong-pressure');
-assert.equal(extensionSettings[MODULE_KEY].loredeckCreatorProjects.jobs.creator_one_piece_arlong.draftChanges[0].payload.entryOverrides['arlong-pressure'].title, 'Arlong pressure over Cocoyasi Village');
+assert.equal(getCachedExternalLoredeckCreatorProject('creator_one_piece_arlong').draftChanges[0].payload.entryOverrides['arlong-pressure'].title, 'Arlong pressure over Cocoyasi Village');
 assert.equal(chatMetadata[MODULE_KEY].loredeckCreator.jobs.creator_one_piece_arlong.draftChanges[0].preview.creatorEntryBatch.id, 'characters-pressure');
 
 const titleOnlyGeneratedProject = upsertLoredeckCreatorJob({
@@ -330,7 +352,10 @@ const generatedPackRecord = {
 };
 const generatedPackSaved = upsertLoredeckLibraryPack(generatedPackRecord);
 assert.equal(generatedPackSaved.ok, true);
-assert.equal(extensionSettings[MODULE_KEY].loredeckLibrary.packs[generatedPackId].type, 'generated');
+assert.equal(getExternalLoredeckLibraryRegistry().packs[generatedPackId].type, 'generated');
+assert.ok(!extensionSettings[MODULE_KEY].loredeckLibrary.packs[generatedPackId], 'Generated Loredecks should not be embedded in settings.');
+assert.equal(getCachedExternalLorepackPayload(generatedPackId).title, 'One Piece: Arlong Park');
+assert.equal(getExternalLoredeckLibraryRegistry().packs[generatedPackId].manifestData, undefined, 'Generated Loredeck payload data should not be embedded in the Library index.');
 
 chatMetadata[MODULE_KEY].loredeckRegistry = {
   schemaVersion: 1,
@@ -345,48 +370,50 @@ chatMetadata[MODULE_KEY].loredeckRegistry = {
 const generatedPackRemoved = removeLoredeckLibraryPack(generatedPackId, { syncPrompt: false });
 assert.equal(generatedPackRemoved.ok, true);
 assert.deepEqual(generatedPackRemoved.clearedCreatorJobIds, ['creator_one_piece_arlong', 'creator_one_piece_arlong_title_only']);
-assert.ok(!extensionSettings[MODULE_KEY].loredeckLibrary.packs[generatedPackId], 'Deleting a Generated Loredeck should remove the global pack record.');
+assert.ok(!getExternalLoredeckLibraryRegistry().packs[generatedPackId], 'Deleting a Generated Loredeck should remove the external pack record.');
+assert.equal(getCachedExternalLorepackPayload(generatedPackId), null, 'Deleting a Generated Loredeck should clear the external payload cache.');
+assert.ok(!extensionSettings[MODULE_KEY].loredeckLibrary.packs[generatedPackId], 'Deleting a Generated Loredeck should keep settings free of the pack record.');
 assert.ok(!chatMetadata[MODULE_KEY].loredeckRegistry.packs[generatedPackId], 'Deleting a Generated Loredeck should remove the chat-local pack mirror.');
-assert.ok(!extensionSettings[MODULE_KEY].loredeckCreatorProjects.jobs.creator_one_piece_arlong, 'Deleting a Generated Loredeck should clear its global Creator project.');
+assert.ok(!getLoredeckCreatorProjectRegistry().jobs.creator_one_piece_arlong, 'Deleting a Generated Loredeck should clear its external Creator project.');
 assert.ok(!chatMetadata[MODULE_KEY].loredeckCreator.jobs.creator_one_piece_arlong, 'Deleting a Generated Loredeck should clear its chat-local Creator project.');
-assert.ok(!extensionSettings[MODULE_KEY].loredeckCreatorProjects.jobs.creator_one_piece_arlong_title_only, 'Deleting a Generated Loredeck should clear Creator projects that only retain the normalized brief title.');
+assert.ok(!getLoredeckCreatorProjectRegistry().jobs.creator_one_piece_arlong_title_only, 'Deleting a Generated Loredeck should clear Creator projects that only retain the normalized brief title.');
 assert.ok(!chatMetadata[MODULE_KEY].loredeckCreator.jobs.creator_one_piece_arlong_title_only, 'Deleting a Generated Loredeck should clear chat-local title-only Creator projects.');
-assert.ok(extensionSettings[MODULE_KEY].loredeckCreatorProjects.jobs.creator_naruto_chunin, 'Unrelated Creator projects should remain.');
+assert.ok(getLoredeckCreatorProjectRegistry().jobs.creator_naruto_chunin, 'Unrelated Creator projects should remain.');
 assert.equal(getLoredeckCreatorProjectRegistry().activeJobId, 'creator_naruto_chunin');
 
 const cleared = clearLoredeckCreatorJob('creator_naruto_chunin', { syncPrompt: false });
 assert.equal(cleared.ok, true);
-assert.ok(!extensionSettings[MODULE_KEY].loredeckCreatorProjects.jobs.creator_naruto_chunin);
+assert.ok(!getLoredeckCreatorProjectRegistry().jobs.creator_naruto_chunin);
 assert.ok(!chatMetadata[MODULE_KEY].loredeckCreator.jobs.creator_naruto_chunin);
 assert.deepEqual(Object.keys(getLoredeckCreatorProjectRegistry().jobs), []);
 
 throwSettingsSave = true;
-const failedCreatorPersistence = upsertLoredeckCreatorJob({
+const externalCreatorPersistence = upsertLoredeckCreatorJob({
   jobId: 'creator_storage_failure',
   fandom: 'One Piece',
   scope: 'Storage failure fixture',
 }, { syncPrompt: false });
-assert.equal(failedCreatorPersistence.ok, false);
-assert.match(failedCreatorPersistence.error, /settings save exploded/);
+assert.equal(externalCreatorPersistence.ok, true, 'External Creator persistence should not depend on settings writes.');
+assert.equal(getCachedExternalLoredeckCreatorProject('creator_storage_failure').scope, 'Storage failure fixture');
+assert.equal(extensionSettings[MODULE_KEY].loredeckCreatorProjects.jobs.creator_storage_failure, undefined);
 
-const failedLibraryPersistence = upsertLoredeckLibraryPack({
+const externalLibraryPersistence = upsertLoredeckLibraryPack({
   packId: 'storage-failure-pack',
   type: 'generated',
   title: 'Storage Failure Pack',
   source: { kind: 'generated' },
 });
-assert.equal(failedLibraryPersistence.ok, false);
-assert.match(failedLibraryPersistence.error, /settings save exploded/);
+assert.equal(externalLibraryPersistence.ok, true);
+assert.equal(getExternalLoredeckLibraryRegistry().packs['storage-failure-pack'].title, 'Storage Failure Pack');
+assert.equal(getCachedExternalLorepackPayload('storage-failure-pack').title, 'Storage Failure Pack');
 throwSettingsSave = false;
 
-if (extensionSettings[MODULE_KEY].loredeckCreatorProjects.jobs.creator_storage_failure) {
-  const cleanedFailureJob = clearLoredeckCreatorJob('creator_storage_failure', { syncPrompt: false });
-  assert.equal(cleanedFailureJob.ok, true);
-}
-if (extensionSettings[MODULE_KEY].loredeckLibrary.packs['storage-failure-pack']) {
-  const cleanedFailurePack = removeLoredeckLibraryPack('storage-failure-pack', { clearCreatorProjects: false, syncPrompt: false });
-  assert.equal(cleanedFailurePack.ok, true);
-}
+const cleanedFailureJob = clearLoredeckCreatorJob('creator_storage_failure', { syncPrompt: false });
+assert.equal(cleanedFailureJob.ok, true);
+const cleanedFailurePack = removeLoredeckLibraryPack('storage-failure-pack', { clearCreatorProjects: false, syncPrompt: false });
+assert.equal(cleanedFailurePack.ok, true);
+assert.equal(getExternalLoredeckLibraryRegistry().packs['storage-failure-pack'], undefined);
+assert.equal(getCachedExternalLorepackPayload('storage-failure-pack'), null);
 assert.deepEqual(Object.keys(getLoredeckCreatorProjectRegistry().jobs), []);
 
 console.log('Loredeck Creator project registry tests passed.');

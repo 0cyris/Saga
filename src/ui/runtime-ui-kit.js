@@ -264,6 +264,9 @@ const CHIP_TONES = Object.freeze([
     'source',
     'category',
     'relevance',
+    'relevance-high',
+    'relevance-normal',
+    'relevance-low',
     'info',
     'review',
     'success',
@@ -324,6 +327,22 @@ function normalizeChipTone(value = '') {
     return aliases[tone] || (CHIP_TONES.includes(tone) ? tone : 'neutral');
 }
 
+function inferRelevanceTierFromLabel(label = '') {
+    const text = String(label || '').trim().toLowerCase();
+    if (text === 'high' || text === 'normal' || text === 'low') return text;
+    const prefixed = text.match(/\brelevance\s*:\s*(high|normal|low)\b/);
+    if (prefixed) return prefixed[1];
+    const suffixed = text.match(/\b(high|normal|low)[-\s]+relevance\b/);
+    return suffixed ? suffixed[1] : '';
+}
+
+function resolveChipTone(inputTone, label = '') {
+    const tone = normalizeChipTone(inputTone || inferChipToneFromLabel(label));
+    if (tone !== 'relevance') return tone;
+    const relevanceTier = inferRelevanceTierFromLabel(label);
+    return relevanceTier ? `relevance-${relevanceTier}` : tone;
+}
+
 function inferChipToneFromLabel(label = '') {
     const text = String(label || '').trim().toLowerCase();
     if (!text) return 'neutral';
@@ -352,7 +371,7 @@ export function createChip(options = {}) {
     const label = String(input.label ?? input.text ?? '').trim();
     const chip = document.createElement(input.interactive ? 'button' : 'span');
     const kind = normalizeChipKind(input.kind);
-    const tone = normalizeChipTone(input.tone || inferChipToneFromLabel(label));
+    const tone = resolveChipTone(input.tone, label);
     const density = normalizeChipDensity(input.density);
     const classes = [
         'saga-chip',

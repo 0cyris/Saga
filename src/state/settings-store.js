@@ -21,6 +21,33 @@ import {
     normalizeThemeIconSetRegistry,
     normalizeThemePackRegistry,
 } from './theme-library-store.js';
+import {
+    normalizeSagaStorageFallback,
+    normalizeSagaStorageSettings,
+    SAGA_STORAGE_MIGRATION_VERSION,
+} from '../storage/saga-storage-index.js';
+
+const EMPTY_EXTERNALIZED_LOREDECK_LIBRARY = Object.freeze({
+    schemaVersion: 1,
+    packs: Object.freeze({}),
+    folders: Object.freeze([]),
+    deckPlacements: Object.freeze([]),
+    activeStack: Object.freeze([]),
+});
+const EMPTY_EXTERNALIZED_CREATOR_PROJECTS = Object.freeze({
+    schemaVersion: 1,
+    activeJobId: '',
+    lastJobId: '',
+    jobs: Object.freeze({}),
+});
+const EMPTY_EXTERNALIZED_THEME_PACK_LIBRARY = Object.freeze({
+    schemaVersion: 1,
+    packs: Object.freeze({}),
+});
+const EMPTY_EXTERNALIZED_ICON_SET_LIBRARY = Object.freeze({
+    schemaVersion: 1,
+    iconSets: Object.freeze({}),
+});
 
 function migrateSettingsBucket(container) {
     if (!container || typeof container !== 'object') return {};
@@ -49,6 +76,22 @@ function applyBasicExperienceProfile(settings) {
     return settings;
 }
 
+function isExternalStorageMigrated(settings = {}) {
+    return normalizeSagaStorageSettings(settings?.sagaStorage || {}).migrationVersion === SAGA_STORAGE_MIGRATION_VERSION;
+}
+
+function cloneJson(value) {
+    return JSON.parse(JSON.stringify(value ?? null));
+}
+
+function compactExternalizedStorageSettings(settings = {}) {
+    settings.loredeckLibrary = cloneJson(EMPTY_EXTERNALIZED_LOREDECK_LIBRARY);
+    settings.loredeckCreatorProjects = cloneJson(EMPTY_EXTERNALIZED_CREATOR_PROJECTS);
+    settings.themePackLibrary = cloneJson(EMPTY_EXTERNALIZED_THEME_PACK_LIBRARY);
+    settings.themeIconSetLibrary = cloneJson(EMPTY_EXTERNALIZED_ICON_SET_LIBRARY);
+    return settings;
+}
+
 /**
  * Reads extensionSettings.saga, deep-merges defaults for any missing keys, and
  * returns the live settings object.
@@ -70,6 +113,8 @@ export function getSettings() {
         ...(DEFAULT_SETTINGS.continuitySectionPrompts || {}),
         ...(stored.continuitySectionPrompts || {}),
     };
+    merged.sagaStorage = normalizeSagaStorageSettings(stored.sagaStorage || DEFAULT_SETTINGS.sagaStorage);
+    merged.sagaStorageFallback = normalizeSagaStorageFallback(stored.sagaStorageFallback || DEFAULT_SETTINGS.sagaStorageFallback);
     merged.loredeckLibrary = normalizeLoredeckRegistry(
         stored.loredeckLibrary || DEFAULT_SETTINGS.loredeckLibrary,
         DEFAULT_SETTINGS.loredeckLibrary
@@ -263,13 +308,19 @@ export function saveSettings(settings) {
     if (!ctx || !ctx.extensionSettings) return;
     const { extensionSettings, saveSettingsDebounced } = ctx;
     if (settings && typeof settings === 'object') {
-        settings.loredeckLibrary = normalizeLoredeckRegistry(
-            migrateLegacyHpLoredeckRegistry(settings.loredeckLibrary),
-            DEFAULT_SETTINGS.loredeckLibrary
-        );
-        settings.themePackLibrary = normalizeThemePackRegistry(settings.themePackLibrary, DEFAULT_SETTINGS.themePackLibrary);
-        settings.themeIconSetLibrary = normalizeThemeIconSetRegistry(settings.themeIconSetLibrary, DEFAULT_SETTINGS.themeIconSetLibrary);
-        settings.loredeckCreatorProjects = normalizeLoredeckCreatorRegistry(settings.loredeckCreatorProjects || DEFAULT_SETTINGS.loredeckCreatorProjects);
+        settings.sagaStorage = normalizeSagaStorageSettings(settings.sagaStorage || DEFAULT_SETTINGS.sagaStorage);
+        settings.sagaStorageFallback = normalizeSagaStorageFallback(settings.sagaStorageFallback || DEFAULT_SETTINGS.sagaStorageFallback);
+        if (isExternalStorageMigrated(settings)) {
+            compactExternalizedStorageSettings(settings);
+        } else {
+            settings.loredeckLibrary = normalizeLoredeckRegistry(
+                migrateLegacyHpLoredeckRegistry(settings.loredeckLibrary),
+                DEFAULT_SETTINGS.loredeckLibrary
+            );
+            settings.themePackLibrary = normalizeThemePackRegistry(settings.themePackLibrary, DEFAULT_SETTINGS.themePackLibrary);
+            settings.themeIconSetLibrary = normalizeThemeIconSetRegistry(settings.themeIconSetLibrary, DEFAULT_SETTINGS.themeIconSetLibrary);
+            settings.loredeckCreatorProjects = normalizeLoredeckCreatorRegistry(settings.loredeckCreatorProjects || DEFAULT_SETTINGS.loredeckCreatorProjects);
+        }
     }
     extensionSettings[MODULE_KEY] = settings;
     if (typeof saveSettingsDebounced === 'function') {

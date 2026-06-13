@@ -2,6 +2,10 @@ import assert from 'node:assert/strict';
 import { MODULE_KEY, SCHEMA_VERSION } from '../../src/state/constants.js';
 import { runGenerationUnits } from '../../src/generation/generation-job-runner.js';
 import {
+  configureSagaCreatorProjectStorage,
+  resetSagaCreatorProjectStorageCache,
+} from '../../src/storage/saga-creator-project-storage.js';
+import {
   getLoredeckCreatorProjectRegistry,
   updateLoredeckCreatorGenerationRun,
   updateLoredeckCreatorGenerationUnit,
@@ -30,6 +34,8 @@ globalThis.SillyTavern = {
 };
 
 function resetStorage() {
+  resetSagaCreatorProjectStorageCache();
+  configureSagaCreatorProjectStorage({ persistWrites: false, now: () => 1000 });
   extensionSettings = {
     [MODULE_KEY]: {},
   };
@@ -418,7 +424,8 @@ function checkpointCreatorUnit(jobId, currentStage = 'titles_drafting', statuses
   assert.equal(job.generationUnits['creator_entry_micro_batch:arlong'].meta.targetTitleIds[0], 'arlong');
 }
 
-assert.ok(saveSettingsCount > 0, 'Creator recovery tests should write global Creator project settings.');
+assert.equal(saveSettingsCount, 0, 'Creator recovery tests should externalize global Creator projects without writing them into settings.');
+assert.ok(Object.keys(getLoredeckCreatorProjectRegistry().jobs).length > 0, 'Creator recovery tests should retain global Creator projects in external storage.');
 assert.ok(saveStateCount > 0, 'Creator recovery tests should mirror Creator state into chat metadata.');
 
 console.log('Loredeck Creator generation recovery tests passed.');

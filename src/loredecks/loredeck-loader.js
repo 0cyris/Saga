@@ -51,6 +51,7 @@ import {
     loadTagRegistryForHealth,
     normalizeTagRegistryForHealth,
 } from './tag-registry-health.js';
+import { hydrateExternalLorepackPayloadRecord } from '../storage/saga-lorepack-payload-storage.js';
 
 export const DEFAULT_LOREDECK_ID = DEFAULT_HP_LOREDECK_ID;
 export { mergeLoredeckTimelineRegistries } from './context-health.js';
@@ -205,13 +206,38 @@ async function loadEntryFiles(manifest = {}, baseUrl, health, registryRecord = n
 }
 
 export async function loadLoredeckSourceById(packId = DEFAULT_LOREDECK_ID, options = {}) {
-    const registryRecord = options.registryRecord || getRegistryRecord(options.registry, packId);
+    let registryRecord = options.registryRecord || getRegistryRecord(options.registry, packId);
+    let payloadLoadError = '';
+    if (registryRecord?.payloadFile) {
+        try {
+            registryRecord = await hydrateExternalLorepackPayloadRecord(registryRecord);
+        } catch (error) {
+            payloadLoadError = error?.message || String(error || 'Lorepack payload failed to load.');
+        }
+    }
     const generatedWithoutManifest = isGeneratedRegistryRecord(registryRecord) && !String(registryRecord?.manifest || '').trim();
     const manifestUrl = generatedWithoutManifest ? null : getLoredeckManifestUrl(packId, registryRecord);
     const stackPriority = Number.isFinite(Number(options.stackPriority)) ? Number(options.stackPriority) : 100;
     const stackIndex = Number.isFinite(Number(options.stackIndex)) ? Number(options.stackIndex) : 0;
     const stackSource = sanitizeStackSource(options.stackSource);
     const embeddedManifest = buildEmbeddedManifest(registryRecord, packId);
+    if (payloadLoadError && !embeddedManifest && !manifestUrl) {
+        const health = createHealth(packId);
+        addHealthIssue(health, 'error', 'missing_lorepack_payload', `Lorepack payload failed to load for ${packId}.`, {
+            packId,
+            file: registryRecord?.payloadFile || '',
+            detail: payloadLoadError,
+        });
+        return {
+            manifest: null,
+            baseUrl: null,
+            sourceKind: 'missing_payload',
+            registryRecord,
+            pack: buildMissingPackMeta(packId, registryRecord, stackPriority, stackIndex, stackSource),
+            health: finalizeHealth(health),
+            entryFiles: [],
+        };
+    }
     if (embeddedManifest) {
         if (!manifestUrl) {
             const entryFiles = buildVirtualEntryFilesFromRegistry(registryRecord, embeddedManifest);

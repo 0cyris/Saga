@@ -17,7 +17,8 @@ const VIEWPORT = {
 const LIVE_CONTEXT_LOADED_PACK_ID = 'hp-year-6-half-blood-prince';
 const LIVE_CONTEXT_LOADED_PACK_TITLE = 'Harry Potter Year 6: Half-Blood Prince';
 const LIVE_CONTEXT_REASONER_TARGET = 'live-context-reasoner';
-const REPO_LOCAL_HARNESS_TARGETS = new Set(['context-harness', 'guide-harness', 'creator-harness']);
+const STORAGE_HARNESS_TARGET = 'storage-harness';
+const REPO_LOCAL_HARNESS_TARGETS = new Set(['context-harness', 'guide-harness', 'creator-harness', STORAGE_HARNESS_TARGET]);
 const LIVE_CONTEXT_METADATA_TARGETS = new Set([
     'live-context-loaded',
     'live-context-loaded-narrow',
@@ -113,22 +114,125 @@ function getStaticMimeType(filePath) {
     return types[ext] || 'application/octet-stream';
 }
 
+function sendJson(res, status, body = {}) {
+    sendStatic(res, status, JSON.stringify(body), 'application/json; charset=utf-8');
+}
+
+function readRequestJson(req) {
+    return new Promise((resolve, reject) => {
+        let body = '';
+        req.setEncoding('utf8');
+        req.on('data', chunk => { body += chunk; });
+        req.on('end', () => {
+            try {
+                resolve(body ? JSON.parse(body) : {});
+            } catch (error) {
+                reject(error);
+            }
+        });
+        req.on('error', reject);
+    });
+}
+
+function createRepoLocalFilesApiMock() {
+    const files = new Map();
+    const deleted = [];
+    const requests = [];
+
+    function snapshot() {
+        return {
+            files: [...files.keys()].sort(),
+            deleted: [...deleted],
+            requests: [...requests],
+        };
+    }
+
+    async function handle(req, res, decodedPath) {
+        const method = req.method || 'GET';
+        requests.push({ method, path: decodedPath });
+        if (decodedPath === '/__saga-storage-smoke') {
+            sendJson(res, 200, snapshot());
+            return true;
+        }
+
+        if (decodedPath === '/api/files/upload' && method === 'POST') {
+            const body = await readRequestJson(req);
+            const name = String(body?.name || '').trim();
+            const data = String(body?.data || '').trim();
+            if (!/^saga-[a-z0-9_.-]+\.(?:json|png|jpe?g|webp|avif)$/i.test(name) || !data) {
+                sendJson(res, 400, { error: 'Invalid Saga storage upload.' });
+                return true;
+            }
+            const pathName = `/user/files/${name}`;
+            files.set(pathName, {
+                bytes: Buffer.from(data, 'base64'),
+                contentType: getStaticMimeType(name),
+            });
+            sendJson(res, 200, { path: pathName });
+            return true;
+        }
+
+        if (decodedPath === '/api/files/verify' && method === 'POST') {
+            const body = await readRequestJson(req);
+            const result = {};
+            for (const url of Array.isArray(body?.urls) ? body.urls : []) {
+                const pathName = String(url || '');
+                result[pathName] = files.has(pathName);
+            }
+            sendJson(res, 200, result);
+            return true;
+        }
+
+        if (decodedPath === '/api/files/delete' && method === 'POST') {
+            const body = await readRequestJson(req);
+            const pathName = String(body?.path || '').trim();
+            if (!/^\/user\/files\/saga-[a-z0-9_.-]+\.(?:json|png|jpe?g|webp|avif)$/i.test(pathName)) {
+                sendJson(res, 400, { error: 'Invalid Saga storage delete.' });
+                return true;
+            }
+            deleted.push(pathName);
+            files.delete(pathName);
+            sendJson(res, 200, { ok: true, path: pathName });
+            return true;
+        }
+
+        if (method === 'GET' && /^\/user\/files\/saga-[a-z0-9_.-]+\.(?:json|png|jpe?g|webp|avif)$/i.test(decodedPath)) {
+            const file = files.get(decodedPath);
+            if (!file) {
+                sendStatic(res, 404, 'missing');
+                return true;
+            }
+            sendStatic(res, 200, file.bytes, file.contentType);
+            return true;
+        }
+
+        return false;
+    }
+
+    return { handle, snapshot };
+}
+
 function getVisualSmokeHarnessQuery(target = SMOKE_TARGET) {
     if (target === 'context-harness') return '?tab=context&review=context-proposals';
     if (target === 'guide-harness') return '?mode=basic&tab=session';
     if (target === 'creator-harness') return '?tab=loredecks';
+    if (target === STORAGE_HARNESS_TARGET) return '?mode=advanced&tab=loredecks&storage=1';
     return '';
 }
 
 async function startVisualSmokeServer(target = SMOKE_TARGET) {
     const host = '127.0.0.1';
     const port = await getFreePort();
+    const filesApiMock = target === STORAGE_HARNESS_TARGET ? createRepoLocalFilesApiMock() : null;
     const server = http.createServer(async (req, res) => {
+        const decoded = decodeURIComponent(String(req.url || '/').split('?')[0] || '/');
+        if (filesApiMock && await filesApiMock.handle(req, res, decoded)) {
+            return;
+        }
         if (!['GET', 'HEAD'].includes(req.method || '')) {
             sendStatic(res, 405, 'Method not allowed');
             return;
         }
-        const decoded = decodeURIComponent(String(req.url || '/').split('?')[0] || '/');
         if (decoded === '/favicon.ico') {
             sendStatic(res, 204, '');
             return;
@@ -167,6 +271,7 @@ async function startVisualSmokeServer(target = SMOKE_TARGET) {
     const query = getVisualSmokeHarnessQuery(target);
     return {
         server,
+        storage: filesApiMock,
         url: `http://${host}:${port}/tests/browser/visual-smoke.html${query}`,
     };
 }
@@ -281,6 +386,27 @@ class CdpClient {
         const handlers = this.eventHandlers.get(method) || [];
         handlers.push(handler);
         this.eventHandlers.set(method, handlers);
+    }
+}
+
+function createCdpStartupError(method, error, details = {}) {
+    const transport = details.pageWsUrl ? 'page target WebSocket' : 'browser WebSocket with Target.attachToTarget';
+    const message = [
+        `CDP startup handshake failed at ${method}: ${error?.message || error || 'unknown error'}`,
+        `Target: ${details.target || SMOKE_TARGET}; URL: ${details.smokeUrl || 'unknown'}; browser: ${details.chrome || 'unknown'}; headless: ${details.headless ? 'yes' : 'no'}; transport: ${transport}; pageTargetId: ${details.pageTargetId || 'missing'}.`,
+        'The Chrome DevTools endpoint was reachable, but the page target did not answer a startup command before the smoke page ran.',
+        'Retry with SAGA_SMOKE_NATIVE_WS=1 or SAGA_SMOKE_HEADLESS=0, and use SAGA_SMOKE_DEBUG_FRAME=1 to inspect raw CDP frames.',
+    ].join('\n');
+    const wrapped = new Error(message);
+    wrapped.stack = `${message}\nCaused by: ${error?.stack || error?.message || error || 'unknown error'}`;
+    return wrapped;
+}
+
+async function sendStartupCdpCommand(client, method, params, details) {
+    try {
+        return await client.send(method, params);
+    } catch (error) {
+        throw createCdpStartupError(method, error, details);
     }
 }
 
@@ -810,6 +936,77 @@ async function scrollTextIntoView(client, text) {
     }, text));
 }
 
+async function switchSagaExperienceMode(client, mode) {
+    const label = mode === 'advanced' ? 'Advanced' : 'Basic';
+    const result = await evaluate(client, script(targetLabel => {
+        const buttons = [...document.querySelectorAll('.saga-experience-switch button')];
+        const button = buttons.find(candidate => (candidate.innerText || candidate.textContent || '').trim() === targetLabel);
+        if (!button) {
+            return {
+                ok: false,
+                reason: 'missing-experience-button',
+                labels: buttons.map(candidate => (candidate.innerText || candidate.textContent || '').trim()).filter(Boolean),
+            };
+        }
+        const alreadyActive = button.getAttribute('aria-checked') === 'true';
+        if (!alreadyActive) {
+            button.scrollIntoView({ block: 'center', inline: 'center' });
+            button.click();
+        }
+        return { ok: true, changed: !alreadyActive };
+    }, label), { userGesture: true });
+
+    if (!result?.ok || !result.changed) return result;
+    await waitFor(
+        client,
+        script(targetLabel => {
+            const button = [...document.querySelectorAll('.saga-experience-switch button')]
+                .find(candidate => (candidate.innerText || candidate.textContent || '').trim() === targetLabel);
+            return button?.getAttribute('aria-checked') === 'true';
+        }, label),
+        `${label} Experience switch`,
+        10000,
+    );
+    await wait(500);
+    return result;
+}
+
+async function collectStateSafetyStorageSmoke(client) {
+    return await evaluate(client, script(() => {
+        const drawer = document.querySelector('.saga-runtime-drawer');
+        const activeTab = document.querySelector('.saga-runtime-rail-tab-active')?.getAttribute('data-tab-id') || '';
+        const section = [...(drawer?.querySelectorAll('details') || [])]
+            .find(details => (details.querySelector('summary')?.innerText || details.querySelector('summary')?.textContent || '').includes('State Safety'));
+        if (!section) {
+            return {
+                present: false,
+                activeTab,
+                drawerText: drawer?.innerText?.slice(0, 1400) || '',
+            };
+        }
+        if (!section.open) section.querySelector('summary')?.click();
+        section.scrollIntoView({ block: 'start', inline: 'nearest' });
+        const text = section.innerText || section.textContent || '';
+        const buttons = [...section.querySelectorAll('button')].map(button => ({
+            label: (button.innerText || button.textContent || '').trim(),
+            disabled: !!button.disabled,
+        })).filter(button => button.label);
+        return {
+            present: true,
+            open: !!section.open,
+            activeTab,
+            text: text.slice(0, 1800),
+            buttons,
+            hasMigrationAction: buttons.some(button => ['Migrate Legacy Storage', 'Storage Current'].includes(button.label)),
+            hasVerifyStorage: buttons.some(button => button.label === 'Verify Storage'),
+            hasSettleStorageWrites: buttons.some(button => button.label === 'Settle Storage Writes'),
+            hasCleanMissingRecords: buttons.some(button => button.label === 'Clean Missing Records'),
+            hasStorageMigrationRow: text.includes('Storage migration'),
+            hasStorageIntegrityRow: text.includes('Storage integrity'),
+        };
+    }), { userGesture: true });
+}
+
 async function screenshot(client, name) {
     const result = await client.send('Page.captureScreenshot', { format: 'png', fromSurface: true });
     const file = path.join(OUT_DIR, `${name}.png`);
@@ -1219,6 +1416,620 @@ async function runCreatorHarnessSmoke(client, screenshots, findings, smokeUrl, d
     }, null, 2));
 }
 
+async function runStorageHarnessSmoke(client, screenshots, findings, smokeUrl, dialogEvents, harness) {
+    await waitFor(client, 'window.__sagaSmokeReady === true', 'Storage smoke ready marker', 20000);
+    await waitFor(client, 'document.querySelector(".saga-runtime-rail-tab-active")?.getAttribute("data-tab-id") === "loredecks"', 'Storage smoke Loredecks tab active', 10000);
+    screenshots.push(await screenshot(client, 'storage-harness-01-initial'));
+
+    const importState = await evaluate(client, script(async () => {
+        const stateManager = await import('/src/state/state-manager.js');
+        const libraryStorage = await import('/src/storage/saga-lorepack-library-storage.js');
+        const payloadStorage = await import('/src/storage/saga-lorepack-payload-storage.js');
+        const themeIconStorage = await import('/src/storage/saga-theme-icon-storage.js');
+        libraryStorage.resetSagaLorepackLibraryStorageCache();
+        payloadStorage.resetSagaLorepackPayloadStorageCache();
+        themeIconStorage.resetSagaThemeIconStorageCache();
+
+        const ctx = window.SillyTavern?.getContext?.();
+        const packId = 'storage-smoke-arlong';
+        const coverDataUrl = 'data:image/png;base64,iVBORw0KGgo=';
+        const pack = {
+            packId,
+            id: packId,
+            type: 'custom',
+            title: 'Storage Smoke Arlong Park',
+            description: 'Browser storage smoke fixture.',
+            fandom: 'One Piece',
+            entrySchemaVersion: 3,
+            source: {
+                kind: 'imported_zip',
+                importedFrom: 'storage-smoke.saga-loredeck.zip',
+            },
+            stats: { entryCount: 2, categoryCounts: { character: 1, event: 1 } },
+            manifestData: {
+                id: packId,
+                title: 'Storage Smoke Arlong Park',
+                entrySchemaVersion: 3,
+                stats: { entryCount: 2 },
+                files: [],
+                registries: {},
+                assets: {
+                    cover: {
+                        path: coverDataUrl,
+                        alt: 'Storage smoke cover',
+                    },
+                },
+            },
+            assets: {
+                cover: {
+                    path: coverDataUrl,
+                    alt: 'Storage smoke cover',
+                },
+            },
+            entryOverrides: {
+                storage_smoke_nami: {
+                    id: 'storage_smoke_nami',
+                    schemaVersion: 3,
+                    title: 'Storage Smoke Nami',
+                    category: 'character',
+                    relevance: 'high',
+                    tags: ['character:nami', 'arc:arlong-park'],
+                    content: {
+                        fact: 'Storage smoke unique fact: Nami bargains with Arlong.',
+                        injection: 'Storage smoke unique injection: Nami hides fear while bargaining.',
+                    },
+                },
+                storage_smoke_tribute: {
+                    id: 'storage_smoke_tribute',
+                    schemaVersion: 3,
+                    title: 'Storage Smoke Tribute',
+                    category: 'event',
+                    relevance: 'normal',
+                    tags: ['arc:arlong-park'],
+                    content: {
+                        fact: 'Storage smoke unique fact: Cocoyasi tribute pressure is active.',
+                        injection: 'Storage smoke unique injection: villagers speak carefully about tribute.',
+                    },
+                },
+            },
+            tagRegistry: {
+                schemaVersion: 1,
+                tags: {
+                    'character:nami': { id: 'character:nami', label: 'Nami' },
+                    'arc:arlong-park': { id: 'arc:arlong-park', label: 'Arlong Park' },
+                },
+            },
+            timelineRegistry: {
+                schemaVersion: 1,
+                anchors: [{ id: 'storage_smoke_arlong_start', title: 'Storage Smoke Arlong Park Start' }],
+                windows: [],
+            },
+        };
+
+        const upsert = stateManager.upsertLoredeckLibraryPack(pack);
+        const payloadFlush = await payloadStorage.flushSagaLorepackPayloadStorageWrites();
+        const libraryFlush = await libraryStorage.flushSagaLorepackLibraryStorageWrites();
+        const themeImport = await themeIconStorage.importExternalThemePack({
+            id: 'storage-smoke-theme',
+            type: 'custom',
+            title: 'Storage Smoke Theme',
+            description: 'Browser storage smoke Theme Pack fixture.',
+            author: 'Saga Smoke',
+            version: '1.0.0',
+            colors: {
+                background: '#111111',
+                surface: '#222222',
+                accent: '#d7b56d',
+                chipWarning: '#e0c184',
+            },
+            tags: ['theme:storage-smoke'],
+            source: { kind: 'local', url: 'storage-smoke.theme.json' },
+        }, { sourceFileName: 'storage-smoke.theme.json' });
+        const iconImport = await themeIconStorage.importExternalIconSet({
+            id: 'storage-smoke-icons',
+            type: 'custom',
+            title: 'Storage Smoke Icons',
+            description: 'Browser storage smoke Icon Set fixture.',
+            preferredSize: 256,
+            icons: {
+                'tab.loredecks': 'data:image/png;base64,iVBORw0KGgo=',
+                'tab.settings': './assets/iconsets/saga-hero/hero-tab-settings-256.png',
+            },
+            tags: ['icons:storage-smoke'],
+            source: { kind: 'local', url: 'storage-smoke.iconset.json' },
+        }, { sourceFileName: 'storage-smoke.iconset.json' });
+        if (themeImport.ok && iconImport.ok && ctx?.extensionSettings?.saga) {
+            ctx.extensionSettings.saga.themePackId = 'storage-smoke-theme';
+            ctx.extensionSettings.saga.themeIconSetId = 'storage-smoke-icons';
+            ctx.saveSettingsDebounced?.();
+        }
+        const registry = stateManager.getLoredeckLibraryRegistry(stateManager.getState());
+        const row = registry.packs?.[packId] || null;
+        const payloadResponse = row?.payloadFile ? await fetch(row.payloadFile) : null;
+        const payload = payloadResponse?.ok ? await payloadResponse.json() : null;
+        const themePayloadResponse = themeImport.payloadFile ? await fetch(themeImport.payloadFile) : null;
+        const themePayload = themePayloadResponse?.ok ? await themePayloadResponse.json() : null;
+        const iconPayloadResponse = iconImport.payloadFile ? await fetch(iconImport.payloadFile) : null;
+        const iconPayload = iconPayloadResponse?.ok ? await iconPayloadResponse.json() : null;
+        const iconAssetFile = iconPayload?.icons?.['tab.loredecks'] || '';
+        const verify = await stateManager.verifySagaStorageIntegrity({ write: true });
+        const settingsText = JSON.stringify(ctx?.extensionSettings?.saga || {});
+        const storageSnapshot = await (await fetch('/__saga-storage-smoke')).json();
+
+        return {
+            ok: !!(
+                upsert.ok
+                && payloadFlush.ok
+                && libraryFlush.ok
+                && themeImport.ok
+                && iconImport.ok
+                && row
+                && payload
+                && themePayload
+                && iconPayload
+                && iconAssetFile
+                && verify.ok
+            ),
+            upsert,
+            payloadFlush,
+            libraryFlush,
+            themeImport,
+            iconImport,
+            verify,
+            row,
+            payloadFile: row?.payloadFile || '',
+            coverFile: row?.coverFile || payload?.assetRefs?.cover || payload?.assets?.cover?.path || '',
+            payloadEntryCount: Object.keys(payload?.entryOverrides || {}).length,
+            payloadHasUniqueFact: JSON.stringify(payload || {}).includes('Storage smoke unique fact'),
+            themePayloadFile: themeImport.payloadFile || '',
+            themePayloadOk: themePayload?.title === 'Storage Smoke Theme' && themePayload?.colors?.accent === '#d7b56d',
+            iconPayloadFile: iconImport.payloadFile || '',
+            iconAssetFile,
+            iconPayloadOk: iconPayload?.title === 'Storage Smoke Icons' && String(iconAssetFile).startsWith('/user/files/saga-iconset-asset-storage-smoke-icons-tab-loredecks-'),
+            activeThemeSaved: ctx?.extensionSettings?.saga?.themePackId === 'storage-smoke-theme',
+            activeIconSetSaved: ctx?.extensionSettings?.saga?.themeIconSetId === 'storage-smoke-icons',
+            settingsBytes: settingsText.length,
+            settingsHasPayload: settingsText.includes('Storage smoke unique fact')
+                || settingsText.includes('storage_smoke_nami')
+                || settingsText.includes('Storage Smoke Theme')
+                || settingsText.includes('Storage Smoke Icons'),
+            storageSnapshot,
+        };
+    }));
+
+    if (!importState.ok) findings.push('Storage harness could not import and externalize the browser fixture Loredeck.');
+    if (!importState.row?.payloadFile) findings.push('Storage harness imported Library row did not keep a payloadFile pointer.');
+    if (!importState.coverFile) findings.push('Storage harness did not materialize the imported cover asset.');
+    if (importState.payloadEntryCount !== 2) findings.push(`Storage harness payload entry count was ${importState.payloadEntryCount || 0} instead of 2.`);
+    if (!importState.payloadHasUniqueFact) findings.push('Storage harness payload file did not retain the unique fixture Lorecard content.');
+    if (!importState.themePayloadOk) findings.push('Storage harness Theme Pack payload did not persist expected data.');
+    if (!importState.iconPayloadOk) findings.push('Storage harness Icon Set payload did not persist expected data or materialize its raster asset.');
+    if (importState.settingsHasPayload) findings.push('Storage harness wrote full Saga payload content into extension settings.');
+    if (!importState.verify?.ok) findings.push(`Storage harness verify after import failed: ${importState.verify?.error || importState.verify?.status || 'unknown'}.`);
+    if (!importState.storageSnapshot?.files?.includes(importState.row?.payloadFile)) findings.push('Storage harness server did not store the Lorepack payload file.');
+    if (!importState.storageSnapshot?.files?.includes(importState.coverFile)) findings.push('Storage harness server did not store the materialized cover file.');
+    if (!importState.storageSnapshot?.files?.includes(importState.themePayloadFile)) findings.push('Storage harness server did not store the Theme Pack payload file.');
+    if (!importState.storageSnapshot?.files?.includes(importState.iconPayloadFile)) findings.push('Storage harness server did not store the Icon Set payload file.');
+    if (!importState.storageSnapshot?.files?.includes(importState.iconAssetFile)) findings.push('Storage harness server did not store the Icon Set raster asset file.');
+    screenshots.push(await screenshot(client, 'storage-harness-02-after-import'));
+
+    await client.send('Page.navigate', { url: smokeUrl });
+    await waitFor(client, script(url => location.href === url && document.readyState === 'complete', smokeUrl), 'Storage smoke reload', 20000);
+    await waitFor(client, 'window.__sagaSmokeReady === true', 'Storage smoke ready after reload', 20000);
+    await wait(800);
+
+    const healthOpenState = await evaluate(client, script(async packId => {
+        const libraryStorage = await import('/src/storage/saga-lorepack-library-storage.js');
+        const healthPanel = await import('/src/loredecks/loredeck-health-panel.js');
+        await libraryStorage.hydrateSagaLorepackLibraryStorage({ force: true });
+        healthPanel.openLoredeckHealthCenter(packId, { tab: 'overview' });
+        const overlay = document.querySelector('.saga-loredeck-health-center-overlay');
+        const text = overlay?.innerText || overlay?.textContent || '';
+        return {
+            opened: !!overlay,
+            hasTitle: text.includes('Pack Health Center'),
+            hasPackTitle: text.includes('Storage Smoke Arlong Park'),
+            hasRefreshScan: [...(overlay?.querySelectorAll('button') || [])]
+                .some(button => (button.innerText || button.textContent || '').trim() === 'Refresh Scan' && !button.disabled),
+            text: text.slice(0, 1000),
+        };
+    }, 'storage-smoke-arlong'));
+    if (!healthOpenState.opened) findings.push('Storage harness could not open Pack Health Center for the external Loredeck.');
+    if (healthOpenState.opened && !healthOpenState.hasPackTitle) findings.push('Storage harness Pack Health Center did not identify the external Loredeck title.');
+    if (healthOpenState.opened && !healthOpenState.hasRefreshScan) findings.push('Storage harness Pack Health Center did not expose an enabled Refresh Scan action.');
+    screenshots.push(await screenshot(client, 'storage-harness-03-health-before-scan'));
+
+    if (healthOpenState.opened && healthOpenState.hasRefreshScan) {
+        const refreshClicked = await clickButtonText(client, 'Refresh Scan', { root: '.saga-loredeck-health-center-overlay' });
+        if (!refreshClicked) {
+            findings.push('Storage harness could not click Pack Health Center Refresh Scan.');
+        } else {
+            await waitFor(client, script(async packId => {
+                const healthPanel = await import('/src/loredecks/loredeck-health-panel.js');
+                return !!healthPanel.getCachedLoredeckHealthRecord(packId)?.health;
+            }, 'storage-smoke-arlong'), 'Storage smoke Pack Health cache after Refresh Scan', 20000);
+        }
+    }
+
+    const healthScanState = await evaluate(client, script(async packId => {
+        const stateManager = await import('/src/state/state-manager.js');
+        const healthPanel = await import('/src/loredecks/loredeck-health-panel.js');
+        const payloadStorage = await import('/src/storage/saga-lorepack-payload-storage.js');
+        await payloadStorage.flushSagaLorepackPayloadStorageWrites();
+        const cached = healthPanel.getCachedLoredeckHealthRecord(packId);
+        const registry = stateManager.getLoredeckLibraryRegistry(stateManager.getState());
+        const row = registry.packs?.[packId] || null;
+        const payloadResponse = row?.payloadFile ? await fetch(row.payloadFile) : null;
+        const payload = payloadResponse?.ok ? await payloadResponse.json() : null;
+        const overlay = document.querySelector('.saga-loredeck-health-center-overlay');
+        const overlayText = overlay?.innerText || overlay?.textContent || '';
+        const settingsText = JSON.stringify(window.SillyTavern?.getContext?.()?.extensionSettings?.saga || {});
+        return {
+            ok: !!(cached?.health && row?.healthStatus && payload?.healthStatus && !settingsText.includes('Storage smoke unique fact')),
+            cachedStatus: cached?.health?.status || '',
+            cachedEntryCount: Number(cached?.health?.summary?.entryCount) || 0,
+            rowHealthStatus: row?.healthStatus || '',
+            payloadHealthStatus: payload?.healthStatus || '',
+            payloadEntryCount: Object.keys(payload?.entryOverrides || {}).length,
+            settingsHasPayload: settingsText.includes('Storage smoke unique fact') || settingsText.includes('storage_smoke_nami'),
+            overlayHasScannedPack: overlayText.includes('Storage Smoke Arlong Park') && overlayText.includes('Pack Health Center'),
+            overlayText: overlayText.slice(0, 1200),
+        };
+    }, 'storage-smoke-arlong'));
+    if (!healthScanState.ok) findings.push(`Storage harness Pack Health Refresh Scan did not persist a clean external payload-backed health summary (${healthScanState.cachedStatus || 'missing'} / ${healthScanState.rowHealthStatus || 'missing'} / ${healthScanState.payloadHealthStatus || 'missing'}).`);
+    if (healthScanState.cachedEntryCount !== 2) findings.push(`Storage harness Pack Health scanned ${healthScanState.cachedEntryCount || 0} Lorecards instead of 2.`);
+    if (healthScanState.payloadEntryCount !== 2) findings.push(`Storage harness Pack Health payload retained ${healthScanState.payloadEntryCount || 0} Lorecards instead of 2.`);
+    if (healthScanState.settingsHasPayload) findings.push('Storage harness Pack Health scan wrote Lorecard payload content into settings.');
+    if (!healthScanState.overlayHasScannedPack) findings.push('Storage harness Pack Health Center did not remain open on the scanned external Loredeck.');
+    screenshots.push(await screenshot(client, 'storage-harness-04-health-after-scan'));
+    await clickButtonText(client, 'Close', { root: '.saga-loredeck-health-center-overlay', enabledOnly: false });
+    await wait(400);
+
+    await clickSelector(client, '.saga-runtime-rail-tab[data-tab-id="settings"]');
+    await waitFor(client, 'document.querySelector(".saga-runtime-rail-tab-active")?.getAttribute("data-tab-id") === "settings"', 'Storage smoke Settings tab active', 10000);
+    await waitFor(client, 'document.querySelector(".saga-runtime-drawer")?.innerText.includes("Settings")', 'Storage smoke Settings drawer', 10000);
+    if (!(await openSummaryText(client, 'Theme Pack', { root: '.saga-runtime-drawer' }))) {
+        findings.push('Storage harness Settings drawer did not expose the Theme Pack section.');
+    }
+    await waitFor(client, '!!document.querySelector(".saga-settings-theme-card")', 'Storage smoke Theme Pack settings card', 10000);
+
+    const themeIconUiState = {
+        before: await evaluate(client, script(async () => {
+            const stateManager = await import('/src/state/state-manager.js');
+            const themeIconStorage = await import('/src/storage/saga-theme-icon-storage.js');
+            const runtimeTheme = await import('/src/theme/runtime-theme.js');
+            await themeIconStorage.hydrateSagaThemeIconStorage({ force: true });
+            const settings = stateManager.getSettings();
+            const activeTheme = runtimeTheme.getThemePreset(settings.themePackId, settings);
+            const activeIconSet = runtimeTheme.getIconSetPreset(settings.themeIconSetId, settings);
+            const themeRegistry = themeIconStorage.getExternalThemePackLibraryRegistry();
+            const iconRegistry = themeIconStorage.getExternalThemeIconSetLibraryRegistry();
+            const themeRow = themeRegistry.packs?.['storage-smoke-theme'] || null;
+            const iconRow = iconRegistry.iconSets?.['storage-smoke-icons'] || null;
+            const card = document.querySelector('.saga-settings-theme-card');
+            const text = card?.innerText || card?.textContent || '';
+            const buttons = [...(card?.querySelectorAll('button') || [])]
+                .map(button => ({ label: (button.innerText || button.textContent || '').trim(), disabled: !!button.disabled }))
+                .filter(button => button.label);
+            return {
+                ok: !!(
+                    themeRow
+                    && iconRow
+                    && settings.themePackId === 'storage-smoke-theme'
+                    && settings.themeIconSetId === 'storage-smoke-icons'
+                    && activeTheme?.id === 'storage-smoke-theme'
+                    && activeIconSet?.id === 'storage-smoke-icons'
+                    && buttons.some(button => button.label === 'Forget Theme Pack' && !button.disabled)
+                    && buttons.some(button => button.label === 'Forget Icon Set' && !button.disabled)
+                ),
+                activeThemeId: activeTheme?.id || '',
+                activeIconSetId: activeIconSet?.id || '',
+                settingsThemePackId: settings.themePackId || '',
+                settingsIconSetId: settings.themeIconSetId || '',
+                themePayloadFile: themeRow?.payloadFile || '',
+                iconPayloadFile: iconRow?.payloadFile || '',
+                iconAssetFile: iconRow?.icons?.['tab.loredecks'] || '',
+                hasForgetThemePack: buttons.some(button => button.label === 'Forget Theme Pack' && !button.disabled),
+                hasForgetIconSet: buttons.some(button => button.label === 'Forget Icon Set' && !button.disabled),
+                text: text.slice(0, 1400),
+                buttons,
+            };
+        })),
+        iconForget: {},
+        themeForget: {},
+        after: {},
+    };
+    if (!themeIconUiState.before.ok) findings.push(`Storage harness Settings Theme/Icon card did not render active custom Theme/Icon forget controls (${themeIconUiState.before.activeThemeId || 'missing'} / ${themeIconUiState.before.activeIconSetId || 'missing'}).`);
+    screenshots.push(await screenshot(client, 'storage-harness-05-theme-icon-before-forget'));
+
+    const iconForgetClicked = await clickButtonText(client, 'Forget Icon Set', { root: '.saga-settings-theme-card' });
+    themeIconUiState.iconForget.clicked = iconForgetClicked;
+    if (!iconForgetClicked) {
+        findings.push('Storage harness could not click the visible Forget Icon Set control.');
+    } else {
+        await waitFor(client, '!!document.querySelector(".saga-confirm-overlay")', 'Storage smoke Forget Icon Set confirmation', 10000);
+        themeIconUiState.iconForget.prompt = await evaluate(client, script(() => {
+            const prompt = document.querySelector('.saga-confirm-overlay');
+            const text = prompt?.innerText || prompt?.textContent || '';
+            const buttons = [...(prompt?.querySelectorAll('button') || [])].map(button => (button.innerText || button.textContent || '').trim()).filter(Boolean);
+            return {
+                hasPrompt: !!prompt,
+                hasTitle: text.includes('Forget Icon Set'),
+                hasCustomName: text.includes('Storage Smoke Icons'),
+                hasConfirm: buttons.includes('Confirm'),
+                text: text.slice(0, 600),
+                buttons,
+            };
+        }));
+        if (!themeIconUiState.iconForget.prompt?.hasTitle || !themeIconUiState.iconForget.prompt?.hasConfirm) findings.push('Storage harness Forget Icon Set confirmation did not render the expected Saga dialog.');
+        themeIconUiState.iconForget.confirmed = await clickButtonText(client, 'Confirm', { root: '.saga-confirm-overlay', enabledOnly: false });
+        if (!themeIconUiState.iconForget.confirmed) findings.push('Storage harness could not confirm Forget Icon Set.');
+        await waitFor(client, '!document.querySelector(".saga-confirm-overlay")', 'Storage smoke Forget Icon Set confirmation close', 10000);
+        await wait(700);
+    }
+
+    const themeForgetClicked = await clickButtonText(client, 'Forget Theme Pack', { root: '.saga-settings-theme-card' });
+    themeIconUiState.themeForget.clicked = themeForgetClicked;
+    if (!themeForgetClicked) {
+        findings.push('Storage harness could not click the visible Forget Theme Pack control.');
+    } else {
+        await waitFor(client, '!!document.querySelector(".saga-confirm-overlay")', 'Storage smoke Forget Theme Pack confirmation', 10000);
+        themeIconUiState.themeForget.prompt = await evaluate(client, script(() => {
+            const prompt = document.querySelector('.saga-confirm-overlay');
+            const text = prompt?.innerText || prompt?.textContent || '';
+            const buttons = [...(prompt?.querySelectorAll('button') || [])].map(button => (button.innerText || button.textContent || '').trim()).filter(Boolean);
+            return {
+                hasPrompt: !!prompt,
+                hasTitle: text.includes('Forget Theme Pack'),
+                hasCustomName: text.includes('Storage Smoke Theme'),
+                hasConfirm: buttons.includes('Confirm'),
+                text: text.slice(0, 600),
+                buttons,
+            };
+        }));
+        if (!themeIconUiState.themeForget.prompt?.hasTitle || !themeIconUiState.themeForget.prompt?.hasConfirm) findings.push('Storage harness Forget Theme Pack confirmation did not render the expected Saga dialog.');
+        themeIconUiState.themeForget.confirmed = await clickButtonText(client, 'Confirm', { root: '.saga-confirm-overlay', enabledOnly: false });
+        if (!themeIconUiState.themeForget.confirmed) findings.push('Storage harness could not confirm Forget Theme Pack.');
+        await waitFor(client, '!document.querySelector(".saga-confirm-overlay")', 'Storage smoke Forget Theme Pack confirmation close', 10000);
+        await wait(900);
+    }
+
+    themeIconUiState.after = await evaluate(client, script(async before => {
+        const stateManager = await import('/src/state/state-manager.js');
+        const themeIconStorage = await import('/src/storage/saga-theme-icon-storage.js');
+        const runtimeTheme = await import('/src/theme/runtime-theme.js');
+        themeIconStorage.resetSagaThemeIconStorageCache();
+        await themeIconStorage.hydrateSagaThemeIconStorage({ force: true });
+        const settings = stateManager.getSettings();
+        const activeTheme = runtimeTheme.getThemePreset(settings.themePackId, settings);
+        const activeIconSet = runtimeTheme.getIconSetPreset(settings.themeIconSetId, settings);
+        const themeRegistry = themeIconStorage.getExternalThemePackLibraryRegistry();
+        const iconRegistry = themeIconStorage.getExternalThemeIconSetLibraryRegistry();
+        const themeRead = before.themePayloadFile ? await fetch(before.themePayloadFile) : null;
+        const iconRead = before.iconPayloadFile ? await fetch(before.iconPayloadFile) : null;
+        const iconAssetRead = before.iconAssetFile ? await fetch(before.iconAssetFile) : null;
+        const storageSnapshot = await (await fetch('/__saga-storage-smoke')).json();
+        const card = document.querySelector('.saga-settings-theme-card');
+        const text = card?.innerText || card?.textContent || '';
+        return {
+            ok: !!(
+                settings.themePackId !== 'storage-smoke-theme'
+                && settings.themeIconSetId !== 'storage-smoke-icons'
+                && activeTheme?.id !== 'storage-smoke-theme'
+                && activeIconSet?.id !== 'storage-smoke-icons'
+                && !themeRegistry.packs?.['storage-smoke-theme']
+                && !iconRegistry.iconSets?.['storage-smoke-icons']
+                && (!before.themePayloadFile || themeRead?.status === 404)
+                && (!before.iconPayloadFile || iconRead?.status === 404)
+                && (!before.iconAssetFile || iconAssetRead?.status === 404)
+                && !text.includes('Forget Theme Pack')
+                && !text.includes('Forget Icon Set')
+            ),
+            settingsThemePackId: settings.themePackId || '',
+            settingsIconSetId: settings.themeIconSetId || '',
+            activeThemeId: activeTheme?.id || '',
+            activeIconSetId: activeIconSet?.id || '',
+            themeStillInstalled: !!themeRegistry.packs?.['storage-smoke-theme'],
+            iconStillInstalled: !!iconRegistry.iconSets?.['storage-smoke-icons'],
+            themePayloadReadStatusAfterForget: themeRead?.status || 0,
+            iconPayloadReadStatusAfterForget: iconRead?.status || 0,
+            iconAssetReadStatusAfterForget: iconAssetRead?.status || 0,
+            hasForgetThemePack: text.includes('Forget Theme Pack'),
+            hasForgetIconSet: text.includes('Forget Icon Set'),
+            text: text.slice(0, 1400),
+            storageSnapshot,
+        };
+    }, themeIconUiState.before));
+    if (!themeIconUiState.after.ok) findings.push(`Storage harness visible Theme/Icon forget flow did not fully clean up external files and active settings (${themeIconUiState.after.activeThemeId || 'missing'} / ${themeIconUiState.after.activeIconSetId || 'missing'}).`);
+    screenshots.push(await screenshot(client, 'storage-harness-06-theme-icon-after-forget'));
+
+    await clickSelector(client, '.saga-runtime-rail-tab[data-tab-id="loredecks"]');
+    await waitFor(client, 'document.querySelector(".saga-runtime-rail-tab-active")?.getAttribute("data-tab-id") === "loredecks"', 'Storage smoke Loredecks tab active after Theme/Icon forget', 10000);
+
+    const reloadState = await evaluate(client, script(async args => {
+        const packId = args.packId;
+        const stateManager = await import('/src/state/state-manager.js');
+        const libraryStorage = await import('/src/storage/saga-lorepack-library-storage.js');
+        const payloadStorage = await import('/src/storage/saga-lorepack-payload-storage.js');
+        const themeIconStorage = await import('/src/storage/saga-theme-icon-storage.js');
+        const loader = await import('/src/loredecks/loredeck-loader.js');
+        const libraryPanel = await import('/src/loredecks/loredeck-library-panel.js');
+        libraryStorage.resetSagaLorepackLibraryStorageCache();
+        payloadStorage.resetSagaLorepackPayloadStorageCache();
+        themeIconStorage.resetSagaThemeIconStorageCache();
+        await libraryStorage.hydrateSagaLorepackLibraryStorage({ force: true });
+        await themeIconStorage.hydrateSagaThemeIconStorage({ force: true });
+
+        const registry = stateManager.getLoredeckLibraryRegistry(stateManager.getState());
+        const row = registry.packs?.[packId] || null;
+        const hydrated = row ? await payloadStorage.hydrateExternalLorepackPayloadRecord(row) : null;
+        const loadedSource = row ? await loader.loadLoredeckSourceById(packId, { registry }) : null;
+        const themeRegistry = themeIconStorage.getExternalThemePackLibraryRegistry();
+        const iconRegistry = themeIconStorage.getExternalThemeIconSetLibraryRegistry();
+        const themeRow = themeRegistry.packs?.['storage-smoke-theme'] || null;
+        const iconRow = iconRegistry.iconSets?.['storage-smoke-icons'] || null;
+        const verifyBeforeDelete = await stateManager.verifySagaStorageIntegrity({ write: true });
+
+        const waitUntil = async (predicate, attempts = 50) => {
+            for (let index = 0; index < attempts; index += 1) {
+                if (predicate()) return true;
+                await new Promise(resolve => setTimeout(resolve, 50));
+            }
+            return false;
+        };
+        const uiDelete = {
+            opened: false,
+            hasDeleteButton: false,
+            clicked: false,
+            hasPrompt: false,
+            promptText: '',
+            hasConfirmButton: false,
+            confirmed: false,
+            deleted: false,
+        };
+        if (row) {
+            libraryPanel.openLoredeckLibraryDetails(packId);
+            await waitUntil(() => !!document.querySelector('.saga-loredeck-library-overlay .saga-loredeck-library-details'));
+            const overlay = document.querySelector('.saga-loredeck-library-overlay');
+            uiDelete.opened = !!overlay;
+            const deleteButton = [...(overlay?.querySelectorAll('button[aria-label="Delete"]') || [])]
+                .find(button => !button.disabled);
+            uiDelete.hasDeleteButton = !!deleteButton;
+            if (deleteButton) {
+                deleteButton.scrollIntoView({ block: 'center', inline: 'center' });
+                deleteButton.click();
+                uiDelete.clicked = true;
+                await waitUntil(() => !!document.querySelector('.saga-confirm-overlay'));
+                const prompt = document.querySelector('.saga-confirm-overlay');
+                uiDelete.hasPrompt = !!prompt;
+                uiDelete.promptText = (prompt?.innerText || prompt?.textContent || '').slice(0, 600);
+                const confirmButton = [...(prompt?.querySelectorAll('button') || [])]
+                    .find(button => (button.innerText || button.textContent || '').trim() === 'Confirm' && !button.disabled);
+                uiDelete.hasConfirmButton = !!confirmButton;
+                if (confirmButton) {
+                    confirmButton.click();
+                    uiDelete.confirmed = true;
+                    await waitUntil(() => !stateManager.getLoredeckLibraryRegistry(stateManager.getState()).packs?.[packId]);
+                }
+            }
+            uiDelete.deleted = !stateManager.getLoredeckLibraryRegistry(stateManager.getState()).packs?.[packId];
+        }
+        const remove = row
+            ? {
+                ok: uiDelete.deleted,
+                uiDelete,
+                error: uiDelete.deleted
+                    ? ''
+                    : (!uiDelete.opened ? 'library overlay did not open' : (!uiDelete.hasDeleteButton ? 'delete button missing' : (!uiDelete.hasPrompt ? 'delete confirmation missing' : (!uiDelete.hasConfirmButton ? 'delete confirmation button missing' : 'pack still present after UI delete')))),
+            }
+            : { ok: false, error: 'missing row after reload', uiDelete };
+        const payloadFlush = await payloadStorage.flushSagaLorepackPayloadStorageWrites();
+        const libraryFlush = await libraryStorage.flushSagaLorepackLibraryStorageWrites();
+        const verifyAfterDelete = await stateManager.verifySagaStorageIntegrity({ write: true });
+        const payloadReadAfterDelete = row?.payloadFile ? await fetch(row.payloadFile) : null;
+        const coverFile = row?.coverFile || hydrated?.assetRefs?.cover || hydrated?.assets?.cover?.path || '';
+        const coverReadAfterDelete = coverFile ? await fetch(coverFile) : null;
+        const themeReadAfterDelete = args.themePayloadFile ? await fetch(args.themePayloadFile) : null;
+        const iconReadAfterDelete = args.iconPayloadFile ? await fetch(args.iconPayloadFile) : null;
+        const iconAssetReadAfterDelete = args.iconAssetFile ? await fetch(args.iconAssetFile) : null;
+        const registryAfterDelete = stateManager.getLoredeckLibraryRegistry(stateManager.getState());
+        const themeRegistryAfterDelete = themeIconStorage.getExternalThemePackLibraryRegistry();
+        const iconRegistryAfterDelete = themeIconStorage.getExternalThemeIconSetLibraryRegistry();
+        const storageSnapshot = await (await fetch('/__saga-storage-smoke')).json();
+
+        return {
+            ok: !!(
+                row
+                && hydrated
+                && loadedSource?.entryFiles?.[0]?.entries?.length === 2
+                && verifyBeforeDelete.ok
+                && remove.ok
+                && payloadFlush.ok
+                && libraryFlush.ok
+                && verifyAfterDelete.ok
+                && payloadReadAfterDelete
+                && payloadReadAfterDelete.status === 404
+                && (!coverFile || coverReadAfterDelete?.status === 404)
+                && (!args.themePayloadFile || themeReadAfterDelete?.status === 404)
+                && (!args.iconPayloadFile || iconReadAfterDelete?.status === 404)
+                && (!args.iconAssetFile || iconAssetReadAfterDelete?.status === 404)
+                && !registryAfterDelete.packs?.[packId]
+                && !themeRegistryAfterDelete.packs?.['storage-smoke-theme']
+                && !iconRegistryAfterDelete.iconSets?.['storage-smoke-icons']
+            ),
+            row,
+            themeRow,
+            iconRow,
+            hydratedEntryCount: Object.keys(hydrated?.entryOverrides || {}).length,
+            loadedEntryCount: loadedSource?.entryFiles?.[0]?.entries?.length || 0,
+            verifyBeforeDelete,
+            remove,
+            payloadFlush,
+            libraryFlush,
+            verifyAfterDelete,
+            payloadReadStatusAfterDelete: payloadReadAfterDelete?.status || 0,
+            coverFile,
+            coverReadStatusAfterDelete: coverReadAfterDelete?.status || 0,
+            themePayloadFile: args.themePayloadFile || '',
+            themePayloadReadStatusAfterDelete: themeReadAfterDelete?.status || 0,
+            iconPayloadFile: args.iconPayloadFile || '',
+            iconPayloadReadStatusAfterDelete: iconReadAfterDelete?.status || 0,
+            iconAssetFile: args.iconAssetFile || '',
+            iconAssetReadStatusAfterDelete: iconAssetReadAfterDelete?.status || 0,
+            stillInLibraryAfterDelete: !!registryAfterDelete.packs?.[packId],
+            themeStillInstalledAfterDelete: !!themeRegistryAfterDelete.packs?.['storage-smoke-theme'],
+            iconStillInstalledAfterDelete: !!iconRegistryAfterDelete.iconSets?.['storage-smoke-icons'],
+            storageSnapshot,
+        };
+    }, {
+        packId: 'storage-smoke-arlong',
+        themePayloadFile: themeIconUiState.before.themePayloadFile || importState.themePayloadFile || '',
+        iconPayloadFile: themeIconUiState.before.iconPayloadFile || importState.iconPayloadFile || '',
+        iconAssetFile: themeIconUiState.before.iconAssetFile || importState.iconAssetFile || '',
+    }));
+
+    if (!reloadState.row) findings.push('Storage harness did not hydrate the imported Loredeck from external Library storage after reload.');
+    if (reloadState.hydratedEntryCount !== 2) findings.push(`Storage harness hydrated ${reloadState.hydratedEntryCount || 0} Lorecards after reload instead of 2.`);
+    if (reloadState.loadedEntryCount !== 2) findings.push(`Storage harness loader returned ${reloadState.loadedEntryCount || 0} entries after reload instead of 2.`);
+    if (!reloadState.verifyBeforeDelete?.ok) findings.push(`Storage harness verify before delete failed: ${reloadState.verifyBeforeDelete?.error || reloadState.verifyBeforeDelete?.status || 'unknown'}.`);
+    if (!reloadState.remove?.ok) findings.push(`Storage harness delete failed: ${reloadState.remove?.error || 'unknown'}.`);
+    if (!reloadState.payloadFlush?.ok || !reloadState.libraryFlush?.ok) findings.push('Storage harness queued delete writes did not flush cleanly.');
+    if (!reloadState.verifyAfterDelete?.ok) findings.push(`Storage harness verify after delete failed: ${reloadState.verifyAfterDelete?.error || reloadState.verifyAfterDelete?.status || 'unknown'}.`);
+    if (reloadState.payloadReadStatusAfterDelete !== 404) findings.push('Storage harness payload file was still readable after delete.');
+    if (reloadState.coverFile && reloadState.coverReadStatusAfterDelete !== 404) findings.push('Storage harness cover asset was still readable after delete.');
+    if (reloadState.themePayloadFile && reloadState.themePayloadReadStatusAfterDelete !== 404) findings.push('Storage harness Theme Pack payload file was still readable after visible forget.');
+    if (reloadState.iconPayloadFile && reloadState.iconPayloadReadStatusAfterDelete !== 404) findings.push('Storage harness Icon Set payload file was still readable after visible forget.');
+    if (reloadState.iconAssetFile && reloadState.iconAssetReadStatusAfterDelete !== 404) findings.push('Storage harness Icon Set raster asset was still readable after delete.');
+    if (reloadState.stillInLibraryAfterDelete) findings.push('Storage harness Library registry still contained the deleted Loredeck.');
+    if (reloadState.themeStillInstalledAfterDelete) findings.push('Storage harness Theme Pack registry still contained the deleted Theme Pack.');
+    if (reloadState.iconStillInstalledAfterDelete) findings.push('Storage harness Icon Set registry still contained the deleted Icon Set.');
+    if (!reloadState.storageSnapshot?.deleted?.includes(importState.row?.payloadFile)) findings.push('Storage harness server did not receive a payload delete request.');
+    if (importState.coverFile && !reloadState.storageSnapshot?.deleted?.includes(importState.coverFile)) findings.push('Storage harness server did not receive a cover asset delete request.');
+    if (themeIconUiState.before.themePayloadFile && !reloadState.storageSnapshot?.deleted?.includes(themeIconUiState.before.themePayloadFile)) findings.push('Storage harness visible Forget Theme Pack did not send a payload delete request.');
+    if (themeIconUiState.before.iconPayloadFile && !reloadState.storageSnapshot?.deleted?.includes(themeIconUiState.before.iconPayloadFile)) findings.push('Storage harness visible Forget Icon Set did not send a payload delete request.');
+    if (themeIconUiState.before.iconAssetFile && !reloadState.storageSnapshot?.deleted?.includes(themeIconUiState.before.iconAssetFile)) findings.push('Storage harness visible Forget Icon Set did not send a raster asset delete request.');
+    if (!reloadState.ok) findings.push('Storage harness reload/delete persistence scenario did not satisfy all invariants.');
+    screenshots.push(await screenshot(client, 'storage-harness-07-after-delete'));
+
+    const errors = client.events
+        .filter(event => event.method === 'Log.entryAdded' && event.params?.entry?.level === 'error')
+        .map(event => formatLogEntry(event.params.entry));
+    console.log(JSON.stringify({
+        ok: findings.length === 0 && errors.length === 0,
+        target: SMOKE_TARGET,
+        url: smokeUrl,
+        screenshots,
+            findings,
+            errors,
+            dialogEvents,
+            importState,
+            healthOpenState,
+            healthScanState,
+            reloadState,
+            serverStorage: harness?.storage?.snapshot?.() || null,
+        }, null, 2));
+}
+
 async function main() {
     await fs.mkdir(OUT_DIR, { recursive: true });
     const chrome = await findChrome();
@@ -1274,18 +2085,30 @@ async function main() {
     let sagaMetadataSnapshot = null;
     let sagaMetadataRestored = false;
     let sagaSettingsSnapshot = null;
+    let sagaSettingsRestoreNeeded = false;
     let sagaSettingsRestored = false;
     let client;
     try {
         const { browserWsUrl, pageWsUrl, pageTargetId } = await waitForDevtools(port);
         await wait(1000);
-        client = new CdpClient(browserWsUrl);
+        const cdpStartupDetails = {
+            target: SMOKE_TARGET,
+            smokeUrl,
+            chrome,
+            headless,
+            browserWsUrl,
+            pageWsUrl,
+            pageTargetId,
+        };
+        client = new CdpClient(pageWsUrl || browserWsUrl);
         await client.connect();
-        const attached = await client.send('Target.attachToTarget', { targetId: pageTargetId, flatten: true });
-        client.sessionId = attached.sessionId;
-        await client.send('Page.enable');
-        await client.send('Runtime.enable');
-        await client.send('Log.enable');
+        if (!pageWsUrl) {
+            const attached = await sendStartupCdpCommand(client, 'Target.attachToTarget', { targetId: pageTargetId, flatten: true }, cdpStartupDetails);
+            client.sessionId = attached.sessionId;
+        }
+        await sendStartupCdpCommand(client, 'Page.enable', {}, cdpStartupDetails);
+        await sendStartupCdpCommand(client, 'Runtime.enable', {}, cdpStartupDetails);
+        await sendStartupCdpCommand(client, 'Log.enable', {}, cdpStartupDetails);
 
         client.on('Page.javascriptDialogOpening', payload => {
             dialogEvents.push(payload.params || {});
@@ -1304,6 +2127,11 @@ async function main() {
 
         if (SMOKE_TARGET === 'creator-harness') {
             await runCreatorHarnessSmoke(client, screenshots, findings, smokeUrl, dialogEvents);
+            return;
+        }
+
+        if (SMOKE_TARGET === STORAGE_HARNESS_TARGET) {
+            await runStorageHarnessSmoke(client, screenshots, findings, smokeUrl, dialogEvents, harness);
             return;
         }
 
@@ -1416,6 +2244,7 @@ async function main() {
             sagaMetadataSnapshot = await captureSagaMetadata(client);
             if (SMOKE_TARGET === LIVE_CONTEXT_REASONER_TARGET) {
                 sagaSettingsSnapshot = await captureSagaSettings(client);
+                sagaSettingsRestoreNeeded = !!sagaSettingsSnapshot;
             }
 
             await clickSelector(client, '.saga-runtime-rail-tab[data-tab-id="loredecks"]');
@@ -2042,8 +2871,31 @@ async function main() {
         await clickButtonText(client, 'Done', { root: '.saga-loredeck-library-overlay', enabledOnly: false });
         await wait(800);
 
+        sagaSettingsSnapshot = await captureSagaSettings(client);
+        const advancedModeState = await switchSagaExperienceMode(client, 'advanced');
+        optionalSteps.advancedModeForStateSafety = advancedModeState;
+        if (!advancedModeState?.ok) {
+            findings.push(`Live ST smoke could not switch to Advanced Experience for State Safety: ${advancedModeState?.reason || 'unknown'}.`);
+        } else if (advancedModeState.changed && sagaSettingsSnapshot) {
+            sagaSettingsRestoreNeeded = true;
+        }
+
         await clickSelector(client, '.saga-runtime-rail-tab[data-tab-id="settings"]');
         await waitFor(client, 'document.querySelector(".saga-runtime-drawer")?.innerText.includes("Settings")', 'Settings drawer');
+        if (!(await scrollTextIntoView(client, 'State Safety'))) await setDrawerScroll(client, 9999);
+        await wait(500);
+        const stateSafetyStorage = await collectStateSafetyStorageSmoke(client);
+        optionalSteps.stateSafetyStorage = stateSafetyStorage;
+        if (!stateSafetyStorage.present) findings.push('Live ST Settings drawer did not render the Advanced State Safety section.');
+        if (stateSafetyStorage.present && !stateSafetyStorage.open) findings.push('Live ST State Safety section did not open for storage checks.');
+        if (stateSafetyStorage.present && !stateSafetyStorage.hasMigrationAction) findings.push('Live ST State Safety did not expose storage migration status/action.');
+        if (stateSafetyStorage.present && !stateSafetyStorage.hasVerifyStorage) findings.push('Live ST State Safety did not expose Verify Storage.');
+        if (stateSafetyStorage.present && !stateSafetyStorage.hasSettleStorageWrites) findings.push('Live ST State Safety did not expose Settle Storage Writes.');
+        if (stateSafetyStorage.present && !stateSafetyStorage.hasCleanMissingRecords) findings.push('Live ST State Safety did not expose Clean Missing Records.');
+        if (stateSafetyStorage.present && !stateSafetyStorage.hasStorageMigrationRow) findings.push('Live ST State Safety did not render Storage migration diagnostics.');
+        if (stateSafetyStorage.present && !stateSafetyStorage.hasStorageIntegrityRow) findings.push('Live ST State Safety did not render Storage integrity diagnostics.');
+        screenshots.push(await screenshot(client, 'live-st-07-state-safety'));
+
         if (!(await scrollTextIntoView(client, 'Theme Pack'))) await setDrawerScroll(client, 9999);
         await wait(800);
         screenshots.push(await screenshot(client, 'live-st-07-theme-pack'));
@@ -2078,7 +2930,7 @@ async function main() {
             state,
         }, null, 2));
     } finally {
-        if (client && SMOKE_TARGET === LIVE_CONTEXT_REASONER_TARGET && !sagaSettingsRestored) {
+        if (client && sagaSettingsRestoreNeeded && !sagaSettingsRestored) {
             await restoreSagaSettings(client, sagaSettingsSnapshot).catch(() => null);
         }
         if (client && LIVE_CONTEXT_METADATA_TARGETS.has(SMOKE_TARGET) && !sagaMetadataRestored) {

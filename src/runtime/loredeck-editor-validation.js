@@ -41,6 +41,7 @@ import {
     isVirtualLoredeckPack,
     refreshGeneratedLoredeckDerivedMetadata,
 } from './loredeck-virtual-data.js';
+import { hydrateExternalLorepackPayloadRecord } from '../storage/saga-lorepack-payload-storage.js';
 
 let deps = {};
 
@@ -104,7 +105,7 @@ export async function validateLoredeckForEditor(pack, button = null, options = {
     const refreshLoredeckSurfaces = dep('refreshLoredeckSurfaces');
     const restoreBusy = setLoredeckActionButtonBusy(button, 'Validating...', { fallbackLabel: 'Run Pack Health' });
     try {
-        const fresh = getFreshLoredeckLibraryPack(pack.packId, pack);
+        const fresh = await hydrateExternalLorepackPayloadRecord(getFreshLoredeckLibraryPack(pack.packId, pack));
         if (!canValidateLoredeckInEditor(fresh)) throw new Error('Loredeck needs a fetchable manifest path or accepted generated data to validate.');
         const virtualData = canUseVirtualLoredeckData(fresh);
         const workingPack = isGeneratedLoredeckPack(fresh)

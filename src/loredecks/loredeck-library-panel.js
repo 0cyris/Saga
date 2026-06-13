@@ -95,6 +95,7 @@ function formatCategoryCounts(counts) { return dep('formatCategoryCounts', () =>
 function getLoredeckStack(state) { return dep('getLoredeckStack', () => [])(state); }
 function getLoredeckLibrary(state) { return dep('getLoredeckLibrary', () => [])(state); }
 function getLoredeckLibraryRegistry(state) { return dep('getLoredeckLibraryRegistry', () => ({ packs: {}, folders: [] }))(state); }
+function persistLoredeckLibraryLayout(registry, options) { return dep('persistLoredeckLibraryLayout', () => ({ ok: false, error: 'Loredeck Library storage is unavailable.' }))(registry, options); }
 function normalizeLoredeckLibraryPack(raw) { return dep('normalizeLoredeckLibraryPack', raw => raw || {})(raw); }
 function getLoredeckDefinition(packId) { return dep('getLoredeckDefinition', () => null)(packId); }
 function getLoredeckTypeLabel(packId) { return dep('getLoredeckTypeLabel', () => 'Custom')(packId); }
@@ -4576,19 +4577,24 @@ function clearLoredeckStack() {
 }
 
 export function getMutableLoredeckLibraryRegistry() {
-    const settings = getSettings();
-    const registry = settings.loredeckLibrary && typeof settings.loredeckLibrary === 'object' && !Array.isArray(settings.loredeckLibrary)
-        ? settings.loredeckLibrary
-        : { schemaVersion: 1, packs: {} };
-    return { settings, registry };
+    const registry = getLoredeckLibraryRegistry(getState());
+    return { settings: getSettings(), registry };
+}
+
+function persistLoredeckLibraryRegistryLayout(registry = {}) {
+    const result = persistLoredeckLibraryLayout(registry);
+    if (!result?.ok) {
+        if (result?.error) toast(result.error, 'warning');
+        return false;
+    }
+    return true;
 }
 
 function reorderLoredeckInLibrary(packId, targetIndex, visiblePacks = []) {
-    const { settings, registry } = getMutableLoredeckLibraryRegistry();
+    const { registry } = getMutableLoredeckLibraryRegistry();
     const result = reorderLoredeckLibraryPlacements({ packId, targetIndex, visiblePacks, registry });
     if (!result.ok) return false;
-    settings.loredeckLibrary = result.registry;
-    saveSettings(settings);
+    if (!persistLoredeckLibraryRegistryLayout(result.registry)) return false;
     loredeckLibrarySort = 'manual';
     return true;
 }
@@ -4597,14 +4603,13 @@ function moveLoredecksToLibraryFolder(packIds = [], folderId = '') {
     const state = getState();
     const library = getLoredeckLibrary(state);
     const libraryIndex = getLoredeckLibraryIndexForPacks(state, library);
-    const { settings, registry } = getMutableLoredeckLibraryRegistry();
+    const { registry } = getMutableLoredeckLibraryRegistry();
     const result = moveLoredecksToLibraryFolderPlacement({ packIds, folderId, library, libraryIndex, registry });
     if (!result.ok) {
         if (result.error) toast(result.error, 'warning');
         return false;
     }
-    settings.loredeckLibrary = result.registry;
-    saveSettings(settings);
+    if (!persistLoredeckLibraryRegistryLayout(result.registry)) return false;
     loredeckLibrarySelectedFolderId = result.targetFolderId || 'unfiled';
     loredeckLibrarySort = 'name';
     selectLoredeckForDetails(result.validIds[0], { refresh: false });
@@ -4613,12 +4618,11 @@ function moveLoredecksToLibraryFolder(packIds = [], folderId = '') {
 }
 
 export function saveLoredeckLibraryFolderRecords(folders = []) {
-    const { settings, registry } = getMutableLoredeckLibraryRegistry();
-    settings.loredeckLibrary = {
+    const { registry } = getMutableLoredeckLibraryRegistry();
+    persistLoredeckLibraryRegistryLayout({
         ...registry,
         folders: folders.map(folder => ({ ...folder })),
-    };
-    saveSettings(settings);
+    });
 }
 
 export function getLoredeckLibraryWorkingIndex() {
@@ -4770,14 +4774,13 @@ function applyLoredeckLibraryFolderRemoval(plan = {}, strategy = 'empty') {
     const folderId = String(plan.folderId || '').trim();
     if (!folderId || !plan.folder) return false;
     const libraryIndex = getLoredeckLibraryWorkingIndex();
-    const { settings, registry } = getMutableLoredeckLibraryRegistry();
+    const { registry } = getMutableLoredeckLibraryRegistry();
     const result = applyLoredeckLibraryFolderRemovalPlan({ folderId, strategy, libraryIndex, registry });
     if (!result.ok) {
         if (result.error) toast(result.error, 'warning');
         return false;
     }
-    settings.loredeckLibrary = result.registry;
-    saveSettings(settings);
+    if (!persistLoredeckLibraryRegistryLayout(result.registry)) return false;
     const removedKeys = new Set(result.removedFolderIds.map(createLoredeckStackFolderKey));
     if (removedKeys.size) {
         commitLoredeckStackMutation(stack => {

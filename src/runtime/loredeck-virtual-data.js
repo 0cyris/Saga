@@ -46,7 +46,9 @@ export function canUseGeneratedVirtualLoredeckData(pack = {}) {
 }
 
 export function canValidateLoredeckInEditor(pack = {}) {
-    return !!String(pack?.manifest || '').trim() || canUseVirtualLoredeckData(pack);
+    return !!String(pack?.manifest || '').trim()
+        || !!String(pack?.payloadFile || '').trim()
+        || canUseVirtualLoredeckData(pack);
 }
 
 export function getAcceptedGeneratedLoredeckEntries(pack = {}) {

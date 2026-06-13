@@ -66,11 +66,26 @@ import { getSettings, saveSettings } from './settings-store.js';
 export { getSettings, saveSettings } from './settings-store.js';
 import { createThemeLibraryStore } from './theme-library-store.js';
 import {
+    mergeExternalThemeIconSetLibraryRegistry,
+    mergeExternalThemePackLibraryRegistry,
+} from '../storage/saga-theme-icon-storage.js';
+import {
+    createSagaStorageMigrationPlan,
+    executeSagaStorageMigration,
+} from '../storage/saga-storage-migration.js';
+import {
+    cleanMissingSagaStorageRecords,
+    flushSagaStorageWrites,
+    getSagaStorageDiagnostics as getStorageDiagnostics,
+    verifySagaStorageDiagnostics as verifyStorageDiagnostics,
+} from '../storage/saga-storage-diagnostics.js';
+import {
     configureLoredeckCreatorStore,
     promoteChatLoredeckCreatorToSettings,
 } from './lore-creator-store.js';
 export {
     activateLoredeckCreatorJob,
+    activateLoredeckCreatorJobAsync,
     clearLoredeckCreatorJob,
     getActiveLoredeckCreatorJob,
     getLoredeckCreatorProjectRegistry,
@@ -88,6 +103,7 @@ import {
 export {
     getLoredeckLibraryRegistry,
     importLoredeckLibraryRegistry,
+    persistLoredeckLibraryLayout,
     removeLoredeckLibraryPack,
     upsertLoredeckLibraryPack,
 } from './loredeck-library-store.js';
@@ -212,11 +228,11 @@ const themeLibraryStore = createThemeLibraryStore({
 });
 
 export function getThemePackLibraryRegistry() {
-    return themeLibraryStore.getThemePackLibraryRegistry();
+    return mergeExternalThemePackLibraryRegistry(themeLibraryStore.getThemePackLibraryRegistry());
 }
 
 export function getThemeIconSetLibraryRegistry() {
-    return themeLibraryStore.getThemeIconSetLibraryRegistry();
+    return mergeExternalThemeIconSetLibraryRegistry(themeLibraryStore.getThemeIconSetLibraryRegistry());
 }
 
 export function upsertThemePackLibraryPack(packRecord = {}) {
@@ -233,6 +249,10 @@ export function importThemePackLibraryRegistry(registry = {}, options = {}) {
 
 export function upsertThemeIconSetLibraryPack(iconSetRecord = {}) {
     return themeLibraryStore.upsertThemeIconSetLibraryPack(iconSetRecord);
+}
+
+export function removeThemeIconSetLibraryPack(iconSetId, options = {}) {
+    return themeLibraryStore.removeThemeIconSetLibraryPack(iconSetId, options);
 }
 
 export function importThemeIconSetLibraryRegistry(registry = {}, options = {}) {
@@ -919,6 +939,136 @@ export function recordStateSafetyEvent(type = 'event', message = '', options = {
     });
     saveState(state, { syncPrompt: options.syncPrompt === true, sanitize: options.sanitize !== false });
     return record;
+}
+
+export function getSagaStorageMigrationPlan(options = {}) {
+    return createSagaStorageMigrationPlan(getSettings(), options);
+}
+
+export function getSagaStorageDiagnostics(options = {}) {
+    return getStorageDiagnostics(getSettings(), options);
+}
+
+function formatStorageDiagnosticsMessage(result = {}) {
+    if (result.cleanedFileCount) {
+        return `Saga storage cleaned ${result.cleanedFileCount} missing indexed file record${result.cleanedFileCount === 1 ? '' : 's'}.`;
+    }
+    if (result.flushedAt) {
+        return `Saga storage writes settled: ${result.pendingWritesBefore || 0} queued write${(result.pendingWritesBefore || 0) === 1 ? '' : 's'} before verification.`;
+    }
+    if (result.status === 'ok') {
+        return `Saga storage verified: ${result.fileCount || 0} tracked file${result.fileCount === 1 ? '' : 's'}, no missing files.`;
+    }
+    if (result.status === 'missing_files') {
+        return `Saga storage verification found ${result.missingFileCount || 0} missing file${result.missingFileCount === 1 ? '' : 's'}.`;
+    }
+    if (result.status === 'missing_index') {
+        return 'Saga storage index is missing.';
+    }
+    if (result.status === 'write_errors') {
+        return `Saga storage has ${result.writeErrors?.length || 0} pending write error${result.writeErrors?.length === 1 ? '' : 's'}.`;
+    }
+    return result.error || 'Saga storage verification failed.';
+}
+
+export async function verifySagaStorageIntegrity(options = {}) {
+    const result = await verifyStorageDiagnostics(getSettings(), {
+        ...options,
+        write: options.write !== false,
+    });
+    const settings = getSettings();
+    settings.sagaStorage = {
+        ...(settings.sagaStorage || {}),
+        lastVerifiedAt: result.checkedAt || Date.now(),
+    };
+    saveSettings(settings);
+    const log = recordStateSafetyEvent(result.ok ? 'storage_integrity_check' : 'storage_integrity_warning', formatStorageDiagnosticsMessage(result), {
+        syncPrompt: false,
+    });
+    return { ...result, log };
+}
+
+export async function settleSagaStorageWrites(options = {}) {
+    const result = await flushSagaStorageWrites(getSettings(), {
+        ...options,
+        write: options.write !== false,
+    });
+    const settings = getSettings();
+    settings.sagaStorage = {
+        ...(settings.sagaStorage || {}),
+        lastVerifiedAt: result.checkedAt || Date.now(),
+    };
+    saveSettings(settings);
+    const log = recordStateSafetyEvent(result.ok ? 'storage_write_settle' : 'storage_write_warning', formatStorageDiagnosticsMessage(result), {
+        syncPrompt: false,
+    });
+    return { ...result, log };
+}
+
+export async function cleanMissingSagaStorageIndexRecords(options = {}) {
+    const result = await cleanMissingSagaStorageRecords(getSettings(), {
+        ...options,
+        write: options.write !== false,
+    });
+    const settings = getSettings();
+    settings.sagaStorage = {
+        ...(settings.sagaStorage || {}),
+        lastVerifiedAt: result.checkedAt || Date.now(),
+    };
+    saveSettings(settings);
+    const log = recordStateSafetyEvent(result.ok ? 'storage_cleanup' : 'storage_cleanup_warning', formatStorageDiagnosticsMessage(result), {
+        syncPrompt: false,
+    });
+    return { ...result, log };
+}
+
+function formatStorageMigrationResultMessage(result = {}) {
+    const counts = result.counts || result.plan?.counts || {};
+    const parts = [
+        counts.libraryPacks ? `${counts.libraryPacks} Loredeck${counts.libraryPacks === 1 ? '' : 's'}` : '',
+        counts.creatorProjects ? `${counts.creatorProjects} Creator project${counts.creatorProjects === 1 ? '' : 's'}` : '',
+        counts.themePacks ? `${counts.themePacks} Theme Pack${counts.themePacks === 1 ? '' : 's'}` : '',
+        counts.iconSets ? `${counts.iconSets} Icon Set${counts.iconSets === 1 ? '' : 's'}` : '',
+    ].filter(Boolean);
+    return parts.length
+        ? `Externalized Saga storage: ${parts.join(', ')}.`
+        : 'Saga storage migration completed.';
+}
+
+export async function runSagaStorageMigration(options = {}) {
+    const settings = getSettings();
+    const plan = createSagaStorageMigrationPlan(settings, options);
+    if (!plan.needsMigration) {
+        return {
+            ok: true,
+            skipped: true,
+            reason: plan.alreadyMigrated ? 'already_migrated' : 'nothing_to_migrate',
+            plan,
+            counts: plan.counts,
+        };
+    }
+
+    createStateBackup('before_storage_migration', {
+        label: 'Before external Saga storage migration.',
+        syncPrompt: false,
+    });
+    const result = await executeSagaStorageMigration(settings, {
+        ...options,
+        plan,
+        state: getState(),
+        saveSettings: next => saveSettings(next),
+        saveState: next => saveState(next, { syncPrompt: false, sanitize: true }),
+    });
+    if (result.ok) {
+        const log = recordStateSafetyEvent('storage_migration', formatStorageMigrationResultMessage(result), {
+            syncPrompt: false,
+        });
+        return { ...result, log };
+    }
+    recordStateSafetyEvent('storage_migration_failed', result.error || 'Saga storage migration failed.', {
+        syncPrompt: false,
+    });
+    return result;
 }
 
 export function restoreStateFromBackup(backupId) {

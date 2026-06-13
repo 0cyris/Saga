@@ -9,6 +9,9 @@ import { wireEvents } from './events.js';
 import { registerSlashCommands } from './slash-commands.js';
 import { mountSettingsPanel } from './settings-mount.js';
 import { exposeGlobalBridge } from './global-bridge.js';
+import { hydrateSagaThemeIconStorage } from '../storage/saga-theme-icon-storage.js';
+import { hydrateSagaLorepackLibraryStorage } from '../storage/saga-lorepack-library-storage.js';
+import { hydrateSagaCreatorProjectStorage } from '../storage/saga-creator-project-storage.js';
 
 export async function bootstrapSagaExtension() {
     console.log(`${LOG_PREFIX} Saga extension initializing...`);
@@ -25,6 +28,21 @@ export async function bootstrapSagaExtension() {
     }
 
     installInterceptor();
+    try {
+        await hydrateSagaThemeIconStorage();
+    } catch (e) {
+        console.warn(`${LOG_PREFIX} Theme/Icon external storage could not be hydrated:`, e);
+    }
+    try {
+        await hydrateSagaLorepackLibraryStorage();
+    } catch (e) {
+        console.warn(`${LOG_PREFIX} Lorepack Library external storage could not be hydrated:`, e);
+    }
+    try {
+        await hydrateSagaCreatorProjectStorage();
+    } catch (e) {
+        console.warn(`${LOG_PREFIX} Creator project external storage could not be hydrated:`, e);
+    }
     wireEvents(ctx);
     registerSlashCommands(ctx);
     registerSagaToolManagerTools(ctx);

@@ -25,6 +25,7 @@ import {
     canUseVirtualLoredeckData,
     refreshGeneratedLoredeckDerivedMetadata,
 } from './loredeck-virtual-data.js';
+import { hydrateExternalLorepackPayloadRecord } from '../storage/saga-lorepack-payload-storage.js';
 
 let deps = {};
 
@@ -47,6 +48,8 @@ export async function fetchJsonForLoredeckEditor(url) {
 }
 
 export async function fetchLoredeckEntryFilesForEditor(pack, manifest = null, baseUrl = null) {
+    const hydratedPack = await hydrateExternalLorepackPayloadRecord(pack);
+    pack = hydratedPack || pack;
     const displayManifest = manifest || await getDisplayManifestForPack(pack, { requireFetch: !canUseVirtualLoredeckData(pack) });
     if (canUseVirtualLoredeckData(pack) && !baseUrl) {
         return buildGeneratedLoredeckEntryCache(refreshGeneratedLoredeckDerivedMetadata({ ...(pack || {}) }), displayManifest);
@@ -111,7 +114,7 @@ export async function loadLoredeckTimelineRegistryForEditor(pack, button = null,
     const refreshPanelBody = dep('refreshPanelBody');
     const restoreBusy = setLoredeckActionButtonBusy(button, 'Loading...', { fallbackLabel: 'Load Timeline' });
     try {
-        const fresh = getFreshLoredeckLibraryPack(pack.packId, pack);
+        const fresh = await hydrateExternalLorepackPayloadRecord(getFreshLoredeckLibraryPack(pack.packId, pack));
         const manifest = options.manifest || await getDisplayManifestForPack(fresh, { requireFetch: !canUseVirtualLoredeckData(fresh) });
         const baseUrl = options.baseUrl || resolveManifestUrlForFetch(fresh.manifest);
         if (!baseUrl && canUseVirtualLoredeckData(fresh)) {
@@ -180,7 +183,7 @@ export async function loadLoredeckTagRegistryForEditor(pack, button = null, opti
     const refreshPanelBody = dep('refreshPanelBody');
     const restoreBusy = setLoredeckActionButtonBusy(button, 'Loading...', { fallbackLabel: 'Load Registry' });
     try {
-        const fresh = getFreshLoredeckLibraryPack(pack.packId, pack);
+        const fresh = await hydrateExternalLorepackPayloadRecord(getFreshLoredeckLibraryPack(pack.packId, pack));
         const manifest = options.manifest || await getDisplayManifestForPack(fresh, { requireFetch: !canUseVirtualLoredeckData(fresh) });
         const baseUrl = options.baseUrl || resolveManifestUrlForFetch(fresh.manifest);
         if (!baseUrl && canUseVirtualLoredeckData(fresh)) {
@@ -234,9 +237,10 @@ export async function loadLoredeckEntriesForEditor(pack, button = null) {
     const refreshPanelBody = dep('refreshPanelBody');
     const restoreBusy = setLoredeckActionButtonBusy(button, 'Loading...', { fallbackLabel: 'Load Entries' });
     try {
-        const { manifest, baseUrl, entries, entryFiles } = await fetchLoredeckEntryFilesForEditor(pack);
-        await loadLoredeckTimelineRegistryForEditor(pack, null, { manifest, baseUrl, quiet: true });
-        await loadLoredeckTagRegistryForEditor(pack, null, { manifest, baseUrl, quiet: true });
+        const fresh = await hydrateExternalLorepackPayloadRecord(pack);
+        const { manifest, baseUrl, entries, entryFiles } = await fetchLoredeckEntryFilesForEditor(fresh);
+        await loadLoredeckTimelineRegistryForEditor(fresh, null, { manifest, baseUrl, quiet: true });
+        await loadLoredeckTagRegistryForEditor(fresh, null, { manifest, baseUrl, quiet: true });
         setLoredeckEntryPreviewCacheRecord(pack.packId, {
             entries,
             entryFiles,
@@ -265,7 +269,8 @@ export async function loadLoredeckManifestPreview(pack, button = null) {
     const refreshPanelBody = dep('refreshPanelBody');
     const restoreBusy = setLoredeckActionButtonBusy(button, 'Inspecting...', { fallbackLabel: 'Inspect Manifest' });
     try {
-        const manifest = await getDisplayManifestForPack(pack, { requireFetch: !canUseVirtualLoredeckData(pack) });
+        const fresh = await hydrateExternalLorepackPayloadRecord(pack);
+        const manifest = await getDisplayManifestForPack(fresh, { requireFetch: !canUseVirtualLoredeckData(fresh) });
         setLoredeckManifestPreviewCacheRecord(pack.packId, {
             manifest,
             error: '',

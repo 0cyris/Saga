@@ -39,6 +39,7 @@ import {
 import {
     createLoredeckRecordPatchChange,
 } from './loredeck-pending-change-model.js';
+import { hydrateExternalLorepackPayloadRecord } from '../storage/saga-lorepack-payload-storage.js';
 
 let editorActionDeps = {};
 
@@ -170,11 +171,12 @@ function buildSchemaV3ContextAnchorRepairChange(entry = {}, candidates = [], exi
 export async function repairLoredeckSafeHealthIssues(pack, button = null) {
     const restoreBusy = setLoredeckActionButtonBusy(button, 'Repairing...', { fallbackLabel: 'Auto-Repair Safe Findings' });
     try {
-        const fresh = getFreshLoredeckLibraryPack(pack.packId, pack);
-        if (!fresh || fresh.type === 'bundled') {
+        const source = getFreshLoredeckLibraryPack(pack.packId, pack);
+        if (!source || source.type === 'bundled') {
             toast('Bundled Loredecks cannot be repaired directly. Duplicate as Custom first.', 'warning');
             return false;
         }
+        const fresh = await hydrateExternalLorepackPayloadRecord(source);
         const validation = await validateLoredeckForEditor(fresh, null, { quiet: true, updateLibrary: false });
         if (!validation.health) throw new Error(validation.error || 'Validation failed before repair.');
         const summary = validation.health.summary || {};
@@ -339,24 +341,25 @@ export async function syncLoredeckMetadataFromManifest(pack, button = null) {
 export async function saveLoredeckMetadataFromInputs(pack, fields, button = null) {
     const restoreBusy = setLoredeckActionButtonBusy(button, 'Saving...', { fallbackLabel: 'Save Metadata' });
     try {
-        const title = fields.titleInput.value.trim() || pack.title || pack.packId;
+        const fresh = await hydrateExternalLorepackPayloadRecord(getFreshLoredeckLibraryPack(pack.packId, pack) || pack);
+        const title = fields.titleInput.value.trim() || fresh.title || fresh.packId;
         const nextManifest = fields.manifestInput.value.trim();
-        if (nextManifest && nextManifest !== pack.manifest) {
+        if (nextManifest && nextManifest !== fresh.manifest) {
             const manifest = await fetchLoredeckManifest(nextManifest);
             const manifestId = String(manifest?.id || '').trim();
             if (!manifestId) throw new Error('Manifest is missing required id.');
-            if (manifestId !== pack.packId) {
-                throw new Error(`Manifest id ${manifestId} does not match selected Loredeck id ${pack.packId}. Register it as a separate Loredeck instead.`);
+            if (manifestId !== fresh.packId) {
+                throw new Error(`Manifest id ${manifestId} does not match selected Loredeck id ${fresh.packId}. Register it as a separate Loredeck instead.`);
             }
-            setLoredeckManifestPreviewCacheRecord(pack.packId, {
+            setLoredeckManifestPreviewCacheRecord(fresh.packId, {
                 manifest,
                 error: '',
                 loadedAt: Date.now(),
             });
         }
         const record = {
-            ...pack,
-            type: pack.type === 'generated' ? 'generated' : 'custom',
+            ...fresh,
+            type: fresh.type === 'generated' ? 'generated' : 'custom',
             title,
             description: fields.descriptionInput.value.trim(),
             fandom: fields.fandomInput.value.trim(),
@@ -370,16 +373,16 @@ export async function saveLoredeckMetadataFromInputs(pack, fields, button = null
         };
         if (isGeneratedLoredeckPack(record)) {
             refreshGeneratedLoredeckDerivedMetadata(record);
-        } else if (isVirtualLoredeckPack(pack)) {
-            record.manifestData = buildEmbeddedCustomManifest(pack.manifestData, record);
+        } else if (isVirtualLoredeckPack(fresh)) {
+            record.manifestData = buildEmbeddedCustomManifest(fresh.manifestData, record);
         }
         const result = upsertLoredeckLibraryPack(record);
         if (!result.ok) throw new Error(result.error || 'Loredeck metadata save failed.');
-        if (record.manifest !== pack.manifest) {
-            deleteLoredeckManifestPreviewCacheRecord(pack.packId);
-            deleteLoredeckEntryPreviewCacheRecord(pack.packId);
-            deleteLoredeckTimelineRegistryCacheRecord(pack.packId);
-            deleteLoredeckTagRegistryCacheRecord(pack.packId);
+        if (record.manifest !== fresh.manifest) {
+            deleteLoredeckManifestPreviewCacheRecord(fresh.packId);
+            deleteLoredeckEntryPreviewCacheRecord(fresh.packId);
+            deleteLoredeckTimelineRegistryCacheRecord(fresh.packId);
+            deleteLoredeckTagRegistryCacheRecord(fresh.packId);
         }
         clearCanonLoreDatabaseCache();
         refreshLoredeckSurfaces();
@@ -418,6 +421,7 @@ export function getLoredeckDuplicateTitle(sourcePack = {}, suffix = 'Copy') {
 }
 
 export async function buildCustomDuplicateLoredeckRecord(sourcePack, options = {}) {
+    sourcePack = await hydrateExternalLorepackPayloadRecord(sourcePack);
     const packId = normalizeLoredeckPackId(options.packId);
     if (!packId) throw new Error('Custom Loredeck needs a valid pack ID.');
     if (getLoredeckDefinition(packId)) throw new Error(`A Loredeck with id ${packId} already exists.`);

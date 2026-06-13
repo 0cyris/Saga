@@ -271,6 +271,11 @@ export function createThemeIconSetPanel(activePreset, settings = {}, options = {
     actions.appendChild(createButton('Import Icon Set', 'Import icon mappings as a Custom Icon Set.', () => {
         options.onImportIconSet?.();
     }));
+    if (iconSet?.type === 'custom' && typeof options.onForgetIconSet === 'function') {
+        actions.appendChild(createButton('Forget Icon Set', 'Remove this Custom Icon Set from installed settings.', async () => {
+            await options.onForgetIconSet(iconSet.id);
+        }));
+    }
     actions.appendChild(createButton('Reset to Default', 'Switch to the bundled Saga Hero Icon Set.', () => {
         options.onApplyThemeIconSet?.(DEFAULT_ICONSET_ID);
     }));

@@ -4,7 +4,7 @@
 
 import { DEFAULT_SETTINGS } from './constants.js';
 
-const BUNDLED_THEME_PACK_IDS = Object.freeze([
+export const BUNDLED_THEME_PACK_IDS = Object.freeze([
     'saga-default',
     'royal-chronicle',
     'void-reliquary',
@@ -22,7 +22,7 @@ const BUNDLED_THEME_PACK_IDS = Object.freeze([
     'fever-chapel',
 ]);
 
-const BUNDLED_THEME_ICON_SET_IDS = Object.freeze([
+export const BUNDLED_THEME_ICON_SET_IDS = Object.freeze([
     'saga-hero',
     'saga-mystic',
     'saga-relay',
@@ -303,6 +303,22 @@ export function createThemeLibraryStore({ getSettings, saveSettings, defaultSett
             settings.themeIconSetLibrary = library;
             writeSettings(settings);
             return { ok: true, iconSet: library.iconSets[iconSetId], library };
+        },
+
+        removeThemeIconSetLibraryPack(iconSetId, options = {}) {
+            const id = String(iconSetId || '').trim();
+            if (!id) return { ok: false, error: 'Missing Icon Set id.' };
+            if (options.allowBundled !== true && BUNDLED_THEME_ICON_SET_IDS.includes(id)) {
+                return { ok: false, error: 'Bundled Icon Sets cannot be removed from the library.' };
+            }
+
+            const settings = readSettings();
+            const library = normalizeThemeIconSetRegistry(settings.themeIconSetLibrary, defaultThemeIconSetLibrary);
+            if (!library.iconSets[id]) return { ok: false, error: 'Icon Set is not installed.' };
+            delete library.iconSets[id];
+            settings.themeIconSetLibrary = normalizeThemeIconSetRegistry(library, defaultThemeIconSetLibrary);
+            writeSettings(settings);
+            return { ok: true, library: settings.themeIconSetLibrary };
         },
 
         importThemeIconSetLibraryRegistry(registry = {}, options = {}) {
