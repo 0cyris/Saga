@@ -1389,7 +1389,7 @@
 
 /* Lore tab scan UI consolidation */
 .saga-lore-generation-grid {
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 390px), 1fr)) !important;
     gap: 8px;
 }
 

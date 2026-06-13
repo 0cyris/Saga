@@ -153,6 +153,11 @@ assert.match(getCachedExternalLorepackPayload('arlong-payload').assets.cover.pat
 assert.equal(upsert.libraryRecord.coverFile, getCachedExternalLorepackPayload('arlong-payload').assets.cover.path);
 const compactLibraryCover = getLoredeckAssetRef(upsert.libraryRecord, 'cover');
 assert.equal(compactLibraryCover.path, upsert.libraryRecord.coverFile, 'Compact external Loredeck records must render their uploaded coverFile.');
+const manifestedCompactLibraryCover = getLoredeckAssetRef({
+  ...upsert.libraryRecord,
+  manifest: 'content/loredecks/one-piece/manifest.json',
+}, 'cover');
+assert.equal(manifestedCompactLibraryCover.path, upsert.libraryRecord.coverFile, 'Uploaded /user/files cover assets must not be rewritten against the Loredeck manifest base.');
 
 const flushed = await flushSagaLorepackPayloadStorageWrites();
 assert.equal(flushed.ok, true);

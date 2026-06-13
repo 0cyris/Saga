@@ -38,10 +38,6 @@ function markTourTarget(el, target) {
     return dep('markTourTarget', element => element)(el, target);
 }
 
-function openNewLoreDialog() {
-    return dep('openNewLoreDialog')();
-}
-
 function getState() {
     return dep('getState', () => ({}))();
 }
@@ -129,9 +125,6 @@ export function createLoreTimelineCard(state) {
     foot.appendChild(latestText);
     const actions = document.createElement('div');
     actions.className = 'saga-lore-timeline-actions';
-    actions.appendChild(markTourTarget(createButton('New Lore', 'Create a manual lore draft in Pending Lore Review.', () => {
-        openNewLoreDialog();
-    }, 'saga-primary-button'), 'lore.new'));
     if (!basic) {
         actions.appendChild(markTourTarget(createButton('Open Timeline', 'Open the full Lore Timeline workbench.', () => {
             openLoreTimeline();
@@ -329,7 +322,6 @@ function createLoreTimelineFilterBar(model, summary) {
 
     const actions = document.createElement('div');
     actions.className = 'saga-continuity-header-actions';
-    actions.appendChild(createButton('New Lore', 'Create a manual lore draft in Pending Lore Review.', () => openNewLoreDialog(), 'saga-primary-button'));
     actions.appendChild(createButton('Close', 'Close Lore Timeline.', closeLoreTimeline));
     bar.appendChild(actions);
     return bar;

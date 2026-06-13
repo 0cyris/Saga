@@ -4271,7 +4271,7 @@ function getLoredeckMonogram(pack = {}) {
 function resolveLoredeckAssetPath(pack = {}, assetPath = '') {
     const path = normalizePassiveAssetPath(assetPath);
     if (!path) return '';
-    if (/^(?:data:image\/|https?:\/\/|\.\/|content\/)/i.test(path)) return path;
+    if (/^(?:data:image\/|https?:\/\/|\.\/|content\/|\/user\/files\/)/i.test(path)) return path;
     const manifest = String(pack.manifest || pack.manifestData?.manifest || '').replace(/\\/g, '/').trim();
     const base = manifest.includes('/') ? manifest.replace(/[^/]*$/, '') : '';
     return base ? normalizePassiveAssetPath(`${base}${path}`) : path;
