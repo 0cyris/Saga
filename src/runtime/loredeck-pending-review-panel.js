@@ -47,6 +47,12 @@ function validateLoredeckForEditor(pack, button = null) { return dep('validateLo
 function canValidateLoredeckInEditor(pack = {}) { return dep('canValidateLoredeckInEditor', () => false)(pack); }
 function openLoredeckHealthCenter(packId = '', options = {}) { return dep('openLoredeckHealthCenter', () => null)(packId, options); }
 
+function getLoredeckPendingChangeIds(pending = []) {
+    return (Array.isArray(pending) ? pending : [])
+        .map(change => String(change?.changeId || '').trim())
+        .filter(Boolean);
+}
+
 function getLoredeckPendingReviewHealthState(pack = {}) {
     const status = String(pack?.healthStatus || '').trim().toLowerCase();
     if (status === 'has_errors' || status === 'error') {
@@ -106,6 +112,7 @@ export function createLoredeckPendingReviewCard(pack = {}) {
     wrap.appendChild(help);
 
     const actions = createLoredeckActionRow();
+    const pendingChangeIds = getLoredeckPendingChangeIds(pending);
     const acceptAll = createButton('Accept All', 'Apply every pending Loredeck change to this Custom Loredeck, then refresh Pack Health if accepted changes affect validation.', async (btn) => {
         const proceed = await confirmAction(
             'Accept all pending Loredeck changes?',
@@ -116,12 +123,12 @@ export function createLoredeckPendingReviewCard(pack = {}) {
             label: `Before accepting ${pending.length} pending Loredeck change${pending.length === 1 ? '' : 's'}.`,
         });
         await runBusyAction(btn, 'Accepting...', async () => {
-            await acceptLoredeckPendingChanges(pack, pending.map(change => change.changeId));
+            await acceptLoredeckPendingChanges(pack, pendingChangeIds);
         });
     }, 'saga-primary-button');
     acceptAll.disabled = !pending.length;
     actions.appendChild(acceptAll);
-    const rejectAll = createButton('Reject All', 'Discard every pending Loredeck change without applying it.', async () => {
+    const rejectAll = createButton('Reject All', 'Discard every pending Loredeck change without applying it.', async (btn) => {
         const proceed = await confirmAction(
             'Reject all pending Loredeck changes?',
             `Discard all ${pending.length} pending Loredeck change${pending.length === 1 ? '' : 's'} without applying them?`
@@ -130,7 +137,9 @@ export function createLoredeckPendingReviewCard(pack = {}) {
         createStateBackup('before_reject_loredeck_pending_changes', {
             label: `Before rejecting ${pending.length} pending Loredeck change${pending.length === 1 ? '' : 's'}.`,
         });
-        rejectLoredeckPendingChanges(pack);
+        await runBusyAction(btn, 'Rejecting...', async () => {
+            rejectLoredeckPendingChanges(pack, pendingChangeIds);
+        });
     }, 'saga-danger-button');
     rejectAll.disabled = !pending.length;
     actions.appendChild(rejectAll);

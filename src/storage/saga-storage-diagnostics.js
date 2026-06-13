@@ -80,7 +80,7 @@ export function getSagaStorageDiagnostics(settings = {}, options = {}) {
         status: runtime.storageErrors.length ? 'storage_errors' : 'not_checked',
         indexFile: storage.masterIndexFile || SAGA_STORAGE_INDEX_PATH,
         domainIndexFiles: { ...SAGA_STORAGE_DOMAIN_INDEX_FILES },
-        migrationVersion: storage.migrationVersion || '',
+        storageVersion: storage.storageVersion || '',
         pendingWrites: runtime.pendingWrites,
         storageErrors: runtime.storageErrors,
         writeErrors: runtime.storageErrors,

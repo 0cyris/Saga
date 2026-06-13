@@ -19,12 +19,18 @@ const runtimeNavigation = await readText('src/runtime/runtime-navigation.js');
 const activeStackPanel = await readText('src/runtime/active-stack-panel.js');
 const storageAndStateSafetyDoc = await readText('docs/user/STORAGE_AND_STATE_SAFETY.md');
 const operatorManual = await readText('docs/user/OPERATOR_MANUAL.md');
+const style = await readText('styles/tokens.css');
+const runtimeTheme = await readText('src/theme/runtime-theme.js');
 
 assert(!advancedRuntimePanel.includes('createDangerZoneCard'), 'Session tab must not depend on or render the Danger Zone card.');
 assert(runtimeSettingsTab.includes('createDangerZoneCard') && runtimeSettingsTab.includes("'settings.dangerZone'"), 'Settings tab must render the relocated Danger Zone section.');
+assert(runtimeSettingsTab.includes('appendDangerZoneCard(container, state)') && !runtimeSettingsTab.includes("'settings.dangerZone',\n            'Danger Zone'") && !runtimeSettingsTab.includes("'settings.dangerZone',\n        'Danger Zone'"), 'Settings Danger Zone must render directly instead of through a collapsible dropdown.');
 assert(lorePanel.includes('configureRuntimeSettingsTab({') && lorePanel.includes('createDangerZoneCard,'), 'Runtime settings tab must receive the Danger Zone renderer dependency.');
 assert(!lorePanel.includes('configureAdvancedRuntimePanel({\n    createCollapsibleSection,\n    createDangerZoneCard,'), 'Advanced Session panel must not receive the Danger Zone renderer dependency.');
-assert(defaultSettings.includes("'settings.dangerZone': true"), 'Danger Zone Settings section must be collapsed by default.');
+assert(!defaultSettings.includes("'settings.dangerZone'"), 'Danger Zone must not keep a collapsed-section default after the dropdown is removed.');
+assert(runtimeTheme.includes("target.style.setProperty('--saga-danger', colors.danger)") && runtimeTheme.includes("target.style.setProperty('--saga-danger-surface', hexToRgba(colors.danger, 0.24))"), 'Runtime themes must publish explicit danger tokens from the active Theme Pack danger color.');
+assert(style.includes('.saga-danger-zone-card') && style.includes('var(--saga-danger-surface') && style.includes('var(--saga-danger-soft'), 'Danger Zone card must use active Theme Pack danger surface tokens.');
+assert(style.includes('.saga-danger-button') && style.includes('var(--saga-danger-hover') && style.includes('var(--saga-danger,'), 'Danger buttons must use active Theme Pack danger tokens.');
 
 assert(runtimeSafetyPanel.includes('Active Chat') && runtimeSafetyPanel.includes('Global'), 'Danger Zone must separate Active Chat and Global groups.');
 assert(runtimeSafetyPanel.includes('Reset Active Chat'), 'Active Chat group must expose Reset Active Chat.');
@@ -46,13 +52,11 @@ assert(runtimeSafetyPanel.includes('removeSagaCustomThemeIconStorage'), 'Theme/I
 assert(runtimeSafetyPanel.includes('removeSagaCustomLoredeckStorage'), 'Loredeck cleanup action must call the global cleanup service.');
 assert(activeStackPanel.includes('export function pruneUnavailableLoredeckStackItems') && runtimeSafetyPanel.includes('pruneUnavailableLoredeckStackItems()'), 'Loredeck cleanup must prune deleted custom Loredecks from the active chat stack.');
 assert(runtimeSafetyPanel.includes('unavailable active-stack reference'), 'Loredeck cleanup result copy must disclose active-stack pruning when it happens.');
-assert(runtimeSafetyPanel.includes('Legacy payloads') && runtimeSafetyPanel.includes('toastLegacyScopedCleanupBlocked'), 'Global Danger Zone must disclose legacy settings-backed payloads before scoped cleanup can target them.');
-assert(runtimeSafetyPanel.includes('hasLegacyLoredeckPayloads') && runtimeSafetyPanel.includes('hasLegacyThemeIconPayloads'), 'Scoped cleanup actions must detect legacy settings-backed Loredeck and Theme/Icon payloads.');
-assert(runtimeSafetyPanel.includes('Migrate Legacy Storage first') && runtimeSafetyPanel.includes('Total Saga Cleanup'), 'Scoped cleanup legacy guidance must route users to migration or total cleanup.');
-assert(runtimeSafetyPanel.includes('formatLegacyScopedCleanupConfirmation') && runtimeSafetyPanel.includes('will not be removed by this scoped action'), 'Scoped cleanup confirmations must warn when legacy settings-backed payloads will remain.');
-assert(runtimeSafetyPanel.includes('formatLegacyScopedCleanupToast') && runtimeSafetyPanel.includes('still needs migration'), 'Scoped cleanup completion copy must disclose legacy payloads that remain after mixed-state cleanup.');
+assert(!runtimeSafetyPanel.includes('Legacy payloads') && !runtimeSafetyPanel.includes('toastLegacyScopedCleanupBlocked'), 'Global Danger Zone must not include removed storage payload migration warnings.');
+assert(!runtimeSafetyPanel.includes('hasLegacyLoredeckPayloads') && !runtimeSafetyPanel.includes('hasLegacyThemeIconPayloads'), 'Scoped cleanup actions must not detect or preserve removed settings payloads.');
+assert(!runtimeSafetyPanel.includes(['Migrate', 'Legacy', 'Storage'].join(' ')) && !runtimeSafetyPanel.includes('formatLegacyScopedCleanupConfirmation'), 'Scoped cleanup must not route users to removed storage migration.');
 assert(runtimeSafetyPanel.includes('runSagaTotalStorageCleanup'), 'Total Saga Cleanup action must call the global cleanup service.');
-assert(runtimeSafetyPanel.includes('legacy settings-backed payloads:') && runtimeSafetyPanel.includes('formatTotalCleanupPreview(preview, migrationPlan)'), 'Total Saga Cleanup preview must include legacy settings-backed payload counts when migration is pending.');
+assert(!runtimeSafetyPanel.includes(['legacy', 'settings-backed', 'payloads:'].join(' ')) && runtimeSafetyPanel.includes('formatTotalCleanupPreview(preview)'), 'Total Saga Cleanup preview must not include removed settings payload counts.');
 assert(runtimeSafetyPanel.includes('tracked/known/referenced Saga file') && runtimeSafetyPanel.includes('additional referenced file') && runtimeSafetyPanel.includes('repair session'), 'Total Saga Cleanup preview must describe tracked, known, referenced, and repair-session file scope.');
 assert(runtimeSafetyPanel.includes('const partial = failed > 0 || errorCount > 0 || result.ok === false;') && runtimeSafetyPanel.includes('const settings = partial ? resetAllSettingsToDefaults() : resetAllSettingsToFreshDefaults();'), 'Total Saga Cleanup must preserve storage bootstrap settings when cleanup partially fails.');
 assert(runtimeSafetyPanel.includes('Storage index retained for retry'), 'Total Saga Cleanup partial failure copy must explain that the index remains retryable.');
@@ -76,6 +80,7 @@ assert(runtimeSafetyPanel.includes('first:') && runtimeSafetyPanel.includes('Swi
 
 assert(runtimeGuideContent.includes("advancedStep('advanced-settings-danger-zone'"), 'Walkthrough cleanup step must use a Settings-owned route id.');
 assert(runtimeGuideContent.includes("'settings.dangerZone'"), 'Walkthrough cleanup step must target the relocated Settings Danger Zone.');
+assert(!runtimeGuideContent.includes("expandSections: Object.freeze(['settings.dangerZone'])"), 'Walkthrough cleanup step must not try to expand a removed Danger Zone dropdown.');
 const legacySessionCleanupStepId = ['advanced-session', 'cleanup-actions'].join('-');
 assert(!runtimeGuideContent.includes(legacySessionCleanupStepId), 'Walkthrough cleanup step must not remain grouped as a Session route.');
 assert(!runtimeGuideContent.includes(`advancedStep('${legacySessionCleanupStepId}', 'Cleanup Actions', 'Find cleanup or reset actions and understand their risk before using them.', 'session', 'session.metrics'`), 'Walkthrough cleanup step must not point to Session metrics.');

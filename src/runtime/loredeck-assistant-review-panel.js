@@ -57,6 +57,7 @@ function doesLoredeckPendingChangeAffectPackHealth(change = {}) { return dep('do
 function createLoredeckPendingHealthImpactPill() { return dep('createLoredeckPendingHealthImpactPill', () => null)(); }
 function createLoredeckPendingDiffList(pack = {}, change = {}) { return dep('createLoredeckPendingDiffList', () => null)(pack, change); }
 function createLoredeckPendingQualityList(change = {}) { return dep('createLoredeckPendingQualityList', () => null)(change); }
+function markTourTarget(element, target) { return dep('markTourTarget', value => value)(element, target); }
 
 export function createLoredeckAssistantCard(pack = {}, rows = [], filteredRows = []) {
     const wrap = document.createElement('div');
@@ -151,6 +152,7 @@ export function createLoredeckAssistantDraftBatchCard(pack = {}, cached = null, 
     const wrap = document.createElement('div');
     wrap.className = 'saga-loredeck-manifest-preview saga-loredeck-assistant-draft-batch';
     wrap.dataset.sagaAssistantPackId = pack.packId;
+    if (creatorBatch) markTourTarget(wrap, 'loredecks.creator.draftReview');
 
     const title = document.createElement('div');
     title.className = 'saga-runtime-card-title';
@@ -168,17 +170,18 @@ export function createLoredeckAssistantDraftBatchCard(pack = {}, cached = null, 
     wrap.appendChild(summary);
 
     const actions = createLoredeckActionRow();
+    if (creatorBatch) markTourTarget(actions, 'loredecks.creator.draftReviewActions');
     const queueSelected = createButton(creatorBatch ? 'Send Selected to Review' : 'Queue Selected', creatorBatch ? 'Move selected Creator Lorecard drafts into Pending Review.' : 'Move selected assistant draft proposals into Pending Review.', () => {
         queueLoredeckAssistantDraftSelection(pack, getLoredeckAssistantSelectedDraftIds(getLoredeckAssistantDraftCacheRecord(pack.packId)));
     }, 'saga-primary-button');
     queueSelected.dataset.sagaAssistantDraftAction = 'queue-selected';
     queueSelected.disabled = !selectedCount;
-    actions.appendChild(queueSelected);
+    actions.appendChild(creatorBatch ? markTourTarget(queueSelected, 'loredecks.creator.sendSelectedDrafts') : queueSelected);
     const queueAll = createButton(creatorBatch ? 'Send All to Review' : 'Queue All', creatorBatch ? 'Move every Creator Lorecard draft into Pending Review.' : 'Move every assistant draft proposal into Pending Review.', () => {
         queueLoredeckAssistantDraftSelection(pack, new Set(changes.map(change => change.changeId)));
     });
     queueAll.disabled = !changes.length;
-    actions.appendChild(queueAll);
+    actions.appendChild(creatorBatch ? markTourTarget(queueAll, 'loredecks.creator.sendAllDrafts') : queueAll);
     const dropSelected = createButton('Drop Selected', creatorBatch ? 'Remove selected Creator Lorecard drafts without sending them to Pending Review.' : 'Remove selected assistant draft proposals without queueing them.', () => {
         dropLoredeckAssistantDraftSelection(pack, getLoredeckAssistantSelectedDraftIds(getLoredeckAssistantDraftCacheRecord(pack.packId)));
     }, 'saga-danger-button');
@@ -211,7 +214,7 @@ export function createLoredeckAssistantDraftBatchCard(pack = {}, cached = null, 
     });
     reviseButton.dataset.sagaAssistantDraftAction = 'revise-selected';
     reviseButton.disabled = !selectedCount;
-    reviseActions.appendChild(reviseButton);
+    reviseActions.appendChild(creatorBatch ? markTourTarget(reviseButton, 'loredecks.creator.reviseDrafts') : reviseButton);
     reviseForm.appendChild(reviseActions);
     wrap.appendChild(reviseForm);
 

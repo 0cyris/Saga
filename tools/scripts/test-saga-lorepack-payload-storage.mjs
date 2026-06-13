@@ -21,6 +21,9 @@ const {
 const {
   loadLoredeckSourceById,
 } = await import('../../src/loredecks/loredeck-loader.js');
+const {
+  getLoredeckAssetRef,
+} = await import('../../src/loredecks/loredeck-library-panel.js');
 
 const stored = new Map();
 const deleted = [];
@@ -146,6 +149,8 @@ assert.equal(upsert.ok, true);
 assert.equal(getCachedExternalLorepackPayload('arlong-payload').entryOverrides.nami.title, 'Nami');
 assert.match(getCachedExternalLorepackPayload('arlong-payload').assets.cover.path, /^\/user\/files\/saga-pack-asset-arlong-payload-cover-[a-f0-9]+\.png$/);
 assert.equal(upsert.libraryRecord.coverFile, getCachedExternalLorepackPayload('arlong-payload').assets.cover.path);
+const compactLibraryCover = getLoredeckAssetRef(upsert.libraryRecord, 'cover');
+assert.equal(compactLibraryCover.path, upsert.libraryRecord.coverFile, 'Compact external Loredeck records must render their uploaded coverFile.');
 
 const flushed = await flushSagaLorepackPayloadStorageWrites();
 assert.equal(flushed.ok, true);

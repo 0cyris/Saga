@@ -51,7 +51,7 @@ settings.json -> saga-storage-index -> domain indexes -> payload files -> passiv
 - Do not store raw imported zip packages by default. Saga should import them into structured payload files and export a fresh package when requested.
 - Do not persist routine full Pack Health reports by default. Compute on demand and store only compact summaries unless a repair session needs a durable ledger.
 - Do not move normal chat/session continuity data into `/user/files`. Chat metadata is still the right place for current-chat state.
-- Do not preserve old storage compatibility indefinitely. This is pre-alpha, so migration can be direct and cleanup can be aggressive after validation.
+- Do not preserve old storage compatibility. This is pre-alpha, so stale settings payloads can be reset instead of converted.
 
 ## Current Problems
 
@@ -76,7 +76,7 @@ This means normal settings persistence can write a huge file for unrelated UI ch
 
 The current package import flow parses `.saga-loredeck.zip`, builds a registry, and imports records into `settings.loredeckLibrary`. For custom imports, entries can be stored under fields such as `entryOverrides`, `tagRegistry`, `timelineRegistry`, `manifestData`, and assets. That makes imported packages grow the global SillyTavern settings file.
 
-There is a lighter bundled-reference path for imports that map back to a bundled original, but normal custom imports remain settings-backed.
+There is a lighter bundled-reference path for imports that map back to a bundled original. Normal custom imports must be externalized into Saga storage instead of settings-backed.
 
 ### Creator Projects Are Too Heavy For Settings
 
@@ -310,9 +310,6 @@ src/storage/saga-storage-index.js
 src/storage/saga-domain-storage.js
   Shared helpers for domain indexes and payload writes.
 
-src/storage/saga-storage-migration.js
-  One-time migration out of settings-backed content.
-
 src/state/loredeck-library-store.js
   Uses storage layer for library index and pack payload pointers.
 
@@ -411,8 +408,7 @@ Target storage fields:
     "themeIndexFile": "/user/files/saga-theme-index.v1.json",
     "iconSetIndexFile": "/user/files/saga-iconset-index.v1.json",
     "lastVerifiedAt": 0,
-    "lastMigrationAt": 0,
-    "migrationVersion": "external-files-v1"
+    "storageVersion": "external-files-v1"
   },
   "themePackId": "saga-default",
   "themeIconSetId": "saga-hero",
@@ -1371,27 +1367,26 @@ Chat metadata should not keep:
 - duplicated library pack payloads
 - duplicated Creator project payloads
 
-### Migration Procedure
+### Storage Bootstrap Procedure
 
-1. Detect heavy legacy storage.
-2. Create an in-memory migration plan.
-3. Validate all generated filenames.
-4. Convert custom/generated/imported pack records into payload files.
-5. Convert library organization into library index.
-6. Convert Creator jobs into project files and Creator index records.
-7. Convert custom Theme Packs into theme payload files and theme index.
-8. Convert custom Icon Sets into icon set payload files and icon set index.
-9. Upload payload files and assets.
-10. Verify uploaded files.
-11. Upload domain indexes.
-12. Upload master index.
-13. Rewrite settings to compact pointers and migration marker.
-14. Remove heavy legacy settings fields.
-15. Save settings.
-16. Clear duplicated chat-local library/Creator payloads if they are global copies.
-17. Save chat metadata when changed.
-18. Run integrity check.
-19. Show migration result in State Safety or Settings diagnostics.
+1. Normalize Saga settings to compact pointers and empty externalized shells.
+2. Create or hydrate the master storage index.
+3. Create or hydrate domain indexes for Library, Creator, Theme Packs, Icon Sets, and repair sessions.
+4. Validate all generated filenames before uploading payloads or assets.
+5. Write new custom/generated/imported pack records directly to payload files.
+6. Write new Creator projects directly to project files and Creator index records.
+7. Write new custom Theme Packs directly to theme payload files and the theme index.
+8. Write new custom Icon Sets directly to icon set payload files and the icon set index.
+9. Upload payload files and passive assets.
+10. Register uploaded files in the master index.
+11. Verify uploaded files.
+12. Save compact settings with `storageVersion: external-files-v1`.
+13. Clear duplicated chat-local library/Creator payloads when they are global copies.
+14. Save chat metadata when changed.
+15. Run integrity check.
+16. Show verification result in State Safety or Settings diagnostics.
+
+If heavy stale settings payloads are detected from an older local alpha build, do not convert them. Reset Saga state with Total Saga Cleanup or reinstall with a clean Saga settings bucket.
 
 ### Migration Failure Behavior
 
@@ -1949,37 +1944,30 @@ Implementation notes:
 - Deleting a linked Generated Loredeck clears external Creator projects as well as legacy settings/chat-local mirrors.
 - `openLoredeckCreatorProject` uses `activateLoredeckCreatorJobAsync` so clicking an unloaded compact Creator row fetches its `projectFile`, hydrates the payload cache, then activates the project.
 
-### Phase 6: Migration Out Of Legacy Settings
+### Phase 6: Compact Settings Enforcement
 
 Deliverables:
 
-- Migration planner.
-- Migration executor.
-- Upload verification.
-- settings shrink step.
-- chat metadata cleanup for duplicated global payloads.
-- rollback behavior before commit.
-- integrity report after commit.
+- settings normalization that ignores unsupported heavy settings payloads.
+- compact shell persistence for Library, Creator, Theme, Icon Set, and repair-session settings buckets.
+- storage bootstrap metadata with `storageVersion: external-files-v1`.
+- reset-only handling for stale pre-alpha settings-backed payloads.
+- integrity report after external storage writes.
 
 Acceptance:
 
-- Existing settings-backed custom/generated/imported decks become external files.
-- Existing Creator projects become external files.
-- Existing custom Theme/Icon records become external files.
-- `settings.json` shrinks substantially.
-- App behavior remains equivalent after reload.
+- New custom/generated/imported decks are created directly as external files.
+- New Creator projects are created directly as external files.
+- New custom Theme/Icon records are created directly as external files.
+- `settings.json` remains compact during ordinary settings saves.
+- Old settings-backed payload records are not treated as supported data.
 
 Implementation notes:
 
-- `src/storage/saga-storage-migration.js` owns the first migration planner, executor, compact-settings rewrite helper, and optional chat-local cleanup helper.
-- The planner separates payload migration from settings compaction. This matters because settings may contain bulky bundled/default records that should be compacted away without writing bundled payload files to `/user/files`.
-- The executor routes legacy custom/generated/imported Lorepacks, Creator projects, custom Theme Packs, and custom Icon Sets through the existing storage adapters rather than hand-writing domain files.
-- Migration writes are sequenced by domain and flushed before the next shared master-index writer begins. Lorepack payload/index writes finish before Creator writes, and Creator writes finish before Theme/Icon imports, preventing queued storage writes from clobbering one another's master-index registrations.
-- The compact settings helper preserves small control-plane preferences such as selected Theme Pack/Icon Set IDs while replacing heavy legacy registries with empty compact shells and setting `sagaStorage.migrationVersion` to `external-files-v1`.
-- `src/state/state-manager.js` exposes `getSagaStorageMigrationPlan` and `runSagaStorageMigration` so runtime UI can trigger migration without importing storage adapters directly.
-- The Advanced Settings State Safety card shows migration readiness, exposes `Migrate Legacy Storage` when the planner finds legacy payloads, creates a pre-migration chat backup, and logs migration success/failure into the State Safety lifecycle log.
-- `src/state/settings-store.js` now preserves externalized compact settings after migration. When `sagaStorage.migrationVersion` is `external-files-v1`, ordinary settings saves keep `loredeckLibrary`, `loredeckCreatorProjects`, `themePackLibrary`, and `themeIconSetLibrary` as compact empty shells instead of re-expanding bundled or payload-heavy records into `settings.json`.
-- Migrated settings reads also keep the stored `extensionSettings.saga` bucket compact and ignore stale settings-backed payload rows, so a later non-Saga settings save cannot accidentally persist re-expanded Lorepack, Creator, Theme Pack, or Icon Set content.
+- `src/state/settings-store.js` preserves compact settings on reads and ordinary saves. It keeps `loredeckLibrary`, `loredeckCreatorProjects`, `themePackLibrary`, and `themeIconSetLibrary` as compact empty shells instead of re-expanding bundled or payload-heavy records into `settings.json`.
+- Settings reads keep the stored `extensionSettings.saga` bucket compact and ignore stale settings payload rows, so a later non-Saga settings save cannot accidentally persist re-expanded Lorepack, Creator, Theme Pack, or Icon Set content.
+- `tools/scripts/audit-saga-storage-profile.mjs` reports unsupported settings-backed records as reset-only errors, not as conversion work.
+- The Advanced Settings State Safety card exposes verification and cleanup actions only. Stale pre-alpha settings payloads are resolved by Total Saga Cleanup or a clean reinstall, not by an in-app conversion flow.
 
 ### Phase 7: Pack Health And Repair Integration
 
@@ -2010,7 +1998,7 @@ Deliverables:
 Acceptance:
 
 - `settings.json` no longer contains heavy Saga payloads.
-- migrated settings stay compact on read and on ordinary preference saves.
+- settings stay compact on read and on ordinary preference saves.
 - import/export tests pass.
 - Creator resume tests pass.
 - Pack Health tests pass.
@@ -2039,11 +2027,11 @@ The storage rework alpha signoff is complete for the implemented flat-file model
 
 Completed gates:
 
-- `node tools/scripts/run-alpha-gate.mjs` passes with storage migration, external payload, repair-session, stale-write, diagnostics, and profile-audit coverage included.
+- `node tools/scripts/run-alpha-gate.mjs` passes with external payload, repair-session, stale-write, diagnostics, compact-settings, and profile-audit coverage included.
 - repo-local `storage-harness` passes end to end against the mocked SillyTavern files API.
-- the live SillyTavern State Safety surface exposes storage migration, verification, queued-write settling, and missing-record cleanup controls in Advanced Settings.
-- a real SillyTavern profile was migrated through **State Safety > Migrate Legacy Storage** after a pre-migration backup.
-- the read-only profile audit passed after migration:
+- the live SillyTavern State Safety surface exposes verification, queued-write settling, and missing-record cleanup controls in Advanced Settings.
+- a real SillyTavern profile passes the read-only profile audit after stale pre-alpha settings payloads are reset or removed.
+- the read-only profile audit command is:
 
 ```bash
 node tools/scripts/audit-saga-storage-profile.mjs --profile F:\SillyTavern\SillyTavern\data\default-user
@@ -2054,9 +2042,9 @@ Real-profile audit result:
 - `ok: true`.
 - warnings: none.
 - errors: none.
-- `settings.sagaStorage.migrationVersion` is `external-files-v1`.
-- `settings.json` shrank from 1,188,115 bytes to 1,029,492 bytes.
-- Saga's settings payload shrank from 77,741 bytes to 13,573 bytes.
+- `settings.sagaStorage.storageVersion` is `external-files-v1` when present.
+- `settings.json` remains compact after imports, generation, and ordinary settings saves.
+- Saga's settings payload remains limited to preferences, pointers, and compact shells.
 - settings compact shells contain 0 Loredeck Library pack records, 0 Creator jobs, 0 Theme Packs, and 0 Icon Sets.
 - `/user/files` has 5 Saga files, all tracked by the master index.
 - no missing tracked files or orphan Saga files were reported.
@@ -2075,7 +2063,6 @@ Reviewer handoff:
 - Start with `docs/development/SAGA_STORAGE_FINALIZATION_SCOPE_PLAN.md` for closeout scope, signoff evidence, and the completed checklist.
 - Review `tools/scripts/audit-saga-storage-profile.mjs` and `tools/scripts/test-saga-storage-profile-audit.mjs` for the real-profile audit contract.
 - Confirm `tools/scripts/run-alpha-gate.mjs` includes the profile-audit test.
-- Check `src/storage/saga-storage-migration.js` for hydration before compaction, so partially externalized profiles do not lose existing external rows.
 - Check `src/storage/saga-lorepack-library-storage.js` and `src/loredecks/loredeck-library-index.js` for compact Library normalization that preserves explicit bundled layout references without copying bundled payloads into `/user/files`.
 - Check `src/storage/saga-storage-stale-write.js` and the storage adapters for the shared `storage_changed` block-and-reload contract.
 - Check Health Center repair-session files through `src/loredecks/loredeck-health-repair-session-storage.js` and the Pack Health session tests.
@@ -2104,15 +2091,15 @@ Reviewer handoff:
 - handle index write failure after payload write by registering cleanup.
 - handle delete failure by marking `delete_failed`.
 
-### Migration Tests
+### External Storage Creation Tests
 
-- migrate settings-backed custom deck to payload file.
-- migrate generated deck plus Creator project link.
-- migrate theme library.
-- migrate icon set with existing path mappings.
-- migrate icon set with data URL assets.
-- migrate library folders and deck placements.
-- remove heavy settings fields after success.
+- create custom deck directly as a payload file.
+- create generated deck plus Creator project link directly in external storage.
+- create theme library records directly in the theme index.
+- create icon set records with existing path mappings.
+- create icon set records with uploaded raster assets.
+- persist library folders and deck placements in the Library index.
+- keep heavy settings fields absent after success.
 - preserve active chat stack.
 - preserve Context selections.
 - handle corrupt legacy pack without deleting original settings.
@@ -2137,11 +2124,10 @@ Current implemented coverage:
 - live SillyTavern smoke temporarily switches to Advanced Experience.
 - open Settings.
 - open State Safety.
-- verify storage migration status/action is rendered.
 - verify **Verify Storage** is rendered.
 - verify **Settle Storage Writes** is rendered.
 - verify **Clean Missing Records** is rendered.
-- verify Storage migration and Storage integrity rows are rendered.
+- verify Storage integrity rows are rendered.
 - capture a State Safety storage screenshot.
 - restore the user's original Saga settings when the smoke had to switch modes.
 - repo-local `storage-harness` target starts a mocked SillyTavern files API for `/api/files/upload`, `/api/files/verify`, `/api/files/delete`, and `/user/files/*` reads.
@@ -2152,8 +2138,8 @@ Current implemented coverage:
 - `storage-harness` opens Pack Health Center for the external payload-backed Loredeck after reload, runs **Refresh Scan**, verifies cached health updates, verifies Library/payload health status writes stay external, and fails if Lorecard payload content leaks into settings.
 - `storage-harness` is source-contract covered by `test-visual-smoke-harness.mjs`.
 - `tools/scripts/audit-saga-storage-profile.mjs` supports read-only profile signoff for a real SillyTavern user profile.
-- `tools/scripts/test-saga-storage-profile-audit.mjs` covers missing-marker failure and compact migrated success, and is included in the alpha gate.
-- real-profile State Safety migration and read-only audit completed successfully for `F:\SillyTavern\SillyTavern\data\default-user`.
+- `tools/scripts/test-saga-storage-profile-audit.mjs` covers unsupported settings payload failure and compact external-storage success, and is included in the alpha gate.
+- real-profile read-only audit completed successfully for `F:\SillyTavern\SillyTavern\data\default-user` after stale pre-alpha settings payloads were reset or removed.
 
 ### Manual Inspection
 
@@ -2192,9 +2178,7 @@ Likely new files:
 - `src/storage/saga-storage-index.js`
 - `src/storage/saga-storage-filenames.js`
 - `src/storage/saga-domain-storage.js`
-- `src/storage/saga-storage-migration.js`
 - `tools/scripts/test-saga-file-storage.mjs`
-- `tools/scripts/test-saga-storage-migration.mjs`
 - `tools/scripts/test-saga-external-lorepack-storage.mjs`
 - `tools/scripts/test-saga-external-theme-icon-storage.mjs`
 

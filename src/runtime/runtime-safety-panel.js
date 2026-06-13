@@ -12,12 +12,10 @@ import {
     exportSagaState,
     getSettings,
     getSagaStorageDiagnostics,
-    getSagaStorageMigrationPlan,
     getState,
     getStateSafety,
     restoreStateFromBackup,
     restoreStateFromExport,
-    runSagaStorageMigration,
     saveSettings,
     saveState,
     settleSagaStorageWrites,
@@ -244,24 +242,6 @@ function restoreSagaStateFromFile() {
     input.click();
 }
 
-function formatStorageMigrationCounts(plan = {}) {
-    const counts = plan.counts || {};
-    const parts = [
-        counts.libraryPacks ? `${counts.libraryPacks} Loredeck${counts.libraryPacks === 1 ? '' : 's'}` : '',
-        counts.creatorProjects ? `${counts.creatorProjects} Creator project${counts.creatorProjects === 1 ? '' : 's'}` : '',
-        counts.themePacks ? `${counts.themePacks} Theme Pack${counts.themePacks === 1 ? '' : 's'}` : '',
-        counts.iconSets ? `${counts.iconSets} Icon Set${counts.iconSets === 1 ? '' : 's'}` : '',
-    ].filter(Boolean);
-    if (parts.length) return parts.join(', ');
-    return plan.alreadyMigrated ? 'external-files-v1' : 'none';
-}
-
-function getStorageMigrationLabel(plan = {}) {
-    if (plan.needsMigration) return 'Storage migration needed';
-    if (plan.alreadyMigrated) return 'Storage externalized';
-    return 'Storage current';
-}
-
 function getStorageDiagnosticsLabel(diagnostics = {}) {
     if (diagnostics.status === 'ok') return 'Storage verified';
     if (diagnostics.status === 'missing_files') return `${diagnostics.missingFileCount || 0} missing file${diagnostics.missingFileCount === 1 ? '' : 's'}`;
@@ -290,52 +270,6 @@ function formatStorageDiagnosticsSummary(diagnostics = {}) {
     if (diagnostics.status === 'missing_index') return 'index missing';
     if (diagnostics.pendingWrites) return `${diagnostics.pendingWrites} pending write${diagnostics.pendingWrites === 1 ? '' : 's'}`;
     return diagnostics.checkedAt ? `last checked ${formatStateSafetyTimestamp(diagnostics.checkedAt)}` : 'not checked';
-}
-
-function hasLegacyThemeIconPayloads(plan = getSagaStorageMigrationPlan()) {
-    const counts = plan.counts || {};
-    return !!plan.needsMigration && ((Number(counts.themePacks) || 0) + (Number(counts.iconSets) || 0)) > 0;
-}
-
-function hasLegacyLoredeckPayloads(plan = getSagaStorageMigrationPlan()) {
-    const counts = plan.counts || {};
-    return !!plan.needsMigration && (Number(counts.libraryPacks) || 0) > 0;
-}
-
-function toastLegacyScopedCleanupBlocked(kind = 'content', plan = getSagaStorageMigrationPlan()) {
-    const label = formatStorageMigrationCounts(plan);
-    toast(`Legacy settings-backed ${kind} still needs storage migration (${label}). Switch to Advanced and run State Safety > Migrate Legacy Storage first, or use Total Saga Cleanup.`, 'warning');
-}
-
-function formatLegacyScopedCleanupConfirmation(kind = 'content', plan = getSagaStorageMigrationPlan()) {
-    if (!plan.needsMigration) return '';
-    return ` Legacy settings-backed ${kind} still needs State Safety migration (${formatStorageMigrationCounts(plan)}) and will not be removed by this scoped action.`;
-}
-
-function formatLegacyScopedCleanupToast(kind = 'content', plan = getSagaStorageMigrationPlan()) {
-    if (!plan.needsMigration) return '';
-    return ` Legacy settings-backed ${kind} still needs migration.`;
-}
-
-async function runStorageMigrationFromButton(button) {
-    const plan = getSagaStorageMigrationPlan();
-    if (!plan.needsMigration) {
-        toast(plan.alreadyMigrated ? 'Saga storage is already externalized.' : 'No legacy Saga storage payloads were found.', 'info');
-        return;
-    }
-    const proceed = await confirmAction(
-        'Migrate Saga storage?',
-        `Externalize ${formatStorageMigrationCounts(plan)} into Saga-owned /user/files JSON. Settings will keep compact pointers. Continue?`
-    );
-    if (!proceed) return;
-    await runBusyAction(button, 'Migrating...', async ({ setText }) => {
-        setText('Writing files...');
-        const result = await runSagaStorageMigration();
-        if (!result.ok) throw new Error(result.error || 'Saga storage migration failed.');
-        refreshPanelBody({ preserveScroll: false });
-        refreshHeader();
-        toast(`Saga storage migrated: ${formatStorageMigrationCounts(result.plan)}.`, 'success');
-    });
 }
 
 async function verifyStorageFromButton(button) {
@@ -406,22 +340,14 @@ async function removeCustomThemesFromButton(button) {
         setText('Checking storage...');
         const preview = await buildSagaGlobalCleanupPreview();
         const count = preview.totalCustomThemeIconCount || 0;
-        const migrationPlan = getSagaStorageMigrationPlan();
-        const legacyNote = hasLegacyThemeIconPayloads(migrationPlan)
-            ? formatLegacyScopedCleanupConfirmation('Theme/Icon content', migrationPlan)
-            : '';
         if (!count) {
-            if (hasLegacyThemeIconPayloads(migrationPlan)) {
-                toastLegacyScopedCleanupBlocked('Theme/Icon content', migrationPlan);
-                return;
-            }
             toast('No custom Theme Packs or Icon Sets were found.', 'info');
             return;
         }
         setText('Awaiting confirmation...');
         const proceed = await confirmAction(
             'Remove custom Theme Packs and Icon Sets?',
-            `Saga will delete ${preview.themePackCount || 0} custom Theme Pack${preview.themePackCount === 1 ? '' : 's'}, ${preview.iconSetCount || 0} custom Icon Set${preview.iconSetCount === 1 ? '' : 's'}, and their uploaded icon assets. Bundled appearance packs will remain.${legacyNote} Continue?`
+            `Saga will delete ${preview.themePackCount || 0} custom Theme Pack${preview.themePackCount === 1 ? '' : 's'}, ${preview.iconSetCount || 0} custom Icon Set${preview.iconSetCount === 1 ? '' : 's'}, and their uploaded icon assets. Bundled appearance packs will remain. Continue?`
         );
         if (!proceed) return;
         setText('Deleting files...');
@@ -433,7 +359,7 @@ async function removeCustomThemesFromButton(button) {
         refreshHeader();
         const removed = (result.removedThemePackCount || 0) + (result.removedIconSetCount || 0);
         toast(
-            `Removed ${removed} custom appearance pack${removed === 1 ? '' : 's'} and ${result.deletedFileCount || 0} file${result.deletedFileCount === 1 ? '' : 's'}.${hasLegacyThemeIconPayloads(migrationPlan) ? formatLegacyScopedCleanupToast('Theme/Icon content', migrationPlan) : ''}${formatCleanupDiagnostics(result)}`,
+            `Removed ${removed} custom appearance pack${removed === 1 ? '' : 's'} and ${result.deletedFileCount || 0} file${result.deletedFileCount === 1 ? '' : 's'}.${formatCleanupDiagnostics(result)}`,
             result.ok ? 'success' : 'warning',
         );
     });
@@ -443,22 +369,14 @@ async function removeCustomLoredecksFromButton(button) {
     await runBusyAction(button, 'Checking...', async ({ setText }) => {
         setText('Checking storage...');
         const preview = await buildSagaGlobalCleanupPreview();
-        const migrationPlan = getSagaStorageMigrationPlan();
-        const legacyNote = hasLegacyLoredeckPayloads(migrationPlan)
-            ? formatLegacyScopedCleanupConfirmation('Loredeck content', migrationPlan)
-            : '';
         if (!preview.loredeckCount) {
-            if (hasLegacyLoredeckPayloads(migrationPlan)) {
-                toastLegacyScopedCleanupBlocked('Loredeck content', migrationPlan);
-                return;
-            }
             toast('No custom Loredecks were found.', 'info');
             return;
         }
         setText('Awaiting confirmation...');
         const proceed = await confirmAction(
             'Remove custom Loredecks?',
-            `Saga will delete ${preview.loredeckCount} custom, imported, or generated Loredeck${preview.loredeckCount === 1 ? '' : 's'} plus owned payload files, cover assets, and Health repair sessions. Bundled Loredecks and Creator drafts will remain.${legacyNote} Continue?`
+            `Saga will delete ${preview.loredeckCount} custom, imported, or generated Loredeck${preview.loredeckCount === 1 ? '' : 's'} plus owned payload files, cover assets, and Health repair sessions. Bundled Loredecks and Creator drafts will remain. Continue?`
         );
         if (!proceed) return;
         setText('Deleting Loredeck files...');
@@ -468,13 +386,13 @@ async function removeCustomLoredecksFromButton(button) {
         refreshPanelBody({ preserveScroll: false });
         refreshHeader();
         toast(
-            `Removed ${result.removedLoredeckCount || 0} custom Loredeck${result.removedLoredeckCount === 1 ? '' : 's'}, ${result.deletedFileCount || 0} payload/asset file${result.deletedFileCount === 1 ? '' : 's'}, and ${result.repairSessionDeletedCount || 0} repair session${result.repairSessionDeletedCount === 1 ? '' : 's'}.${stackPrune.removedCount ? ` Pruned ${stackPrune.removedCount} unavailable active-stack reference${stackPrune.removedCount === 1 ? '' : 's'}.` : ''}${hasLegacyLoredeckPayloads(migrationPlan) ? formatLegacyScopedCleanupToast('Loredeck content', migrationPlan) : ''}${formatCleanupDiagnostics(result)}`,
+            `Removed ${result.removedLoredeckCount || 0} custom Loredeck${result.removedLoredeckCount === 1 ? '' : 's'}, ${result.deletedFileCount || 0} payload/asset file${result.deletedFileCount === 1 ? '' : 's'}, and ${result.repairSessionDeletedCount || 0} repair session${result.repairSessionDeletedCount === 1 ? '' : 's'}.${stackPrune.removedCount ? ` Pruned ${stackPrune.removedCount} unavailable active-stack reference${stackPrune.removedCount === 1 ? '' : 's'}.` : ''}${formatCleanupDiagnostics(result)}`,
             result.ok ? 'success' : 'warning',
         );
     });
 }
 
-function formatTotalCleanupPreview(preview = {}, migrationPlan = getSagaStorageMigrationPlan()) {
+function formatTotalCleanupPreview(preview = {}) {
     const parts = [
         `${preview.totalSagaFileCount || 0} tracked/known/referenced Saga file${preview.totalSagaFileCount === 1 ? '' : 's'}`,
         `${preview.loredeckCount || 0} custom Loredeck${preview.loredeckCount === 1 ? '' : 's'}`,
@@ -488,9 +406,6 @@ function formatTotalCleanupPreview(preview = {}, migrationPlan = getSagaStorageM
     if (Number(preview.repairSessionCount) > 0) {
         parts.push(`${preview.repairSessionCount} repair session${preview.repairSessionCount === 1 ? '' : 's'}`);
     }
-    if (migrationPlan.needsMigration) {
-        parts.push(`legacy settings-backed payloads: ${formatStorageMigrationCounts(migrationPlan)}`);
-    }
     return parts.join(', ');
 }
 
@@ -499,11 +414,10 @@ async function runTotalSagaCleanupFromButton(button) {
     await runBusyAction(button, 'Checking...', async ({ setText }) => {
         setText('Checking storage...');
         const preview = await buildSagaGlobalCleanupPreview();
-        const migrationPlan = getSagaStorageMigrationPlan();
         setText('Awaiting confirmation...');
         const entered = await promptTextAction(
             'Total Saga Cleanup',
-            `Type ${phrase} to delete tracked Saga-owned custom content and reset Saga settings, stored Saga API keys, active-chat Saga state, State Safety backups, Creator projects, and all user-created/imported/generated Loredecks. Bundled extension content remains. Unknown unindexed orphan files that Saga cannot see through its indexes may remain. Preview: ${formatTotalCleanupPreview(preview, migrationPlan)}.`,
+            `Type ${phrase} to delete tracked Saga-owned custom content and reset Saga settings, stored Saga API keys, active-chat Saga state, State Safety backups, Creator projects, and all user-created/imported/generated Loredecks. Bundled extension content remains. Unknown unindexed orphan files that Saga cannot see through its indexes may remain. Preview: ${formatTotalCleanupPreview(preview)}.`,
             '',
             {
                 placeholder: phrase,
@@ -544,7 +458,6 @@ async function runTotalSagaCleanupFromButton(button) {
 
 export function createStateSafetyCard(state = getState()) {
     const safety = getStateSafety(state);
-    const storageMigrationPlan = getSagaStorageMigrationPlan();
     const storageDiagnostics = getSagaStorageDiagnostics();
     const card = document.createElement('div');
     card.className = 'saga-runtime-card saga-state-safety-card';
@@ -559,7 +472,6 @@ export function createStateSafetyCard(state = getState()) {
     summary.className = 'saga-loredeck-entry-summary';
     summary.appendChild(createStatusPill(`${safety.backups.length} backup${safety.backups.length === 1 ? '' : 's'}`, 'Automatic and manual Saga state backups stored in this chat.', { tone: safety.backups.length ? 'source' : 'muted', kind: 'count' }));
     summary.appendChild(createStatusPill(`${safety.migrationLog.length} log${safety.migrationLog.length === 1 ? '' : 's'}`, 'Schema migration and restore log entries.', { tone: safety.migrationLog.length ? 'info' : 'muted', kind: 'count' }));
-    summary.appendChild(createStatusPill(getStorageMigrationLabel(storageMigrationPlan), `Legacy payloads: ${formatStorageMigrationCounts(storageMigrationPlan)}`, { tone: storageMigrationPlan.needsMigration ? 'warning' : 'success', kind: 'status', maxChars: 34 }));
     summary.appendChild(createStatusPill(getStorageDiagnosticsLabel(storageDiagnostics), formatStorageDiagnosticsSummary(storageDiagnostics), { tone: getStorageDiagnosticsTone(storageDiagnostics), kind: 'status', maxChars: 34 }));
     if (safety.lastBackupAt) summary.appendChild(createStatusPill(`Last backup ${formatStateSafetyTimestamp(safety.lastBackupAt)}`, `Reason: ${safety.lastBackupReason || 'unknown'}`, { tone: 'source', kind: 'source', maxChars: 36 }));
     if (safety.lastRestoreAt) summary.appendChild(createStatusPill(`Last restore ${formatStateSafetyTimestamp(safety.lastRestoreAt)}`, `Source: ${safety.lastRestoreSource || 'unknown'}`, { tone: 'source', kind: 'source', maxChars: 36 }));
@@ -578,15 +490,6 @@ export function createStateSafetyCard(state = getState()) {
     actions.appendChild(createButton('Restore From File', 'Restore Saga chat state from an exported Saga state JSON file.', () => {
         restoreSagaStateFromFile();
     }));
-    const migrateStorage = createButton(
-        storageMigrationPlan.needsMigration ? 'Migrate Legacy Storage' : 'Storage Current',
-        storageMigrationPlan.needsMigration
-            ? 'Move legacy settings-backed Saga content into flat /user/files JSON storage.'
-            : 'No legacy settings-backed Saga content needs migration.',
-        button => runStorageMigrationFromButton(button)
-    );
-    migrateStorage.disabled = !storageMigrationPlan.needsMigration;
-    actions.appendChild(migrateStorage);
     actions.appendChild(createButton('Verify Storage', 'Verify Saga-owned /user/files records listed in the storage index.', button => {
         verifyStorageFromButton(button);
     }));
@@ -623,7 +526,6 @@ export function createStateSafetyCard(state = getState()) {
     latestRows.className = 'saga-runtime-kv-list';
     latestRows.appendChild(createKeyValue('Latest backup', latest ? `${latest.reason} | ${formatStateSafetyTimestamp(latest.createdAt)}` : 'none', 'Most recent automatic or manual backup.'));
     latestRows.appendChild(createKeyValue('Latest migration log', safety.migrationLog[0]?.message || 'none', 'Most recent schema migration or restore event.'));
-    latestRows.appendChild(createKeyValue('Storage migration', formatStorageMigrationCounts(storageMigrationPlan), 'Legacy settings-backed payloads that can be moved to external Saga storage.'));
     latestRows.appendChild(createKeyValue('Storage integrity', formatStorageDiagnosticsSummary(storageDiagnostics), 'Latest Saga storage verification summary from the master index.'));
     card.appendChild(latestRows);
 
@@ -743,16 +645,13 @@ export function createActiveChatDangerZoneGroup(state = getState()) {
     return group;
 }
 
-function appendGlobalDangerZoneRows(rows, cleanupSnapshot = getSagaGlobalCleanupSnapshot(), storageDiagnostics = getSagaStorageDiagnostics(), storageMigrationPlan = getSagaStorageMigrationPlan()) {
+function appendGlobalDangerZoneRows(rows, cleanupSnapshot = getSagaGlobalCleanupSnapshot(), storageDiagnostics = getSagaStorageDiagnostics()) {
     if (!rows) return;
     rows.textContent = '';
     rows.appendChild(createKeyValue('Custom Loredecks', String(cleanupSnapshot.loredeckCount || 0), 'Custom, imported, or generated Loredecks installed in external Saga Library storage.'));
     rows.appendChild(createKeyValue('Creator Projects', String(cleanupSnapshot.creatorProjectCount || 0), 'Externalized Loredeck Creator projects that Total Saga Cleanup deletes.'));
     rows.appendChild(createKeyValue('Custom Theme Packs', String(cleanupSnapshot.themePackCount || 0), 'Imported custom Theme Packs stored in Saga-owned files.'));
     rows.appendChild(createKeyValue('Custom Icon Sets', String(cleanupSnapshot.iconSetCount || 0), 'Imported custom Icon Sets and their uploaded raster assets.'));
-    if (storageMigrationPlan.needsMigration) {
-        rows.appendChild(createKeyValue('Legacy payloads', formatStorageMigrationCounts(storageMigrationPlan), 'Settings-backed Saga payloads that scoped cleanup cannot target until State Safety migration externalizes them.'));
-    }
     rows.appendChild(createKeyValue('Storage integrity', formatStorageDiagnosticsSummary(storageDiagnostics), 'Latest Saga storage verification summary from the master index.'));
     appendGlobalDangerZoneFileScopeRows(rows, cleanupSnapshot, storageDiagnostics);
 }
@@ -797,7 +696,7 @@ async function refreshGlobalDangerZoneRows(rows) {
     try {
         const preview = await buildSagaGlobalCleanupPreview();
         if (!rows?.isConnected) return;
-        appendGlobalDangerZoneRows(rows, preview, getSagaStorageDiagnostics(), getSagaStorageMigrationPlan());
+        appendGlobalDangerZoneRows(rows, preview, getSagaStorageDiagnostics());
         appendGlobalDangerZonePreviewDiagnostics(rows, preview.diagnostics || []);
     } catch (error) {
         if (rows?.isConnected) {

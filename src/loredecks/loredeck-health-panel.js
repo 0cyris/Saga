@@ -278,9 +278,9 @@ export function renderLoredeckHealthCenterOverlay(options = {}) {
 
         const actions = createLoredeckActionRow({ className: 'saga-primary-actions saga-loredeck-health-center-actions' });
         markTourTarget(actions, 'loredecks.health.actions');
-        actions.appendChild(createButton('Refresh Scan', context.pack ? 'Validate this Loredeck and refresh its Pack Health report.' : 'Reload active Loredecks and recompute stack Pack Health.', async (btn) => {
+        actions.appendChild(markTourTarget(createButton('Refresh Scan', context.pack ? 'Validate this Loredeck and refresh its Pack Health report.' : 'Reload active Loredecks and recompute stack Pack Health.', async (btn) => {
             await refreshLoredeckHealthCenterScan(context, btn);
-        }, 'saga-primary-button'));
+        }, 'saga-primary-button'), 'loredecks.health.refreshScan'));
         const exportButton = createButton('Export Report', 'Download this Pack Health report as JSON.', () => exportLoredeckHealthCenterReport(context));
         exportButton.disabled = !context.health;
         actions.appendChild(exportButton);
@@ -1012,6 +1012,7 @@ function createLoredeckHealthRepairSessionPanel(context = {}, options = {}) {
 
     const panel = document.createElement('div');
     panel.className = `saga-loredeck-health-panel saga-loredeck-health-repair-session-panel${options.compact ? ' saga-loredeck-health-repair-session-panel-compact' : ''}`;
+    markTourTarget(panel, 'loredecks.health.repairSessions');
     const title = document.createElement('div');
     title.className = 'saga-runtime-card-title';
     title.textContent = 'Attempt Fixing Session';
@@ -1064,6 +1065,7 @@ function createLoredeckHealthRepairSessionPanel(context = {}, options = {}) {
         return session.status === 'complete' && lifecycle.remainingWorkCount === 0;
     }).length;
     const actions = createLoredeckActionRow();
+    markTourTarget(actions, 'loredecks.health.repairSessionActions');
     const refreshButton = createButton('Refresh Sessions', 'Reload saved repair sessions for this Loredeck.', async (btn) => {
         const restore = setLoredeckActionButtonBusy(btn, 'Refreshing...', { fallbackLabel: 'Refresh Sessions' });
         try {
@@ -1118,7 +1120,7 @@ function createLoredeckHealthRepairSessionPanel(context = {}, options = {}) {
                 renderLoredeckHealthCenterOverlay({ preserveScroll: true });
             }, 'saga-primary-button');
             continueButton.disabled = !canValidateLoredeckInEditor(context.pack);
-            actions.appendChild(continueButton);
+            actions.appendChild(markTourTarget(continueButton, 'loredecks.health.continueModelBatches'));
         }
         const attemptButton = createButton('Attempt Fixing', 'Run storage-backed Pack Health fixing again for this Loredeck.', async (btn) => {
             await attemptLoredeckHealthFixes(context.pack, btn);
@@ -1126,7 +1128,7 @@ function createLoredeckHealthRepairSessionPanel(context = {}, options = {}) {
             renderLoredeckHealthCenterOverlay({ preserveScroll: true });
         }, activeSession && ((activeCounts?.model || 0) + (activeCounts?.deferred || 0)) > 0 ? '' : 'saga-primary-button');
         attemptButton.disabled = !canValidateLoredeckInEditor(context.pack);
-        actions.appendChild(attemptButton);
+        actions.appendChild(markTourTarget(attemptButton, 'loredecks.health.attemptFixing'));
     }
     if (activeSession) {
         actions.appendChild(createButton('Export Diagnostics', 'Export compact diagnostics for this saved repair session.', () => {
@@ -1490,6 +1492,7 @@ function canAcceptLoredeckHealthIssueAsIs(group = {}) {
 
 function createLoredeckHealthIssueActionRow(group, context = {}, issueState = null, editable = false) {
     const actions = createLoredeckActionRow();
+    markTourTarget(actions, 'loredecks.health.issueActions');
     actions.appendChild(createButton('Copy Details', 'Copy this grouped issue summary to clipboard.', async () => {
         await copyTextToClipboard(formatLoredeckHealthGroupForCopy(group), 'Pack Health issue copied.');
     }));
@@ -1509,19 +1512,19 @@ function createLoredeckHealthIssueActionRow(group, context = {}, issueState = nu
                     await setLoredeckHealthIssueGroupState(context.pack, group, issueState?.status === 'ignored' ? '' : 'ignored');
                     renderLoredeckHealthCenterOverlay();
                 });
-                actions.appendChild(ignoreButton);
+                actions.appendChild(markTourTarget(ignoreButton, 'loredecks.health.acceptAsIs'));
             }
             const resolveButton = createButton(issueState?.status === 'resolved' ? 'Clear Verification' : 'Verify Fixed', issueState?.status === 'resolved' ? 'Clear this user-set verification marker.' : 'Mark this grouped finding as repaired only after you have changed the deck. Rerun Refresh Scan to confirm Pack Health no longer reports it.', async () => {
                 await setLoredeckHealthIssueGroupState(context.pack, group, issueState?.status === 'resolved' ? '' : 'resolved');
                 renderLoredeckHealthCenterOverlay();
             });
-            actions.appendChild(resolveButton);
+            actions.appendChild(markTourTarget(resolveButton, 'loredecks.health.verifyFixed'));
             const repairButton = createButton('Attempt Fixing', 'Apply deterministic fixes now and save remaining model or review work as a repair session.', async (btn) => {
                 await attemptLoredeckHealthFixes(context.pack, btn);
                 renderLoredeckHealthCenterOverlay();
             }, 'saga-primary-button');
             repairButton.disabled = !canValidateLoredeckInEditor(context.pack);
-            actions.appendChild(repairButton);
+            actions.appendChild(markTourTarget(repairButton, 'loredecks.health.attemptFixing'));
             if (isLoredeckMalformedTagIssueGroup(group)) {
                 const tagRepairButton = createButton('Queue Tag ID Review', 'Queue malformed tag ID replacements for manual review when Attempt Fixing cannot choose safely.', async (btn) => {
                     await queueLoredeckMalformedTagRepairFromHealthGroup(context.pack, group, btn);

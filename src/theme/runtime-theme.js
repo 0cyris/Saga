@@ -739,6 +739,7 @@ const USER_FILES_SAGA_ASSET_PATTERN = /^\/user\/files\/saga-[a-z0-9_.-]+\.(?:png
 
 export function getLocalAssetSrc(assetPath) {
     if (!assetPath) return '';
+    if (USER_FILES_SAGA_ASSET_PATTERN.test(String(assetPath || '').trim())) return String(assetPath || '').trim();
     try {
         if (EXTENSION_ROOT_ASSET_PATTERN.test(assetPath)) {
             return new URL(assetPath.replace(/^\.\//, ''), EXTENSION_ROOT_URL).href;
@@ -987,6 +988,10 @@ function writeRuntimeThemeVars(target, colors) {
     target.style.setProperty('--saga-red-soft', hexToRgba(colors.danger, 0.42));
     target.style.setProperty('--saga-red-surface', hexToRgba(colors.danger, 0.24));
     target.style.setProperty('--saga-red-hover', hexToRgba(colors.danger, 0.34));
+    target.style.setProperty('--saga-danger', colors.danger);
+    target.style.setProperty('--saga-danger-soft', hexToRgba(colors.danger, 0.42));
+    target.style.setProperty('--saga-danger-surface', hexToRgba(colors.danger, 0.24));
+    target.style.setProperty('--saga-danger-hover', hexToRgba(colors.danger, 0.34));
     target.style.setProperty('--saga-green', colors.success);
     target.style.setProperty('--saga-green-soft', hexToRgba(colors.success, 0.42));
     target.style.setProperty('--saga-warning', colors.warning);

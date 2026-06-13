@@ -195,12 +195,12 @@
 }
 
 .saga-danger-zone-card {
-    border-color: var(--saga-red-soft, rgba(176, 58, 58, 0.42));
-    background: var(--saga-red-surface, rgba(52, 12, 18, 0.35));
+    border-color: var(--saga-danger-soft, var(--saga-red-soft, rgba(176, 58, 58, 0.42)));
+    background: var(--saga-danger-surface, var(--saga-red-surface, rgba(52, 12, 18, 0.35)));
 }
 
 .saga-danger-zone-title {
-    color: var(--saga-warning, var(--saga-gold, #e0a06d));
+    color: var(--saga-danger, var(--saga-red, #e06d72));
 }
 
 .saga-danger-zone-group {
@@ -208,7 +208,7 @@
     gap: 8px;
     margin-top: 12px;
     padding-top: 12px;
-    border-top: 1px solid var(--saga-red-soft, rgba(176, 58, 58, 0.32));
+    border-top: 1px solid var(--saga-danger-soft, var(--saga-red-soft, rgba(176, 58, 58, 0.32)));
 }
 
 .saga-danger-zone-group-title {
@@ -217,14 +217,14 @@
 }
 
 .saga-danger-button {
-    border-color: var(--saga-red-soft, var(--saga-red, rgba(176, 58, 58, 0.48)));
-    background: var(--saga-red-surface, transparent);
+    border-color: var(--saga-danger-soft, var(--saga-red-soft, var(--saga-red, rgba(176, 58, 58, 0.48))));
+    background: var(--saga-danger-surface, var(--saga-red-surface, transparent));
     color: var(--saga-button-text, #f1ead8);
 }
 
 .saga-danger-button:hover {
-    background: var(--saga-red-hover, var(--saga-red, rgba(120, 28, 36, 0.42)));
-    border-color: var(--saga-border-strong, rgba(220, 100, 90, 0.72));
+    background: var(--saga-danger-hover, var(--saga-red-hover, var(--saga-red, rgba(120, 28, 36, 0.42))));
+    border-color: var(--saga-danger, var(--saga-border-strong, rgba(220, 100, 90, 0.72)));
 }
 
 .saga-confirm-overlay {

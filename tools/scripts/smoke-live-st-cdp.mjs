@@ -1006,17 +1006,21 @@ async function collectStateSafetyStorageSmoke(client) {
             label: (button.innerText || button.textContent || '').trim(),
             disabled: !!button.disabled,
         })).filter(button => button.label);
+        const removedMigrationActionLabels = new Set([
+            ['Migrate', 'Legacy', 'Storage'].join(' '),
+            ['Storage', 'Current'].join(' '),
+        ]);
         return {
             present: true,
             open: !!section.open,
             activeTab,
             text: text.slice(0, 1800),
             buttons,
-            hasMigrationAction: buttons.some(button => ['Migrate Legacy Storage', 'Storage Current'].includes(button.label)),
+            hasRemovedStorageMigrationAction: buttons.some(button => removedMigrationActionLabels.has(button.label)),
             hasVerifyStorage: buttons.some(button => button.label === 'Verify Storage'),
             hasSettleStorageWrites: buttons.some(button => button.label === 'Settle Storage Writes'),
             hasCleanMissingRecords: buttons.some(button => button.label === 'Clean Missing Records'),
-            hasStorageMigrationRow: text.includes('Storage migration'),
+            hasRemovedStorageMigrationRow: text.includes(['Storage', 'migration'].join(' ')),
             hasStorageIntegrityRow: text.includes('Storage integrity'),
         };
     }), { userGesture: true });
@@ -2949,11 +2953,11 @@ async function main() {
         optionalSteps.stateSafetyStorage = stateSafetyStorage;
         if (!stateSafetyStorage.present) findings.push('Live ST Settings drawer did not render the Advanced State Safety section.');
         if (stateSafetyStorage.present && !stateSafetyStorage.open) findings.push('Live ST State Safety section did not open for storage checks.');
-        if (stateSafetyStorage.present && !stateSafetyStorage.hasMigrationAction) findings.push('Live ST State Safety did not expose storage migration status/action.');
+        if (stateSafetyStorage.present && stateSafetyStorage.hasRemovedStorageMigrationAction) findings.push('Live ST State Safety still exposes removed storage migration status/action.');
         if (stateSafetyStorage.present && !stateSafetyStorage.hasVerifyStorage) findings.push('Live ST State Safety did not expose Verify Storage.');
         if (stateSafetyStorage.present && !stateSafetyStorage.hasSettleStorageWrites) findings.push('Live ST State Safety did not expose Settle Storage Writes.');
         if (stateSafetyStorage.present && !stateSafetyStorage.hasCleanMissingRecords) findings.push('Live ST State Safety did not expose Clean Missing Records.');
-        if (stateSafetyStorage.present && !stateSafetyStorage.hasStorageMigrationRow) findings.push('Live ST State Safety did not render Storage migration diagnostics.');
+        if (stateSafetyStorage.present && stateSafetyStorage.hasRemovedStorageMigrationRow) findings.push('Live ST State Safety still renders removed storage migration diagnostics.');
         if (stateSafetyStorage.present && !stateSafetyStorage.hasStorageIntegrityRow) findings.push('Live ST State Safety did not render Storage integrity diagnostics.');
         screenshots.push(await screenshot(client, 'live-st-07-state-safety'));
 

@@ -14,9 +14,9 @@ Saga is not a wiki viewer and not a prompt preset. It is a runtime lore system f
 
 Saga is in **pre-alpha integration hardening**. Current extension metadata uses `0.1.0-alpha.1`, requires SillyTavern `1.12.0` or newer, and keeps `auto_update` disabled so alpha testers update deliberately.
 
-The main systems exist and are being made reliable together: the runtime shelf, Basic and Advanced experiences, Loredeck Library, Active Stack, Context, Pack Health, Loredeck Creator, Pending Review, Continuity, Injection, import/export, and theme/icon support.
+The main systems exist and are being made reliable together: the runtime shelf, Basic and Advanced experiences, Loredeck Library, Active Stack, Context, the Pack Health Center, Loredeck Creator, Pending Review, Continuity, Injection, import/export, and theme/icon support.
 
-Expect active development, incomplete workflows, changing schemas, rough edges, and possible breakage. Because automatic updates are disabled for alpha, reinstall or update the extension from the repository when you want a newer build. The recommended tester path is: start in **Basic**, get one chat working, then switch to **Advanced** when you need diagnostics, Creator workflows, Pack Health, Continuity, or full Injection controls.
+Expect active development, incomplete workflows, changing schemas, rough edges, and possible breakage. Because automatic updates are disabled for alpha, reinstall or update the extension from the repository when you want a newer build. The recommended tester path is: start in **Basic**, get one chat working, then switch to **Advanced** when you need diagnostics, Creator workflows, Pack Health Center repairs, Continuity, or full Injection controls.
 
 ## Contents
 
@@ -57,8 +57,8 @@ For guided walkthroughs, see [Basic Workflow](docs/user/BASIC_WORKFLOW.md) and [
 | **Active Stack** | The ordered set of loaded Loredecks for the current chat. |
 | **Pending Review** | A safety layer where generated or edited lore waits before becoming accepted content. |
 | **Injection** | The final prompt layer that sends only eligible, relevant lore to the model. |
-| **Pack Health** | Structural validation for Loredecks, tags, manifests, timelines, and Context references. |
-| **Loredeck Creator** | A staged, review-first workflow for generating new Loredecks without one giant prompt. |
+| **Pack Health Center** | Structural validation, grouped issue review, and repair sessions for Loredecks, tags, manifests, timelines, and Context references. |
+| **Loredeck Creator** | A staged, review-first workflow with a Current Task panel, cached generation batches, draft recovery, Pack Health gates, and finalization checks. |
 
 ## Mental Model
 
@@ -71,7 +71,7 @@ Loredeck Library -> Active Stack -> Context -> Lorecards -> Injection -> Model r
 Saga's review path is:
 
 ```text
-Generate or edit -> Pending Review -> Accept -> Pack Health -> Use in chat
+Generate or edit -> Pending Review -> Accept -> Pack Health Center -> Use in chat
 ```
 
 The important rule is simple: source lore, generated drafts, accepted chat lore, live continuity, and prompt injection are separate layers. Saga is useful because it keeps those layers visible instead of silently mixing them together.
@@ -84,8 +84,8 @@ Use it when you need the detailed view of:
 
 - First Run and walkthrough modules.
 - Session controls and runtime state.
-- Loredecks, Active Stack, Library, and Pack Health.
-- Loredeck Creator and Generated Lorepack review flow.
+- Loredecks, Active Stack, Library, and the Pack Health Center.
+- Loredeck Creator, Current Task guidance, and Generated Lorepack review flow.
 - Context, Lorecards, Continuity, Injection, Settings, and troubleshooting.
 
 ## Documentation
@@ -161,7 +161,7 @@ Important runtime modules:
 - `src/runtime/lore-panel.js`: current runtime shell/controller while decomposition continues.
 - `src/loredecks/loredeck-loader.js`: Loredeck loading, validation, Context, tags, and Pack Health behavior.
 - `src/loredecks/loredeck-library-panel.js`: Library UI.
-- `src/loredecks/loredeck-health-panel.js`: Pack Health UI.
+- `src/loredecks/loredeck-health-panel.js`: Pack Health Center UI.
 - `src/loredecks/loredeck-assistant.js`: model-assisted Creator and Lore Assistant prompt builders.
 - `src/loredecks/loredeck-creator-projects.js`: Creator project state and review-stage helpers.
 - `src/context/context-resolver.js`: Context resolution logic.
@@ -177,7 +177,7 @@ Start with:
 - [LLM Loredeck Generation Guide](docs/loredecks/LLM_LOREDECK_GENERATION_GUIDE.md)
 - [Loredeck Schema Reference](docs/loredecks/SAGA_LOREDECK_SCHEMA.md)
 
-Reference-quality decks should be data-only, Context-aware, reviewable, and clean under Pack Health. Do not treat parsed JSON as finished content. A deck is ready to model future work only when it loads cleanly, retrieves at the right Context, keeps future lore gated, and has no outstanding health issues.
+Reference-quality decks should be data-only, Context-aware, reviewable, and clean in the Pack Health Center. Do not treat parsed JSON as finished content. A deck is ready to model future work only when it loads cleanly, retrieves at the right Context, keeps future lore gated, and has no outstanding health issues.
 
 ## License
 

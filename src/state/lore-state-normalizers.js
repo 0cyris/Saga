@@ -43,6 +43,17 @@ const LOREDECK_CONTEXT_SOURCES = Object.freeze([
     'imported',
     'unknown',
 ]);
+export const DOCUMENTATION_FIXTURE_LOREDECK_PACK_IDS = Object.freeze([
+    'saga-doc-health-sample',
+]);
+
+export function isDocumentationFixtureLoredeckPack(packId = '', pack = {}) {
+    const raw = pack && typeof pack === 'object' && !Array.isArray(pack) ? pack : {};
+    const id = String(raw.packId || raw.id || packId || '').trim().toLowerCase();
+    const source = raw.source && typeof raw.source === 'object' && !Array.isArray(raw.source) ? raw.source : {};
+    const sourceKind = String(raw.sourceKind || source.kind || '').trim().toLowerCase();
+    return DOCUMENTATION_FIXTURE_LOREDECK_PACK_IDS.includes(id) || sourceKind === 'documentation_fixture';
+}
 
 function normalizeSagaUserFilesPointer(value = '', allowedExtensions = []) {
     try {
@@ -70,6 +81,7 @@ export function normalizeLoredeckStack(value) {
         const type = item.type === 'folder' || item.folderId ? 'folder' : 'deck';
         const packId = String(item.packId || item.deckId || '').trim();
         const folderId = String(item.folderId || '').trim();
+        if (type === 'deck' && isDocumentationFixtureLoredeckPack(packId)) continue;
         const key = getLoredeckStackItemKey({ type, packId, folderId });
         if (!key || seen.has(key)) continue;
         seen.add(key);
@@ -879,9 +891,15 @@ export function normalizeLoredeckRegistry(value, defaults = getDefaultState().lo
     const defaultPacks = defaults.packs || {};
     const packs = {};
     const importedZipPackIds = new Set();
+    const removedDocumentationFixturePackIds = new Set();
 
     const mergedPacks = { ...defaultPacks, ...inputPacks };
     for (const [packId, mergedRaw] of Object.entries(mergedPacks)) {
+        if (isDocumentationFixtureLoredeckPack(packId, mergedRaw)) {
+            const fixtureId = String(mergedRaw?.packId || mergedRaw?.id || packId || '').trim();
+            if (fixtureId) removedDocumentationFixturePackIds.add(fixtureId);
+            continue;
+        }
         const bundledDefault = defaultPacks[packId]?.type === 'bundled' ? defaultPacks[packId] : null;
         const raw = bundledDefault || mergedRaw;
         if (!raw || typeof raw !== 'object' || Array.isArray(raw)) continue;
@@ -1021,12 +1039,16 @@ export function normalizeLoredeckRegistry(value, defaults = getDefaultState().lo
         }
     }
     const libraryIndex = normalizeLoredeckLibraryIndex(registryInput, { defaults, packs });
+    const shouldRemoveFixtureLayoutPackId = packId => (
+        removedDocumentationFixturePackIds.has(String(packId || '').trim())
+        || isDocumentationFixtureLoredeckPack(packId)
+    );
 
     return {
         schemaVersion: 1,
         packs,
         folders: libraryIndex.folders,
-        deckPlacements: libraryIndex.deckPlacements,
-        activeStack: libraryIndex.activeStack,
+        deckPlacements: libraryIndex.deckPlacements.filter(placement => !shouldRemoveFixtureLayoutPackId(placement.deckId || placement.packId)),
+        activeStack: libraryIndex.activeStack.filter(item => item.type === 'folder' || !shouldRemoveFixtureLayoutPackId(item.packId || item.deckId)),
     };
 }

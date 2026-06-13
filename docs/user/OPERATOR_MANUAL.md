@@ -230,13 +230,13 @@ Theme Packs and Icon Sets are passive data. They can change the shelf's appearan
 
 Saga keeps large Saga-owned payloads in SillyTavern `/user/files` instead of storing full Loredecks, Creator projects, Theme Packs, Icon Sets, and passive assets inside `settings.json`.
 
-Open **Settings**, switch to **Advanced**, then open **State Safety** to migrate legacy settings-backed payloads, verify tracked storage files, settle queued writes, or clean missing non-index file records. State Safety is for maintenance and recovery.
+Open **Settings**, switch to **Advanced**, then open **State Safety** to verify tracked storage files, settle queued writes, or clean missing non-index file records. State Safety is for maintenance and recovery.
 
 Open **Settings**, then use **Danger Zone** at the bottom of the Settings tab for destructive cleanup. **Active Chat** actions affect only the current chat. **Global** actions can reset all Saga settings, remove custom Theme Packs and Icon Sets, remove custom/imported/generated Loredecks, or run **Total Saga Cleanup**.
 
 The Global summary rows refresh from Saga's cleanup preview. **Cleanup file scope** is the preflight count of tracked/known/referenced Saga files Total Saga Cleanup can target, with tooltip detail for tracked files, known index files, additional referenced files, and Health repair sessions. It is not an orphan-file scan.
 
-If a scoped Global cleanup says legacy settings-backed payloads remain, switch to **Advanced** and run **State Safety** > **Migrate Legacy Storage** before retrying, or use **Total Saga Cleanup** for a full reset. In mixed storage states, scoped cleanup removes externalized content and warns that legacy payloads still need migration.
+Saga does not migrate old settings-backed payloads in this pre-alpha line. If stale payloads from an older local build remain in settings, use **Total Saga Cleanup** for a full reset or reinstall Saga with a clean state.
 
 Use **Total Saga Cleanup** only when you want a fresh Saga state. It requires typing `DELETE SAGA`, removes stored Saga API keys, deletes custom/imported/generated Loredecks, deletes Creator projects and custom appearance packs, resets the current chat's Saga state, and clears State Safety backups. Bundled content remains available, and Saga recreates storage indexes when new custom content is imported or saved. If cleanup partially fails, Saga leaves one compact State Safety warning in the reset chat so the retry reason remains visible; in Basic, switch to Advanced and open State Safety before retrying.
 

@@ -16,11 +16,11 @@ Use this module when the checklist is not ready and you want Saga to tell you th
 
 ### Loredecks
 
-Use **Loredecks** to open **Loredeck Library**, import a `.saga-loredeck.zip` package when needed, inspect the Library layout, identify **Bundled Loredeck**, **Generated Loredeck**, and **Custom Loredeck** types, read **Pack Health**, and build the active stack.
+Use **Loredecks** to open **Loredeck Library**, import a `.saga-loredeck.zip` package when needed, inspect the Library layout, identify **Bundled Loredeck**, **Generated Loredeck**, and **Custom Loredeck** types, read **Pack Health** status, and build the active stack.
 
 The active stack decides which Loredecks participate in Context, canon suggestions, retrieval, and Lorecards. You can add individual Loredecks, add folder groups, adjust stack order, and disable stack entries without deleting Library data.
 
-Basic keeps **Import Deck** available. Basic does not show **Create Deck** or in-progress Creator projects; switch to Advanced for Generated Loredeck authoring.
+Basic keeps **Import Deck** available. Basic does not show **Create Deck**, in-progress Creator projects, or Health Center repair controls; switch to Advanced for Generated Loredeck authoring or Pack Health repair.
 
 ### Context
 
@@ -58,7 +58,7 @@ Use **Settings** when model-backed actions fail or are unavailable. Check provid
 
 Settings also contains **Danger Zone** at the bottom. Use it only for deliberate cleanup: active-chat resets, global settings reset, custom Loredeck removal, custom Theme/Icon removal, or **Total Saga Cleanup**.
 
-Switch to Advanced for provider profile internals, endpoint/model controls, Creator, Continuity, Injection, Pack Health repair, package diagnostics, or bulk management.
+Switch to Advanced for provider profile internals, endpoint/model controls, Creator, Continuity, Injection, **Pack Health Center**, package diagnostics, repair sessions, or bulk management.
 
 ## Quick Start
 

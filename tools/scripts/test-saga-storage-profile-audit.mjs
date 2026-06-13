@@ -8,7 +8,7 @@ import { fileURLToPath } from 'node:url';
 import {
   SAGA_STORAGE_DOMAIN_INDEX_FILES,
   SAGA_STORAGE_INDEX_PATH,
-  SAGA_STORAGE_MIGRATION_VERSION,
+  SAGA_STORAGE_VERSION,
 } from '../../src/storage/saga-storage-index.js';
 import {
   getSagaUserFilesFileName,
@@ -34,7 +34,7 @@ async function writeRaw(filePath, value) {
   await fs.writeFile(filePath, value, 'utf8');
 }
 
-async function makeProfile({ migrated }) {
+async function makeProfile({ unsupportedSettingsPayloads = false } = {}) {
   const profileDir = await fs.mkdtemp(path.join(os.tmpdir(), 'saga-storage-audit-'));
   const now = 1781369000000;
   await writeJson(path.join(profileDir, 'settings.json'), {
@@ -47,7 +47,7 @@ async function makeProfile({ migrated }) {
           creatorIndexFile: SAGA_STORAGE_DOMAIN_INDEX_FILES.creator,
           themeIndexFile: SAGA_STORAGE_DOMAIN_INDEX_FILES.themes,
           iconSetIndexFile: SAGA_STORAGE_DOMAIN_INDEX_FILES.iconSets,
-          migrationVersion: migrated ? SAGA_STORAGE_MIGRATION_VERSION : '',
+          storageVersion: SAGA_STORAGE_VERSION,
         },
         sagaStorageFallback: {
           libraryIndexFile: SAGA_STORAGE_DOMAIN_INDEX_FILES.library,
@@ -55,22 +55,21 @@ async function makeProfile({ migrated }) {
           themeIndexFile: SAGA_STORAGE_DOMAIN_INDEX_FILES.themes,
           iconSetIndexFile: SAGA_STORAGE_DOMAIN_INDEX_FILES.iconSets,
         },
-        loredeckLibrary: migrated
-          ? { schemaVersion: 1, packs: {}, folders: [], deckPlacements: [], activeStack: [] }
-          : {
+        loredeckLibrary: unsupportedSettingsPayloads
+          ? {
               schemaVersion: 1,
               packs: {
-                'bundled-audit-pack': {
-                  packId: 'bundled-audit-pack',
-                  type: 'bundled',
-                  title: 'Bundled Audit Pack',
-                  library: { folderId: 'audit-folder', order: 1 },
+                'settings-backed-audit-pack': {
+                  packId: 'settings-backed-audit-pack',
+                  type: 'generated',
+                  title: 'Unsupported Settings-Backed Audit Pack',
                 },
               },
-              folders: [{ id: 'audit-folder', title: 'Audit Folder' }],
+              folders: [],
               deckPlacements: [],
               activeStack: [],
-            },
+            }
+          : { schemaVersion: 1, packs: {}, folders: [], deckPlacements: [], activeStack: [] },
         loredeckCreatorProjects: { schemaVersion: 1, activeJobId: '', lastJobId: '', jobs: {} },
         themePackLibrary: { schemaVersion: 1, packs: {} },
         themeIconSetLibrary: { schemaVersion: 1, iconSets: {} },
@@ -200,14 +199,13 @@ const unknownOption = runAuditCli(['--unknown']);
 assert.notEqual(unknownOption.status, 0);
 assert(unknownOption.stderr.includes('Unknown option: --unknown'));
 
-const staleProfile = await makeProfile({ migrated: false });
-const staleResult = runAudit(staleProfile);
-assert.notEqual(staleResult.status, 0);
-assert.equal(staleResult.json.ok, false);
-assert(staleResult.json.errors.some(error => error.code === 'missing_storage_migration_marker'));
-assert(staleResult.json.warnings.some(warning => warning.code === 'settings_compaction_pending'));
+const unsupportedSettingsProfile = await makeProfile({ unsupportedSettingsPayloads: true });
+const unsupportedSettingsResult = runAudit(unsupportedSettingsProfile);
+assert.notEqual(unsupportedSettingsResult.status, 0);
+assert.equal(unsupportedSettingsResult.json.ok, false);
+assert(unsupportedSettingsResult.json.errors.some(error => error.code === 'unsupported_settings_backed_library'));
 
-const compactProfile = await makeProfile({ migrated: true });
+const compactProfile = await makeProfile();
 const compactResult = runAudit(compactProfile);
 assert.equal(compactResult.status, 0);
 assert.equal(compactResult.json.ok, true);
@@ -231,27 +229,27 @@ const textResult = execFileSync(process.execPath, [AUDIT_SCRIPT, '--text', '--pr
 });
 assert(textResult.includes('Saga storage profile audit: PASS'));
 
-const heavyProfile = await makeProfile({ migrated: true });
+const heavyProfile = await makeProfile();
 await mutateSettings(heavyProfile, settings => {
   settings.extension_settings.saga.loredeckLibrary.packs['bad-heavy-pack'] = {
     packId: 'bad-heavy-pack',
     type: 'generated',
-    entries: [{ id: 'entry-1', text: 'This should not live in migrated settings.' }],
+    entries: [{ id: 'entry-1', text: 'This should not live in settings.' }],
   };
 });
 const heavyResult = runAudit(heavyProfile);
 assert.notEqual(heavyResult.status, 0);
-assert(heavyResult.json.errors.some(error => error.code === 'settings_library_not_compact'));
+assert(heavyResult.json.errors.some(error => error.code === 'unsupported_settings_backed_library'));
 assert(heavyResult.json.errors.some(error => error.code === 'heavy_payload_in_settings'));
 
-const missingFileProfile = await makeProfile({ migrated: true });
+const missingFileProfile = await makeProfile();
 await removeStorageFile(missingFileProfile, PACK_PATH);
 const missingFileResult = runAudit(missingFileProfile);
 assert.notEqual(missingFileResult.status, 0);
 assert(missingFileResult.json.errors.some(error => error.code === 'missing_tracked_file'));
 assert(missingFileResult.json.errors.some(error => error.code === 'missing_storage_file'));
 
-const invalidMasterPathProfile = await makeProfile({ migrated: true });
+const invalidMasterPathProfile = await makeProfile();
 await mutateMasterIndex(invalidMasterPathProfile, index => {
   index.files['/img/saga-outside.v1.json'] = { kind: 'lorepack_payload', domain: 'library', ownerId: 'outside' };
 });
@@ -259,7 +257,7 @@ const invalidMasterPathResult = runAudit(invalidMasterPathProfile);
 assert.notEqual(invalidMasterPathResult.status, 0);
 assert(invalidMasterPathResult.json.errors.some(error => error.code === 'invalid_master_index_record_path' && error.detail?.path === '/img/saga-outside.v1.json'));
 
-const invalidMasterFilenameProfile = await makeProfile({ migrated: true });
+const invalidMasterFilenameProfile = await makeProfile();
 await mutateMasterIndex(invalidMasterFilenameProfile, index => {
   index.files[INVALID_FILE_PATH] = { kind: 'lorepack_payload', domain: 'library', ownerId: 'invalid' };
 });
@@ -267,7 +265,7 @@ const invalidMasterFilenameResult = runAudit(invalidMasterFilenameProfile);
 assert.notEqual(invalidMasterFilenameResult.status, 0);
 assert(invalidMasterFilenameResult.json.errors.some(error => error.code === 'invalid_master_index_record_path' && error.detail?.path === INVALID_FILE_PATH));
 
-const invalidMasterPayloadMetadataProfile = await makeProfile({ migrated: true });
+const invalidMasterPayloadMetadataProfile = await makeProfile();
 await mutateMasterIndex(invalidMasterPayloadMetadataProfile, index => {
   index.files[PACK_PATH] = { kind: 'creator_project_payload', domain: 'creator', ownerId: 'audit-pack' };
 });
@@ -280,7 +278,7 @@ assert(invalidMasterPayloadMetadataResult.json.errors.some(error => error.code =
   && error.detail?.actual?.kind === 'creator_project_payload'
   && error.detail?.actual?.domain === 'creator'));
 
-const invalidMasterIndexMetadataProfile = await makeProfile({ migrated: true });
+const invalidMasterIndexMetadataProfile = await makeProfile();
 await mutateMasterIndex(invalidMasterIndexMetadataProfile, index => {
   index.files[SAGA_STORAGE_DOMAIN_INDEX_FILES.library] = { kind: 'creator_index', domain: 'creator', ownerId: 'library' };
 });
@@ -293,7 +291,7 @@ assert(invalidMasterIndexMetadataResult.json.errors.some(error => error.code ===
   && error.detail?.actual?.kind === 'creator_index'
   && error.detail?.actual?.domain === 'creator'));
 
-const invalidMasterOwnerProfile = await makeProfile({ migrated: true });
+const invalidMasterOwnerProfile = await makeProfile();
 await mutateMasterIndex(invalidMasterOwnerProfile, index => {
   index.files[PACK_PATH] = { ...index.files[PACK_PATH], ownerId: 'wrong-pack' };
 });
@@ -304,7 +302,7 @@ assert(invalidMasterOwnerResult.json.errors.some(error => error.code === 'invali
   && error.detail?.expected === 'audit-pack'
   && error.detail?.actual === 'wrong-pack'));
 
-const invalidMasterLifecycleProfile = await makeProfile({ migrated: true });
+const invalidMasterLifecycleProfile = await makeProfile();
 await mutateMasterIndex(invalidMasterLifecycleProfile, index => {
   index.files[PACK_PATH] = { ...index.files[PACK_PATH], mime: 'text/plain', deletion: 'managed' };
 });
@@ -319,7 +317,7 @@ assert(invalidMasterLifecycleResult.json.errors.some(error => error.code === 'in
   && error.detail?.expected === 'delete_with_owner'
   && error.detail?.actual === 'managed'));
 
-const invalidMasterDomainProfile = await makeProfile({ migrated: true });
+const invalidMasterDomainProfile = await makeProfile();
 await mutateMasterIndex(invalidMasterDomainProfile, index => {
   index.domains.library.indexFile = SAGA_STORAGE_DOMAIN_INDEX_FILES.creator;
   index.domains.creator.updatedAt = 0;
@@ -334,7 +332,7 @@ assert(invalidMasterDomainResult.json.errors.some(error => error.code === 'inval
   && error.detail?.domain === 'creator'
   && error.detail?.actual === 0));
 
-const invalidDomainKindProfile = await makeProfile({ migrated: true });
+const invalidDomainKindProfile = await makeProfile();
 await mutateStorageJson(invalidDomainKindProfile, SAGA_STORAGE_DOMAIN_INDEX_FILES.library, index => {
   index.kind = 'saga_creator_index';
 });
@@ -345,7 +343,7 @@ assert(invalidDomainKindResult.json.errors.some(error => error.code === 'invalid
   && error.detail?.expected === 'saga_library_index'
   && error.detail?.actual === 'saga_creator_index'));
 
-const invalidPayloadKindProfile = await makeProfile({ migrated: true });
+const invalidPayloadKindProfile = await makeProfile();
 await mutateStorageJson(invalidPayloadKindProfile, PACK_PATH, payload => {
   payload.kind = 'saga_creator_project';
 });
@@ -356,7 +354,7 @@ assert(invalidPayloadKindResult.json.errors.some(error => error.code === 'invali
   && error.detail?.expected === 'saga_lorepack_payload'
   && error.detail?.actual === 'saga_creator_project'));
 
-const invalidPayloadIdProfile = await makeProfile({ migrated: true });
+const invalidPayloadIdProfile = await makeProfile();
 await mutateStorageJson(invalidPayloadIdProfile, PACK_PATH, payload => {
   payload.packId = 'wrong-pack';
   payload.id = 'wrong-pack';
@@ -368,7 +366,7 @@ assert(invalidPayloadIdResult.json.errors.some(error => error.code === 'invalid_
   && error.detail?.expected === 'audit-pack'
   && error.detail?.actual === 'wrong-pack'));
 
-const invalidPayloadEnvelopeProfile = await makeProfile({ migrated: true });
+const invalidPayloadEnvelopeProfile = await makeProfile();
 await mutateStorageJson(invalidPayloadEnvelopeProfile, PACK_PATH, payload => {
   payload.schemaVersion = 0;
   delete payload.revision;
@@ -383,7 +381,7 @@ assert(invalidPayloadEnvelopeResult.json.errors.some(error => error.code === 'in
 assert(invalidPayloadEnvelopeResult.json.errors.some(error => error.code === 'invalid_storage_json_updated_at'
   && error.detail?.path === PACK_PATH));
 
-const orphanFileProfile = await makeProfile({ migrated: true });
+const orphanFileProfile = await makeProfile();
 await writeJson(toProfileStoragePath(orphanFileProfile, ORPHAN_PATH), {
   schemaVersion: 1,
   kind: 'saga_lorepack_payload',
@@ -393,13 +391,13 @@ const orphanFileResult = runAudit(orphanFileProfile);
 assert.notEqual(orphanFileResult.status, 0);
 assert(orphanFileResult.json.errors.some(error => error.code === 'orphan_saga_file'));
 
-const invalidJsonProfile = await makeProfile({ migrated: true });
+const invalidJsonProfile = await makeProfile();
 await writeRaw(toProfileStoragePath(invalidJsonProfile, PACK_PATH), '{ "kind": "saga_lorepack_payload", ');
 const invalidJsonResult = runAudit(invalidJsonProfile);
 assert.notEqual(invalidJsonResult.status, 0);
 assert(invalidJsonResult.json.errors.some(error => error.code === 'invalid_storage_json' && error.detail?.path === PACK_PATH));
 
-const invalidFileProfile = await makeProfile({ migrated: true });
+const invalidFileProfile = await makeProfile();
 await writeRaw(toProfileStoragePath(invalidFileProfile, INVALID_FILE_PATH), 'not a supported Saga storage file');
 const invalidFileResult = runAudit(invalidFileProfile);
 assert.notEqual(invalidFileResult.status, 0);

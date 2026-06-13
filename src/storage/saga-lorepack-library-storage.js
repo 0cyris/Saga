@@ -3,7 +3,10 @@
  */
 
 import { DEFAULT_SETTINGS } from '../state/constants.js';
-import { normalizeLoredeckRegistry } from '../state/lore-state-normalizers.js';
+import {
+    isDocumentationFixtureLoredeckPack,
+    normalizeLoredeckRegistry,
+} from '../state/lore-state-normalizers.js';
 import { normalizeLoredeckLibraryIndex } from '../loredecks/loredeck-library-index.js';
 import { createSagaFileApi } from './saga-file-api.js';
 import { createSagaDomainStorage } from './saga-domain-storage.js';
@@ -102,6 +105,7 @@ function normalizePackRecord(value = {}, fallbackId = '', options = {}) {
     const payloadFile = normalizeStoragePath(raw.payloadFile || raw.payloadPath || '');
     const coverFile = normalizeString(raw.coverFile || raw.coverPath || raw.coverImage || '', 500);
     const source = isPlainObject(raw.source) ? raw.source : {};
+    if (isDocumentationFixtureLoredeckPack(packId, { ...raw, source })) return null;
     const stats = isPlainObject(raw.stats) ? raw.stats : {};
     const record = {
         schemaVersion: 1,
@@ -150,6 +154,23 @@ function normalizePackMap(value = {}, options = {}) {
         if (normalized) packs[normalized.packId] = normalized;
     }
     return Object.fromEntries(Object.entries(packs).sort(([left], [right]) => left.localeCompare(right)));
+}
+
+function containsDocumentationFixtureLoredeckPack(registry = {}) {
+    const packs = registry?.packs && typeof registry.packs === 'object' && !Array.isArray(registry.packs)
+        ? registry.packs
+        : {};
+    return Object.entries(packs).some(([packId, pack]) => isDocumentationFixtureLoredeckPack(packId, pack));
+}
+
+function getDocumentationFixtureLoredeckPackIds(registry = {}) {
+    const packs = registry?.packs && typeof registry.packs === 'object' && !Array.isArray(registry.packs)
+        ? registry.packs
+        : {};
+    return new Set(Object.entries(packs)
+        .filter(([packId, pack]) => isDocumentationFixtureLoredeckPack(packId, pack))
+        .map(([packId, pack]) => normalizeString(pack?.packId || pack?.id || packId, 160))
+        .filter(Boolean));
 }
 
 function shouldPersistQueuedWrites(options = {}) {
@@ -225,6 +246,7 @@ export function createSagaLibraryIndex(options = {}) {
 
 export function normalizeSagaLibraryIndex(value = {}, options = {}) {
     const raw = isPlainObject(value) ? value : {};
+    const removedDocumentationFixturePackIds = getDocumentationFixtureLoredeckPackIds(raw);
     const compactPacks = normalizePackMap(raw.packs, options);
     const layoutBase = normalizeLoredeckLibraryIndex({
         schemaVersion: 1,
@@ -272,6 +294,10 @@ export function normalizeSagaLibraryIndex(value = {}, options = {}) {
             delete packs[packId][key];
         }
     }
+    const shouldRemoveFixtureLayoutPackId = packId => (
+        removedDocumentationFixturePackIds.has(normalizeString(packId, 160))
+        || isDocumentationFixtureLoredeckPack(packId)
+    );
     return {
         schemaVersion: 1,
         kind: 'saga_library_index',
@@ -280,8 +306,8 @@ export function normalizeSagaLibraryIndex(value = {}, options = {}) {
         revision: Math.max(1, Math.floor(Number(raw.revision) || 1)),
         packs,
         folders: layoutBase.folders || [],
-        deckPlacements: layoutBase.deckPlacements || [],
-        activeStack: layoutBase.activeStack || [],
+        deckPlacements: (layoutBase.deckPlacements || []).filter(placement => !shouldRemoveFixtureLayoutPackId(placement.deckId || placement.packId)),
+        activeStack: (layoutBase.activeStack || []).filter(item => item.type === 'folder' || !shouldRemoveFixtureLayoutPackId(item.packId || item.deckId)),
     };
 }
 
@@ -354,6 +380,7 @@ export async function hydrateSagaLorepackLibraryStorage(options = {}) {
     hydrationPromise = (async () => {
         const domainStorage = getDomainStorage(options);
         const index = await domainStorage.readDomainIndex('library', { allowMissing: true });
+        const hadDocumentationFixturePack = containsDocumentationFixtureLoredeckPack(index);
         hydratedLibraryRegistry = normalizeSagaLibraryIndex(index, { now: getClockNow(options) });
         hydrationStatus = {
             loaded: true,
@@ -361,6 +388,12 @@ export async function hydrateSagaLorepackLibraryStorage(options = {}) {
             loadedAt: getClockNow(options),
             error: '',
         };
+        if (hadDocumentationFixturePack) {
+            queueExternalLoredeckLibraryIndexWrite(hydratedLibraryRegistry, {
+                ...options,
+                staleCheck: false,
+            });
+        }
         return { ok: true, library: getExternalLoredeckLibraryRegistry() };
     })().catch(error => {
         hydrationStatus = {

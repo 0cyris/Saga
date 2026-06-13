@@ -15,6 +15,7 @@ const {
   SAGA_STORAGE_DOMAIN_INDEX_FILES,
   SAGA_STORAGE_INDEX_FILE_NAME,
   SAGA_STORAGE_INDEX_PATH,
+  SAGA_STORAGE_VERSION,
   setSagaStorageDomainIndexFile,
   unregisterSagaStorageFile,
   upsertSagaStorageFile,
@@ -111,8 +112,7 @@ assert.deepEqual(createDefaultSagaStorageSettings(), {
   themeIndexFile: SAGA_STORAGE_DOMAIN_INDEX_FILES.themes,
   iconSetIndexFile: SAGA_STORAGE_DOMAIN_INDEX_FILES.iconSets,
   lastVerifiedAt: 0,
-  lastMigrationAt: 0,
-  migrationVersion: '',
+  storageVersion: SAGA_STORAGE_VERSION,
 });
 assert.equal(normalizeSagaStorageSettings({ enabled: false, masterIndexFile: '/img/nope.json' }).enabled, false);
 assert.equal(normalizeSagaStorageSettings({ masterIndexFile: '/img/nope.json' }).masterIndexFile, SAGA_STORAGE_INDEX_PATH);

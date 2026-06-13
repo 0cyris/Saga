@@ -16,6 +16,10 @@ const {
   writeExternalLoredeckLibraryIndex,
 } = await import('../../src/storage/saga-lorepack-library-storage.js');
 const {
+  normalizeLoredeckRegistry,
+  normalizeLoredeckStack,
+} = await import('../../src/state/lore-state-normalizers.js');
+const {
   SAGA_STORAGE_DOMAIN_INDEX_FILES,
   SAGA_STORAGE_INDEX_PATH,
 } = await import('../../src/storage/saga-storage-index.js');
@@ -90,6 +94,47 @@ assert.equal(normalized.packs['arlong-pack'].manifestData, undefined, 'Library i
 assert.equal(normalized.packs['arlong-pack'].entryOverrides, undefined, 'Library index rows should not retain Lorecard payload containers.');
 assert.equal(normalized.folders.length, 1);
 assert.equal(normalized.deckPlacements.length, 1);
+
+const contaminatedRegistry = normalizeLoredeckRegistry({
+  schemaVersion: 1,
+  packs: {
+    'saga-doc-health-sample': {
+      packId: 'saga-doc-health-sample',
+      title: 'Documentation Health Sample',
+      type: 'custom',
+      source: { kind: 'documentation_fixture' },
+    },
+    'fixture-by-source-kind': {
+      packId: 'fixture-by-source-kind',
+      title: 'Renderer Fixture',
+      type: 'custom',
+      source: { kind: 'documentation_fixture' },
+    },
+  },
+  deckPlacements: [{ deckId: 'saga-doc-health-sample', folderId: '' }],
+  activeStack: [{ packId: 'saga-doc-health-sample', enabled: true }],
+}, { schemaVersion: 1, packs: {} });
+assert.equal(contaminatedRegistry.packs['saga-doc-health-sample'], undefined, 'Documentation renderer fixture Loredeck must not survive registry normalization.');
+assert.equal(contaminatedRegistry.packs['fixture-by-source-kind'], undefined, 'Documentation fixture source records must not survive registry normalization.');
+assert.equal(contaminatedRegistry.deckPlacements.length, 0, 'Documentation fixture placements must be removed with the rejected pack.');
+assert.equal(contaminatedRegistry.activeStack.length, 0, 'Documentation fixture stack items must be removed with the rejected pack.');
+assert.deepEqual(normalizeLoredeckStack([{ type: 'deck', packId: 'saga-doc-health-sample', enabled: true }]), [], 'Documentation fixture deck stack rows must be dropped from chat state.');
+
+const contaminatedExternal = normalizeSagaLibraryIndex({
+  packs: {
+    'saga-doc-health-sample': {
+      packId: 'saga-doc-health-sample',
+      title: 'Documentation Health Sample',
+      type: 'custom',
+      source: { kind: 'documentation_fixture' },
+    },
+  },
+  deckPlacements: [{ deckId: 'saga-doc-health-sample', folderId: '' }],
+  activeStack: [{ packId: 'saga-doc-health-sample', enabled: true }],
+}, { now });
+assert.equal(contaminatedExternal.packs['saga-doc-health-sample'], undefined, 'External Library index must reject Documentation Health Sample.');
+assert.equal(contaminatedExternal.deckPlacements.length, 0, 'External Library fixture placements must be removed.');
+assert.equal(contaminatedExternal.activeStack.length, 0, 'External Library fixture stack rows must be removed.');
 
 const writeResult = await writeExternalLoredeckLibraryIndex(normalized, { fileApi, now });
 assert.equal(writeResult.ok, true);

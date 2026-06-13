@@ -70,10 +70,6 @@ import {
     mergeExternalThemePackLibraryRegistry,
 } from '../storage/saga-theme-icon-storage.js';
 import {
-    createSagaStorageMigrationPlan,
-    executeSagaStorageMigration,
-} from '../storage/saga-storage-migration.js';
-import {
     cleanMissingSagaStorageRecords,
     flushSagaStorageWrites,
     getSagaStorageDiagnostics as getStorageDiagnostics,
@@ -941,10 +937,6 @@ export function recordStateSafetyEvent(type = 'event', message = '', options = {
     return record;
 }
 
-export function getSagaStorageMigrationPlan(options = {}) {
-    return createSagaStorageMigrationPlan(getSettings(), options);
-}
-
 export function getSagaStorageDiagnostics(options = {}) {
     return getStorageDiagnostics(getSettings(), options);
 }
@@ -1021,55 +1013,6 @@ export async function cleanMissingSagaStorageIndexRecords(options = {}) {
         syncPrompt: false,
     });
     return { ...result, log };
-}
-
-function formatStorageMigrationResultMessage(result = {}) {
-    const counts = result.counts || result.plan?.counts || {};
-    const parts = [
-        counts.libraryPacks ? `${counts.libraryPacks} Loredeck${counts.libraryPacks === 1 ? '' : 's'}` : '',
-        counts.creatorProjects ? `${counts.creatorProjects} Creator project${counts.creatorProjects === 1 ? '' : 's'}` : '',
-        counts.themePacks ? `${counts.themePacks} Theme Pack${counts.themePacks === 1 ? '' : 's'}` : '',
-        counts.iconSets ? `${counts.iconSets} Icon Set${counts.iconSets === 1 ? '' : 's'}` : '',
-    ].filter(Boolean);
-    return parts.length
-        ? `Externalized Saga storage: ${parts.join(', ')}.`
-        : 'Saga storage migration completed.';
-}
-
-export async function runSagaStorageMigration(options = {}) {
-    const settings = getSettings();
-    const plan = createSagaStorageMigrationPlan(settings, options);
-    if (!plan.needsMigration) {
-        return {
-            ok: true,
-            skipped: true,
-            reason: plan.alreadyMigrated ? 'already_migrated' : 'nothing_to_migrate',
-            plan,
-            counts: plan.counts,
-        };
-    }
-
-    createStateBackup('before_storage_migration', {
-        label: 'Before external Saga storage migration.',
-        syncPrompt: false,
-    });
-    const result = await executeSagaStorageMigration(settings, {
-        ...options,
-        plan,
-        state: getState(),
-        saveSettings: next => saveSettings(next),
-        saveState: next => saveState(next, { syncPrompt: false, sanitize: true }),
-    });
-    if (result.ok) {
-        const log = recordStateSafetyEvent('storage_migration', formatStorageMigrationResultMessage(result), {
-            syncPrompt: false,
-        });
-        return { ...result, log };
-    }
-    recordStateSafetyEvent('storage_migration_failed', result.error || 'Saga storage migration failed.', {
-        syncPrompt: false,
-    });
-    return result;
 }
 
 export function restoreStateFromBackup(backupId) {

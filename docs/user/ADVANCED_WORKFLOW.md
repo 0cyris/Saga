@@ -60,7 +60,7 @@ Start here when the next response needs current-scene state such as date, locati
 
 Coverage: A112-A130.
 
-Use this track to create and complete Generated Lorepack projects. It covers **Create Deck**, intake, scope brief, outline, title pass, title review, Context and tag planning, planning review, Lorecard drafting, confirmed Auto-Draft All, Creator draft review, sending drafts to Pending Review, review queue jumps, current task controls, generation settings, project shelf, project management, generated-pack inspection, and readiness gates.
+Use this track to create and complete Generated Lorepack projects. It covers **Create Deck**, intake, scope brief, outline, title-batch generation, title selection actions, **Plan Context and Tags**, planning review, **Draft Lorecards**, confirmed **Auto-Draft All**, Creator draft review, **Send Selected to Review**, review queue jumps, current task controls, generation settings, project shelf search/filter/move actions, generated-pack inspection, Pack Health readiness actions, and the Creator Readiness Gate.
 
 Creator Lorecard drafting can recover from Saga-side schema rejections separately from provider failures. In generation settings, **Auto split failed batches** retries affected Lorecard titles in smaller batches. The Lorecards step exposes **Last Lorecard preflight gaps** and **Last Lorecard rejection details** when title-stage references or generated drafts need attention before they can move through review.
 
@@ -70,7 +70,7 @@ Start here when you need Saga to help author a new Generated Lorepack rather tha
 
 Coverage: A131-A141.
 
-Use this track to validate, repair, update, export, and finalize Lorepacks. It covers Pack Health Center, status, issue groups, Attempt Fixing, manual repair routes, package update, local modification warnings, Bundled Lorepack reference export, Custom Lorepack embedded export, Generated to Custom finalization, and generated export readiness.
+Use this track to validate, repair, update, export, and finalize Lorepacks. It covers **Pack Health Center**, **Refresh Scan**, status, issue groups, **Attempt Fixing** sessions, saved repair-session actions, per-issue actions such as **Accept As-Is** and **Verify Fixed**, package update, local modification warnings, Bundled Lorepack reference export, Custom Lorepack embedded export, Generated to Custom finalization, and generated export readiness.
 
 Start here before sharing a pack, finalizing a Generated Lorepack, repairing package issues, or trusting a pack with warnings.
 

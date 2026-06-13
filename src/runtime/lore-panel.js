@@ -945,6 +945,7 @@ configureLoredeckAssistantReviewPanel({
     createLoredeckPendingHealthImpactPill,
     createLoredeckPendingDiffList,
     createLoredeckPendingQualityList,
+    markTourTarget,
 });
 
 configureLoredeckHealthPanel({

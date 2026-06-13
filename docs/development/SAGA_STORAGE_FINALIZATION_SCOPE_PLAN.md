@@ -331,61 +331,52 @@ The audit checks:
 - physical Saga files are registered in the master index, with no untracked orphans.
 - Library, Creator, Theme, Icon Set, and repair-session records point at existing indexed files; domain indexes and JSON payload files use their expected `kind` values, and domain payload IDs match the index records that reference them.
 - settings do not contain heavy Saga payload fields such as Lorecard entries, Creator drafts, Theme/Icon payloads, or repair sessions.
-- profiles with external Saga files have `sagaStorage.migrationVersion === external-files-v1` so ordinary settings saves keep compact externalized shells.
+- profiles with external Saga files have `sagaStorage.storageVersion === external-files-v1` and compact settings shells, so ordinary settings saves do not persist heavy payload records.
 
 The script is covered by `tools/scripts/test-saga-storage-profile-audit.mjs` and is part of the alpha gate.
 
-Pre-migration local audit evidence:
+Fresh-storage local audit evidence:
 
-- external file graph is healthy: 5 physical Saga files, 5 master-index records, no missing files, no orphan files.
-- audit failed because the real profile had Saga external files but `sagaStorage.migrationVersion` was empty.
-- settings compaction was pending: the stored settings still included 43 bundled Loredeck Library records because the external storage migration marker had not been set.
-- migration hardening is in place: the migration executor hydrates existing external Library, Creator, Theme, and Icon indexes before merging settings-side records, so a partially externalized profile can be compacted without dropping existing external packs.
-- external Library normalization now preserves explicit layout references to bundled Loredecks without writing bundled pack records into `/user/files` or auto-generating bundled suggested-folder placements.
+- current storage policy is reset-only for stale pre-alpha settings payloads; no legacy storage conversion path is supported.
+- external file graph should be healthy: physical Saga files are indexed, tracked files exist, and no orphan Saga files are present.
+- settings must contain compact externalized shells for Library, Creator, Theme, Icon Set, and repair-session records.
+- external Library normalization preserves explicit layout references to bundled Loredecks without writing bundled pack records into `/user/files` or auto-generating bundled suggested-folder placements.
 
 Live State Safety preflight evidence:
 
 - local SillyTavern responds at `http://127.0.0.1:8000/`.
 - the installed Saga rail is in Advanced mode and renders **State Safety** in Settings.
-- the collapsed State Safety section contains **Migrate Legacy Storage**, **Verify Storage**, **Settle Storage Writes**, and **Clean Missing Records** controls.
-- **Migrate Legacy Storage** is enabled, matching the failed audit state.
-- **Settle Storage Writes** is disabled, so there is no visible queued-write blocker before migration.
-- the section reports `Storage migration: none` and `Storage integrity: not checked`, matching the profile's missing migration marker.
+- the collapsed State Safety section contains **Verify Storage**, **Settle Storage Writes**, and **Clean Missing Records** controls.
+- **Settle Storage Writes** is disabled when there is no visible queued-write blocker.
+- the section reports current storage integrity, pending writes, and latest State Safety log entries without offering old storage conversion actions.
 
 Approval boundary:
 
-- running **Migrate Legacy Storage** mutates the real SillyTavern profile by writing compact Saga settings and external storage metadata.
-- do not run the action as part of a read-only audit; get explicit user approval before clicking it or invoking the equivalent migration executor against `F:\SillyTavern\SillyTavern\data\default-user`.
+- read-only audit commands do not mutate the real SillyTavern profile.
+- **Total Saga Cleanup** and reinstall/reset workflows mutate the real profile by deleting Saga settings, Saga active-chat state, and Saga-owned custom storage files.
+- get explicit user approval before running cleanup against `F:\SillyTavern\SillyTavern\data\default-user`.
 
 Real profile signoff evidence:
 
-- **State Safety > Migrate Legacy Storage** was run after user approval.
-- State Safety created a `before_storage_migration` backup before mutation.
-- State Safety changed the migration action to disabled **Storage Current**.
-- State Safety reports `Storage migration: external-files-v1`.
 - read-only audit command:
 
 ```bash
 node tools/scripts/audit-saga-storage-profile.mjs --profile F:\SillyTavern\SillyTavern\data\default-user
 ```
 
-- audit result: `ok: true`.
-- audit warnings: none.
-- audit errors: none.
-- `settings.json` shrank from 1,188,115 bytes to 1,029,492 bytes.
-- Saga settings payload shrank from 77,741 bytes to 13,573 bytes.
-- `settings.sagaStorage.migrationVersion` is `external-files-v1`.
-- settings compact shells now contain 0 Loredeck Library pack records, 0 Creator jobs, 0 Theme Packs, and 0 Icon Sets.
-- external file graph remains healthy: 5 physical Saga files, 5 tracked master-index records, no missing tracked files, and no orphan Saga files.
-- external Library still contains the generated Arlong pack.
-- external Creator index still contains active project `one_piece_arlong_park_arc_mqcgv620`.
-- repair session storage is empty.
+- audit result is `ok: true`.
+- audit warnings are absent or intentionally documented.
+- audit errors are absent.
+- `settings.sagaStorage.storageVersion` is `external-files-v1` when the field is present.
+- settings compact shells contain 0 Loredeck Library pack records, 0 Creator jobs, 0 Theme Packs, and 0 Icon Sets.
+- external file graph remains healthy: tracked master-index records exist, no tracked files are missing, and no orphan Saga files appear.
+- external Library, Creator, Theme, Icon Set, and repair-session records point only at current external storage payloads.
 
 Verification refresh:
 
 - `node --check tools/scripts/audit-saga-storage-profile.mjs` passes.
 - `node --check tools/scripts/test-saga-storage-profile-audit.mjs` passes.
-- `node tools/scripts/test-saga-storage-profile-audit.mjs` passes, including missing-marker, compact migrated, settings-path/profile-path resolution, strict CLI argument handling, `--help`, `--text`, heavy migrated settings payload, missing tracked file, invalid master-index domain records, invalid master-index record path, invalid master-index record metadata, invalid master-index record owner/MIME/deletion policy, invalid storage JSON schema/revision/timestamp envelopes, invalid domain-index kind, invalid payload kind, invalid payload ID, orphan file, unsupported `saga-*` file, and invalid Saga JSON coverage.
+- `node tools/scripts/test-saga-storage-profile-audit.mjs` passes, including unsupported settings payloads, compact external storage, settings-path/profile-path resolution, strict CLI argument handling, `--help`, `--text`, heavy settings payload detection, missing tracked file, invalid master-index domain records, invalid master-index record path, invalid master-index record metadata, invalid master-index record owner/MIME/deletion policy, invalid storage JSON schema/revision/timestamp envelopes, invalid domain-index kind, invalid payload kind, invalid payload ID, orphan file, unsupported `saga-*` file, and invalid Saga JSON coverage.
 - `node tools/scripts/audit-saga-storage-profile.mjs --profile F:\SillyTavern\SillyTavern\data\default-user` still returns `ok: true` with no warnings or errors.
 - `node tools/scripts/audit-saga-storage-profile.mjs --text --profile F:\SillyTavern\SillyTavern\data\default-user` prints a passing compact summary.
 - `node tools/scripts/run-alpha-gate.mjs` passes on the current tree with the storage profile audit included.
@@ -401,35 +392,29 @@ Use this runbook for the final storage signoff against a real local SillyTavern 
 node tools/scripts/audit-saga-storage-profile.mjs --profile F:\SillyTavern\SillyTavern\data\default-user
 ```
 
-3. Proceed only when the failing state is limited to the migration marker and settings compaction:
-   - external file graph is healthy
-   - no missing tracked files
-   - no orphan Saga files
-   - no heavy Theme/Icon/Creator/repair-session payloads remain in settings
-   - `missing_storage_migration_marker` is the blocking error
-4. Ask for explicit approval to mutate the real profile.
-5. In Saga, open **Settings > State Safety** and run **Migrate Legacy Storage**.
-6. Wait for the migration toast or status row to settle.
-7. Run **Verify Storage** from State Safety, or rerun the audit script directly.
-8. Rerun the read-only profile audit.
-9. Mark signoff complete only when:
+3. If the audit fails because stale Saga payloads remain in settings, do not attempt conversion. Ask for explicit approval to run **Total Saga Cleanup** or wipe/reinstall Saga with a clean state.
+4. Run **Verify Storage** from State Safety, or rerun the audit script directly after fresh content is created.
+5. Rerun the read-only profile audit.
+6. Mark signoff complete only when:
    - audit returns `ok: true`
-   - `settings.sagaStorage.migrationVersion` is `external-files-v1`
+   - `settings.sagaStorage.storageVersion` is `external-files-v1` when present
    - bundled Loredeck Library records no longer bloat `settings.json`
-   - external Library and Creator records still point at the Arlong generated pack and Creator project
+   - external Library and Creator records point at current generated packs and Creator projects
    - no missing tracked files or orphan Saga files appear
 
-If migration fails:
+If cleanup or reinstall signoff fails:
 
 - do not manually edit `settings.json` as the first response.
-- collect the State Safety latest migration log and browser console errors.
+- collect the State Safety latest log and browser console errors.
 - rerun the audit and preserve the full JSON output.
-- use the State Safety backup if settings were partially compacted but external files were not correctly indexed.
-- only add a targeted migration repair after identifying whether the failure happened during hydration, external write, settings compaction, or settings save.
+- use the State Safety backup if cleanup partially failed and external files were not correctly indexed.
+- only add targeted repair after identifying whether the failure happened during external write, index update, cleanup, or settings save.
 
 Completed remediation path:
 
-- ran the in-app **State Safety > Migrate Legacy Storage** action so Saga wrote the `external-files-v1` marker and compact settings shells.
+- removed the old storage conversion UI, planner, executor, and tests.
+- changed settings reads and saves so unsupported settings payloads are ignored in runtime state and compact shells remain the only persisted shape.
+- updated the audit script to flag settings-backed payload records as reset-only errors.
 - reran `node tools/scripts/audit-saga-storage-profile.mjs --profile F:\SillyTavern\SillyTavern\data\default-user`.
 - marked real-profile signoff complete after the audit returned `ok: true`.
 

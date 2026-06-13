@@ -108,7 +108,6 @@ for (const requiredPath of [
   'src/storage/saga-storage-diagnostics.js',
   'src/storage/saga-storage-filenames.js',
   'src/storage/saga-storage-index.js',
-  'src/storage/saga-storage-migration.js',
   'src/storage/saga-theme-icon-storage.js',
   'styles/components.css',
   'styles/continuity.css',

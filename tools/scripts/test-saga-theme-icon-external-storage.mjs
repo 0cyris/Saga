@@ -24,6 +24,7 @@ const {
 const {
   getIconSetLibrary,
   getIconSetPreset,
+  getLocalAssetSrc,
   getThemePreset,
   getThemePackLibrary,
   normalizePassiveAssetPath,
@@ -159,6 +160,7 @@ const iconPayload = JSON.parse(stored.get(iconSetResult.payloadFile));
 const uploadedIconPath = iconPayload.icons['tab.loredecks'];
 assert.match(uploadedIconPath, /^\/user\/files\/saga-iconset-asset-mystic-tabs-tab-loredecks-[a-f0-9]+\.png$/);
 assert.equal(normalizePassiveAssetPath(uploadedIconPath), uploadedIconPath);
+assert.equal(getLocalAssetSrc(uploadedIconPath), uploadedIconPath, 'Uploaded /user/files image assets must not be rewritten under the extension module URL.');
 assert.equal(iconPayload.icons['tab.settings'], './assets/iconsets/saga-hero/hero-tab-settings-256.png');
 assert.equal(JSON.parse(stored.get(SAGA_STORAGE_DOMAIN_INDEX_FILES.iconSets)).iconSets['mystic-tabs'].payloadFile, iconSetResult.payloadFile);
 assert.equal(JSON.parse(stored.get(SAGA_STORAGE_INDEX_PATH)).files[uploadedIconPath].kind, 'iconset_asset');

@@ -323,26 +323,26 @@ This order teaches dependencies before diagnostics: source packs first, then Con
 | A113 | `advanced-creator-intake` | Creator And Generated Lorepack Authoring | Enter fandom, scope, granularity, and notes for the generated project. |
 | A114 | `advanced-creator-brief` | Creator And Generated Lorepack Authoring | Generate and approve the scope brief before outline and title work. |
 | A115 | `advanced-creator-outline` | Creator And Generated Lorepack Authoring | Generate and approve the outline that drives title batches and planning. |
-| A116 | `advanced-creator-title-pass` | Creator And Generated Lorepack Authoring | Generate title batches from the approved outline. |
-| A117 | `advanced-creator-title-review` | Creator And Generated Lorepack Authoring | Accept, revise, or reject titles before planning and entry drafting. |
-| A118 | `advanced-creator-planning` | Creator And Generated Lorepack Authoring | Generate Context and tag planning proposals before downstream Lorecard drafting. |
-| A119 | `advanced-creator-planning-review` | Creator And Generated Lorepack Authoring | Review Context and tag proposals before they shape generated entries. |
-| A120 | `advanced-creator-entry-draft` | Creator And Generated Lorepack Authoring | Draft Lorecards in small batches from approved planning and titles. |
-| A121 | `advanced-creator-entry-auto-draft` | Creator And Generated Lorepack Authoring | Use Auto-Draft All when the project is ready to generate every remaining Lorecard after confirmation. |
-| A122 | `advanced-creator-draft-review` | Creator And Generated Lorepack Authoring | Review Creator Lorecard drafts before they enter Pending Review. |
-| A123 | `advanced-creator-send-to-review` | Creator And Generated Lorepack Authoring | Send Creator drafts to Pending Lorecard Review when they are ready for normal lore review. |
+| A116 | `advanced-creator-title-pass` | Creator And Generated Lorepack Authoring | Use Generate Next Title Batch or Generate Remaining after the Story Outline defines title sets. |
+| A117 | `advanced-creator-title-review` | Creator And Generated Lorepack Authoring | Select title rows, then use Approve Selected Titles, Revise Selected Titles, or Drop Selected before planning. |
+| A118 | `advanced-creator-planning` | Creator And Generated Lorepack Authoring | Use Plan Context and Tags to draft timeline and tag proposals for the next approved title set. |
+| A119 | `advanced-creator-planning-review` | Creator And Generated Lorepack Authoring | Review generated Context and tag proposals in the Creator review queue before they shape Lorecard drafting. |
+| A120 | `advanced-creator-entry-draft` | Creator And Generated Lorepack Authoring | Use Draft Lorecards for one small resumable batch from approved planning and titles. |
+| A121 | `advanced-creator-entry-auto-draft` | Creator And Generated Lorepack Authoring | Use Auto-Draft All only after confirming the exact remaining Lorecard count and provider-call count. |
+| A122 | `advanced-creator-draft-review` | Creator And Generated Lorepack Authoring | Review Creator Lorecard drafts in the Draft Review batch before they enter Pending Review. |
+| A123 | `advanced-creator-send-to-review` | Creator And Generated Lorepack Authoring | Use Send Selected to Review or Send All to Review when Creator drafts are ready for normal Pending Review. |
 | A124 | `advanced-creator-pending-review-link` | Creator And Generated Lorepack Authoring | Jump from Creator to the relevant review queue for generated entries. |
 | A125 | `advanced-creator-current-task` | Creator And Generated Lorepack Authoring | Retry, retry smaller, or cancel active generation from the current task card. |
 | A126 | `advanced-creator-generation-settings` | Creator And Generated Lorepack Authoring | Tune Creator generation settings per project. |
-| A127 | `advanced-creator-project-shelf` | Creator And Generated Lorepack Authoring | Resume in-progress Creator projects from the Loredecks tab. |
-| A128 | `advanced-creator-project-manage` | Creator And Generated Lorepack Authoring | Rename, move, select, or delete Creator projects deliberately. |
+| A127 | `advanced-creator-project-shelf` | Creator And Generated Lorepack Authoring | Resume in-progress Creator projects from the In-Progress Creator Projects shelf. |
+| A128 | `advanced-creator-project-manage` | Creator And Generated Lorepack Authoring | Search, filter, select, move, rename, resume, or delete Creator projects deliberately. |
 | A129 | `advanced-creator-inspect-generated-pack` | Creator And Generated Lorepack Authoring | Open the linked Generated Lorepack in Library details. |
 | A130 | `advanced-creator-readiness-gate` | Creator And Generated Lorepack Authoring | Read accepted coverage, draft blockers, Pack Health, and export readiness before finalization. |
 | A131 | `advanced-health-center-open` | Pack Health And Packages | Open Pack Health Center from Library details or a generated pack readiness surface. |
-| A132 | `advanced-health-status` | Pack Health And Packages | Read errors, warnings, notices, entry counts, and manifest health. |
+| A132 | `advanced-health-status` | Pack Health And Packages | Use Refresh Scan, then read errors, warnings, notices, entry counts, and manifest health. |
 | A133 | `advanced-health-issue-groups` | Pack Health And Packages | Inspect grouped health issues by severity, code, affected data, and suggested repair path. |
-| A134 | `advanced-health-attempt-fixing` | Pack Health And Packages | Run Attempt Fixing when editable packs have repairable Pack Health findings. |
-| A135 | `advanced-health-manual-repair` | Pack Health And Packages | Route unresolved issues to review choices, Accept As-Is, or manual edits when Attempt Fixing cannot apply one clear fix. |
+| A134 | `advanced-health-attempt-fixing` | Pack Health And Packages | Run Attempt Fixing for editable packs, then use saved sessions or model batches when the repair is not fully deterministic. |
+| A135 | `advanced-health-manual-repair` | Pack Health And Packages | Use per-issue actions such as Accept As-Is, Verify Fixed, Queue Tag ID Review, or manual edits when Attempt Fixing cannot apply one clear fix. |
 | A136 | `advanced-package-update` | Pack Health And Packages | Update or reinstall packages when a newer or corrected package is available. |
 | A137 | `advanced-package-local-mod-warning` | Pack Health And Packages | Understand local modification warnings before overwriting or updating a package. |
 | A138 | `advanced-package-export-bundled` | Pack Health And Packages | Export Bundled Lorepack references correctly so imports remain lightweight where possible. |

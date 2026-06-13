@@ -12,8 +12,6 @@ import {
 } from './constants.js';
 import { normalizeLoredeckCreatorRegistry } from './lore-creator-state.js';
 import {
-    clearDefaultHpLoredeckFolderStack,
-    migrateLegacyHpLoredeckRegistry,
     normalizeLoredeckRegistry,
 } from './lore-state-normalizers.js';
 import { queuePromptInjectionSync } from './prompt-sync.js';
@@ -24,7 +22,6 @@ import {
 import {
     normalizeSagaStorageFallback,
     normalizeSagaStorageSettings,
-    SAGA_STORAGE_MIGRATION_VERSION,
 } from '../storage/saga-storage-index.js';
 
 const EMPTY_EXTERNALIZED_LOREDECK_LIBRARY = Object.freeze({
@@ -76,10 +73,6 @@ function applyBasicExperienceProfile(settings) {
     return settings;
 }
 
-function isExternalStorageMigrated(settings = {}) {
-    return normalizeSagaStorageSettings(settings?.sagaStorage || {}).migrationVersion === SAGA_STORAGE_MIGRATION_VERSION;
-}
-
 function cloneJson(value) {
     return JSON.parse(JSON.stringify(value ?? null));
 }
@@ -104,7 +97,6 @@ export function getSettings() {
     }
     const { extensionSettings } = ctx;
     const stored = migrateSettingsBucket(extensionSettings) || {};
-    const externalStorageMigrated = isExternalStorageMigrated(stored);
     const merged = { ...DEFAULT_SETTINGS, ...stored };
     merged.collapsedSections = {
         ...(DEFAULT_SETTINGS.collapsedSections || {}),
@@ -116,32 +108,20 @@ export function getSettings() {
     };
     merged.sagaStorage = normalizeSagaStorageSettings(stored.sagaStorage || DEFAULT_SETTINGS.sagaStorage);
     merged.sagaStorageFallback = normalizeSagaStorageFallback(stored.sagaStorageFallback || DEFAULT_SETTINGS.sagaStorageFallback);
-    const storedLoredeckLibrary = externalStorageMigrated
-        ? EMPTY_EXTERNALIZED_LOREDECK_LIBRARY
-        : (stored.loredeckLibrary || DEFAULT_SETTINGS.loredeckLibrary);
-    const storedThemePackLibrary = externalStorageMigrated
-        ? EMPTY_EXTERNALIZED_THEME_PACK_LIBRARY
-        : (stored.themePackLibrary || DEFAULT_SETTINGS.themePackLibrary);
-    const storedThemeIconSetLibrary = externalStorageMigrated
-        ? EMPTY_EXTERNALIZED_ICON_SET_LIBRARY
-        : (stored.themeIconSetLibrary || DEFAULT_SETTINGS.themeIconSetLibrary);
-    const storedCreatorProjects = externalStorageMigrated
-        ? EMPTY_EXTERNALIZED_CREATOR_PROJECTS
-        : (stored.loredeckCreatorProjects || DEFAULT_SETTINGS.loredeckCreatorProjects);
     merged.loredeckLibrary = normalizeLoredeckRegistry(
-        storedLoredeckLibrary,
-        DEFAULT_SETTINGS.loredeckLibrary
+        EMPTY_EXTERNALIZED_LOREDECK_LIBRARY,
+        EMPTY_EXTERNALIZED_LOREDECK_LIBRARY
     );
     merged.themePackLibrary = normalizeThemePackRegistry(
-        storedThemePackLibrary,
-        DEFAULT_SETTINGS.themePackLibrary
+        EMPTY_EXTERNALIZED_THEME_PACK_LIBRARY,
+        EMPTY_EXTERNALIZED_THEME_PACK_LIBRARY
     );
     merged.themeIconSetLibrary = normalizeThemeIconSetRegistry(
-        storedThemeIconSetLibrary,
-        DEFAULT_SETTINGS.themeIconSetLibrary
+        EMPTY_EXTERNALIZED_ICON_SET_LIBRARY,
+        EMPTY_EXTERNALIZED_ICON_SET_LIBRARY
     );
     merged.loredeckCreatorProjects = normalizeLoredeckCreatorRegistry(
-        storedCreatorProjects
+        EMPTY_EXTERNALIZED_CREATOR_PROJECTS
     );
 
     const hasStoredSettings = hasStoredSagaSettings(stored);
@@ -167,22 +147,6 @@ export function getSettings() {
     if (merged.experienceMode === 'basic'
         && Number(stored.basicExperienceProfileVersion || 0) < BASIC_EXPERIENCE_PROFILE_VERSION) {
         applyBasicExperienceProfile(merged);
-    }
-
-    if (stored.hpSplitLoredeckDefaultsMigrated20260605 !== true) {
-        merged.loredeckLibrary = normalizeLoredeckRegistry(
-            migrateLegacyHpLoredeckRegistry(merged.loredeckLibrary),
-            DEFAULT_SETTINGS.loredeckLibrary
-        );
-        merged.hpSplitLoredeckDefaultsMigrated20260605 = true;
-    }
-
-    if (stored.emptyLoredeckStackDefaultsMigrated20260605 !== true) {
-        merged.loredeckLibrary = normalizeLoredeckRegistry({
-            ...(merged.loredeckLibrary || {}),
-            activeStack: clearDefaultHpLoredeckFolderStack(merged.loredeckLibrary?.activeStack),
-        }, DEFAULT_SETTINGS.loredeckLibrary);
-        merged.emptyLoredeckStackDefaultsMigrated20260605 = true;
     }
 
     if (stored.contextAutomationDefaultsMigrated20260606 !== true) {
@@ -307,9 +271,7 @@ export function getSettings() {
         merged.continuityPerformanceDefaultsMigrated20260603 = true;
     }
 
-    extensionSettings[MODULE_KEY] = isExternalStorageMigrated(merged)
-        ? compactExternalizedStorageSettings(cloneJson(merged))
-        : merged;
+    extensionSettings[MODULE_KEY] = compactExternalizedStorageSettings(cloneJson(merged));
     return merged;
 }
 
@@ -325,17 +287,7 @@ export function saveSettings(settings) {
     if (settings && typeof settings === 'object') {
         settings.sagaStorage = normalizeSagaStorageSettings(settings.sagaStorage || DEFAULT_SETTINGS.sagaStorage);
         settings.sagaStorageFallback = normalizeSagaStorageFallback(settings.sagaStorageFallback || DEFAULT_SETTINGS.sagaStorageFallback);
-        if (isExternalStorageMigrated(settings)) {
-            compactExternalizedStorageSettings(settings);
-        } else {
-            settings.loredeckLibrary = normalizeLoredeckRegistry(
-                migrateLegacyHpLoredeckRegistry(settings.loredeckLibrary),
-                DEFAULT_SETTINGS.loredeckLibrary
-            );
-            settings.themePackLibrary = normalizeThemePackRegistry(settings.themePackLibrary, DEFAULT_SETTINGS.themePackLibrary);
-            settings.themeIconSetLibrary = normalizeThemeIconSetRegistry(settings.themeIconSetLibrary, DEFAULT_SETTINGS.themeIconSetLibrary);
-            settings.loredeckCreatorProjects = normalizeLoredeckCreatorRegistry(settings.loredeckCreatorProjects || DEFAULT_SETTINGS.loredeckCreatorProjects);
-        }
+        compactExternalizedStorageSettings(settings);
     }
     extensionSettings[MODULE_KEY] = settings;
     if (typeof saveSettingsDebounced === 'function') {

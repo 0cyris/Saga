@@ -368,6 +368,7 @@ function getLoredeckCreatorProjectSelectedIds(models = getLoredeckCreatorProject
 function createLoredeckCreatorProjectControls(allModels = [], filteredModels = [], shelfCard = null, libraryIndex = getLoredeckLibraryIndexForPacks()) {
     const controls = document.createElement('div');
     controls.className = 'saga-loredeck-creator-project-controls';
+    markTourTarget(controls, 'loredecks.creator.projectControls');
 
     const search = document.createElement('input');
     search.type = 'search';
@@ -612,6 +613,7 @@ function moveLoredeckCreatorProjectsToFolder(jobIds = [], folderId = 'unfiled', 
 function createLoredeckCreatorProjectCard(model = {}, options = {}) {
     const card = document.createElement('div');
     card.className = 'saga-loredeck-creator-project-card';
+    markTourTarget(card, 'loredecks.creator.projectCard');
     if (options.active) card.classList.add('saga-loredeck-creator-project-card-active');
     if (options.selected) card.classList.add('saga-loredeck-creator-project-card-selected');
     addTooltip(card, `Open ${model.title || 'this Creator project'}.`);
@@ -682,13 +684,14 @@ function createLoredeckCreatorProjectCard(model = {}, options = {}) {
 
     const actions = document.createElement('div');
     actions.className = 'saga-loredeck-creator-project-actions';
+    markTourTarget(actions, 'loredecks.creator.projectActions');
     const select = createButton(options.selected ? 'Selected' : 'Select', options.selected ? 'Remove this Creator project from the bulk selection.' : 'Select this Creator project for bulk shelf actions.', () => {
         setLoredeckCreatorProjectSelected(model.jobId, !options.selected);
     }, options.selected ? 'saga-loredeck-creator-project-select-active' : 'saga-loredeck-creator-project-select');
     actions.appendChild(select);
-    actions.appendChild(createButton(model.nextAction?.label || 'Resume', model.nextAction?.tooltip || 'Open this Creator project.', () => {
+    actions.appendChild(markTourTarget(createButton(model.nextAction?.label || 'Resume', model.nextAction?.tooltip || 'Open this Creator project.', () => {
         openLoredeckCreatorProject(model.jobId);
-    }, 'saga-primary-button'));
+    }, 'saga-primary-button'), 'loredecks.creator.projectResume'));
     if (model.generatedPackId) {
         actions.appendChild(createButton('Library', 'Open the linked Generated Loredeck in the Library.', () => {
             selectLoredeckForDetails(model.generatedPackId, { refresh: false });

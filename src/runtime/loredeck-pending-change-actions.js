@@ -10,6 +10,9 @@ import {
     normalizeLoredeckPendingIdList,
 } from './loredeck-pending-change-model.js';
 import {
+    cloneLoredeckJson,
+} from './loredeck-package-helpers.js';
+import {
     doesLoredeckPendingChangeAffectPackHealth,
 } from './loredeck-review-helpers.js';
 
@@ -41,6 +44,50 @@ function setLoredeckCreatorBriefCache(next = {}, options = {}) { return dep('set
 function isLoredeckCreatorPlanningPendingChange(change = {}, batchId = '') { return dep('isLoredeckCreatorPlanningPendingChange', () => false)(change, batchId); }
 function refreshLoredeckCreatorWorkbenchBody(options = {}) { return dep('refreshLoredeckCreatorWorkbenchBody')(options); }
 function refreshHeader() { return dep('refreshHeader')(); }
+
+function getLoredeckPendingChangeDisplayName(change = {}) {
+    return String(change?.title || change?.changeId || 'Pending Loredeck change').trim() || 'Pending Loredeck change';
+}
+
+function getErrorMessage(error) {
+    return String(error?.message || error || '').trim() || 'Unknown error';
+}
+
+function getAcceptableLoredeckPendingChanges(pack = {}, selected = []) {
+    const accepted = [];
+    const failed = [];
+    let probe = cloneLoredeckJson(pack) || { ...(pack || {}) };
+    for (const change of selected || []) {
+        const before = cloneLoredeckJson(probe) || { ...(probe || {}) };
+        try {
+            applyLoredeckRecordPatch(probe, change.payload);
+            accepted.push(change);
+        } catch (error) {
+            probe = before;
+            failed.push({ change, error });
+        }
+    }
+    return { accepted, failed };
+}
+
+function reportLoredeckPendingAcceptFailures(failed = [], acceptedCount = 0) {
+    if (!failed.length) return;
+    const first = failed[0] || {};
+    const firstName = getLoredeckPendingChangeDisplayName(first.change);
+    const firstError = getErrorMessage(first.error);
+    const skipped = failed.length === 1
+        ? `"${firstName}" could not be applied: ${firstError}`
+        : `${failed.length} pending Loredeck changes could not be applied. First failure: "${firstName}" (${firstError})`;
+    const suffix = acceptedCount
+        ? ` Accepted ${acceptedCount} other change${acceptedCount === 1 ? '' : 's'}; skipped item${failed.length === 1 ? '' : 's'} remain in Pending Review.`
+        : ` No changes were accepted; skipped item${failed.length === 1 ? '' : 's'} remain in Pending Review.`;
+    console.warn('[Saga] Pending Loredeck change acceptance skipped invalid payloads:', failed.map(item => ({
+        changeId: item.change?.changeId,
+        title: item.change?.title,
+        error: getErrorMessage(item.error),
+    })));
+    toast(`${skipped}.${suffix}`, acceptedCount ? 'warning' : 'error');
+}
 
 export function queueLoredeckPendingChange(pack, change, message = '') {
     const pendingChange = normalizeLoredeckPendingChanges([change])[0];
@@ -112,15 +159,21 @@ export async function acceptLoredeckPendingChanges(pack, changeIds = []) {
         toast('No pending Loredeck changes selected.', 'warning');
         return false;
     }
-    const affectsHealth = selected.some(change => doesLoredeckPendingChangeAffectPackHealth(change));
+    const acceptance = getAcceptableLoredeckPendingChanges(freshPack, selected);
+    const acceptedChanges = acceptance.accepted;
+    if (!acceptedChanges.length) {
+        reportLoredeckPendingAcceptFailures(acceptance.failed, 0);
+        return false;
+    }
+    const affectsHealth = acceptedChanges.some(change => doesLoredeckPendingChangeAffectPackHealth(change));
     const shouldReportStaleHealth = affectsHealth && canValidateLoredeckInEditor(freshPack);
-    const selectedCreatorPlanningBatchIds = selected
+    const selectedCreatorPlanningBatchIds = acceptedChanges
         .filter(change => String(change.source || '').trim() === 'loredeck_creator' && ['timeline_anchor', 'timeline_window', 'tag'].includes(change.targetKind))
         .map(change => normalizeLoredeckCreatorTitleId(change.preview?.creatorPlanningBatch?.id || '', ''))
         .filter(Boolean);
     const accepted = persistLoredeckLibraryRecordMutation(freshPack, next => {
         const current = normalizeLoredeckPendingChanges(next.pendingChanges);
-        const selectedIds = new Set(selected.map(change => change.changeId));
+        const selectedIds = new Set(acceptedChanges.map(change => change.changeId));
         for (const change of current) {
             if (!selectedIds.has(change.changeId)) continue;
             applyLoredeckRecordPatch(next, change.payload);
@@ -129,10 +182,13 @@ export async function acceptLoredeckPendingChanges(pack, changeIds = []) {
         if (isGeneratedLoredeckPack(next)) refreshGeneratedLoredeckDerivedMetadata(next);
         if (affectsHealth) next.healthStatus = 'stale';
     }, shouldReportStaleHealth
-        ? `Accepted ${selected.length} pending Loredeck change${selected.length === 1 ? '' : 's'}. Pack Health marked stale.`
-        : `Accepted ${selected.length} pending Loredeck change${selected.length === 1 ? '' : 's'}.`, {
+        ? `Accepted ${acceptedChanges.length} pending Loredeck change${acceptedChanges.length === 1 ? '' : 's'}. Pack Health marked stale.`
+        : `Accepted ${acceptedChanges.length} pending Loredeck change${acceptedChanges.length === 1 ? '' : 's'}.`, {
         errorMessage: 'Pending Loredeck change acceptance failed.',
     });
+    if (accepted && acceptance.failed.length) {
+        reportLoredeckPendingAcceptFailures(acceptance.failed, acceptedChanges.length);
+    }
     if (accepted && selectedCreatorPlanningBatchIds.length) {
         const cached = getLoredeckCreatorBriefCache();
         if (cached.generatedPackId === pack.packId) {
@@ -151,7 +207,7 @@ export async function acceptLoredeckPendingChanges(pack, changeIds = []) {
         }
     }
     if (accepted && affectsHealth) {
-        await refreshLoredeckHealthAfterAcceptedPendingChanges(pack, selected.length);
+        await refreshLoredeckHealthAfterAcceptedPendingChanges(pack, acceptedChanges.length);
     }
     if (accepted) {
         refreshLoredeckCreatorWorkbenchBody({ preserveScroll: true });

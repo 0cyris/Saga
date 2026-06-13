@@ -13,7 +13,7 @@ import {
 
 export const SAGA_STORAGE_INDEX_SCHEMA_VERSION = 1;
 export const SAGA_STORAGE_INDEX_KIND = 'saga_storage_index';
-export const SAGA_STORAGE_MIGRATION_VERSION = 'external-files-v1';
+export const SAGA_STORAGE_VERSION = 'external-files-v1';
 export const SAGA_STORAGE_INDEX_FILE_NAME = buildSagaIndexStorageFileName('storage');
 export const SAGA_STORAGE_INDEX_PATH = toSagaUserFilesPath(SAGA_STORAGE_INDEX_FILE_NAME, {
     allowedExtensions: [SAGA_STORAGE_JSON_EXTENSION],
@@ -308,14 +308,13 @@ export function createDefaultSagaStorageSettings(options = {}) {
     return {
         schemaVersion: SAGA_STORAGE_INDEX_SCHEMA_VERSION,
         enabled: options.enabled !== false,
+        storageVersion: normalizeString(options.storageVersion || SAGA_STORAGE_VERSION, 80),
         masterIndexFile: SAGA_STORAGE_INDEX_PATH,
         libraryIndexFile: SAGA_STORAGE_DOMAIN_INDEX_FILES.library,
         creatorIndexFile: SAGA_STORAGE_DOMAIN_INDEX_FILES.creator,
         themeIndexFile: SAGA_STORAGE_DOMAIN_INDEX_FILES.themes,
         iconSetIndexFile: SAGA_STORAGE_DOMAIN_INDEX_FILES.iconSets,
         lastVerifiedAt: normalizeTimestamp(options.lastVerifiedAt, 0),
-        lastMigrationAt: normalizeTimestamp(options.lastMigrationAt, 0),
-        migrationVersion: normalizeString(options.migrationVersion || '', 80),
     };
 }
 
@@ -325,14 +324,13 @@ export function normalizeSagaStorageSettings(value = {}) {
     return {
         schemaVersion: SAGA_STORAGE_INDEX_SCHEMA_VERSION,
         enabled: raw.enabled !== false,
+        storageVersion: normalizeString(raw.storageVersion || SAGA_STORAGE_VERSION, 80),
         masterIndexFile: normalizeStoragePath(raw.masterIndexFile, defaults.masterIndexFile),
         libraryIndexFile: normalizeStoragePath(raw.libraryIndexFile, defaults.libraryIndexFile),
         creatorIndexFile: normalizeStoragePath(raw.creatorIndexFile, defaults.creatorIndexFile),
         themeIndexFile: normalizeStoragePath(raw.themeIndexFile, defaults.themeIndexFile),
         iconSetIndexFile: normalizeStoragePath(raw.iconSetIndexFile, defaults.iconSetIndexFile),
         lastVerifiedAt: normalizeTimestamp(raw.lastVerifiedAt, 0),
-        lastMigrationAt: normalizeTimestamp(raw.lastMigrationAt, 0),
-        migrationVersion: normalizeString(raw.migrationVersion || '', 80),
     };
 }
 
@@ -380,7 +378,7 @@ export function getSagaStorageBootstrapFromIndex(index = {}, options = {}) {
         themeIndexFile: normalized.domains.themes?.indexFile,
         iconSetIndexFile: normalized.domains.iconSets?.indexFile,
         lastVerifiedAt: normalized.lastIntegrityCheck?.checkedAt || 0,
-        migrationVersion: options.migrationVersion || '',
+        storageVersion: options.storageVersion || SAGA_STORAGE_VERSION,
     });
 }
 

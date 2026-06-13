@@ -6,7 +6,15 @@ import {
 } from '../../src/runtime/loredeck-pending-change-actions.js';
 import {
   createLoredeckRecordPatchChange,
+  configureLoredeckPendingChangeModel,
 } from '../../src/runtime/loredeck-pending-change-model.js';
+
+configureLoredeckPendingChangeModel({
+  normalizeLoredeckPatchEntryOverride: (_record, rawEntry, id) => {
+    if (id === 'broken-entry') throw new Error('Broken entry payload');
+    return rawEntry;
+  },
+});
 
 const pendingChange = createLoredeckRecordPatchChange({
   source: 'test',
@@ -29,16 +37,38 @@ const pendingChange = createLoredeckRecordPatchChange({
   },
 });
 
+const badChange = createLoredeckRecordPatchChange({
+  source: 'test',
+  action: 'upsert_entry',
+  targetKind: 'entry',
+  title: 'Broken pending payload',
+  affectedEntryIds: ['broken-entry'],
+  payload: {
+    entryOverrides: {
+      'broken-entry': {
+        id: 'broken-entry',
+        title: 'Broken entry',
+        schemaVersion: 3,
+      },
+    },
+  },
+});
+
 let currentPack = {
   packId: 'pending-review-health-pack',
   type: 'custom',
   title: 'Pending Review Health Pack',
-  pendingChanges: [pendingChange],
+  pendingChanges: [pendingChange, badChange],
   entryOverrides: {},
 };
 const toasts = [];
 const persistMessages = [];
 let validationCalls = 0;
+const consoleWarnings = [];
+const originalConsoleWarn = console.warn;
+console.warn = (...args) => {
+  consoleWarnings.push(args);
+};
 
 configureLoredeckPendingChangeActions({
   toast: (message, type) => {
@@ -84,14 +114,24 @@ configureLoredeckPendingChangeActions({
   refreshHeader: () => {},
 });
 
-assert.equal(await acceptLoredeckPendingChanges(currentPack, [pendingChange.changeId]), true);
+assert.equal(await acceptLoredeckPendingChanges(currentPack, [pendingChange.changeId, badChange.changeId]), true);
 assert.equal(validationCalls, 1);
-assert.equal(currentPack.pendingChanges.length, 0);
+assert.deepEqual(currentPack.pendingChanges.map(change => change.changeId), [badChange.changeId]);
 assert.equal(currentPack.entryOverrides['nami-pressure'].title, 'Nami pressure');
 assert.ok(persistMessages.some(message => message.includes('Pack Health marked stale.')));
+assert.ok(toasts.some(item => item.type === 'warning' && item.message.includes('Broken pending payload') && item.message.includes('remain in Pending Review')));
 assert.deepEqual(toasts.at(-1), {
   message: 'Accepted 1 change and refreshed Pack Health: has_errors (1 error, 0 warnings). Open Pack Health Center for grouped findings.',
   type: 'error',
 });
+
+assert.equal(await acceptLoredeckPendingChanges(currentPack, [badChange.changeId]), false);
+assert.deepEqual(currentPack.pendingChanges.map(change => change.changeId), [badChange.changeId]);
+assert.equal(validationCalls, 1);
+assert.ok(toasts.at(-1).message.includes('Broken pending payload'));
+assert.equal(toasts.at(-1).type, 'error');
+assert.equal(consoleWarnings.length, 2);
+
+console.warn = originalConsoleWarn;
 
 console.log('Loredeck Pending Review health refresh tests passed.');

@@ -1058,6 +1058,7 @@ function createLoredeckCreatorTitlePassActions(brief = {}, cached = {}, context 
         : getLoredeckCreatorSelectedTitleDrafts(cached).filter(draft => getLoredeckCreatorApprovedTitleIds(cached).has(draft.titleId)).length;
     const actions = document.createElement('div');
     actions.className = 'saga-primary-actions';
+    markTourTarget(actions, 'loredecks.creator.titleActions');
     const draftNext = createButton(nextTitleBatch ? 'Generate Next Title Batch' : 'Title Batches Complete', nextTitleBatch ? 'Generate the next undrafted title batch from the approved Story Outline.' : 'Every planned title batch has already been drafted.', async (btn) => {
         const fresh = getLoredeckCreatorBriefCache();
         const draftInputs = getLoredeckCreatorDraftInputs();
@@ -1069,7 +1070,7 @@ function createLoredeckCreatorTitlePassActions(brief = {}, cached = {}, context 
         }, btn);
     }, 'saga-primary-button');
     draftNext.disabled = !nextTitleBatch;
-    actions.appendChild(lockLoredeckCreatorGenerationButton(draftNext, cached, 'title set draft'));
+    actions.appendChild(markTourTarget(lockLoredeckCreatorGenerationButton(draftNext, cached, 'title set draft'), 'loredecks.creator.generateNextTitleBatch'));
 
     const titleRunLimit = Number.isFinite(Number(generationSettings.titleRunRemainingLimit))
         ? Number(generationSettings.titleRunRemainingLimit)
@@ -1081,14 +1082,14 @@ function createLoredeckCreatorTitlePassActions(brief = {}, cached = {}, context 
         await handleLoredeckCreatorRemainingTitleBatches(btn);
     });
     generateRemaining.disabled = !remainingTitleBatches.length;
-    actions.appendChild(lockLoredeckCreatorGenerationButton(generateRemaining, cached, 'remaining title batches'));
+    actions.appendChild(markTourTarget(lockLoredeckCreatorGenerationButton(generateRemaining, cached, 'remaining title batches'), 'loredecks.creator.generateRemainingTitleBatches'));
 
     const approveSelected = createButton('Approve Selected Titles', 'Approve selected title drafts for the next Creator stage.', () => {
         approveLoredeckCreatorTitleSelection(getLoredeckCreatorSelectedTitleIds(getLoredeckCreatorBriefCache()));
     });
     approveSelected.dataset.sagaCreatorTitleAction = 'approve-selected';
     approveSelected.disabled = !selectedCount;
-    actions.appendChild(approveSelected);
+    actions.appendChild(markTourTarget(approveSelected, 'loredecks.creator.approveSelectedTitles'));
 
     const unapproveSelected = createButton('Unapprove Selected', 'Remove selected title drafts from the approved set.', () => {
         unapproveLoredeckCreatorTitleSelection(getLoredeckCreatorSelectedTitleIds(getLoredeckCreatorBriefCache()));
@@ -1139,6 +1140,7 @@ function createLoredeckCreatorTitleRevisionForm(brief = {}, cached = {}, context
     const selectedCount = Number.isFinite(Number(context.selectedCount)) ? Number(context.selectedCount) : getLoredeckCreatorSelectedTitleDrafts(cached).length;
     const reviseForm = document.createElement('div');
     reviseForm.className = 'saga-new-lore-form saga-loredeck-creator-revise-form';
+    markTourTarget(reviseForm, 'loredecks.creator.titleRevision');
     const reviseInput = createLoredeckCreatorTitleRevisionInput(reviseForm, getLoredeckCreatorTitleRevisionInstruction());
     const reviseActions = document.createElement('div');
     reviseActions.className = 'saga-primary-actions';
@@ -1156,7 +1158,7 @@ function createLoredeckCreatorTitleRevisionForm(brief = {}, cached = {}, context
     });
     reviseButton.dataset.sagaCreatorTitleAction = 'revise-selected';
     reviseButton.disabled = !selectedCount;
-    reviseActions.appendChild(lockLoredeckCreatorGenerationButton(reviseButton, cached, 'title revision'));
+    reviseActions.appendChild(markTourTarget(lockLoredeckCreatorGenerationButton(reviseButton, cached, 'title revision'), 'loredecks.creator.reviseSelectedTitles'));
     reviseForm.appendChild(reviseActions);
     appendLoredeckCreatorGenerationStatus(reviseForm, cached, ['title_revision']);
     return reviseForm;
@@ -1347,6 +1349,7 @@ export function createLoredeckCreatorPlanningCard(brief = {}, cached = {}) {
 
     const actions = document.createElement('div');
     actions.className = 'saga-primary-actions';
+    markTourTarget(actions, 'loredecks.creator.planningActions');
     const draftButton = createButton(
         nextPlanningBatch ? 'Plan Context and Tags' : (pendingPlanningCount ? 'Review Context and Tags' : 'Context Plans Complete'),
         nextPlanningBatch
@@ -1366,7 +1369,7 @@ export function createLoredeckCreatorPlanningCard(brief = {}, cached = {}) {
         'saga-primary-button'
     );
     draftButton.disabled = !nextPlanningBatch && !pendingPlanningCount;
-    actions.appendChild(lockLoredeckCreatorGenerationButton(draftButton, cached, 'context/tag plan'));
+    actions.appendChild(markTourTarget(lockLoredeckCreatorGenerationButton(draftButton, cached, 'context/tag plan'), 'loredecks.creator.planContextTags'));
     if (generatedPack) {
         actions.appendChild(createButton('Inspect in Library', 'Open the Generated Loredeck in the fullscreen Loredeck Library details panel.', () => {
             openLoredeckLibraryDetails(generatedPack.packId);
@@ -1696,11 +1699,12 @@ export function createLoredeckCreatorEntryDraftCard(brief = {}, cached = {}) {
 
     const actions = document.createElement('div');
     actions.className = 'saga-primary-actions';
+    markTourTarget(actions, 'loredecks.creator.entryActions');
     const draftButton = createButton('Draft Lorecards', 'Generate the next small schema v3 Lorecard set for approved titles that are not accepted, pending, or already drafted.', async (btn) => {
         await handleLoredeckCreatorEntryDraft(btn);
     }, 'saga-primary-button');
     draftButton.disabled = !canDraftEntries;
-    actions.appendChild(lockLoredeckCreatorGenerationButton(draftButton, cached, 'Lorecard batch draft'));
+    actions.appendChild(markTourTarget(lockLoredeckCreatorGenerationButton(draftButton, cached, 'Lorecard batch draft'), 'loredecks.creator.draftLorecards'));
 
     const entryBatchSize = Number.isFinite(Number(generationSettings.entryBatchSize))
         ? Number(generationSettings.entryBatchSize)
@@ -1726,7 +1730,7 @@ export function createLoredeckCreatorEntryDraftCard(brief = {}, cached = {}) {
         await handleLoredeckCreatorEntryDraft(btn, { maxBatches: callCount, bypassRunLimit: true });
     });
     multiBatchButton.disabled = !canDraftEntries || (progress?.remainingCount || 0) <= 0;
-    actions.appendChild(lockLoredeckCreatorGenerationButton(multiBatchButton, cached, 'Lorecard batch draft'));
+    actions.appendChild(markTourTarget(lockLoredeckCreatorGenerationButton(multiBatchButton, cached, 'Lorecard batch draft'), 'loredecks.creator.autoDraftAll'));
     if (generatedPack) {
         actions.appendChild(createButton('Inspect in Library', 'Open the Generated Loredeck in the fullscreen Loredeck Library details panel.', () => {
             openLoredeckLibraryDetails(generatedPack.packId);
@@ -1834,24 +1838,25 @@ function createLoredeckCreatorReadinessHealthActions(pack = {}, readiness = {}) 
     if (!pack?.packId) return null;
     const actions = document.createElement('div');
     actions.className = 'saga-primary-actions';
+    markTourTarget(actions, 'loredecks.creator.readinessHealthActions');
     const runButton = createButton('Run Pack Health', 'Refresh Pack Health for this Generated Loredeck.', async (btn) => {
         await validateLoredeckForEditor(pack, btn);
         refreshRuntimePanelBody({ preserveScroll: true, preserveWindowScroll: true });
         queueLoredeckCreatorWorkbenchRefresh();
         refreshRuntimeHeader();
     }, 'saga-primary-button');
-    actions.appendChild(runButton);
-    actions.appendChild(createButton('Open Pack Health Center', 'Open Pack Health issues for this Generated Loredeck.', () => {
+    actions.appendChild(markTourTarget(runButton, 'loredecks.creator.runPackHealth'));
+    actions.appendChild(markTourTarget(createButton('Open Pack Health Center', 'Open Pack Health issues for this Generated Loredeck.', () => {
         openLoredeckHealthCenter(pack.packId, { tab: getLoredeckCreatorReadinessHealthTab(readiness) });
-    }));
+    }), 'loredecks.creator.openPackHealthCenter'));
     const issueCount = getLoredeckCreatorReadinessIssueCount(readiness);
     if (issueCount > 0 && pack.type !== 'bundled') {
-        actions.appendChild(createButton('Attempt Fixing', 'Apply deterministic fixes and save remaining model or review work for this Generated Loredeck.', async (btn) => {
+        actions.appendChild(markTourTarget(createButton('Attempt Fixing', 'Apply deterministic fixes and save remaining model or review work for this Generated Loredeck.', async (btn) => {
             await attemptLoredeckHealthFixes(pack, btn);
             refreshRuntimePanelBody({ preserveScroll: true, preserveWindowScroll: true });
             queueLoredeckCreatorWorkbenchRefresh();
             refreshRuntimeHeader();
-        }));
+        }), 'loredecks.creator.attemptHealthFixing'));
     }
     return actions;
 }
@@ -1863,7 +1868,7 @@ export function createLoredeckCreatorPipelineReadinessCard(pack = {}, cached = n
     const pipeline = view.pipeline || readiness.pipeline || {};
     const wrap = document.createElement('div');
     wrap.className = 'saga-loredeck-creator-brief saga-loredeck-generated-readiness saga-loredeck-creator-pipeline-readiness';
-    markTourTarget(wrap, 'loredecks.creator.pipeline');
+    markTourTarget(wrap, 'loredecks.creator.readiness');
     wrap.dataset.sagaCreatorAnchor = 'finalize';
 
     const title = document.createElement('div');
@@ -1901,17 +1906,18 @@ export function createLoredeckCreatorPipelineReadinessCard(pack = {}, cached = n
     if (pipeline.coverage?.finalizeAcknowledgementRequired) {
         const actions = document.createElement('div');
         actions.className = 'saga-primary-actions';
-        actions.appendChild(createButton('Open Coverage Plan', 'Review and expand missing or thin Creator Coverage rows before finalization.', () => {
+        markTourTarget(actions, 'loredecks.creator.finalizeActions');
+        actions.appendChild(markTourTarget(createButton('Open Coverage Plan', 'Review and expand missing or thin Creator Coverage rows before finalization.', () => {
             scrollLoredeckCreatorWorkbenchToAnchor('coverage-plan');
-        }, 'saga-primary-button'));
-        actions.appendChild(createButton('Finalize Anyway', 'Record that this scope is intentionally light despite unresolved Creator Coverage rows.', async (btn) => {
+        }, 'saga-primary-button'), 'loredecks.creator.openCoveragePlan'));
+        actions.appendChild(markTourTarget(createButton('Finalize Anyway', 'Record that this scope is intentionally light despite unresolved Creator Coverage rows.', async (btn) => {
             btn.disabled = true;
             try {
                 await acknowledgeLoredeckCreatorCoverageForFinalize();
             } finally {
                 btn.disabled = false;
             }
-        }, 'saga-primary-button'));
+        }, 'saga-primary-button'), 'loredecks.creator.finalizeAnyway'));
         wrap.appendChild(actions);
     }
     return wrap;

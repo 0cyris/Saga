@@ -2,9 +2,6 @@ import assert from 'node:assert/strict';
 
 import { MODULE_KEY } from '../../src/state/constants.js';
 import {
-  SAGA_STORAGE_MIGRATION_VERSION,
-} from '../../src/storage/saga-storage-index.js';
-import {
   getSettings,
   saveSettings,
 } from '../../src/state/settings-store.js';
@@ -26,7 +23,7 @@ const extensionSettings = {
     themePackId: 'external-theme',
     themeIconSetId: 'external-icons',
     sagaStorage: {
-      migrationVersion: SAGA_STORAGE_MIGRATION_VERSION,
+      storageVersion: 'external-files-v1',
     },
     sagaStorageFallback: {},
     loredeckLibrary: {
@@ -118,7 +115,7 @@ function serializedStoredSettings() {
 
 function assertStoredSettingsCompact(label) {
   const stored = extensionSettings[MODULE_KEY];
-  assert.equal(stored.sagaStorage.migrationVersion, SAGA_STORAGE_MIGRATION_VERSION, `${label}: migration marker should survive compaction.`);
+  assert.equal(stored.sagaStorage.storageVersion, 'external-files-v1', `${label}: storage version should survive compaction.`);
   assert.deepEqual(stored.loredeckLibrary.packs, {}, `${label}: Loredeck Library rows should stay external.`);
   assert.deepEqual(stored.loredeckLibrary.folders, [], `${label}: Library folders should stay external.`);
   assert.deepEqual(stored.loredeckLibrary.deckPlacements, [], `${label}: Library placements should stay external.`);
@@ -131,10 +128,10 @@ function assertStoredSettingsCompact(label) {
 }
 
 const settings = getSettings();
-assert.equal(settings.loredeckLibrary.packs.polluting, undefined, 'Migrated reads should ignore stale settings-backed Lorepack payload rows.');
-assert.equal(settings.loredeckCreatorProjects.jobs.polluting_creator, undefined, 'Migrated reads should ignore stale settings-backed Creator project payloads.');
-assert.equal(settings.themePackLibrary.packs['external-theme'], undefined, 'Migrated reads should ignore stale settings-backed Theme Pack payloads.');
-assert.equal(settings.themeIconSetLibrary.iconSets['external-icons'], undefined, 'Migrated reads should ignore stale settings-backed Icon Set payloads.');
+assert.equal(settings.loredeckLibrary.packs.polluting, undefined, 'Settings reads should ignore unsupported settings-backed Lorepack payload rows.');
+assert.equal(settings.loredeckCreatorProjects.jobs.polluting_creator, undefined, 'Settings reads should ignore unsupported settings-backed Creator project payloads.');
+assert.equal(settings.themePackLibrary.packs['external-theme'], undefined, 'Settings reads should ignore unsupported settings-backed Theme Pack payloads.');
+assert.equal(settings.themeIconSetLibrary.iconSets['external-icons'], undefined, 'Settings reads should ignore unsupported settings-backed Icon Set payloads.');
 assert.equal(settings.themePackId, 'external-theme', 'Active Theme Pack ID remains compact control-plane state.');
 assert.equal(settings.themeIconSetId, 'external-icons', 'Active Icon Set ID remains compact control-plane state.');
 assertStoredSettingsCompact('getSettings');

@@ -4276,14 +4276,22 @@ function resolveLoredeckAssetPath(pack = {}, assetPath = '') {
     return base ? normalizePassiveAssetPath(`${base}${path}`) : path;
 }
 
-function getLoredeckAssetRef(pack = {}, key = 'cover') {
+export function getLoredeckAssetRef(pack = {}, key = 'cover') {
     const assets = pack.assets && typeof pack.assets === 'object' && !Array.isArray(pack.assets) ? pack.assets : {};
     const manifestAssets = pack.manifestData?.assets && typeof pack.manifestData.assets === 'object' && !Array.isArray(pack.manifestData.assets)
         ? pack.manifestData.assets
         : {};
     const raw = assets[key]
         || manifestAssets[key]
-        || (key === 'cover' ? assets.deckCover || manifestAssets.deckCover || pack.cover || pack.coverImage : null);
+        || (key === 'cover'
+            ? assets.deckCover
+                || manifestAssets.deckCover
+                || pack.assetRefs?.cover
+                || pack.coverFile
+                || pack.coverPath
+                || pack.cover
+                || pack.coverImage
+            : null);
     const asset = normalizeAssetRef(raw);
     if (!asset) return null;
     const resolvedPath = resolveLoredeckAssetPath(pack, asset.path);

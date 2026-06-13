@@ -237,6 +237,24 @@ const repairChange = createLoredeckRecordPatchChange({
   },
 });
 
+const secondChange = createLoredeckRecordPatchChange({
+  source: 'loredeck_creator',
+  action: 'upsert_entry',
+  targetKind: 'entry',
+  title: 'Accept Nami village pressure',
+  description: 'Adds one more Creator Lorecard pending review item.',
+  affectedEntryIds: ['nami-village-pressure'],
+  payload: {
+    entryOverrides: {
+      'nami-village-pressure': {
+        ...currentEntry,
+        id: 'nami-village-pressure',
+        title: 'Nami village pressure',
+      },
+    },
+  },
+});
+
 const pack = {
   packId: 'pending-review-schema-v3-repair-pack',
   type: 'generated',
@@ -245,11 +263,13 @@ const pack = {
     'nami-secret': currentEntry,
   },
   disabledEntryIds: [],
-  pendingChanges: [repairChange],
+  pendingChanges: [repairChange, secondChange],
   healthStatus: 'needs_review',
 };
 
 let healthCenterCall = null;
+const acceptCalls = [];
+const rejectCalls = [];
 
 configureLoredeckPendingReviewPanel({
   getLoredeckPendingChanges,
@@ -271,8 +291,14 @@ configureLoredeckPendingReviewPanel({
   createStateBackup: () => {},
   confirmAction: async () => true,
   runBusyAction: async (_button, _label, action) => action(),
-  acceptLoredeckPendingChanges: async () => true,
-  rejectLoredeckPendingChanges: () => true,
+  acceptLoredeckPendingChanges: async (targetPack, changeIds) => {
+    acceptCalls.push({ packId: targetPack.packId, changeIds });
+    return true;
+  },
+  rejectLoredeckPendingChanges: (targetPack, changeIds) => {
+    rejectCalls.push({ packId: targetPack.packId, changeIds });
+    return true;
+  },
   validateLoredeckForEditor: async () => null,
   canValidateLoredeckInEditor: () => true,
   openLoredeckHealthCenter: (packId, options) => {
@@ -289,6 +315,32 @@ assert.ok(card.textContent.includes('Pack Health: Review'));
 assert.ok(card.textContent.includes('Open Pack Health Center'));
 assert.ok(card.querySelector('.saga-loredeck-pending-repair-candidate-list'));
 assert.deepEqual(normalizeLoredeckPendingIdList(repairChange.affectedEntryIds), ['nami-secret']);
+
+await card.querySelectorAll('button').find(button => button.textContent === 'Accept All')?.click();
+assert.deepEqual(acceptCalls.at(-1), {
+  packId: pack.packId,
+  changeIds: [repairChange.changeId, secondChange.changeId],
+});
+
+await card.querySelectorAll('button').find(button => button.textContent === 'Reject All')?.click();
+assert.deepEqual(rejectCalls.at(-1), {
+  packId: pack.packId,
+  changeIds: [repairChange.changeId, secondChange.changeId],
+});
+
+const rowAcceptButtons = card.querySelectorAll('button').filter(button => button.textContent === 'Accept');
+await rowAcceptButtons.at(-1)?.click();
+assert.deepEqual(acceptCalls.at(-1), {
+  packId: pack.packId,
+  changeIds: [secondChange.changeId],
+});
+
+const rowRejectButtons = card.querySelectorAll('button').filter(button => button.textContent === 'Reject');
+await rowRejectButtons.at(-1)?.click();
+assert.deepEqual(rejectCalls.at(-1), {
+  packId: pack.packId,
+  changeIds: [secondChange.changeId],
+});
 
 await card.querySelectorAll('button').find(button => button.textContent === 'Open Pack Health Center')?.click();
 assert.deepEqual(healthCenterCall, {

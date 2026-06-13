@@ -12,7 +12,7 @@ import path from 'node:path';
 import {
   SAGA_STORAGE_DOMAIN_INDEX_FILES,
   SAGA_STORAGE_INDEX_PATH,
-  SAGA_STORAGE_MIGRATION_VERSION,
+  SAGA_STORAGE_VERSION,
 } from '../../src/storage/saga-storage-index.js';
 import {
   SAGA_DOMAIN_STORAGE_CONFIGS,
@@ -653,8 +653,7 @@ async function main() {
   const trackedPaths = new Set(Object.keys(masterIndex?.files || {}));
   context.trackedPaths = trackedPaths;
   context.masterFiles = isPlainObject(masterIndex?.files) ? masterIndex.files : {};
-  const migrationVersion = String(saga?.sagaStorage?.migrationVersion || '');
-  const externalFilesExist = sagaFiles.length > 0 || !!masterIndex;
+  const storageVersion = String(saga?.sagaStorage?.storageVersion || '');
   const libraryPacks = saga?.loredeckLibrary?.packs || {};
   const creatorJobs = saga?.loredeckCreatorProjects?.jobs || {};
   const themePacks = saga?.themePackLibrary?.packs || {};
@@ -670,8 +669,8 @@ async function main() {
       bytes: await statBytes(settingsPath),
       sagaBytes: jsonBytes(saga),
       sagaKeyCount: countObject(saga),
-      migrationVersion,
-      expectedMigrationVersion: SAGA_STORAGE_MIGRATION_VERSION,
+      storageVersion,
+      expectedStorageVersion: SAGA_STORAGE_VERSION,
       compactShells: {
         loredeckLibraryPackCount: countObject(libraryPacks),
         loredeckLibraryPackTypes: countByType(libraryPacks),
@@ -704,26 +703,17 @@ async function main() {
     errors,
   };
 
-  if (externalFilesExist && migrationVersion !== SAGA_STORAGE_MIGRATION_VERSION) {
-    addIssue(errors, 'missing_storage_migration_marker', 'Saga external files exist, but settings migrationVersion is not external-files-v1; ordinary settings saves may re-expand storage-backed registries.', {
-      migrationVersion,
-      expected: SAGA_STORAGE_MIGRATION_VERSION,
+  if (storageVersion && storageVersion !== SAGA_STORAGE_VERSION) {
+    addIssue(errors, 'unsupported_storage_version', 'Saga settings declare an unsupported storageVersion.', {
+      storageVersion,
+      expected: SAGA_STORAGE_VERSION,
     });
   }
 
-  if (migrationVersion === SAGA_STORAGE_MIGRATION_VERSION) {
-    if (countObject(libraryPacks)) addIssue(errors, 'settings_library_not_compact', 'Migrated settings still contain Loredeck Library pack records.', { count: countObject(libraryPacks) });
-    if (countObject(creatorJobs)) addIssue(errors, 'settings_creator_not_compact', 'Migrated settings still contain Creator project jobs.', { count: countObject(creatorJobs) });
-    if (countObject(themePacks)) addIssue(errors, 'settings_themes_not_compact', 'Migrated settings still contain Theme Pack records.', { count: countObject(themePacks) });
-    if (countObject(iconSets)) addIssue(errors, 'settings_iconsets_not_compact', 'Migrated settings still contain Icon Set records.', { count: countObject(iconSets) });
-  } else if (countObject(libraryPacks) || countObject(creatorJobs) || countObject(themePacks) || countObject(iconSets)) {
-    addIssue(warnings, 'settings_compaction_pending', 'Settings still contain registry shells because the external storage migration marker is not set.', {
-      loredeckLibraryPackCount: countObject(libraryPacks),
-      creatorJobCount: countObject(creatorJobs),
-      themePackCount: countObject(themePacks),
-      iconSetCount: countObject(iconSets),
-    });
-  }
+  if (countObject(libraryPacks)) addIssue(errors, 'unsupported_settings_backed_library', 'Settings contain unsupported settings-backed Loredeck Library pack records. Reset Saga storage instead of migrating them.', { count: countObject(libraryPacks) });
+  if (countObject(creatorJobs)) addIssue(errors, 'unsupported_settings_backed_creator', 'Settings contain unsupported settings-backed Creator project jobs. Reset Saga storage instead of migrating them.', { count: countObject(creatorJobs) });
+  if (countObject(themePacks)) addIssue(errors, 'unsupported_settings_backed_themes', 'Settings contain unsupported settings-backed Theme Pack records. Reset Saga storage instead of migrating them.', { count: countObject(themePacks) });
+  if (countObject(iconSets)) addIssue(errors, 'unsupported_settings_backed_iconsets', 'Settings contain unsupported settings-backed Icon Set records. Reset Saga storage instead of migrating them.', { count: countObject(iconSets) });
 
   for (const hit of heavyHits) {
     addIssue(errors, 'heavy_payload_in_settings', 'Settings contain a heavy Saga payload field.', hit);
