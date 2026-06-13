@@ -211,6 +211,7 @@ configureLoredeckLibraryPanel({
     latestLifecyclePanelPack = hydratedPack;
     return hydratedPack;
   },
+  flushLoredeckPayloadWrites: flushSagaLorepackPayloadStorageWrites,
   persistLoredeckLibraryRecordMutation: (pack, mutator) => {
     const next = JSON.parse(JSON.stringify(pack));
     mutator(next);
@@ -224,7 +225,6 @@ const lifecycleReplaceOk = await __loredeckLibraryPanelTestHooks.saveLoredeckCov
   alt: 'New lifecycle cover',
 });
 assert.equal(lifecycleReplaceOk, true);
-assert.equal((await flushSagaLorepackPayloadStorageWrites()).ok, true);
 const lifecycleStoredReplacement = JSON.parse(stored.get(lifecycleInitial.payload.payloadFile));
 const lifecycleNewCover = lifecycleStoredReplacement.assets.cover.path;
 assert.notEqual(lifecycleNewCover, lifecycleOldCover);
@@ -236,7 +236,6 @@ assert.equal(JSON.parse(stored.get(SAGA_STORAGE_INDEX_PATH)).files[lifecycleOldC
 
 const lifecycleRemoveOk = await __loredeckLibraryPanelTestHooks.saveLoredeckCoverImageAsset('cover-lifecycle', null);
 assert.equal(lifecycleRemoveOk, true);
-assert.equal((await flushSagaLorepackPayloadStorageWrites()).ok, true);
 const lifecycleStoredRemoval = JSON.parse(stored.get(lifecycleInitial.payload.payloadFile));
 assert.equal(lifecycleStoredRemoval.assets?.cover, undefined);
 assert.equal(lifecycleStoredRemoval.assetRefs?.cover, undefined);
@@ -251,6 +250,7 @@ let latestPanelPack = upsert.libraryRecord;
 let hydratedCoverSaveInput = null;
 let persistedCoverSavePack = null;
 let persistedCoverSaveNext = null;
+let persistedCoverSaveOptions = null;
 configureLoredeckLibraryPanel({
   getFreshLoredeckLibraryPack: (_packId, fallback) => latestPanelPack || fallback || null,
   isBundledLoredeckLibraryPack: () => false,
@@ -260,8 +260,10 @@ configureLoredeckLibraryPanel({
     latestPanelPack = hydratedPack;
     return hydratedPack;
   },
-  persistLoredeckLibraryRecordMutation: (pack, mutator) => {
+  flushLoredeckPayloadWrites: async () => ({ ok: true, error: '', pendingWrites: 0 }),
+  persistLoredeckLibraryRecordMutation: (pack, mutator, _message, options) => {
     persistedCoverSavePack = pack;
+    persistedCoverSaveOptions = options;
     persistedCoverSaveNext = {
       ...pack,
       assets: pack.assets && typeof pack.assets === 'object' && !Array.isArray(pack.assets) ? { ...pack.assets } : {},
@@ -278,6 +280,7 @@ assert.equal(coverSaveOk, true);
 assert.equal(hydratedCoverSaveInput, upsert.libraryRecord, 'Cover saves should hydrate cold compact external Loredeck rows before mutating.');
 assert.equal(persistedCoverSavePack.entryOverrides.nami.title, 'Nami', 'Cover saves must preserve hydrated payload content before passing through the mutation guard.');
 assert.equal(persistedCoverSaveNext.assets.cover.alt, 'Replacement cover');
+assert.equal(persistedCoverSaveOptions.refreshSurfaces, false, 'Cover saves should defer surface refreshes until after the cover asset write flushes.');
 
 const hydrated = await hydrateExternalLorepackPayloadRecord(libraryRecord);
 assert.equal(hydrated.entryOverrides.nami.content.fact, 'Nami bargains with Arlong.');

@@ -132,6 +132,85 @@ assert.ok(toasts.at(-1).message.includes('Broken pending payload'));
 assert.equal(toasts.at(-1).type, 'error');
 assert.equal(consoleWarnings.length, 2);
 
+const finalChange = createLoredeckRecordPatchChange({
+  source: 'test',
+  action: 'upsert_entry',
+  targetKind: 'entry',
+  title: 'Final pending payload',
+  affectedEntryIds: ['final-entry'],
+  payload: {
+    entryOverrides: {
+      'final-entry': {
+        id: 'final-entry',
+        title: 'Final entry',
+        schemaVersion: 3,
+      },
+    },
+  },
+});
+
+let finalPack = {
+  packId: 'final-pending-review-health-pack',
+  type: 'custom',
+  title: 'Final Pending Review Health Pack',
+  pendingChanges: [finalChange],
+  entryOverrides: {},
+};
+let finalValidationCalls = 0;
+configureLoredeckPendingChangeActions({
+  toast: (message, type) => {
+    toasts.push({ message, type });
+  },
+  persistLoredeckLibraryRecordMutation: (_pack, mutator, message) => {
+    mutator(finalPack);
+    if (message) persistMessages.push(message);
+    return true;
+  },
+  getFreshLoredeckLibraryPack: () => finalPack,
+  canValidateLoredeckInEditor: () => true,
+  refreshLoredeckSurfaces: () => {},
+  isGeneratedLoredeckPack: () => false,
+  getAcceptedVirtualLoredeckEntries: () => [],
+  validateLoredeckForEditor: async () => {
+    finalValidationCalls += 1;
+    finalPack = {
+      ...finalPack,
+      pendingChanges: [finalChange],
+      healthStatus: 'good',
+    };
+    return {
+      health: {
+        status: 'good',
+        errors: [],
+        warnings: [],
+        summary: {
+          errorCount: 0,
+          warningCount: 0,
+        },
+      },
+    };
+  },
+  clearCanonLoreDatabaseCache: () => {},
+  clearContextIndexCache: () => {},
+  normalizeLoredeckCreatorTitleId: (_value, fallback) => fallback,
+  normalizeLoredeckCreatorTitleIdList: value => Array.isArray(value) ? value : [],
+  refreshGeneratedLoredeckDerivedMetadata: pack => pack,
+  getLoredeckCreatorBriefCache: () => ({}),
+  setLoredeckCreatorBriefCache: () => {},
+  isLoredeckCreatorPlanningPendingChange: () => false,
+  refreshLoredeckCreatorWorkbenchBody: () => {},
+  refreshHeader: () => {},
+});
+
+assert.equal(await acceptLoredeckPendingChanges(finalPack, [finalChange.changeId]), true);
+assert.equal(finalValidationCalls, 1);
+assert.deepEqual(finalPack.pendingChanges.map(change => change.changeId), []);
+assert.equal(finalPack.entryOverrides['final-entry'].title, 'Final entry');
+assert.deepEqual(toasts.at(-1), {
+  message: 'Accepted 1 change and refreshed Pack Health: good (0 errors, 0 warnings).',
+  type: 'success',
+});
+
 console.warn = originalConsoleWarn;
 
 console.log('Loredeck Pending Review health refresh tests passed.');

@@ -115,6 +115,7 @@ function isBundledLoredeckLibraryPack(pack) { return dep('isBundledLoredeckLibra
 function getFreshLoredeckLibraryPack(packId, fallback) { return dep('getFreshLoredeckLibraryPack', (_packId, _fallback) => _fallback || null)(packId, fallback); }
 function persistLoredeckLibraryRecordMutation(pack, mutator, message, options) { return dep('persistLoredeckLibraryRecordMutation', () => false)(pack, mutator, message, options); }
 function hydrateLoredeckPayloadRecord(pack) { return dep('hydrateLoredeckPayloadRecord', async value => value)(pack); }
+function flushLoredeckPayloadWrites() { return dep('flushLoredeckPayloadWrites', async () => ({ ok: true, error: '', pendingWrites: 0 }))(); }
 function validateLoredeckForEditor(pack, button, options) { return dep('validateLoredeckForEditor', async () => ({ health: null, error: 'Validation is unavailable.' }))(pack, button, options); }
 function canValidateLoredeckInEditor(pack) { return dep('canValidateLoredeckInEditor', () => false)(pack); }
 function attemptLoredeckHealthFixes(pack, button) {
@@ -4496,7 +4497,7 @@ async function getHydratedEditableLoredeckLibraryPack(packId = '', fallback = nu
 async function saveLoredeckCoverImageAsset(packId = '', asset = null, message = '') {
     const pack = await getHydratedEditableLoredeckLibraryPack(packId);
     if (!pack) return false;
-    return persistLoredeckLibraryRecordMutation(pack, next => {
+    const saved = persistLoredeckLibraryRecordMutation(pack, next => {
         const assets = next.assets && typeof next.assets === 'object' && !Array.isArray(next.assets)
             ? { ...next.assets }
             : {};
@@ -4553,7 +4554,23 @@ async function saveLoredeckCoverImageAsset(packId = '', asset = null, message = 
         else next.assets = {};
     }, message, {
         errorMessage: 'Loredeck cover save failed.',
+        refreshSurfaces: false,
     });
+    if (!saved) return false;
+    try {
+        const flushed = await flushLoredeckPayloadWrites();
+        if (!flushed?.ok) {
+            const error = String(flushed?.error || '').trim();
+            toast(error || 'Loredeck cover image could not be written to storage.', 'error');
+            return false;
+        }
+    } catch (error) {
+        console.warn('[Saga] Loredeck cover storage flush failed:', error);
+        toast(error?.message || 'Loredeck cover image could not be written to storage.', 'error');
+        return false;
+    }
+    refreshLoredeckSurfaces({ clearCanon: true, clearContext: true, preserveScroll: true, preserveWindowScroll: true });
+    return true;
 }
 
 function importLoredeckCoverImageFromFile(packId = '', button = null) {

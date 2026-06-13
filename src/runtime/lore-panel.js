@@ -251,6 +251,7 @@ import {
 import {
     hydrateCachedExternalLorepackPayloadRecord,
     hydrateExternalLorepackPayloadRecord,
+    flushSagaLorepackPayloadStorageWrites,
 } from '../storage/saga-lorepack-payload-storage.js';
 import {
     getLoredeckSourceSummary,
@@ -1023,6 +1024,7 @@ configureLoredeckLibraryPanel({
     getFreshLoredeckLibraryPack,
     persistLoredeckLibraryRecordMutation,
     hydrateLoredeckPayloadRecord: hydrateExternalLorepackPayloadRecord,
+    flushLoredeckPayloadWrites: flushSagaLorepackPayloadStorageWrites,
     validateLoredeckForEditor,
     canValidateLoredeckInEditor,
     attemptLoredeckHealthFixes,
@@ -4060,18 +4062,63 @@ function createLoredeckCreatorCard(state = getState(), options = {}) {
     return card;
 }
 
+function getLoredeckCreatorGenerationUnitActionId(unit = {}) {
+    return String(unit?.meta?.actionId || unit?.actionId || '').trim();
+}
+
+function getLoredeckCreatorGenerationUnitBatchId(unit = {}) {
+    return String(unit?.meta?.targetPlanningBatchId || unit?.resultRef?.batchId || unit?.batchId || '').trim();
+}
+
+function isStaleLoredeckCreatorInterruptedResult(job = {}) {
+    const result = job?.lastGenerationResult;
+    if (String(result?.status || '').toLowerCase() !== 'interrupted') return false;
+    if (job?.activeGeneration?.status === 'running') return false;
+    const units = job?.generationUnits && typeof job.generationUnits === 'object' && !Array.isArray(job.generationUnits)
+        ? Object.values(job.generationUnits)
+        : [];
+    if (!units.length) return false;
+    const resultUnitId = String(result.unitId || '').trim();
+    const resultActionId = String(result.actionId || '').trim();
+    const resultBatchId = String(result.batchId || '').trim();
+    const matches = units.filter(unit => {
+        if (!unit?.unitId) return false;
+        if (resultUnitId) return unit.unitId === resultUnitId;
+        if (resultActionId && getLoredeckCreatorGenerationUnitActionId(unit) !== resultActionId) return false;
+        if (resultBatchId && getLoredeckCreatorGenerationUnitBatchId(unit) !== resultBatchId) return false;
+        return !!resultActionId;
+    });
+    if (!matches.length) return false;
+    const recoverable = matches.some(unit => LOREDECK_CREATOR_RECOVERABLE_UNIT_STATUSES.has(String(unit.status || '').toLowerCase()));
+    if (recoverable) return false;
+    return matches.some(unit => ['complete', 'success'].includes(String(unit.status || '').toLowerCase()));
+}
+
+function clearStaleLoredeckCreatorInterruptedResult(job = {}) {
+    if (!isStaleLoredeckCreatorInterruptedResult(job)) return job;
+    const cleaned = { ...job, updatedAt: Date.now() };
+    delete cleaned.lastGenerationResult;
+    if (cleaned.jobId) {
+        updateLoredeckCreatorProject(cleaned.jobId, {
+            lastGenerationResult: null,
+            updatedAt: cleaned.updatedAt,
+        }, { syncPrompt: false, syncLocal: true });
+    }
+    return cleaned;
+}
+
 function getLoredeckCreatorBriefCache() {
-    const stateJob = getActiveLoredeckCreatorJob(getState());
-    const localJob = loredeckCreatorBriefCache.get('current') || {};
-    if (!stateJob) return attachLoredeckCreatorLiveGeneration(localJob || {});
+    const stateJob = clearStaleLoredeckCreatorInterruptedResult(getActiveLoredeckCreatorJob(getState()) || {});
+    const localJob = clearStaleLoredeckCreatorInterruptedResult(loredeckCreatorBriefCache.get('current') || {});
+    if (!stateJob?.jobId) return attachLoredeckCreatorLiveGeneration(localJob || {});
     if (localJob?.jobId && stateJob?.jobId && localJob.jobId !== stateJob.jobId) {
         return attachLoredeckCreatorLiveGeneration(stateJob);
     }
-    return attachLoredeckCreatorLiveGeneration({
+    return attachLoredeckCreatorLiveGeneration(clearStaleLoredeckCreatorInterruptedResult({
         ...stateJob,
         ...(localJob?.activeGeneration ? { activeGeneration: localJob.activeGeneration } : {}),
         ...(localJob?.lastGenerationResult ? { lastGenerationResult: localJob.lastGenerationResult } : {}),
-    });
+    }));
 }
 
 function setLoredeckCreatorBriefCache(next = {}, options = {}) {
@@ -12304,11 +12351,13 @@ function persistLoredeckLibraryRecordMutation(pack, mutator, message, options = 
     if (!result.ok) {
         return failLoredeckLibraryRecordMutation(result.error || options.errorMessage || 'Loredeck save failed.', options, 'error');
     }
-    try {
-        refreshLoredeckSurfaces({ clearCanon: true, clearContext: true });
-        refreshOpenLoredeckMetadataEditor(next.packId);
-    } catch (error) {
-        console.warn('[Saga] Loredeck save succeeded, but surface refresh failed:', error);
+    if (options.refreshSurfaces !== false) {
+        try {
+            refreshLoredeckSurfaces({ clearCanon: true, clearContext: true });
+            refreshOpenLoredeckMetadataEditor(next.packId);
+        } catch (error) {
+            console.warn('[Saga] Loredeck save succeeded, but surface refresh failed:', error);
+        }
     }
     if (message) toast(message, 'success');
     return true;

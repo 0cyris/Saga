@@ -89,6 +89,30 @@ function reportLoredeckPendingAcceptFailures(failed = [], acceptedCount = 0) {
     toast(`${skipped}.${suffix}`, acceptedCount ? 'warning' : 'error');
 }
 
+function applyAcceptedLoredeckPendingChanges(next = {}, acceptedChanges = []) {
+    const acceptedIds = new Set((acceptedChanges || []).map(change => String(change?.changeId || '').trim()).filter(Boolean));
+    if (!acceptedIds.size) return false;
+    for (const change of acceptedChanges || []) {
+        if (!change?.payload) continue;
+        applyLoredeckRecordPatch(next, change.payload);
+    }
+    next.pendingChanges = normalizeLoredeckPendingChanges(next.pendingChanges)
+        .filter(change => !acceptedIds.has(change.changeId));
+    return true;
+}
+
+function ensureAcceptedLoredeckPendingChangesCommitted(pack = {}, acceptedChanges = [], validation = null) {
+    if (!acceptedChanges.length) return false;
+    const fresh = getFreshLoredeckLibraryPack(pack?.packId, pack) || pack;
+    return persistLoredeckLibraryRecordMutation(fresh, next => {
+        applyAcceptedLoredeckPendingChanges(next, acceptedChanges);
+        if (isGeneratedLoredeckPack(next)) refreshGeneratedLoredeckDerivedMetadata(next);
+        if (validation?.health?.status) next.healthStatus = validation.health.status;
+    }, '', {
+        errorMessage: 'Pending Loredeck change acceptance cleanup failed.',
+    });
+}
+
 export function queueLoredeckPendingChange(pack, change, message = '') {
     const pendingChange = normalizeLoredeckPendingChanges([change])[0];
     if (!pendingChange) {
@@ -119,7 +143,8 @@ export function queueLoredeckPendingChanges(pack, changes = [], message = '') {
     });
 }
 
-async function refreshLoredeckHealthAfterAcceptedPendingChanges(pack = {}, acceptedCount = 0) {
+async function refreshLoredeckHealthAfterAcceptedPendingChanges(pack = {}, acceptedChanges = []) {
+    const acceptedCount = Array.isArray(acceptedChanges) ? acceptedChanges.length : Math.max(0, Number(acceptedChanges) || 0);
     const fresh = getFreshLoredeckLibraryPack(pack.packId, pack);
     if (!fresh) return null;
     if (!canValidateLoredeckInEditor(fresh)) {
@@ -132,10 +157,13 @@ async function refreshLoredeckHealthAfterAcceptedPendingChanges(pack = {}, accep
     }
     const validation = await validateLoredeckForEditor(fresh, null, { quiet: true, updateLibrary: true });
     if (!validation.health) {
+        ensureAcceptedLoredeckPendingChangesCommitted(fresh, acceptedChanges);
         refreshLoredeckSurfaces({ clearCanon: true, clearContext: true });
         toast(validation.error || 'Accepted changes, but Pack Health rerun failed. Health remains stale.', 'warning');
         return null;
     }
+    const validatedFresh = getFreshLoredeckLibraryPack(fresh.packId, fresh) || fresh;
+    ensureAcceptedLoredeckPendingChangesCommitted(validatedFresh, acceptedChanges, validation);
     clearCanonLoreDatabaseCache();
     clearContextIndexCache();
     refreshLoredeckSurfaces({ clearCanon: true, clearContext: true });
@@ -172,13 +200,7 @@ export async function acceptLoredeckPendingChanges(pack, changeIds = []) {
         .map(change => normalizeLoredeckCreatorTitleId(change.preview?.creatorPlanningBatch?.id || '', ''))
         .filter(Boolean);
     const accepted = persistLoredeckLibraryRecordMutation(freshPack, next => {
-        const current = normalizeLoredeckPendingChanges(next.pendingChanges);
-        const selectedIds = new Set(acceptedChanges.map(change => change.changeId));
-        for (const change of current) {
-            if (!selectedIds.has(change.changeId)) continue;
-            applyLoredeckRecordPatch(next, change.payload);
-        }
-        next.pendingChanges = current.filter(change => !selectedIds.has(change.changeId));
+        applyAcceptedLoredeckPendingChanges(next, acceptedChanges);
         if (isGeneratedLoredeckPack(next)) refreshGeneratedLoredeckDerivedMetadata(next);
         if (affectsHealth) next.healthStatus = 'stale';
     }, shouldReportStaleHealth
@@ -207,7 +229,9 @@ export async function acceptLoredeckPendingChanges(pack, changeIds = []) {
         }
     }
     if (accepted && affectsHealth) {
-        await refreshLoredeckHealthAfterAcceptedPendingChanges(pack, acceptedChanges.length);
+        await refreshLoredeckHealthAfterAcceptedPendingChanges(freshPack, acceptedChanges);
+    } else if (accepted) {
+        ensureAcceptedLoredeckPendingChangesCommitted(freshPack, acceptedChanges);
     }
     if (accepted) {
         refreshLoredeckCreatorWorkbenchBody({ preserveScroll: true });

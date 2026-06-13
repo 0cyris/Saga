@@ -1060,6 +1060,8 @@ assert(runtimePanelSource.includes('LOREDECK_LIBRARY_FOLDER_COVER_MAX_VISIBLE = 
 assert(!read(libraryPanelPath).includes('slice(0, 20)'), 'Folder cover preview collection must not retain the old 20-cover cap.');
 assert(runtimePanelSource.includes("getPropertyValue('--saga-folder-cover-size')"), 'Folder cover layout must read the current CSS cover size.');
 assert(libraryPanel.includes('await hydrateLoredeckPayloadRecord(pack)') && runtimePanelSource.includes('hydrateLoredeckPayloadRecord: hydrateExternalLorepackPayloadRecord'), 'Loredeck cover image saves must hydrate external payload-backed decks before persisting cover changes.');
+assert(libraryPanel.includes('await flushLoredeckPayloadWrites()') && runtimePanelSource.includes('flushLoredeckPayloadWrites: flushSagaLorepackPayloadStorageWrites'), 'Loredeck cover image saves must wait for external payload asset writes before rerendering cover previews.');
+assert(libraryPanel.includes('refreshSurfaces: false') && runtimePanelSource.includes('options.refreshSurfaces !== false'), 'Loredeck cover image saves must defer the normal mutation refresh until after the external cover asset is written.');
 assert(!runtimePanelSource.includes('LEGACY_ICONSET_ID'), 'Theme icon resolution must not reference the removed legacy icon set.');
 assert(!runtimePanelSource.includes('Images/runtime-icons'), 'Runtime icon resolution must not reference the discontinued runtime icon folder.');
 assert(!runtimePanelSource.includes('Drop support is queued'), 'Loredeck Library must not expose queued drop-support placeholder copy.');
