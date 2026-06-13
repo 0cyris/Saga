@@ -157,7 +157,7 @@ export function importThemeIconSetFromFile() {
                 const result = await importExternalIconSetRegistry(parsed, { sourceFileName: file.name });
                 if (!result.ok) throw new Error(result.error || 'Icon Set import failed.');
                 refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
-                const skipped = result.skippedCount ? ` Skipped ${result.skippedCount} bundled-id conflict(s).` : '';
+                const skipped = formatRegistryImportSkippedDetail(result);
                 toast(`Imported ${result.importedCount || 0} Icon Set record(s).${skipped}`, result.skippedCount ? 'warning' : 'success');
                 return;
             }
@@ -192,6 +192,17 @@ function isIconSetZipFile(file = {}) {
     const name = String(file.name || '').toLowerCase();
     const type = String(file.type || '').toLowerCase();
     return name.endsWith('.zip') || name.endsWith('.saga-iconset.zip') || type.includes('zip');
+}
+
+function formatRegistryImportSkippedDetail(result = {}) {
+    const skippedCount = Math.max(0, Number(result.skippedCount) || 0);
+    if (!skippedCount) return '';
+    const collisionCount = Math.max(0, Number(result.collisionCount) || 0);
+    const otherCount = Math.max(0, skippedCount - collisionCount);
+    const parts = [];
+    if (collisionCount) parts.push(`${collisionCount} existing custom ID collision(s)`);
+    if (otherCount) parts.push(`${otherCount} bundled or invalid record(s)`);
+    return ` Skipped ${parts.join(' and ')}.`;
 }
 
 function normalizeThemeImportId(value = '') {
@@ -354,7 +365,7 @@ export function importThemePackFromFile() {
                 const result = await importExternalThemePackRegistry(parsed, { sourceFileName: file.name });
                 if (!result.ok) throw new Error(result.error || 'Import failed.');
                 refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
-                const skipped = result.skippedCount ? ` Skipped ${result.skippedCount} bundled-id conflict(s).` : '';
+                const skipped = formatRegistryImportSkippedDetail(result);
                 toast(`Imported ${result.importedCount || 0} Theme Pack record(s).${skipped}`, result.skippedCount ? 'warning' : 'success');
                 return;
             }

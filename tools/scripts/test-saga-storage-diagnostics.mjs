@@ -56,6 +56,9 @@ const {
   verifySagaStorageDiagnostics,
 } = await import('../../src/storage/saga-storage-diagnostics.js');
 const {
+  hydrateSagaThemeIconStorage,
+} = await import('../../src/storage/saga-theme-icon-storage.js');
+const {
   cleanMissingSagaStorageIndexRecords,
   getSagaStorageDiagnostics,
   verifySagaStorageIntegrity,
@@ -155,5 +158,26 @@ assert.match(chatMetadata.saga.stateSafety.migrationLog[0].message, /verified/);
 const syncDiagnostics = getSagaStorageDiagnostics({ now });
 assert.equal(syncDiagnostics.checkedAt, runtimeHealthy.checkedAt);
 assert.equal(syncDiagnostics.pendingWrites, 0);
+
+const failingHydrationFileApi = createSagaFileApi({
+  getRequestHeaders: () => ({ 'X-CSRF-Token': 'diagnostics-test' }),
+  fetchImpl: async () => response(false, 500, 'theme index read failed'),
+});
+await assert.rejects(
+  () => hydrateSagaThemeIconStorage({ fileApi: failingHydrationFileApi, force: true, now }),
+  /theme index read failed|Could not read/i,
+);
+
+const runtimeErrorDiagnostics = getSagaStorageDiagnostics({ now });
+assert.equal(runtimeErrorDiagnostics.ok, false);
+assert.equal(runtimeErrorDiagnostics.status, 'storage_errors');
+assert.equal(runtimeErrorDiagnostics.storageErrors.length, 1);
+assert.equal(runtimeErrorDiagnostics.writeErrors.length, 1);
+
+clock = 6000;
+const runtimeErrorVerification = await verifySagaStorageIntegrity({ fileApi, now });
+assert.equal(runtimeErrorVerification.ok, false);
+assert.equal(runtimeErrorVerification.status, 'storage_errors');
+assert.match(chatMetadata.saga.stateSafety.migrationLog[0].message, /runtime storage error/);
 
 console.log('Saga storage diagnostics tests passed.');

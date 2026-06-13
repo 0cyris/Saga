@@ -413,7 +413,7 @@ When loading a pack, Saga applies `entryOverrides` before Pack Health and canon 
 
 `pendingChanges` are not applied during loading. They are accepted or rejected in the Loredeck editor. Accepting a pending change applies its record patch into `entryOverrides`, `disabledEntryIds`, `timelineRegistry`, and/or `tagRegistry`; rejecting it removes the proposal without changing runtime-active lore.
 
-Pending change `source` should identify the proposer, such as `manual`, `bulk_edit`, `safe_repair`, or `lore_assistant`. Assistant-sourced proposals use the same record-patch payload shape as manual edits and remain inactive until accepted.
+Pending change `source` should identify the proposer, such as `manual`, `bulk_edit`, `attempt_fixing`, or `lore_assistant`. Assistant-sourced proposals use the same record-patch payload shape as manual edits and remain inactive until accepted.
 
 ## Dependencies
 
@@ -1823,7 +1823,7 @@ Current schema v3 health behavior:
 - Schema v3 entries must include `content.fact`, `content.injection`, and retrieval metadata.
 - Wide or global lore remains allowed, but Pack Health warns when it is not configured for conservative topic/entity retrieval.
 - Manifest `stats.entryCount` and `stats.categoryCounts` are checked against loaded entries as warnings, not load blockers.
-- Editor validation, validated Custom/Generated Lorepack export, and safe repair actions should call the same Pack Health rules as runtime loading.
+- Editor validation, validated Custom/Generated Lorepack export, and Attempt Fixing actions should call the same Pack Health rules as runtime loading.
 - The Custom entry editor should expose Context fields, timeline anchor search/pickers, retrieval metadata, and bulk Context edits for schema v3 entries.
 - The Tag Manager preserves namespaced entry tags, supports bulk add/remove/rename through Custom Lorepack override layers, loads source `tags.json` when declared, and stores editable Custom/Generated Lorepack tag definitions in an embedded `tagRegistry` layer.
 

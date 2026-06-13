@@ -6,8 +6,6 @@
  * lifecycles for metadata, repair, duplicate, export, and finalization.
  */
 
-import { repairLoredeckEntryForHealth } from '../loredecks/loredeck-loader.js';
-import { repairSchemaV3EntryForPack } from '../loredecks/loredeck-schema-v3-entry-repair.js';
 import { setLoredeckActionButtonBusy } from '../loredecks/loredeck-action-rows.js';
 import {
     buildEmbeddedCustomManifest,
@@ -37,17 +35,15 @@ import {
     getGeneratedLoredeckExportReadiness,
 } from './loredeck-generated-readiness.js';
 import {
-    attemptLoredeckHealthFixes,
+    attemptLoredeckHealthFixes as attemptLoredeckHealthFixesStorage,
 } from '../loredecks/loredeck-health-attempt-fixing.js';
 import {
+    reevaluateLoredeckHealthRepairChoice as reevaluateLoredeckHealthRepairChoiceStorage,
     runLoredeckHealthModelRepairBatches,
 } from '../loredecks/loredeck-health-model-repair-runner.js';
 import {
     applyLoredeckHealthRepairChoice as applyLoredeckHealthRepairChoiceStorage,
 } from '../loredecks/loredeck-health-review-choices.js';
-import {
-    createLoredeckRecordPatchChange,
-} from './loredeck-pending-change-model.js';
 import {
     flushSagaLorepackPayloadStorageWrites,
     hydrateExternalLorepackPayloadRecord,
@@ -224,19 +220,6 @@ async function requestLoredeckHealthModelRepair(context = {}, requestOptions = {
     return extractLoreResponseText(raw);
 }
 
-function getSafeRepairHealthCount(health = null, key = '') {
-    return Number(health?.summary?.[key]) || 0;
-}
-
-function formatSafeRepairHealthDelta(beforeHealth = null, afterHealth = null) {
-    if (!beforeHealth || !afterHealth) return 'stats refreshed';
-    const beforeErrors = getSafeRepairHealthCount(beforeHealth, 'errorCount');
-    const afterErrors = getSafeRepairHealthCount(afterHealth, 'errorCount');
-    const beforeWarnings = getSafeRepairHealthCount(beforeHealth, 'warningCount');
-    const afterWarnings = getSafeRepairHealthCount(afterHealth, 'warningCount');
-    return `Pack Health ${beforeErrors}->${afterErrors} error${afterErrors === 1 ? '' : 's'}, ${beforeWarnings}->${afterWarnings} warning${afterWarnings === 1 ? '' : 's'}`;
-}
-
 function formatAttemptFixingHealthDelta(summary = {}) {
     const before = summary.initialHealth || {};
     const after = summary.finalHealth || {};
@@ -389,6 +372,39 @@ function formatContinueModelRepairToast(result = {}) {
     };
 }
 
+function formatReevaluateRepairChoiceToast(result = {}) {
+    const modelPatches = Array.isArray(result.appliedPatches) ? result.appliedPatches.length : 0;
+    const newChoiceCount = Array.isArray(result.choiceSets) ? result.choiceSets.length : 0;
+    const delta = formatAttemptFixingHealthDelta(result.summary || {});
+    const remainingParts = getAttemptFixingRemainingParts(result);
+    const sessionText = getAttemptFixingSessionText(result);
+    const modelError = result.ok === false
+        ? ` Some model batches did not finish${result.error ? `: ${result.error}` : '.'}`
+        : '';
+    if (modelPatches) {
+        return {
+            type: result.ok === false || remainingParts.length ? 'warning' : 'success',
+            message: `Model re-evaluation applied ${modelPatches} repair${modelPatches === 1 ? '' : 's'}: ${delta}.${remainingParts.length ? ` Still needs ${remainingParts.join(', ')}.` : ''}${modelError}${sessionText}`,
+        };
+    }
+    if (newChoiceCount) {
+        return {
+            type: 'warning',
+            message: `Model re-evaluation returned ${newChoiceCount} review choice${newChoiceCount === 1 ? '' : 's'}. Choose an option to apply it.${remainingParts.length ? ` Still needs ${remainingParts.join(', ')}.` : ''}${modelError}${sessionText}`,
+        };
+    }
+    if (remainingParts.length) {
+        return {
+            type: 'warning',
+            message: `Model re-evaluation ran but still needs ${remainingParts.join(', ')}.${modelError}${sessionText}`,
+        };
+    }
+    return {
+        type: result.ok === false ? 'warning' : 'info',
+        message: `Model re-evaluation completed: ${delta}.${modelError}${sessionText}`,
+    };
+}
+
 function clearLoredeckHealthRepairCaches(packId = '') {
     deleteLoredeckManifestPreviewCacheRecord(packId);
     deleteLoredeckEntryPreviewCacheRecord(packId);
@@ -408,6 +424,10 @@ function shouldContinueAttemptFixingWithModel(result = {}) {
 
 function handleAttemptFixingModelProgress(button = null, event = {}) {
     if (!button || !event?.type) return;
+    if (event.type === 'unit_retry_smaller') {
+        setAttemptFixingButtonText(button, 'Retrying smaller...');
+        return;
+    }
     if (event.type === 'run_progress') {
         const total = Math.max(1, Number(event.run?.totalUnits) || 1);
         const index = Math.max(0, Number(event.index) || 0) + 1;
@@ -432,180 +452,7 @@ async function flushLoredeckHealthRepairWrites() {
     return { payloadFlush, libraryFlush };
 }
 
-function getSchemaV3RepairCandidateKey(entryId = '', candidate = {}) {
-    const to = candidate.to || (Array.isArray(candidate.candidates) ? candidate.candidates.join(',') : '');
-    return [
-        String(entryId || '').trim(),
-        String(candidate.kind || '').trim(),
-        String(candidate.field || '').trim(),
-        String(candidate.from || '').trim(),
-        String(to || '').trim(),
-    ].join('|');
-}
-
-function getExistingSchemaV3RepairCandidateKeys(pack = {}) {
-    const keys = new Set();
-    for (const change of getLoredeckPendingChanges(pack)) {
-        if (change.source !== 'safe_repair' || change.action !== 'review_schema_v3_context_anchor') continue;
-        const entryId = String(change.affectedEntryIds?.[0] || '').trim();
-        const candidates = Array.isArray(change.preview?.schemaV3RepairCandidates)
-            ? change.preview.schemaV3RepairCandidates
-            : [];
-        for (const candidate of candidates) keys.add(getSchemaV3RepairCandidateKey(entryId, candidate));
-    }
-    return keys;
-}
-
-function buildSchemaV3ContextAnchorRepairChange(entry = {}, candidates = [], existingKeys = new Set()) {
-    const entryId = String(entry?.id || '').trim();
-    if (!entryId) return null;
-    const concreteCandidates = [];
-    const nextContext = {
-        ...(entry.context && typeof entry.context === 'object' && !Array.isArray(entry.context) ? entry.context : {}),
-    };
-    for (const candidate of Array.isArray(candidates) ? candidates : []) {
-        if (candidate?.kind !== 'context_anchor' || !candidate.field || !candidate.to) continue;
-        const key = getSchemaV3RepairCandidateKey(entryId, candidate);
-        if (existingKeys.has(key)) continue;
-        existingKeys.add(key);
-        concreteCandidates.push(candidate);
-        nextContext[candidate.field] = candidate.to;
-    }
-    if (!concreteCandidates.length) return null;
-    const nextEntry = cloneLoredeckJson({
-        ...entry,
-        context: nextContext,
-        userEdited: true,
-    }) || {
-        ...entry,
-        context: nextContext,
-        userEdited: true,
-    };
-    const before = concreteCandidates.map(candidate => `${candidate.field}: ${candidate.from}`).join(', ');
-    const after = concreteCandidates.map(candidate => `${candidate.field}: ${candidate.to}`).join(', ');
-    return createLoredeckRecordPatchChange({
-        source: 'safe_repair',
-        action: 'review_schema_v3_context_anchor',
-        targetKind: 'entry',
-        title: `Review Context anchor repair: ${entry.title || entryId}`,
-        description: `Proposes Context anchor replacements inferred from exact sort-key matches. Review before accepting because anchor semantics can be story-sensitive.`,
-        affectedEntryIds: [entryId],
-        affectedTimelineIds: concreteCandidates.flatMap(candidate => [candidate.from, candidate.to]),
-        payload: {
-            entryOverrides: {
-                [entryId]: nextEntry,
-            },
-            disabledEntryIdsRemove: [entryId],
-        },
-        preview: {
-            before,
-            after,
-            schemaV3RepairCandidates: concreteCandidates,
-            healthIssueCode: 'broken_anchor_reference',
-        },
-    });
-}
-
-async function repairLoredeckSafeHealthIssuesLegacy(pack, button = null) {
-    const restoreBusy = setLoredeckActionButtonBusy(button, 'Attempting...', { fallbackLabel: 'Attempt Fixing' });
-    try {
-        const source = getFreshLoredeckLibraryPack(pack.packId, pack);
-        if (!source || source.type === 'bundled') {
-            toast('Bundled Loredecks cannot be repaired directly. Duplicate as Custom first.', 'warning');
-            return false;
-        }
-        const fresh = await hydrateExternalLorepackPayloadRecord(source);
-        const validation = await validateLoredeckForEditor(fresh, null, { quiet: true, updateLibrary: false });
-        if (!validation.health) throw new Error(validation.error || 'Validation failed before repair.');
-        const summary = validation.health.summary || {};
-        const entrySchemaVersion = getExpectedLoredeckEntrySchemaVersion(fresh, validation.manifest);
-        const next = {
-            ...fresh,
-            entrySchemaVersion,
-            healthStatus: validation.health.status,
-            stats: {
-                entryCount: Number(summary.entryCount) || 0,
-                categoryCounts: summary.categoryCounts && typeof summary.categoryCounts === 'object' && !Array.isArray(summary.categoryCounts)
-                    ? { ...summary.categoryCounts }
-                    : {},
-            },
-            entryOverrides: { ...(fresh.entryOverrides || {}) },
-            disabledEntryIds: Array.isArray(fresh.disabledEntryIds) ? [...fresh.disabledEntryIds] : [],
-            localModified: true,
-            updatedAt: Date.now(),
-        };
-
-        let overrideRepairCount = 0;
-        let unresolvedRepairCount = 0;
-        let ambiguousRepairCandidateCount = 0;
-        const pendingRepairChanges = [];
-        const existingRepairCandidateKeys = getExistingSchemaV3RepairCandidateKeys(next);
-        if (entrySchemaVersion >= 3) {
-            for (const [id, raw] of Object.entries(next.entryOverrides || {})) {
-                const base = repairLoredeckEntryForHealth(raw, { forceSchemaVersion: 3 });
-                const repair = repairSchemaV3EntryForPack(next, base, id, {
-                    rejectUnknownAnchors: false,
-                    rejectUnknownTags: false,
-                });
-                const repaired = repair.entry;
-                if (JSON.stringify(repaired) !== JSON.stringify(raw)) {
-                    next.entryOverrides[id] = repaired;
-                    overrideRepairCount += 1;
-                }
-                if (repair.unresolved.length || repair.errors.length) unresolvedRepairCount += 1;
-                ambiguousRepairCandidateCount += repair.reviewCandidates.filter(candidate => !candidate.to).length;
-                const pendingRepair = buildSchemaV3ContextAnchorRepairChange(repaired, repair.reviewCandidates, existingRepairCandidateKeys);
-                if (pendingRepair) pendingRepairChanges.push(pendingRepair);
-            }
-        }
-        if (pendingRepairChanges.length) {
-            next.pendingChanges = [
-                ...getLoredeckPendingChanges(next),
-                ...pendingRepairChanges,
-            ];
-        }
-        const changedCount = overrideRepairCount + pendingRepairChanges.length;
-        if (!changedCount) {
-            const reviewParts = [
-                ambiguousRepairCandidateCount ? `${ambiguousRepairCandidateCount} ambiguous candidate${ambiguousRepairCandidateCount === 1 ? '' : 's'}` : '',
-                unresolvedRepairCount ? `${unresolvedRepairCount} override${unresolvedRepairCount === 1 ? '' : 's'} still need review` : '',
-            ].filter(Boolean);
-            toast(reviewParts.length
-                ? `Attempt Fixing could not apply deterministic local fixes. ${reviewParts.join(', ')}. Use review choices, model batches, or manual review for the remaining Pack Health findings.`
-                : 'Attempt Fixing found no deterministic local fixes for this Loredeck. Use review choices, model batches, or manual review for the remaining Pack Health findings.',
-            reviewParts.length ? 'warning' : 'info');
-            return false;
-        }
-        if (isGeneratedLoredeckPack(next)) {
-            refreshGeneratedLoredeckDerivedMetadata(next);
-        } else if (isVirtualLoredeckPack(next)) {
-            next.manifestData = buildEmbeddedCustomManifest(next.manifestData || validation.manifest, next);
-        }
-        const result = upsertLoredeckLibraryPack(next);
-        if (!result.ok) throw new Error(result.error || 'Attempt Fixing fallback failed.');
-        clearCanonLoreDatabaseCache();
-        clearContextIndexCache();
-        deleteLoredeckEntryPreviewCacheRecord(next.packId);
-        const afterValidation = await validateLoredeckForEditor(next, null, { quiet: true, updateLibrary: true });
-        refreshLoredeckSurfaces();
-        toast(`Attempt Fixing applied fallback repairs: ${formatSafeRepairHealthDelta(validation.health, afterValidation?.health)}${overrideRepairCount ? `, ${overrideRepairCount} override${overrideRepairCount === 1 ? '' : 's'} repaired` : ''}${pendingRepairChanges.length ? `, ${pendingRepairChanges.length} review repair${pendingRepairChanges.length === 1 ? '' : 's'} queued` : ''}${ambiguousRepairCandidateCount ? `, ${ambiguousRepairCandidateCount} ambiguous candidate${ambiguousRepairCandidateCount === 1 ? '' : 's'} left for Pack Health review` : ''}${unresolvedRepairCount ? `, ${unresolvedRepairCount} override${unresolvedRepairCount === 1 ? '' : 's'} still need review` : ''}.`, 'success');
-        return true;
-    } catch (e) {
-        toast(e?.message || 'Attempt Fixing fallback failed.', 'error');
-        return false;
-    } finally {
-        restoreBusy();
-    }
-}
-
-function shouldFallbackToLegacySafeRepair(result = {}, error = null) {
-    if (error) return true;
-    if (!result || result.ok !== false) return false;
-    if (result.notFound) return true;
-    return /not registered in external storage|payload could not be loaded|saga file read failed|failed to parse url|missing|not found|404/i.test(String(result.error || ''));
-}
-
-export async function repairLoredeckSafeHealthIssues(pack, button = null) {
+export async function attemptLoredeckHealthFixes(pack, button = null) {
     const restoreBusy = setLoredeckActionButtonBusy(button, 'Attempting...', { fallbackLabel: 'Attempt Fixing' });
     let runLock = null;
     try {
@@ -627,15 +474,11 @@ export async function repairLoredeckSafeHealthIssues(pack, button = null) {
         let attemptError = null;
         try {
             setAttemptFixingButtonText(button, 'Checking health...');
-            attemptResult = await attemptLoredeckHealthFixes(source.packId, {
+            attemptResult = await attemptLoredeckHealthFixesStorage(source.packId, {
                 persistSession: true,
             });
         } catch (error) {
             attemptError = error;
-        }
-        if (shouldFallbackToLegacySafeRepair(attemptResult, attemptError)) {
-            restoreBusy();
-            return await repairLoredeckSafeHealthIssuesLegacy(source, button);
         }
         if (!attemptResult?.ok) {
             throw new Error(attemptResult?.error || attemptError?.message || 'Attempt Fixing failed.');
@@ -779,6 +622,65 @@ export async function continueLoredeckHealthModelRepairSession(pack, session = {
         return result;
     } catch (e) {
         toast(e?.message || 'Model repair batches could not continue.', 'error');
+        return null;
+    } finally {
+        runLock?.finish?.();
+        restoreBusy();
+    }
+}
+
+export async function reevaluateLoredeckHealthRepairChoice(pack, choiceSet = {}, session = {}, button = null) {
+    const restoreBusy = setLoredeckActionButtonBusy(button, 'Re-evaluating...', { fallbackLabel: 'Ask Model To Re-evaluate' });
+    let runLock = null;
+    try {
+        const source = getFreshLoredeckLibraryPack(pack?.packId || session?.packId, pack) || pack;
+        const packId = source?.packId || session?.packId || pack?.packId || '';
+        if (!packId) {
+            toast('Re-evaluating a repair choice needs a Loredeck.', 'warning');
+            return null;
+        }
+        if (source?.type === 'bundled') {
+            toast('Bundled Loredecks cannot be repaired directly. Duplicate as Custom first.', 'warning');
+            return null;
+        }
+        if (!choiceSet?.choiceSetId) {
+            toast('Choose a saved repair choice before asking the model to re-evaluate it.', 'warning');
+            return null;
+        }
+        const providerValidation = validateLoredeckHealthModelRepairProvider();
+        if (!providerValidation.ok) {
+            toast(`Reasoning Provider not ready for model re-evaluation: ${providerValidation.message}`, 'warning');
+            return null;
+        }
+        runLock = beginLoredeckHealthRepairRun(packId, 'Re-evaluate Repair Choice');
+        if (!runLock.ok) {
+            showLoredeckHealthRepairRunBlockedToast(runLock);
+            return null;
+        }
+        setAttemptFixingButtonText(button, 'Model re-check...');
+        const result = await reevaluateLoredeckHealthRepairChoiceStorage(packId, {
+            session,
+            sessionPath: session?.sessionFile || '',
+            choiceSetId: choiceSet.choiceSetId,
+        }, {
+            persistSession: true,
+            requestModelRepair: requestLoredeckHealthModelRepair,
+            onProgress: event => handleAttemptFixingModelProgress(button, event),
+            retryAttempts: 1,
+            signal: runLock.signal,
+        });
+        if (!result?.ok && !result?.changed) throw new Error(result?.error || 'Model re-evaluation did not finish.');
+        setAttemptFixingButtonText(button, 'Saving repairs...');
+        await flushLoredeckHealthRepairWrites();
+        clearCanonLoreDatabaseCache();
+        clearContextIndexCache();
+        clearLoredeckHealthRepairCaches(packId);
+        refreshLoredeckSurfaces({ clearCanon: true, clearContext: true });
+        const formatted = formatReevaluateRepairChoiceToast(result);
+        toast(formatted.message, formatted.type);
+        return result;
+    } catch (e) {
+        toast(e?.message || 'Model re-evaluation could not finish.', 'error');
         return null;
     } finally {
         runLock?.finish?.();

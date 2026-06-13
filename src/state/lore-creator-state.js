@@ -114,6 +114,75 @@ function normalizeLoredeckCreatorGenerationDiagnostic(value = {}) {
     return hasUsefulSignal ? diagnostic : null;
 }
 
+function normalizeLoredeckCreatorRejectionSummary(value = {}) {
+    if (!value || typeof value !== 'object' || Array.isArray(value)) return null;
+    const byReason = {};
+    const rawByReason = value.byReason && typeof value.byReason === 'object' && !Array.isArray(value.byReason) ? value.byReason : {};
+    for (const [rawKey, rawCount] of Object.entries(rawByReason).slice(0, 20)) {
+        const key = normalizeLoredeckCreatorId(rawKey, '');
+        if (!key) continue;
+        byReason[key] = normalizeLoredeckCreatorNumber(rawCount);
+    }
+    const summary = {
+        count: normalizeLoredeckCreatorNumber(value.count),
+        targetCount: normalizeLoredeckCreatorNumber(value.targetCount),
+        targetEntryIds: normalizeLoredeckCreatorStringList(value.targetEntryIds, 120, 180),
+        unknownTags: normalizeLoredeckCreatorStringList(value.unknownTags, 120, 180),
+        unknownAnchors: normalizeLoredeckCreatorStringList(value.unknownAnchors, 120, 220),
+        byReason,
+    };
+    const hasSignal = summary.count
+        || summary.targetCount
+        || summary.targetEntryIds.length
+        || summary.unknownTags.length
+        || summary.unknownAnchors.length
+        || Object.values(byReason).some(count => count > 0);
+    return hasSignal || Object.prototype.hasOwnProperty.call(value, 'count') ? summary : null;
+}
+
+function normalizeLoredeckCreatorPreflightSummary(value = {}) {
+    if (!value || typeof value !== 'object' || Array.isArray(value)) return null;
+    const summary = {
+        targetCount: normalizeLoredeckCreatorNumber(value.targetCount),
+        acceptedTagCount: normalizeLoredeckCreatorNumber(value.acceptedTagCount),
+        omittedTagCount: normalizeLoredeckCreatorNumber(value.omittedTagCount),
+        ambiguousTagCount: normalizeLoredeckCreatorNumber(value.ambiguousTagCount),
+        omittedAnchorCount: normalizeLoredeckCreatorNumber(value.omittedAnchorCount),
+        omittedWindowCount: normalizeLoredeckCreatorNumber(value.omittedWindowCount),
+        planningGapCount: normalizeLoredeckCreatorNumber(value.planningGapCount),
+    };
+    const hasSignal = Object.values(summary).some(count => count > 0);
+    return hasSignal || Object.prototype.hasOwnProperty.call(value, 'targetCount') ? summary : null;
+}
+
+function normalizeLoredeckCreatorRejectionDiagnostics(value = []) {
+    if (!Array.isArray(value)) return null;
+    return value
+        .map(item => {
+            if (!item || typeof item !== 'object' || Array.isArray(item)) return null;
+            const diagnostic = {
+                targetTitleId: normalizeLoredeckCreatorString(item.targetTitleId, 180),
+                targetEntryId: normalizeLoredeckCreatorString(item.targetEntryId, 180),
+                title: normalizeLoredeckCreatorString(item.title, 240),
+                stage: normalizeLoredeckCreatorString(item.stage, 80),
+                phase: normalizeLoredeckCreatorString(item.phase, 80),
+                reasonCode: normalizeLoredeckCreatorString(item.reasonCode, 80),
+                message: normalizeLoredeckCreatorString(item.message, 500),
+                unknownTags: normalizeLoredeckCreatorStringList(item.unknownTags, 12, 180),
+                unknownAnchors: normalizeLoredeckCreatorStringList(item.unknownAnchors, 12, 220),
+                retryable: item.retryable === true,
+                safeLocalRepairAvailable: item.safeLocalRepairAvailable === true,
+            };
+            return Object.values(diagnostic).some(nested => Array.isArray(nested) ? nested.length : !!nested) ? diagnostic : null;
+        })
+        .filter(Boolean)
+        .slice(0, 80);
+}
+
+function normalizeLoredeckCreatorPreflightDiagnostics(value = []) {
+    return normalizeLoredeckCreatorRejectionDiagnostics(value);
+}
+
 export function normalizeLoredeckCreatorGenerationRun(value = {}, index = 0) {
     if (!value || typeof value !== 'object' || Array.isArray(value)) return null;
     const runId = normalizeLoredeckCreatorId(value.runId || value.id || '', `run_${index + 1}`);
@@ -396,11 +465,48 @@ export function normalizeLoredeckCreatorJob(value = {}, index = 0) {
         const list = normalizeLoredeckCreatorStringList(value[key], 40, 400);
         if (list.length) job[key] = list;
     }
+    for (const key of ['outlineWarnings', 'titlePassWarnings', 'planningWarnings', 'entryDraftWarnings']) {
+        const hasField = Object.prototype.hasOwnProperty.call(value, key);
+        const list = normalizeLoredeckCreatorStringList(value[key], 40, 500);
+        if (list.length || hasField) job[key] = list;
+    }
+    if (Object.prototype.hasOwnProperty.call(value, 'entryDraftLastRejectedTargetIds')) {
+        job.entryDraftLastRejectedTargetIds = normalizeLoredeckCreatorStringList(value.entryDraftLastRejectedTargetIds, 120, 180);
+    }
+    if (Object.prototype.hasOwnProperty.call(value, 'entryDraftLastRejectionSummary')) {
+        const summary = normalizeLoredeckCreatorRejectionSummary(value.entryDraftLastRejectionSummary);
+        job.entryDraftLastRejectionSummary = summary || {
+            count: 0,
+            targetCount: 0,
+            targetEntryIds: [],
+            unknownTags: [],
+            unknownAnchors: [],
+            byReason: {},
+        };
+    }
+    if (Object.prototype.hasOwnProperty.call(value, 'entryDraftLastRejectionDiagnostics')) {
+        job.entryDraftLastRejectionDiagnostics = normalizeLoredeckCreatorRejectionDiagnostics(value.entryDraftLastRejectionDiagnostics) || [];
+    }
+    if (Object.prototype.hasOwnProperty.call(value, 'entryDraftLastPreflightSummary')) {
+        job.entryDraftLastPreflightSummary = normalizeLoredeckCreatorPreflightSummary(value.entryDraftLastPreflightSummary) || {
+            targetCount: 0,
+            acceptedTagCount: 0,
+            omittedTagCount: 0,
+            ambiguousTagCount: 0,
+            omittedAnchorCount: 0,
+            omittedWindowCount: 0,
+            planningGapCount: 0,
+        };
+    }
+    if (Object.prototype.hasOwnProperty.call(value, 'entryDraftLastPreflightDiagnostics')) {
+        job.entryDraftLastPreflightDiagnostics = normalizeLoredeckCreatorPreflightDiagnostics(value.entryDraftLastPreflightDiagnostics) || [];
+    }
     for (const key of [
         'planningQueuedCount',
         'entryDraftCount',
         'entryDraftLastBatchCount',
         'entryDraftLastTargetCount',
+        'entryDraftLastRejectedCount',
         'entryDraftRemainingCount',
         'entryDraftBatchSize',
     ]) {

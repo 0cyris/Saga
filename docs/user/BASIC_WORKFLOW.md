@@ -56,6 +56,8 @@ Session metrics help confirm whether Saga has pending Lorecards, accepted lore, 
 
 Use **Settings** when model-backed actions fail or are unavailable. Check provider readiness, test Utility or Reasoning routes, use the current SillyTavern model when that is the simplest path, and choose the runtime **Theme Pack**.
 
+Settings also contains **Danger Zone** at the bottom. Use it only for deliberate cleanup: active-chat resets, global settings reset, custom Loredeck removal, custom Theme/Icon removal, or **Total Saga Cleanup**.
+
 Switch to Advanced for provider profile internals, endpoint/model controls, Creator, Continuity, Injection, Pack Health repair, package diagnostics, or bulk management.
 
 ## Quick Start

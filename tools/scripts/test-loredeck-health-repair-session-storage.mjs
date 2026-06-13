@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 
 const {
+  cleanupLoredeckHealthRepairSessions,
   createLoredeckHealthRepairSession,
   deleteLoredeckHealthRepairSession,
   listLoredeckHealthRepairSessions,
@@ -158,6 +159,8 @@ assert.equal(readResult.path, writeResult.path);
 assert.equal(readResult.session.sessionId, writeResult.session.sessionId);
 assert.equal(readResult.session.status, 'model_pending');
 assert.equal(readResult.session.remaining.modelUnits.length, 1);
+assert.equal(readResult.session.lifecycle.canUserDelete, true);
+assert.equal(readResult.session.lifecycle.canAutoDelete, false);
 
 const secondSession = createLoredeckHealthRepairSession({
   packId: 'arlong-park-health-session-pack',
@@ -180,6 +183,8 @@ const secondSession = createLoredeckHealthRepairSession({
 }, { ...storageOptions, now: 3500 });
 const secondWrite = await writeLoredeckHealthRepairSession(secondSession, { ...storageOptions, now: 3500 });
 assert.equal(secondWrite.ok, true);
+assert.equal(secondWrite.session.lifecycle.canUserDelete, true);
+assert.equal(secondWrite.session.lifecycle.canAutoDelete, false);
 
 const listResult = await listLoredeckHealthRepairSessions('arlong-park-health-session-pack', storageOptions);
 assert.equal(listResult.ok, true);
@@ -205,9 +210,58 @@ const deleteSecondResult = await deleteLoredeckHealthRepairSession(secondWrite.s
 assert.equal(deleteSecondResult.ok, true);
 assert.equal(stored.has(secondWrite.path), false);
 
+const cleanCompleteSession = createLoredeckHealthRepairSession({
+  packId: 'arlong-park-health-session-pack',
+  sessionId: 'clean-complete-session',
+  status: 'complete',
+  summary: {
+    outcome: 'complete',
+    finalHealth: { status: 'ok', errorCount: 0, warningCount: 0, suggestionCount: 0 },
+  },
+  remaining: {},
+}, { ...storageOptions, now: 4100 });
+const cleanCompleteWrite = await writeLoredeckHealthRepairSession(cleanCompleteSession, { ...storageOptions, now: 4100 });
+assert.equal(cleanCompleteWrite.ok, true);
+assert.equal(cleanCompleteWrite.session.lifecycle.canUserDelete, true);
+assert.equal(cleanCompleteWrite.session.lifecycle.canAutoDelete, true);
+
+const diagnosticCompleteSession = createLoredeckHealthRepairSession({
+  packId: 'arlong-park-health-session-pack',
+  sessionId: 'diagnostic-complete-session',
+  status: 'complete',
+  summary: {
+    outcome: 'complete',
+    finalHealth: { status: 'ok', errorCount: 0, warningCount: 0, suggestionCount: 0 },
+  },
+  diagnostics: [{ severity: 'warning', code: 'kept_summary', message: 'Completed with saved diagnostic context.' }],
+  remaining: {},
+}, { ...storageOptions, now: 4200 });
+const diagnosticCompleteWrite = await writeLoredeckHealthRepairSession(diagnosticCompleteSession, { ...storageOptions, now: 4200 });
+assert.equal(diagnosticCompleteWrite.ok, true);
+assert.equal(diagnosticCompleteWrite.session.lifecycle.canUserDelete, true);
+assert.equal(diagnosticCompleteWrite.session.lifecycle.canAutoDelete, false);
+
+const defaultCleanup = await cleanupLoredeckHealthRepairSessions('arlong-park-health-session-pack', storageOptions);
+assert.equal(defaultCleanup.ok, true);
+assert.equal(defaultCleanup.deletedCount, 1);
+assert.equal(defaultCleanup.deleted[0].sessionId, 'clean-complete-session');
+assert.equal(stored.has(cleanCompleteWrite.path), false);
+assert.equal(stored.has(diagnosticCompleteWrite.path), true);
+
+const diagnosticCleanup = await cleanupLoredeckHealthRepairSessions('arlong-park-health-session-pack', {
+  ...storageOptions,
+  includeDiagnosticSessions: true,
+});
+assert.equal(diagnosticCleanup.ok, true);
+assert.equal(diagnosticCleanup.deletedCount, 1);
+assert.equal(diagnosticCleanup.deleted[0].sessionId, 'diagnostic-complete-session');
+assert.equal(stored.has(diagnosticCompleteWrite.path), false);
+
 const finalIndex = JSON.parse(stored.get(SAGA_STORAGE_INDEX_PATH));
 assert.equal(finalIndex.files[writeResult.path], undefined);
 assert.equal(finalIndex.files[secondWrite.path], undefined);
+assert.equal(finalIndex.files[cleanCompleteWrite.path], undefined);
+assert.equal(finalIndex.files[diagnosticCompleteWrite.path], undefined);
 assert.ok(finalIndex.files[SAGA_STORAGE_INDEX_PATH]);
 
 console.log('Loredeck health repair session storage tests passed.');

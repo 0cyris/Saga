@@ -5,8 +5,10 @@ const {
   getExternalThemePackLibraryRegistry,
   hydrateSagaThemeIconStorage,
   importExternalIconSet,
+  importExternalIconSetRegistry,
   importExternalIconSetZip,
   importExternalThemePack,
+  importExternalThemePackRegistry,
   removeExternalIconSet,
   removeExternalThemePack,
   resetSagaThemeIconStorageCache,
@@ -21,6 +23,8 @@ const {
 } = await import('../../src/storage/saga-file-api.js');
 const {
   getIconSetLibrary,
+  getIconSetPreset,
+  getThemePreset,
   getThemePackLibrary,
   normalizePassiveAssetPath,
 } = await import('../../src/theme/runtime-theme.js');
@@ -100,6 +104,41 @@ assert.equal(JSON.parse(stored.get(SAGA_STORAGE_DOMAIN_INDEX_FILES.themes)).pack
 assert.equal(JSON.parse(stored.get(SAGA_STORAGE_INDEX_PATH)).files[themeResult.payloadFile].kind, 'theme_pack_payload');
 assert.equal(getExternalThemePackLibraryRegistry().packs['arlong-theme'].colors.chipDanger, '#e1a0a0');
 assert(getThemePackLibrary({ themePackLibrary: { schemaVersion: 1, packs: {} } }).some(pack => pack.id === 'arlong-theme'), 'Runtime Theme Pack library should merge external storage cache.');
+assert.equal(getThemePreset('arlong-theme', { themePackId: 'arlong-theme', themePackLibrary: { schemaVersion: 1, packs: {} } }).type, 'custom', 'Active external Theme Pack presets must stay custom so Settings can forget them.');
+
+const originalThemePayload = stored.get(themeResult.payloadFile);
+const originalThemeIndexRecord = JSON.parse(stored.get(SAGA_STORAGE_DOMAIN_INDEX_FILES.themes)).packs['arlong-theme'];
+const duplicateThemeResult = await importExternalThemePack({
+  id: 'arlong-theme',
+  title: 'Arlong Park Replacement Attempt',
+  colors: {
+    accent: '#ffffff',
+  },
+}, { fileApi, now, sourceFileName: 'arlong-replacement.theme.json' });
+assert.equal(duplicateThemeResult.ok, false);
+assert.equal(duplicateThemeResult.collision, true);
+assert.equal(duplicateThemeResult.code, 'theme_pack_id_collision');
+assert.equal(stored.get(themeResult.payloadFile), originalThemePayload, 'Rejected duplicate Theme Pack imports should not overwrite the existing payload.');
+assert.deepEqual(JSON.parse(stored.get(SAGA_STORAGE_DOMAIN_INDEX_FILES.themes)).packs['arlong-theme'], originalThemeIndexRecord, 'Rejected duplicate Theme Pack imports should not alter the domain index.');
+assert.equal(getExternalThemePackLibraryRegistry().packs['arlong-theme'].title, 'Arlong Park', 'Rejected duplicate Theme Pack imports should not update the runtime cache.');
+
+const duplicateThemeRegistryResult = await importExternalThemePackRegistry({
+  schemaVersion: 1,
+  packs: {
+    'arlong-theme': {
+      id: 'arlong-theme',
+      title: 'Arlong Park Registry Replacement Attempt',
+      colors: {
+        accent: '#ffffff',
+      },
+    },
+  },
+}, { fileApi, now, sourceFileName: 'arlong-registry.theme.json' });
+assert.equal(duplicateThemeRegistryResult.ok, true);
+assert.equal(duplicateThemeRegistryResult.importedCount, 0);
+assert.equal(duplicateThemeRegistryResult.skippedCount, 1);
+assert.equal(duplicateThemeRegistryResult.collisionCount, 1);
+assert.equal(stored.get(themeResult.payloadFile), originalThemePayload, 'Skipped duplicate Theme Pack registry imports should not overwrite the existing payload.');
 
 const tinyPngDataUrl = 'data:image/png;base64,iVBORw0KGgo=';
 clock = 2000;
@@ -125,6 +164,46 @@ assert.equal(JSON.parse(stored.get(SAGA_STORAGE_DOMAIN_INDEX_FILES.iconSets)).ic
 assert.equal(JSON.parse(stored.get(SAGA_STORAGE_INDEX_PATH)).files[uploadedIconPath].kind, 'iconset_asset');
 assert.equal(getExternalThemeIconSetLibraryRegistry().iconSets['mystic-tabs'].icons['tab.loredecks'], uploadedIconPath);
 assert(getIconSetLibrary({ themeIconSetLibrary: { schemaVersion: 1, iconSets: {} } }).some(iconSet => iconSet.id === 'mystic-tabs'), 'Runtime Icon Set library should merge external storage cache.');
+assert.equal(getIconSetPreset('mystic-tabs', { themeIconSetId: 'mystic-tabs', themeIconSetLibrary: { schemaVersion: 1, iconSets: {} } }).type, 'custom', 'Active external Icon Set presets must stay custom so Settings can forget them.');
+
+const originalIconSetPayload = stored.get(iconSetResult.payloadFile);
+const originalIconSetIndexRecord = JSON.parse(stored.get(SAGA_STORAGE_DOMAIN_INDEX_FILES.iconSets)).iconSets['mystic-tabs'];
+const iconUploadCountBeforeDuplicate = calls.filter(call => call.url === '/api/files/upload').length;
+const duplicateIconSetResult = await importExternalIconSet({
+  id: 'mystic-tabs',
+  title: 'Mystic Tabs Replacement Attempt',
+  preferredSize: 256,
+  icons: {
+    'tab.loredecks': tinyPngDataUrl,
+  },
+}, { fileApi, now, sourceFileName: 'mystic-tabs-replacement.iconset.json' });
+assert.equal(duplicateIconSetResult.ok, false);
+assert.equal(duplicateIconSetResult.collision, true);
+assert.equal(duplicateIconSetResult.code, 'iconset_id_collision');
+assert.equal(calls.filter(call => call.url === '/api/files/upload').length, iconUploadCountBeforeDuplicate, 'Rejected duplicate Icon Set imports should not upload replacement assets.');
+assert.equal(stored.get(iconSetResult.payloadFile), originalIconSetPayload, 'Rejected duplicate Icon Set imports should not overwrite the existing payload.');
+assert.deepEqual(JSON.parse(stored.get(SAGA_STORAGE_DOMAIN_INDEX_FILES.iconSets)).iconSets['mystic-tabs'], originalIconSetIndexRecord, 'Rejected duplicate Icon Set imports should not alter the domain index.');
+assert.equal(getExternalThemeIconSetLibraryRegistry().iconSets['mystic-tabs'].title, 'Mystic Tabs', 'Rejected duplicate Icon Set imports should not update the runtime cache.');
+
+const duplicateIconSetRegistryResult = await importExternalIconSetRegistry({
+  schemaVersion: 1,
+  iconSets: {
+    'mystic-tabs': {
+      id: 'mystic-tabs',
+      title: 'Mystic Tabs Registry Replacement Attempt',
+      preferredSize: 256,
+      icons: {
+        'tab.loredecks': tinyPngDataUrl,
+      },
+    },
+  },
+}, { fileApi, now, sourceFileName: 'mystic-tabs-registry.iconset.json' });
+assert.equal(duplicateIconSetRegistryResult.ok, true);
+assert.equal(duplicateIconSetRegistryResult.importedCount, 0);
+assert.equal(duplicateIconSetRegistryResult.skippedCount, 1);
+assert.equal(duplicateIconSetRegistryResult.collisionCount, 1);
+assert.equal(calls.filter(call => call.url === '/api/files/upload').length, iconUploadCountBeforeDuplicate, 'Skipped duplicate Icon Set registry imports should not upload replacement assets.');
+assert.equal(stored.get(iconSetResult.payloadFile), originalIconSetPayload, 'Skipped duplicate Icon Set registry imports should not overwrite the existing payload.');
 
 const iconRemoval = await removeExternalIconSet('mystic-tabs', { fileApi, now });
 assert.equal(iconRemoval.ok, true);
@@ -164,6 +243,19 @@ assert.match(zipPayload.icons['tab.loredecks'], /^\/user\/files\/saga-iconset-as
 assert.match(zipPayload.icons['tab.settings'], /^\/user\/files\/saga-iconset-asset-zip-tabs-tab-settings-[a-f0-9]+\.webp$/);
 assert.equal(zipPayload.source.kind, 'local_zip');
 assert.equal(zipPayload.source.importedFrom, 'zip-tabs.saga-iconset.zip');
+
+const originalZipPayload = stored.get(zipImport.payloadFile);
+const zipUploadCountBeforeDuplicate = calls.filter(call => call.url === '/api/files/upload').length;
+const duplicateZipImport = await importExternalIconSetZip(zipBytes, {
+  fileApi,
+  now,
+  sourceFileName: 'zip-tabs-duplicate.saga-iconset.zip',
+});
+assert.equal(duplicateZipImport.ok, false);
+assert.equal(duplicateZipImport.collision, true);
+assert.equal(duplicateZipImport.code, 'iconset_id_collision');
+assert.equal(calls.filter(call => call.url === '/api/files/upload').length, zipUploadCountBeforeDuplicate, 'Rejected duplicate Icon Set zip imports should not upload replacement assets.');
+assert.equal(stored.get(zipImport.payloadFile), originalZipPayload, 'Rejected duplicate Icon Set zip imports should not overwrite the existing payload.');
 
 resetSagaThemeIconStorageCache();
 clock = 3000;

@@ -583,7 +583,7 @@ Status: Started locally on 2026-06-11. Live installed-extension retest is pendin
 Observed during Slice 2.3:
 
 - Deck Health severity cards and raw issue lists were still rendered directly in `loredeck-health-panel.js`.
-- The issue grouping, issue-state mutation, repair actions, assistant handoff, and health report construction are still feature-specific and should not move in the first validation-view slice.
+- The issue grouping, issue-state mutation, repair actions, repair sessions, review choices, and health report construction are still feature-specific and should not move in the first validation-view slice.
 - A useful extraction boundary is the reusable validation display shell: severity cards, severity grids, and raw issue-list rendering.
 
 Implementation notes:
@@ -591,7 +591,7 @@ Implementation notes:
 - Added `src/loredecks/loredeck-validation-view.js` as a UI-only validation/Pack Health helper module.
 - Deck Health severity grid now delegates to `createLoredeckValidationSeverityGrid`.
 - Deck Health raw issue sections now delegate to `createLoredeckValidationIssueList`.
-- Deck Health issue grouping, ignore/resolved state, deterministic repair, assistant repair draft, and export behavior remain in `src/loredecks/loredeck-health-panel.js`.
+- Deck Health issue grouping, ignore/resolved state, Attempt Fixing controls, repair-session actions, review-choice actions, and export behavior remain in `src/loredecks/loredeck-health-panel.js`.
 - `tools/scripts/test-visual-smoke-harness.mjs` now asserts the helper module exists and is adopted by Deck Health.
 
 Verification notes:
@@ -657,7 +657,7 @@ Prove the current split works as a user-facing extension before further extracti
 | Lorepack Library | Empty state, selection, folders, stack controls, package controls, malformed timeline data. | No accidental first-deck auto-selection, stale selection, duplicated stack rows, or null-registry render crashes. |
 | Package import/export | Local `.saga-loredeck.zip` export, preview, install, duplicate handling. | Exported packages import as expected and preserve source/update metadata. |
 | Generated-to-Custom | Creator output, readiness, finalization, export/install. | Generated Lorepacks can become Custom Lorepacks without losing accepted content. |
-| Pack Health | Scan, grouped issues, ignore/resolve, deterministic repair, assistant handoff. | Pack Health remains advisory where intended and queues reviewable changes for repairs. |
+| Pack Health | Scan, grouped issues, ignore/resolve, Attempt Fixing, repair sessions, and review choices. | Pack Health remains advisory where intended and saves remaining review/model/manual work with clear next actions. |
 | Context | Current Context controls, resolver fallback, manual lock/reset, Context Browser entry, malformed active-stack data. | Context changes persist, affect candidate/injection behavior, and do not crash when a Lorepack timeline registry is incomplete. |
 | Injection preview | Preview, stale accepted Lorecard blocking, prompt injector state. | Context-blocked entries do not inject and the audit explains why. |
 | Settings | Provider, Basic/Advanced mode, theme, and runtime settings. | Settings save, survive reopen, and update the runtime surfaces. |
@@ -675,7 +675,7 @@ Stabilization should proceed feature by feature. Each feature must prove its nor
 | Context | Render selected/loaded Lorepack Contexts, manual lock/reset, resolver fallback, Context Browser launch, current Story Position. | Context must tolerate incomplete active-stack Lorepack metadata and report invalid data through health surfaces. |
 | Pending Review | Show queued entry/tag/timeline patches, accept/reject one, accept/reject all, jump from Creator/Assistant/Health. | Toast success must match saved state, not just local UI mutation. |
 | Workbench | Open a Custom Lorepack, edit entries, overrides, tags, timeline records, and queue reviewable changes. | Editor actions must not bypass Pending Review or lose schema v3 Context/retrieval fields. |
-| Pack Health | Scan selected and active Lorepacks, group issues, ignore/resolve advisories, run deterministic repairs, hand off assistant repairs. | Malformed timeline registries are health findings, not runtime render failures. |
+| Pack Health | Scan selected and active Lorepacks, group issues, ignore/resolve advisories, run Attempt Fixing, continue repair sessions, and apply review choices. | Malformed timeline registries are health findings, not runtime render failures. |
 | Creator | Create brief, titles, timeline/tag plan, micro-batch entries, review generated content, finalize to Generated Lorepack, export/install as Custom. | Partial generation failures must preserve completed batches and not unlock downstream steps prematurely. |
 | Assistant | Parse proposals, edit JSON, select/drop/queue proposals, revise selected proposals, create repair drafts from health findings. | Assistant proposals must remain review-first and should not directly mutate active Lorepacks. |
 | Package Import/Export | Export selected Lorepacks, preview package, install Custom copy, detect duplicate/update choices, preserve source/update metadata. | Import and export remain a paired contract for Bundled, Generated, and Custom sources. |
@@ -874,8 +874,8 @@ Focus areas:
 - Severity summaries.
 - Issue group rows.
 - Advisory vs blocking language.
-- Deterministic repair affordances.
-- Assistant repair handoff shell.
+- Attempt Fixing affordances.
+- Repair-session and review-choice shells.
 - Validation result details.
 
 Validation:
@@ -1023,7 +1023,7 @@ node tools\scripts\test-repository-layout.mjs
 
 What changed:
 
-- Moved runtime Loredeck metadata registration, safe repair, package export, manifest sync, metadata save, Generated-to-Custom finalization, and duplicate-as-Custom busy-button handling through `setLoredeckActionButtonBusy`.
+- Moved runtime Loredeck metadata registration, Attempt Fixing, package export, manifest sync, metadata save, Generated-to-Custom finalization, and duplicate-as-Custom busy-button handling through `setLoredeckActionButtonBusy`.
 - Kept runtime editor/finalization logic in `src/runtime/lore-panel.js`; this pass only removes repeated button disable/text/restore boilerplate.
 - Added visual harness assertions that runtime finalize, duplicate, and repair flows use the shared action helper.
 
@@ -1132,8 +1132,8 @@ node tools\scripts\test-repository-layout.mjs
 What changed:
 
 - Added `createLoredeckHealthIssueActionRow` inside `src/loredecks/loredeck-health-panel.js`.
-- Moved grouped issue copy, file-copy, duplicate-as-Custom, ignore/resolved state, assistant repair draft, malformed tag repair, and safe repair buttons out of the issue detail renderer.
-- Kept issue-state mutation, assistant handoff, repair commands, and overlay refresh logic in the Deck Health panel.
+- Moved grouped issue copy, file-copy, duplicate-as-Custom, ignore/resolved state, malformed tag review, and Attempt Fixing buttons out of the issue detail renderer.
+- Kept issue-state mutation, repair commands, repair-session controls, review-choice controls, and overlay refresh logic in the Deck Health panel.
 - Added visual harness coverage so grouped Deck Health repair actions remain isolated behind the shared action-row helper.
 
 Validation:
@@ -1169,7 +1169,7 @@ Status: Started the runtime follow-up trim after the Loredeck UI helper pass.
 
 What changed:
 
-- Added `src/runtime/loredeck-editor-actions.js` as the command owner for runtime Loredeck metadata save/sync, safe repair, package export, duplicate-as-Custom, and Generated-to-Custom finalization.
+- Added `src/runtime/loredeck-editor-actions.js` as the command owner for runtime Loredeck metadata save/sync, Attempt Fixing, package export, duplicate-as-Custom, and Generated-to-Custom finalization.
 - Moved duplicate record construction, Generated finalization record construction, finalized entry rewriting, duplicate tag defaults, and unique pack-id generation into the action module.
 - Kept `src/runtime/lore-panel.js` as the composition layer by importing the extracted action functions directly for current call sites.
 - Kept local rendering, open-dialog wiring, pending-review mutation, tag/timeline editors, and registry normalizers in `lore-panel.js` for later focused panel extractions.

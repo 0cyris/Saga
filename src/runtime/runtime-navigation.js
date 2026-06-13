@@ -22,12 +22,12 @@ export const TAB_ICONS = Object.freeze({
 
 export const TAB_TOOLTIPS = Object.freeze({
     loredecks: 'Load, order, inspect, and edit Saga Loredecks.',
-    session: 'Runtime overview, preset status, instructions, and destructive cleanup actions.',
+    session: 'Runtime overview, preset status, instructions, and active chat readiness.',
     context: 'Detect, browse, resolve, and lock story position across loaded Loredecks.',
     continuity: 'Scan, automatically track, view, and edit lightweight live continuity state: scene/timeline, active characters, key items, and active goals/threads.',
     lore: 'Generate pending Lorecards, review generated Lorecards, and manage accepted Lorecards with search, filters, tags, pinning, and muting.',
     injection: 'Choose what Saga sends to the model: continuity state, lore entries, direct/compressed handling, and live split injection previews.',
-    settings: 'Configure providers, runtime appearance, and Saga Theme Packs.',
+    settings: 'Configure providers, runtime appearance, Saga Theme Packs, State Safety, and Danger Zone cleanup.',
 });
 
 export const AUTOMATION_MODES = Object.freeze({

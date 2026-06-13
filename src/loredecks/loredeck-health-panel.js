@@ -1,5 +1,6 @@
 import {
     addTooltip,
+    confirmAction as confirmUiAction,
     createButton,
     createEmptyMessage,
     createKeyValue,
@@ -28,6 +29,8 @@ import {
     stringifyRedactedDiagnostic,
 } from '../runtime/runtime-redaction.js';
 import {
+    cleanupLoredeckHealthRepairSessions,
+    deleteLoredeckHealthRepairSession as deleteLoredeckHealthRepairSessionFromStorage,
     listLoredeckHealthRepairSessions,
 } from './loredeck-health-repair-session-storage.js';
 import {
@@ -72,17 +75,21 @@ function refreshHeader() { return dep('refreshHeader', () => {})(); }
 function sanitizeFileStem(value) { return dep('sanitizeFileStem', value => String(value || 'saga-deck-health').replace(/[^a-z0-9._-]+/gi, '-').replace(/^-+|-+$/g, '') || 'saga-deck-health')(value); }
 function downloadJson(data, filename) { return dep('downloadJson', () => {})(data, filename); }
 function openDuplicateLoredeckDialog(pack) { return dep('openDuplicateLoredeckDialog', () => {})(pack); }
-function handleLoredeckAssistantHealthRepairDraft(pack, health, button, options) { return dep('handleLoredeckAssistantHealthRepairDraft', async () => {})(pack, health, button, options); }
-function normalizeLoredeckHealthGroupIssuesForRepair(group) { return dep('normalizeLoredeckHealthGroupIssuesForRepair', () => [])(group); }
 function canValidateLoredeckInEditor(pack) { return dep('canValidateLoredeckInEditor', () => false)(pack); }
 function isLoredeckMalformedTagIssueGroup(group) { return dep('isLoredeckMalformedTagIssueGroup', () => false)(group); }
 function queueLoredeckMalformedTagRepairFromHealthGroup(pack, group, button) { return dep('queueLoredeckMalformedTagRepairFromHealthGroup', async () => {})(pack, group, button); }
 function applyLoredeckHealthRepairChoice(pack, choiceSet, option, session, button) { return dep('applyLoredeckHealthRepairChoice', async () => null)(pack, choiceSet, option, session, button); }
+function reevaluateLoredeckHealthRepairChoice(pack, choiceSet, session, button) { return dep('reevaluateLoredeckHealthRepairChoice', async () => null)(pack, choiceSet, session, button); }
 function cancelLoredeckHealthRepairRun(packId) { return dep('cancelLoredeckHealthRepairRun', () => false)(packId); }
 function continueLoredeckHealthModelRepairSession(pack, session, button) { return dep('continueLoredeckHealthModelRepairSession', async () => null)(pack, session, button); }
 function getLoredeckHealthRepairActiveRun(packId) { return dep('getLoredeckHealthRepairActiveRun', () => null)(packId); }
-function repairLoredeckSafeHealthIssues(pack, button) { return dep('repairLoredeckSafeHealthIssues', async () => {})(pack, button); }
+function attemptLoredeckHealthFixes(pack, button) {
+    return dep('attemptLoredeckHealthFixes', async () => {})(pack, button);
+}
 function loadLoredeckHealthRepairSessions(packId) { return dep('loadLoredeckHealthRepairSessions', listLoredeckHealthRepairSessions)(packId); }
+function cleanupLoredeckHealthRepairSessionFiles(packId, options) { return dep('cleanupLoredeckHealthRepairSessions', cleanupLoredeckHealthRepairSessions)(packId, options); }
+function deleteLoredeckHealthRepairSession(session) { return dep('deleteLoredeckHealthRepairSession', deleteLoredeckHealthRepairSessionFromStorage)(session); }
+function confirmAction(title, message, options) { return dep('confirmAction', confirmUiAction)(title, message, options); }
 function markTourTarget(element, target) { return dep('markTourTarget', value => value)(element, target); }
 
 const loredeckEntryPreviewCache = { get: id => healthPanelDeps.getLoredeckEntryPreviewCacheRecord?.(id) || null };
@@ -93,6 +100,7 @@ let loredeckHealthCenterPackId = '';
 let loredeckHealthCenterTab = 'overview';
 const loredeckHealthRepairSessionCache = new Map();
 const loredeckHealthRepairSessionLoads = new Map();
+const loredeckHealthRepairSkippedChoiceIds = new Map();
 
 function hashLoredeckHealthRepairIssueId(value = '') {
     let hash = 2166136261;
@@ -626,6 +634,21 @@ function getLoredeckHealthRepairSessionRemainingCounts(session = {}) {
     };
 }
 
+function getLoredeckHealthRepairSessionLifecycle(session = {}) {
+    const lifecycle = session.lifecycle && typeof session.lifecycle === 'object' && !Array.isArray(session.lifecycle)
+        ? session.lifecycle
+        : {};
+    const counts = getLoredeckHealthRepairSessionRemainingCounts(session);
+    const remainingWorkCount = counts.choice + counts.model + counts.deferred + counts.manual;
+    return {
+        ...lifecycle,
+        remainingWorkCount: Number(lifecycle.remainingWorkCount ?? remainingWorkCount) || remainingWorkCount,
+        diagnosticCount: Number(lifecycle.diagnosticCount ?? session.diagnostics?.length) || 0,
+        canAutoDelete: lifecycle.canAutoDelete === true || (session.status === 'complete' && remainingWorkCount === 0 && !(Number(lifecycle.diagnosticCount ?? session.diagnostics?.length) || 0)),
+        canUserDelete: lifecycle.canUserDelete !== false,
+    };
+}
+
 function appendLoredeckHealthRepairSessionPills(container, session = {}) {
     const counts = getLoredeckHealthRepairSessionRemainingCounts(session);
     container.appendChild(createStatusPill(getLoredeckHealthRepairSessionStatusLabel(session.status), 'Repair session status.', { tone: getLoredeckHealthRepairSessionStatusTone(session.status), kind: 'status' }));
@@ -657,6 +680,15 @@ function createLoredeckHealthRepairSessionRow(session = {}) {
         ? `${issueCount} Pack Health finding${issueCount === 1 ? '' : 's'} remained when this session was saved.`
         : 'No remaining Pack Health findings were recorded in this session.';
     main.appendChild(summary);
+    const lifecycle = getLoredeckHealthRepairSessionLifecycle(session);
+    if (session.status === 'complete' && lifecycle.remainingWorkCount === 0) {
+        const note = document.createElement('div');
+        note.className = 'saga-runtime-help';
+        note.textContent = lifecycle.diagnosticCount
+            ? 'Completed diagnostic summary. It can be cleared when you no longer need the saved result.'
+            : 'Completed cleanly. Saga can clear this finished session without losing active repair work.';
+        main.appendChild(note);
+    }
     row.appendChild(main);
     return row;
 }
@@ -665,6 +697,114 @@ function formatLoredeckRepairChoiceConfidence(value) {
     const number = Number(value);
     if (!Number.isFinite(number) || number <= 0) return '';
     return `${Math.round(Math.max(0, Math.min(1, number)) * 100)}% confidence`;
+}
+
+function truncateLoredeckRepairChoicePreviewText(value = '', maxLength = 160) {
+    const text = typeof value === 'string' ? value : JSON.stringify(value);
+    const clean = String(text || '').replace(/\s+/g, ' ').trim();
+    if (clean.length <= maxLength) return clean;
+    return `${clean.slice(0, Math.max(0, maxLength - 1)).trim()}...`;
+}
+
+function getLoredeckRepairChoiceSessionKey(context = {}, session = {}) {
+    const packId = String(context.pack?.packId || session.packId || loredeckHealthCenterPackId || '').trim();
+    const sessionId = String(session.sessionId || session.sessionFile || '').trim();
+    return [packId, sessionId || 'session'].filter(Boolean).join('::');
+}
+
+function getLoredeckRepairSkippedChoiceIds(context = {}, session = {}) {
+    const key = getLoredeckRepairChoiceSessionKey(context, session);
+    return key ? new Set(loredeckHealthRepairSkippedChoiceIds.get(key) || []) : new Set();
+}
+
+function setLoredeckRepairChoiceSkipped(context = {}, session = {}, choice = {}, skipped = true) {
+    const key = getLoredeckRepairChoiceSessionKey(context, session);
+    const choiceId = String(choice.choiceSetId || '').trim();
+    if (!key || !choiceId) return;
+    const current = getLoredeckRepairSkippedChoiceIds(context, session);
+    if (skipped) current.add(choiceId);
+    else current.delete(choiceId);
+    if (current.size) loredeckHealthRepairSkippedChoiceIds.set(key, [...current]);
+    else loredeckHealthRepairSkippedChoiceIds.delete(key);
+}
+
+function clearLoredeckRepairSkippedChoices(context = {}, session = {}) {
+    const key = getLoredeckRepairChoiceSessionKey(context, session);
+    if (key) loredeckHealthRepairSkippedChoiceIds.delete(key);
+}
+
+function getLoredeckRepairChoiceOperationTarget(operation = {}) {
+    return [
+        operation.entryId ? `Entry ${operation.entryId}` : '',
+        operation.tagId ? `Tag ${operation.tagId}` : '',
+        operation.anchorId ? `Anchor ${operation.anchorId}` : '',
+        operation.windowId ? `Window ${operation.windowId}` : '',
+    ].filter(Boolean).join(' | ') || 'Pack metadata';
+}
+
+function getNestedLoredeckRepairChoiceValue(source = {}, path = '') {
+    const parts = String(path || '').split('.').map(part => part.trim()).filter(Boolean);
+    let value = source;
+    for (const part of parts) {
+        if (!value || typeof value !== 'object') return undefined;
+        value = value[part];
+    }
+    return value;
+}
+
+function getLoredeckRepairChoiceOperationPayload(operation = {}) {
+    return operation.entry || operation.definition || operation.anchor || operation.window || operation.stats || null;
+}
+
+function createLoredeckRepairChoiceOperationPreview(operation = {}) {
+    const row = document.createElement('div');
+    row.className = 'saga-loredeck-health-repair-choice-preview-row';
+
+    const title = document.createElement('div');
+    title.className = 'saga-loredeck-row-title';
+    title.textContent = `${humanizeScopeKey(operation.op || 'change')} -> ${getLoredeckRepairChoiceOperationTarget(operation)}`;
+    row.appendChild(title);
+
+    const fields = Array.isArray(operation.fields) ? operation.fields.map(field => String(field || '').trim()).filter(Boolean) : [];
+    const payload = getLoredeckRepairChoiceOperationPayload(operation);
+    const details = document.createElement('div');
+    details.className = 'saga-loredeck-row-description';
+    if (fields.length) {
+        const fieldSummaries = fields.slice(0, 4).map(field => {
+            const value = payload ? getNestedLoredeckRepairChoiceValue(payload, field) : undefined;
+            if (value === undefined) return field;
+            return `${field}: ${truncateLoredeckRepairChoicePreviewText(value)}`;
+        });
+        if (fields.length > fieldSummaries.length) fieldSummaries.push(`${fields.length - fieldSummaries.length} more field${fields.length - fieldSummaries.length === 1 ? '' : 's'}`);
+        details.textContent = fieldSummaries.join(' | ');
+    } else if (payload) {
+        details.textContent = truncateLoredeckRepairChoicePreviewText(payload);
+    } else {
+        details.textContent = 'No field-level preview was supplied for this operation.';
+    }
+    row.appendChild(details);
+    return row;
+}
+
+function createLoredeckHealthRepairChoiceDiffPreview(option = {}) {
+    const operations = Array.isArray(option.patch?.operations) ? option.patch.operations : [];
+    if (!operations.length) return null;
+    const wrap = document.createElement('div');
+    wrap.className = 'saga-loredeck-health-repair-choice-preview';
+    const title = document.createElement('div');
+    title.className = 'saga-runtime-card-title';
+    title.textContent = 'Preview';
+    wrap.appendChild(title);
+    for (const operation of operations.slice(0, 5)) {
+        wrap.appendChild(createLoredeckRepairChoiceOperationPreview(operation));
+    }
+    if (operations.length > 5) {
+        const more = document.createElement('div');
+        more.className = 'saga-runtime-help';
+        more.textContent = `Showing 5 of ${operations.length} storage changes.`;
+        wrap.appendChild(more);
+    }
+    return wrap;
 }
 
 function createLoredeckHealthRepairChoiceOptionRow(context = {}, session = {}, choice = {}, option = {}) {
@@ -689,6 +829,8 @@ function createLoredeckHealthRepairChoiceOptionRow(context = {}, session = {}, c
         reason.textContent = option.reason;
         main.appendChild(reason);
     }
+    const preview = createLoredeckHealthRepairChoiceDiffPreview(option);
+    if (preview) main.appendChild(preview);
     row.appendChild(main);
     const actions = createLoredeckActionRow();
     const applyButton = createButton(`Apply ${option.optionId || ''}`.trim(), `Apply repair option ${option.optionId || option.label || ''}.`, async (btn) => {
@@ -725,6 +867,19 @@ function createLoredeckHealthRepairChoiceRow(context = {}, session = {}, choice 
         main.appendChild(reason);
     }
     row.appendChild(main);
+    const choiceActions = createLoredeckActionRow();
+    const reevaluateButton = createButton('Ask Model To Re-evaluate', 'Ask the Reasoning Provider to generate a fresh repair proposal for this saved choice set.', async (btn) => {
+        await reevaluateLoredeckHealthRepairChoice(context.pack, choice, session, btn);
+        await ensureLoredeckHealthRepairSessionsLoaded(context.pack.packId, { force: true });
+        renderLoredeckHealthCenterOverlay({ preserveScroll: true });
+    });
+    reevaluateButton.disabled = !canValidateLoredeckInEditor(context.pack);
+    choiceActions.appendChild(reevaluateButton);
+    choiceActions.appendChild(createButton('Skip For Now', 'Hide this review choice until you refresh or show skipped choices. No repair session data is changed.', () => {
+        setLoredeckRepairChoiceSkipped(context, session, choice, true);
+        renderLoredeckHealthCenterOverlay({ preserveScroll: true });
+    }));
+    row.appendChild(choiceActions);
     const options = document.createElement('div');
     options.className = 'saga-loredeck-health-repair-choice-options';
     for (const option of Array.isArray(choice.options) ? choice.options : []) {
@@ -739,17 +894,111 @@ function createLoredeckHealthRepairChoiceList(context = {}, session = {}, option
     if (!choiceSets.length) return null;
     const list = document.createElement('div');
     list.className = 'saga-loredeck-health-repair-choice-list';
+    const skippedIds = getLoredeckRepairSkippedChoiceIds(context, session);
+    const visibleChoices = choiceSets.filter(choice => !skippedIds.has(String(choice.choiceSetId || '').trim()));
+    const skippedCount = choiceSets.length - visibleChoices.length;
+    if (!visibleChoices.length) {
+        list.appendChild(createEmptyMessage(skippedCount
+            ? 'All review choices are skipped for now. Show skipped choices or refresh sessions to continue.'
+            : 'No review choices are available.'));
+        if (skippedCount) {
+            const actions = createLoredeckActionRow();
+            actions.appendChild(createButton('Show Skipped Choices', 'Restore skipped review choices in this open Health Center view.', () => {
+                clearLoredeckRepairSkippedChoices(context, session);
+                renderLoredeckHealthCenterOverlay({ preserveScroll: true });
+            }, 'saga-primary-button'));
+            list.appendChild(actions);
+        }
+        return list;
+    }
     const limit = options.compact ? 1 : 6;
-    for (const choice of choiceSets.slice(0, limit)) {
+    for (const choice of visibleChoices.slice(0, limit)) {
         list.appendChild(createLoredeckHealthRepairChoiceRow(context, session, choice));
     }
-    if (choiceSets.length > limit) {
+    if (visibleChoices.length > limit) {
         const more = document.createElement('div');
         more.className = 'saga-runtime-help';
-        more.textContent = `${choiceSets.length - limit} more review choice${choiceSets.length - limit === 1 ? '' : 's'} saved. Apply or refresh to continue.`;
+        more.textContent = `${visibleChoices.length - limit} more review choice${visibleChoices.length - limit === 1 ? '' : 's'} saved. Apply, skip, or refresh to continue.`;
         list.appendChild(more);
     }
+    if (skippedCount) {
+        const skipped = document.createElement('div');
+        skipped.className = 'saga-runtime-help';
+        skipped.textContent = `${skippedCount} review choice${skippedCount === 1 ? '' : 's'} skipped for now. Refresh sessions or show skipped choices to restore them.`;
+        list.appendChild(skipped);
+        const actions = createLoredeckActionRow();
+        actions.appendChild(createButton('Show Skipped Choices', 'Restore skipped review choices in this open Health Center view.', () => {
+            clearLoredeckRepairSkippedChoices(context, session);
+            renderLoredeckHealthCenterOverlay({ preserveScroll: true });
+        }));
+        list.appendChild(actions);
+    }
     return list;
+}
+
+function buildLoredeckHealthRepairSessionDiagnosticsExport(context = {}, session = {}) {
+    const counts = getLoredeckHealthRepairSessionRemainingCounts(session);
+    return {
+        schemaVersion: 1,
+        kind: 'saga_loredeck_health_repair_session_diagnostics',
+        packId: session.packId || context.pack?.packId || '',
+        packTitle: context.pack?.title || context.pack?.name || '',
+        sessionId: session.sessionId || '',
+        status: session.status || '',
+        outcome: session.outcome || '',
+        sessionFile: session.sessionFile || '',
+        createdAt: session.createdAt || 0,
+        updatedAt: session.updatedAt || 0,
+        lifecycle: session.lifecycle || {},
+        remainingCounts: {
+            reviewChoices: counts.choice,
+            modelBatches: counts.model,
+            deferredBatches: counts.deferred,
+            manualGroups: counts.manual,
+        },
+        finalHealth: session.summary?.finalHealth || {},
+        diagnostics: Array.isArray(session.diagnostics) ? session.diagnostics : [],
+        appliedPatchIds: Array.isArray(session.appliedPatchIds) ? session.appliedPatchIds : [],
+    };
+}
+
+function exportLoredeckHealthRepairSessionDiagnostics(context = {}, session = {}) {
+    if (!session?.sessionId && !session?.sessionFile) {
+        toast('No saved repair session is selected.', 'warning');
+        return;
+    }
+    const packId = session.packId || context.pack?.packId || 'loredeck';
+    const sessionId = session.sessionId || 'session';
+    downloadJson(
+        buildLoredeckHealthRepairSessionDiagnosticsExport(context, session),
+        `${sanitizeFileStem(packId)}-${sanitizeFileStem(sessionId)}-repair-session-diagnostics.json`,
+    );
+    toast('Repair session diagnostics exported.', 'info');
+}
+
+async function clearLoredeckHealthRepairSession(context = {}, session = {}, button = null) {
+    if (!session?.sessionId && !session?.sessionFile) {
+        toast('No saved repair session is selected.', 'warning');
+        return false;
+    }
+    const proceed = await confirmAction(
+        'Clear Saved Session',
+        'Delete this saved Attempt Fixing session? Loredeck content and Pack Health findings are not changed.',
+    );
+    if (!proceed) return false;
+    const restore = setLoredeckActionButtonBusy(button, 'Clearing...', { fallbackLabel: 'Clear Saved Session' });
+    try {
+        const result = await deleteLoredeckHealthRepairSession(session);
+        if (!result?.ok) throw new Error(result?.error || 'Saved repair session could not be cleared.');
+        clearLoredeckRepairSkippedChoices(context, session);
+        toast('Saved repair session cleared.', 'success');
+        return true;
+    } catch (error) {
+        toast(error?.message || 'Saved repair session could not be cleared.', 'error');
+        return false;
+    } finally {
+        restore();
+    }
 }
 
 function createLoredeckHealthRepairSessionPanel(context = {}, options = {}) {
@@ -810,6 +1059,10 @@ function createLoredeckHealthRepairSessionPanel(context = {}, options = {}) {
         return counts.model || counts.deferred;
     }) || sessions[0] || null;
     const activeCounts = activeSession ? getLoredeckHealthRepairSessionRemainingCounts(activeSession) : null;
+    const clearableSessionCount = sessions.filter(session => {
+        const lifecycle = getLoredeckHealthRepairSessionLifecycle(session);
+        return session.status === 'complete' && lifecycle.remainingWorkCount === 0;
+    }).length;
     const actions = createLoredeckActionRow();
     const refreshButton = createButton('Refresh Sessions', 'Reload saved repair sessions for this Loredeck.', async (btn) => {
         const restore = setLoredeckActionButtonBusy(btn, 'Refreshing...', { fallbackLabel: 'Refresh Sessions' });
@@ -820,6 +1073,30 @@ function createLoredeckHealthRepairSessionPanel(context = {}, options = {}) {
         }
     });
     actions.appendChild(refreshButton);
+    if (clearableSessionCount > 0) {
+        const clearButton = createButton('Clear Finished Sessions', `Delete ${clearableSessionCount} completed repair session file${clearableSessionCount === 1 ? '' : 's'}. Active, review, model, and manual sessions are kept.`, async (btn) => {
+            const restore = setLoredeckActionButtonBusy(btn, 'Clearing...', { fallbackLabel: 'Clear Finished Sessions' });
+            try {
+                const result = await cleanupLoredeckHealthRepairSessionFiles(context.pack.packId, {
+                    statuses: ['complete'],
+                    includeDiagnosticSessions: true,
+                });
+                if (!result?.ok) {
+                    toast(result?.error || 'Finished repair sessions could not be cleared.', 'warning');
+                } else {
+                    toast(result.deletedCount
+                        ? `Cleared ${result.deletedCount} finished repair session${result.deletedCount === 1 ? '' : 's'}.`
+                        : 'No finished repair sessions needed clearing.',
+                    result.deletedCount ? 'success' : 'info');
+                }
+                await ensureLoredeckHealthRepairSessionsLoaded(context.pack.packId, { force: true });
+                renderLoredeckHealthCenterOverlay({ preserveScroll: true });
+            } finally {
+                restore();
+            }
+        });
+        actions.appendChild(clearButton);
+    }
     if (editable) {
         if (activeRun) {
             const cancelButton = createButton('Cancel Repair Run', 'Ask the active Pack Health repair run to stop after the current provider or checkpoint step.', async (btn) => {
@@ -844,12 +1121,25 @@ function createLoredeckHealthRepairSessionPanel(context = {}, options = {}) {
             actions.appendChild(continueButton);
         }
         const attemptButton = createButton('Attempt Fixing', 'Run storage-backed Pack Health fixing again for this Loredeck.', async (btn) => {
-            await repairLoredeckSafeHealthIssues(context.pack, btn);
+            await attemptLoredeckHealthFixes(context.pack, btn);
             await ensureLoredeckHealthRepairSessionsLoaded(context.pack.packId, { force: true });
             renderLoredeckHealthCenterOverlay({ preserveScroll: true });
         }, activeSession && ((activeCounts?.model || 0) + (activeCounts?.deferred || 0)) > 0 ? '' : 'saga-primary-button');
         attemptButton.disabled = !canValidateLoredeckInEditor(context.pack);
         actions.appendChild(attemptButton);
+    }
+    if (activeSession) {
+        actions.appendChild(createButton('Export Diagnostics', 'Export compact diagnostics for this saved repair session.', () => {
+            exportLoredeckHealthRepairSessionDiagnostics(context, activeSession);
+        }));
+        const clearButton = createButton('Clear Saved Session', 'Delete the saved repair session without changing Loredeck content or Pack Health findings.', async (btn) => {
+            const cleared = await clearLoredeckHealthRepairSession(context, activeSession, btn);
+            if (!cleared) return;
+            await ensureLoredeckHealthRepairSessionsLoaded(context.pack.packId, { force: true });
+            renderLoredeckHealthCenterOverlay({ preserveScroll: true });
+        });
+        clearButton.disabled = !!activeRun || activeSession.lifecycle?.canUserDelete === false;
+        actions.appendChild(clearButton);
     }
     panel.appendChild(actions);
     return panel;
@@ -1194,6 +1484,10 @@ function createLoredeckHealthIssueDetailPanel(group, context, options = {}) {
     return panel;
 }
 
+function canAcceptLoredeckHealthIssueAsIs(group = {}) {
+    return normalizeLoredeckHealthSeverity(group.severity || '') !== 'error';
+}
+
 function createLoredeckHealthIssueActionRow(group, context = {}, issueState = null, editable = false) {
     const actions = createLoredeckActionRow();
     actions.appendChild(createButton('Copy Details', 'Copy this grouped issue summary to clipboard.', async () => {
@@ -1210,30 +1504,24 @@ function createLoredeckHealthIssueActionRow(group, context = {}, issueState = nu
                 openDuplicateLoredeckDialog(context.pack);
             }));
         } else {
-            const ignoreButton = createButton(issueState?.status === 'ignored' ? 'Clear Accept As-Is' : 'Accept As-Is', issueState?.status === 'ignored' ? 'Clear this user-set accepted state.' : 'Accept this grouped finding as intentional for this editable Loredeck. The finding remains in diagnostics until Pack Health no longer reports it.', async () => {
-                await setLoredeckHealthIssueGroupState(context.pack, group, issueState?.status === 'ignored' ? '' : 'ignored');
-                renderLoredeckHealthCenterOverlay();
-            });
-            actions.appendChild(ignoreButton);
+            if (issueState?.status === 'ignored' || canAcceptLoredeckHealthIssueAsIs(group)) {
+                const ignoreButton = createButton(issueState?.status === 'ignored' ? 'Clear Accept As-Is' : 'Accept As-Is', issueState?.status === 'ignored' ? 'Clear this user-set accepted state.' : 'Accept this grouped finding as intentional for this editable Loredeck. The finding remains in diagnostics until Pack Health no longer reports it.', async () => {
+                    await setLoredeckHealthIssueGroupState(context.pack, group, issueState?.status === 'ignored' ? '' : 'ignored');
+                    renderLoredeckHealthCenterOverlay();
+                });
+                actions.appendChild(ignoreButton);
+            }
             const resolveButton = createButton(issueState?.status === 'resolved' ? 'Clear Verification' : 'Verify Fixed', issueState?.status === 'resolved' ? 'Clear this user-set verification marker.' : 'Mark this grouped finding as repaired only after you have changed the deck. Rerun Refresh Scan to confirm Pack Health no longer reports it.', async () => {
                 await setLoredeckHealthIssueGroupState(context.pack, group, issueState?.status === 'resolved' ? '' : 'resolved');
                 renderLoredeckHealthCenterOverlay();
             });
             actions.appendChild(resolveButton);
             const repairButton = createButton('Attempt Fixing', 'Apply deterministic fixes now and save remaining model or review work as a repair session.', async (btn) => {
-                await repairLoredeckSafeHealthIssues(context.pack, btn);
+                await attemptLoredeckHealthFixes(context.pack, btn);
                 renderLoredeckHealthCenterOverlay();
             }, 'saga-primary-button');
             repairButton.disabled = !canValidateLoredeckInEditor(context.pack);
             actions.appendChild(repairButton);
-            const assistantButton = createButton('Draft With Assistant', 'Legacy assistant drafting route for this grouped finding. Use only when Attempt Fixing cannot continue yet.', async (btn) => {
-                await handleLoredeckAssistantHealthRepairDraft(context.pack, context.health, btn, {
-                    selectedIssues: normalizeLoredeckHealthGroupIssuesForRepair(group),
-                });
-                renderLoredeckHealthCenterOverlay();
-            });
-            assistantButton.disabled = !canValidateLoredeckInEditor(context.pack);
-            actions.appendChild(assistantButton);
             if (isLoredeckMalformedTagIssueGroup(group)) {
                 const tagRepairButton = createButton('Queue Tag ID Review', 'Queue malformed tag ID replacements for manual review when Attempt Fixing cannot choose safely.', async (btn) => {
                     await queueLoredeckMalformedTagRepairFromHealthGroup(context.pack, group, btn);
@@ -1429,6 +1717,47 @@ function getLoredeckHealthIssueStateLabel(state = null, group = {}) {
     if (status === 'ignored') return 'Accepted as-is';
     if (status === 'resolved') return 'Verification requested';
     return '';
+}
+
+function isLoredeckHealthPassingForVerification(health = null) {
+    if (!health || typeof health !== 'object') return false;
+    const status = String(health.status || '').trim();
+    const summary = health.summary || {};
+    const errorCount = Number(summary.errorCount ?? health.errors?.length) || 0;
+    const warningCount = Number(summary.warningCount ?? health.warnings?.length) || 0;
+    return status === 'good' && errorCount === 0 && warningCount === 0;
+}
+
+async function clearResolvedLoredeckHealthIssueStatesAfterPassingScan(pack = {}, health = null) {
+    if (!isLoredeckHealthPassingForVerification(health)) return { clearedCount: 0, failedCount: 0 };
+    const fresh = getFreshLoredeckLibraryPack(pack.packId, pack);
+    if (!fresh || fresh.type === 'bundled') return { clearedCount: 0, failedCount: 0 };
+    const states = normalizeLoredeckHealthIssueStates(fresh.healthIssueStates);
+    const resolvedKeys = Object.entries(states)
+        .filter(([, state]) => state?.status === 'resolved')
+        .map(([key]) => key);
+    if (!resolvedKeys.length) return { clearedCount: 0, failedCount: 0 };
+    let clearedCount = 0;
+    let failedCount = 0;
+    for (const issueKey of resolvedKeys) {
+        const result = await persistLoredeckHealthIssueState(fresh, issueKey, null, '', {
+            errorMessage: 'Pack Health verification marker cleanup failed.',
+        });
+        if (result?.ok) {
+            clearedCount += 1;
+            delete states[issueKey];
+            fresh.healthIssueStates = { ...states };
+        } else {
+            failedCount += 1;
+        }
+    }
+    if (clearedCount) {
+        toast(`Verified fixed: cleared ${clearedCount} Pack Health verification marker${clearedCount === 1 ? '' : 's'} after a clean scan.`, failedCount ? 'warning' : 'success');
+    }
+    if (failedCount && !clearedCount) {
+        toast(`Pack Health scan passed, but ${failedCount} verification marker${failedCount === 1 ? '' : 's'} could not be cleared.`, 'warning');
+    }
+    return { clearedCount, failedCount };
 }
 
 async function setLoredeckHealthIssueGroupState(pack = {}, group = {}, status = '') {
@@ -1801,6 +2130,7 @@ async function refreshLoredeckHealthCenterScan(context = getLoredeckHealthCenter
             if (context.pack) {
                 const result = await validateLoredeckForEditor(context.pack, null, { quiet: true, updateLibrary: true });
                 if (!result.health) throw new Error(result.error || 'Pack Health scan failed.');
+                await clearResolvedLoredeckHealthIssueStatesAfterPassingScan(context.pack, result.health);
                 await ensureLoredeckHealthRepairSessionsLoaded(context.pack.packId, { force: true });
                 refreshLoredeckSurfaces();
             } else {

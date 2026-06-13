@@ -160,7 +160,6 @@ const userPrompt = buildLoredeckAssistantUserPrompt({
   allowedTimelineAnchorIds: ['op.arlong.start'],
   knownTags: ['character:nami'],
   selectedDraftProposals: [{ changeId: 'lpchg_1', action: 'assistant_upsert_entry', title: 'Draft Nami' }],
-  selectedHealthIssues: [{ issueId: 'health_1', severity: 'warning', code: 'undefined_tag', tagIds: ['character:nami'] }],
   targetEntries: [{ id: 'nami_bargain', title: 'Nami hides the bargain' }],
 });
 const userJson = JSON.parse(userPrompt);
@@ -169,7 +168,7 @@ assert.equal(userJson.allowedTimelineAnchorIds[0], 'op.arlong.start');
 assert.equal(userJson.loreValueRubric.target, 'High-value scene context, not wiki completeness.');
 assert.ok(userJson.loreValueRubric.rubricKeys.includes('behavioralImpact'));
 assert.equal(userJson.selectedDraftProposals[0].changeId, 'lpchg_1');
-assert.equal(userJson.selectedHealthIssues[0].code, 'undefined_tag');
+assert.equal(Object.hasOwn(userJson, 'selectedHealthIssues'), false);
 
 const creatorBrief = parseLoredeckCreatorBriefResponse(`{
   "summary": "Arlong Park is a workable focused arc.",
@@ -529,6 +528,7 @@ assert.ok(creatorEntrySystemPrompt.includes('schemaVersion 3'));
 assert.ok(creatorEntrySystemPrompt.includes('content.fact'));
 assert.ok(creatorEntrySystemPrompt.includes('content.injection'));
 assert.ok(creatorEntrySystemPrompt.includes('Keep the whole JSON compact'));
+assert.ok(creatorEntrySystemPrompt.includes('previousRejection'));
 assert.equal(creatorEntrySystemPrompt.includes('"warnings"'), false);
 
 const truncatedCreatorEntryPass = parseLoredeckAssistantResponse(`{
@@ -577,7 +577,28 @@ const creatorEntryUserPrompt = buildLoredeckCreatorEntryUserPrompt({
   targetTitleDrafts: [{
     ...creatorTitlePass.titleDrafts[0],
     targetEntryId: 'nami-hides-her-bargain',
+    previousRejection: {
+      targetEntryId: 'nami-hides-her-bargain',
+      reasonCodes: ['unknown_tag'],
+      unknownTags: ['location:cocoyashi'],
+      instruction: 'Use only targetTitleDraft.allowedEntryTags.',
+    },
+    allowedAnchorIds: ['one-piece.arlong.cocoyasi-arrival'],
+    allowedWindowIds: ['one-piece.arlong.nami-secret'],
+    omittedAnchorIds: ['one-piece.arlong.future-reveal'],
   }],
+  retryContext: {
+    retryingRejectedTargets: true,
+    previousRejections: [{
+      targetEntryId: 'nami-hides-her-bargain',
+      targetTitleId: 'nami-hides-her-bargain',
+      title: 'Nami hides her bargain',
+      reasonCodes: ['unknown_tag'],
+      unknownTags: ['location:cocoyashi'],
+      messages: ['Unknown tag location:cocoyashi.'],
+      instruction: 'Use only targetTitleDraft.allowedEntryTags.',
+    }],
+  },
   targetPlanningBatch: {
     id: 'characters-pressure',
     label: 'Characters and pressure',
@@ -602,9 +623,18 @@ assert.equal(creatorEntryUserJson.generatedPackId, 'one-piece-arlong-park');
 assert.equal(creatorEntryUserJson.constraints.upsertEntriesOnly, true);
 assert.equal(creatorEntryUserJson.constraints.schemaVersion, 3);
 assert.equal(creatorEntryUserJson.constraints.requireContext, true);
+assert.equal(creatorEntryUserJson.constraints.useAllowedTimelineIdsPerTargetOnly, true);
+assert.equal(creatorEntryUserJson.constraints.acceptedTimelineRegistryMayBeTargetFiltered, true);
+assert.equal(creatorEntryUserJson.constraints.omittedTimelineIdsAreForbidden, true);
 assert.equal(creatorEntryUserJson.constraints.preserveCoverageDimensionIds, true);
 assert.equal(creatorEntryUserJson.targetTitleDrafts[0].targetEntryId, 'nami-hides-her-bargain');
 assert.equal(creatorEntryUserJson.targetTitleDrafts[0].coverageDimensionIds[0], 'character-pressure');
+assert.deepEqual(creatorEntryUserJson.targetTitleDrafts[0].allowedAnchorIds, ['one-piece.arlong.cocoyasi-arrival']);
+assert.deepEqual(creatorEntryUserJson.targetTitleDrafts[0].allowedWindowIds, ['one-piece.arlong.nami-secret']);
+assert.deepEqual(creatorEntryUserJson.targetTitleDrafts[0].omittedAnchorIds, ['one-piece.arlong.future-reveal']);
+assert.equal(creatorEntryUserJson.targetTitleDrafts[0].previousRejection.unknownTags[0], 'location:cocoyashi');
+assert.equal(creatorEntryUserJson.retryContext.retryingRejectedTargets, true);
+assert.equal(creatorEntryUserJson.retryContext.previousRejections[0].reasonCodes[0], 'unknown_tag');
 assert.equal(creatorEntryUserJson.targetPlanningBatch.coverageDimensionIds[0], 'character-pressure');
 assert.equal(creatorEntryUserJson.acceptedTagRegistry.tags['character:nami'].label, 'Nami');
 

@@ -250,6 +250,7 @@ export function normalizeLoredeckLibraryIndex(value = {}, options = {}) {
   const defaults = options.defaults && typeof options.defaults === 'object' && !Array.isArray(options.defaults) ? options.defaults : {};
   const packs = options.packs && typeof options.packs === 'object' && !Array.isArray(options.packs) ? options.packs : {};
   const packIds = Object.keys(packs).length ? new Set(Object.keys(packs)) : null;
+  const applySuggestedPaths = options.applySuggestedPaths !== false;
 
   let folders = normalizeFolderList(defaults.folders, input.folders);
   let folderIds = new Set(folders.map(folder => folder.id));
@@ -261,8 +262,10 @@ export function normalizeLoredeckLibraryIndex(value = {}, options = {}) {
     if (placementMap.size >= MAX_PLACEMENTS) break;
   }
 
-  folders = applySuggestedPackPaths(folders, placementMap, packs);
-  folderIds = new Set(folders.map(folder => folder.id));
+  if (applySuggestedPaths) {
+    folders = applySuggestedPackPaths(folders, placementMap, packs);
+    folderIds = new Set(folders.map(folder => folder.id));
+  }
 
   const deckPlacements = [...placementMap.values()]
     .map((placement, index) => normalizeDeckPlacementRecord(placement, index, folderIds, packIds))

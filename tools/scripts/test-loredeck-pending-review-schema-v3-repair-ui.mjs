@@ -210,7 +210,7 @@ const repairedEntry = {
 };
 
 const repairChange = createLoredeckRecordPatchChange({
-  source: 'safe_repair',
+  source: 'attempt_fixing',
   action: 'review_schema_v3_context_anchor',
   targetKind: 'entry',
   title: "Review Context anchor repair: Nami's Secret",

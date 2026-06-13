@@ -239,7 +239,7 @@ This order teaches dependencies before diagnostics: source packs first, then Con
 | A29 | `advanced-session-runtime-metrics` | Session And Runtime Control | Read pending, accepted, selected, continuity, and prompt-size metrics. |
 | A30 | `advanced-session-guide-modules` | Session And Runtime Control | Use the guide card as a module launcher instead of treating Advanced as one long checklist. |
 | A31 | `advanced-session-active-chat` | Session And Runtime Control | Confirm which chat state Saga is currently reading and updating. |
-| A32 | `advanced-session-cleanup-actions` | Session And Runtime Control | Find cleanup or reset actions and understand their risk before using them. |
+| A32 | `advanced-settings-danger-zone` | Settings And Providers | Find Active Chat and Global cleanup actions in Settings Danger Zone and understand their risk before using them. |
 | A33 | `advanced-session-mode-recovery` | Session And Runtime Control | Recover when switching modes hides the previously active tab or control. |
 | A34 | `advanced-context-command-center` | Context Resolution | Use Runtime Context as the status and action hub for story position. |
 | A35 | `advanced-context-loaded-rows` | Context Resolution | Inspect per-Loredeck Context rows, source, lock state, and update state. |
@@ -341,8 +341,8 @@ This order teaches dependencies before diagnostics: source packs first, then Con
 | A131 | `advanced-health-center-open` | Pack Health And Packages | Open Pack Health Center from Library details or a generated pack readiness surface. |
 | A132 | `advanced-health-status` | Pack Health And Packages | Read errors, warnings, notices, entry counts, and manifest health. |
 | A133 | `advanced-health-issue-groups` | Pack Health And Packages | Inspect grouped health issues by severity, code, affected data, and suggested repair path. |
-| A134 | `advanced-health-safe-repair` | Pack Health And Packages | Run deterministic safe repair actions when they are available for editable packs. |
-| A135 | `advanced-health-manual-repair` | Pack Health And Packages | Route unresolved issues to workbench or manual edits when safe repair is not enough. |
+| A134 | `advanced-health-attempt-fixing` | Pack Health And Packages | Run Attempt Fixing when editable packs have repairable Pack Health findings. |
+| A135 | `advanced-health-manual-repair` | Pack Health And Packages | Route unresolved issues to review choices, Accept As-Is, or manual edits when Attempt Fixing cannot apply one clear fix. |
 | A136 | `advanced-package-update` | Pack Health And Packages | Update or reinstall packages when a newer or corrected package is available. |
 | A137 | `advanced-package-local-mod-warning` | Pack Health And Packages | Understand local modification warnings before overwriting or updating a package. |
 | A138 | `advanced-package-export-bundled` | Pack Health And Packages | Export Bundled Lorepack references correctly so imports remain lightweight where possible. |
@@ -401,7 +401,7 @@ Recommended Advanced cards:
 | Continuity Tracking | A98 | Track, tune, edit, and recover live scene state. |
 | Creator And Generated Lorepack Authoring | A112 | Create and complete Generated Lorepack projects. |
 | Pack Health And Packages | A131 | Validate, repair, update, export, and finalize Lorepacks. |
-| Settings And Providers | A142 | Configure providers, Theme Packs, icons, colors, and diagnostics. |
+| Settings And Providers | A32 | Configure providers, Theme Packs, icons, colors, State Safety, Danger Zone cleanup, and diagnostics. |
 | Troubleshooting Routes | A154 | Route common failures to the right control surface. |
 
 ## Implementation Phases
@@ -468,7 +468,7 @@ Recommended smoke coverage:
 - Advanced Injection module with included and omitted Lorecards.
 - Advanced Continuity module with scan results and editable state blocks.
 - Advanced Creator module with an in-progress project and generated pack.
-- Advanced Pack Health module with safe repair and manual repair examples.
+- Advanced Pack Health module with Attempt Fixing, review-choice, and manual repair examples.
 
 ## Done Definition
 

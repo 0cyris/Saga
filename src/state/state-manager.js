@@ -965,8 +965,9 @@ function formatStorageDiagnosticsMessage(result = {}) {
     if (result.status === 'missing_index') {
         return 'Saga storage index is missing.';
     }
-    if (result.status === 'write_errors') {
-        return `Saga storage has ${result.writeErrors?.length || 0} pending write error${result.writeErrors?.length === 1 ? '' : 's'}.`;
+    if (result.status === 'storage_errors' || result.status === 'write_errors') {
+        const count = (result.storageErrors || result.writeErrors || []).length;
+        return `Saga storage has ${count} runtime storage error${count === 1 ? '' : 's'}.`;
     }
     return result.error || 'Saga storage verification failed.';
 }

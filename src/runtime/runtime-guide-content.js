@@ -80,7 +80,7 @@ const ADVANCED_GUIDE_DEFAULTS = Object.freeze({
         when: 'Use this when creating or resuming a generated source pack.',
     }),
     packHealth: Object.freeze({
-        expected: 'You can diagnose package readiness, repair safe issues, and export or finalize Lorepacks deliberately.',
+        expected: 'You can diagnose package readiness, run Attempt Fixing, and export or finalize Lorepacks deliberately.',
         when: 'Use this before sharing, updating, finalizing, or trusting a pack with warnings.',
     }),
     settingsDiagnostics: Object.freeze({
@@ -146,7 +146,7 @@ function buildAdvancedGuideSteps() {
         advancedStep('advanced-session-runtime-metrics', 'Runtime Metrics', 'Read pending, accepted, selected, continuity, and prompt-size metrics.', 'session', 'session.metrics'),
         advancedStep('advanced-session-guide-modules', 'Guide Modules', 'Use the guide card as a module launcher instead of treating Advanced as one long checklist.', 'session', 'session.instructions.advanced'),
         advancedStep('advanced-session-active-chat', 'Active Chat Target', 'Confirm which chat state Saga is currently reading and updating.', 'session', 'session.metrics'),
-        advancedStep('advanced-session-cleanup-actions', 'Cleanup Actions', 'Find cleanup or reset actions and understand their risk before using them.', 'session', 'session.metrics'),
+        advancedStep('advanced-settings-danger-zone', 'Cleanup Actions', 'Find Active Chat and Global cleanup actions in Settings and understand their risk before using them.', 'settings', 'settings.dangerZone', { expandSections: Object.freeze(['settings.dangerZone']) }),
         advancedStep('advanced-session-mode-recovery', 'Mode Recovery', 'Recover when switching modes hides the previously active tab or control.', 'session', 'session.experienceMode'),
         advancedStep('advanced-context-command-center', 'Context Command Center', 'Use Runtime Context as the status and action hub for story position.', 'context', 'context.commandCenter', { expandSections: Object.freeze(['context.commandCenter']) }),
         advancedStep('advanced-context-loaded-rows', 'Loaded Context Rows', 'Inspect per-Loredeck Context rows, source, lock state, and update state.', 'context', 'context.loadedLoredecks', { fallbackTarget: 'context.commandCenter', expandSections: Object.freeze(['context.loadedLoredecks']) }),

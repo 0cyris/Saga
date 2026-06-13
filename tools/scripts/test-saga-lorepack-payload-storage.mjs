@@ -24,6 +24,25 @@ const {
 
 const stored = new Map();
 const deleted = [];
+const payloadUploadBlockers = [];
+
+function wait(ms = 0) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function createUploadBlocker(fileName = '') {
+  let releaseUpload;
+  let markStarted;
+  const started = new Promise(resolve => { markStarted = resolve; });
+  const released = new Promise(resolve => { releaseUpload = resolve; });
+  return {
+    fileName,
+    markStarted,
+    release: releaseUpload,
+    started,
+    released,
+  };
+}
 
 function response(ok, status, body = '') {
   return {
@@ -42,6 +61,12 @@ const fileApi = createSagaFileApi({
     const body = init.body ? JSON.parse(init.body) : null;
 
     if (url === '/api/files/upload' && method === 'POST') {
+      const blockerIndex = payloadUploadBlockers.findIndex(blocker => blocker.fileName === body.name);
+      if (blockerIndex >= 0) {
+        const [blocker] = payloadUploadBlockers.splice(blockerIndex, 1);
+        blocker.markStarted();
+        await blocker.released;
+      }
       const path = `/user/files/${body.name}`;
       stored.set(path, __sagaFileApiTestHooks.base64ToUtf8(body.data));
       return response(true, 200, JSON.stringify({ path }));
@@ -151,6 +176,70 @@ assert.equal(loadedSource.sourceKind, 'custom_virtual');
 assert.equal(loadedSource.entryFiles[0].entries.length, 2);
 assert.equal(loadedSource.health.summary.entryCount, 2);
 
+resetSagaLorepackPayloadStorageCache();
+configureSagaLorepackPayloadStorage({ fileApi, now });
+clock = 1500;
+const queuedPayload = normalizeExternalLorepackPayload({
+  packId: 'queued-cache-pack',
+  type: 'custom',
+  title: 'Queued Cache Pack',
+  manifestData: {
+    id: 'queued-cache-pack',
+    title: 'Queued Cache Pack',
+    entrySchemaVersion: 3,
+    files: [],
+  },
+  entryOverrides: {
+    one: { id: 'one', title: 'One', schemaVersion: 3, content: { fact: '' } },
+    two: { id: 'two', title: 'Two', schemaVersion: 3, content: { fact: '' } },
+    three: { id: 'three', title: 'Three', schemaVersion: 3, content: { fact: '' } },
+  },
+});
+const queuedInitial = upsertExternalLorepackPayloadSync(queuedPayload);
+assert.equal(queuedInitial.ok, true);
+assert.equal((await flushSagaLorepackPayloadStorageWrites()).ok, true);
+const queuedPayloadFileName = 'saga-pack-queued-cache-pack.v1.json';
+const queuedPayloadFile = `/user/files/${queuedPayloadFileName}`;
+assert.equal(JSON.parse(stored.get(queuedPayloadFile)).revision, 2);
+
+function patchQueuedEntry(entryId, fact) {
+  const current = getCachedExternalLorepackPayload('queued-cache-pack');
+  const next = JSON.parse(JSON.stringify(current));
+  next.entryOverrides[entryId].content.fact = fact;
+  const result = upsertExternalLorepackPayloadSync(next);
+  assert.equal(result.ok, true);
+}
+
+const firstWriteBlocker = createUploadBlocker(queuedPayloadFileName);
+const secondWriteBlocker = createUploadBlocker(queuedPayloadFileName);
+payloadUploadBlockers.push(firstWriteBlocker, secondWriteBlocker);
+
+clock = 1600;
+patchQueuedEntry('one', 'First queued repair.');
+await firstWriteBlocker.started;
+clock = 1700;
+patchQueuedEntry('two', 'Second queued repair.');
+assert.equal(getCachedExternalLorepackPayload('queued-cache-pack').entryOverrides.two.content.fact, 'Second queued repair.');
+
+firstWriteBlocker.release();
+await secondWriteBlocker.started;
+await wait(0);
+const midQueuedCache = getCachedExternalLorepackPayload('queued-cache-pack');
+assert.equal(midQueuedCache.entryOverrides.one.content.fact, 'First queued repair.');
+assert.equal(midQueuedCache.entryOverrides.two.content.fact, 'Second queued repair.', 'Older queued writes must not roll back newer cached payload edits.');
+
+clock = 1800;
+patchQueuedEntry('three', 'Third queued repair.');
+secondWriteBlocker.release();
+const queuedFlush = await flushSagaLorepackPayloadStorageWrites();
+assert.equal(queuedFlush.ok, true);
+const queuedStoredPayload = JSON.parse(stored.get(queuedPayloadFile));
+assert.equal(queuedStoredPayload.entryOverrides.one.content.fact, 'First queued repair.');
+assert.equal(queuedStoredPayload.entryOverrides.two.content.fact, 'Second queued repair.');
+assert.equal(queuedStoredPayload.entryOverrides.three.content.fact, 'Third queued repair.');
+assert.equal(queuedStoredPayload.revision, 5);
+
+await hydrateExternalLorepackPayloadRecord(libraryRecord);
 clock = 2000;
 const removed = removeExternalLorepackPayloadSync('arlong-payload', { payloadFile: libraryRecord.payloadFile });
 assert.equal(removed.ok, true);

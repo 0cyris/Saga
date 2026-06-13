@@ -1183,7 +1183,7 @@ Before Saga begins full Loredeck Creator development, the review layer must be s
 The Creator will eventually generate timelines, tag registries, title lists, and entry batches. That means a weak Pending Review surface would make generated packs feel opaque and risky. The next production work should harden review before broad generation:
 
 - Field-level diffs for entries, tags, timeline anchors, and timeline windows.
-- Clear proposal provenance, especially `lore_assistant`, `manual`, `bulk_edit`, `safe_repair`, and later `creator`.
+- Clear proposal provenance, especially `lore_assistant`, `manual`, `bulk_edit`, `attempt_fixing`, and Creator-generated proposals.
 - Assistant proposal reason, confidence, and risk display.
 - Automatic Pack Health rerun when possible, with stale-health warning fallback after accepting generated or assistant patches.
 - Acceptance warnings for changes that affect Context gates, disable entries, create undefined tags, or alter timeline anchors/windows.

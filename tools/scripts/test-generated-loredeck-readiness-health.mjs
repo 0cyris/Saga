@@ -85,9 +85,29 @@ assert.equal(warningOnly.healthWarningCount, 1);
 assert.ok(warningOnly.warnings.includes('Pack Health: 0 errors, 1 warning.'));
 
 const unscanned = getGeneratedLoredeckExportReadiness(pack, null);
-assert.equal(unscanned.ready, true);
+assert.equal(unscanned.ready, false);
 assert.equal(unscanned.healthScanned, false);
 assert.equal(unscanned.healthSummary, 'Pack Health: Not scanned');
-assert.ok(unscanned.warnings.includes('Pack Health has not been run for this Generated Loredeck.'));
+assert.ok(unscanned.blockers.includes('Pack Health has not been run for this Generated Loredeck.'));
+
+const compactErrorStatus = getGeneratedLoredeckExportReadiness({
+  ...pack,
+  healthStatus: 'has_errors',
+}, null);
+assert.equal(compactErrorStatus.ready, false);
+assert.equal(compactErrorStatus.healthScanned, true);
+assert.equal(compactErrorStatus.healthHasErrors, true);
+assert.equal(compactErrorStatus.healthSummary, 'Pack Health: Errors');
+assert.ok(compactErrorStatus.blockers.includes('Pack Health has errors.'));
+
+const staleStatus = getGeneratedLoredeckExportReadiness({
+  ...pack,
+  healthStatus: 'stale',
+}, null);
+assert.equal(staleStatus.ready, false);
+assert.equal(staleStatus.healthScanned, true);
+assert.equal(staleStatus.healthIsStale, true);
+assert.equal(staleStatus.healthSummary, 'Pack Health: Stale');
+assert.ok(staleStatus.blockers.includes('Pack Health is stale; rerun validation before finalizing as Custom.'));
 
 console.log('Generated Loredeck readiness health tests passed.');

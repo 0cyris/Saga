@@ -34,7 +34,6 @@ export function configureLoredeckManifestPreview(nextDeps = {}) {
 
 export function createLoredeckManifestPreview(pack) {
     const getLoredeckManifestPreviewCacheRecord = dep('getLoredeckManifestPreviewCacheRecord', () => null);
-    const createLoredeckHealthRepairPlanner = dep('createLoredeckHealthRepairPlanner', () => null);
     const preview = document.createElement('div');
     preview.className = 'saga-loredeck-manifest-preview';
     const embeddedPreviewManifest = isVirtualLoredeckPack(pack)
@@ -94,8 +93,6 @@ export function createLoredeckManifestPreview(pack) {
         validation.appendChild(createKeyValue('Schema v3', `${healthSummary.schemaV3EntryCount || 0} Lorecards / ${healthSummary.schemaV3IssueCount || 0} issues`, 'Schema v3 conformance count from latest validation.'));
         validation.appendChild(createKeyValue('Stats Drift', String(healthSummary.manifestStatsMismatchCount || 0), 'Manifest stats mismatches from latest validation.'));
         preview.appendChild(validation);
-        const repairPanel = createLoredeckHealthRepairPlanner(pack, cached.health);
-        if (repairPanel) preview.appendChild(repairPanel);
     }
 
     const fileList = document.createElement('div');

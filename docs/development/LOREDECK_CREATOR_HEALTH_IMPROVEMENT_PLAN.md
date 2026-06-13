@@ -122,7 +122,7 @@ Acceptance:
 
 ## Phase 5: Fix Creator Final Readiness And Health UX
 
-Status: Implemented. Creator readiness receives cached Pack Health, treats cached Pack Health errors as blockers, summarizes issue counts, opens the Pack Health Center to Issues when errors exist, exposes final-card Pack Health actions, and uses `Pack Health` wording across the primary Creator, Library, Workbench, Pending Review, assistant repair, and validation routes.
+Status: Implemented. Creator readiness receives cached Pack Health, treats cached Pack Health errors as blockers, summarizes issue counts, opens the Pack Health Center to Issues when errors exist, exposes final-card Pack Health actions, and uses `Pack Health` wording across the primary Creator, Library, Workbench, Pending Review, Attempt Fixing, and validation routes.
 
 Objective: make the final Creator surface explain and block structural health problems.
 
@@ -134,7 +134,7 @@ Tasks:
 - Add final-card actions:
   - `Run Pack Health`
   - `Open Pack Health Center`
-  - `Repair Safe Issues` when deterministic repairs are available
+  - `Attempt Fixing` when repairable findings are available
 - Replace generic latest-health error copy with a compact summary such as `Pack Health: 56 errors, 3 warnings`.
 - Let Pack Health Center open directly to the Issues tab for packs with errors.
 - Align user-facing health labels so the Creator final gate, Pending Review, Library, Workbench, and Health Center all refer to `Pack Health`.
@@ -142,19 +142,19 @@ Tasks:
 Acceptance:
 
 - Implemented: the final card cannot display `Finalize ready` while cached Pack Health contains errors.
-- Implemented: the final card shows `Pack Health: N errors, M warnings` and exposes `Run Pack Health`, `Open Pack Health Center`, and `Repair Safe Issues` when issue counts exist.
+- Implemented: the final card shows `Pack Health: N errors, M warnings` and exposes `Run Pack Health`, `Open Pack Health Center`, and `Attempt Fixing` when issue counts exist.
 - Implemented: the health overlay now presents as `Pack Health Center`, and Library/Workbench buttons use `Open Pack Health Center`, `Open Pack Health`, or `Run Pack Health`.
 - Covered: Generated-to-Custom finalization blocks on Pack Health errors and still succeeds for a clean validated Generated Loredeck.
 
 ## Phase 6: Add Deterministic Repair For Existing Generated Packs
 
-Status: Implemented. `Repair Safe Issues` repairs schema v3 generated/custom entry overrides with the same shared tag and anchor rules used by the Creator draft guard. It strips legacy schema fields, maps compacted tags only when there is one exact registry target, drops generic schema tags, reruns Pack Health, and reports before/after error and warning counts. Unknown specific tags or Context anchors are preserved and reported as still needing review. Context anchor repairs inferred from a single exact sort-key match are queued to Pending Review instead of being applied directly, and Pending Review rows show the inferred repair reason beside the normal field diff. Multiple-candidate tag or anchor matches do not queue no-op review rows; the repair toast reports how many ambiguous candidates remain for Pack Health review.
+Status: Superseded by Stage 2 Attempt Fixing. `Attempt Fixing` now runs the storage-backed repair orchestrator, applies deterministic local fixes, saves model/review/manual leftovers to repair sessions, and keeps full payload repair state out of settings. The older settings-backed safe-repair fallback and its direct Pending Review proposal path have been removed.
 
 Objective: provide a practical recovery path for packs already affected by this bug.
 
 Tasks:
 
-- Extend `Repair Safe Issues` for editable Generated/Custom Loredecks:
+- Extend `Attempt Fixing` for editable Generated/Custom Loredecks:
   - Strip schema v3 legacy top-level fields.
   - Rebuild `content.fact` / `content.injection` when missing from safe legacy aliases.
   - Canonicalize tags against the active tag registry when unambiguous.
@@ -185,7 +185,7 @@ Tasks:
   - schema v3 override persistence
   - tag namespace preservation
   - no generic tag leakage
-  - schema v3 safe repair
+  - schema v3 Attempt Fixing
 - Creator integration tests:
   - mocked provider output with valid schema v3 entries
   - mocked compacted tags requiring deterministic mapping
@@ -202,7 +202,7 @@ Tasks:
   - Creator final card with clean health
   - Creator final card with health errors
   - Health Center opens to Issues from the final card
-  - Repair Safe Issues path refreshes the final readiness card
+  - Attempt Fixing path refreshes the final readiness card
 
 Acceptance:
 

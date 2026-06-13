@@ -119,9 +119,33 @@ function getAllowedFieldsForUnit(unit = {}) {
     return getAllowedLoredeckRepairEntryFieldsForCodes([unit.code]);
 }
 
-export function buildLoredeckModelRepairPromptPayload(pack = {}, unit = {}, plan = {}) {
+function getRetryPromptOptions(unit = {}, options = {}) {
+    const retry = isPlainRepairObject(options.retry) ? options.retry : null;
+    if (!retry?.retrySmaller) return null;
+    return {
+        retrySmaller: true,
+        originalUnitId: cleanRepairString(retry.originalUnitId || unit.unitId || '', 220),
+        previousFailureCode: cleanRepairString(retry.previousFailureCode || '', 120),
+        previousFailureMessage: cleanRepairString(retry.previousFailureMessage || '', 500),
+        targetReduction: cleanRepairString(retry.targetReduction || '', 240),
+    };
+}
+
+export function buildLoredeckModelRepairPromptPayload(pack = {}, unit = {}, plan = {}, options = {}) {
     const findingIds = new Set(unit.findingIds || []);
     const findings = (Array.isArray(plan.findings) ? plan.findings : []).filter(finding => findingIds.has(finding.findingId));
+    const retry = getRetryPromptOptions(unit, options);
+    const maxChars = Math.max(1000, Number(options.maxChars) || DEFAULT_MODEL_REPAIR_RESPONSE_LIMIT);
+    const rules = [
+        'Use only allowedOperations.',
+        'Target only IDs listed in unit.entryIds, unit.tagIds, or unit.timelineIds.',
+        'Return review choices when multiple plausible fixes exist.',
+        'Return no prose outside the JSON object.',
+    ];
+    if (retry) {
+        rules.push('This is a retry after an oversized or truncated response. Return the smallest valid JSON object that fixes only the listed reduced target IDs.');
+        rules.push('Prefer one compact direct repair or one compact choice set; omit nonessential warnings and explanation text.');
+    }
     return {
         task: 'Return compact JSON repair patches or choice sets for the supplied Pack Health repair unit. Do not include prose.',
         pack: {
@@ -153,8 +177,10 @@ export function buildLoredeckModelRepairPromptPayload(pack = {}, unit = {}, plan
         timeline: getTimelineSlice(pack, unit.timelineIds || []),
         allowedOperations: getAllowedOperationsForUnit(unit),
         allowedFields: getAllowedFieldsForUnit(unit),
+        ...(retry ? { retry } : {}),
         responseLimits: {
-            maxChars: DEFAULT_MODEL_REPAIR_RESPONSE_LIMIT,
+            maxChars,
+            ...(retry ? { preferMaxRepairs: 1, preferMaxChoices: 1 } : {}),
         },
         outputContract: {
             repairs: [{ repairId: 'repair_1', findingIds: [], confidence: 0.9, risk: 'low', applyMode: 'direct', patch: { operations: [] }, reason: '' }],
@@ -162,12 +188,7 @@ export function buildLoredeckModelRepairPromptPayload(pack = {}, unit = {}, plan
             warnings: [],
             clarifyingQuestions: [],
         },
-        rules: [
-            'Use only allowedOperations.',
-            'Target only IDs listed in unit.entryIds, unit.tagIds, or unit.timelineIds.',
-            'Return review choices when multiple plausible fixes exist.',
-            'Return no prose outside the JSON object.',
-        ],
+        rules,
     };
 }
 
@@ -176,6 +197,17 @@ function stripJsonFences(text = '') {
         .replace(/^\s*```(?:json)?\s*/i, '')
         .replace(/\s*```\s*$/i, '')
         .trim();
+}
+
+function looksLikeTruncatedJson(text = '', error = null) {
+    const cleaned = String(text || '').trim();
+    if (!cleaned) return false;
+    const message = String(error?.message || '').toLowerCase();
+    const last = cleaned[cleaned.length - 1] || '';
+    if ((cleaned.includes('{') || cleaned.includes('[')) && !/[}\]]/.test(last)) return true;
+    if (cleaned.includes('{') && !cleaned.includes('}')) return true;
+    if (cleaned.includes('[') && !cleaned.includes(']')) return true;
+    return /unexpected end|unterminated|end of json|unexpected eof|eof/i.test(message);
 }
 
 function parseJsonObject(text = '') {
@@ -193,7 +225,9 @@ function parseJsonObject(text = '') {
             }
         }
         const wrapped = new Error(`Model repair response was not valid JSON: ${error.message}`);
-        wrapped.code = 'model_repair_json_invalid';
+        wrapped.code = looksLikeTruncatedJson(cleaned, error)
+            ? 'model_repair_json_truncated'
+            : 'model_repair_json_invalid';
         throw wrapped;
     }
 }
@@ -304,6 +338,7 @@ export function parseAndValidateLoredeckModelRepairResponse(pack = {}, unit = {}
 
 export const __loredeckHealthModelRepairsTestHooks = Object.freeze({
     stripJsonFences,
+    looksLikeTruncatedJson,
     parseJsonObject,
     getEntryRows,
     getTagRegistrySlice,

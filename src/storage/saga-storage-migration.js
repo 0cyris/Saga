@@ -27,13 +27,16 @@ import {
 } from './saga-lorepack-payload-storage.js';
 import {
     flushSagaLorepackLibraryStorageWrites,
+    hydrateSagaLorepackLibraryStorage,
     importExternalLoredeckLibraryRegistrySync,
 } from './saga-lorepack-library-storage.js';
 import {
     flushSagaCreatorProjectStorageWrites,
+    hydrateSagaCreatorProjectStorage,
     upsertExternalLoredeckCreatorProjectSync,
 } from './saga-creator-project-storage.js';
 import {
+    hydrateSagaThemeIconStorage,
     importExternalIconSet,
     importExternalThemePack,
 } from './saga-theme-icon-storage.js';
@@ -334,6 +337,12 @@ function throwIfFailed(result = {}, fallback = 'Saga storage migration failed.')
     throw new Error(result.error || fallback);
 }
 
+async function hydrateExistingExternalStorage(options = {}) {
+    await hydrateSagaLorepackLibraryStorage({ ...options, force: true });
+    await hydrateSagaCreatorProjectStorage({ ...options, force: true });
+    await hydrateSagaThemeIconStorage({ ...options, force: true });
+}
+
 export async function executeSagaStorageMigration(settings = {}, options = {}) {
     const plan = options.plan || createSagaStorageMigrationPlan(settings, options);
     if (!plan.needsMigration) {
@@ -347,6 +356,7 @@ export async function executeSagaStorageMigration(settings = {}, options = {}) {
 
     try {
         const migratedAt = getClockNow(options);
+        await hydrateExistingExternalStorage(options);
         const libraryRecords = {};
         let payloadFlush = { ok: true, pendingWrites: 0 };
         let libraryFlush = { ok: true, library: null, pendingWrites: 0 };

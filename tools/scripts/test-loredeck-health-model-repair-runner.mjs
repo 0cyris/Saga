@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 
 const {
+  reevaluateLoredeckHealthRepairChoice,
   runLoredeckHealthModelRepairBatches,
 } = await import('../../src/loredecks/loredeck-health-model-repair-runner.js');
 const {
@@ -182,8 +183,12 @@ const choicePack = retargetPack(buildModelRepairPack(), 'model-runner-choice-pac
 const choicePayloadFile = await persistExternalPack(choicePack);
 const failedPack = retargetPack(buildLargeModelRepairPack({ count: 2, packId: 'model-runner-failed-pack' }), 'model-runner-failed-pack', 'Model Runner Failed Pack');
 const failedPayloadFile = await persistExternalPack(failedPack);
-const largePack = retargetPack(buildLargeModelRepairPack({ count: 17, packId: 'model-runner-large-pack' }), 'model-runner-large-pack', 'Model Runner Large Pack');
-await persistExternalPack(largePack);
+const retryPack = retargetPack(buildLargeModelRepairPack({ count: 2, packId: 'model-runner-retry-pack' }), 'model-runner-retry-pack', 'Model Runner Retry Pack');
+const retryPayloadFile = await persistExternalPack(retryPack);
+const largeAffectedCount = 57;
+const largeBatchEntryLimit = 5;
+const largePack = retargetPack(buildLargeModelRepairPack({ count: largeAffectedCount, packId: 'model-runner-large-pack' }), 'model-runner-large-pack', 'Model Runner Large Pack');
+const largePayloadFile = await persistExternalPack(largePack);
 
 resetSagaLorepackPayloadStorageCache();
 resetSagaLorepackLibraryStorageCache();
@@ -240,6 +245,32 @@ assert.equal(choiceSessionRead.session.remaining.modelProgress.length, 1);
 assert.equal(choiceSessionRead.session.promptPayload, undefined);
 assert.equal(choiceSessionRead.session.rawResponse, undefined);
 
+clock = 3500;
+let reevaluateCalls = 0;
+const reevaluateResult = await reevaluateLoredeckHealthRepairChoice('model-runner-choice-pack', {
+  session: choiceResult.session,
+  choiceSetId: 'choice_model_content',
+}, {
+  ...storageOptions,
+  persistSession: true,
+  requestModelRepair: async context => {
+    reevaluateCalls += 1;
+    assert.equal(context.promptPayload.targetEntries.length, 1);
+    assert.equal(context.promptPayload.retry, undefined);
+    assert.deepEqual(context.unit.findingIds, choiceResult.choiceSets[0].findingIds);
+    return buildDirectModelResponse(context);
+  },
+});
+assert.equal(reevaluateResult.ok, true);
+assert.equal(reevaluateResult.changed, true);
+assert.equal(reevaluateCalls, 1);
+assert.equal(reevaluateResult.finalHealth.summary.errorCount, 0);
+assert.equal(reevaluateResult.remaining.choiceSets.length, 0);
+await flushSagaLorepackPayloadStorageWrites();
+await flushSagaLorepackLibraryStorageWrites();
+const reevaluatedPayload = JSON.parse(stored.get(choicePayloadFile));
+assert.match(reevaluatedPayload.entryOverrides['namis-childhood-under-arlongs-rule'].content.fact, /Recovered schema v3 fact/);
+
 clock = 4000;
 let failedCalls = 0;
 const failedResult = await runLoredeckHealthModelRepairBatches('model-runner-failed-pack', {
@@ -276,24 +307,68 @@ const failedSessionRead = await readLoredeckHealthRepairSession(failedResult.ses
 assert.equal(failedSessionRead.ok, true);
 assert.deepEqual(failedSessionRead.session.remaining.modelProgress.map(item => item.status), ['complete', 'failed']);
 
+clock = 4500;
+let retryCalls = 0;
+const retryResult = await runLoredeckHealthModelRepairBatches('model-runner-retry-pack', {
+  ...storageOptions,
+  batchLimits: { modelEntryLimit: 2, modelUnitLimit: 1 },
+  maxUnits: 1,
+  persistSession: true,
+  retryAttempts: 1,
+  requestModelRepair: async context => {
+    retryCalls += 1;
+    if (retryCalls === 1) {
+      assert.equal(context.attempt, 1);
+      assert.equal(context.promptPayload.targetEntries.length, 2);
+      assert.equal(context.promptPayload.retry, undefined);
+      return { text: '{"repairs":[', finishReason: 'length' };
+    }
+    assert.equal(context.attempt, 2);
+    assert.equal(context.promptPayload.targetEntries.length, 1);
+    assert.equal(context.promptPayload.retry.retrySmaller, true);
+    assert.match(context.promptPayload.retry.targetReduction, /Reduced entries from 2 to 1/);
+    return buildDirectModelResponse(context);
+  },
+});
+assert.equal(retryResult.ok, true);
+assert.equal(retryCalls, 2);
+assert.equal(retryResult.changed, true);
+assert.equal(retryResult.appliedPatches.length, 1);
+assert.equal(retryResult.finalHealth.summary.errorCount, 1);
+assert.equal(retryResult.remaining.modelProgress[0].attemptCount, 2);
+assert.equal(retryResult.remaining.modelProgress[0].status, 'complete');
+assert.equal(retryResult.remaining.modelUnits.length, 1);
+await flushSagaLorepackPayloadStorageWrites();
+await flushSagaLorepackLibraryStorageWrites();
+const retryPayload = JSON.parse(stored.get(retryPayloadFile));
+const retryEntries = Object.values(retryPayload.entryOverrides);
+assert.equal(retryEntries.filter(entry => /Recovered schema v3 fact/.test(entry.content?.fact || '')).length, 1);
+assert.equal(retryEntries.filter(entry => !entry.content?.fact).length, 1);
+
 clock = 5000;
 let largeCalls = 0;
 const largeResult = await runLoredeckHealthModelRepairBatches('model-runner-large-pack', {
   ...storageOptions,
-  batchLimits: { modelEntryLimit: 5, modelUnitLimit: 2 },
-  maxUnits: 4,
+  batchLimits: { modelEntryLimit: largeBatchEntryLimit, modelUnitLimit: 2 },
+  maxUnits: Math.ceil(largeAffectedCount / largeBatchEntryLimit),
   persistSession: false,
   requestModelRepair: async context => {
     largeCalls += 1;
-    assert.ok(context.promptPayload.targetEntries.length <= 5);
+    assert.ok(context.promptPayload.targetEntries.length <= largeBatchEntryLimit);
     return buildDirectModelResponse(context);
   },
 });
 assert.equal(largeResult.ok, true);
-assert.equal(largeCalls, 4);
+assert.equal(largeCalls, Math.ceil(largeAffectedCount / largeBatchEntryLimit));
 assert.equal(largeResult.finalHealth.summary.errorCount, 0);
 assert.equal(largeResult.remaining.modelUnits.length, 0);
 assert.equal(largeResult.remaining.deferredUnits.length, 0);
-assert.equal(largeResult.appliedPatches.length, 17);
+assert.equal(largeResult.appliedPatches.length, largeAffectedCount);
+assert.equal(largeResult.remaining.modelProgress.length, Math.ceil(largeAffectedCount / largeBatchEntryLimit));
+await flushSagaLorepackPayloadStorageWrites();
+await flushSagaLorepackLibraryStorageWrites();
+const largePayload = JSON.parse(stored.get(largePayloadFile));
+assert.equal(Object.values(largePayload.entryOverrides).filter(entry => /Recovered schema v3 fact/.test(entry.content?.fact || '')).length, largeAffectedCount);
+assert.equal(largePayload.healthStatus, 'good');
 
 console.log('Loredeck health model repair runner tests passed.');

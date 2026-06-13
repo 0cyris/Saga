@@ -4,6 +4,7 @@
 
 import {
     normalizeSchemaV3EntryOverrideForPack,
+    normalizeSchemaV3RepairEntryTagList,
     repairSchemaV3EntryForPack,
 } from './loredeck-schema-v3-entry-repair.js';
 
@@ -13,6 +14,42 @@ function isPlainObject(value) {
 
 export function normalizeCreatorSchemaV3EntryOverride(pack = {}, rawEntry = {}, id = '') {
     return normalizeSchemaV3EntryOverrideForPack(pack, rawEntry, id);
+}
+
+function getTargetTitleMeta(options = {}, entryId = '') {
+    const id = String(entryId || '').trim();
+    if (!id) return null;
+    const source = options.targetTitleByEntryId;
+    if (source instanceof Map) return source.get(id) || null;
+    if (isPlainObject(source)) return source[id] || null;
+    return null;
+}
+
+function getSafeOmittedTitleTagSet(options = {}, entryId = '') {
+    const meta = getTargetTitleMeta(options, entryId) || {};
+    return new Set(normalizeSchemaV3RepairEntryTagList(meta.omittedTitleTags || [], 64));
+}
+
+function getUnknownTagFromGuardError(error = '') {
+    const match = String(error || '').trim().match(/^Unknown tag\s+(.+?)\.?$/i);
+    return match ? (normalizeSchemaV3RepairEntryTagList([match[1]], 1)[0] || '') : '';
+}
+
+function splitSafeOmittedTitleTagErrors(errors = [], omittedTitleTags = new Set()) {
+    const unsafeErrors = [];
+    const droppedTags = [];
+    for (const error of errors || []) {
+        const unknownTag = getUnknownTagFromGuardError(error);
+        if (unknownTag && omittedTitleTags.has(unknownTag)) {
+            droppedTags.push(unknownTag);
+            continue;
+        }
+        unsafeErrors.push(error);
+    }
+    return {
+        unsafeErrors,
+        droppedTags: [...new Set(droppedTags)],
+    };
 }
 
 export function guardLoredeckCreatorEntryDraftChange(pack = {}, change = {}, options = {}) {
@@ -41,8 +78,13 @@ export function guardLoredeckCreatorEntryDraftChange(pack = {}, change = {}, opt
             rejectUnknownAnchors: true,
             rejectUnknownTags: true,
         });
+        const safeOmittedTitleTags = getSafeOmittedTitleTagSet(options, id);
+        const { unsafeErrors, droppedTags } = splitSafeOmittedTitleTagErrors(repair.errors, safeOmittedTitleTags);
+        if (droppedTags.length) {
+            warnings.push(`Dropped omitted title tag${droppedTags.length === 1 ? '' : 's'} ${droppedTags.join(', ')} before Draft Review.`);
+        }
         warnings.push(...repair.warnings);
-        errors.push(...repair.errors);
+        errors.push(...unsafeErrors);
         if (repair.repaired) repaired = true;
         nextOverrides[id] = repair.entry;
     }

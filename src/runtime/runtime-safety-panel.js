@@ -3,6 +3,9 @@ import { captureLoreTimelineState, recordLoreTimelineEvent } from '../lorecards/
 import { clearCanonLoreDatabaseCache } from '../context/canon-lore-db.js';
 import { clearContextIndexCache } from '../context/context-index.js';
 import { DEFAULT_SETTINGS, getDefaultState } from '../state/constants.js';
+import { appendStateSafetyLog } from '../state/state-backup.js';
+import { clearStoredSecret } from '../state/secure-keyring.js';
+import { pruneUnavailableLoredeckStackItems } from './active-stack-panel.js';
 import {
     cleanMissingSagaStorageIndexRecords,
     createStateBackup,
@@ -21,19 +24,26 @@ import {
     verifySagaStorageIntegrity,
 } from '../state/state-manager.js';
 import {
+    buildSagaGlobalCleanupPreview,
+    getSagaGlobalCleanupSnapshot,
+    removeSagaCustomLoredeckStorage,
+    removeSagaCustomThemeIconStorage,
+    runSagaTotalStorageCleanup,
+} from '../storage/saga-global-cleanup.js';
+import {
     addTooltip,
     confirmAction,
     createButton,
     createKeyValue,
     createStatusPill,
+    promptTextAction,
     runBusyAction,
     toast,
 } from '../ui/runtime-ui-kit.js';
 import { downloadJson } from './runtime-downloads.js';
-import { sanitizeFileStem } from './runtime-formatters.js';
+import { sanitizeFileStem, truncateCleanText } from './runtime-formatters.js';
 
 const STORED_API_KEY_SETTING_PREFIXES = Object.freeze(['loreOpenAI', 'continuityOpenAI']);
-const STORED_API_KEY_SETTING_SUFFIXES = Object.freeze(['Encrypted', 'Salt', 'Iv', 'KeyEncrypted', 'KeySalt', 'KeyIv', 'KeySet']);
 
 let runtimeSafetyPanelDeps = {};
 
@@ -62,25 +72,105 @@ function cloneDefaultSettings() {
     return cloneJson(DEFAULT_SETTINGS);
 }
 
-function copyStoredApiKeySettings(source, target) {
+function preserveStorageBootstrapSettings(source, target) {
     if (!source || !target) return target;
+    target.sagaStorage = cloneJson(source.sagaStorage || DEFAULT_SETTINGS.sagaStorage);
+    target.sagaStorageFallback = cloneJson(source.sagaStorageFallback || DEFAULT_SETTINGS.sagaStorageFallback);
+    return target;
+}
+
+function clearSagaStoredProviderKeys() {
     for (const prefix of STORED_API_KEY_SETTING_PREFIXES) {
-        for (const suffix of STORED_API_KEY_SETTING_SUFFIXES) {
-            const key = `${prefix}${suffix}`;
-            if (Object.prototype.hasOwnProperty.call(source, key)) {
-                target[key] = cloneJson(source[key]);
-            }
+        try {
+            clearStoredSecret(prefix);
+        } catch (e) {
+            console.warn(`[Saga] Failed to clear ${prefix} provider key material during settings reset:`, e);
         }
     }
-    return target;
 }
 
 function resetAllSettingsToDefaults() {
     const current = getSettings();
     const defaults = cloneDefaultSettings();
-    copyStoredApiKeySettings(current, defaults);
+    preserveStorageBootstrapSettings(current, defaults);
     saveSettings(defaults);
+    clearSagaStoredProviderKeys();
     return defaults;
+}
+
+function resetAllSettingsToFreshDefaults() {
+    const defaults = cloneDefaultSettings();
+    saveSettings(defaults);
+    clearSagaStoredProviderKeys();
+    return defaults;
+}
+
+function resetThemeIconSettingsToDefaults() {
+    const settings = getSettings();
+    settings.themePackId = cloneJson(DEFAULT_SETTINGS.themePackId);
+    settings.themeIconSetId = cloneJson(DEFAULT_SETTINGS.themeIconSetId);
+    saveSettings(settings);
+    return settings;
+}
+
+function preserveRuntimePanelGeometry(nextState, currentPanel = {}, activeTab = 'settings') {
+    if (!nextState || !nextState.lorePanel) return nextState;
+    const defaultsPanel = getDefaultState().lorePanel;
+    const nextPanel = nextState.lorePanel || defaultsPanel;
+    const panel = currentPanel && typeof currentPanel === 'object' ? currentPanel : {};
+    const railX = Number.isFinite(Number(panel.railX)) ? Number(panel.railX) : (Number.isFinite(Number(panel.x)) ? Number(panel.x) : defaultsPanel.railX);
+    const railY = Number.isFinite(Number(panel.railY)) ? Number(panel.railY) : (Number.isFinite(Number(panel.y)) ? Number(panel.y) : defaultsPanel.railY);
+    const drawerWidth = Number.isFinite(Number(panel.drawerWidth)) ? Number(panel.drawerWidth) : (Number.isFinite(Number(panel.width)) ? Number(panel.width) : defaultsPanel.drawerWidth);
+    const drawerHeight = Number.isFinite(Number(panel.drawerHeight)) ? Number(panel.drawerHeight) : (Number.isFinite(Number(panel.height)) ? Number(panel.height) : defaultsPanel.drawerHeight);
+    nextState.lorePanel = {
+        ...nextPanel,
+        isOpen: true,
+        hasOpenedRuntime: true,
+        launcherDismissed: panel.launcherDismissed === true,
+        railMode: panel.railMode === 'expanded' ? 'expanded' : defaultsPanel.railMode,
+        railX,
+        railY,
+        drawerOpen: true,
+        collapsed: false,
+        drawerWidth,
+        drawerHeight,
+        drawerDirection: ['auto', 'right', 'left'].includes(panel.drawerDirection) ? panel.drawerDirection : defaultsPanel.drawerDirection,
+        x: railX,
+        y: railY,
+        width: drawerWidth,
+        height: drawerHeight,
+        activeTab,
+    };
+    return nextState;
+}
+
+function createFreshActiveChatStateForTotalCleanup() {
+    const current = getState();
+    const defaults = getDefaultState();
+    const currentPanel = current?.lorePanel && typeof current.lorePanel === 'object' ? current.lorePanel : {};
+    return preserveRuntimePanelGeometry(defaults, currentPanel, 'settings');
+}
+
+function formatTotalCleanupPartialMessage(result = {}) {
+    const failed = Number(result.failedFileCount) || 0;
+    const errors = (result.diagnostics || []).filter(item => item?.severity === 'error');
+    const extraErrorCount = Math.max(0, errors.length - failed);
+    const parts = [
+        `Total Saga Cleanup partially completed: ${result.deletedFileCount || 0} file${result.deletedFileCount === 1 ? '' : 's'} deleted`,
+        failed ? `${failed} failed` : '',
+        extraErrorCount ? `${extraErrorCount} cleanup error${extraErrorCount === 1 ? '' : 's'}` : '',
+        result.masterIndexRetained ? 'Storage index retained for retry' : 'Switch to Advanced and check State Safety before retry',
+    ].filter(Boolean);
+    const first = errors[0]?.message ? ` First: ${truncateCleanText(errors[0].message, 90)}` : '';
+    return `${parts.join(', ')}.${first}`;
+}
+
+function attachTotalCleanupPartialStateSafety(nextState = {}, result = {}) {
+    appendStateSafetyLog(nextState, {
+        type: 'total_cleanup_warning',
+        message: formatTotalCleanupPartialMessage(result),
+    });
+    return nextState;
 }
 
 export function resetSettingKeysToDefaults(settingKeys, label = 'Settings') {
@@ -176,23 +266,55 @@ function getStorageDiagnosticsLabel(diagnostics = {}) {
     if (diagnostics.status === 'ok') return 'Storage verified';
     if (diagnostics.status === 'missing_files') return `${diagnostics.missingFileCount || 0} missing file${diagnostics.missingFileCount === 1 ? '' : 's'}`;
     if (diagnostics.status === 'missing_index') return 'Storage index missing';
-    if (diagnostics.status === 'write_errors') return 'Storage write errors';
+    if (diagnostics.status === 'storage_errors' || diagnostics.status === 'write_errors') return 'Storage errors';
     return diagnostics.checkedAt ? 'Storage check stale' : 'Storage not checked';
 }
 
 function getStorageDiagnosticsTone(diagnostics = {}) {
     if (diagnostics.status === 'ok') return 'success';
-    if (['missing_files', 'missing_index', 'write_errors', 'errors'].includes(diagnostics.status)) return 'warning';
+    if (['missing_files', 'missing_index', 'storage_errors', 'write_errors', 'errors'].includes(diagnostics.status)) return 'warning';
     return 'muted';
+}
+
+function getStorageRuntimeErrorCount(diagnostics = {}) {
+    return (diagnostics.storageErrors || diagnostics.writeErrors || []).length;
 }
 
 function formatStorageDiagnosticsSummary(diagnostics = {}) {
     if (diagnostics.status === 'ok') return `${diagnostics.fileCount || 0} tracked`;
     if (diagnostics.status === 'missing_files') return `${diagnostics.fileCount || 0} tracked, ${diagnostics.missingFileCount || 0} missing`;
-    if (diagnostics.status === 'write_errors') return `${diagnostics.writeErrors?.length || 0} write error${diagnostics.writeErrors?.length === 1 ? '' : 's'}`;
+    if (diagnostics.status === 'storage_errors' || diagnostics.status === 'write_errors') {
+        const count = getStorageRuntimeErrorCount(diagnostics);
+        return `${count} storage error${count === 1 ? '' : 's'}`;
+    }
     if (diagnostics.status === 'missing_index') return 'index missing';
     if (diagnostics.pendingWrites) return `${diagnostics.pendingWrites} pending write${diagnostics.pendingWrites === 1 ? '' : 's'}`;
     return diagnostics.checkedAt ? `last checked ${formatStateSafetyTimestamp(diagnostics.checkedAt)}` : 'not checked';
+}
+
+function hasLegacyThemeIconPayloads(plan = getSagaStorageMigrationPlan()) {
+    const counts = plan.counts || {};
+    return !!plan.needsMigration && ((Number(counts.themePacks) || 0) + (Number(counts.iconSets) || 0)) > 0;
+}
+
+function hasLegacyLoredeckPayloads(plan = getSagaStorageMigrationPlan()) {
+    const counts = plan.counts || {};
+    return !!plan.needsMigration && (Number(counts.libraryPacks) || 0) > 0;
+}
+
+function toastLegacyScopedCleanupBlocked(kind = 'content', plan = getSagaStorageMigrationPlan()) {
+    const label = formatStorageMigrationCounts(plan);
+    toast(`Legacy settings-backed ${kind} still needs storage migration (${label}). Switch to Advanced and run State Safety > Migrate Legacy Storage first, or use Total Saga Cleanup.`, 'warning');
+}
+
+function formatLegacyScopedCleanupConfirmation(kind = 'content', plan = getSagaStorageMigrationPlan()) {
+    if (!plan.needsMigration) return '';
+    return ` Legacy settings-backed ${kind} still needs State Safety migration (${formatStorageMigrationCounts(plan)}) and will not be removed by this scoped action.`;
+}
+
+function formatLegacyScopedCleanupToast(kind = 'content', plan = getSagaStorageMigrationPlan()) {
+    if (!plan.needsMigration) return '';
+    return ` Legacy settings-backed ${kind} still needs migration.`;
 }
 
 async function runStorageMigrationFromButton(button) {
@@ -230,7 +352,7 @@ async function settleStorageWritesFromButton(button) {
         const result = await settleSagaStorageWrites({ write: true });
         refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
         const summary = formatStorageDiagnosticsSummary(result);
-        toast(result.ok ? `Saga storage writes settled: ${summary}.` : `Saga storage writes need attention: ${summary}.`, result.ok ? 'success' : 'warning');
+        toast(result.ok ? `Saga storage settled: ${summary}.` : `Saga storage needs attention: ${summary}.`, result.ok ? 'success' : 'warning');
     });
 }
 
@@ -253,6 +375,170 @@ async function cleanMissingStorageRecordsFromButton(button) {
             ? `${protectedCount} missing protected storage record${protectedCount === 1 ? '' : 's'} still need review.`
             : 'No missing non-index storage records were found.',
         protectedCount ? 'warning' : 'info');
+    });
+}
+
+async function resetAllSettingsFromButton(button) {
+    const proceed = await confirmAction(
+        'Are you sure? Reset all Saga settings?',
+        'You are about to reset Saga preferences, workflow settings, provider selections, generation settings, injection settings, UI defaults, and stored Saga API keys. Custom Loredecks, Theme Packs, Icon Sets, active chat state, accepted lore, pending lore, and Lore Timeline are not deleted. Continue?'
+    );
+    if (!proceed) return;
+    await runBusyAction(button, 'Resetting...', async ({ setText }) => {
+        setText('Clearing settings...');
+        const settings = resetAllSettingsToDefaults();
+        refreshRuntimeThemeSurfaces(settings);
+        refreshPanelBody({ preserveScroll: false });
+        refreshHeader();
+        toast('Saga settings reset to defaults. Stored Saga API keys were removed.', 'info');
+    });
+}
+
+function formatCleanupDiagnostics(result = {}) {
+    const errors = (result.diagnostics || []).filter(item => item.severity === 'error');
+    if (!errors.length) return '';
+    const message = truncateCleanText(errors[0]?.message || errors[0]?.error || errors[0]?.code || 'Cleanup failed.', 100);
+    return ` ${errors.length} cleanup error${errors.length === 1 ? '' : 's'} ${errors.length === 1 ? 'needs' : 'need'} review${message ? `; first: ${message}` : ''}. Switch to Advanced and check State Safety before retry.`;
+}
+
+async function removeCustomThemesFromButton(button) {
+    await runBusyAction(button, 'Checking...', async ({ setText }) => {
+        setText('Checking storage...');
+        const preview = await buildSagaGlobalCleanupPreview();
+        const count = preview.totalCustomThemeIconCount || 0;
+        const migrationPlan = getSagaStorageMigrationPlan();
+        const legacyNote = hasLegacyThemeIconPayloads(migrationPlan)
+            ? formatLegacyScopedCleanupConfirmation('Theme/Icon content', migrationPlan)
+            : '';
+        if (!count) {
+            if (hasLegacyThemeIconPayloads(migrationPlan)) {
+                toastLegacyScopedCleanupBlocked('Theme/Icon content', migrationPlan);
+                return;
+            }
+            toast('No custom Theme Packs or Icon Sets were found.', 'info');
+            return;
+        }
+        setText('Awaiting confirmation...');
+        const proceed = await confirmAction(
+            'Remove custom Theme Packs and Icon Sets?',
+            `Saga will delete ${preview.themePackCount || 0} custom Theme Pack${preview.themePackCount === 1 ? '' : 's'}, ${preview.iconSetCount || 0} custom Icon Set${preview.iconSetCount === 1 ? '' : 's'}, and their uploaded icon assets. Bundled appearance packs will remain.${legacyNote} Continue?`
+        );
+        if (!proceed) return;
+        setText('Deleting files...');
+        const result = await removeSagaCustomThemeIconStorage();
+        const settings = resetThemeIconSettingsToDefaults();
+        refreshRuntimeThemeSurfaces(settings);
+        await verifySagaStorageIntegrity({ write: true });
+        refreshPanelBody({ preserveScroll: false });
+        refreshHeader();
+        const removed = (result.removedThemePackCount || 0) + (result.removedIconSetCount || 0);
+        toast(
+            `Removed ${removed} custom appearance pack${removed === 1 ? '' : 's'} and ${result.deletedFileCount || 0} file${result.deletedFileCount === 1 ? '' : 's'}.${hasLegacyThemeIconPayloads(migrationPlan) ? formatLegacyScopedCleanupToast('Theme/Icon content', migrationPlan) : ''}${formatCleanupDiagnostics(result)}`,
+            result.ok ? 'success' : 'warning',
+        );
+    });
+}
+
+async function removeCustomLoredecksFromButton(button) {
+    await runBusyAction(button, 'Checking...', async ({ setText }) => {
+        setText('Checking storage...');
+        const preview = await buildSagaGlobalCleanupPreview();
+        const migrationPlan = getSagaStorageMigrationPlan();
+        const legacyNote = hasLegacyLoredeckPayloads(migrationPlan)
+            ? formatLegacyScopedCleanupConfirmation('Loredeck content', migrationPlan)
+            : '';
+        if (!preview.loredeckCount) {
+            if (hasLegacyLoredeckPayloads(migrationPlan)) {
+                toastLegacyScopedCleanupBlocked('Loredeck content', migrationPlan);
+                return;
+            }
+            toast('No custom Loredecks were found.', 'info');
+            return;
+        }
+        setText('Awaiting confirmation...');
+        const proceed = await confirmAction(
+            'Remove custom Loredecks?',
+            `Saga will delete ${preview.loredeckCount} custom, imported, or generated Loredeck${preview.loredeckCount === 1 ? '' : 's'} plus owned payload files, cover assets, and Health repair sessions. Bundled Loredecks and Creator drafts will remain.${legacyNote} Continue?`
+        );
+        if (!proceed) return;
+        setText('Deleting Loredeck files...');
+        const result = await removeSagaCustomLoredeckStorage();
+        const stackPrune = pruneUnavailableLoredeckStackItems();
+        await verifySagaStorageIntegrity({ write: true });
+        refreshPanelBody({ preserveScroll: false });
+        refreshHeader();
+        toast(
+            `Removed ${result.removedLoredeckCount || 0} custom Loredeck${result.removedLoredeckCount === 1 ? '' : 's'}, ${result.deletedFileCount || 0} payload/asset file${result.deletedFileCount === 1 ? '' : 's'}, and ${result.repairSessionDeletedCount || 0} repair session${result.repairSessionDeletedCount === 1 ? '' : 's'}.${stackPrune.removedCount ? ` Pruned ${stackPrune.removedCount} unavailable active-stack reference${stackPrune.removedCount === 1 ? '' : 's'}.` : ''}${hasLegacyLoredeckPayloads(migrationPlan) ? formatLegacyScopedCleanupToast('Loredeck content', migrationPlan) : ''}${formatCleanupDiagnostics(result)}`,
+            result.ok ? 'success' : 'warning',
+        );
+    });
+}
+
+function formatTotalCleanupPreview(preview = {}, migrationPlan = getSagaStorageMigrationPlan()) {
+    const parts = [
+        `${preview.totalSagaFileCount || 0} tracked/known/referenced Saga file${preview.totalSagaFileCount === 1 ? '' : 's'}`,
+        `${preview.loredeckCount || 0} custom Loredeck${preview.loredeckCount === 1 ? '' : 's'}`,
+        `${preview.creatorProjectCount || 0} Creator project${preview.creatorProjectCount === 1 ? '' : 's'}`,
+        `${preview.themePackCount || 0} Theme Pack${preview.themePackCount === 1 ? '' : 's'}`,
+        `${preview.iconSetCount || 0} Icon Set${preview.iconSetCount === 1 ? '' : 's'}`,
+    ];
+    if (Number(preview.untrackedReferencedFileCount) > 0) {
+        parts.push(`${preview.untrackedReferencedFileCount} additional referenced file${preview.untrackedReferencedFileCount === 1 ? '' : 's'}`);
+    }
+    if (Number(preview.repairSessionCount) > 0) {
+        parts.push(`${preview.repairSessionCount} repair session${preview.repairSessionCount === 1 ? '' : 's'}`);
+    }
+    if (migrationPlan.needsMigration) {
+        parts.push(`legacy settings-backed payloads: ${formatStorageMigrationCounts(migrationPlan)}`);
+    }
+    return parts.join(', ');
+}
+
+async function runTotalSagaCleanupFromButton(button) {
+    const phrase = 'DELETE SAGA';
+    await runBusyAction(button, 'Checking...', async ({ setText }) => {
+        setText('Checking storage...');
+        const preview = await buildSagaGlobalCleanupPreview();
+        const migrationPlan = getSagaStorageMigrationPlan();
+        setText('Awaiting confirmation...');
+        const entered = await promptTextAction(
+            'Total Saga Cleanup',
+            `Type ${phrase} to delete tracked Saga-owned custom content and reset Saga settings, stored Saga API keys, active-chat Saga state, State Safety backups, Creator projects, and all user-created/imported/generated Loredecks. Bundled extension content remains. Unknown unindexed orphan files that Saga cannot see through its indexes may remain. Preview: ${formatTotalCleanupPreview(preview, migrationPlan)}.`,
+            '',
+            {
+                placeholder: phrase,
+                confirmLabel: 'Delete Saga Data',
+                required: true,
+                maxLength: phrase.length + 8,
+            }
+        );
+        if (entered === null) return;
+        if (String(entered || '').trim().toUpperCase() !== phrase) {
+            toast('Total Saga Cleanup cancelled. Confirmation text did not match.', 'warning');
+            return;
+        }
+        setText('Deleting Saga files...');
+        const result = await runSagaTotalStorageCleanup();
+        const failed = result.failedFileCount || 0;
+        const errorCount = (result.diagnostics || []).filter(item => item.severity === 'error').length;
+        const partial = failed > 0 || errorCount > 0 || result.ok === false;
+        setText('Resetting Saga...');
+        const settings = partial ? resetAllSettingsToDefaults() : resetAllSettingsToFreshDefaults();
+        const nextState = createFreshActiveChatStateForTotalCleanup();
+        if (partial) attachTotalCleanupPartialStateSafety(nextState, result);
+        resetCanonPreviewUiState({ preserveDetailLevel: false });
+        clearCanonLoreDatabaseCache();
+        clearContextIndexCache();
+        saveState(nextState);
+        refreshRuntimeThemeSurfaces(settings);
+        refreshPanelBody({ preserveScroll: false });
+        refreshHeader();
+        toast(
+            partial
+                ? formatTotalCleanupPartialMessage(result)
+                : `Total Saga Cleanup completed: ${result.deletedFileCount || 0} file${result.deletedFileCount === 1 ? '' : 's'} deleted, ${result.missingFileCount || 0} already gone.`,
+            partial ? 'warning' : 'success',
+        );
     });
 }
 
@@ -304,10 +590,10 @@ export function createStateSafetyCard(state = getState()) {
     actions.appendChild(createButton('Verify Storage', 'Verify Saga-owned /user/files records listed in the storage index.', button => {
         verifyStorageFromButton(button);
     }));
-    const settleWrites = createButton('Settle Storage Writes', 'Wait for queued Saga storage writes to finish, then verify the storage index.', button => {
+    const settleWrites = createButton('Settle Storage Writes', 'Wait for queued Saga storage writes or runtime storage errors to settle, then verify the storage index.', button => {
         settleStorageWritesFromButton(button);
     });
-    settleWrites.disabled = !(storageDiagnostics.pendingWrites || (storageDiagnostics.writeErrors || []).length);
+    settleWrites.disabled = !(storageDiagnostics.pendingWrites || getStorageRuntimeErrorCount(storageDiagnostics));
     actions.appendChild(settleWrites);
     actions.appendChild(createButton('Clean Missing Records', 'Verify the storage index and remove missing non-index file records. This does not scan for unknown orphan files.', button => {
         cleanMissingStorageRecordsFromButton(button);
@@ -344,112 +630,237 @@ export function createStateSafetyCard(state = getState()) {
     return card;
 }
 
-export function createDangerZoneCard(state) {
+function createDangerZoneGroup(titleText = '', tooltip = '') {
+    const group = document.createElement('section');
+    group.className = 'saga-danger-zone-group';
+    const title = document.createElement('div');
+    title.className = 'saga-runtime-card-title saga-danger-zone-group-title';
+    title.textContent = titleText;
+    addTooltip(title, tooltip || titleText);
+    group.appendChild(title);
+    return group;
+}
+
+export function createActiveChatDangerZoneGroup(state = getState()) {
+    const group = createDangerZoneGroup(
+        'Active Chat',
+        'Destructive cleanup actions for the current SillyTavern chat only.'
+    );
+
+    const rows = document.createElement('div');
+    rows.className = 'saga-runtime-kv-list';
+    rows.appendChild(createKeyValue('Accepted lore', String(normalizeLoreMatrix(state?.loreMatrix || []).length), 'Lore entries currently stored in the accepted lore matrix.'));
+    rows.appendChild(createKeyValue('Pending Lorecards', String(normalizeLoreMatrix(state?.pendingLoreEntries || []).length), 'Generated Lorecards waiting in the Lorecards tab Pending Lorecard Review section.'));
+    rows.appendChild(createKeyValue('Pending continuity changes', state?.lastDelta ? '1' : '0', 'Legacy extracted continuity delta waiting in the Continuity tab.'));
+    group.appendChild(rows);
+
+    const actions = document.createElement('div');
+    actions.className = 'saga-primary-actions';
+
+    actions.appendChild(createButton('Delete All Lore', 'Deletes accepted lore, pending lore, and pin/mute selections. Lightweight continuity state is left intact.', async button => {
+        const proceed = await confirmAction('Are you sure? Delete all Saga lore?', 'You are about to delete every accepted lore entry, every pending lore entry, and all pin/mute selections for this chat. Lightweight continuity state will remain. Accepted lore can be restored to Pending Review through Lore Timeline when retained. Continue?');
+        if (!proceed) return;
+        await runBusyAction(button, 'Deleting...', async ({ setText }) => {
+            setText('Clearing lore...');
+            createStateBackup('before_delete_all_lore');
+            const current = getState();
+            const beforeTimeline = captureLoreTimelineState(current);
+            const deleted = normalizeLoreMatrix(current.loreMatrix || []).length;
+            current.loreMatrix = [];
+            current.pendingLoreEntries = [];
+            current.pendingLoreMeta = null;
+            current.loreSelection = { pinnedIds: [], suppressedIds: [] };
+            if (current.lorePanel) {
+                current.lorePanel.selectedEntryId = '';
+                current.lorePanel.reviewSelectedIds = [];
+                current.lorePanel.acceptedSelectedIds = [];
+            }
+            if (deleted > 0) {
+                recordLoreTimelineEvent(current, {
+                    before: beforeTimeline,
+                    after: captureLoreTimelineState(current),
+                    type: 'delete_all',
+                    source: 'danger_zone',
+                    summary: `Deleted all accepted lore (${deleted} entr${deleted === 1 ? 'y' : 'ies'}).`,
+                });
+            }
+            saveState(current);
+            refreshPanelBody({ preserveScroll: false });
+            refreshHeader();
+            toast('All lore entries deleted.', 'info');
+        });
+    }, 'saga-danger-button'));
+
+    actions.appendChild(createButton('Reset Generation State', 'Clears detected lore context, pending generated lore, pending deltas, and generation ledger. Accepted lore remains intact.', async button => {
+        const proceed = await confirmAction('Are you sure? Reset generation state?', 'You are about to clear detected context, pending generated lore, pending continuity changes, and the lore-generation ledger. Accepted lore entries and Lore Timeline will remain. Continue?');
+        if (!proceed) return;
+        await runBusyAction(button, 'Resetting...', async ({ setText }) => {
+            setText('Clearing generation state...');
+            createStateBackup('before_generation_reset');
+            const current = getState();
+            const defaults = getDefaultState();
+            current.loreContext = defaults.loreContext;
+            current.pendingLoreEntries = [];
+            current.pendingLoreMeta = null;
+            current.loreGeneration = defaults.loreGeneration;
+            current.loreBulkGeneration = defaults.loreBulkGeneration;
+            current.continuityScan = defaults.continuityScan;
+            current.lastDelta = null;
+            if (current.lorePanel) {
+                current.lorePanel.selectedEntryId = '';
+                current.lorePanel.reviewSelectedIds = [];
+            }
+            resetCanonPreviewUiState();
+            clearCanonLoreDatabaseCache();
+            saveState(current);
+            refreshPanelBody({ preserveScroll: false });
+            refreshHeader();
+            toast('Generation state reset.', 'info');
+        });
+    }, 'saga-danger-button'));
+
+    actions.appendChild(createButton('Reset Active Chat', 'Resets Saga continuity state for this chat to defaults and clears Lore Timeline. Panel size and position are preserved.', async button => {
+        const proceed = await confirmAction('Are you sure? Reset active chat?', 'You are about to reset all Saga runtime data for this chat: lightweight continuity state, accepted lore, pending lore, generation state, and Lore Timeline. Window position, size, and the State Safety backup list are preserved. Continue?');
+        if (!proceed) return;
+        await runBusyAction(button, 'Resetting...', async ({ setText }) => {
+            setText('Resetting active chat...');
+            createStateBackup('before_total_reset');
+            const current = getState();
+            const defaults = getDefaultState();
+            defaults.stateSafety = getStateSafety(current);
+            preserveRuntimePanelGeometry(defaults, current?.lorePanel || {}, 'settings');
+            resetCanonPreviewUiState({ preserveDetailLevel: false });
+            clearCanonLoreDatabaseCache();
+            clearContextIndexCache();
+            saveState(defaults);
+            refreshPanelBody({ preserveScroll: false });
+            refreshHeader();
+            toast('Active chat Saga state reset. Lore Timeline cleared.', 'info');
+        });
+    }, 'saga-danger-button'));
+
+    group.appendChild(actions);
+    return group;
+}
+
+function appendGlobalDangerZoneRows(rows, cleanupSnapshot = getSagaGlobalCleanupSnapshot(), storageDiagnostics = getSagaStorageDiagnostics(), storageMigrationPlan = getSagaStorageMigrationPlan()) {
+    if (!rows) return;
+    rows.textContent = '';
+    rows.appendChild(createKeyValue('Custom Loredecks', String(cleanupSnapshot.loredeckCount || 0), 'Custom, imported, or generated Loredecks installed in external Saga Library storage.'));
+    rows.appendChild(createKeyValue('Creator Projects', String(cleanupSnapshot.creatorProjectCount || 0), 'Externalized Loredeck Creator projects that Total Saga Cleanup deletes.'));
+    rows.appendChild(createKeyValue('Custom Theme Packs', String(cleanupSnapshot.themePackCount || 0), 'Imported custom Theme Packs stored in Saga-owned files.'));
+    rows.appendChild(createKeyValue('Custom Icon Sets', String(cleanupSnapshot.iconSetCount || 0), 'Imported custom Icon Sets and their uploaded raster assets.'));
+    if (storageMigrationPlan.needsMigration) {
+        rows.appendChild(createKeyValue('Legacy payloads', formatStorageMigrationCounts(storageMigrationPlan), 'Settings-backed Saga payloads that scoped cleanup cannot target until State Safety migration externalizes them.'));
+    }
+    rows.appendChild(createKeyValue('Storage integrity', formatStorageDiagnosticsSummary(storageDiagnostics), 'Latest Saga storage verification summary from the master index.'));
+    appendGlobalDangerZoneFileScopeRows(rows, cleanupSnapshot, storageDiagnostics);
+}
+
+function appendGlobalDangerZonePreviewDiagnostics(rows, diagnostics = []) {
+    if (!rows) return;
+    const warnings = (diagnostics || []).filter(item => item?.severity === 'warning' || item?.severity === 'error');
+    if (!warnings.length) return;
+    const first = warnings[0]?.message || warnings[0]?.code || 'Cleanup count refresh needs attention.';
+    rows.appendChild(createKeyValue(
+        'Cleanup counts',
+        `${warnings.length} warning${warnings.length === 1 ? '' : 's'}`,
+        truncateCleanText(first, 140),
+    ));
+}
+
+function hasCleanupPreviewFileScope(cleanupSnapshot = {}) {
+    return [
+        cleanupSnapshot.totalSagaFileCount,
+        cleanupSnapshot.trackedFileCount,
+        cleanupSnapshot.knownIndexFileCount,
+        cleanupSnapshot.untrackedReferencedFileCount,
+        cleanupSnapshot.repairSessionCount,
+    ].some(value => Number.isFinite(Number(value)));
+}
+
+function appendGlobalDangerZoneFileScopeRows(rows, cleanupSnapshot = {}, storageDiagnostics = {}) {
+    if (!rows) return;
+    if (!hasCleanupPreviewFileScope(cleanupSnapshot)) {
+        rows.appendChild(createKeyValue('Tracked Saga files', String(storageDiagnostics.fileCount || 0), 'Saga-owned files known to the master storage index from the latest verification.'));
+        return;
+    }
+    const total = Number(cleanupSnapshot.totalSagaFileCount) || 0;
+    const tracked = Number(cleanupSnapshot.trackedFileCount) || 0;
+    const knownIndexes = Number(cleanupSnapshot.knownIndexFileCount) || 0;
+    const referenced = Number(cleanupSnapshot.untrackedReferencedFileCount) || 0;
+    const repairSessions = Number(cleanupSnapshot.repairSessionCount) || 0;
+    rows.appendChild(createKeyValue('Cleanup file scope', String(total), `${tracked} tracked file${tracked === 1 ? '' : 's'}, ${knownIndexes} known index file${knownIndexes === 1 ? '' : 's'}, ${referenced} additional referenced file${referenced === 1 ? '' : 's'}, ${repairSessions} repair session${repairSessions === 1 ? '' : 's'}. Unknown unindexed orphan files may remain.`));
+}
+
+async function refreshGlobalDangerZoneRows(rows) {
+    try {
+        const preview = await buildSagaGlobalCleanupPreview();
+        if (!rows?.isConnected) return;
+        appendGlobalDangerZoneRows(rows, preview, getSagaStorageDiagnostics(), getSagaStorageMigrationPlan());
+        appendGlobalDangerZonePreviewDiagnostics(rows, preview.diagnostics || []);
+    } catch (error) {
+        if (rows?.isConnected) {
+            appendGlobalDangerZoneRows(rows);
+            rows.appendChild(createKeyValue(
+                'Cleanup counts',
+                'Refresh failed',
+                truncateCleanText(error?.message || error || 'Saga could not refresh cleanup counts.', 140),
+            ));
+        }
+        console.warn('[Saga] Global Danger Zone counts could not be refreshed:', error);
+    }
+}
+
+export function createGlobalDangerZoneGroup() {
+    const group = createDangerZoneGroup(
+        'Global',
+        'Destructive cleanup actions for Saga settings, installed custom content, and Saga-owned storage.'
+    );
+
+    const rows = document.createElement('div');
+    rows.className = 'saga-runtime-kv-list';
+    appendGlobalDangerZoneRows(rows);
+    void refreshGlobalDangerZoneRows(rows);
+    group.appendChild(rows);
+
+    const actions = document.createElement('div');
+    actions.className = 'saga-primary-actions';
+
+    actions.appendChild(createButton('Reset All Settings', 'Reset Saga preferences and provider settings to bundled defaults, and remove stored Saga API keys. Custom content is not deleted.', button => {
+        resetAllSettingsFromButton(button);
+    }, 'saga-danger-button'));
+
+    const removeThemes = createButton('Remove Custom Themes + Icon Packs', 'Delete imported custom Theme Packs, Icon Sets, and uploaded icon assets. Bundled appearance packs stay available.', button => {
+        removeCustomThemesFromButton(button);
+    }, 'saga-danger-button');
+    actions.appendChild(removeThemes);
+
+    const removeLoredecks = createButton('Remove Custom Loredecks', 'Delete imported, generated, and custom Loredecks plus owned payload/assets and Health repair sessions. Bundled Loredecks stay available.', button => {
+        removeCustomLoredecksFromButton(button);
+    }, 'saga-danger-button');
+    actions.appendChild(removeLoredecks);
+
+    const totalCleanup = createButton('Total Saga Cleanup', 'Delete tracked Saga-owned custom content, settings, stored Saga API keys, Creator projects, and active chat Saga state. Unknown unindexed orphan files may remain.', button => {
+        runTotalSagaCleanupFromButton(button);
+    }, 'saga-danger-button');
+    actions.appendChild(totalCleanup);
+
+    group.appendChild(actions);
+    return group;
+}
+
+export function createDangerZoneCard(state = getState()) {
     const card = document.createElement('div');
     card.className = 'saga-runtime-card saga-danger-zone-card';
 
     const title = document.createElement('div');
     title.className = 'saga-runtime-card-title saga-danger-zone-title';
     title.textContent = 'Danger Zone';
-    addTooltip(title, 'Destructive cleanup actions for the current chat. Deleted accepted lore can be recovered through Lore Timeline when payloads are retained. Total Reset clears all Saga data.');
+    addTooltip(title, 'Destructive Saga cleanup actions separated by Active Chat and Global scope.');
     card.appendChild(title);
 
-    card.appendChild(createKeyValue('Accepted lore', String((state?.loreMatrix || []).length), 'Lore entries currently stored in the accepted lore matrix.'));
-    card.appendChild(createKeyValue('Pending Lorecards', String((state?.pendingLoreEntries || []).length), 'Generated Lorecards waiting in the Lorecards tab Pending Lorecard Review section.'));
-    card.appendChild(createKeyValue('Pending continuity changes', state?.lastDelta ? '1' : '0', 'Legacy extracted continuity delta waiting in the Continuity tab.'));
-
-    const actions = document.createElement('div');
-    actions.className = 'saga-primary-actions';
-
-    actions.appendChild(createButton('Delete All Lore', 'Deletes accepted lore, pending lore, and pin/mute selections. Lightweight continuity state is left intact.', async () => {
-        const proceed = await confirmAction('Are you sure? Delete all Saga lore?', 'You are about to delete every accepted lore entry, every pending lore entry, and all pin/mute selections for this chat. Lightweight continuity state will remain. Accepted lore can be restored to Pending Review through Lore Timeline when retained. Continue?');
-        if (!proceed) return;
-        createStateBackup('before_delete_all_lore');
-        const current = getState();
-        const beforeTimeline = captureLoreTimelineState(current);
-        const deleted = normalizeLoreMatrix(current.loreMatrix || []).length;
-        current.loreMatrix = [];
-        current.pendingLoreEntries = [];
-        current.pendingLoreMeta = null;
-        current.loreSelection = { pinnedIds: [], suppressedIds: [] };
-        if (current.lorePanel) {
-            current.lorePanel.selectedEntryId = '';
-            current.lorePanel.reviewSelectedIds = [];
-        }
-        if (deleted > 0) {
-            recordLoreTimelineEvent(current, {
-                before: beforeTimeline,
-                after: captureLoreTimelineState(current),
-                type: 'delete_all',
-                source: 'danger_zone',
-                summary: `Deleted all accepted lore (${deleted} entr${deleted === 1 ? 'y' : 'ies'}).`,
-            });
-        }
-        saveState(current);
-        refreshPanelBody({ preserveScroll: false });
-        refreshHeader();
-        toast('All lore entries deleted.', 'info');
-    }, 'saga-danger-button'));
-
-    actions.appendChild(createButton('Reset Generation State', 'Clears detected lore context, pending generated lore, pending deltas, and generation ledger. Accepted lore remains intact.', async () => {
-        const proceed = await confirmAction('Are you sure? Reset generation state?', 'You are about to clear detected context, pending generated lore, pending continuity changes, and the lore-generation ledger. Accepted lore entries and Lore Timeline will remain. Continue?');
-        if (!proceed) return;
-        createStateBackup('before_generation_reset');
-        const current = getState();
-        const defaults = getDefaultState();
-        current.loreContext = defaults.loreContext;
-        current.pendingLoreEntries = [];
-        current.pendingLoreMeta = null;
-        current.loreGeneration = defaults.loreGeneration;
-        current.loreBulkGeneration = defaults.loreBulkGeneration;
-        current.continuityScan = defaults.continuityScan;
-        current.lastDelta = null;
-        if (current.lorePanel) current.lorePanel.reviewSelectedIds = [];
-        resetCanonPreviewUiState();
-        clearCanonLoreDatabaseCache();
-        saveState(current);
-        refreshPanelBody({ preserveScroll: false });
-        refreshHeader();
-        toast('Generation state reset.', 'info');
-    }, 'saga-danger-button'));
-
-    actions.appendChild(createButton('Reset All Settings', 'Resets Saga preferences and provider settings to bundled defaults. Stored API keys are preserved.', async () => {
-        const proceed = await confirmAction('Are you sure? Reset all Saga settings?', 'You are about to reset Saga preferences, workflow settings, provider selections, generation settings, injection settings, and UI defaults. Stored API keys are preserved. Chat state, accepted lore, pending lore, and Lore Timeline are not changed. Continue?');
-        if (!proceed) return;
-        const settings = resetAllSettingsToDefaults();
-        refreshRuntimeThemeSurfaces(settings);
-        refreshPanelBody({ preserveScroll: false });
-        refreshHeader();
-        toast('Saga settings reset to defaults. Stored API keys were preserved.', 'info');
-    }, 'saga-danger-button'));
-
-    actions.appendChild(createButton('Total Reset', 'Resets Saga continuity state for this chat to defaults and clears Lore Timeline. Panel size and position are preserved.', async () => {
-        const proceed = await confirmAction('Are you sure? Total reset?', 'You are about to reset all Saga runtime data for this chat: lightweight continuity state, accepted lore, pending lore, generation state, and Lore Timeline. Window position, size, and the State Safety backup list are preserved. Continue?');
-        if (!proceed) return;
-        createStateBackup('before_total_reset');
-        const current = getState();
-        const defaults = getDefaultState();
-        defaults.stateSafety = getStateSafety(current);
-        if (current.lorePanel) {
-            defaults.lorePanel = {
-                ...defaults.lorePanel,
-                isOpen: true,
-                x: current.lorePanel.x,
-                y: current.lorePanel.y,
-                width: current.lorePanel.width,
-                height: current.lorePanel.height,
-                activeTab: 'session',
-            };
-        }
-        resetCanonPreviewUiState({ preserveDetailLevel: false });
-        clearCanonLoreDatabaseCache();
-        clearContextIndexCache();
-        saveState(defaults);
-        refreshPanelBody({ preserveScroll: false });
-        refreshHeader();
-        toast('Saga state reset. Lore Timeline cleared.', 'info');
-    }, 'saga-danger-button'));
-
-    card.appendChild(actions);
+    card.appendChild(createActiveChatDangerZoneGroup(state));
+    card.appendChild(createGlobalDangerZoneGroup());
     return card;
 }

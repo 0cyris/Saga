@@ -88,6 +88,31 @@ function cleanStringList(value = [], limit = 24, maxLength = 240) {
     return item ? [item] : [];
 }
 
+function compactCreatorEntryRetryContextForPrompt(value = {}) {
+    if (!isPlainObject(value)) return null;
+    const previousRejections = Array.isArray(value.previousRejections) ? value.previousRejections : [];
+    const retryContext = {
+        retryingRejectedTargets: value.retryingRejectedTargets === true,
+        previousRejections: previousRejections
+            .map(item => {
+                if (!isPlainObject(item)) return null;
+                return {
+                    targetEntryId: cleanId(item.targetEntryId || item.targetTitleId || '', 180),
+                    targetTitleId: cleanId(item.targetTitleId || item.targetEntryId || '', 180),
+                    title: cleanString(item.title || '', 240),
+                    reasonCodes: cleanStringArray(item.reasonCodes, 8, 80),
+                    unknownTags: cleanStringArray(item.unknownTags, 12, 140),
+                    unknownAnchors: cleanStringArray(item.unknownAnchors, 12, 180),
+                    messages: cleanStringArray(item.messages, 4, 240),
+                    instruction: cleanString(item.instruction || 'Correct the prior schema rejection using only accepted references.', 300),
+                };
+            })
+            .filter(item => item && (item.targetEntryId || item.targetTitleId || item.reasonCodes.length || item.messages.length))
+            .slice(0, 6),
+    };
+    return retryContext.retryingRejectedTargets || retryContext.previousRejections.length ? retryContext : null;
+}
+
 function cleanRubricLevel(value) {
     const raw = cleanString(value, 40)
         .toLowerCase()
@@ -1205,6 +1230,9 @@ Hard limits:
 - Use targetTitleDraft.coverageDimensionIds and targetPlanningBatch.coverageDimensionIds as authoring guidance so entries serve the intended Creator Coverage surface.
 - Use targetTitleDraft.titleId as entry.id unless it is invalid; preserve stable IDs.
 - Use only acceptedTimelineRegistry anchors/windows and acceptedTagRegistry tags. Do not invent anchor IDs or tag IDs at this stage.
+- For each targetTitleDraft, use only targetTitleDraft.allowedEntryTags when writing entry.tags. Treat targetTitleDraft.suggestedTags as semantic hints and targetTitleDraft.omittedTitleTags as forbidden IDs.
+- For each targetTitleDraft, use only targetTitleDraft.allowedAnchorIds and targetTitleDraft.allowedWindowIds when they are present. Treat targetTitleDraft.omittedAnchorIds and targetTitleDraft.omittedWindowIds as forbidden IDs.
+- If targetTitleDraft.previousRejection or retryContext.previousRejections is supplied, correct that specific schema rejection. Do not emit listed unknownTags, unknownAnchors, omitted IDs, or invented references.
 - Every entry must be schemaVersion 3 with content.fact, content.injection, context, retrieval, tags, category, canon/canonStatus, relevance, and priority.
 - Do not write wiki summaries. The fact should state the useful story constraint; the injection should tell the roleplay prompt what changes in-scene.
 - Keep each proposal compact: fact under 75 words, injection under 85 words, notes under 30 words, and reason under 30 words.
@@ -1292,6 +1320,9 @@ export function buildLoredeckCreatorEntryUserPrompt(context = {}) {
         targetPlanningBatch: isPlainObject(context.targetPlanningBatch) ? context.targetPlanningBatch : null,
         acceptedPlanningBatchIds: cleanStringArray(context.acceptedPlanningBatchIds, 120, 160),
         targetTitleDrafts: Array.isArray(context.targetTitleDrafts) ? context.targetTitleDrafts : [],
+        targetPreflight: isPlainObject(context.targetPreflight) ? context.targetPreflight : null,
+        targetPreflightDiagnostics: Array.isArray(context.targetPreflightDiagnostics) ? context.targetPreflightDiagnostics.slice(0, 24) : [],
+        retryContext: compactCreatorEntryRetryContextForPrompt(context.retryContext),
         acceptedTimelineRegistry: isPlainObject(context.timelineRegistry) ? context.timelineRegistry : null,
         acceptedTagRegistry: isPlainObject(context.tagRegistry) ? context.tagRegistry : null,
         existingEntryIds: cleanStringArray(context.existingEntryIds, 240, 180),
@@ -1319,6 +1350,12 @@ export function buildLoredeckCreatorEntryUserPrompt(context = {}) {
             preserveCoverageDimensionIds: true,
             useAcceptedTimelineIdsOnly: true,
             useAcceptedTagIdsOnly: true,
+            useAllowedEntryTagsPerTargetOnly: true,
+            useAllowedTimelineIdsPerTargetOnly: true,
+            acceptedTimelineRegistryMayBeTargetFiltered: true,
+            omittedTitleTagsAreForbidden: true,
+            omittedTimelineIdsAreForbidden: true,
+            correctPreviousSchemaRejections: true,
             noWikiSummaries: true,
             conciseFields: true,
             pendingReviewOnly: true,
@@ -1338,8 +1375,6 @@ Return JSON only. Do not include markdown.
 Core rule: propose changes for Pending Review. Do not claim changes are already applied.
 
 When selectedDraftProposals are supplied, revise only those draft proposals and return replacement proposals for them. Do not rewrite unrelated entries unless the user explicitly asks.
-
-When selectedHealthIssues are supplied, draft repair proposals for those Pack Health issues only. Use supported proposal actions; if an issue needs manifest/stat repair or another unsupported edit, report it in warnings or ask a clarifying question.
 
 Prioritize high-value scene context over wiki summaries:
 - Good lore changes what characters know, hide, want, fear, expect, avoid, reveal, misunderstand, or react to.
@@ -1431,9 +1466,6 @@ export function buildLoredeckAssistantUserPrompt(context = {}) {
         knownTags: cleanStringArray(context.knownTags, 160, 140),
         selectedDraftProposals: Array.isArray(context.selectedDraftProposals)
             ? context.selectedDraftProposals.slice(0, 40)
-            : [],
-        selectedHealthIssues: Array.isArray(context.selectedHealthIssues)
-            ? context.selectedHealthIssues.slice(0, 40)
             : [],
         targetEntries: Array.isArray(context.targetEntries) ? context.targetEntries.slice(0, 60) : [],
     }, null, 2);

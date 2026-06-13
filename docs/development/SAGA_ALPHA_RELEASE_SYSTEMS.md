@@ -53,7 +53,7 @@ Before tagging an alpha build, run:
 node tools/scripts/run-alpha-gate.mjs
 ```
 
-The gate combines syntax checks, CSS sanity checks, release metadata checks, repository layout, Basic readiness, experience-mode walkthrough coverage, HP and Health Center Deck Health checks, Context resolver/gating/current-contract/proposal coverage, Context Workbench story-position picker coverage, Context model resolver coverage, HP reference-deck conformance, Loredeck package import/export coverage, State Safety lifecycle/import checks, diagnostic redaction checks, prompt compression cache checks, prompt-injection stale-state source checks, dynamic chat-change and generation/disable prompt-clear smokes, the repo-local Basic workflow smoke contract, the visual smoke source contract, and the high-confidence secret scanner. Live SillyTavern smoke still needs a manual or CDP pass against the installed extension after the deterministic gate passes.
+The gate combines syntax checks, CSS sanity checks, release metadata checks, repository layout, Basic readiness, experience-mode walkthrough coverage, HP and Health Center Deck Health checks, Context resolver/gating/current-contract/proposal coverage, Context Workbench story-position picker coverage, Context model resolver coverage, HP reference-deck conformance, Loredeck package import/export coverage, State Safety lifecycle/import checks, external storage migration and profile-audit coverage, repair-session storage coverage, stale-write detection coverage, diagnostic redaction checks, prompt compression cache checks, prompt-injection stale-state source checks, dynamic chat-change and generation/disable prompt-clear smokes, the repo-local Basic workflow smoke contract, the repo-local storage harness contract, the visual smoke source contract, and the high-confidence secret scanner. Live SillyTavern smoke still needs a manual or CDP pass against the installed extension after the deterministic gate passes.
 
 ## Key Systems
 
@@ -115,7 +115,7 @@ Continuity tracking, scan cadence, status feedback, and integration with Context
 
 ### 13. Deck Health Center
 
-Manifest/schema validation, tag validation, Context/timeline validation, coverage warnings, stale scan state, automatic post-accept reruns when possible, grouped issues, ignored/resolved issue state, deterministic repair actions, and Lore Assistant repair routing.
+Manifest/schema validation, tag validation, Context/timeline validation, coverage warnings, stale scan state, automatic post-accept reruns when possible, grouped issues, ignored/resolved issue state, Attempt Fixing, repair sessions, and review-choice routing.
 
 ### 14. Tag System
 

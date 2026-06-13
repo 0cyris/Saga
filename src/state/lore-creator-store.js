@@ -117,6 +117,29 @@ function getCreatorPayloadNotLoadedResult(jobId = '') {
     };
 }
 
+function preserveLoredeckCreatorExplicitGenerationClears(job = {}, patch = {}) {
+    if (!job || typeof job !== 'object' || !patch || typeof patch !== 'object') return job;
+    if (Object.prototype.hasOwnProperty.call(patch, 'activeGeneration') && patch.activeGeneration === null) {
+        delete job.activeGeneration;
+    }
+    if (Object.prototype.hasOwnProperty.call(patch, 'lastGenerationResult') && patch.lastGenerationResult === null) {
+        delete job.lastGenerationResult;
+    }
+    return job;
+}
+
+function applyLoredeckCreatorExplicitGenerationClearsForStorage(job = {}, patch = {}) {
+    const output = { ...(job || {}) };
+    if (!patch || typeof patch !== 'object') return output;
+    if (Object.prototype.hasOwnProperty.call(patch, 'activeGeneration') && patch.activeGeneration === null) {
+        output.activeGeneration = null;
+    }
+    if (Object.prototype.hasOwnProperty.call(patch, 'lastGenerationResult') && patch.lastGenerationResult === null) {
+        output.lastGenerationResult = null;
+    }
+    return output;
+}
+
 function createLoredeckCreatorJobId(seed = '') {
     const stem = normalizeLoredeckCreatorString(seed, 100)
         .toLowerCase()
@@ -160,12 +183,12 @@ export function upsertLoredeckCreatorJob(jobRecord = {}, options = {}) {
     const existing = requestedJobId ? (registry.jobs[requestedJobId] || null) : active;
     const base = existing || (!requestedJobId ? active : null);
     const seed = `${jobRecord.fandom || base?.fandom || active?.fandom || 'creator'}-${jobRecord.scope || base?.scope || active?.scope || ''}`;
-    const job = normalizeLoredeckCreatorJob({
+    const job = preserveLoredeckCreatorExplicitGenerationClears(normalizeLoredeckCreatorJob({
         ...(base || {}),
         ...(jobRecord || {}),
         jobId: requestedJobId || base?.jobId || active?.jobId || createLoredeckCreatorJobId(seed),
         updatedAt: Date.now(),
-    });
+    }), jobRecord);
     if (!job) return { ok: false, error: 'Creator job could not be normalized.' };
 
     let settings;
@@ -175,7 +198,7 @@ export function upsertLoredeckCreatorJob(jobRecord = {}, options = {}) {
         if (existingExternal?.projectFile && !isExternalLoredeckCreatorProjectHydratedRecord(job)) {
             return getCreatorPayloadNotLoadedResult(job.jobId);
         }
-        const externalResult = upsertExternalLoredeckCreatorProjectSync(job, {
+        const externalResult = upsertExternalLoredeckCreatorProjectSync(applyLoredeckCreatorExplicitGenerationClearsForStorage(job, jobRecord), {
             ...options,
             activeJobId: job.jobId,
             lastJobId: job.jobId,
@@ -290,16 +313,16 @@ export function updateLoredeckCreatorProject(jobId = '', patch = {}, options = {
     const updatedAt = options.touchUpdatedAt === false
         ? (Number(sourceJob.updatedAt) || Date.now())
         : Date.now();
-    const job = normalizeLoredeckCreatorJob({
+    const job = preserveLoredeckCreatorExplicitGenerationClears(normalizeLoredeckCreatorJob({
         ...hydrateCachedExternalLoredeckCreatorProjectRecord(sourceJob),
         ...patch,
         jobId: id,
         updatedAt,
-    });
+    }), patch);
     if (!job) return { ok: false, error: 'Creator project could not be normalized.' };
 
     try {
-        const externalResult = upsertExternalLoredeckCreatorProjectSync(job, {
+        const externalResult = upsertExternalLoredeckCreatorProjectSync(applyLoredeckCreatorExplicitGenerationClearsForStorage(job, patch), {
             ...options,
             activeJobId: projectActiveJobId,
             lastJobId: projectLastJobId,

@@ -102,6 +102,8 @@ export function normalizeLoredeckLibraryPack(raw = {}) {
     const entryOverrides = raw.entryOverrides && typeof raw.entryOverrides === 'object' && !Array.isArray(raw.entryOverrides) ? raw.entryOverrides : {};
     const disabledEntryIds = Array.isArray(raw.disabledEntryIds) ? raw.disabledEntryIds.map(id => String(id || '').trim()).filter(Boolean) : [];
     const assets = raw.assets && typeof raw.assets === 'object' && !Array.isArray(raw.assets) ? raw.assets : null;
+    const payloadFile = String(raw.payloadFile || raw.payloadPath || '').trim();
+    const coverFile = String(raw.coverFile || '').trim();
     const timelineRegistry = normalizeLoredeckTimelineRegistry(raw.timelineRegistry);
     const timelineRegistryIssue = normalizeLoredeckTimelineRegistryIssueRecord(raw.timelineRegistryIssue)
         || (Object.prototype.hasOwnProperty.call(raw, 'timelineRegistry') ? normalizeLoredeckTimelineRegistryIssue(raw.timelineRegistry, timelineRegistry) : null);
@@ -126,6 +128,8 @@ export function normalizeLoredeckLibraryPack(raw = {}) {
         healthStatus: String(raw.healthStatus || '').trim(),
         localModified: raw.localModified === true,
         derivedFrom,
+        ...(payloadFile ? { payloadFile } : {}),
+        ...(coverFile ? { coverFile } : {}),
         ...(assets ? { assets } : {}),
         manifestData,
         ...(Object.keys(library).length ? { library } : {}),
@@ -390,4 +394,58 @@ export function removeLoredecksFromStack(packIds = []) {
         }
     });
     return changed;
+}
+
+export function buildPrunedLoredeckStack(stack = [], library = [], libraryIndex = {}) {
+    const availablePackIds = new Set((Array.isArray(library) ? library : [])
+        .map(pack => String(pack?.packId || pack?.id || '').trim())
+        .filter(Boolean));
+    const availableFolderIds = new Set((Array.isArray(libraryIndex?.folders) ? libraryIndex.folders : [])
+        .map(folder => String(folder?.id || '').trim())
+        .filter(Boolean));
+    const removed = {
+        deckCount: 0,
+        folderCount: 0,
+    };
+    const next = [];
+    for (const item of getLoredeckStack({ loredeckStack: stack })) {
+        if (getLoredeckStackItemType(item) === 'folder') {
+            const folderId = getLoredeckStackItemFolderId(item);
+            if (!folderId || !availableFolderIds.has(folderId)) {
+                removed.folderCount += 1;
+                continue;
+            }
+            next.push(item);
+            continue;
+        }
+        const packId = getLoredeckStackItemPackId(item);
+        if (!packId || !availablePackIds.has(packId)) {
+            removed.deckCount += 1;
+            continue;
+        }
+        next.push(item);
+    }
+    return {
+        stack: normalizeLoredeckStackPriority(next),
+        removedDeckCount: removed.deckCount,
+        removedFolderCount: removed.folderCount,
+        removedCount: removed.deckCount + removed.folderCount,
+    };
+}
+
+export function pruneUnavailableLoredeckStackItems(library = getLoredeckLibrary(), libraryIndex = getLoredeckLibraryIndexForPacks()) {
+    const pruned = buildPrunedLoredeckStack(getLoredeckStack(), library, libraryIndex);
+    if (!pruned.removedCount) {
+        return {
+            ...pruned,
+            changed: false,
+        };
+    }
+    const changed = commitLoredeckStackMutation(stack => {
+        stack.splice(0, stack.length, ...pruned.stack);
+    });
+    return {
+        ...pruned,
+        changed,
+    };
 }

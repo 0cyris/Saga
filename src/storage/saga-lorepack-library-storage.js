@@ -4,6 +4,7 @@
 
 import { DEFAULT_SETTINGS } from '../state/constants.js';
 import { normalizeLoredeckRegistry } from '../state/lore-state-normalizers.js';
+import { normalizeLoredeckLibraryIndex } from '../loredecks/loredeck-library-index.js';
 import { createSagaFileApi } from './saga-file-api.js';
 import { createSagaDomainStorage } from './saga-domain-storage.js';
 import { createSagaStorageIndexStore, SAGA_STORAGE_DOMAIN_INDEX_FILES } from './saga-storage-index.js';
@@ -185,12 +186,18 @@ function queueExternalLoredeckLibraryIndexWrite(library = {}, options = {}) {
     const merged = resolveStorageOptions(options);
     const now = getClockNow(merged);
     const snapshot = normalizeSagaLibraryIndex(cloneJson(library), { now });
+    const staleCheck = merged.staleCheck !== false && pendingLibraryWriteCount === 0;
+    const expectedRevision = staleCheck ? Math.max(1, Math.floor(Number(snapshot.revision) || 1)) : undefined;
     pendingLibraryWriteCount += 1;
     pendingLibraryWrite = pendingLibraryWrite
         .catch(() => {})
         .then(async () => {
             try {
-                await writeExternalLoredeckLibraryIndex(snapshot, merged);
+                await writeExternalLoredeckLibraryIndex(snapshot, {
+                    ...merged,
+                    staleCheck,
+                    expectedRevision,
+                });
                 lastLibraryWriteError = '';
             } catch (error) {
                 recordQueuedWriteError(error, merged);
@@ -219,22 +226,33 @@ export function createSagaLibraryIndex(options = {}) {
 export function normalizeSagaLibraryIndex(value = {}, options = {}) {
     const raw = isPlainObject(value) ? value : {};
     const compactPacks = normalizePackMap(raw.packs, options);
-    const base = normalizeLoredeckRegistry({
+    const layoutBase = normalizeLoredeckLibraryIndex({
         schemaVersion: 1,
-        packs: compactPacks,
         folders: Array.isArray(raw.folders) ? raw.folders : [],
         deckPlacements: Array.isArray(raw.deckPlacements) ? raw.deckPlacements : [],
         activeStack: Array.isArray(raw.activeStack) ? raw.activeStack : [],
-    }, EMPTY_LIBRARY_REGISTRY);
+    }, {
+        defaults: { schemaVersion: 1, folders: [], deckPlacements: [], activeStack: [] },
+        packs: {
+            ...(DEFAULT_SETTINGS.loredeckLibrary?.packs || {}),
+            ...compactPacks,
+        },
+        applySuggestedPaths: false,
+    });
     const packs = {};
-    for (const [packId, pack] of Object.entries(base.packs || {})) {
+    for (const [packId, pack] of Object.entries(compactPacks || {})) {
         const compact = compactPacks[packId] || {};
+        const normalizedPack = normalizeLoredeckRegistry({
+            schemaVersion: 1,
+            packs: { [packId]: pack },
+        }, EMPTY_LIBRARY_REGISTRY).packs?.[packId] || pack;
         packs[packId] = {
+            ...normalizedPack,
             ...pack,
             ...(compact.payloadFile ? { payloadFile: compact.payloadFile } : {}),
             ...(compact.coverFile ? { coverFile: compact.coverFile } : {}),
-            sourceKind: compact.sourceKind || pack.source?.kind || '',
-            entryCount: compact.entryCount || pack.stats?.entryCount || 0,
+            sourceKind: compact.sourceKind || normalizedPack.source?.kind || '',
+            entryCount: compact.entryCount || normalizedPack.stats?.entryCount || 0,
             tagCount: compact.tagCount || 0,
             timelineEventCount: compact.timelineEventCount || 0,
         };
@@ -261,9 +279,9 @@ export function normalizeSagaLibraryIndex(value = {}, options = {}) {
         updatedAt: normalizeTimestamp(raw.updatedAt, options.now || 0),
         revision: Math.max(1, Math.floor(Number(raw.revision) || 1)),
         packs,
-        folders: base.folders || [],
-        deckPlacements: base.deckPlacements || [],
-        activeStack: base.activeStack || [],
+        folders: layoutBase.folders || [],
+        deckPlacements: layoutBase.deckPlacements || [],
+        activeStack: layoutBase.activeStack || [],
     };
 }
 
@@ -364,8 +382,15 @@ export async function writeExternalLoredeckLibraryIndex(library = {}, options = 
         ...library,
         updatedAt: now,
     }, { now });
+    const staleCheck = options.staleCheck !== false;
+    const expectedRevision = options.expectedRevision !== undefined
+        ? Math.max(1, Math.floor(Number(options.expectedRevision) || 1))
+        : (staleCheck ? Math.max(1, Math.floor(Number(normalized.revision) || 1)) : undefined);
     const result = await domainStorage.writeDomainIndex('library', normalized, {
         ...options,
+        staleCheck,
+        expectedRevision,
+        staleMessage: 'Library storage changed. Reload the Library before changing folders.',
         bumpRevision: options.bumpRevision !== false,
     });
     hydratedLibraryRegistry = normalizeSagaLibraryIndex(result.index, { now });

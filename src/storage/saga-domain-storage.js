@@ -15,6 +15,10 @@ import {
     normalizeSagaStorageIndex,
     SAGA_STORAGE_DOMAIN_INDEX_FILES,
 } from './saga-storage-index.js';
+import {
+    assertSagaStorageRevisionFresh,
+    formatSagaStorageChangedMessage,
+} from './saga-storage-stale-write.js';
 
 export const SAGA_DOMAIN_STORAGE_SCHEMA_VERSION = 1;
 
@@ -288,6 +292,16 @@ export function createSagaDomainStorage(options = {}) {
     async function writeDomainIndex(domain = '', index = {}, writeOptions = {}) {
         const api = requireFileApi();
         const config = getSagaDomainStorageConfig(domain);
+        if (writeOptions.staleCheck !== false && writeOptions.expectedRevision !== undefined) {
+            const latest = await readDomainIndex(config.domain, { allowMissing: true });
+            assertSagaStorageRevisionFresh({
+                latest,
+                expectedRevision: writeOptions.expectedRevision,
+                domain: config.domain,
+                path: config.indexFile,
+                message: writeOptions.staleMessage || formatSagaStorageChangedMessage(config.domain),
+            });
+        }
         const normalized = writeOptions.bumpRevision === false
             ? normalizeSagaDomainIndex(config.domain, index, { now: now() })
             : {
@@ -314,6 +328,23 @@ export function createSagaDomainStorage(options = {}) {
         const api = requireFileApi();
         const config = getSagaDomainStorageConfig(domain);
         const cleanOwnerId = normalizeSagaStorageId(ownerId || payload?.id || payload?.[config.idKey], config.domain, 160);
+        const payloadPath = buildSagaDomainPayloadPath(config.domain, cleanOwnerId, writeOptions);
+        if (writeOptions.staleCheck !== false && writeOptions.expectedRevision !== undefined) {
+            let latest = null;
+            try {
+                latest = await api.readJsonFile(payloadPath, { allowedExtensions: [SAGA_STORAGE_JSON_EXTENSION] });
+            } catch (error) {
+                if (!(error?.status === 404 || /missing|not found|404/i.test(String(error?.message || '')))) throw error;
+                latest = { revision: 1 };
+            }
+            assertSagaStorageRevisionFresh({
+                latest,
+                expectedRevision: writeOptions.expectedRevision,
+                domain: config.domain === 'library' ? 'lorepack' : config.domain,
+                path: payloadPath,
+                message: writeOptions.staleMessage || formatSagaStorageChangedMessage(config.domain === 'library' ? 'lorepack' : config.domain),
+            });
+        }
         const fileName = buildSagaDomainPayloadFileName(config.domain, cleanOwnerId, writeOptions);
         const result = await api.writeJsonFile(fileName, payload, {
             pretty: writeOptions.pretty,
@@ -346,6 +377,8 @@ export function createSagaDomainStorage(options = {}) {
         });
         return writeDomainIndex(config.domain, next, {
             ...upsertOptions,
+            staleCheck: upsertOptions.staleCheck !== false,
+            expectedRevision: upsertOptions.expectedRevision ?? index.revision,
             bumpRevision: false,
         });
     }
@@ -359,6 +392,8 @@ export function createSagaDomainStorage(options = {}) {
         });
         return writeDomainIndex(config.domain, next, {
             ...removeOptions,
+            staleCheck: removeOptions.staleCheck !== false,
+            expectedRevision: removeOptions.expectedRevision ?? index.revision,
             bumpRevision: false,
         });
     }

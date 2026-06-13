@@ -145,6 +145,8 @@ export function upsertLoredeckLibraryPack(packRecord = {}) {
         installedAt: existing.installedAt || pack.installedAt || Date.now(),
         updatedAt: Date.now(),
     };
+    const payloadRevision = Math.floor(Number(packRecord?.revision) || 0);
+    if (payloadRevision > 0) nextPack.revision = payloadRevision;
     for (const key of explicitOptionalFields) {
         if (!Object.prototype.hasOwnProperty.call(pack, key)) delete nextPack[key];
     }

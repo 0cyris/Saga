@@ -20,7 +20,7 @@ Start here when a chat has no active stack, the wrong stack order, a missing pac
 
 Coverage: A26-A33.
 
-Use this track to manage Experience Mode, **Saga Active**, Automation Mode, runtime metrics, guide modules, active chat state, cleanup actions, and mode recovery.
+Use this track to manage Experience Mode, **Saga Active**, Automation Mode, runtime metrics, guide modules, active chat state, and mode recovery.
 
 Start here when you need to understand what Saga is allowed to do, whether automation is active, or whether the current chat has the expected Saga state.
 
@@ -62,23 +62,25 @@ Coverage: A112-A130.
 
 Use this track to create and complete Generated Lorepack projects. It covers **Create Deck**, intake, scope brief, outline, title pass, title review, Context and tag planning, planning review, Lorecard drafting, confirmed Auto-Draft All, Creator draft review, sending drafts to Pending Review, review queue jumps, current task controls, generation settings, project shelf, project management, generated-pack inspection, and readiness gates.
 
+Creator Lorecard drafting can recover from Saga-side schema rejections separately from provider failures. In generation settings, **Auto split failed batches** retries affected Lorecard titles in smaller batches. The Lorecards step exposes **Last Lorecard preflight gaps** and **Last Lorecard rejection details** when title-stage references or generated drafts need attention before they can move through review.
+
 Start here when you need Saga to help author a new Generated Lorepack rather than import or edit an existing pack.
 
 ### Pack Health And Packages
 
 Coverage: A131-A141.
 
-Use this track to validate, repair, update, export, and finalize Lorepacks. It covers Pack Health Center, status, issue groups, safe repair, manual repair routes, package update, local modification warnings, Bundled Lorepack reference export, Custom Lorepack embedded export, Generated to Custom finalization, and generated export readiness.
+Use this track to validate, repair, update, export, and finalize Lorepacks. It covers Pack Health Center, status, issue groups, Attempt Fixing, manual repair routes, package update, local modification warnings, Bundled Lorepack reference export, Custom Lorepack embedded export, Generated to Custom finalization, and generated export readiness.
 
 Start here before sharing a pack, finalizing a Generated Lorepack, repairing package issues, or trusting a pack with warnings.
 
 ### Settings And Providers
 
-Coverage: A142-A153.
+Coverage: A32-A153.
 
-Use this track to configure Utility and Reasoning provider roles, provider profiles, endpoints, models, provider tests, current SillyTavern model routing, generation parameters, provider presets, API compatibility flags, Theme Packs, icon sets, colors, and diagnostics.
+Use this track to configure Utility and Reasoning provider roles, provider profiles, endpoints, models, provider tests, current SillyTavern model routing, generation parameters, provider presets, API compatibility flags, Theme Packs, icon sets, colors, State Safety maintenance, and Danger Zone cleanup.
 
-Start here when model-backed actions fail, profile routing is unclear, generation behavior needs tuning, or the runtime surface needs visual configuration.
+Start here when model-backed actions fail, profile routing is unclear, generation behavior needs tuning, the runtime surface needs visual configuration, or you need destructive cleanup actions such as Reset All Settings, Remove Custom Loredecks, or Total Saga Cleanup.
 
 ### Troubleshooting Routes
 

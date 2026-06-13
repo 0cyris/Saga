@@ -8,7 +8,7 @@ const {
   configureLoredeckEditorActions,
   continueLoredeckHealthModelRepairSession,
   getLoredeckHealthRepairActiveRun,
-  repairLoredeckSafeHealthIssues,
+  attemptLoredeckHealthFixes: attemptLoredeckHealthFixesFromEditor,
 } = await import('../../src/runtime/loredeck-editor-actions.js');
 const {
   LOREDECK_HEALTH_REPAIR_OPERATION_NAMES,
@@ -193,7 +193,7 @@ const compactPack = getFreshPack('attempt-model-continuation-pack');
 assert.equal(compactPack.payloadFile, payloadFile);
 assert.equal(Object.keys(compactPack.entryOverrides || {}).length, 0);
 
-const repaired = await repairLoredeckSafeHealthIssues(compactPack);
+const repaired = await attemptLoredeckHealthFixesFromEditor(compactPack);
 assert.equal(repaired, true);
 assert.equal(requestCount, 1);
 await flushSagaLorepackPayloadStorageWrites();

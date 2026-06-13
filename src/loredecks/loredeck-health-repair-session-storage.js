@@ -206,6 +206,58 @@ function normalizeRemainingRepairState(value = {}) {
     };
 }
 
+function getRepairSessionRemainingCounts(remaining = {}) {
+    const raw = isPlainRepairObject(remaining) ? remaining : {};
+    return {
+        choiceSetCount: Number(raw.choiceSetCount || raw.choiceSets?.length) || 0,
+        modelUnitCount: Number(raw.modelUnits?.length) || 0,
+        deferredUnitCount: Number(raw.deferredUnits?.length) || 0,
+        manualBucketCount: Number(raw.manualBuckets?.length) || 0,
+    };
+}
+
+function getRepairSessionRemainingWorkCount(remaining = {}) {
+    const counts = getRepairSessionRemainingCounts(remaining);
+    return counts.choiceSetCount + counts.modelUnitCount + counts.deferredUnitCount + counts.manualBucketCount;
+}
+
+function getRepairSessionErrorDiagnosticCount(diagnostics = []) {
+    return (Array.isArray(diagnostics) ? diagnostics : []).filter(item => {
+        const severity = cleanRepairId(item?.severity || '', 40);
+        return severity === 'error' || severity === 'danger';
+    }).length;
+}
+
+export function buildLoredeckHealthRepairSessionLifecycle(session = {}) {
+    const raw = isPlainRepairObject(session) ? session : {};
+    const remaining = isPlainRepairObject(raw.remaining) ? raw.remaining : {};
+    const diagnostics = Array.isArray(raw.diagnostics) ? raw.diagnostics : [];
+    const status = cleanRepairId(raw.status || raw.outcome || 'active', 80);
+    const counts = getRepairSessionRemainingCounts(remaining);
+    const remainingWorkCount = getRepairSessionRemainingWorkCount(remaining);
+    const diagnosticCount = diagnostics.length;
+    const errorDiagnosticCount = getRepairSessionErrorDiagnosticCount(diagnostics);
+    let retainReason = 'active';
+    if (counts.choiceSetCount) retainReason = 'needs_review';
+    else if (counts.modelUnitCount || counts.deferredUnitCount) retainReason = 'model_pending';
+    else if (counts.manualBucketCount) retainReason = 'manual_remaining';
+    else if (diagnosticCount) retainReason = 'diagnostics';
+    else if (status === 'complete') retainReason = 'completed_summary';
+    return {
+        status,
+        ...counts,
+        remainingWorkCount,
+        diagnosticCount,
+        errorDiagnosticCount,
+        appliedPatchCount: Array.isArray(raw.appliedPatchIds) ? raw.appliedPatchIds.length : 0,
+        retainReason,
+        hasRemainingWork: remainingWorkCount > 0,
+        hasDiagnostics: diagnosticCount > 0,
+        canAutoDelete: status === 'complete' && remainingWorkCount === 0 && diagnosticCount === 0,
+        canUserDelete: true,
+    };
+}
+
 function inferSessionId(input = {}, packId = '', now = Date.now()) {
     const explicit = input.sessionId || input.repairSessionId || input.attempt?.sessionId || input.attempt?.repairSessionId || '';
     if (explicit) return normalizeSessionId(explicit);
@@ -251,6 +303,13 @@ export function normalizeLoredeckHealthRepairSession(input = {}, options = {}) {
     const summary = cloneRepairJson(raw.summary || attempt.summary || {});
     const status = normalizeStatus(raw.status, inferSessionStatus(attempt, remaining, diagnostics));
     const sessionFile = raw.sessionFile || buildLoredeckHealthRepairSessionPath(packId, sessionId);
+    const lifecycle = buildLoredeckHealthRepairSessionLifecycle({
+        status,
+        outcome: raw.outcome || summary.outcome || status,
+        remaining,
+        diagnostics,
+        appliedPatchIds: raw.appliedPatchIds || attempt.appliedPatches?.map(patch => patch?.patchId) || [],
+    });
 
     return {
         schemaVersion: LOREDECK_HEALTH_REPAIR_SESSION_SCHEMA_VERSION,
@@ -268,6 +327,7 @@ export function normalizeLoredeckHealthRepairSession(input = {}, options = {}) {
         appliedPatchIds: (Array.isArray(raw.appliedPatchIds) ? raw.appliedPatchIds : attempt.appliedPatches?.map(patch => patch?.patchId))
             ?.map(id => cleanRepairId(id || '', 180))
             .filter(Boolean) || [],
+        lifecycle,
     };
 }
 
@@ -419,6 +479,50 @@ export async function listLoredeckHealthRepairSessions(packId = '', options = {}
             })],
         };
     }
+}
+
+function normalizeCleanupStatuses(value = []) {
+    const input = Array.isArray(value) ? value : String(value || '').split(/[,;\s]+/);
+    const statuses = input.map(item => normalizeStatus(item, '')).filter(Boolean);
+    return statuses.length ? new Set(statuses) : new Set(['complete']);
+}
+
+function shouldCleanupRepairSession(session = {}, options = {}) {
+    const statuses = normalizeCleanupStatuses(options.statuses || options.status || []);
+    if (!statuses.has(session.status)) return false;
+    const lifecycle = session.lifecycle || buildLoredeckHealthRepairSessionLifecycle(session);
+    if (lifecycle.hasRemainingWork && options.includeRemainingWork !== true) return false;
+    if (lifecycle.hasDiagnostics && options.includeDiagnosticSessions !== true) return false;
+    return lifecycle.canUserDelete || options.includeRemainingWork === true || options.includeDiagnosticSessions === true;
+}
+
+export async function cleanupLoredeckHealthRepairSessions(packId = '', options = {}) {
+    const listResult = await listLoredeckHealthRepairSessions(packId, options);
+    const diagnostics = [...(listResult.diagnostics || [])];
+    const sessions = (Array.isArray(listResult.sessions) ? listResult.sessions : [])
+        .filter(session => shouldCleanupRepairSession(session, options));
+    const deleted = [];
+    for (const session of sessions) {
+        const result = await deleteLoredeckHealthRepairSession(session, options);
+        if (result.ok) {
+            deleted.push({ sessionId: session.sessionId, path: result.path, status: session.status });
+        } else {
+            diagnostics.push(...(result.diagnostics || [normalizeDiagnostic({
+                severity: 'error',
+                code: 'repair_session_cleanup_delete_failed',
+                message: result.error || 'Repair session cleanup failed.',
+            })]));
+        }
+    }
+    return {
+        ok: diagnostics.length === 0,
+        packId: listResult.packId || normalizePackId(packId || options.packId || ''),
+        deleted,
+        deletedCount: deleted.length,
+        scannedCount: Array.isArray(listResult.sessions) ? listResult.sessions.length : 0,
+        diagnostics,
+        error: diagnostics.find(item => item.severity === 'error')?.message || '',
+    };
 }
 
 export async function deleteLoredeckHealthRepairSession(sessionOrPackId = '', sessionIdOrOptions = '', maybeOptions = {}) {

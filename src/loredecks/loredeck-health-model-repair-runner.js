@@ -20,6 +20,7 @@ import {
     createRepairRunSummary,
     isPlainRepairObject,
     normalizeRepairChoiceSet,
+    normalizeRepairIdList,
 } from './loredeck-health-repair-contracts.js';
 import {
     applyPackRepairPatches,
@@ -87,6 +88,42 @@ function readModelRepairResponseText(value = '') {
     return JSON.stringify(value);
 }
 
+function firstCleanResponseValue(...values) {
+    for (const value of values) {
+        const clean = cleanRepairString(value || '', 160);
+        if (clean) return clean;
+    }
+    return '';
+}
+
+function getModelRepairResponseFinishReason(value = null) {
+    if (!value || typeof value !== 'object') return '';
+    return firstCleanResponseValue(
+        value.finishReason,
+        value.finish_reason,
+        value.stopReason,
+        value.stop_reason,
+        value.reason,
+        value.response?.finishReason,
+        value.response?.finish_reason,
+        value.message?.finishReason,
+        value.message?.finish_reason,
+        value.choices?.[0]?.finishReason,
+        value.choices?.[0]?.finish_reason
+    );
+}
+
+function isTokenLimitFinishReason(reason = '') {
+    return /length|max[_\s-]?tokens?|token[_\s-]?limit|output[_\s-]?limit|truncated/i.test(String(reason || ''));
+}
+
+function getModelRepairAttemptMeta(raw = '', responseText = '') {
+    return {
+        finishReason: getModelRepairResponseFinishReason(raw),
+        responseLength: String(responseText || '').length,
+    };
+}
+
 function getChoiceFindingIdSet(choiceSets = []) {
     const out = new Set();
     for (const choice of Array.isArray(choiceSets) ? choiceSets : []) {
@@ -97,6 +134,76 @@ function getChoiceFindingIdSet(choiceSets = []) {
 
 function intersects(values = [], wanted = new Set()) {
     return values.some(value => wanted.has(value));
+}
+
+function getFindingIdsForTargets(plan = {}, findingIds = [], targets = {}) {
+    const wanted = new Set(normalizeRepairIdList(findingIds));
+    const entryIds = new Set(normalizeRepairIdList(targets.entryIds || []));
+    const tagIds = new Set(normalizeRepairIdList(targets.tagIds || []));
+    const timelineIds = new Set(normalizeRepairIdList(targets.timelineIds || []));
+    const scoped = [];
+    for (const finding of Array.isArray(plan.findings) ? plan.findings : []) {
+        if (!wanted.has(finding?.findingId)) continue;
+        if (entryIds.size && intersects(finding.entryIds || [], entryIds)) scoped.push(finding.findingId);
+        else if (!entryIds.size && tagIds.size && intersects(finding.tagIds || [], tagIds)) scoped.push(finding.findingId);
+        else if (!entryIds.size && !tagIds.size && timelineIds.size && intersects(finding.timelineIds || [], timelineIds)) scoped.push(finding.findingId);
+    }
+    return normalizeRepairIdList(scoped.length ? scoped : findingIds);
+}
+
+function reduceModelRepairUnitScope(unit = {}, plan = {}) {
+    const next = cloneRepairJson(unit) || {};
+    let targetReduction = '';
+    if (Array.isArray(next.entryIds) && next.entryIds.length > 1) {
+        const originalCount = next.entryIds.length;
+        next.entryIds = next.entryIds.slice(0, 1);
+        targetReduction = `Reduced entries from ${originalCount} to 1.`;
+    } else if (Array.isArray(next.tagIds) && next.tagIds.length > 1) {
+        const originalCount = next.tagIds.length;
+        next.tagIds = next.tagIds.slice(0, 1);
+        targetReduction = `Reduced tags from ${originalCount} to 1.`;
+    } else if (Array.isArray(next.timelineIds) && next.timelineIds.length > 1) {
+        const originalCount = next.timelineIds.length;
+        next.timelineIds = next.timelineIds.slice(0, 1);
+        targetReduction = `Reduced timeline targets from ${originalCount} to 1.`;
+    } else {
+        targetReduction = 'Kept the same single target but requested a smaller JSON response.';
+    }
+    next.findingIds = getFindingIdsForTargets(plan, next.findingIds || unit.findingIds || [], {
+        entryIds: next.entryIds || [],
+        tagIds: next.tagIds || [],
+        timelineIds: next.timelineIds || [],
+    });
+    next.retrySmaller = true;
+    next.originalUnitId = unit.unitId || '';
+    next.label = `${next.label || unit.label || unit.unitId || 'repair batch'} retry`;
+    next.targetReduction = targetReduction;
+    return next;
+}
+
+function getRetrySmallerUnit(unit = {}, plan = {}, retryState = null) {
+    if (!retryState?.retrySmaller) return cloneRepairJson(unit) || {};
+    const reduced = reduceModelRepairUnitScope(unit, plan);
+    reduced.previousFailureCode = retryState.previousFailureCode || '';
+    reduced.previousFailureMessage = retryState.previousFailureMessage || '';
+    return reduced;
+}
+
+function getModelRepairRetryDecision(error = null, meta = {}, unit = {}) {
+    const code = cleanRepairId(error?.code || error?.errorCode || '', 160);
+    const message = cleanRepairString(error?.message || error || '', 1000);
+    const finishReason = cleanRepairString(meta.finishReason || '', 160);
+    const retrySmaller = code === 'model_repair_json_truncated'
+        || code === 'model_repair_response_too_large'
+        || isTokenLimitFinishReason(finishReason)
+        || /truncated|token limit|max tokens|too large|unexpected end|unterminated/i.test(message);
+    return {
+        retry: true,
+        retrySmaller,
+        previousFailureCode: code || (retrySmaller ? 'model_repair_response_truncated' : 'model_repair_retry'),
+        previousFailureMessage: message || 'Model repair batch failed.',
+        targetReduction: retrySmaller ? reduceModelRepairUnitScope(unit, {}).targetReduction : '',
+    };
 }
 
 function getStrategyBuckets(plan = {}, strategy = '', excludedFindingIds = new Set()) {
@@ -228,6 +335,7 @@ function validateParsedModelRepairResult(parsed = {}) {
 
 function selectModelRepairUnits(plan = {}, options = {}) {
     const excludedFindingIds = getChoiceFindingIdSet(options.choiceSets || []);
+    const includedFindingIds = new Set(normalizeRepairIdList(options.includeFindingIds || options.findingIds || []));
     const allUnits = [
         ...(Array.isArray(plan.units) ? plan.units : []),
         ...(Array.isArray(plan.deferredUnits) ? plan.deferredUnits : []),
@@ -237,6 +345,7 @@ function selectModelRepairUnits(plan = {}, options = {}) {
     for (const unit of allUnits) {
         if (!unit?.unitId || seen.has(unit.unitId)) continue;
         seen.add(unit.unitId);
+        if (includedFindingIds.size && !intersects(unit.findingIds || [], includedFindingIds)) continue;
         if (intersects(unit.findingIds || [], excludedFindingIds)) continue;
         out.push(cloneRepairJson(unit));
     }
@@ -313,7 +422,10 @@ export async function runLoredeckHealthModelRepairBatches(packId = '', options =
         batchLimits: options.batchLimits,
     });
     const maxUnits = clampUnitCount(options.maxUnits ?? options.modelUnitLimit ?? options.batchLimits?.modelUnitLimit);
-    const allSelectedUnits = selectModelRepairUnits(initialPlan, { choiceSets });
+    const allSelectedUnits = selectModelRepairUnits(initialPlan, {
+        choiceSets,
+        includeFindingIds: options.includeFindingIds || options.findingIds || [],
+    });
     const selectedUnits = allSelectedUnits.slice(0, maxUnits);
     const diagnostics = mergeDiagnostics(preflight.diagnostics, startingSessionResult.diagnostics);
     const appliedPatches = [];
@@ -418,6 +530,11 @@ export async function runLoredeckHealthModelRepairBatches(packId = '', options =
     const passPack = cloneRepairJson(currentPack);
     const passHealth = cloneRepairJson(currentHealth);
     const passPlan = cloneRepairJson(initialPlan);
+    const retryStateByUnitId = new Map();
+    const attemptMetaByKey = new Map();
+    const getSelectedRepairUnit = unit => selectedUnits.find(row => row.unitId === unit.unitId) || unit;
+    const getAttemptRetryState = (unit = {}, attempt = 1) => attempt > 1 ? retryStateByUnitId.get(unit.unitId) || null : null;
+    const getAttemptRepairUnit = (unit = {}, attempt = 1) => getRetrySmallerUnit(getSelectedRepairUnit(unit), passPlan, getAttemptRetryState(unit, attempt));
     const runResult = await runGenerationUnits({
         jobId: cleanRepairId(packId || 'loredeck', 180),
         kind: 'loredeck_health_repair',
@@ -429,8 +546,29 @@ export async function runLoredeckHealthModelRepairBatches(packId = '', options =
         stopOnFailure: options.stopOnFailure !== false,
         onProgress: options.onProgress,
         callUnit: async ({ unit, attempt, signal, emitProgress }) => {
-            const repairUnit = selectedUnits.find(row => row.unitId === unit.unitId) || unit;
-            const promptPayload = buildLoredeckModelRepairPromptPayload(passPack, repairUnit, passPlan);
+            const retryState = getAttemptRetryState(unit, attempt);
+            const repairUnit = getAttemptRepairUnit(unit, attempt);
+            if (retryState?.retrySmaller && typeof emitProgress === 'function') {
+                emitProgress({
+                    type: 'unit_retry_smaller',
+                    unitId: unit.unitId,
+                    attempt,
+                    previousFailureCode: retryState.previousFailureCode || '',
+                    targetReduction: repairUnit.targetReduction || '',
+                });
+            }
+            const promptPayload = buildLoredeckModelRepairPromptPayload(passPack, repairUnit, passPlan, retryState?.retrySmaller ? {
+                retry: {
+                    retrySmaller: true,
+                    originalUnitId: unit.unitId,
+                    previousFailureCode: retryState.previousFailureCode || '',
+                    previousFailureMessage: retryState.previousFailureMessage || '',
+                    targetReduction: repairUnit.targetReduction || retryState.targetReduction || '',
+                },
+                maxChars: Math.max(1000, Math.round((Number(options.modelRepairResponseLimit) || 200000) / 2)),
+            } : {
+                maxChars: Number(options.modelRepairResponseLimit) || undefined,
+            });
             const promptText = buildLoredeckHealthModelRepairPromptText(promptPayload);
             const raw = await requestModelRepair({
                 pack: passPack,
@@ -443,15 +581,47 @@ export async function runLoredeckHealthModelRepairBatches(packId = '', options =
                 signal,
                 emitProgress,
             });
-            return readModelRepairResponseText(raw);
+            const responseText = readModelRepairResponseText(raw);
+            attemptMetaByKey.set(`${unit.unitId}:${attempt}`, getModelRepairAttemptMeta(raw, responseText));
+            return responseText;
         },
-        parseResult: (rawText, { unit }) => {
-            const repairUnit = selectedUnits.find(row => row.unitId === unit.unitId) || unit;
-            return parseAndValidateLoredeckModelRepairResponse(passPack, repairUnit, passPlan, rawText);
+        parseResult: (rawText, { unit, attempt }) => {
+            const repairUnit = getAttemptRepairUnit(unit, attempt);
+            const parsed = parseAndValidateLoredeckModelRepairResponse(passPack, repairUnit, passPlan, rawText);
+            return {
+                ...parsed,
+                repairUnit: cloneRepairJson(repairUnit),
+                retrySmaller: repairUnit.retrySmaller === true,
+            };
         },
         validateResult: validateParsedModelRepairResult,
+        isRetryableError: (error, { unit, attempt }) => {
+            const baseUnit = getSelectedRepairUnit(unit);
+            const meta = attemptMetaByKey.get(`${unit.unitId}:${attempt}`) || {};
+            const decision = getModelRepairRetryDecision(error, meta, baseUnit);
+            if (decision.retrySmaller) {
+                retryStateByUnitId.set(unit.unitId, {
+                    retrySmaller: true,
+                    previousFailureCode: decision.previousFailureCode,
+                    previousFailureMessage: decision.previousFailureMessage,
+                    targetReduction: decision.targetReduction,
+                });
+            }
+            return decision.retry !== false;
+        },
+        diagnoseFailure: ({ unit, attempt, error }) => {
+            const meta = attemptMetaByKey.get(`${unit.unitId}:${attempt}`) || {};
+            const decision = getModelRepairRetryDecision(error, meta, getSelectedRepairUnit(unit));
+            if (!decision.retrySmaller) return null;
+            return {
+                severity: 'warning',
+                code: 'model_repair_retry_smaller',
+                message: 'Model repair response was too large or truncated; retrying this batch with a reduced target set.',
+                previousFailureCode: decision.previousFailureCode,
+            };
+        },
         commitResult: async ({ unit, parsedResult }) => {
-            const repairUnit = selectedUnits.find(row => row.unitId === unit.unitId) || unit;
+            const repairUnit = parsedResult.repairUnit || getSelectedRepairUnit(unit);
             const directPatches = (parsedResult.repairs || [])
                 .filter(item => item.directApply)
                 .map(item => item.patch);
@@ -592,13 +762,115 @@ export async function runLoredeckHealthModelRepairBatches(packId = '', options =
     };
 }
 
+function findRepairChoiceSet(session = {}, choiceSetId = '') {
+    const id = cleanRepairId(choiceSetId || '', 180);
+    if (!id) return null;
+    return (Array.isArray(session.remaining?.choiceSets) ? session.remaining.choiceSets : [])
+        .find(choice => choice?.choiceSetId === id) || null;
+}
+
+function removeRepairChoiceSetFromSession(session = {}, choiceSetId = '') {
+    const id = cleanRepairId(choiceSetId || '', 180);
+    const next = cloneRepairJson(session) || {};
+    const remaining = isPlainRepairObject(next.remaining) ? next.remaining : {};
+    const choiceSets = (Array.isArray(remaining.choiceSets) ? remaining.choiceSets : [])
+        .filter(choice => choice?.choiceSetId !== id)
+        .map(choice => cloneRepairJson(choice));
+    next.remaining = {
+        ...remaining,
+        choiceSets,
+        choiceSetCount: choiceSets.length,
+    };
+    next.status = 'model_pending';
+    next.outcome = 'model_pending';
+    return next;
+}
+
+export async function reevaluateLoredeckHealthRepairChoice(packId = '', input = {}, options = {}) {
+    const id = cleanRepairId(packId || input.packId || input.session?.packId || '', 180);
+    if (!id) {
+        return {
+            ok: false,
+            changed: false,
+            error: 'Re-evaluating a repair choice needs a Loredeck pack id.',
+            diagnostics: [normalizeRunnerDiagnostic({
+                severity: 'error',
+                code: 'repair_choice_reevaluate_missing_pack_id',
+                message: 'Re-evaluating a repair choice needs a Loredeck pack id.',
+            })],
+        };
+    }
+    const sessionResult = await resolveStartingRepairSession(id, {
+        ...options,
+        session: input.session || options.session || null,
+        sessionPath: input.sessionPath || input.sessionFile || input.session?.sessionFile || options.sessionPath || '',
+        sessionId: input.sessionId || options.sessionId || '',
+    });
+    const session = sessionResult.session;
+    if (!session) {
+        return {
+            ok: false,
+            changed: false,
+            error: sessionResult.diagnostics?.[0]?.message || 'Re-evaluating a repair choice needs a saved repair session.',
+            diagnostics: sessionResult.diagnostics || [normalizeRunnerDiagnostic({
+                severity: 'error',
+                code: 'repair_choice_reevaluate_missing_session',
+                message: 'Re-evaluating a repair choice needs a saved repair session.',
+            })],
+        };
+    }
+    const choiceSetId = cleanRepairId(input.choiceSetId || input.choice?.choiceSetId || '', 180);
+    const choice = findRepairChoiceSet(session, choiceSetId);
+    if (!choice) {
+        return {
+            ok: false,
+            changed: false,
+            session,
+            sessionPath: session.sessionFile || '',
+            error: 'Repair choice set was not found in this session.',
+            diagnostics: [normalizeRunnerDiagnostic({
+                severity: 'error',
+                code: 'repair_choice_reevaluate_choice_not_found',
+                message: 'Repair choice set was not found in this session.',
+            })],
+        };
+    }
+    const findingIds = normalizeRepairIdList(choice.findingIds || input.findingIds || []);
+    if (!findingIds.length) {
+        return {
+            ok: false,
+            changed: false,
+            session,
+            sessionPath: session.sessionFile || '',
+            choice,
+            error: 'Repair choice set does not identify Pack Health findings to re-evaluate.',
+            diagnostics: [normalizeRunnerDiagnostic({
+                severity: 'error',
+                code: 'repair_choice_reevaluate_missing_findings',
+                message: 'Repair choice set does not identify Pack Health findings to re-evaluate.',
+            })],
+        };
+    }
+    const rerunSession = removeRepairChoiceSetFromSession(session, choice.choiceSetId);
+    return await runLoredeckHealthModelRepairBatches(id, {
+        ...options,
+        session: rerunSession,
+        includeFindingIds: findingIds,
+        maxUnits: 1,
+        persistSession: options.persistSession !== false,
+    });
+}
+
 export const __loredeckHealthModelRepairRunnerTestHooks = Object.freeze({
     buildRemainingRepairState,
     buildReviewChoiceSetFromRepair,
     collectParsedDiagnostics,
+    findRepairChoiceSet,
     getUsableRepairCounts,
     hasErrorDiagnostics,
+    removeRepairChoiceSetFromSession,
     readModelRepairResponseText,
+    reduceModelRepairUnitScope,
     selectModelRepairUnits,
     validateParsedModelRepairResult,
 });

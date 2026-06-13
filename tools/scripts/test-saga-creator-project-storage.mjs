@@ -22,6 +22,7 @@ const {
 } = await import('../../src/storage/saga-file-api.js');
 
 const stored = new Map();
+const uploadCounts = new Map();
 
 function response(ok, status, body = '') {
   return {
@@ -41,6 +42,7 @@ const fileApi = createSagaFileApi({
 
     if (url === '/api/files/upload' && method === 'POST') {
       const path = `/user/files/${body.name}`;
+      uploadCounts.set(path, (uploadCounts.get(path) || 0) + 1);
       stored.set(path, __sagaFileApiTestHooks.base64ToUtf8(body.data));
       return response(true, 200, JSON.stringify({ path }));
     }
@@ -135,5 +137,57 @@ const deleteFlush = await flushSagaCreatorProjectStorageWrites();
 assert.equal(deleteFlush.ok, true);
 assert.equal(stored.has('/user/files/saga-creator-project-creator_one_piece_arlong.v1.json'), false);
 assert.equal(JSON.parse(stored.get(SAGA_STORAGE_DOMAIN_INDEX_FILES.creator)).projects.creator_one_piece_arlong, undefined);
+
+uploadCounts.clear();
+clock = 4000;
+upsertExternalLoredeckCreatorProjectSync({
+  jobId: 'creator_write_coalesce',
+  fandom: 'One Piece',
+  scope: 'Arlong Park',
+  projectTitle: 'Write Coalesce',
+  currentStage: 'entries_drafting',
+  activeGeneration: {
+    id: 'entry-draft-1',
+    runId: 'entry-draft-1',
+    status: 'running',
+    phase: 'receiving',
+    message: 'Receiving first update...',
+    updatedAt: clock,
+  },
+  createdAt: 4000,
+  updatedAt: 4000,
+}, { activeJobId: 'creator_write_coalesce', lastJobId: 'creator_write_coalesce', coalesceWrites: true });
+clock = 4010;
+upsertExternalLoredeckCreatorProjectSync({
+  jobId: 'creator_write_coalesce',
+  activeGeneration: {
+    id: 'entry-draft-1',
+    runId: 'entry-draft-1',
+    status: 'running',
+    phase: 'receiving',
+    message: 'Receiving second update...',
+    updatedAt: clock,
+  },
+  updatedAt: 4010,
+}, { activeJobId: 'creator_write_coalesce', lastJobId: 'creator_write_coalesce', coalesceWrites: true });
+clock = 4020;
+upsertExternalLoredeckCreatorProjectSync({
+  jobId: 'creator_write_coalesce',
+  activeGeneration: {
+    id: 'entry-draft-1',
+    runId: 'entry-draft-1',
+    status: 'running',
+    phase: 'receiving',
+    message: 'Receiving final update...',
+    updatedAt: clock,
+  },
+  updatedAt: 4020,
+}, { activeJobId: 'creator_write_coalesce', lastJobId: 'creator_write_coalesce', coalesceWrites: true });
+const coalesceFlush = await flushSagaCreatorProjectStorageWrites();
+const coalescedProjectPath = '/user/files/saga-creator-project-creator_write_coalesce.v1.json';
+assert.equal(coalesceFlush.ok, true);
+assert.equal(JSON.parse(stored.get(coalescedProjectPath)).activeGeneration.message, 'Receiving final update...');
+assert.equal(uploadCounts.get(coalescedProjectPath), 2, 'Coalesced progress writes should persist the first update and latest pending update only.');
+assert.equal(uploadCounts.get(SAGA_STORAGE_DOMAIN_INDEX_FILES.creator), 2, 'Coalesced progress writes should avoid one Creator index write per progress update.');
 
 console.log('Saga Creator project external storage tests passed.');

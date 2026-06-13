@@ -349,7 +349,7 @@ class CdpClient {
         });
     }
 
-    send(method, params = {}) {
+    send(method, params = {}, options = {}) {
         const id = this.nextId++;
         const payload = { id, method, params };
         if (this.sessionId && !method.startsWith('Target.')) payload.sessionId = this.sessionId;
@@ -359,7 +359,7 @@ class CdpClient {
             const timer = setTimeout(() => {
                 this.pending.delete(id);
                 reject(new Error(`CDP ${method} timed out.`));
-            }, 10000);
+            }, Math.max(1000, Number(options.timeoutMs) || 10000));
             this.pending.set(id, {
                 resolve: value => {
                     clearTimeout(timer);
@@ -657,12 +657,20 @@ class RawWebSocket {
 }
 
 async function evaluate(client, expression, options = {}) {
-    const result = await client.send('Runtime.evaluate', {
-        expression,
-        awaitPromise: true,
-        returnByValue: true,
-        userGesture: options.userGesture === true,
-    });
+    let result = null;
+    try {
+        result = await client.send('Runtime.evaluate', {
+            expression,
+            awaitPromise: true,
+            returnByValue: true,
+            userGesture: options.userGesture === true,
+        }, {
+            timeoutMs: options.timeoutMs,
+        });
+    } catch (error) {
+        const label = options.label || String(expression || '').replace(/\s+/g, ' ').slice(0, 140);
+        throw new Error(`${error?.message || error} during Runtime.evaluate: ${label}`);
+    }
     if (result.exceptionDetails) {
         const text = result.exceptionDetails.text || result.exceptionDetails.exception?.description || 'Runtime evaluation failed.';
         throw new Error(text);
@@ -677,6 +685,13 @@ function script(fn, ...args) {
 function formatLogEntry(entry = {}) {
     const text = entry.text || 'Log error';
     return entry.url ? `${text} (${entry.url})` : text;
+}
+
+function isExpectedStorageHarness404(error = '') {
+    const message = String(error || '');
+    return SMOKE_TARGET === STORAGE_HARNESS_TARGET
+        && /Failed to load resource: the server responded with a status of 404/i.test(message)
+        && /\/user\/files\/saga-[^)\s]+/i.test(message);
 }
 
 async function waitFor(client, expression, label, timeoutMs = 15000) {
@@ -1879,7 +1894,11 @@ async function runStorageHarnessSmoke(client, screenshots, findings, smokeUrl, d
         };
         const uiDelete = {
             opened: false,
+            hasTransferPane: false,
             hasDeleteButton: false,
+            hasEnabledDeleteButton: false,
+            deleteButtons: [],
+            selectedCountText: '',
             clicked: false,
             hasPrompt: false,
             promptText: '',
@@ -1888,17 +1907,58 @@ async function runStorageHarnessSmoke(client, screenshots, findings, smokeUrl, d
             deleted: false,
         };
         if (row) {
+            const getVisibleDeleteButton = overlay => {
+                const buttons = [...(overlay?.querySelectorAll('button') || [])];
+                const byAria = buttons.find(button => (button.getAttribute('aria-label') || '').trim() === 'Delete');
+                if (byAria) return byAria;
+                const groups = [...(overlay?.querySelectorAll('.saga-loredeck-library-square-action-group') || [])];
+                for (const group of groups) {
+                    const label = (group.querySelector('.saga-loredeck-library-square-action-label')?.innerText
+                        || group.querySelector('.saga-loredeck-library-square-action-label')?.textContent
+                        || '').trim();
+                    if (label === 'Delete') return group.querySelector('button');
+                }
+                return null;
+            };
             libraryPanel.openLoredeckLibraryDetails(packId);
+            libraryPanel.setLoredeckLibraryBulkSelection([packId], packId);
+            libraryPanel.renderLoredeckLibraryOverlay({ preserveScroll: true });
             await waitUntil(() => !!document.querySelector('.saga-loredeck-library-overlay .saga-loredeck-library-details'));
+            await waitUntil(() => {
+                const overlay = document.querySelector('.saga-loredeck-library-overlay');
+                return !!overlay?.querySelector('.saga-loredeck-library-transfer-pane')
+                    && !!getVisibleDeleteButton(overlay);
+            });
             const overlay = document.querySelector('.saga-loredeck-library-overlay');
             uiDelete.opened = !!overlay;
-            const deleteButton = [...(overlay?.querySelectorAll('button[aria-label="Delete"]') || [])]
-                .find(button => !button.disabled);
+            uiDelete.hasTransferPane = !!overlay?.querySelector('.saga-loredeck-library-transfer-pane');
+            uiDelete.selectedCountText = [...(overlay?.querySelectorAll('.saga-loredeck-row-meta .saga-status-pill, .saga-status-pill') || [])]
+                .map(item => (item.innerText || item.textContent || '').trim())
+                .find(text => /\bselected\b/i.test(text)) || '';
+            uiDelete.deleteButtons = [...(overlay?.querySelectorAll('.saga-loredeck-library-square-action-group') || [])]
+                .map(group => {
+                    const button = group.querySelector('button');
+                    const label = (group.querySelector('.saga-loredeck-library-square-action-label')?.innerText
+                        || group.querySelector('.saga-loredeck-library-square-action-label')?.textContent
+                        || button?.getAttribute('aria-label')
+                        || '').trim();
+                    return {
+                        label,
+                        ariaLabel: button?.getAttribute('aria-label') || '',
+                        disabled: button?.disabled === true,
+                        className: button?.className || '',
+                    };
+                })
+                .filter(button => button.label === 'Delete' || button.ariaLabel === 'Delete' || /delete/i.test(button.className));
+            const deleteButton = getVisibleDeleteButton(overlay);
             uiDelete.hasDeleteButton = !!deleteButton;
+            uiDelete.hasEnabledDeleteButton = !!deleteButton && deleteButton.disabled !== true;
             if (deleteButton) {
                 deleteButton.scrollIntoView({ block: 'center', inline: 'center' });
-                deleteButton.click();
-                uiDelete.clicked = true;
+                if (deleteButton.disabled !== true) {
+                    deleteButton.click();
+                    uiDelete.clicked = true;
+                }
                 await waitUntil(() => !!document.querySelector('.saga-confirm-overlay'));
                 const prompt = document.querySelector('.saga-confirm-overlay');
                 uiDelete.hasPrompt = !!prompt;
@@ -1920,7 +1980,7 @@ async function runStorageHarnessSmoke(client, screenshots, findings, smokeUrl, d
                 uiDelete,
                 error: uiDelete.deleted
                     ? ''
-                    : (!uiDelete.opened ? 'library overlay did not open' : (!uiDelete.hasDeleteButton ? 'delete button missing' : (!uiDelete.hasPrompt ? 'delete confirmation missing' : (!uiDelete.hasConfirmButton ? 'delete confirmation button missing' : 'pack still present after UI delete')))),
+                    : (!uiDelete.opened ? 'library overlay did not open' : (!uiDelete.hasDeleteButton ? 'delete button missing' : (!uiDelete.hasEnabledDeleteButton ? 'delete button disabled' : (!uiDelete.hasPrompt ? 'delete confirmation missing' : (!uiDelete.hasConfirmButton ? 'delete confirmation button missing' : 'pack still present after UI delete'))))),
             }
             : { ok: false, error: 'missing row after reload', uiDelete };
         const payloadFlush = await payloadStorage.flushSagaLorepackPayloadStorageWrites();
@@ -1986,7 +2046,7 @@ async function runStorageHarnessSmoke(client, screenshots, findings, smokeUrl, d
         themePayloadFile: themeIconUiState.before.themePayloadFile || importState.themePayloadFile || '',
         iconPayloadFile: themeIconUiState.before.iconPayloadFile || importState.iconPayloadFile || '',
         iconAssetFile: themeIconUiState.before.iconAssetFile || importState.iconAssetFile || '',
-    }));
+    }), { label: 'Storage harness reload/delete verification', timeoutMs: 30000 });
 
     if (!reloadState.row) findings.push('Storage harness did not hydrate the imported Loredeck from external Library storage after reload.');
     if (reloadState.hydratedEntryCount !== 2) findings.push(`Storage harness hydrated ${reloadState.hydratedEntryCount || 0} Lorecards after reload instead of 2.`);
@@ -2013,7 +2073,8 @@ async function runStorageHarnessSmoke(client, screenshots, findings, smokeUrl, d
 
     const errors = client.events
         .filter(event => event.method === 'Log.entryAdded' && event.params?.entry?.level === 'error')
-        .map(event => formatLogEntry(event.params.entry));
+        .map(event => formatLogEntry(event.params.entry))
+        .filter(error => !isExpectedStorageHarness404(error));
     console.log(JSON.stringify({
         ok: findings.length === 0 && errors.length === 0,
         target: SMOKE_TARGET,

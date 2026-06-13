@@ -1,6 +1,6 @@
 # Saga Storage Rework Design
 
-Status: Phase 8 implementation in progress. Theme/Icon externalization, Lorepack Library index persistence, Lorepack payload files, Creator project index files, Creator project payload files, async Creator project resume after cold reload, the first migration planner/executor, the State Safety migration action, State Safety storage integrity diagnostics, Pack Health external-payload validation coverage, Pack Health repair hydration/writes, indexed cleanup/write-settle actions, read/write settings compaction guards, initial live browser smoke coverage, a repo-local storage persistence smoke target, and release-facing storage/operator docs are in place. Remaining hardening work is executing broader storage smoke in an environment with a working Chrome CDP transport and following up on any failures found by that run.
+Status: Alpha storage rework signoff complete for the implemented flat-file model. Theme/Icon externalization, Lorepack Library index persistence, Lorepack payload files, Creator project index files, Creator project payload files, async Creator project resume after cold reload, migration planner/executor, State Safety migration, State Safety storage integrity diagnostics, Pack Health external-payload validation and repair writes, durable repair sessions, indexed cleanup/write-settle actions, stale-write blocking, read/write settings compaction guards, repo-local storage persistence smoke coverage, release-facing storage/operator docs, and real-profile audit signoff are in place.
 
 ## Executive Summary
 
@@ -1552,25 +1552,35 @@ Do not store "fixed" markers as proof. `Verify Fixed` should rerun Pack Health a
 
 ### Repair Sessions
 
-The proposed `Attempt Fixing` workflow can use an optional durable repair session file only while a repair is active or review choices remain:
+The `Attempt Fixing` workflow uses an optional durable repair session file only while a repair is active, review choices remain, model batches need continuation, manual work remains, or compact diagnostics need temporary recovery:
 
 ```json
 {
   "schemaVersion": 1,
-  "kind": "saga_repair_session",
+  "kind": "saga_loredeck_health_repair_session",
   "packId": "one-piece-arlong-park-custom",
   "sessionId": "repair-20260613-001",
   "status": "needs_review",
-  "startedAt": 0,
+  "createdAt": 0,
   "updatedAt": 0,
-  "beforeSummary": {},
-  "afterSummary": {},
-  "batches": [],
-  "reviewChoices": []
+  "sessionFile": "/user/files/saga-repair-session-one-piece-arlong-park-custom-repair-20260613-001.v1.json",
+  "summary": {},
+  "remaining": {
+    "choiceSets": [],
+    "modelUnits": [],
+    "deferredUnits": [],
+    "manualBuckets": []
+  },
+  "diagnostics": [],
+  "appliedPatchIds": [],
+  "lifecycle": {
+    "canAutoDelete": false,
+    "canUserDelete": true
+  }
 }
 ```
 
-Completed repair sessions should be summarized and deleted unless the user explicitly saves diagnostics.
+Completed repair sessions should be summarized and deleted unless diagnostics remain useful. The Health Center exposes finished-session cleanup, compact diagnostics export, and explicit saved-session clearing without mutating Loredeck content.
 
 ## Library Changes And Folder Structure
 
@@ -2010,15 +2020,66 @@ Acceptance:
 
 Implementation notes:
 
-- `src/storage/saga-storage-diagnostics.js` owns the first diagnostics service. It summarizes runtime storage adapter status, pending writes, write errors, and master-index verification results.
+- `src/storage/saga-storage-diagnostics.js` owns the first diagnostics service. It summarizes runtime storage adapter status, pending writes, storage errors, and master-index verification results.
 - `src/state/state-manager.js` exposes `getSagaStorageDiagnostics` and `verifySagaStorageIntegrity`, updates `sagaStorage.lastVerifiedAt`, and records State Safety lifecycle log entries for successful checks and warnings.
 - The State Safety card exposes `Verify Storage`, shows the latest compact storage-integrity summary, and reports missing master index or missing indexed files without trying to infer unknown orphaned files.
 - This diagnostic is intentionally index-based. `Clean Missing Records` can remove stale non-index file records from the master index after verification, but broader unused-file cleanup remains limited because SillyTavern's flat files API does not list Saga-owned files.
 - Generic domain payload writes now roll back the just-uploaded payload file when master-index registration fails, so a failed index write does not strand an untracked `/user/files/saga-*.json` payload.
-- Theme/Icon imports also clean up new-install payloads and uploaded raster assets when the payload write succeeds but the Theme/Icon domain-index write fails. Existing records are not aggressively deleted on this path because restoring an overwritten same-id payload requires a separate restore strategy.
+- Theme/Icon imports also clean up new-install payloads and uploaded raster assets when the payload write succeeds but the Theme/Icon domain-index write fails. Direct same-ID custom Theme/Icon imports now reject before writing deterministic payload files or uploading replacement icon assets; registry imports skip those collisions and report collision metadata. A full explicit replacement UX still requires a restore strategy before alpha should expose it.
 - Pack Health external payload wiring is now covered by `tools/scripts/test-saga-lorepack-health-external-payloads.mjs`. The runtime validation path hydrates a compact external Lorepack payload after a cold cache reset, saves the updated health summary through the external payload service, and keeps the Library index/settings compact.
-- Pack Health repair entry points now hydrate payload-backed Lorepacks before building repair writes. Deterministic safe repair writes repaired Lorecards to the external payload file, while assistant repair drafting and malformed-tag repair planning hydrate before reading rows or queueing review changes.
+- Pack Health repair entry points now hydrate payload-backed Lorepacks before building repair writes. Attempt Fixing writes deterministic local repairs and validated model repairs to the external payload file, while malformed-tag review planning hydrates before reading rows or queueing review changes.
+- Pack Health repair sessions are storage-indexed compact JSON files. The Health Center can continue model batches, apply or re-evaluate saved review choices, clear finished sessions, export compact diagnostics, and explicitly clear a selected saved session without writing repair details into settings.
+- Stale-write detection now uses the shared `storage_changed` contract for high-risk external JSON writes. Library index writes, Lorepack payload writes, Creator project payload/index writes, and generic domain record index writes compare cached revisions against the latest stored file and return reload guidance instead of silently overwriting newer storage.
 - The State Safety card exposes `Settle Storage Writes` for queued adapter writes and `Clean Missing Records` for verified missing non-index records. These actions are intentionally named around their actual scope rather than implying Saga can discover arbitrary orphan files.
+- The closeout work is tracked in `docs/development/SAGA_STORAGE_FINALIZATION_SCOPE_PLAN.md`. That plan records the completed same-ID Theme/Icon collision policy, durable repair-session lifecycle, stale-write coverage, repo-local storage harness pass, and real-profile audit signoff.
+
+## Finalization Signoff
+
+The storage rework alpha signoff is complete for the implemented flat-file model.
+
+Completed gates:
+
+- `node tools/scripts/run-alpha-gate.mjs` passes with storage migration, external payload, repair-session, stale-write, diagnostics, and profile-audit coverage included.
+- repo-local `storage-harness` passes end to end against the mocked SillyTavern files API.
+- the live SillyTavern State Safety surface exposes storage migration, verification, queued-write settling, and missing-record cleanup controls in Advanced Settings.
+- a real SillyTavern profile was migrated through **State Safety > Migrate Legacy Storage** after a pre-migration backup.
+- the read-only profile audit passed after migration:
+
+```bash
+node tools/scripts/audit-saga-storage-profile.mjs --profile F:\SillyTavern\SillyTavern\data\default-user
+```
+
+Real-profile audit result:
+
+- `ok: true`.
+- warnings: none.
+- errors: none.
+- `settings.sagaStorage.migrationVersion` is `external-files-v1`.
+- `settings.json` shrank from 1,188,115 bytes to 1,029,492 bytes.
+- Saga's settings payload shrank from 77,741 bytes to 13,573 bytes.
+- settings compact shells contain 0 Loredeck Library pack records, 0 Creator jobs, 0 Theme Packs, and 0 Icon Sets.
+- `/user/files` has 5 Saga files, all tracked by the master index.
+- no missing tracked files or orphan Saga files were reported.
+- the generated Arlong Lorepack and its active Creator project remained indexed externally.
+
+Post-alpha boundaries remain:
+
+- explicit same-ID Theme/Icon replacement UX with restore-on-failure.
+- merge or conflict-resolution UI for stale writes.
+- permanent repair history.
+- unknown orphan-file discovery beyond indexed Saga files.
+- raw import/export backup retention.
+
+Reviewer handoff:
+
+- Start with `docs/development/SAGA_STORAGE_FINALIZATION_SCOPE_PLAN.md` for closeout scope, signoff evidence, and the completed checklist.
+- Review `tools/scripts/audit-saga-storage-profile.mjs` and `tools/scripts/test-saga-storage-profile-audit.mjs` for the real-profile audit contract.
+- Confirm `tools/scripts/run-alpha-gate.mjs` includes the profile-audit test.
+- Check `src/storage/saga-storage-migration.js` for hydration before compaction, so partially externalized profiles do not lose existing external rows.
+- Check `src/storage/saga-lorepack-library-storage.js` and `src/loredecks/loredeck-library-index.js` for compact Library normalization that preserves explicit bundled layout references without copying bundled payloads into `/user/files`.
+- Check `src/storage/saga-storage-stale-write.js` and the storage adapters for the shared `storage_changed` block-and-reload contract.
+- Check Health Center repair-session files through `src/loredecks/loredeck-health-repair-session-storage.js` and the Pack Health session tests.
+- Re-run `node tools/scripts/run-alpha-gate.mjs` before tagging or packaging.
 
 ## Test Plan
 
@@ -2090,19 +2151,9 @@ Current implemented coverage:
 - `test-saga-theme-icon-forget-actions.mjs` covers the same Theme/Icon forget action path against a fake DOM and mocked files API: it confirms the Saga dialogs, deletes the payload/raster asset files, clears external registries, resets active compact settings, and refreshes affected runtime surfaces.
 - `storage-harness` opens Pack Health Center for the external payload-backed Loredeck after reload, runs **Refresh Scan**, verifies cached health updates, verifies Library/payload health status writes stay external, and fails if Lorecard payload content leaks into settings.
 - `storage-harness` is source-contract covered by `test-visual-smoke-harness.mjs`.
-
-Expanded persistence smoke still desired before an alpha tag or release candidate:
-
-- run `SAGA_SMOKE_TARGET=storage-harness node tools/scripts/smoke-live-st-cdp.mjs` in an environment where the CDP helper can complete `Page.enable`.
-- review the resulting storage-harness Pack Health screenshots and JSON output.
-- review visible Settings Theme/Icon forget screenshots and follow up on any UI regressions from that run.
-
-Current local blocker:
-
-- On this workstation, the Chrome/Edge DevTools endpoint becomes reachable and exposes a page WebSocket, but the page target does not answer startup commands such as `Page.enable` before any Saga page code runs.
-- The failure reproduces for `storage-harness`, `guide-harness`, and minimal direct CDP probes, so it is tracked as a local CDP transport issue rather than a storage regression.
-- The live smoke helper now reports this as `CDP startup handshake failed at ...` with the target, URL, browser path, headless mode, transport, and retry flags.
-- Retry knobs: `SAGA_SMOKE_NATIVE_WS=1`, `SAGA_SMOKE_HEADLESS=0`, `SAGA_SMOKE_DEBUG=1`, and `SAGA_SMOKE_DEBUG_FRAME=1`.
+- `tools/scripts/audit-saga-storage-profile.mjs` supports read-only profile signoff for a real SillyTavern user profile.
+- `tools/scripts/test-saga-storage-profile-audit.mjs` covers missing-marker failure and compact migrated success, and is included in the alpha gate.
+- real-profile State Safety migration and read-only audit completed successfully for `F:\SillyTavern\SillyTavern\data\default-user`.
 
 ### Manual Inspection
 

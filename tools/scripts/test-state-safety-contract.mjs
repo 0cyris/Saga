@@ -23,6 +23,8 @@ const extensionLifecycle = await readText('src/extension/lifecycle.js');
 const stateManager = await readText('src/state/state-manager.js');
 const stateImportExport = await readText('src/state/import-export.js');
 const runtimePanel = await readText('src/runtime/lore-panel.js');
+const advancedRuntimePanel = await readText('src/runtime/advanced-runtime-panel.js');
+const runtimeSettingsTab = await readText('src/settings/runtime-settings-tab.js');
 const runtimeLoredeckEditorActions = await readText('src/runtime/loredeck-editor-actions.js');
 const runtimeLoredeckPendingReviewPanel = await readText('src/runtime/loredeck-pending-review-panel.js');
 const runtimePackageInstallPanel = await readText('src/runtime/loredeck-package-install-panel.js');
@@ -82,16 +84,22 @@ for (const reason of [
 }
 
 assert(runtimeSource.includes('createStateSafetyCard'), 'Runtime settings must expose the State Safety card.');
+assert(runtimeSettingsTab.includes('createDangerZoneCard') && runtimeSettingsTab.includes("'settings.dangerZone'"), 'Runtime settings must expose the relocated Danger Zone card.');
+assert(!advancedRuntimePanel.includes('createDangerZoneCard(state)') && !advancedRuntimePanel.includes('Danger Zone'), 'Session tab must not render the Danger Zone card.');
 assert(runtimeSource.includes('Export State'), 'State Safety card must support one-click export.');
 assert(runtimeSource.includes('Restore From File'), 'State Safety card must support one-click restore from exported state.');
 assert(runtimeSource.includes('Restore Latest Backup'), 'State Safety card must support restoring a saved in-chat backup.');
 assert(runtimeSafetyPanel.includes('Migrate Legacy Storage') && runtimeSafetyPanel.includes('runSagaStorageMigration'), 'State Safety card must expose external storage migration through the state manager.');
 assert(runtimeSafetyPanel.includes('Verify Storage') && runtimeSafetyPanel.includes('verifySagaStorageIntegrity'), 'State Safety card must expose storage integrity verification through the state manager.');
 assert(runtimeSafetyPanel.includes('Settle Storage Writes') && runtimeSafetyPanel.includes('settleSagaStorageWrites'), 'State Safety card must expose queued storage write settling.');
+assert(runtimeSafetyPanel.includes('Storage errors') && runtimeSafetyPanel.includes('runtime storage errors'), 'State Safety storage diagnostics must describe runtime storage errors without narrowing them to writes only.');
+assert(runtimeSafetyPanel.includes('Saga storage settled') && runtimeSafetyPanel.includes('Saga storage needs attention'), 'Settle Storage Writes result copy must describe the broader storage state.');
 assert(runtimeSafetyPanel.includes('Clean Missing Records') && runtimeSafetyPanel.includes('cleanMissingSagaStorageIndexRecords'), 'State Safety card must expose missing indexed file cleanup.');
 assert(runtimeSource.includes('Latest migration log'), 'State Safety card must show migration diagnostics.');
 assert(runtimeSafetyPanel.includes('refreshRuntimeThemeSurfaces(next);'), 'Section settings resets must refresh runtime theme/rail surfaces after saving defaults.');
 assert(runtimeSafetyPanel.includes('const settings = resetAllSettingsToDefaults();') && runtimeSafetyPanel.includes('refreshRuntimeThemeSurfaces(settings);'), 'Reset All Settings must refresh runtime theme/rail surfaces from the saved defaults.');
+assert(runtimeSafetyPanel.includes('clearStoredSecret') && runtimeSafetyPanel.includes('loreOpenAI') && runtimeSafetyPanel.includes('continuityOpenAI'), 'Reset All Settings must remove stored Saga provider key material.');
+assert(runtimeSafetyPanel.includes('Reset Active Chat') && !runtimeSafetyPanel.includes("createButton('Total Reset'"), 'Active-chat total reset must be labeled Reset Active Chat.');
 assert(runtimePanel.includes('refreshRuntimeThemeSurfaces: (settings = getSettings())') && runtimePanel.includes('refreshRuntimeRailIcons(settings)'), 'Runtime safety wiring must refresh shelf icons after theme-affecting settings reset.');
 
 assert(visualSmoke.includes('State Safety backup/export/restore card'), 'Visual smoke source contract must guard State Safety UI.');

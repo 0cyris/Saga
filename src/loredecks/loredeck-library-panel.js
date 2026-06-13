@@ -116,7 +116,9 @@ function getFreshLoredeckLibraryPack(packId, fallback) { return dep('getFreshLor
 function persistLoredeckLibraryRecordMutation(pack, mutator, message, options) { return dep('persistLoredeckLibraryRecordMutation', () => false)(pack, mutator, message, options); }
 function validateLoredeckForEditor(pack, button, options) { return dep('validateLoredeckForEditor', async () => ({ health: null, error: 'Validation is unavailable.' }))(pack, button, options); }
 function canValidateLoredeckInEditor(pack) { return dep('canValidateLoredeckInEditor', () => false)(pack); }
-function repairLoredeckSafeHealthIssues(pack, button) { return dep('repairLoredeckSafeHealthIssues', async () => {})(pack, button); }
+function attemptLoredeckHealthFixes(pack, button) {
+    return dep('attemptLoredeckHealthFixes', async () => {})(pack, button);
+}
 function loadLoredeckManifestPreview(pack, button) { return dep('loadLoredeckManifestPreview', async () => {})(pack, button); }
 function createLoredeckManifestPreview(pack) { return dep('createLoredeckManifestPreview', () => document.createDocumentFragment())(pack); }
 function createLoredeckEntryOverrideCard(pack) { return dep('createLoredeckEntryOverrideCard', () => document.createDocumentFragment())(pack); }
@@ -4040,7 +4042,7 @@ function createLoredeckMetadataEditorCard(pack) {
         actions.appendChild(syncButton);
 
         const repairButton = createButton('Attempt Fixing', 'Apply deterministic Pack Health fixes and save remaining model or review work.', async (btn) => {
-            await repairLoredeckSafeHealthIssues(pack, btn);
+            await attemptLoredeckHealthFixes(pack, btn);
             openLoredeckMetadataEditor(pack.packId);
             renderLoredeckLibraryOverlay();
         });

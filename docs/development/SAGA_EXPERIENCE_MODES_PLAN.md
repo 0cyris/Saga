@@ -322,8 +322,9 @@ Advanced Session should include:
 - Automation Mode: Manual, Assisted, Automatic.
 - Runtime metrics.
 - Guide grouped by workflow, not a long linear tutorial.
-- Destructive cleanup actions.
 - Diagnostic status for active chat, state keys, and pending work where useful.
+
+Destructive cleanup actions belong in Settings Danger Zone, not Session. Session can link users to the cleanup walkthrough route, but the controls themselves should stay with Settings because they affect active-chat and global Saga state.
 
 Automation Mode should stay Advanced-visible by default. A Basic user can use manual buttons without understanding automation cadence.
 

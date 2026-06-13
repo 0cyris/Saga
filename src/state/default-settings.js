@@ -320,6 +320,7 @@ Direct injection block:
         'settings.providers': false,
         'settings.themePack': true,
         'settings.stateSafety': true,
+        'settings.dangerZone': true,
         'injection.promptPlacement': true,
         'continuity.scan': false,
         'continuity.pendingChanges': false,

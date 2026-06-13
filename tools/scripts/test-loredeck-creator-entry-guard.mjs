@@ -149,6 +149,25 @@ const unknownTag = guardLoredeckCreatorEntryDraftChange(pack, buildChange(buildR
 assert.equal(unknownTag.change, null);
 assert.ok(unknownTag.errors.some(error => error.includes('Unknown tag character:unknown')));
 
+const omittedTitleTag = guardLoredeckCreatorEntryDraftChange(pack, buildChange(buildRawEntry({
+  tags: ['character:nami', 'location:cocoyashi'],
+})), {
+  targetEntryIds: new Set(['nami-secret']),
+  targetTitleByEntryId: new Map([[
+    'nami-secret',
+    {
+      titleId: 'nami-secret',
+      targetEntryId: 'nami-secret',
+      omittedTitleTags: ['location:cocoyashi'],
+    },
+  ]]),
+});
+assert.deepEqual(omittedTitleTag.errors, []);
+assert.ok(omittedTitleTag.change, 'omitted title-sourced unknown tags should not reject an otherwise valid draft');
+assert.ok(omittedTitleTag.warnings.some(warning => warning.includes('Dropped omitted title tag location:cocoyashi before Draft Review')));
+assert.deepEqual(omittedTitleTag.change.payload.entryOverrides['nami-secret'].tags, ['character:nami']);
+assertCleanPackHealth(buildPack({ 'nami-secret': omittedTitleTag.change.payload.entryOverrides['nami-secret'] }));
+
 const wrongTarget = guardLoredeckCreatorEntryDraftChange(pack, buildChange(), {
   targetEntryIds: new Set(['different-title']),
 });

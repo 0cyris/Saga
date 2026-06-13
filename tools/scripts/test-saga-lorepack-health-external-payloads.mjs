@@ -32,8 +32,11 @@ const {
   validateLoredeckForEditor,
 } = await import('../../src/runtime/loredeck-editor-validation.js');
 const {
+  normalizeLoredeckLibraryPack,
+} = await import('../../src/runtime/active-stack-panel.js');
+const {
   configureLoredeckEditorActions,
-  repairLoredeckSafeHealthIssues,
+  attemptLoredeckHealthFixes,
 } = await import('../../src/runtime/loredeck-editor-actions.js');
 const {
   configureLoredeckHealthRepairSessionStorage,
@@ -204,10 +207,12 @@ configureLoredeckEditorValidation({
 
 const compactPack = getFreshPack('health-external-pack');
 assert.equal(compactPack.payloadFile, payloadResult.libraryRecord.payloadFile);
+const normalizedCompactPack = normalizeLoredeckLibraryPack(compactPack);
+assert.equal(normalizedCompactPack.payloadFile, payloadResult.libraryRecord.payloadFile, 'Runtime Library normalization must preserve external payload pointers for Pack Health validation.');
 assert.deepEqual(compactPack.entryOverrides, {}, 'Cold compact Library rows should not contain Lorecard payloads before validation hydrates them.');
 assert.equal(compactPack.manifestData, undefined);
 
-const validation = await validateLoredeckForEditor(compactPack, null, { quiet: true, updateLibrary: true });
+const validation = await validateLoredeckForEditor(normalizedCompactPack, null, { quiet: true, updateLibrary: true });
 assert.equal(validation.error, undefined);
 assert.equal(validation.health.status, 'good');
 assert.equal(validation.health.summary.entryCount, 1);
@@ -307,7 +312,7 @@ configureLoredeckEditorActions({
 
 const compactRepairPack = getFreshPack('health-repair-external-pack');
 assert.deepEqual(compactRepairPack.entryOverrides, {}, 'Cold compact repair row should not contain payload entries before Attempt Fixing hydrates it.');
-const repaired = await repairLoredeckSafeHealthIssues(compactRepairPack);
+const repaired = await attemptLoredeckHealthFixes(compactRepairPack);
 assert.equal(repaired, true);
 await flushSagaLorepackPayloadStorageWrites();
 await flushSagaLorepackLibraryStorageWrites();

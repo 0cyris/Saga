@@ -17,6 +17,9 @@ import {
     getSagaUserFilesFileName,
     SAGA_STORAGE_JSON_EXTENSION,
 } from './saga-storage-filenames.js';
+import {
+    assertSagaStorageRevisionFresh,
+} from './saga-storage-stale-write.js';
 
 const EMPTY_CREATOR_REGISTRY = Object.freeze({ schemaVersion: 1, activeJobId: '', lastJobId: '', jobs: Object.freeze({}) });
 const CREATOR_INDEX_KIND = 'saga_creator_index';
@@ -34,6 +37,7 @@ let hydrationStatus = {
 let hydrationPromise = null;
 let pendingCreatorWrite = Promise.resolve();
 let pendingCreatorWriteCount = 0;
+let coalescedCreatorProjectWriteRequests = new Map();
 let lastCreatorWriteError = '';
 
 export function configureSagaCreatorProjectStorage(options = {}) {
@@ -307,8 +311,54 @@ function recordQueuedWriteError(error = {}, options = {}) {
     console.warn('[Saga] Creator project external storage write failed:', error);
 }
 
+async function assertCreatorProjectPayloadFresh(fileApi, payload = {}, expectedRevision = 0) {
+    if (!expectedRevision) return true;
+    const projectFile = normalizeStoragePath(payload.projectFile || payload.payloadFile || '');
+    if (!projectFile) return true;
+    let latest = null;
+    try {
+        latest = await fileApi.readJsonFile(projectFile, { allowedExtensions: [SAGA_STORAGE_JSON_EXTENSION] });
+    } catch (error) {
+        if (!(error?.status === 404 || /missing|not found|404/i.test(String(error?.message || '')))) throw error;
+        latest = { revision: 1 };
+    }
+    assertSagaStorageRevisionFresh({
+        latest,
+        expectedRevision,
+        domain: 'creator',
+        path: projectFile,
+        message: 'Creator project storage changed. Reload this project before continuing.',
+    });
+    return true;
+}
+
+async function assertCreatorIndexFresh(fileApi, expectedRevision = 0) {
+    if (!expectedRevision) return true;
+    let latest = null;
+    try {
+        latest = await fileApi.readJsonFile(SAGA_STORAGE_DOMAIN_INDEX_FILES.creator, { allowedExtensions: [SAGA_STORAGE_JSON_EXTENSION] });
+    } catch (error) {
+        if (!(error?.status === 404 || /missing|not found|404/i.test(String(error?.message || '')))) throw error;
+        return true;
+    }
+    assertSagaStorageRevisionFresh({
+        latest,
+        expectedRevision,
+        domain: 'creator',
+        path: SAGA_STORAGE_DOMAIN_INDEX_FILES.creator,
+        message: 'Creator project storage changed. Reload this project before continuing.',
+    });
+    return true;
+}
+
 export function normalizeExternalLoredeckCreatorProjectPayload(value = {}, options = {}) {
-    const raw = isPlainObject(value) ? cloneJson(value) : {};
+    const input = isPlainObject(value) ? cloneJson(value) : {};
+    const cachedId = normalizeJobId(input.jobId || input.projectId || input.id || '');
+    const cached = cachedId && projectPayloadCache.has(cachedId) ? projectPayloadCache.get(cachedId) : null;
+    const raw = {
+        ...(isPlainObject(cached) ? cloneJson(cached) : {}),
+        ...input,
+    };
     const job = normalizeLoredeckCreatorJob(raw);
     if (!job?.jobId) {
         return {
@@ -325,12 +375,17 @@ export function normalizeExternalLoredeckCreatorProjectPayload(value = {}, optio
     }
     const now = getClockNow(options);
     const projectFile = normalizeStoragePath(raw.projectFile || raw.payloadFile || job.projectFile || '')
+        || normalizeStoragePath(cached?.projectFile || cached?.payloadFile || '')
         || buildSagaDomainPayloadPath('creator', job.jobId);
+    const revision = Math.max(
+        normalizeRevision(raw.revision, 1),
+        normalizeRevision(cached?.revision, 1),
+    );
     return {
         ...job,
         schemaVersion: 1,
         kind: CREATOR_PROJECT_KIND,
-        revision: normalizeRevision(raw.revision, 1),
+        revision,
         projectId: job.jobId,
         jobId: job.jobId,
         projectFile,
@@ -434,6 +489,8 @@ function updateCreatorIndexRecord(index = {}, record = {}, options = {}) {
         createdAt: existing.createdAt || compact.createdAt || now,
         updatedAt: compact.updatedAt || now,
     };
+    if (!compact.activeGeneration) delete current.projects[compact.jobId].activeGeneration;
+    if (!compact.currentTask) delete current.projects[compact.jobId].currentTask;
     current.projects = sortObjectByKey(current.projects);
     if (options.activeJobId !== undefined || options.activate === true) {
         const active = normalizeJobId(options.activeJobId || compact.jobId);
@@ -471,24 +528,89 @@ function removeCreatorIndexRecord(index = {}, jobId = '', options = {}) {
     return normalizeSagaCreatorIndex(current, { now });
 }
 
-function queueExternalLoredeckCreatorProjectWrite(payload = {}, index = hydratedCreatorIndex, options = {}) {
-    if (!shouldPersistQueuedWrites(options)) return pendingCreatorWrite;
+function buildCreatorProjectWriteRequest(payload = {}, index = hydratedCreatorIndex, options = {}) {
     const merged = resolveStorageOptions(options);
     const payloadSnapshot = normalizeExternalLoredeckCreatorProjectPayload(payload, merged);
     const indexSnapshot = normalizeSagaCreatorIndex(index, merged);
+    const staleCheck = merged.staleCheck !== false && pendingCreatorWriteCount === 0;
+    const expectedPayloadRevision = staleCheck ? normalizeRevision(payloadSnapshot.revision, 1) : 0;
+    const payloadWriteSnapshot = normalizeExternalLoredeckCreatorProjectPayload({
+        ...payloadSnapshot,
+        revision: merged.bumpRevision === false ? expectedPayloadRevision || normalizeRevision(payloadSnapshot.revision, 1) : normalizeRevision((expectedPayloadRevision || normalizeRevision(payloadSnapshot.revision, 1)) + 1, 2),
+        updatedAt: getClockNow(merged),
+    }, merged);
+    const expectedIndexRevision = staleCheck
+        ? Math.max(1, normalizeRevision(indexSnapshot.revision, 1) - (merged.bumpRevision === false ? 0 : 1))
+        : 0;
+    return {
+        merged,
+        payloadWriteSnapshot,
+        indexSnapshot,
+        staleCheck,
+        expectedPayloadRevision,
+        expectedIndexRevision,
+    };
+}
+
+async function writeCreatorProjectRequest(request = {}) {
+    const {
+        merged = {},
+        payloadWriteSnapshot = {},
+        indexSnapshot = {},
+        staleCheck = false,
+        expectedPayloadRevision = 0,
+        expectedIndexRevision = 0,
+    } = request;
+    try {
+        const domainStorage = getDomainStorage(merged);
+        const fileApi = getFileApi(merged);
+        await assertCreatorProjectPayloadFresh(fileApi, payloadWriteSnapshot, expectedPayloadRevision);
+        await assertCreatorIndexFresh(fileApi, expectedIndexRevision);
+        await domainStorage.writePayload('creator', payloadWriteSnapshot.jobId, payloadWriteSnapshot, {
+            ...merged,
+            staleCheck,
+            expectedRevision: expectedPayloadRevision,
+            kind: 'creator_project_payload',
+            deletion: 'delete_with_owner',
+        });
+        setProjectPayloadCache(payloadWriteSnapshot, merged);
+        await writeExternalLoredeckCreatorIndex(indexSnapshot, {
+            ...merged,
+            staleCheck,
+            expectedRevision: expectedIndexRevision,
+        });
+        lastCreatorWriteError = '';
+    } catch (error) {
+        recordQueuedWriteError(error, merged);
+    }
+}
+
+async function drainCoalescedCreatorProjectWrites() {
+    while (coalescedCreatorProjectWriteRequests.size) {
+        const requests = Array.from(coalescedCreatorProjectWriteRequests.values());
+        coalescedCreatorProjectWriteRequests.clear();
+        for (const request of requests) {
+            await writeCreatorProjectRequest(request);
+        }
+    }
+}
+
+function queueExternalLoredeckCreatorProjectWrite(payload = {}, index = hydratedCreatorIndex, options = {}) {
+    if (!shouldPersistQueuedWrites(options)) return pendingCreatorWrite;
+    const merged = resolveStorageOptions(options);
+    const request = buildCreatorProjectWriteRequest(payload, index, merged);
+    const jobId = request.payloadWriteSnapshot?.jobId || '';
+    if (merged.coalesceWrites === true && jobId && pendingCreatorWriteCount > 0) {
+        coalescedCreatorProjectWriteRequests.set(jobId, request);
+        return pendingCreatorWrite;
+    }
     pendingCreatorWriteCount += 1;
     pendingCreatorWrite = pendingCreatorWrite
         .catch(() => {})
         .then(async () => {
             try {
-                const domainStorage = getDomainStorage(merged);
-                await domainStorage.writePayload('creator', payloadSnapshot.jobId, payloadSnapshot, {
-                    ...merged,
-                    kind: 'creator_project_payload',
-                    deletion: 'delete_with_owner',
-                });
-                await writeExternalLoredeckCreatorIndex(indexSnapshot, merged);
-                lastCreatorWriteError = '';
+                await writeCreatorProjectRequest(request);
+                await drainCoalescedCreatorProjectWrites();
             } catch (error) {
                 recordQueuedWriteError(error, merged);
             } finally {
@@ -570,6 +692,9 @@ export async function writeExternalLoredeckCreatorIndex(index = {}, options = {}
         updatedAt: now,
     }, { now });
     const fileApi = getFileApi(options);
+    if (options.staleCheck !== false && options.expectedRevision !== undefined) {
+        await assertCreatorIndexFresh(fileApi, Math.max(1, Math.floor(Number(options.expectedRevision) || 1)));
+    }
     const result = await fileApi.writeJsonFile(getSagaUserFilesFileName(SAGA_STORAGE_DOMAIN_INDEX_FILES.creator), normalized, {
         pretty: options.pretty,
     });
@@ -696,6 +821,7 @@ export function resetSagaCreatorProjectStorageCache() {
     hydrationPromise = null;
     pendingCreatorWrite = Promise.resolve();
     pendingCreatorWriteCount = 0;
+    coalescedCreatorProjectWriteRequests = new Map();
     lastCreatorWriteError = '';
 }
 

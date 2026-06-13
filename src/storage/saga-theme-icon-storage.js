@@ -96,6 +96,35 @@ function normalizeImportSource(source = {}, sourceFileName = '') {
     };
 }
 
+function getImportCollisionPolicy(options = {}) {
+    const policy = normalizeString(options.collisionPolicy, 40).toLowerCase();
+    if (policy === 'replace' || policy === 'skip' || policy === 'reject') return policy;
+    if (options.replaceExisting === true) return 'replace';
+    return 'reject';
+}
+
+function buildThemePackCollisionResult(themeId = '') {
+    return {
+        ok: false,
+        collision: true,
+        code: 'theme_pack_id_collision',
+        id: themeId,
+        themeId,
+        error: `A custom Theme Pack with id "${themeId}" is already installed. Import with a unique id or forget the existing Theme Pack before replacing it.`,
+    };
+}
+
+function buildIconSetCollisionResult(iconSetId = '') {
+    return {
+        ok: false,
+        collision: true,
+        code: 'iconset_id_collision',
+        id: iconSetId,
+        iconSetId,
+        error: `A custom Icon Set with id "${iconSetId}" is already installed. Import with a unique id or forget the existing Icon Set before replacing it.`,
+    };
+}
+
 function normalizeThemePackInput(packRecord = {}, options = {}) {
     if (packRecord?.icons || packRecord?.iconSets || packRecord?.type === 'saga_iconset') {
         return { ok: false, error: 'Theme Packs cannot contain Icon Set fields. Import Icon Sets separately.' };
@@ -554,6 +583,9 @@ export async function importExternalThemePack(packRecord = {}, options = {}) {
     const domainStorage = getDomainStorage(options);
     const existingIndex = await domainStorage.readDomainIndex('themes', { allowMissing: true });
     const hadExistingRecord = !!existingIndex.packs?.[normalized.themeId];
+    if (hadExistingRecord && getImportCollisionPolicy(options) !== 'replace') {
+        return buildThemePackCollisionResult(normalized.themeId);
+    }
     let payloadResult = null;
     try {
         payloadResult = await domainStorage.writePayload('themes', normalized.themeId, normalized.pack, {
@@ -584,11 +616,17 @@ export async function importExternalThemePackRegistry(registry = {}, options = {
     const packs = Object.entries(incoming.packs || {});
     let importedCount = 0;
     let skippedCount = 0;
+    let collisionCount = 0;
     const imported = [];
+    const skipped = [];
     for (const [themeId, pack] of packs) {
         const raw = rawPacks[themeId] || pack;
         if (BUNDLED_THEME_PACK_IDS.includes(themeId) || raw.icons) {
             skippedCount += 1;
+            skipped.push({
+                id: themeId,
+                code: BUNDLED_THEME_PACK_IDS.includes(themeId) ? 'bundled_theme_pack_id_collision' : 'theme_pack_contains_icon_fields',
+            });
             continue;
         }
         const result = await importExternalThemePack(raw, options);
@@ -597,9 +635,15 @@ export async function importExternalThemePackRegistry(registry = {}, options = {
             imported.push(result.pack);
         } else {
             skippedCount += 1;
+            if (result.collision) collisionCount += 1;
+            skipped.push({
+                id: themeId,
+                code: result.code || 'theme_pack_skipped',
+                error: result.error || '',
+            });
         }
     }
-    return { ok: true, importedCount, skippedCount, imported, library: getExternalThemePackLibraryRegistry() };
+    return { ok: true, importedCount, skippedCount, collisionCount, imported, skipped, library: getExternalThemePackLibraryRegistry() };
 }
 
 export async function importExternalIconSet(iconSetRecord = {}, options = {}) {
@@ -608,6 +652,9 @@ export async function importExternalIconSet(iconSetRecord = {}, options = {}) {
     const domainStorage = getDomainStorage(options);
     const existingIndex = await domainStorage.readDomainIndex('iconSets', { allowMissing: true });
     const hadExistingRecord = !!existingIndex.iconSets?.[normalized.iconSetId];
+    if (hadExistingRecord && getImportCollisionPolicy(options) !== 'replace') {
+        return buildIconSetCollisionResult(normalized.iconSetId);
+    }
     const rewritten = options.skipIconRewrite === true
         ? {
             ok: true,
@@ -674,6 +721,10 @@ export async function importExternalIconSetZip(input, options = {}) {
         },
     }, options);
     if (!normalized.ok) return normalized;
+    const existingIndex = await getDomainStorage(options).readDomainIndex('iconSets', { allowMissing: true });
+    if (existingIndex.iconSets?.[normalized.iconSetId] && getImportCollisionPolicy(options) !== 'replace') {
+        return buildIconSetCollisionResult(normalized.iconSetId);
+    }
     const rewritten = await rewriteIconSetZipAssetPaths(normalized.iconSetId, normalized.iconSet.icons, archive, manifestPath, options);
     if (!rewritten.ok) return rewritten;
     return importExternalIconSet({
@@ -692,10 +743,13 @@ export async function importExternalIconSetRegistry(registry = {}, options = {})
         : {};
     let importedCount = 0;
     let skippedCount = 0;
+    let collisionCount = 0;
     const imported = [];
+    const skipped = [];
     for (const [iconSetId, iconSet] of Object.entries(incoming)) {
         if (BUNDLED_THEME_ICON_SET_IDS.includes(iconSetId)) {
             skippedCount += 1;
+            skipped.push({ id: iconSetId, code: 'bundled_iconset_id_collision' });
             continue;
         }
         const result = await importExternalIconSet(iconSet, options);
@@ -704,9 +758,15 @@ export async function importExternalIconSetRegistry(registry = {}, options = {})
             imported.push(result.iconSet);
         } else {
             skippedCount += 1;
+            if (result.collision) collisionCount += 1;
+            skipped.push({
+                id: iconSetId,
+                code: result.code || 'iconset_skipped',
+                error: result.error || '',
+            });
         }
     }
-    return { ok: true, importedCount, skippedCount, imported, library: getExternalThemeIconSetLibraryRegistry() };
+    return { ok: true, importedCount, skippedCount, collisionCount, imported, skipped, library: getExternalThemeIconSetLibraryRegistry() };
 }
 
 async function deleteKnownOwnerFiles(ownerId = '', options = {}) {

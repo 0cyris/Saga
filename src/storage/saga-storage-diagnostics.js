@@ -62,27 +62,28 @@ function summarizeRuntimeStatuses() {
     const themeIcon = getSagaThemeIconStorageStatus();
     const statuses = { library, payloads, creator, themeIcon };
     const pendingWrites = Object.values(statuses).reduce((sum, status) => sum + getPendingWrites(status), 0);
-    const writeErrors = [
+    const storageErrors = [
         collectStatusError('library', library),
         collectStatusError('payloads', payloads),
         collectStatusError('creator', creator),
         collectStatusError('themeIcon', themeIcon),
     ].filter(Boolean);
-    return { statuses, pendingWrites, writeErrors };
+    return { statuses, pendingWrites, storageErrors };
 }
 
 export function getSagaStorageDiagnostics(settings = {}, options = {}) {
     const storage = normalizeSagaStorageSettings(settings?.sagaStorage || {});
     const runtime = summarizeRuntimeStatuses();
     return {
-        ok: runtime.writeErrors.length === 0,
+        ok: runtime.storageErrors.length === 0,
         checkedAt: normalizeTimestamp(storage.lastVerifiedAt, 0),
-        status: runtime.writeErrors.length ? 'write_errors' : 'not_checked',
+        status: runtime.storageErrors.length ? 'storage_errors' : 'not_checked',
         indexFile: storage.masterIndexFile || SAGA_STORAGE_INDEX_PATH,
         domainIndexFiles: { ...SAGA_STORAGE_DOMAIN_INDEX_FILES },
         migrationVersion: storage.migrationVersion || '',
         pendingWrites: runtime.pendingWrites,
-        writeErrors: runtime.writeErrors,
+        storageErrors: runtime.storageErrors,
+        writeErrors: runtime.storageErrors,
         runtime: runtime.statuses,
         fileCount: 0,
         missingFiles: [],
@@ -133,8 +134,8 @@ export async function verifySagaStorageDiagnostics(settings = {}, options = {}) 
         const missingFiles = Array.isArray(verified.missingFiles) ? verified.missingFiles : [];
         return {
             ...base,
-            ok: verified.status === 'ok' && missingFiles.length === 0 && base.writeErrors.length === 0,
-            status: missingFiles.length ? 'missing_files' : (base.writeErrors.length ? 'write_errors' : 'ok'),
+            ok: verified.status === 'ok' && missingFiles.length === 0 && (base.storageErrors || []).length === 0,
+            status: missingFiles.length ? 'missing_files' : ((base.storageErrors || []).length ? 'storage_errors' : 'ok'),
             checkedAt: verified.index?.lastIntegrityCheck?.checkedAt || getClockNow(options),
             fileCount: files.length,
             missingFiles,
@@ -195,8 +196,12 @@ export async function flushSagaStorageWrites(settings = {}, options = {}) {
             ...(verification.writeErrors || []),
             ...errors,
         ],
+        storageErrors: [
+            ...(verification.storageErrors || verification.writeErrors || []),
+            ...errors,
+        ],
         ok: verification.ok && errors.length === 0,
-        status: errors.length ? 'write_errors' : verification.status,
+        status: errors.length ? 'storage_errors' : verification.status,
         pendingWritesBefore: base.pendingWrites || 0,
     };
 }

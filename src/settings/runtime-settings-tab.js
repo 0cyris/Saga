@@ -34,6 +34,7 @@ function dep(name, fallback = null) {
 }
 
 function createCollapsibleSection(...args) { return dep('createCollapsibleSection')(...args); }
+function createDangerZoneCard(state) { return dep('createDangerZoneCard')(state); }
 function createStateSafetyCard(state) { return dep('createStateSafetyCard')(state); }
 function markTourTarget(element, target) { return dep('markTourTarget', value => value)(element, target); }
 export function renderSettingsTab(container, state) {
@@ -64,6 +65,15 @@ export function renderSettingsTab(container, state) {
             { tooltip: 'Manage Theme Packs, icon sets, and color overrides.' }
         ), 'settings.themePack'));
 
+        container.appendChild(markTourTarget(createCollapsibleSection(
+            'settings.dangerZone',
+            'Danger Zone',
+            'Active Chat and Global cleanup',
+            false,
+            createDangerZoneCard(state),
+            { tooltip: 'Destructive Saga cleanup actions separated by Active Chat and Global scope.' }
+        ), 'settings.dangerZone'));
+
         return;
     }
 
@@ -93,6 +103,15 @@ export function renderSettingsTab(container, state) {
         createStateSafetyCard(state),
         { tooltip: 'Export, restore, and inspect Saga state backups and schema-normalization logs.' }
     ), 'settings.stateSafety'));
+
+    container.appendChild(markTourTarget(createCollapsibleSection(
+        'settings.dangerZone',
+        'Danger Zone',
+        'Active Chat and Global cleanup',
+        false,
+        createDangerZoneCard(state),
+        { tooltip: 'Destructive Saga cleanup actions separated by Active Chat and Global scope.' }
+    ), 'settings.dangerZone'));
 }
 
 export function createThemeSettingsCard(settings = getSettings()) {

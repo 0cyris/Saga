@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import {
   configureLoredeckCreatorPanel,
+  createLoredeckCreatorEntryDraftCard,
   createLoredeckCreatorPipelineReadinessCard,
 } from '../../src/loredecks/loredeck-creator-panel.js';
 
@@ -191,10 +192,32 @@ configureLoredeckCreatorPanel({
   openLoredeckHealthCenter: (packId, options) => {
     healthOpenCall = { packId, options };
   },
-  repairLoredeckSafeHealthIssues: async () => {
+  attemptLoredeckHealthFixes: async () => {
     safeRepairCalls += 1;
     return true;
   },
+  getLoredeckCreatorGenerationSettings: () => ({ entryBatchSize: 3 }),
+  getLoredeckCreatorApprovedTitleIds: cached => new Set(cached.approvedTitleDraftIds || []),
+  getLoredeckCreatorPlanningAcceptedBatchIds: () => new Set(['characters-pressure']),
+  getLoredeckCreatorPlanningQueuedBatchIds: () => new Set(['characters-pressure']),
+  getLoredeckDefinition: packId => ({ packId, type: 'generated', title: 'Arlong Park Generated', entryOverrides: {}, pendingChanges: [] }),
+  getLoredeckCreatorAcceptedPlanningStatus: () => ({
+    ready: true,
+    anchorCount: 2,
+    windowCount: 1,
+    tagCount: 4,
+  }),
+  getLoredeckCreatorDraftChanges: () => [],
+  getLoredeckCreatorPendingEntryCount: () => 0,
+  getLoredeckCreatorAcceptedEntryCount: () => 0,
+  getLoredeckCreatorEntryDraftProgress: () => ({
+    remainingCount: 0,
+    batchSize: 3,
+    eligibleBatchCount: 1,
+    activeBatchLabel: 'Characters and pressure',
+  }),
+  getLoredeckCreatorEntryTargetTitles: () => [],
+  getLoredeckCreatorPlanningBatchRows: () => [],
   refreshPanelBody: () => {},
   refreshHeader: () => {},
   markTourTarget: element => element,
@@ -234,7 +257,7 @@ assert.ok(healthBlockedCard.textContent.includes('Needs review'));
 assert.ok(healthBlockedCard.textContent.includes('Pack Health: 2 errors, 1 warning'));
 assert.ok(healthBlockedCard.textContent.includes('Run Pack Health'));
 assert.ok(healthBlockedCard.textContent.includes('Open Pack Health Center'));
-assert.ok(healthBlockedCard.textContent.includes('Auto-Repair Safe Findings'));
+assert.ok(healthBlockedCard.textContent.includes('Attempt Fixing'));
 
 const runHealth = healthBlockedCard.querySelectorAll('button')
   .find(button => button.textContent === 'Run Pack Health');
@@ -249,10 +272,50 @@ assert.deepEqual(healthOpenCall, {
   options: { tab: 'issues' },
 });
 
-const repairSafe = healthBlockedCard.querySelectorAll('button')
-  .find(button => button.textContent === 'Auto-Repair Safe Findings');
-await repairSafe.click();
-assert.equal(safeRepairCalls, 1, 'Auto-Repair Safe Findings should invoke deterministic repair.');
+const attemptFixing = healthBlockedCard.querySelectorAll('button')
+  .find(button => button.textContent === 'Attempt Fixing');
+await attemptFixing.click();
+assert.equal(safeRepairCalls, 1, 'Attempt Fixing should invoke deterministic repair.');
+
+readinessView = {
+  readiness: {
+    ready: false,
+    blockers: ['Pack Health has errors.'],
+    warnings: [],
+    healthScanned: true,
+    healthStatus: 'has_errors',
+    healthHasErrors: true,
+    healthSummary: 'Pack Health: Errors',
+  },
+  pipeline: {
+    statusLabel: 'Creator complete',
+    titleBatchCount: 1,
+    titleBatchDraftedCount: 1,
+    eligiblePlanningBatchCount: 1,
+    acceptedPlanningBatchCount: 1,
+    approvedTitleCount: 4,
+    approvedTitleAcceptedCount: 4,
+    coverage: {
+      available: true,
+      statusLabel: 'Adequate',
+      finalizeAcknowledgementRequired: false,
+      finalizeAcknowledged: false,
+    },
+  },
+};
+
+healthOpenCall = null;
+const compactHealthBlockedCard = createLoredeckCreatorPipelineReadinessCard({ packId: 'compact-health-blocked-generated', type: 'generated' });
+assert.ok(compactHealthBlockedCard.textContent.includes('Needs review'));
+assert.ok(compactHealthBlockedCard.textContent.includes('Pack Health: Errors'));
+assert.ok(compactHealthBlockedCard.textContent.includes('Attempt Fixing'));
+const compactOpenHealth = compactHealthBlockedCard.querySelectorAll('button')
+  .find(button => button.textContent === 'Open Pack Health Center');
+await compactOpenHealth.click();
+assert.deepEqual(healthOpenCall, {
+  packId: 'compact-health-blocked-generated',
+  options: { tab: 'issues' },
+});
 
 readinessView = {
   readiness: {
@@ -330,5 +393,58 @@ assert.equal(
   false,
   'Acknowledged coverage should not continue to show Finalize Anyway.',
 );
+
+const lorecardRejectionCard = createLoredeckCreatorEntryDraftCard({}, {
+  generatedPackId: 'one-piece-arlong-generated',
+  titleDrafts: [{ titleId: 'genzos-vigil-over-cocoyashi', title: "Genzo's vigil over Cocoyashi" }],
+  approvedTitleDraftIds: ['genzos-vigil-over-cocoyashi'],
+  entryDraftLastBatchCount: 0,
+  entryDraftLastTargetCount: 1,
+  entryDraftLastRejectedCount: 1,
+  entryDraftLastRejectedTargetIds: ['genzos-vigil-over-cocoyashi'],
+  entryDraftLastRejectionSummary: {
+    count: 1,
+    targetCount: 1,
+    targetEntryIds: ['genzos-vigil-over-cocoyashi'],
+    unknownTags: ['location:cocoyashi'],
+    unknownAnchors: ['one-piece.arlong.missing-anchor'],
+    byReason: { unknown_tag: 1 },
+  },
+  entryDraftLastRejectionDiagnostics: [{
+    targetTitleId: 'genzos-vigil-over-cocoyashi',
+    targetEntryId: 'genzos-vigil-over-cocoyashi',
+    title: "Genzo's vigil over Cocoyashi",
+    reasonCode: 'unknown_tag',
+    message: 'Unknown tag location:cocoyashi.',
+    unknownTags: ['location:cocoyashi'],
+  }],
+  entryDraftLastPreflightSummary: {
+    targetCount: 1,
+    acceptedTagCount: 8,
+    omittedTagCount: 1,
+    ambiguousTagCount: 0,
+    omittedAnchorCount: 0,
+    omittedWindowCount: 1,
+    planningGapCount: 2,
+  },
+  entryDraftLastPreflightDiagnostics: [{
+    targetTitleId: 'genzos-vigil-over-cocoyashi',
+    targetEntryId: 'genzos-vigil-over-cocoyashi',
+    title: "Genzo's vigil over Cocoyashi",
+    reasonCode: 'unknown_timeline_window',
+    message: 'Title timeline window one-piece.arlong.missing-window is not in the accepted timeline registry.',
+    unknownAnchors: ['one-piece.arlong.missing-window'],
+  }],
+  entryDraftWarnings: ['Rejected 1 Creator Lorecard draft with invalid schema v3 references.'],
+});
+assert.ok(lorecardRejectionCard.textContent.includes('Last Lorecard pass'));
+assert.ok(lorecardRejectionCard.textContent.includes('Last Lorecard preflight gaps'));
+assert.ok(lorecardRejectionCard.textContent.includes('Last Lorecard rejection details'));
+assert.ok(lorecardRejectionCard.textContent.includes('genzos-vigil-over-cocoyashi'));
+assert.ok(lorecardRejectionCard.textContent.includes('location:cocoyashi'));
+assert.ok(lorecardRejectionCard.textContent.includes('one-piece.arlong.missing-anchor'));
+assert.ok(lorecardRejectionCard.textContent.includes('one-piece.arlong.missing-window'));
+assert.ok(lorecardRejectionCard.textContent.includes('Title timeline window one-piece.arlong.missing-window'));
+assert.ok(lorecardRejectionCard.textContent.includes('Unknown tag location:cocoyashi.'));
 
 console.log('Loredeck Creator coverage UI tests passed.');

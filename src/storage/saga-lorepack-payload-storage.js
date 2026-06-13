@@ -15,12 +15,17 @@ import {
     SAGA_STORAGE_RASTER_ASSET_EXTENSIONS,
     toSagaUserFilesPath,
 } from './saga-storage-filenames.js';
+import {
+    assertSagaStorageRevisionFresh,
+} from './saga-storage-stale-write.js';
 
 const EMPTY_LIBRARY_REGISTRY = Object.freeze({ schemaVersion: 1, packs: Object.freeze({}) });
 const LOREPACK_PAYLOAD_KIND = 'saga_lorepack_payload';
 
 let payloadRuntimeOptions = {};
 let payloadCache = new Map();
+let payloadCacheSequences = new Map();
+let payloadCacheSequence = 0;
 let pendingPayloadWrite = Promise.resolve();
 let pendingPayloadWriteCount = 0;
 let lastPayloadWriteError = '';
@@ -269,21 +274,76 @@ function recordQueuedWriteError(error = {}, options = {}) {
     console.warn('[Saga] Lorepack payload external storage write failed:', error);
 }
 
-function setPayloadCache(payload = {}, options = {}) {
+function isMissingStorageFileError(error = {}) {
+    return error?.status === 404 || /missing|not found|404/i.test(String(error?.message || error || ''));
+}
+
+async function assertLorepackPayloadWriteFresh(fileApi, payload = {}, expectedRevision = 0) {
+    if (!expectedRevision) return true;
+    const payloadFile = normalizeStoragePath(payload.payloadFile || '');
+    if (!payloadFile) return true;
+    let latest = null;
+    try {
+        latest = await fileApi.readJsonFile(payloadFile, { allowedExtensions: [SAGA_STORAGE_JSON_EXTENSION] });
+    } catch (error) {
+        if (!(error?.status === 404 || /missing|not found|404/i.test(String(error?.message || '')))) throw error;
+        latest = { revision: 1 };
+    }
+    assertSagaStorageRevisionFresh({
+        latest,
+        expectedRevision,
+        domain: 'lorepack',
+        path: payloadFile,
+        message: 'Loredeck storage changed. Reload this Loredeck before saving.',
+    });
+    return true;
+}
+
+function nextPayloadCacheSequence() {
+    payloadCacheSequence += 1;
+    return payloadCacheSequence;
+}
+
+function setPayloadCache(payload = {}, options = {}, meta = {}) {
     const normalized = normalizeExternalLorepackPayload(payload, options);
     if (!normalized.packId) return null;
     payloadCache.set(normalized.packId, normalized);
+    payloadCacheSequences.set(normalized.packId, Number(meta.sequence) || nextPayloadCacheSequence());
+    return cloneJson(normalized);
+}
+
+function setPayloadCacheIfNotNewer(payload = {}, options = {}, meta = {}) {
+    const normalized = normalizeExternalLorepackPayload(payload, options);
+    if (!normalized.packId) return null;
+    const current = payloadCache.get(normalized.packId);
+    const currentSequence = Number(payloadCacheSequences.get(normalized.packId)) || 0;
+    const nextSequence = Number(meta.sequence) || 0;
+    if (current && nextSequence && currentSequence > nextSequence) return cloneJson(current);
+    const currentRevision = normalizeRevision(current?.revision, 1);
+    const nextRevision = normalizeRevision(normalized.revision, 1);
+    if (current && currentRevision > nextRevision) return cloneJson(current);
+    payloadCache.set(normalized.packId, normalized);
+    payloadCacheSequences.set(normalized.packId, nextSequence || nextPayloadCacheSequence());
     return cloneJson(normalized);
 }
 
 function queueExternalLorepackPayloadWrite(payload = {}, options = {}) {
     if (!shouldPersistQueuedWrites(options)) return pendingPayloadWrite;
     const merged = resolveStorageOptions(options);
+    const staleCheck = merged.staleCheck !== false && pendingPayloadWriteCount === 0;
     const prepared = Array.isArray(merged.assetUploads)
         ? { payload: normalizeExternalLorepackPayload(cloneJson(payload), merged), assetUploads: merged.assetUploads }
         : prepareExternalLorepackPayloadAssets(normalizeExternalLorepackPayload(cloneJson(payload), merged));
     const snapshot = normalizeExternalLorepackPayload(prepared.payload, merged);
+    const expectedRevision = staleCheck ? normalizeRevision(snapshot.revision, 1) : 0;
+    const payloadSnapshot = normalizeExternalLorepackPayload({
+        ...snapshot,
+        revision: merged.bumpRevision === false ? expectedRevision || normalizeRevision(snapshot.revision, 1) : normalizeRevision((expectedRevision || normalizeRevision(snapshot.revision, 1)) + 1, 2),
+        updatedAt: getClockNow(merged),
+    }, merged);
     const assetUploads = prepared.assetUploads;
+    const cacheSequence = nextPayloadCacheSequence();
+    setPayloadCache(payloadSnapshot, merged, { sequence: cacheSequence });
     pendingPayloadWriteCount += 1;
     pendingPayloadWrite = pendingPayloadWrite
         .catch(() => {})
@@ -291,6 +351,7 @@ function queueExternalLorepackPayloadWrite(payload = {}, options = {}) {
             try {
                 const fileApi = getFileApi(merged);
                 const storageIndexStore = getStorageIndexStore(merged);
+                await assertLorepackPayloadWriteFresh(fileApi, payloadSnapshot, expectedRevision);
                 for (const upload of assetUploads) {
                     await fileApi.uploadBase64File(upload.fileName, upload.base64, {
                         allowedExtensions: SAGA_STORAGE_RASTER_ASSET_EXTENSIONS,
@@ -306,11 +367,14 @@ function queueExternalLorepackPayloadWrite(payload = {}, options = {}) {
                     }
                 }
                 const domainStorage = getDomainStorage(merged);
-                await domainStorage.writePayload('library', snapshot.packId, snapshot, {
+                await domainStorage.writePayload('library', payloadSnapshot.packId, payloadSnapshot, {
                     ...merged,
+                    staleCheck,
+                    expectedRevision,
                     kind: 'lorepack_payload',
                     deletion: 'delete_with_owner',
                 });
+                setPayloadCacheIfNotNewer(payloadSnapshot, merged, { sequence: cacheSequence });
                 lastPayloadWriteError = '';
             } catch (error) {
                 recordQueuedWriteError(error, merged);
@@ -331,9 +395,17 @@ function queueExternalLorepackPayloadDelete(packId = '', payloadFile = '', asset
             try {
                 const fileApi = getFileApi(merged);
                 for (const assetPath of assetFiles) {
-                    await fileApi.deleteFile(assetPath);
+                    try {
+                        await fileApi.deleteFile(assetPath);
+                    } catch (error) {
+                        if (!isMissingStorageFileError(error)) throw error;
+                    }
                 }
-                await fileApi.deleteFile(payloadFile, { allowedExtensions: [SAGA_STORAGE_JSON_EXTENSION] });
+                try {
+                    await fileApi.deleteFile(payloadFile, { allowedExtensions: [SAGA_STORAGE_JSON_EXTENSION] });
+                } catch (error) {
+                    if (!isMissingStorageFileError(error)) throw error;
+                }
                 const storageIndexStore = getStorageIndexStore(merged);
                 if (storageIndexStore?.unregisterFile) {
                     for (const assetPath of assetFiles) {
@@ -354,7 +426,9 @@ function queueExternalLorepackPayloadDelete(packId = '', payloadFile = '', asset
 export function normalizeExternalLorepackPayload(value = {}, options = {}) {
     const raw = isPlainObject(value) ? cloneJson(value) : {};
     const packId = getPackId(raw, options.packId || '');
+    const cached = packId && payloadCache.has(packId) ? payloadCache.get(packId) : null;
     const registryRecord = {
+        ...(isPlainObject(cached) ? cloneJson(cached) : {}),
         ...raw,
         packId,
         id: packId,
@@ -378,15 +452,20 @@ export function normalizeExternalLorepackPayload(value = {}, options = {}) {
         };
     }
     const now = getClockNow(options);
-    const createdAt = normalizeTimestamp(raw.createdAt || pack.installedAt, now);
-    const updatedAt = normalizeTimestamp(raw.updatedAt || pack.updatedAt, now);
+    const createdAt = normalizeTimestamp(raw.createdAt || cached?.createdAt || pack.installedAt, now);
+    const updatedAt = normalizeTimestamp(raw.updatedAt || pack.updatedAt || cached?.updatedAt, now);
     const payloadFile = normalizeStoragePath(raw.payloadFile || raw.payloadPath || '')
+        || normalizeStoragePath(cached?.payloadFile || cached?.payloadPath || '')
         || buildSagaDomainPayloadPath('library', pack.packId);
+    const revision = Math.max(
+        normalizeRevision(raw.revision, 1),
+        normalizeRevision(cached?.revision, 1),
+    );
     const payload = {
         ...pack,
         schemaVersion: 1,
         kind: LOREPACK_PAYLOAD_KIND,
-        revision: normalizeRevision(raw.revision, 1),
+        revision,
         packId: pack.packId,
         id: pack.packId,
         payloadFile,
@@ -396,6 +475,9 @@ export function normalizeExternalLorepackPayload(value = {}, options = {}) {
         entryOverrides: pack.entryOverrides || {},
         disabledEntryIds: Array.isArray(pack.disabledEntryIds) ? pack.disabledEntryIds : [],
     };
+    if (Object.prototype.hasOwnProperty.call(raw, 'healthIssueStates')) {
+        payload.healthIssueStates = isPlainObject(raw.healthIssueStates) ? cloneJson(raw.healthIssueStates) : {};
+    }
     delete payload.coverFile;
     delete payload.entryCount;
     delete payload.tagCount;
@@ -482,6 +564,7 @@ export function hydrateCachedExternalLorepackPayloadRecord(record = {}) {
     const merged = {
         ...cached,
         ...(isPlainObject(record) ? cloneJson(record) : {}),
+        revision: normalizeRevision(cached.revision, record.revision || 1),
         manifestData: cached.manifestData,
         entryOverrides: cached.entryOverrides || {},
         disabledEntryIds: Array.isArray(cached.disabledEntryIds) ? cached.disabledEntryIds : [],
@@ -493,10 +576,17 @@ export function hydrateCachedExternalLorepackPayloadRecord(record = {}) {
         ...(cached.healthIssueStates ? { healthIssueStates: cached.healthIssueStates } : {}),
         payloadFile: record.payloadFile || cached.payloadFile,
     };
-    return normalizeLoredeckRegistry(
+    const normalizedPack = normalizeLoredeckRegistry(
         { schemaVersion: 1, packs: { [packId]: merged } },
         EMPTY_LIBRARY_REGISTRY,
-    ).packs[packId] || merged;
+    ).packs[packId] || {};
+    return normalizeExternalLorepackPayload({
+        ...merged,
+        ...normalizedPack,
+        revision: normalizeRevision(cached.revision, record.revision || 1),
+        payloadFile: record.payloadFile || cached.payloadFile,
+        kind: cached.kind || LOREPACK_PAYLOAD_KIND,
+    }, { packId });
 }
 
 export async function hydrateExternalLorepackPayloadRecord(record = {}, options = {}) {
@@ -568,6 +658,8 @@ export function getSagaLorepackPayloadStorageStatus() {
 
 export function resetSagaLorepackPayloadStorageCache() {
     payloadCache = new Map();
+    payloadCacheSequences = new Map();
+    payloadCacheSequence = 0;
     pendingPayloadWrite = Promise.resolve();
     pendingPayloadWriteCount = 0;
     lastPayloadWriteError = '';

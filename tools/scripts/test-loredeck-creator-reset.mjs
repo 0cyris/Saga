@@ -61,6 +61,40 @@ const fullJob = {
   entryDraftCount: 1,
   entryDraftLastBatchCount: 1,
   entryDraftLastTargetCount: 3,
+  entryDraftLastRejectedCount: 1,
+  entryDraftLastRejectedTargetIds: ['genzos-vigil-over-cocoyashi'],
+  entryDraftLastRejectionSummary: {
+    count: 1,
+    targetCount: 1,
+    targetEntryIds: ['genzos-vigil-over-cocoyashi'],
+    unknownTags: ['location:cocoyashi'],
+    unknownAnchors: [],
+    byReason: { unknown_tag: 1 },
+  },
+  entryDraftLastRejectionDiagnostics: [{
+    targetTitleId: 'genzos-vigil-over-cocoyashi',
+    targetEntryId: 'genzos-vigil-over-cocoyashi',
+    title: "Genzo's vigil over Cocoyashi",
+    reasonCode: 'unknown_tag',
+    message: 'Unknown tag location:cocoyashi.',
+    unknownTags: ['location:cocoyashi'],
+  }],
+  entryDraftLastPreflightSummary: {
+    targetCount: 3,
+    acceptedTagCount: 12,
+    omittedTagCount: 1,
+    ambiguousTagCount: 0,
+    omittedAnchorCount: 1,
+    omittedWindowCount: 0,
+    planningGapCount: 2,
+  },
+  entryDraftLastPreflightDiagnostics: [{
+    targetTitleId: 'genzos-vigil-over-cocoyashi',
+    targetEntryId: 'genzos-vigil-over-cocoyashi',
+    reasonCode: 'unknown_anchor',
+    message: 'Title timeline anchor one-piece.arlong.missing-anchor is not in the accepted timeline registry.',
+    unknownAnchors: ['one-piece.arlong.missing-anchor'],
+  }],
   entryDraftRemainingCount: 2,
   entryDraftBatchSize: 3,
   entryDraftCurrentBatchId: 'characters-pressure',
@@ -84,6 +118,17 @@ const fullJob = {
     entry: { unitId: 'entry', meta: { actionId: 'entry_batch_draft' }, stage: 'entry_micro_batch', status: 'complete' },
   },
 };
+
+{
+  const persisted = normalizeLoredeckCreatorJob(fullJob);
+  assert.deepEqual(persisted.entryDraftWarnings, ['Warning']);
+  assert.equal(persisted.entryDraftLastRejectedCount, 1);
+  assert.deepEqual(persisted.entryDraftLastRejectedTargetIds, ['genzos-vigil-over-cocoyashi']);
+  assert.equal(persisted.entryDraftLastRejectionSummary.byReason.unknown_tag, 1);
+  assert.equal(persisted.entryDraftLastRejectionDiagnostics[0].message, 'Unknown tag location:cocoyashi.');
+  assert.equal(persisted.entryDraftLastPreflightSummary.planningGapCount, 2);
+  assert.equal(persisted.entryDraftLastPreflightDiagnostics[0].reasonCode, 'unknown_anchor');
+}
 
 const generatedPack = {
   packId: 'generated-one-piece-arlong',
@@ -201,6 +246,11 @@ const generatedPack = {
   assert.deepEqual(reset.draftChanges, []);
   assert.equal(reset.entryDraftSummary, '');
   assert.equal(reset.entryDraftCount, 0);
+  assert.equal(reset.entryDraftLastRejectedCount, 0);
+  assert.deepEqual(reset.entryDraftLastRejectedTargetIds, []);
+  assert.deepEqual(reset.entryDraftLastRejectionDiagnostics, []);
+  assert.equal(reset.entryDraftLastPreflightSummary.planningGapCount, 0);
+  assert.deepEqual(reset.entryDraftLastPreflightDiagnostics, []);
   assert.deepEqual(Object.keys(reset.generationRuns), ['title', 'planning']);
 
   const persisted = normalizeLoredeckCreatorJob({ ...fullJob, ...reset });
@@ -209,6 +259,13 @@ const generatedPack = {
   assert.deepEqual(persisted.planningBatchAcceptedIds, ['characters-pressure']);
   assert.equal(Object.hasOwn(persisted, 'draftChanges'), false);
   assert.equal(persisted.entryDraftCount, 0);
+  assert.deepEqual(persisted.entryDraftWarnings, []);
+  assert.equal(persisted.entryDraftLastRejectedCount, 0);
+  assert.deepEqual(persisted.entryDraftLastRejectedTargetIds, []);
+  assert.equal(persisted.entryDraftLastRejectionSummary.count, 0);
+  assert.deepEqual(persisted.entryDraftLastRejectionDiagnostics, []);
+  assert.equal(persisted.entryDraftLastPreflightSummary.planningGapCount, 0);
+  assert.deepEqual(persisted.entryDraftLastPreflightDiagnostics, []);
 }
 
 {

@@ -229,7 +229,7 @@ Use a desktop-width browser first, then repeat at a narrow/mobile-ish width.
 - `Smoke Test: Arlong Park` is the selected Custom deck.
 - The tab shows the Library launcher card, not a second inline `Loredeck Library` dropdown/list.
 - The deck detail panel shows Custom/editable controls.
-- `Save Metadata`, `Sync From Manifest`, `Repair Safe Issues`, and zip-package export controls fit cleanly.
+- `Save Metadata`, `Sync From Manifest`, `Attempt Fixing`, and zip-package export controls fit cleanly.
 - Collapsible sections have visible dropdown arrows.
 - `Reset Window` from the SillyTavern extension menu restores the expected default open/closed section state, default tab, shelf mode, and safe position/size.
 
@@ -268,9 +268,9 @@ Use a desktop-width browser first, then repeat at a narrow/mobile-ish width.
 
 - Click `Open Health Center` or `Health Report`.
 - The fullscreen Deck Health Center opens without a layout jump.
-- Malformed tag issue details show `Queue Tag ID Repair` for Custom/Generated decks and `Duplicate as Custom` for Bundled decks.
-- Custom/Generated issue details show `Ignore Issue`, `Mark Resolved`, and `Draft With Assistant`; ignored groups get an `Ignored` chip and drop out of Overview priority issues while remaining visible in the Issues tab.
-- Repair workflow copy tells users to queue/draft repairs, review Pending Review, accept changes, then rerun Refresh Scan.
+- Malformed tag issue details show `Queue Tag ID Review` for Custom/Generated decks and `Duplicate as Custom` for Bundled decks.
+- Custom/Generated issue details show `Accept As-Is`, `Verify Fixed`, and `Attempt Fixing`; accepted groups get an `Accepted as-is` chip and drop out of Overview priority issues while remaining visible in the Issues tab.
+- Repair workflow copy tells users to run Attempt Fixing, apply review choices or continue model batches when present, then rerun Refresh Scan.
 - Overview, Issues, Coverage, Files, and Advanced behave like tabs.
 - Severity cards show errors, warnings, suggestions, and checked counts.
 - Priority issues use metadata chips for passive metadata and button styling for actions.

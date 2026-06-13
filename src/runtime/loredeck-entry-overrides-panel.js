@@ -39,7 +39,9 @@ function canValidateLoredeckInEditor(pack = {}) { return dep('canValidateLoredec
 function openLoredeckEntryOverrideDialog(pack, row = null) { return dep('openLoredeckEntryOverrideDialog')(pack, row); }
 function openLoredeckBulkTagsDialog(pack, rows = []) { return dep('openLoredeckBulkTagsDialog')(pack, rows); }
 function openLoredeckBulkContextDialog(pack, rows = []) { return dep('openLoredeckBulkContextDialog')(pack, rows); }
-function repairLoredeckSafeHealthIssues(pack, button = null) { return dep('repairLoredeckSafeHealthIssues', async () => false)(pack, button); }
+function attemptLoredeckHealthFixes(pack, button = null) {
+    return dep('attemptLoredeckHealthFixes', async () => false)(pack, button);
+}
 function createLoredeckPendingReviewCard(pack = {}) { return dep('createLoredeckPendingReviewCard', () => null)(pack); }
 function createLoredeckAssistantCard(pack = {}, rows = [], filteredRows = []) { return dep('createLoredeckAssistantCard', () => null)(pack, rows, filteredRows); }
 function createLoredeckTimelineRegistryCard(pack = {}, rows = []) { return dep('createLoredeckTimelineRegistryCard', () => null)(pack, rows); }
@@ -105,7 +107,7 @@ export function createLoredeckEntryOverrideCard(pack = {}) {
     actions.appendChild(bulkButton);
     if (state.overrideCount) {
         actions.appendChild(createButton('Attempt Fixing', 'Run Pack Health fixing for this Loredeck and save remaining review work when needed.', async (btn) => {
-            await repairLoredeckSafeHealthIssues(pack, btn);
+            await attemptLoredeckHealthFixes(pack, btn);
         }));
     }
     card.appendChild(actions);

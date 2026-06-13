@@ -40,7 +40,6 @@ function dep(name, fallback = null) {
 }
 
 function createCollapsibleSection(...args) { return dep('createCollapsibleSection')(...args); }
-function createDangerZoneCard(state) { return dep('createDangerZoneCard')(state); }
 function getInjectionCharacterStats(state, settings) { return dep('getInjectionCharacterStats', () => ({ totalChars: 0, totalTokens: 0 }))(state, settings); }
 function getSelectedLoreInjectionCount(state, settings) { return dep('getSelectedLoreInjectionCount', () => 0)(state, settings); }
 function markTourTarget(element, target) { return dep('markTourTarget', value => value)(element, target); }
@@ -195,8 +194,6 @@ export function renderSessionTab(container, state) {
     stats.appendChild(createKeyValue('Injection token estimate', injectionStats.totalChars ? `${injectionStats.totalTokens} tokens` : 'empty', 'Approximate token count for the combined Continuity + Lore injection previews.'));
     stats.appendChild(createKeyValue('Total chars injected', `${injectionStats.totalChars} chars`, 'Combined character count of Continuity Injection plus Lore Injection using current Injection tab toggles and handling modes.'));
     container.appendChild(stats);
-
-    container.appendChild(createDangerZoneCard(state));
 }
 
 function createInstructionsCard(guideMode = normalizeExperienceMode(getSettings().experienceMode)) {

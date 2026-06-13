@@ -91,7 +91,7 @@ Context-aware Loredeck retrieval:
 - Done: add source chips and Context/gating chips to suggested and pending lore cards.
 - Done: expand Deck Health checks for invalid Context references, broken anchor windows, and entries that can never match a known Context.
 - Done: generalize the HP v3 conformance test into reusable Deck Health checks for schema v3 entries, manifest stats, duplicate manifest files, wide-lore retrieval policy, and date-derived timeline sort keys.
-- Done: wire these Deck Health rules into Loredeck editor validation, validated Custom/Generated export, safe repair actions, and schema v3-safe override persistence.
+- Done: wire these Deck Health rules into Loredeck editor validation, validated Custom/Generated export, Attempt Fixing actions, and schema v3-safe override persistence.
 - Done: add Context and retrieval fields to the Custom entry editor so new schema v3 entries can be authored fully instead of only preserving source entry Context gates.
 - Done: add timeline anchor search/pickers and bulk Context editing to make v3 authoring less manual.
 - Done: add bulk tag editing and a first Tag Manager surface for Custom Loredeck entries, including tag counts, tag filtering, add/remove/rename operations, and namespaced tag preservation.

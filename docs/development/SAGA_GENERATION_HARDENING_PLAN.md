@@ -242,7 +242,7 @@ Acceptance:
 
 Progress:
 
-- Lore Assistant repair, revision, and draft flows share one normalized JSON request/parse helper with stable `json_invalid` parse annotation and compact code-aware console warnings.
+- Lore Assistant revision and draft flows share one normalized JSON request/parse helper with stable `json_invalid` parse annotation and compact code-aware console warnings.
 - Context resolver model responses normalize provider-shaped visible text before JSON parsing and report malformed model JSON as `model_parse_failed` with `json_invalid`.
 - Auto-Relevance adjudication responses normalize provider-shaped visible text before JSON parsing and report malformed model JSON as `failed_parse` with `json_invalid`.
 - Continuity observation and reducer parsers normalize provider-shaped visible text before JSON parsing; reducer parse failures carry `json_invalid`.

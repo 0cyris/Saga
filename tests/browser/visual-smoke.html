@@ -104,6 +104,9 @@
     <script type="module">
         import { DEFAULT_SETTINGS, getDefaultState } from '../../src/state/constants.js';
         import { showLorePanel } from '../../src/runtime/lore-panel.js';
+        import { hydrateSagaThemeIconStorage } from '../../src/storage/saga-theme-icon-storage.js';
+        import { hydrateSagaLorepackLibraryStorage } from '../../src/storage/saga-lorepack-library-storage.js';
+        import { hydrateSagaCreatorProjectStorage } from '../../src/storage/saga-creator-project-storage.js';
 
         const smokeParams = new URLSearchParams(window.location.search);
         const smokeActiveTab = ['loredecks', 'context', 'lore', 'continuity', 'injection', 'settings', 'session']
@@ -586,6 +589,13 @@
 
         window.__sagaSmokeContext.extensionSettings.saga = settings;
         window.__sagaSmokeContext.chatMetadata.saga = state;
+        if (window.__sagaSmokeStoragePersistence) {
+            await Promise.allSettled([
+                hydrateSagaThemeIconStorage({ force: true }),
+                hydrateSagaLorepackLibraryStorage({ force: true }),
+                hydrateSagaCreatorProjectStorage({ force: true }),
+            ]);
+        }
         showLorePanel();
         if (smokeAutoOpenContextProposals) {
             requestAnimationFrame(() => {

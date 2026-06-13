@@ -263,6 +263,24 @@ export function createLoredeckAssistantDraftRow(pack = {}, change = {}, selected
     const preview = change.preview || {};
     desc.textContent = change.description || preview.after || preview.before || (creatorDraft ? 'Creator Lorecard draft.' : 'Assistant draft proposal.');
     main.appendChild(desc);
+    const creatorRepairWarnings = creatorDraft && Array.isArray(preview.creatorEntryBatch?.repairWarnings)
+        ? preview.creatorEntryBatch.repairWarnings.map(item => String(item || '').trim()).filter(Boolean).slice(0, 4)
+        : [];
+    if (creatorRepairWarnings.length) {
+        const repairNote = document.createElement('div');
+        repairNote.className = 'saga-runtime-help saga-loredeck-creator-review-note';
+        repairNote.textContent = `Creator repair note: ${creatorRepairWarnings.join(' ')}`;
+        main.appendChild(repairNote);
+    }
+    const creatorPreflightWarnings = creatorDraft && Array.isArray(preview.creatorEntryBatch?.preflightWarnings)
+        ? preview.creatorEntryBatch.preflightWarnings.map(item => String(item || '').trim()).filter(Boolean).slice(0, 4)
+        : [];
+    if (creatorPreflightWarnings.length) {
+        const preflightNote = document.createElement('div');
+        preflightNote.className = 'saga-runtime-help saga-loredeck-creator-review-note';
+        preflightNote.textContent = `Creator preflight note: ${creatorPreflightWarnings.join(' ')}`;
+        main.appendChild(preflightNote);
+    }
 
     const meta = document.createElement('div');
     meta.className = 'saga-loredeck-row-meta';

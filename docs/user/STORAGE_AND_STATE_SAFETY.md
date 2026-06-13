@@ -18,7 +18,7 @@ Saga uses a flat JSON file model under SillyTavern's `/user/files` area. It does
 - `saga-storage-index.v1.json`: master list of Saga-managed files
 - `saga-library-index.v1.json`: Library folders, placements, installed Lorepack summaries, and payload references
 - `saga-creator-index.v1.json`: Creator project summaries and active project pointers
-- `saga-lorepack-*.v1.json`: Generated and Custom Lorepack payloads
+- `saga-pack-*.v1.json`: Generated and Custom Lorepack payloads
 - `saga-creator-project-*.v1.json`: in-progress Creator project stage artifacts
 - `saga-theme-index.v1.json`: installed Theme Pack records and payload references
 - `saga-theme-pack-*.v1.json`: Custom Theme Pack payloads
@@ -46,27 +46,51 @@ The Creator index keeps the shelf summary and active project pointer compact. Th
 
 Open **Settings**, switch to **Advanced**, then open **State Safety**.
 
-State Safety has three storage controls:
+State Safety has storage maintenance controls:
 
 - **Migrate Legacy Storage** moves legacy settings-backed Saga payloads into `/user/files`. If no legacy payloads are present, the button reads **Storage Current** and stays disabled.
 - **Verify Storage** reads Saga's master storage index and checks whether tracked files still exist and parse as expected.
-- **Settle Storage Writes** waits for queued Saga storage writes to finish, then verifies storage again. It is only enabled when queued writes or write errors are known.
+- **Settle Storage Writes** waits for queued Saga storage writes or runtime storage errors to settle, then verifies storage again. It is only enabled when queued writes or storage errors are known.
 - **Clean Missing Records** verifies the index and removes records for missing non-index files. It does not delete Library rows and does not scan for unknown orphan files.
 
 The State Safety status pills and key-value rows summarize migration state, latest storage integrity, backups, and recent migration or cleanup log entries.
 
-## What Cleanup Can Do
+## Danger Zone Cleanup
+
+Open **Settings**, then open **Danger Zone** at the bottom of the Settings tab. Danger Zone is split by scope:
+
+- **Active Chat** actions affect only the current chat's Saga runtime state.
+- **Global** actions affect Saga settings, installed custom content, stored Saga API keys, or Saga-owned `/user/files` storage.
+
+The Global summary rows render from cached state first, then refresh from a read-only cleanup preview. After that refresh, **Cleanup file scope** shows the total tracked/known/referenced Saga files Total Saga Cleanup can target, with tooltip detail for tracked files, known index files, additional referenced files, and Health repair sessions. Unknown unindexed orphan files may still remain because Saga cannot list arbitrary `/user/files` folders.
+
+Global actions are destructive:
+
+- **Reset All Settings** resets Saga preferences, provider selections, generation settings, injection settings, theme choices, and UI defaults. It also removes stored Saga API keys. It does not delete custom Loredecks, Creator projects, custom Theme Packs, or custom Icon Sets.
+- **Remove Custom Themes + Icon Packs** deletes imported custom Theme Pack payloads, custom Icon Set manifests, and uploaded raster icon assets. Bundled Theme Packs and bundled Icon Sets remain available, and the active appearance falls back to bundled defaults.
+- **Remove Custom Loredecks** deletes custom, imported, and generated Loredeck Library records, payload files, cover/passive assets, and Pack Health repair sessions for those Loredecks. Bundled Loredecks remain available. Creator projects are kept because they are drafts, not installed Loredecks.
+- **Total Saga Cleanup** requires typing `DELETE SAGA`. Its confirmation preview includes tracked Saga files, known index files, referenced Saga files discovered from domain records and payloads, externalized custom content, and any legacy settings-backed payloads still pending migration. It deletes tracked Saga-owned custom storage files, known Saga index files, referenced Saga files, custom/imported/generated Loredecks, Creator projects, custom Theme Packs, custom Icon Sets, stored Saga API keys, Saga settings, active-chat Saga state, and State Safety backups. Bundled extension content remains because it ships with Saga.
+
+If scoped cleanup finds or reports legacy settings-backed payloads, run **Migrate Legacy Storage** first or use **Total Saga Cleanup**. When externalized content and legacy payloads both exist, scoped cleanup removes only the externalized content and tells you what still needs migration.
+
+After Total Saga Cleanup, Saga should still open without reinstalling. New imports, Creator saves, Theme Pack imports, and Icon Set imports recreate the needed storage index files. If Total Saga Cleanup partially fails, Saga still clears prior State Safety backups, but writes one compact State Safety warning so the retry reason remains visible after the reset. If you are in Basic, switch to Advanced and open State Safety before retrying.
+
+## Cleanup Boundaries
 
 Because Saga is using SillyTavern's flat files API, it can confidently clean records it owns in its master index.
 
 It can:
 
 - remove stale master-index records for missing non-index files
+- delete installed custom content through Danger Zone Global actions
+- delete known Saga index files during Total Saga Cleanup
 - preserve protected index records for manual review
-- report write failures and pending writes
+- report storage runtime failures and pending writes
 - record cleanup actions in State Safety logs
 
-It cannot reliably scan an arbitrary Saga folder for orphan files because this storage model does not assume folder listing support. Unknown orphan-file cleanup remains a manual or future-host-feature task.
+It cannot reliably scan an arbitrary Saga folder for orphan files because this storage model does not assume folder listing support. Unknown orphan-file cleanup remains a manual or future-host-feature task. Total Saga Cleanup deletes files that Saga tracks, knows by fixed index filename, or discovers through Saga domain records and payload references; it should not be read as a guarantee that unindexed unknown files are discoverable.
+
+If Total Saga Cleanup cannot delete a tracked non-index file, Saga keeps the master storage index and storage bootstrap settings so the remaining file references are still available for a retry. If cleanup reports a storage error without a specific failed delete, switch to Advanced and check the fresh State Safety warning before retrying.
 
 ## Troubleshooting
 
@@ -76,7 +100,8 @@ It cannot reliably scan an arbitrary Saga folder for orphan files because this s
 | A Loredeck appears in Library but fails Pack Health after reload | Run **Verify Storage**, then reopen the Loredeck and run Pack Health again. |
 | A write seems stuck or a recent import does not appear after reload | Run **Settle Storage Writes**, then **Verify Storage**. |
 | Storage reports missing files | Confirm whether the file was manually deleted. Use **Clean Missing Records** only when stale records should be removed from Saga's storage index. |
-| Cleanup does not remove a Library item | This is expected. Cleanup removes missing file records from the storage index; delete Library items from the Library UI. |
+| State Safety cleanup does not remove a Library item | This is expected. **Clean Missing Records** only removes stale index records. Use **Remove Custom Loredecks** in Danger Zone when you intend to delete installed custom Loredecks. |
+| You want to remove every Saga custom file and setting | Use **Total Saga Cleanup** only after exporting anything you want to keep. It resets active-chat Saga state and deletes custom/imported/generated Loredecks. |
 | A bundled Lorepack appears in settings metadata | Bundled packs can have compact records or references. Full bundled payloads should stay in the extension repository. |
 
 ## Manual Inspection

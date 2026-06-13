@@ -208,10 +208,14 @@ Status chips:
 Actions:
 
 - `Refresh Index`
-- `Validate`
-- `Draft With Assistant`
-- `Export Timeline`
 - `Done`
+
+Timeline controls:
+
+- `Load Context`
+- `New Anchor`
+- `New Window`
+- `Export Timeline`
 
 ### Left Rail
 
@@ -412,7 +416,7 @@ All output must become structured Pending Review proposals.
 - Resolver test input with explanation.
 - Validation view.
 - Bulk alias/tag/sort-key edits.
-- Assistant handoff for selected rows and validation findings.
+- Reasoner-backed proposal drafting for selected rows and validation findings.
 
 ## Nice-To-Haves
 

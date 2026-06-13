@@ -265,4 +265,123 @@ const alreadyMigratedPlan = createSagaStorageMigrationPlan(savedSettings, { now 
 assert.equal(alreadyMigratedPlan.needsMigration, false);
 assert.equal(alreadyMigratedPlan.alreadyMigrated, true);
 
+stored.clear();
+calls.length = 0;
+resetSagaLorepackLibraryStorageCache();
+resetSagaLorepackPayloadStorageCache();
+resetSagaCreatorProjectStorageCache();
+resetSagaThemeIconStorageCache();
+
+const existingExternalPayloadPath = '/user/files/saga-pack-existing-generated.v1.json';
+stored.set(existingExternalPayloadPath, JSON.stringify({
+  schemaVersion: 1,
+  kind: 'saga_lorepack_payload',
+  packId: 'existing-generated',
+  type: 'generated',
+  title: 'Existing Generated',
+  entryOverrides: {
+    existing: {
+      id: 'existing',
+      title: 'Existing Entry',
+      schemaVersion: 3,
+      content: { fact: 'Existing external payload survives migration.' },
+    },
+  },
+}));
+stored.set(SAGA_STORAGE_DOMAIN_INDEX_FILES.library, JSON.stringify({
+  schemaVersion: 1,
+  kind: 'saga_library_index',
+  createdAt: 3000,
+  updatedAt: 3000,
+  revision: 7,
+  packs: {
+    'existing-generated': {
+      packId: 'existing-generated',
+      type: 'generated',
+      title: 'Existing Generated',
+      payloadFile: existingExternalPayloadPath,
+      stats: { entryCount: 1 },
+    },
+  },
+  folders: [],
+  deckPlacements: [],
+  activeStack: [],
+}));
+stored.set(SAGA_STORAGE_INDEX_PATH, JSON.stringify({
+  schemaVersion: 1,
+  kind: 'saga_storage_index',
+  createdAt: 3000,
+  updatedAt: 3000,
+  revision: 7,
+  files: {
+    [SAGA_STORAGE_INDEX_PATH]: {
+      kind: 'storage_index',
+      domain: 'storage',
+      ownerId: 'storage',
+      mime: 'application/json',
+      deletion: 'managed',
+    },
+    [SAGA_STORAGE_DOMAIN_INDEX_FILES.library]: {
+      kind: 'library_index',
+      domain: 'library',
+      ownerId: 'library',
+      mime: 'application/json',
+      deletion: 'managed',
+    },
+    [existingExternalPayloadPath]: {
+      kind: 'lorepack_payload',
+      domain: 'library',
+      ownerId: 'existing-generated',
+      mime: 'application/json',
+      deletion: 'delete_with_owner',
+    },
+  },
+}));
+
+const partialExternalSettings = {
+  sagaStorage: {},
+  loredeckLibrary: {
+    schemaVersion: 1,
+    packs: {
+      'hp-core': {
+        packId: 'hp-core',
+        type: 'bundled',
+        title: 'Bundled default should compact away after layout migration',
+      },
+    },
+    folders: [{ id: 'user-bundled-folder', title: 'User Bundled Folder' }],
+    deckPlacements: [{ deckId: 'hp-core', folderId: 'user-bundled-folder', order: 1 }],
+    activeStack: [{ packId: 'hp-core', enabled: true }],
+  },
+  loredeckCreatorProjects: { schemaVersion: 1, activeJobId: '', lastJobId: '', jobs: {} },
+  themePackLibrary: { schemaVersion: 1, packs: {} },
+  themeIconSetLibrary: { schemaVersion: 1, iconSets: {} },
+};
+
+const partialPlan = createSagaStorageMigrationPlan(partialExternalSettings, { now });
+assert.equal(partialPlan.needsMigration, true);
+assert.equal(partialPlan.counts.libraryPacks, 0);
+assert.equal(partialPlan.counts.libraryLayoutRecords, 3);
+assert(partialPlan.skipped.some(item => item.id === 'hp-core' && item.reason === 'bundled_lorepack'));
+
+let partialSavedSettings = null;
+clock = 4000;
+const partialResult = await executeSagaStorageMigration(partialExternalSettings, {
+  fileApi,
+  now,
+  saveSettings: next => {
+    partialSavedSettings = next;
+  },
+});
+assert.equal(partialResult.ok, true);
+assert.equal(partialSavedSettings.sagaStorage.migrationVersion, SAGA_STORAGE_MIGRATION_VERSION);
+assert.deepEqual(partialSavedSettings.loredeckLibrary.packs, {});
+
+const partialLibraryIndex = JSON.parse(stored.get(SAGA_STORAGE_DOMAIN_INDEX_FILES.library));
+assert.equal(partialLibraryIndex.packs['existing-generated'].payloadFile, existingExternalPayloadPath, 'Migration must preserve existing external Library records while importing settings-side layout.');
+assert.equal(partialLibraryIndex.folders[0].id, 'user-bundled-folder');
+assert.equal(partialLibraryIndex.deckPlacements[0].deckId, 'hp-core');
+assert.equal(partialLibraryIndex.activeStack[0].packId, 'hp-core');
+assert.equal(JSON.parse(stored.get(existingExternalPayloadPath)).entryOverrides.existing.content.fact, 'Existing external payload survives migration.');
+
 console.log('Saga storage migration tests passed.');
