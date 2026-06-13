@@ -5,6 +5,7 @@
 import { DEFAULT_SETTINGS, getDefaultState } from './constants.js';
 import { normalizeLoreEntry } from '../lorecards/lore-matrix.js';
 import { normalizeLoredeckLibraryIndex, normalizePackLibraryMetadata } from '../loredecks/loredeck-library-index.js';
+import { normalizeLoredeckEntryForSchemaV3 } from '../loredecks/schema-v3-health.js';
 import {
     DEFAULT_BUNDLED_LOREDECK_CONTEXTS,
     DEFAULT_BUNDLED_LOREDECK_LIBRARY_PACKS,
@@ -447,20 +448,71 @@ function isImportedZipLoredeckRecord(raw = {}, source = {}, derivedFrom = null) 
         || String(derivedFrom?.kind || raw?.derivedFrom?.kind || '').trim() === 'imported_loredeck_package';
 }
 
-export function normalizeLoredeckEntryOverrides(value) {
+function normalizeLoredeckOverrideTags(value = [], limit = 64) {
+    const input = Array.isArray(value)
+        ? value.flatMap(item => Array.isArray(item) ? item : [item])
+        : String(value || '').split(/[,;\n\r]+/);
+    const output = [];
+    const seen = new Set();
+    for (const raw of input) {
+        const tag = String(raw || '')
+            .trim()
+            .replace(/[\r\n]+/g, ' ')
+            .replace(/\s+/g, ' ')
+            .slice(0, 120)
+            .trim();
+        if (!tag) continue;
+        const key = tag.toLowerCase();
+        if (seen.has(key)) continue;
+        seen.add(key);
+        output.push(tag);
+        if (output.length >= limit) break;
+    }
+    return output;
+}
+
+function normalizeSchemaV3LoredeckEntryOverride(raw = {}, id = '') {
+    const title = String(raw.title || raw.name || id || 'Lorecard').trim() || 'Lorecard';
+    const category = String(raw.category || 'other').trim() || 'other';
+    const priority = Number(raw.priority);
+    const next = normalizeLoredeckEntryForSchemaV3({
+        ...raw,
+        id,
+        title,
+        schemaVersion: 3,
+        category,
+        canon: String(raw.canon || raw.canonStatus || 'au').trim() || 'au',
+        canonStatus: String(raw.canonStatus || raw.canon || 'au').trim() || 'au',
+        relevance: String(raw.relevance || 'normal').trim() || 'normal',
+        priority: Number.isFinite(priority) ? priority : 50,
+        tags: normalizeLoredeckOverrideTags(raw.tags),
+        userEditable: raw.userEditable !== false,
+        userEdited: true,
+    });
+    next.id = id;
+    next.title = title;
+    next.tags = normalizeLoredeckOverrideTags(next.tags);
+    return next;
+}
+
+export function normalizeLoredeckEntryOverrides(value, options = {}) {
     if (!value || typeof value !== 'object' || Array.isArray(value)) return {};
     const output = {};
+    const expectedSchemaVersion = Number(options.entrySchemaVersion) || 0;
     let count = 0;
     for (const [key, raw] of Object.entries(value)) {
         if (!raw || typeof raw !== 'object' || Array.isArray(raw)) continue;
         const id = String(raw.id || key || '').trim();
         if (!id) continue;
-        const entry = normalizeLoreEntry({
-            ...raw,
-            id,
-            userEditable: raw.userEditable !== false,
-            userEdited: true,
-        });
+        const schemaVersion = Math.max(Number(raw.schemaVersion) || 0, expectedSchemaVersion);
+        const entry = schemaVersion >= 3
+            ? normalizeSchemaV3LoredeckEntryOverride(raw, id)
+            : normalizeLoreEntry({
+                ...raw,
+                id,
+                userEditable: raw.userEditable !== false,
+                userEdited: true,
+            });
         entry.id = id;
         output[id] = entry;
         count += 1;
@@ -875,7 +927,9 @@ export function normalizeLoredeckRegistry(value, defaults = getDefaultState().lo
         if (manifestData) pack.manifestData = manifestData;
         const library = importedZip ? {} : normalizePackLibraryMetadata(raw.library || manifestData?.library || {});
         if (Object.keys(library).length) pack.library = library;
-        pack.entryOverrides = normalizeLoredeckEntryOverrides(raw.entryOverrides);
+        pack.entryOverrides = normalizeLoredeckEntryOverrides(raw.entryOverrides, {
+            entrySchemaVersion: pack.entrySchemaVersion || manifestData?.entrySchemaVersion || 0,
+        });
         pack.disabledEntryIds = normalizeLoredeckDisabledEntryIds(raw.disabledEntryIds);
         const tagRegistry = normalizeLoredeckTagRegistry(raw.tagRegistry);
         if (tagRegistry) pack.tagRegistry = tagRegistry;

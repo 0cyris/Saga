@@ -173,6 +173,9 @@ globalThis.document = new FakeDocument();
 globalThis.window = { innerWidth: 1280, innerHeight: 720, document: globalThis.document };
 
 let ackCalls = 0;
+let healthRunCalls = 0;
+let healthOpenCall = null;
+let safeRepairCalls = 0;
 let readinessView = null;
 
 configureLoredeckCreatorPanel({
@@ -181,8 +184,75 @@ configureLoredeckCreatorPanel({
     ackCalls += 1;
     return true;
   },
+  validateLoredeckForEditor: async () => {
+    healthRunCalls += 1;
+    return { health: { status: 'good' } };
+  },
+  openLoredeckHealthCenter: (packId, options) => {
+    healthOpenCall = { packId, options };
+  },
+  repairLoredeckSafeHealthIssues: async () => {
+    safeRepairCalls += 1;
+    return true;
+  },
+  refreshPanelBody: () => {},
+  refreshHeader: () => {},
   markTourTarget: element => element,
 });
+
+readinessView = {
+  readiness: {
+    ready: false,
+    blockers: ['Pack Health: 2 errors, 1 warning.'],
+    warnings: [],
+    healthScanned: true,
+    healthStatus: 'has_errors',
+    healthErrorCount: 2,
+    healthWarningCount: 1,
+    healthSuggestionCount: 0,
+    healthSummary: 'Pack Health: 2 errors, 1 warning',
+  },
+  pipeline: {
+    statusLabel: 'Creator complete',
+    titleBatchCount: 1,
+    titleBatchDraftedCount: 1,
+    eligiblePlanningBatchCount: 1,
+    acceptedPlanningBatchCount: 1,
+    approvedTitleCount: 4,
+    approvedTitleAcceptedCount: 4,
+    coverage: {
+      available: true,
+      statusLabel: 'Adequate',
+      finalizeAcknowledgementRequired: false,
+      finalizeAcknowledged: false,
+    },
+  },
+};
+
+const healthBlockedCard = createLoredeckCreatorPipelineReadinessCard({ packId: 'health-blocked-generated', type: 'generated' });
+assert.ok(healthBlockedCard.textContent.includes('Needs review'));
+assert.ok(healthBlockedCard.textContent.includes('Pack Health: 2 errors, 1 warning'));
+assert.ok(healthBlockedCard.textContent.includes('Run Pack Health'));
+assert.ok(healthBlockedCard.textContent.includes('Open Pack Health Center'));
+assert.ok(healthBlockedCard.textContent.includes('Repair Safe Issues'));
+
+const runHealth = healthBlockedCard.querySelectorAll('button')
+  .find(button => button.textContent === 'Run Pack Health');
+await runHealth.click();
+assert.equal(healthRunCalls, 1, 'Run Pack Health should invoke validation.');
+
+const openHealth = healthBlockedCard.querySelectorAll('button')
+  .find(button => button.textContent === 'Open Pack Health Center');
+await openHealth.click();
+assert.deepEqual(healthOpenCall, {
+  packId: 'health-blocked-generated',
+  options: { tab: 'issues' },
+});
+
+const repairSafe = healthBlockedCard.querySelectorAll('button')
+  .find(button => button.textContent === 'Repair Safe Issues');
+await repairSafe.click();
+assert.equal(safeRepairCalls, 1, 'Repair Safe Issues should invoke deterministic repair.');
 
 readinessView = {
   readiness: {

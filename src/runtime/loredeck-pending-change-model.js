@@ -23,6 +23,7 @@ function normalizeLoredeckTimelineDisabledIds(value = []) { return dep('normaliz
 function normalizeLoredeckTagDefinition(raw = {}, tagId = '') { return dep('normalizeLoredeckTagDefinition', input => input || {})(raw, tagId); }
 function normalizeLoredeckTimelineAnchor(raw = {}, fallbackId = '', index = 0) { return dep('normalizeLoredeckTimelineAnchor', input => input || null)(raw, fallbackId, index); }
 function normalizeLoredeckTimelineWindow(raw = {}, fallbackId = '', index = 0) { return dep('normalizeLoredeckTimelineWindow', input => input || null)(raw, fallbackId, index); }
+function normalizeLoredeckPatchEntryOverride(record = {}, rawEntry = {}, id = '') { return dep('normalizeLoredeckPatchEntryOverride', (_record, entry) => entry)(record, rawEntry, id); }
 
 export function normalizeLoredeckPendingIdList(value = [], limit = 500) {
     if (!Array.isArray(value)) return [];
@@ -169,6 +170,9 @@ function updateLoredeckDisabledTimelineIds(current = [], add = [], remove = []) 
 
 export function applyLoredeckRecordPatch(record, payload = {}) {
     const patch = payload && typeof payload === 'object' && !Array.isArray(payload) ? payload : {};
+    if (!record.entryOverrides || typeof record.entryOverrides !== 'object' || Array.isArray(record.entryOverrides)) {
+        record.entryOverrides = {};
+    }
     const entryOverrides = patch.entryOverrides && typeof patch.entryOverrides === 'object' && !Array.isArray(patch.entryOverrides)
         ? patch.entryOverrides
         : {};
@@ -179,7 +183,7 @@ export function applyLoredeckRecordPatch(record, payload = {}) {
             delete record.entryOverrides[id];
             continue;
         }
-        record.entryOverrides[id] = rawEntry;
+        record.entryOverrides[id] = normalizeLoredeckPatchEntryOverride(record, rawEntry, id);
     }
 
     const disabledSet = new Set(Array.isArray(record.disabledEntryIds) ? record.disabledEntryIds : []);

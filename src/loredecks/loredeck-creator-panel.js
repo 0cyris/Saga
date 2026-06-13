@@ -92,6 +92,11 @@ function confirmAction(title, message, options) { return dep('confirmAction', as
 function createLoredeckCreatorDraftReviewSection(pack) { return dep('createLoredeckCreatorDraftReviewSection', () => null)(pack); }
 function createLoredeckPendingReviewCard(pack) { return dep('createLoredeckPendingReviewCard', () => null)(pack); }
 function getLoredeckCreatorPipelineReadinessView(pack, cached) { return dep('getLoredeckCreatorPipelineReadinessView', () => null)(pack, cached); }
+function validateLoredeckForEditor(pack, button, options) { return dep('validateLoredeckForEditor', async () => ({ health: null }))(pack, button, options); }
+function openLoredeckHealthCenter(packId, options) { return dep('openLoredeckHealthCenter', () => null)(packId, options); }
+function repairLoredeckSafeHealthIssues(pack, button) { return dep('repairLoredeckSafeHealthIssues', async () => null)(pack, button); }
+function refreshRuntimePanelBody(options) { return dep('refreshPanelBody', () => null)(options); }
+function refreshRuntimeHeader() { return dep('refreshHeader', () => null)(); }
 function markTourTarget(element, target) { return dep('markTourTarget', value => value)(element, target); }
 
 export function openLoredeckCreatorWorkbench(options = {}) {
@@ -1598,6 +1603,47 @@ function appendLoredeckCreatorReadinessItems(container, blockers = [], warnings 
     container.appendChild(list);
 }
 
+function getLoredeckCreatorReadinessHealthTone(readiness = {}) {
+    if (!readiness.healthScanned) return 'warning';
+    if (Number(readiness.healthErrorCount) > 0) return 'danger';
+    if (Number(readiness.healthWarningCount) > 0) return 'warning';
+    return 'success';
+}
+
+function getLoredeckCreatorReadinessHealthSummary(readiness = {}) {
+    if (readiness.healthSummary) return readiness.healthSummary;
+    if (!readiness.healthScanned) return 'Pack Health: Not scanned';
+    const errors = Number(readiness.healthErrorCount) || 0;
+    const warnings = Number(readiness.healthWarningCount) || 0;
+    return `Pack Health: ${errors} error${errors === 1 ? '' : 's'}, ${warnings} warning${warnings === 1 ? '' : 's'}`;
+}
+
+function createLoredeckCreatorReadinessHealthActions(pack = {}, readiness = {}) {
+    if (!pack?.packId) return null;
+    const actions = document.createElement('div');
+    actions.className = 'saga-primary-actions';
+    const runButton = createButton('Run Pack Health', 'Refresh Pack Health for this Generated Loredeck.', async (btn) => {
+        await validateLoredeckForEditor(pack, btn);
+        refreshRuntimePanelBody({ preserveScroll: true, preserveWindowScroll: true });
+        queueLoredeckCreatorWorkbenchRefresh();
+        refreshRuntimeHeader();
+    }, 'saga-primary-button');
+    actions.appendChild(runButton);
+    actions.appendChild(createButton('Open Pack Health Center', 'Open Pack Health issues for this Generated Loredeck.', () => {
+        openLoredeckHealthCenter(pack.packId, { tab: Number(readiness.healthErrorCount) > 0 ? 'issues' : 'overview' });
+    }));
+    const issueCount = (Number(readiness.healthErrorCount) || 0) + (Number(readiness.healthWarningCount) || 0);
+    if (issueCount > 0 && pack.type !== 'bundled') {
+        actions.appendChild(createButton('Repair Safe Issues', 'Apply deterministic safe repairs available for this Generated Loredeck.', async (btn) => {
+            await repairLoredeckSafeHealthIssues(pack, btn);
+            refreshRuntimePanelBody({ preserveScroll: true, preserveWindowScroll: true });
+            queueLoredeckCreatorWorkbenchRefresh();
+            refreshRuntimeHeader();
+        }));
+    }
+    return actions;
+}
+
 export function createLoredeckCreatorPipelineReadinessCard(pack = {}, cached = null) {
     const view = getLoredeckCreatorPipelineReadinessView(pack, cached);
     if (!view) return null;
@@ -1620,6 +1666,7 @@ export function createLoredeckCreatorPipelineReadinessCard(pack = {}, cached = n
     summary.appendChild(createStatusPill(`${pipeline.titleBatchDraftedCount || 0}/${pipeline.titleBatchCount || 0} title sets`, 'Title sets drafted from the approved Story Outline.', { kind: 'count' }));
     summary.appendChild(createStatusPill(`${pipeline.acceptedPlanningBatchCount || 0}/${pipeline.eligiblePlanningBatchCount || 0} Context sets accepted`, 'Context and Tag sets accepted from Pending Review into the Generated Loredeck.', { tone: 'source', kind: 'count' }));
     summary.appendChild(createStatusPill(`${pipeline.approvedTitleAcceptedCount || 0}/${pipeline.approvedTitleCount || 0} titles accepted`, 'Approved title plan covered by accepted generated Lorecards.', { tone: 'success', kind: 'count' }));
+    summary.appendChild(createStatusPill(getLoredeckCreatorReadinessHealthSummary(readiness), 'Latest Pack Health status for this Generated Loredeck.', { tone: getLoredeckCreatorReadinessHealthTone(readiness), kind: Number(readiness.healthErrorCount) > 0 ? 'severity' : 'status' }));
     if (pipeline.coverage?.available) {
         summary.appendChild(createStatusPill(`Coverage: ${pipeline.coverage.statusLabel || 'Review'}`, 'Adaptive coverage status from the Creator plan. This is advisory and does not enforce a fixed Lorecard count.', { tone: pipeline.coverage.ready ? 'success' : 'warning', kind: 'severity' }));
         if (pipeline.coverage.finalizeAcknowledged) {
@@ -1637,6 +1684,8 @@ export function createLoredeckCreatorPipelineReadinessCard(pack = {}, cached = n
     wrap.appendChild(help);
 
     appendLoredeckCreatorReadinessItems(wrap, readiness.blockers, readiness.warnings);
+    const healthActions = createLoredeckCreatorReadinessHealthActions(pack, readiness);
+    if (healthActions) wrap.appendChild(healthActions);
     if (pipeline.coverage?.finalizeAcknowledgementRequired) {
         const actions = document.createElement('div');
         actions.className = 'saga-primary-actions';
@@ -1663,9 +1712,13 @@ function getLoredeckCreatorCurrentTaskTitle(cached = {}, pipeline = {}) {
     if (step.id === 'outline') return pipeline.outline && !cached.outlineApproved ? 'Review the Story Outline' : 'Draft the Story Outline';
     if (step.id === 'titles') return pipeline.approvedTitles?.length ? 'Approve More Titles or Continue' : 'Generate the Title Pass';
     if (step.id === 'context') return pipeline.plannedSetCount > pipeline.acceptedPlanningSetCount ? 'Review Context and Tag Proposals' : 'Plan Context and Tags';
-    if (step.id === 'lorecards') return pipeline.draftChanges?.length ? 'Review Lorecard Drafts' : 'Draft Lorecards';
+    if (step.id === 'lorecards') {
+        const remainingEntryCount = Math.max(0, Number(pipeline.remainingEntryCount) || 0);
+        if (remainingEntryCount > 0) return pipeline.draftChanges?.length ? 'Draft More Lorecards' : 'Draft Lorecards';
+        return pipeline.draftChanges?.length ? 'Review Lorecard Drafts' : 'Draft Lorecards';
+    }
     if (step.id === 'review') return 'Clear the Review Queue';
-    if (step.id === 'health') return 'Run Deck Health';
+    if (step.id === 'health') return 'Run Pack Health';
     if (step.id === 'finalize') return pipeline.readiness?.coverageAcknowledgementRequired ? 'Acknowledge Creator Coverage' : 'Finalize as Custom Loredeck';
     return 'Continue the Creator Pipeline';
 }

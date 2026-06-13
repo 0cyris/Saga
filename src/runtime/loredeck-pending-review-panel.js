@@ -36,6 +36,7 @@ function getLoredeckPendingRisk(change = {}) { return dep('getLoredeckPendingRis
 function createLoredeckPendingRiskPill(risk = '') { return dep('createLoredeckPendingRiskPill', () => null)(risk); }
 function appendLoredeckPendingQualityPills(meta, change = {}) { return dep('appendLoredeckPendingQualityPills')(meta, change); }
 function createLoredeckPendingDiffList(pack = {}, change = {}) { return dep('createLoredeckPendingDiffList', () => null)(pack, change); }
+function createLoredeckPendingRepairCandidateList(change = {}) { return dep('createLoredeckPendingRepairCandidateList', () => null)(change); }
 function createLoredeckPendingQualityList(change = {}) { return dep('createLoredeckPendingQualityList', () => null)(change); }
 function createStateBackup(reason = '', options = {}) { return dep('createStateBackup')(reason, options); }
 function confirmAction(title = '', message = '') { return dep('confirmAction', async () => false)(title, message); }
@@ -44,6 +45,28 @@ function acceptLoredeckPendingChanges(pack, changeIds = []) { return dep('accept
 function rejectLoredeckPendingChanges(pack, changeIds = []) { return dep('rejectLoredeckPendingChanges', () => false)(pack, changeIds); }
 function validateLoredeckForEditor(pack, button = null) { return dep('validateLoredeckForEditor', async () => null)(pack, button); }
 function canValidateLoredeckInEditor(pack = {}) { return dep('canValidateLoredeckInEditor', () => false)(pack); }
+function openLoredeckHealthCenter(packId = '', options = {}) { return dep('openLoredeckHealthCenter', () => null)(packId, options); }
+
+function getLoredeckPendingReviewHealthState(pack = {}) {
+    const status = String(pack?.healthStatus || '').trim().toLowerCase();
+    if (status === 'has_errors' || status === 'error') {
+        return {
+            label: 'Pack Health: Errors',
+            tone: 'danger',
+            tab: 'issues',
+            help: 'Latest Pack Health has errors. Open the Health Center for grouped findings and repair routes.',
+        };
+    }
+    if (status === 'needs_review' || status === 'warning') {
+        return {
+            label: 'Pack Health: Review',
+            tone: 'warning',
+            tab: 'issues',
+            help: 'Latest Pack Health has warnings. Open the Health Center for grouped findings and repair routes.',
+        };
+    }
+    return null;
+}
 
 export function createLoredeckPendingReviewCard(pack = {}) {
     const pending = getLoredeckPendingChanges(pack);
@@ -62,10 +85,12 @@ export function createLoredeckPendingReviewCard(pack = {}) {
     const affectedTags = new Set(pending.flatMap(change => change.affectedTagIds || []));
     const affectedTimeline = new Set(pending.flatMap(change => change.affectedTimelineIds || []));
     const healthImpactCount = pending.filter(change => doesLoredeckPendingChangeAffectPackHealth(change)).length;
+    const healthState = getLoredeckPendingReviewHealthState(pack);
     if (affectedEntries.size) summary.appendChild(createStatusPill(`${affectedEntries.size} Lorecard${affectedEntries.size === 1 ? '' : 's'}`, 'Lorecards affected by pending proposals.', { kind: 'count' }));
     if (affectedTags.size) summary.appendChild(createStatusPill(`${affectedTags.size} tag${affectedTags.size === 1 ? '' : 's'}`, 'Tags affected by pending proposals.', { tone: 'tag', kind: 'tag' }));
     if (affectedTimeline.size) summary.appendChild(createStatusPill(`${affectedTimeline.size} timeline`, 'Timeline anchors/windows affected by pending proposals.', { tone: 'source', kind: 'count' }));
-    if (healthImpactCount) summary.appendChild(createStatusPill(`${healthImpactCount} health impact`, 'Pending proposals that will mark Deck Health stale when accepted because they change entries, tags, or timeline data.', { tone: 'warning', kind: 'severity' }));
+    if (healthImpactCount) summary.appendChild(createStatusPill(`${healthImpactCount} health impact`, 'Pending proposals that will mark Pack Health stale when accepted because they change entries, tags, or timeline data.', { tone: 'warning', kind: 'severity' }));
+    if (healthState) summary.appendChild(createStatusPill(healthState.label, 'Latest Pack Health status for this Loredeck.', { tone: healthState.tone, kind: 'severity' }));
     if (isLoredeckHealthStatusStale(pack)) {
         const stale = createLoredeckPendingHealthStalePill();
         if (stale) summary.appendChild(stale);
@@ -74,13 +99,14 @@ export function createLoredeckPendingReviewCard(pack = {}) {
 
     const help = document.createElement('div');
     help.className = 'saga-runtime-help';
-    help.textContent = isLoredeckHealthStatusStale(pack)
-        ? 'Accepted changes have made the saved Deck Health status stale. Rerun validation before sharing or treating this Loredeck as clean.'
-        : 'Pending changes do not affect runtime injection until accepted. This is the review path for manual edits, bulk edits, and Lore Assistant patches.';
+    help.textContent = healthState?.help
+        || (isLoredeckHealthStatusStale(pack)
+        ? 'Accepted changes have made the saved Pack Health status stale. Rerun validation before sharing or treating this Loredeck as clean.'
+        : 'Pending changes do not affect runtime injection until accepted. This is the review path for manual edits, bulk edits, and Lore Assistant patches.');
     wrap.appendChild(help);
 
     const actions = createLoredeckActionRow();
-    const acceptAll = createButton('Accept All', 'Apply every pending Loredeck change to this Custom Loredeck, then refresh Deck Health if accepted changes affect validation.', async (btn) => {
+    const acceptAll = createButton('Accept All', 'Apply every pending Loredeck change to this Custom Loredeck, then refresh Pack Health if accepted changes affect validation.', async (btn) => {
         const proceed = await confirmAction(
             'Accept all pending Loredeck changes?',
             `Apply all ${pending.length} pending Loredeck change${pending.length === 1 ? '' : 's'} to this Custom Loredeck?`
@@ -108,11 +134,16 @@ export function createLoredeckPendingReviewCard(pack = {}) {
     }, 'saga-danger-button');
     rejectAll.disabled = !pending.length;
     actions.appendChild(rejectAll);
-    const validateButton = createButton('Validate Deck', 'Run Deck Health on the currently accepted Loredeck data. Pending proposals are not included until accepted.', async (btn) => {
+    const validateButton = createButton('Run Pack Health', 'Run Pack Health on the currently accepted Loredeck data. Pending proposals are not included until accepted.', async (btn) => {
         await validateLoredeckForEditor(pack, btn);
     });
     validateButton.disabled = !canValidateLoredeckInEditor(pack);
     actions.appendChild(validateButton);
+    if (healthState && pack.packId) {
+        actions.appendChild(createButton('Open Pack Health Center', 'Open grouped Pack Health findings and repair routes for this Loredeck.', () => {
+            openLoredeckHealthCenter(pack.packId, { tab: healthState.tab });
+        }));
+    }
     wrap.appendChild(actions);
 
     if (!pending.length) {
@@ -176,13 +207,15 @@ export function createLoredeckPendingChangeRow(pack = {}, change = {}) {
     main.appendChild(meta);
     const diffs = createLoredeckPendingDiffList(pack, change);
     if (diffs) main.appendChild(diffs);
+    const repairCandidates = createLoredeckPendingRepairCandidateList(change);
+    if (repairCandidates) main.appendChild(repairCandidates);
     const quality = createLoredeckPendingQualityList(change);
     if (quality) main.appendChild(quality);
     row.appendChild(main);
 
     const actions = document.createElement('div');
     actions.className = 'saga-loredeck-row-actions';
-    actions.appendChild(createButton('Accept', 'Apply this pending Loredeck change, then refresh Deck Health if it affects validation.', async (btn) => {
+    actions.appendChild(createButton('Accept', 'Apply this pending Loredeck change, then refresh Pack Health if it affects validation.', async (btn) => {
         await runBusyAction(btn, 'Accepting...', async () => {
             await acceptLoredeckPendingChanges(pack, [change.changeId]);
         });

@@ -289,6 +289,16 @@ export function getLoredeckCreatorProjectNextAction(job = {}, context = {}) {
       tooltip: 'Open the Creator project and resolve the blocking issue before continuing.',
     };
   }
+  if (counts.draftChangeCount && counts.entryRemainingCount > 0) {
+    return {
+      label: 'Draft More Lorecards',
+      action: 'draft_lorecards',
+      targetStage: 'entries_drafted',
+      tone: 'neutral',
+      disabled: false,
+      tooltip: 'Continue drafting remaining Lorecards; existing draft-review items can stay in review.',
+    };
+  }
   if (counts.draftChangeCount) {
     return {
       label: 'Review Draft Lorecards',
@@ -296,7 +306,7 @@ export function getLoredeckCreatorProjectNextAction(job = {}, context = {}) {
       targetStage: 'entries_drafted',
       tone: 'review',
       disabled: false,
-      tooltip: 'Review the drafted Lorecards before generating more.',
+      tooltip: 'Review the drafted Lorecards before final health and finalization.',
     };
   }
   if (counts.pendingChangeCount) {

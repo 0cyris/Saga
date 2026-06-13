@@ -7,6 +7,7 @@
  */
 
 import { repairLoredeckEntryForHealth } from '../loredecks/loredeck-loader.js';
+import { repairSchemaV3EntryForPack } from '../loredecks/loredeck-schema-v3-entry-repair.js';
 import { setLoredeckActionButtonBusy } from '../loredecks/loredeck-action-rows.js';
 import {
     buildEmbeddedCustomManifest,
@@ -35,6 +36,9 @@ import {
 import {
     getGeneratedLoredeckExportReadiness,
 } from './loredeck-generated-readiness.js';
+import {
+    createLoredeckRecordPatchChange,
+} from './loredeck-pending-change-model.js';
 
 let editorActionDeps = {};
 
@@ -76,6 +80,93 @@ function deleteLoredeckEntryPreviewCacheRecord(packId) { return dep('deleteLored
 function deleteLoredeckTimelineRegistryCacheRecord(packId) { return dep('deleteLoredeckTimelineRegistryCacheRecord')(packId); }
 function deleteLoredeckTagRegistryCacheRecord(packId) { return dep('deleteLoredeckTagRegistryCacheRecord')(packId); }
 
+function getSafeRepairHealthCount(health = null, key = '') {
+    return Number(health?.summary?.[key]) || 0;
+}
+
+function formatSafeRepairHealthDelta(beforeHealth = null, afterHealth = null) {
+    if (!beforeHealth || !afterHealth) return 'stats refreshed';
+    const beforeErrors = getSafeRepairHealthCount(beforeHealth, 'errorCount');
+    const afterErrors = getSafeRepairHealthCount(afterHealth, 'errorCount');
+    const beforeWarnings = getSafeRepairHealthCount(beforeHealth, 'warningCount');
+    const afterWarnings = getSafeRepairHealthCount(afterHealth, 'warningCount');
+    return `Pack Health ${beforeErrors}->${afterErrors} error${afterErrors === 1 ? '' : 's'}, ${beforeWarnings}->${afterWarnings} warning${afterWarnings === 1 ? '' : 's'}`;
+}
+
+function getSchemaV3RepairCandidateKey(entryId = '', candidate = {}) {
+    const to = candidate.to || (Array.isArray(candidate.candidates) ? candidate.candidates.join(',') : '');
+    return [
+        String(entryId || '').trim(),
+        String(candidate.kind || '').trim(),
+        String(candidate.field || '').trim(),
+        String(candidate.from || '').trim(),
+        String(to || '').trim(),
+    ].join('|');
+}
+
+function getExistingSchemaV3RepairCandidateKeys(pack = {}) {
+    const keys = new Set();
+    for (const change of getLoredeckPendingChanges(pack)) {
+        if (change.source !== 'safe_repair' || change.action !== 'review_schema_v3_context_anchor') continue;
+        const entryId = String(change.affectedEntryIds?.[0] || '').trim();
+        const candidates = Array.isArray(change.preview?.schemaV3RepairCandidates)
+            ? change.preview.schemaV3RepairCandidates
+            : [];
+        for (const candidate of candidates) keys.add(getSchemaV3RepairCandidateKey(entryId, candidate));
+    }
+    return keys;
+}
+
+function buildSchemaV3ContextAnchorRepairChange(entry = {}, candidates = [], existingKeys = new Set()) {
+    const entryId = String(entry?.id || '').trim();
+    if (!entryId) return null;
+    const concreteCandidates = [];
+    const nextContext = {
+        ...(entry.context && typeof entry.context === 'object' && !Array.isArray(entry.context) ? entry.context : {}),
+    };
+    for (const candidate of Array.isArray(candidates) ? candidates : []) {
+        if (candidate?.kind !== 'context_anchor' || !candidate.field || !candidate.to) continue;
+        const key = getSchemaV3RepairCandidateKey(entryId, candidate);
+        if (existingKeys.has(key)) continue;
+        existingKeys.add(key);
+        concreteCandidates.push(candidate);
+        nextContext[candidate.field] = candidate.to;
+    }
+    if (!concreteCandidates.length) return null;
+    const nextEntry = cloneLoredeckJson({
+        ...entry,
+        context: nextContext,
+        userEdited: true,
+    }) || {
+        ...entry,
+        context: nextContext,
+        userEdited: true,
+    };
+    const before = concreteCandidates.map(candidate => `${candidate.field}: ${candidate.from}`).join(', ');
+    const after = concreteCandidates.map(candidate => `${candidate.field}: ${candidate.to}`).join(', ');
+    return createLoredeckRecordPatchChange({
+        source: 'safe_repair',
+        action: 'review_schema_v3_context_anchor',
+        targetKind: 'entry',
+        title: `Review Context anchor repair: ${entry.title || entryId}`,
+        description: `Proposes Context anchor replacements inferred from exact sort-key matches. Review before accepting because anchor semantics can be story-sensitive.`,
+        affectedEntryIds: [entryId],
+        affectedTimelineIds: concreteCandidates.flatMap(candidate => [candidate.from, candidate.to]),
+        payload: {
+            entryOverrides: {
+                [entryId]: nextEntry,
+            },
+            disabledEntryIdsRemove: [entryId],
+        },
+        preview: {
+            before,
+            after,
+            schemaV3RepairCandidates: concreteCandidates,
+            healthIssueCode: 'broken_anchor_reference',
+        },
+    });
+}
+
 export async function repairLoredeckSafeHealthIssues(pack, button = null) {
     const restoreBusy = setLoredeckActionButtonBusy(button, 'Repairing...', { fallbackLabel: 'Repair Safe Issues' });
     try {
@@ -105,14 +196,33 @@ export async function repairLoredeckSafeHealthIssues(pack, button = null) {
         };
 
         let overrideRepairCount = 0;
+        let unresolvedRepairCount = 0;
+        let ambiguousRepairCandidateCount = 0;
+        const pendingRepairChanges = [];
+        const existingRepairCandidateKeys = getExistingSchemaV3RepairCandidateKeys(next);
         if (entrySchemaVersion >= 3) {
             for (const [id, raw] of Object.entries(next.entryOverrides || {})) {
-                const repaired = repairLoredeckEntryForHealth(raw, { forceSchemaVersion: 3 });
+                const base = repairLoredeckEntryForHealth(raw, { forceSchemaVersion: 3 });
+                const repair = repairSchemaV3EntryForPack(next, base, id, {
+                    rejectUnknownAnchors: false,
+                    rejectUnknownTags: false,
+                });
+                const repaired = repair.entry;
                 if (JSON.stringify(repaired) !== JSON.stringify(raw)) {
                     next.entryOverrides[id] = repaired;
                     overrideRepairCount += 1;
                 }
+                if (repair.unresolved.length || repair.errors.length) unresolvedRepairCount += 1;
+                ambiguousRepairCandidateCount += repair.reviewCandidates.filter(candidate => !candidate.to).length;
+                const pendingRepair = buildSchemaV3ContextAnchorRepairChange(repaired, repair.reviewCandidates, existingRepairCandidateKeys);
+                if (pendingRepair) pendingRepairChanges.push(pendingRepair);
             }
+        }
+        if (pendingRepairChanges.length) {
+            next.pendingChanges = [
+                ...getLoredeckPendingChanges(next),
+                ...pendingRepairChanges,
+            ];
         }
         if (isGeneratedLoredeckPack(next)) {
             refreshGeneratedLoredeckDerivedMetadata(next);
@@ -124,9 +234,9 @@ export async function repairLoredeckSafeHealthIssues(pack, button = null) {
         clearCanonLoreDatabaseCache();
         clearContextIndexCache();
         deleteLoredeckEntryPreviewCacheRecord(next.packId);
-        await validateLoredeckForEditor(next, null, { quiet: true, updateLibrary: true });
+        const afterValidation = await validateLoredeckForEditor(next, null, { quiet: true, updateLibrary: true });
         refreshLoredeckSurfaces();
-        toast(`Safe repairs applied: stats refreshed${overrideRepairCount ? `, ${overrideRepairCount} override${overrideRepairCount === 1 ? '' : 's'} repaired` : ''}.`, 'success');
+        toast(`Safe repairs applied: ${formatSafeRepairHealthDelta(validation.health, afterValidation?.health)}${overrideRepairCount ? `, ${overrideRepairCount} override${overrideRepairCount === 1 ? '' : 's'} repaired` : ''}${pendingRepairChanges.length ? `, ${pendingRepairChanges.length} review repair${pendingRepairChanges.length === 1 ? '' : 's'} queued` : ''}${ambiguousRepairCandidateCount ? `, ${ambiguousRepairCandidateCount} ambiguous candidate${ambiguousRepairCandidateCount === 1 ? '' : 's'} left for Pack Health review` : ''}${unresolvedRepairCount ? `, ${unresolvedRepairCount} override${unresolvedRepairCount === 1 ? '' : 's'} still need review` : ''}.`, 'success');
         return true;
     } catch (e) {
         toast(e?.message || 'Safe repair failed.', 'error');

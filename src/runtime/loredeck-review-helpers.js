@@ -55,6 +55,7 @@ export function formatLoredeckPendingActionLabel(action = '') {
         restore_entry: 'Restore Entry',
         bulk_context_update: 'Bulk Context Update',
         normalize_malformed_tag_ids: 'Normalize Tag IDs',
+        review_schema_v3_context_anchor: 'Review Context Anchor Repair',
         upsert_tag_definition: 'Upsert Tag',
         rename_tag: 'Rename Tag',
         merge_tag: 'Merge Tag',
@@ -102,7 +103,7 @@ export function getLoredeckPendingSourceTooltip(source = '') {
     if (key === 'lore_assistant') return 'Created by Saga Lore Assistant. Treat as a proposal until reviewed and accepted.';
     if (key === 'loredeck_creator') return 'Created by Saga Loredeck Creator. Treat as a generated planning proposal until reviewed and accepted.';
     if (key === 'bulk_edit') return 'Created by a bulk-edit tool. Review the field diffs before acceptance.';
-    if (key === 'safe_repair') return 'Created by an automated Deck Health repair path.';
+    if (key === 'safe_repair') return 'Created by an automated Pack Health repair path.';
     return 'Proposal source.';
 }
 
@@ -223,12 +224,67 @@ export function createLoredeckPendingQualityList(change = {}) {
     return wrap;
 }
 
+function getLoredeckPendingSchemaV3RepairCandidates(change = {}) {
+    const preview = getLoredeckPendingPreviewMetadata(change);
+    return Array.isArray(preview.schemaV3RepairCandidates)
+        ? preview.schemaV3RepairCandidates
+            .filter(candidate => candidate && typeof candidate === 'object' && !Array.isArray(candidate))
+            .slice(0, 12)
+        : [];
+}
+
+function formatSchemaV3RepairReason(candidate = {}) {
+    const reason = String(candidate.reason || '').trim();
+    if (reason === 'sort_key_match') return `sort key ${candidate.sortKey}`;
+    if (reason === 'ambiguous_compact_match') return 'ambiguous compact match';
+    return reason ? humanizeScopeKey(reason) : 'repair candidate';
+}
+
+function formatSchemaV3RepairCandidate(candidate = {}) {
+    const kind = String(candidate.kind || '').trim();
+    if (kind === 'context_anchor') {
+        const field = String(candidate.field || 'context anchor').trim();
+        const from = String(candidate.from || '').trim() || '(empty)';
+        const to = String(candidate.to || '').trim();
+        const candidates = Array.isArray(candidate.candidates)
+            ? candidate.candidates.map(item => String(item || '').trim()).filter(Boolean)
+            : [];
+        const reason = formatSchemaV3RepairReason(candidate);
+        if (to) return `Context anchor repair: ${field} ${from} => ${to} (${reason}).`;
+        if (candidates.length) return `Context anchor needs review: ${field} ${from}; candidates: ${candidates.join(', ')} (${reason}).`;
+        return `Context anchor needs review: ${field} ${from} (${reason}).`;
+    }
+    if (kind === 'tag') {
+        const from = String(candidate.from || '').trim() || '(empty)';
+        const candidates = Array.isArray(candidate.candidates)
+            ? candidate.candidates.map(item => String(item || '').trim()).filter(Boolean)
+            : [];
+        if (candidates.length) return `Tag needs review: ${from}; candidates: ${candidates.join(', ')}.`;
+        return `Tag needs review: ${from}.`;
+    }
+    return `Repair candidate: ${JSON.stringify(candidate)}`;
+}
+
+export function createLoredeckPendingRepairCandidateList(change = {}) {
+    const candidates = getLoredeckPendingSchemaV3RepairCandidates(change);
+    if (!candidates.length) return null;
+    const wrap = document.createElement('div');
+    wrap.className = 'saga-loredeck-pending-repair-candidate-list';
+    for (const candidate of candidates) {
+        const item = document.createElement('div');
+        item.className = 'saga-runtime-help';
+        item.textContent = formatSchemaV3RepairCandidate(candidate);
+        wrap.appendChild(item);
+    }
+    return wrap;
+}
+
 export function createLoredeckPendingHealthImpactPill() {
-    return createStatusPill('Health impact', 'Accepting this proposal changes entries, tags, or timeline data and will mark Deck Health stale until validation reruns.', { tone: 'warning', kind: 'severity' });
+    return createStatusPill('Health impact', 'Accepting this proposal changes entries, tags, or timeline data and will mark Pack Health stale until validation reruns.', { tone: 'warning', kind: 'severity' });
 }
 
 export function createLoredeckPendingHealthStalePill() {
-    return createStatusPill('Health stale', 'Deck Health was computed before the latest accepted Loredeck edits. Rerun validation.', { tone: 'warning', kind: 'severity' });
+    return createStatusPill('Health stale', 'Pack Health was computed before the latest accepted Loredeck edits. Rerun validation.', { tone: 'warning', kind: 'severity' });
 }
 
 export function isLoredeckHealthStatusStale(pack = {}) {

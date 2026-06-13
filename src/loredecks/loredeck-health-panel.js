@@ -90,10 +90,11 @@ function hashLoredeckHealthRepairIssueId(value = '') {
     return (hash >>> 0).toString(36);
 }
 
-export function openLoredeckHealthCenter(packId = '') {
+export function openLoredeckHealthCenter(packId = '', options = {}) {
     loredeckHealthCenterOpen = true;
     loredeckHealthCenterPackId = String(packId || '').trim();
-    loredeckHealthCenterTab = 'overview';
+    const tab = String(options?.tab || '').trim();
+    loredeckHealthCenterTab = ['overview', 'issues', 'coverage', 'files', 'advanced'].includes(tab) ? tab : 'overview';
     renderLoredeckHealthCenterOverlay();
 }
 

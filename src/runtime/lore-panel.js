@@ -163,6 +163,7 @@ import {
     createLoredeckPendingHealthImpactPill,
     createLoredeckPendingHealthStalePill,
     createLoredeckPendingQualityList,
+    createLoredeckPendingRepairCandidateList,
     createLoredeckPendingRiskPill,
     doesLoredeckPendingChangeAffectPackHealth,
     formatLoredeckPendingActionLabel,
@@ -292,6 +293,13 @@ import {
 } from '../providers/lore-response-normalizer.js';
 import { proposeCanonLoreForContext, previewCanonLoreForContext, addCanonLorePreviewEntriesToPending, loadCanonLoreDatabase, getCanonLoreDatabaseSync, clearCanonLoreDatabaseCache } from '../context/canon-lore-db.js';
 import { mergeLoredeckTimelineRegistries, normalizeLoredeckEntryForSchemaV3 } from '../loredecks/loredeck-loader.js';
+import {
+    guardLoredeckCreatorEntryDraftChange,
+    normalizeCreatorSchemaV3EntryOverride,
+} from '../loredecks/loredeck-creator-entry-guard.js';
+import {
+    getLoredeckCreatorLorecardsStageState,
+} from '../loredecks/loredeck-creator-pipeline-status.js';
 import {
     buildLoredeckAssistantSystemPrompt,
     buildLoredeckAssistantUserPrompt,
@@ -789,6 +797,15 @@ configureLoredeckPendingChangeModel({
     normalizeLoredeckTagDefinition,
     normalizeLoredeckTimelineAnchor,
     normalizeLoredeckTimelineWindow,
+    normalizeLoredeckPatchEntryOverride: (record, rawEntry, id) => {
+        const schemaVersion = Math.max(
+            Number(rawEntry?.schemaVersion) || 0,
+            getExpectedLoredeckEntrySchemaVersion(record)
+        );
+        return schemaVersion >= 3
+            ? normalizeCreatorSchemaV3EntryOverride(record, rawEntry, id)
+            : rawEntry;
+    },
 });
 
 configureLoredeckReviewHelpers({
@@ -860,6 +877,7 @@ configureLoredeckPendingReviewPanel({
     createLoredeckPendingRiskPill,
     appendLoredeckPendingQualityPills,
     createLoredeckPendingDiffList,
+    createLoredeckPendingRepairCandidateList,
     createLoredeckPendingQualityList,
     createStateBackup,
     confirmAction,
@@ -868,6 +886,7 @@ configureLoredeckPendingReviewPanel({
     rejectLoredeckPendingChanges,
     validateLoredeckForEditor,
     canValidateLoredeckInEditor,
+    openLoredeckHealthCenter,
 });
 
 configureLoredeckAssistantReviewPanel({
@@ -1087,10 +1106,15 @@ configureLoredeckCreatorPanel({
     handleLoredeckCreatorEntryDraft,
     confirmAction,
     createLoredeckPendingReviewCard,
+    validateLoredeckForEditor,
+    openLoredeckHealthCenter,
+    repairLoredeckSafeHealthIssues,
+    refreshPanelBody,
+    refreshHeader,
     getLoredeckCreatorPipelineReadinessView: (pack, cached = null) => {
         if (!isGeneratedLoredeckPack(pack)) return null;
         const linkedJob = cached || getLoredeckCreatorJobForPack(pack);
-        const cachedHealth = loredeckManifestPreviewCache.get(pack.packId)?.health || null;
+        const cachedHealth = getCachedLoredeckCreatorPackHealth(pack);
         const readiness = getGeneratedLoredeckExportReadiness(pack, cachedHealth, linkedJob);
         const pipeline = readiness.pipeline || getLoredeckCreatorPipelineReadiness(pack, linkedJob);
         return { readiness, pipeline };
@@ -3096,6 +3120,11 @@ async function handleLoredeckCreatorResetToStep(targetStepId = '') {
     return true;
 }
 
+function getCachedLoredeckCreatorPackHealth(pack = {}) {
+    const packId = String(pack?.packId || '').trim();
+    return packId ? (loredeckManifestPreviewCache.get(packId)?.health || null) : null;
+}
+
 function getLoredeckCreatorPipelineModel(cached = {}) {
     const outline = getLoredeckCreatorOutline(cached);
     const titleSets = getLoredeckCreatorTitleBatchRows(cached);
@@ -3113,7 +3142,8 @@ function getLoredeckCreatorPipelineModel(cached = {}) {
     const pendingEntryCount = generatedPack ? getLoredeckPendingChanges(generatedPack).filter(change => (change.affectedEntryIds || []).length).length : 0;
     const creatorCoverage = getLoredeckCreatorCoverageModel(cached, generatedPack);
     const pipeline = generatedPack ? getLoredeckCreatorPipelineReadiness(generatedPack, cached) : null;
-    const readiness = generatedPack ? getGeneratedLoredeckExportReadiness(generatedPack, null, cached) : null;
+    const cachedHealth = generatedPack ? getCachedLoredeckCreatorPackHealth(generatedPack) : null;
+    const readiness = generatedPack ? getGeneratedLoredeckExportReadiness(generatedPack, cachedHealth, cached) : null;
     const titleSetTotal = titleSets.length || (outline ? 1 : 0);
     const eligiblePlanningTotal = eligiblePlanningSets.length || (approvedTitles.length ? 1 : 0);
     const pendingChanges = generatedPack ? getLoredeckPendingChanges(generatedPack) : [];
@@ -3132,9 +3162,20 @@ function getLoredeckCreatorPipelineModel(cached = {}) {
     const hasNonCoverageBlockers = readinessBlockers.some(blocker => blocker !== LOREDECK_CREATOR_COVERAGE_FINALIZE_BLOCKER);
     const hasHealthBlockers = !!readiness && (hasNonCoverageBlockers || (readiness.errors || []).length > 0);
     const hasHealthWarnings = !!readiness && (readiness.warnings || []).length > 0;
+    const remainingEntryCount = Math.max(0, Number(pipeline?.remainingEntryCount) || 0);
+    const draftChangeCount = draftChanges.length;
+    const isGenerating = (...actionIds) => activeGeneration?.actionId && actionIds.includes(activeGeneration.actionId);
+    const lorecardsStage = getLoredeckCreatorLorecardsStageState({
+        planningComplete,
+        generating: isGenerating('entry_batch_draft', 'entry_multi_batch_draft'),
+        lorecardsComplete,
+        remainingEntryCount,
+        draftChangeCount,
+        pendingLorecardCount,
+        approvedTitleCount: approvedTitles.length,
+    });
     const deckHealthReady = !!readiness && !hasHealthBlockers && !draftChanges.length && !pendingChanges.length;
     const healthReady = !!readiness?.ready && !hasHealthBlockers && !hasCoverageAcknowledgementBlocker && !draftChanges.length && !pendingChanges.length;
-    const isGenerating = (...actionIds) => activeGeneration?.actionId && actionIds.includes(activeGeneration.actionId);
     const errors = Array.isArray(cached.errors) ? cached.errors : [];
     const stages = [
         {
@@ -3176,12 +3217,8 @@ function getLoredeckCreatorPipelineModel(cached = {}) {
         {
             id: 'lorecards',
             label: 'Lorecards',
-            status: !planningComplete ? 'locked' : (isGenerating('entry_batch_draft', 'entry_multi_batch_draft') ? 'generating' : (lorecardsComplete ? 'approved' : (draftChanges.length ? 'needs-review' : 'ready'))),
-            detail: !planningComplete
-                ? 'Locked'
-                : (lorecardsComplete
-                    ? 'Approved'
-                    : (draftChanges.length ? `${draftChanges.length} drafts` : `${pipeline?.remainingEntryCount || approvedTitles.length} remaining`)),
+            status: lorecardsStage.status,
+            detail: lorecardsStage.detail,
             dependency: 'Lorecards are locked until Context and Tag proposals are accepted.',
             anchor: 'lorecards',
         },
@@ -3237,6 +3274,7 @@ function getLoredeckCreatorPipelineModel(cached = {}) {
         creatorCoverage,
         pipeline,
         readiness,
+        cachedHealth,
         briefComplete,
         outlineComplete,
         titleReviewComplete,
@@ -3350,13 +3388,19 @@ function createLoredeckCreatorCurrentTaskActions(cached = {}, pipeline = {}, con
         actions.appendChild(applyLoredeckCreatorGenerationButtonLock(planButton, cached, 'Context and Tag planning'));
         addSecondary('Open Context Plan', 'Jump to Context and Tag planning details.', 'context-plan');
     } else if (step.id === 'lorecards') {
-        if (pipeline.draftChanges?.length) {
-            addSecondary('Review Draft Batch', 'Jump to the Creator Lorecard Draft Review section.', 'lorecards');
-        } else {
+        const remainingEntryCount = Math.max(0, Number(pipeline.remainingEntryCount) || 0);
+        if (remainingEntryCount > 0) {
             const draftEntries = createButton('Draft Lorecards', 'Draft the next small Lorecard batch from accepted Context and Tag metadata.', async (btn) => {
                 await handleLoredeckCreatorEntryDraft(btn);
             }, 'saga-primary-button');
             actions.appendChild(applyLoredeckCreatorGenerationButtonLock(draftEntries, cached, 'Lorecard drafting'));
+            if (pipeline.draftChanges?.length) {
+                addSecondary('Review Draft Batch', 'Jump to the Creator Lorecard Draft Review section.', 'lorecards');
+            }
+        } else if (pipeline.draftChanges?.length) {
+            actions.appendChild(createButton('Review Draft Batch', 'Jump to the Creator Lorecard Draft Review section.', () => {
+                scrollLoredeckCreatorWorkbenchToAnchor('lorecards');
+            }, 'saga-primary-button'));
         }
         addSecondary('Open Review Queue', 'Jump to Pending Review status.', 'review-queue');
     } else if (step.id === 'review') {
@@ -3365,9 +3409,9 @@ function createLoredeckCreatorCurrentTaskActions(cached = {}, pipeline = {}, con
         }, 'saga-primary-button'));
     } else if (step.id === 'health') {
         const pack = pipeline.generatedPack;
-        const validateButton = createButton('Run Deck Health', 'Validate the Generated Loredeck with the same rules used at runtime.', async (btn) => {
+        const validateButton = createButton('Run Pack Health', 'Validate the Generated Loredeck with the same rules used at runtime.', async (btn) => {
             if (!pack) {
-                toast('Create a Generated Loredeck shell before running Deck Health.', 'warning');
+                toast('Create a Generated Loredeck shell before running Pack Health.', 'warning');
                 return;
             }
             await validateLoredeckForEditor(pack, btn);
@@ -3376,7 +3420,9 @@ function createLoredeckCreatorCurrentTaskActions(cached = {}, pipeline = {}, con
         }, 'saga-primary-button');
         validateButton.disabled = !pack;
         actions.appendChild(validateButton);
-        if (pack) actions.appendChild(createButton('Open Health Center', 'Open the fullscreen Deck Health Center for this Generated Loredeck.', () => openLoredeckHealthCenter(pack.packId)));
+        if (pack) actions.appendChild(createButton('Open Pack Health Center', 'Open the fullscreen Pack Health Center for this Generated Loredeck.', () => {
+            openLoredeckHealthCenter(pack.packId, { tab: Number(pipeline.readiness?.healthErrorCount) > 0 ? 'issues' : 'overview' });
+        }));
     } else if (step.id === 'finalize') {
         const pack = pipeline.generatedPack;
         if (pipeline.readiness?.coverageAcknowledgementRequired) {
@@ -3840,7 +3886,7 @@ function createLoredeckCreatorCard(state = getState(), options = {}) {
                 ));
                 if (generatedPack) {
                     card.appendChild(createLoredeckCreatorArtifactDisclosure(
-                        'Deck Health and Finalize',
+                        'Pack Health and Finalize',
                         createLoredeckCreatorPipelineReadinessCard(generatedPack, cached),
                         { open: ['health', 'finalize'].includes(pipeline.currentStep.id), state: pipeline.stages.find(stage => stage.id === 'health')?.detail || 'Not ready', anchor: 'deck-health' }
                     ));
@@ -6717,12 +6763,31 @@ function buildLoredeckCreatorEntryDraftChanges(pack = {}, parsed = {}, rows = []
         const proposalId = normalizeLoredeckEntryId(proposal.entryId || proposal.entry?.id);
         return proposalId && targetEntryIds.has(proposalId);
     });
-    const changes = buildLoredeckAssistantPendingChanges(pack, allowed, rows)
+    const preparedChanges = buildLoredeckAssistantPendingChanges(pack, allowed, rows)
         .filter(change => change.targetKind === 'entry')
         .map((change, index) => prepareLoredeckCreatorEntryChange(change, pack, targetPlanningBatch, unitId, targetTitles, index));
+    const changes = [];
+    const guardWarnings = [];
+    let invalidCount = 0;
+    let repairedCount = 0;
+    for (const change of preparedChanges) {
+        const guarded = guardLoredeckCreatorEntryDraftChange(pack, change, { targetEntryIds });
+        if (guarded.errors.length || !guarded.change) {
+            invalidCount += 1;
+            const label = change.affectedEntryIds?.[0] || change.title || change.changeId || 'Lorecard draft';
+            guardWarnings.push(`${label}: ${guarded.errors.join('; ')}`);
+            continue;
+        }
+        if (guarded.repaired) repairedCount += 1;
+        guardWarnings.push(...guarded.warnings);
+        changes.push(guarded.change);
+    }
     return {
         allowed,
         ignoredCount: proposals.length - allowed.length,
+        invalidCount,
+        repairedCount,
+        warnings: [...new Set(guardWarnings)].slice(0, 20),
         changes,
     };
 }
@@ -6808,9 +6873,12 @@ function commitLoredeckCreatorEntryDraftResult(parsed = {}, options = {}) {
         if (options.throwOnFailure) throw new Error('Generated Loredeck shell is missing.');
         return { queued: false, changeCount: 0, replacedCount: 0, draftChangeIds: [], warnings: [] };
     }
-    const { ignoredCount, changes } = buildLoredeckCreatorEntryDraftChanges(pack, parsed, rows, targetTitles, targetPlanningBatch, unitId);
+    const { ignoredCount, invalidCount, repairedCount, warnings: guardWarnings, changes } = buildLoredeckCreatorEntryDraftChanges(pack, parsed, rows, targetTitles, targetPlanningBatch, unitId);
     const warnings = [
         ...(ignoredCount ? [`Ignored ${ignoredCount} proposal${ignoredCount === 1 ? '' : 's'} outside this micro-batch.`] : []),
+        ...(invalidCount ? [`Rejected ${invalidCount} Creator Lorecard draft${invalidCount === 1 ? '' : 's'} with invalid schema v3 references.`] : []),
+        ...(repairedCount ? [`Repaired ${repairedCount} Creator Lorecard draft${repairedCount === 1 ? '' : 's'} deterministically before Draft Review.`] : []),
+        ...guardWarnings,
     ];
     if (!changes.length) {
         return {
@@ -6819,6 +6887,8 @@ function commitLoredeckCreatorEntryDraftResult(parsed = {}, options = {}) {
             replacedCount: 0,
             draftChangeIds: [],
             ignoredCount,
+            invalidCount,
+            repairedCount,
             warnings,
         };
     }
@@ -6834,6 +6904,8 @@ function commitLoredeckCreatorEntryDraftResult(parsed = {}, options = {}) {
         return {
             ...draftResult,
             ignoredCount,
+            invalidCount,
+            repairedCount,
             warnings,
         };
     }
@@ -6861,6 +6933,8 @@ function commitLoredeckCreatorEntryDraftResult(parsed = {}, options = {}) {
     return {
         ...draftResult,
         ignoredCount,
+        invalidCount,
+        repairedCount,
         warnings,
         unitId,
         batchId: targetPlanningBatch?.id || '',
@@ -7027,6 +7101,9 @@ async function draftLoredeckCreatorEntryBatch(cached = {}, pack = {}, planning =
     const preview = buildLoredeckCreatorEntryDraftChanges(pack, parsed, rows, targetTitles, targetPlanningBatch, unitId);
     const warnings = entryCommit?.warnings || [
         ...(preview.ignoredCount ? [`Ignored ${preview.ignoredCount} proposal${preview.ignoredCount === 1 ? '' : 's'} outside this micro-batch.`] : []),
+        ...(preview.invalidCount ? [`Rejected ${preview.invalidCount} Creator Lorecard draft${preview.invalidCount === 1 ? '' : 's'} with invalid schema v3 references.`] : []),
+        ...(preview.repairedCount ? [`Repaired ${preview.repairedCount} Creator Lorecard draft${preview.repairedCount === 1 ? '' : 's'} deterministically before Draft Review.`] : []),
+        ...(preview.warnings || []),
     ];
 
     if (!entryCommit?.queued && parsed.clarifyingQuestions.length && !preview.changes.length) {

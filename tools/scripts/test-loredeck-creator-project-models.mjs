@@ -99,9 +99,25 @@ assert.equal(model.counts.generationRunCount, 1);
 assert.equal(model.counts.generationUnitCount, 2);
 assert.equal(model.counts.completedGenerationUnitCount, 1);
 assert.equal(model.counts.failedGenerationUnitCount, 1);
-assert.equal(model.nextAction.label, 'Review Draft Lorecards');
+assert.equal(model.nextAction.label, 'Draft More Lorecards');
+assert.equal(model.nextAction.action, 'draft_lorecards');
 assert.ok(model.chips.some(chip => chip.label === 'Generated'));
 assert.ok(model.chips.some(chip => chip.label === '3 drafted'));
+
+const finalDraftReviewAction = getLoredeckCreatorProjectNextAction(titleJob, {
+  packsById: { [arlongPack.packId]: arlongPack },
+  readinessByPackId: {
+    [arlongPack.packId]: {
+      ...arlongReadiness,
+      pipeline: {
+        ...arlongReadiness.pipeline,
+        remainingEntryCount: 0,
+      },
+    },
+  },
+});
+assert.equal(finalDraftReviewAction.label, 'Review Draft Lorecards');
+assert.equal(finalDraftReviewAction.action, 'review_drafts');
 
 const running = {
   ...titleJob,

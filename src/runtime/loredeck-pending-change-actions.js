@@ -80,13 +80,13 @@ async function refreshLoredeckHealthAfterAcceptedPendingChanges(pack = {}, accep
         if (isGeneratedLoredeckPack(fresh) && !getAcceptedVirtualLoredeckEntries(fresh).length) {
             return { skipped: true, reason: 'generated_shell_without_entries' };
         }
-        toast('Accepted changes, but Deck Health could not rerun because this Loredeck is not validatable yet.', 'warning');
+        toast('Accepted changes, but Pack Health could not rerun because this Loredeck is not validatable yet.', 'warning');
         return { skipped: true, reason: 'not_validatable' };
     }
     const validation = await validateLoredeckForEditor(fresh, null, { quiet: true, updateLibrary: true });
     if (!validation.health) {
         refreshLoredeckSurfaces({ clearCanon: true, clearContext: true });
-        toast(validation.error || 'Accepted changes, but Deck Health rerun failed. Health remains stale.', 'warning');
+        toast(validation.error || 'Accepted changes, but Pack Health rerun failed. Health remains stale.', 'warning');
         return null;
     }
     clearCanonLoreDatabaseCache();
@@ -94,7 +94,8 @@ async function refreshLoredeckHealthAfterAcceptedPendingChanges(pack = {}, accep
     refreshLoredeckSurfaces({ clearCanon: true, clearContext: true });
     const summary = validation.health.summary || {};
     const issueText = `${summary.errorCount || 0} error${(summary.errorCount || 0) === 1 ? '' : 's'}, ${summary.warningCount || 0} warning${(summary.warningCount || 0) === 1 ? '' : 's'}`;
-    toast(`Accepted ${acceptedCount} change${acceptedCount === 1 ? '' : 's'} and refreshed Deck Health: ${validation.health.status || 'checked'} (${issueText}).`, validation.health.errors?.length ? 'error' : (validation.health.warnings?.length ? 'warning' : 'success'));
+    const followup = validation.health.errors?.length ? ' Open Pack Health Center for grouped findings.' : '';
+    toast(`Accepted ${acceptedCount} change${acceptedCount === 1 ? '' : 's'} and refreshed Pack Health: ${validation.health.status || 'checked'} (${issueText}).${followup}`, validation.health.errors?.length ? 'error' : (validation.health.warnings?.length ? 'warning' : 'success'));
     return validation;
 }
 
@@ -128,7 +129,7 @@ export async function acceptLoredeckPendingChanges(pack, changeIds = []) {
         if (isGeneratedLoredeckPack(next)) refreshGeneratedLoredeckDerivedMetadata(next);
         if (affectsHealth) next.healthStatus = 'stale';
     }, shouldReportStaleHealth
-        ? `Accepted ${selected.length} pending Loredeck change${selected.length === 1 ? '' : 's'}. Deck Health marked stale.`
+        ? `Accepted ${selected.length} pending Loredeck change${selected.length === 1 ? '' : 's'}. Pack Health marked stale.`
         : `Accepted ${selected.length} pending Loredeck change${selected.length === 1 ? '' : 's'}.`, {
         errorMessage: 'Pending Loredeck change acceptance failed.',
     });
