@@ -171,14 +171,14 @@ export function createLoredeckAssistantDraftBatchCard(pack = {}, cached = null, 
 
     const actions = createLoredeckActionRow();
     if (creatorBatch) markTourTarget(actions, 'loredecks.creator.draftReviewActions');
-    const queueSelected = createButton(creatorBatch ? 'Send Selected to Review' : 'Queue Selected', creatorBatch ? 'Move selected Creator Lorecard drafts into Pending Review.' : 'Move selected assistant draft proposals into Pending Review.', () => {
-        queueLoredeckAssistantDraftSelection(pack, getLoredeckAssistantSelectedDraftIds(getLoredeckAssistantDraftCacheRecord(pack.packId)));
+    const queueSelected = createButton(creatorBatch ? 'Send Selected to Review' : 'Queue Selected', creatorBatch ? 'Move selected Creator Lorecard drafts into Pending Review.' : 'Move selected assistant draft proposals into Pending Review.', async () => {
+        await queueLoredeckAssistantDraftSelection(pack, getLoredeckAssistantSelectedDraftIds(getLoredeckAssistantDraftCacheRecord(pack.packId)));
     }, 'saga-primary-button');
     queueSelected.dataset.sagaAssistantDraftAction = 'queue-selected';
     queueSelected.disabled = !selectedCount;
     actions.appendChild(creatorBatch ? markTourTarget(queueSelected, 'loredecks.creator.sendSelectedDrafts') : queueSelected);
-    const queueAll = createButton(creatorBatch ? 'Send All to Review' : 'Queue All', creatorBatch ? 'Move every Creator Lorecard draft into Pending Review.' : 'Move every assistant draft proposal into Pending Review.', () => {
-        queueLoredeckAssistantDraftSelection(pack, new Set(changes.map(change => change.changeId)));
+    const queueAll = createButton(creatorBatch ? 'Send All to Review' : 'Queue All', creatorBatch ? 'Move every Creator Lorecard draft into Pending Review.' : 'Move every assistant draft proposal into Pending Review.', async () => {
+        await queueLoredeckAssistantDraftSelection(pack, new Set(changes.map(change => change.changeId)));
     });
     queueAll.disabled = !changes.length;
     actions.appendChild(creatorBatch ? markTourTarget(queueAll, 'loredecks.creator.sendAllDrafts') : queueAll);
@@ -314,8 +314,8 @@ export function createLoredeckAssistantDraftRow(pack = {}, change = {}, selected
 
     const actions = document.createElement('div');
     actions.className = 'saga-loredeck-row-actions';
-    actions.appendChild(createButton(creatorDraft ? 'Send to Review' : 'Queue', creatorDraft ? 'Move this Creator Lorecard draft into Pending Review.' : 'Move this assistant draft proposal into Pending Review.', () => {
-        queueLoredeckAssistantDraftSelection(pack, new Set([change.changeId]));
+    actions.appendChild(createButton(creatorDraft ? 'Send to Review' : 'Queue', creatorDraft ? 'Move this Creator Lorecard draft into Pending Review.' : 'Move this assistant draft proposal into Pending Review.', async () => {
+        await queueLoredeckAssistantDraftSelection(pack, new Set([change.changeId]));
     }, 'saga-primary-button'));
     actions.appendChild(createButton('Edit JSON', creatorDraft ? 'Edit this Creator Lorecard draft record before sending it to Pending Review.' : 'Edit this draft proposal record before queueing.', () => {
         openLoredeckAssistantDraftJsonEditor(pack, change);

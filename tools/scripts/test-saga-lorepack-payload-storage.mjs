@@ -22,6 +22,8 @@ const {
   loadLoredeckSourceById,
 } = await import('../../src/loredecks/loredeck-loader.js');
 const {
+  __loredeckLibraryPanelTestHooks,
+  configureLoredeckLibraryPanel,
   getLoredeckAssetRef,
 } = await import('../../src/loredecks/loredeck-library-panel.js');
 
@@ -163,6 +165,38 @@ assert.equal(JSON.parse(stored.get(SAGA_STORAGE_INDEX_PATH)).files['/user/files/
 
 resetSagaLorepackPayloadStorageCache();
 configureSagaLorepackPayloadStorage({ fileApi, now });
+let latestPanelPack = upsert.libraryRecord;
+let hydratedCoverSaveInput = null;
+let persistedCoverSavePack = null;
+let persistedCoverSaveNext = null;
+configureLoredeckLibraryPanel({
+  getFreshLoredeckLibraryPack: (_packId, fallback) => latestPanelPack || fallback || null,
+  isBundledLoredeckLibraryPack: () => false,
+  hydrateLoredeckPayloadRecord: async pack => {
+    hydratedCoverSaveInput = pack;
+    const hydratedPack = await hydrateExternalLorepackPayloadRecord(pack);
+    latestPanelPack = hydratedPack;
+    return hydratedPack;
+  },
+  persistLoredeckLibraryRecordMutation: (pack, mutator) => {
+    persistedCoverSavePack = pack;
+    persistedCoverSaveNext = {
+      ...pack,
+      assets: pack.assets && typeof pack.assets === 'object' && !Array.isArray(pack.assets) ? { ...pack.assets } : {},
+    };
+    mutator(persistedCoverSaveNext);
+    return true;
+  },
+});
+const coverSaveOk = await __loredeckLibraryPanelTestHooks.saveLoredeckCoverImageAsset('arlong-payload', {
+  path: 'data:image/png;base64,iVBORw0KGgo=',
+  alt: 'Replacement cover',
+});
+assert.equal(coverSaveOk, true);
+assert.equal(hydratedCoverSaveInput, upsert.libraryRecord, 'Cover saves should hydrate cold compact external Loredeck rows before mutating.');
+assert.equal(persistedCoverSavePack.entryOverrides.nami.title, 'Nami', 'Cover saves must preserve hydrated payload content before passing through the mutation guard.');
+assert.equal(persistedCoverSaveNext.assets.cover.alt, 'Replacement cover');
+
 const hydrated = await hydrateExternalLorepackPayloadRecord(libraryRecord);
 assert.equal(hydrated.entryOverrides.nami.content.fact, 'Nami bargains with Arlong.');
 assert.equal(hydrated.manifestData.title, 'Arlong Park');

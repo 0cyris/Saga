@@ -467,9 +467,13 @@ export async function removeSagaCustomThemeIconStorage(options = {}) {
 
 function collectLoredeckAssetFiles(pack = {}) {
     return uniqueSorted([
-        normalizeStoragePath(pack.coverFile || pack.coverPath || ''),
+        normalizeStoragePath(pack.coverFile || pack.coverPath || pack.coverImage || ''),
+        ...collectStoragePaths(pack.cover || {}),
+        ...collectStoragePaths(pack.coverImage || {}),
         ...collectStoragePaths(pack.assets || {}),
         ...collectStoragePaths(pack.manifestData?.assets || {}),
+        ...collectStoragePaths(pack.manifestData?.cover || {}),
+        ...collectStoragePaths(pack.manifestData?.coverImage || {}),
         ...collectStoragePaths(pack.assetRefs || {}),
     ]);
 }

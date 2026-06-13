@@ -1051,6 +1051,7 @@ assert(themeLibraryStore.includes("'chipNeutral'") && themeLibraryStore.includes
 const workbenchThemeScope = style.match(/\.saga-lore-workbench-shell,\s*[\r\n]+\.saga-new-lore-shell\s*\{[\s\S]*?\}/)?.[0] || '';
 assert(!workbenchThemeScope.includes('--saga-bg:'), 'Fullscreen workbench shells must not redeclare default theme tokens locally.');
 assert(style.includes('var(--saga-danger-surface') && style.includes('.saga-danger-zone-card') && style.includes('var(--saga-red-surface'), 'Danger Zone and health danger surfaces must use active Theme Pack danger tokens.');
+assert(!/\.saga-danger-zone-title\s*\{[\s\S]*?--saga-danger/.test(style), 'Danger Zone title must inherit the normal runtime card title color instead of using danger text on a danger surface.');
 assert(!style.includes('border-color: rgba(190, 80, 80, 0.45) !important;'), 'Danger buttons must not use hardcoded late-cascade red borders.');
 assert(!style.includes('background: rgba(120, 30, 38, 0.22) !important;'), 'Danger buttons must not use hardcoded late-cascade red backgrounds.');
 assert(!style.includes('folder-cover-tile:nth-child(odd)'), 'Folder cover previews must not randomly tilt odd covers.');
@@ -1058,6 +1059,7 @@ assert(!style.includes('folder-cover-tile:nth-child(even)'), 'Folder cover previ
 assert(runtimePanelSource.includes('LOREDECK_LIBRARY_FOLDER_COVER_MAX_VISIBLE = 15'), 'Folder cover previews must cap visible deck covers at 15 before the overflow tile.');
 assert(!read(libraryPanelPath).includes('slice(0, 20)'), 'Folder cover preview collection must not retain the old 20-cover cap.');
 assert(runtimePanelSource.includes("getPropertyValue('--saga-folder-cover-size')"), 'Folder cover layout must read the current CSS cover size.');
+assert(libraryPanel.includes('await hydrateLoredeckPayloadRecord(pack)') && runtimePanelSource.includes('hydrateLoredeckPayloadRecord: hydrateExternalLorepackPayloadRecord'), 'Loredeck cover image saves must hydrate external payload-backed decks before persisting cover changes.');
 assert(!runtimePanelSource.includes('LEGACY_ICONSET_ID'), 'Theme icon resolution must not reference the removed legacy icon set.');
 assert(!runtimePanelSource.includes('Images/runtime-icons'), 'Runtime icon resolution must not reference the discontinued runtime icon folder.');
 assert(!runtimePanelSource.includes('Drop support is queued'), 'Loredeck Library must not expose queued drop-support placeholder copy.');
@@ -1348,6 +1350,11 @@ assert(creatorPanel.includes("'Auto-Draft All Lorecards?'") && creatorPanel.incl
 assert(creatorPanel.includes('confirmLabel: `Auto-Draft ${remainingCount} Lorecard'), 'Creator Auto-Draft All confirmation must name the destructive bulk action on the confirm button.');
 assert(runtimePanelSource.includes('Current Lorecard drafts can stay here while you draft more batches.'), 'Creator entry drafting must allow additional generation while review drafts are open.');
 assert(runtimePanelSource.includes('refreshLoredeckAssistantDraftSurfaces') && runtimePanelSource.includes('refreshLoredeckCreatorWorkbenchBody({ preserveScroll: true });'), 'Creator draft review handoff must refresh the workbench overlay after queueing or dropping drafts.');
+const creatorDraftReviewRenderIndex = creatorPanel.indexOf('const draftBatch = createLoredeckCreatorDraftReviewSection(generatedPack);');
+const creatorPlanningReadyBlockIndex = creatorPanel.indexOf('if (!planning.ready)');
+assert(creatorDraftReviewRenderIndex !== -1 && creatorPlanningReadyBlockIndex !== -1 && creatorDraftReviewRenderIndex < creatorPlanningReadyBlockIndex, 'Creator draft review must render saved drafts before planning-ready drafting blockers.');
+assert(runtimePanelSource.includes('async function queueLoredeckAssistantDraftSelection') && runtimePanelSource.includes('fresh = await hydrateExternalLorepackPayloadRecord(fresh)'), 'Creator draft review handoff must hydrate compact external Loredeck payloads before queueing Pending Review changes.');
+assert(runtimePanelSource.includes('await queueLoredeckAssistantDraftSelection(pack, new Set(changes.map(change => change.changeId)))'), 'Creator draft review queue-all action must await the async hydrated handoff.');
 assert(runtimePanelSource.includes('Creator Lorecard Draft Review'), 'Creator draft review must use Creator-specific review language.');
 assert(runtimePanelSource.includes('repairWarnings') && read(sourcePath('runtime', 'loredeck-assistant-review-panel.js')).includes('Creator repair note'), 'Creator draft review must surface deterministic repair warnings from Lorecard guard cleanup.');
 assert(runtimePanelSource.includes('preflightWarnings') && read(sourcePath('runtime', 'loredeck-assistant-review-panel.js')).includes('Creator preflight note'), 'Creator draft review must surface title preflight omissions before Pending Review.');
@@ -1359,6 +1366,7 @@ assert(creatorPanel.includes("const item = document.createElement('div')") && cr
 assert(runtimePanelSource.includes('handleLoredeckCreatorResetToStep') && runtimePanelSource.includes('resetLoredeckCreatorJobAfterStep') && runtimePanelSource.includes('resetGeneratedLoredeckPackAfterStep'), 'Creator reset controls must be wired to the runtime reset handler and shared reset rules.');
 assert(runtimePanelSource.includes('removeLoredeckLibraryPack(creatorPack.packId, { clearCreatorProjects: false })'), 'Creator reset before Context Plan must remove the generated shell without deleting the active Creator project.');
 assert(runtimePanelSource.includes('} else if (packId) {') && runtimePanelSource.includes('clearLoredeckCreatorResetPackCaches(packId'), 'Creator reset must clear stale generated-pack caches even when the pack record is already missing.');
+assert(runtimePanelSource.includes('await hydrateExternalLorepackPayloadRecord(creatorPack)'), 'Creator reset must hydrate compact external Generated Loredeck payloads before saving pack rollback changes.');
 assert(runtimeUiKit.includes('options.confirmLabel') && runtimePanelSource.includes('confirmLabel: `Reset to ${label}`'), 'Creator reset confirmation must name the destructive reset action on the confirm button.');
 assert(runtimeUiKit.includes('saga-runtime-button-spinner') && runtimeUiKit.includes('await action({ setText })') && runtimeUiKit.includes("btn.setAttribute('aria-busy', 'true')"), 'Runtime busy buttons must support spinner-backed live text updates.');
 assert(style.includes('.saga-runtime-button-spinner') && style.includes('animation: saga-generation-spin 0.9s linear infinite'), 'Runtime busy buttons must render the shared generation spinner animation.');

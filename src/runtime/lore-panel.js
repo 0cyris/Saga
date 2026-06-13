@@ -1019,6 +1019,7 @@ configureLoredeckLibraryPanel({
     isBundledLoredeckLibraryPack,
     getFreshLoredeckLibraryPack,
     persistLoredeckLibraryRecordMutation,
+    hydrateLoredeckPayloadRecord: hydrateExternalLorepackPayloadRecord,
     validateLoredeckForEditor,
     canValidateLoredeckInEditor,
     attemptLoredeckHealthFixes,
@@ -3077,6 +3078,10 @@ function clearLoredeckCreatorSelectedPackIfMatches(packId = '') {
     saveState(state, { syncPrompt: false });
 }
 
+function isMissingExternalLoredeckPayloadError(error = null) {
+    return error?.status === 404 || /missing|not found|404/i.test(String(error?.message || error || ''));
+}
+
 async function handleLoredeckCreatorResetToStep(targetStepId = '') {
     const stepId = String(targetStepId || '').trim();
     const cached = getLoredeckCreatorBriefCache();
@@ -3087,8 +3092,8 @@ async function handleLoredeckCreatorResetToStep(targetStepId = '') {
     }
     const label = getLoredeckCreatorResetStepLabel(stepId);
     const packId = String(cached.generatedPackId || '').trim();
-    const generatedPack = packId ? getFreshLoredeckLibraryPack(packId, getLoredeckDefinition(packId)) : null;
-    const creatorPack = generatedPack && isGeneratedLoredeckPack(generatedPack) ? generatedPack : null;
+    let generatedPack = packId ? getFreshLoredeckLibraryPack(packId, getLoredeckDefinition(packId)) : null;
+    let creatorPack = generatedPack && isGeneratedLoredeckPack(generatedPack) ? generatedPack : null;
     if (!hasLoredeckCreatorResetForwardData(cached, creatorPack || null, stepId)) {
         toast(`No later Creator data exists after ${label}.`, 'info');
         return false;
@@ -3105,6 +3110,8 @@ async function handleLoredeckCreatorResetToStep(targetStepId = '') {
 
     const removeGeneratedPack = shouldRemoveGeneratedPackForCreatorReset(stepId);
     let packMutationOk = true;
+    let resetStepId = stepId;
+    let resetLabel = label;
     if (creatorPack?.packId && removeGeneratedPack) {
         removeLoredeckCreatorGeneratedPackFromStack(creatorPack.packId);
         const result = removeLoredeckLibraryPack(creatorPack.packId, { clearCreatorProjects: false });
@@ -3116,19 +3123,61 @@ async function handleLoredeckCreatorResetToStep(targetStepId = '') {
             clearLoredeckCreatorSelectedPackIfMatches(creatorPack.packId);
         }
     } else if (creatorPack?.packId) {
-        const resetPack = resetGeneratedLoredeckPackAfterStep(creatorPack, stepId);
-        if (resetPack) {
-            if (isVirtualLoredeckPack(resetPack)) {
-                resetPack.manifestData = buildEmbeddedCustomManifest(resetPack.manifestData || {}, resetPack);
+        let payloadMissingFallback = false;
+        try {
+            creatorPack = await hydrateExternalLorepackPayloadRecord(creatorPack);
+        } catch (error) {
+            console.warn('[Saga] Generated Loredeck payload hydration failed before Creator reset:', error);
+            if (!isMissingExternalLoredeckPayloadError(error)) {
+                toast(error?.message || 'Generated Loredeck payload could not be loaded before reset.', 'warning');
+                return false;
             }
-            const result = upsertLoredeckLibraryPack(resetPack);
-            if (!result.ok) {
-                toast(result.error || 'Generated Loredeck state could not be reset.', 'warning');
+            const fallbackStepId = 'titles';
+            const fallbackLabel = getLoredeckCreatorResetStepLabel(fallbackStepId);
+            const fallback = await confirmAction(
+                'Generated Loredeck Payload Missing',
+                `Saga cannot preserve ${label} because the Generated Loredeck payload file is missing. Reset to ${fallbackLabel} instead and remove the broken Generated Loredeck shell?`,
+                {
+                    confirmLabel: `Reset to ${fallbackLabel}`,
+                    confirmTooltip: 'Remove the broken Generated Loredeck shell and return to the last step that does not need it.',
+                }
+            );
+            if (!fallback) return false;
+            resetStepId = fallbackStepId;
+            resetLabel = fallbackLabel;
+            payloadMissingFallback = true;
+            removeLoredeckCreatorGeneratedPackFromStack(creatorPack.packId);
+            const result = removeLoredeckLibraryPack(creatorPack.packId, { clearCreatorProjects: false });
+            if (!result.ok && result.notFound !== true) {
+                toast(result.error || 'Generated Loredeck shell could not be reset.', 'warning');
                 packMutationOk = false;
             } else {
-                clearLoredeckCreatorResetPackCaches(creatorPack.packId, {
-                    clearDraftCache: stepId === 'scope' || stepId === 'outline' || stepId === 'titles' || stepId === 'context',
-                });
+                clearLoredeckCreatorResetPackCaches(creatorPack.packId, { clearDraftCache: true });
+                clearLoredeckCreatorSelectedPackIfMatches(creatorPack.packId);
+            }
+        }
+        if (!packMutationOk) return false;
+        if (payloadMissingFallback) {
+            creatorPack = null;
+        } else if (!creatorPack || !isGeneratedLoredeckPack(creatorPack)) {
+            toast('Generated Loredeck payload could not be loaded before reset.', 'warning');
+            return false;
+        }
+        if (!payloadMissingFallback) {
+            const resetPack = resetGeneratedLoredeckPackAfterStep(creatorPack, stepId);
+            if (resetPack) {
+                if (isVirtualLoredeckPack(resetPack)) {
+                    resetPack.manifestData = buildEmbeddedCustomManifest(resetPack.manifestData || {}, resetPack);
+                }
+                const result = upsertLoredeckLibraryPack(resetPack);
+                if (!result.ok) {
+                    toast(result.error || 'Generated Loredeck state could not be reset.', 'warning');
+                    packMutationOk = false;
+                } else {
+                    clearLoredeckCreatorResetPackCaches(creatorPack.packId, {
+                        clearDraftCache: stepId === 'scope' || stepId === 'outline' || stepId === 'titles' || stepId === 'context',
+                    });
+                }
             }
         }
     } else if (packId) {
@@ -3142,18 +3191,18 @@ async function handleLoredeckCreatorResetToStep(targetStepId = '') {
     }
     if (!packMutationOk) return false;
 
-    const resetJob = resetLoredeckCreatorJobAfterStep(cached, stepId);
+    const resetJob = resetLoredeckCreatorJobAfterStep(cached, resetStepId);
     const nextJob = setLoredeckCreatorBriefCache(resetJob, { refreshWorkbench: true });
     clearCanonLoreDatabaseCache();
     clearContextIndexCache();
     refreshLoredeckSurfaces({ clearCanon: true, clearContext: true });
     refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
     refreshLoredeckCreatorWorkbenchBody({ preserveScroll: false });
-    const anchor = getLoredeckCreatorResetAnchor(stepId, nextJob || resetJob);
+    const anchor = getLoredeckCreatorResetAnchor(resetStepId, nextJob || resetJob);
     const scroll = () => scrollLoredeckCreatorWorkbenchToAnchor(anchor);
     scroll();
     if (typeof requestAnimationFrame === 'function') requestAnimationFrame(scroll);
-    toast(`Reset to ${label}.`, 'success');
+    toast(`Reset to ${resetLabel}.`, 'success');
     return true;
 }
 
@@ -10158,7 +10207,7 @@ function updateLoredeckAssistantDraftAfterRemoval(packId, removedIds = new Set()
     return nextCache;
 }
 
-function queueLoredeckAssistantDraftSelection(pack, selectedIds = new Set()) {
+async function queueLoredeckAssistantDraftSelection(pack, selectedIds = new Set()) {
     const cached = getLoredeckCreatorDraftCacheForPack(pack.packId);
     const draftChanges = getLoredeckAssistantDraftChanges(cached);
     const creatorBatch = String(cached?.source || '').trim() === 'loredeck_creator'
@@ -10169,7 +10218,14 @@ function queueLoredeckAssistantDraftSelection(pack, selectedIds = new Set()) {
         toast(creatorBatch ? 'Select Creator Lorecard drafts to send to review.' : 'Select assistant draft proposals to queue.', 'warning');
         return false;
     }
-    const fresh = getFreshLoredeckLibraryPack(pack.packId, pack);
+    let fresh = getFreshLoredeckLibraryPack(pack.packId, pack);
+    try {
+        fresh = await hydrateExternalLorepackPayloadRecord(fresh);
+    } catch (error) {
+        console.warn('[Saga] Loredeck draft handoff payload hydration failed:', error);
+        toast(error?.message || 'Loredeck payload could not be loaded before sending drafts to review.', 'warning');
+        return false;
+    }
     const queued = queueLoredeckPendingChanges(
         fresh,
         selected,

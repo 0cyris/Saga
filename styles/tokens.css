@@ -199,10 +199,6 @@
     background: var(--saga-danger-surface, var(--saga-red-surface, rgba(52, 12, 18, 0.35)));
 }
 
-.saga-danger-zone-title {
-    color: var(--saga-danger, var(--saga-red, #e06d72));
-}
-
 .saga-danger-zone-group {
     display: grid;
     gap: 8px;

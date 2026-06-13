@@ -1839,7 +1839,7 @@ Current tag health behavior:
 
 ## Import And Export Packages
 
-Saga's current public Loredeck import/export format is a zip package with a `loredecks/` root inside the archive. The active development plan lives in [../development/LOREDECK_ZIP_PACKAGE_IMPORT_EXPORT_PLAN.md](../development/LOREDECK_ZIP_PACKAGE_IMPORT_EXPORT_PLAN.md).
+Saga's current public Loredeck import/export format is a zip package with a `loredecks/` root inside the archive. For the release-facing package authoring checklist, see [LOREDECK_ZIP_PACKAGE_STRUCTURE.md](LOREDECK_ZIP_PACKAGE_STRUCTURE.md). The historical development plan lives in [../development/LOREDECK_ZIP_PACKAGE_IMPORT_EXPORT_PLAN.md](../development/LOREDECK_ZIP_PACKAGE_IMPORT_EXPORT_PLAN.md).
 
 Front-facing `.saga-loredeck.json` import/export was legacy interim behavior and should not appear in the Library UI. Public sharing should use `.saga-loredeck.zip` packages.
 

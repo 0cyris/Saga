@@ -10,24 +10,18 @@ Saga is a SillyTavern extension for long-form fandom roleplay and fanfiction. It
 
 Saga is not a wiki viewer and not a prompt preset. It is a runtime lore system for deciding what belongs in the story **now**: what is true, what is hidden, what has changed in this chat, and what the model should actually see before writing the next response.
 
-## Status
-
-Saga is in **pre-alpha integration hardening**. Current extension metadata uses `0.1.0-alpha.1`, requires SillyTavern `1.12.0` or newer, and keeps `auto_update` disabled so alpha testers update deliberately.
-
-The main systems exist and are being made reliable together: the runtime shelf, Basic and Advanced experiences, Loredeck Library, Active Stack, Context, the Pack Health Center, Loredeck Creator, Pending Review, Continuity, Injection, import/export, and theme/icon support.
-
-Expect active development, incomplete workflows, changing schemas, rough edges, and possible breakage. Because automatic updates are disabled for alpha, reinstall or update the extension from the repository when you want a newer build. The recommended tester path is: start in **Basic**, get one chat working, then switch to **Advanced** when you need diagnostics, Creator workflows, Pack Health Center repairs, Continuity, or full Injection controls.
+Current alpha metadata uses `0.1.0-alpha.1`, requires SillyTavern `1.12.0` or newer, and automatic updates are disabled so testers update deliberately from the repository. The recommended first path is to start in **Basic**, get one chat working, then switch to **Advanced** when you need diagnostics, Creator workflows, Pack Health Center repairs, Continuity, or full Injection controls.
 
 ## Contents
 
 - [Fast Start](#fast-start)
-- [What Saga Adds](#what-saga-adds)
-- [Mental Model](#mental-model)
-- [Operator's Manual](#operators-manual)
+- [Key Features](#key-features)
 - [Documentation](#documentation)
-- [For Contributors](#for-contributors)
+- [Security](#security)
 - [Project Layout](#project-layout)
+- [Storage](#storage)
 - [Authoring Loredecks](#authoring-loredecks)
+- [License](#license)
 
 ## Fast Start
 
@@ -47,46 +41,17 @@ Expect active development, incomplete workflows, changing schemas, rough edges, 
 
 For guided walkthroughs, see [Basic Workflow](docs/user/BASIC_WORKFLOW.md) and [Advanced Workflow](docs/user/ADVANCED_WORKFLOW.md). For the full surface-by-surface guide with screenshots, see the [Operator's Manual](docs/user/OPERATOR_MANUAL.md).
 
-## What Saga Adds
+## Key Features
 
 | Surface | What it does |
 | --- | --- |
-| **Loredecks** | Portable lore packages for fandom canon, AU branches, crossover rules, original settings, or user edits. |
-| **Lorecards** | Reviewable facts and constraints that are focused enough to affect a scene. |
-| **Context** | Story position: date, book, arc, chapter, episode, route, quest stage, stardate, or another coordinate system. |
-| **Active Stack** | The ordered set of loaded Loredecks for the current chat. |
-| **Pending Review** | A safety layer where generated or edited lore waits before becoming accepted content. |
-| **Injection** | The final prompt layer that sends only eligible, relevant lore to the model. |
-| **Pack Health Center** | Structural validation, grouped issue review, and repair sessions for Loredecks, tags, manifests, timelines, and Context references. |
-| **Loredeck Creator** | A staged, review-first workflow with a Current Task panel, cached generation batches, draft recovery, Pack Health gates, and finalization checks. |
-
-## Mental Model
-
-Saga's main runtime path is:
-
-```text
-Loredeck Library -> Active Stack -> Context -> Lorecards -> Injection -> Model response
-```
-
-Saga's review path is:
-
-```text
-Generate or edit -> Pending Review -> Accept -> Pack Health Center -> Use in chat
-```
-
-The important rule is simple: source lore, generated drafts, accepted chat lore, live continuity, and prompt injection are separate layers. Saga is useful because it keeps those layers visible instead of silently mixing them together.
-
-## Operator's Manual
-
-The full operator guide lives in [docs/user/OPERATOR_MANUAL.md](docs/user/OPERATOR_MANUAL.md). It keeps the screenshot-heavy, surface-by-surface material out of the first-contact README while preserving it as release-facing documentation.
-
-Use it when you need the detailed view of:
-
-- First Run and walkthrough modules.
-- Session controls and runtime state.
-- Loredecks, Active Stack, Library, and the Pack Health Center.
-- Loredeck Creator, Current Task guidance, and Generated Lorepack review flow.
-- Context, Lorecards, Continuity, Injection, Settings, and troubleshooting.
+| **Loredeck Library** | Browse Bundled, Generated, and Custom Loredecks; import/export `.saga-loredeck.zip` packages; organize folders; manage the Active Stack; and run Pack Health checks. |
+| **Loredeck Creator** | A staged, review-first workflow for drafting Loredecks with scope planning, Context planning, title batches, timeline/tag planning, Lorecard drafts, recovery, and finalization gates. |
+| **Lorecard System** | Suggested lore, Scan Story Lore, auto-relevance, Pending Review, approved Lorecards, pin/mute controls, and reviewable edits before lore affects the prompt. |
+| **Lore Timeline** | An audit and recovery ledger for manual lore, accepted Lorecard changes, restored entries, deleted versions, and continuity-related lore events. |
+| **Injection System** | The final prompt layer that sends only eligible, relevant, Context-aware lore to the model, with Advanced controls for previewing and tuning prompt composition. |
+| **Basic/Advanced Workflow Modes** | Basic gives new users the shortest guided path to a working chat. Advanced exposes diagnostics, Creator authoring, Pack Health repair, Continuity, provider settings, and full Injection controls. |
+| **Custom Theme Packs** | User-imported Theme Packs and Icon Sets for changing Saga's runtime appearance without changing bundled content. |
 
 ## Documentation
 
@@ -98,48 +63,28 @@ Release-facing docs:
 - [Basic Workflow](docs/user/BASIC_WORKFLOW.md)
 - [Advanced Workflow](docs/user/ADVANCED_WORKFLOW.md)
 - [Loredeck And Lorecard Creation](docs/loredecks/LOREDECK_AND_LORECARD_CREATION_GUIDE.md)
+- [Loredeck Zip Package Structure](docs/loredecks/LOREDECK_ZIP_PACKAGE_STRUCTURE.md)
 - [LLM Loredeck Generation Guide](docs/loredecks/LLM_LOREDECK_GENERATION_GUIDE.md)
 - [Loredeck Schema Reference](docs/loredecks/SAGA_LOREDECK_SCHEMA.md)
 - [Saga Terminology](docs/development/SAGA_TERMINOLOGY.md)
 
 Development notes live in [docs/development](docs/development/) until promoted, rewritten, or archived as release-facing docs.
 
-## For Contributors
+## Security
 
-HP reference deck health and conformance:
+Saga is a browser-side SillyTavern extension. It does not require a server plugin for its own storage model, and Loredeck packages are data-only zip archives. Package import rejects unsafe paths and active file types such as scripts, HTML, SVG, executables, shell scripts, and WebAssembly.
 
-```powershell
-node tools\scripts\test-hp-loredeck-health.mjs
-node tools\scripts\test-hp-loredeck-v3-conformance.mjs
-node tools\scripts\test-hp-reference-deck-conformance.mjs
-```
+Imported Loredecks can affect prompt content after you load and use them, so treat packages from unknown sources as untrusted prompt material even when the archive itself is data-only.
 
-Context-sensitive checks:
+Model-backed actions use two provider roles: **Utility Provider** for frequent scan and summary work, and **Reasoning Provider** for deeper Context and Loredeck generation work. You can load Loredecks, set Context, review existing Lorecards, and inject accepted lore without configuring a provider.
 
-```powershell
-node tools\scripts\test-context-hp-phrase-fixtures.mjs
-node tools\scripts\test-context-current-contract.mjs
-node tools\scripts\test-context-workbench-picker.mjs
-```
+Provider access is explicit:
 
-Visual smoke checks:
+- **Current SillyTavern Model** uses SillyTavern's active generation route.
+- **Connection Profile** routes through SillyTavern's Connection Manager and keeps provider routing and keys in SillyTavern. This is the preferred option for stronger key isolation.
+- **OpenAI-Compatible Endpoint** sends browser `fetch` requests to the configured base URL with `credentials: 'omit'` and a bearer API key header. Direct keys are stored in Saga settings with browser WebCrypto AES-GCM when available; if WebCrypto is unavailable, Saga warns and uses fallback obfuscation instead of encryption. Decrypted keys live in browser memory while provider calls run, so direct key storage does not protect against malicious scripts in the same browser session.
 
-```powershell
-node tools\scripts\test-visual-smoke-harness.mjs
-node tools\scripts\serve-visual-smoke.mjs --check --port 0
-```
-
-Local visual smoke server:
-
-```powershell
-node tools\scripts\serve-visual-smoke.mjs
-```
-
-Then open:
-
-```text
-http://127.0.0.1:8765/tests/browser/visual-smoke.html
-```
+Use a SillyTavern Connection Profile or backend proxy when possible. Use Saga's direct endpoint mode mainly for alpha testing or local endpoints you already trust.
 
 ## Project Layout
 
@@ -168,11 +113,33 @@ Important runtime modules:
 - `src/continuity/prompt-injector.js`: prompt injection bridge.
 - `src/state/state-manager.js`: persisted Saga state.
 
+## Storage
+
+Saga keeps large custom content out of `settings.json` wherever SillyTavern's files API is available. `settings.json` should stay compact: preferences, provider selections, storage pointers, encrypted or obfuscated direct-key material when used, and lightweight diagnostics.
+
+Saga-owned payloads live under SillyTavern `/user/files` as flat, tracked files:
+
+- Library index and installed Custom/Generated Loredeck payloads.
+- Creator project stage data and generated-pack links.
+- Imported Theme Packs, Icon Set manifests, and passive raster assets.
+- Imported Loredeck package payloads and cover images.
+- State Safety indexes, diagnostics, backups, and cleanup records.
+
+Bundled Loredecks, bundled Theme Packs, bundled Icon Sets, and bundled passive assets stay in the extension repository. Use **Advanced Settings > State Safety** to verify storage, settle queued writes, and clean stale missing-file records. Use **Danger Zone** only when you intentionally want to reset Saga settings, remove custom content, clear stored Saga API keys, or run a total Saga cleanup.
+
+See [Storage And State Safety](docs/user/STORAGE_AND_STATE_SAFETY.md) for the full storage contract.
+
 ## Authoring Loredecks
 
-Start with:
+Saga supports two Loredeck authoring paths:
+
+1. **Use the Loredeck Creator.** In Advanced mode, Creator walks through scope, story outline, Context planning, title batches, timeline/tag planning, Lorecard drafting, review, Pack Health, and finalization. This is the in-app path for staged model-assisted authoring.
+2. **Use the docs and a bundled Loredeck as a reference.** Hand the authoring docs, schema, package structure guide, and a relevant bundled Loredeck folder to another LLM. The output target is a compatible `.saga-loredeck.zip` package that can be imported through **Import Deck** and then checked in Pack Health.
+
+Start with these docs:
 
 - [Loredeck And Lorecard Creation](docs/loredecks/LOREDECK_AND_LORECARD_CREATION_GUIDE.md)
+- [Loredeck Zip Package Structure](docs/loredecks/LOREDECK_ZIP_PACKAGE_STRUCTURE.md)
 - [LLM Loredeck Generation Guide](docs/loredecks/LLM_LOREDECK_GENERATION_GUIDE.md)
 - [Loredeck Schema Reference](docs/loredecks/SAGA_LOREDECK_SCHEMA.md)
 

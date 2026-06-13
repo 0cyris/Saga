@@ -85,6 +85,15 @@ When an LLM is helping create or revise a Loredeck, it should follow these rules
 
 The authoring target is not "a lot of lore." The target is a clean, Context-aware deck that retrieves the right information at the right time and stays quiet when it should.
 
+## Supported Authoring Paths
+
+Saga supports two release-facing authoring paths:
+
+1. Use the in-app **Loredeck Creator** for staged model-assisted authoring, review, Pack Health, and finalization.
+2. Use these docs, the schema reference, the zip package structure guide, and a bundled Loredeck folder as a handoff bundle for another LLM. The expected output is a compatible `.saga-loredeck.zip` package that imports through **Import Deck**.
+
+Use [LOREDECK_ZIP_PACKAGE_STRUCTURE.md](LOREDECK_ZIP_PACKAGE_STRUCTURE.md) when the final output needs to be an importable package with deck folders, package indexes, entry files, registries, and cover images.
+
 ## Creation Workflow
 
 Use this workflow for new reference-quality Loredecks:
@@ -132,6 +141,7 @@ Future deck families should get equivalent health, conformance, and Context fixt
 ## Documentation Map
 
 - [SAGA_LOREDECK_SCHEMA.md](SAGA_LOREDECK_SCHEMA.md): detailed Loredeck, Lorecard, registry, bundle, and Pack Health schema contract.
+- [LOREDECK_ZIP_PACKAGE_STRUCTURE.md](LOREDECK_ZIP_PACKAGE_STRUCTURE.md): importable `.saga-loredeck.zip` structure, required files, cover image rules, and package safety boundaries.
 - [LLM_LOREDECK_GENERATION_GUIDE.md](LLM_LOREDECK_GENERATION_GUIDE.md): compact LLM handoff for Saga Loredeck generation and revision.
 - [../DOCUMENTATION_INDEX.md](../DOCUMENTATION_INDEX.md): top-level documentation index.
 - [../development](../development): development notes and planning documents that have not yet been rewritten as release-facing docs.

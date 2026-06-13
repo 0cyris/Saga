@@ -114,6 +114,7 @@ function isGeneratedLoredeckPack(pack) { return dep('isGeneratedLoredeckPack', (
 function isBundledLoredeckLibraryPack(pack) { return dep('isBundledLoredeckLibraryPack', () => false)(pack); }
 function getFreshLoredeckLibraryPack(packId, fallback) { return dep('getFreshLoredeckLibraryPack', (_packId, _fallback) => _fallback || null)(packId, fallback); }
 function persistLoredeckLibraryRecordMutation(pack, mutator, message, options) { return dep('persistLoredeckLibraryRecordMutation', () => false)(pack, mutator, message, options); }
+function hydrateLoredeckPayloadRecord(pack) { return dep('hydrateLoredeckPayloadRecord', async value => value)(pack); }
 function validateLoredeckForEditor(pack, button, options) { return dep('validateLoredeckForEditor', async () => ({ health: null, error: 'Validation is unavailable.' }))(pack, button, options); }
 function canValidateLoredeckInEditor(pack) { return dep('canValidateLoredeckInEditor', () => false)(pack); }
 function attemptLoredeckHealthFixes(pack, button) {
@@ -4472,16 +4473,29 @@ async function buildLoredeckCoverAssetFromFile(file, pack = {}) {
     };
 }
 
-function saveLoredeckCoverImageAsset(packId = '', asset = null, message = '') {
-    const pack = getFreshLoredeckLibraryPack(packId);
+async function getHydratedEditableLoredeckLibraryPack(packId = '', fallback = null) {
+    const pack = getFreshLoredeckLibraryPack(packId, fallback);
     if (!pack) {
         toast('That Loredeck is no longer available.', 'warning');
-        return false;
+        return null;
     }
     if (!isEditableLoredeckLibraryPack(pack)) {
         toast('Bundled Loredecks are read-only. Duplicate as Custom first.', 'warning');
-        return false;
+        return null;
     }
+    try {
+        const hydrated = await hydrateLoredeckPayloadRecord(pack);
+        return getFreshLoredeckLibraryPack(packId, hydrated) || hydrated || pack;
+    } catch (error) {
+        console.warn('[Saga] Loredeck cover payload load failed:', error);
+        toast(error?.message || 'Loredeck payload could not be loaded before saving the cover image.', 'error');
+        return null;
+    }
+}
+
+async function saveLoredeckCoverImageAsset(packId = '', asset = null, message = '') {
+    const pack = await getHydratedEditableLoredeckLibraryPack(packId);
+    if (!pack) return false;
     return persistLoredeckLibraryRecordMutation(pack, next => {
         const assets = next.assets && typeof next.assets === 'object' && !Array.isArray(next.assets)
             ? { ...next.assets }
@@ -4493,6 +4507,14 @@ function saveLoredeckCoverImageAsset(packId = '', asset = null, message = '') {
             delete assets.deckCover;
             delete next.cover;
             delete next.coverImage;
+            delete next.coverFile;
+            delete next.coverPath;
+            if (next.assetRefs && typeof next.assetRefs === 'object' && !Array.isArray(next.assetRefs)) {
+                const assetRefs = { ...next.assetRefs };
+                delete assetRefs.cover;
+                if (Object.keys(assetRefs).length) next.assetRefs = assetRefs;
+                else delete next.assetRefs;
+            }
             if (next.manifestData && typeof next.manifestData === 'object' && !Array.isArray(next.manifestData)) {
                 const manifestAssets = next.manifestData.assets && typeof next.manifestData.assets === 'object' && !Array.isArray(next.manifestData.assets)
                     ? { ...next.manifestData.assets }
@@ -4537,7 +4559,7 @@ function importLoredeckCoverImageFromFile(packId = '', button = null) {
         try {
             const fresh = getFreshLoredeckLibraryPack(packId, pack) || pack;
             const asset = await buildLoredeckCoverAssetFromFile(file, fresh);
-            saveLoredeckCoverImageAsset(packId, asset, '');
+            await saveLoredeckCoverImageAsset(packId, asset, '');
         } catch (e) {
             toast(e?.message || 'Cover image import failed.', 'error');
         } finally {
@@ -4547,14 +4569,19 @@ function importLoredeckCoverImageFromFile(packId = '', button = null) {
     input.click();
 }
 
-function removeLoredeckCoverImage(packId = '', button = null) {
+async function removeLoredeckCoverImage(packId = '', button = null) {
     if (button) button.disabled = true;
     try {
-        saveLoredeckCoverImageAsset(packId, null, '');
+        await saveLoredeckCoverImageAsset(packId, null, '');
     } finally {
         if (button) button.disabled = false;
     }
 }
+
+export const __loredeckLibraryPanelTestHooks = Object.freeze({
+    getHydratedEditableLoredeckLibraryPack,
+    saveLoredeckCoverImageAsset,
+});
 
 function addLoredecksToStack(packIds = []) {
     const ids = Array.from(new Set((packIds || []).map(id => String(id || '').trim()).filter(Boolean)));

@@ -13,9 +13,10 @@ Give another LLM these files first:
 - `docs/loredecks/LLM_LOREDECK_GENERATION_GUIDE.md`
 - `docs/loredecks/LOREDECK_AND_LORECARD_CREATION_GUIDE.md`
 - `docs/loredecks/SAGA_LOREDECK_SCHEMA.md`
+- `docs/loredecks/LOREDECK_ZIP_PACKAGE_STRUCTURE.md`
 - `docs/development/SAGA_TERMINOLOGY.md`
 
-That bundle explains Saga's public terms, the authoring target, the schema contract location, the generation workflow, and the quality bar.
+That bundle explains Saga's public terms, the authoring target, the schema contract location, the package format, the generation workflow, and the quality bar.
 
 ## Implementation-Backed Bundle
 
@@ -228,20 +229,23 @@ For a new LLM starting from scratch, provide:
 1. `docs/loredecks/LLM_LOREDECK_GENERATION_GUIDE.md`
 2. `docs/loredecks/LOREDECK_AND_LORECARD_CREATION_GUIDE.md`
 3. `docs/loredecks/SAGA_LOREDECK_SCHEMA.md`
-4. `docs/development/SAGA_TERMINOLOGY.md`
+4. `docs/loredecks/LOREDECK_ZIP_PACKAGE_STRUCTURE.md`
+5. `docs/development/SAGA_TERMINOLOGY.md`
+
+For an LLM expected to produce an importable package, also add one relevant bundled Loredeck folder from `content/loredecks/` and the root `content/loredecks/index.json`.
 
 For an LLM expected to match the app's current Creator behavior, add:
 
-5. `loredeck-assistant.js`
-6. `src/loredecks/loredeck-loader.js`
-7. `loredeck-creator-projects.js`
-8. `docs/development/LOREDECK_CREATOR_BATCHING_ARCHITECTURE.md`
+6. `loredeck-assistant.js`
+7. `src/loredecks/loredeck-loader.js`
+8. `loredeck-creator-projects.js`
+9. `docs/development/LOREDECK_CREATOR_BATCHING_ARCHITECTURE.md`
 
 For broader product context, add:
 
-9. `docs/development/SAGA_PREPRODUCTION.md`
-10. `docs/development/SAGA_CONTEXT_SYSTEM_DEVELOPMENT_PLAN.md`
-11. `docs/development/SAGA_ALPHA_RELEASE_SYSTEMS.md`
-12. `docs/development/SAGA_CORE_INTEGRATION_TESTING.md`
+10. `docs/development/SAGA_PREPRODUCTION.md`
+11. `docs/development/SAGA_CONTEXT_SYSTEM_DEVELOPMENT_PLAN.md`
+12. `docs/development/SAGA_ALPHA_RELEASE_SYSTEMS.md`
+13. `docs/development/SAGA_CORE_INTEGRATION_TESTING.md`
 
 Only add Harry Potter reference deck files when the LLM needs concrete examples for a specific structure or quality comparison.

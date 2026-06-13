@@ -185,6 +185,27 @@ await flushSagaLorepackLibraryStorageWrites();
 
 const storedPayload = JSON.parse(stored.get('/user/files/saga-pack-cleanup-loredeck.v1.json'));
 const coverAsset = storedPayload.assets.cover.path;
+const importedCoverAsset = '/user/files/saga-pack-asset-imported-cleanup-loredeck-cover-fixture.png';
+stored.set(importedCoverAsset, 'imported-cover-fixture');
+const importedPayloadUpsert = upsertExternalLorepackPayloadSync({
+  packId: 'imported-cleanup-loredeck',
+  type: 'custom',
+  title: 'Imported Cleanup Loredeck',
+  source: {
+    kind: 'imported_zip',
+    bundleType: 'saga_loredeck_zip_package',
+    originalPackId: 'imported-cleanup-loredeck',
+  },
+  coverImage: importedCoverAsset,
+  entryOverrides: {
+    nami: { id: 'nami', title: 'Nami', schemaVersion: 3, content: { fact: 'Nami once worked under Arlong.' } },
+  },
+}, options);
+assert.equal(importedPayloadUpsert.ok, true);
+upsertExternalLoredeckLibraryRecordSync(createExternalLorepackLibraryRecord(importedPayloadUpsert.payload), options);
+await flushSagaLorepackPayloadStorageWrites();
+await flushSagaLorepackLibraryStorageWrites();
+assert.equal(stored.has(importedCoverAsset), true);
 const repairWrite = await writeLoredeckHealthRepairSession({
   packId: 'cleanup-loredeck',
   sessionId: 'needs-review',
@@ -223,19 +244,25 @@ replaceExternalLoredeckLibraryIndexSync({
 await flushSagaLorepackLibraryStorageWrites();
 
 const lorePreview = await buildSagaGlobalCleanupPreview(options);
-assert.equal(lorePreview.loredeckCount, 1);
+assert.equal(lorePreview.loredeckCount, 2);
 
 const loreCleanup = await removeSagaCustomLoredeckStorage(options);
 assert.equal(loreCleanup.ok, true);
-assert.equal(loreCleanup.removedLoredeckCount, 1);
+assert.equal(loreCleanup.removedLoredeckCount, 2);
 assert.equal(loreCleanup.repairSessionDeletedCount, 1);
 assert.equal(stored.has('/user/files/saga-pack-cleanup-loredeck.v1.json'), false);
+assert.equal(stored.has('/user/files/saga-pack-imported-cleanup-loredeck.v1.json'), false);
 assert.equal(stored.has(coverAsset), false);
+assert.equal(stored.has(importedCoverAsset), false, 'Custom Loredeck cleanup should delete imported package cover images referenced by the installed deck.');
 assert.equal(stored.has(repairWrite.path), false);
 assert.equal(getExternalLoredeckLibraryRegistry().packs['cleanup-loredeck'], undefined);
+assert.equal(getExternalLoredeckLibraryRegistry().packs['imported-cleanup-loredeck'], undefined);
 assert.equal(JSON.parse(stored.get(SAGA_STORAGE_DOMAIN_INDEX_FILES.library)).packs['cleanup-loredeck'], undefined);
+assert.equal(JSON.parse(stored.get(SAGA_STORAGE_DOMAIN_INDEX_FILES.library)).packs['imported-cleanup-loredeck'], undefined);
 assert.equal(JSON.parse(stored.get(SAGA_STORAGE_INDEX_PATH)).files['/user/files/saga-pack-cleanup-loredeck.v1.json'], undefined);
+assert.equal(JSON.parse(stored.get(SAGA_STORAGE_INDEX_PATH)).files['/user/files/saga-pack-imported-cleanup-loredeck.v1.json'], undefined);
 assert.equal(JSON.parse(stored.get(SAGA_STORAGE_INDEX_PATH)).files[coverAsset], undefined);
+assert.equal(JSON.parse(stored.get(SAGA_STORAGE_INDEX_PATH)).files[importedCoverAsset], undefined);
 const prunedLibrary = getExternalLoredeckLibraryRegistry();
 assert(prunedLibrary.folders.some(folder => folder.id === 'surviving-parent'), 'Custom Loredeck cleanup should keep ancestor folders for surviving bundled deck placements.');
 assert(prunedLibrary.folders.some(folder => folder.id === 'surviving-child'), 'Custom Loredeck cleanup should keep nested folders that still contain bundled deck placements.');

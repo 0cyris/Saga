@@ -30,6 +30,7 @@ assert(!lorePanel.includes('configureAdvancedRuntimePanel({\n    createCollapsib
 assert(!defaultSettings.includes("'settings.dangerZone'"), 'Danger Zone must not keep a collapsed-section default after the dropdown is removed.');
 assert(runtimeTheme.includes("target.style.setProperty('--saga-danger', colors.danger)") && runtimeTheme.includes("target.style.setProperty('--saga-danger-surface', hexToRgba(colors.danger, 0.24))"), 'Runtime themes must publish explicit danger tokens from the active Theme Pack danger color.');
 assert(style.includes('.saga-danger-zone-card') && style.includes('var(--saga-danger-surface') && style.includes('var(--saga-danger-soft'), 'Danger Zone card must use active Theme Pack danger surface tokens.');
+assert(!/\.saga-danger-zone-title\s*\{[\s\S]*?--saga-danger/.test(style), 'Danger Zone title must inherit the normal runtime card title color instead of becoming danger-on-danger.');
 assert(style.includes('.saga-danger-button') && style.includes('var(--saga-danger-hover') && style.includes('var(--saga-danger,'), 'Danger buttons must use active Theme Pack danger tokens.');
 
 assert(runtimeSafetyPanel.includes('Active Chat') && runtimeSafetyPanel.includes('Global'), 'Danger Zone must separate Active Chat and Global groups.');

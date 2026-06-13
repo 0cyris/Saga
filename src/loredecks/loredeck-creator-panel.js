@@ -1743,6 +1743,12 @@ export function createLoredeckCreatorEntryDraftCard(brief = {}, cached = {}) {
         wrap.appendChild(createEmptyMessage('Plan and accept Context and Tag proposals to create the Generated Loredeck shell before drafting Lorecards.'));
         return wrap;
     }
+
+    if (draftChanges.length) {
+        const draftBatch = createLoredeckCreatorDraftReviewSection(generatedPack);
+        if (draftBatch) wrap.appendChild(draftBatch);
+    }
+
     if (!planning.ready) {
         wrap.appendChild(createEmptyMessage('Accept Context and Tag planning proposals before drafting full Lorecards.'));
         return wrap;
@@ -1759,11 +1765,6 @@ export function createLoredeckCreatorEntryDraftCard(brief = {}, cached = {}) {
         next.className = 'saga-runtime-help';
         next.textContent = `Next batch: ${targetTitles.map(draft => draft.title || draft.titleId).join(' | ')}`;
         wrap.appendChild(next);
-    }
-
-    if (draftChanges.length) {
-        const draftBatch = createLoredeckCreatorDraftReviewSection(generatedPack);
-        if (draftBatch) wrap.appendChild(draftBatch);
     }
     return wrap;
 }
