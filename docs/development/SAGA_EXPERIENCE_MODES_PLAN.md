@@ -1,6 +1,6 @@
 # Saga Basic And Advanced Experience Modes Plan
 
-This plan revises Saga's Basic and Advanced experience modes for the current pre-alpha product direction. It assumes Saga is no longer a Wandlight-compatible preset workflow. Legacy Wandlight concepts should be translated into Saga-native concepts or removed from the visible experience.
+This plan revises Saga's Basic and Advanced experience modes for the current pre-alpha product direction. It assumes Saga should present only Saga-native concepts in visible workflows.
 
 ## Purpose
 
@@ -13,9 +13,9 @@ The modes should differ in disclosure, defaults, labels, and recommended actions
 
 ## Product Framing
 
-### What Changed From Wandlight
+### Saga-Native Direction
 
-Old Wandlight asked users to:
+The earlier prototype workflow asked users to:
 
 1. Import a prompt preset.
 2. Pick a model.
@@ -33,7 +33,7 @@ Saga should not recreate that as a preset checklist. Saga replaces the old workf
 5. Trust a compact injection summary, or switch to Advanced to inspect the full Injection Preview.
 6. Continue roleplay and update story memory when the chat changes.
 
-The old Wandlight lesson is still important: users need a short, confident path to "the model now knows the right lore." Basic Experience should preserve that simplicity while using Saga-native tools.
+The product lesson remains important: users need a short, confident path to "the model now knows the right lore." Basic Experience should preserve that simplicity while using Saga-native tools.
 
 ### Mode Boundary
 
@@ -480,7 +480,7 @@ When an Advanced user switches to Basic:
 - Do not rename Basic `Session` to `Start`.
 - Do not rename Basic `Lorecards` to `Review`.
 - Hide the Basic `Injection` tab without adding a separate Basic prompt-status summary.
-- Remove or rewrite old Wandlight/Saga legacy copy in the Basic guide, especially "legacy global Context Brief" and "canon packs" framing where active-stack Lorecards are now the source of truth.
+- Remove or rewrite legacy preset-workflow copy in the Basic guide, especially "legacy global Context Brief" and "canon packs" framing where active-stack Lorecards are now the source of truth.
 - Keep internal IDs stable unless a cleanup pass deliberately removes old names.
 
 ### Phase 2: Add Basic Start Checklist To Session
@@ -529,7 +529,6 @@ When an Advanced user switches to Basic:
 - Split release-facing user docs into:
   - `docs/user/BASIC_WORKFLOW.md`
   - `docs/user/ADVANCED_WORKFLOW.md`
-  - `docs/user/WANDLIGHT_TO_SAGA.md`
 - Update README Quick Start to point new users to Basic Workflow first.
 - Keep development details in `docs/development`.
 - Keep schema and authoring details in `docs/loredecks`.

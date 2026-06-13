@@ -9,7 +9,6 @@ Saga documentation is being organized into release-facing topic folders. Older i
 - [Operator's Manual](user/OPERATOR_MANUAL.md): full screenshot-backed guide to Session, Loredecks, Pack Health, Creator, Context, Lorecards, Continuity, Injection, Settings, and troubleshooting.
 - [Storage And State Safety](user/STORAGE_AND_STATE_SAFETY.md): operator guide for Saga's `/user/files` storage model, `settings.json` boundaries, import storage, State Safety maintenance, and Danger Zone cleanup.
 - [Alpha Release Notes](release/0.1.0-alpha.1.md): versioned alpha compatibility, manual update, State Safety, and release-gate notes.
-- [Wandlight To Saga](user/WANDLIGHT_TO_SAGA.md): concept mapping for users moving from old Wandlight mental models to Saga-native Loredecks, Context, Lorecards, and Injection.
 - [Loredecks](loredecks/LOREDECK_AND_LORECARD_CREATION_GUIDE.md): Loredeck and Lorecard creation guidance, reference-deck expectations, authoring workflow, and schema links.
 - [LLM Loredeck Generation](loredecks/LLM_LOREDECK_GENERATION_GUIDE.md): compact handoff for another LLM that needs to generate or revise Saga Loredecks and Lorecards.
 

@@ -1971,6 +1971,7 @@ function getActiveLoredeckCreatorGeneration(job = getLoredeckCreatorBriefCache()
 
 function isLoredeckCreatorGenerationCurrent(generation = null) {
     if (!generation?.id) return false;
+    if (loredeckCreatorGenerationControllers.has(generation.id)) return true;
     const jobId = getLoredeckCreatorGenerationJobId(generation);
     if (jobId) {
         const live = getLoredeckCreatorLiveGenerationForJob(jobId);

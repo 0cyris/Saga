@@ -1401,6 +1401,7 @@ assert(runtimePanelSource.includes('upsertLoredeckCreatorEntryDraftChanges'), 'C
 assert(runtimePanelSource.includes('creator_entry_micro_batch:'), 'Creator Lorecard unit IDs must be namespaced for runner checkpoints.');
 assert(runtimePanelSource.includes('entry_micro_batch'), 'Creator Lorecard drafting must run through the generation runner as entry micro-batches.');
 assert(!runtimePanelSource.includes('draft-review items exist'), 'Creator Lorecard auto-draft must not stop solely because draft-review items exist.');
+assert(runtimePanelSource.includes('loredeckCreatorGenerationControllers.has(generation.id)'), 'Creator generation recovery must keep controller-backed runs current even when storage recovery clears activeGeneration.');
 assert(runtimePanelSource.includes('createLoredeckCreatorAdvancedGenerationSettings'), 'Creator wizard must expose a collapsed Advanced Generation Settings panel.');
 assert(runtimePanelSource.includes('getLoredeckCreatorGenerationSettings'), 'Creator generation must read normalized per-project generation settings.');
 assert(runtimePanelSource.includes('setLoredeckCreatorGenerationSettings'), 'Creator generation settings must persist per project.');

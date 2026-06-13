@@ -2,7 +2,7 @@
 
 This plan defines the next README shape before rewriting `README.md`.
 
-The Wandlight README is the pacing reference: a light opener, quick setup, visual feature tour, then practical operating notes. Saga needs the same readability, but with a fuller operator's manual because Saga is an extension with persistent state, Loredecks, Context, review queues, Pack Health, and prompt injection.
+The README pacing target is a light opener, quick setup, visual feature tour, then practical operating notes. Saga needs that readability, but with a fuller operator's manual because Saga is an extension with persistent state, Loredecks, Context, review queues, Pack Health, and prompt injection.
 
 ## Goals
 
@@ -44,7 +44,7 @@ Avoid turning this into the full feature list.
 
 ### 3. Fast Start
 
-Wandlight starts with actionable setup steps. Saga should do the same.
+Start with actionable setup steps.
 
 Recommended steps:
 
@@ -280,7 +280,6 @@ Keep links to release-facing docs:
 
 - Basic Workflow
 - Advanced Workflow
-- Wandlight To Saga
 - Loredeck And Lorecard Creation
 - LLM Loredeck Generation Guide
 - Loredeck Schema Reference
@@ -323,7 +322,7 @@ Keep out of the README body unless a short summary is needed:
 - Full development roadmap.
 - Exhaustive troubleshooting.
 - Test implementation detail.
-- Historical Wandlight migration notes beyond one link.
+- Historical migration notes beyond the current Saga docs.
 
 ## Open Decisions
 

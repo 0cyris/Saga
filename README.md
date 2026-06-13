@@ -97,7 +97,6 @@ Release-facing docs:
 - [Operator's Manual](docs/user/OPERATOR_MANUAL.md)
 - [Basic Workflow](docs/user/BASIC_WORKFLOW.md)
 - [Advanced Workflow](docs/user/ADVANCED_WORKFLOW.md)
-- [Wandlight To Saga](docs/user/WANDLIGHT_TO_SAGA.md)
 - [Loredeck And Lorecard Creation](docs/loredecks/LOREDECK_AND_LORECARD_CREATION_GUIDE.md)
 - [LLM Loredeck Generation Guide](docs/loredecks/LLM_LOREDECK_GENERATION_GUIDE.md)
 - [Loredeck Schema Reference](docs/loredecks/SAGA_LOREDECK_SCHEMA.md)

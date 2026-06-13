@@ -55,7 +55,7 @@ Relevant implementation points when this feature slice started:
 - Basic Context now keeps shared Context labels while hiding Advanced Context diagnostics.
 - Basic Loredecks now reuses the shared Loredeck Library loading section, keeps Import Deck visible, and hides Create Deck plus In-Progress Creator Projects behind Advanced.
 - Basic Settings now keeps Providers simplified while rendering the full shared Theme Pack section.
-- Starter Basic, Advanced, and Wandlight-to-Saga user workflow docs are in place.
+- Starter Basic and Advanced user workflow docs are in place.
 
 ## UX Contract
 
@@ -352,7 +352,6 @@ Files:
 - `README.md`
 - `docs/user/BASIC_WORKFLOW.md`
 - `docs/user/ADVANCED_WORKFLOW.md`
-- `docs/user/WANDLIGHT_TO_SAGA.md`
 - possible new focused test script for navigation helpers
 
 Add checks:
@@ -414,7 +413,7 @@ http://127.0.0.1:8765/tests/browser/visual-smoke.html?mode=advanced&tab=injectio
 - Loredeck Creator UX changes.
 - Pack Health redesign.
 - Import/export simplification.
-- Full release-facing documentation beyond the starter Basic, Advanced, and Wandlight-to-Saga workflow pages.
+- Full release-facing documentation beyond the starter Basic and Advanced workflow pages.
 
 Those are part of the broader experience-mode plan, but this feature slice should stay focused enough to land and verify quickly.
 
