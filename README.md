@@ -12,7 +12,7 @@ It turns canon, alternate-universe, crossover, and user-created lore into modula
 
 Saga is a lore system for deciding what belongs in the story **now**: what is true, what is hidden, who knows what, and what has changed in this chat.
 
-The current state of development is **alpha-release**. Bundled loredecks include Harry Potter, Jujutsu Kaisen, LOTR, My Hero Academia, and Star Wars. The built-in Loredeck Creator is functional, and lightly tested, but set your expectations for 'alpha'. Stability is being improved with testing, and user feedback is highly valued.
+The current state of development is **alpha-release**. Bundled loredecks include Harry Potter, Jujutsu Kaisen, LOTR, My Hero Academia, and Star Wars. The built-in Loredeck Creator is functional, and loredeck imports are working, but set your expectations for 'alpha'. Stability is being improved with testing, and user feedback is highly valued.
 
 ## Contents
 
@@ -71,6 +71,12 @@ Release-facing docs:
 - [Saga Terminology](docs/development/SAGA_TERMINOLOGY.md)
 
 Development notes live in [docs/development](docs/development/) until promoted, rewritten, or archived as release-facing docs.
+
+## Roadmap
+
+-Mobile Support
+-Stability
+-UI/UX Improvements
 
 ## Security
 
