@@ -1079,6 +1079,8 @@ assert(runtimePanelSource.includes('function refreshLoredeckLibrarySelectionHigh
 assert(runtimePanelSource.includes('function scheduleLoredeckLibrarySelectionSurfaceRefresh'), 'Loredeck Library folder selection must schedule in-place surface refreshes.');
 assert(runtimePanelSource.includes('function refreshLoredeckLibraryVisibleSurfaces') && runtimePanelSource.includes('scheduleLoredeckLibraryVisibleSurfaceRefresh'), 'Loredeck Library search/view/sort changes must refresh visible surfaces in place instead of rebuilding the fullscreen overlay.');
 assert(!/onChange: value => \{\s*loredeckLibrarySort = value;\s*renderLoredeckLibraryOverlay\(\);/m.test(runtimePanelSource), 'Loredeck Library sort dropdown must not synchronously rebuild the full overlay.');
+assert(runtimeUiKit.includes('function shouldUseFloatingTooltip') && runtimeUiKit.includes("toUpperCase() !== 'SELECT'"), 'Native select controls must not show the custom floating tooltip on focus/open.');
+assert(libraryPanel.includes('function scheduleLoredeckLibraryVisibleSurfaceRefresh(options = {})') && libraryPanel.includes('options.refreshHighlights !== false') && (libraryPanel.match(/scheduleLoredeckLibraryVisibleSurfaceRefresh\(\{ refreshHighlights: false \}\)/g) || []).length >= 4, 'Loredeck Library search/view/sort controls must avoid synchronous highlight scans before their deferred visible-surface refresh.');
 assert(read('src/storage/saga-lorepack-library-storage.js').includes('hydrateCachedPayloads === true'), 'Merged Library registry reads must keep cached external payload hydration opt-in.');
 assert(defaultState.includes("selectedLoredeckId: ''"), 'New Saga installs must not preselect a Loredeck in the Library details panel.');
 assert(runtimePanelSource.includes('No Loredecks or Folders Selected'), 'Loredeck Library details must show an explicit empty-selection state.');
@@ -1848,9 +1850,12 @@ for (const token of [
 assert(!style.includes('max-height: 160px;'), 'Folder details contained Loredeck list must expand with the resized details panel.');
 assert(/\.saga-loredeck-library-details\s*\{[\s\S]*?height:\s*100%;/.test(style), 'Loredeck Library details panel must fill the resized details region.');
 assert(/\.saga-loredeck-library-folder-detail-visual\s*\{[\s\S]*?align-self:\s*start;[\s\S]*?justify-self:\s*start;/.test(style), 'Folder detail cover previews must stay pinned to the top-left while details resize.');
+assert(/\.saga-loredeck-library-deck-card\s*\{[\s\S]*?user-select:\s*none;/.test(style), 'Loredeck Library deck cards must suppress native text selection during Shift-click range selection.');
+assert(/\.saga-loredeck-library-title-input\s*\{[\s\S]*?user-select:\s*text;/.test(style), 'Loredeck Library title input must remain text-selectable while deck cards suppress selection.');
 assert(style.includes('display: inline-grid !important;') && style.includes('grid-area: 1 / 1;'), 'Loredeck Library square icon actions must center their SVG artwork.');
 assert(style.includes('var(--saga-chip-neutral-bg') && style.includes('var(--saga-chip-source-fg') && style.includes('var(--saga-chip-review-bg'), 'Loredeck Library metadata/status pills must use semantic theme chip tokens.');
 assert(style.includes('--saga-chip-tag-bg: rgba(22, 23, 28, 0.9)') && style.includes('--saga-chip-category-fg: #c9cdd6') && style.includes('--saga-chip-relevance-high-fg: #dcfce7') && style.includes('--saga-chip-relevance-normal-fg: #dbeafe') && style.includes('--saga-chip-relevance-low-fg: #e2e8f0'), 'Static chip fallbacks must split quiet metadata chips from color-coded relevance feedback.');
 assert(style.includes('calc(var(--saga-grip-dot-rows, 6) * 7px)'), 'Loredeck Library drag handles must size dot grids without clipping short 2x2 or 2x3 handles.');
+assert(libraryPanel.includes('suppressLoredeckLibraryRangeTextSelection') && libraryPanel.includes("card.addEventListener('mousedown', suppressLoredeckLibraryRangeTextSelection);"), 'Loredeck Library card range selection must suppress native Shift-click text selection before click handling.');
 
 console.log('Visual smoke harness contract passed.');

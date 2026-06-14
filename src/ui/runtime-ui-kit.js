@@ -441,16 +441,27 @@ export function createEmptyMessage(text) {
     return empty;
 }
 
-export function addTooltip(el, text) {
+function shouldUseFloatingTooltip(el, options = {}) {
+    if (options.floating === false) return false;
+    return String(el?.tagName || '').toUpperCase() !== 'SELECT';
+}
+
+export function addTooltip(el, text, options = {}) {
     if (!el || !text) return el;
     el.dataset.sagaTooltip = text;
     el.setAttribute('aria-label', text);
     // Native title tooltips are slow and can fight the runtime overlay tooltip.
     el.removeAttribute('title');
-    el.addEventListener('mouseenter', () => showFloatingTooltip(el));
-    el.addEventListener('focus', () => showFloatingTooltip(el));
-    el.addEventListener('mouseleave', hideFloatingTooltip);
-    el.addEventListener('blur', hideFloatingTooltip);
+    if (shouldUseFloatingTooltip(el, options)) {
+        if (options.showOnHover !== false) {
+            el.addEventListener('mouseenter', () => showFloatingTooltip(el));
+            el.addEventListener('mouseleave', hideFloatingTooltip);
+        }
+        if (options.showOnFocus !== false) {
+            el.addEventListener('focus', () => showFloatingTooltip(el));
+            el.addEventListener('blur', hideFloatingTooltip);
+        }
+    }
     return el;
 }
 

@@ -709,8 +709,8 @@ function scheduleLoredeckLibrarySelectionSurfaceRefresh() {
     });
 }
 
-function scheduleLoredeckLibraryVisibleSurfaceRefresh() {
-    refreshLoredeckLibrarySelectionHighlights();
+function scheduleLoredeckLibraryVisibleSurfaceRefresh(options = {}) {
+    if (options.refreshHighlights !== false) refreshLoredeckLibrarySelectionHighlights();
     if (!loredeckLibraryOpen) return;
     if (loredeckLibraryHierarchyRefreshFrame && typeof cancelAnimationFrame === 'function') {
         cancelAnimationFrame(loredeckLibraryHierarchyRefreshFrame);
@@ -1124,6 +1124,43 @@ function getLoredeckLibraryBulkSelectedIds(library = getLoredeckLibrary(getState
     return [...loredeckLibraryBulkSelectedIds].filter(id => validIds.has(id));
 }
 
+function getLoredeckLibrarySelectionElement(node) {
+    if (!node) return null;
+    if (node.nodeType === 1) return node;
+    return node.parentElement || null;
+}
+
+function clearLoredeckLibraryNativeSelection() {
+    const getSelection = typeof window !== 'undefined' && typeof window.getSelection === 'function'
+        ? () => window.getSelection()
+        : (typeof document !== 'undefined' && typeof document.getSelection === 'function' ? () => document.getSelection() : null);
+    const selection = getSelection?.();
+    if (!selection?.rangeCount) return;
+    const overlay = document.querySelector('.saga-loredeck-library-overlay');
+    if (!overlay) return;
+    const anchor = getLoredeckLibrarySelectionElement(selection.anchorNode);
+    const focus = getLoredeckLibrarySelectionElement(selection.focusNode);
+    const selectionInsideOverlay = (anchor && overlay.contains(anchor)) || (focus && overlay.contains(focus));
+    if (selectionInsideOverlay) selection.removeAllRanges();
+}
+
+function isLoredeckLibraryNativeSelectionTarget(target) {
+    return !!target?.closest?.('input, textarea, select, button, a[href], [contenteditable="true"], [contenteditable="plaintext-only"]');
+}
+
+function suppressLoredeckLibraryRangeTextSelection(event) {
+    if (!event?.shiftKey || event.defaultPrevented) return;
+    if (event.button != null && event.button !== 0) return;
+    if (isLoredeckLibraryNativeSelectionTarget(event.target)) return;
+    event.preventDefault();
+    try {
+        event.currentTarget?.focus?.({ preventScroll: true });
+    } catch (_error) {
+        event.currentTarget?.focus?.();
+    }
+    clearLoredeckLibraryNativeSelection();
+}
+
 export function setLoredeckLibraryBulkSelection(packIds = [], anchorId = '') {
     const ids = (packIds || []).map(id => String(id || '').trim()).filter(Boolean);
     loredeckLibraryBulkSelectedIds = new Set(ids);
@@ -1137,6 +1174,7 @@ function handleLoredeckLibraryDeckSelection(packId, event = null, visiblePacks =
     const visibleIds = (visiblePacks || []).map(pack => pack.packId).filter(Boolean);
     const hasRange = event?.shiftKey && visibleIds.length;
     if (hasRange) {
+        clearLoredeckLibraryNativeSelection();
         const anchor = visibleIds.includes(loredeckLibraryLastSelectionAnchorId)
             ? loredeckLibraryLastSelectionAnchorId
             : (getLoredeckLibraryBulkSelectedIds().find(selectedId => visibleIds.includes(selectedId)) || id);
@@ -1232,11 +1270,11 @@ function createLoredeckLibraryPane(packs = [], stack = [], canonDb = null, healt
         tooltip: 'Search deck title, description, fandom, era, tags, manifest path, and deck ID. Press Enter or leave the field to apply.',
         onEnter: value => {
             loredeckLibraryQuery = value;
-            scheduleLoredeckLibraryVisibleSurfaceRefresh();
+            scheduleLoredeckLibraryVisibleSurfaceRefresh({ refreshHighlights: false });
         },
         onChange: value => {
             loredeckLibraryQuery = value;
-            scheduleLoredeckLibraryVisibleSurfaceRefresh();
+            scheduleLoredeckLibraryVisibleSurfaceRefresh({ refreshHighlights: false });
         },
     }));
 
@@ -1250,7 +1288,7 @@ function createLoredeckLibraryPane(packs = [], stack = [], canonDb = null, healt
             loredeckLibrarySelectedFolderId = value || 'all';
             loredeckLibrarySelectedFolderDetailsId = '';
             setLoredeckLibraryBulkSelection([], '');
-            scheduleLoredeckLibraryVisibleSurfaceRefresh();
+            scheduleLoredeckLibraryVisibleSurfaceRefresh({ refreshHighlights: false });
         },
     }));
 
@@ -1269,7 +1307,7 @@ function createLoredeckLibraryPane(packs = [], stack = [], canonDb = null, healt
         ],
         onChange: value => {
             loredeckLibrarySort = value;
-            scheduleLoredeckLibraryVisibleSurfaceRefresh();
+            scheduleLoredeckLibraryVisibleSurfaceRefresh({ refreshHighlights: false });
         },
     }));
     const newFolderButton = createButton('New Folder', 'Create a new top-level Library folder.', () => {
@@ -2316,6 +2354,7 @@ function createLoredeckLibraryDeckCard(pack, stack = [], canonDb = null, health 
     if (selectedId === pack.packId) card.setAttribute('aria-current', 'true');
     addTooltip(card, `${pack.title || pack.packId}. Click to select, Ctrl/Cmd-click to toggle, Shift-click to select a visible range, double-click to add to the active stack.`);
     markTourTarget(card, 'loredecks.library.deckCard');
+    card.addEventListener('mousedown', suppressLoredeckLibraryRangeTextSelection);
     card.addEventListener('click', e => {
         e.stopPropagation();
         handleLoredeckLibraryDeckSelection(pack.packId, e, visiblePacks);
