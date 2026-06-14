@@ -5,6 +5,7 @@ import { pathToFileURL } from 'node:url';
 const root = process.cwd();
 const sourcePath = (...parts) => path.join(root, 'src', ...parts);
 const harnessPath = path.join(root, 'tests', 'browser', 'visual-smoke.html');
+const dropdownLatencyHarnessPath = path.join(root, 'tests', 'browser', 'dropdown-latency.html');
 const loredeckIndexPath = path.join(root, 'content', 'loredecks', 'index.json');
 const panelPath = sourcePath('runtime', 'lore-panel.js');
 const libraryPanelPath = sourcePath('loredecks', 'loredeck-library-panel.js');
@@ -613,6 +614,7 @@ function collectMarkedTourTargets(source = '') {
 }
 
 const harness = read(harnessPath);
+const dropdownLatencyHarness = read(dropdownLatencyHarnessPath);
 const loredeckIndex = JSON.parse(read(loredeckIndexPath));
 const panel = read(panelPath);
 const libraryPanel = read(libraryPanelPath);
@@ -1060,7 +1062,7 @@ assert(!style.includes('folder-cover-tile:nth-child(odd)'), 'Folder cover previe
 assert(!style.includes('folder-cover-tile:nth-child(even)'), 'Folder cover previews must not randomly tilt even covers.');
 assert(runtimePanelSource.includes('LOREDECK_LIBRARY_FOLDER_COVER_MAX_VISIBLE = 15'), 'Folder cover previews must cap visible deck covers at 15 before the overflow tile.');
 assert(!read(libraryPanelPath).includes('slice(0, 20)'), 'Folder cover preview collection must not retain the old 20-cover cap.');
-assert(runtimePanelSource.includes("getPropertyValue('--saga-folder-cover-size')"), 'Folder cover layout must read the current CSS cover size.');
+assert(!libraryPanel.includes('ResizeObserver') && !libraryPanel.includes('getPropertyValue(\'--saga-folder-cover-size\')'), 'Folder cover previews must not schedule per-row measured layout work after render.');
 assert(libraryPanel.includes('await hydrateLoredeckPayloadRecord(pack)') && runtimePanelSource.includes('hydrateLoredeckPayloadRecord: hydrateExternalLorepackPayloadRecord'), 'Loredeck cover image saves must hydrate external payload-backed decks before persisting cover changes.');
 assert(libraryPanel.includes('await flushLoredeckPayloadWrites()') && runtimePanelSource.includes('flushLoredeckPayloadWrites: flushSagaLorepackPayloadStorageWrites'), 'Loredeck cover image saves must wait for external payload asset writes before rerendering cover previews.');
 assert(libraryPanel.includes('refreshSurfaces: false') && runtimePanelSource.includes('options.refreshSurfaces !== false'), 'Loredeck cover image saves must defer the normal mutation refresh until after the external cover asset is written.');
@@ -1083,6 +1085,9 @@ assert(runtimePanelSource.includes('function refreshLoredeckLibraryVisibleSurfac
 assert(!/onChange: value => \{\s*loredeckLibrarySort = value;\s*renderLoredeckLibraryOverlay\(\);/m.test(runtimePanelSource), 'Loredeck Library sort dropdown must not synchronously rebuild the full overlay.');
 assert(runtimeUiKit.includes('function shouldUseFloatingTooltip') && runtimeUiKit.includes("toUpperCase() !== 'SELECT'"), 'Native select controls must not show the custom floating tooltip on focus/open.');
 assert(libraryPanel.includes('function scheduleLoredeckLibraryVisibleSurfaceRefresh(options = {})') && libraryPanel.includes('options.refreshHighlights !== false') && (libraryPanel.match(/scheduleLoredeckLibraryVisibleSurfaceRefresh\(\{ refreshHighlights: false \}\)/g) || []).length >= 4, 'Loredeck Library search/view/sort controls must avoid synchronous highlight scans before their deferred visible-surface refresh.');
+assert(loredeckFilterControls.includes('saga-loredeck-select-control') && loredeckFilterControls.includes('saga-loredeck-select-menu') && !loredeckFilterControls.includes("document.createElement('select')"), 'Shared Loredeck filter dropdowns must use the lightweight in-DOM menu instead of native select popups.');
+assert(!libraryPanel.includes("document.createElement('select')") && libraryPanel.includes('getLoredeckLibraryFolderMoveOptions') && libraryPanel.includes('getLoredeckLibraryFolderParentOptions'), 'Loredeck Library folder move controls must not use native select popups.');
+assert(dropdownLatencyHarness.includes("import { createLoredeckSearchInput, createLoredeckSelectControl }") && dropdownLatencyHarness.includes('window.__sagaDropdownLatency') && dropdownLatencyHarness.includes('handlerP95BudgetMs') && dropdownLatencyHarness.includes('settledP95BudgetMs'), 'Browser dropdown latency harness must exercise real dropdown controls and publish machine-readable latency results.');
 assert(read('src/storage/saga-lorepack-library-storage.js').includes('hydrateCachedPayloads === true'), 'Merged Library registry reads must keep cached external payload hydration opt-in.');
 assert(defaultState.includes("selectedLoredeckId: ''"), 'New Saga installs must not preselect a Loredeck in the Library details panel.');
 assert(runtimePanelSource.includes('No Loredecks or Folders Selected'), 'Loredeck Library details must show an explicit empty-selection state.');
@@ -1642,7 +1647,6 @@ for (const token of [
     'createLoredeckLibraryHierarchyList',
     'createLoredeckLibraryInlineFolderRow',
     'createLoredeckLibraryFolderCoverStrip',
-    'updateLoredeckLibraryFolderCoverStrip',
     'createLoredeckLibraryFolderDetailsPanel',
     'createLoredeckLibraryFolderLoredeckRow',
     'loredeckLibrarySelectedFolderDetailsId',
@@ -1658,8 +1662,8 @@ for (const token of [
     'showSagaChoiceDialog',
     'saveLoredeckLibraryDeckPlacementAssignments',
     'getTargetFolderId',
-    'appendLoredeckLibraryFolderMoveOptions',
-    'appendLoredeckLibraryFolderParentOptions',
+    'getLoredeckLibraryFolderMoveOptions',
+    'getLoredeckLibraryFolderParentOptions',
     'showSagaInputDialog',
     'getLoredeckStackFolderPreviewModel',
     'formatLoredeckStackSourceLabel',
@@ -1858,6 +1862,7 @@ assert(style.includes('display: inline-grid !important;') && style.includes('gri
 assert(style.includes('var(--saga-chip-neutral-bg') && style.includes('var(--saga-chip-source-fg') && style.includes('var(--saga-chip-review-bg'), 'Loredeck Library metadata/status pills must use semantic theme chip tokens.');
 assert(style.includes('--saga-chip-tag-bg: rgba(22, 23, 28, 0.9)') && style.includes('--saga-chip-category-fg: #c9cdd6') && style.includes('--saga-chip-relevance-high-fg: #dcfce7') && style.includes('--saga-chip-relevance-normal-fg: #dbeafe') && style.includes('--saga-chip-relevance-low-fg: #e2e8f0'), 'Static chip fallbacks must split quiet metadata chips from color-coded relevance feedback.');
 assert(style.includes('calc(var(--saga-grip-dot-rows, 6) * 7px)'), 'Loredeck Library drag handles must size dot grids without clipping short 2x2 or 2x3 handles.');
+assert(/\.saga-loredeck-library-folder-grip\s*\{[\s\S]*?transform:\s*translateY\(-2px\);/.test(style), 'Loredeck Library folder drag handles must keep their optical centering nudge.');
 assert(libraryPanel.includes('suppressLoredeckLibraryRangeTextSelection') && libraryPanel.includes("card.addEventListener('mousedown', suppressLoredeckLibraryRangeTextSelection);"), 'Loredeck Library card range selection must suppress native Shift-click text selection before click handling.');
 
 console.log('Visual smoke harness contract passed.');

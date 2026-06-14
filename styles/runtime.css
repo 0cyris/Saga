@@ -2314,6 +2314,100 @@
     accent-color: var(--saga-gold);
 }
 
+.saga-lore-workbench-shell .saga-loredeck-select-control,
+.saga-new-lore-shell .saga-loredeck-select-control {
+    position: relative;
+    min-height: 28px;
+    display: block;
+    border: 0;
+    background: transparent;
+    color: var(--saga-text);
+    font-size: 12px;
+    padding: 0;
+}
+
+.saga-loredeck-select-button {
+    position: relative;
+    width: 100%;
+    min-height: 28px;
+    display: block;
+    border: 1px solid var(--saga-input-border);
+    border-radius: 6px;
+    background: var(--saga-input);
+    color: var(--saga-text);
+    font: inherit;
+    line-height: 1.2;
+    text-align: left;
+    padding: 5px 24px 5px 8px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.saga-loredeck-select-button::after {
+    content: "v";
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+    color: var(--saga-muted, rgba(241, 234, 216, 0.68));
+    font-size: 0.72em;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.saga-loredeck-select-button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.saga-loredeck-select-button:focus-visible {
+    outline: 2px solid var(--saga-focus);
+    outline-offset: 2px;
+}
+
+.saga-loredeck-select-menu {
+    position: absolute;
+    z-index: 80;
+    top: calc(100% + 4px);
+    left: 0;
+    right: 0;
+    max-height: min(280px, 42vh);
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: grid;
+    gap: 2px;
+    padding: 4px;
+    border: 1px solid var(--saga-border, rgba(185, 139, 54, 0.34));
+    border-radius: 7px;
+    background: var(--saga-bg-2, rgba(8, 10, 14, 0.98));
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.42);
+    box-sizing: border-box;
+}
+
+.saga-loredeck-select-menu[hidden] {
+    display: none;
+}
+
+.saga-loredeck-select-option {
+    min-height: 26px;
+    border: 0;
+    border-radius: 5px;
+    background: transparent;
+    color: var(--saga-text);
+    font: inherit;
+    line-height: 1.2;
+    text-align: left;
+    padding: 5px 7px;
+    cursor: pointer;
+}
+
+.saga-loredeck-select-option:hover,
+.saga-loredeck-select-option:focus-visible,
+.saga-loredeck-select-option[aria-selected="true"] {
+    background: var(--saga-button-hover, rgba(92, 23, 36, 0.58));
+    color: var(--saga-gold, #d7b56d);
+}
+
 .saga-lore-workbench-shell button:focus-visible,
 .saga-lore-workbench-shell input:focus-visible,
 .saga-lore-workbench-shell select:focus-visible,
@@ -2664,10 +2758,6 @@
 
 .saga-loredeck-library-inline-folder-row.saga-loredeck-library-folder-row-active .saga-loredeck-library-folder-label {
     color: var(--saga-gold, #ffe1a2);
-}
-
-.saga-loredeck-library-folder-grip {
-    height: 48px;
 }
 
 .saga-loredeck-library-folder-disclosure {
@@ -3403,6 +3493,11 @@
 
 .saga-loredeck-library-deck-grip {
     height: 48px;
+}
+
+.saga-loredeck-library-folder-grip {
+    height: 48px;
+    transform: translateY(-2px);
 }
 
 .saga-loredeck-library-stack-grip:active,

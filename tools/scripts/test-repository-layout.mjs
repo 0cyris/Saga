@@ -118,6 +118,7 @@ for (const requiredPath of [
   'styles/settings.css',
   'styles/tokens.css',
   'styles/workbench.css',
+  'tests/browser/dropdown-latency.html',
   'tests/browser/visual-smoke.html',
   'tools/scripts',
 ]) {

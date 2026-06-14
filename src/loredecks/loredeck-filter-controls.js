@@ -50,30 +50,132 @@ export function createLoredeckSearchInput(options = {}) {
 }
 
 export function createLoredeckSelectControl(options = {}) {
-    const select = document.createElement('select');
-    select.className = options.className || 'text_pole';
-    addTooltip(select, options.tooltip);
+    const normalizedOptions = (options.options || []).map(normalizeOption);
+    const allowed = new Set(normalizedOptions.map(item => String(item.value ?? '')));
+    const fallbackValue = String(options.fallbackValue ?? normalizedOptions[0]?.value ?? '');
+    let currentValue = allowed.has(String(options.value ?? '')) ? String(options.value ?? '') : fallbackValue;
+
+    const select = document.createElement('div');
+    select.className = `${options.className || 'text_pole'} saga-loredeck-select-control`.trim();
+    select.setAttribute('role', 'combobox');
+    select.setAttribute('aria-haspopup', 'listbox');
+    select.setAttribute('aria-expanded', 'false');
+    select.tabIndex = -1;
+    addTooltip(select, options.tooltip, { floating: false });
+    Object.defineProperty(select, 'value', {
+        get: () => currentValue,
+        set: value => {
+            const next = String(value ?? '');
+            currentValue = allowed.has(next) ? next : fallbackValue;
+            syncButtonLabel();
+        },
+    });
+    if (options.disabled) {
+        select.dataset.disabled = 'true';
+        select.setAttribute('aria-disabled', 'true');
+    }
+
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'saga-loredeck-select-button';
+    button.disabled = !!options.disabled;
+    button.setAttribute('aria-label', options.tooltip || 'Choose an option.');
+    select.appendChild(button);
+
+    const menu = document.createElement('div');
+    menu.className = 'saga-loredeck-select-menu';
+    menu.setAttribute('role', 'listbox');
+    menu.hidden = true;
+    select.appendChild(menu);
+
+    function getCurrentItem() {
+        return normalizedOptions.find(item => String(item.value ?? '') === currentValue) || normalizedOptions[0] || null;
+    }
+
+    function syncButtonLabel() {
+        const item = getCurrentItem();
+        button.textContent = String(item?.label ?? item?.value ?? '');
+        button.dataset.value = currentValue;
+    }
+
+    function closeMenu() {
+        menu.hidden = true;
+        select.classList.remove('saga-loredeck-select-open');
+        select.setAttribute('aria-expanded', 'false');
+    }
+
+    function setValue(value, event = null) {
+        const next = String(value ?? '');
+        if (!allowed.has(next)) return;
+        if (next === currentValue) {
+            closeMenu();
+            return;
+        }
+        currentValue = next;
+        syncButtonLabel();
+        closeMenu();
+        options.onChange?.(currentValue, select, event);
+    }
+
+    function renderMenu() {
+        menu.textContent = '';
+        for (const item of normalizedOptions) {
+            const value = String(item.value ?? '');
+            const option = document.createElement('button');
+            option.type = 'button';
+            option.className = 'saga-loredeck-select-option';
+            option.textContent = String(item.label ?? item.value ?? '');
+            option.dataset.value = value;
+            option.setAttribute('role', 'option');
+            option.setAttribute('aria-selected', value === currentValue ? 'true' : 'false');
+            if (item.tooltip) option.dataset.sagaTooltip = String(item.tooltip);
+            option.addEventListener('click', event => {
+                event.stopPropagation();
+                setValue(value, event);
+                button.focus?.();
+            });
+            menu.appendChild(option);
+        }
+    }
+
+    function openMenu() {
+        if (button.disabled) return;
+        renderMenu();
+        menu.hidden = false;
+        select.classList.add('saga-loredeck-select-open');
+        select.setAttribute('aria-expanded', 'true');
+    }
+
+    function toggleMenu(event) {
+        event.stopPropagation();
+        if (menu.hidden) openMenu();
+        else closeMenu();
+    }
+
     if (options.stopPropagation !== false) {
         select.addEventListener('click', stopControlEvent);
         select.addEventListener('mousedown', stopControlEvent);
+        select.addEventListener('pointerdown', stopControlEvent);
     }
-
-    const normalizedOptions = (options.options || []).map(normalizeOption);
-    for (const item of normalizedOptions) {
-        const option = document.createElement('option');
-        option.value = String(item.value ?? '');
-        option.textContent = String(item.label ?? item.value ?? '');
-        if (item.tooltip) option.title = String(item.tooltip);
-        select.appendChild(option);
-    }
-
-    const allowed = new Set(normalizedOptions.map(item => String(item.value ?? '')));
-    const value = String(options.value ?? '');
-    const fallbackValue = String(options.fallbackValue ?? normalizedOptions[0]?.value ?? '');
-    select.value = allowed.has(value) ? value : fallbackValue;
-    if (typeof options.onChange === 'function') {
-        select.addEventListener('change', event => options.onChange(select.value, select, event));
-    }
+    button.addEventListener('click', toggleMenu);
+    select.addEventListener('keydown', event => {
+        if (event.key === 'Escape') {
+            closeMenu();
+            button.focus?.();
+            return;
+        }
+        if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            if (menu.hidden) openMenu();
+            else closeMenu();
+        }
+    });
+    select.addEventListener('focusout', () => {
+        setTimeout(() => {
+            if (!select.contains(document.activeElement)) closeMenu();
+        }, 0);
+    });
+    syncButtonLabel();
     return select;
 }
 

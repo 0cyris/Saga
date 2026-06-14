@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Saga Dropdown Latency Harness</title>
+    <link rel="stylesheet" href="../../styles/saga.css">
+    <style>
+        html,
+        body {
+            min-height: 100%;
+            margin: 0;
+            background: #101014;
+            color: #f1ead8;
+            font-family: Arial, sans-serif;
+        }
+
+        .saga-dropdown-latency-page {
+            min-height: 100vh;
+            display: grid;
+            grid-template-rows: auto minmax(0, 1fr) auto;
+            gap: 12px;
+            padding: 16px;
+            box-sizing: border-box;
+        }
+
+        .saga-dropdown-latency-header,
+        .saga-dropdown-latency-results {
+            max-width: 1360px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .saga-dropdown-latency-header h1 {
+            margin: 0 0 4px;
+            color: #d7b56d;
+            font-size: 20px;
+            line-height: 1.2;
+        }
+
+        .saga-dropdown-latency-header p {
+            margin: 0;
+            color: rgba(241, 234, 216, 0.72);
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        .saga-dropdown-latency-shell {
+            width: min(1360px, calc(100vw - 32px));
+            height: min(820px, calc(100vh - 180px));
+            min-height: 520px;
+            margin: 0 auto;
+        }
+
+        .saga-dropdown-latency-controls {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 150px 150px 220px;
+            gap: 7px;
+        }
+
+        .saga-dropdown-latency-results {
+            display: grid;
+            gap: 6px;
+            color: rgba(241, 234, 216, 0.82);
+            font-size: 12px;
+            line-height: 1.35;
+        }
+
+        .saga-dropdown-latency-results pre {
+            max-height: 180px;
+            margin: 0;
+            overflow: auto;
+            padding: 10px;
+            border: 1px solid rgba(185, 139, 54, 0.24);
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.22);
+            color: #f1ead8;
+            font-size: 12px;
+        }
+
+        .saga-dropdown-latency-pass {
+            color: #b9d8b8;
+        }
+
+        .saga-dropdown-latency-fail {
+            color: #e1a0a0;
+        }
+    </style>
+</head>
+<body>
+    <main class="saga-dropdown-latency-page">
+        <header class="saga-dropdown-latency-header">
+            <h1>Saga Dropdown Latency Harness</h1>
+            <p>Builds a large Library-shaped DOM, opens and closes Saga dropdown menus, and measures handler plus paint-settled latency.</p>
+        </header>
+        <section class="saga-lore-workbench-shell saga-loredeck-library-shell saga-dropdown-latency-shell" aria-label="Dropdown latency benchmark surface"></section>
+        <section class="saga-dropdown-latency-results" aria-live="polite">
+            <div id="latency-status">Running...</div>
+            <pre id="latency-output"></pre>
+        </section>
+    </main>
+
+    <script type="module">
+        import { createLoredeckSearchInput, createLoredeckSelectControl } from '../../src/loredecks/loredeck-filter-controls.js';
+
+        const params = new URLSearchParams(window.location.search);
+        const readNumber = (name, fallback) => {
+            const value = Number(params.get(name));
+            return Number.isFinite(value) && value > 0 ? value : fallback;
+        };
+
+        const config = {
+            iterations: Math.trunc(readNumber('iterations', 45)),
+            warmup: Math.trunc(readNumber('warmup', 6)),
+            rows: Math.trunc(readNumber('rows', 2200)),
+            folderOptions: Math.trunc(readNumber('folderOptions', 220)),
+            handlerP95BudgetMs: readNumber('handlerP95BudgetMs', 16),
+            settledP95BudgetMs: readNumber('settledP95BudgetMs', 96),
+        };
+
+        const shell = document.querySelector('.saga-dropdown-latency-shell');
+        const status = document.getElementById('latency-status');
+        const output = document.getElementById('latency-output');
+
+        function createOptions(count, prefix) {
+            return Array.from({ length: count }, (_, index) => [
+                `${prefix}-${index}`,
+                `${prefix} Option ${index}`,
+                `Synthetic ${prefix} option ${index}.`,
+            ]);
+        }
+
+        function createChip(text) {
+            const chip = document.createElement('span');
+            chip.className = 'saga-status-pill saga-chip-kind-status saga-chip-tone-neutral';
+            chip.textContent = text;
+            return chip;
+        }
+
+        function buildSurface() {
+            const header = document.createElement('div');
+            header.className = 'saga-lore-workbench-header saga-loredeck-library-header';
+            const titleWrap = document.createElement('div');
+            titleWrap.className = 'saga-lore-workbench-title-wrap';
+            const title = document.createElement('div');
+            title.className = 'saga-lore-workbench-title';
+            title.textContent = 'Loredeck Library Latency Surface';
+            titleWrap.appendChild(title);
+            header.appendChild(titleWrap);
+            shell.appendChild(header);
+
+            const body = document.createElement('div');
+            body.className = 'saga-loredeck-library-body';
+            body.style.setProperty('--saga-loredeck-library-details-height', '260px');
+
+            const columns = document.createElement('div');
+            columns.className = 'saga-loredeck-library-columns';
+
+            const libraryPane = document.createElement('div');
+            libraryPane.className = 'saga-loredeck-library-pane saga-loredeck-library-pane-library';
+
+            const controls = document.createElement('div');
+            controls.className = 'saga-loredeck-library-controls saga-dropdown-latency-controls';
+            controls.appendChild(createLoredeckSearchInput({
+                className: 'text_pole saga-loredeck-library-search',
+                placeholder: 'Search decks...',
+                tooltip: 'Synthetic search control.',
+            }));
+            controls.appendChild(createLoredeckSelectControl({
+                className: 'text_pole saga-loredeck-library-view',
+                value: 'all',
+                fallbackValue: 'all',
+                tooltip: 'Synthetic Library view dropdown.',
+                options: [
+                    ['all', 'All'],
+                    ['bundled', 'Bundled'],
+                    ['custom', 'Custom'],
+                    ['active', 'Active'],
+                    ['unfiled', 'Unfiled'],
+                ],
+            }));
+            controls.appendChild(createLoredeckSelectControl({
+                className: 'text_pole saga-loredeck-library-sort',
+                value: 'name',
+                fallbackValue: 'name',
+                tooltip: 'Synthetic Library sort dropdown.',
+                options: [
+                    ['manual', 'Manual'],
+                    ['name', 'Name'],
+                    ['type', 'Type'],
+                    ['health', 'Health'],
+                    ['entries', 'Lorecards'],
+                    ['updated', 'Updated'],
+                ],
+            }));
+            controls.appendChild(createLoredeckSelectControl({
+                className: 'text_pole saga-loredeck-library-folder-move-select',
+                value: 'folder-0',
+                fallbackValue: 'folder-0',
+                tooltip: 'Synthetic folder move dropdown.',
+                options: createOptions(config.folderOptions, 'folder'),
+            }));
+            libraryPane.appendChild(controls);
+
+            const list = document.createElement('div');
+            list.className = 'saga-loredeck-library-deck-list saga-loredeck-library-hierarchy-list';
+            for (let index = 0; index < config.rows; index += 1) {
+                const isFolder = index % 5 === 0;
+                const row = document.createElement('div');
+                row.className = isFolder
+                    ? 'saga-loredeck-library-inline-folder-row'
+                    : 'saga-loredeck-library-deck-card saga-loredeck-library-deck-card-nested';
+                row.dataset.packId = `latency-pack-${index}`;
+
+                const visual = document.createElement('div');
+                visual.className = 'saga-loredeck-library-monogram';
+                visual.textContent = isFolder ? 'F' : 'D';
+                row.appendChild(visual);
+
+                const main = document.createElement('div');
+                main.className = isFolder ? 'saga-loredeck-library-folder-main' : 'saga-loredeck-row-main';
+                const title = document.createElement('div');
+                title.className = isFolder ? 'saga-loredeck-library-folder-label' : 'saga-loredeck-row-title';
+                title.textContent = `${isFolder ? 'Folder' : 'Loredeck'} ${index}`;
+                main.appendChild(title);
+                const meta = document.createElement('div');
+                meta.className = 'saga-loredeck-row-meta saga-loredeck-library-folder-meta';
+                meta.appendChild(createChip(`${(index % 90) + 1} Lorecards`));
+                meta.appendChild(createChip(index % 7 === 0 ? 'warning' : 'ok'));
+                meta.appendChild(createChip(index % 2 === 0 ? 'custom' : 'bundled'));
+                main.appendChild(meta);
+                row.appendChild(main);
+                list.appendChild(row);
+            }
+            libraryPane.appendChild(list);
+
+            const transfer = document.createElement('div');
+            transfer.className = 'saga-loredeck-library-transfer-pane';
+            for (const label of ['Add to Stack >', '< Remove from Stack', 'Add All Matching', 'Duplicate', 'Delete']) {
+                const button = document.createElement('button');
+                button.type = 'button';
+                button.className = 'saga-runtime-button saga-loredeck-library-transfer-button';
+                button.textContent = label;
+                transfer.appendChild(button);
+            }
+
+            const stackPane = document.createElement('div');
+            stackPane.className = 'saga-loredeck-library-pane saga-loredeck-library-pane-stack';
+            const stackList = document.createElement('div');
+            stackList.className = 'saga-loredeck-library-stack-list';
+            for (let index = 0; index < 140; index += 1) {
+                const card = document.createElement('div');
+                card.className = 'saga-loredeck-library-stack-card';
+                card.textContent = `Stack item ${index}`;
+                stackList.appendChild(card);
+            }
+            stackPane.appendChild(stackList);
+
+            columns.appendChild(libraryPane);
+            columns.appendChild(transfer);
+            columns.appendChild(stackPane);
+            body.appendChild(columns);
+            shell.appendChild(body);
+        }
+
+        const nextFrame = () => new Promise(resolve => requestAnimationFrame(() => resolve()));
+        const settlePaint = async () => {
+            await nextFrame();
+            await nextFrame();
+        };
+
+        function percentile(values, percent) {
+            const sorted = [...values].sort((a, b) => a - b);
+            const index = Math.min(sorted.length - 1, Math.max(0, Math.ceil((percent / 100) * sorted.length) - 1));
+            return sorted[index] || 0;
+        }
+
+        function summarize(values) {
+            return {
+                min: Math.min(...values),
+                p50: percentile(values, 50),
+                p95: percentile(values, 95),
+                max: Math.max(...values),
+                mean: values.reduce((sum, value) => sum + value, 0) / values.length,
+            };
+        }
+
+        function fmt(stats) {
+            return `p50=${stats.p50.toFixed(2)}ms p95=${stats.p95.toFixed(2)}ms max=${stats.max.toFixed(2)}ms mean=${stats.mean.toFixed(2)}ms`;
+        }
+
+        async function clickAndMeasure(element) {
+            const handlerStart = performance.now();
+            element.click();
+            const handlerMs = performance.now() - handlerStart;
+            const settledStart = performance.now();
+            await settlePaint();
+            return { handlerMs, settledMs: performance.now() - settledStart + handlerMs };
+        }
+
+        async function measureControl(control, label) {
+            const button = control.querySelector('.saga-loredeck-select-button');
+            const menu = control.querySelector('.saga-loredeck-select-menu');
+            const handler = { open: [], close: [], option: [] };
+            const settled = { open: [], close: [], option: [] };
+
+            for (let index = 0; index < config.warmup; index += 1) {
+                button.click();
+                button.click();
+            }
+            await settlePaint();
+
+            for (let index = 0; index < config.iterations; index += 1) {
+                let sample = await clickAndMeasure(button);
+                handler.open.push(sample.handlerMs);
+                settled.open.push(sample.settledMs);
+                if (menu.hidden) throw new Error(`${label} did not open.`);
+
+                sample = await clickAndMeasure(button);
+                handler.close.push(sample.handlerMs);
+                settled.close.push(sample.settledMs);
+                if (!menu.hidden) throw new Error(`${label} did not close.`);
+
+                await clickAndMeasure(button);
+                const options = menu.querySelectorAll('.saga-loredeck-select-option');
+                const option = options[(index + 1) % options.length];
+                sample = await clickAndMeasure(option);
+                handler.option.push(sample.handlerMs);
+                settled.option.push(sample.settledMs);
+                if (!menu.hidden) throw new Error(`${label} did not close after option selection.`);
+            }
+
+            return {
+                label,
+                handler: {
+                    open: summarize(handler.open),
+                    close: summarize(handler.close),
+                    option: summarize(handler.option),
+                },
+                settled: {
+                    open: summarize(settled.open),
+                    close: summarize(settled.close),
+                    option: summarize(settled.option),
+                },
+            };
+        }
+
+        function collectFailures(results) {
+            const failures = [];
+            for (const result of results) {
+                for (const phase of ['open', 'close', 'option']) {
+                    if (result.handler[phase].p95 > config.handlerP95BudgetMs) {
+                        failures.push(`${result.label} ${phase} handler p95 ${result.handler[phase].p95.toFixed(2)}ms`);
+                    }
+                    if (result.settled[phase].p95 > config.settledP95BudgetMs) {
+                        failures.push(`${result.label} ${phase} settled p95 ${result.settled[phase].p95.toFixed(2)}ms`);
+                    }
+                }
+            }
+            return failures;
+        }
+
+        function renderResults(results, failures) {
+            const lines = [
+                `config: ${JSON.stringify(config)}`,
+                `budgets: handler p95 <= ${config.handlerP95BudgetMs}ms, settled p95 <= ${config.settledP95BudgetMs}ms`,
+                '',
+            ];
+            for (const result of results) {
+                lines.push(result.label);
+                lines.push(`  handler open:   ${fmt(result.handler.open)}`);
+                lines.push(`  handler close:  ${fmt(result.handler.close)}`);
+                lines.push(`  handler option: ${fmt(result.handler.option)}`);
+                lines.push(`  settled open:   ${fmt(result.settled.open)}`);
+                lines.push(`  settled close:  ${fmt(result.settled.close)}`);
+                lines.push(`  settled option: ${fmt(result.settled.option)}`);
+                lines.push('');
+            }
+            if (failures.length) {
+                lines.push('failures:');
+                for (const failure of failures) lines.push(`  ${failure}`);
+            }
+            output.textContent = lines.join('\n');
+            status.textContent = failures.length ? 'Dropdown latency budget failed.' : 'Dropdown latency budget passed.';
+            status.className = failures.length ? 'saga-dropdown-latency-fail' : 'saga-dropdown-latency-pass';
+        }
+
+        async function run() {
+            buildSurface();
+            await settlePaint();
+            const controls = [...document.querySelectorAll('.saga-loredeck-select-control')];
+            const targets = [
+                ['View', controls.find(item => item.classList.contains('saga-loredeck-library-view'))],
+                ['Sort', controls.find(item => item.classList.contains('saga-loredeck-library-sort'))],
+                ['Folder Move', controls.find(item => item.classList.contains('saga-loredeck-library-folder-move-select'))],
+            ].filter(([, control]) => control);
+            const results = [];
+            for (const [label, control] of targets) {
+                results.push(await measureControl(control, label));
+            }
+            const failures = collectFailures(results);
+            window.__sagaDropdownLatency = {
+                done: true,
+                passed: failures.length === 0,
+                config,
+                results,
+                failures,
+            };
+            renderResults(results, failures);
+            if (failures.length) console.error('[Saga dropdown latency]', failures);
+        }
+
+        run().catch(error => {
+            window.__sagaDropdownLatency = {
+                done: true,
+                passed: false,
+                error: error?.stack || error?.message || String(error),
+            };
+            status.textContent = 'Dropdown latency harness crashed.';
+            status.className = 'saga-dropdown-latency-fail';
+            output.textContent = window.__sagaDropdownLatency.error;
+            console.error(error);
+        });
+    </script>
+</body>
+</html>

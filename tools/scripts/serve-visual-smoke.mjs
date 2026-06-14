@@ -105,14 +105,17 @@ server.listen(Number.isFinite(port) ? port : 8765, host, async () => {
         const responses = await Promise.all([
             fetch(url),
             fetch(`http://${host}:${actualPort}/tests/browser/visual-smoke.html?tab=context&review=context-proposals`),
+            fetch(`http://${host}:${actualPort}/tests/browser/dropdown-latency.html`),
         ]);
         for (const response of responses) {
             if (!response.ok) throw new Error(`${response.url} returned HTTP ${response.status}`);
         }
         const html = await responses[0].text();
         const contextHtml = await responses[1].text();
+        const dropdownLatencyHtml = await responses[2].text();
         if (!html.includes('Saga Visual Smoke Harness')) throw new Error('Harness HTML did not load expected title.');
         if (!contextHtml.includes('Saga Visual Smoke Harness')) throw new Error('Context harness HTML did not load expected title.');
+        if (!dropdownLatencyHtml.includes('Saga Dropdown Latency Harness')) throw new Error('Dropdown latency harness HTML did not load expected title.');
         console.log('Visual smoke server check passed.');
     } catch (error) {
         console.error(error?.message || 'Visual smoke server check failed.');

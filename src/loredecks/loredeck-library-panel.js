@@ -193,7 +193,6 @@ let loredeckLibraryDeckDragState = null;
 let loredeckLibraryFolderDragState = null;
 let loredeckLibrarySelectedFolderId = 'all';
 let loredeckLibrarySelectedFolderDetailsId = '';
-let loredeckLibraryFolderCoverResizeObserver = null;
 let loredeckLibrarySelectionRefreshFrame = 0;
 let loredeckLibraryHierarchyRefreshFrame = 0;
 let loredeckLibraryOverlayRefreshFrame = 0;
@@ -227,8 +226,6 @@ export function closeLoredeckLibraryWindow() {
         cancelAnimationFrame(loredeckLibraryOverlayRefreshFrame);
     }
     loredeckLibraryOverlayRefreshFrame = 0;
-    loredeckLibraryFolderCoverResizeObserver?.disconnect?.();
-    loredeckLibraryFolderCoverResizeObserver = null;
     document.querySelector('.saga-loredeck-library-overlay')?.remove();
 }
 
@@ -330,8 +327,6 @@ export function renderLoredeckLibraryOverlay(options = {}) {
         cancelAnimationFrame(loredeckLibraryHierarchyRefreshFrame);
     }
     loredeckLibraryHierarchyRefreshFrame = 0;
-    loredeckLibraryFolderCoverResizeObserver?.disconnect?.();
-    loredeckLibraryFolderCoverResizeObserver = null;
     document.querySelector('.saga-loredeck-library-overlay')?.remove();
     if (!loredeckLibraryOpen) return;
 
@@ -600,14 +595,6 @@ function refreshLoredeckLibraryVisibleSurfaces() {
     if (currentList) {
         const top = currentList.scrollTop || 0;
         const left = currentList.scrollLeft || 0;
-        const oldStrips = [...currentList.querySelectorAll('.saga-loredeck-library-folder-cover-strip')];
-        for (const strip of oldStrips) {
-            try {
-                loredeckLibraryFolderCoverResizeObserver?.unobserve?.(strip);
-            } catch (_) {
-                // Ignore detached resize-observer targets during fast visible-list refreshes.
-            }
-        }
         const nextList = createLoredeckLibraryHierarchyList(
             context.filteredPacks,
             context.stack,
@@ -754,14 +741,6 @@ function refreshLoredeckLibraryHierarchyList() {
     const context = getLoredeckLibraryOverlayContext();
     const top = currentList.scrollTop || 0;
     const left = currentList.scrollLeft || 0;
-    const oldStrips = [...currentList.querySelectorAll('.saga-loredeck-library-folder-cover-strip')];
-    for (const strip of oldStrips) {
-        try {
-            loredeckLibraryFolderCoverResizeObserver?.unobserve?.(strip);
-        } catch (_) {
-            // Ignore detached resize-observer targets during fast hierarchy refreshes.
-        }
-    }
     const nextList = createLoredeckLibraryHierarchyList(
         context.filteredPacks,
         context.stack,
@@ -1964,73 +1943,11 @@ function createLoredeckLibraryFolderCoverStrip(coverPacks = [], totalCoverableCo
     const more = document.createElement('span');
     more.className = 'saga-loredeck-library-folder-cover-tile saga-loredeck-library-folder-cover-more';
     more.dataset.coverMore = 'true';
-    more.hidden = true;
-    strip.appendChild(more);
-    scheduleLoredeckLibraryFolderCoverStripLayout(strip);
-    return strip;
-}
-
-function scheduleLoredeckLibraryFolderCoverStripLayout(strip = null) {
-    if (!strip) return;
-    const schedule = typeof requestAnimationFrame === 'function'
-        ? requestAnimationFrame
-        : (callback) => setTimeout(callback, 0);
-    schedule(() => {
-        updateLoredeckLibraryFolderCoverStrip(strip);
-        if (typeof ResizeObserver === 'undefined') return;
-        if (!loredeckLibraryFolderCoverResizeObserver) {
-            loredeckLibraryFolderCoverResizeObserver = new ResizeObserver(entries => {
-                for (const entry of entries || []) {
-                    updateLoredeckLibraryFolderCoverStrip(entry.target);
-                }
-            });
-        }
-        try {
-            loredeckLibraryFolderCoverResizeObserver.observe(strip);
-        } catch (_) {
-            // Resize observation is a progressive enhancement for responsive cover overflow.
-        }
-    });
-}
-
-function updateLoredeckLibraryFolderCoverStrip(strip = null) {
-    if (!strip?.isConnected && !strip?.children?.length) return;
-    const tiles = [...strip.querySelectorAll('[data-cover-tile="true"]')];
-    const more = strip.querySelector('[data-cover-more="true"]');
-    if (!tiles.length || !more) return;
-
-    const total = Math.max(Number(strip.dataset.totalCovers) || 0, tiles.length);
-    const available = Math.max(0, strip.clientWidth || strip.getBoundingClientRect?.().width || 0);
-    const style = typeof getComputedStyle === 'function' ? getComputedStyle(strip) : null;
-    const tileWidth = Math.max(1, Number.parseFloat(style?.getPropertyValue('--saga-folder-cover-size')) || 38);
-    const overlap = Math.max(0, Math.abs(Number.parseFloat(style?.getPropertyValue('--saga-folder-cover-overlap')) || 12));
-    const step = Math.max(8, tileWidth - overlap);
-    const moreWidth = 32;
-    const visibleCap = Math.min(LOREDECK_LIBRARY_FOLDER_COVER_MAX_VISIBLE, tiles.length);
-
-    let visibleCount = visibleCap;
-    if (available > 0) {
-        const roomForMore = total > visibleCap ? moreWidth : 0;
-        visibleCount = Math.max(1, Math.min(visibleCap, Math.floor((available - roomForMore - tileWidth) / step) + 1));
-        while (visibleCount > 1) {
-            const hidden = total - visibleCount;
-            const needsMore = hidden > 0;
-            const used = tileWidth + ((visibleCount - 1) * step) + (needsMore ? moreWidth - overlap : 0);
-            if (used <= available) break;
-            visibleCount -= 1;
-        }
-    }
-
-    tiles.forEach((tile, index) => {
-        tile.hidden = index >= visibleCount;
-        tile.style.setProperty('--saga-cover-index', String(index));
-    });
-    const hiddenCount = Math.max(0, total - visibleCount);
+    const hiddenCount = Math.max(0, Number(strip.dataset.totalCovers) - packs.length);
     more.hidden = hiddenCount <= 0;
-    if (hiddenCount > 0) {
-        more.textContent = `+${hiddenCount}`;
-        more.style.setProperty('--saga-cover-index', String(visibleCount));
-    }
+    if (hiddenCount > 0) more.textContent = `+${hiddenCount}`;
+    strip.appendChild(more);
+    return strip;
 }
 
 function createLoredeckLibrarySelectionToolbar(visiblePacks = [], libraryIndex = getLoredeckLibraryIndexForPacks()) {
@@ -2067,17 +1984,21 @@ function createLoredeckLibrarySelectionToolbar(visiblePacks = [], libraryIndex =
     exportButton.disabled = !selectedIds.length;
     toolbar.appendChild(exportButton);
 
-    const moveSelect = document.createElement('select');
-    moveSelect.className = 'text_pole saga-loredeck-library-folder-move-select';
-    moveSelect.disabled = !selectedIds.length;
-    addTooltip(moveSelect, 'Choose a folder target for selected Loredecks.');
-    appendLoredeckLibraryFolderMoveOptions(moveSelect, libraryIndex);
+    const moveOptions = getLoredeckLibraryFolderMoveOptions(libraryIndex);
     const preferredFolderId = !isLoredeckLibrarySpecialFolderId(loredeckLibrarySelectedFolderDetailsId)
         ? loredeckLibrarySelectedFolderDetailsId
         : (!isLoredeckLibrarySpecialFolderId(loredeckLibrarySelectedFolderId) ? loredeckLibrarySelectedFolderId : 'unfiled');
-    moveSelect.value = preferredFolderId && [...moveSelect.options].some(option => option.value === preferredFolderId)
+    const moveSelectValue = preferredFolderId && moveOptions.some(([value]) => String(value || '') === preferredFolderId)
         ? preferredFolderId
         : 'unfiled';
+    const moveSelect = createLoredeckSelectControl({
+        className: 'text_pole saga-loredeck-library-folder-move-select',
+        disabled: !selectedIds.length,
+        tooltip: 'Choose a folder target for selected Loredecks.',
+        options: moveOptions,
+        value: moveSelectValue,
+        fallbackValue: 'unfiled',
+    });
     toolbar.appendChild(moveSelect);
 
     const moveButton = createButton('Move', selectedIds.length ? 'Move selected Loredecks to the chosen folder.' : 'Select Loredecks before moving them to a folder.', () => {
@@ -2089,52 +2010,49 @@ function createLoredeckLibrarySelectionToolbar(visiblePacks = [], libraryIndex =
     return toolbar;
 }
 
-function appendLoredeckLibraryFolderMoveOptions(select, libraryIndex = getLoredeckLibraryIndexForPacks()) {
-    if (!select) return;
-    const unfiled = document.createElement('option');
-    unfiled.value = 'unfiled';
-    unfiled.textContent = 'Move to: Unfiled';
-    select.appendChild(unfiled);
+function getLoredeckLibraryFolderMoveOptions(libraryIndex = getLoredeckLibraryIndexForPacks()) {
+    const options = [['unfiled', 'Move to: Unfiled']];
 
     const appendFolder = (folder, depth = 0) => {
-        const option = document.createElement('option');
-        option.value = folder.id;
-        option.textContent = `${'\u00a0\u00a0'.repeat(Math.max(0, depth))}${folder.title || folder.id}`;
-        select.appendChild(option);
+        options.push([folder.id, `${'\u00a0\u00a0'.repeat(Math.max(0, depth))}${folder.title || folder.id}`]);
         for (const child of folder.children || []) appendFolder(child, depth + 1);
     };
     for (const folder of buildFolderTree(libraryIndex)) appendFolder(folder, 0);
+    return options;
 }
 
-function appendLoredeckLibraryFolderParentOptions(select, movingFolderId = '', libraryIndex = getLoredeckLibraryIndexForPacks()) {
-    if (!select) return;
+function getLoredeckLibraryFolderParentOptions(movingFolderId = '', libraryIndex = getLoredeckLibraryIndexForPacks()) {
     const movingId = String(movingFolderId || '').trim();
-    const root = document.createElement('option');
-    root.value = '';
-    root.textContent = 'Move folder to: Library root';
-    select.appendChild(root);
+    const options = [['', 'Move folder to: Library root']];
 
     const appendFolder = (folder, depth = 0) => {
         if (!folder?.id) return;
         if (isLoredeckLibraryFolderDescendant(folder.id, movingId, libraryIndex)) return;
-        const option = document.createElement('option');
-        option.value = folder.id;
-        option.textContent = `${'\u00a0\u00a0'.repeat(Math.max(0, depth))}${folder.title || folder.id}`;
-        select.appendChild(option);
+        options.push([folder.id, `${'\u00a0\u00a0'.repeat(Math.max(0, depth))}${folder.title || folder.id}`]);
         for (const child of folder.children || []) appendFolder(child, depth + 1);
     };
     for (const folder of buildFolderTree(libraryIndex)) appendFolder(folder, 0);
+    return options;
 }
 
-function createLoredeckLibraryTransferPane(selectedPack = null, filteredPacks = [], stack = [], selectedPacks = [], selectedFolder = null, libraryIndex = getLoredeckLibraryIndexForPacks(), library = getLoredeckLibrary(getState())) {
-    const pane = document.createElement('div');
-    pane.className = 'saga-loredeck-library-transfer-pane';
-    markTourTarget(pane, 'loredecks.library.transfer');
+function getLoredeckLibraryTransferActionModel(options = {}) {
+    const selectedPack = options.selectedPack || null;
+    const filteredPacks = Array.isArray(options.filteredPacks) ? options.filteredPacks : [];
+    const stack = Array.isArray(options.stack) ? options.stack : [];
+    const selectedPacks = Array.isArray(options.selectedPacks) ? options.selectedPacks : [];
+    const selectedFolder = options.selectedFolder || null;
+    const libraryIndex = options.libraryIndex || getLoredeckLibraryIndexForPacks();
+    const library = Array.isArray(options.library) ? options.library : getLoredeckLibrary(getState());
     const selectedId = selectedPack?.packId || '';
     const actionFolderId = String(selectedFolder?.id || '').trim();
     const hasSelectedFolderDetails = !!actionFolderId;
     const actionFolder = actionFolderId && !isLoredeckLibrarySpecialFolderId(actionFolderId)
         ? (libraryIndex.folders || []).find(folder => folder.id === actionFolderId)
+        : null;
+    const selectedActionFolder = actionFolder && !isLoredeckLibrarySpecialFolderId(actionFolder.id) ? actionFolder : null;
+    const selectedFolderStackKey = selectedActionFolder ? createLoredeckStackFolderKey(selectedActionFolder.id) : '';
+    const selectedFolderStackItem = selectedFolderStackKey
+        ? stack.find(item => getLoredeckStackItemKey(item) === selectedFolderStackKey)
         : null;
     const resolvedStackIds = new Set(resolveLoredeckStackItems(stack, libraryIndex, {
         packs: getLoredeckLibraryPackMap(library),
@@ -2143,28 +2061,96 @@ function createLoredeckLibraryTransferPane(selectedPack = null, filteredPacks = 
     const actionIds = selectedIds.length ? selectedIds : (!hasSelectedFolderDetails && selectedId ? [selectedId] : []);
     const selectedStackItems = actionIds.filter(packId => resolvedStackIds.has(packId));
     const inactiveMatches = filteredPacks.filter(pack => !resolvedStackIds.has(pack.packId));
+    const canAddFolder = !!selectedActionFolder && (!selectedFolderStackItem || selectedFolderStackItem.enabled === false);
+    const canRemoveFolder = !!selectedActionFolder && !!selectedFolderStackItem;
+    const addLabel = selectedActionFolder
+        ? (selectedFolderStackItem
+            ? (selectedFolderStackItem.enabled === false ? 'Enable Folder >' : 'Folder in Stack')
+            : 'Add Folder to Stack >')
+        : (actionIds.length > 1 ? `Add Selected (${actionIds.length}) >` : 'Add to Stack >');
+    const addTooltip = selectedActionFolder
+        ? (canAddFolder
+            ? 'Add or enable this folder group in the active stack.'
+            : 'This folder group is already active in the stack.')
+        : (actionIds.length
+            ? 'Add or enable the selected Loredeck selection in the active stack.'
+            : 'Select one or more Loredecks before adding them to the stack.');
+    const removeLabel = selectedActionFolder
+        ? '< Remove from Stack'
+        : (actionIds.length > 1 ? `< Remove Selected (${selectedStackItems.length})` : '< Remove from Stack');
+    const removeTooltip = selectedActionFolder
+        ? (canRemoveFolder
+            ? 'Remove this folder group from the active stack.'
+            : 'This folder group is not in the active stack.')
+        : (actionIds.length
+            ? 'Remove selected Loredecks from the active stack.'
+            : 'Select an active Loredeck before removing it.');
+
+    return {
+        selectedActionFolder,
+        hasSelectedFolderDetails,
+        selectedIds,
+        actionIds,
+        selectedStackItems,
+        inactiveMatches,
+        selectedFolderStackKey: canRemoveFolder ? selectedFolderStackKey : '',
+        canAddFolder,
+        canRemoveFolder,
+        addLabel,
+        addTooltip,
+        addDisabled: selectedActionFolder
+            ? !canAddFolder
+            : (!actionIds.length || actionIds.every(packId => resolvedStackIds.has(packId))),
+        removeLabel,
+        removeTooltip,
+        removeDisabled: selectedActionFolder ? !canRemoveFolder : !selectedStackItems.length,
+    };
+}
+
+function createLoredeckLibraryTransferPane(selectedPack = null, filteredPacks = [], stack = [], selectedPacks = [], selectedFolder = null, libraryIndex = getLoredeckLibraryIndexForPacks(), library = getLoredeckLibrary(getState())) {
+    const pane = document.createElement('div');
+    pane.className = 'saga-loredeck-library-transfer-pane';
+    markTourTarget(pane, 'loredecks.library.transfer');
+    const actionModel = getLoredeckLibraryTransferActionModel({
+        selectedPack,
+        filteredPacks,
+        stack,
+        selectedPacks,
+        selectedFolder,
+        libraryIndex,
+        library,
+    });
 
     const flow = document.createElement('div');
     flow.className = 'saga-loredeck-library-transfer-flow';
 
-    const add = createButton(actionIds.length > 1 ? `Add Selected (${actionIds.length}) >` : 'Add to Stack >', actionIds.length ? 'Add or enable the selected Loredeck selection in the active stack.' : 'Select one or more Loredecks before adding them to the stack.', () => {
-        if (!actionIds.length) return;
-        addLoredecksToStack(actionIds);
+    const add = createButton(actionModel.addLabel, actionModel.addTooltip, () => {
+        if (actionModel.selectedActionFolder) {
+            if (!actionModel.canAddFolder) return;
+            addLoredeckFolderToStack(actionModel.selectedActionFolder.id, libraryIndex);
+            return;
+        }
+        if (!actionModel.actionIds.length) return;
+        addLoredecksToStack(actionModel.actionIds);
     }, 'saga-primary-button saga-loredeck-library-transfer-button');
-    add.disabled = !actionIds.length || actionIds.every(packId => resolvedStackIds.has(packId));
+    add.disabled = actionModel.addDisabled;
     flow.appendChild(add);
 
-    const remove = createButton(actionIds.length > 1 ? `< Remove Selected (${selectedStackItems.length})` : '< Remove from Stack', actionIds.length ? 'Remove selected Loredecks from the active stack.' : 'Select an active Loredeck before removing it.', () => {
-        if (!actionIds.length) return;
-        removeLoredecksFromStack(actionIds);
+    const remove = createButton(actionModel.removeLabel, actionModel.removeTooltip, () => {
+        if (actionModel.selectedFolderStackKey) {
+            removeLoredeckStackItem(actionModel.selectedFolderStackKey);
+            return;
+        }
+        if (!actionModel.actionIds.length) return;
+        removeLoredecksFromStack(actionModel.actionIds);
     }, 'saga-loredeck-library-transfer-button');
-    remove.disabled = !selectedStackItems.length;
+    remove.disabled = actionModel.removeDisabled;
     flow.appendChild(remove);
 
     const addAll = createButton('Add All Matching', 'Add every currently filtered Loredeck that is not already enabled.', () => {
-        addLoredecksToStack(inactiveMatches.map(pack => pack.packId));
+        addLoredecksToStack(actionModel.inactiveMatches.map(pack => pack.packId));
     }, 'saga-loredeck-library-transfer-button');
-    addAll.disabled = !inactiveMatches.length;
+    addAll.disabled = !actionModel.inactiveMatches.length;
     flow.appendChild(addAll);
     pane.appendChild(flow);
 
@@ -2178,8 +2164,9 @@ function createLoredeckLibraryTransferPane(selectedPack = null, filteredPacks = 
 
     const libraryActions = document.createElement('div');
     libraryActions.className = 'saga-loredeck-library-center-actions';
-    const selectedActionFolder = actionFolder && !isLoredeckLibrarySpecialFolderId(actionFolder.id) ? actionFolder : null;
-    const duplicateTargets = selectedIds.length ? selectedPacks.filter(pack => selectedIds.includes(pack.packId)) : (selectedActionFolder || hasSelectedFolderDetails ? [] : (selectedPack ? [selectedPack] : []));
+    const selectedActionFolder = actionModel.selectedActionFolder;
+    const selectedIds = actionModel.selectedIds;
+    const duplicateTargets = selectedIds.length ? selectedPacks.filter(pack => selectedIds.includes(pack.packId)) : (selectedActionFolder || actionModel.hasSelectedFolderDetails ? [] : (selectedPack ? [selectedPack] : []));
     const duplicateTooltip = selectedActionFolder
         ? `Duplicate the ${selectedActionFolder.title || selectedActionFolder.id} folder, nested folders, and contained Loredecks as Custom copies.`
         : duplicateTargets.length > 1
@@ -2200,7 +2187,7 @@ function createLoredeckLibraryTransferPane(selectedPack = null, filteredPacks = 
     });
     duplicate.disabled = !selectedActionFolder && !duplicateTargets.length;
     libraryActions.appendChild(createLoredeckLibrarySquareActionGroup(duplicate, 'Duplicate'));
-    const deleteTargets = selectedIds.length ? selectedPacks.filter(pack => selectedIds.includes(pack.packId)) : (selectedActionFolder || hasSelectedFolderDetails ? [] : (selectedPack ? [selectedPack] : []));
+    const deleteTargets = selectedIds.length ? selectedPacks.filter(pack => selectedIds.includes(pack.packId)) : (selectedActionFolder || actionModel.hasSelectedFolderDetails ? [] : (selectedPack ? [selectedPack] : []));
     const deletableTargets = deleteTargets.filter(pack => !isBundledLoredeckLibraryPack(pack));
     const deleteTooltip = selectedActionFolder
         ? `Delete the ${selectedActionFolder.title || selectedActionFolder.id} folder container after choosing where its contents go. Contained Loredecks are preserved.`
@@ -3688,23 +3675,28 @@ function createLoredeckLibraryFolderActionBar(folder = {}, libraryIndex = {}, se
         const currentParentId = String(folder.parentId || '').trim();
         const moveWrap = document.createElement('span');
         moveWrap.className = 'saga-loredeck-library-folder-parent-control';
-        const parentSelect = document.createElement('select');
-        parentSelect.className = 'text_pole saga-loredeck-library-folder-move-select saga-loredeck-library-folder-parent-select';
-        appendLoredeckLibraryFolderParentOptions(parentSelect, folderId, libraryIndex);
-        parentSelect.value = [...parentSelect.options].some(option => option.value === currentParentId)
+        const parentOptions = getLoredeckLibraryFolderParentOptions(folderId, libraryIndex);
+        let syncMoveState = () => {};
+        const parentValue = parentOptions.some(([value]) => String(value || '') === currentParentId)
             ? currentParentId
             : '';
-        addTooltip(parentSelect, 'Choose where this folder should live in the Library hierarchy.');
+        const parentSelect = createLoredeckSelectControl({
+            className: 'text_pole saga-loredeck-library-folder-move-select saga-loredeck-library-folder-parent-select',
+            tooltip: 'Choose where this folder should live in the Library hierarchy.',
+            options: parentOptions,
+            value: parentValue,
+            fallbackValue: '',
+            onChange: () => syncMoveState(),
+        });
         moveWrap.appendChild(parentSelect);
 
         const moveFolder = createButton('Move Folder', 'Move this folder to the selected parent folder without changing its contents.', () => {
             if (parentSelect.value === currentParentId) return;
             if (moveLoredeckLibraryFolder(folderId, parentSelect.value || '', null, libraryIndex)) scheduleLoredeckLibraryOverlayRefresh();
         }, 'saga-loredeck-library-small-button');
-        const syncMoveState = () => {
+        syncMoveState = () => {
             moveFolder.disabled = parentSelect.value === currentParentId;
         };
-        parentSelect.addEventListener('change', syncMoveState);
         syncMoveState();
         moveWrap.appendChild(moveFolder);
         actions.appendChild(moveWrap);
@@ -4751,6 +4743,7 @@ async function removeLoredeckCoverImage(packId = '', button = null) {
 }
 
 export const __loredeckLibraryPanelTestHooks = Object.freeze({
+    getLoredeckLibraryTransferActionModel,
     getHydratedEditableLoredeckLibraryPack,
     saveLoredeckCoverImageAsset,
 });

@@ -12,6 +12,9 @@ import {
   resolveLoredeckLibraryDragFeedback,
 } from '../../src/loredecks/loredeck-library-drag.js';
 import {
+  normalizeSagaLibraryIndex,
+} from '../../src/storage/saga-lorepack-library-storage.js';
+import {
   sortLoredeckLibraryFolderTreeByTitle,
   sortLoredeckLibraryFolderPacks,
   getLoredeckLibraryManualSortOrder,
@@ -501,55 +504,56 @@ assert.deepEqual(sortLoredeckLibraryFolderTreeByTitle([
 ]);
 
 const { MODULE_KEY } = await import('../../src/state/constants.js');
-let extensionSettings = {
-  [MODULE_KEY]: {
-    loredeckLibrary: {
-      schemaVersion: 1,
-      packs: {
-        'imported-zip-deck': {
-          packId: 'imported-zip-deck',
-          type: 'custom',
-          title: 'Imported Zip Deck',
-          source: {
-            kind: 'imported_zip',
-            bundleType: 'saga_loredeck_zip_package',
-          },
-          library: {
-            suggestedPath: ['Package Root', 'Package Child'],
-            folderId: 'folder_package_root__package_child',
-          },
-          manifestData: {
-            id: 'imported-zip-deck',
-            title: 'Imported Zip Deck',
-            files: [],
-            library: {
-              suggestedPath: ['Package Root', 'Package Child'],
-            },
-          },
-          entryOverrides: {
-            imported_fact: {
-              id: 'imported_fact',
-              title: 'Imported Fact',
-              content: { fact: 'Imported lore.' },
-            },
-          },
-        },
-        'local-deck': {
-          packId: 'local-deck',
-          type: 'custom',
-          title: 'Local Deck',
+const legacySettingsLibrary = {
+  schemaVersion: 1,
+  packs: {
+    'imported-zip-deck': {
+      packId: 'imported-zip-deck',
+      type: 'custom',
+      title: 'Imported Zip Deck',
+      source: {
+        kind: 'imported_zip',
+        bundleType: 'saga_loredeck_zip_package',
+      },
+      library: {
+        suggestedPath: ['Package Root', 'Package Child'],
+        folderId: 'folder_package_root__package_child',
+      },
+      manifestData: {
+        id: 'imported-zip-deck',
+        title: 'Imported Zip Deck',
+        files: [],
+        library: {
+          suggestedPath: ['Package Root', 'Package Child'],
         },
       },
-      folders: [
-        { id: 'folder_package_root', title: 'Package Root', parentId: '' },
-        { id: 'folder_package_root__package_child', title: 'Package Child', parentId: 'folder_package_root' },
-        { id: 'folder_kept', title: 'Kept', parentId: '' },
-      ],
-      deckPlacements: [
-        { deckId: 'imported-zip-deck', folderId: 'folder_package_root__package_child', sortOrder: 100 },
-        { deckId: 'local-deck', folderId: 'folder_kept', sortOrder: 200 },
-      ],
+      entryOverrides: {
+        imported_fact: {
+          id: 'imported_fact',
+          title: 'Imported Fact',
+          content: { fact: 'Imported lore.' },
+        },
+      },
     },
+    'local-deck': {
+      packId: 'local-deck',
+      type: 'custom',
+      title: 'Local Deck',
+    },
+  },
+  folders: [
+    { id: 'folder_package_root', title: 'Package Root', parentId: '' },
+    { id: 'folder_package_root__package_child', title: 'Package Child', parentId: 'folder_package_root' },
+    { id: 'folder_kept', title: 'Kept', parentId: '' },
+  ],
+  deckPlacements: [
+    { deckId: 'imported-zip-deck', folderId: 'folder_package_root__package_child', sortOrder: 100 },
+    { deckId: 'local-deck', folderId: 'folder_kept', sortOrder: 200 },
+  ],
+};
+let extensionSettings = {
+  [MODULE_KEY]: {
+    loredeckLibrary: legacySettingsLibrary,
   },
 };
 globalThis.SillyTavern = {
@@ -559,13 +563,21 @@ globalThis.SillyTavern = {
 };
 const { getSettings } = await import('../../src/state/state-manager.js');
 const importedZipSettings = getSettings();
-const importedZipDeck = importedZipSettings.loredeckLibrary.packs['imported-zip-deck'];
+assert.deepEqual(importedZipSettings.loredeckLibrary.packs, {});
+assert.deepEqual(importedZipSettings.loredeckLibrary.folders, []);
+assert.deepEqual(importedZipSettings.loredeckLibrary.deckPlacements, []);
+assert.deepEqual(importedZipSettings.loredeckLibrary.activeStack, []);
+assert.deepEqual(extensionSettings[MODULE_KEY].loredeckLibrary.packs, {});
+
+const normalizedExternalLibrary = normalizeSagaLibraryIndex(legacySettingsLibrary, { now: 1 });
+const importedZipDeck = normalizedExternalLibrary.packs['imported-zip-deck'];
+assert.ok(importedZipDeck);
 assert.equal(importedZipDeck.library, undefined);
-assert.equal(importedZipDeck.manifestData.library, undefined);
-assert.ok(!(importedZipSettings.loredeckLibrary.deckPlacements || []).some(item => item.deckId === 'imported-zip-deck'));
-assert.ok(!(importedZipSettings.loredeckLibrary.folders || []).some(item => item.id === 'folder_package_root__package_child'));
-assert.ok(!(importedZipSettings.loredeckLibrary.folders || []).some(item => item.id === 'folder_package_root'));
-assert.ok((importedZipSettings.loredeckLibrary.deckPlacements || []).some(item => item.deckId === 'local-deck' && item.folderId === 'folder_kept'));
-assert.ok((importedZipSettings.loredeckLibrary.folders || []).some(item => item.id === 'folder_kept'));
+assert.equal(importedZipDeck.manifestData, undefined);
+assert.equal(importedZipDeck.entryOverrides, undefined);
+assert.ok((normalizedExternalLibrary.deckPlacements || []).some(item => item.deckId === 'imported-zip-deck' && item.folderId === 'folder_package_root__package_child'));
+assert.ok((normalizedExternalLibrary.folders || []).some(item => item.id === 'folder_package_root__package_child'));
+assert.ok((normalizedExternalLibrary.deckPlacements || []).some(item => item.deckId === 'local-deck' && item.folderId === 'folder_kept'));
+assert.ok((normalizedExternalLibrary.folders || []).some(item => item.id === 'folder_kept'));
 
 console.log('Loredeck Library folder tests passed.');
