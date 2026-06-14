@@ -204,7 +204,7 @@ async function refreshLoredeckHealthAfterAcceptedPendingChanges(pack = {}, accep
         toast('Accepted changes, but Pack Health could not rerun because this Loredeck is not validatable yet.', 'warning');
         return { skipped: true, reason: 'not_validatable' };
     }
-    const validation = await validateLoredeckForEditor(fresh, null, { quiet: true, updateLibrary: true });
+    const validation = await validateLoredeckForEditor(fresh, null, { quiet: true, updateLibrary: false });
     if (!validation.health) {
         ensureAcceptedLoredeckPendingChangesCommitted(fresh, acceptedChanges);
         refreshLoredeckSurfaces({ clearCanon: true, clearContext: true });

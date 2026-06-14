@@ -85,8 +85,9 @@ configureLoredeckPendingChangeActions({
   refreshLoredeckSurfaces: () => {},
   isGeneratedLoredeckPack: () => false,
   getAcceptedVirtualLoredeckEntries: () => [],
-  validateLoredeckForEditor: async () => {
+  validateLoredeckForEditor: async (_pack, _button, options = {}) => {
     validationCalls += 1;
+    assert.equal(options.updateLibrary, false);
     currentPack = {
       ...currentPack,
       healthStatus: 'has_errors',
@@ -172,8 +173,9 @@ configureLoredeckPendingChangeActions({
   refreshLoredeckSurfaces: () => {},
   isGeneratedLoredeckPack: () => false,
   getAcceptedVirtualLoredeckEntries: () => [],
-  validateLoredeckForEditor: async () => {
+  validateLoredeckForEditor: async (_pack, _button, options = {}) => {
     finalValidationCalls += 1;
+    assert.equal(options.updateLibrary, false);
     finalPack = {
       ...finalPack,
       pendingChanges: [finalChange],
