@@ -6,11 +6,13 @@
 
 **SAGA: Fandom Loresystem.**
 
-Saga is a SillyTavern extension for long-form fandom roleplay and fanfiction. It turns canon, alternate-universe, crossover, and user-created lore into modular **Loredecks**, reviewable **Lorecards**, context-aware retrieval, and prompt-ready injection.
+Saga is a SillyTavern extension for long-form fanfiction and fandom roleplay, where canon timing, secrets, alternate branches, and durable story memory matter--addressing the 'lore-rich', but 'timeline-dumb' problem with LLMs, where they reveal secrets out of step, and create characatures of beloved characters, poorly expressing them as they should act and exist in that moment in the story.
 
-Saga is not a wiki viewer and not a prompt preset. It is a runtime lore system for deciding what belongs in the story **now**: what is true, what is hidden, what has changed in this chat, and what the model should actually see before writing the next response.
+It turns canon, alternate-universe, crossover, and user-created lore into modular **Loredecks**, reviewable **Lorecards**, context-aware retrieval, and prompt-ready injection.
 
-Current alpha metadata uses `0.1.0-alpha.1`, requires SillyTavern `1.12.0` or newer, and automatic updates are disabled so testers update deliberately from the repository. The recommended first path is to start in **Basic**, get one chat working, then switch to **Advanced** when you need diagnostics, Creator workflows, Pack Health Center repairs, Continuity, or full Injection controls.
+Saga is a lore system for deciding what belongs in the story **now**: what is true, what is hidden, who knows what, and what has changed in this chat.
+
+The current state of development is **alpha-release**. Bundled loredecks include Harry Potter, Jujutsu Kaisen, LOTR, My Hero Academia, and Star Wars. The built-in Loredeck Creator is functional, and lightly tested, but set your expectations for 'alpha'. Stability is being improved with testing, and user feedback is highly valued.
 
 ## Contents
 
