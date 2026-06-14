@@ -138,7 +138,7 @@ export function createLoredeckPendingReviewCard(pack = {}) {
             label: `Before rejecting ${pending.length} pending Loredeck change${pending.length === 1 ? '' : 's'}.`,
         });
         await runBusyAction(btn, 'Rejecting...', async () => {
-            rejectLoredeckPendingChanges(pack, pendingChangeIds);
+            await rejectLoredeckPendingChanges(pack, pendingChangeIds);
         });
     }, 'saga-danger-button');
     rejectAll.disabled = !pending.length;
@@ -229,8 +229,10 @@ export function createLoredeckPendingChangeRow(pack = {}, change = {}) {
             await acceptLoredeckPendingChanges(pack, [change.changeId]);
         });
     }, 'saga-primary-button'));
-    actions.appendChild(createButton('Reject', 'Discard this pending Loredeck change.', () => {
-        rejectLoredeckPendingChanges(pack, [change.changeId]);
+    actions.appendChild(createButton('Reject', 'Discard this pending Loredeck change.', async (btn) => {
+        await runBusyAction(btn, 'Rejecting...', async () => {
+            await rejectLoredeckPendingChanges(pack, [change.changeId]);
+        });
     }, 'saga-danger-button'));
     row.appendChild(actions);
     return row;

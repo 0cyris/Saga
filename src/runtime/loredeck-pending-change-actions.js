@@ -34,6 +34,7 @@ function refreshLoredeckSurfaces(options = {}) { return dep('refreshLoredeckSurf
 function isGeneratedLoredeckPack(pack = {}) { return dep('isGeneratedLoredeckPack', () => false)(pack); }
 function getAcceptedVirtualLoredeckEntries(pack = {}) { return dep('getAcceptedVirtualLoredeckEntries', () => [])(pack); }
 function validateLoredeckForEditor(pack, button = null, options = {}) { return dep('validateLoredeckForEditor', async () => ({}))(pack, button, options); }
+function flushLoredeckStorageWrites() { return dep('flushLoredeckStorageWrites', async () => ({ ok: true, error: '', pendingWrites: 0 }))(); }
 function clearCanonLoreDatabaseCache() { return dep('clearCanonLoreDatabaseCache')(); }
 function clearContextIndexCache() { return dep('clearContextIndexCache')(); }
 function normalizeLoredeckCreatorTitleId(value = '', fallback = '') { return dep('normalizeLoredeckCreatorTitleId', (_value, fallbackValue) => fallbackValue)(value, fallback); }
@@ -151,6 +152,14 @@ function ensureAcceptedLoredeckPendingChangesCommitted(pack = {}, acceptedChange
     }, '', {
         errorMessage: 'Pending Loredeck change acceptance cleanup failed.',
     });
+}
+
+async function confirmLoredeckPendingMutationPersisted(label = 'Pending Loredeck change') {
+    const result = await flushLoredeckStorageWrites();
+    if (!result || result.ok !== false) return true;
+    const error = String(result.error || 'External Loredeck storage write failed.').trim();
+    toast(`${label} could not be saved to external storage: ${error}`, 'error');
+    return false;
 }
 
 export function queueLoredeckPendingChange(pack, change, message = '') {
@@ -273,14 +282,17 @@ export async function acceptLoredeckPendingChanges(pack, changeIds = []) {
     } else if (accepted) {
         ensureAcceptedLoredeckPendingChangesCommitted(freshPack, acceptedChanges);
     }
+    const persisted = accepted
+        ? await confirmLoredeckPendingMutationPersisted(`Accepted ${acceptedChanges.length} pending Loredeck change${acceptedChanges.length === 1 ? '' : 's'}`)
+        : false;
     if (accepted) {
         refreshLoredeckCreatorWorkbenchBody({ preserveScroll: true });
         refreshHeader();
     }
-    return accepted;
+    return accepted && persisted;
 }
 
-export function rejectLoredeckPendingChanges(pack, changeIds = []) {
+export async function rejectLoredeckPendingChanges(pack, changeIds = []) {
     const freshPack = getFreshLoredeckLibraryPack(pack?.packId, pack);
     if (!freshPack?.packId) {
         toast('Loredeck is no longer available.', 'warning');
@@ -299,9 +311,11 @@ export function rejectLoredeckPendingChanges(pack, changeIds = []) {
     }, `Rejected ${selected.length} pending Loredeck change${selected.length === 1 ? '' : 's'}.`, {
         errorMessage: 'Pending Loredeck change rejection failed.',
     });
+    let persisted = false;
     if (rejected) {
+        persisted = await confirmLoredeckPendingMutationPersisted(`Rejected ${selected.length} pending Loredeck change${selected.length === 1 ? '' : 's'}`);
         refreshLoredeckCreatorWorkbenchBody({ preserveScroll: true });
         refreshHeader();
     }
-    return rejected;
+    return rejected && persisted;
 }

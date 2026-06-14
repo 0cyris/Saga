@@ -254,6 +254,12 @@ import {
     flushSagaLorepackPayloadStorageWrites,
 } from '../storage/saga-lorepack-payload-storage.js';
 import {
+    flushSagaLorepackLibraryStorageWrites,
+} from '../storage/saga-lorepack-library-storage.js';
+import {
+    flushSagaCreatorProjectStorageWrites,
+} from '../storage/saga-creator-project-storage.js';
+import {
     getLoredeckSourceSummary,
 } from './loredeck-source-summary.js';
 import {
@@ -857,6 +863,7 @@ configureLoredeckPendingChangeActions({
     isGeneratedLoredeckPack,
     getAcceptedVirtualLoredeckEntries,
     validateLoredeckForEditor,
+    flushLoredeckStorageWrites: flushLoredeckStorageWritesForAction,
     clearCanonLoreDatabaseCache,
     clearContextIndexCache,
     normalizeLoredeckCreatorTitleId,
@@ -912,6 +919,25 @@ configureLoredeckPendingReviewPanel({
     canValidateLoredeckInEditor,
     openLoredeckHealthCenter,
 });
+
+async function flushLoredeckStorageWritesForAction(options = {}) {
+    const failures = [];
+    if (options.payload !== false) {
+        const payload = await flushSagaLorepackPayloadStorageWrites();
+        if (payload?.ok === false) failures.push(payload.error || 'Loredeck payload write failed.');
+    }
+    if (options.library !== false) {
+        const library = await flushSagaLorepackLibraryStorageWrites();
+        if (library?.ok === false) failures.push(library.error || 'Loredeck library index write failed.');
+    }
+    if (options.creator === true) {
+        const creator = await flushSagaCreatorProjectStorageWrites();
+        if (creator?.ok === false) failures.push(creator.error || 'Creator project write failed.');
+    }
+    return failures.length
+        ? { ok: false, error: failures.join(' ') }
+        : { ok: true, error: '' };
+}
 
 configureLoredeckAssistantReviewPanel({
     getLoredeckAssistantInstruction: () => loredeckAssistantInstruction,
@@ -1997,6 +2023,30 @@ function ignoreStaleLoredeckCreatorGeneration(generation = null, context = 'Crea
     return true;
 }
 
+function updateLoredeckCreatorActiveGenerationLocal(generationId = '', patch = {}, options = {}) {
+    const id = String(generationId || patch?.id || '').trim();
+    if (!id) return null;
+    const cached = getLoredeckCreatorBriefCache();
+    const active = cached.activeGeneration;
+    if (!active || active.id !== id || active.status !== 'running') return null;
+    const nextActive = {
+        ...active,
+        ...(patch || {}),
+        id: active.id,
+        status: active.status,
+        currentStage: patch.currentStage || active.currentStage || cached.currentStage || '',
+    };
+    const live = rememberLoredeckCreatorLiveGeneration(cached.jobId || getLoredeckCreatorGenerationJobId(nextActive), nextActive);
+    const localJob = {
+        ...cached,
+        status: 'running',
+        activeGeneration: live || nextActive,
+    };
+    loredeckCreatorBriefCache.set('current', localJob);
+    if (!options.suppressWorkbenchRefresh && options.refreshWorkbench !== false) queueLoredeckCreatorWorkbenchRefresh();
+    return localJob;
+}
+
 function startLoredeckCreatorGenerationTicker(generationId = '') {
     stopLoredeckCreatorGenerationTicker();
     if (!generationId) return;
@@ -2007,15 +2057,12 @@ function startLoredeckCreatorGenerationTicker(generationId = '') {
             stopLoredeckCreatorGenerationTicker();
             return;
         }
-        setLoredeckCreatorBriefCache({
-            ...cached,
-            activeGeneration: {
-                ...active,
-                elapsedMs: Date.now() - Number(active.startedAt || Date.now()),
-                message: getLoredeckCreatorGenerationWaitMessage(active),
-                updatedAt: Date.now(),
-            },
-        }, { refreshWorkbench: true, coalesceStorageWrite: true });
+        const now = Date.now();
+        updateLoredeckCreatorActiveGenerationLocal(generationId, {
+            elapsedMs: now - Number(active.startedAt || now),
+            message: getLoredeckCreatorGenerationWaitMessage(active),
+            updatedAt: now,
+        }, { refreshWorkbench: true });
     }, 1000);
 }
 
@@ -2087,22 +2134,27 @@ function updateLoredeckCreatorGeneration(generation = null, event = {}, options 
     const receivedChars = Number(event.receivedChars || accumulated.length || active.receivedChars || 0);
     const phase = String(event.phase || active.phase || 'waiting');
     const message = String(event.message || getLoredeckCreatorGenerationWaitMessage(active)).trim();
+    const activeGeneration = {
+        ...active,
+        phase,
+        message,
+        elapsedMs: now - Number(active.startedAt || now),
+        updatedAt: now,
+        receivedChars,
+        streamSupported: event.streamSupported === undefined ? active.streamSupported : event.streamSupported,
+        snippet: accumulated ? formatLoredeckCreatorLiveSnippet(accumulated) : active.snippet || '',
+        batchId: options.batchId || active.batchId || '',
+        batchLabel: options.batchLabel || active.batchLabel || '',
+        batchIndex: options.batchIndex ?? active.batchIndex ?? null,
+        batchTotal: options.batchTotal ?? active.batchTotal ?? null,
+    };
+    if (options.persist === false) {
+        updateLoredeckCreatorActiveGenerationLocal(generation.id, activeGeneration, { refreshWorkbench: true });
+        return;
+    }
     setLoredeckCreatorBriefCache({
         ...cached,
-        activeGeneration: {
-            ...active,
-            phase,
-            message,
-            elapsedMs: now - Number(active.startedAt || now),
-            updatedAt: now,
-            receivedChars,
-            streamSupported: event.streamSupported === undefined ? active.streamSupported : event.streamSupported,
-            snippet: accumulated ? formatLoredeckCreatorLiveSnippet(accumulated) : active.snippet || '',
-            batchId: options.batchId || active.batchId || '',
-            batchLabel: options.batchLabel || active.batchLabel || '',
-            batchIndex: options.batchIndex ?? active.batchIndex ?? null,
-            batchTotal: options.batchTotal ?? active.batchTotal ?? null,
-        },
+        activeGeneration,
     }, { refreshWorkbench: true, coalesceStorageWrite: true });
 }
 
@@ -2114,7 +2166,12 @@ function makeLoredeckCreatorProgressHandler(generation = null, options = {}) {
             || event?.phase !== 'receiving';
         if (!important && now - lastUpdateAt < 250) return;
         lastUpdateAt = now;
-        updateLoredeckCreatorGeneration(generation, event || {}, options);
+        const receivedChars = Number(event?.receivedChars || 0);
+        const hasVisibleOutput = receivedChars > 0 || !!String(event?.accumulated || '').trim();
+        const progressOptions = event?.type === 'reasoning' && !hasVisibleOutput
+            ? { ...options, persist: false }
+            : options;
+        updateLoredeckCreatorGeneration(generation, event || {}, progressOptions);
     };
 }
 
@@ -10426,6 +10483,13 @@ function refreshLoredeckAssistantDraftSurfaces() {
     refreshHeader();
 }
 
+async function confirmLoredeckAssistantDraftStorage(label = 'Creator draft review update', options = {}) {
+    const result = await flushLoredeckStorageWritesForAction(options);
+    if (result.ok !== false) return true;
+    toast(`${label} could not be saved to external storage: ${result.error || 'Storage write failed.'}`, 'error');
+    return false;
+}
+
 function updateLoredeckAssistantDraftAfterRemoval(packId, removedIds = new Set(), queuedCountDelta = 0) {
     const nextCache = updateLoredeckAssistantDraftCache(packId, cached => {
         const changes = getLoredeckAssistantDraftChanges(cached);
@@ -10472,12 +10536,22 @@ async function queueLoredeckAssistantDraftSelection(pack, selectedIds = new Set(
             : `Queued ${selected.length} assistant draft proposal${selected.length === 1 ? '' : 's'} for Pending Review.`
     );
     if (!queued) return false;
+    const queuedPersisted = await confirmLoredeckAssistantDraftStorage(
+        creatorBatch ? 'Creator draft handoff' : 'Assistant draft handoff',
+        { creator: false }
+    );
+    if (!queuedPersisted) return false;
     updateLoredeckAssistantDraftAfterRemoval(pack.packId, new Set(selected.map(change => change.changeId)), selected.length);
+    const draftPersisted = await confirmLoredeckAssistantDraftStorage(
+        creatorBatch ? 'Creator draft review update' : 'Assistant draft review update',
+        { payload: false, library: false, creator: creatorBatch }
+    );
+    if (!draftPersisted) return false;
     refreshLoredeckAssistantDraftSurfaces();
     return true;
 }
 
-function dropLoredeckAssistantDraftSelection(pack, selectedIds = new Set()) {
+async function dropLoredeckAssistantDraftSelection(pack, selectedIds = new Set()) {
     const cached = getLoredeckCreatorDraftCacheForPack(pack.packId);
     const draftChanges = getLoredeckAssistantDraftChanges(cached);
     const creatorBatch = String(cached?.source || '').trim() === 'loredeck_creator'
@@ -10489,6 +10563,11 @@ function dropLoredeckAssistantDraftSelection(pack, selectedIds = new Set()) {
         return false;
     }
     updateLoredeckAssistantDraftAfterRemoval(pack.packId, new Set(selected.map(change => change.changeId)), 0);
+    const draftPersisted = await confirmLoredeckAssistantDraftStorage(
+        creatorBatch ? 'Creator draft review update' : 'Assistant draft review update',
+        { payload: false, library: false, creator: creatorBatch }
+    );
+    if (!draftPersisted) return false;
     refreshLoredeckAssistantDraftSurfaces();
     toast(creatorBatch
         ? `Dropped ${selected.length} Creator Lorecard draft${selected.length === 1 ? '' : 's'}.`

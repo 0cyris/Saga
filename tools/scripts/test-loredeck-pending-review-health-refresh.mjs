@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {
   acceptLoredeckPendingChanges,
   configureLoredeckPendingChangeActions,
+  rejectLoredeckPendingChanges,
 } from '../../src/runtime/loredeck-pending-change-actions.js';
 import {
   createLoredeckRecordPatchChange,
@@ -263,6 +264,54 @@ configureLoredeckPendingChangeActions({
 assert.equal(await acceptLoredeckPendingChanges(alreadyAppliedPack, [alreadyAppliedChange.changeId]), true);
 assert.deepEqual(alreadyAppliedPack.pendingChanges, []);
 assert.equal(alreadyAppliedPack.entryOverrides['already-applied-entry'].title, 'Already applied entry');
+
+const rejectChange = createLoredeckRecordPatchChange({
+  source: 'test',
+  action: 'upsert_entry',
+  targetKind: 'entry',
+  title: 'Reject pending payload',
+  affectedEntryIds: ['reject-entry'],
+  payload: {
+    entryOverrides: {
+      'reject-entry': {
+        id: 'reject-entry',
+        title: 'Reject entry',
+        schemaVersion: 3,
+      },
+    },
+  },
+});
+
+let rejectPack = {
+  packId: 'reject-pending-review-pack',
+  type: 'custom',
+  title: 'Reject Pending Review Pack',
+  pendingChanges: [rejectChange],
+  entryOverrides: {},
+};
+let flushCalls = 0;
+configureLoredeckPendingChangeActions({
+  toast: (message, type) => {
+    toasts.push({ message, type });
+  },
+  persistLoredeckLibraryRecordMutation: (_pack, mutator) => {
+    mutator(rejectPack);
+    return true;
+  },
+  getFreshLoredeckLibraryPack: () => rejectPack,
+  flushLoredeckStorageWrites: async () => {
+    flushCalls += 1;
+    return { ok: false, error: 'stale write test failure' };
+  },
+  refreshLoredeckCreatorWorkbenchBody: () => {},
+  refreshHeader: () => {},
+});
+
+assert.equal(await rejectLoredeckPendingChanges(rejectPack, [rejectChange.changeId]), false);
+assert.equal(flushCalls, 1);
+assert.deepEqual(rejectPack.pendingChanges, []);
+assert.equal(toasts.at(-1).type, 'error');
+assert.ok(toasts.at(-1).message.includes('stale write test failure'));
 
 console.warn = originalConsoleWarn;
 

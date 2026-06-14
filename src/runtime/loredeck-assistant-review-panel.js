@@ -182,8 +182,8 @@ export function createLoredeckAssistantDraftBatchCard(pack = {}, cached = null, 
     });
     queueAll.disabled = !changes.length;
     actions.appendChild(creatorBatch ? markTourTarget(queueAll, 'loredecks.creator.sendAllDrafts') : queueAll);
-    const dropSelected = createButton('Drop Selected', creatorBatch ? 'Remove selected Creator Lorecard drafts without sending them to Pending Review.' : 'Remove selected assistant draft proposals without queueing them.', () => {
-        dropLoredeckAssistantDraftSelection(pack, getLoredeckAssistantSelectedDraftIds(getLoredeckAssistantDraftCacheRecord(pack.packId)));
+    const dropSelected = createButton('Drop Selected', creatorBatch ? 'Remove selected Creator Lorecard drafts without sending them to Pending Review.' : 'Remove selected assistant draft proposals without queueing them.', async () => {
+        await dropLoredeckAssistantDraftSelection(pack, getLoredeckAssistantSelectedDraftIds(getLoredeckAssistantDraftCacheRecord(pack.packId)));
     }, 'saga-danger-button');
     dropSelected.dataset.sagaAssistantDraftAction = 'drop-selected';
     dropSelected.disabled = !selectedCount;
@@ -320,8 +320,8 @@ export function createLoredeckAssistantDraftRow(pack = {}, change = {}, selected
     actions.appendChild(createButton('Edit JSON', creatorDraft ? 'Edit this Creator Lorecard draft record before sending it to Pending Review.' : 'Edit this draft proposal record before queueing.', () => {
         openLoredeckAssistantDraftJsonEditor(pack, change);
     }));
-    actions.appendChild(createButton('Drop', creatorDraft ? 'Remove this Creator Lorecard draft without sending it to Pending Review.' : 'Remove this draft proposal without queueing it.', () => {
-        dropLoredeckAssistantDraftSelection(pack, new Set([change.changeId]));
+    actions.appendChild(createButton('Drop', creatorDraft ? 'Remove this Creator Lorecard draft without sending it to Pending Review.' : 'Remove this draft proposal without queueing it.', async () => {
+        await dropLoredeckAssistantDraftSelection(pack, new Set([change.changeId]));
     }, 'saga-danger-button'));
     row.appendChild(actions);
     return row;
