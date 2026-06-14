@@ -22,6 +22,11 @@ const {
   loadLoredeckSourceById,
 } = await import('../../src/loredecks/loredeck-loader.js');
 const {
+  mergeExternalLoredeckLibraryRegistry,
+  resetSagaLorepackLibraryStorageCache,
+  upsertExternalLoredeckLibraryRecordSync,
+} = await import('../../src/storage/saga-lorepack-library-storage.js');
+const {
   __loredeckLibraryPanelTestHooks,
   configureLoredeckLibraryPanel,
   getLoredeckAssetRef,
@@ -285,6 +290,19 @@ assert.equal(persistedCoverSaveOptions.refreshSurfaces, false, 'Cover saves shou
 const hydrated = await hydrateExternalLorepackPayloadRecord(libraryRecord);
 assert.equal(hydrated.entryOverrides.nami.content.fact, 'Nami bargains with Arlong.');
 assert.equal(hydrated.manifestData.title, 'Arlong Park');
+resetSagaLorepackLibraryStorageCache();
+const indexedCachedPayload = upsertExternalLoredeckLibraryRecordSync(libraryRecord, { persistWrites: false });
+assert.equal(indexedCachedPayload.ok, true);
+const compactMergedRegistry = mergeExternalLoredeckLibraryRegistry({ schemaVersion: 1, packs: {}, activeStack: [] }, { schemaVersion: 1, packs: {} });
+assert.equal(compactMergedRegistry.packs['arlong-payload'].payloadFile, libraryRecord.payloadFile);
+assert.equal(compactMergedRegistry.packs['arlong-payload'].manifestData, undefined, 'Ordinary Library reads must stay compact after payload hydration.');
+assert.equal(compactMergedRegistry.packs['arlong-payload'].entryOverrides.nami, undefined, 'Ordinary Library reads must not merge cached Lorecard payloads.');
+const hydratedMergedRegistry = mergeExternalLoredeckLibraryRegistry(
+  { schemaVersion: 1, packs: {}, activeStack: [] },
+  { schemaVersion: 1, packs: {} },
+  { hydrateCachedPayloads: true }
+);
+assert.equal(hydratedMergedRegistry.packs['arlong-payload'].entryOverrides.nami.content.fact, 'Nami bargains with Arlong.');
 
 resetSagaLorepackPayloadStorageCache();
 configureSagaLorepackPayloadStorage({ fileApi, now });

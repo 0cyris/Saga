@@ -1077,6 +1077,9 @@ assert(!runtimePanelSource.includes('entryCount: Number(report.summary?.entryCou
 assert(runtimePanelSource.includes('function refreshLoredeckLibrarySelectionSurfaces'), 'Loredeck Library card selection must support in-place surface refreshes.');
 assert(runtimePanelSource.includes('function refreshLoredeckLibrarySelectionHighlights'), 'Loredeck Library folder selection must update highlights before rebuilding heavier surfaces.');
 assert(runtimePanelSource.includes('function scheduleLoredeckLibrarySelectionSurfaceRefresh'), 'Loredeck Library folder selection must schedule in-place surface refreshes.');
+assert(runtimePanelSource.includes('function refreshLoredeckLibraryVisibleSurfaces') && runtimePanelSource.includes('scheduleLoredeckLibraryVisibleSurfaceRefresh'), 'Loredeck Library search/view/sort changes must refresh visible surfaces in place instead of rebuilding the fullscreen overlay.');
+assert(!/onChange: value => \{\s*loredeckLibrarySort = value;\s*renderLoredeckLibraryOverlay\(\);/m.test(runtimePanelSource), 'Loredeck Library sort dropdown must not synchronously rebuild the full overlay.');
+assert(read('src/storage/saga-lorepack-library-storage.js').includes('hydrateCachedPayloads === true'), 'Merged Library registry reads must keep cached external payload hydration opt-in.');
 assert(defaultState.includes("selectedLoredeckId: ''"), 'New Saga installs must not preselect a Loredeck in the Library details panel.');
 assert(runtimePanelSource.includes('No Loredecks or Folders Selected'), 'Loredeck Library details must show an explicit empty-selection state.');
 assert(runtimePanelSource.includes('function clearLoredeckLibrarySelection'), 'Loredeck Library must provide a shared empty-space selection clear helper.');

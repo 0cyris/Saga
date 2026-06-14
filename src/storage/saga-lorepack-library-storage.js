@@ -311,12 +311,13 @@ export function normalizeSagaLibraryIndex(value = {}, options = {}) {
     };
 }
 
-export function mergeExternalLoredeckLibraryRegistry(settingsRegistry = {}, chatRegistry = {}) {
+export function mergeExternalLoredeckLibraryRegistry(settingsRegistry = {}, chatRegistry = {}, options = {}) {
     const settings = normalizeLoredeckRegistry(settingsRegistry || DEFAULT_SETTINGS.loredeckLibrary, DEFAULT_SETTINGS.loredeckLibrary);
     const chat = normalizeLoredeckRegistry(chatRegistry || EMPTY_LIBRARY_REGISTRY, EMPTY_LIBRARY_REGISTRY);
     const external = normalizeSagaLibraryIndex(hydratedLibraryRegistry);
+    const hydrateCachedPayloads = options.hydrateCachedPayloads === true;
     const externalPacks = Object.fromEntries(Object.entries(external.packs || {})
-        .map(([packId, pack]) => [packId, hydrateCachedExternalLorepackPayloadRecord(pack)]));
+        .map(([packId, pack]) => [packId, hydrateCachedPayloads ? hydrateCachedExternalLorepackPayloadRecord(pack) : cloneJson(pack)]));
     return normalizeLoredeckRegistry({
         schemaVersion: 1,
         packs: {
