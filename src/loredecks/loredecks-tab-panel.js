@@ -33,6 +33,7 @@ import {
     createEmptyMessage,
     createSectionHeader,
     createStatusPill,
+    runBusyAction,
     toast,
 } from '../ui/runtime-ui-kit.js';
 
@@ -81,6 +82,16 @@ let loredeckCreatorProjectQuery = '';
 let loredeckCreatorProjectFilter = 'all';
 let loredeckCreatorProjectFolderFilter = 'all';
 let loredeckCreatorProjectSelectedIds = new Set();
+
+function waitForNextUiFrame() {
+    return new Promise(resolve => {
+        if (typeof requestAnimationFrame === 'function') {
+            requestAnimationFrame(() => resolve());
+            return;
+        }
+        setTimeout(resolve, 0);
+    });
+}
 
 export function renderLoredecksTab(container, state) {
     const basic = isBasicExperienceMode();
@@ -165,8 +176,14 @@ function createLoredeckLibraryLaunchCard(state = getState(), canonDb = null, hea
 
     const actions = document.createElement('div');
     actions.className = 'saga-primary-actions saga-loredeck-library-launch-actions';
-    actions.appendChild(markTourTarget(createButton('Open Loredeck Library', 'Open the fullscreen Loredeck Library and active stack manager.', () => {
-        openLoredeckLibraryWindow();
+    actions.appendChild(markTourTarget(createButton('Open Loredeck Library', 'Open the fullscreen Loredeck Library and active stack manager.', async btn => {
+        await runBusyAction(btn, 'Opening...', async ({ setText }) => {
+            await waitForNextUiFrame();
+            setText('Building...');
+            await waitForNextUiFrame();
+            await waitForNextUiFrame();
+            openLoredeckLibraryWindow();
+        });
     }, 'saga-primary-button'), 'loredecks.library.open'));
     actions.appendChild(markTourTarget(createButton('Import Deck', 'Import a Saga Loredeck zip package into the Library.', () => {
         installLoredeckBundleFromFile();

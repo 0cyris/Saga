@@ -1001,6 +1001,7 @@ assert(!defaultSettings.includes("'lore.basic.acceptedEntries'") && !defaultSett
 assert(loredecksTabPanel.includes('function isBasicExperienceMode') && !loredecksTabPanel.includes('createBasicLoredeck'), 'Basic Loredecks must use the shared Loredecks tab with mode-gated Creator controls.');
 assert(loredecksTabPanel.includes("'Loredeck Library'") && loredecksTabPanel.includes("'In-Progress Creator Projects'"), 'Loredecks tab must keep the shared Library section and Advanced Creator Projects section.');
 assert(loredecksTabPanel.includes("createButton('Import Deck'") && basicGuideSource.includes("'loredecks.import'"), 'Basic Loredecks must keep Import Deck in the shared Library launch workflow.');
+assert(loredecksTabPanel.includes("runBusyAction(btn, 'Opening...'") && loredecksTabPanel.includes("setText('Building...'") && loredecksTabPanel.includes('waitForNextUiFrame'), 'Open Loredeck Library must show spinner-backed in-button progress and yield frames before rendering the fullscreen Library.');
 assert(/if \(!basic\)\s*\{[\s\S]*createLoredeckCreatorProjectShelf\(state, projectModels\)/.test(loredecksTabPanel), 'Basic Loredecks must hide the In-Progress Creator Projects shelf.');
 assert(/if \(!basic\)\s*\{[\s\S]*createButton\('Create Deck'/.test(loredecksTabPanel), 'Basic Loredecks must hide the Create Deck launch action.');
 assert(libraryPanel.includes('function isBasicExperienceMode') && /if \(!basic\)\s*\{[\s\S]*createButton\('Create Deck'/.test(libraryPanel), 'Basic Loredeck Library must hide the fullscreen Create Deck header action.');
@@ -1863,6 +1864,8 @@ assert(style.includes('var(--saga-chip-neutral-bg') && style.includes('var(--sag
 assert(style.includes('--saga-chip-tag-bg: rgba(22, 23, 28, 0.9)') && style.includes('--saga-chip-category-fg: #c9cdd6') && style.includes('--saga-chip-relevance-high-fg: #dcfce7') && style.includes('--saga-chip-relevance-normal-fg: #dbeafe') && style.includes('--saga-chip-relevance-low-fg: #e2e8f0'), 'Static chip fallbacks must split quiet metadata chips from color-coded relevance feedback.');
 assert(style.includes('calc(var(--saga-grip-dot-rows, 6) * 7px)'), 'Loredeck Library drag handles must size dot grids without clipping short 2x2 or 2x3 handles.');
 assert(/\.saga-loredeck-library-folder-grip\s*\{[\s\S]*?transform:\s*translateY\(-1px\);/.test(style), 'Loredeck Library folder drag handles must keep their optical centering nudge.');
+assert(/\.saga-loredeck-library-body-opening\s*\{[\s\S]*?grid-template-rows:\s*minmax\(0,\s*1fr\);[\s\S]*?place-items:\s*center;/.test(style), 'Loredeck Library progressive opening shell must center its loading state without reserving the full body grid.');
+assert(style.includes('.saga-loredeck-library-opening-status') && style.includes('.saga-loredeck-library-opening-spinner'), 'Loredeck Library progressive opening shell must show a spinner-backed loading status.');
 assert(libraryPanel.includes('suppressLoredeckLibraryRangeTextSelection') && libraryPanel.includes("card.addEventListener('mousedown', suppressLoredeckLibraryRangeTextSelection);"), 'Loredeck Library card range selection must suppress native Shift-click text selection before click handling.');
 assert(
     libraryPanel.includes('refreshLoredeckLibraryFolderSubtree')
@@ -1870,6 +1873,15 @@ assert(
     && libraryPanel.includes('row.dataset.folderDepth')
     && libraryPanel.includes('if (!refreshLoredeckLibraryFolderSubtree(id, collapsed)) scheduleLoredeckLibraryHierarchyRefresh();'),
     'Loredeck Library folder disclosure must use the cached local subtree refresh path before falling back to a full hierarchy rebuild.'
+);
+assert(
+    libraryPanel.includes('renderLoredeckLibraryOpeningShell')
+    && libraryPanel.includes('scheduleLoredeckLibraryProgressiveHydration')
+    && libraryPanel.includes('progressiveOpen: true')
+    && libraryPanel.includes('saga-loredeck-library-body-opening')
+    && libraryPanel.includes('saga-loredeck-library-opening-status')
+    && libraryPanel.includes('saga-loredeck-library-opening-spinner'),
+    'Loredeck Library open must first paint a spinner-backed lightweight shell before hydrating the full Library body.'
 );
 
 console.log('Visual smoke harness contract passed.');

@@ -2483,6 +2483,30 @@
     transition: grid-template-rows 180ms ease;
 }
 
+.saga-loredeck-library-body-opening {
+    grid-template-rows: minmax(0, 1fr);
+    place-items: center;
+}
+
+.saga-loredeck-library-opening-status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 1px solid var(--saga-border-soft, rgba(180, 160, 140, 0.14));
+    border-radius: 7px;
+    background: rgba(10, 12, 18, 0.46);
+    color: var(--saga-text-strong, #f2e5cf);
+    font-size: 0.95em;
+    font-weight: 700;
+    padding: 10px 14px;
+}
+
+.saga-loredeck-library-opening-spinner {
+    width: 1.15em;
+    height: 1.15em;
+}
+
 .saga-loredeck-library-resizing .saga-loredeck-library-body {
     transition: none;
 }

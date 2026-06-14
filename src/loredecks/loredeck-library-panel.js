@@ -202,7 +202,7 @@ let bundledLoredeckIndexLoading = false;
 let bundledLoredeckIndexLoadAttempted = false;
 export function openLoredeckLibraryWindow() {
     loredeckLibraryOpen = true;
-    renderLoredeckLibraryOverlay();
+    renderLoredeckLibraryOverlay({ preserveScroll: false, progressiveOpen: true });
 }
 
 export function openLoredeckLibraryDetails(packId = '') {
@@ -319,6 +319,85 @@ function restoreLoredeckLibraryScrollState(snapshot = null) {
     }
 }
 
+function renderLoredeckLibraryOpeningShell() {
+    const overlay = document.createElement('div');
+    overlay.className = 'saga-lore-workbench-overlay saga-loredeck-library-overlay saga-loredeck-library-overlay-opening';
+    wireOverlayBackdropClose(overlay, closeLoredeckLibraryWindow);
+    document.body.appendChild(overlay);
+
+    const shell = document.createElement('div');
+    shell.className = 'saga-lore-workbench-shell saga-loredeck-library-shell';
+    overlay.appendChild(shell);
+
+    const header = document.createElement('div');
+    header.className = 'saga-lore-workbench-header saga-loredeck-library-header';
+    markTourTarget(header, 'loredecks.library.header');
+    const titleWrap = document.createElement('div');
+    titleWrap.className = 'saga-lore-workbench-title-wrap';
+    const titleRow = document.createElement('div');
+    titleRow.className = 'saga-loredeck-library-title-row';
+    const emblem = document.createElement('div');
+    emblem.className = 'saga-loredeck-library-emblem';
+    emblem.textContent = 'S';
+    titleRow.appendChild(emblem);
+    const titleText = document.createElement('div');
+    const title = document.createElement('div');
+    title.className = 'saga-lore-workbench-title';
+    title.textContent = 'Loredeck Library';
+    titleText.appendChild(title);
+    const subtitle = document.createElement('div');
+    subtitle.className = 'saga-lore-workbench-subtitle';
+    subtitle.textContent = 'Opening Library...';
+    titleText.appendChild(subtitle);
+    titleRow.appendChild(titleText);
+    titleWrap.appendChild(titleRow);
+    header.appendChild(titleWrap);
+
+    const actions = createLoredeckActionRow({ className: 'saga-primary-actions saga-loredeck-library-header-actions' });
+    const doneButton = createButton('Done', 'Close the Loredeck Library.', closeLoredeckLibraryWindow, 'saga-primary-button');
+    markTourTarget(doneButton, 'loredecks.library.done');
+    actions.appendChild(doneButton);
+    header.appendChild(actions);
+    shell.appendChild(header);
+
+    const body = document.createElement('div');
+    body.className = 'saga-loredeck-library-body saga-loredeck-library-body-opening';
+    const openingStatus = document.createElement('div');
+    openingStatus.className = 'saga-loredeck-library-opening-status';
+    openingStatus.setAttribute('role', 'status');
+    openingStatus.setAttribute('aria-live', 'polite');
+    const spinner = document.createElement('span');
+    spinner.className = 'saga-runtime-button-spinner saga-loredeck-library-opening-spinner';
+    spinner.setAttribute('aria-hidden', 'true');
+    openingStatus.appendChild(spinner);
+    const openingText = document.createElement('span');
+    openingText.className = 'saga-loredeck-library-opening-text';
+    openingText.textContent = 'Opening Library...';
+    openingStatus.appendChild(openingText);
+    body.appendChild(openingStatus);
+    shell.appendChild(body);
+}
+
+function scheduleLoredeckLibraryProgressiveHydration(options = {}) {
+    const render = () => {
+        loredeckLibraryOverlayRefreshFrame = 0;
+        if (loredeckLibraryOpen) {
+            renderLoredeckLibraryOverlay({
+                ...options,
+                progressiveOpen: false,
+                preserveScroll: false,
+            });
+        }
+    };
+    if (typeof requestAnimationFrame !== 'function') {
+        render();
+        return;
+    }
+    loredeckLibraryOverlayRefreshFrame = requestAnimationFrame(() => {
+        loredeckLibraryOverlayRefreshFrame = requestAnimationFrame(render);
+    });
+}
+
 export function renderLoredeckLibraryOverlay(options = {}) {
     if (loredeckLibraryOverlayRefreshFrame && typeof cancelAnimationFrame === 'function') {
         cancelAnimationFrame(loredeckLibraryOverlayRefreshFrame);
@@ -331,6 +410,12 @@ export function renderLoredeckLibraryOverlay(options = {}) {
     loredeckLibraryHierarchyRefreshFrame = 0;
     document.querySelector('.saga-loredeck-library-overlay')?.remove();
     if (!loredeckLibraryOpen) return;
+
+    if (options.progressiveOpen === true) {
+        renderLoredeckLibraryOpeningShell();
+        scheduleLoredeckLibraryProgressiveHydration(options);
+        return;
+    }
 
     ensureBundledLoredeckIndexLoaded();
     const state = getState();
