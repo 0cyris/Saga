@@ -148,7 +148,12 @@ export function upsertLoredeckLibraryPack(packRecord = {}) {
     const payloadRevision = Math.floor(Number(packRecord?.revision) || 0);
     if (payloadRevision > 0) nextPack.revision = payloadRevision;
     for (const key of explicitOptionalFields) {
-        if (!Object.prototype.hasOwnProperty.call(pack, key)) delete nextPack[key];
+        if (Object.prototype.hasOwnProperty.call(pack, key)) continue;
+        if (key === 'pendingChanges') {
+            nextPack.pendingChanges = [];
+            continue;
+        }
+        delete nextPack[key];
     }
     const payloadResult = upsertExternalLorepackPayloadSync(nextPack);
     if (!payloadResult.ok) return payloadResult;

@@ -2,7 +2,10 @@
  * External Lorepack payload storage.
  */
 
-import { normalizeLoredeckRegistry } from '../state/lore-state-normalizers.js';
+import {
+    normalizeLoredeckPendingChanges,
+    normalizeLoredeckRegistry,
+} from '../state/lore-state-normalizers.js';
 import { createSagaDomainStorage, buildSagaDomainPayloadPath } from './saga-domain-storage.js';
 import { createSagaFileApi } from './saga-file-api.js';
 import { createSagaStorageIndexStore } from './saga-storage-index.js';
@@ -501,6 +504,9 @@ export function normalizeExternalLorepackPayload(value = {}, options = {}) {
         entryOverrides: pack.entryOverrides || {},
         disabledEntryIds: Array.isArray(pack.disabledEntryIds) ? pack.disabledEntryIds : [],
     };
+    if (Object.prototype.hasOwnProperty.call(raw, 'pendingChanges')) {
+        payload.pendingChanges = normalizeLoredeckPendingChanges(raw.pendingChanges);
+    }
     if (Object.prototype.hasOwnProperty.call(raw, 'healthIssueStates')) {
         payload.healthIssueStates = isPlainObject(raw.healthIssueStates) ? cloneJson(raw.healthIssueStates) : {};
     }

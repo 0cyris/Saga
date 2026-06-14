@@ -109,6 +109,42 @@ const hydratedSave = upsertLoredeckLibraryPack({
 assert.equal(hydratedSave.ok, true);
 assert.equal(hydratedSave.pack.title, 'Hydrated Rename');
 assert.equal(hydratedSave.pack.entryOverrides.guard.title, 'Guard Entry');
+
+const pendingChange = {
+  schemaVersion: 1,
+  changeId: 'payload-guard-pending-clear',
+  status: 'pending',
+  source: 'test',
+  action: 'record_patch',
+  targetKind: 'entry',
+  title: 'Payload guard pending clear',
+  description: '',
+  affectedEntryIds: ['guard'],
+  payload: {
+    entryOverrides: {
+      guard: hydratedSave.pack.entryOverrides.guard,
+    },
+  },
+  preview: {},
+  createdAt: 3000,
+  updatedAt: 3000,
+};
+upsertExternalLorepackPayloadSync({
+  ...hydratedSave.pack,
+  pendingChanges: [pendingChange],
+}, { persistWrites: false, now: 3000 });
+const hydratedWithPending = await hydrateExternalLorepackPayloadRecord(compactRecord);
+assert.equal(hydratedWithPending.pendingChanges.length, 1);
+
+const clearedPendingSave = upsertLoredeckLibraryPack({
+  ...hydratedWithPending,
+  pendingChanges: [],
+});
+assert.equal(clearedPendingSave.ok, true);
+assert.deepEqual(clearedPendingSave.pack.pendingChanges, [], 'Explicit empty pendingChanges must clear cached external payload proposals.');
+const hydratedAfterClear = await hydrateExternalLorepackPayloadRecord(compactRecord);
+assert.deepEqual(hydratedAfterClear.pendingChanges, [], 'Hydrating after a clear must not resurrect cached pending changes.');
+
 assert.equal(saveSettingsCount, 0, 'External payload saves should not write full Loredeck content to settings.');
 assert.equal(saveStateCount, 0, 'External payload saves should not require chat metadata writes.');
 
