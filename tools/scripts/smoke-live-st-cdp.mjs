@@ -17,6 +17,7 @@ const VIEWPORT = {
 const LIVE_CONTEXT_LOADED_PACK_ID = 'hp-year-6-half-blood-prince';
 const LIVE_CONTEXT_LOADED_PACK_TITLE = 'Harry Potter Year 6: Half-Blood Prince';
 const LIVE_CONTEXT_REASONER_TARGET = 'live-context-reasoner';
+const LIVE_CREATOR_TARGET = 'live-creator';
 const STORAGE_HARNESS_TARGET = 'storage-harness';
 const REPO_LOCAL_HARNESS_TARGETS = new Set(['context-harness', 'guide-harness', 'creator-harness', STORAGE_HARNESS_TARGET]);
 const LIVE_CONTEXT_METADATA_TARGETS = new Set([
@@ -694,6 +695,13 @@ function isExpectedStorageHarness404(error = '') {
         && /\/user\/files\/saga-[^)\s]+/i.test(message);
 }
 
+function isExpectedLiveCreator404(error = '') {
+    const message = String(error || '');
+    return SMOKE_TARGET === LIVE_CREATOR_TARGET
+        && /Failed to load resource: the server responded with a status of 404/i.test(message)
+        && /\/user\/files\/saga-(?:theme-index|iconset-index|creator-project-[^)\s]+)\.v1\.json/i.test(message);
+}
+
 async function waitFor(client, expression, label, timeoutMs = 15000) {
     const deadline = Date.now() + timeoutMs;
     let lastError = null;
@@ -1033,6 +1041,13 @@ async function screenshot(client, name) {
     return file;
 }
 
+async function writeSmokeReport(target, report) {
+    const file = process.env.SAGA_SMOKE_REPORT || path.join(OUT_DIR, `${target}-report.json`);
+    await fs.mkdir(path.dirname(file), { recursive: true });
+    await fs.writeFile(file, JSON.stringify(report, null, 2));
+    return file;
+}
+
 async function collectState(client) {
     return await evaluate(client, script(() => {
         const text = document.body?.innerText || '';
@@ -1057,6 +1072,1085 @@ async function collectState(client) {
             bodySample: text.slice(0, 1000),
         };
     }));
+}
+
+function getLiveCreatorSmokeConfig() {
+    const runId = String(process.env.SAGA_LIVE_CREATOR_RUN_ID || `live-creator-${Date.now().toString(36)}`).trim();
+    const providerTimeoutMs = Number(process.env.SAGA_LIVE_CREATOR_TIMEOUT_MS || process.env.SAGA_PROVIDER_SMOKE_TIMEOUT_MS) || 240000;
+    const defaultScope = [
+        'Arlong Park arc focused on Nami, Arlong, Cocoyasi Village, Bellemere fallout, and the moment Luffy takes the burden from Nami.',
+        `Use ${runId} only as an automated smoke-run label; do not treat it as lore.`,
+    ].join(' ');
+    return {
+        runId,
+        fandom: String(process.env.SAGA_LIVE_CREATOR_FANDOM || 'One Piece').trim(),
+        scope: String(process.env.SAGA_LIVE_CREATOR_SCOPE || defaultScope).trim(),
+        granularity: String(process.env.SAGA_LIVE_CREATOR_GRANULARITY || 'compact').trim(),
+        notes: String(process.env.SAGA_LIVE_CREATOR_NOTES || `Automated live Creator smoke ${runId}. Keep this intentionally small. Prefer one sharp Lorecard about pressure, secrets, village stakes, or timing instead of broad biography.`).trim(),
+        providerTimeoutMs,
+        finalize: process.env.SAGA_LIVE_CREATOR_FINALIZE !== '0',
+        cleanup: process.env.SAGA_LIVE_CREATOR_CLEANUP !== '0',
+        screenshotPrefix: String(process.env.SAGA_LIVE_CREATOR_SCREENSHOT_PREFIX || 'live-creator').trim() || 'live-creator',
+        generationSettings: {
+            titleBatchLimit: Number(process.env.SAGA_LIVE_CREATOR_TITLE_BATCH_LIMIT) || 4,
+            planningProposalLimit: Number(process.env.SAGA_LIVE_CREATOR_PLANNING_PROPOSAL_LIMIT) || 6,
+            entryBatchSize: Number(process.env.SAGA_LIVE_CREATOR_ENTRY_BATCH_SIZE) || 1,
+            titleRunRemainingLimit: Number(process.env.SAGA_LIVE_CREATOR_TITLE_RUN_LIMIT) || 10,
+            retryAttempts: Number(process.env.SAGA_LIVE_CREATOR_RETRY_ATTEMPTS) || 1,
+        },
+    };
+}
+
+async function installLiveCreatorStateProbe(client) {
+    return await evaluate(client, script(() => {
+        const summarizeValue = (value, depth = 0) => {
+            if (value === null || value === undefined) return value;
+            if (typeof value === 'string') return value.slice(0, 900);
+            if (typeof value !== 'object') return value;
+            if (Array.isArray(value)) return value.slice(0, 12).map(item => summarizeValue(item, depth + 1));
+            const entries = Object.entries(value).slice(0, depth > 1 ? 12 : 24);
+            const output = {};
+            for (const [key, nested] of entries) {
+                if (depth >= 3 && nested && typeof nested === 'object') {
+                    output[key] = Array.isArray(nested) ? `[${nested.length} items]` : `{${Object.keys(nested).slice(0, 8).join(', ')}}`;
+                } else {
+                    output[key] = summarizeValue(nested, depth + 1);
+                }
+            }
+            return output;
+        };
+        const objectValues = value => value && typeof value === 'object' && !Array.isArray(value)
+            ? Object.values(value)
+            : [];
+        const objectKeys = value => value && typeof value === 'object' && !Array.isArray(value)
+            ? Object.keys(value)
+            : [];
+        const countObject = value => objectKeys(value).length;
+        const mergeRecords = (...records) => {
+            const output = {};
+            for (const record of records) {
+                if (!record || typeof record !== 'object' || Array.isArray(record)) continue;
+                Object.assign(output, record);
+            }
+            return output;
+        };
+        const getMostRecentJob = jobs => objectValues(jobs)
+            .filter(job => job && typeof job === 'object')
+            .sort((a, b) => Number(b.updatedAt || b.createdAt || 0) - Number(a.updatedAt || a.createdAt || 0))[0] || null;
+        const summarizeUnit = unit => ({
+            unitId: unit?.unitId || unit?.id || '',
+            runId: unit?.runId || '',
+            actionId: unit?.actionId || '',
+            stage: unit?.stage || '',
+            label: unit?.label || '',
+            status: unit?.status || '',
+            attempts: Number(unit?.attempts || 0),
+            elapsedMs: Number(unit?.elapsedMs || 0),
+            receivedChars: Number(unit?.receivedChars || 0),
+            createdAt: Number(unit?.createdAt || 0),
+            startedAt: Number(unit?.startedAt || 0),
+            completedAt: Number(unit?.completedAt || 0),
+            failedAt: Number(unit?.failedAt || 0),
+            error: String(unit?.error || '').slice(0, 900),
+            resultRef: summarizeValue(unit?.resultRef || null),
+            diagnostic: summarizeValue(unit?.diagnostic || null),
+            meta: summarizeValue(unit?.meta || null),
+        });
+        const summarizeGenerationResult = result => result && typeof result === 'object' ? {
+            id: result.id || '',
+            runId: result.runId || '',
+            unitId: result.unitId || '',
+            actionId: result.actionId || '',
+            stage: result.stage || '',
+            label: result.label || '',
+            status: result.status || '',
+            message: String(result.message || '').slice(0, 900),
+            elapsedMs: Number(result.elapsedMs || 0),
+            receivedChars: Number(result.receivedChars || 0),
+            snippet: String(result.snippet || '').slice(0, 900),
+            batchId: result.batchId || '',
+            batchLabel: result.batchLabel || '',
+        } : null;
+        window.__sagaLiveCreatorSmokeState = () => {
+            const ctx = window.SillyTavern?.getContext?.();
+            const metadata = ctx?.chatMetadata?.saga || {};
+            const settings = ctx?.extensionSettings?.saga || {};
+            const localCreator = metadata.loredeckCreator || {};
+            const settingsCreator = settings.loredeckCreatorProjects || {};
+            const jobs = mergeRecords(settingsCreator.jobs, localCreator.jobs);
+            const activeJobId = localCreator.activeJobId || settingsCreator.activeJobId || localCreator.lastJobId || settingsCreator.lastJobId || '';
+            const job = (activeJobId && jobs[activeJobId]) ? jobs[activeJobId] : getMostRecentJob(jobs);
+            const jobId = job?.jobId || job?.id || activeJobId || '';
+            const generatedPackId = String(job?.generatedPackId || job?.brief?.packId || '').trim();
+            const packs = mergeRecords(settings.loredeckLibrary?.packs, metadata.loredeckLibrary?.packs);
+            const generatedPack = generatedPackId ? (packs[generatedPackId] || null) : null;
+            const selectedLoredeckId = String(metadata.lorePanel?.selectedLoredeckId || '').trim();
+            const selectedPack = selectedLoredeckId ? (packs[selectedLoredeckId] || null) : null;
+            const finalizedPacks = objectValues(packs)
+                .filter(pack => {
+                    if (!pack || typeof pack !== 'object') return false;
+                    if (generatedPackId && (pack.source?.originalPackId === generatedPackId || pack.derivedFrom?.packId === generatedPackId)) return true;
+                    return !!(jobId && pack.derivedFrom?.creatorJobId === jobId);
+                })
+                .map(pack => ({
+                    packId: pack.packId || pack.id || '',
+                    title: pack.title || '',
+                    type: pack.type || '',
+                    originalPackId: pack.source?.originalPackId || pack.derivedFrom?.packId || '',
+                    creatorJobId: pack.derivedFrom?.creatorJobId || '',
+                    entryCount: countObject(pack.entryOverrides),
+                }));
+            const overlay = document.querySelector('.saga-loredeck-creator-workbench-overlay');
+            const library = document.querySelector('.saga-loredeck-library-overlay');
+            const confirm = document.querySelector('.saga-confirm-overlay');
+            const metadataEditor = document.querySelector('.saga-loredeck-metadata-overlay');
+            const buttonRecords = [...document.querySelectorAll('button')]
+                .map(button => ({
+                    label: (button.innerText || button.textContent || '').trim(),
+                    disabled: !!button.disabled,
+                    busy: button.getAttribute('aria-busy') === 'true' || button.dataset.sagaActionBusy === 'true',
+                }))
+                .filter(button => button.label);
+            const titleBatches = Array.isArray(job?.outline?.titleBatches) ? job.outline.titleBatches : [];
+            const titleDrafts = Array.isArray(job?.titleDrafts) ? job.titleDrafts : [];
+            const approvedTitleIds = Array.isArray(job?.approvedTitleDraftIds) ? job.approvedTitleDraftIds : [];
+            const titleBatchDraftedIds = Array.isArray(job?.titleBatchDraftedIds) ? job.titleBatchDraftedIds : [];
+            const planningQueuedIds = Array.isArray(job?.planningBatchQueuedIds) ? job.planningBatchQueuedIds : [];
+            const planningAcceptedIds = Array.isArray(job?.planningBatchAcceptedIds) ? job.planningBatchAcceptedIds : [];
+            const draftChanges = Array.isArray(job?.draftChanges) ? job.draftChanges : [];
+            const pendingChanges = Array.isArray(generatedPack?.pendingChanges) ? generatedPack.pendingChanges : [];
+            const acceptedEntryCount = countObject(generatedPack?.entryOverrides);
+            const generationUnits = objectValues(job?.generationUnits)
+                .sort((a, b) => Number(a.startedAt || a.createdAt || 0) - Number(b.startedAt || b.createdAt || 0))
+                .map(summarizeUnit);
+            const activeGeneration = job?.activeGeneration && typeof job.activeGeneration === 'object' ? {
+                id: job.activeGeneration.id || '',
+                actionId: job.activeGeneration.actionId || '',
+                stage: job.activeGeneration.stage || '',
+                currentStage: job.activeGeneration.currentStage || '',
+                label: job.activeGeneration.label || '',
+                status: job.activeGeneration.status || '',
+                phase: job.activeGeneration.phase || '',
+                elapsedMs: Number(job.activeGeneration.elapsedMs || 0),
+                receivedChars: Number(job.activeGeneration.receivedChars || 0),
+                snippet: String(job.activeGeneration.snippet || '').slice(0, 900),
+                batchLabel: job.activeGeneration.batchLabel || '',
+                batchIndex: job.activeGeneration.batchIndex,
+                batchTotal: job.activeGeneration.batchTotal,
+            } : null;
+            const text = overlay?.innerText || document.body?.innerText || '';
+            return {
+                hasContext: !!ctx,
+                activeTab: document.querySelector('.saga-runtime-rail-tab-active')?.getAttribute('data-tab-id') || '',
+                overlayOpen: !!overlay,
+                libraryOpen: !!library,
+                confirmOpen: !!confirm,
+                metadataEditorOpen: !!metadataEditor,
+                providerNotReady: /Reasoning Provider is not ready|Provider setup is needed|No provider/i.test(text),
+                actionFailed: /Action failed|Generation failed|failed before|could not/i.test(text),
+                selectedLoredeckId,
+                selectedPack: selectedPack ? {
+                    packId: selectedPack.packId || selectedPack.id || '',
+                    title: selectedPack.title || '',
+                    type: selectedPack.type || '',
+                    entryCount: countObject(selectedPack.entryOverrides),
+                    originalPackId: selectedPack.source?.originalPackId || selectedPack.derivedFrom?.packId || '',
+                    creatorJobId: selectedPack.derivedFrom?.creatorJobId || '',
+                } : null,
+                generatedPack: generatedPack ? {
+                    packId: generatedPack.packId || generatedPack.id || '',
+                    title: generatedPack.title || '',
+                    type: generatedPack.type || '',
+                    pendingChangeCount: pendingChanges.length,
+                    pendingEntryChangeCount: pendingChanges.filter(change => Array.isArray(change?.affectedEntryIds) && change.affectedEntryIds.length).length,
+                    acceptedEntryCount,
+                    healthStatus: generatedPack.healthStatus || generatedPack.health?.status || '',
+                    tagCount: countObject(generatedPack.tagRegistry?.tags || generatedPack.tagRegistry),
+                    timelineCount: countObject(generatedPack.timelineRegistry?.anchors || generatedPack.timelineRegistry?.events || generatedPack.timelineRegistry),
+                } : null,
+                finalizedPacks,
+                job: job ? {
+                    jobId,
+                    status: job.status || '',
+                    currentStage: job.currentStage || '',
+                    fandom: job.fandom || '',
+                    scope: job.scope || '',
+                    granularity: job.granularity || '',
+                    generatedPackId,
+                    generatedPackTitle: job.generatedPackTitle || generatedPack?.title || '',
+                    briefReady: !!job.brief,
+                    briefApproved: job.approved === true,
+                    outlineReady: !!job.outline,
+                    outlineApproved: job.outlineApproved === true,
+                    titleBatchTotal: titleBatches.length,
+                    titleBatchDraftedCount: titleBatchDraftedIds.length,
+                    titleDraftCount: titleDrafts.length,
+                    approvedTitleCount: approvedTitleIds.length,
+                    planningQueuedCount: planningQueuedIds.length,
+                    planningAcceptedCount: planningAcceptedIds.length,
+                    draftChangeCount: draftChanges.length,
+                    pendingChangeCount: pendingChanges.length,
+                    acceptedEntryCount,
+                    entryDraftCount: Number(job.entryDraftCount || draftChanges.length || 0),
+                    entryDraftRemainingCount: Number(job.entryDraftRemainingCount || 0),
+                    activeGeneration,
+                    lastGenerationResult: summarizeGenerationResult(job.lastGenerationResult),
+                    generationUnits,
+                } : null,
+                visible: {
+                    creatorText: (overlay?.innerText || '').slice(0, 2400),
+                    libraryText: (library?.innerText || '').slice(0, 1200),
+                    confirmText: (confirm?.innerText || '').slice(0, 1000),
+                    metadataEditorText: (metadataEditor?.innerText || '').slice(0, 1000),
+                    buttonLabels: buttonRecords.map(button => button.label).slice(0, 180),
+                    disabledButtons: buttonRecords.filter(button => button.disabled).map(button => button.label).slice(0, 120),
+                    busyButtons: buttonRecords.filter(button => button.busy).map(button => button.label).slice(0, 60),
+                },
+            };
+        };
+        return true;
+    }));
+}
+
+async function collectLiveCreatorState(client) {
+    await installLiveCreatorStateProbe(client);
+    const state = await evaluate(client, 'window.__sagaLiveCreatorSmokeState?.() || null');
+    return redactDiagnosticValue(state ? JSON.parse(JSON.stringify(state)) : state);
+}
+
+async function recordLiveCreatorStep(client, steps, label, screenshots, screenshotName = '') {
+    await clearTransientToasts(client);
+    await wait(250);
+    let shot = '';
+    if (screenshotName) {
+        shot = await screenshot(client, screenshotName);
+        screenshots.push(shot);
+    }
+    const state = await collectLiveCreatorState(client);
+    steps.push({
+        label,
+        at: new Date().toISOString(),
+        ...(shot ? { screenshot: shot } : {}),
+        state,
+    });
+    return state;
+}
+
+async function clickButtonMatching(client, matcher = {}, options = {}) {
+    return await evaluate(client, script((rawMatcher, rootSelector, enabledOnly) => {
+        const root = rootSelector ? document.querySelector(rootSelector) : document;
+        if (!root) return { clicked: false, reason: 'missing-root', rootSelector };
+        const labels = Array.isArray(rawMatcher.labels) ? rawMatcher.labels.map(item => String(item || '').trim()).filter(Boolean) : [];
+        const includes = String(rawMatcher.includes || '').trim();
+        const pattern = String(rawMatcher.pattern || '').trim();
+        const regex = pattern ? new RegExp(pattern) : null;
+        const buttons = [...root.querySelectorAll('button')];
+        const target = buttons.find(button => {
+            const label = (button.innerText || button.textContent || '').trim();
+            if (!label) return false;
+            if (enabledOnly && button.disabled) return false;
+            if (labels.includes(label)) return true;
+            if (includes && label.includes(includes)) return true;
+            return regex ? regex.test(label) : false;
+        });
+        if (!target) {
+            return {
+                clicked: false,
+                reason: 'missing-button',
+                labels: buttons.map(button => ({
+                    label: (button.innerText || button.textContent || '').trim(),
+                    disabled: !!button.disabled,
+                })).filter(button => button.label).slice(0, 80),
+            };
+        }
+        target.scrollIntoView({ block: 'center', inline: 'center' });
+        target.click();
+        return { clicked: true, label: (target.innerText || target.textContent || '').trim() };
+    }, matcher, options.root || '', options.enabledOnly !== false), { userGesture: true });
+}
+
+async function requireButtonMatching(client, matcher = {}, label = 'button', options = {}) {
+    const result = await clickButtonMatching(client, matcher, options);
+    if (!result?.clicked) {
+        throw new Error(`Could not click ${label}: ${JSON.stringify(redactDiagnosticValue(result))}`);
+    }
+    return result;
+}
+
+async function confirmLiveCreatorDialog(client, expectedPattern = '', options = {}) {
+    return await evaluate(client, script(pattern => {
+        const overlay = document.querySelector('.saga-confirm-overlay');
+        if (!overlay) return { clicked: false, reason: 'missing-confirm-overlay' };
+        const regex = pattern ? new RegExp(pattern) : null;
+        const buttons = [...overlay.querySelectorAll('button')];
+        const target = buttons.find(button => {
+            const label = (button.innerText || button.textContent || '').trim();
+            if (!label || button.disabled) return false;
+            if (/^cancel$/i.test(label)) return false;
+            return regex ? regex.test(label) : true;
+        });
+        if (!target) {
+            return {
+                clicked: false,
+                reason: 'missing-confirm-button',
+                text: (overlay.innerText || '').slice(0, 1000),
+                labels: buttons.map(button => ({
+                    label: (button.innerText || button.textContent || '').trim(),
+                    disabled: !!button.disabled,
+                })).filter(button => button.label),
+            };
+        }
+        target.scrollIntoView({ block: 'center', inline: 'center' });
+        target.click();
+        return {
+            clicked: true,
+            label: (target.innerText || target.textContent || '').trim(),
+            text: (overlay.innerText || '').slice(0, 1000),
+        };
+    }, expectedPattern), { userGesture: true, timeoutMs: Number(options.timeoutMs) || 60000 });
+}
+
+async function setLiveCreatorField(client, label, value) {
+    return await evaluate(client, script((fieldLabel, nextValue) => {
+        const overlay = document.querySelector('.saga-loredeck-creator-workbench-overlay');
+        if (!overlay) return { ok: false, reason: 'missing-creator-overlay' };
+        const fields = [...overlay.querySelectorAll('label')];
+        const field = fields.find(candidate => {
+            const text = (candidate.querySelector('span')?.innerText || candidate.querySelector('span')?.textContent || candidate.innerText || '').trim();
+            return text === fieldLabel || text.startsWith(`${fieldLabel}:`);
+        });
+        if (!field) return { ok: false, reason: 'missing-field', label: fieldLabel };
+        const input = field.querySelector('input, textarea, select');
+        if (!input) return { ok: false, reason: 'missing-input', label: fieldLabel };
+        input.scrollIntoView({ block: 'center', inline: 'center' });
+        input.focus?.();
+        input.value = String(nextValue || '');
+        input.dispatchEvent(new Event('input', { bubbles: true }));
+        input.dispatchEvent(new Event('change', { bubbles: true }));
+        return { ok: true, label: fieldLabel };
+    }, label, value), { userGesture: true });
+}
+
+async function setLiveCreatorGenerationSetting(client, key, value) {
+    return await evaluate(client, script((settingKey, nextValue) => {
+        const input = document.querySelector(`.saga-loredeck-creator-workbench-overlay [data-saga-creator-generation-setting="${settingKey}"]`);
+        if (!input) return { ok: false, reason: 'missing-generation-setting', key: settingKey };
+        if (input.type === 'checkbox') {
+            input.checked = nextValue === true || nextValue === 'true';
+        } else {
+            const min = Number(input.min);
+            const max = Number(input.max);
+            const numeric = Number(nextValue);
+            const bounded = Number.isFinite(numeric)
+                ? Math.max(Number.isFinite(min) ? min : numeric, Math.min(Number.isFinite(max) ? max : numeric, Math.round(numeric)))
+                : Number(input.value || 0);
+            input.value = String(bounded);
+        }
+        input.dispatchEvent(new Event('input', { bubbles: true }));
+        input.dispatchEvent(new Event('change', { bubbles: true }));
+        return { ok: true, key: settingKey, value: input.type === 'checkbox' ? input.checked : input.value };
+    }, key, value), { userGesture: true });
+}
+
+async function waitForLiveCreatorState(client, expression, label, timeoutMs) {
+    await installLiveCreatorStateProbe(client);
+    return await waitFor(client, expression, label, timeoutMs);
+}
+
+async function waitForLiveCreatorSettled(client, label, timeoutMs) {
+    return await waitForLiveCreatorState(
+        client,
+        '(() => { const state = window.__sagaLiveCreatorSmokeState?.(); return !!state?.overlayOpen && !state?.job?.activeGeneration && !state?.visible?.busyButtons?.length && !state?.visible?.buttonLabels?.includes("Cancel Generation"); })()',
+        label,
+        timeoutMs,
+    );
+}
+
+async function clearLiveCreatorActiveProjectPointers(client) {
+    return await evaluate(client, script(async () => {
+        const ctx = window.SillyTavern?.getContext?.();
+        if (!ctx) return { ok: false, reason: 'missing-st-context' };
+        const sagaState = ctx.chatMetadata?.saga || {};
+        const sagaSettings = ctx.extensionSettings?.saga || {};
+        const cleared = {
+            metadataActiveJobId: sagaState.loredeckCreator?.activeJobId || '',
+            metadataLastJobId: sagaState.loredeckCreator?.lastJobId || '',
+            settingsActiveJobId: sagaSettings.loredeckCreatorProjects?.activeJobId || '',
+            settingsLastJobId: sagaSettings.loredeckCreatorProjects?.lastJobId || '',
+        };
+        let metadataChanged = false;
+        let settingsChanged = false;
+        if (sagaState.loredeckCreator && typeof sagaState.loredeckCreator === 'object') {
+            if (sagaState.loredeckCreator.activeJobId) {
+                sagaState.loredeckCreator.activeJobId = '';
+                metadataChanged = true;
+            }
+            if (sagaState.loredeckCreator.lastJobId) {
+                sagaState.loredeckCreator.lastJobId = '';
+                metadataChanged = true;
+            }
+        }
+        if (sagaSettings.loredeckCreatorProjects && typeof sagaSettings.loredeckCreatorProjects === 'object') {
+            if (sagaSettings.loredeckCreatorProjects.activeJobId) {
+                sagaSettings.loredeckCreatorProjects.activeJobId = '';
+                settingsChanged = true;
+            }
+            if (sagaSettings.loredeckCreatorProjects.lastJobId) {
+                sagaSettings.loredeckCreatorProjects.lastJobId = '';
+                settingsChanged = true;
+            }
+        }
+        if (metadataChanged && typeof ctx.saveMetadata === 'function') await ctx.saveMetadata();
+        if (settingsChanged && typeof ctx.saveSettingsDebounced === 'function') ctx.saveSettingsDebounced();
+        return {
+            ok: true,
+            cleared,
+            metadataChanged,
+            settingsChanged,
+        };
+    }), { userGesture: true });
+}
+
+function buildLiveCreatorSmokeProjectCheckExpression() {
+    return '(() => { const state = window.__sagaLiveCreatorSmokeState?.(); const job = state?.job || {}; const text = [job.fandom, job.scope, job.generatedPackId, job.generatedPackTitle, job.lastGenerationResult?.message, state?.visible?.creatorText].filter(Boolean).join("\\n"); const hasJob = !!job.jobId; const empty = !hasJob || ((!job.currentStage || job.currentStage === "intake") && !job.briefReady && !job.outlineReady && !(job.titleDraftCount || 0) && !(job.approvedTitleCount || 0) && !(job.planningQueuedCount || 0) && !(job.planningAcceptedCount || 0) && !(job.draftChangeCount || 0) && !(job.acceptedEntryCount || 0)); const smokeLike = /Automated live Creator smoke|live-creator-|Arlong Park arc focused on Nami|one-piece-arlong/i.test(text); return { hasJob, empty, smokeLike, jobId: job.jobId || "", currentStage: job.currentStage || "", generatedPackId: job.generatedPackId || "" }; })()';
+}
+
+async function resetLiveCreatorSmokeProjectToIntakeIfNeeded(client) {
+    await installLiveCreatorStateProbe(client);
+    const check = await evaluate(client, buildLiveCreatorSmokeProjectCheckExpression(), { timeoutMs: 15000 });
+    if (!check?.hasJob || check.empty) {
+        return { ok: true, reset: false, reason: check?.hasJob ? 'already-intake' : 'no-active-job', check };
+    }
+    if (!check.smokeLike) {
+        return { ok: false, reset: false, reason: 'active-project-is-not-automated-smoke', check };
+    }
+    const clicked = await evaluate(client, script(() => {
+        const overlay = document.querySelector('.saga-loredeck-creator-workbench-overlay');
+        if (!overlay) return { clicked: false, reason: 'missing-creator-overlay' };
+        const resetButtons = [...overlay.querySelectorAll('button')]
+            .map(button => ({
+                button,
+                label: (button.innerText || button.textContent || '').trim(),
+                disabled: !!button.disabled,
+            }))
+            .filter(item => item.label.includes(String.fromCharCode(0x21b6)) && !item.disabled);
+        const target = resetButtons[0]?.button || null;
+        if (!target) {
+            return {
+                clicked: false,
+                reason: 'missing-enabled-reset-button',
+                labels: [...overlay.querySelectorAll('button')]
+                    .map(button => ({ label: (button.innerText || button.textContent || '').trim(), disabled: !!button.disabled }))
+                    .filter(item => item.label)
+                    .slice(0, 80),
+            };
+        }
+        target.scrollIntoView({ block: 'center', inline: 'center' });
+        target.click();
+        return { clicked: true, label: (target.innerText || target.textContent || '').trim() };
+    }), { userGesture: true, timeoutMs: 30000 });
+    if (!clicked?.clicked) return { ok: false, reset: false, reason: clicked?.reason || 'reset-click-failed', check, clicked };
+    await waitFor(client, '!!document.querySelector(".saga-confirm-overlay")', 'live Creator stale smoke reset confirmation', 10000);
+    const confirmed = await confirmLiveCreatorDialog(client, '', { timeoutMs: 60000 });
+    if (!confirmed?.clicked) return { ok: false, reset: false, reason: confirmed?.reason || 'reset-confirm-failed', check, clicked, confirmed };
+    await waitForLiveCreatorState(
+        client,
+        '(() => { const state = window.__sagaLiveCreatorSmokeState?.(); const job = state?.job || {}; return (!job.currentStage || job.currentStage === "intake") && !job.briefReady && !job.outlineReady && !(job.titleDraftCount || 0) && !(job.approvedTitleCount || 0) && !(job.planningQueuedCount || 0) && !(job.planningAcceptedCount || 0) && !(job.draftChangeCount || 0) && !(job.acceptedEntryCount || 0); })()',
+        'live Creator stale smoke reset to intake',
+        60000,
+    );
+    return {
+        ok: true,
+        reset: true,
+        check,
+        clicked,
+        confirmed: redactDiagnosticValue(confirmed),
+        after: await collectLiveCreatorState(client),
+    };
+}
+
+async function openLiveCreatorWorkbench(client) {
+    await switchSagaExperienceMode(client, 'advanced');
+    await clickSelector(client, '.saga-runtime-rail-tab[data-tab-id="loredecks"]');
+    await waitFor(client, 'document.querySelector(".saga-runtime-rail-tab-active")?.getAttribute("data-tab-id") === "loredecks"', 'Live Creator Loredecks tab active', 10000);
+    await waitFor(client, 'document.querySelector(".saga-runtime-drawer")?.innerText.includes("Loredecks")', 'Live Creator Loredecks drawer', 10000);
+    await wait(700);
+    const libraryOpened = await clickButtonText(client, 'Open Loredeck Library');
+    if (!libraryOpened) throw new Error('Could not open Loredeck Library for live Creator smoke.');
+    await waitFor(client, '!!document.querySelector(".saga-loredeck-library-overlay")', 'Live Creator Library overlay', 10000);
+    await wait(700);
+    const createOpened = await clickButtonText(client, 'Create Deck', { root: '.saga-loredeck-library-overlay' });
+    if (!createOpened) throw new Error('Could not open Loredeck Creator from the live Library.');
+    await waitFor(client, '!!document.querySelector(".saga-loredeck-creator-workbench-overlay")', 'Live Creator workbench overlay', 10000);
+    await installLiveCreatorStateProbe(client);
+    await wait(700);
+}
+
+async function openLiveCreatorLibraryPack(client, packId = '') {
+    const id = String(packId || '').trim();
+    if (!id) return { ok: false, reason: 'missing-pack-id' };
+    await evaluate(client, script(() => {
+        document.querySelector('.saga-loredeck-metadata-overlay')?.remove();
+        document.querySelector('.saga-loredeck-creator-workbench-overlay')?.remove();
+        document.querySelector('.saga-confirm-overlay')?.remove();
+        return true;
+    }), { userGesture: true }).catch(() => false);
+    await clickSelector(client, '.saga-runtime-rail-tab[data-tab-id="loredecks"]').catch(() => false);
+    await wait(500);
+    const libraryOpen = await evaluate(client, '!!document.querySelector(".saga-loredeck-library-overlay")');
+    if (!libraryOpen) {
+        const opened = await clickButtonText(client, 'Open Loredeck Library').catch(() => false);
+        if (!opened) return { ok: false, reason: 'library-open-failed' };
+        await waitFor(client, '!!document.querySelector(".saga-loredeck-library-overlay")', 'Live Creator finalized Library overlay', 10000);
+    }
+    await wait(700);
+    return await evaluate(client, script(packIdToSelect => {
+        const overlay = document.querySelector('.saga-loredeck-library-overlay');
+        if (!overlay) return { ok: false, reason: 'missing-library-overlay' };
+        const search = overlay.querySelector('.saga-loredeck-library-search');
+        if (search) {
+            search.value = '';
+            search.dispatchEvent(new Event('input', { bubbles: true }));
+            search.dispatchEvent(new Event('change', { bubbles: true }));
+        }
+        const card = [...overlay.querySelectorAll('[data-pack-id]')]
+            .find(element => element.getAttribute('data-pack-id') === packIdToSelect);
+        if (!card) {
+            return {
+                ok: false,
+                reason: 'missing-pack-card',
+                cards: [...overlay.querySelectorAll('[data-pack-id]')].map(element => element.getAttribute('data-pack-id')).filter(Boolean).slice(0, 120),
+                text: (overlay.innerText || '').slice(0, 1400),
+            };
+        }
+        card.scrollIntoView({ block: 'center', inline: 'center' });
+        card.click();
+        return {
+            ok: true,
+            packId: packIdToSelect,
+            cardText: (card.innerText || card.textContent || '').slice(0, 600),
+        };
+    }, id), { userGesture: true });
+}
+
+async function verifyLiveCreatorFinalizedDeck(client, created = {}, screenshots, screenshotName = '') {
+    const sourceGeneratedPackIds = [...new Set(created.generatedPackIds || [])].filter(Boolean);
+    const creatorJobIds = [...new Set(created.jobIds || [])].filter(Boolean);
+    const before = await collectLiveCreatorState(client).catch(() => null);
+    const externalCandidate = await evaluate(client, script(async args => {
+        const sourceIds = new Set(args.sourceGeneratedPackIds || []);
+        const jobIds = new Set(args.creatorJobIds || []);
+        const readJson = async url => {
+            try {
+                const response = await fetch(url, { cache: 'no-store' });
+                if (!response.ok) return null;
+                return await response.json();
+            } catch (_) {
+                return null;
+            }
+        };
+        const index = await readJson('/user/files/saga-library-index.v1.json');
+        const packs = index?.packs && typeof index.packs === 'object' && !Array.isArray(index.packs)
+            ? Object.values(index.packs)
+            : [];
+        return packs
+            .filter(pack => {
+                if (!pack || typeof pack !== 'object') return false;
+                if (pack.type !== 'custom') return false;
+                const sourceId = String(pack.source?.originalPackId || pack.derivedFrom?.packId || '').trim();
+                const jobId = String(pack.derivedFrom?.creatorJobId || '').trim();
+                return (sourceId && sourceIds.has(sourceId)) || (jobId && jobIds.has(jobId));
+            })
+            .sort((a, b) => Number(b.updatedAt || b.createdAt || 0) - Number(a.updatedAt || a.createdAt || 0))
+            .map(pack => pack.packId || pack.id || '')
+            .find(Boolean) || '';
+    }, {
+        sourceGeneratedPackIds,
+        creatorJobIds,
+    })).catch(() => '');
+    const finalizedPackId = [
+        ...(created.finalizedPackIds || []),
+        ...(before?.finalizedPacks || []).map(pack => pack.packId),
+        before?.selectedPack?.type === 'custom' && (before.selectedPack.originalPackId || before.selectedPack.creatorJobId)
+            ? before.selectedPack.packId
+            : '',
+        externalCandidate,
+    ].filter(Boolean).at(-1) || '';
+    if (!finalizedPackId) {
+        return {
+            ok: false,
+            reason: 'missing-finalized-pack-id',
+            before,
+            externalCandidate,
+        };
+    }
+
+    const openState = await openLiveCreatorLibraryPack(client, finalizedPackId);
+    await wait(900);
+    let shot = '';
+    if (screenshotName) {
+        shot = await screenshot(client, screenshotName);
+        screenshots.push(shot);
+    }
+
+    const check = await evaluate(client, script(async args => {
+        const finalizedId = args.finalizedPackId;
+        const sourceIds = new Set(args.sourceGeneratedPackIds || []);
+        const ctx = window.SillyTavern?.getContext?.();
+        const metadata = ctx?.chatMetadata?.saga || {};
+        const settings = ctx?.extensionSettings?.saga || {};
+        const readFile = async url => {
+            const cleanUrl = String(url || '').trim();
+            if (!cleanUrl) return { url: '', skipped: true, ok: true };
+            try {
+                const response = await fetch(cleanUrl, { cache: 'no-store' });
+                const text = await response.text().catch(() => '');
+                let json = null;
+                try {
+                    json = text ? JSON.parse(text) : null;
+                } catch (_) {
+                    json = null;
+                }
+                return {
+                    url: cleanUrl,
+                    ok: response.ok,
+                    status: response.status,
+                    contentType: response.headers.get('content-type') || '',
+                    bytes: text.length,
+                    json,
+                    textSample: json ? '' : text.slice(0, 300),
+                };
+            } catch (error) {
+                return {
+                    url: cleanUrl,
+                    ok: false,
+                    status: 0,
+                    error: error?.message || String(error),
+                };
+            }
+        };
+        const libraryIndexRead = await readFile('/user/files/saga-library-index.v1.json');
+        const externalPacks = libraryIndexRead.json?.packs && typeof libraryIndexRead.json.packs === 'object' && !Array.isArray(libraryIndexRead.json.packs)
+            ? libraryIndexRead.json.packs
+            : {};
+        const packs = {
+            ...externalPacks,
+            ...(settings.loredeckLibrary?.packs || {}),
+            ...(metadata.loredeckLibrary?.packs || {}),
+        };
+        const row = packs[finalizedId] || null;
+        const sourceRows = [...sourceIds].map(id => ({
+            packId: id,
+            present: !!packs[id],
+            type: packs[id]?.type || '',
+            title: packs[id]?.title || '',
+        }));
+        const rowEntryCount = row?.entryOverrides && typeof row.entryOverrides === 'object' && !Array.isArray(row.entryOverrides)
+            ? Object.keys(row.entryOverrides).length
+            : 0;
+        const payloadRead = await readFile(row?.payloadFile || '');
+        const payload = payloadRead.json && typeof payloadRead.json === 'object' && !Array.isArray(payloadRead.json)
+            ? payloadRead.json
+            : null;
+        const effective = payload ? { ...row, ...payload } : row;
+        const effectiveEntries = effective?.entryOverrides && typeof effective.entryOverrides === 'object' && !Array.isArray(effective.entryOverrides)
+            ? effective.entryOverrides
+            : {};
+        const effectiveEntryCount = Object.keys(effectiveEntries).length;
+        const pendingChanges = Array.isArray(effective?.pendingChanges) ? effective.pendingChanges : [];
+        const sourceOriginalPackId = effective?.source?.originalPackId || effective?.derivedFrom?.packId || row?.source?.originalPackId || row?.derivedFrom?.packId || '';
+        const sourceMatches = sourceIds.size ? sourceIds.has(sourceOriginalPackId) : !!sourceOriginalPackId;
+        const coverFile = row?.coverFile
+            || effective?.coverFile
+            || effective?.assetRefs?.cover
+            || effective?.assets?.cover?.path
+            || '';
+        const coverRead = await readFile(coverFile);
+        const overlay = document.querySelector('.saga-loredeck-library-overlay');
+        const overlayText = overlay?.innerText || '';
+        const selectedId = String(metadata.lorePanel?.selectedLoredeckId || '').trim();
+        const selectedVisible = [...(overlay?.querySelectorAll('[data-pack-id]') || [])]
+            .some(element => element.getAttribute('data-pack-id') === finalizedId);
+        const buttons = [...(overlay?.querySelectorAll('button') || [])]
+            .map(button => ({
+                label: (button.innerText || button.textContent || '').trim(),
+                ariaLabel: button.getAttribute('aria-label') || '',
+                disabled: !!button.disabled,
+            }))
+            .filter(button => button.label || button.ariaLabel);
+        const hasDelete = buttons.some(button => (button.label === 'Delete' || button.ariaLabel === 'Delete') && !button.disabled)
+            || overlayText.includes('Delete');
+        const hasCustomSignal = overlayText.includes('Custom') || row?.type === 'custom';
+        const settingsText = JSON.stringify(settings);
+        const rowJson = JSON.stringify(row || {});
+        const payloadMode = row?.payloadFile ? 'external' : 'embedded';
+        const payloadOk = payloadMode === 'embedded' || (payloadRead.ok && !!payload);
+        const payloadReferencesOwnPack = !payload || !payload.packId || payload.packId === finalizedId;
+        const sourceRetired = sourceRows.every(item => !item.present);
+        const settingsHasFullEntryPayloadHint = Object.keys(effectiveEntries).some(entryId => entryId && settingsText.includes(entryId)) && payloadMode === 'external';
+        const ok = !!(
+            row
+            && row.type === 'custom'
+            && hasCustomSignal
+            && sourceRetired
+            && sourceMatches
+            && effectiveEntryCount >= 1
+            && pendingChanges.length === 0
+            && payloadOk
+            && payloadReferencesOwnPack
+            && coverRead.ok
+            && selectedId === finalizedId
+            && selectedVisible
+            && hasDelete
+            && !settingsHasFullEntryPayloadHint
+        );
+        return {
+            ok,
+            finalizedPackId: finalizedId,
+            sourceGeneratedPackIds: [...sourceIds],
+            selectedLoredeckId: selectedId,
+            selectedVisible,
+            hasDelete,
+            hasCustomSignal,
+            row: row ? {
+                packId: row.packId || row.id || '',
+                title: row.title || '',
+                type: row.type || '',
+                payloadFile: row.payloadFile || '',
+                coverFile: row.coverFile || '',
+                sourceKind: row.source?.kind || '',
+                sourceOriginalPackId: row.source?.originalPackId || '',
+                derivedFromPackId: row.derivedFrom?.packId || '',
+                derivedFromType: row.derivedFrom?.type || '',
+                creatorJobId: row.derivedFrom?.creatorJobId || '',
+                healthStatus: row.healthStatus || '',
+                rowEntryCount,
+                rowBytes: rowJson.length,
+            } : null,
+            payloadMode,
+            payloadRead: payloadRead.skipped ? payloadRead : {
+                url: payloadRead.url,
+                ok: payloadRead.ok,
+                status: payloadRead.status,
+                contentType: payloadRead.contentType,
+                bytes: payloadRead.bytes,
+                error: payloadRead.error || '',
+                payloadPackId: payload?.packId || payload?.id || '',
+                payloadType: payload?.type || '',
+                payloadHealthStatus: payload?.healthStatus || '',
+                payloadEntryCount: payload && payload.entryOverrides && typeof payload.entryOverrides === 'object' && !Array.isArray(payload.entryOverrides)
+                    ? Object.keys(payload.entryOverrides).length
+                    : 0,
+                pendingChangeCount: Array.isArray(payload?.pendingChanges) ? payload.pendingChanges.length : 0,
+            },
+            coverRead: coverRead.skipped ? coverRead : {
+                url: coverRead.url,
+                ok: coverRead.ok,
+                status: coverRead.status,
+                contentType: coverRead.contentType,
+                bytes: coverRead.bytes,
+                error: coverRead.error || '',
+            },
+            sourceRows,
+            sourceRetired,
+            sourceMatches,
+            effectiveEntryCount,
+            pendingChangeCount: pendingChanges.length,
+            payloadReferencesOwnPack,
+            settingsHasFullEntryPayloadHint,
+            libraryIndexRead: libraryIndexRead.skipped ? libraryIndexRead : {
+                ok: libraryIndexRead.ok,
+                status: libraryIndexRead.status,
+                bytes: libraryIndexRead.bytes,
+                error: libraryIndexRead.error || '',
+            },
+            overlayText: overlayText.slice(0, 1600),
+        };
+    }, {
+        finalizedPackId,
+        sourceGeneratedPackIds,
+    }));
+
+    return redactDiagnosticValue({
+        ok: !!(openState?.ok && check?.ok),
+        finalizedPackId,
+        sourceGeneratedPackIds,
+        screenshot: shot,
+        openState,
+        check,
+    });
+}
+
+async function deleteLiveCreatorPackById(client, packId = '') {
+    const id = String(packId || '').trim();
+    if (!id) return { ok: false, packId: id, reason: 'missing-pack-id' };
+    const selected = await openLiveCreatorLibraryPack(client, id);
+    if (!selected?.ok) return { ok: false, packId: id, reason: selected?.reason || 'select-failed', details: selected };
+    await wait(700);
+    const deleteClicked = await evaluate(client, script(() => {
+        const overlay = document.querySelector('.saga-loredeck-library-overlay');
+        if (!overlay) return { ok: false, reason: 'missing-library-overlay' };
+        const buttons = [...overlay.querySelectorAll('button')];
+        let target = buttons.find(button => (button.getAttribute('aria-label') || '').trim() === 'Delete' && !button.disabled);
+        if (!target) {
+            for (const group of overlay.querySelectorAll('.saga-loredeck-library-square-action-group')) {
+                const label = (group.querySelector('.saga-loredeck-library-square-action-label')?.innerText
+                    || group.querySelector('.saga-loredeck-library-square-action-label')?.textContent
+                    || '').trim();
+                const button = group.querySelector('button');
+                if (label === 'Delete' && button && !button.disabled) {
+                    target = button;
+                    break;
+                }
+            }
+        }
+        if (!target) {
+            return {
+                ok: false,
+                reason: 'missing-delete-button',
+                buttons: buttons.map(button => ({
+                    label: (button.innerText || button.textContent || '').trim(),
+                    ariaLabel: button.getAttribute('aria-label') || '',
+                    disabled: !!button.disabled,
+                })).filter(button => button.label || button.ariaLabel).slice(0, 80),
+            };
+        }
+        target.scrollIntoView({ block: 'center', inline: 'center' });
+        target.click();
+        return { ok: true };
+    }), { userGesture: true });
+    if (!deleteClicked?.ok) return { ok: false, packId: id, reason: deleteClicked?.reason || 'delete-click-failed', details: deleteClicked };
+    await waitFor(client, '!!document.querySelector(".saga-confirm-overlay")', 'cleanup delete confirmation', 10000);
+    const confirmed = await confirmLiveCreatorDialog(client, 'Confirm|Delete');
+    if (!confirmed?.clicked) return { ok: false, packId: id, reason: 'delete-confirm-failed', details: confirmed };
+    await waitFor(client, script(packIdToDelete => {
+        const ctx = window.SillyTavern?.getContext?.();
+        const packs = {
+            ...(ctx?.extensionSettings?.saga?.loredeckLibrary?.packs || {}),
+            ...(ctx?.chatMetadata?.saga?.loredeckLibrary?.packs || {}),
+        };
+        const overlay = document.querySelector('.saga-loredeck-library-overlay');
+        const visible = [...(overlay?.querySelectorAll('[data-pack-id]') || [])]
+            .some(element => element.getAttribute('data-pack-id') === packIdToDelete);
+        return !packs[packIdToDelete] && !visible;
+    }, id), `cleanup pack ${id} removed`, 15000);
+    return { ok: true, packId: id };
+}
+
+async function cleanupLiveCreatorArtifacts(client, created = {}, findings = []) {
+    const state = await collectLiveCreatorState(client).catch(() => null);
+    const packIds = new Set([
+        ...(created.finalizedPackIds || []),
+        ...(state?.finalizedPacks || []).map(pack => pack.packId),
+    ].filter(Boolean));
+    if (state?.selectedPack?.type === 'custom' && (state.selectedPack.originalPackId || state.selectedPack.creatorJobId)) {
+        packIds.add(state.selectedPack.packId);
+    }
+    const attempted = [];
+    for (const packId of packIds) {
+        const result = await deleteLiveCreatorPackById(client, packId).catch(error => ({
+            ok: false,
+            packId,
+            reason: error?.message || String(error),
+        }));
+        attempted.push(redactDiagnosticValue(result));
+        if (!result.ok) findings.push(`Live Creator cleanup could not delete ${packId}: ${result.reason || 'unknown failure'}.`);
+    }
+    return {
+        attempted,
+        deleted: attempted.filter(item => item.ok).map(item => item.packId),
+        failed: attempted.filter(item => !item.ok),
+    };
+}
+
+async function cleanupPreviousLiveCreatorSmokeResidue(client) {
+    return await evaluate(client, script(async () => {
+        const ctx = window.SillyTavern?.getContext?.();
+        if (!ctx) return { ok: false, reason: 'missing-st-context' };
+        const metadata = ctx.chatMetadata?.saga || {};
+        const settings = ctx.extensionSettings?.saga || {};
+        const localCreator = metadata.loredeckCreator || {};
+        const settingsCreator = settings.loredeckCreatorProjects || {};
+        const removed = {
+            jobIds: [],
+            generatedPackIds: [],
+            packIds: [],
+        };
+        const generatedPackIds = new Set();
+        const jobIds = new Set();
+        const isSmokeJob = job => {
+            const text = [
+                job?.notes,
+                job?.summary,
+                job?.scope,
+                job?.fandom,
+                job?.generatedPackId,
+                job?.brief?.packId,
+            ].filter(Boolean).join('\n');
+            return /Automated live Creator smoke|live-creator-/i.test(text)
+                || (
+                    /One Piece/i.test(String(job?.fandom || ''))
+                    && /Arlong Park arc focused on Nami/i.test(String(job?.scope || ''))
+                    && /one-piece-arlong-nami-compact/i.test(String(job?.generatedPackId || job?.brief?.packId || ''))
+                );
+        };
+        const collectSmokeJobs = registry => {
+            const jobs = registry?.jobs && typeof registry.jobs === 'object' && !Array.isArray(registry.jobs)
+                ? registry.jobs
+                : {};
+            for (const [id, job] of Object.entries(jobs)) {
+                if (!isSmokeJob(job)) continue;
+                jobIds.add(id);
+                const packId = String(job?.generatedPackId || job?.brief?.packId || '').trim();
+                if (packId) generatedPackIds.add(packId);
+            }
+        };
+        collectSmokeJobs(localCreator);
+        collectSmokeJobs(settingsCreator);
+        const scrubCreatorRegistry = registry => {
+            if (!registry || typeof registry !== 'object' || Array.isArray(registry)) return false;
+            let changed = false;
+            if (registry.jobs && typeof registry.jobs === 'object' && !Array.isArray(registry.jobs)) {
+                for (const id of jobIds) {
+                    if (registry.jobs[id]) {
+                        delete registry.jobs[id];
+                        changed = true;
+                    }
+                }
+            }
+            if (jobIds.has(String(registry.activeJobId || ''))) {
+                registry.activeJobId = '';
+                changed = true;
+            }
+            if (jobIds.has(String(registry.lastJobId || ''))) {
+                registry.lastJobId = '';
+                changed = true;
+            }
+            return changed;
+        };
+        const scrubLibrary = library => {
+            if (!library || typeof library !== 'object' || Array.isArray(library)) return false;
+            let changed = false;
+            const packs = library.packs && typeof library.packs === 'object' && !Array.isArray(library.packs)
+                ? library.packs
+                : {};
+            const removePackIds = new Set();
+            for (const [packId, pack] of Object.entries(packs)) {
+                const id = String(pack?.packId || pack?.id || packId || '').trim();
+                const sourceId = String(pack?.source?.originalPackId || pack?.derivedFrom?.packId || '').trim();
+                const creatorJobId = String(pack?.derivedFrom?.creatorJobId || '').trim();
+                if (generatedPackIds.has(id) || generatedPackIds.has(sourceId) || jobIds.has(creatorJobId)) {
+                    removePackIds.add(packId);
+                    if (id) removePackIds.add(id);
+                }
+            }
+            for (const id of removePackIds) {
+                if (packs[id]) {
+                    delete packs[id];
+                    changed = true;
+                    removed.packIds.push(id);
+                }
+            }
+            if (Array.isArray(library.activeStack)) {
+                const before = library.activeStack.length;
+                library.activeStack = library.activeStack.filter(item => {
+                    const packId = String(item?.packId || item?.deckId || '').trim();
+                    return !removePackIds.has(packId);
+                });
+                changed = changed || library.activeStack.length !== before;
+            }
+            if (Array.isArray(library.deckPlacements)) {
+                const before = library.deckPlacements.length;
+                library.deckPlacements = library.deckPlacements.filter(item => {
+                    const packId = String(item?.packId || item?.deckId || '').trim();
+                    return !removePackIds.has(packId);
+                });
+                changed = changed || library.deckPlacements.length !== before;
+            }
+            return changed;
+        };
+        const metadataChanged = scrubCreatorRegistry(metadata.loredeckCreator) || scrubLibrary(metadata.loredeckLibrary);
+        const settingsChanged = scrubCreatorRegistry(settings.loredeckCreatorProjects) || scrubLibrary(settings.loredeckLibrary);
+        removed.jobIds = [...jobIds];
+        removed.generatedPackIds = [...generatedPackIds];
+        removed.packIds = [...new Set(removed.packIds)];
+        try {
+            if (metadataChanged && typeof ctx.saveMetadata === 'function') await ctx.saveMetadata();
+            if (settingsChanged && typeof ctx.saveSettingsDebounced === 'function') ctx.saveSettingsDebounced();
+        } catch (error) {
+            return {
+                ok: true,
+                removed,
+                metadataChanged,
+                settingsChanged,
+                saveError: error?.message || String(error),
+            };
+        }
+        return {
+            ok: true,
+            removed,
+            metadataChanged,
+            settingsChanged,
+        };
+    }), { userGesture: true });
+}
+
+async function cancelLiveCreatorSmokeGenerationIfPresent(client) {
+    const state = await collectLiveCreatorState(client).catch(() => null);
+    const job = state?.job || {};
+    const isSmokeJob = /Automated live Creator smoke|live-creator-/i.test([
+        job.fandom,
+        job.scope,
+        job.generatedPackId,
+        job.lastGenerationResult?.message,
+        job.lastGenerationResult?.snippet,
+    ].filter(Boolean).join('\n'))
+        || (
+            /One Piece/i.test(String(job.fandom || ''))
+            && /Arlong Park arc focused on Nami/i.test(String(job.scope || ''))
+            && /one-piece-arlong-nami-compact/i.test(String(job.generatedPackId || ''))
+        );
+    const hasCancel = state?.visible?.buttonLabels?.includes('Cancel Generation');
+    if (!isSmokeJob || !hasCancel) {
+        return {
+            ok: true,
+            cancelled: false,
+            reason: !isSmokeJob ? 'not-smoke-job' : 'no-cancel-generation',
+            jobId: job.jobId || '',
+            activeGeneration: job.activeGeneration || null,
+        };
+    }
+    const clicked = await clickButtonText(client, 'Cancel Generation', { root: '.saga-loredeck-creator-workbench-overlay' });
+    if (!clicked) {
+        return {
+            ok: false,
+            cancelled: false,
+            reason: 'cancel-click-failed',
+            jobId: job.jobId || '',
+            activeGeneration: job.activeGeneration || null,
+        };
+    }
+    await waitForLiveCreatorState(
+        client,
+        '(() => { const state = window.__sagaLiveCreatorSmokeState?.(); return !state?.job?.activeGeneration && !state?.visible?.buttonLabels?.includes("Cancel Generation"); })()',
+        'live Creator stale smoke generation cancelled',
+        15000,
+    ).catch(() => false);
+    const after = await collectLiveCreatorState(client).catch(() => null);
+    return {
+        ok: !after?.job?.activeGeneration,
+        cancelled: true,
+        jobId: job.jobId || '',
+        before: {
+            activeGeneration: job.activeGeneration || null,
+            currentStage: job.currentStage || '',
+        },
+        after: {
+            activeGeneration: after?.job?.activeGeneration || null,
+            currentStage: after?.job?.currentStage || '',
+            buttonLabels: after?.visible?.buttonLabels?.slice(0, 80) || [],
+        },
+    };
 }
 
 async function clickTourNextUntilTitle(client, expectedTitle, maxClicks = 20) {
@@ -1325,7 +2419,8 @@ async function runGuideHarnessSmoke(client, screenshots, findings, smokeUrl, dia
 
     const errors = client.events
         .filter(event => event.method === 'Log.entryAdded' && event.params?.entry?.level === 'error')
-        .map(event => formatLogEntry(event.params.entry));
+        .map(event => formatLogEntry(event.params.entry))
+        .filter(error => !isExpectedLiveCreator404(error));
     console.log(JSON.stringify({
         ok: findings.length === 0 && errors.length === 0,
         target: SMOKE_TARGET,
@@ -2095,6 +3190,365 @@ async function runStorageHarnessSmoke(client, screenshots, findings, smokeUrl, d
         }, null, 2));
 }
 
+async function runLiveCreatorSmoke(client, screenshots, findings, smokeUrl, dialogEvents) {
+    const config = getLiveCreatorSmokeConfig();
+    const steps = [];
+    const created = {
+        jobIds: new Set(),
+        generatedPackIds: new Set(),
+        finalizedPackIds: new Set(),
+    };
+    const rememberArtifacts = state => {
+        const job = state?.job || {};
+        if (job.jobId) created.jobIds.add(job.jobId);
+        if (job.generatedPackId) created.generatedPackIds.add(job.generatedPackId);
+        for (const pack of state?.finalizedPacks || []) {
+            if (pack?.packId) created.finalizedPackIds.add(pack.packId);
+        }
+        if (state?.selectedPack?.type === 'custom' && (state.selectedPack.originalPackId || state.selectedPack.creatorJobId)) {
+            created.finalizedPackIds.add(state.selectedPack.packId);
+        }
+    };
+    const snapshotArtifacts = () => ({
+        jobIds: [...created.jobIds],
+        generatedPackIds: [...created.generatedPackIds],
+        finalizedPackIds: [...created.finalizedPackIds],
+    });
+    const stage = async (label, screenshotName = '') => {
+        const state = await recordLiveCreatorStep(client, steps, label, screenshots, screenshotName ? `${config.screenshotPrefix}-${screenshotName}` : '');
+        rememberArtifacts(state);
+        return state;
+    };
+    const timeout = config.providerTimeoutMs;
+    let metadataSnapshot = null;
+    let settingsSnapshot = null;
+    let preflightCleanupState = null;
+    let freshStartState = null;
+    let preflightCancelState = null;
+    let staleSmokeResetState = null;
+    let postInputCancelState = null;
+    let restoreState = null;
+    let restoreSettingsState = null;
+    let cleanupState = null;
+    let finalizedVerificationState = null;
+    let thrown = null;
+
+    try {
+        preflightCleanupState = await cleanupPreviousLiveCreatorSmokeResidue(client).catch(error => ({
+            ok: false,
+            error: error?.message || String(error),
+        }));
+        metadataSnapshot = await captureSagaMetadata(client);
+        settingsSnapshot = await captureSagaSettings(client);
+        freshStartState = await clearLiveCreatorActiveProjectPointers(client).catch(error => ({
+            ok: false,
+            error: error?.message || String(error),
+        }));
+
+        await openLiveCreatorWorkbench(client);
+        preflightCancelState = await cancelLiveCreatorSmokeGenerationIfPresent(client).catch(error => ({
+            ok: false,
+            error: error?.message || String(error),
+        }));
+        staleSmokeResetState = await resetLiveCreatorSmokeProjectToIntakeIfNeeded(client).catch(error => ({
+            ok: false,
+            error: error?.message || String(error),
+        }));
+        if (staleSmokeResetState && staleSmokeResetState.ok === false) {
+            throw new Error(`Live Creator smoke refused to reset active project: ${staleSmokeResetState.reason || staleSmokeResetState.error || 'unknown state'}`);
+        }
+        await openSummaryText(client, 'Advanced Generation Settings', { root: '.saga-loredeck-creator-workbench-overlay' }).catch(() => false);
+        for (const [key, value] of Object.entries(config.generationSettings)) {
+            const result = await setLiveCreatorGenerationSetting(client, key, value);
+            if (!result?.ok) findings.push(`Live Creator smoke could not set generation setting ${key}: ${result?.reason || 'unknown'}.`);
+        }
+        for (const [label, value] of [
+            ['Fandom', config.fandom],
+            ['Scope', config.scope],
+            ['Granularity', config.granularity],
+            ['Notes', config.notes],
+        ]) {
+            const result = await setLiveCreatorField(client, label, value);
+            if (!result?.ok) throw new Error(`Could not set Creator ${label}: ${result?.reason || 'unknown'}`);
+        }
+        postInputCancelState = await cancelLiveCreatorSmokeGenerationIfPresent(client).catch(error => ({
+            ok: false,
+            error: error?.message || String(error),
+        }));
+        if (postInputCancelState?.cancelled) await wait(800);
+        await stage('intake-ready', '01-intake');
+
+        await requireButtonMatching(client, { labels: ['Draft Scope Brief'] }, 'Draft Scope Brief', { root: '.saga-loredeck-creator-workbench-overlay' });
+        await waitFor(
+            client,
+            '(() => { const text = document.querySelector(".saga-loredeck-creator-workbench-overlay")?.innerText || ""; return text.includes("Approve Scope Brief") || text.includes("Reasoning Provider is not ready") || text.includes("Action failed") || text.includes("Generation failed"); })()',
+            'live Creator Scope Brief result',
+            timeout,
+        );
+        let state = await stage('scope-brief-drafted', '02-scope-brief');
+        if (state.providerNotReady) throw new Error('Reasoning Provider was not ready for the live Creator Scope Brief call.');
+        if (!state.job?.briefReady) throw new Error('Live Creator Scope Brief did not produce a brief.');
+
+        await requireButtonMatching(client, { labels: ['Approve Scope Brief'] }, 'Approve Scope Brief', { root: '.saga-loredeck-creator-workbench-overlay' });
+        await waitFor(
+            client,
+            'document.querySelector(".saga-loredeck-creator-workbench-overlay")?.innerText.includes("Draft Story Outline")',
+            'live Creator Scope Brief approval UI',
+            15000,
+        );
+        await stage('scope-brief-approved');
+
+        await requireButtonMatching(client, { labels: ['Draft Story Outline'] }, 'Draft Story Outline', { root: '.saga-loredeck-creator-workbench-overlay' });
+        await waitFor(
+            client,
+            '(() => { const text = document.querySelector(".saga-loredeck-creator-workbench-overlay")?.innerText || ""; return text.includes("Approve Outline and Unlock Title Pass") || text.includes("Reasoning Provider is not ready") || text.includes("Action failed") || text.includes("Generation failed"); })()',
+            'live Creator Story Outline result',
+            timeout,
+        );
+        state = await stage('story-outline-drafted', '03-story-outline');
+        if (!state.job?.outlineReady) throw new Error('Live Creator Story Outline did not produce an outline.');
+
+        await requireButtonMatching(client, { labels: ['Approve Outline and Unlock Title Pass'] }, 'Approve Outline and Unlock Title Pass', { root: '.saga-loredeck-creator-workbench-overlay' });
+        await waitFor(
+            client,
+            'document.querySelector(".saga-loredeck-creator-workbench-overlay")?.innerText.includes("Generate Next Title Batch")',
+            'live Creator Story Outline approval UI',
+            15000,
+        );
+        await stage('story-outline-approved');
+
+        await requireButtonMatching(client, { labels: ['Generate Next Title Batch'] }, 'Generate Next Title Batch', { root: '.saga-loredeck-creator-workbench-overlay' });
+        await waitForLiveCreatorState(
+            client,
+            '(() => { const state = window.__sagaLiveCreatorSmokeState?.(); return (state?.job?.titleDraftCount || 0) >= 1 || state?.providerNotReady || state?.actionFailed; })()',
+            'live Creator first Title Batch result',
+            timeout,
+        );
+        state = await stage('first-title-batch-drafted', '04-title-batch');
+        if ((state.job?.titleDraftCount || 0) < 1) throw new Error('Live Creator title pass did not produce any title drafts.');
+
+        if ((state.job?.titleBatchTotal || 0) > (state.job?.titleBatchDraftedCount || 0)) {
+            await requireButtonMatching(client, { pattern: '^Generate Remaining' }, 'Generate Remaining title batches', { root: '.saga-loredeck-creator-workbench-overlay' });
+            await waitFor(client, '!!document.querySelector(".saga-confirm-overlay")', 'live Creator Generate Remaining confirmation', 10000);
+            const confirmed = await confirmLiveCreatorDialog(client);
+            if (!confirmed?.clicked) throw new Error(`Could not confirm Generate Remaining title batches: ${JSON.stringify(redactDiagnosticValue(confirmed))}`);
+            await waitForLiveCreatorState(
+                client,
+                '(() => { const state = window.__sagaLiveCreatorSmokeState?.(); const total = state?.job?.titleBatchTotal || 0; const drafted = state?.job?.titleBatchDraftedCount || 0; return (total > 0 && drafted >= total) || state?.providerNotReady || state?.actionFailed; })()',
+                'live Creator remaining Title Batches result',
+                timeout * 2,
+            );
+            state = await stage('all-title-batches-drafted', '05-title-batches-complete');
+        }
+        if ((state.job?.titleBatchTotal || 0) > (state.job?.titleBatchDraftedCount || 0)) {
+            throw new Error(`Live Creator title batches are incomplete (${state.job?.titleBatchDraftedCount || 0}/${state.job?.titleBatchTotal || 0}).`);
+        }
+
+        await requireButtonMatching(client, { labels: ['Approve'] }, 'Approve first title draft', { root: '.saga-loredeck-creator-title-list' });
+        await waitFor(
+            client,
+            '(() => { const text = document.querySelector(".saga-loredeck-creator-workbench-overlay")?.innerText || ""; return text.includes("1 approved") || text.includes("Plan Context and Tags") || text.includes("Plan This Set"); })()',
+            'live Creator approved title state',
+            30000,
+        );
+        await waitFor(
+            client,
+            '(() => { const text = document.querySelector(".saga-loredeck-creator-workbench-overlay")?.innerText || ""; return text.includes("Plan Context and Tags") || text.includes("Plan This Set"); })()',
+            'live Creator approved title next action',
+            60000,
+        );
+        await stage('one-title-approved', '06-title-approved');
+
+        await requireButtonMatching(client, { labels: ['Plan Context and Tags', 'Plan This Set'] }, 'Plan Context and Tags', { root: '.saga-loredeck-creator-workbench-overlay' });
+        await waitForLiveCreatorState(
+            client,
+            '(() => { const state = window.__sagaLiveCreatorSmokeState?.(); return (state?.generatedPack?.pendingChangeCount || 0) >= 1 || (state?.job?.planningQueuedCount || 0) >= 1 || state?.providerNotReady || state?.actionFailed; })()',
+            'live Creator Context and Tag planning result',
+            timeout,
+        );
+        state = await stage('context-tags-planned', '07-context-tags');
+        if ((state.generatedPack?.pendingChangeCount || 0) < 1 && (state.job?.planningQueuedCount || 0) < 1) {
+            throw new Error('Live Creator Context and Tag planning did not create reviewable changes.');
+        }
+
+        await requireButtonMatching(client, { labels: ['Accept All'] }, 'Accept All planning changes', { root: '.saga-loredeck-creator-workbench-overlay' });
+        await waitFor(client, '!!document.querySelector(".saga-confirm-overlay")', 'live Creator planning Accept All confirmation', 10000);
+        let confirmed = await confirmLiveCreatorDialog(client);
+        if (!confirmed?.clicked) throw new Error(`Could not confirm planning Accept All: ${JSON.stringify(redactDiagnosticValue(confirmed))}`);
+        await waitForLiveCreatorState(
+            client,
+            '(() => { const state = window.__sagaLiveCreatorSmokeState?.(); return (state?.job?.planningAcceptedCount || 0) >= 1 && (state?.generatedPack?.pendingChangeCount || 0) === 0; })()',
+            'live Creator planning accepted',
+            30000,
+        );
+        state = await stage('context-tags-accepted', '08-planning-accepted');
+
+        await requireButtonMatching(client, { labels: ['Draft Lorecards'] }, 'Draft Lorecards', { root: '.saga-loredeck-creator-workbench-overlay' });
+        await waitForLiveCreatorState(
+            client,
+            '(() => { const state = window.__sagaLiveCreatorSmokeState?.(); return (state?.job?.draftChangeCount || 0) >= 1 || state?.providerNotReady || state?.actionFailed; })()',
+            'live Creator Lorecard draft result',
+            timeout,
+        );
+        state = await stage('lorecard-drafted', '09-lorecard-draft');
+        if ((state.job?.draftChangeCount || 0) < 1) throw new Error('Live Creator Lorecard drafting did not create Creator Draft Review items.');
+
+        await requireButtonMatching(client, { labels: ['Send All to Review', 'Send Selected to Review'] }, 'Send Creator drafts to Pending Review', { root: '.saga-loredeck-creator-workbench-overlay' });
+        await waitForLiveCreatorState(
+            client,
+            '(() => { const state = window.__sagaLiveCreatorSmokeState?.(); const text = state?.visible?.creatorText || ""; return (state?.job?.draftChangeCount || 0) === 0 && ((state?.generatedPack?.pendingChangeCount || 0) >= 1 || /Review Queue\\s+\\d+ pending/i.test(text) || /Pending Review\\s+\\d+/i.test(text)); })()',
+            'live Creator drafts sent to Pending Review',
+            30000,
+        );
+        state = await stage('drafts-sent-to-review', '10-drafts-to-review');
+
+        if (!state.visible?.buttonLabels?.includes('Accept All') && state.visible?.buttonLabels?.includes('Open Review Queue')) {
+            await requireButtonMatching(client, { labels: ['Open Review Queue'] }, 'Open Review Queue', { root: '.saga-loredeck-creator-workbench-overlay' });
+            await waitFor(
+                client,
+                '(() => { const text = document.querySelector(".saga-loredeck-creator-workbench-overlay")?.innerText || ""; return text.includes("Accept All") || text.includes("Pending Review"); })()',
+                'live Creator Review Queue opened',
+                15000,
+            );
+        }
+        await requireButtonMatching(client, { labels: ['Accept All'] }, 'Accept All Lorecard changes', { root: '.saga-loredeck-creator-workbench-overlay' });
+        await waitFor(client, '!!document.querySelector(".saga-confirm-overlay")', 'live Creator Lorecard Accept All confirmation', 10000);
+        confirmed = await confirmLiveCreatorDialog(client);
+        if (!confirmed?.clicked) throw new Error(`Could not confirm Lorecard Accept All: ${JSON.stringify(redactDiagnosticValue(confirmed))}`);
+        await waitForLiveCreatorState(
+            client,
+            '(() => { const state = window.__sagaLiveCreatorSmokeState?.(); const text = state?.visible?.creatorText || ""; const labels = state?.visible?.buttonLabels || []; return ((state?.generatedPack?.pendingChangeCount || 0) === 0 && (state?.generatedPack?.acceptedEntryCount || 0) >= 1) || labels.includes("Run Pack Health") || (/Review Queue\\s+Empty/i.test(text) && /Pack Health/i.test(text)); })()',
+            'live Creator Lorecard accepted',
+            30000,
+        );
+        state = await stage('lorecard-accepted', '11-lorecard-accepted');
+
+        await requireButtonMatching(client, { labels: ['Run Pack Health'] }, 'Run Pack Health', { root: '.saga-loredeck-creator-workbench-overlay' });
+        await waitForLiveCreatorState(
+            client,
+            '(() => { const state = window.__sagaLiveCreatorSmokeState?.(); const status = String(state?.generatedPack?.healthStatus || "").trim().toLowerCase(); const labels = state?.visible?.buttonLabels || []; return (!!status && status !== "draft" && status !== "stale") || labels.includes("Finalize as Custom Loredeck") || labels.includes("Finalize Anyway"); })()',
+            'live Creator Pack Health result',
+            60000,
+        );
+        await waitForLiveCreatorSettled(client, 'live Creator Pack Health settled', 60000);
+        state = await stage('pack-health-run', '12-pack-health');
+
+        if (config.finalize) {
+            if (state.visible?.buttonLabels?.includes('Finalize Anyway')) {
+                await requireButtonMatching(client, { labels: ['Finalize Anyway'] }, 'Finalize Anyway coverage acknowledgement', { root: '.saga-loredeck-creator-workbench-overlay' });
+                await waitForLiveCreatorSettled(client, 'live Creator coverage acknowledgement settled', 30000);
+                state = await stage('coverage-acknowledged');
+            }
+            await requireButtonMatching(client, { labels: ['Finalize as Custom Loredeck'] }, 'Finalize as Custom Loredeck', { root: '.saga-loredeck-creator-workbench-overlay' });
+            await waitForLiveCreatorState(
+                client,
+                '(() => { const state = window.__sagaLiveCreatorSmokeState?.(); const text = `${state?.visible?.creatorText || ""}\\n${state?.visible?.libraryText || ""}`; return state?.confirmOpen || state?.metadataEditorOpen || (state?.selectedPack?.type === "custom" && (state?.selectedPack?.originalPackId || state?.selectedPack?.creatorJobId)) || /\\bCustom\\b/.test(text); })()',
+                'live Creator finalization confirmation or completion',
+                90000,
+            );
+            state = await collectLiveCreatorState(client);
+            if (state.confirmOpen) {
+                confirmed = await confirmLiveCreatorDialog(client);
+                if (!confirmed?.clicked) throw new Error(`Could not confirm finalization warnings: ${JSON.stringify(redactDiagnosticValue(confirmed))}`);
+            }
+            await waitForLiveCreatorState(
+                client,
+                '(() => { const state = window.__sagaLiveCreatorSmokeState?.(); const text = `${state?.visible?.creatorText || ""}\\n${state?.visible?.libraryText || ""}`; return state?.metadataEditorOpen || (state?.selectedPack?.type === "custom" && (state?.selectedPack?.originalPackId || state?.selectedPack?.creatorJobId)) || (state?.finalizedPacks || []).length > 0 || /\\bCustom\\b/.test(text); })()',
+                'live Creator finalized Custom Loredeck',
+                90000,
+            );
+            state = await stage('finalized-as-custom', '13-finalized');
+            if (!state.selectedPack && !(state.finalizedPacks || []).length && !/\bCustom\b/.test(`${state.visible?.creatorText || ''}\n${state.visible?.libraryText || ''}`)) {
+                throw new Error('Live Creator finalization did not leave a detectable Custom Loredeck record.');
+            }
+            finalizedVerificationState = await verifyLiveCreatorFinalizedDeck(
+                client,
+                snapshotArtifacts(),
+                screenshots,
+                `${config.screenshotPrefix}-14-finalized-library`,
+            );
+            if (!finalizedVerificationState?.ok) {
+                findings.push(`Live Creator finalized Custom deck verification failed: ${finalizedVerificationState?.check?.reason || finalizedVerificationState?.openState?.reason || 'unexpected finalized deck/library/file state'}.`);
+            }
+        }
+    } catch (error) {
+        thrown = {
+            message: error?.message || String(error),
+            stack: error?.stack || '',
+        };
+        findings.push(`Live Creator smoke failed: ${thrown.message}`);
+        await stage('failure-state', '99-failure').catch(() => null);
+    } finally {
+        const createdSnapshot = snapshotArtifacts();
+        if (config.cleanup) {
+            cleanupState = await cleanupLiveCreatorArtifacts(client, createdSnapshot, findings).catch(error => ({
+                ok: false,
+                error: error?.message || String(error),
+            }));
+        }
+        if (settingsSnapshot !== null) {
+            restoreSettingsState = await restoreSagaSettings(client, settingsSnapshot).catch(error => ({
+                ok: false,
+                error: error?.message || String(error),
+            }));
+        }
+        if (metadataSnapshot !== null) {
+            restoreState = await restoreSagaMetadata(client, metadataSnapshot).catch(error => ({
+                ok: false,
+                error: error?.message || String(error),
+            }));
+        }
+    }
+
+    const errors = client.events
+        .filter(event => event.method === 'Log.entryAdded' && event.params?.entry?.level === 'error')
+        .map(event => formatLogEntry(event.params.entry))
+        .filter(error => !isExpectedLiveCreator404(error));
+    const finalCreated = snapshotArtifacts();
+    const providerUnits = steps
+        .flatMap(step => step.state?.job?.generationUnits || [])
+        .filter((unit, index, units) => units.findIndex(candidate => candidate.unitId === unit.unitId) === index);
+    const ok = !thrown && findings.length === 0 && errors.length === 0;
+    const reportPath = process.env.SAGA_SMOKE_REPORT || path.join(OUT_DIR, `${SMOKE_TARGET}-report.json`);
+    const report = redactDiagnosticValue({
+        ok,
+        target: SMOKE_TARGET,
+        url: smokeUrl,
+        reportPath,
+        providerCallsOptIn: ALLOW_PROVIDER_CALLS,
+        config: {
+            runId: config.runId,
+            fandom: config.fandom,
+            scope: config.scope,
+            granularity: config.granularity,
+            finalize: config.finalize,
+            cleanup: config.cleanup,
+            providerTimeoutMs: config.providerTimeoutMs,
+            generationSettings: config.generationSettings,
+        },
+        screenshots,
+        findings,
+        errors,
+        dialogEvents,
+        created: finalCreated,
+        providerUnits,
+        steps,
+        preflightCleanupState,
+        freshStartState,
+        preflightCancelState,
+        staleSmokeResetState,
+        postInputCancelState,
+        cleanupState,
+        finalizedVerificationState,
+        restoreSettingsState,
+        restoreState,
+        thrown,
+    });
+    await writeSmokeReport(SMOKE_TARGET, report);
+    console.log(JSON.stringify(report, null, 2));
+    if (!ok) process.exitCode = 1;
+}
+
 async function main() {
     await fs.mkdir(OUT_DIR, { recursive: true });
     const chrome = await findChrome();
@@ -2287,6 +3741,23 @@ async function main() {
                 applyState,
                 workbenchState,
             }, null, 2));
+            return;
+        }
+
+        if (SMOKE_TARGET === LIVE_CREATOR_TARGET) {
+            if (!ALLOW_PROVIDER_CALLS) {
+                console.log(JSON.stringify({
+                    ok: false,
+                    target: SMOKE_TARGET,
+                    url: smokeUrl,
+                    skipped: true,
+                    findings: ['Live Loredeck Creator smoke is opt-in. Set SAGA_ALLOW_PROVIDER_CALLS=1 to spend multiple bounded Reasoning Provider calls and create/delete a test Custom deck.'],
+                    errors: [],
+                    dialogEvents,
+                }, null, 2));
+                return;
+            }
+            await runLiveCreatorSmoke(client, screenshots, findings, smokeUrl, dialogEvents);
             return;
         }
 

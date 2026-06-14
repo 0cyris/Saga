@@ -210,6 +210,61 @@ assets/documentation/renders/saga-smoke/live-context-reasoner-02-proposals.png
 
 Without `SAGA_ALLOW_PROVIDER_CALLS=1`, the target exits before modifying metadata or calling the provider.
 
+## Live ST Loredeck Creator Provider Smoke
+
+To run the installed Loredeck Creator end-to-end against real SillyTavern providers:
+
+```powershell
+$env:SAGA_SMOKE_TARGET='live-creator'
+$env:SAGA_ALLOW_PROVIDER_CALLS='1'
+$env:SAGA_ST_URL='http://127.0.0.1:8000/'
+node tools\scripts\smoke-live-st-cdp.mjs
+```
+
+This target snapshots Saga metadata/settings, opens the real Library and Creator UI, drafts and approves the Scope Brief, drafts and approves the Story Outline, drafts all title batches, approves one title, plans Context/tags, accepts planning through Pending Review, drafts one Lorecard, sends it to Pending Review, accepts it, runs Pack Health, finalizes as Custom, verifies the finalized Library record and referenced files, then deletes the finalized Custom deck and restores the original metadata/settings snapshot.
+
+If a prior interrupted automated Creator smoke project is active, the harness cancels any live smoke generation and resets that smoke project back to intake before applying the new inputs. If the active project does not look like an automated smoke project, the target stops instead of resetting it.
+
+The finalized-deck verification runs before cleanup. It selects the finalized Custom deck in the Library, verifies the Generated working deck was retired, verifies the Custom record links back to the Generated source, checks that at least one accepted Lorecard persisted with no pending changes, fetches the external payload file when present, checks any referenced cover file, and verifies the Library exposes deletion for cleanup.
+
+Expected artifacts:
+
+```text
+assets/documentation/renders/saga-smoke/live-creator-01-intake.png
+assets/documentation/renders/saga-smoke/live-creator-02-scope-brief.png
+assets/documentation/renders/saga-smoke/live-creator-03-story-outline.png
+assets/documentation/renders/saga-smoke/live-creator-04-title-batch.png
+assets/documentation/renders/saga-smoke/live-creator-05-title-batches-complete.png
+assets/documentation/renders/saga-smoke/live-creator-06-title-approved.png
+assets/documentation/renders/saga-smoke/live-creator-07-context-tags.png
+assets/documentation/renders/saga-smoke/live-creator-08-planning-accepted.png
+assets/documentation/renders/saga-smoke/live-creator-09-lorecard-draft.png
+assets/documentation/renders/saga-smoke/live-creator-10-drafts-to-review.png
+assets/documentation/renders/saga-smoke/live-creator-11-lorecard-accepted.png
+assets/documentation/renders/saga-smoke/live-creator-12-pack-health.png
+assets/documentation/renders/saga-smoke/live-creator-13-finalized.png
+assets/documentation/renders/saga-smoke/live-creator-14-finalized-library.png
+assets/documentation/renders/saga-smoke/live-creator-report.json
+```
+
+The JSON report includes `steps`, `providerUnits`, `staleSmokeResetState`, `finalizedVerificationState`, `cleanupState`, and restore results. Saga does not retain complete raw provider text after parsing; the report surfaces each generation unit's stage, status, elapsed time, received character count, result references, diagnostics, and the short streaming snippet when available.
+
+By default the smoke adds the generated run id to the scope so repeated runs do not collide with the same deterministic Creator project id. Set `SAGA_LIVE_CREATOR_SCOPE` when you intentionally want to reproduce a fixed project id.
+
+Useful overrides:
+
+```powershell
+$env:SAGA_LIVE_CREATOR_FANDOM='One Piece'
+$env:SAGA_LIVE_CREATOR_SCOPE='Arlong Park arc focused on Nami, Arlong, Cocoyasi Village, and the final confrontation.'
+$env:SAGA_LIVE_CREATOR_GRANULARITY='compact'
+$env:SAGA_LIVE_CREATOR_TIMEOUT_MS='300000'
+$env:SAGA_SMOKE_REPORT='F:\git\Saga\assets\documentation\renders\saga-smoke\live-creator-report.json'
+$env:SAGA_LIVE_CREATOR_CLEANUP='0'
+$env:SAGA_LIVE_CREATOR_FINALIZE='0'
+```
+
+Use `SAGA_LIVE_CREATOR_CLEANUP=0` when investigating a failed finalization or file check and you want to inspect the generated artifacts manually.
+
 ## Harness Checklist
 
 Use a desktop-width browser first, then repeat at a narrow/mobile-ish width.
