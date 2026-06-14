@@ -112,6 +112,8 @@ function getLoredeckTimelineRegistryCount(pack) { return dep('getLoredeckTimelin
 function isVirtualLoredeckPack(pack) { return dep('isVirtualLoredeckPack', () => false)(pack); }
 function isGeneratedLoredeckPack(pack) { return dep('isGeneratedLoredeckPack', () => false)(pack); }
 function isBundledLoredeckLibraryPack(pack) { return dep('isBundledLoredeckLibraryPack', () => false)(pack); }
+function isVisibleLoredeckLibraryPack(pack = {}) { return !!pack?.packId && !isGeneratedLoredeckPack(pack); }
+function getVisibleLoredeckLibrary(state = getState()) { return getLoredeckLibrary(state).filter(isVisibleLoredeckLibraryPack); }
 function getFreshLoredeckLibraryPack(packId, fallback) { return dep('getFreshLoredeckLibraryPack', (_packId, _fallback) => _fallback || null)(packId, fallback); }
 function persistLoredeckLibraryRecordMutation(pack, mutator, message, options) { return dep('persistLoredeckLibraryRecordMutation', () => false)(pack, mutator, message, options); }
 function hydrateLoredeckPayloadRecord(pack) { return dep('hydrateLoredeckPayloadRecord', async value => value)(pack); }
@@ -471,7 +473,7 @@ export function scheduleLoredeckLibraryOverlayRefresh(options = {}) {
 function getLoredeckLibraryOverlayContext() {
     const state = getState();
     const stack = getLoredeckStack(state);
-    const library = getLoredeckLibrary(state);
+    const library = getVisibleLoredeckLibrary(state);
     const libraryIndex = getLoredeckLibraryIndexForPacks(state, library);
     const canonDb = getCanonLoreDatabaseSync();
     const health = canonDb?.health || null;

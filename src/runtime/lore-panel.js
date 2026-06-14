@@ -723,6 +723,13 @@ const loredeckCreatorGenerationControllers = new Map();
 const loredeckCreatorLiveGenerationsByJobId = new Map();
 const loredeckCreatorLiveGenerationJobs = new Map();
 
+function clearLoredeckCreatorDraftInputs() {
+    loredeckCreatorFandom = '';
+    loredeckCreatorScope = '';
+    loredeckCreatorGranularity = 'focused';
+    loredeckCreatorNotes = '';
+}
+
 configureLoredeckEditorActions({
     getState,
     getLoredeckLibrary,
@@ -744,6 +751,7 @@ configureLoredeckEditorActions({
     createStateBackup,
     getLoredeckCreatorJobForPack,
     buildLoredeckCreatorCoverageFinalizationProvenance,
+    retireGeneratedLoredeckAfterFinalization,
     openLoredeckMetadataEditor,
     isLoredeckLibraryOpen,
     renderLoredeckLibraryOverlay,
@@ -1624,12 +1632,8 @@ configureLoredecksTabPanel({
         loredeckCreatorGranularity = values?.granularity || 'focused';
         loredeckCreatorNotes = values?.notes || '';
     },
-    clearLoredeckCreatorDraftInputs: () => {
-        loredeckCreatorFandom = '';
-        loredeckCreatorScope = '';
-        loredeckCreatorGranularity = 'focused';
-        loredeckCreatorNotes = '';
-    },
+    clearLoredeckCreatorDraftInputs,
+    removeLoredeckCreatorGeneratedPackFromStack,
 });
 
 
@@ -3121,6 +3125,46 @@ function clearLoredeckCreatorResetPackCaches(packId = '', options = {}) {
     if (options.clearDraftCache === true) loredeckAssistantDraftCache.delete(id);
 }
 
+function getLoredeckCreatorJobGeneratedPackId(job = {}) {
+    return String(job?.generatedPackId || job?.brief?.packId || '').trim();
+}
+
+function isLoredeckCreatorJobRegistered(jobId = '') {
+    const id = String(jobId || '').trim();
+    if (!id) return false;
+    const registry = getLoredeckCreatorRegistry(getState());
+    return !!registry?.jobs?.[id];
+}
+
+function clearCurrentLoredeckCreatorWorkbenchCache(options = {}) {
+    const cached = loredeckCreatorBriefCache.get('current') || {};
+    const active = getActiveLoredeckCreatorGeneration(cached);
+    if (active?.id) {
+        try {
+            loredeckCreatorGenerationControllers.get(active.id)?.abort?.();
+        } catch (_) {}
+        loredeckCreatorGenerationControllers.delete(active.id);
+        forgetLoredeckCreatorLiveGeneration(active);
+        stopLoredeckCreatorGenerationTicker();
+    }
+    loredeckCreatorBriefCache.delete('current');
+    clearLoredeckCreatorDraftInputs();
+    if (options.refresh !== false) refreshLoredeckCreatorWorkbenchBody({ preserveScroll: false });
+    return true;
+}
+
+function clearLoredeckCreatorWorkbenchCacheForRemovedJobs(jobIds = [], packId = '', options = {}) {
+    const cached = loredeckCreatorBriefCache.get('current') || {};
+    if (!cached?.jobId && !getLoredeckCreatorJobGeneratedPackId(cached)) return false;
+    const ids = new Set((Array.isArray(jobIds) ? jobIds : [jobIds]).map(value => String(value || '').trim()).filter(Boolean));
+    const targetPackId = String(packId || '').trim();
+    const cachedJobId = String(cached.jobId || '').trim();
+    const matchesJob = cachedJobId && ids.has(cachedJobId);
+    const matchesPack = targetPackId && getLoredeckCreatorJobGeneratedPackId(cached) === targetPackId;
+    if (!matchesJob && !matchesPack) return false;
+    return clearCurrentLoredeckCreatorWorkbenchCache(options);
+}
+
 function removeLoredeckCreatorGeneratedPackFromStack(packId = '') {
     const id = String(packId || '').trim();
     if (!id) return false;
@@ -4168,7 +4212,13 @@ function clearStaleLoredeckCreatorInterruptedResult(job = {}) {
 function getLoredeckCreatorBriefCache() {
     const stateJob = clearStaleLoredeckCreatorInterruptedResult(getActiveLoredeckCreatorJob(getState()) || {});
     const localJob = clearStaleLoredeckCreatorInterruptedResult(loredeckCreatorBriefCache.get('current') || {});
-    if (!stateJob?.jobId) return attachLoredeckCreatorLiveGeneration(localJob || {});
+    if (!stateJob?.jobId) {
+        if (localJob?.jobId && !isLoredeckCreatorJobRegistered(localJob.jobId)) {
+            clearCurrentLoredeckCreatorWorkbenchCache({ refresh: false });
+            return {};
+        }
+        return attachLoredeckCreatorLiveGeneration(localJob || {});
+    }
     if (localJob?.jobId && stateJob?.jobId && localJob.jobId !== stateJob.jobId) {
         return attachLoredeckCreatorLiveGeneration(stateJob);
     }
@@ -4234,10 +4284,7 @@ function clearLoredeckCreatorBrief() {
     }
     if (cached.jobId) clearLoredeckCreatorJob(cached.jobId, { syncPrompt: false });
     loredeckCreatorBriefCache.delete('current');
-    loredeckCreatorFandom = '';
-    loredeckCreatorScope = '';
-    loredeckCreatorGranularity = 'focused';
-    loredeckCreatorNotes = '';
+    clearLoredeckCreatorDraftInputs();
     loredeckCreatorRevisionInstruction = '';
     loredeckCreatorOutlineRevisionInstruction = '';
     loredeckCreatorTitleRevisionInstruction = '';
@@ -9368,6 +9415,42 @@ function getLoredeckCreatorJobForPack(pack = {}) {
     return getLoredeckCreatorJobForPackId(packId);
 }
 
+async function retireGeneratedLoredeckAfterFinalization(sourcePack = {}, finalizedRecord = {}, creatorJob = null) {
+    const sourcePackId = String(sourcePack?.packId || '').trim();
+    const finalizedPackId = String(finalizedRecord?.packId || '').trim();
+    const job = creatorJob || getLoredeckCreatorJobForPack(sourcePack) || (sourcePackId ? getLoredeckCreatorJobForPackId(sourcePackId) : null);
+    const jobId = String(job?.jobId || '').trim();
+    const failures = [];
+
+    if (sourcePackId && sourcePackId !== finalizedPackId) {
+        removeLoredeckCreatorGeneratedPackFromStack(sourcePackId);
+        const removed = removeLoredeckLibraryPack(sourcePackId, { clearCreatorProjects: false, syncPrompt: false });
+        if (!removed.ok && !/not registered/i.test(String(removed.error || ''))) {
+            failures.push(removed.error || 'Generated Loredeck working pack could not be removed.');
+        }
+        clearLoredeckCreatorResetPackCaches(sourcePackId, { clearDraftCache: true });
+    }
+
+    if (jobId) {
+        const cleared = clearLoredeckCreatorJob(jobId, { syncPrompt: false });
+        if (!cleared.ok) failures.push(cleared.error || 'Creator project could not be cleared.');
+        clearLoredeckCreatorWorkbenchCacheForRemovedJobs([jobId], sourcePackId, { refresh: false });
+    }
+
+    const storageResults = await Promise.all([
+        flushSagaCreatorProjectStorageWrites(),
+        flushSagaLorepackLibraryStorageWrites(),
+        flushSagaLorepackPayloadStorageWrites(),
+    ]);
+    for (const result of storageResults) {
+        if (result?.ok === false) failures.push(result.error || 'Storage write failed.');
+    }
+
+    refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+    refreshLoredeckCreatorWorkbenchBody({ preserveScroll: false });
+    return failures.length ? { ok: false, error: failures[0], failures } : { ok: true };
+}
+
 function isLoredeckCreatorDraftCache(cache = {}) {
     const changes = getLoredeckAssistantDraftChanges(cache);
     return String(cache?.source || '').trim() === 'loredeck_creator'
@@ -12613,6 +12696,7 @@ async function deleteLoredeckLibraryPackWithConfirm(packOrId) {
         toast(result.error || 'Loredeck could not be deleted.', 'warning');
         return false;
     }
+    clearLoredeckCreatorWorkbenchCacheForRemovedJobs(result.clearedCreatorJobIds, packId);
 
     const state = getState();
     if (state?.lorePanel?.selectedLoredeckId === packId) {
@@ -12706,6 +12790,7 @@ async function deleteLoredeckLibraryPacksWithConfirm(packsOrIds = []) {
         const result = removeLoredeckLibraryPack(pack.packId);
         if (result.ok) {
             deletedCount += 1;
+            clearLoredeckCreatorWorkbenchCacheForRemovedJobs(result.clearedCreatorJobIds, pack.packId);
             loredeckManifestPreviewCache.delete(pack.packId);
             loredeckEntryPreviewCache.delete(pack.packId);
             loredeckTimelineRegistryCache.delete(pack.packId);

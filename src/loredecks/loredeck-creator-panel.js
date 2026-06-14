@@ -76,7 +76,6 @@ function getLoredeckCreatorNextPlanningBatch(cached) { return dep('getLoredeckCr
 function countLoredeckCreatorPlanningPendingChanges(pack) { return dep('countLoredeckCreatorPlanningPendingChanges', () => 0)(pack); }
 function getLoredeckDefinition(packId) { return dep('getLoredeckDefinition', () => null)(packId); }
 function handleLoredeckCreatorPlanningDraft(options, button) { return dep('handleLoredeckCreatorPlanningDraft', async () => null)(options, button); }
-function openLoredeckLibraryDetails(packId) { return dep('openLoredeckLibraryDetails', () => null)(packId); }
 function getLoredeckStack(state) { return dep('getLoredeckStack', () => [])(state); }
 function addLoredeckToStack(packId) { return dep('addLoredeckToStack', () => false)(packId); }
 function getLoredeckCreatorAcceptedPlanningStatus(pack) { return dep('getLoredeckCreatorAcceptedPlanningStatus', () => ({ anchorCount: 0, windowCount: 0, tagCount: 0, ready: false }))(pack); }
@@ -1371,9 +1370,6 @@ export function createLoredeckCreatorPlanningCard(brief = {}, cached = {}) {
     draftButton.disabled = !nextPlanningBatch && !pendingPlanningCount;
     actions.appendChild(markTourTarget(lockLoredeckCreatorGenerationButton(draftButton, cached, 'context/tag plan'), 'loredecks.creator.planContextTags'));
     if (generatedPack) {
-        actions.appendChild(createButton('Inspect in Library', 'Open the Generated Loredeck in the fullscreen Loredeck Library details panel.', () => {
-            openLoredeckLibraryDetails(generatedPack.packId);
-        }));
         const inStack = getLoredeckStack(getState()).some(item => item.packId === generatedPack.packId && item.enabled);
         const stackButton = createButton(inStack ? 'In Stack' : 'Add to Stack', 'Add the Generated Loredeck to the current stack when you are ready to test it.', () => {
             if (!inStack) addLoredeckToStack(generatedPack.packId);
@@ -1737,11 +1733,6 @@ export function createLoredeckCreatorEntryDraftCard(brief = {}, cached = {}) {
     });
     multiBatchButton.disabled = !canDraftEntries || (progress?.remainingCount || 0) <= 0;
     actions.appendChild(markTourTarget(lockLoredeckCreatorGenerationButton(multiBatchButton, cached, 'Lorecard batch draft'), 'loredecks.creator.autoDraftAll'));
-    if (generatedPack) {
-        actions.appendChild(createButton('Inspect in Library', 'Open the Generated Loredeck in the fullscreen Loredeck Library details panel.', () => {
-            openLoredeckLibraryDetails(generatedPack.packId);
-        }));
-    }
     wrap.appendChild(actions);
     appendLoredeckCreatorGenerationStatus(wrap, cached, ['entry_batch_draft', 'entry_multi_batch_draft']);
 
@@ -1904,7 +1895,7 @@ export function createLoredeckCreatorPipelineReadinessCard(pack = {}, cached = n
     help.className = 'saga-runtime-help';
     help.textContent = readiness.ready
         ? 'This Generated Loredeck has no unresolved draft or Pending Review state. Warnings may still describe intentionally partial Creator coverage.'
-        : 'Resolve the blockers below before finalizing this Generated Loredeck as Custom. Library export is still available.';
+        : 'Resolve the blockers below before finalizing this Generated Loredeck as Custom.';
     wrap.appendChild(help);
 
     appendLoredeckCreatorReadinessItems(wrap, readiness.blockers, readiness.warnings);

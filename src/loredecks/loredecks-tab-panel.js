@@ -6,6 +6,7 @@ import {
     getActiveLoredeckCreatorJob,
     updateLoredeckCreatorProject,
     clearLoredeckCreatorJob,
+    removeLoredeckLibraryPack,
 } from '../state/state-manager.js';
 import { getCanonLoreDatabaseSync, loadCanonLoreDatabase } from '../context/canon-lore-db.js';
 import { buildLoredeckCreatorProjectCardModels } from './loredeck-creator-projects.js';
@@ -67,9 +68,9 @@ function getActiveLoredeckCreatorGeneration(job) { return dep('getActiveLoredeck
 function refreshLoredeckCreatorWorkbenchBody(options) { return dep('refreshLoredeckCreatorWorkbenchBody', () => false)(options); }
 function recoverLoredeckCreatorInterruptedActiveGeneration(job, options) { return dep('recoverLoredeckCreatorInterruptedActiveGeneration', value => ({ job: value }))(job, options); }
 function attachLoredeckCreatorLiveGeneration(job) { return dep('attachLoredeckCreatorLiveGeneration', value => value)(job); }
-function selectLoredeckForDetails(packId, options) { return dep('selectLoredeckForDetails', () => {})(packId, options); }
 function setLoredeckCreatorDraftInputs(values = {}) { return dep('setLoredeckCreatorDraftInputs', () => {})(values); }
 function clearLoredeckCreatorDraftInputs() { return dep('clearLoredeckCreatorDraftInputs', () => {} )(); }
+function removeLoredeckCreatorGeneratedPackFromStack(packId) { return dep('removeLoredeckCreatorGeneratedPackFromStack', () => false)(packId); }
 
 const loredeckCreatorBriefCache = {
     set(key, value) { return dep('setLoredeckCreatorBriefCacheEntry', () => {})(key, value); },
@@ -129,7 +130,7 @@ export function renderLoredecksTab(container, state) {
 
 function getLoredeckLibraryLaunchSummary(state = getState(), canonDb = null, health = null) {
     const stack = getLoredeckStack(state);
-    const library = getLoredeckLibrary(state);
+    const library = getVisibleLoredeckLibrary(state);
     const stats = getLoredeckLibraryStackStats(stack, library, canonDb, health);
     return `${library.length} decks | ${stats.activeCount} active | ${stats.entryCount} active Lorecards`;
 }
@@ -137,7 +138,7 @@ function getLoredeckLibraryLaunchSummary(state = getState(), canonDb = null, hea
 function createLoredeckLibraryLaunchCard(state = getState(), canonDb = null, health = null) {
     const basic = isBasicExperienceMode();
     const stack = getLoredeckStack(state);
-    const library = getLoredeckLibrary(state);
+    const library = getVisibleLoredeckLibrary(state);
     const stats = getLoredeckLibraryStackStats(stack, library, canonDb, health);
 
     const card = document.createElement('div');
@@ -177,6 +178,10 @@ function createLoredeckLibraryLaunchCard(state = getState(), canonDb = null, hea
     }
     card.appendChild(actions);
     return card;
+}
+
+function getVisibleLoredeckLibrary(state = getState()) {
+    return getLoredeckLibrary(state).filter(pack => !isGeneratedLoredeckPack(pack));
 }
 
 function getLoredeckCreatorProjectShelfModels(state = getState()) {
@@ -692,13 +697,7 @@ function createLoredeckCreatorProjectCard(model = {}, options = {}) {
     actions.appendChild(markTourTarget(createButton(model.nextAction?.label || 'Resume', model.nextAction?.tooltip || 'Open this Creator project.', () => {
         openLoredeckCreatorProject(model.jobId);
     }, 'saga-primary-button'), 'loredecks.creator.projectResume'));
-    if (model.generatedPackId) {
-        actions.appendChild(createButton('Library', 'Open the linked Generated Loredeck in the Library.', () => {
-            selectLoredeckForDetails(model.generatedPackId, { refresh: false });
-            openLoredeckLibraryWindow();
-        }));
-    }
-    actions.appendChild(createButton('Delete', 'Delete this saved Creator project. Linked Generated Loredecks stay in the Library.', async () => {
+    actions.appendChild(createButton('Delete', 'Delete this saved Creator project and its generated working pack.', async () => {
         await deleteLoredeckCreatorProjectWithConfirm(model);
     }, 'saga-loredeck-creator-project-delete'));
     card.appendChild(actions);
@@ -723,6 +722,19 @@ function renameLoredeckCreatorProjectTitle(jobId = '', title = '') {
     return true;
 }
 
+function removeGeneratedWorkingPacksForCreatorProjects(models = []) {
+    const packIds = new Set((models || []).map(model => String(model?.generatedPackId || '').trim()).filter(Boolean));
+    const failures = [];
+    for (const packId of packIds) {
+        removeLoredeckCreatorGeneratedPackFromStack(packId);
+        const result = removeLoredeckLibraryPack(packId, { clearCreatorProjects: false, syncPrompt: false });
+        if (!result.ok && !/not registered/i.test(String(result.error || ''))) {
+            failures.push(result.error || `Generated working pack ${packId} could not be removed.`);
+        }
+    }
+    return failures;
+}
+
 async function deleteLoredeckCreatorProjectWithConfirm(model = {}) {
     const jobId = String(model.jobId || model.id || '').trim();
     if (!jobId) {
@@ -731,7 +743,7 @@ async function deleteLoredeckCreatorProjectWithConfirm(model = {}) {
     }
     const title = model.title || 'this Creator project';
     const linkedText = model.generatedPackId
-        ? ` The linked Generated Loredeck "${model.generatedPack?.title || model.generatedPackId}" will stay in the Library.`
+        ? ` The generated working pack "${model.generatedPack?.title || model.generatedPackId}" will also be removed.`
         : '';
     const ok = await confirmAction(
         'Delete Creator project?',
@@ -743,11 +755,13 @@ async function deleteLoredeckCreatorProjectWithConfirm(model = {}) {
         toast('Cancel the running Creator generation before deleting this project.', 'warning');
         return false;
     }
+    const workingPackFailures = removeGeneratedWorkingPacksForCreatorProjects([model]);
     const result = clearLoredeckCreatorJob(jobId, { syncPrompt: false });
     if (!result.ok) {
         toast(result.error || 'Creator project could not be deleted.', 'error');
         return false;
     }
+    if (workingPackFailures.length) toast(workingPackFailures[0], 'warning');
     const cached = getLoredeckCreatorBriefCache();
     if (cached?.jobId === jobId) {
         loredeckCreatorBriefCache.delete('current');
@@ -780,18 +794,20 @@ async function deleteSelectedLoredeckCreatorProjectsWithConfirm(models = []) {
     const extra = selectedModels.length > 6 ? `\n- +${selectedModels.length - 6} more` : '';
     const linkedCount = selectedModels.filter(model => model.generatedPackId).length;
     const linkedText = linkedCount
-        ? `\n\n${linkedCount} linked Generated Loredeck${linkedCount === 1 ? '' : 's'} will stay in the Library.`
+        ? `\n\n${linkedCount} generated working pack${linkedCount === 1 ? '' : 's'} will also be removed.`
         : '';
     const ok = await confirmAction(
         `Delete ${selectedModels.length} Creator project${selectedModels.length === 1 ? '' : 's'}?`,
         `This removes the saved generation workflow for:\n${listed}${extra}${linkedText}\n\nThis cannot be undone.`
     );
     if (!ok) return false;
+    const workingPackFailures = removeGeneratedWorkingPacksForCreatorProjects(selectedModels);
     let deleted = 0;
     for (const id of selectedIds) {
         const result = clearLoredeckCreatorJob(id, { syncPrompt: false });
         if (result.ok) deleted += 1;
     }
+    if (workingPackFailures.length) toast(workingPackFailures[0], 'warning');
     const cached = getLoredeckCreatorBriefCache();
     if (cached?.jobId && selectedIds.includes(cached.jobId)) {
         loredeckCreatorBriefCache.delete('current');

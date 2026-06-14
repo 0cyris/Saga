@@ -103,6 +103,7 @@ function confirmAction(title, message) { return dep('confirmAction', async () =>
 function createStateBackup(type, details = {}) { return dep('createStateBackup')(type, details); }
 function getLoredeckCreatorJobForPack(pack = {}) { return dep('getLoredeckCreatorJobForPack', () => null)(pack); }
 function buildLoredeckCreatorCoverageFinalizationProvenance(coverage = {}) { return dep('buildLoredeckCreatorCoverageFinalizationProvenance', () => null)(coverage); }
+function retireGeneratedLoredeckAfterFinalization(sourcePack, finalizedRecord, creatorJob) { return dep('retireGeneratedLoredeckAfterFinalization', async () => ({ ok: true }))(sourcePack, finalizedRecord, creatorJob); }
 function openLoredeckMetadataEditor(packId) { return dep('openLoredeckMetadataEditor')(packId); }
 function isLoredeckLibraryOpen() { return dep('isLoredeckLibraryOpen', () => false)(); }
 function renderLoredeckLibraryOverlay() { return dep('renderLoredeckLibraryOverlay')(); }
@@ -1077,6 +1078,10 @@ export async function finalizeGeneratedLoredeckAsCustom(pack, button = null) {
         clearCanonLoreDatabaseCache();
         clearContextIndexCache();
         await validateLoredeckForEditor(record, null, { quiet: true, updateLibrary: true });
+        const retirement = await retireGeneratedLoredeckAfterFinalization(validated, record, creatorJob);
+        if (retirement?.ok === false) {
+            toast(retirement.error || 'Finalized Custom Loredeck was created, but the Creator draft could not be retired.', 'warning');
+        }
         refreshLoredeckSurfaces({ clearCanon: true, clearContext: true });
         openLoredeckMetadataEditor(record.packId);
         if (isLoredeckLibraryOpen()) renderLoredeckLibraryOverlay();

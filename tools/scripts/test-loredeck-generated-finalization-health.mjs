@@ -112,8 +112,13 @@ async function runFinalization(initialPack, firstHealth) {
   const confirmations = [];
   const openedMetadata = [];
   const selected = [];
+  const retirements = [];
   let backupCount = 0;
   let validateCount = 0;
+  const creatorJob = {
+    jobId: `creator_${initialPack.packId}`,
+    generatedPackId: initialPack.packId,
+  };
 
   configureGeneratedLoredeckReadiness({
     getLoredeckPendingChanges: pack => (Array.isArray(pack.pendingChanges) ? pack.pendingChanges : []),
@@ -144,8 +149,16 @@ async function runFinalization(initialPack, firstHealth) {
         },
       };
     },
-    getLoredeckCreatorJobForPack: () => null,
+    getLoredeckCreatorJobForPack: () => creatorJob,
     buildLoredeckCreatorCoverageFinalizationProvenance: () => null,
+    retireGeneratedLoredeckAfterFinalization: async (sourcePack, finalizedRecord, linkedJob) => {
+      retirements.push({
+        sourcePackId: sourcePack.packId,
+        finalizedPackId: finalizedRecord.packId,
+        jobId: linkedJob?.jobId || '',
+      });
+      return { ok: true };
+    },
     confirmAction: async (title, message) => {
       confirmations.push({ title, message });
       return true;
@@ -182,6 +195,7 @@ async function runFinalization(initialPack, firstHealth) {
     confirmations,
     openedMetadata,
     selected,
+    retirements,
     backupCount,
     validateCount,
   };
@@ -193,6 +207,7 @@ assert.equal(blocked.savedRecords.length, 0);
 assert.equal(blocked.backupCount, 0);
 assert.equal(blocked.confirmations.length, 0);
 assert.equal(blocked.openedMetadata.length, 0);
+assert.equal(blocked.retirements.length, 0);
 assert.equal(blocked.validateCount, 1);
 assert.ok(blocked.toasts.some(toast => toast.type === 'error' && toast.message.includes('Pack Health: 1 error, 1 warning.')));
 
@@ -205,6 +220,7 @@ assert.equal(clean.validateCount, 2);
 assert.equal(clean.result.type, 'custom');
 assert.equal(clean.result.source.kind, 'generated_finalized');
 assert.equal(clean.result.source.originalPackId, 'generated-finalization-clean-pack');
+assert.equal(clean.result.derivedFrom.creatorJobId, 'creator_generated-finalization-clean-pack');
 assert.equal(clean.result.pendingChanges.length, 0);
 assert.equal(clean.result.healthStatus, 'good');
 assert.ok(clean.result.tags.includes('origin:custom'));
@@ -212,6 +228,11 @@ assert.ok(clean.result.tags.includes('source:generated'));
 assert.equal(clean.result.entryOverrides['nami.fact'].extensions.sagaLoredeckFinalizedFrom.packId, 'generated-finalization-clean-pack');
 assert.deepEqual(clean.selected, [clean.result.packId]);
 assert.deepEqual(clean.openedMetadata, [clean.result.packId]);
+assert.deepEqual(clean.retirements, [{
+  sourcePackId: 'generated-finalization-clean-pack',
+  finalizedPackId: clean.result.packId,
+  jobId: 'creator_generated-finalization-clean-pack',
+}]);
 assert.ok(clean.toasts.some(toast => toast.type === 'success' && toast.message.includes('finalized as a Custom Loredeck')));
 
 console.log('Generated Loredeck finalization health tests passed.');
