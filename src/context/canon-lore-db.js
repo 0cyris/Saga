@@ -8,7 +8,7 @@
  * - Loredeck timeline registries define Context anchors/windows.
  * - Loredeck retrieval metadata defines relevance/scoring inputs.
  *
- * Matching entries are proposed into Pending Lore Review; they are not silently
+ * Matching entries are proposed into Pending Review; they are not silently
  * accepted into the active lore matrix.
  */
 
@@ -1119,10 +1119,10 @@ function getCanonPreviewDuplicateMeta(entry = {}, keySets = buildExistingCanonKe
     const idKey = canonicalKey(entry.id);
     const titleKey = canonicalKey(entry.title || entry.name);
     if ((idKey && keySets.pendingIds.has(idKey)) || (titleKey && keySets.pendingTitles.has(titleKey))) {
-        return { duplicateStatus: 'pending', duplicateReason: 'Already in Pending Lore' };
+        return { duplicateStatus: 'pending', duplicateReason: 'Already in Pending Review' };
     }
     if ((idKey && keySets.acceptedIds.has(idKey)) || (titleKey && keySets.acceptedTitles.has(titleKey))) {
-        return { duplicateStatus: 'accepted', duplicateReason: 'Already in Lore Matrix' };
+        return { duplicateStatus: 'accepted', duplicateReason: 'Already in Accepted Lorecards' };
     }
     return { duplicateStatus: 'new', duplicateReason: '' };
 }
@@ -1746,11 +1746,11 @@ export async function proposeCanonLoreForContext(context = null, options = {}) {
     };
 
     dbState.lastProposedCount = entries.length;
-    dbState.lastStatus = `Matched ${query.matchedCount} canon entries; proposed ${entries.length} new pending entries.`;
+    dbState.lastStatus = `Matched ${query.matchedCount} canon entries; proposed ${entries.length} new Pending Review entries.`;
     state.canonLoreDatabase = dbState;
     saveState(state);
 
-    progress?.(`Canon database proposed ${entries.length} pending lore entries.`, 100);
+    progress?.(`Canon database proposed ${entries.length} Pending Review entries.`, 100);
     return { ...query, status: 'proposed', entries, proposedCount: entries.length, dropped: filtered.dropped };
 }
 

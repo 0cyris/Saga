@@ -85,58 +85,58 @@ const BASIC_CHECKLIST_REVIEW_GENERATION_STEPS = Object.freeze([
     basicChecklistTourStep('basic-checklist-review-generate-canon', 'Preview Canon Packs', 'Use Preview Canon Packs when loaded Loredecks can suggest current-scene canon guardrails.', 'lore', 'lore.canon.preview', {
         fallbackTarget: 'lore.generation.section',
         expandSections: Object.freeze(['lore.generation']),
-        expected: 'Useful canon suggestions can be sent to Pending Lorecard Review.',
+        expected: 'Useful canon suggestions can be sent to Pending Review.',
         when: 'Use this before scenes where canon constraints matter.',
     }),
     basicChecklistTourStep('basic-checklist-review-scan-story', 'Scan Story Lore', 'Use Scan Story Lore when the recent chat has durable facts worth extracting.', 'lore', 'lore.story.scan', {
         fallbackTarget: 'lore.generation.section',
         expandSections: Object.freeze(['lore.generation']),
-        expected: 'Story facts become pending Lorecards, not accepted memory.',
+        expected: 'Story facts become Pending Review entries, not Accepted Lorecards.',
         when: 'Run this after substantial new roleplay.',
     }),
-    basicChecklistTourStep('basic-checklist-review-manual-add', 'Add Lorecard Manually', 'Use Add Lorecard when you already know the exact fact Saga should remember.', 'lore', 'lore.manual.add', {
+    basicChecklistTourStep('basic-checklist-review-manual-add', 'Manual Lore Note', 'Use Draft Manual Note when you already know the exact fact Saga should remember.', 'lore', 'lore.manual.add', {
         fallbackTarget: 'lore.generation.section',
         expandSections: Object.freeze(['lore.generation']),
-        expected: 'The draft enters Pending Lorecard Review for one final decision.',
+        expected: 'The draft enters Pending Review for one final decision.',
         when: 'Use this for trusted facts that do not need model discovery.',
     }),
-    basicChecklistTourStep('basic-checklist-review-pending-after-create', 'Review Pending Lorecards', 'Read each pending Lorecard and accept only facts that should affect future responses.', 'lore', 'lore.pending.entry', {
+    basicChecklistTourStep('basic-checklist-review-pending-after-create', 'Review Pending Review', 'Read each Pending Review entry and accept only facts that should affect future responses.', 'lore', 'lore.pending.entry', {
         fallbackTarget: 'lore.pending',
         expandSections: Object.freeze(['lore.pendingReview']),
         prepare: 'openPendingLoreReview',
         expected: 'Accepted entries move into durable Lorecards.',
         when: 'Use this after canon preview, story scan, or manual entry.',
     }),
-    basicChecklistTourStep('basic-checklist-review-apply', 'Apply or Dismiss', 'Use the card actions to apply useful Lorecards and dismiss noise, recap, or wrong canon.', 'lore', 'lore.pending.actions', {
+    basicChecklistTourStep('basic-checklist-review-apply', 'Accept or Reject', 'Use the card actions to accept useful Lorecards and reject noise, recap, or wrong canon.', 'lore', 'lore.pending.actions', {
         fallbackTarget: 'lore.pending.entry',
         expandSections: Object.freeze(['lore.pendingReview']),
         prepare: 'openPendingLoreReview',
-        expected: 'Only reviewed facts become accepted memory.',
+        expected: 'Only reviewed facts become Accepted Lorecards.',
         when: 'Use this after reading a pending card.',
     }),
 ]);
 
 const BASIC_CHECKLIST_REVIEW_PENDING_STEPS = Object.freeze([
-    basicChecklistTourStep('basic-checklist-review-open-pending', 'Open Pending Review', 'Saga opens Pending Lorecard Review so the next decision is visible.', 'lore', 'lore.pending.entry', {
+    basicChecklistTourStep('basic-checklist-review-open-pending', 'Open Pending Review', 'Saga opens Pending Review so the next decision is visible.', 'lore', 'lore.pending.entry', {
         fallbackTarget: 'lore.pending',
         expandSections: Object.freeze(['lore.pendingReview']),
         prepare: 'openPendingLoreReview',
-        expected: 'A pending Lorecard is visible for review.',
+        expected: 'A Pending Review entry is visible for review.',
         when: 'Use this when the checklist reports pending review.',
     }),
-    basicChecklistTourStep('basic-checklist-review-read-card', 'Read the Lorecard', 'Check the title, category, tags, and fact text before it becomes durable memory.', 'lore', 'lore.pending.entry', {
+    basicChecklistTourStep('basic-checklist-review-read-card', 'Read the Entry', 'Check the title, category, tags, and fact text before it becomes an Accepted Lorecard.', 'lore', 'lore.pending.entry', {
         fallbackTarget: 'lore.pending.list',
         expandSections: Object.freeze(['lore.pendingReview']),
         prepare: 'openPendingLoreReview',
         expected: 'You can decide whether the fact should guide future responses.',
-        when: 'Use this before applying or dismissing the card.',
+        when: 'Use this before accepting or rejecting the card.',
     }),
-    basicChecklistTourStep('basic-checklist-review-apply-pending', 'Apply or Dismiss', 'Press Apply for useful durable facts, or dismiss entries that should stay out of memory.', 'lore', 'lore.pending.actions', {
+    basicChecklistTourStep('basic-checklist-review-apply-pending', 'Accept or Reject', 'Press Accept for useful durable facts, or reject entries that should stay out of memory.', 'lore', 'lore.pending.actions', {
         fallbackTarget: 'lore.pending.entry',
         expandSections: Object.freeze(['lore.pendingReview']),
         prepare: 'openPendingLoreReview',
         expected: 'The accepted count increases or the pending queue clears.',
-        when: 'Use this for each pending Lorecard.',
+        when: 'Use this for each Pending Review entry.',
     }),
 ]);
 
@@ -221,7 +221,7 @@ const BASIC_CHECKLIST_TOUR_TASKS_BY_ROW = Object.freeze({
         id: 'basic-checklist-lore-ready',
         title: 'Confirm Lorecards',
         steps: Object.freeze([
-            basicChecklistTourStep('basic-checklist-lore-ready-open', 'Open Accepted Lorecards', 'Saga opens Accepted Lorecards so you can inspect durable memory.', 'lore', 'lore.accepted.list', {
+            basicChecklistTourStep('basic-checklist-lore-ready-open', 'Open Accepted Lorecards', 'Saga opens Accepted Lorecards so you can inspect what may guide prompts.', 'lore', 'lore.accepted.list', {
                 fallbackTarget: 'lore.accepted',
                 expandSections: Object.freeze(['lore.acceptedEntries']),
                 prepare: 'openAcceptedLoreDetails',
@@ -239,7 +239,7 @@ const BASIC_CHECKLIST_TOUR_TASKS_BY_ROW = Object.freeze({
                 fallbackTarget: 'lore.accepted.list',
                 expandSections: Object.freeze(['lore.acceptedEntries']),
                 prepare: 'openAcceptedLoreDetails',
-                expected: 'Accepted memory is ready for the next prompt.',
+                expected: 'Accepted Lorecards are ready for the next prompt.',
                 when: 'Use this if something looks stale or wrong.',
             }),
         ]),
@@ -371,7 +371,7 @@ function launchBasicChecklistTour(row = {}) {
     });
 }
 
-function getBasicReadinessAction(row) {
+export function getBasicReadinessAction(row) {
     if (!row || row.ready || !row.actionLabel) return null;
     if (row.actionId === 'enable-saga') return enableSagaRuntime;
     if (row.targetTab) return () => launchBasicChecklistTour(row);

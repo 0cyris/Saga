@@ -1908,7 +1908,7 @@ export function createLoredeckLibraryEditableTitle(options = {}) {
 
     const action = document.createElement('button');
     action.type = 'button';
-    action.className = 'saga-loredeck-library-title-edit-action saga-loredeck-library-title-edit-wand';
+    action.className = 'saga-loredeck-library-title-edit-action saga-loredeck-library-title-edit-mark';
     addTooltip(action, `Rename ${kind}.`);
     wrap.appendChild(action);
 
@@ -1922,7 +1922,7 @@ export function createLoredeckLibraryEditableTitle(options = {}) {
         editing = false;
         wrap.classList.remove('saga-loredeck-library-inline-title-editing');
         action.classList.remove('saga-loredeck-library-title-edit-accept');
-        action.classList.add('saga-loredeck-library-title-edit-wand');
+        action.classList.add('saga-loredeck-library-title-edit-mark');
         action.dataset.sagaTooltip = `Rename ${kind}.`;
         action.setAttribute('aria-label', `Rename ${kind}.`);
         const nextLabel = document.createElement('span');
@@ -1956,7 +1956,7 @@ export function createLoredeckLibraryEditableTitle(options = {}) {
         editing = true;
         hideFloatingTooltip();
         wrap.classList.add('saga-loredeck-library-inline-title-editing');
-        action.classList.remove('saga-loredeck-library-title-edit-wand');
+        action.classList.remove('saga-loredeck-library-title-edit-mark');
         action.classList.add('saga-loredeck-library-title-edit-accept');
         action.dataset.sagaTooltip = `Save ${kind} title.`;
         action.setAttribute('aria-label', `Save ${kind} title.`);
@@ -4677,7 +4677,7 @@ function createLoredeckCoverActionButton(kind = 'import', tooltip = '', handler 
     btn.className = `saga-loredeck-library-cover-action saga-loredeck-library-cover-action-${normalized}`;
     btn.setAttribute('aria-label', tooltip || (normalized === 'remove' ? 'Remove cover image.' : 'Import cover image.'));
     if (normalized === 'import') {
-        btn.classList.add('saga-loredeck-library-title-edit-wand');
+        btn.classList.add('saga-loredeck-library-title-edit-mark');
     } else {
         btn.textContent = 'x';
     }

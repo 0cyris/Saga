@@ -36,9 +36,9 @@ Return to Context whenever the story crosses a meaningful boundary. Correct Cont
 
 ### Lorecards
 
-Use **Lorecards** to preview canon packs, scan recent story, add a manual Lorecard, review Pending Lorecards, and inspect Accepted Lorecards.
+Use **Lorecards** to preview canon packs, scan recent story, draft a Manual Lore Note, review Pending Review entries, and inspect Accepted Lorecards.
 
-New facts should stay pending until you decide they should affect future responses. Edit useful proposals before accepting them, dismiss recap/noise/wrong canon, and use pin or mute to adjust accepted Lorecard behavior without deleting data.
+New facts should stay pending until you decide they should affect future responses. Edit useful proposals before accepting them, reject recap/noise/wrong canon, and use pin or mute to adjust Accepted Lorecard behavior without deleting data.
 
 The core review question is:
 
@@ -50,7 +50,7 @@ Should this fact affect future responses?
 
 Use **Continue Roleplay** after Loredecks are loaded, Context is current, useful Lorecards are accepted, and the **Start Checklist** is ready.
 
-Session metrics help confirm whether Saga has pending Lorecards, accepted lore, selected injection, and a prompt-size estimate. After major story movement, repeat the loop: update Context, review new Lorecards, then continue roleplay.
+Session metrics help confirm whether Saga has Pending Review entries, Accepted Lorecards, selected injection, and a prompt-size estimate. After major story movement, repeat the loop: update Context, review new Lorecards, then continue roleplay.
 
 ### Settings
 
@@ -66,8 +66,8 @@ Switch to Advanced for provider profile internals, endpoint/model controls, Crea
 2. Start **First Run** and confirm **Saga Active**.
 3. Open **Loredeck Library**, import a package if needed, and add the right Loredecks to the active stack.
 4. Use **Browse Context** to select the current story position for each loaded Loredeck before the story starts.
-5. Open **Lorecards** and generate or add only the facts you need.
-6. Review Pending Lorecards. Accept useful durable facts and dismiss anything that should not guide future responses.
+5. Open **Lorecards** and generate or draft only the facts you need.
+6. Review Pending Review entries. Accept useful durable facts and reject anything that should not guide future responses.
 7. Confirm the **Start Checklist** is ready.
 8. Continue roleplay.
 9. Repeat Context update and Lorecard review after major story movement.
@@ -88,7 +88,7 @@ Basic does not show:
 - Package repair/update conflict resolution.
 - Provider profile internals.
 
-Those workflows still use the same saved Loredecks, Context, pending Lorecards, accepted Lorecards, pin/mute choices, and settings. Switch to Advanced when you need the full control surface, then return to Basic for routine roleplay.
+Those workflows still use the same saved Loredecks, Context, Pending Review entries, Accepted Lorecards, pin/mute choices, and settings. Switch to Advanced when you need the full control surface, then return to Basic for routine roleplay.
 
 ## Common Fixes
 

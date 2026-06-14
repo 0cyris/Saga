@@ -456,7 +456,7 @@ export function restoreTimelineEntriesToPending(state, eventId, entryIds = null)
     recordLoreTimelineEvent(state, {
         type: 'restore_to_pending',
         source: 'timeline_recovery',
-        summary: `Restored ${recovered.length} timeline entr${recovered.length === 1 ? 'y' : 'ies'} to Pending Lore Review.`,
+        summary: `Restored ${recovered.length} timeline entr${recovered.length === 1 ? 'y' : 'ies'} to Pending Review.`,
         counts: { pending: recovered.length, restored: recovered.length },
         refs: recovered.map(compactRef),
         patch: { restoredFromEventId: event.id },

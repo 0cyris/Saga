@@ -131,7 +131,7 @@ assert(!extractor.includes('globalThis._sagaRunExtraction') && !extractor.includ
 
 assert(runtimeInjectionSource.includes('getInjectionEmptyReason'), 'Injection preview must explain empty prompt reasons.');
 assert(runtimeInjectionSource.includes('No Loredecks are loaded for Lore injection'), 'Lore preview must explain unloaded Loredeck state.');
-assert(runtimeInjectionSource.includes('No accepted Lorecards are available to inject'), 'Lore preview must explain empty accepted Lorecard state.');
+assert(runtimeInjectionSource.includes('No Accepted Lorecards are available to inject'), 'Lore preview must explain empty Accepted Lorecards state.');
 assert(runtimeInjectionSource.includes('Continuity injection has no scene'), 'Continuity preview must explain empty continuity state.');
 assert(runtimeInjectionSource.includes('refreshInjectionPreviewOnly') && runtimeInjectionSource.includes('getInjectionEmptyReason'), 'Refresh-only path must preserve empty-reason text.');
 assert(runtimeInjectionSource.includes('function createPromptInjectionStatusRow') && runtimeInjectionSource.includes("row.classList.add('saga-prompt-sync-status')") && runtimeInjectionSource.includes("row?.querySelector('.saga-prompt-sync-status-value')"), 'Injection preview sync actions must refresh the Current sync chip in place.');

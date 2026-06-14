@@ -108,7 +108,7 @@ function prepareOpenPendingLoreReview() {
     const pendingCount = (getState()?.pendingLoreEntries || []).length;
     return createGuidePrepareResult(
         true,
-        pendingCount ? '' : 'Pending Lorecard Review is open, but there are no pending Lorecards yet.'
+        pendingCount ? '' : 'Pending Review is open, but there are no Pending Review entries yet.'
     );
 }
 
@@ -118,7 +118,7 @@ function prepareOpenAcceptedLoreDetails() {
     const acceptedCount = normalizeLoreMatrix(getState()?.loreMatrix || []).length;
     return createGuidePrepareResult(
         true,
-        acceptedCount ? '' : 'Accepted Lorecards is open, but no accepted Lorecards exist yet.'
+        acceptedCount ? '' : 'Accepted Lorecards is open, but no Accepted Lorecards exist yet.'
     );
 }
 

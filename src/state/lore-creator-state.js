@@ -427,6 +427,16 @@ export function normalizeLoredeckCreatorJob(value = {}, index = 0) {
     job.generationUnits = generationUnits;
     const activeGeneration = normalizeLoredeckCreatorActiveGeneration(value.activeGeneration, jobId);
     if (activeGeneration) job.activeGeneration = activeGeneration;
+    if (!activeGeneration && job.status === 'running') {
+        job.status = 'draft';
+    }
+    if (!activeGeneration && ['outline_drafting', 'titles_drafting', 'planning_drafting', 'entries_drafting'].includes(job.currentStage)) {
+        job.currentStage = inferLoredeckCreatorStage({
+            ...job,
+            currentStage: '',
+            status: job.status,
+        });
+    }
     const lastGenerationResult = normalizeLoredeckCreatorGenerationResult(value.lastGenerationResult);
     if (lastGenerationResult) job.lastGenerationResult = lastGenerationResult;
     const projectFile = normalizeCreatorProjectFilePointer(value.projectFile || value.payloadFile || '');
@@ -437,6 +447,7 @@ export function normalizeLoredeckCreatorJob(value = {}, index = 0) {
         stageStatus: 50000,
         batches: 100000,
         generationSettings: 12000,
+        coverageFinalizeAcknowledgement: 12000,
     };
     for (const [key, maxLength] of Object.entries(objectFields)) {
         const cloned = cloneLoredeckPlainObject(value[key], maxLength);

@@ -1,8 +1,17 @@
 import { DEFAULT_SETTINGS, getDefaultState } from '../state/constants.js';
-import { normalizeTabForExperience } from './runtime-navigation.js';
+import {
+    getMobileMoreRoutesForExperience,
+    getMobileRouteForTab,
+    getMobileRouteLabel,
+    getMobilePrimaryRoutes,
+    normalizeMobileBottomRoute,
+    normalizeMobileMoreRoute,
+    normalizeTabForExperience,
+} from './runtime-navigation.js';
 
 export const MIN_DRAWER_WIDTH = 360;
 export const MIN_DRAWER_HEIGHT = 320;
+export const MOBILE_SHELL_MAX_WIDTH = 640;
 export const RAIL_WIDTH_COMPACT = 60;
 export const RAIL_WIDTH_EXPANDED = 206;
 export const RAIL_DRAWER_GAP = 8;
@@ -22,6 +31,7 @@ let resizeStartY = 0;
 let resizeStartWidth = 0;
 let resizeStartHeight = 0;
 let resizeStartDirection = 'right';
+let pendingRuntimeMobileFocusSelector = '';
 
 export function configureRuntimeShell(deps = {}) {
     runtimeShellDeps = { ...runtimeShellDeps, ...(deps || {}) };
@@ -74,6 +84,25 @@ function updateAcceptedLoreScrollRegionHeightForShell() {
     return dep('updateAcceptedLoreScrollRegionHeight', () => null)();
 }
 
+function scheduleRuntimeMobileFocus(selector = '') {
+    pendingRuntimeMobileFocusSelector = selector || pendingRuntimeMobileFocusSelector;
+    if (!pendingRuntimeMobileFocusSelector) return;
+    const schedule = typeof requestAnimationFrame === 'function'
+        ? requestAnimationFrame
+        : (fn) => setTimeout(fn, 0);
+    schedule(() => {
+        const root = getPanelRoot();
+        if (!root?.classList?.contains('saga-runtime-mobile')) return;
+        const focusSelector = pendingRuntimeMobileFocusSelector;
+        pendingRuntimeMobileFocusSelector = '';
+        const target = root.querySelector(focusSelector)
+            || root.querySelector('.saga-mobile-header-back')
+            || root.querySelector('.saga-mobile-bottom-tab-active')
+            || root.querySelector('.saga-mobile-bottom-tab[data-mobile-route="session"]');
+        target?.focus?.({ preventScroll: true });
+    });
+}
+
 export function normalizeRailMode(mode) {
     return mode === 'expanded' ? 'expanded' : 'compact';
 }
@@ -88,6 +117,261 @@ export function getViewportWidth() {
 
 export function getViewportHeight() {
     return window.innerHeight || document.documentElement?.clientHeight || 800;
+}
+
+export function isRuntimeMobileShell(width = getViewportWidth()) {
+    return Number(width) <= MOBILE_SHELL_MAX_WIDTH;
+}
+
+export function getDefaultMobilePanelState(activeTab = 'session', settings = {}) {
+    const activeRoute = getMobileRouteForTab(activeTab, settings);
+    const activeMoreRoute = activeRoute === 'more' ? normalizeMobileMoreRoute(activeTab, settings) : '';
+    return {
+        activeRoute,
+        activeMoreRoute,
+        lastPrimaryRoute: activeRoute === 'more' ? 'session' : activeRoute,
+        subviewStacks: {
+            loredecks: [],
+            session: [],
+            context: [],
+            lore: [],
+            more: [],
+        },
+    };
+}
+
+function normalizeMobileSubviewStack(stack) {
+    if (!Array.isArray(stack)) return [];
+    return stack
+        .filter(item => item && typeof item === 'object')
+        .slice(-12)
+        .map((item, index) => {
+            const id = String(item.id || item.route || `subview-${index + 1}`).trim() || `subview-${index + 1}`;
+            const title = String(item.title || item.label || id).trim() || id;
+            const params = item.params && typeof item.params === 'object' && !Array.isArray(item.params)
+                ? { ...item.params }
+                : {};
+            return { id, title, params };
+        });
+}
+
+function getMobileSubviewRouteKey(routeId, settings = getSettingsForShell()) {
+    const route = routeId === 'more' ? 'more' : getMobileRouteForTab(routeId, settings);
+    return getMobilePrimaryRoutes().includes(route) ? route : 'more';
+}
+
+export function normalizeMobilePanelState(panelState, settings = getSettingsForShell()) {
+    if (!panelState || typeof panelState !== 'object') {
+        return getDefaultMobilePanelState('session', settings);
+    }
+
+    const hasMobileState = panelState.mobile && typeof panelState.mobile === 'object' && !Array.isArray(panelState.mobile);
+    const previous = hasMobileState ? panelState.mobile : getDefaultMobilePanelState(panelState.activeTab, settings);
+    const activeRoute = normalizeMobileBottomRoute(previous.activeRoute || getMobileRouteForTab(panelState.activeTab, settings));
+    const hasPreviousMoreRoute = Object.prototype.hasOwnProperty.call(previous, 'activeMoreRoute');
+    const previousMoreRoute = hasPreviousMoreRoute
+        ? previous.activeMoreRoute
+        : (activeRoute === 'more' ? panelState.activeTab : '');
+    const activeMoreRoute = normalizeMobileMoreRoute(previousMoreRoute, settings);
+    const lastPrimaryRoute = getMobilePrimaryRoutes().includes(previous.lastPrimaryRoute)
+        ? previous.lastPrimaryRoute
+        : (getMobilePrimaryRoutes().includes(activeRoute) ? activeRoute : 'session');
+    const previousStacks = previous.subviewStacks && typeof previous.subviewStacks === 'object' ? previous.subviewStacks : {};
+
+    panelState.mobile = {
+        activeRoute,
+        activeMoreRoute: activeRoute === 'more' ? activeMoreRoute : '',
+        lastPrimaryRoute,
+        subviewStacks: {
+            loredecks: normalizeMobileSubviewStack(previousStacks.loredecks),
+            session: normalizeMobileSubviewStack(previousStacks.session),
+            context: normalizeMobileSubviewStack(previousStacks.context),
+            lore: normalizeMobileSubviewStack(previousStacks.lore),
+            more: normalizeMobileSubviewStack(previousStacks.more),
+        },
+    };
+    return panelState.mobile;
+}
+
+export function getRuntimeMobileActiveTab(panelState, settings = getSettingsForShell()) {
+    const mobile = normalizeMobilePanelState(panelState, settings);
+    if (mobile.activeRoute === 'more') return mobile.activeMoreRoute || '';
+    return mobile.activeRoute;
+}
+
+export function getRuntimeMobileSubviewStack(panelState, routeId = null, settings = getSettingsForShell()) {
+    const mobile = normalizeMobilePanelState(panelState, settings);
+    const routeKey = getMobileSubviewRouteKey(routeId || mobile.activeRoute, settings);
+    return mobile.subviewStacks[routeKey] || [];
+}
+
+export function getRuntimeMobileActiveSubview(panelState, routeId = null, settings = getSettingsForShell()) {
+    const stack = getRuntimeMobileSubviewStack(panelState, routeId, settings);
+    return stack.length ? stack[stack.length - 1] : null;
+}
+
+export function getRuntimeMobileHeaderTitle(panelState, settings = getSettingsForShell()) {
+    const mobile = normalizeMobilePanelState(panelState, settings);
+    const activeSubview = getRuntimeMobileActiveSubview(panelState, mobile.activeRoute, settings);
+    if (activeSubview?.title) return activeSubview.title;
+    if (mobile.activeRoute === 'more') {
+        return mobile.activeMoreRoute
+            ? getMobileRouteLabel(mobile.activeMoreRoute, settings)
+            : 'More';
+    }
+    return getMobileRouteLabel(mobile.activeRoute, settings);
+}
+
+function getRuntimeMobileFocusSelectorFromResult(result = null) {
+    if (!result || typeof result !== 'object') return '';
+    if (result.action === 'more-sheet' && result.route) {
+        return `.saga-mobile-more-entry[data-mobile-more-route="${result.route}"]`;
+    }
+    if (result.action === 'primary-route' && result.route) {
+        return `.saga-mobile-bottom-tab[data-mobile-route="${result.route}"]`;
+    }
+    if (result.action === 'pop-subview') {
+        return '.saga-mobile-header-back, .saga-mobile-bottom-tab-active';
+    }
+    return '';
+}
+
+function updateRuntimeMobilePanelState(mutator, options = {}) {
+    const state = getStateForShell();
+    if (!state?.lorePanel || typeof mutator !== 'function') return null;
+    normalizePanelLayoutState(state);
+    const settings = getSettingsForShell();
+    const mobile = normalizeMobilePanelState(state.lorePanel, settings);
+    const result = mutator({ state, panelState: state.lorePanel, mobile, settings });
+    saveStateForShell(state);
+    showRuntimePanelForShell();
+    scheduleRuntimeMobileFocus(options.focusSelector || getRuntimeMobileFocusSelectorFromResult(result));
+    return result;
+}
+
+export function selectRuntimeMobileRoute(routeId, options = {}) {
+    const route = normalizeMobileBottomRoute(routeId);
+    return updateRuntimeMobilePanelState(({ panelState, mobile, settings }) => {
+        mobile.activeRoute = route;
+        if (getMobilePrimaryRoutes().includes(route)) {
+            mobile.lastPrimaryRoute = route;
+            mobile.activeMoreRoute = '';
+            panelState.activeTab = route;
+        } else if (route === 'more') {
+            const requestedMoreRoute = normalizeMobileMoreRoute(options.moreRoute || '', settings);
+            mobile.activeMoreRoute = requestedMoreRoute;
+            panelState.activeTab = requestedMoreRoute
+                || (getMobilePrimaryRoutes().includes(mobile.lastPrimaryRoute) ? mobile.lastPrimaryRoute : 'session');
+        }
+        panelState.drawerOpen = true;
+        panelState.collapsed = false;
+        return route;
+    }, {
+        focusSelector: `.saga-mobile-bottom-tab[data-mobile-route="${route}"]`,
+    });
+}
+
+export function openRuntimeMobileMoreSheet() {
+    return selectRuntimeMobileRoute('more');
+}
+
+export function selectRuntimeMobileMoreRoute(routeId) {
+    const requestedRoute = normalizeMobileMoreRoute(routeId, getSettingsForShell());
+    return updateRuntimeMobilePanelState(({ panelState, mobile, settings }) => {
+        const route = normalizeMobileMoreRoute(requestedRoute || routeId, settings);
+        if (!route) return '';
+        mobile.activeRoute = 'more';
+        mobile.activeMoreRoute = route;
+        panelState.activeTab = route;
+        panelState.drawerOpen = true;
+        panelState.collapsed = false;
+        return route;
+    }, {
+        focusSelector: '.saga-mobile-header-back, .saga-mobile-bottom-tab[data-mobile-route="more"]',
+    });
+}
+
+export function pushRuntimeMobileSubview(routeId, subview = {}, options = {}) {
+    return updateRuntimeMobilePanelState(({ panelState, mobile, settings }) => {
+        const routeKey = getMobileSubviewRouteKey(routeId || mobile.activeRoute, settings);
+        const record = normalizeMobileSubviewStack([subview])[0] || {
+            id: String(subview?.id || 'detail'),
+            title: String(subview?.title || subview?.label || 'Details'),
+            params: {},
+        };
+        mobile.subviewStacks[routeKey] = normalizeMobileSubviewStack([...(mobile.subviewStacks[routeKey] || []), record]);
+        if (options.activate !== false) {
+            if (routeKey === 'more') {
+                const moreRoute = normalizeMobileMoreRoute(routeId, settings);
+                mobile.activeRoute = 'more';
+                if (moreRoute) {
+                    mobile.activeMoreRoute = moreRoute;
+                    panelState.activeTab = moreRoute;
+                }
+            } else {
+                mobile.activeRoute = routeKey;
+                mobile.lastPrimaryRoute = routeKey;
+                mobile.activeMoreRoute = '';
+                panelState.activeTab = routeKey;
+            }
+        }
+        return record;
+    }, {
+        focusSelector: '.saga-mobile-header-back, .saga-mobile-bottom-tab-active',
+    });
+}
+
+export function popRuntimeMobileSubview(routeId = null) {
+    return updateRuntimeMobilePanelState(({ mobile, settings }) => {
+        const routeKey = getMobileSubviewRouteKey(routeId || mobile.activeRoute, settings);
+        const stack = mobile.subviewStacks[routeKey] || [];
+        if (!stack.length) return null;
+        const popped = stack[stack.length - 1];
+        mobile.subviewStacks[routeKey] = stack.slice(0, -1);
+        return popped;
+    }, {
+        focusSelector: '.saga-mobile-header-back, .saga-mobile-bottom-tab-active',
+    });
+}
+
+export function clearRuntimeMobileSubviews(routeId = null) {
+    return updateRuntimeMobilePanelState(({ mobile, settings }) => {
+        const routeKey = getMobileSubviewRouteKey(routeId || mobile.activeRoute, settings);
+        mobile.subviewStacks[routeKey] = [];
+        return routeKey;
+    });
+}
+
+export function goBackRuntimeMobileShell() {
+    return updateRuntimeMobilePanelState(({ panelState, mobile, settings }) => {
+        const routeKey = getMobileSubviewRouteKey(mobile.activeRoute, settings);
+        const stack = mobile.subviewStacks[routeKey] || [];
+        if (stack.length) {
+            const popped = stack[stack.length - 1];
+            mobile.subviewStacks[routeKey] = stack.slice(0, -1);
+            return { action: 'pop-subview', subview: popped };
+        }
+        if (mobile.activeRoute === 'more' && mobile.activeMoreRoute) {
+            const route = mobile.activeMoreRoute;
+            mobile.activeMoreRoute = '';
+            panelState.activeTab = getMobilePrimaryRoutes().includes(mobile.lastPrimaryRoute) ? mobile.lastPrimaryRoute : 'session';
+            return { action: 'more-sheet', route };
+        }
+        if (mobile.activeRoute === 'more') {
+            const route = getMobilePrimaryRoutes().includes(mobile.lastPrimaryRoute) ? mobile.lastPrimaryRoute : 'session';
+            mobile.activeRoute = route;
+            mobile.activeMoreRoute = '';
+            panelState.activeTab = route;
+            return { action: 'primary-route', route };
+        }
+        return { action: 'none' };
+    });
+}
+
+export function canGoBackRuntimeMobileShell(panelState, settings = getSettingsForShell()) {
+    const mobile = normalizeMobilePanelState(panelState, settings);
+    if (getRuntimeMobileSubviewStack(panelState, mobile.activeRoute, settings).length > 0) return true;
+    return mobile.activeRoute === 'more';
 }
 
 export function getEstimatedRailHeight(panelState = null) {
@@ -126,6 +410,7 @@ export function normalizePanelLayoutState(state, options = {}) {
     panelState.collapsed = panelState.drawerOpen !== true;
     panelState.activeTab = normalizeTabForExperience(panelState.activeTab);
     panelState.drawerDirection = ['auto', 'right', 'left'].includes(panelState.drawerDirection) ? panelState.drawerDirection : 'auto';
+    normalizeMobilePanelState(panelState);
 
     const legacyX = Number(panelState.x);
     const legacyY = Number(panelState.y);
@@ -200,6 +485,13 @@ export function resolveDrawerDirection(panelState) {
 
 export function applyRuntimeShellGeometry(root, panelState) {
     if (!root) return;
+    if (isRuntimeMobileShell()) {
+        root.style.left = '';
+        root.style.top = '';
+        root.style.right = '';
+        root.style.bottom = '';
+        return;
+    }
     const railWidth = getRailWidth(panelState);
     const x = clampNumber(Number(panelState?.railX), 0, Math.max(0, getViewportWidth() - railWidth), DEFAULT_RAIL_LEFT);
     const y = clampNumber(Number(panelState?.railY), 0, Math.max(0, getViewportHeight() - 80), getDefaultRailY(panelState));
@@ -270,6 +562,13 @@ export function installNestedScrollHandoff(tabBody) {
 export function centerRuntimeRailInViewport(options = {}) {
     const root = getPanelRoot();
     if (!root) return;
+    if (isRuntimeMobileShell()) {
+        root.style.left = '';
+        root.style.top = '';
+        root.style.right = '';
+        root.style.bottom = '';
+        return;
+    }
     const state = getStateForShell();
     if (!state?.lorePanel) return;
     normalizePanelLayoutState(state);
@@ -294,6 +593,14 @@ export function centerRuntimeRailInViewport(options = {}) {
 export function clampRuntimeShellToViewport() {
     const root = getPanelRoot();
     if (!root) return;
+    if (isRuntimeMobileShell()) {
+        root.style.left = '';
+        root.style.top = '';
+        root.style.right = '';
+        root.style.bottom = '';
+        updateDrawerScrollMetrics(root.querySelector('.saga-runtime-drawer'));
+        return;
+    }
     const state = getStateForShell();
     const panelState = normalizePanelLayoutState(state);
     if (!panelState) return;
@@ -318,6 +625,7 @@ export function resetRuntimePanelLayout(options = {}) {
         state.lorePanel = getDefaultState().lorePanel;
     }
 
+    const settings = getSettingsForShell();
     const drawerWidth = Number(getDefaultState()?.lorePanel?.drawerWidth) || 560;
     const drawerHeight = Number(getDefaultState()?.lorePanel?.drawerHeight) || 640;
     const railX = DEFAULT_RAIL_LEFT;
@@ -337,10 +645,10 @@ export function resetRuntimePanelLayout(options = {}) {
         y: railY,
         width: drawerWidth,
         height: drawerHeight,
+        mobile: getDefaultMobilePanelState('session', settings),
         layoutVersion: LAYOUT_VERSION,
     });
 
-    const settings = getSettingsForShell();
     settings.collapsedSections = { ...(DEFAULT_SETTINGS.collapsedSections || {}) };
     saveSettingsForShell(settings);
     saveStateForShell(state);
@@ -362,6 +670,15 @@ export function toggleRuntimeDrawerForTab(tabId) {
     normalizePanelLayoutState(state);
     const settings = getSettingsForShell();
     const normalizedTab = normalizeTabForExperience(tabId, settings);
+    if (isRuntimeMobileShell()) {
+        const mobileRoute = getMobileRouteForTab(normalizedTab, settings);
+        if (mobileRoute === 'more' && getMobileMoreRoutesForExperience(settings).includes(normalizedTab)) {
+            selectRuntimeMobileMoreRoute(normalizedTab);
+        } else {
+            selectRuntimeMobileRoute(mobileRoute);
+        }
+        return;
+    }
     const sameActiveTab = normalizeTabForExperience(state.lorePanel.activeTab, settings) === normalizedTab;
     const shouldClose = sameActiveTab && state.lorePanel.drawerOpen === true;
     state.lorePanel.activeTab = normalizedTab;
@@ -383,6 +700,7 @@ export function toggleRuntimeRailMode() {
 export function onRuntimeRailDragStart(event) {
     const root = getPanelRoot();
     if (!root) return;
+    if (isRuntimeMobileShell()) return;
     if (event.target.closest('button, input, textarea, select, .saga-lore-panel-resize-handle')) return;
 
     isDragging = true;
@@ -428,6 +746,7 @@ function onRuntimeRailDragEnd() {
 export function onRuntimeDrawerResizeStart(event) {
     const root = getPanelRoot();
     if (event.button !== 0 || !root) return;
+    if (isRuntimeMobileShell()) return;
     const drawer = root.querySelector('.saga-runtime-drawer');
     if (!drawer) return;
 

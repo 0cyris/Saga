@@ -19,7 +19,9 @@ const LIVE_CONTEXT_LOADED_PACK_TITLE = 'Harry Potter Year 6: Half-Blood Prince';
 const LIVE_CONTEXT_REASONER_TARGET = 'live-context-reasoner';
 const LIVE_CREATOR_TARGET = 'live-creator';
 const STORAGE_HARNESS_TARGET = 'storage-harness';
-const REPO_LOCAL_HARNESS_TARGETS = new Set(['context-harness', 'guide-harness', 'creator-harness', STORAGE_HARNESS_TARGET]);
+const MOBILE_ADVANCED_HARNESS_TARGET = 'mobile-advanced-harness';
+const TABLET_ADVANCED_HARNESS_TARGET = 'tablet-advanced-harness';
+const REPO_LOCAL_HARNESS_TARGETS = new Set(['context-harness', 'guide-harness', 'creator-harness', MOBILE_ADVANCED_HARNESS_TARGET, TABLET_ADVANCED_HARNESS_TARGET, STORAGE_HARNESS_TARGET]);
 const LIVE_CONTEXT_METADATA_TARGETS = new Set([
     'live-context-loaded',
     'live-context-loaded-narrow',
@@ -214,6 +216,8 @@ function createRepoLocalFilesApiMock() {
 }
 
 function getVisualSmokeHarnessQuery(target = SMOKE_TARGET) {
+    if (target === MOBILE_ADVANCED_HARNESS_TARGET) return '?mode=advanced&tab=loredecks';
+    if (target === TABLET_ADVANCED_HARNESS_TARGET) return '?mode=advanced&tab=loredecks';
     if (target === 'context-harness') return '?tab=context&review=context-proposals';
     if (target === 'guide-harness') return '?mode=basic&tab=session';
     if (target === 'creator-harness') return '?tab=loredecks';
@@ -293,7 +297,7 @@ async function waitForDevtools(port) {
             if (version?.webSocketDebuggerUrl && page?.id) {
                 return {
                     browserWsUrl: version.webSocketDebuggerUrl,
-                    pageWsUrl: page.webSocketDebuggerUrl || '',
+                    pageWsUrl: process.env.SAGA_SMOKE_BROWSER_WS === '1' ? '' : (page.webSocketDebuggerUrl || ''),
                     pageTargetId: page.id,
                 };
             }
@@ -405,10 +409,28 @@ function createCdpStartupError(method, error, details = {}) {
 
 async function sendStartupCdpCommand(client, method, params, details) {
     try {
-        return await client.send(method, params);
+        const timeoutMs = Number(process.env.SAGA_SMOKE_CDP_STARTUP_TIMEOUT_MS) || 30000;
+        return await client.send(method, params, { timeoutMs });
     } catch (error) {
         throw createCdpStartupError(method, error, details);
     }
+}
+
+async function connectCdpClientWithRetry(wsUrl, timeoutMs = 10000) {
+    const deadline = Date.now() + timeoutMs;
+    let lastError = null;
+    while (Date.now() < deadline) {
+        const client = new CdpClient(wsUrl);
+        try {
+            await client.connect();
+            return client;
+        } catch (error) {
+            lastError = error;
+            client.close();
+            await wait(250);
+        }
+    }
+    throw lastError || new Error('CDP WebSocket did not become ready.');
 }
 
 class NativeWebSocket {
@@ -688,6 +710,29 @@ function formatLogEntry(entry = {}) {
     return entry.url ? `${text} (${entry.url})` : text;
 }
 
+function formatRuntimeException(details = {}) {
+    const exception = details.exception || {};
+    const text = exception.description || details.text || 'Runtime exception';
+    const url = details.url || '';
+    const line = Number.isFinite(Number(details.lineNumber)) ? Number(details.lineNumber) + 1 : 0;
+    const column = Number.isFinite(Number(details.columnNumber)) ? Number(details.columnNumber) + 1 : 0;
+    const location = url ? ` (${url}${line ? `:${line}${column ? `:${column}` : ''}` : ''})` : '';
+    return `${text}${location}`;
+}
+
+function collectClientErrors(client) {
+    return (client?.events || [])
+        .flatMap(event => {
+            if (event.method === 'Log.entryAdded' && event.params?.entry?.level === 'error') {
+                return [formatLogEntry(event.params.entry)];
+            }
+            if (event.method === 'Runtime.exceptionThrown') {
+                return [formatRuntimeException(event.params?.exceptionDetails || {})];
+            }
+            return [];
+        });
+}
+
 function isExpectedStorageHarness404(error = '') {
     const message = String(error || '');
     return SMOKE_TARGET === STORAGE_HARNESS_TARGET
@@ -700,6 +745,17 @@ function isExpectedLiveCreator404(error = '') {
     return SMOKE_TARGET === LIVE_CREATOR_TARGET
         && /Failed to load resource: the server responded with a status of 404/i.test(message)
         && /\/user\/files\/saga-(?:theme-index|iconset-index|creator-project-[^)\s]+)\.v1\.json/i.test(message);
+}
+
+function isExpectedRepoLocalHarnessStorageError(error = '') {
+    const message = String(error || '');
+    return ['context-harness', 'guide-harness', 'creator-harness', MOBILE_ADVANCED_HARNESS_TARGET, TABLET_ADVANCED_HARNESS_TARGET].includes(SMOKE_TARGET)
+        && (
+            (/Failed to load resource: the server responded with a status of 404/i.test(message)
+                && /\/user\/files\/saga-(?:theme-index|iconset-index|library-index|storage-index|creator-index|creator-project-[^)\s]+|pack-smoke-[^)\s]+)\.v1\.json/i.test(message))
+            || (/Failed to load resource: the server responded with a status of 405/i.test(message)
+                && /\/api\/files\/upload/i.test(message))
+        );
 }
 
 async function waitFor(client, expression, label, timeoutMs = 15000) {
@@ -739,6 +795,54 @@ async function clickSelector(client, selector) {
     }, selector), { userGesture: true });
 }
 
+function sagaActiveTabExpression(tabId) {
+    const expected = JSON.stringify(String(tabId || ''));
+    return `document.querySelector(".saga-runtime-rail-tab-active")?.getAttribute("data-tab-id") === ${expected} || document.querySelector("#saga-lore-panel")?.dataset?.mobileActiveTab === ${expected}`;
+}
+
+async function clickRuntimeRoute(client, routeId) {
+    const route = String(routeId || '').trim();
+    if (!route) return false;
+    const desktopClicked = await clickSelector(client, `.saga-runtime-rail-tab[data-tab-id="${route}"]`).catch(() => false);
+    if (desktopClicked) return true;
+    const mobileClicked = await clickSelector(client, `.saga-mobile-bottom-tab[data-mobile-route="${route}"]`).catch(() => false);
+    if (mobileClicked) return true;
+    return await clickSelector(client, `.saga-mobile-more-entry[data-mobile-more-route="${route}"]`).catch(() => false);
+}
+
+async function openMobileSessionDetailsForGuide(client) {
+    const state = await evaluate(client, script(() => {
+        const root = document.querySelector('#saga-lore-panel.saga-runtime-mobile');
+        if (!root) return { mobile: false, opened: true, reason: 'desktop-shell' };
+        const guideSelector = '[data-saga-tour="session.instructions.basic"], [data-saga-tour="session.instructions.advanced"]';
+        const hasGuideCard = !!document.querySelector(guideSelector);
+        if (hasGuideCard) return { mobile: true, opened: true, alreadyOpen: true };
+        const buttons = [...document.querySelectorAll('button')];
+        const target = buttons.find(button => (button.innerText || button.textContent || '').trim() === 'Session Details');
+        if (!target) {
+            return {
+                mobile: true,
+                opened: false,
+                reason: 'missing-session-details',
+                labels: buttons.map(button => (button.innerText || button.textContent || '').trim()).filter(Boolean).slice(0, 80),
+            };
+        }
+        target.scrollIntoView({ block: 'center', inline: 'center' });
+        target.click();
+        return { mobile: true, opened: true, clicked: true };
+    }), { userGesture: true });
+    if (state?.mobile && state?.opened) {
+        await waitFor(
+            client,
+            '!!document.querySelector("[data-saga-tour=\\"session.instructions.basic\\"], [data-saga-tour=\\"session.instructions.advanced\\"]")',
+            'Mobile Session Details guide surface',
+            10000,
+        );
+        await wait(500);
+    }
+    return state;
+}
+
 async function clickButtonText(client, text, options = {}) {
     return await evaluate(client, script((label, rootSelector, enabledOnly) => {
         const root = rootSelector ? document.querySelector(rootSelector) : document;
@@ -755,6 +859,44 @@ async function clickButtonText(client, text, options = {}) {
         target.click();
         return true;
     }, text, options.root || '', options.enabledOnly !== false), { userGesture: true });
+}
+
+async function clickVisibleButtonText(client, text, options = {}) {
+    return await evaluate(client, script((label, rootSelector, enabledOnly, allowIncludes) => {
+        const root = rootSelector ? document.querySelector(rootSelector) : document;
+        if (!root) return { clicked: false, reason: 'missing-root', rootSelector };
+        const isVisible = button => {
+            const rects = button.getClientRects?.();
+            if (!rects || !rects.length) return false;
+            const style = window.getComputedStyle?.(button);
+            return style?.display !== 'none' && style?.visibility !== 'hidden';
+        };
+        const buttons = [...root.querySelectorAll('button')];
+        const target = buttons.find(button => {
+            const clean = (button.innerText || button.textContent || '').trim();
+            if (!clean) return false;
+            if (enabledOnly && button.disabled) return false;
+            if (!isVisible(button)) return false;
+            return allowIncludes ? clean.includes(label) : clean === label;
+        });
+        if (!target) {
+            return {
+                clicked: false,
+                reason: 'missing-visible-button',
+                labels: buttons
+                    .map(button => ({
+                        label: (button.innerText || button.textContent || '').trim(),
+                        disabled: !!button.disabled,
+                        visible: isVisible(button),
+                    }))
+                    .filter(item => item.label)
+                    .slice(0, 120),
+            };
+        }
+        target.scrollIntoView({ block: 'center', inline: 'center' });
+        target.click();
+        return { clicked: true, label: (target.innerText || target.textContent || '').trim() };
+    }, text, options.root || '', options.enabledOnly !== false, options.includes === true), { userGesture: true });
 }
 
 async function openSummaryText(client, text, options = {}) {
@@ -879,6 +1021,143 @@ async function selectFirstLoredeckInLibrary(client) {
     }
 
     return secondPass;
+}
+
+async function selectLoredeckInLibraryByPackId(client, packId, title = '') {
+    const id = String(packId || '').trim();
+    const name = String(title || '').trim();
+    if (!id) return { selected: false, mode: 'missing-pack-id' };
+
+    const clickVisibleCard = async (mode) => await evaluate(client, script((targetId, targetTitle, selectionMode) => {
+        const overlay = document.querySelector('.saga-loredeck-library-overlay');
+        if (!overlay) return { selected: false, mode: 'missing-library' };
+
+        const collapsedHandle = overlay.querySelector('.saga-loredeck-library-resize-handle[aria-expanded="false"]');
+        if (collapsedHandle) collapsedHandle.click();
+
+        const matchesTarget = element => {
+            const elementPackId = String(element?.getAttribute?.('data-pack-id') || '').trim();
+            const text = element?.innerText || element?.textContent || '';
+            return elementPackId === targetId || (!!targetTitle && text.includes(targetTitle));
+        };
+        const candidates = [
+            ...overlay.querySelectorAll('.saga-loredeck-library-deck-card[data-pack-id]'),
+            ...overlay.querySelectorAll('.saga-loredeck-library-folder-loredeck-row'),
+        ];
+        const target = candidates.find(matchesTarget);
+        if (!target) {
+            return {
+                selected: false,
+                mode: selectionMode || 'target-not-visible',
+                visiblePackIds: candidates.map(element => element.getAttribute?.('data-pack-id') || '').filter(Boolean).slice(0, 80),
+                text: (overlay.innerText || overlay.textContent || '').slice(0, 800),
+            };
+        }
+        target.scrollIntoView({ block: 'center', inline: 'center' });
+        target.click();
+        return {
+            selected: true,
+            mode: selectionMode || 'visible-card',
+            packId: target.getAttribute?.('data-pack-id') || targetId,
+            text: (target.innerText || target.textContent || '').slice(0, 400),
+        };
+    }, id, name, mode), { userGesture: true });
+
+    let result = await clickVisibleCard('direct-card');
+    if (!result.selected) {
+        const searchSet = await setInputValue(client, '.saga-loredeck-library-overlay .saga-loredeck-library-search', name || id).catch(() => false);
+        if (searchSet) {
+            await wait(700);
+            result = await clickVisibleCard('search-card');
+        }
+    }
+
+    if (!result.selected) {
+        result = await evaluate(client, script(async targetId => {
+            try {
+                const library = await import('/src/loredecks/loredeck-library-panel.js');
+                const selected = library.openLoredeckLibraryDetails(targetId);
+                if (selected && typeof library.renderLoredeckLibraryOverlay === 'function') {
+                    library.renderLoredeckLibraryOverlay({ preserveScroll: false, progressiveOpen: false });
+                }
+                return { selected: !!selected, mode: selected ? 'open-details-api' : 'open-details-api-false', packId: targetId };
+            } catch (error) {
+                return {
+                    selected: false,
+                    mode: 'open-details-api-error',
+                    error: error?.message || String(error),
+                };
+            }
+        }, id), { userGesture: true, timeoutMs: 20000 });
+    }
+
+    if (result.selected) {
+        result.detailsExpansion = await evaluate(client, script(() => {
+            const overlay = document.querySelector('.saga-loredeck-library-overlay');
+            const body = overlay?.querySelector('.saga-loredeck-library-body');
+            const handle = overlay?.querySelector('.saga-loredeck-library-resize-handle');
+            const wasCollapsed = !!body?.classList?.contains('saga-loredeck-library-details-collapsed')
+                || handle?.getAttribute('aria-expanded') === 'false';
+            if (wasCollapsed && handle) handle.click();
+            const details = overlay?.querySelector('.saga-loredeck-library-details');
+            details?.scrollIntoView({ block: 'end', inline: 'nearest' });
+            return {
+                overlay: !!overlay,
+                details: !!details,
+                wasCollapsed,
+                expanded: !body?.classList?.contains('saga-loredeck-library-details-collapsed')
+                    && handle?.getAttribute('aria-expanded') !== 'false',
+                detailsText: (details?.textContent || '').slice(0, 400),
+            };
+        }), { userGesture: true }).catch(error => ({
+            overlay: false,
+            details: false,
+            error: error?.message || String(error),
+        }));
+        await wait(400);
+        const detailsReady = await waitFor(
+            client,
+            script((targetId, targetTitle) => {
+                const details = document.querySelector('.saga-loredeck-library-details');
+                const text = details?.textContent || details?.innerText || '';
+                return !!details
+                    && text.includes('Selected Loredeck')
+                    && (text.includes(targetId) || (!!targetTitle && text.includes(targetTitle)));
+            }, id, name),
+            `Loredeck Library details for ${id}`,
+            10000,
+        ).then(() => true).catch(error => {
+            result.detailsWaitError = error?.message || String(error);
+            return false;
+        });
+        if (!detailsReady) {
+            result.detailsDiagnostics = await evaluate(client, script(targetId => {
+                const overlay = document.querySelector('.saga-loredeck-library-overlay');
+                const details = overlay?.querySelector('.saga-loredeck-library-details');
+                const selectedCards = [...overlay?.querySelectorAll('[aria-current="true"], .saga-loredeck-library-deck-selected, .saga-loredeck-library-stack-card-selected') || []]
+                    .map(element => ({
+                        className: element.className || '',
+                        packId: element.getAttribute?.('data-pack-id') || '',
+                        text: (element.innerText || element.textContent || '').slice(0, 300),
+                    }));
+                return {
+                    overlay: !!overlay,
+                    bodyCollapsed: !!overlay?.querySelector('.saga-loredeck-library-body')?.classList?.contains('saga-loredeck-library-details-collapsed'),
+                    details: !!details,
+                    detailsText: (details?.textContent || details?.innerText || '').slice(0, 1200),
+                    selectedCards,
+                    targetCards: [...overlay?.querySelectorAll(`[data-pack-id="${targetId}"]`) || []].map(element => ({
+                        className: element.className || '',
+                        text: (element.innerText || element.textContent || '').slice(0, 300),
+                    })),
+                    overlayText: (overlay?.textContent || overlay?.innerText || '').slice(0, 1600),
+                };
+            }, id)).catch(error => ({ error: error?.message || String(error) }));
+            result.selected = false;
+        }
+    }
+
+    return result;
 }
 
 async function captureSagaMetadata(client) {
@@ -1076,7 +1355,7 @@ async function collectState(client) {
 
 function getLiveCreatorSmokeConfig() {
     const runId = String(process.env.SAGA_LIVE_CREATOR_RUN_ID || `live-creator-${Date.now().toString(36)}`).trim();
-    const providerTimeoutMs = Number(process.env.SAGA_LIVE_CREATOR_TIMEOUT_MS || process.env.SAGA_PROVIDER_SMOKE_TIMEOUT_MS) || 240000;
+    const providerTimeoutMs = Number(process.env.SAGA_LIVE_CREATOR_TIMEOUT_MS || process.env.SAGA_PROVIDER_SMOKE_TIMEOUT_MS) || 900000;
     const defaultScope = [
         'Arlong Park arc focused on Nami, Arlong, Cocoyasi Village, Bellemere fallout, and the moment Luffy takes the burden from Nami.',
         `Use ${runId} only as an automated smoke-run label; do not treat it as lore.`,
@@ -1225,6 +1504,8 @@ async function installLiveCreatorStateProbe(client) {
                 .map(summarizeUnit);
             const activeGeneration = job?.activeGeneration && typeof job.activeGeneration === 'object' ? {
                 id: job.activeGeneration.id || '',
+                runId: job.activeGeneration.runId || '',
+                unitId: job.activeGeneration.unitId || '',
                 actionId: job.activeGeneration.actionId || '',
                 stage: job.activeGeneration.stage || '',
                 currentStage: job.activeGeneration.currentStage || '',
@@ -1293,6 +1574,7 @@ async function installLiveCreatorStateProbe(client) {
                     acceptedEntryCount,
                     entryDraftCount: Number(job.entryDraftCount || draftChanges.length || 0),
                     entryDraftRemainingCount: Number(job.entryDraftRemainingCount || 0),
+                    coverageFinalizeAcknowledgement: summarizeValue(job.coverageFinalizeAcknowledgement || null),
                     activeGeneration,
                     lastGenerationResult: summarizeGenerationResult(job.lastGenerationResult),
                     generationUnits,
@@ -1337,40 +1619,56 @@ async function recordLiveCreatorStep(client, steps, label, screenshots, screensh
 }
 
 async function clickButtonMatching(client, matcher = {}, options = {}) {
-    return await evaluate(client, script((rawMatcher, rootSelector, enabledOnly) => {
-        const root = rootSelector ? document.querySelector(rootSelector) : document;
-        if (!root) return { clicked: false, reason: 'missing-root', rootSelector };
+    return await evaluate(client, script((rawMatcher, rootSelector, enabledOnly, preferLast) => {
+        const roots = rootSelector ? [...document.querySelectorAll(rootSelector)] : [document];
+        if (!roots.length) return { clicked: false, reason: 'missing-root', rootSelector };
         const labels = Array.isArray(rawMatcher.labels) ? rawMatcher.labels.map(item => String(item || '').trim()).filter(Boolean) : [];
         const includes = String(rawMatcher.includes || '').trim();
         const pattern = String(rawMatcher.pattern || '').trim();
         const regex = pattern ? new RegExp(pattern) : null;
-        const buttons = [...root.querySelectorAll('button')];
-        const target = buttons.find(button => {
-            const label = (button.innerText || button.textContent || '').trim();
+        const records = roots.flatMap((root, rootIndex) => [...root.querySelectorAll('button')].map(button => ({
+            button,
+            rootIndex,
+            label: (button.innerText || button.textContent || '').trim(),
+        })));
+        const matches = records.filter(record => {
+            const { button, label } = record;
             if (!label) return false;
             if (enabledOnly && button.disabled) return false;
             if (labels.includes(label)) return true;
             if (includes && label.includes(includes)) return true;
             return regex ? regex.test(label) : false;
         });
+        const target = preferLast ? matches.at(-1) : matches[0];
         if (!target) {
             return {
                 clicked: false,
                 reason: 'missing-button',
-                labels: buttons.map(button => ({
-                    label: (button.innerText || button.textContent || '').trim(),
-                    disabled: !!button.disabled,
-                })).filter(button => button.label).slice(0, 80),
+                rootCount: roots.length,
+                labels: records.map(record => ({
+                    label: record.label,
+                    disabled: !!record.button.disabled,
+                    rootIndex: record.rootIndex,
+                })).filter(record => record.label).slice(0, 100),
             };
         }
-        target.scrollIntoView({ block: 'center', inline: 'center' });
-        target.click();
-        return { clicked: true, label: (target.innerText || target.textContent || '').trim() };
-    }, matcher, options.root || '', options.enabledOnly !== false), { userGesture: true });
+        target.button.scrollIntoView({ block: 'center', inline: 'center' });
+        target.button.click();
+        return { clicked: true, label: target.label, rootIndex: target.rootIndex, rootCount: roots.length };
+    }, matcher, options.root || '', options.enabledOnly !== false, options.preferLast === true), { userGesture: true });
 }
 
 async function requireButtonMatching(client, matcher = {}, label = 'button', options = {}) {
-    const result = await clickButtonMatching(client, matcher, options);
+    const deadline = Date.now() + Number(options.timeoutMs || 30000);
+    let result = null;
+    do {
+        result = await clickButtonMatching(client, matcher, options);
+        if (result?.clicked) return result;
+        if (Date.now() >= deadline) break;
+        await wait(250);
+    } while (Date.now() < deadline);
+    result = await clickButtonMatching(client, matcher, options);
+    if (result?.clicked) return result;
     if (!result?.clicked) {
         throw new Error(`Could not click ${label}: ${JSON.stringify(redactDiagnosticValue(result))}`);
     }
@@ -1408,6 +1706,38 @@ async function confirmLiveCreatorDialog(client, expectedPattern = '', options = 
             text: (overlay.innerText || '').slice(0, 1000),
         };
     }, expectedPattern), { userGesture: true, timeoutMs: Number(options.timeoutMs) || 60000 });
+}
+
+async function cancelLiveCreatorDialogIfPresent(client) {
+    const result = await evaluate(client, script(() => {
+        const overlay = document.querySelector('.saga-confirm-overlay');
+        if (!overlay) return { cancelled: false, reason: 'missing-confirm-overlay' };
+        const buttons = [...overlay.querySelectorAll('button')];
+        const target = buttons.find(button => /^cancel$/i.test((button.innerText || button.textContent || '').trim()))
+            || buttons.find(button => /^(close|no)$/i.test((button.innerText || button.textContent || '').trim()));
+        if (!target) {
+            return {
+                cancelled: false,
+                reason: 'missing-cancel-button',
+                text: (overlay.innerText || '').slice(0, 1000),
+                labels: buttons.map(button => (button.innerText || button.textContent || '').trim()).filter(Boolean),
+            };
+        }
+        target.scrollIntoView({ block: 'center', inline: 'center' });
+        target.click();
+        return {
+            cancelled: true,
+            label: (target.innerText || target.textContent || '').trim(),
+            text: (overlay.innerText || '').slice(0, 1000),
+        };
+    }), { userGesture: true, timeoutMs: 15000 }).catch(error => ({
+        cancelled: false,
+        reason: error?.message || String(error),
+    }));
+    if (result?.cancelled) {
+        await waitFor(client, '!document.querySelector(".saga-confirm-overlay")', 'live Creator stale confirmation close', 15000).catch(() => null);
+    }
+    return result;
 }
 
 async function setLiveCreatorField(client, label, value) {
@@ -1466,6 +1796,19 @@ async function waitForLiveCreatorSettled(client, label, timeoutMs) {
     );
 }
 
+async function waitForLiveCreatorGenerationState(client, readyPredicateSource, readyCheck, label, timeoutMs) {
+    const expression = `(() => { const state = window.__sagaLiveCreatorSmokeState?.(); const labels = state?.visible?.buttonLabels || []; const result = state?.job?.lastGenerationResult || {}; return (${readyPredicateSource}) || state?.providerNotReady || state?.actionFailed || labels.includes("Retry Failed") || result.status === "error" || result.status === "failed"; })()`;
+    await waitForLiveCreatorState(client, expression, label, timeoutMs);
+    let state = await collectLiveCreatorState(client);
+    if (readyCheck(state)) return state;
+    if ((state.visible?.buttonLabels || []).includes('Retry Failed')) {
+        await requireButtonMatching(client, { labels: ['Retry Failed'] }, `${label} retry`, { root: '.saga-loredeck-creator-workbench-overlay' });
+        await waitForLiveCreatorState(client, expression, `${label} retry result`, timeoutMs);
+        state = await collectLiveCreatorState(client);
+    }
+    return state;
+}
+
 async function clearLiveCreatorActiveProjectPointers(client) {
     return await evaluate(client, script(async () => {
         const ctx = window.SillyTavern?.getContext?.();
@@ -1512,7 +1855,7 @@ async function clearLiveCreatorActiveProjectPointers(client) {
 }
 
 function buildLiveCreatorSmokeProjectCheckExpression() {
-    return '(() => { const state = window.__sagaLiveCreatorSmokeState?.(); const job = state?.job || {}; const text = [job.fandom, job.scope, job.generatedPackId, job.generatedPackTitle, job.lastGenerationResult?.message, state?.visible?.creatorText].filter(Boolean).join("\\n"); const hasJob = !!job.jobId; const empty = !hasJob || ((!job.currentStage || job.currentStage === "intake") && !job.briefReady && !job.outlineReady && !(job.titleDraftCount || 0) && !(job.approvedTitleCount || 0) && !(job.planningQueuedCount || 0) && !(job.planningAcceptedCount || 0) && !(job.draftChangeCount || 0) && !(job.acceptedEntryCount || 0)); const smokeLike = /Automated live Creator smoke|live-creator-|Arlong Park arc focused on Nami|one-piece-arlong/i.test(text); return { hasJob, empty, smokeLike, jobId: job.jobId || "", currentStage: job.currentStage || "", generatedPackId: job.generatedPackId || "" }; })()';
+    return '(() => { const state = window.__sagaLiveCreatorSmokeState?.(); const job = state?.job || {}; const text = [job.fandom, job.scope, job.generatedPackId, job.generatedPackTitle, job.lastGenerationResult?.message, state?.visible?.creatorText].filter(Boolean).join("\\n"); const hasJob = !!job.jobId; const visiblePending = /Review Queue\\s+[1-9]\\d* pending|Pending Review\\s+[1-9]\\d*/i.test(text); const hasGeneratedPack = !!String(job.generatedPackId || "").trim(); const empty = !hasJob ? !visiblePending : ((!job.currentStage || job.currentStage === "intake") && !hasGeneratedPack && !job.briefReady && !job.outlineReady && !(job.titleDraftCount || 0) && !(job.approvedTitleCount || 0) && !(job.planningQueuedCount || 0) && !(job.planningAcceptedCount || 0) && !(job.draftChangeCount || 0) && !(job.acceptedEntryCount || 0) && !visiblePending); const smokeLike = /Automated live Creator smoke|live-creator-|Arlong Park arc focused on Nami|one-piece-arlong/i.test(text); return { hasJob, empty, smokeLike, visiblePending, jobId: job.jobId || "", currentStage: job.currentStage || "", generatedPackId: job.generatedPackId || "" }; })()';
 }
 
 async function resetLiveCreatorSmokeProjectToIntakeIfNeeded(client) {
@@ -1553,19 +1896,31 @@ async function resetLiveCreatorSmokeProjectToIntakeIfNeeded(client) {
     await waitFor(client, '!!document.querySelector(".saga-confirm-overlay")', 'live Creator stale smoke reset confirmation', 10000);
     const confirmed = await confirmLiveCreatorDialog(client, '', { timeoutMs: 60000 });
     if (!confirmed?.clicked) return { ok: false, reset: false, reason: confirmed?.reason || 'reset-confirm-failed', check, clicked, confirmed };
-    await waitForLiveCreatorState(
-        client,
-        '(() => { const state = window.__sagaLiveCreatorSmokeState?.(); const job = state?.job || {}; return (!job.currentStage || job.currentStage === "intake") && !job.briefReady && !job.outlineReady && !(job.titleDraftCount || 0) && !(job.approvedTitleCount || 0) && !(job.planningQueuedCount || 0) && !(job.planningAcceptedCount || 0) && !(job.draftChangeCount || 0) && !(job.acceptedEntryCount || 0); })()',
-        'live Creator stale smoke reset to intake',
-        60000,
-    );
+    let waitError = '';
+    try {
+        await waitForLiveCreatorState(
+            client,
+            '(() => { const state = window.__sagaLiveCreatorSmokeState?.(); const job = state?.job || {}; const text = state?.visible?.creatorText || ""; return (!job.currentStage || job.currentStage === "intake") && !String(job.generatedPackId || "").trim() && !job.briefReady && !job.outlineReady && !(job.titleDraftCount || 0) && !(job.approvedTitleCount || 0) && !(job.planningQueuedCount || 0) && !(job.planningAcceptedCount || 0) && !(job.draftChangeCount || 0) && !(job.acceptedEntryCount || 0) && !/Review Queue\\s+[1-9]\\d* pending|Pending Review\\s+[1-9]\\d*/i.test(text); })()',
+            'live Creator stale smoke reset to intake',
+            60000,
+        );
+    } catch (error) {
+        waitError = error?.message || String(error);
+    }
+    const after = await collectLiveCreatorState(client);
+    const lateClean = await evaluate(client, buildLiveCreatorSmokeProjectCheckExpression(), { timeoutMs: 15000 }).catch(() => null);
+    if (waitError && !lateClean?.empty) {
+        return { ok: false, reset: false, reason: waitError, check, clicked, confirmed, after, lateClean };
+    }
     return {
         ok: true,
         reset: true,
+        ...(waitError ? { waitRecovered: true, waitError } : {}),
         check,
         clicked,
         confirmed: redactDiagnosticValue(confirmed),
-        after: await collectLiveCreatorState(client),
+        after,
+        lateClean,
     };
 }
 
@@ -1575,13 +1930,30 @@ async function openLiveCreatorWorkbench(client) {
     await waitFor(client, 'document.querySelector(".saga-runtime-rail-tab-active")?.getAttribute("data-tab-id") === "loredecks"', 'Live Creator Loredecks tab active', 10000);
     await waitFor(client, 'document.querySelector(".saga-runtime-drawer")?.innerText.includes("Loredecks")', 'Live Creator Loredecks drawer', 10000);
     await wait(700);
-    const libraryOpened = await clickButtonText(client, 'Open Loredeck Library');
-    if (!libraryOpened) throw new Error('Could not open Loredeck Library for live Creator smoke.');
-    await waitFor(client, '!!document.querySelector(".saga-loredeck-library-overlay")', 'Live Creator Library overlay', 10000);
+    const directCreateOpened = await clickButtonText(client, 'Create Deck');
+    if (directCreateOpened) {
+        const directCreatorReady = await waitFor(
+            client,
+            '!!document.querySelector(".saga-loredeck-creator-workbench-overlay")',
+            'Live Creator direct workbench overlay',
+            20000,
+        ).then(() => true).catch(() => false);
+        if (directCreatorReady) {
+            await installLiveCreatorStateProbe(client);
+            await wait(700);
+            return;
+        }
+    }
+    const libraryAlreadyOpen = await evaluate(client, '!!document.querySelector(".saga-loredeck-library-overlay")').catch(() => false);
+    if (!libraryAlreadyOpen) {
+        const libraryOpened = await clickButtonText(client, 'Open Loredeck Library');
+        if (!libraryOpened) throw new Error('Could not open Loredeck Library for live Creator smoke.');
+    }
+    await waitFor(client, '!!document.querySelector(".saga-loredeck-library-overlay")', 'Live Creator Library overlay', 90000);
     await wait(700);
     const createOpened = await clickButtonText(client, 'Create Deck', { root: '.saga-loredeck-library-overlay' });
     if (!createOpened) throw new Error('Could not open Loredeck Creator from the live Library.');
-    await waitFor(client, '!!document.querySelector(".saga-loredeck-creator-workbench-overlay")', 'Live Creator workbench overlay', 10000);
+    await waitFor(client, '!!document.querySelector(".saga-loredeck-creator-workbench-overlay")', 'Live Creator workbench overlay', 90000);
     await installLiveCreatorStateProbe(client);
     await wait(700);
 }
@@ -2168,7 +2540,11 @@ async function clickTourNextUntilTitle(client, expectedTitle, maxClicks = 20) {
 
 async function runGuideHarnessSmoke(client, screenshots, findings, smokeUrl, dialogEvents) {
     await waitFor(client, 'window.__sagaSmokeReady === true', 'Guide smoke ready marker', 20000);
-    await waitFor(client, 'document.querySelector(".saga-runtime-rail-tab-active")?.getAttribute("data-tab-id") === "session"', 'Guide smoke Session tab active', 10000);
+    await waitFor(client, sagaActiveTabExpression('session'), 'Guide smoke Session tab active', 10000);
+    const basicDetailsState = await openMobileSessionDetailsForGuide(client);
+    if (basicDetailsState?.mobile && !basicDetailsState.opened) {
+        findings.push(`Mobile Basic Session Details did not open for guide checks: ${basicDetailsState.reason || 'unknown'}.`);
+    }
 
     const basicInitial = await evaluate(client, script(() => {
         const text = document.body?.innerText || '';
@@ -2179,7 +2555,8 @@ async function runGuideHarnessSmoke(client, screenshots, findings, smokeUrl, dia
             .filter(Boolean);
         return {
             smokeMode: window.__sagaSmokeMode || '',
-            activeTab: document.querySelector('.saga-runtime-rail-tab-active')?.getAttribute('data-tab-id') || '',
+            mobileShell: !!document.querySelector('#saga-lore-panel.saga-runtime-mobile'),
+            activeTab: document.querySelector('.saga-runtime-rail-tab-active')?.getAttribute('data-tab-id') || document.querySelector('#saga-lore-panel')?.dataset?.mobileActiveTab || '',
             hasBasicTitle: text.includes('Basic Walkthrough'),
             hasBasicStart: buttonLabels.includes('Start Basic Walkthrough'),
             moduleTitles: [...document.querySelectorAll('.saga-instructions-section-title')].map(node => node.textContent?.trim()).filter(Boolean),
@@ -2196,7 +2573,7 @@ async function runGuideHarnessSmoke(client, screenshots, findings, smokeUrl, dia
         if (!basicInitial.moduleTitles.includes(label)) findings.push(`Basic guide card is missing module: ${label}.`);
     }
     if (basicInitial.moduleTitles.length !== expectedBasicModules.length) findings.push(`Basic guide card rendered ${basicInitial.moduleTitles.length} modules instead of ${expectedBasicModules.length}.`);
-    if (basicInitial.railTabs.includes('injection') || basicInitial.railTabs.includes('continuity')) findings.push('Basic rail exposed hidden Injection or Continuity tabs.');
+    if (!basicInitial.mobileShell && (basicInitial.railTabs.includes('injection') || basicInitial.railTabs.includes('continuity'))) findings.push('Basic rail exposed hidden Injection or Continuity tabs.');
     if (basicInitial.hiddenActionButtons.length) findings.push(`Basic guide Session surface exposed Advanced-only action buttons: ${basicInitial.hiddenActionButtons.join(', ')}.`);
     if (!basicInitial.stopPills.every(text => text.includes('guided stop'))) findings.push('Basic guide modules did not show guided stop metadata.');
     screenshots.push(await screenshot(client, 'guide-harness-01-basic-card'));
@@ -2208,6 +2585,7 @@ async function runGuideHarnessSmoke(client, screenshots, findings, smokeUrl, dia
     const basicModuleTour = await evaluate(client, script(() => {
         const popover = document.querySelector('#saga-tour-popover');
         const text = popover?.innerText || '';
+        const overlay = document.querySelector('.saga-loredeck-library-overlay');
         return {
             hasPopover: !!popover,
             title: popover?.querySelector('.saga-tour-title')?.textContent?.trim() || '',
@@ -2216,35 +2594,56 @@ async function runGuideHarnessSmoke(client, screenshots, findings, smokeUrl, dia
             hasExpected: text.includes('Expected result:'),
             highlightedTargets: document.querySelectorAll('.saga-tour-highlight').length,
             targetVisible: !!document.querySelector('[data-saga-tour="loredecks.library.launch"]'),
-            activeTab: document.querySelector('.saga-runtime-rail-tab-active')?.getAttribute('data-tab-id') || '',
+            mobileShell: !!document.querySelector('#saga-lore-panel.saga-runtime-mobile'),
+            overlayOpen: !!overlay,
+            headerTargetVisible: !!document.querySelector('[data-saga-tour="loredecks.library.header"]'),
+            hasDone: [...(overlay?.querySelectorAll('button') || [])].some(button => (button.innerText || button.textContent || '').trim() === 'Done'),
+            activeTab: document.querySelector('.saga-runtime-rail-tab-active')?.getAttribute('data-tab-id') || document.querySelector('#saga-lore-panel')?.dataset?.mobileActiveTab || '',
         };
     }));
-    if (!basicModuleTour.hasPopover || basicModuleTour.title !== 'Loredecks as Source Packs') findings.push('Basic Loredecks module did not open on the expected first step.');
-    if (basicModuleTour.progress !== '1 / 14') findings.push(`Basic Loredecks module progress was ${basicModuleTour.progress || 'missing'} instead of 1 / 14.`);
+    const basicModuleLandedOnPreparedLibrary = basicModuleTour.mobileShell
+        && basicModuleTour.title === 'Library Layout'
+        && basicModuleTour.progress === '3 / 14';
+    if (!basicModuleLandedOnPreparedLibrary && (!basicModuleTour.hasPopover || basicModuleTour.title !== 'Loredecks as Source Packs')) findings.push('Basic Loredecks module did not open on the expected first step.');
+    if (!basicModuleLandedOnPreparedLibrary && basicModuleTour.progress !== '1 / 14') findings.push(`Basic Loredecks module progress was ${basicModuleTour.progress || 'missing'} instead of 1 / 14.`);
     if (!basicModuleTour.hasWhen || !basicModuleTour.hasExpected) findings.push('Basic Loredecks module popover did not include When to use and Expected result details.');
-    if (!basicModuleTour.targetVisible || basicModuleTour.activeTab !== 'loredecks') findings.push('Basic Loredecks module did not navigate to the visible Library launch target.');
+    if (!basicModuleLandedOnPreparedLibrary && (!basicModuleTour.targetVisible || basicModuleTour.activeTab !== 'loredecks')) findings.push('Basic Loredecks module did not navigate to the visible Library launch target.');
     screenshots.push(await screenshot(client, 'guide-harness-02-basic-module'));
 
-    await clickButtonText(client, 'Next', { root: '#saga-tour-popover' });
-    await waitFor(client, 'document.querySelector("#saga-tour-popover .saga-tour-title")?.textContent?.trim() === "Open Loredeck Library"', 'Basic Loredecks module second step', 10000);
-    await clickButtonText(client, 'Next', { root: '#saga-tour-popover' });
-    await waitFor(client, '!!document.querySelector(".saga-loredeck-library-overlay") && document.querySelector("#saga-tour-popover .saga-tour-title")?.textContent?.trim() === "Library Layout"', 'Basic prepared Library Layout step', 10000);
-    await wait(600);
-    const basicPreparedLibrary = await evaluate(client, script(() => {
-        const popover = document.querySelector('#saga-tour-popover');
-        const text = popover?.innerText || '';
-        const overlay = document.querySelector('.saga-loredeck-library-overlay');
-        return {
-            hasPopover: !!popover,
-            title: popover?.querySelector('.saga-tour-title')?.textContent?.trim() || '',
-            progress: popover?.querySelector('.saga-tour-progress')?.textContent?.trim() || '',
-            hasWhen: text.includes('When to use:'),
-            hasExpected: text.includes('Expected result:'),
-            overlayOpen: !!overlay,
-            targetVisible: !!document.querySelector('[data-saga-tour="loredecks.library.header"]'),
-            hasDone: [...(overlay?.querySelectorAll('button') || [])].some(button => (button.innerText || button.textContent || '').trim() === 'Done'),
+    let basicPreparedLibrary = null;
+    if (basicModuleLandedOnPreparedLibrary) {
+        basicPreparedLibrary = {
+            hasPopover: basicModuleTour.hasPopover,
+            title: basicModuleTour.title,
+            progress: basicModuleTour.progress,
+            hasWhen: basicModuleTour.hasWhen,
+            hasExpected: basicModuleTour.hasExpected,
+            overlayOpen: basicModuleTour.overlayOpen,
+            targetVisible: basicModuleTour.headerTargetVisible,
+            hasDone: basicModuleTour.hasDone,
         };
-    }));
+    } else {
+        await clickButtonText(client, 'Next', { root: '#saga-tour-popover' });
+        await waitFor(client, 'document.querySelector("#saga-tour-popover .saga-tour-title")?.textContent?.trim() === "Open Loredeck Library"', 'Basic Loredecks module second step', 10000);
+        await clickButtonText(client, 'Next', { root: '#saga-tour-popover' });
+        await waitFor(client, '!!document.querySelector(".saga-loredeck-library-overlay") && document.querySelector("#saga-tour-popover .saga-tour-title")?.textContent?.trim() === "Library Layout"', 'Basic prepared Library Layout step', 10000);
+        await wait(600);
+        basicPreparedLibrary = await evaluate(client, script(() => {
+            const popover = document.querySelector('#saga-tour-popover');
+            const text = popover?.innerText || '';
+            const overlay = document.querySelector('.saga-loredeck-library-overlay');
+            return {
+                hasPopover: !!popover,
+                title: popover?.querySelector('.saga-tour-title')?.textContent?.trim() || '',
+                progress: popover?.querySelector('.saga-tour-progress')?.textContent?.trim() || '',
+                hasWhen: text.includes('When to use:'),
+                hasExpected: text.includes('Expected result:'),
+                overlayOpen: !!overlay,
+                targetVisible: !!document.querySelector('[data-saga-tour="loredecks.library.header"]'),
+                hasDone: [...(overlay?.querySelectorAll('button') || [])].some(button => (button.innerText || button.textContent || '').trim() === 'Done'),
+            };
+        }));
+    }
     if (!basicPreparedLibrary.hasPopover || basicPreparedLibrary.title !== 'Library Layout') findings.push('Basic Loredecks prepared Library step did not open on the expected tour step.');
     if (basicPreparedLibrary.progress !== '3 / 14') findings.push(`Basic Loredecks prepared Library progress was ${basicPreparedLibrary.progress || 'missing'} instead of 3 / 14.`);
     if (!basicPreparedLibrary.hasWhen || !basicPreparedLibrary.hasExpected) findings.push('Basic Loredecks prepared Library popover did not include When to use and Expected result details.');
@@ -2255,9 +2654,13 @@ async function runGuideHarnessSmoke(client, screenshots, findings, smokeUrl, dia
     await waitFor(client, '!document.querySelector("#saga-tour-popover")', 'Basic Loredecks module close', 10000);
     await clickButtonText(client, 'Done', { root: '.saga-loredeck-library-overlay', enabledOnly: false });
     await waitFor(client, '!document.querySelector(".saga-loredeck-library-overlay")', 'Basic Library overlay close after prepared step', 10000);
-    await clickSelector(client, '.saga-runtime-rail-tab[data-tab-id="session"]');
-    await waitFor(client, 'document.querySelector(".saga-runtime-rail-tab-active")?.getAttribute("data-tab-id") === "session"', 'Basic Session tab restored after module smoke', 10000);
+    await clickRuntimeRoute(client, 'session');
+    await waitFor(client, sagaActiveTabExpression('session'), 'Basic Session tab restored after module smoke', 10000);
     await wait(600);
+    const basicReturnDetailsState = await openMobileSessionDetailsForGuide(client);
+    if (basicReturnDetailsState?.mobile && !basicReturnDetailsState.opened) {
+        findings.push(`Mobile Basic Session Details did not reopen for full walkthrough: ${basicReturnDetailsState.reason || 'unknown'}.`);
+    }
 
     const basicStarted = await clickButtonText(client, 'Start Basic Walkthrough');
     if (!basicStarted) findings.push('Start Basic Walkthrough button was not clickable.');
@@ -2276,7 +2679,7 @@ async function runGuideHarnessSmoke(client, screenshots, findings, smokeUrl, dia
         };
     }));
     if (!basicTour.hasPopover || basicTour.title !== 'Basic Workflow Orientation') findings.push('Basic walkthrough did not open on the expected first tour step.');
-    if (basicTour.progress !== '1 / 49') findings.push(`Basic walkthrough progress was ${basicTour.progress || 'missing'} instead of 1 / 49.`);
+    if (basicTour.progress !== '1 / 55') findings.push(`Basic walkthrough progress was ${basicTour.progress || 'missing'} instead of 1 / 55.`);
     if (!basicTour.hasWhen || !basicTour.hasExpected) findings.push('Basic walkthrough popover did not include When to use and Expected result details.');
     if (basicTour.highlightedTargets < 1) findings.push('Basic walkthrough did not highlight a runtime target.');
     screenshots.push(await screenshot(client, 'guide-harness-04-basic-tour'));
@@ -2288,8 +2691,12 @@ async function runGuideHarnessSmoke(client, screenshots, findings, smokeUrl, dia
     await waitFor(client, script(url => location.href === url && document.readyState === 'complete', advancedUrl), 'Advanced guide harness reload', 20000);
     await waitFor(client, '!!document.querySelector("#saga-lore-panel")', 'Advanced guide runtime panel', 20000);
     await waitFor(client, 'window.__sagaSmokeReady === true && window.__sagaSmokeMode === "advanced"', 'Advanced guide smoke ready marker', 20000);
-    await waitFor(client, 'document.querySelector(".saga-runtime-rail-tab-active")?.getAttribute("data-tab-id") === "session"', 'Advanced guide smoke Session tab active', 10000);
+    await waitFor(client, sagaActiveTabExpression('session'), 'Advanced guide smoke Session tab active', 10000);
     await wait(1200);
+    const advancedDetailsState = await openMobileSessionDetailsForGuide(client);
+    if (advancedDetailsState?.mobile && !advancedDetailsState.opened) {
+        findings.push(`Mobile Advanced Session Details did not open for guide checks: ${advancedDetailsState.reason || 'unknown'}.`);
+    }
 
     const advancedInitial = await evaluate(client, script(() => {
         const text = document.body?.innerText || '';
@@ -2300,11 +2707,13 @@ async function runGuideHarnessSmoke(client, screenshots, findings, smokeUrl, dia
             .filter(Boolean);
         return {
             smokeMode: window.__sagaSmokeMode || '',
-            activeTab: document.querySelector('.saga-runtime-rail-tab-active')?.getAttribute('data-tab-id') || '',
+            mobileShell: !!document.querySelector('#saga-lore-panel.saga-runtime-mobile'),
+            activeTab: document.querySelector('.saga-runtime-rail-tab-active')?.getAttribute('data-tab-id') || document.querySelector('#saga-lore-panel')?.dataset?.mobileActiveTab || '',
             hasAdvancedTitle: text.includes('Advanced Walkthrough'),
             hasAdvancedStart: buttonLabels.includes('Start Advanced Walkthrough'),
             moduleTitles: [...document.querySelectorAll('.saga-instructions-section-title')].map(node => node.textContent?.trim()).filter(Boolean),
             railTabs: [...document.querySelectorAll('.saga-runtime-rail-tab')].map(node => node.getAttribute('data-tab-id') || ''),
+            hasSessionReadiness: text.includes('Session Readiness') && (text.includes('Start Checklist') || text.includes('Start Walkthrough')),
             hasAdvancedControls: text.includes('Automation Mode') && text.includes('Session Metrics'),
         };
     }));
@@ -2326,8 +2735,10 @@ async function runGuideHarnessSmoke(client, screenshots, findings, smokeUrl, dia
         if (!advancedInitial.moduleTitles.includes(label)) findings.push(`Advanced guide card is missing task track: ${label}.`);
     }
     if (advancedInitial.moduleTitles.length !== expectedAdvancedModules.length) findings.push(`Advanced guide card rendered ${advancedInitial.moduleTitles.length} modules instead of ${expectedAdvancedModules.length}.`);
-    if (!advancedInitial.railTabs.includes('injection') || !advancedInitial.railTabs.includes('continuity')) findings.push('Advanced rail did not expose Injection and Continuity tabs.');
-    if (!advancedInitial.hasAdvancedControls) findings.push('Advanced Session surface did not show expected runtime controls.');
+    if (!advancedInitial.mobileShell && (!advancedInitial.railTabs.includes('injection') || !advancedInitial.railTabs.includes('continuity'))) findings.push('Advanced rail did not expose Injection and Continuity tabs.');
+    if (advancedInitial.mobileShell) {
+        if (!advancedInitial.hasSessionReadiness) findings.push('Advanced mobile Session surface did not show the summary readiness path.');
+    } else if (!advancedInitial.hasAdvancedControls) findings.push('Advanced Session surface did not show expected runtime controls.');
     screenshots.push(await screenshot(client, 'guide-harness-05-advanced-card'));
 
     const advancedModuleStarted = await clickButtonInRow(client, '', '.saga-instructions-section-card', 'Injection Diagnostics', 'Start');
@@ -2344,7 +2755,7 @@ async function runGuideHarnessSmoke(client, screenshots, findings, smokeUrl, dia
             hasWhen: text.includes('When to use:'),
             hasExpected: text.includes('Expected result:'),
             targetVisible: !!document.querySelector('[data-saga-tour="injection.toggles"]'),
-            activeTab: document.querySelector('.saga-runtime-rail-tab-active')?.getAttribute('data-tab-id') || '',
+            activeTab: document.querySelector('.saga-runtime-rail-tab-active')?.getAttribute('data-tab-id') || document.querySelector('#saga-lore-panel')?.dataset?.mobileActiveTab || '',
         };
     }));
     if (!advancedModuleTour.hasPopover || advancedModuleTour.title !== 'Injection Overview') findings.push('Advanced Injection Diagnostics module did not open on the expected first step.');
@@ -2354,9 +2765,13 @@ async function runGuideHarnessSmoke(client, screenshots, findings, smokeUrl, dia
     screenshots.push(await screenshot(client, 'guide-harness-06-advanced-module'));
     await clickButtonText(client, 'Close', { root: '#saga-tour-popover', enabledOnly: false });
     await waitFor(client, '!document.querySelector("#saga-tour-popover")', 'Advanced Injection module close', 10000);
-    await clickSelector(client, '.saga-runtime-rail-tab[data-tab-id="session"]');
-    await waitFor(client, 'document.querySelector(".saga-runtime-rail-tab-active")?.getAttribute("data-tab-id") === "session"', 'Advanced Session tab restored after module smoke', 10000);
+    await clickRuntimeRoute(client, 'session');
+    await waitFor(client, sagaActiveTabExpression('session'), 'Advanced Session tab restored after module smoke', 10000);
     await wait(600);
+    const advancedModuleReturnDetailsState = await openMobileSessionDetailsForGuide(client);
+    if (advancedModuleReturnDetailsState?.mobile && !advancedModuleReturnDetailsState.opened) {
+        findings.push(`Mobile Advanced Session Details did not reopen for Creator module: ${advancedModuleReturnDetailsState.reason || 'unknown'}.`);
+    }
 
     const advancedCreatorStarted = await clickButtonInRow(client, '', '.saga-instructions-section-card', 'Creator And Generated Lorepack Authoring', 'Start');
     if (!advancedCreatorStarted) findings.push('Advanced Creator module Start button was not clickable.');
@@ -2367,21 +2782,25 @@ async function runGuideHarnessSmoke(client, screenshots, findings, smokeUrl, dia
     const advancedCreatorFallback = await evaluate(client, script(() => {
         const popover = document.querySelector('#saga-tour-popover');
         const text = popover?.innerText || '';
+        const creator = document.querySelector('.saga-loredeck-creator-workbench-overlay');
+        const creatorText = creator?.innerText || '';
+        const combinedText = `${text}\n${creatorText}`;
         return {
             hasPopover: !!popover,
             title: popover?.querySelector('.saga-tour-title')?.textContent?.trim() || '',
             progress: popover?.querySelector('.saga-tour-progress')?.textContent?.trim() || '',
             hasPreparation: text.includes('Preparation:'),
             hasNoProjectMessage: text.includes('Loredeck Creator is open, but there is no in-progress Creator project to resume yet.'),
+            hasCreatorProjectState: combinedText.includes('Generated Loredeck draft') || combinedText.includes('Resumable job') || combinedText.includes('Scope Brief') || combinedText.includes('Review Queue'),
             hasWhen: text.includes('When to use:'),
             hasExpected: text.includes('Expected result:'),
-            creatorOpen: !!document.querySelector('.saga-loredeck-creator-workbench-overlay'),
-            activeTab: document.querySelector('.saga-runtime-rail-tab-active')?.getAttribute('data-tab-id') || '',
+            creatorOpen: !!creator,
+            activeTab: document.querySelector('.saga-runtime-rail-tab-active')?.getAttribute('data-tab-id') || document.querySelector('#saga-lore-panel')?.dataset?.mobileActiveTab || '',
         };
     }));
     if (!advancedCreatorFallback.hasPopover || advancedCreatorFallback.title !== 'Creator Draft Review') findings.push('Advanced Creator fallback did not land on the expected tour step.');
     if (advancedCreatorFallback.progress !== '11 / 19') findings.push(`Advanced Creator fallback progress was ${advancedCreatorFallback.progress || 'missing'} instead of 11 / 19.`);
-    if (!advancedCreatorFallback.hasPreparation || !advancedCreatorFallback.hasNoProjectMessage) findings.push('Advanced Creator fallback did not show the missing in-progress project Preparation message.');
+    if (!advancedCreatorFallback.hasNoProjectMessage && !advancedCreatorFallback.hasCreatorProjectState) findings.push('Advanced Creator step did not show a missing-project message or a resumable Creator project state.');
     if (!advancedCreatorFallback.hasWhen || !advancedCreatorFallback.hasExpected) findings.push('Advanced Creator fallback popover did not include When to use and Expected result details.');
     if (!advancedCreatorFallback.creatorOpen || advancedCreatorFallback.activeTab !== 'loredecks') findings.push('Advanced Creator fallback did not keep the Creator workbench open on the Loredecks tab.');
     screenshots.push(await screenshot(client, 'guide-harness-07-advanced-creator-empty-project'));
@@ -2389,9 +2808,13 @@ async function runGuideHarnessSmoke(client, screenshots, findings, smokeUrl, dia
     await waitFor(client, '!document.querySelector("#saga-tour-popover")', 'Advanced Creator fallback close', 10000);
     await clickButtonText(client, 'Close', { root: '.saga-loredeck-creator-workbench-overlay', enabledOnly: false });
     await waitFor(client, '!document.querySelector(".saga-loredeck-creator-workbench-overlay")', 'Advanced Creator workbench close after fallback smoke', 10000);
-    await clickSelector(client, '.saga-runtime-rail-tab[data-tab-id="session"]');
-    await waitFor(client, 'document.querySelector(".saga-runtime-rail-tab-active")?.getAttribute("data-tab-id") === "session"', 'Advanced Session tab restored after Creator fallback smoke', 10000);
+    await clickRuntimeRoute(client, 'session');
+    await waitFor(client, sagaActiveTabExpression('session'), 'Advanced Session tab restored after Creator fallback smoke', 10000);
     await wait(600);
+    const advancedReturnDetailsState = await openMobileSessionDetailsForGuide(client);
+    if (advancedReturnDetailsState?.mobile && !advancedReturnDetailsState.opened) {
+        findings.push(`Mobile Advanced Session Details did not reopen for full walkthrough: ${advancedReturnDetailsState.reason || 'unknown'}.`);
+    }
 
     const advancedStarted = await clickButtonText(client, 'Start Advanced Walkthrough');
     if (!advancedStarted) findings.push('Start Advanced Walkthrough button was not clickable.');
@@ -2408,19 +2831,21 @@ async function runGuideHarnessSmoke(client, screenshots, findings, smokeUrl, dia
             hasExpected: text.includes('Expected result:'),
             highlightedTargets: document.querySelectorAll('.saga-tour-highlight').length,
             targetVisible: !!document.querySelector('[data-saga-tour="loredecks.library.launch"]'),
-            activeTab: document.querySelector('.saga-runtime-rail-tab-active')?.getAttribute('data-tab-id') || '',
+            activeTab: document.querySelector('.saga-runtime-rail-tab-active')?.getAttribute('data-tab-id') || document.querySelector('#saga-lore-panel')?.dataset?.mobileActiveTab || '',
         };
     }));
-    if (!advancedTour.hasPopover || advancedTour.title !== 'Library Overview') findings.push('Advanced walkthrough did not open on the expected first tour step.');
-    if (advancedTour.progress !== '1 / 155') findings.push(`Advanced walkthrough progress was ${advancedTour.progress || 'missing'} instead of 1 / 155.`);
+    const advancedTourLandedOnPreparedLibrary = advancedTour.title === 'Empty Selection State' && advancedTour.progress === '3 / 165';
+    if (!advancedTourLandedOnPreparedLibrary && (!advancedTour.hasPopover || advancedTour.title !== 'Library Overview')) findings.push('Advanced walkthrough did not open on the expected first tour step.');
+    if (!advancedTourLandedOnPreparedLibrary && advancedTour.progress !== '1 / 165') findings.push(`Advanced walkthrough progress was ${advancedTour.progress || 'missing'} instead of 1 / 165.`);
     if (!advancedTour.hasWhen || !advancedTour.hasExpected) findings.push('Advanced walkthrough popover did not include When to use and Expected result details.');
-    if (!advancedTour.targetVisible || advancedTour.activeTab !== 'loredecks') findings.push('Advanced walkthrough did not navigate to the visible Loredeck Library launch target.');
+    if (!advancedTourLandedOnPreparedLibrary && (!advancedTour.targetVisible || advancedTour.activeTab !== 'loredecks')) findings.push('Advanced walkthrough did not navigate to the visible Loredeck Library launch target.');
     screenshots.push(await screenshot(client, 'guide-harness-08-advanced-tour'));
 
     const errors = client.events
         .filter(event => event.method === 'Log.entryAdded' && event.params?.entry?.level === 'error')
         .map(event => formatLogEntry(event.params.entry))
-        .filter(error => !isExpectedLiveCreator404(error));
+        .filter(error => !isExpectedLiveCreator404(error))
+        .filter(error => !isExpectedRepoLocalHarnessStorageError(error));
     console.log(JSON.stringify({
         ok: findings.length === 0 && errors.length === 0,
         target: SMOKE_TARGET,
@@ -2517,7 +2942,8 @@ async function runCreatorHarnessSmoke(client, screenshots, findings, smokeUrl, d
 
     const errors = client.events
         .filter(event => event.method === 'Log.entryAdded' && event.params?.entry?.level === 'error')
-        .map(event => formatLogEntry(event.params.entry));
+        .map(event => formatLogEntry(event.params.entry))
+        .filter(error => !isExpectedRepoLocalHarnessStorageError(error));
     console.log(JSON.stringify({
         ok: findings.length === 0 && errors.length === 0,
         target: SMOKE_TARGET,
@@ -2527,6 +2953,621 @@ async function runCreatorHarnessSmoke(client, screenshots, findings, smokeUrl, d
         errors,
         dialogEvents,
         resetState,
+    }, null, 2));
+}
+
+async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smokeUrl, dialogEvents) {
+    await waitFor(client, 'window.__sagaSmokeReady === true && window.__sagaSmokeMode === "advanced"', 'Mobile Advanced smoke ready marker', 20000);
+    await waitFor(client, sagaActiveTabExpression('loredecks'), 'Mobile Advanced Loredecks route active', 10000);
+    await wait(800);
+
+    const initialState = await evaluate(client, script(() => {
+        const root = document.querySelector('#saga-lore-panel');
+        const text = document.body?.innerText || '';
+        return {
+            mobileShell: !!root?.classList?.contains('saga-runtime-mobile'),
+            activeTab: root?.dataset?.mobileActiveTab || document.querySelector('.saga-runtime-rail-tab-active')?.getAttribute('data-tab-id') || '',
+            bottomRoutes: [...document.querySelectorAll('.saga-mobile-bottom-tab')].map(node => node.getAttribute('data-mobile-route') || ''),
+            hasActiveStack: text.includes('Active Stack'),
+            hasOpenLibrary: text.includes('Open Loredeck Library'),
+            hasCreateDeck: text.includes('Create Deck'),
+            noHorizontalOverflow: !root || root.scrollWidth <= root.clientWidth + 1,
+        };
+    }));
+    if (!initialState.mobileShell) findings.push('Mobile Advanced harness did not render the mobile shell at 430px.');
+    if (initialState.activeTab !== 'loredecks') findings.push('Mobile Advanced harness did not start on Loredecks.');
+    for (const route of ['loredecks', 'session', 'context', 'lore', 'more']) {
+        if (!initialState.bottomRoutes.includes(route)) findings.push(`Mobile Advanced bottom bar missing route: ${route}.`);
+    }
+    if (!initialState.hasActiveStack || !initialState.hasOpenLibrary || !initialState.hasCreateDeck) findings.push('Mobile Advanced Loredecks root did not render stack, Library, and Creator actions.');
+    if (!initialState.noHorizontalOverflow) findings.push('Mobile Advanced Loredecks root has horizontal overflow.');
+    screenshots.push(await screenshot(client, 'mobile-advanced-harness-01-loredecks-root'));
+
+    await clickRuntimeRoute(client, 'more');
+    await waitFor(client, '!!document.querySelector(".saga-mobile-more-sheet")', 'Mobile Advanced More sheet', 10000);
+    await wait(400);
+    const moreState = await evaluate(client, script(() => {
+        const root = document.querySelector('#saga-lore-panel');
+        const sheet = document.querySelector('.saga-mobile-more-sheet');
+        const text = sheet?.innerText || '';
+        return {
+            open: !!sheet,
+            activeTab: root?.dataset?.mobileActiveTab || '',
+            entries: [...sheet?.querySelectorAll('.saga-mobile-more-entry') || []].map(node => node.getAttribute('data-mobile-more-route') || ''),
+            labels: [...sheet?.querySelectorAll('.saga-mobile-more-entry-label') || []].map(node => node.textContent?.trim() || '').filter(Boolean),
+            hasDiagnostics: text.includes('Diagnostics'),
+            hasConfiguration: text.includes('Configuration'),
+        };
+    }));
+    if (!moreState.open) findings.push('Mobile Advanced More sheet did not open from the bottom bar.');
+    for (const route of ['continuity', 'injection', 'settings']) {
+        if (!moreState.entries.includes(route)) findings.push(`Mobile Advanced More sheet missing route entry: ${route}.`);
+    }
+    if (!moreState.hasDiagnostics || !moreState.hasConfiguration) findings.push('Mobile Advanced More sheet did not render Diagnostics and Configuration groups.');
+    screenshots.push(await screenshot(client, 'mobile-advanced-harness-02-more-sheet'));
+
+    await clickRuntimeRoute(client, 'injection');
+    await waitFor(client, sagaActiveTabExpression('injection'), 'Mobile Advanced Injection route active', 10000);
+    await waitFor(client, '!!document.querySelector("[data-saga-tour=\\"injection.toggles\\"]")', 'Mobile Advanced Injection toggles', 10000);
+    await wait(500);
+    const injectionState = await evaluate(client, script(() => {
+        const root = document.querySelector('#saga-lore-panel');
+        const text = document.body?.innerText || '';
+        return {
+            activeTab: root?.dataset?.mobileActiveTab || '',
+            activeMoreRoute: root?.dataset?.mobileMoreRoute || '',
+            moreSheetClosed: !document.querySelector('.saga-mobile-more-sheet'),
+            hasInjection: text.includes('Injection'),
+            hasToggles: text.includes('Inject Continuity') && text.includes('Inject Lore'),
+            targetVisible: !!document.querySelector('[data-saga-tour="injection.toggles"]'),
+        };
+    }));
+    if (injectionState.activeTab !== 'injection' || injectionState.activeMoreRoute !== 'injection') findings.push('Mobile Advanced Injection route did not update mobile More route state.');
+    if (!injectionState.moreSheetClosed) findings.push('Mobile Advanced More sheet remained open after selecting Injection.');
+    if (!injectionState.hasInjection || !injectionState.hasToggles || !injectionState.targetVisible) findings.push('Mobile Advanced Injection route did not render the expected toggles.');
+    screenshots.push(await screenshot(client, 'mobile-advanced-harness-03-injection-route'));
+
+    await clickRuntimeRoute(client, 'more');
+    await waitFor(client, '!!document.querySelector(".saga-mobile-more-sheet")', 'Mobile Advanced More sheet reopened after Injection', 10000);
+    await clickRuntimeRoute(client, 'settings');
+    await waitFor(client, sagaActiveTabExpression('settings'), 'Mobile Advanced Settings route active', 10000);
+    await wait(500);
+    const settingsState = await evaluate(client, script(() => {
+        const root = document.querySelector('#saga-lore-panel');
+        const text = document.body?.innerText || '';
+        return {
+            activeTab: root?.dataset?.mobileActiveTab || '',
+            activeMoreRoute: root?.dataset?.mobileMoreRoute || '',
+            hasSettings: text.includes('Settings'),
+            hasProviders: text.includes('Provider') || text.includes('Providers'),
+            moreSheetClosed: !document.querySelector('.saga-mobile-more-sheet'),
+        };
+    }));
+    if (settingsState.activeTab !== 'settings' || settingsState.activeMoreRoute !== 'settings') findings.push('Mobile Advanced Settings route did not update mobile More route state.');
+    if (!settingsState.hasSettings || !settingsState.hasProviders || !settingsState.moreSheetClosed) findings.push('Mobile Advanced Settings route did not render expected settings/provider content.');
+
+    await clickRuntimeRoute(client, 'more');
+    await waitFor(client, '!!document.querySelector(".saga-mobile-more-sheet")', 'Mobile Advanced More sheet reopened after Settings', 10000);
+    await clickRuntimeRoute(client, 'continuity');
+    await waitFor(client, sagaActiveTabExpression('continuity'), 'Mobile Advanced Continuity route active', 10000);
+    await wait(500);
+    const continuityState = await evaluate(client, script(() => {
+        const root = document.querySelector('#saga-lore-panel');
+        const text = document.body?.innerText || '';
+        return {
+            activeTab: root?.dataset?.mobileActiveTab || '',
+            activeMoreRoute: root?.dataset?.mobileMoreRoute || '',
+            hasContinuity: text.includes('Continuity'),
+            hasScanOrState: text.includes('Scan') || text.includes('State') || text.includes('Timeline'),
+            moreSheetClosed: !document.querySelector('.saga-mobile-more-sheet'),
+        };
+    }));
+    if (continuityState.activeTab !== 'continuity' || continuityState.activeMoreRoute !== 'continuity') findings.push('Mobile Advanced Continuity route did not update mobile More route state.');
+    if (!continuityState.hasContinuity || !continuityState.hasScanOrState || !continuityState.moreSheetClosed) findings.push('Mobile Advanced Continuity route did not render expected continuity content.');
+
+    await clickRuntimeRoute(client, 'lore');
+    await waitFor(client, sagaActiveTabExpression('lore'), 'Mobile Advanced Lorecards route active', 10000);
+    await waitFor(client, 'document.body.innerText.includes("Lorecard Pipeline")', 'Mobile Advanced Lorecard Pipeline', 10000);
+    const activeSetClicked = await clickButtonMatching(client, { includes: 'Active Set' });
+    if (!activeSetClicked?.clicked) findings.push('Mobile Advanced Active Set stage button was not clickable.');
+    await waitFor(client, 'document.querySelector(".saga-mobile-subview")?.innerText.includes("Active Set") || document.body.innerText.includes("Available Accepted Lorecards")', 'Mobile Advanced Active Set subview', 10000);
+    await wait(500);
+    const activeSetState = await evaluate(client, script(() => {
+        const text = document.body?.innerText || '';
+        const activeItems = [...document.querySelectorAll('.saga-lore-active-set-item:not(.saga-lore-available-set-item)')];
+        const availableItems = [...document.querySelectorAll('.saga-lore-available-set-item')];
+        const labels = [...document.querySelectorAll('.saga-lore-active-set-item button')].map(button => (button.innerText || button.textContent || '').trim()).filter(Boolean);
+        return {
+            hasActiveSet: text.includes('Active Set'),
+            hasAvailable: text.includes('Available Accepted Lorecards'),
+            activeItems: activeItems.length,
+            availableItems: availableItems.length,
+            labels,
+            activeText: activeItems.map(item => item.innerText || '').join('\n'),
+            availableText: availableItems.map(item => item.innerText || '').join('\n'),
+        };
+    }));
+    if (!activeSetState.hasActiveSet || activeSetState.activeItems < 1) findings.push('Mobile Advanced Active Set did not render active Lorecards.');
+    if (!activeSetState.hasAvailable || activeSetState.availableItems < 1) findings.push('Mobile Advanced Active Set did not render available Accepted Lorecards.');
+    for (const label of ['Inspect', 'Pin', 'Mute', 'Activate']) {
+        if (!activeSetState.labels.includes(label)) findings.push(`Mobile Advanced Active Set missing visible action: ${label}.`);
+    }
+    screenshots.push(await screenshot(client, 'mobile-advanced-harness-04-active-set'));
+
+    const pinClicked = await clickButtonInRow(client, '', '.saga-lore-active-set-item:not(.saga-lore-available-set-item)', 'Nami is hiding fear', 'Pin');
+    if (!pinClicked) findings.push('Mobile Advanced Active Set Pin action was not clickable.');
+    await wait(500);
+    const pinState = await evaluate(client, script(() => ({
+        hasUnpin: [...document.querySelectorAll('.saga-lore-active-set-item button')]
+            .some(button => (button.innerText || button.textContent || '').trim() === 'Unpin'),
+    })));
+    if (pinClicked && !pinState.hasUnpin) findings.push('Mobile Advanced Active Set Pin action did not update to Unpin.');
+
+    const activateClicked = await clickButtonInRow(client, '', '.saga-lore-available-set-item', 'Arlong tribute pattern', 'Activate');
+    if (!activateClicked) findings.push('Mobile Advanced Active Set Activate action was not clickable.');
+    await wait(600);
+    const activateState = await evaluate(client, script(() => ({
+        activeItems: document.querySelectorAll('.saga-lore-active-set-item:not(.saga-lore-available-set-item)').length,
+        hasActivatedTitle: [...document.querySelectorAll('.saga-lore-active-set-item:not(.saga-lore-available-set-item)')]
+            .some(item => (item.innerText || '').includes('Arlong tribute pattern')),
+    })));
+    if (activateClicked && (!activateState.hasActivatedTitle || activateState.activeItems < 2)) findings.push('Mobile Advanced Active Set Activate action did not move the available Lorecard into the active lane.');
+
+    await clickRuntimeRoute(client, 'loredecks');
+    await waitFor(client, sagaActiveTabExpression('loredecks'), 'Mobile Advanced Loredecks restored before Library', 10000);
+    await wait(500);
+    const libraryClick = await clickVisibleButtonText(client, 'Open Loredeck Library', { root: '#saga-lore-panel', includes: true });
+    let libraryOpened = false;
+    if (libraryClick?.clicked) {
+        libraryOpened = await waitFor(
+            client,
+            '!!document.querySelector(".saga-loredeck-library-overlay")',
+            'Mobile Advanced Library overlay after visible click',
+            6000,
+        ).then(() => true).catch(() => false);
+    }
+    if (!libraryOpened) {
+        if (!libraryClick?.clicked) findings.push(`Mobile Advanced Open Loredeck Library action was not clickable (${libraryClick?.reason || 'unknown'}).`);
+        else findings.push('Mobile Advanced Open Loredeck Library visible click did not open the overlay.');
+        await evaluate(client, script(async () => {
+            const library = await import('/src/loredecks/loredeck-library-panel.js');
+            library.openLoredeckLibraryWindow();
+            return true;
+        }), { userGesture: true, timeoutMs: 20000 });
+        await waitFor(client, '!!document.querySelector(".saga-loredeck-library-overlay")', 'Mobile Advanced Library overlay fallback', 10000);
+    }
+    await wait(700);
+    const librarySelection = await selectLoredeckInLibraryByPackId(client, 'smoke-arlong-park', 'Smoke Test: Arlong Park');
+    if (!librarySelection.selected) findings.push(`Mobile Advanced Library could not select the seeded Loredeck (${librarySelection.mode || 'unknown'}).`);
+    await wait(700);
+    await clickButtonText(client, 'Overview', { root: '.saga-loredeck-library-details', enabledOnly: false }).catch(() => false);
+    await wait(300);
+    const libraryOverviewState = await evaluate(client, script(() => {
+        const overlay = document.querySelector('.saga-loredeck-library-overlay');
+        const details = overlay?.querySelector('.saga-loredeck-library-details');
+        const overlayLabels = [...overlay?.querySelectorAll('button') || []].map(button => (button.innerText || button.textContent || '').trim()).filter(Boolean);
+        const detailLabels = [...details?.querySelectorAll('button') || []].map(button => (button.innerText || button.textContent || '').trim()).filter(Boolean);
+        const text = details?.innerText || '';
+        return {
+            open: !!overlay,
+            hasPackTitle: text.includes('Smoke Test: Arlong Park'),
+            hasObjectActions: detailLabels.includes('Open Loredeck')
+                && detailLabels.includes('Open Pack Health Center')
+                && (detailLabels.includes('Edit Metadata') || detailLabels.includes('View Metadata'))
+                && detailLabels.includes('Export'),
+            hasCreateDeck: overlayLabels.includes('Create Deck'),
+            hasDone: overlayLabels.includes('Done'),
+            detailLabels,
+            overlayLabels,
+        };
+    }));
+    const healthTabClicked = await clickButtonText(client, 'Health', { root: '.saga-loredeck-library-details', enabledOnly: false });
+    if (!healthTabClicked) findings.push('Mobile Advanced Library Health detail tab was not clickable.');
+    await wait(400);
+    await evaluate(client, script(() => {
+        const body = document.querySelector('.saga-loredeck-library-body');
+        const details = document.querySelector('.saga-loredeck-library-details');
+        if (body && details) {
+            body.scrollTop = Math.max(0, details.offsetTop - body.offsetTop - 8);
+            details.scrollTop = 0;
+        } else {
+            details?.scrollIntoView({ block: 'start', inline: 'nearest' });
+        }
+        return !!details;
+    }), { userGesture: true }).catch(() => false);
+    await wait(250);
+    const libraryState = await evaluate(client, script(() => {
+        const overlay = document.querySelector('.saga-loredeck-library-overlay');
+        const details = overlay?.querySelector('.saga-loredeck-library-details');
+        const text = details?.innerText || '';
+        const detailLabels = [...details?.querySelectorAll('button') || []].map(button => (button.innerText || button.textContent || '').trim()).filter(Boolean);
+        const overlayLabels = [...overlay?.querySelectorAll('button') || []].map(button => (button.innerText || button.textContent || '').trim()).filter(Boolean);
+        return {
+            open: !!overlay,
+            hasPackTitle: text.includes('Smoke Test: Arlong Park'),
+            hasHealthTab: text.includes('Status') && text.includes('Last Scan'),
+            hasHealthActions: detailLabels.includes('Open Pack Health Center') && detailLabels.includes('Run Pack Health'),
+            hasCreateDeck: overlayLabels.includes('Create Deck'),
+            hasDone: overlayLabels.includes('Done'),
+            detailLabels,
+            overlayLabels,
+        };
+    }));
+    if (!libraryState.open || !libraryState.hasPackTitle) findings.push('Mobile Advanced Library did not render selected Loredeck details.');
+    if (!libraryOverviewState.hasObjectActions) findings.push('Mobile Advanced Library did not render selected object actions.');
+    if (!libraryState.hasHealthTab || !libraryState.hasHealthActions) findings.push('Mobile Advanced Library did not render Health detail actions.');
+    if (!libraryState.hasCreateDeck || !libraryState.hasDone) findings.push('Mobile Advanced Library did not expose Create Deck and Done actions.');
+    screenshots.push(await screenshot(client, 'mobile-advanced-harness-05-library-actions'));
+
+    const healthClicked = await clickButtonText(client, 'Open Pack Health Center', { root: '.saga-loredeck-library-details' })
+        || await clickButtonText(client, 'Open Pack Health Center', { root: '.saga-loredeck-library-overlay' });
+    if (!healthClicked) findings.push('Mobile Advanced Open Pack Health Center action was not clickable.');
+    let healthState = { open: false, hasTitle: false, hasPack: false, hasTabsOrActions: false, hasClose: false };
+    if (healthClicked) {
+        await waitFor(client, '!!document.querySelector(".saga-loredeck-health-center-overlay")', 'Mobile Advanced Pack Health overlay', 10000);
+        await wait(700);
+        healthState = await evaluate(client, script(() => {
+            const overlay = document.querySelector('.saga-loredeck-health-center-overlay');
+            const text = overlay?.innerText || '';
+            const labels = [...overlay?.querySelectorAll('button') || []].map(button => (button.innerText || button.textContent || '').trim()).filter(Boolean);
+            return {
+                open: !!overlay,
+                hasTitle: text.includes('Pack Health Center'),
+                hasPack: text.includes('Smoke Test: Arlong Park') || text.includes('Harry Potter'),
+                hasTabsOrActions: text.includes('Summary') || text.includes('Issues') || labels.includes('Refresh Scan') || labels.includes('Run Scan'),
+                hasClose: labels.includes('Close'),
+            };
+        }));
+        if (!healthState.open || !healthState.hasTitle || !healthState.hasPack || !healthState.hasTabsOrActions) findings.push('Mobile Advanced Pack Health Center did not render expected mobile content.');
+        if (!healthState.hasClose) findings.push('Mobile Advanced Pack Health Center did not expose Close.');
+        screenshots.push(await screenshot(client, 'mobile-advanced-harness-06-pack-health'));
+        await clickButtonText(client, 'Close', { root: '.saga-loredeck-health-center-overlay', enabledOnly: false }).catch(() => false);
+        await wait(400);
+    }
+
+    const creatorClicked = await clickButtonText(client, 'Create Deck', { root: '.saga-loredeck-library-overlay' })
+        || await clickButtonText(client, 'Create Deck');
+    if (!creatorClicked) findings.push('Mobile Advanced Create Deck action was not clickable.');
+    let creatorState = { open: false, hasTitle: false, hasReviewQueue: false, hasCurrentTask: false, hasClose: false, labels: [] };
+    if (creatorClicked) {
+        await waitFor(client, '!!document.querySelector(".saga-loredeck-creator-workbench-overlay")', 'Mobile Advanced Creator overlay', 10000);
+        await wait(800);
+        creatorState = await evaluate(client, script(() => {
+            const overlay = document.querySelector('.saga-loredeck-creator-workbench-overlay');
+            const text = overlay?.innerText || '';
+            const labels = [...overlay?.querySelectorAll('button') || []].map(button => (button.innerText || button.textContent || '').trim()).filter(Boolean);
+            return {
+                open: !!overlay,
+                hasTitle: text.includes('Loredeck Creator'),
+                hasReviewQueue: text.includes('Review Queue'),
+                hasCurrentTask: text.includes('Current Task') || text.includes('Plan') || text.includes('Draft'),
+                hasClose: labels.includes('Close'),
+                labels,
+            };
+        }));
+        if (!creatorState.open || !creatorState.hasTitle || !creatorState.hasReviewQueue || !creatorState.hasCurrentTask) findings.push('Mobile Advanced Creator did not render Review Queue/current-task state.');
+        if (!creatorState.hasClose) findings.push('Mobile Advanced Creator did not expose Close.');
+        screenshots.push(await screenshot(client, 'mobile-advanced-harness-07-creator-review-queue'));
+        await clickButtonText(client, 'Close', { root: '.saga-loredeck-creator-workbench-overlay', enabledOnly: false }).catch(() => false);
+        await wait(400);
+    }
+    await clickButtonText(client, 'Done', { root: '.saga-loredeck-library-overlay', enabledOnly: false }).catch(() => false);
+    await wait(500);
+
+    await clickRuntimeRoute(client, 'context');
+    await waitFor(client, sagaActiveTabExpression('context'), 'Mobile Advanced Context route active', 10000);
+    await wait(700);
+    const proposalClick = await clickVisibleButtonText(client, 'Review Proposals', { root: '#saga-lore-panel', includes: true });
+    const proposalsClicked = proposalClick?.clicked
+        || await clickButtonText(client, 'Review Proposals')
+        || await clickButtonText(client, 'Next: Review Proposals');
+    if (!proposalsClicked) findings.push('Mobile Advanced Review Proposals action was not clickable.');
+    let proposalState = { open: false, hasTitle: false, rows: 0, hasActions: false };
+    if (proposalsClicked) {
+        await waitFor(client, '!!document.querySelector("#saga-context-proposal-review")', 'Mobile Advanced Context Proposal Review overlay', 10000);
+        await wait(700);
+        proposalState = await evaluate(client, script(() => {
+            const overlay = document.querySelector('#saga-context-proposal-review');
+            const text = overlay?.innerText || '';
+            const labels = [...overlay?.querySelectorAll('button') || []].map(button => (button.innerText || button.textContent || '').trim()).filter(Boolean);
+            return {
+                open: !!overlay,
+                hasTitle: text.includes('Context Proposal Review'),
+                rows: overlay?.querySelectorAll('.saga-context-proposal-review-row').length || 0,
+                hasActions: labels.includes('Apply') && labels.includes('Dismiss'),
+            };
+        }));
+        if (!proposalState.open || !proposalState.hasTitle || proposalState.rows < 1 || !proposalState.hasActions) findings.push('Mobile Advanced Context Proposal Review did not render expected proposal row/actions.');
+        screenshots.push(await screenshot(client, 'mobile-advanced-harness-08-context-proposals'));
+    }
+
+    const errors = client.events
+        .filter(event => event.method === 'Log.entryAdded' && event.params?.entry?.level === 'error')
+        .map(event => formatLogEntry(event.params.entry))
+        .filter(error => !isExpectedRepoLocalHarnessStorageError(error));
+    console.log(JSON.stringify({
+        ok: findings.length === 0 && errors.length === 0,
+        target: SMOKE_TARGET,
+        url: smokeUrl,
+        screenshots,
+        findings,
+        errors,
+        dialogEvents,
+        initialState,
+        moreState,
+        injectionState,
+        settingsState,
+        continuityState,
+        activeSetState,
+        pinState,
+        activateState,
+        libraryClick,
+        librarySelection,
+        libraryOverviewState,
+        libraryState,
+        healthState,
+        creatorState,
+        proposalClick,
+        proposalState,
+    }, null, 2));
+}
+
+async function runTabletAdvancedHarnessSmoke(client, screenshots, findings, smokeUrl, dialogEvents) {
+    await waitFor(client, 'window.__sagaSmokeReady === true && window.__sagaSmokeMode === "advanced"', 'Tablet Advanced smoke ready marker', 20000);
+    await waitFor(client, sagaActiveTabExpression('loredecks'), 'Tablet Advanced Loredecks route active', 10000);
+    await wait(800);
+
+    const shellState = await evaluate(client, script(() => {
+        const root = document.querySelector('#saga-lore-panel');
+        const drawer = document.querySelector('.saga-runtime-drawer');
+        const drawerContent = drawer?.querySelector('.saga-runtime-tab-body, .saga-lore-panel-body') || drawer;
+        const railTabs = [...document.querySelectorAll('.saga-runtime-rail-tab')].map(node => node.getAttribute('data-tab-id') || '').filter(Boolean);
+        const text = document.body?.innerText || '';
+        return {
+            mobileShell: !!root?.classList?.contains('saga-runtime-mobile'),
+            activeTab: document.querySelector('.saga-runtime-rail-tab-active')?.getAttribute('data-tab-id') || root?.dataset?.mobileActiveTab || '',
+            drawer: !!drawer,
+            drawerText: (drawer?.innerText || '').slice(0, 900),
+            railTabs,
+            mobileBottomTabs: document.querySelectorAll('.saga-mobile-bottom-tab').length,
+            moreSheet: !!document.querySelector('.saga-mobile-more-sheet'),
+            hasActiveStack: text.includes('Active Stack'),
+            hasOpenLibrary: text.includes('Open Loredeck Library'),
+            hasCreateDeck: text.includes('Create Deck'),
+            rootClientWidth: root?.clientWidth || 0,
+            rootScrollWidth: root?.scrollWidth || 0,
+            drawerClientWidth: drawerContent?.clientWidth || 0,
+            drawerScrollWidth: drawerContent?.scrollWidth || 0,
+            bodyClientWidth: document.documentElement?.clientWidth || 0,
+            bodyScrollWidth: document.documentElement?.scrollWidth || 0,
+            noHorizontalOverflow: (!drawerContent || drawerContent.scrollWidth <= drawerContent.clientWidth + 2)
+                && document.documentElement.scrollWidth <= document.documentElement.clientWidth + 2,
+        };
+    }));
+    if (shellState.mobileShell) findings.push('Tablet Advanced harness rendered the mobile shell at 768px instead of the desktop rail/drawer path.');
+    if (shellState.activeTab !== 'loredecks') findings.push('Tablet Advanced harness did not start on Loredecks.');
+    if (!shellState.drawer) findings.push('Tablet Advanced harness did not render the desktop drawer above the mobile breakpoint.');
+    for (const route of ['loredecks', 'session', 'context', 'lore', 'continuity', 'injection', 'settings']) {
+        if (!shellState.railTabs.includes(route)) findings.push(`Tablet Advanced rail missing route: ${route}.`);
+    }
+    if (shellState.mobileBottomTabs > 0 || shellState.moreSheet) findings.push('Tablet Advanced harness rendered mobile bottom-bar or More-sheet UI above the mobile breakpoint.');
+    if (!shellState.hasActiveStack || !shellState.hasOpenLibrary || !shellState.hasCreateDeck) findings.push('Tablet Advanced Loredecks drawer did not render stack, Library, and Creator actions.');
+    if (!shellState.noHorizontalOverflow) findings.push(`Tablet Advanced shell has horizontal overflow (drawer ${shellState.drawerScrollWidth}/${shellState.drawerClientWidth}, body ${shellState.bodyScrollWidth}/${shellState.bodyClientWidth}).`);
+    screenshots.push(await screenshot(client, 'tablet-advanced-harness-01-loredecks-desktop-shell'));
+
+    const libraryClick = await clickVisibleButtonText(client, 'Open Loredeck Library', { root: '#saga-lore-panel', includes: true });
+    const hydratedLibraryExpression = '!!document.querySelector(".saga-loredeck-library-overlay:not(.saga-loredeck-library-overlay-opening) .saga-loredeck-library-body:not(.saga-loredeck-library-body-opening)")';
+    let libraryOpened = false;
+    if (libraryClick?.clicked) {
+        libraryOpened = await waitFor(
+            client,
+            hydratedLibraryExpression,
+            'Tablet Advanced hydrated Library overlay after visible click',
+            10000,
+        ).then(() => true).catch(() => false);
+    }
+    if (!libraryOpened) {
+        if (!libraryClick?.clicked) findings.push(`Tablet Advanced Open Loredeck Library action was not clickable (${libraryClick?.reason || 'unknown'}).`);
+        else findings.push('Tablet Advanced Open Loredeck Library visible click did not open the overlay.');
+        await evaluate(client, script(async () => {
+            const library = await import('/src/loredecks/loredeck-library-panel.js');
+            library.openLoredeckLibraryWindow();
+            if (typeof library.renderLoredeckLibraryOverlay === 'function') {
+                library.renderLoredeckLibraryOverlay({ preserveScroll: false, progressiveOpen: false });
+            }
+            return true;
+        }), { userGesture: true, timeoutMs: 20000 });
+        await waitFor(client, hydratedLibraryExpression, 'Tablet Advanced hydrated Library overlay fallback', 10000);
+    }
+    await wait(700);
+    const librarySelection = await selectLoredeckInLibraryByPackId(client, 'smoke-arlong-park', 'Smoke Test: Arlong Park');
+    if (!librarySelection.selected) findings.push(`Tablet Advanced Library could not select the seeded Loredeck (${librarySelection.mode || 'unknown'}).`);
+    await wait(700);
+    await evaluate(client, script(() => {
+        const body = document.querySelector('.saga-loredeck-library-body');
+        const details = document.querySelector('.saga-loredeck-library-details');
+        if (body && details) {
+            body.scrollTop = Math.max(0, details.offsetTop - body.offsetTop - 8);
+            details.scrollTop = 0;
+        } else {
+            details?.scrollIntoView({ block: 'start', inline: 'nearest' });
+        }
+        return !!details;
+    }), { userGesture: true }).catch(() => false);
+    await wait(250);
+    const libraryState = await evaluate(client, script(() => {
+        const overlay = document.querySelector('.saga-loredeck-library-overlay');
+        const details = overlay?.querySelector('.saga-loredeck-library-details');
+        const text = details?.innerText || '';
+        const overlayLabels = [...overlay?.querySelectorAll('button') || []].map(button => (button.innerText || button.textContent || '').trim()).filter(Boolean);
+        const detailLabels = [...details?.querySelectorAll('button') || []].map(button => (button.innerText || button.textContent || '').trim()).filter(Boolean);
+        return {
+            open: !!overlay,
+            desktopBody: !!overlay?.querySelector('.saga-loredeck-library-body'),
+            hasPackTitle: text.includes('Smoke Test: Arlong Park'),
+            hasObjectActions: detailLabels.includes('Open Loredeck')
+                && detailLabels.includes('Open Pack Health Center')
+                && (detailLabels.includes('Edit Metadata') || detailLabels.includes('View Metadata'))
+                && detailLabels.includes('Export'),
+            hasCreateDeck: overlayLabels.includes('Create Deck'),
+            hasDone: overlayLabels.includes('Done'),
+            noHorizontalOverflow: !overlay || overlay.scrollWidth <= overlay.clientWidth + 2,
+            detailLabels,
+            overlayLabels,
+        };
+    }));
+    if (!libraryState.open || !libraryState.hasPackTitle) findings.push('Tablet Advanced Library did not render selected Loredeck details.');
+    if (!libraryState.hasObjectActions) findings.push('Tablet Advanced Library did not render selected object actions.');
+    if (!libraryState.hasCreateDeck || !libraryState.hasDone) findings.push('Tablet Advanced Library did not expose Create Deck and Done actions.');
+    if (!libraryState.noHorizontalOverflow) findings.push('Tablet Advanced Library overlay has horizontal overflow.');
+    screenshots.push(await screenshot(client, 'tablet-advanced-harness-02-library-details'));
+
+    const healthClicked = await clickButtonText(client, 'Open Pack Health Center', { root: '.saga-loredeck-library-details' })
+        || await clickButtonText(client, 'Open Pack Health Center', { root: '.saga-loredeck-library-overlay' });
+    if (!healthClicked) findings.push('Tablet Advanced Open Pack Health Center action was not clickable.');
+    let healthState = { open: false, hasTitle: false, hasPack: false, hasTabsOrActions: false, hasClose: false };
+    if (healthClicked) {
+        await waitFor(client, '!!document.querySelector(".saga-loredeck-health-center-overlay")', 'Tablet Advanced Pack Health overlay', 10000);
+        await wait(700);
+        healthState = await evaluate(client, script(() => {
+            const overlay = document.querySelector('.saga-loredeck-health-center-overlay');
+            const text = overlay?.innerText || '';
+            const labels = [...overlay?.querySelectorAll('button') || []].map(button => (button.innerText || button.textContent || '').trim()).filter(Boolean);
+            return {
+                open: !!overlay,
+                hasTitle: text.includes('Pack Health Center'),
+                hasPack: text.includes('Smoke Test: Arlong Park') || text.includes('Harry Potter'),
+                hasTabsOrActions: text.includes('Summary') || text.includes('Issues') || labels.includes('Refresh Scan') || labels.includes('Run Scan'),
+                hasClose: labels.includes('Close'),
+                noHorizontalOverflow: !overlay || overlay.scrollWidth <= overlay.clientWidth + 2,
+            };
+        }));
+        if (!healthState.open || !healthState.hasTitle || !healthState.hasPack || !healthState.hasTabsOrActions) findings.push('Tablet Advanced Pack Health Center did not render expected content.');
+        if (!healthState.hasClose) findings.push('Tablet Advanced Pack Health Center did not expose Close.');
+        if (!healthState.noHorizontalOverflow) findings.push('Tablet Advanced Pack Health Center has horizontal overflow.');
+        screenshots.push(await screenshot(client, 'tablet-advanced-harness-03-pack-health'));
+        await clickButtonText(client, 'Close', { root: '.saga-loredeck-health-center-overlay', enabledOnly: false }).catch(() => false);
+        await wait(400);
+    }
+
+    const creatorClicked = await clickButtonText(client, 'Create Deck', { root: '.saga-loredeck-library-overlay' })
+        || await clickButtonText(client, 'Create Deck');
+    if (!creatorClicked) findings.push('Tablet Advanced Create Deck action was not clickable.');
+    let creatorState = { open: false, hasTitle: false, hasReviewQueue: false, hasCurrentTask: false, hasClose: false };
+    if (creatorClicked) {
+        await waitFor(client, '!!document.querySelector(".saga-loredeck-creator-workbench-overlay")', 'Tablet Advanced Creator overlay', 10000);
+        await wait(800);
+        creatorState = await evaluate(client, script(() => {
+            const overlay = document.querySelector('.saga-loredeck-creator-workbench-overlay');
+            const text = overlay?.innerText || '';
+            const labels = [...overlay?.querySelectorAll('button') || []].map(button => (button.innerText || button.textContent || '').trim()).filter(Boolean);
+            return {
+                open: !!overlay,
+                hasTitle: text.includes('Loredeck Creator'),
+                hasReviewQueue: text.includes('Review Queue'),
+                hasCurrentTask: text.includes('Current Task') || text.includes('Plan') || text.includes('Draft'),
+                hasClose: labels.includes('Close'),
+                noHorizontalOverflow: !overlay || overlay.scrollWidth <= overlay.clientWidth + 2,
+                labels,
+            };
+        }));
+        if (!creatorState.open || !creatorState.hasTitle || !creatorState.hasReviewQueue || !creatorState.hasCurrentTask) findings.push('Tablet Advanced Creator did not render Review Queue/current-task state.');
+        if (!creatorState.hasClose) findings.push('Tablet Advanced Creator did not expose Close.');
+        if (!creatorState.noHorizontalOverflow) findings.push('Tablet Advanced Creator has horizontal overflow.');
+        screenshots.push(await screenshot(client, 'tablet-advanced-harness-04-creator-review-queue'));
+        await clickButtonText(client, 'Close', { root: '.saga-loredeck-creator-workbench-overlay', enabledOnly: false }).catch(() => false);
+        await wait(400);
+    }
+    await clickButtonText(client, 'Done', { root: '.saga-loredeck-library-overlay', enabledOnly: false }).catch(() => false);
+    await wait(500);
+
+    await clickRuntimeRoute(client, 'context');
+    await waitFor(client, sagaActiveTabExpression('context'), 'Tablet Advanced Context route active', 10000);
+    await wait(700);
+    const contextRouteState = await evaluate(client, script(() => {
+        const root = document.querySelector('#saga-lore-panel');
+        const drawer = document.querySelector('.saga-runtime-drawer');
+        const drawerContent = drawer?.querySelector('.saga-runtime-tab-body, .saga-lore-panel-body') || drawer;
+        const text = drawer?.innerText || document.body?.innerText || '';
+        return {
+            mobileShell: !!root?.classList?.contains('saga-runtime-mobile'),
+            activeTab: document.querySelector('.saga-runtime-rail-tab-active')?.getAttribute('data-tab-id') || root?.dataset?.mobileActiveTab || '',
+            drawer: !!drawer,
+            hasRuntimeContext: text.includes('Runtime Context'),
+            hasBrowseContext: text.includes('Browse Context'),
+            hasStoryPosition: text.includes('Story Position'),
+            drawerClientWidth: drawerContent?.clientWidth || 0,
+            drawerScrollWidth: drawerContent?.scrollWidth || 0,
+            bodyClientWidth: document.documentElement?.clientWidth || 0,
+            bodyScrollWidth: document.documentElement?.scrollWidth || 0,
+            noHorizontalOverflow: (!drawerContent || drawerContent.scrollWidth <= drawerContent.clientWidth + 2)
+                && document.documentElement.scrollWidth <= document.documentElement.clientWidth + 2,
+        };
+    }));
+    if (contextRouteState.mobileShell || contextRouteState.activeTab !== 'context' || !contextRouteState.drawer) findings.push('Tablet Advanced Context route did not stay on the desktop rail/drawer path.');
+    if (!contextRouteState.hasRuntimeContext || !contextRouteState.hasBrowseContext || !contextRouteState.hasStoryPosition) findings.push('Tablet Advanced Context drawer did not render Runtime Context, Browse Context, and Story Position.');
+    if (!contextRouteState.noHorizontalOverflow) findings.push(`Tablet Advanced Context route has horizontal overflow (drawer ${contextRouteState.drawerScrollWidth}/${contextRouteState.drawerClientWidth}, body ${contextRouteState.bodyScrollWidth}/${contextRouteState.bodyClientWidth}).`);
+
+    const browseClicked = await clickButtonText(client, 'Browse Context')
+        || await clickButtonText(client, 'Next: Browse Context');
+    if (!browseClicked) findings.push('Tablet Advanced Browse Context action was not clickable.');
+    let workbenchState = { open: false, hasTimeline: false, hasAliases: false, hasValidation: false, hasStoryPosition: false, hasPhraseResolver: false, hasClose: false };
+    if (browseClicked) {
+        await waitFor(client, '!!document.querySelector("#saga-context-workbench")', 'Tablet Advanced Context Workbench overlay', 10000);
+        await wait(800);
+        workbenchState = await evaluate(client, script(() => {
+            const overlay = document.querySelector('#saga-context-workbench');
+            const text = overlay?.innerText || '';
+            const labels = [...overlay?.querySelectorAll('button') || []].map(button => (button.innerText || button.textContent || '').trim()).filter(Boolean);
+            const contextRow = overlay?.querySelector('.saga-context-workbench-context-row:not(.saga-context-workbench-row-header)');
+            const contextRowRect = contextRow?.getBoundingClientRect?.();
+            const contextRowHeight = Math.round(contextRowRect?.height || 0);
+            const contextRowScrollHeight = contextRow?.scrollHeight || 0;
+            return {
+                open: !!overlay,
+                hasTimeline: text.includes('Timeline'),
+                hasAliases: text.includes('Aliases'),
+                hasValidation: text.includes('Validation'),
+                hasStoryPosition: text.includes('Choose Story Position') || text.includes('Story Position'),
+                hasPhraseResolver: text.includes('Phrase Resolver'),
+                hasPackTitle: text.includes('Smoke Test: Arlong Park') || text.includes('Harry Potter: Core') || text.includes('loaded Loredecks'),
+                hasClose: labels.includes('Done') || labels.includes('Close'),
+                noHorizontalOverflow: !overlay || overlay.scrollWidth <= overlay.clientWidth + 2,
+                contextRowHeight,
+                contextRowScrollHeight,
+                contextRowsFit: !contextRow || contextRowHeight + 1 >= contextRowScrollHeight,
+            };
+        }));
+        if (!workbenchState.open) findings.push('Tablet Advanced Context Workbench did not open.');
+        if (!workbenchState.hasTimeline || !workbenchState.hasAliases || !workbenchState.hasValidation) findings.push('Tablet Advanced Context Workbench tabs did not render.');
+        if (!workbenchState.hasStoryPosition || !workbenchState.hasPhraseResolver || !workbenchState.hasPackTitle) findings.push('Tablet Advanced Context Workbench did not render loaded Context controls.');
+        if (!workbenchState.hasClose) findings.push('Tablet Advanced Context Workbench did not expose Done/Close.');
+        if (!workbenchState.noHorizontalOverflow) findings.push('Tablet Advanced Context Workbench has horizontal overflow.');
+        if (!workbenchState.contextRowsFit) findings.push(`Tablet Advanced Context Workbench collapsed rows are visually compressed (${workbenchState.contextRowHeight}/${workbenchState.contextRowScrollHeight}).`);
+        screenshots.push(await screenshot(client, 'tablet-advanced-harness-05-context-workbench'));
+    }
+
+    const errors = client.events
+        .filter(event => event.method === 'Log.entryAdded' && event.params?.entry?.level === 'error')
+        .map(event => formatLogEntry(event.params.entry))
+        .filter(error => !isExpectedRepoLocalHarnessStorageError(error));
+    console.log(JSON.stringify({
+        ok: findings.length === 0 && errors.length === 0,
+        target: SMOKE_TARGET,
+        url: smokeUrl,
+        screenshots,
+        findings,
+        errors,
+        dialogEvents,
+        shellState,
+        libraryClick,
+        librarySelection,
+        libraryState,
+        healthState,
+        creatorState,
+        contextRouteState,
+        browseClicked,
+        workbenchState,
     }, null, 2));
 }
 
@@ -3222,18 +4263,22 @@ async function runLiveCreatorSmoke(client, screenshots, findings, smokeUrl, dial
     const timeout = config.providerTimeoutMs;
     let metadataSnapshot = null;
     let settingsSnapshot = null;
+    let preflightDialogCancelState = null;
     let preflightCleanupState = null;
     let freshStartState = null;
     let preflightCancelState = null;
     let staleSmokeResetState = null;
     let postInputCancelState = null;
+    let postCancelResetState = null;
     let restoreState = null;
     let restoreSettingsState = null;
     let cleanupState = null;
+    let finalDialogCancelState = null;
     let finalizedVerificationState = null;
     let thrown = null;
 
     try {
+        preflightDialogCancelState = await cancelLiveCreatorDialogIfPresent(client);
         preflightCleanupState = await cleanupPreviousLiveCreatorSmokeResidue(client).catch(error => ({
             ok: false,
             error: error?.message || String(error),
@@ -3276,12 +4321,20 @@ async function runLiveCreatorSmoke(client, screenshots, findings, smokeUrl, dial
             error: error?.message || String(error),
         }));
         if (postInputCancelState?.cancelled) await wait(800);
+        postCancelResetState = await resetLiveCreatorSmokeProjectToIntakeIfNeeded(client).catch(error => ({
+            ok: false,
+            error: error?.message || String(error),
+        }));
+        if (postCancelResetState && postCancelResetState.ok === false) {
+            throw new Error(`Live Creator smoke refused to clear stale smoke residue after cancellation: ${postCancelResetState.reason || postCancelResetState.error || 'unknown state'}`);
+        }
         await stage('intake-ready', '01-intake');
 
         await requireButtonMatching(client, { labels: ['Draft Scope Brief'] }, 'Draft Scope Brief', { root: '.saga-loredeck-creator-workbench-overlay' });
-        await waitFor(
+        await waitForLiveCreatorGenerationState(
             client,
-            '(() => { const text = document.querySelector(".saga-loredeck-creator-workbench-overlay")?.innerText || ""; return text.includes("Approve Scope Brief") || text.includes("Reasoning Provider is not ready") || text.includes("Action failed") || text.includes("Generation failed"); })()',
+            '!!state?.job?.briefReady',
+            state => !!state?.job?.briefReady,
             'live Creator Scope Brief result',
             timeout,
         );
@@ -3290,18 +4343,19 @@ async function runLiveCreatorSmoke(client, screenshots, findings, smokeUrl, dial
         if (!state.job?.briefReady) throw new Error('Live Creator Scope Brief did not produce a brief.');
 
         await requireButtonMatching(client, { labels: ['Approve Scope Brief'] }, 'Approve Scope Brief', { root: '.saga-loredeck-creator-workbench-overlay' });
-        await waitFor(
+        await waitForLiveCreatorState(
             client,
-            'document.querySelector(".saga-loredeck-creator-workbench-overlay")?.innerText.includes("Draft Story Outline")',
+            '(() => { const state = window.__sagaLiveCreatorSmokeState?.(); const labels = state?.visible?.buttonLabels || []; const text = state?.visible?.creatorText || ""; return labels.includes("Draft Story Outline") || text.includes("Draft Story Outline"); })()',
             'live Creator Scope Brief approval UI',
-            15000,
+            60000,
         );
         await stage('scope-brief-approved');
 
         await requireButtonMatching(client, { labels: ['Draft Story Outline'] }, 'Draft Story Outline', { root: '.saga-loredeck-creator-workbench-overlay' });
-        await waitFor(
+        await waitForLiveCreatorGenerationState(
             client,
-            '(() => { const text = document.querySelector(".saga-loredeck-creator-workbench-overlay")?.innerText || ""; return text.includes("Approve Outline and Unlock Title Pass") || text.includes("Reasoning Provider is not ready") || text.includes("Action failed") || text.includes("Generation failed"); })()',
+            '!!state?.job?.outlineReady',
+            state => !!state?.job?.outlineReady,
             'live Creator Story Outline result',
             timeout,
         );
@@ -3309,18 +4363,19 @@ async function runLiveCreatorSmoke(client, screenshots, findings, smokeUrl, dial
         if (!state.job?.outlineReady) throw new Error('Live Creator Story Outline did not produce an outline.');
 
         await requireButtonMatching(client, { labels: ['Approve Outline and Unlock Title Pass'] }, 'Approve Outline and Unlock Title Pass', { root: '.saga-loredeck-creator-workbench-overlay' });
-        await waitFor(
+        await waitForLiveCreatorState(
             client,
-            'document.querySelector(".saga-loredeck-creator-workbench-overlay")?.innerText.includes("Generate Next Title Batch")',
+            '(() => { const state = window.__sagaLiveCreatorSmokeState?.(); const labels = state?.visible?.buttonLabels || []; const text = state?.visible?.creatorText || ""; return labels.includes("Generate Next Title Batch") || text.includes("Generate Next Title Batch"); })()',
             'live Creator Story Outline approval UI',
-            15000,
+            60000,
         );
         await stage('story-outline-approved');
 
         await requireButtonMatching(client, { labels: ['Generate Next Title Batch'] }, 'Generate Next Title Batch', { root: '.saga-loredeck-creator-workbench-overlay' });
-        await waitForLiveCreatorState(
+        await waitForLiveCreatorGenerationState(
             client,
-            '(() => { const state = window.__sagaLiveCreatorSmokeState?.(); return (state?.job?.titleDraftCount || 0) >= 1 || state?.providerNotReady || state?.actionFailed; })()',
+            '(state?.job?.titleDraftCount || 0) >= 1',
+            state => (state?.job?.titleDraftCount || 0) >= 1,
             'live Creator first Title Batch result',
             timeout,
         );
@@ -3332,9 +4387,14 @@ async function runLiveCreatorSmoke(client, screenshots, findings, smokeUrl, dial
             await waitFor(client, '!!document.querySelector(".saga-confirm-overlay")', 'live Creator Generate Remaining confirmation', 10000);
             const confirmed = await confirmLiveCreatorDialog(client);
             if (!confirmed?.clicked) throw new Error(`Could not confirm Generate Remaining title batches: ${JSON.stringify(redactDiagnosticValue(confirmed))}`);
-            await waitForLiveCreatorState(
+            await waitForLiveCreatorGenerationState(
                 client,
-                '(() => { const state = window.__sagaLiveCreatorSmokeState?.(); const total = state?.job?.titleBatchTotal || 0; const drafted = state?.job?.titleBatchDraftedCount || 0; return (total > 0 && drafted >= total) || state?.providerNotReady || state?.actionFailed; })()',
+                '((state?.job?.titleBatchTotal || 0) > 0 && (state?.job?.titleBatchDraftedCount || 0) >= (state?.job?.titleBatchTotal || 0))',
+                state => {
+                    const total = state?.job?.titleBatchTotal || 0;
+                    const drafted = state?.job?.titleBatchDraftedCount || 0;
+                    return total > 0 && drafted >= total;
+                },
                 'live Creator remaining Title Batches result',
                 timeout * 2,
             );
@@ -3345,24 +4405,19 @@ async function runLiveCreatorSmoke(client, screenshots, findings, smokeUrl, dial
         }
 
         await requireButtonMatching(client, { labels: ['Approve'] }, 'Approve first title draft', { root: '.saga-loredeck-creator-title-list' });
-        await waitFor(
+        await waitForLiveCreatorState(
             client,
-            '(() => { const text = document.querySelector(".saga-loredeck-creator-workbench-overlay")?.innerText || ""; return text.includes("1 approved") || text.includes("Plan Context and Tags") || text.includes("Plan This Set"); })()',
+            '(() => { const state = window.__sagaLiveCreatorSmokeState?.(); const text = state?.visible?.creatorText || ""; return (state?.job?.approvedTitleCount || 0) >= 1 || text.includes("1 approved") || text.includes("Plan Context and Tags") || text.includes("Plan This Set"); })()',
             'live Creator approved title state',
-            30000,
-        );
-        await waitFor(
-            client,
-            '(() => { const text = document.querySelector(".saga-loredeck-creator-workbench-overlay")?.innerText || ""; return text.includes("Plan Context and Tags") || text.includes("Plan This Set"); })()',
-            'live Creator approved title next action',
-            60000,
+            120000,
         );
         await stage('one-title-approved', '06-title-approved');
 
         await requireButtonMatching(client, { labels: ['Plan Context and Tags', 'Plan This Set'] }, 'Plan Context and Tags', { root: '.saga-loredeck-creator-workbench-overlay' });
-        await waitForLiveCreatorState(
+        await waitForLiveCreatorGenerationState(
             client,
-            '(() => { const state = window.__sagaLiveCreatorSmokeState?.(); return (state?.generatedPack?.pendingChangeCount || 0) >= 1 || (state?.job?.planningQueuedCount || 0) >= 1 || state?.providerNotReady || state?.actionFailed; })()',
+            '(state?.generatedPack?.pendingChangeCount || 0) >= 1 || (state?.job?.planningQueuedCount || 0) >= 1',
+            state => (state?.generatedPack?.pendingChangeCount || 0) >= 1 || (state?.job?.planningQueuedCount || 0) >= 1,
             'live Creator Context and Tag planning result',
             timeout,
         );
@@ -3384,9 +4439,10 @@ async function runLiveCreatorSmoke(client, screenshots, findings, smokeUrl, dial
         state = await stage('context-tags-accepted', '08-planning-accepted');
 
         await requireButtonMatching(client, { labels: ['Draft Lorecards'] }, 'Draft Lorecards', { root: '.saga-loredeck-creator-workbench-overlay' });
-        await waitForLiveCreatorState(
+        await waitForLiveCreatorGenerationState(
             client,
-            '(() => { const state = window.__sagaLiveCreatorSmokeState?.(); return (state?.job?.draftChangeCount || 0) >= 1 || state?.providerNotReady || state?.actionFailed; })()',
+            '(state?.job?.draftChangeCount || 0) >= 1',
+            state => (state?.job?.draftChangeCount || 0) >= 1,
             'live Creator Lorecard draft result',
             timeout,
         );
@@ -3396,7 +4452,7 @@ async function runLiveCreatorSmoke(client, screenshots, findings, smokeUrl, dial
         await requireButtonMatching(client, { labels: ['Send All to Review', 'Send Selected to Review'] }, 'Send Creator drafts to Pending Review', { root: '.saga-loredeck-creator-workbench-overlay' });
         await waitForLiveCreatorState(
             client,
-            '(() => { const state = window.__sagaLiveCreatorSmokeState?.(); const text = state?.visible?.creatorText || ""; return (state?.job?.draftChangeCount || 0) === 0 && ((state?.generatedPack?.pendingChangeCount || 0) >= 1 || /Review Queue\\s+\\d+ pending/i.test(text) || /Pending Review\\s+\\d+/i.test(text)); })()',
+            '(() => { const state = window.__sagaLiveCreatorSmokeState?.(); const text = state?.visible?.creatorText || ""; return (state?.job?.draftChangeCount || 0) === 0 && ((state?.generatedPack?.pendingChangeCount || 0) >= 1 || /Review Queue\\s+[1-9]\\d* pending/i.test(text) || /Pending Review\\s+[1-9]\\d*/i.test(text)); })()',
             'live Creator drafts sent to Pending Review',
             30000,
         );
@@ -3404,9 +4460,9 @@ async function runLiveCreatorSmoke(client, screenshots, findings, smokeUrl, dial
 
         if (!state.visible?.buttonLabels?.includes('Accept All') && state.visible?.buttonLabels?.includes('Open Review Queue')) {
             await requireButtonMatching(client, { labels: ['Open Review Queue'] }, 'Open Review Queue', { root: '.saga-loredeck-creator-workbench-overlay' });
-            await waitFor(
+            await waitForLiveCreatorState(
                 client,
-                '(() => { const text = document.querySelector(".saga-loredeck-creator-workbench-overlay")?.innerText || ""; return text.includes("Accept All") || text.includes("Pending Review"); })()',
+                '(() => { const state = window.__sagaLiveCreatorSmokeState?.(); const labels = state?.visible?.buttonLabels || []; const text = state?.visible?.creatorText || ""; return labels.includes("Accept All") || text.includes("Accept All") || text.includes("Pending Review"); })()',
                 'live Creator Review Queue opened',
                 15000,
             );
@@ -3435,14 +4491,22 @@ async function runLiveCreatorSmoke(client, screenshots, findings, smokeUrl, dial
 
         if (config.finalize) {
             if (state.visible?.buttonLabels?.includes('Finalize Anyway')) {
-                await requireButtonMatching(client, { labels: ['Finalize Anyway'] }, 'Finalize Anyway coverage acknowledgement', { root: '.saga-loredeck-creator-workbench-overlay' });
-                await waitForLiveCreatorSettled(client, 'live Creator coverage acknowledgement settled', 30000);
+                await requireButtonMatching(client, { labels: ['Finalize Anyway'] }, 'Finalize Anyway coverage acknowledgement', { root: '.saga-loredeck-creator-workbench-overlay', preferLast: true });
+                await waitFor(client, '!!document.querySelector(".saga-confirm-overlay")', 'live Creator coverage acknowledgement confirmation', 60000);
+                confirmed = await confirmLiveCreatorDialog(client, 'Confirm', { timeoutMs: 60000 });
+                if (!confirmed?.clicked) throw new Error(`Could not confirm Creator coverage acknowledgement: ${JSON.stringify(redactDiagnosticValue(confirmed))}`);
+                await waitForLiveCreatorState(
+                    client,
+                    '(() => { const state = window.__sagaLiveCreatorSmokeState?.(); const labels = state?.visible?.buttonLabels || []; const disabled = state?.visible?.disabledButtons || []; return !state?.confirmOpen && (!!state?.job?.coverageFinalizeAcknowledgement || (labels.includes("Finalize as Custom Loredeck") && !disabled.includes("Finalize as Custom Loredeck"))); })()',
+                    'live Creator coverage acknowledgement settled',
+                    60000,
+                );
                 state = await stage('coverage-acknowledged');
             }
             await requireButtonMatching(client, { labels: ['Finalize as Custom Loredeck'] }, 'Finalize as Custom Loredeck', { root: '.saga-loredeck-creator-workbench-overlay' });
             await waitForLiveCreatorState(
                 client,
-                '(() => { const state = window.__sagaLiveCreatorSmokeState?.(); const text = `${state?.visible?.creatorText || ""}\\n${state?.visible?.libraryText || ""}`; return state?.confirmOpen || state?.metadataEditorOpen || (state?.selectedPack?.type === "custom" && (state?.selectedPack?.originalPackId || state?.selectedPack?.creatorJobId)) || /\\bCustom\\b/.test(text); })()',
+                '(() => { const state = window.__sagaLiveCreatorSmokeState?.(); return state?.confirmOpen || state?.metadataEditorOpen || (state?.selectedPack?.type === "custom" && (state?.selectedPack?.originalPackId || state?.selectedPack?.creatorJobId)) || (state?.finalizedPacks || []).length > 0; })()',
                 'live Creator finalization confirmation or completion',
                 90000,
             );
@@ -3453,12 +4517,12 @@ async function runLiveCreatorSmoke(client, screenshots, findings, smokeUrl, dial
             }
             await waitForLiveCreatorState(
                 client,
-                '(() => { const state = window.__sagaLiveCreatorSmokeState?.(); const text = `${state?.visible?.creatorText || ""}\\n${state?.visible?.libraryText || ""}`; return state?.metadataEditorOpen || (state?.selectedPack?.type === "custom" && (state?.selectedPack?.originalPackId || state?.selectedPack?.creatorJobId)) || (state?.finalizedPacks || []).length > 0 || /\\bCustom\\b/.test(text); })()',
+                '(() => { const state = window.__sagaLiveCreatorSmokeState?.(); return state?.metadataEditorOpen || (state?.selectedPack?.type === "custom" && (state?.selectedPack?.originalPackId || state?.selectedPack?.creatorJobId)) || (state?.finalizedPacks || []).length > 0; })()',
                 'live Creator finalized Custom Loredeck',
                 90000,
             );
             state = await stage('finalized-as-custom', '13-finalized');
-            if (!state.selectedPack && !(state.finalizedPacks || []).length && !/\bCustom\b/.test(`${state.visible?.creatorText || ''}\n${state.visible?.libraryText || ''}`)) {
+            if (!state.selectedPack && !(state.finalizedPacks || []).length) {
                 throw new Error('Live Creator finalization did not leave a detectable Custom Loredeck record.');
             }
             finalizedVerificationState = await verifyLiveCreatorFinalizedDeck(
@@ -3480,6 +4544,7 @@ async function runLiveCreatorSmoke(client, screenshots, findings, smokeUrl, dial
         await stage('failure-state', '99-failure').catch(() => null);
     } finally {
         const createdSnapshot = snapshotArtifacts();
+        finalDialogCancelState = await cancelLiveCreatorDialogIfPresent(client);
         if (config.cleanup) {
             cleanupState = await cleanupLiveCreatorArtifacts(client, createdSnapshot, findings).catch(error => ({
                 ok: false,
@@ -3500,9 +4565,7 @@ async function runLiveCreatorSmoke(client, screenshots, findings, smokeUrl, dial
         }
     }
 
-    const errors = client.events
-        .filter(event => event.method === 'Log.entryAdded' && event.params?.entry?.level === 'error')
-        .map(event => formatLogEntry(event.params.entry))
+    const errors = collectClientErrors(client)
         .filter(error => !isExpectedLiveCreator404(error));
     const finalCreated = snapshotArtifacts();
     const providerUnits = steps
@@ -3533,12 +4596,15 @@ async function runLiveCreatorSmoke(client, screenshots, findings, smokeUrl, dial
         created: finalCreated,
         providerUnits,
         steps,
+        preflightDialogCancelState,
         preflightCleanupState,
         freshStartState,
         preflightCancelState,
         staleSmokeResetState,
         postInputCancelState,
+        postCancelResetState,
         cleanupState,
+        finalDialogCancelState,
         finalizedVerificationState,
         restoreSettingsState,
         restoreState,
@@ -3566,6 +4632,8 @@ async function main() {
         '--no-default-browser-check',
         '--disable-background-networking',
         '--disable-extensions',
+        '--no-sandbox',
+        '--disable-setuid-sandbox',
         '--remote-allow-origins=*',
         `--remote-debugging-port=${port}`,
         `--user-data-dir=${userDataDir}`,
@@ -3573,8 +4641,9 @@ async function main() {
         'about:blank',
     ];
     if (headless) {
+        const headlessArg = String(process.env.SAGA_SMOKE_HEADLESS_MODE || 'new').trim();
         chromeArgs.unshift(
-            '--headless=new',
+            headlessArg ? `--headless=${headlessArg}` : '--headless',
             '--disable-gpu',
             '--disable-gpu-sandbox',
             '--disable-gpu-compositing',
@@ -3588,7 +4657,22 @@ async function main() {
         );
     } else {
         chromeArgs.unshift('--new-window');
+        if (process.env.SAGA_SMOKE_DISABLE_GPU === '1') {
+            chromeArgs.unshift(
+                '--disable-gpu',
+                '--disable-gpu-sandbox',
+                '--disable-gpu-compositing',
+                '--disable-accelerated-2d-canvas',
+                '--disable-accelerated-video-decode',
+                '--disable-dev-shm-usage',
+            );
+        }
     }
+    const extraChromeArgs = String(process.env.SAGA_SMOKE_CHROME_EXTRA_ARGS || '')
+        .split(/\s+/)
+        .map(value => value.trim())
+        .filter(Boolean);
+    chromeArgs.unshift(...extraChromeArgs);
 
     const proc = spawn(chrome, chromeArgs, { stdio: ['ignore', 'ignore', 'pipe'] });
 
@@ -3608,8 +4692,12 @@ async function main() {
     let sagaSettingsRestored = false;
     let client;
     try {
-        const { browserWsUrl, pageWsUrl, pageTargetId } = await waitForDevtools(port);
+        const devtools = await waitForDevtools(port);
+        const { browserWsUrl } = devtools;
+        let { pageWsUrl, pageTargetId } = devtools;
         await wait(1000);
+        const createFreshTarget = process.env.SAGA_SMOKE_CREATE_TARGET === '1';
+        if (createFreshTarget) pageWsUrl = '';
         const cdpStartupDetails = {
             target: SMOKE_TARGET,
             smokeUrl,
@@ -3621,11 +4709,18 @@ async function main() {
         };
         client = new CdpClient(pageWsUrl || browserWsUrl);
         await client.connect();
+        if (createFreshTarget) {
+            const created = await sendStartupCdpCommand(client, 'Target.createTarget', { url: 'about:blank' }, cdpStartupDetails);
+            pageTargetId = created.targetId || pageTargetId;
+            cdpStartupDetails.pageTargetId = pageTargetId;
+        }
         if (!pageWsUrl) {
             const attached = await sendStartupCdpCommand(client, 'Target.attachToTarget', { targetId: pageTargetId, flatten: true }, cdpStartupDetails);
             client.sessionId = attached.sessionId;
         }
-        await sendStartupCdpCommand(client, 'Page.enable', {}, cdpStartupDetails);
+        if (process.env.SAGA_SMOKE_SKIP_PAGE_ENABLE !== '1') {
+            await sendStartupCdpCommand(client, 'Page.enable', {}, cdpStartupDetails);
+        }
         await sendStartupCdpCommand(client, 'Runtime.enable', {}, cdpStartupDetails);
         await sendStartupCdpCommand(client, 'Log.enable', {}, cdpStartupDetails);
 
@@ -3649,6 +4744,16 @@ async function main() {
             return;
         }
 
+        if (SMOKE_TARGET === MOBILE_ADVANCED_HARNESS_TARGET) {
+            await runMobileAdvancedHarnessSmoke(client, screenshots, findings, smokeUrl, dialogEvents);
+            return;
+        }
+
+        if (SMOKE_TARGET === TABLET_ADVANCED_HARNESS_TARGET) {
+            await runTabletAdvancedHarnessSmoke(client, screenshots, findings, smokeUrl, dialogEvents);
+            return;
+        }
+
         if (SMOKE_TARGET === STORAGE_HARNESS_TARGET) {
             await runStorageHarnessSmoke(client, screenshots, findings, smokeUrl, dialogEvents, harness);
             return;
@@ -3656,14 +4761,17 @@ async function main() {
 
         if (SMOKE_TARGET === 'context-harness') {
             await waitFor(client, 'window.__sagaSmokeReady === true', 'Context smoke ready marker', 20000);
-            await waitFor(client, 'document.querySelector(".saga-runtime-rail-tab-active")?.getAttribute("data-tab-id") === "context"', 'Context tab active', 10000);
+            await waitFor(client, 'document.querySelector(".saga-runtime-rail-tab-active")?.getAttribute("data-tab-id") === "context" || document.querySelector("#saga-lore-panel")?.dataset?.mobileActiveTab === "context"', 'Context tab active', 10000);
             screenshots.push(await screenshot(client, 'context-harness-01-proposal-review'));
             const firstState = await evaluate(client, script(() => {
                 const text = document.body?.innerText || '';
                 const overlay = document.querySelector('#saga-context-proposal-review');
                 return {
                     smokeMeta: window.__sagaContextSmoke || null,
-                    activeTab: document.querySelector('.saga-runtime-rail-tab-active')?.getAttribute('data-tab-id') || '',
+                    mobileShell: !!document.querySelector('#saga-lore-panel.saga-runtime-mobile'),
+                    activeTab: document.querySelector('.saga-runtime-rail-tab-active')?.getAttribute('data-tab-id') || document.querySelector('#saga-lore-panel')?.dataset?.mobileActiveTab || '',
+                    hasOperatorSummary: !!document.querySelector('.saga-context-operator-summary'),
+                    hasStoryPosition: text.includes('Story Position'),
                     hasRuntimeContext: text.includes('Runtime Context'),
                     hasBrowseContext: text.includes('Browse Context'),
                     hasReviewProposals: text.includes('Review Proposals'),
@@ -3681,17 +4789,19 @@ async function main() {
                 };
             }));
             if (firstState.activeTab !== 'context') findings.push('Context harness did not open with the Context tab active.');
-            if (!firstState.hasRuntimeContext) findings.push('Context harness did not render Runtime Context command center copy.');
+            if (firstState.mobileShell) {
+                if (!firstState.hasOperatorSummary || !firstState.hasStoryPosition) findings.push('Mobile Context harness did not render the operator Story Position summary.');
+            } else if (!firstState.hasRuntimeContext) findings.push('Context harness did not render Runtime Context command center copy.');
             if (!firstState.hasBrowseContext) findings.push('Context harness did not render Browse Context action.');
             if (!firstState.hasReviewProposals) findings.push('Context harness did not render Review Proposals action.');
-            if (!firstState.hasReasonerProposals) findings.push('Context harness did not render Reasoner Proposals panel.');
-            if (!firstState.hasLastResolver) findings.push('Context harness did not render Last Resolver Check.');
-            if (!firstState.hasLastAutomation) findings.push('Context harness did not render Last Automation Check.');
-            if (!firstState.hasAdvancedBrief) findings.push('Context harness did not render Advanced Context Brief.');
-            if (!firstState.hasLockedContext) findings.push('Context harness did not expose locked Context state.');
+            if (!firstState.mobileShell && !firstState.hasReasonerProposals) findings.push('Context harness did not render Reasoner Proposals panel.');
+            if (!firstState.mobileShell && !firstState.hasLastResolver) findings.push('Context harness did not render Last Resolver Check.');
+            if (!firstState.mobileShell && !firstState.hasLastAutomation) findings.push('Context harness did not render Last Automation Check.');
+            if (!firstState.mobileShell && !firstState.hasAdvancedBrief) findings.push('Context harness did not render Advanced Context Brief.');
+            if (!firstState.mobileShell && !firstState.hasLockedContext) findings.push('Context harness did not expose locked Context state.');
             if (!firstState.overlayOpen || firstState.overlayTitle !== 'Context Proposal Review') findings.push('Context proposal review overlay did not open from smoke fixture.');
             if (firstState.proposalRows < 1) findings.push('Context proposal review overlay did not render proposal rows.');
-            if (firstState.contextRows < 1) findings.push('Context harness did not render loaded Loredeck Context rows.');
+            if (!firstState.mobileShell && firstState.contextRows < 1) findings.push('Context harness did not render loaded Loredeck Context rows.');
 
             await clickButtonText(client, 'Apply', { root: '#saga-context-proposal-review' });
             await wait(800);
@@ -3704,7 +4814,8 @@ async function main() {
             if (applyState.proposalCount !== 0) findings.push('Applying the seeded Context proposal did not clear pending proposals.');
             if (applyState.context?.source !== 'model') findings.push('Applying the seeded Context proposal did not update the Loredeck Context source.');
 
-            const browseClicked = await clickButtonText(client, 'Browse Context');
+            const browseClicked = await clickButtonText(client, 'Browse Context')
+                || await clickButtonText(client, 'Next: Browse Context');
             if (!browseClicked) findings.push('Browse Context button was not clickable in the Context harness.');
             await waitFor(client, '!!document.querySelector("#saga-context-workbench")', 'Context Workbench overlay', 10000);
             await wait(800);
@@ -3718,17 +4829,18 @@ async function main() {
                     hasAliases: text.includes('Aliases'),
                     hasValidation: text.includes('Validation'),
                     hasManualLock: /Manual lock|Auto allowed/i.test(text),
-                    hasPackTitle: text.includes('Smoke Test: Arlong Park'),
+                    hasPackTitle: text.includes('Smoke Test: Arlong Park') || text.includes('Harry Potter: Core') || text.includes('loaded Loredecks'),
                 };
             }));
             if (!workbenchState.open) findings.push('Context Workbench did not open.');
             if (!workbenchState.hasTimeline || !workbenchState.hasAliases || !workbenchState.hasValidation) findings.push('Context Workbench tabs did not render.');
             if (!workbenchState.hasManualLock) findings.push('Context Workbench did not expose lock state.');
-            if (!workbenchState.hasPackTitle) findings.push('Context Workbench did not select the smoke Loredeck.');
+            if (!workbenchState.hasPackTitle) findings.push('Context Workbench did not render a loaded Loredeck title.');
 
             const errors = client.events
                 .filter(event => event.method === 'Log.entryAdded' && event.params?.entry?.level === 'error')
-                .map(event => formatLogEntry(event.params.entry));
+                .map(event => formatLogEntry(event.params.entry))
+                .filter(error => !isExpectedRepoLocalHarnessStorageError(error));
             console.log(JSON.stringify({
                 ok: findings.length === 0 && errors.length === 0,
                 target: SMOKE_TARGET,

@@ -110,6 +110,14 @@
     --saga-chip-muted-bg: rgba(184, 173, 152, 0.06);
     --saga-chip-muted-border: rgba(184, 173, 152, 0.18);
     --saga-chip-muted-fg: #b8ad98;
+    --saga-mobile-control-height: 44px;
+    --saga-mobile-icon-button-size: 44px;
+    --saga-mobile-row-action-size: 40px;
+    --saga-mobile-bottom-bar-height: 72px;
+    --saga-mobile-header-min-height: 58px;
+    --saga-mobile-safe-area-top: env(safe-area-inset-top, 0px);
+    --saga-mobile-safe-area-bottom: env(safe-area-inset-bottom, 0px);
+    --saga-mobile-content-bottom-padding: calc(var(--saga-mobile-bottom-bar-height) + var(--saga-mobile-safe-area-bottom) + 10px);
     background:
         radial-gradient(circle at top left, rgba(92, 23, 36, 0.42), transparent 36%),
         linear-gradient(145deg, var(--saga-bg-gradient-start), var(--saga-bg-gradient-end));

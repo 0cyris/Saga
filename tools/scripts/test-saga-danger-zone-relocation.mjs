@@ -35,8 +35,8 @@ assert(style.includes('.saga-danger-button') && style.includes('var(--saga-dange
 
 assert(runtimeSafetyPanel.includes('Active Chat') && runtimeSafetyPanel.includes('Global'), 'Danger Zone must separate Active Chat and Global groups.');
 assert(runtimeSafetyPanel.includes('Reset Active Chat'), 'Active Chat group must expose Reset Active Chat.');
-assert(runtimeSafetyPanel.includes("createKeyValue('Accepted lore', String(normalizeLoreMatrix(state?.loreMatrix || []).length)"), 'Active Chat accepted-lore summary must use the normalized lore matrix count.');
-assert(runtimeSafetyPanel.includes("createKeyValue('Pending Lorecards', String(normalizeLoreMatrix(state?.pendingLoreEntries || []).length)"), 'Active Chat pending-lore summary must use the normalized pending lore count.');
+assert(runtimeSafetyPanel.includes("createKeyValue('Accepted Lorecards', String(normalizeLoreMatrix(state?.loreMatrix || []).length)"), 'Active Chat Accepted Lorecards summary must use the normalized lore matrix count.');
+assert(runtimeSafetyPanel.includes("createKeyValue('Pending Review', String(normalizeLoreMatrix(state?.pendingLoreEntries || []).length)"), 'Active Chat Pending Review summary must use the normalized pending lore count.');
 assert(runtimeSafetyPanel.includes("setText('Clearing lore...'") && runtimeSafetyPanel.includes("setText('Clearing generation state...'") && runtimeSafetyPanel.includes("setText('Resetting active chat...'"), 'Active Chat Danger Zone actions must use visible busy-button states while mutating state.');
 assert(runtimeSafetyPanel.includes('current.lorePanel.acceptedSelectedIds = [];'), 'Delete All Lore must clear stale accepted-lore bulk selections.');
 assert(runtimeSafetyPanel.includes('current.lorePanel.selectedEntryId = \'\';') && runtimeSafetyPanel.includes('current.lorePanel.reviewSelectedIds = [];'), 'Generation-state reset must clear pending-review selections and stale expanded-entry state.');

@@ -20,19 +20,33 @@ import {
     createStatusPill,
 } from '../ui/runtime-ui-kit.js';
 import {
+    canGoBackRuntimeMobileShell,
+    getRuntimeMobileActiveSubview,
+    getRuntimeMobileActiveTab,
+    getRuntimeMobileHeaderTitle,
     getConstrainedDrawerHeight,
     getConstrainedDrawerWidth,
     getRailWidth,
+    goBackRuntimeMobileShell,
+    isRuntimeMobileShell,
     normalizePanelLayoutState,
+    normalizeMobilePanelState,
     normalizeRailMode,
     onRuntimeDrawerResizeStart,
     onRuntimeRailDragStart,
+    openRuntimeMobileMoreSheet,
     resolveDrawerDirection,
+    selectRuntimeMobileMoreRoute,
+    selectRuntimeMobileRoute,
     updateDrawerScrollMetrics,
 } from './runtime-shell.js';
 import { markTourTarget } from './runtime-tour.js';
 import {
     TAB_ICONS,
+    getMobileBottomRoutes,
+    getMobileMoreGroupsForExperience,
+    getMobileRouteLabel,
+    getMobileRouteTooltip,
     getAutomationLabel,
     getAutomationTooltip,
     getExperienceLabel,
@@ -57,13 +71,20 @@ export function configureRuntimeShellView(nextDeps = {}) {
 export function renderPanelShell(root, state) {
     normalizePanelLayoutState(state);
     const panelState = state?.lorePanel || getDefaultState().lorePanel;
+    const settings = getSettings();
+
+    if (isRuntimeMobileShell()) {
+        renderMobilePanelShell(root, state, settings);
+        return;
+    }
+
     const railMode = normalizeRailMode(panelState.railMode);
     const drawerOpen = panelState.drawerOpen === true;
     const drawerDirection = drawerOpen ? resolveDrawerDirection(panelState) : 'right';
-    const settings = getSettings();
 
     root.innerHTML = '';
     root.className = 'saga-lore-panel saga-runtime-shell';
+    root.removeEventListener('keydown', onRuntimeMobileShellKeydown);
     root.classList.add(`saga-runtime-rail-${railMode}`);
     if (drawerOpen) root.classList.add('saga-runtime-drawer-open');
     root.dataset.railMode = railMode;
@@ -82,12 +103,19 @@ export function renderPanelShell(root, state) {
 export function renderPanelFallbackShell(root, state, error) {
     normalizePanelLayoutState(state);
     const panelState = state?.lorePanel || getDefaultState().lorePanel;
+    const settings = getSettings();
+
+    if (isRuntimeMobileShell()) {
+        renderMobilePanelShell(root, state, settings, { error });
+        return;
+    }
+
     const railMode = normalizeRailMode(panelState.railMode);
     const drawerDirection = panelState.drawerOpen === true ? resolveDrawerDirection(panelState) : 'right';
-    const settings = getSettings();
 
     root.innerHTML = '';
     root.className = 'saga-lore-panel saga-runtime-shell';
+    root.removeEventListener('keydown', onRuntimeMobileShellKeydown);
     root.classList.add(`saga-runtime-rail-${railMode}`);
     root.classList.add('saga-runtime-drawer-open');
     root.dataset.railMode = railMode;
@@ -125,6 +153,304 @@ export function renderPanelFallbackShell(root, state, error) {
     body.appendChild(tabBody);
     drawer.appendChild(body);
     root.appendChild(drawer);
+}
+
+function renderMobilePanelShell(root, state, settings = getSettings(), options = {}) {
+    const panelState = state?.lorePanel || getDefaultState().lorePanel;
+    const mobile = normalizeMobilePanelState(panelState, settings);
+    const activeTab = getRuntimeMobileActiveTab(panelState, settings);
+    const activeSubview = getRuntimeMobileActiveSubview(panelState, mobile.activeRoute, settings);
+
+    root.innerHTML = '';
+    root.className = 'saga-lore-panel saga-runtime-shell saga-runtime-mobile saga-mobile-touch';
+    if (activeSubview) root.classList.add('saga-mobile-subview-active');
+    root.dataset.mobileRoute = mobile.activeRoute;
+    root.dataset.mobileActiveTab = activeTab || '';
+    root.dataset.mobileMoreRoute = mobile.activeMoreRoute || '';
+    root.removeEventListener('keydown', onRuntimeMobileShellKeydown);
+    root.addEventListener('keydown', onRuntimeMobileShellKeydown);
+    root.style.left = '';
+    root.style.top = '';
+    root.style.right = '';
+    root.style.bottom = '';
+    root.style.removeProperty('--saga-rail-width');
+    root.style.removeProperty('--saga-drawer-width');
+    root.style.removeProperty('--saga-drawer-height');
+    applyRuntimeTheme(root, settings);
+
+    root.appendChild(renderMobileHeader(state, settings));
+
+    const body = document.createElement('div');
+    body.className = 'saga-lore-panel-body saga-mobile-content';
+    if (activeSubview) {
+        body.classList.add('saga-mobile-subview');
+        body.dataset.mobileSubviewId = activeSubview.id;
+    }
+    root.appendChild(body);
+
+    if (options.error) {
+        renderMobileErrorBody(body, mobile, settings, options.error);
+    } else if (mobile.activeRoute === 'more' && !mobile.activeMoreRoute) {
+        renderMobileMoreSheet(body, settings);
+    } else if (activeTab) {
+        panelState.activeTab = activeTab;
+        dep('renderPanelBody')(body, state);
+    } else {
+        renderMobileMoreSheet(body, settings);
+    }
+
+    root.appendChild(renderMobileBottomBar(state, settings));
+    refreshRuntimeHeader(root);
+}
+
+function onRuntimeMobileShellKeydown(event) {
+    if (event.key !== 'Escape' || event.defaultPrevented) return;
+    const target = event.target;
+    const targetTag = String(target?.tagName || '').toUpperCase();
+    if (['INPUT', 'TEXTAREA', 'SELECT'].includes(targetTag) || target?.isContentEditable) return;
+
+    const state = getState();
+    normalizePanelLayoutState(state);
+    const panelState = state?.lorePanel || getDefaultState().lorePanel;
+    const settings = getSettings();
+    if (!canGoBackRuntimeMobileShell(panelState, settings)) return;
+
+    event.preventDefault();
+    event.stopPropagation();
+    goBackRuntimeMobileShell();
+}
+
+function renderMobileHeader(state, settings = getSettings()) {
+    const panelState = state?.lorePanel || getDefaultState().lorePanel;
+    const mobile = normalizeMobilePanelState(panelState, settings);
+    const canGoBack = canGoBackRuntimeMobileShell(panelState, settings);
+    const header = document.createElement('div');
+    header.className = 'saga-mobile-header';
+
+    const backSlot = document.createElement('div');
+    backSlot.className = 'saga-mobile-header-back-slot';
+    if (canGoBack) {
+        const back = createMobileHeaderActionButton(
+            'back',
+            'Go back.',
+            'saga-mobile-header-action saga-mobile-header-back',
+            (event) => {
+                event.stopPropagation();
+                goBackRuntimeMobileShell();
+            },
+            settings,
+        );
+        back.setAttribute('aria-keyshortcuts', 'Escape');
+        backSlot.appendChild(back);
+    }
+    header.appendChild(backSlot);
+
+    const titleWrap = document.createElement('div');
+    titleWrap.className = 'saga-mobile-header-title-wrap';
+    const titleRow = document.createElement('div');
+    titleRow.className = 'saga-mobile-header-title-row';
+
+    const mark = document.createElement('span');
+    mark.className = 'saga-mobile-header-mark';
+    const markImg = document.createElement('img');
+    markImg.className = 'saga-mobile-header-mark-img';
+    markImg.src = getBrandLogoSrc('compact', settings);
+    markImg.alt = 'SAGA';
+    markImg.draggable = false;
+    markImg.addEventListener('error', () => {
+        markImg.remove();
+        mark.textContent = 'S';
+        mark.classList.add('saga-mobile-header-mark-fallback');
+    }, { once: true });
+    mark.appendChild(markImg);
+    titleRow.appendChild(mark);
+
+    const title = document.createElement('div');
+    title.className = 'saga-mobile-header-title';
+    title.textContent = getRuntimeMobileHeaderTitle(panelState, settings);
+    addTooltip(title, getMobileRouteTooltip(mobile.activeMoreRoute || mobile.activeRoute, settings));
+    titleRow.appendChild(title);
+    titleWrap.appendChild(titleRow);
+
+    const status = document.createElement('div');
+    status.className = 'saga-mobile-header-status';
+    status.appendChild(createStatusPill(`Experience: ${getExperienceLabel(settings)}`, getExperienceTooltip(settings), { tone: 'info', kind: 'status' }));
+    status.appendChild(createStatusPill(settings.enabled ? 'Active' : 'Paused', 'Master runtime toggle. When paused, Saga does not inject, scan, or generate.', { tone: settings.enabled ? 'success' : 'muted', kind: 'status' }));
+    titleWrap.appendChild(status);
+    header.appendChild(titleWrap);
+
+    const actions = document.createElement('div');
+    actions.className = 'saga-mobile-header-actions';
+    const more = createMobileHeaderActionButton(
+        'more',
+        'Open More.',
+        'saga-mobile-header-action saga-mobile-header-more',
+        (event) => {
+            event.stopPropagation();
+            openRuntimeMobileMoreSheet();
+        },
+        settings,
+    );
+    actions.appendChild(more);
+    const close = createMobileHeaderActionButton(
+        'close',
+        'Close Saga.',
+        'saga-mobile-header-action saga-mobile-header-close',
+        (event) => {
+            event.stopPropagation();
+            dep('hideRuntimePanel')();
+        },
+        settings,
+    );
+    actions.appendChild(close);
+    header.appendChild(actions);
+
+    return header;
+}
+
+function createMobileHeaderActionButton(kind, tooltip, className, handler, settings = getSettings()) {
+    const button = createIconButton('', tooltip, className, handler);
+    button.dataset.mobileHeaderAction = kind;
+    button.appendChild(createMobileHeaderActionIcon(kind, settings));
+    return button;
+}
+
+function createMobileHeaderActionIcon(kind, settings = getSettings()) {
+    if (kind === 'more') {
+        const icon = createMobileRouteIcon('more', settings, 'saga-mobile-header-action-icon');
+        icon.classList.add('saga-mobile-header-action-icon-more');
+        icon.setAttribute('aria-hidden', 'true');
+        return icon;
+    }
+
+    const icon = document.createElement('span');
+    icon.className = `saga-mobile-header-action-icon saga-mobile-header-action-icon-${kind}`;
+    icon.setAttribute('aria-hidden', 'true');
+
+    const symbol = document.createElement('span');
+    symbol.className = `saga-mobile-header-action-symbol saga-mobile-header-action-symbol-${kind}`;
+    icon.appendChild(symbol);
+    return icon;
+}
+
+function renderMobileBottomBar(state, settings = getSettings()) {
+    const panelState = state?.lorePanel || getDefaultState().lorePanel;
+    const mobile = normalizeMobilePanelState(panelState, settings);
+    const bar = document.createElement('nav');
+    bar.className = 'saga-mobile-bottom-bar';
+    bar.setAttribute('aria-label', 'Saga mobile navigation');
+
+    for (const route of getMobileBottomRoutes()) {
+        if (route === 'session') {
+            const divider = document.createElement('div');
+            divider.className = 'saga-mobile-bottom-divider';
+            divider.setAttribute('aria-hidden', 'true');
+            bar.appendChild(divider);
+        }
+        const label = getMobileRouteLabel(route, settings);
+        const tab = document.createElement('button');
+        tab.type = 'button';
+        tab.className = 'saga-mobile-bottom-tab';
+        tab.dataset.mobileRoute = route;
+        if (mobile.activeRoute === route) {
+            tab.classList.add('saga-mobile-bottom-tab-active');
+            tab.setAttribute('aria-current', 'page');
+        }
+        addTooltip(tab, getMobileRouteTooltip(route, settings));
+        tab.appendChild(createMobileRouteIcon(route, settings, 'saga-mobile-bottom-icon'));
+        const text = document.createElement('span');
+        text.className = 'saga-mobile-bottom-label';
+        text.textContent = label;
+        tab.appendChild(text);
+        tab.addEventListener('click', (event) => {
+            event.stopPropagation();
+            if (route === 'more') openRuntimeMobileMoreSheet();
+            else selectRuntimeMobileRoute(route);
+        });
+        bar.appendChild(tab);
+    }
+
+    return bar;
+}
+
+function createMobileRouteIcon(route, settings = getSettings(), className = 'saga-mobile-route-icon') {
+    const iconRoute = route === 'more' ? 'settings' : route;
+    const label = getMobileRouteLabel(route, settings);
+    const icon = document.createElement('span');
+    icon.className = className;
+    icon.dataset.fallbackIcon = route === 'more' ? 'M' : (TAB_ICONS[iconRoute] || label.slice(0, 1));
+    const iconSrc = getTabIconSrc(iconRoute, settings);
+    if (iconSrc) {
+        const iconImg = document.createElement('img');
+        iconImg.className = `${className}-img`;
+        iconImg.src = iconSrc;
+        iconImg.alt = '';
+        iconImg.draggable = false;
+        iconImg.addEventListener('error', () => {
+            icon.classList.add(`${className}-missing`);
+            icon.textContent = icon.dataset.fallbackIcon || label.slice(0, 1);
+        }, { once: true });
+        icon.appendChild(iconImg);
+    } else {
+        icon.textContent = icon.dataset.fallbackIcon || label.slice(0, 1);
+    }
+    return icon;
+}
+
+function renderMobileMoreSheet(container, settings = getSettings()) {
+    container.innerHTML = '';
+    const sheet = document.createElement('div');
+    sheet.className = 'saga-mobile-more-sheet';
+    sheet.setAttribute('role', 'menu');
+    sheet.setAttribute('aria-label', 'More Saga routes');
+
+    const modeWrap = document.createElement('div');
+    modeWrap.className = 'saga-mobile-more-mode';
+    modeWrap.appendChild(createExperienceModeSwitch(settings));
+    sheet.appendChild(modeWrap);
+
+    for (const group of getMobileMoreGroupsForExperience(settings)) {
+        const groupEl = document.createElement('section');
+        groupEl.className = 'saga-mobile-more-group';
+        const heading = document.createElement('h3');
+        heading.className = 'saga-mobile-more-group-title';
+        heading.textContent = group.label;
+        groupEl.appendChild(heading);
+
+        const list = document.createElement('div');
+        list.className = 'saga-mobile-more-list';
+        for (const route of group.routes) {
+            const entry = document.createElement('button');
+            entry.type = 'button';
+            entry.className = 'saga-mobile-more-entry';
+            entry.dataset.mobileMoreRoute = route;
+            entry.setAttribute('role', 'menuitem');
+            addTooltip(entry, getMobileRouteTooltip(route, settings));
+            entry.appendChild(createMobileRouteIcon(route, settings, 'saga-mobile-more-entry-icon'));
+            const text = document.createElement('span');
+            text.className = 'saga-mobile-more-entry-label';
+            text.textContent = getMobileRouteLabel(route, settings);
+            entry.appendChild(text);
+            entry.addEventListener('click', (event) => {
+                event.stopPropagation();
+                selectRuntimeMobileMoreRoute(route);
+            });
+            list.appendChild(entry);
+        }
+        groupEl.appendChild(list);
+        sheet.appendChild(groupEl);
+    }
+
+    container.appendChild(sheet);
+}
+
+function renderMobileErrorBody(container, mobile, settings, error) {
+    container.innerHTML = '';
+    const tabBody = document.createElement('div');
+    const activeTab = mobile.activeMoreRoute || mobile.activeRoute || 'session';
+    tabBody.className = `saga-runtime-tab-body saga-runtime-tab-body-${activeTab}`;
+    tabBody.appendChild(dep('createRuntimeRenderErrorCard')(getMobileRouteLabel(activeTab, settings), error));
+    container.appendChild(tabBody);
 }
 
 function renderRail(state) {
@@ -377,9 +703,9 @@ export function refreshRuntimeHeader(panelRoot) {
     status.appendChild(createStatusPill(settings.enabled ? 'Active' : 'Paused', 'Master runtime toggle. When paused, Saga does not inject, scan, or generate.', { tone: settings.enabled ? 'success' : 'muted', kind: 'status' }));
     status.appendChild(createStatusPill((settings.injectContinuity !== false && settings.injectMemo !== false) ? 'Continuity Injected' : 'Continuity Not Injected', 'Whether Saga includes structured continuity state in roleplay generation prompts.', { tone: (settings.injectContinuity !== false && settings.injectMemo !== false) ? 'success' : 'muted', kind: 'status' }));
     if (pendingDelta + pendingLore > 0) {
-        status.appendChild(createStatusPill(`Pending: ${pendingDelta + pendingLore}`, 'Pending generated lore entries plus any legacy continuity delta.', { tone: 'review', kind: 'count' }));
+        status.appendChild(createStatusPill(`Pending: ${pendingDelta + pendingLore}`, 'Pending Review entries plus any legacy continuity delta.', { tone: 'review', kind: 'count' }));
     }
-    status.appendChild(createStatusPill(`Lore Selected: ${selectedLore}`, 'Accepted lore entries selected for the next injection after context activation, priority, pinning, and muting.', { tone: selectedLore ? 'selected' : 'muted', kind: 'count' }));
+    status.appendChild(createStatusPill(`Lore Selected: ${selectedLore}`, 'Accepted Lorecards selected for the next injection after context activation, priority, pinning, and muting.', { tone: selectedLore ? 'selected' : 'muted', kind: 'count' }));
     void counts;
 }
 

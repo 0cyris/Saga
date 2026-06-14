@@ -252,14 +252,24 @@ const upserted = upsertLoredeckCreatorJob({
   projectTitle: 'Naruto: Chunin Exams',
   folderId: 'naruto',
   currentStage: 'brief_drafted',
+  coverageFinalizeAcknowledgement: {
+    mode: 'finalize_anyway',
+    acknowledgedAt: 123456,
+    coverageSignature: 'coverage:thin-naruto',
+  },
 }, { syncPrompt: false });
 
 assert.equal(upserted.ok, true);
 assert.equal(upserted.job.projectTitle, 'Naruto: Chunin Exams');
+assert.equal(upserted.job.coverageFinalizeAcknowledgement?.mode, 'finalize_anyway');
+assert.equal(upserted.job.coverageFinalizeAcknowledgement?.coverageSignature, 'coverage:thin-naruto');
 assert.equal(upserted.job.titleDrafts, undefined, 'Creating a different project must not inherit title drafts from the previously active project.');
 assert.equal(upserted.projectRegistry.activeJobId, 'creator_naruto_chunin');
 assert.equal(getLoredeckCreatorProjectRegistry().jobs.creator_naruto_chunin.folderId, 'naruto');
+assert.equal(getLoredeckCreatorProjectRegistry().jobs.creator_naruto_chunin.coverageFinalizeAcknowledgement?.mode, 'finalize_anyway');
 assert.equal(chatMetadata[MODULE_KEY].loredeckCreator.jobs.creator_naruto_chunin.folderId, 'naruto');
+assert.equal(chatMetadata[MODULE_KEY].loredeckCreator.jobs.creator_naruto_chunin.coverageFinalizeAcknowledgement?.mode, 'finalize_anyway');
+assert.equal(getCachedExternalLoredeckCreatorProject('creator_naruto_chunin').coverageFinalizeAcknowledgement?.mode, 'finalize_anyway');
 assert.ok(saveStateCount >= 1, 'Creator project upsert should keep the current chat mirror in sync.');
 
 const mergedRegistry = getLoredeckCreatorRegistry(getState());

@@ -25,7 +25,7 @@ export function configureGeneratedLoredeckExportCard(nextDeps = {}) {
 }
 
 export function formatGeneratedLoredeckExportNotice(message = '') {
-    if (message.includes('needs at least one accepted Lorecard')) return 'No accepted Lorecards are available for export yet.';
+    if (message.includes('needs at least one accepted Lorecard')) return 'No Accepted Lorecards are available for export yet.';
     if (message.includes('Pending Review')) return 'Pending Review proposals are excluded from export until accepted.';
     if (message.includes('Draft Batch')) return 'Creator/Assistant draft proposals are excluded from export until accepted.';
     if (message.includes('Creator Coverage')) return 'Creator Coverage needs expansion or explicit light-coverage acknowledgement before finalization.';

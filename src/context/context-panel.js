@@ -9,6 +9,12 @@ import {
     toast,
     wireOverlayBackdropClose,
 } from '../ui/runtime-ui-kit.js';
+import {
+    getRuntimeMobileActiveSubview,
+    isRuntimeMobileShell,
+    pushRuntimeMobileSubview,
+    selectRuntimeMobileRoute,
+} from '../runtime/runtime-shell.js';
 import { formatLoredeckContextUpdatedAt } from './context-formatters.js';
 import { getContextIndexSync, loadContextIndex } from './context-index.js';
 
@@ -66,6 +72,8 @@ export function renderContextTab(container, state) {
     const settings = getSettings();
     const basic = isBasicExperienceMode();
     const contextIndex = getContextIndexSync();
+    const mobileSubview = getContextMobileSubview(state, settings);
+    container.classList.add('saga-operator-tab', 'saga-context-operator-tab');
     if (!contextIndex) {
         loadContextIndex()
             .then(() => refreshContextPanelBody({ preserveScroll: true, preserveWindowScroll: true }))
@@ -76,6 +84,8 @@ export function renderContextTab(container, state) {
         'Context',
         'Set and audit where this chat sits inside each loaded Loredeck.'
     ));
+    container.appendChild(createContextOperatorSummary(state, contextIndex, { mobileSubview }));
+    if (isRuntimeMobileShell() && !mobileSubview) return;
 
     const contextStack = getContextWorkbenchStack(state);
     const contextProposals = getContextResolutionProposals(state);
@@ -100,6 +110,121 @@ export function renderContextTab(container, state) {
         }
     ));
     if (!basic) container.appendChild(createContextAdvancedBriefSection(state));
+}
+
+function getContextMobileSubview(state, settings = getSettings()) {
+    if (!isRuntimeMobileShell()) return null;
+    return getRuntimeMobileActiveSubview(state?.lorePanel, 'context', settings);
+}
+
+function openContextMobileDetails() {
+    pushRuntimeMobileSubview('context', {
+        id: 'context-details',
+        title: 'Context Details',
+    });
+}
+
+function getContextOperatorNextActionId({ stack = [], selectedRows = [], proposals = [] } = {}) {
+    if (!stack.length) return 'loredecks';
+    if (proposals.length) return 'proposals';
+    if (!selectedRows.length) return 'browse';
+    return 'detect';
+}
+
+function getContextOperatorActionLabel(actionId, label, nextActionId = '') {
+    return actionId === nextActionId ? `Next: ${label}` : label;
+}
+
+function getContextOperatorActionClass(actionId, nextActionId = '', fallbackClass = '') {
+    if (!nextActionId) return fallbackClass;
+    return actionId === nextActionId ? 'saga-primary-button' : '';
+}
+
+function createContextOperatorSummary(state = {}, contextIndex = null, options = {}) {
+    const basic = isBasicExperienceMode();
+    const mobileSubview = options.mobileSubview || null;
+    const stack = getContextWorkbenchStack(state);
+    const proposals = getContextResolutionProposals(state);
+    const selectedRows = stack
+        .map(item => ({ item, context: getLoredeckContext(state, item.packId) }))
+        .filter(row => hasSelectedLoredeckContext(row.context));
+    const primary = selectedRows[0] || (stack[0] ? { item: stack[0], context: getLoredeckContext(state, stack[0].packId) } : null);
+    const primarySummary = primary ? formatContextSummary(primary.context) : 'No loaded Loredeck Context.';
+    const mobileRoot = isRuntimeMobileShell() && !mobileSubview;
+    const nextActionId = mobileRoot ? getContextOperatorNextActionId({ stack, selectedRows, proposals }) : '';
+
+    const card = document.createElement('div');
+    card.className = 'saga-runtime-card saga-operator-summary-card saga-context-operator-summary';
+    markTourTarget(card, 'context.operator.summary');
+
+    const header = document.createElement('div');
+    header.className = 'saga-operator-summary-header';
+    const titleWrap = document.createElement('div');
+    titleWrap.className = 'saga-operator-summary-title-wrap';
+    const title = document.createElement('div');
+    title.className = 'saga-runtime-card-title saga-operator-summary-title';
+    title.textContent = 'Story Position';
+    addTooltip(title, 'Mobile operator summary for the current story position and next Context action.');
+    titleWrap.appendChild(title);
+    const subtitle = document.createElement('div');
+    subtitle.className = 'saga-runtime-help saga-operator-summary-subtitle';
+    subtitle.textContent = selectedRows.length
+        ? `${getLoredeckDisplayName(primary.item.packId)}: ${primarySummary}`
+        : (stack.length ? 'Choose the current story position before reviewing Context-aware Lorecards.' : 'Load Loredecks before setting story position.');
+    titleWrap.appendChild(subtitle);
+    header.appendChild(titleWrap);
+
+    const chips = document.createElement('div');
+    chips.className = 'saga-loredeck-row-meta saga-operator-summary-chips';
+    chips.appendChild(createStatusPill(`${stack.length} loaded`, 'Loaded Loredecks available for Context selection.', { tone: stack.length ? 'success' : 'muted', kind: 'count' }));
+    chips.appendChild(createStatusPill(`${selectedRows.length} set`, 'Loaded Loredecks with a selected story position.', { tone: selectedRows.length ? 'success' : 'muted', kind: 'count' }));
+    chips.appendChild(createStatusPill(formatContextIndexSummary(contextIndex), 'Timeline registry status for loaded Loredecks.', { tone: contextIndex?.summary?.issueCount ? 'warning' : (contextIndex?.hasIndex ? 'source' : 'muted'), kind: 'source' }));
+    if (!basic || proposals.length) {
+        chips.appendChild(createStatusPill(`${proposals.length} proposal${proposals.length === 1 ? '' : 's'}`, 'Reasoner-backed Context proposals waiting for review.', { tone: proposals.length ? 'review' : 'muted', kind: 'count' }));
+    }
+    header.appendChild(chips);
+    card.appendChild(header);
+
+    const actions = document.createElement('div');
+    actions.className = 'saga-primary-actions saga-operator-summary-actions';
+    if (nextActionId === 'loredecks') {
+        actions.appendChild(createButton('Next: Open Loredecks', 'Open Loredecks to load the stack before setting Context.', () => {
+            selectRuntimeMobileRoute('loredecks');
+        }, 'saga-primary-button'));
+    }
+    actions.appendChild(markTourTarget(createButton(
+        getContextOperatorActionLabel('browse', 'Browse Context', nextActionId),
+        'Open the fullscreen Context Browser for loaded Loredecks, anchors, windows, resolver tests, and manual locks.',
+        () => {
+            if (!stack.length) {
+                toast('Load a Loredeck before opening the Context Browser.', 'warning');
+                return;
+            }
+            openContextWorkbenchForPack(primary?.item?.packId || stack[0]?.packId || '', 'context');
+        },
+        getContextOperatorActionClass('browse', nextActionId, 'saga-primary-button')
+    ), 'context.operator.browse'));
+    actions.appendChild(markTourTarget(createButton(
+        getContextOperatorActionLabel('detect', 'Detect Context', nextActionId),
+        'Analyze recent messages and update the Context Brief plus unlocked loaded Loredeck Contexts.',
+        async (btn) => {
+            await handleDetectStoryContext(btn);
+        },
+        getContextOperatorActionClass('detect', nextActionId, 'saga-primary-button')
+    ), 'context.operator.detect'));
+    if (mobileRoot) {
+        actions.appendChild(createButton('Context Details', 'Open loaded Loredeck Context rows and resolver diagnostics.', openContextMobileDetails));
+    }
+    if (!basic || proposals.length) {
+        actions.appendChild(markTourTarget(createButton(
+            getContextOperatorActionLabel('proposals', proposals.length ? `Review Proposals (${proposals.length})` : 'Review Proposals', nextActionId),
+            'Open bounded Reasoner Context proposals waiting for approval.',
+            () => openContextProposalReview(),
+            getContextOperatorActionClass('proposals', nextActionId)
+        ), 'context.operator.proposals'));
+    }
+    card.appendChild(actions);
+    return card;
 }
 
 export function createContextAdvancedBriefSection(state = {}) {

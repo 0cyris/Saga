@@ -315,9 +315,15 @@ function createContextWorkbenchInspector(pack, selected = null, allItems = [], c
 
     const actions = document.createElement('div');
     actions.className = 'saga-primary-actions saga-context-workbench-inspector-actions';
-    actions.appendChild(createButton('Apply to Context', 'Set the selected Loredeck Context to this anchor/window.', () => {
+    const applyLabel = selected.kind === 'window' ? 'Use Window' : 'Use Anchor';
+    const applyTooltip = selected.kind === 'window'
+        ? 'Apply this timeline window as the current Context.'
+        : 'Apply this timeline anchor as the exact current Context.';
+    const applyButton = createButton(applyLabel, applyTooltip, () => {
         applyContextTimelineItem(pack.packId, selected);
-    }, 'saga-primary-button'));
+    }, 'saga-primary-button');
+    markTourTarget(applyButton, selected.kind === 'window' ? 'context.workbench.useWindow' : 'context.workbench.useAnchor');
+    actions.appendChild(applyButton);
 
     const editButton = createButton('Edit Definition', 'Edit this timeline definition as a Pending Review proposal.', () => {
         if (selected.kind === 'anchor') openLoredeckTimelineAnchorDialog(pack, selected);

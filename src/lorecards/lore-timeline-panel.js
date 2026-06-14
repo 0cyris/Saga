@@ -80,7 +80,7 @@ export function createLoreTimelineCard(state) {
     const title = document.createElement('div');
     title.className = 'saga-runtime-card-title';
     title.textContent = basic ? 'Lore Tools' : 'Lore Timeline';
-    addTooltip(title, basic ? 'Create manual lore and review suggested/generated entries below.' : 'Story-aware audit trail for accepted lore changes and recoverable lore versions.');
+    addTooltip(title, basic ? 'Draft manual notes and review suggested/generated entries below.' : 'Story-aware audit trail for Accepted Lorecards changes and recoverable lore versions.');
     top.appendChild(title);
     if (!basic) {
         top.appendChild(createStatusPill(summary.eventCount ? `${summary.eventCount} events` : 'No events', 'Lore timeline event count for this chat.', { tone: summary.eventCount ? 'source' : 'muted', kind: 'count' }));
@@ -109,7 +109,7 @@ export function createLoreTimelineCard(state) {
         } else {
             const empty = document.createElement('span');
             empty.className = 'saga-lore-timeline-mini-empty';
-            empty.textContent = 'No accepted-lore changes recorded yet.';
+            empty.textContent = 'No Accepted Lorecards changes recorded yet.';
             rail.appendChild(empty);
         }
         card.appendChild(rail);
@@ -120,8 +120,8 @@ export function createLoreTimelineCard(state) {
     const latestText = document.createElement('div');
     latestText.className = 'saga-lore-timeline-latest';
     latestText.textContent = basic
-        ? 'Create a manual lore draft, or use the generation tools below to add reviewable lore.'
-        : (latest ? `Last: ${latest.summary || latest.type}` : 'Manual creations, accepted lore changes, and recoveries will appear here.');
+        ? 'Draft a Manual Lore Note, or use the generation tools below to add reviewable lore.'
+        : (latest ? `Last: ${latest.summary || latest.type}` : 'Manual notes, Accepted Lorecards changes, and recoveries will appear here.');
     foot.appendChild(latestText);
     const actions = document.createElement('div');
     actions.className = 'saga-lore-timeline-actions';
@@ -1234,11 +1234,11 @@ function createLoreTimelineEventDetail(event) {
     const actions = document.createElement('div');
     actions.className = 'saga-primary-actions';
     const restore = createButton(
-        recoverable.length ? `Restore ${recoverable.length} to Pending` : 'Nothing to Restore',
-        'Restores recoverable deleted or prior-version entries into Pending Lore Review for editing and acceptance.',
+        recoverable.length ? `Restore ${recoverable.length} to Pending Review` : 'Nothing to Restore',
+        'Restores recoverable deleted or prior-version entries into Pending Review for editing and acceptance.',
         async () => {
             if (!recoverable.length) return;
-            const proceed = await confirmAction('Restore lore to Pending Review?', `This will add ${recoverable.length} recovered lore entr${recoverable.length === 1 ? 'y' : 'ies'} to Pending Lore Review. Accepted lore will not be changed.`);
+            const proceed = await confirmAction('Restore lore to Pending Review?', `This will add ${recoverable.length} recovered lore entr${recoverable.length === 1 ? 'y' : 'ies'} to Pending Review. Accepted Lorecards will not be changed.`);
             if (!proceed) return;
             const result = restoreLoreTimelineEntriesToPending(event.id);
             refreshPanelBody({ preserveScroll: true });

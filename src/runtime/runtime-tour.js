@@ -47,6 +47,10 @@ function showRuntimePanel() {
     return dep('showRuntimePanel', () => null)();
 }
 
+function navigateRuntimeTab(tabId, options = {}) {
+    return dep('navigateRuntimeTab', () => false)(tabId, options);
+}
+
 function prepareGuideStep(step) {
     if (!getTourStepPrepareAction(step)) return null;
     return dep('prepareGuideStep', () => null)(step);
@@ -154,15 +158,19 @@ export function showGuideStep(step, options = {}) {
         setSectionCollapsed(sectionId, false);
     }
 
-    const state = getState();
-    if (state?.lorePanel) {
-        normalizePanelLayoutState(state);
-        state.lorePanel.drawerOpen = true;
-        state.lorePanel.collapsed = false;
-        state.lorePanel.activeTab = normalizeTabForExperience(step.tab || 'session');
-        saveState(state);
+    const targetTab = normalizeTabForExperience(step.tab || 'session');
+    const navigated = navigateRuntimeTab(targetTab, { source: 'tour' });
+    if (!navigated) {
+        const state = getState();
+        if (state?.lorePanel) {
+            normalizePanelLayoutState(state);
+            state.lorePanel.drawerOpen = true;
+            state.lorePanel.collapsed = false;
+            state.lorePanel.activeTab = targetTab;
+            saveState(state);
+        }
+        showRuntimePanel();
     }
-    showRuntimePanel();
 
     const tour = activeSagaTour;
     const token = tour ? ++tour.renderToken : 0;

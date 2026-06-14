@@ -128,6 +128,16 @@ const fullJob = {
   assert.equal(persisted.entryDraftLastRejectionDiagnostics[0].message, 'Unknown tag location:cocoyashi.');
   assert.equal(persisted.entryDraftLastPreflightSummary.planningGapCount, 2);
   assert.equal(persisted.entryDraftLastPreflightDiagnostics[0].reasonCode, 'unknown_anchor');
+  assert.equal(persisted.coverageFinalizeAcknowledgement.mode, 'finalize_anyway');
+  assert.equal(persisted.coverageFinalizeAcknowledgement.acknowledgedAt, 600);
+  const staleRunning = normalizeLoredeckCreatorJob({
+    ...fullJob,
+    status: 'running',
+    currentStage: 'entries_drafting',
+    activeGeneration: null,
+  });
+  assert.equal(staleRunning.status, 'draft');
+  assert.equal(staleRunning.currentStage, 'entries_drafted');
 }
 
 const generatedPack = {

@@ -72,7 +72,7 @@ const ADVANCED_GUIDE_DEFAULTS = Object.freeze({
         when: 'Use this when the model ignores lore, sees stale state, or receives too much prompt context.',
     }),
     continuityTracking: Object.freeze({
-        expected: 'You can maintain live scene state separately from durable accepted Lorecards.',
+            expected: 'You can maintain live scene state separately from durable Accepted Lorecards.',
         when: 'Use this for current-scene date, cast, items, emotion, and short-term objectives.',
     }),
     creatorAuthoring: Object.freeze({
@@ -156,7 +156,7 @@ function buildAdvancedGuideSteps() {
         advancedStep('advanced-context-anchors-windows', 'Anchors Versus Windows', 'Anchors are exact timeline points. Windows are bounded ranges. Choose Story Position shows both so Context eligibility can match a point or a range.', 'context', 'context.workbench.storyPosition', { fallbackTarget: 'context.workbench.editor', prepare: 'openContextBrowser' }),
         advancedStep('advanced-context-start-here', 'Start Here', 'Start Here applies one story position as the exact current starting Anchor and clears the need for a range.', 'context', 'context.workbench.startHere', { fallbackTarget: 'context.workbench.storyPosition', prepare: 'openContextBrowser' }),
         advancedStep('advanced-context-use-window', 'Use Window', 'Use Window applies a first-class Window from the Lorepack timeline when the registry already has the correct lower and upper bounds.', 'context', 'context.workbench.useWindow', { fallbackTarget: 'context.workbench.storyPosition', prepare: 'openContextBrowser' }),
-        advancedStep('advanced-context-use-anchor', 'Exact Anchor Search', 'Search Choose Story Position and use Start Here to apply an exact Anchor as the current Context.', 'context', 'context.workbench.startHere', { fallbackTarget: 'context.workbench.storyPosition', prepare: 'openContextBrowser' }),
+        advancedStep('advanced-context-use-anchor', 'Use Anchor', 'Use Anchor applies the selected Timeline anchor as the exact current Context. Start Here is the story-position browser shortcut for the same precise-point choice.', 'context', 'context.workbench.useAnchor', { fallbackTarget: 'context.workbench.startHere', prepare: 'openContextBrowser' }),
         advancedStep('advanced-context-after-before', 'After and Before Bounds', 'After sets the lower bound and Before sets the upper bound for a custom Window when no existing Window is precise enough.', 'context', 'context.workbench.after', { fallbackTarget: 'context.workbench.windowBuilder', prepare: 'openContextBrowser' }),
         advancedStep('advanced-context-timeline-action', 'Timeline Action', 'Timeline opens the selected story position in the Timeline tab so you can inspect IDs, coordinates, aliases, attached Lorecards, and registry state.', 'context', 'context.workbench.timelineAction', { fallbackTarget: 'context.workbench.tab.timeline', prepare: 'openContextBrowser' }),
         advancedStep('advanced-context-manual-select', 'Manual Context Select', 'Manually select exact or ranged Context for loaded Lorepacks when detection is not authoritative.', 'context', 'context.workbench.editor', { fallbackTarget: 'context.workbench.storyPosition', prepare: 'openContextBrowser' }),
@@ -175,25 +175,25 @@ function buildAdvancedGuideSteps() {
         advancedStep('advanced-context-index-summary', 'Context Index Summary', 'Use Context index summaries to understand which anchors and windows are available.', 'context', 'context.editor', { fallbackTarget: 'context.commandCenter' }),
         advancedStep('advanced-context-workbench-routes', 'Context Workbench Routes', 'Route to timeline, story-position, alias, and validation workbenches for deeper source maintenance.', 'context', 'context.editor', { fallbackTarget: 'context.commandCenter' }),
         advancedStep('advanced-context-eligibility-debug', 'Eligibility Debugging', 'Explain why Context allows or blocks a Lorecard.', 'context', 'context.loadedLoredecks', { fallbackTarget: 'context.commandCenter' }),
-        advancedStep('advanced-lore-generation-overview', 'Lore Generation Overview', 'Understand canon preview, story scan, manual add, draft review, pending review, and accepted entries.', 'lore', 'lore.generation', { expandSections: Object.freeze(['lore.generation']) }),
+        advancedStep('advanced-lore-generation-overview', 'Capture / Suggest Overview', 'Understand canon preview, story scan, manual note, Draft Review, Pending Review, and Accepted Lorecards.', 'lore', 'lore.generation', { expandSections: Object.freeze(['lore.generation']) }),
         advancedStep('advanced-lore-canon-preview', 'Preview Canon Packs', 'Preview local Context-aware suggestions from active Lorepacks.', 'lore', 'lore.canon.preview', { expandSections: Object.freeze(['lore.generation']) }),
         advancedStep('advanced-lore-canon-selection', 'Canon Selection', 'Select useful canon suggestions for Pending Review rather than accepting them automatically.', 'lore', 'lore.canon.addPending', { fallbackTarget: 'lore.canon.preview' }),
         advancedStep('advanced-lore-story-scan', 'Scan Story Lore', 'Run model-backed story-lore scan for durable chat facts.', 'lore', 'lore.story.scan', { expandSections: Object.freeze(['lore.generation']) }),
         advancedStep('advanced-lore-scan-scope', 'Story Scan Scope', 'Tune scan source scope where recent, range, and entire-chat controls are available.', 'lore', 'lore.story.scope', { expandSections: Object.freeze(['lore.generation', 'lore.storyGenerationSettings', 'lore.story.scanScope']) }),
-        advancedStep('advanced-lore-manual-add', 'Manual Lorecard', 'Add a known important fact manually and route it through review.', 'lore', 'lore.manual.add', { fallbackTarget: 'lore.generation' }),
+        advancedStep('advanced-lore-manual-add', 'Manual Lore Note', 'Draft a known important fact manually and route it through Pending Review.', 'lore', 'lore.manual.add', { fallbackTarget: 'lore.generation' }),
         advancedStep('advanced-lore-assistant-drafts', 'Assistant Drafts', 'Review assistant or Creator draft batches before they reach Pending Review.', 'lore', 'lore.pending', { prepare: 'openPendingLoreReview' }),
-        advancedStep('advanced-lore-pending-review', 'Pending Review', 'Inspect Pending Lorecard Review as the gate before proposals affect prompts.', 'lore', 'lore.pending', { prepare: 'openPendingLoreReview' }),
-        advancedStep('advanced-lore-pending-edit', 'Edit Pending Entry', 'Edit pending entries before acceptance so durable memory is precise.', 'lore', 'lore.pending.entry', { fallbackTarget: 'lore.pending', prepare: 'openPendingLoreReview' }),
-        advancedStep('advanced-lore-pending-accept-reject', 'Accept or Reject Pending', 'Accept, reject, or dismiss entries based on future usefulness.', 'lore', 'lore.pending.actions', { fallbackTarget: 'lore.pending', prepare: 'openPendingLoreReview' }),
-        advancedStep('advanced-lore-pending-bulk', 'Bulk Pending Review', 'Use bulk review controls deliberately when many pending entries share the same decision.', 'lore', 'lore.pending.bulk', { fallbackTarget: 'lore.pending', prepare: 'openPendingLoreReview' }),
-        advancedStep('advanced-lore-accepted-list', 'Accepted List', 'Inspect accepted Lorecards as durable memory.', 'lore', 'lore.accepted', { prepare: 'openAcceptedLoreDetails' }),
-        advancedStep('advanced-lore-accepted-search-filter', 'Accepted Search and Filters', 'Search and filter accepted entries by text, status, category, relevance, or suppression state.', 'lore', 'lore.accepted.filters', { fallbackTarget: 'lore.accepted', prepare: 'openAcceptedLoreDetails' }),
-        advancedStep('advanced-lore-accepted-open-edit', 'Open Accepted Lorecard', 'Open and edit an accepted Lorecard when stored memory needs correction.', 'lore', 'lore.accepted.entry', { fallbackTarget: 'lore.accepted', prepare: 'openAcceptedLoreDetails' }),
-        advancedStep('advanced-lore-pin-mute', 'Pin and Mute', 'Pin or mute accepted entries to control prominence and suppression without deleting them.', 'lore', 'lore.accepted.pinMuteHelp', { fallbackTarget: 'lore.accepted', prepare: 'openAcceptedLoreDetails' }),
+        advancedStep('advanced-lore-pending-review', 'Pending Review', 'Inspect Pending Review as the gate before proposals affect prompts.', 'lore', 'lore.pending', { prepare: 'openPendingLoreReview' }),
+        advancedStep('advanced-lore-pending-edit', 'Edit Pending Entry', 'Edit Pending Review entries before acceptance so Accepted Lorecards stay precise.', 'lore', 'lore.pending.entry', { fallbackTarget: 'lore.pending', prepare: 'openPendingLoreReview' }),
+        advancedStep('advanced-lore-pending-accept-reject', 'Accept or Reject Pending', 'Accept or reject entries based on future usefulness.', 'lore', 'lore.pending.actions', { fallbackTarget: 'lore.pending', prepare: 'openPendingLoreReview' }),
+        advancedStep('advanced-lore-pending-bulk', 'Bulk Pending Review', 'Use bulk review controls deliberately when many Pending Review entries share the same decision.', 'lore', 'lore.pending.bulk', { fallbackTarget: 'lore.pending', prepare: 'openPendingLoreReview' }),
+        advancedStep('advanced-lore-accepted-list', 'Accepted Lorecards', 'Inspect Accepted Lorecards before they guide prompts.', 'lore', 'lore.accepted', { prepare: 'openAcceptedLoreDetails' }),
+        advancedStep('advanced-lore-accepted-search-filter', 'Accepted Lorecards Filters', 'Search and filter Accepted Lorecards by text, status, category, relevance, or suppression state.', 'lore', 'lore.accepted.filters', { fallbackTarget: 'lore.accepted', prepare: 'openAcceptedLoreDetails' }),
+        advancedStep('advanced-lore-accepted-open-edit', 'Open Accepted Lorecard', 'Open and edit an Accepted Lorecard when stored memory needs correction.', 'lore', 'lore.accepted.entry', { fallbackTarget: 'lore.accepted', prepare: 'openAcceptedLoreDetails' }),
+        advancedStep('advanced-lore-pin-mute', 'Pin and Mute', 'Pin or mute Accepted Lorecards to control prominence and suppression without deleting them.', 'lore', 'lore.accepted.pinMuteHelp', { fallbackTarget: 'lore.accepted', prepare: 'openAcceptedLoreDetails' }),
         advancedStep('advanced-lore-relevance-tier', 'Relevance Tier', 'Set relevance tier and understand prompt eligibility for High, Normal, and Low lore.', 'lore', 'lore.accepted.entry', { fallbackTarget: 'lore.accepted', prepare: 'openAcceptedLoreDetails' }),
-        advancedStep('advanced-lore-tags-context', 'Tags and Context Metadata', 'Inspect tags, Context metadata, source metadata, and routing hints on accepted entries.', 'lore', 'lore.accepted.entry', { fallbackTarget: 'lore.accepted', prepare: 'openAcceptedLoreDetails' }),
+        advancedStep('advanced-lore-tags-context', 'Tags and Context Metadata', 'Inspect tags, Context metadata, source metadata, and routing hints on Accepted Lorecards.', 'lore', 'lore.accepted.entry', { fallbackTarget: 'lore.accepted', prepare: 'openAcceptedLoreDetails' }),
         advancedStep('advanced-lore-similarity-duplicates', 'Similarity and Duplicates', 'Understand duplicate and similarity guards before accepting overlapping lore.', 'lore', 'lore.pending', { prepare: 'openPendingLoreReview' }),
-        advancedStep('advanced-lore-auto-relevance', 'Auto-Relevance', 'Run, apply, or reject Auto-Relevance suggestions for large accepted-lore collections.', 'lore', 'lore.autoRelevance', { expandSections: Object.freeze(['lore.autoRelevance']) }),
+        advancedStep('advanced-lore-auto-relevance', 'Auto-Relevance', 'Run, apply, or reject Auto-Relevance suggestions for large Accepted Lorecards collections.', 'lore', 'lore.autoRelevance', { expandSections: Object.freeze(['lore.autoRelevance']) }),
         advancedStep('advanced-lore-timeline-audit', 'Lore Timeline Audit', 'Use timeline and audit recovery for deleted, restored, pinned, muted, or changed lore.', 'lore', 'lore.timeline.section', { expandSections: Object.freeze(['lore.timeline']) }),
         advancedStep('advanced-lore-workbench', 'Lore Workbench', 'Open deeper Lorecard workbenches for large-list management and detailed editing.', 'lore', 'lore.accepted.entry', { fallbackTarget: 'lore.accepted', prepare: 'openAcceptedLoreDetails' }),
         advancedStep('advanced-lore-review-first-policy', 'Review-First Policy', 'Model-produced proposals must be reviewed before they can affect future responses.', 'lore', 'lore.pending', { prepare: 'openPendingLoreReview' }),
@@ -212,7 +212,7 @@ function buildAdvancedGuideSteps() {
         advancedStep('advanced-injection-token-estimate', 'Token Estimate', 'Read token and character estimates to understand prompt pressure.', 'injection', 'injection.preview.normal', { fallbackTarget: 'session.metrics', prepare: 'openInjectionPreview' }),
         advancedStep('advanced-injection-omission-reasons', 'Omission Reasons', 'Diagnose omitted Lorecards: muted, disabled tier, Context blocked, stack disabled, token pressure, or not selected.', 'injection', 'injection.preview.normal', { prepare: 'openInjectionPreview' }),
         advancedStep('advanced-injection-sync-diagnostics', 'Sync Diagnostics', 'Debug prompt transport and sync behavior from the injection surface.', 'injection', 'injection.promptPlacement', { prepare: 'openInjectionPreview' }),
-        advancedStep('advanced-continuity-overview', 'Continuity Overview', 'Continuity is live scene state, distinct from durable accepted Lorecards.', 'continuity', 'continuity.scan', { prepare: 'openContinuityEditor' }),
+        advancedStep('advanced-continuity-overview', 'Continuity Overview', 'Continuity is live scene state, distinct from durable Accepted Lorecards.', 'continuity', 'continuity.scan', { prepare: 'openContinuityEditor' }),
         advancedStep('advanced-continuity-scan', 'Scan Continuity State', 'Run a continuity scan to update the current scene state.', 'continuity', 'continuity.scan.button', { fallbackTarget: 'continuity.scan', prepare: 'openContinuityEditor' }),
         advancedStep('advanced-continuity-automation', 'Continuity Automation', 'Configure continuity automation cadence and understand when scans run.', 'continuity', 'continuity.automation', { prepare: 'openContinuityEditor' }),
         advancedStep('advanced-continuity-scope', 'Continuity Scope', 'Choose recent, custom range, or entire-chat continuity scan scope.', 'continuity', 'continuity.scanScope', { prepare: 'openContinuityEditor', expandSections: Object.freeze(['continuity.scanScope']) }),
@@ -296,7 +296,7 @@ export const GUIDE_SECTIONS = Object.freeze({
         { id: 'libraryMastery', label: 'Loredeck Library Mastery', tab: 'loredecks', description: 'Manage Library records, source types, folders, stack order, imports, exports, and details.' },
         { id: 'sessionControl', label: 'Session And Runtime Control', tab: 'session', description: 'Control runtime mode, automation, activation, guide modules, and session diagnostics.' },
         { id: 'contextResolution', label: 'Context Resolution', tab: 'context', description: 'Resolve story position with browser, detection, proposals, locks, audits, and Context workbenches.' },
-        { id: 'loreReview', label: 'Lorecard Generation And Review', tab: 'lore', description: 'Generate canon/story Lorecards, review proposals, manage accepted memory, and audit changes.' },
+        { id: 'loreReview', label: 'Lorecard Generation And Review', tab: 'lore', description: 'Generate canon/story Lorecards, review proposals, manage Accepted Lorecards, and audit changes.' },
         { id: 'injectionDiagnostics', label: 'Injection Diagnostics', tab: 'injection', description: 'Inspect prompt placement, relevance tiers, compression, previews, token pressure, and omissions.' },
         { id: 'continuityTracking', label: 'Continuity Tracking', tab: 'continuity', description: 'Track live scene state, scan scope, performance, tracked sections, and recovery.' },
         { id: 'creatorAuthoring', label: 'Creator And Generated Lorepack Authoring', tab: 'loredecks', description: 'Create and resume Generated Lorepack projects from scope brief through review and readiness.' },
@@ -315,7 +315,7 @@ export const GUIDE_STEPS = Object.freeze({
         }),
         guideStep('basic-session-saga-active', 'Saga Active', 'Saga Active pauses or resumes Saga behavior without deleting saved data.', 'session', 'session.active', {
             section: 'firstRun',
-            expected: 'When Saga is active, accepted Lorecards and configured runtime behavior can affect the next response.',
+            expected: 'When Saga is active, Accepted Lorecards and configured runtime behavior can affect the next response.',
             when: 'Turn it off for chats where Saga should not inject or run tools.',
         }),
         guideStep('basic-session-start-checklist', 'Start Checklist', 'The Start Checklist turns the Basic workflow into one next action at a time.', 'session', 'session.basicReadiness', {
@@ -328,7 +328,7 @@ export const GUIDE_STEPS = Object.freeze({
             expected: 'You can follow the next recommended action to keep setup moving.',
             when: 'Use it whenever the checklist is not ready.',
         }),
-        guideStep('basic-loredecks-overview', 'Loredecks as Source Packs', 'Loredecks are source packs for Context, canon suggestions, retrieval, and accepted Lorecards.', 'loredecks', 'loredecks.library.launch', {
+        guideStep('basic-loredecks-overview', 'Loredecks as Source Packs', 'Loredecks are source packs for Context, canon suggestions, retrieval, and Accepted Lorecards.', 'loredecks', 'loredecks.library.launch', {
             expandSections: Object.freeze(['loredecks.libraryLaunch']),
             expected: 'You can see how many Loredecks exist, how many are active, and whether Pack Health has warnings.',
             when: 'Start here for a new chat or whenever the story source changes.',
@@ -446,8 +446,8 @@ export const GUIDE_STEPS = Object.freeze({
             expected: 'The chosen Anchor or Window becomes the selected manual Context for that Lorepack.',
             when: 'Use this when the story position is obvious from the timeline list.',
         }),
-        guideStep('basic-context-use-anchor', 'Exact Anchor Search', 'Search Choose Story Position and press Start Here to apply one exact Anchor. It is the precise-point version of Use Window.', 'context', 'context.workbench.startHere', {
-            fallbackTarget: 'context.workbench.storyPosition',
+        guideStep('basic-context-use-anchor', 'Use Anchor', 'Search Choose Story Position and press Start Here for the basic shortcut, or use Use Anchor from Timeline when you inspect the selected exact Anchor.', 'context', 'context.workbench.useAnchor', {
+            fallbackTarget: 'context.workbench.startHere',
             prepare: 'openContextBrowser',
             expected: 'A specific timeline Anchor is stored as the current Context.',
             when: 'Use this when search finds the exact event, episode, chapter, quest, date, or arc point.',
@@ -499,10 +499,10 @@ export const GUIDE_STEPS = Object.freeze({
             expected: 'You understand that suggestions do not guide the model until they pass review.',
             when: 'Use this before creating or accepting new memory.',
         }),
-        guideStep('basic-lorecards-generation-section', 'Lorecard Generation', 'The generation section gathers canon pack preview, story-lore scan, and manual Lorecard creation.', 'lore', 'lore.generation.section', {
+        guideStep('basic-lorecards-generation-section', 'Capture / Suggest', 'The Capture / Suggest section gathers canon pack preview, story-lore scan, and Manual Lore Note drafting.', 'lore', 'lore.generation.section', {
             fallbackTarget: 'lore.generation.section',
             expandSections: Object.freeze(['lore.generation']),
-            expected: 'All new Lorecards still go to Pending Lorecard Review before they can affect prompts.',
+            expected: 'All new Lorecards still go to Pending Review before they can affect prompts.',
             when: 'Use this when the story has new facts or when canon guardrails are needed for the current Context.',
         }),
         guideStep('basic-lorecards-preview-canon', 'Preview Canon Packs', 'Preview Canon Packs queries local Loredeck data for Context-aware canon suggestions without a provider call.', 'lore', 'lore.canon.preview', {
@@ -511,7 +511,7 @@ export const GUIDE_STEPS = Object.freeze({
             expected: 'Matching canon entries appear as selectable packs, then selected entries can be sent to Pending Review.',
             when: 'Use this before scenes where canon constraints matter.',
         }),
-        guideStep('basic-lorecards-send-canon-review', 'Send Canon to Review', 'Selected canon suggestions go to Pending Lorecard Review instead of becoming accepted memory automatically.', 'lore', 'lore.canon.addPending', {
+        guideStep('basic-lorecards-send-canon-review', 'Send Canon to Review', 'Selected canon suggestions go to Pending Review instead of becoming Accepted Lorecards automatically.', 'lore', 'lore.canon.addPending', {
             fallbackTarget: 'lore.canon.preview',
             expandSections: Object.freeze(['lore.generation']),
             expected: 'Canon suggestions remain reviewable before they can affect prompts.',
@@ -520,40 +520,40 @@ export const GUIDE_STEPS = Object.freeze({
         guideStep('basic-lorecards-story-scan', 'Scan Story Lore', 'Scan Story Lore asks the configured provider to extract durable story-specific facts from recent chat.', 'lore', 'lore.story.scan', {
             fallbackTarget: 'lore.generation',
             expandSections: Object.freeze(['lore.generation']),
-            expected: 'Potential facts are proposed as Pending Lorecards, not accepted automatically.',
+            expected: 'Potential facts are proposed as Pending Review entries, not accepted automatically.',
             when: 'Run it after substantial new roleplay or when you want to backfill recent story facts.',
         }),
-        guideStep('basic-lorecards-manual-add', 'Add Lorecard Manually', 'Manual Lorecards let you draft a known fact directly, then review it like generated entries.', 'lore', 'lore.manual.add', {
+        guideStep('basic-lorecards-manual-add', 'Manual Lore Note', 'Manual notes let you draft a known fact directly, then review it like generated entries.', 'lore', 'lore.manual.add', {
             fallbackTarget: 'lore.generation',
             expandSections: Object.freeze(['lore.generation']),
             expected: 'Your draft lands in Pending Review for one last edit/accept step.',
             when: 'Use this for important facts you already trust and do not need a model to discover.',
         }),
-        guideStep('basic-lorecards-pending-review', 'Pending Lorecard Review', 'Pending Review is the gate between suggested facts and accepted memory.', 'lore', 'lore.pending', {
+        guideStep('basic-lorecards-pending-review', 'Pending Review', 'Pending Review is the gate between suggested facts and Accepted Lorecards.', 'lore', 'lore.pending', {
             expandSections: Object.freeze(['lore.pendingReview']),
             prepare: 'openPendingLoreReview',
-            expected: 'Accept only useful durable facts. Dismiss recap, noise, wrong canon, or facts that should stay transient.',
-            when: 'Review after canon preview, story scan, or manual Lorecard creation.',
+            expected: 'Accept only useful durable facts. Reject recap, noise, wrong canon, or facts that should stay transient.',
+            when: 'Review after canon preview, story scan, or Manual Lore Note drafting.',
         }),
-        guideStep('basic-lorecards-edit-pending', 'Edit Pending Lorecards', 'Open or edit a pending proposal before accepting it so the durable fact is precise.', 'lore', 'lore.pending.entry', {
+        guideStep('basic-lorecards-edit-pending', 'Edit Pending Review', 'Open or edit a Pending Review entry before accepting it so the durable fact is precise.', 'lore', 'lore.pending.entry', {
             fallbackTarget: 'lore.pending',
             expandSections: Object.freeze(['lore.pendingReview']),
             prepare: 'openPendingLoreReview',
-            expected: 'Pending Lorecards can be corrected before they become accepted memory.',
+            expected: 'Pending Review entries can be corrected before they become Accepted Lorecards.',
             when: 'Use this when a proposal is useful but too broad, noisy, or slightly wrong.',
         }),
-        guideStep('basic-lorecards-accept-dismiss', 'Accept or Dismiss', 'Accept useful durable facts and dismiss recap, noise, wrong canon, or facts that should stay transient.', 'lore', 'lore.pending.actions', {
+        guideStep('basic-lorecards-accept-dismiss', 'Accept or Reject', 'Accept useful durable facts and reject recap, noise, wrong canon, or facts that should stay transient.', 'lore', 'lore.pending.actions', {
             fallbackTarget: 'lore.pending',
             expandSections: Object.freeze(['lore.pendingReview']),
             prepare: 'openPendingLoreReview',
-            expected: 'Only reviewed facts move into accepted memory.',
+            expected: 'Only reviewed facts move into Accepted Lorecards.',
             when: 'Use this after reading a pending proposal.',
         }),
         guideStep('basic-lorecards-review-question', 'Review Question', 'Ask: should this fact affect future responses?', 'lore', 'lore.pending', {
             expandSections: Object.freeze(['lore.pendingReview']),
             prepare: 'openPendingLoreReview',
             expected: 'The review decision is based on future usefulness, not whether the fact appeared once.',
-            when: 'Use this to keep accepted memory clean.',
+            when: 'Use this to keep Accepted Lorecards clean.',
         }),
         guideStep('basic-lorecards-accepted-list', 'Accepted Lorecards', 'Accepted Lorecards are the durable facts Saga can select for future responses.', 'lore', 'lore.accepted', {
             expandSections: Object.freeze(['lore.acceptedEntries']),
@@ -561,30 +561,30 @@ export const GUIDE_STEPS = Object.freeze({
             expected: 'Accepted entries can be searched, opened, edited, and selected for injection by relevance rules.',
             when: 'Use this to confirm what Saga remembers and to clean up entries that should no longer guide the model.',
         }),
-        guideStep('basic-lorecards-open-accepted', 'Open Accepted Lorecard', 'Open an accepted Lorecard to verify or correct its details.', 'lore', 'lore.accepted.entry', {
+        guideStep('basic-lorecards-open-accepted', 'Open Accepted Lorecard', 'Open an Accepted Lorecard to verify or correct its details.', 'lore', 'lore.accepted.entry', {
             fallbackTarget: 'lore.accepted',
             expandSections: Object.freeze(['lore.acceptedEntries']),
             prepare: 'openAcceptedLoreDetails',
-            expected: 'Accepted memory remains inspectable and correctable.',
+            expected: 'Accepted Lorecards remain inspectable and correctable.',
             when: 'Use this when a response suggests Saga remembered something incorrectly.',
         }),
-        guideStep('basic-lorecards-pin-mute', 'Pin or Mute Lorecards', 'Pin important accepted Lorecards for prominence or mute entries that should stay saved but not guide responses.', 'lore', 'lore.accepted.pinMuteHelp', {
+        guideStep('basic-lorecards-pin-mute', 'Pin or Mute Lorecards', 'Pin important Accepted Lorecards for prominence or mute entries that should stay saved but not guide responses.', 'lore', 'lore.accepted.pinMuteHelp', {
             fallbackTarget: 'lore.accepted',
             expandSections: Object.freeze(['lore.acceptedEntries']),
             prepare: 'openAcceptedLoreDetails',
             expected: 'You can emphasize critical facts or suppress entries without deleting them.',
             when: 'Use this for secrets, hard constraints, stale entries, or temporarily irrelevant facts.',
         }),
-        guideStep('basic-lorecards-search-cleanup', 'Search and Clean Up', 'Search accepted Lorecards and clean up entries that should no longer guide the model.', 'lore', 'lore.accepted.filters', {
+        guideStep('basic-lorecards-search-cleanup', 'Search and Clean Up', 'Search Accepted Lorecards and clean up entries that should no longer guide the model.', 'lore', 'lore.accepted.filters', {
             fallbackTarget: 'lore.accepted',
             expandSections: Object.freeze(['lore.acceptedEntries']),
             prepare: 'openAcceptedLoreDetails',
-            expected: 'Accepted memory can stay focused as the story grows.',
+            expected: 'Accepted Lorecards can stay focused as the story grows.',
             when: 'Use this after long sessions or when the model starts surfacing stale details.',
         }),
-        guideStep('basic-session-metrics', 'Session Metrics', 'Metrics show whether Saga has pending Lorecards, accepted lore, selected injection, and a token estimate.', 'session', 'session.metrics', {
+        guideStep('basic-session-metrics', 'Session Metrics', 'Metrics show whether Saga has Pending Review entries, Accepted Lorecards, selected injection, and a token estimate.', 'session', 'session.metrics', {
             section: 'continueRoleplay',
-            expected: 'You can tell whether Saga has data and whether accepted Lorecards are selected for injection.',
+            expected: 'You can tell whether Saga has data and whether Accepted Lorecards are selected for injection.',
             when: 'Check this if the model seems to ignore lore or if the prompt feels too heavy.',
         }),
         guideStep('basic-session-ready', 'Checklist Ready', 'The Start Checklist is ready when the active stack, Context, review state, and Saga Active status are in place.', 'session', 'session.basicReadiness', {

@@ -149,13 +149,13 @@ A **Lorecard** is one reviewable unit of lore. It should be narrow enough to ret
 Good Lorecards are not broad wiki summaries. They describe specific facts, constraints, reveals, relationship states, knowledge boundaries, abilities, location conditions, or timeline events.
 
 <p align="center">
-  <img src="../../assets/documentation/renders/docs-lorecards-pending-review.png" alt="Saga Pending Lorecard Review section" width="800">
+  <img src="../../assets/documentation/renders/docs-lorecards-pending-review.png" alt="Saga Pending Review section" width="800">
 </p>
 
 **Pending Review** is where generated or proposed Lorecards wait. Accept only content that should affect future responses. Reject or revise anything that is vague, premature, duplicated, too broad, or wrong for the current branch.
 
 <p align="center">
-  <img src="../../assets/documentation/renders/docs-lorecards-accepted-list.png" alt="Saga accepted Lorecards list" width="800">
+  <img src="../../assets/documentation/renders/docs-lorecards-accepted-list.png" alt="Saga Accepted Lorecards list" width="800">
 </p>
 
 Accepted Lorecards can be filtered by relevance, pinned, muted, edited, or inspected. Relevance tiers help Saga decide what deserves prompt space now.

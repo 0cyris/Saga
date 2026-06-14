@@ -105,7 +105,7 @@ export function createBasicProviderQuickSetupCard(settings = getSettings()) {
 
     const help = document.createElement('div');
     help.className = 'saga-runtime-help';
-    help.textContent = 'Provider setup is only needed for model-backed actions. You can load Loredecks, set Context, review existing Lorecards, and inject accepted lore without configuring a provider first.';
+    help.textContent = 'Provider setup is only needed for model-backed actions. You can load Loredecks, set Context, review existing Lorecards, and inject Accepted Lorecards without configuring a provider first.';
     card.appendChild(help);
 
     const providers = document.createElement('div');

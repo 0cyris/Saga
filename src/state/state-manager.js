@@ -141,6 +141,67 @@ export {
 
 const MAX_CHAT_STATE_BYTES_BEFORE_AUTO_PERSIST = 200000;
 const migratedStateRefs = new WeakSet();
+const MOBILE_PRIMARY_PANEL_ROUTES = new Set(['loredecks', 'session', 'context', 'lore']);
+const MOBILE_MORE_PANEL_ROUTES = new Set(['continuity', 'injection', 'settings']);
+const MOBILE_BOTTOM_PANEL_ROUTES = new Set([...MOBILE_PRIMARY_PANEL_ROUTES, 'more']);
+
+function normalizeMobilePanelRouteForStorage(route, fallback = 'session') {
+    const value = String(route || '').trim();
+    return MOBILE_BOTTOM_PANEL_ROUTES.has(value) ? value : fallback;
+}
+
+function normalizeMobileMoreRouteForStorage(route) {
+    const value = String(route || '').trim();
+    return MOBILE_MORE_PANEL_ROUTES.has(value) ? value : '';
+}
+
+function normalizeMobileSubviewStackForStorage(stack) {
+    if (!Array.isArray(stack)) return [];
+    return stack
+        .filter(item => item && typeof item === 'object')
+        .slice(-12)
+        .map((item, index) => {
+            const id = String(item.id || item.route || `subview-${index + 1}`).trim() || `subview-${index + 1}`;
+            const title = String(item.title || item.label || id).trim() || id;
+            const params = item.params && typeof item.params === 'object' && !Array.isArray(item.params)
+                ? { ...item.params }
+                : {};
+            return { id, title, params };
+        });
+}
+
+function normalizeLorePanelMobileState(panelState, defaultsPanel = getDefaultState().lorePanel) {
+    if (!panelState || typeof panelState !== 'object') return;
+    const mobile = panelState.mobile && typeof panelState.mobile === 'object' && !Array.isArray(panelState.mobile)
+        ? panelState.mobile
+        : {};
+    const activeTabRoute = MOBILE_PRIMARY_PANEL_ROUTES.has(panelState.activeTab)
+        ? panelState.activeTab
+        : (MOBILE_MORE_PANEL_ROUTES.has(panelState.activeTab) ? 'more' : defaultsPanel.mobile.activeRoute);
+    const activeRoute = normalizeMobilePanelRouteForStorage(mobile.activeRoute, activeTabRoute);
+    const hasActiveMoreRoute = Object.prototype.hasOwnProperty.call(mobile, 'activeMoreRoute');
+    const activeMoreRoute = activeRoute === 'more'
+        ? normalizeMobileMoreRouteForStorage(hasActiveMoreRoute ? mobile.activeMoreRoute : panelState.activeTab)
+        : '';
+    const lastPrimaryRoute = MOBILE_PRIMARY_PANEL_ROUTES.has(mobile.lastPrimaryRoute)
+        ? mobile.lastPrimaryRoute
+        : (MOBILE_PRIMARY_PANEL_ROUTES.has(activeRoute) ? activeRoute : defaultsPanel.mobile.lastPrimaryRoute);
+    const stacks = mobile.subviewStacks && typeof mobile.subviewStacks === 'object' && !Array.isArray(mobile.subviewStacks)
+        ? mobile.subviewStacks
+        : {};
+    panelState.mobile = {
+        activeRoute,
+        activeMoreRoute,
+        lastPrimaryRoute,
+        subviewStacks: {
+            loredecks: normalizeMobileSubviewStackForStorage(stacks.loredecks),
+            session: normalizeMobileSubviewStackForStorage(stacks.session),
+            context: normalizeMobileSubviewStackForStorage(stacks.context),
+            lore: normalizeMobileSubviewStackForStorage(stacks.lore),
+            more: normalizeMobileSubviewStackForStorage(stacks.more),
+        },
+    };
+}
 
 configureLoreGenerationStateStore({
     getState: () => getState(),
@@ -693,6 +754,10 @@ export function migrateState(state) {
         state.lorePanel.drawerHeight = Number.isFinite(Number(state.lorePanel.drawerHeight)) && Number(state.lorePanel.drawerHeight) >= 260 ? Number(state.lorePanel.drawerHeight) : (Number.isFinite(Number(state.lorePanel.height)) ? Number(state.lorePanel.height) : defaultsPanel.drawerHeight);
         state.lorePanel.selectedCategory = state.lorePanel.selectedCategory || 'all';
         state.lorePanel.search = state.lorePanel.search || '';
+        state.lorePanel.sourceFilter = state.lorePanel.sourceFilter || defaultsPanel.sourceFilter || 'all';
+        state.lorePanel.loreTypeFilter = state.lorePanel.loreTypeFilter || defaultsPanel.loreTypeFilter || 'all';
+        state.lorePanel.acceptedDeckFilter = state.lorePanel.acceptedDeckFilter || defaultsPanel.acceptedDeckFilter || 'all';
+        state.lorePanel.acceptedContextFilter = state.lorePanel.acceptedContextFilter || defaultsPanel.acceptedContextFilter || 'all';
         state.lorePanel.selectedEntryId = state.lorePanel.selectedEntryId || '';
         state.lorePanel.selectedLoredeckId = String(state.lorePanel.selectedLoredeckId || defaultsPanel.selectedLoredeckId || '').trim();
         state.lorePanel.loredeckLibraryDetailsHeight = Number.isFinite(Number(state.lorePanel.loredeckLibraryDetailsHeight))
@@ -702,6 +767,7 @@ export function migrateState(state) {
         state.lorePanel.activeTab = ['loredecks', 'session', 'continuity', 'context', 'lore', 'injection', 'settings'].includes(state.lorePanel.activeTab)
             ? state.lorePanel.activeTab
             : (state.lorePanel.activeTab === 'generate' ? 'context' : (state.lorePanel.activeTab === 'review' ? 'lore' : 'session'));
+        normalizeLorePanelMobileState(state.lorePanel, defaultsPanel);
         state.lorePanel.reviewSelectedIds = Array.isArray(state.lorePanel.reviewSelectedIds) ? state.lorePanel.reviewSelectedIds : [];
         state.lorePanel.generationStatus = typeof state.lorePanel.generationStatus === 'string' ? state.lorePanel.generationStatus : 'Idle.';
         state.lorePanel.generationProgress = Number.isFinite(Number(state.lorePanel.generationProgress)) ? Number(state.lorePanel.generationProgress) : 0;

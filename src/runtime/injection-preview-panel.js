@@ -193,9 +193,9 @@ function getInjectionEmptyReason(kind, state, settings, enabled = true) {
         ...(Array.isArray(state?.acceptedLoreEntries) ? state.acceptedLoreEntries : []),
         ...(Array.isArray(state?.loreEntries) ? state.loreEntries : []),
     ].length;
-    if (!acceptedCount) return '(No accepted Lorecards are available to inject.)';
+    if (!acceptedCount) return '(No Accepted Lorecards are available to inject.)';
 
-    return '(No accepted Lorecards match this relevance tier and current Context.)';
+    return '(No Accepted Lorecards match this relevance tier and current Context.)';
 }
 
 function getInjectionPreviewSectionSummary(text, enabled = true) {
@@ -263,7 +263,7 @@ function createLoreTierHandlingCard(tier, state, settings) {
     card.className = 'saga-runtime-card saga-compression-handling-card saga-lore-tier-injection-card';
     const label = RELEVANCE_META[tier]?.label || tier;
     const counts = getLoreRelevanceCounts(state);
-    card.appendChild(createKeyValue('Lore available', `${counts[tier] || 0} ${label} · ${counts.muted || 0} muted total`, 'Accepted lore grouped by relevance. Muted entries are excluded before injection/compression.'));
+    card.appendChild(createKeyValue('Lore available', `${counts[tier] || 0} ${label} · ${counts.muted || 0} muted total`, 'Accepted Lorecards grouped by relevance. Muted entries are excluded before injection/compression.'));
 
     const enabledLabel = document.createElement('label');
     enabledLabel.className = 'saga-inline-toggle';
@@ -1201,7 +1201,7 @@ function createInjectionModeButton(mode, label, tooltip, settings) {
         if (mode === 'compressed' && !hasValidModelCompression('lore')) {
             const directText = buildLorePreview(getState(), 'direct');
             if (!hasCompressibleText(directText)) {
-                toast('Lore compressed mode selected, but there is no accepted lore to compress yet. Generate/accept lore entries first, then use Compress Lore Now.', 'warning');
+                toast('Lore compressed mode selected, but there are no Accepted Lorecards to compress yet. Accept Pending Review entries first, then use Compress Lore Now.', 'warning');
             } else if (hasAnyModelCompression('lore')) {
                 toast('Lore compressed mode selected. Existing compressed cache is stale for the current source/settings; using direct preview until you click Compress Lore Now.', 'warning');
             } else {

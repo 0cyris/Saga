@@ -431,6 +431,96 @@
     opacity: 0.95;
 }
 
+.saga-operator-summary-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-color: rgba(215, 181, 109, 0.28);
+    background:
+        linear-gradient(180deg, rgba(215, 181, 109, 0.075), rgba(0, 0, 0, 0.2)),
+        rgba(10, 12, 18, 0.58);
+}
+
+.saga-operator-summary-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.saga-operator-summary-title-wrap {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.saga-operator-summary-title {
+    margin-bottom: 0;
+}
+
+.saga-operator-summary-subtitle {
+    max-width: 72ch;
+}
+
+.saga-operator-summary-chips {
+    justify-content: flex-end;
+}
+
+.saga-operator-stat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+}
+
+.saga-operator-summary-actions {
+    justify-content: flex-start;
+}
+
+.saga-runtime-mobile .saga-operator-summary-card {
+    gap: 10px;
+}
+
+.saga-runtime-mobile .saga-operator-summary-header {
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.saga-runtime-mobile .saga-operator-summary-chips {
+    justify-content: flex-start;
+}
+
+.saga-runtime-mobile .saga-operator-stat-grid {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+.saga-runtime-mobile .saga-operator-summary-actions .saga-runtime-button {
+    min-height: var(--saga-mobile-control-height, 40px);
+}
+
+@media (max-width: 640px) {
+    .saga-operator-summary-card {
+        gap: 10px;
+    }
+
+    .saga-operator-summary-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .saga-operator-summary-chips {
+        justify-content: flex-start;
+    }
+
+    .saga-operator-stat-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .saga-operator-summary-actions .saga-runtime-button {
+        min-height: var(--saga-mobile-control-height, 40px);
+    }
+}
+
 .saga-loredeck-row-main {
     min-width: 0;
     display: flex;
@@ -1853,6 +1943,52 @@
     }
 }
 
+@media (max-width: 640px) {
+    .saga-loredeck-creator-workbench-body {
+        padding: 8px;
+    }
+
+    .saga-loredeck-creator-stage-guide {
+        position: relative;
+        top: auto;
+    }
+
+    .saga-loredeck-creator-stage-list,
+    .saga-loredeck-creator-current-task,
+    .saga-loredeck-creator-output-grid,
+    .saga-loredeck-creator-side-row,
+    .saga-loredeck-creator-queue-row {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .saga-loredeck-creator-stage-main,
+    .saga-loredeck-creator-current-actions .saga-runtime-button,
+    .saga-loredeck-creator-current-actions .saga-primary-button {
+        min-height: 40px;
+    }
+
+    .saga-loredeck-creator-stage-resettable .saga-loredeck-creator-stage-main {
+        padding-right: 50px;
+    }
+
+    .saga-loredeck-creator-stage-reset {
+        top: 6px;
+        right: 6px;
+        width: 40px;
+        height: 40px;
+        opacity: 1;
+    }
+
+    .saga-loredeck-creator-stage-label,
+    .saga-loredeck-creator-stage-detail {
+        white-space: normal;
+    }
+
+    .saga-loredeck-creator-current-task {
+        padding: 10px;
+    }
+}
+
 .saga-loredeck-creator-form,
 .saga-loredeck-creator-revise-form {
     padding: 10px;
@@ -3264,7 +3400,7 @@
     box-shadow: 0 0 10px rgba(215, 181, 109, 0.22);
 }
 
-.saga-loredeck-library-title-edit-wand::before {
+.saga-loredeck-library-title-edit-mark::before {
     content: "";
     position: absolute;
     width: 11px;
@@ -3275,7 +3411,7 @@
     box-shadow: 0 0 5px rgba(245, 196, 91, 0.36);
 }
 
-.saga-loredeck-library-title-edit-wand::after {
+.saga-loredeck-library-title-edit-mark::after {
     content: "";
     position: absolute;
     top: 3px;
@@ -4292,8 +4428,12 @@
 
     .saga-loredeck-library-details {
         flex: 0 0 auto;
+        height: auto;
         grid-template-columns: minmax(0, 1fr);
         min-height: 320px;
+        background:
+            radial-gradient(circle at 12% 0%, rgba(215, 181, 109, 0.1), transparent 30%),
+            linear-gradient(180deg, rgba(22, 13, 18, 0.98), rgba(7, 8, 12, 0.98));
     }
 }
 
@@ -4313,13 +4453,26 @@
     }
 
     .saga-loredeck-library-header-actions,
-    .saga-loredeck-library-launch-actions {
+    .saga-loredeck-library-launch-actions,
+    .saga-loredeck-library-folder-actions {
         justify-content: flex-start;
     }
 
     .saga-loredeck-library-controls,
-    .saga-loredeck-library-transfer-pane {
+    .saga-loredeck-library-transfer-pane,
+    .saga-loredeck-library-folder-parent-control {
         grid-template-columns: minmax(0, 1fr);
+    }
+
+    .saga-loredeck-library-folder-actions {
+        align-items: stretch;
+    }
+
+    .saga-loredeck-library-folder-parent-control {
+        flex: 1 1 100%;
+        min-width: 0;
+        display: grid;
+        align-items: stretch;
     }
 
     .saga-loredeck-library-monogram {
@@ -4330,6 +4483,100 @@
     .saga-loredeck-library-detail-monogram {
         width: min(128px, 42vw);
         height: min(128px, 42vw);
+    }
+
+    .saga-loredeck-library-shell {
+        width: 100vw;
+        height: 100dvh;
+        max-height: 100dvh;
+    }
+
+    .saga-loredeck-library-body {
+        padding: 8px;
+        gap: 8px;
+        overflow-y: auto;
+    }
+
+    .saga-loredeck-library-resize-handle {
+        display: none;
+    }
+
+    .saga-loredeck-library-pane {
+        height: auto;
+        min-height: 240px;
+        max-height: min(380px, 56dvh);
+        overflow: hidden;
+    }
+
+    .saga-loredeck-library-pane-stack {
+        max-height: min(340px, 50dvh);
+    }
+
+    .saga-loredeck-library-deck-list,
+    .saga-loredeck-library-stack-list,
+    .saga-loredeck-library-hierarchy-list {
+        max-height: none;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .saga-loredeck-library-details {
+        position: relative;
+        z-index: 1;
+        min-height: 300px;
+        max-height: min(430px, 62dvh);
+        background:
+            radial-gradient(circle at 12% 0%, rgba(215, 181, 109, 0.1), transparent 30%),
+            linear-gradient(180deg, rgba(22, 13, 18, 0.98), rgba(7, 8, 12, 0.98));
+        overflow: hidden;
+    }
+
+    .saga-loredeck-library-detail-tab {
+        border-radius: 0 0 7px 7px;
+        background: rgba(5, 6, 10, 0.56);
+    }
+
+    .saga-loredeck-library-details .saga-loredeck-detail-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 6px;
+    }
+
+    .saga-loredeck-library-details .saga-key-value,
+    .saga-loredeck-library-details .saga-loredeck-health-top-issue {
+        border-radius: 6px;
+        background: rgba(5, 6, 10, 0.86);
+        padding: 6px 8px;
+    }
+
+    .saga-loredeck-library-detail-identity {
+        grid-template-columns: 64px minmax(0, 1fr);
+        gap: 10px;
+    }
+
+    .saga-loredeck-library-detail-monogram {
+        width: 64px;
+        height: 64px;
+        font-size: 1.35em;
+    }
+
+    .saga-loredeck-library-cover-actions,
+    .saga-loredeck-library-title-edit-action {
+        opacity: 1;
+        transform: none;
+        pointer-events: auto;
+    }
+
+    .saga-loredeck-library-cover-action,
+    .saga-loredeck-library-title-edit-action,
+    .saga-loredeck-library-square-action,
+    .saga-loredeck-library-icon-action,
+    .saga-loredeck-library-stack-toggle-button {
+        min-width: 40px;
+        min-height: 40px;
+    }
+
+    .saga-loredeck-library-transfer-pane {
+        padding: 0;
     }
 
 }
@@ -4992,5 +5239,28 @@
     .saga-loredeck-health-file-row,
     .saga-loredeck-health-affected-row {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .saga-loredeck-health-center-shell {
+        width: 100vw;
+        height: 100dvh;
+        max-height: 100dvh;
+    }
+
+    .saga-loredeck-health-center-content {
+        padding: 8px;
+    }
+
+    .saga-loredeck-health-tabs {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scrollbar-width: thin;
+    }
+
+    .saga-loredeck-health-tabs .saga-lore-workbench-mode-tab {
+        flex: 0 0 auto;
+        min-height: 40px;
     }
 }

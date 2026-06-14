@@ -453,6 +453,7 @@ import {
     configureRuntimeShell,
     getActiveNestedScrollElement,
     getActiveTabScrollElement,
+    isRuntimeMobileShell,
     normalizePanelLayoutState,
     resetRuntimePanelLayout,
     toggleRuntimeDrawerForTab,
@@ -1536,6 +1537,7 @@ configureRuntimeTour({
     setSectionCollapsed,
     normalizePanelLayoutState,
     normalizeTabForExperience,
+    navigateRuntimeTab,
     showRuntimePanel: showLorePanel,
     prepareGuideStep: prepareRuntimeGuideStep,
     getPanelRoot: () => panelRoot,
@@ -1765,6 +1767,10 @@ export function refreshLorePanel() {
 
     normalizePanelLayoutState(state);
     applyRuntimeTheme(existing, getSettings());
+    if (existing.classList.contains('saga-runtime-mobile') || isRuntimeMobileShell()) {
+        renderPanelShell(existing, state);
+        return;
+    }
     const hasDrawer = !!existing.querySelector('.saga-runtime-drawer');
     if ((state.lorePanel.drawerOpen === true) !== hasDrawer) {
         renderPanelShell(existing, state);
@@ -2498,15 +2504,23 @@ async function runLoredeckCreatorSingleUnitGeneration(config = {}) {
 function finishLoredeckCreatorGeneration(generation = null, status = 'success', message = '', details = {}) {
     if (!generation?.id) return;
     const cached = getLoredeckCreatorBriefCache();
-    const active = cached.activeGeneration;
-    if (!active || active.id !== generation.id) {
+    const currentActive = cached.activeGeneration;
+    if (currentActive?.id && currentActive.id !== generation.id) {
         loredeckCreatorGenerationControllers.delete(generation.id);
+        forgetLoredeckCreatorLiveGeneration(generation);
         return;
     }
+    const active = currentActive || generation;
     stopLoredeckCreatorGenerationTicker();
     loredeckCreatorGenerationControllers.delete(generation.id);
     forgetLoredeckCreatorLiveGeneration(generation);
     const now = Date.now();
+    const restoredStage = inferLoredeckCreatorUiStage({
+        ...cached,
+        activeGeneration: null,
+        status: '',
+        currentStage: '',
+    });
     const result = {
         id: generation.id,
         actionId: active.actionId || generation.actionId || '',
@@ -2526,6 +2540,8 @@ function finishLoredeckCreatorGeneration(generation = null, status = 'success', 
         activeGeneration: null,
         lastGenerationResult: result,
         lastCompletedAt: status === 'error' ? cached.lastCompletedAt : now,
+        status: status === 'error' ? 'blocked' : (cached.brief ? 'draft' : 'idle'),
+        currentStage: restoredStage,
     }, { refreshWorkbench: true });
 }
 
@@ -3077,20 +3093,47 @@ async function acknowledgeLoredeckCreatorCoverageForFinalize() {
         confirmLines.filter(Boolean).join('\n')
     );
     if (!proceed) return false;
-    setLoredeckCreatorBriefCache({
+    const acknowledgement = {
+        mode: 'finalize_anyway',
+        acknowledgedAt: Date.now(),
+        coverageSignature: coverage.finalizationSignature,
+        status: coverage.status,
+        missingDimensionIds: normalizeLoredeckCreatorCoverageIdList(coverage.missingDimensionIds || [], 24),
+        thinDimensionIds: normalizeLoredeckCreatorCoverageIdList(coverage.thinDimensionIds || [], 24),
+        note: coverage.available
+            ? 'User chose to finalize despite unresolved adaptive coverage rows.'
+            : 'User chose to finalize without an adaptive coverage plan.',
+    };
+    const acknowledgedJob = setLoredeckCreatorBriefCache({
         ...cached,
-        coverageFinalizeAcknowledgement: {
-            mode: 'finalize_anyway',
-            acknowledgedAt: Date.now(),
-            coverageSignature: coverage.finalizationSignature,
-            status: coverage.status,
-            missingDimensionIds: normalizeLoredeckCreatorCoverageIdList(coverage.missingDimensionIds || [], 24),
-            thinDimensionIds: normalizeLoredeckCreatorCoverageIdList(coverage.thinDimensionIds || [], 24),
-            note: coverage.available
-                ? 'User chose to finalize despite unresolved adaptive coverage rows.'
-                : 'User chose to finalize without an adaptive coverage plan.',
-        },
+        activeGeneration: null,
+        status: cached.brief ? 'draft' : 'idle',
+        currentStage: inferLoredeckCreatorUiStage({
+            ...cached,
+            activeGeneration: null,
+            status: '',
+            currentStage: '',
+        }),
+        coverageFinalizeAcknowledgement: acknowledgement,
     });
+    if (!acknowledgedJob?.coverageFinalizeAcknowledgement && cached.jobId) {
+        const direct = updateLoredeckCreatorProject(cached.jobId, {
+            activeGeneration: null,
+            status: cached.brief ? 'draft' : 'idle',
+            currentStage: inferLoredeckCreatorUiStage({
+                ...cached,
+                activeGeneration: null,
+                status: '',
+                currentStage: '',
+            }),
+            coverageFinalizeAcknowledgement: acknowledgement,
+        }, { syncPrompt: false, syncLocal: true });
+        if (direct?.ok && direct.job) {
+            loredeckCreatorBriefCache.set('current', direct.job);
+        } else {
+            console.warn('[Saga] Creator Coverage acknowledgement persistence fallback failed:', direct?.error || direct);
+        }
+    }
     refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
     refreshLoredeckCreatorWorkbenchBody({ preserveScroll: true });
     toast(coverage.available ? 'Creator Coverage acknowledged for finalization.' : 'Missing Creator Coverage plan acknowledged for finalization.', 'success');
@@ -3894,12 +3937,12 @@ function createLoredeckCreatorCoverageCard(cached = {}, pipeline = {}) {
     const summary = document.createElement('div');
     summary.className = 'saga-loredeck-entry-summary';
     const coverageIssueCount = Number(coverage.missingDimensionCount || 0) + Number(coverage.thinDimensionCount || 0);
-    summary.appendChild(createStatusPill(formatLoredeckCreatorCoverageState(coverage), 'Adaptive coverage status based on Creator coverage dimensions, title drafts, and accepted Lorecards. This is not a hard entry-count quota.', { tone: !coverage?.available ? 'muted' : (coverageIssueCount ? 'warning' : 'success'), kind: coverageIssueCount ? 'severity' : 'status' }));
+    summary.appendChild(createStatusPill(formatLoredeckCreatorCoverageState(coverage), 'Adaptive coverage status based on Creator coverage dimensions, title drafts, and Accepted Lorecards. This is not a hard entry-count quota.', { tone: !coverage?.available ? 'muted' : (coverageIssueCount ? 'warning' : 'success'), kind: coverageIssueCount ? 'severity' : 'status' }));
     if (coverage.storyShape) summary.appendChild(createStatusPill(coverage.storyShape, 'Detected story shape for this Creator scope.', { tone: 'category', kind: 'metadata' }));
     if (coverage.storyDensity) summary.appendChild(createStatusPill(coverage.storyDensity, 'Detected lore density for this Creator scope.', { tone: 'info', kind: 'metadata' }));
     if (coverage.dimensionCount) summary.appendChild(createStatusPill(`${coverage.dimensionCount} dimension${coverage.dimensionCount === 1 ? '' : 's'}`, 'Coverage dimensions the Creator should consider.', { kind: 'count' }));
     if (coverage.missingDimensionCount) summary.appendChild(createStatusPill(`${coverage.missingDimensionCount} missing`, 'Applicable dimensions without linked title drafts yet.', { tone: 'warning', kind: 'severity' }));
-    if (coverage.thinDimensionCount) summary.appendChild(createStatusPill(`${coverage.thinDimensionCount} thin`, 'Applicable dimensions with title evidence but no accepted Lorecards yet.', { tone: 'warning', kind: 'severity' }));
+    if (coverage.thinDimensionCount) summary.appendChild(createStatusPill(`${coverage.thinDimensionCount} thin`, 'Applicable dimensions with title evidence but no Accepted Lorecards yet.', { tone: 'warning', kind: 'severity' }));
     if (coverage.intentionallyLightCount) summary.appendChild(createStatusPill(`${coverage.intentionallyLightCount} light`, 'Dimensions intentionally kept small for this source.', { tone: 'info', kind: 'count' }));
     if (coverage.notApplicableCount) summary.appendChild(createStatusPill(`${coverage.notApplicableCount} N/A`, 'Dimensions that should not be padded for this source.', { tone: 'muted', kind: 'count' }));
     if (coverage.finalizeAcknowledgementRequired) summary.appendChild(createStatusPill('Finalize waits', 'Finalization requires targeted expansion or an explicit light-coverage acknowledgement.', { tone: 'warning', kind: 'severity' }));
@@ -4222,8 +4265,13 @@ function getLoredeckCreatorBriefCache() {
     if (localJob?.jobId && stateJob?.jobId && localJob.jobId !== stateJob.jobId) {
         return attachLoredeckCreatorLiveGeneration(stateJob);
     }
+    const localUpdatedAt = Number(localJob?.updatedAt || 0);
+    const stateUpdatedAt = Number(stateJob?.updatedAt || 0);
+    const baseJob = localJob?.jobId && stateJob?.jobId && localJob.jobId === stateJob.jobId && localUpdatedAt >= stateUpdatedAt
+        ? { ...stateJob, ...localJob }
+        : stateJob;
     return attachLoredeckCreatorLiveGeneration(clearStaleLoredeckCreatorInterruptedResult({
-        ...stateJob,
+        ...baseJob,
         ...(localJob?.activeGeneration ? { activeGeneration: localJob.activeGeneration } : {}),
         ...(localJob?.lastGenerationResult ? { lastGenerationResult: localJob.lastGenerationResult } : {}),
     }));
@@ -9693,7 +9741,7 @@ function getLoredeckCreatorPipelineReadiness(pack = {}, creatorJob = null) {
         warnings.push(`${queuedPlanningBatchCount - acceptedPlanningBatchCount} planned Context and Tag set${queuedPlanningBatchCount - acceptedPlanningBatchCount === 1 ? '' : 's'} still need Pending Review acceptance.`);
     }
     if (approvedEntryIds.size && approvedTitleAcceptedCount < approvedEntryIds.size) {
-        warnings.push(`${approvedEntryIds.size - approvedTitleAcceptedCount} approved title${approvedEntryIds.size - approvedTitleAcceptedCount === 1 ? '' : 's'} do not have accepted Lorecards yet.`);
+        warnings.push(`${approvedEntryIds.size - approvedTitleAcceptedCount} approved title${approvedEntryIds.size - approvedTitleAcceptedCount === 1 ? '' : 's'} do not have Accepted Lorecards yet.`);
     }
     for (const warning of coverage.warnings || []) {
         warnings.push(`Coverage: ${warning}`);
@@ -12842,11 +12890,16 @@ function getThemeShelfIconItems() {
 function navigateRuntimeTab(tabId, options = {}) {
     const settings = getSettings();
     const activeTab = normalizeTabForExperience(tabId, settings);
-    const patch = { activeTab };
     void options;
+    if (isRuntimeMobileShell()) {
+        toggleRuntimeDrawerForTab(activeTab);
+        return true;
+    }
+    const patch = { activeTab, drawerOpen: true, collapsed: false };
     setPanelState(patch);
     refreshPanelBody({ preserveScroll: false });
     refreshHeader();
+    return true;
 }
 
 function openAdvancedSettingsTab() {
@@ -13033,8 +13086,8 @@ function createLoreGenerationCard(state) {
 
     const title = document.createElement('div');
     title.className = 'saga-runtime-card-title';
-    title.textContent = 'Lore Generation';
-    addTooltip(title, 'Create reviewable lore entries either from the local canon database or from model analysis of recent story messages.');
+    title.textContent = 'Capture / Suggest';
+    addTooltip(title, 'Create reviewable Lorecards from manual notes, context-aware canon suggestions, story scans, or Creator drafts before they enter Pending Review.');
     card.appendChild(title);
 
     card.appendChild(createLoreContextStatusCard(state));
@@ -13045,6 +13098,11 @@ function createLoreGenerationCard(state) {
     actionsGrid.appendChild(createStoryLoreGenerationPanel(state));
     actionsGrid.appendChild(createManualLorecardPanel());
     card.appendChild(actionsGrid);
+    card.appendChild(createKeyValue(
+        'Review flow',
+        'Manual notes, story scans, context-aware suggestions, and Creator drafts all wait in Pending Review before acceptance.',
+        'Every capture source produces reviewable drafts. Accepted Lorecards become eligible for the Active Set only after review.'
+    ));
 
     return card;
 }
@@ -13055,23 +13113,23 @@ function createManualLorecardPanel() {
 
     const header = document.createElement('div');
     header.className = 'saga-lore-generation-panel-title';
-    header.textContent = 'Manual Lorecard';
-    addTooltip(header, 'Create a reviewable Lorecard by hand when you already know a fact should be available for future responses.');
+    header.textContent = 'Manual Lore Note';
+    addTooltip(header, 'Create a reviewable Lorecard draft by hand when you already know a fact should be available for future responses.');
     panel.appendChild(header);
 
     const help = document.createElement('div');
     help.className = 'saga-runtime-help';
-    help.textContent = 'Draft a fact yourself, then accept it through Pending Lorecard Review before it affects prompts.';
+    help.textContent = 'Draft a fact yourself, then accept it through Pending Review before it affects prompts.';
     panel.appendChild(help);
 
     const actions = document.createElement('div');
     actions.className = 'saga-primary-actions saga-generation-actions';
-    actions.appendChild(markTourTarget(createButton('Add Lorecard', 'Create a manual Lorecard draft and send it to Pending Lorecard Review.', () => {
+    actions.appendChild(markTourTarget(createButton('Draft Manual Note', 'Open the Manual Lore Note dialog for a draft that lands in Pending Review.', () => {
         openNewLoreDialog({ basicReview: isBasicExperience(getSettings()) });
     }, 'saga-primary-button'), 'lore.manual.add'));
     panel.appendChild(actions);
 
-    panel.appendChild(createKeyValue('Destination', 'Pending Review', 'Manual Lorecards are reviewed before they become accepted Lorecards.'));
+    panel.appendChild(createKeyValue('Destination', 'Pending Review', 'Manual notes are reviewed before they become Accepted Lorecards.'));
 
     return panel;
 }
@@ -13124,7 +13182,7 @@ function createCanonSuggestionPanel(state) {
 
     const help = document.createElement('div');
     help.className = 'saga-runtime-help';
-    help.textContent = 'Preview local canon packs for the current Context, choose only the entries you want, then add them to Pending Lore Review. No API/model cost.';
+    help.textContent = 'Preview Context Suggestions from local canon packs, choose only the entries you want, then add them to Pending Review. No API/model cost.';
     panel.appendChild(help);
 
     const actions = document.createElement('div');
@@ -13132,10 +13190,16 @@ function createCanonSuggestionPanel(state) {
     actions.appendChild(markTourTarget(createButton('Preview Canon Packs', 'Queries the local Lore Database and groups matching entries into selectable packs with counts.', async (btn) => {
         await handlePreviewCanonLorePacks(btn);
     }, 'saga-primary-button'), 'lore.canon.preview'));
-    actions.appendChild(markTourTarget(createButton('Quick Add Top Matches', `Legacy one-click flow: proposes up to ${settings.canonLoreMaxEntries || 10} top matches into Pending Lore Review.`, async (btn) => {
+    actions.appendChild(markTourTarget(createButton('Quick Add Top Matches', `Legacy one-click flow: proposes up to ${settings.canonLoreMaxEntries || 10} top matches into Pending Review.`, async (btn) => {
         await handleSuggestCanonLore(btn);
     }, 'saga-secondary-button'), 'lore.canon.quick'));
     panel.appendChild(actions);
+
+    panel.appendChild(createKeyValue(
+        'Source',
+        'Context Suggestions',
+        'Context-aware canon suggestions enter Pending Review before they become Accepted Lorecards.'
+    ));
 
     panel.appendChild(createCanonPreviewSection(state));
 
@@ -13366,8 +13430,8 @@ function refreshCanonPreviewSelectionUi() {
     if (count) {
         const text = `${selectedAddableCount} selected`;
         count.textContent = text;
-        count.dataset.sagaTooltip = 'Canon preview entries selected for Pending Lore Review.';
-        count.setAttribute('aria-label', 'Canon preview entries selected for Pending Lore Review.');
+        count.dataset.sagaTooltip = 'Canon preview entries selected for Pending Review.';
+        count.setAttribute('aria-label', 'Canon preview entries selected for Pending Review.');
         setChipTone(count, selectedAddableCount ? 'selected' : 'muted');
     }
 
@@ -13422,7 +13486,7 @@ function createCanonPreviewSection(state) {
     }
 
     if (!preview) {
-        section.appendChild(createEmptyMessage('No canon pack preview yet. Preview packs to choose entries before adding them to Pending Lore Review.'));
+        section.appendChild(createEmptyMessage('No canon pack preview yet. Preview packs to choose entries before adding them to Pending Review.'));
         return section;
     }
 
@@ -13516,7 +13580,7 @@ function createCanonPreviewSection(state) {
     const controls = document.createElement('div');
     controls.className = 'saga-canon-preview-actions';
     markTourTarget(controls, 'lore.canon.addPending');
-    controls.appendChild(createStatusPill(`${selectedAddableCount} selected`, 'Canon preview entries selected for Pending Lore Review.', {
+    controls.appendChild(createStatusPill(`${selectedAddableCount} selected`, 'Canon preview entries selected for Pending Review.', {
         tone: selectedAddableCount ? 'selected' : 'muted',
         kind: 'count',
         density: 'compact',
@@ -13530,13 +13594,13 @@ function createCanonPreviewSection(state) {
         setCanonPreviewSelectedIds([]);
         if (!refreshCanonPreviewSelectionUi()) refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
     }, 'saga-small-button'));
-    const addSelected = createButton('Add Selected to Pending Lore', 'Adds selected canon preview entries to the existing Pending Lore Review list for full inspection before accepting.', async (btn) => {
+    const addSelected = createButton('Add Selected to Pending Review', 'Adds selected canon preview entries to Pending Review for full inspection before accepting.', async (btn) => {
         await handleAddCanonPreviewEntries(btn, Array.from(getCanonPreviewSelectedIds()));
     }, 'saga-primary-button');
     addSelected.dataset.sagaCanonPreviewAction = 'add-selected';
     addSelected.disabled = isStale || selectedAddableCount <= 0;
     controls.appendChild(addSelected);
-    const addPack = createButton('Add Pack to Pending Lore', `Adds all new entries in ${activePack.label} to Pending Lore Review.`, async (btn) => {
+    const addPack = createButton('Add Pack to Pending Review', `Adds all new entries in ${activePack.label} to Pending Review.`, async (btn) => {
         await handleAddCanonPreviewEntries(btn, addablePackIds);
     }, 'saga-secondary-button');
     addPack.dataset.sagaCanonPreviewAction = 'add-pack';
@@ -13615,7 +13679,7 @@ function createCanonPreviewEntryRow(entry, selectedIds, isStale = false) {
     if (previewMeta.suggestionRole) meta.appendChild(createBadge(previewMeta.suggestionRole.replace(/_/g, ' '), 'Canon preview role used for pack sorting.', { tone: 'source', kind: 'source', maxChars: 34 }));
     if (previewMeta.detailLevel) meta.appendChild(createBadge(previewMeta.detailLevel, 'Canon preview detail tier.', { tone: 'info', kind: 'metadata' }));
     if (previewMeta.suggestByDefault === false) meta.appendChild(createBadge('non-default', 'Shown only in All Active or higher-detail review because this is not usually worth suggesting automatically.', { tone: 'muted', kind: 'status' }));
-    if (entry?.relevance) meta.appendChild(createBadge(entry.relevance, 'Recommended relevance tier for Pending Lore Review.', { tone: 'relevance', kind: 'metadata' }));
+    if (entry?.relevance) meta.appendChild(createBadge(entry.relevance, 'Recommended relevance tier for Pending Review.', { tone: 'relevance', kind: 'metadata' }));
     meta.appendChild(createBadge(`P${Number(entry?.priority || 50)}`, 'Canon database priority.', { tone: 'relevance', kind: 'metadata' }));
     if (duplicateStatus !== 'new') {
         meta.appendChild(createBadge(duplicateStatus, duplicateReason || 'Already present by id/title.', {
@@ -13637,7 +13701,7 @@ function createStoryLoreGenerationPanel(state) {
     const header = document.createElement('div');
     header.className = 'saga-lore-generation-panel-title';
     header.textContent = 'Scan Story Lore';
-    addTooltip(header, 'Uses the Reasoning provider to scan chat messages and create story-specific lore entries for Pending Lore Review. The scan can cover recent messages, a custom range, or the entire chat.');
+    addTooltip(header, 'Uses the Reasoning provider to scan chat messages and create story-specific lore entries for Pending Review. The scan can cover recent messages, a custom range, or the entire chat.');
     panel.appendChild(header);
 
     const help = document.createElement('div');
@@ -13647,7 +13711,7 @@ function createStoryLoreGenerationPanel(state) {
 
     const actions = document.createElement('div');
     actions.className = 'saga-primary-actions saga-generation-actions';
-    const scanBtn = markTourTarget(createButton('Scan Story Lore', 'Scans the configured message range, processes chunks in parallel, and appends generated story-specific lore into Pending Lore Review as chunks complete.', async (btn) => {
+    const scanBtn = markTourTarget(createButton('Scan Story Lore', 'Scans the configured message range, processes chunks in parallel, and appends generated story-specific lore into Pending Review as chunks complete.', async (btn) => {
         await handleBulkGeneratePendingLore(btn);
     }, 'saga-primary-button'), 'lore.story.scan');
     if (loreGenerationUiRunning || activeLoreGenerationController) {
@@ -13775,7 +13839,7 @@ function createStoryLoreAutomationSettingsContent() {
         'loreGenerationMode',
         'loreGenerationAutoInterval',
         'Only scans when you click Scan Story Lore.',
-        'Runs automatically after enough new story text accumulates or the maximum turn interval is reached. Generated lore still waits in Pending Lore Review.',
+        'Runs automatically after enough new story text accumulates or the maximum turn interval is reached. Generated lore still waits in Pending Review.',
         'Maximum completed model turns between automatic story-lore scans.'
     ));
     content.appendChild(createRangeSettingRow('Minimum turns', 'Automatic story lore waits at least this many completed model turns unless the maximum turn interval is reached.', 'loreGenerationAutoMinTurns', { min: 1, max: 100, fallback: 20 }));
@@ -13846,11 +13910,11 @@ function createLoreScanPerformanceSettingsContent() {
     content.appendChild(createRangeSettingRow('Simultaneous chunks', 'Maximum number of story-lore chunks submitted to the Reasoning provider at the same time.', 'loreBulkConcurrency', { min: 1, max: 8, fallback: 3 }));
     content.appendChild(createRangeSettingRow('Retry attempts', 'Chunk-level retry attempts after empty, malformed, or failed extraction responses.', 'loreBulkRetryAttempts', { min: 0, max: 4, fallback: 2 }));
     content.appendChild(createRangeSettingRow('Save checkpoint every chunks', 'How often the scan writes a full compact checkpoint after lightweight per-chunk saves. Lower is safer; higher reduces persistence overhead.', 'loreBulkFullCheckpointEveryChunks', { min: 1, max: 25, fallback: 5 }));
-    content.appendChild(createRangeSettingRow('Consolidate every chunks', 'How many completed chunks to collect before converting extracted facts into Pending Lore entries.', 'loreBulkConsolidationChunkWindow', { min: 1, max: 25, fallback: 5 }));
+    content.appendChild(createRangeSettingRow('Consolidate every chunks', 'How many completed chunks to collect before converting extracted facts into Pending Review entries.', 'loreBulkConsolidationChunkWindow', { min: 1, max: 25, fallback: 5 }));
 
     const help = document.createElement('div');
     help.className = 'saga-runtime-help saga-compact-help';
-    help.textContent = 'Each chunk still checkpoints immediately for recovery. Full saves and Pending Lore consolidation happen in batches to reduce large-scan overhead.';
+    help.textContent = 'Each chunk still checkpoints immediately for recovery. Full saves and Pending Review consolidation happen in batches to reduce large-scan overhead.';
     content.appendChild(help);
     return content;
 }
@@ -13889,7 +13953,7 @@ function createLoreScanQualitySettingsContent() {
     modeRow.appendChild(modeSelect);
     content.appendChild(modeRow);
 
-    content.appendChild(createRangeSettingRow('Facts per chunk', 'Upper target for compact facts extracted per chunk before conversion into Pending Lore entries.', 'loreBulkFactsPerChunk', { min: 4, max: 30, fallback: 14 }));
+    content.appendChild(createRangeSettingRow('Facts per chunk', 'Upper target for compact facts extracted per chunk before conversion into Pending Review entries.', 'loreBulkFactsPerChunk', { min: 4, max: 30, fallback: 14 }));
     content.appendChild(createRangeSettingRow('Bootstrap target', 'Approximate total pending entries targeted during broad first-run story-lore scan.', 'loreBootstrapTargetEntries', { min: 12, max: 120, fallback: 40 }));
     content.appendChild(createRangeSettingRow('Incremental target', 'Approximate total pending entries targeted during incremental story-lore scan.', 'loreIncrementalTargetEntries', { min: 3, max: 30, fallback: 8 }));
     content.appendChild(createRangeSettingRow('Generated tags', 'Number of short searchable tags requested per generated lore entry. Set to 0 to disable generated tags.', 'loreTagCount', { min: 0, max: 10, fallback: 4 }));
@@ -13899,7 +13963,7 @@ function createLoreScanQualitySettingsContent() {
     grid.appendChild(createToggleCard(
         'Replacement Guard',
         settings.loreReplacementGuard !== false,
-        'When enabled, Saga asks before replacing an unresolved pending lore batch.',
+        'When enabled, Saga asks before replacing unresolved Pending Review entries.',
         (checked) => {
             const next = getSettings();
             next.loreReplacementGuard = checked;
@@ -13932,7 +13996,7 @@ function createLoreScanQualitySettingsContent() {
     grid.appendChild(createToggleCard(
         'Strict Quality Gate',
         settings.loreStrictQualityGate !== false,
-        'When enabled, low-value recap facts are filtered before Pending Lore Review.',
+        'When enabled, low-value recap facts are filtered before Pending Review.',
         (checked) => {
             const next = getSettings();
             next.loreStrictQualityGate = checked;
@@ -13957,7 +14021,7 @@ function createLoreScanQualitySettingsContent() {
 
     const help = document.createElement('div');
     help.className = 'saga-runtime-help saga-compact-help';
-    help.textContent = 'Priority and final review still happen in Pending Lore Review. Generated entries are not accepted automatically.';
+    help.textContent = 'Priority and final review still happen in Pending Review. Generated entries are not accepted automatically.';
     content.appendChild(help);
     return content;
 }
@@ -14127,7 +14191,7 @@ async function handlePreviewCanonLorePacks(btn) {
         if (result?.status === 'preview') {
             setFeatureProgress('canon', `Previewed ${result.packs?.length || 0} canon packs with ${result.newCount || 0} new entries.`, 100);
             resetFeatureProgress('canon');
-            toast(`Previewed ${result.packs?.length || 0} canon packs. Select entries to add to Pending Lore Review.`, 'info');
+            toast(`Previewed ${result.packs?.length || 0} canon packs. Select entries to add to Pending Review.`, 'info');
         } else if (result?.status === 'no_date') {
             setFeatureProgress('canon', 'No parseable Context date. Detect or enter a scene date first.', 100);
             toast('Canon pack preview needs a parseable Scene date first.', 'warning');
@@ -14157,7 +14221,7 @@ async function handleAddCanonPreviewEntries(btn, entryIds = []) {
         if (!state) return;
         const context = getCanonSuggestionContext(state);
 
-        setFeatureProgress('canon', 'Adding selected canon entries to Pending Lore Review...', 35);
+        setFeatureProgress('canon', 'Adding selected canon entries to Pending Review...', 35);
         const result = await addCanonLorePreviewEntriesToPending(ids, context, { maxCandidates: 500 });
         if (result?.status === 'proposed') {
             canonPreviewUiState = {
@@ -14171,9 +14235,9 @@ async function handleAddCanonPreviewEntries(btn, entryIds = []) {
             setPanelState({ activeTab: 'lore' }, { deferSave: true });
             refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
             refreshHeader();
-            setFeatureProgress('canon', `Added ${result.proposedCount || 0} canon entries to Pending Lore Review.`, 100);
+            setFeatureProgress('canon', `Added ${result.proposedCount || 0} canon entries to Pending Review.`, 100);
             resetFeatureProgress('canon');
-            toast(`Added ${result.proposedCount || 0} canon entries to Pending Lore Review.`);
+            toast(`Added ${result.proposedCount || 0} canon entries to Pending Review.`);
         } else if (result?.status === 'duplicates_only') {
             setFeatureProgress('canon', 'Selected canon entries were already pending or accepted.', 100);
             resetFeatureProgress('canon');
@@ -14215,7 +14279,7 @@ async function handleSuggestCanonLore(btn) {
             refreshHeader();
             setFeatureProgress('canon', `Suggested ${result.proposedCount || 0} canon lore entries.`, 100);
             resetFeatureProgress('canon');
-            toast(`Suggested ${result.proposedCount || 0} canon lore entries. Review them in Pending Lore Review.`);
+            toast(`Suggested ${result.proposedCount || 0} canon entries. Review them in Pending Review.`);
         } else if (result?.status === 'duplicates_only') {
             setFeatureProgress('canon', `Matched ${result.matchedCount || 0}, but all selected suggestions already exist.`, 100);
             resetFeatureProgress('canon');
@@ -14251,7 +14315,7 @@ function createBulkLoreLedgerStatusCard(state) {
     const title = document.createElement('div');
     title.className = 'saga-runtime-card-title';
     title.textContent = 'Lore Scan Results';
-    addTooltip(title, 'Shows the latest story-lore scan result, including completed chunks, failed chunks, extracted candidate facts, and Pending Lore Review entries.');
+    addTooltip(title, 'Shows the latest story-lore scan result, including completed chunks, failed chunks, extracted candidate facts, and Pending Review entries.');
     card.appendChild(title);
 
     const status = String(batch.status || 'unknown');
@@ -14274,7 +14338,7 @@ function createBulkLoreLedgerStatusCard(state) {
     grid.appendChild(createKeyValue('Chunks', `${completed}/${queued}`, 'Completed queued chunks over total queued chunks.'));
     grid.appendChild(createKeyValue('Failed', String(failed), 'Chunks that failed after retry attempts and can be retried with What to rescan: Retry failed only.'));
     grid.appendChild(createKeyValue('Facts', String(candidateCount), 'Compact extracted candidate facts stored for this scan.'));
-    grid.appendChild(createKeyValue('Pending', String(pendingCount), 'Pending Lore Review entries after scan commits.'));
+    grid.appendChild(createKeyValue('Pending', String(pendingCount), 'Pending Review entries after scan commits.'));
     if (qualityDropped) grid.appendChild(createKeyValue('Quality filtered', String(qualityDropped), 'Generated candidates discarded by the strict quality gate as low-value recap or insufficiently specific lore.'));
     if (routedSimilar) grid.appendChild(createKeyValue('Routed updates', String(routedSimilar), 'Similar generated candidates kept as possible updates or merges instead of discarded as duplicates.'));
     card.appendChild(grid);
@@ -14301,17 +14365,17 @@ async function handleBulkGeneratePendingLore(btn) {
             const pendingCount = result.pendingCount || 0;
             const sameContext = result.sameContext !== false;
             const proceed = await confirmAction(
-                'Pending lore already exists',
+                'Pending Review already has entries',
                 sameContext
-                    ? `There are ${pendingCount} unresolved pending lore entr${pendingCount === 1 ? 'y' : 'ies'} for this context. Continue and append/merge new scan results into Pending Lore Review?`
-                    : `There are ${pendingCount} unresolved pending lore entr${pendingCount === 1 ? 'y' : 'ies'} from another context. Continue by marking the old batch replaced and starting a fresh scan?`
+                    ? `There are ${pendingCount} unresolved Pending Review entr${pendingCount === 1 ? 'y' : 'ies'} for this context. Continue and append/merge new scan results into Pending Review?`
+                    : `There are ${pendingCount} unresolved Pending Review entr${pendingCount === 1 ? 'y' : 'ies'} from another context. Continue by marking the old batch replaced and starting a fresh scan?`
             );
             if (!proceed) {
-                setFeatureProgress('lore', 'Story lore scan cancelled: pending lore still needs review.', 0);
-                toast('Review or dismiss existing pending lore before scanning again.', 'info');
+                setFeatureProgress('lore', 'Story lore scan cancelled: Pending Review still needs attention.', 0);
+                toast('Review or reject existing Pending Review entries before scanning again.', 'info');
                 return;
             }
-            setFeatureProgress('lore', sameContext ? 'Continuing scan and appending to pending lore...' : 'Replacing stale pending lore and starting scan...', 5);
+            setFeatureProgress('lore', sameContext ? 'Continuing scan and appending to Pending Review...' : 'Replacing stale Pending Review entries and starting scan...', 5);
             result = await runBulkLoreGeneration({
                 force: true,
                 signal: activeLoreGenerationController?.signal,
@@ -14336,7 +14400,7 @@ async function handleBulkGeneratePendingLore(btn) {
             const routedText = result.routedSimilarCount ? ` ${result.routedSimilarCount} similar candidate${result.routedSimilarCount === 1 ? '' : 's'} routed for update review.` : '';
             setFeatureProgress('lore', `Story lore scan ${result.status}: ${result.completedChunkCount || 0} chunks, ${result.candidateCount || 0} candidate facts, ${result.pendingEntryCount || 0} pending entries.`, 100);
             resetFeatureProgress('lore');
-            toast(`Story lore scan ${result.status}. ${result.candidateCount || 0} candidate facts extracted; ${result.pendingEntryCount || 0} pending lore entries now available.${failedText}${skippedText}${qualityText}${routedText}`);
+            toast(`Story lore scan ${result.status}. ${result.candidateCount || 0} candidate facts extracted; ${result.pendingEntryCount || 0} Pending Review entries now available.${failedText}${skippedText}${qualityText}${routedText}`);
         } else if (result?.status === 'skipped_unchanged') {
             refreshPanelBody({ preserveScroll: true });
             setFeatureProgress('lore', `Story lore scan skipped ${result.skippedChunks || 0} unchanged chunks.`, 100);
@@ -14361,7 +14425,7 @@ function createCanonLoreDatabaseCard(state) {
     const title = document.createElement('div');
     title.className = 'saga-runtime-card-title';
     title.textContent = 'Local Canon Lore Database';
-    addTooltip(title, 'After Context detection finds a parseable canon date, Saga locally queries active Loredecks and proposes relevant canon entries into Pending Lore Review. This does not call the model.');
+    addTooltip(title, 'After Context detection finds a parseable canon date, Saga locally queries active Loredecks and proposes relevant canon entries into Pending Review. This does not call the model.');
     card.appendChild(title);
 
     const db = state?.canonLoreDatabase || {};
@@ -14419,7 +14483,7 @@ function createCanonLoreDatabaseCard(state) {
 
     const actions = document.createElement('div');
     actions.className = 'saga-primary-actions';
-    actions.appendChild(createButton('Quick Add Top Matches', 'Uses the current Context fields to query local canon lore and propose the capped top matches into Pending Lore Review.', async (btn) => {
+    actions.appendChild(createButton('Quick Add Top Matches', 'Uses the current Context fields to query local canon lore and propose the capped top matches into Pending Review.', async (btn) => {
         await runBusyAction(btn, 'Querying...', async () => {
             const state = await ensureStoryContextForCanonAction('Canon database quick add');
             if (!state) return;
@@ -14432,9 +14496,9 @@ function createCanonLoreDatabaseCard(state) {
             if (result?.status === 'proposed') {
                 refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
                 refreshHeader();
-                setFeatureProgress('context', `Canon database proposed ${result.proposedCount || 0} pending lore entries.`, 100);
+                setFeatureProgress('context', `Canon database proposed ${result.proposedCount || 0} Pending Review entries.`, 100);
                 resetFeatureProgress('context');
-                toast(`Canon database proposed ${result.proposedCount || 0} pending lore entries.`);
+                toast(`Canon database proposed ${result.proposedCount || 0} Pending Review entries.`);
             } else if (result?.status === 'duplicates_only') {
                 // Do not refresh the whole panel for a no-op duplicate result. In chats that
                 // already contain oversized pending canon entries, a full refresh can freeze.
@@ -14572,6 +14636,14 @@ function updateAcceptedLoreScrollRegionHeight() {
 
 if (typeof window !== 'undefined') {
     window.addEventListener('resize', () => {
+        const existing = document.getElementById(PANEL_ID);
+        const wasMobile = existing?.classList?.contains('saga-runtime-mobile') === true;
+        const shouldBeMobile = isRuntimeMobileShell();
+        if (existing && wasMobile !== shouldBeMobile) {
+            refreshLorePanel();
+            scheduleAcceptedLoreLayoutUpdate();
+            return;
+        }
         clampRuntimeShellToViewport();
         scheduleAcceptedLoreLayoutUpdate();
     });
@@ -14637,6 +14709,10 @@ function refreshPanelBody(options = {}) {
     if (!panelRoot) return;
     const stateForShell = getState();
     normalizePanelLayoutState(stateForShell);
+    if (panelRoot.classList.contains('saga-runtime-mobile')) {
+        renderPanelShell(panelRoot, stateForShell);
+        return;
+    }
     const body = panelRoot.querySelector('.saga-lore-panel-body');
     if (!body) {
         if (stateForShell?.lorePanel?.drawerOpen === true) renderPanelShell(panelRoot, stateForShell);

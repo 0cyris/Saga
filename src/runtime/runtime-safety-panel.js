@@ -315,7 +315,7 @@ async function cleanMissingStorageRecordsFromButton(button) {
 async function resetAllSettingsFromButton(button) {
     const proceed = await confirmAction(
         'Are you sure? Reset all Saga settings?',
-        'You are about to reset Saga preferences, workflow settings, provider selections, generation settings, injection settings, UI defaults, and stored Saga API keys. Custom Loredecks, Theme Packs, Icon Sets, active chat state, accepted lore, pending lore, and Lore Timeline are not deleted. Continue?'
+        'You are about to reset Saga preferences, workflow settings, provider selections, generation settings, injection settings, UI defaults, and stored Saga API keys. Custom Loredecks, Theme Packs, Icon Sets, active chat state, Accepted Lorecards, Pending Review entries, and Lore Timeline are not deleted. Continue?'
     );
     if (!proceed) return;
     await runBusyAction(button, 'Resetting...', async ({ setText }) => {
@@ -551,16 +551,16 @@ export function createActiveChatDangerZoneGroup(state = getState()) {
 
     const rows = document.createElement('div');
     rows.className = 'saga-runtime-kv-list';
-    rows.appendChild(createKeyValue('Accepted lore', String(normalizeLoreMatrix(state?.loreMatrix || []).length), 'Lore entries currently stored in the accepted lore matrix.'));
-    rows.appendChild(createKeyValue('Pending Lorecards', String(normalizeLoreMatrix(state?.pendingLoreEntries || []).length), 'Generated Lorecards waiting in the Lorecards tab Pending Lorecard Review section.'));
+    rows.appendChild(createKeyValue('Accepted Lorecards', String(normalizeLoreMatrix(state?.loreMatrix || []).length), 'Accepted Lorecards currently stored in the lore matrix.'));
+    rows.appendChild(createKeyValue('Pending Review', String(normalizeLoreMatrix(state?.pendingLoreEntries || []).length), 'Generated Lorecards waiting in the Lorecards tab Pending Review section.'));
     rows.appendChild(createKeyValue('Pending continuity changes', state?.lastDelta ? '1' : '0', 'Legacy extracted continuity delta waiting in the Continuity tab.'));
     group.appendChild(rows);
 
     const actions = document.createElement('div');
     actions.className = 'saga-primary-actions';
 
-    actions.appendChild(createButton('Delete All Lore', 'Deletes accepted lore, pending lore, and pin/mute selections. Lightweight continuity state is left intact.', async button => {
-        const proceed = await confirmAction('Are you sure? Delete all Saga lore?', 'You are about to delete every accepted lore entry, every pending lore entry, and all pin/mute selections for this chat. Lightweight continuity state will remain. Accepted lore can be restored to Pending Review through Lore Timeline when retained. Continue?');
+    actions.appendChild(createButton('Delete All Lore', 'Deletes Accepted Lorecards, Pending Review entries, and pin/mute selections. Lightweight continuity state is left intact.', async button => {
+        const proceed = await confirmAction('Are you sure? Delete all Saga lore?', 'You are about to delete every Accepted Lorecard, every Pending Review entry, and all pin/mute selections for this chat. Lightweight continuity state will remain. Accepted Lorecards can be restored to Pending Review through Lore Timeline when retained. Continue?');
         if (!proceed) return;
         await runBusyAction(button, 'Deleting...', async ({ setText }) => {
             setText('Clearing lore...');
@@ -583,7 +583,7 @@ export function createActiveChatDangerZoneGroup(state = getState()) {
                     after: captureLoreTimelineState(current),
                     type: 'delete_all',
                     source: 'danger_zone',
-                    summary: `Deleted all accepted lore (${deleted} entr${deleted === 1 ? 'y' : 'ies'}).`,
+                    summary: `Deleted all Accepted Lorecards (${deleted} entr${deleted === 1 ? 'y' : 'ies'}).`,
                 });
             }
             saveState(current);
@@ -593,8 +593,8 @@ export function createActiveChatDangerZoneGroup(state = getState()) {
         });
     }, 'saga-danger-button'));
 
-    actions.appendChild(createButton('Reset Generation State', 'Clears detected lore context, pending generated lore, pending deltas, and generation ledger. Accepted lore remains intact.', async button => {
-        const proceed = await confirmAction('Are you sure? Reset generation state?', 'You are about to clear detected context, pending generated lore, pending continuity changes, and the lore-generation ledger. Accepted lore entries and Lore Timeline will remain. Continue?');
+    actions.appendChild(createButton('Reset Generation State', 'Clears detected lore context, Pending Review entries, pending deltas, and generation ledger. Accepted Lorecards remain intact.', async button => {
+        const proceed = await confirmAction('Are you sure? Reset generation state?', 'You are about to clear detected context, Pending Review entries, pending continuity changes, and the lore-generation ledger. Accepted Lorecards and Lore Timeline will remain. Continue?');
         if (!proceed) return;
         await runBusyAction(button, 'Resetting...', async ({ setText }) => {
             setText('Clearing generation state...');
@@ -622,7 +622,7 @@ export function createActiveChatDangerZoneGroup(state = getState()) {
     }, 'saga-danger-button'));
 
     actions.appendChild(createButton('Reset Active Chat', 'Resets Saga continuity state for this chat to defaults and clears Lore Timeline. Panel size and position are preserved.', async button => {
-        const proceed = await confirmAction('Are you sure? Reset active chat?', 'You are about to reset all Saga runtime data for this chat: lightweight continuity state, accepted lore, pending lore, generation state, and Lore Timeline. Window position, size, and the State Safety backup list are preserved. Continue?');
+        const proceed = await confirmAction('Are you sure? Reset active chat?', 'You are about to reset all Saga runtime data for this chat: lightweight continuity state, Accepted Lorecards, Pending Review entries, generation state, and Lore Timeline. Window position, size, and the State Safety backup list are preserved. Continue?');
         if (!proceed) return;
         await runBusyAction(button, 'Resetting...', async ({ setText }) => {
             setText('Resetting active chat...');

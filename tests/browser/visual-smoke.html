@@ -104,6 +104,7 @@
     <script type="module">
         import { DEFAULT_SETTINGS, getDefaultState } from '../../src/state/constants.js';
         import { showLorePanel } from '../../src/runtime/lore-panel.js';
+        import { getDefaultMobilePanelState } from '../../src/runtime/runtime-shell.js';
         import { hydrateSagaThemeIconStorage } from '../../src/storage/saga-theme-icon-storage.js';
         import { hydrateSagaLorepackLibraryStorage } from '../../src/storage/saga-lorepack-library-storage.js';
         import { hydrateSagaCreatorProjectStorage } from '../../src/storage/saga-creator-project-storage.js';
@@ -432,6 +433,7 @@
             railX: 24,
             railY: 24,
             activeTab: smokeActiveTab,
+            mobile: getDefaultMobilePanelState(smokeActiveTab, settings),
             selectedLoredeckId: customPack.packId,
             contextResolutionProposals: [
                 {
@@ -537,6 +539,15 @@
             { packId: 'smoke-arlong-park', enabled: true, priority: 100, locked: false, addedAt: Date.now() },
             { type: 'folder', folderId: 'folder_harry-potter__golden-trio', enabled: true, includeNested: true, collapsed: false, priority: 90, locked: false, addedAt: 0 },
         ];
+        state.loredeckRegistry = {
+            ...(state.loredeckRegistry || {}),
+            schemaVersion: 1,
+            packs: {
+                ...(state.loredeckRegistry?.packs || {}),
+                [customPack.packId]: customPack,
+                [creatorGeneratedPack.packId]: creatorGeneratedPack,
+            },
+        };
         state.loredeckContexts = {
             ...state.loredeckContexts,
             'smoke-arlong-park': {
@@ -566,6 +577,20 @@
                 content: {
                     fact: 'Nami is trying to keep her panic hidden while Arlong has leverage over the village.',
                     injection: 'Nami should deflect questions about Arlong while visibly managing fear and anger.',
+                },
+            },
+            {
+                id: 'smoke_available_lore',
+                title: 'Arlong tribute pattern',
+                category: 'faction',
+                canon: 'canon',
+                relevance: 'normal',
+                priority: 70,
+                tags: ['faction:arlong-pirates', 'arc:arlong-park'],
+                fact: 'The Arlong Pirates demand tribute payments from Cocoyasi Village.',
+                content: {
+                    fact: 'The Arlong Pirates demand tribute payments from Cocoyasi Village.',
+                    injection: 'Use tribute demands as a saved but not always-active pressure detail around Cocoyasi Village.',
                 },
             },
         ];

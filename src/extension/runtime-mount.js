@@ -116,7 +116,7 @@ export function configureRuntimeActions() {
         {
             id: 'lore.pending.acceptAll',
             category: 'lorecards',
-            label: 'Accept all pending Lorecards',
+            label: 'Accept all Pending Review entries',
             handler: () => {
                 const result = acceptPendingLoreEntries();
                 refreshLorePanel();
@@ -126,7 +126,7 @@ export function configureRuntimeActions() {
         {
             id: 'lore.pending.rejectAll',
             category: 'lorecards',
-            label: 'Reject all pending Lorecards',
+            label: 'Reject all Pending Review entries',
             handler: () => {
                 const result = rejectPendingLoreEntries();
                 refreshLorePanel();

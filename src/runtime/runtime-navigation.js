@@ -25,10 +25,39 @@ export const TAB_TOOLTIPS = Object.freeze({
     session: 'Runtime overview, preset status, instructions, and active chat readiness.',
     context: 'Detect, browse, resolve, and lock story position across loaded Loredecks.',
     continuity: 'Scan, automatically track, view, and edit lightweight live continuity state: scene/timeline, active characters, key items, and active goals/threads.',
-    lore: 'Generate pending Lorecards, review generated Lorecards, and manage accepted Lorecards with search, filters, tags, pinning, and muting.',
+    lore: 'Capture reviewable Lorecards, review Pending Review entries, and manage Accepted Lorecards with search, filters, tags, pinning, and muting.',
     injection: 'Choose what Saga sends to the model: continuity state, lore entries, direct/compressed handling, and live split injection previews.',
     settings: 'Configure providers, runtime appearance, Saga Theme Packs, State Safety, and Danger Zone cleanup.',
 });
+
+export const MOBILE_BOTTOM_ROUTES = Object.freeze(['loredecks', 'session', 'context', 'lore', 'more']);
+export const MOBILE_PRIMARY_ROUTES = Object.freeze(['loredecks', 'session', 'context', 'lore']);
+export const MOBILE_MORE_ROUTES = Object.freeze(['continuity', 'injection', 'settings']);
+
+export const MOBILE_ROUTE_LABELS = Object.freeze({
+    ...TAB_LABELS,
+    more: 'More',
+});
+
+export const MOBILE_ROUTE_TOOLTIPS = Object.freeze({
+    ...TAB_TOOLTIPS,
+    more: 'Open advanced Saga tools, settings, guidance, and utilities.',
+});
+
+export const MOBILE_MORE_GROUPS = Object.freeze([
+    Object.freeze({
+        id: 'diagnostics',
+        label: 'Diagnostics',
+        routes: Object.freeze(['continuity', 'injection']),
+        advancedOnly: true,
+    }),
+    Object.freeze({
+        id: 'configuration',
+        label: 'Configuration',
+        routes: Object.freeze(['settings']),
+        advancedOnly: false,
+    }),
+]);
 
 export const AUTOMATION_MODES = Object.freeze({
     manual: Object.freeze({
@@ -57,7 +86,7 @@ export const AUTOMATION_MODES = Object.freeze({
     }),
     automatic: Object.freeze({
         label: 'Automatic',
-        description: 'Automatically scans continuity, detects context, and generates pending Lorecards on their configured intervals. Generated Lorecards still go to Pending Lorecard Review in the Lorecards tab.',
+        description: 'Automatically scans continuity, detects context, and generates Pending Review entries on their configured intervals. Generated Lorecards still go to Pending Review in the Lorecards tab.',
         settings: Object.freeze({
             autoExtract: true,
             autoApplyDelta: true,
@@ -74,6 +103,59 @@ export const ADVANCED_EXPERIENCE_TABS = Object.freeze(Object.keys(TAB_LABELS));
 
 export function normalizeTab(tab) {
     return Object.prototype.hasOwnProperty.call(TAB_LABELS, tab) ? tab : 'session';
+}
+
+export function normalizeMobileBottomRoute(route) {
+    return MOBILE_BOTTOM_ROUTES.includes(route) ? route : 'session';
+}
+
+export function normalizeMobileMoreRoute(route, settings = getSettings()) {
+    const normalized = normalizeTab(route);
+    return getMobileMoreRoutesForExperience(settings).includes(normalized) ? normalized : '';
+}
+
+export function getMobileBottomRoutes() {
+    return MOBILE_BOTTOM_ROUTES;
+}
+
+export function getMobilePrimaryRoutes() {
+    return MOBILE_PRIMARY_ROUTES;
+}
+
+export function getMobileMoreRoutesForExperience(settings = getSettings()) {
+    const advanced = normalizeExperienceMode(settings?.experienceMode) === 'advanced';
+    return MOBILE_MORE_GROUPS
+        .filter(group => advanced || group.advancedOnly !== true)
+        .flatMap(group => group.routes);
+}
+
+export function getMobileMoreGroupsForExperience(settings = getSettings()) {
+    const allowed = new Set(getMobileMoreRoutesForExperience(settings));
+    return MOBILE_MORE_GROUPS
+        .map(group => ({
+            ...group,
+            routes: group.routes.filter(route => allowed.has(route)),
+        }))
+        .filter(group => group.routes.length > 0);
+}
+
+export function getMobileRouteForTab(tab, settings = getSettings()) {
+    const normalized = normalizeTabForExperience(tab, settings);
+    if (MOBILE_PRIMARY_ROUTES.includes(normalized)) return normalized;
+    if (getMobileMoreRoutesForExperience(settings).includes(normalized)) return 'more';
+    return 'session';
+}
+
+export function getMobileRouteLabel(route, settings = getSettings()) {
+    void settings;
+    const normalized = route === 'more' ? 'more' : normalizeTab(route);
+    return MOBILE_ROUTE_LABELS[normalized] || 'Saga';
+}
+
+export function getMobileRouteTooltip(route, settings = getSettings()) {
+    void settings;
+    const normalized = route === 'more' ? 'more' : normalizeTab(route);
+    return MOBILE_ROUTE_TOOLTIPS[normalized] || 'Saga runtime screen.';
 }
 
 export function getVisibleTabsForExperience(settings = getSettings()) {

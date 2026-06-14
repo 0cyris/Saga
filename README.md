@@ -12,7 +12,7 @@ It turns canon, alternate-universe, crossover, and user-created lore into modula
 
 Saga is a lore system for deciding what belongs in the story **now**: what is true, what is hidden, who knows what, and what has changed in this chat.
 
-The current state of development is **alpha-release**. Bundled loredecks include Harry Potter, Jujutsu Kaisen, LOTR, My Hero Academia, and Star Wars. The built-in Loredeck Creator is functional, and loredeck imports are working, but set your expectations for 'alpha'. Stability is being improved with testing, and user feedback is highly valued.
+The current state of development is **alpha-release**: `0.1.0-alpha.1`, with minimum SillyTavern version `1.12.0`. Automatic updates are disabled for alpha builds, so update manually from the repository. Bundled loredecks include Harry Potter, Jujutsu Kaisen, LOTR, My Hero Academia, and Star Wars. The built-in Loredeck Creator is functional, and loredeck imports are working, but set your expectations for 'alpha'. Stability is being improved with testing, and user feedback is highly valued.
 
 ## Contents
 

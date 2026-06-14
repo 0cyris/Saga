@@ -9,7 +9,7 @@ import {
     createToggleCard,
 } from '../ui/runtime-ui-kit.js';
 import { formatActiveChatMetricName } from './runtime-formatters.js';
-import { createBasicStartReadinessCard } from './session-basic-panel.js';
+import { createBasicStartReadinessCard, getBasicReadinessAction, getBasicReadinessModel } from './session-basic-panel.js';
 import {
     formatGuideStartLabel,
     getRuntimeGuideContent,
@@ -25,6 +25,11 @@ import {
     normalizeAutomationMode,
     normalizeExperienceMode,
 } from './runtime-navigation.js';
+import {
+    getRuntimeMobileActiveSubview,
+    isRuntimeMobileShell,
+    pushRuntimeMobileSubview,
+} from './runtime-shell.js';
 
 let advancedRuntimePanelDeps = {};
 
@@ -91,11 +96,15 @@ export function renderSessionTab(container, state) {
     const basic = isBasicExperience(settings);
     const guideMode = basic ? 'basic' : 'advanced';
     const guide = getRuntimeGuideContent(guideMode);
+    const mobileSubview = getSessionMobileSubview(state, settings);
+    container.classList.add('saga-operator-tab', 'saga-session-operator-tab');
 
     container.appendChild(createSectionHeader(
         'Session Controls',
         basic ? 'Review the Start Checklist and runtime state for this chat.' : 'Set how Saga behaves during roleplay.'
     ));
+    container.appendChild(createSessionOperatorSummary(state, settings, { basic, guideMode, mobileSubview }));
+    if (isRuntimeMobileShell() && !mobileSubview) return;
 
     const toggles = document.createElement('div');
     toggles.className = 'saga-runtime-grid';
@@ -180,20 +189,117 @@ export function renderSessionTab(container, state) {
     const statsTitle = document.createElement('div');
     statsTitle.className = 'saga-runtime-card-title';
     statsTitle.textContent = 'Session Metrics';
-    addTooltip(statsTitle, 'Runtime counters for pending changes, accepted Lorecards, relevance tiers, and current injection size.');
+    addTooltip(statsTitle, 'Runtime counters for Pending Review entries, Accepted Lorecards, relevance tiers, and current injection size.');
     stats.appendChild(statsTitle);
     const counts = getPanelLoreState(state).counts;
     const selectedLoreCount = getSelectedLoreInjectionCount(state, settings);
     const injectionStats = getInjectionCharacterStats(state, settings);
     stats.appendChild(createKeyValue('Active chat', getActiveChatMetricName(), 'The active SillyTavern chat whose Saga metrics and chat metadata are being shown.'));
     stats.appendChild(createKeyValue('Pending continuity changes', state?.lastDelta ? '1' : '0', 'Legacy extracted state delta waiting in the Continuity tab. New scans apply directly to Continuity sections.'));
-    stats.appendChild(createKeyValue('Pending Lorecards', String((state?.pendingLoreEntries || []).length), 'Generated Lorecards waiting in the Lorecards tab Pending Lorecard Review section.'));
-    stats.appendChild(createKeyValue('Accepted lore entries', String(counts.all - counts.pending), 'Lore entries currently stored in the accepted lore matrix.'));
-    stats.appendChild(createKeyValue('High-relevance lore entries', String(counts.active), 'Accepted lore entries currently assigned to the High-Relevance injection tier.'));
-    stats.appendChild(createKeyValue('Lore selected for injection', String(selectedLoreCount), 'Accepted lore entries selected for Lore Injection after pin/mute rules, Context activation, and fallback priority selection. There is no hidden entry cap; mute entries to exclude them.'));
+    stats.appendChild(createKeyValue('Pending Review', String((state?.pendingLoreEntries || []).length), 'Generated Lorecards waiting in the Lorecards tab Pending Review section.'));
+    stats.appendChild(createKeyValue('Accepted Lorecards', String(counts.all - counts.pending), 'Accepted Lorecards currently stored in the lore matrix.'));
+    stats.appendChild(createKeyValue('High-relevance Accepted Lorecards', String(counts.active), 'Accepted Lorecards currently assigned to the High-Relevance injection tier.'));
+    stats.appendChild(createKeyValue('Lorecards selected for injection', String(selectedLoreCount), 'Accepted Lorecards selected for Lore Injection after pin/mute rules, Context activation, and fallback priority selection. There is no hidden entry cap; mute entries to exclude them.'));
     stats.appendChild(createKeyValue('Injection token estimate', injectionStats.totalChars ? `${injectionStats.totalTokens} tokens` : 'empty', 'Approximate token count for the combined Continuity + Lore injection previews.'));
     stats.appendChild(createKeyValue('Total chars injected', `${injectionStats.totalChars} chars`, 'Combined character count of Continuity Injection plus Lore Injection using current Injection tab toggles and handling modes.'));
     container.appendChild(stats);
+}
+
+function getSessionMobileSubview(state, settings = getSettings()) {
+    if (!isRuntimeMobileShell()) return null;
+    return getRuntimeMobileActiveSubview(state?.lorePanel, 'session', settings);
+}
+
+function openSessionMobileDetails() {
+    pushRuntimeMobileSubview('session', {
+        id: 'session-details',
+        title: 'Session Details',
+    });
+}
+
+function createBasicSessionNextActionButton(readiness) {
+    const row = readiness?.nextAction;
+    if (!row || row.ready || !row.actionLabel || row.actionId === 'enable-saga') return null;
+    const action = getBasicReadinessAction(row);
+    if (typeof action !== 'function') return null;
+    return createButton(`Next: ${row.actionLabel}`, row.missingText || 'Open the next Basic workflow step.', action, 'saga-primary-button');
+}
+
+function createSessionOperatorSummary(state, settings, options = {}) {
+    const basic = options.basic === true;
+    const guideMode = options.guideMode || (basic ? 'basic' : 'advanced');
+    const mobileSubview = options.mobileSubview || null;
+    const readiness = basic ? getBasicReadinessModel(state, settings) : null;
+    const counts = getPanelLoreState(state).counts;
+    const pendingLore = (state?.pendingLoreEntries || []).length;
+    const selectedLore = getSelectedLoreInjectionCount(state, settings);
+    const injectionStats = getInjectionCharacterStats(state, settings);
+    const enabled = settings.enabled !== false;
+    const currentMode = normalizeAutomationMode(settings.automationMode || settings.workflowMode);
+
+    const card = document.createElement('div');
+    card.className = 'saga-runtime-card saga-operator-summary-card saga-session-operator-summary';
+    markTourTarget(card, 'session.operator.summary');
+
+    const header = document.createElement('div');
+    header.className = 'saga-operator-summary-header';
+    const titleWrap = document.createElement('div');
+    titleWrap.className = 'saga-operator-summary-title-wrap';
+    const title = document.createElement('div');
+    title.className = 'saga-runtime-card-title saga-operator-summary-title';
+    title.textContent = 'Session Readiness';
+    addTooltip(title, 'Mobile operator summary for Saga runtime readiness and the next useful Session action.');
+    titleWrap.appendChild(title);
+    const subtitle = document.createElement('div');
+    subtitle.className = 'saga-runtime-help saga-operator-summary-subtitle';
+    subtitle.textContent = readiness?.nextAction?.ready
+        ? 'Saga is ready for the next response.'
+        : (readiness?.nextAction?.missingText || (enabled ? AUTOMATION_MODES[currentMode].description : 'Saga is paused for this chat.'));
+    titleWrap.appendChild(subtitle);
+    header.appendChild(titleWrap);
+
+    const chips = document.createElement('div');
+    chips.className = 'saga-loredeck-row-meta saga-operator-summary-chips';
+    chips.appendChild(createStatusPill(enabled ? 'Saga Active' : 'Paused', enabled ? 'Saga runtime behavior is enabled.' : 'Saga runtime behavior is paused.', { tone: enabled ? 'success' : 'muted', kind: 'status' }));
+    chips.appendChild(createStatusPill(getAutomationLabel(currentMode), 'Current automation mode for runtime actions.', { tone: currentMode === 'manual' ? 'muted' : 'info', kind: 'status' }));
+    if (pendingLore) chips.appendChild(createStatusPill(`${pendingLore} pending`, 'Pending Review entries waiting for review.', { tone: 'review', kind: 'count' }));
+    chips.appendChild(createStatusPill(`${selectedLore} selected`, 'Accepted Lorecards selected for the next injection.', { tone: selectedLore ? 'selected' : 'muted', kind: 'count' }));
+    header.appendChild(chips);
+    card.appendChild(header);
+
+    const stats = document.createElement('div');
+    stats.className = 'saga-operator-stat-grid';
+    stats.appendChild(createKeyValue('Active chat', getActiveChatMetricName(), 'The active SillyTavern chat whose Saga runtime state is shown.'));
+    stats.appendChild(createKeyValue('Accepted Lorecards', String(Math.max(0, (counts?.all || 0) - (counts?.pending || 0))), 'Accepted Lorecards stored in the lore matrix.'));
+    stats.appendChild(createKeyValue('Injection estimate', injectionStats.totalChars ? `${injectionStats.totalTokens} tokens` : 'empty', 'Approximate current injection token count.'));
+    card.appendChild(stats);
+
+    const actions = document.createElement('div');
+    actions.className = 'saga-primary-actions saga-operator-summary-actions';
+    if (!enabled) {
+        actions.appendChild(createButton('Enable Saga', 'Turn Saga runtime behavior back on for this chat.', () => {
+            const next = getSettings();
+            next.enabled = true;
+            saveSettings(next);
+            refreshPanelBody({ preserveScroll: false });
+            refreshHeader();
+        }, 'saga-primary-button'));
+    }
+    const nextAction = basic && isRuntimeMobileShell() && !mobileSubview
+        ? createBasicSessionNextActionButton(readiness)
+        : null;
+    if (nextAction) actions.appendChild(nextAction);
+    if (isRuntimeMobileShell() && !mobileSubview) {
+        actions.appendChild(createButton('Session Details', 'Open runtime toggles, walkthrough notes, and Session metrics.', openSessionMobileDetails));
+    }
+    actions.appendChild(createButton(
+        basic ? 'Start Checklist' : 'Start Walkthrough',
+        basic ? 'Open the Basic workflow guide from the Start Checklist.' : 'Open the Advanced runtime walkthrough.',
+        () => startRuntimeWalkthrough(guideMode),
+        enabled && !nextAction ? 'saga-primary-button' : ''
+    ));
+    card.appendChild(actions);
+    return card;
 }
 
 function createInstructionsCard(guideMode = normalizeExperienceMode(getSettings().experienceMode)) {

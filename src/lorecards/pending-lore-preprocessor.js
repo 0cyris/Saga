@@ -1,6 +1,6 @@
 /**
  * pending-lore-preprocessor.js — Saga
- * Assigns user-facing relevance/canon/category defaults before entries enter Pending Lore Review.
+ * Assigns user-facing relevance/canon/category defaults before entries enter Pending Review.
  */
 
 import { normalizeLoreEntry, normalizeLoreMatrix } from './lore-matrix.js';

@@ -891,7 +891,7 @@ async function maybeProposeCanonLoreFromContext(context, progress = null) {
 
 function formatCanonProposalSuffix(result) {
     if (!result) return '';
-    if (result.status === 'proposed') return ` Local canon database proposed ${result.proposedCount || 0} pending lore entries.`;
+    if (result.status === 'proposed') return ` Local canon database proposed ${result.proposedCount || 0} Pending Review entries.`;
     if (result.status === 'duplicates_only') return ' Local canon database found matches, but they were already present or similar.';
     if (result.status === 'no_date') return ' Local canon database skipped: no parseable canon date.';
     if (result.status === 'empty') return ' Local canon database found no entries for this date/context.';
@@ -2398,7 +2398,7 @@ export async function runBulkLoreGeneration(options = {}) {
             targetEntryCount: profile.targetTotal,
             lastError: status === 'failed' ? `All queued chunks failed (${totalFailed})` : '',
         }, { increment: false, syncPrompt: false });
-        progress?.(`Story lore scan ${status}: ${completed} chunks complete, ${totalFailed} failed, ${candidateCount} candidate facts, ${pendingEntryCount} pending lore entries.`, 100);
+        progress?.(`Story lore scan ${status}: ${completed} chunks complete, ${totalFailed} failed, ${candidateCount} candidate facts, ${pendingEntryCount} Pending Review entries.`, 100);
         return {
             status,
             batchId,

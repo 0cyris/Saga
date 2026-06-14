@@ -269,7 +269,7 @@ function saveBulkLedgerState(state, options = {}) {
 /**
  * Creates or updates a resumable bulk lore scan batch.
  * Batch creation is an immediate durable checkpoint, but it deliberately does
- * not queue prompt-injection sync because pending/accepted lore has not changed.
+ * not queue prompt-injection sync because Pending Review/Accepted Lorecards state has not changed.
  * @param {Object} batch - Batch metadata. Must include id.
  * @returns {Object} Updated state
  */
@@ -472,7 +472,7 @@ export function flushLoreBulkFullCheckpoint(batchId, patch = {}) {
 }
 
 /**
- * Appends generated lore into Pending Lore Review without replacing existing pending entries.
+ * Appends generated lore into Pending Review without replacing existing Pending Review entries.
  * Used by bulk lore scans so successful chunks commit partial progress immediately.
  * @param {Object[]} entries - Raw lore entries to append/merge
  * @param {Object} meta - Pending/batch metadata
@@ -750,7 +750,7 @@ function recordAcceptedLoreTimelineMutation(state, before, type, source, summary
 
 
 /**
- * Accepts pending lore entries by merging them into loreMatrix.
+ * Accepts Pending Review entries by merging them into loreMatrix.
  * Updates the generation ledger so the context is marked as accepted.
  * Locked/user-edited entries in the matrix are preserved.
  * @returns {Object} Updated state
@@ -764,7 +764,7 @@ export function acceptPendingLoreEntries() {
     if (pending.length === 0) return state;
 
     appendStateBackupRecord(state, 'before_accept_pending_lore', {
-        label: `Before accepting ${pending.length} pending Lorecard${pending.length === 1 ? '' : 's'}.`,
+        label: `Before accepting ${pending.length} Pending Review entr${pending.length === 1 ? 'y' : 'ies'}.`,
     });
 
     const beforeTimeline = captureLoreTimelineState(state);
@@ -774,7 +774,7 @@ export function acceptPendingLoreEntries() {
     const prepared = pending.map(entry => preparePendingLoreEntryForAcceptance(entry, existing));
     const merged = mergeLoreEntries(existing, prepared);
 
-    // Accepted lore is intentionally uncapped. The Lore tab uses paged rendering
+    // Accepted Lorecards are intentionally uncapped. The Lore tab uses paged rendering
     // so large matrices stay usable without deleting lower-priority entries.
     state.loreMatrix = merged;
     applyAcceptedLoreSelectionRecommendations(state, prepared);
@@ -797,13 +797,13 @@ export function acceptPendingLoreEntries() {
         validEntryCount: pending.length,
     };
 
-    recordAcceptedLoreTimelineMutation(state, beforeTimeline, 'accept_pending', source, `Accepted ${pending.length} pending lore entr${pending.length === 1 ? 'y' : 'ies'}.`);
+    recordAcceptedLoreTimelineMutation(state, beforeTimeline, 'accept_pending', source, `Accepted ${pending.length} Pending Review entr${pending.length === 1 ? 'y' : 'ies'}.`);
     saveState(state);
     return state;
 }
 
 /**
- * Rejects pending lore entries by clearing them without merging.
+ * Rejects Pending Review entries by clearing them without merging.
  * Updates the generation ledger so the context is marked as rejected
  * and auto-generation will not repeat it until context changes.
  * @returns {Object} Updated state
@@ -815,7 +815,7 @@ export function rejectPendingLoreEntries() {
 
     if (pending.length) {
         appendStateBackupRecord(state, 'before_reject_pending_lore', {
-            label: `Before rejecting ${pending.length} pending Lorecard${pending.length === 1 ? '' : 's'}.`,
+            label: `Before rejecting ${pending.length} Pending Review entr${pending.length === 1 ? 'y' : 'ies'}.`,
         });
     }
 
@@ -842,7 +842,7 @@ export function rejectPendingLoreEntries() {
 }
 
 /**
- * Accepts a single pending lore entry by index, merging it into the lore matrix.
+ * Accepts a single Pending Review entry by index, merging it into the lore matrix.
  * The remaining pending entries stay pending.
  * @param {number} entryIndex - Index into pendingLoreEntries array
  * @returns {{ state: Object, accepted: Object|null }} Updated state and the accepted entry
@@ -890,13 +890,13 @@ export function acceptPendingLoreEntry(entryIndex) {
         acceptedEntryCount: (state.loreGeneration.attempts[contextKey]?.acceptedEntryCount || 0) + 1,
     };
 
-    recordAcceptedLoreTimelineMutation(state, beforeTimeline, 'accept_pending_entry', source, `Accepted pending lore: ${acceptedEntry.title || acceptedEntry.id}.`);
+    recordAcceptedLoreTimelineMutation(state, beforeTimeline, 'accept_pending_entry', source, `Accepted Pending Review entry: ${acceptedEntry.title || acceptedEntry.id}.`);
     saveState(state);
     return { state, accepted: acceptedEntry };
 }
 
 /**
- * Rejects a single pending lore entry by index, removing it from pending.
+ * Rejects a single Pending Review entry by index, removing it from pending.
  * The remaining pending entries stay pending.
  * @param {number} entryIndex - Index into pendingLoreEntries array
  * @returns {{ state: Object, rejected: Object|null }} Updated state and the rejected entry

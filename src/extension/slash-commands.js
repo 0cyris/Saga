@@ -36,10 +36,10 @@ function registerSagaSlashCommand(ctx, name, callback, helpString, category = 'S
 
 async function confirmSlashBulkPendingAction(ctx, verb, count) {
     if (!count) {
-        if (typeof toastr !== 'undefined') toastr.info(`No pending Lorecards to ${verb.toLowerCase()}.`);
+        if (typeof toastr !== 'undefined') toastr.info(`No Pending Review entries to ${verb.toLowerCase()}.`);
         return false;
     }
-    const message = `${verb} all ${count} pending Lorecard${count === 1 ? '' : 's'}? This affects every pending item in the current chat.`;
+    const message = `${verb} all ${count} Pending Review entr${count === 1 ? 'y' : 'ies'}? This affects every Pending Review item in the current chat.`;
     const popup = ctx?.callGenericPopup || globalThis.callGenericPopup;
     const popupTypes = ctx?.POPUP_TYPE || globalThis.POPUP_TYPE || {};
     if (typeof popup === 'function') {
@@ -124,12 +124,12 @@ export function registerSlashCommands(ctx) {
             const confirmed = await confirmSlashBulkPendingAction(ctx, 'Accept', pendingCount);
             if (!confirmed) return;
             await runRuntimeAction('lore.pending.acceptAll');
-            if (typeof toastr !== 'undefined') toastr.success(`Accepted ${pendingCount} pending lore entr${pendingCount === 1 ? 'y' : 'ies'}`);
+            if (typeof toastr !== 'undefined') toastr.success(`Accepted ${pendingCount} Pending Review entr${pendingCount === 1 ? 'y' : 'ies'}`);
         } catch (e) {
             console.error(`${LOG_PREFIX} Accept lore failed:`, e);
             if (typeof toastr !== 'undefined') toastr.error(`Accept lore failed: ${e.message}`);
         }
-    }, '\u2705 Accept all pending lorecards after confirmation', 'Saga Lorecards');
+    }, '\u2705 Accept all Pending Review entries after confirmation', 'Saga Lorecards');
 
     register('saga-lore-reject', async () => {
         try {
@@ -142,12 +142,12 @@ export function registerSlashCommands(ctx) {
             const confirmed = await confirmSlashBulkPendingAction(ctx, 'Reject', pendingCount);
             if (!confirmed) return;
             await runRuntimeAction('lore.pending.rejectAll');
-            if (typeof toastr !== 'undefined') toastr.success(`Rejected ${pendingCount} pending lore entr${pendingCount === 1 ? 'y' : 'ies'}`);
+            if (typeof toastr !== 'undefined') toastr.success(`Rejected ${pendingCount} Pending Review entr${pendingCount === 1 ? 'y' : 'ies'}`);
         } catch (e) {
             console.error(`${LOG_PREFIX} Reject lore failed:`, e);
             if (typeof toastr !== 'undefined') toastr.error(`Reject lore failed: ${e.message}`);
         }
-    }, '\u274C Reject all pending lorecards after confirmation', 'Saga Lorecards');
+    }, '\u274C Reject all Pending Review entries after confirmation', 'Saga Lorecards');
 
     register('saga-lore-panel', async () => {
         try {
