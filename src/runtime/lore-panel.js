@@ -252,6 +252,7 @@ import {
     hydrateCachedExternalLorepackPayloadRecord,
     hydrateExternalLorepackPayloadRecord,
     flushSagaLorepackPayloadStorageWrites,
+    isCompactExternalLorepackPayloadRecord,
 } from '../storage/saga-lorepack-payload-storage.js';
 import {
     flushSagaLorepackLibraryStorageWrites,
@@ -12464,8 +12465,22 @@ function openLoredeckBulkContextDialog(pack, rows = []) {
 }
 
 function getFreshLoredeckLibraryPack(packId, fallback = null) {
-    const fresh = getLoredeckDefinition(packId) || fallback;
-    return hydrateCachedExternalLorepackPayloadRecord(fresh) || fresh;
+    const id = String(packId || fallback?.packId || fallback?.id || '').trim();
+    const fresh = getLoredeckDefinition(id);
+    const hydratedFresh = fresh ? hydrateCachedExternalLorepackPayloadRecord(fresh) : null;
+    if (hydratedFresh && !isCompactExternalLorepackPayloadRecord(hydratedFresh)) return hydratedFresh;
+    const hydratedFallback = fallback ? hydrateCachedExternalLorepackPayloadRecord(fallback) : null;
+    if (hydratedFallback && !isCompactExternalLorepackPayloadRecord(hydratedFallback)) {
+        return {
+            ...(hydratedFresh || {}),
+            ...hydratedFallback,
+            packId: hydratedFallback.packId || hydratedFresh?.packId || id,
+            payloadFile: hydratedFresh?.payloadFile || hydratedFallback.payloadFile,
+            installedAt: hydratedFresh?.installedAt || hydratedFallback.installedAt,
+            revision: hydratedFallback.revision || hydratedFresh?.revision || 1,
+        };
+    }
+    return hydratedFresh || hydratedFallback || fresh || fallback;
 }
 
 function failLoredeckLibraryRecordMutation(message = 'Loredeck save failed.', options = {}, toastType = 'error') {
