@@ -196,6 +196,7 @@ let loredeckLibrarySelectedFolderDetailsId = '';
 let loredeckLibrarySelectionRefreshFrame = 0;
 let loredeckLibraryHierarchyRefreshFrame = 0;
 let loredeckLibraryOverlayRefreshFrame = 0;
+let loredeckLibraryHierarchyRenderCache = null;
 let bundledLoredeckIndexCache = null;
 let bundledLoredeckIndexLoading = false;
 let bundledLoredeckIndexLoadAttempted = false;
@@ -226,6 +227,7 @@ export function closeLoredeckLibraryWindow() {
         cancelAnimationFrame(loredeckLibraryOverlayRefreshFrame);
     }
     loredeckLibraryOverlayRefreshFrame = 0;
+    loredeckLibraryHierarchyRenderCache = null;
     document.querySelector('.saga-loredeck-library-overlay')?.remove();
 }
 
@@ -729,6 +731,95 @@ function updateLoredeckLibraryFolderDisclosureDom(folderId = '', collapsed = fal
         disclosure.setAttribute('aria-label', `${collapsed ? 'Expand' : 'Collapse'} folder`);
         disclosure.dataset.sagaTooltip = collapsed ? 'Expand folder.' : 'Collapse folder.';
     }
+}
+
+function getLoredeckLibraryHierarchyElementDepth(element) {
+    const raw = element?.dataset?.folderDepth
+        || element?.style?.getPropertyValue?.('--saga-folder-depth')
+        || '0';
+    const depth = Number(raw);
+    return Number.isFinite(depth) ? Math.max(0, depth) : 0;
+}
+
+function removeLoredeckLibraryFolderDescendantElements(row) {
+    const depth = getLoredeckLibraryHierarchyElementDepth(row);
+    let removed = 0;
+    let next = row?.nextElementSibling || null;
+    while (next && getLoredeckLibraryHierarchyElementDepth(next) > depth) {
+        const current = next;
+        next = next.nextElementSibling;
+        current.remove();
+        removed += 1;
+    }
+    return removed;
+}
+
+function findLoredeckLibraryFolderInTree(folderId = '', folders = []) {
+    const id = String(folderId || '').trim();
+    if (!id) return null;
+    const stack = [...(folders || [])];
+    while (stack.length) {
+        const folder = stack.shift();
+        if (String(folder?.id || '').trim() === id) return folder;
+        if (folder?.children?.length) stack.unshift(...folder.children);
+    }
+    return null;
+}
+
+function refreshLoredeckLibraryHierarchyCardIndexes(list) {
+    if (!list) return;
+    [...list.querySelectorAll('.saga-loredeck-library-deck-card[data-pack-id]')]
+        .forEach((card, index) => {
+            card.dataset.libraryIndex = String(index);
+        });
+}
+
+function refreshLoredeckLibraryFolderSubtree(folderId = '', wasCollapsed = false) {
+    const id = String(folderId || '').trim();
+    if (!id || String(loredeckLibraryQuery || '').trim()) return false;
+    const overlay = document.querySelector('.saga-loredeck-library-overlay');
+    const list = overlay?.querySelector('.saga-loredeck-library-hierarchy-list');
+    const row = [...(list?.querySelectorAll('.saga-loredeck-library-inline-folder-row[data-folder-id]') || [])]
+        .find(item => String(item.dataset.folderId || '').trim() === id);
+    if (!list || !row) return false;
+
+    removeLoredeckLibraryFolderDescendantElements(row);
+    if (!wasCollapsed) {
+        refreshLoredeckLibraryHierarchyCardIndexes(list);
+        return true;
+    }
+
+    let renderContext = list.__sagaLoredeckLibraryRenderContext || loredeckLibraryHierarchyRenderCache;
+    if (!renderContext) {
+        const context = getLoredeckLibraryOverlayContext();
+        renderContext = createLoredeckLibraryHierarchyRenderContext(
+            context.filteredPacks,
+            context.stack,
+            context.canonDb,
+            context.health,
+            context.libraryIndex,
+            context.library,
+            context.scopedLibrary,
+            context.registry,
+        );
+        loredeckLibraryHierarchyRenderCache = renderContext;
+        list.__sagaLoredeckLibraryRenderContext = renderContext;
+    }
+    const folders = sortLoredeckLibraryFolderTreeByTitle(buildFolderTree(renderContext.libraryIndex));
+    const folder = findLoredeckLibraryFolderInTree(id, folders);
+    if (!folder) return false;
+
+    const fragment = document.createDocumentFragment();
+    appendLoredeckLibraryFolderContents(
+        fragment,
+        folder,
+        getLoredeckLibraryHierarchyElementDepth(row) + 1,
+        renderContext,
+        [],
+    );
+    if (fragment.childNodes.length) list.insertBefore(fragment, row.nextElementSibling);
+    refreshLoredeckLibraryHierarchyCardIndexes(list);
+    return true;
 }
 
 function refreshLoredeckLibraryHierarchyList() {
@@ -1549,16 +1640,12 @@ function getLoredeckLibraryFolderSearchState(folderId = '', searchModel = {}) {
     return '';
 }
 
-function createLoredeckLibraryHierarchyList(visiblePacks = [], stack = [], canonDb = null, health = null, libraryIndex = {}, library = [], scopedLibrary = library, registry = getLoredeckLibraryRegistry(getState())) {
-    const list = document.createElement('div');
-    list.className = 'saga-loredeck-library-deck-list saga-loredeck-library-hierarchy-list';
-    markTourTarget(list, 'loredecks.library.list');
+function createLoredeckLibraryHierarchyRenderContext(visiblePacks = [], stack = [], canonDb = null, health = null, libraryIndex = {}, library = [], scopedLibrary = library, registry = getLoredeckLibraryRegistry(getState())) {
     const query = String(loredeckLibraryQuery || '').trim();
     const activeViewId = getLoredeckLibraryActiveViewId();
     const folderIds = new Set((libraryIndex.folders || []).map(folder => folder.id));
     const renderModel = buildLoredeckLibraryFolderRenderModel(library, libraryIndex, stack, canonDb, health);
     const searchModel = getLoredeckLibraryHierarchySearchModel(scopedLibrary, visiblePacks, libraryIndex, activeViewId);
-    const visibleOrder = [];
     const visibleByFolder = new Map();
     const unfiledPacks = [];
 
@@ -1574,48 +1661,90 @@ function createLoredeckLibraryHierarchyList(visiblePacks = [], stack = [], canon
 
     for (const pack of visiblePacks || []) addPackToFolderMap(visibleByFolder, pack, unfiledPacks);
 
-    const appendDeck = (pack, depth = 0) => {
-        const index = visibleOrder.length;
-        visibleOrder.push(pack);
-        const card = createLoredeckLibraryDeckCard(pack, stack, canonDb, health, visibleOrder, index);
-        card.classList.add('saga-loredeck-library-deck-card-nested');
-        card.style.setProperty('--saga-folder-depth', String(Math.max(0, Number(depth) || 0)));
-        list.appendChild(card);
+    return {
+        visiblePacks,
+        stack,
+        canonDb,
+        health,
+        libraryIndex,
+        library,
+        scopedLibrary,
+        registry,
+        query,
+        activeViewId,
+        renderModel,
+        searchModel,
+        visibleByFolder,
+        unfiledPacks,
+        showEmptyFolders: !query && activeViewId === 'all',
     };
+}
 
-    const showEmptyFolders = !query && activeViewId === 'all';
-    const appendFolder = (folder, depth = 0) => {
-        const visibleDirect = sortLoredeckLibraryFolderPacks(visibleByFolder.get(folder.id) || [], { registry });
-        const searchState = getLoredeckLibraryFolderSearchState(folder.id, searchModel);
-        const shouldRender = showEmptyFolders || searchModel.visibleFolderIds.has(folder.id);
-        if (!shouldRender) return;
+function createLoredeckLibraryHierarchyDeckCard(pack, depth = 0, renderContext = {}, visibleOrder = []) {
+    const index = visibleOrder.length;
+    visibleOrder.push(pack);
+    const card = createLoredeckLibraryDeckCard(pack, renderContext.stack, renderContext.canonDb, renderContext.health, visibleOrder, index);
+    const normalizedDepth = Math.max(0, Number(depth) || 0);
+    card.classList.add('saga-loredeck-library-deck-card-nested');
+    card.style.setProperty('--saga-folder-depth', String(normalizedDepth));
+    card.dataset.folderDepth = String(normalizedDepth);
+    return card;
+}
 
-        const folderAllPacks = renderModel.getFolderPacks(folder.id);
-        const stats = renderModel.getStats(folder.id);
-        const collapsed = getLoredeckLibraryFolderCollapsedStateFromRenderModel(folder, renderModel, { query });
-        list.appendChild(createLoredeckLibraryInlineFolderRow(folder, {
-            depth,
-            collapsed,
-            stats,
-            searchState,
-            libraryIndex,
-            coverPacks: renderModel.getCoverPacks(folder.id),
-            totalCoverableCount: folderAllPacks.filter(pack => getLoredeckAssetRef(pack, 'cover')).length,
-        }));
+function appendLoredeckLibraryFolderBranch(target, folder = {}, depth = 0, renderContext = {}, visibleOrder = []) {
+    const folderId = String(folder?.id || '').trim();
+    if (!folderId) return;
+    const visibleDirect = sortLoredeckLibraryFolderPacks(renderContext.visibleByFolder?.get(folderId) || [], { registry: renderContext.registry });
+    const searchState = getLoredeckLibraryFolderSearchState(folderId, renderContext.searchModel);
+    const shouldRender = renderContext.showEmptyFolders || renderContext.searchModel?.visibleFolderIds?.has(folderId);
+    if (!shouldRender) return;
 
-        if (collapsed) return;
-        for (const child of folder.children || []) appendFolder(child, depth + 1);
-        for (const pack of visibleDirect) appendDeck(pack, depth + 1);
-    };
+    const normalizedDepth = Math.max(0, Number(depth) || 0);
+    const folderAllPacks = renderContext.renderModel?.getFolderPacks?.(folderId) || [];
+    const stats = renderContext.renderModel?.getStats?.(folderId) || {};
+    const collapsed = getLoredeckLibraryFolderCollapsedStateFromRenderModel(folder, renderContext.renderModel, { query: renderContext.query });
+    const row = createLoredeckLibraryInlineFolderRow(folder, {
+        depth: normalizedDepth,
+        collapsed,
+        stats,
+        searchState,
+        libraryIndex: renderContext.libraryIndex,
+        coverPacks: renderContext.renderModel?.getCoverPacks?.(folderId) || [],
+        totalCoverableCount: folderAllPacks.filter(pack => getLoredeckAssetRef(pack, 'cover')).length,
+    });
+    target.appendChild(row);
+
+    if (collapsed) return;
+    appendLoredeckLibraryFolderContents(target, folder, normalizedDepth + 1, renderContext, visibleOrder, visibleDirect);
+}
+
+function appendLoredeckLibraryFolderContents(target, folder = {}, depth = 0, renderContext = {}, visibleOrder = [], visibleDirectOverride = null) {
+    const folderId = String(folder?.id || '').trim();
+    if (!folderId) return;
+    for (const child of folder.children || []) appendLoredeckLibraryFolderBranch(target, child, depth, renderContext, visibleOrder);
+    const visibleDirect = Array.isArray(visibleDirectOverride)
+        ? visibleDirectOverride
+        : sortLoredeckLibraryFolderPacks(renderContext.visibleByFolder?.get(folderId) || [], { registry: renderContext.registry });
+    for (const pack of visibleDirect) target.appendChild(createLoredeckLibraryHierarchyDeckCard(pack, depth, renderContext, visibleOrder));
+}
+
+function createLoredeckLibraryHierarchyList(visiblePacks = [], stack = [], canonDb = null, health = null, libraryIndex = {}, library = [], scopedLibrary = library, registry = getLoredeckLibraryRegistry(getState())) {
+    const list = document.createElement('div');
+    list.className = 'saga-loredeck-library-deck-list saga-loredeck-library-hierarchy-list';
+    markTourTarget(list, 'loredecks.library.list');
+    const renderContext = createLoredeckLibraryHierarchyRenderContext(visiblePacks, stack, canonDb, health, libraryIndex, library, scopedLibrary, registry);
+    loredeckLibraryHierarchyRenderCache = renderContext;
+    list.__sagaLoredeckLibraryRenderContext = renderContext;
+    const visibleOrder = [];
 
     const folders = sortLoredeckLibraryFolderTreeByTitle(buildFolderTree(libraryIndex));
-    for (const folder of folders) appendFolder(folder, 0);
+    for (const folder of folders) appendLoredeckLibraryFolderBranch(list, folder, 0, renderContext, visibleOrder);
 
     const unfiledVisible = sortLoredeckLibraryPacks(
-        unfiledPacks.length ? unfiledPacks : (showEmptyFolders ? renderModel.unfiledPacks : []),
-        { sortMode: 'name', registry }
+        renderContext.unfiledPacks.length ? renderContext.unfiledPacks : (renderContext.showEmptyFolders ? renderContext.renderModel.unfiledPacks : []),
+        { sortMode: 'name', registry: renderContext.registry }
     );
-    for (const pack of unfiledVisible) appendDeck(pack, 0);
+    for (const pack of unfiledVisible) list.appendChild(createLoredeckLibraryHierarchyDeckCard(pack, 0, renderContext, visibleOrder));
 
     if (!list.children.length) {
         list.appendChild(createEmptyMessage('No Loredecks match the current Library view or search.'));
@@ -1801,6 +1930,7 @@ function createLoredeckLibraryInlineFolderRow(folder = {}, options = {}) {
     row.dataset.folderParentId = String(folder.parentId || '').trim();
     row.dataset.folderDropTarget = 'true';
     row.dataset.folderSpecial = options.special ? 'true' : 'false';
+    row.dataset.folderDepth = String(depth);
     row.tabIndex = 0;
     row.setAttribute('role', 'button');
     row.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
@@ -1812,6 +1942,7 @@ function createLoredeckLibraryInlineFolderRow(folder = {}, options = {}) {
         clearLoredeckLibrarySelection({ clearFolderDetails: false });
         scheduleLoredeckLibrarySelectionSurfaceRefresh();
     };
+    const getCurrentCollapsed = () => row.getAttribute('aria-expanded') !== 'true';
     row.addEventListener('click', e => {
         e.stopPropagation();
         selectFolder();
@@ -1820,12 +1951,12 @@ function createLoredeckLibraryInlineFolderRow(folder = {}, options = {}) {
         if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
             selectFolder();
-        } else if (e.key === 'ArrowRight' && collapsed) {
+        } else if (e.key === 'ArrowRight' && getCurrentCollapsed()) {
             e.preventDefault();
-            toggleLoredeckLibraryFolderCollapsed(folderId, collapsed);
-        } else if (e.key === 'ArrowLeft' && !collapsed) {
+            toggleLoredeckLibraryFolderCollapsed(folderId, null);
+        } else if (e.key === 'ArrowLeft' && !getCurrentCollapsed()) {
             e.preventDefault();
-            toggleLoredeckLibraryFolderCollapsed(folderId, collapsed);
+            toggleLoredeckLibraryFolderCollapsed(folderId, null);
         }
     });
 
@@ -1853,7 +1984,7 @@ function createLoredeckLibraryInlineFolderRow(folder = {}, options = {}) {
     disclosure.addEventListener('click', e => {
         e.preventDefault();
         e.stopPropagation();
-        toggleLoredeckLibraryFolderCollapsed(folderId, collapsed);
+        toggleLoredeckLibraryFolderCollapsed(folderId, null);
     });
     row.appendChild(disclosure);
 
@@ -1906,7 +2037,7 @@ function toggleLoredeckLibraryFolderCollapsed(folderId = '', currentCollapsed = 
     loredeckLibraryCollapsedFolderIds = collapsedIds;
     loredeckLibraryExpandedFolderIds = expandedIds;
     updateLoredeckLibraryFolderDisclosureDom(id, !collapsed);
-    scheduleLoredeckLibraryHierarchyRefresh();
+    if (!refreshLoredeckLibraryFolderSubtree(id, collapsed)) scheduleLoredeckLibraryHierarchyRefresh();
 }
 
 function createLoredeckLibraryFolderCoverStrip(coverPacks = [], totalCoverableCount = 0) {
@@ -2319,6 +2450,20 @@ function createLoredeckActiveStackPane(stack = [], library = [], canonDb = null,
     return pane;
 }
 
+function getLoredeckLibraryVisiblePacksFromHierarchyDom(anchor = null, fallbackPacks = []) {
+    const list = anchor?.closest?.('.saga-loredeck-library-hierarchy-list')
+        || document.querySelector('.saga-loredeck-library-hierarchy-list');
+    if (!list) return fallbackPacks || [];
+    const fallbackById = new Map((fallbackPacks || []).map(pack => [String(pack?.packId || '').trim(), pack]).filter(([id]) => !!id));
+    const packMap = getLoredeckLibraryPackMap(getLoredeckLibrary(getState()));
+    return [...list.querySelectorAll('.saga-loredeck-library-deck-card[data-pack-id]')]
+        .map(card => {
+            const id = String(card.dataset.packId || '').trim();
+            return packMap[id] || fallbackById.get(id) || (id ? { packId: id, title: id } : null);
+        })
+        .filter(Boolean);
+}
+
 function createLoredeckLibraryDeckCard(pack, stack = [], canonDb = null, health = null, visiblePacks = [], visibleIndex = 0) {
     const selectedId = String(getState()?.lorePanel?.selectedLoredeckId || '').trim();
     const bulkSelected = loredeckLibraryBulkSelectedIds.has(pack.packId);
@@ -2344,14 +2489,14 @@ function createLoredeckLibraryDeckCard(pack, stack = [], canonDb = null, health 
     card.addEventListener('mousedown', suppressLoredeckLibraryRangeTextSelection);
     card.addEventListener('click', e => {
         e.stopPropagation();
-        handleLoredeckLibraryDeckSelection(pack.packId, e, visiblePacks);
+        handleLoredeckLibraryDeckSelection(pack.packId, e, getLoredeckLibraryVisiblePacksFromHierarchyDom(card, visiblePacks));
         refreshLoredeckLibrarySelectionSurfaces();
     });
     card.addEventListener('keydown', e => {
         if (e.target?.closest?.('button, input, select, textarea')) return;
         if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
-            handleLoredeckLibraryDeckSelection(pack.packId, e, visiblePacks);
+            handleLoredeckLibraryDeckSelection(pack.packId, e, getLoredeckLibraryVisiblePacksFromHierarchyDom(card, visiblePacks));
             refreshLoredeckLibrarySelectionSurfaces();
         }
     });
@@ -2370,7 +2515,7 @@ function createLoredeckLibraryDeckCard(pack, stack = [], canonDb = null, health 
         e.stopPropagation();
     });
     grip.addEventListener('pointerdown', e => {
-        startLoredeckLibraryDeckDrag(e, pack.packId, visiblePacks);
+        startLoredeckLibraryDeckDrag(e, pack.packId, getLoredeckLibraryVisiblePacksFromHierarchyDom(card, visiblePacks));
     });
     card.appendChild(grip);
 

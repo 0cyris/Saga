@@ -1862,7 +1862,14 @@ assert(style.includes('display: inline-grid !important;') && style.includes('gri
 assert(style.includes('var(--saga-chip-neutral-bg') && style.includes('var(--saga-chip-source-fg') && style.includes('var(--saga-chip-review-bg'), 'Loredeck Library metadata/status pills must use semantic theme chip tokens.');
 assert(style.includes('--saga-chip-tag-bg: rgba(22, 23, 28, 0.9)') && style.includes('--saga-chip-category-fg: #c9cdd6') && style.includes('--saga-chip-relevance-high-fg: #dcfce7') && style.includes('--saga-chip-relevance-normal-fg: #dbeafe') && style.includes('--saga-chip-relevance-low-fg: #e2e8f0'), 'Static chip fallbacks must split quiet metadata chips from color-coded relevance feedback.');
 assert(style.includes('calc(var(--saga-grip-dot-rows, 6) * 7px)'), 'Loredeck Library drag handles must size dot grids without clipping short 2x2 or 2x3 handles.');
-assert(/\.saga-loredeck-library-folder-grip\s*\{[\s\S]*?transform:\s*translateY\(-2px\);/.test(style), 'Loredeck Library folder drag handles must keep their optical centering nudge.');
+assert(/\.saga-loredeck-library-folder-grip\s*\{[\s\S]*?transform:\s*translateY\(-1px\);/.test(style), 'Loredeck Library folder drag handles must keep their optical centering nudge.');
 assert(libraryPanel.includes('suppressLoredeckLibraryRangeTextSelection') && libraryPanel.includes("card.addEventListener('mousedown', suppressLoredeckLibraryRangeTextSelection);"), 'Loredeck Library card range selection must suppress native Shift-click text selection before click handling.');
+assert(
+    libraryPanel.includes('refreshLoredeckLibraryFolderSubtree')
+    && libraryPanel.includes('loredeckLibraryHierarchyRenderCache')
+    && libraryPanel.includes('row.dataset.folderDepth')
+    && libraryPanel.includes('if (!refreshLoredeckLibraryFolderSubtree(id, collapsed)) scheduleLoredeckLibraryHierarchyRefresh();'),
+    'Loredeck Library folder disclosure must use the cached local subtree refresh path before falling back to a full hierarchy rebuild.'
+);
 
 console.log('Visual smoke harness contract passed.');

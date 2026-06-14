@@ -3497,7 +3497,7 @@
 
 .saga-loredeck-library-folder-grip {
     height: 48px;
-    transform: translateY(-2px);
+    transform: translateY(-1px);
 }
 
 .saga-loredeck-library-stack-grip:active,
