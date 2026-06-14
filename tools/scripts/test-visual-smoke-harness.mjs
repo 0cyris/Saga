@@ -1039,6 +1039,8 @@ assert(harness.includes('state.contextBrief = {'), 'Harness must seed a rich Con
 assert(harness.includes('state.loreContext = {'), 'Harness must seed the legacy global Context projection for compatibility smoke.');
 assert(!settingsTemplate.includes('Provider Settings'), 'Extension menu settings must not expose the old Provider Settings dropdown.');
 assert(!settingsTemplate.includes('API and model controls'), 'Extension menu settings must not expose legacy API/model controls.');
+assert(!settingsTemplate.includes('Runtime Window'), 'Extension menu settings must not nest runtime actions inside a Runtime Window dropdown.');
+assert(settingsTemplate.includes('Open SAGA Window') && settingsTemplate.includes('Reset Window'), 'Extension menu settings must keep the runtime open and reset actions directly in the SAGA dropdown.');
 assert(runtimePanelSource.includes('writeRuntimeThemeVars(document.documentElement'), 'Runtime themes must publish CSS tokens globally for fullscreen windows.');
 assert(runtimePanelSource.includes("'--saga-red-surface'"), 'Runtime themes must expose derived danger surface tokens.');
 assert(runtimeTheme.includes("target.style.setProperty('--saga-danger', colors.danger)") && runtimeTheme.includes("target.style.setProperty('--saga-danger-surface', hexToRgba(colors.danger, 0.24))"), 'Runtime themes must expose explicit danger aliases from the active Theme Pack danger color.');
