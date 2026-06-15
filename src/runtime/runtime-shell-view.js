@@ -20,10 +20,12 @@ import {
     createStatusPill,
 } from '../ui/runtime-ui-kit.js';
 import {
+    MOBILE_LORECARDS_STAGES,
     canGoBackRuntimeMobileShell,
     getRuntimeMobileActiveSubview,
     getRuntimeMobileActiveTab,
     getRuntimeMobileHeaderTitle,
+    getRuntimeMobileLorecardsStage,
     getConstrainedDrawerHeight,
     getConstrainedDrawerWidth,
     getRailWidth,
@@ -36,6 +38,7 @@ import {
     onRuntimeRailDragStart,
     openRuntimeMobileMoreSheet,
     resolveDrawerDirection,
+    selectRuntimeMobileLorecardsStage,
     selectRuntimeMobileMoreRoute,
     selectRuntimeMobileRoute,
     updateDrawerScrollMetrics,
@@ -59,6 +62,21 @@ import {
 } from './runtime-navigation.js';
 
 let deps = {};
+
+const MOBILE_LORECARDS_SUBTAB_META = Object.freeze({
+    suggested: Object.freeze({
+        label: 'Generation',
+        tooltip: 'Create or suggest Lorecards.',
+    }),
+    pending: Object.freeze({
+        label: 'Pending',
+        tooltip: 'Review proposed Lorecards.',
+    }),
+    accepted: Object.freeze({
+        label: 'Approved',
+        tooltip: 'Manage approved Lorecards and active state.',
+    }),
+});
 
 function dep(name, fallback = () => undefined) {
     return typeof deps[name] === 'function' ? deps[name] : fallback;
@@ -164,9 +182,13 @@ function renderMobilePanelShell(root, state, settings = getSettings(), options =
     root.innerHTML = '';
     root.className = 'saga-lore-panel saga-runtime-shell saga-runtime-mobile saga-mobile-touch';
     if (activeSubview) root.classList.add('saga-mobile-subview-active');
+    if (mobile.activeRoute === 'lore' && !options.error) root.classList.add('saga-mobile-lorecards-subtabs-active');
     root.dataset.mobileRoute = mobile.activeRoute;
     root.dataset.mobileActiveTab = activeTab || '';
     root.dataset.mobileMoreRoute = mobile.activeMoreRoute || '';
+    root.dataset.mobileLorecardsStage = mobile.activeRoute === 'lore'
+        ? getRuntimeMobileLorecardsStage(panelState, getMobileLorecardsFallbackStage(state), settings)
+        : '';
     root.removeEventListener('keydown', onRuntimeMobileShellKeydown);
     root.addEventListener('keydown', onRuntimeMobileShellKeydown);
     root.style.left = '';
@@ -199,6 +221,9 @@ function renderMobilePanelShell(root, state, settings = getSettings(), options =
         renderMobileMoreSheet(body, settings);
     }
 
+    if (mobile.activeRoute === 'lore' && !options.error) {
+        root.appendChild(renderMobileLorecardsSubTabs(state, settings));
+    }
     root.appendChild(renderMobileBottomBar(state, settings));
     refreshRuntimeHeader(root);
 }
@@ -398,6 +423,67 @@ function createMobileRouteIcon(route, settings = getSettings(), className = 'sag
         icon.textContent = icon.dataset.fallbackIcon || label.slice(0, 1);
     }
     return icon;
+}
+
+function getMobileLorecardsSubTabCounts(state) {
+    const pendingCount = Array.isArray(state?.pendingLoreEntries) ? state.pendingLoreEntries.length : 0;
+    const loreState = getPanelLoreState(state);
+    const acceptedCount = (loreState.entries || []).filter(entry => !entry?.isPending).length;
+    return {
+        suggested: 0,
+        pending: pendingCount,
+        accepted: acceptedCount,
+    };
+}
+
+function getMobileLorecardsFallbackStage(state) {
+    const counts = getMobileLorecardsSubTabCounts(state);
+    return counts.pending > 0 ? 'pending' : 'accepted';
+}
+
+function renderMobileLorecardsSubTabs(state, settings = getSettings()) {
+    const panelState = state?.lorePanel || getDefaultState().lorePanel;
+    const counts = getMobileLorecardsSubTabCounts(state);
+    const activeStage = getRuntimeMobileLorecardsStage(panelState, getMobileLorecardsFallbackStage(state), settings);
+    const nav = document.createElement('nav');
+    nav.className = 'saga-mobile-lorecards-subtabs';
+    nav.setAttribute('role', 'tablist');
+    nav.setAttribute('aria-label', 'Lorecards workspace');
+
+    for (const stage of MOBILE_LORECARDS_STAGES) {
+        const meta = MOBILE_LORECARDS_SUBTAB_META[stage] || MOBILE_LORECARDS_SUBTAB_META.pending;
+        const tab = document.createElement('button');
+        tab.type = 'button';
+        tab.className = 'saga-mobile-lorecards-subtab';
+        tab.dataset.stage = stage;
+        tab.setAttribute('role', 'tab');
+        tab.setAttribute('aria-selected', stage === activeStage ? 'true' : 'false');
+        tab.tabIndex = stage === activeStage ? 0 : -1;
+        if (stage === activeStage) tab.classList.add('saga-mobile-lorecards-subtab-active');
+        addTooltip(tab, meta.tooltip);
+
+        const label = document.createElement('span');
+        label.className = 'saga-mobile-lorecards-subtab-label';
+        label.textContent = meta.label;
+        tab.appendChild(label);
+
+        const count = Number(counts[stage] || 0);
+        if (count > 0) {
+            const badge = document.createElement('span');
+            badge.className = 'saga-mobile-lorecards-subtab-count';
+            badge.textContent = String(count);
+            tab.appendChild(badge);
+        }
+
+        tab.addEventListener('click', (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            selectRuntimeMobileLorecardsStage(stage);
+        });
+        nav.appendChild(tab);
+    }
+
+    return nav;
 }
 
 function renderMobileMoreSheet(container, settings = getSettings()) {

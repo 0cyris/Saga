@@ -236,6 +236,7 @@ function createSessionOperatorSummary(state, settings, options = {}) {
     const injectionStats = getInjectionCharacterStats(state, settings);
     const enabled = settings.enabled !== false;
     const currentMode = normalizeAutomationMode(settings.automationMode || settings.workflowMode);
+    const mobileRoot = isRuntimeMobileShell() && !mobileSubview;
 
     const card = document.createElement('div');
     card.className = 'saga-runtime-card saga-operator-summary-card saga-session-operator-summary';
@@ -265,6 +266,24 @@ function createSessionOperatorSummary(state, settings, options = {}) {
     if (pendingLore) chips.appendChild(createStatusPill(`${pendingLore} pending`, 'Pending Review entries waiting for review.', { tone: 'review', kind: 'count' }));
     chips.appendChild(createStatusPill(`${selectedLore} selected`, 'Accepted Lorecards selected for the next injection.', { tone: selectedLore ? 'selected' : 'muted', kind: 'count' }));
     header.appendChild(chips);
+    if (mobileRoot) {
+        header.classList.add('saga-operator-summary-header-tappable');
+        header.tabIndex = 0;
+        header.setAttribute('role', 'button');
+        addTooltip(header, 'Tap to open runtime toggles, walkthrough notes, and Session metrics.');
+        header.setAttribute('aria-label', 'Open Session Details');
+        const openDetails = event => {
+            if (event?.target?.closest?.('button, input, select, textarea, label, a')) return;
+            openSessionMobileDetails();
+        };
+        header.addEventListener('click', openDetails);
+        header.addEventListener('keydown', event => {
+            if (event.key !== 'Enter' && event.key !== ' ') return;
+            event.preventDefault();
+            openDetails(event);
+        });
+        markTourTarget(header, 'session.operator.details');
+    }
     card.appendChild(header);
 
     const stats = document.createElement('div');
@@ -285,13 +304,10 @@ function createSessionOperatorSummary(state, settings, options = {}) {
             refreshHeader();
         }, 'saga-primary-button'));
     }
-    const nextAction = basic && isRuntimeMobileShell() && !mobileSubview
+    const nextAction = basic && mobileRoot
         ? createBasicSessionNextActionButton(readiness)
         : null;
     if (nextAction) actions.appendChild(nextAction);
-    if (isRuntimeMobileShell() && !mobileSubview) {
-        actions.appendChild(createButton('Session Details', 'Open runtime toggles, walkthrough notes, and Session metrics.', openSessionMobileDetails));
-    }
     actions.appendChild(createButton(
         basic ? 'Start Checklist' : 'Start Walkthrough',
         basic ? 'Open the Basic workflow guide from the Start Checklist.' : 'Open the Advanced runtime walkthrough.',

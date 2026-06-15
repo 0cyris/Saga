@@ -114,6 +114,7 @@
     --saga-mobile-icon-button-size: 44px;
     --saga-mobile-row-action-size: 40px;
     --saga-mobile-bottom-bar-height: 72px;
+    --saga-mobile-lorecards-subtab-height: 46px;
     --saga-mobile-header-min-height: 58px;
     --saga-mobile-safe-area-top: env(safe-area-inset-top, 0px);
     --saga-mobile-safe-area-bottom: env(safe-area-inset-bottom, 0px);
@@ -280,6 +281,27 @@
     width: 100%;
     min-height: 34px;
     box-sizing: border-box;
+}
+
+.saga-confirm-shell .saga-confirm-input.text_pole {
+    background: var(--saga-input, rgba(18, 18, 24, 0.76));
+    border: 1px solid var(--saga-input-border, rgba(185, 139, 54, 0.34));
+    color: var(--saga-text, #f1ead8);
+    caret-color: var(--saga-text, #f1ead8);
+    font-family: var(--SmartThemeFont, 'Segoe UI', sans-serif);
+    font-size: 0.88em;
+    line-height: 1.25;
+    padding: 6px 8px;
+    user-select: text;
+}
+
+.saga-confirm-shell .saga-confirm-input.text_pole::placeholder {
+    color: var(--saga-muted, rgba(241, 234, 216, 0.68));
+}
+
+.saga-confirm-shell .saga-confirm-input.text_pole:focus-visible {
+    outline: 2px solid var(--saga-focus, #ffeaa7);
+    outline-offset: 2px;
 }
 
 .saga-confirm-choice-list {

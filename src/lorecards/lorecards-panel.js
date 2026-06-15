@@ -35,9 +35,9 @@ import {
     truncateCleanText as truncateText,
 } from '../runtime/runtime-formatters.js';
 import {
-    getRuntimeMobileActiveSubview,
+    getRuntimeMobileLorecardsStage,
     isRuntimeMobileShell,
-    pushRuntimeMobileSubview,
+    selectRuntimeMobileLorecardsStage,
 } from '../runtime/runtime-shell.js';
 import {
     createLoreTimelineCard,
@@ -849,7 +849,6 @@ export function createPendingLoreBulkControls(pendingLore, state) {
     const pendingRows = pendingLore.map((entry, index) => ({ entry, index, id: getLoreReviewId(entry) })).filter(row => row.id);
     const pendingIds = pendingRows.map(row => row.id);
     const selectedCount = pendingIds.filter(id => selectedIds.has(id)).length;
-    const selectedRows = pendingRows.filter(row => selectedIds.has(row.id));
     const mobileShell = isRuntimeMobileShell();
 
     const card = document.createElement('div');
@@ -865,15 +864,6 @@ export function createPendingLoreBulkControls(pendingLore, state) {
 
         const actions = document.createElement('div');
         actions.className = 'saga-primary-actions';
-        if (selectedRows.length === 1) {
-            const selectedRow = selectedRows[0];
-            const editId = selectedRow.entry?.id || selectedRow.id;
-            actions.appendChild(createButton('Edit', 'Open details and edit controls for the selected Pending Review entry.', () => {
-                setPanelState({ selectedEntryId: editId }, { deferSave: true });
-                refreshPanelBody({ preserveScroll: true });
-                refreshLoreWorkbench();
-            }, 'saga-small-button'));
-        }
         actions.appendChild(createButton(selectedCount > 1 ? 'Accept Selected' : 'Accept', 'Accepts selected Pending Review entries into Accepted Lorecards.', () => {
             applySelectedPendingLore(pendingIds);
         }, 'saga-primary-button'));
@@ -3529,18 +3519,6 @@ export function createEntryCard(entry, state, options = {}) {
 
     if (!mobileShell || isExpanded) {
         headerRow.appendChild(actions);
-    } else {
-        const detailsBtn = createIconButton(
-            'i',
-            'Open details and edit controls for this Accepted Lorecard.',
-            'saga-lore-entry-btn saga-lore-entry-details-btn',
-            (e) => {
-                e.stopPropagation();
-                inspectAcceptedLoreEntry(entry.id);
-            }
-        );
-        detailsBtn.setAttribute('aria-label', `Open details for ${entry.title || 'Accepted Lorecard'}`);
-        headerRow.appendChild(detailsBtn);
     }
     card.appendChild(headerRow);
 
@@ -3882,39 +3860,17 @@ function getLorecardLifecycleStage(state = getState(), stats = getLorecardLifecy
         || getRecommendedLorecardLifecycleStage(state, stats);
 }
 
-function getLorecardsMobileSubview(state = getState()) {
-    if (!isRuntimeMobileShell()) return null;
-    return getRuntimeMobileActiveSubview(state?.lorePanel, 'lore', getSettings());
-}
-
-function getLorecardLifecycleSubview(stage) {
-    const normalized = (isRuntimeMobileShell() ? normalizeMobileLorecardLifecycleStage(stage) : normalizeLorecardLifecycleStage(stage)) || 'suggested';
-    const meta = LORECARD_LIFECYCLE_STAGE_META[normalized] || LORECARD_LIFECYCLE_STAGE_META.suggested;
-    return {
-        id: `lore-${normalized}`,
-        title: meta.label,
-        params: { stage: normalized },
-    };
-}
-
-function pushLorecardLifecycleSubview(stage) {
-    const normalized = (isRuntimeMobileShell() ? normalizeMobileLorecardLifecycleStage(stage) : normalizeLorecardLifecycleStage(stage)) || 'suggested';
-    const activeSubview = getLorecardsMobileSubview(getState());
-    if (activeSubview?.params?.stage === normalized) return false;
-    pushRuntimeMobileSubview('lore', getLorecardLifecycleSubview(normalized));
-    return true;
-}
-
 function openLorecardLifecycleStage(stage) {
     const normalized = (isRuntimeMobileShell() ? normalizeMobileLorecardLifecycleStage(stage) : normalizeLorecardLifecycleStage(stage)) || 'suggested';
+    if (isRuntimeMobileShell()) {
+        selectRuntimeMobileLorecardsStage(normalized);
+        return;
+    }
     setPanelState({
         mobileLifecycleStage: normalized,
         pendingReviewVisibleLimit: 10,
         acceptedLoreVisibleLimit: getAcceptedLoreInitialVisibleLimit(),
     }, { deferSave: true });
-    if (isRuntimeMobileShell() && pushLorecardLifecycleSubview(normalized)) {
-        return;
-    }
     refreshPanelBody({ preserveScroll: false });
 }
 
@@ -3968,43 +3924,37 @@ function createLorecardPipelineStatusFilter(stage, stats = {}, activeStage = '')
 function createLorecardPipelineSurface(state = getState(), options = {}) {
     const stats = options.stats || getLorecardLifecycleStats(state);
     const activeStage = options.activeStage || getLorecardLifecycleStage(state, stats);
-    const compact = options.compact === true;
-    const stages = isRuntimeMobileShell() ? MOBILE_LORECARD_LIFECYCLE_STAGES : LORECARD_LIFECYCLE_STAGES;
+    const stages = LORECARD_LIFECYCLE_STAGES;
     const card = document.createElement('div');
     card.className = 'saga-runtime-card saga-lorecard-pipeline-card saga-lorecard-pipeline';
-    if (compact) card.classList.add('saga-lorecard-pipeline-compact');
     markTourTarget(card, 'lore.pipeline');
 
-    if (!compact) {
-        const header = document.createElement('div');
-        header.className = 'saga-lorecard-pipeline-header';
-        const titleWrap = document.createElement('div');
-        titleWrap.className = 'saga-operator-summary-title-wrap';
-        const title = document.createElement('div');
-        title.className = 'saga-runtime-card-title saga-operator-summary-title';
-        title.textContent = 'Lorecard Pipeline';
-        addTooltip(title, 'Mobile lifecycle surface for moving Lorecards from capture through review into Accepted Lorecards and the Active Set.');
-        titleWrap.appendChild(title);
-        const subtitle = document.createElement('div');
-        subtitle.className = 'saga-runtime-help saga-operator-summary-subtitle';
-        subtitle.textContent = isRuntimeMobileShell()
-            ? 'Generation -> Pending -> Approved'
-            : 'Generation -> Pending -> Approved -> Active Set';
-        titleWrap.appendChild(subtitle);
-        header.appendChild(titleWrap);
+    const header = document.createElement('div');
+    header.className = 'saga-lorecard-pipeline-header';
+    const titleWrap = document.createElement('div');
+    titleWrap.className = 'saga-operator-summary-title-wrap';
+    const title = document.createElement('div');
+    title.className = 'saga-runtime-card-title saga-operator-summary-title';
+    title.textContent = 'Lorecard Pipeline';
+    addTooltip(title, 'Desktop lifecycle surface for moving Lorecards from capture through review into Accepted Lorecards and the Active Set.');
+    titleWrap.appendChild(title);
+    const subtitle = document.createElement('div');
+    subtitle.className = 'saga-runtime-help saga-operator-summary-subtitle';
+    subtitle.textContent = 'Generation -> Pending -> Approved -> Active Set';
+    titleWrap.appendChild(subtitle);
+    header.appendChild(titleWrap);
 
-        const status = document.createElement('div');
-        status.className = 'saga-loredeck-row-meta saga-lorecard-pipeline-status';
-        for (const stage of stages) {
-            status.appendChild(createLorecardPipelineStatusFilter(stage, stats, activeStage));
-        }
-        header.appendChild(status);
-        card.appendChild(header);
+    const status = document.createElement('div');
+    status.className = 'saga-loredeck-row-meta saga-lorecard-pipeline-status';
+    for (const stage of stages) {
+        status.appendChild(createLorecardPipelineStatusFilter(stage, stats, activeStage));
     }
+    header.appendChild(status);
+    card.appendChild(header);
 
     const rail = document.createElement('div');
     rail.className = 'saga-lorecard-pipeline-rail';
-    rail.setAttribute('aria-label', compact ? 'Lorecard lifecycle stage navigation' : 'Lorecard lifecycle pipeline');
+    rail.setAttribute('aria-label', 'Lorecard lifecycle pipeline');
     for (const stage of stages) {
         const meta = LORECARD_LIFECYCLE_STAGE_META[stage];
         const count = getLorecardLifecycleStageCount(stats, stage);
@@ -4014,7 +3964,7 @@ function createLorecardPipelineSurface(state = getState(), options = {}) {
         if (stage === activeStage) btn.classList.add('saga-lorecard-pipeline-stage-active');
         const label = document.createElement('span');
         label.className = 'saga-lorecard-pipeline-stage-label';
-        label.textContent = compact ? (meta.shortLabel || meta.label) : meta.label;
+        label.textContent = meta.label;
         const countEl = document.createElement('span');
         countEl.className = 'saga-lorecard-pipeline-stage-count';
         countEl.textContent = String(count);
@@ -4022,7 +3972,6 @@ function createLorecardPipelineSurface(state = getState(), options = {}) {
         rail.appendChild(btn);
     }
     card.appendChild(rail);
-    if (compact) return card;
 
     const nextStage = getLorecardPipelineNextActionStage(stats);
     const nextMeta = LORECARD_LIFECYCLE_STAGE_META[nextStage] || LORECARD_LIFECYCLE_STAGE_META.suggested;
@@ -4139,11 +4088,13 @@ function createLorecardActiveSetSection(state = getState(), stats = getLorecardL
         section.appendChild(available);
     }
 
-    const actions = document.createElement('div');
-    actions.className = 'saga-primary-actions saga-lore-active-set-actions';
-    actions.appendChild(createButton('Accepted Lorecards', 'Show the Accepted Lorecards list for activation, mute, pin, and inspection controls.', () => openLorecardLifecycleStage('accepted'), hasAcceptedEntries ? 'saga-primary-button' : ''));
-    actions.appendChild(createButton('Capture / Suggest', 'Open Capture / Suggest to create more reviewable Lorecards.', () => openLorecardLifecycleStage('suggested'), hasAcceptedEntries ? '' : 'saga-primary-button'));
-    section.appendChild(actions);
+    if (!isRuntimeMobileShell()) {
+        const actions = document.createElement('div');
+        actions.className = 'saga-primary-actions saga-lore-active-set-actions';
+        actions.appendChild(createButton('Accepted Lorecards', 'Show the Accepted Lorecards list for activation, mute, pin, and inspection controls.', () => openLorecardLifecycleStage('accepted'), hasAcceptedEntries ? 'saga-primary-button' : ''));
+        actions.appendChild(createButton('Capture / Suggest', 'Open Capture / Suggest to create more reviewable Lorecards.', () => openLorecardLifecycleStage('suggested'), hasAcceptedEntries ? '' : 'saga-primary-button'));
+        section.appendChild(actions);
+    }
     return section;
 }
 
@@ -4225,18 +4176,20 @@ function createLorecardActiveSetItem(entry = {}) {
     appendActiveSetStateChips(main, entry, 'active');
     item.appendChild(main);
 
-    const actions = document.createElement('div');
-    actions.className = 'saga-primary-actions saga-lore-active-set-item-actions';
-    actions.appendChild(createButton('Inspect', 'Inspect this active Lorecard in Accepted Lorecards.', () => inspectAcceptedLoreEntry(entry.id), 'saga-small-button'));
-    actions.appendChild(createButton(entry.isPinned ? 'Unpin' : 'Pin', entry.isPinned ? 'Stop keeping this active Lorecard especially prominent.' : 'Pin this active Lorecard so it stays prominent.', () => {
-        togglePinEntry(entry.id, { deferSave: true });
-        refreshLorecardLifecycleSurface();
-    }, 'saga-small-button'));
-    actions.appendChild(createButton('Mute', 'Mute this active Lorecard so it stops affecting prompt output.', () => {
-        toggleSuppressEntry(entry.id, { deferSave: true });
-        refreshLorecardLifecycleSurface();
-    }, 'saga-small-button'));
-    item.appendChild(actions);
+    if (!isRuntimeMobileShell()) {
+        const actions = document.createElement('div');
+        actions.className = 'saga-primary-actions saga-lore-active-set-item-actions';
+        actions.appendChild(createButton('Inspect', 'Inspect this active Lorecard in Accepted Lorecards.', () => inspectAcceptedLoreEntry(entry.id), 'saga-small-button'));
+        actions.appendChild(createButton(entry.isPinned ? 'Unpin' : 'Pin', entry.isPinned ? 'Stop keeping this active Lorecard especially prominent.' : 'Pin this active Lorecard so it stays prominent.', () => {
+            togglePinEntry(entry.id, { deferSave: true });
+            refreshLorecardLifecycleSurface();
+        }, 'saga-small-button'));
+        actions.appendChild(createButton('Mute', 'Mute this active Lorecard so it stops affecting prompt output.', () => {
+            toggleSuppressEntry(entry.id, { deferSave: true });
+            refreshLorecardLifecycleSurface();
+        }, 'saga-small-button'));
+        item.appendChild(actions);
+    }
     return item;
 }
 
@@ -4257,21 +4210,23 @@ function createLorecardAvailableSetItem(entry = {}) {
     appendActiveSetStateChips(main, entry, 'available');
     item.appendChild(main);
 
-    const actions = document.createElement('div');
-    actions.className = 'saga-primary-actions saga-lore-active-set-item-actions';
-    actions.appendChild(createButton('Inspect', 'Inspect this Accepted Lorecard before activating it.', () => inspectAcceptedLoreEntry(entry.id), 'saga-small-button'));
-    actions.appendChild(createButton('Activate', 'Move this Accepted Lorecard into the Active Set by setting High relevance and clearing mute.', () => {
-        if (activateAcceptedLoreEntry(entry.id)) refreshLorecardLifecycleSurface();
-    }, 'saga-primary-button saga-small-button'));
-    actions.appendChild(createButton(entry.isPinned ? 'Unpin' : 'Pin', entry.isPinned ? 'Stop keeping this Lorecard especially prominent.' : 'Keep this Lorecard especially prominent when Saga chooses future-response lore.', () => {
-        togglePinEntry(entry.id, { deferSave: true });
-        refreshLorecardLifecycleSurface();
-    }, 'saga-small-button'));
-    actions.appendChild(createButton(entry.isSuppressed ? 'Unmute' : 'Mute', entry.isSuppressed ? 'Let this saved Lorecard affect future responses again.' : 'Keep this Lorecard saved but stop it from affecting future responses.', () => {
-        toggleSuppressEntry(entry.id, { deferSave: true });
-        refreshLorecardLifecycleSurface();
-    }, 'saga-small-button'));
-    item.appendChild(actions);
+    if (!isRuntimeMobileShell()) {
+        const actions = document.createElement('div');
+        actions.className = 'saga-primary-actions saga-lore-active-set-item-actions';
+        actions.appendChild(createButton('Inspect', 'Inspect this Accepted Lorecard before activating it.', () => inspectAcceptedLoreEntry(entry.id), 'saga-small-button'));
+        actions.appendChild(createButton('Activate', 'Move this Accepted Lorecard into the Active Set by setting High relevance and clearing mute.', () => {
+            if (activateAcceptedLoreEntry(entry.id)) refreshLorecardLifecycleSurface();
+        }, 'saga-primary-button saga-small-button'));
+        actions.appendChild(createButton(entry.isPinned ? 'Unpin' : 'Pin', entry.isPinned ? 'Stop keeping this Lorecard especially prominent.' : 'Keep this Lorecard especially prominent when Saga chooses future-response lore.', () => {
+            togglePinEntry(entry.id, { deferSave: true });
+            refreshLorecardLifecycleSurface();
+        }, 'saga-small-button'));
+        actions.appendChild(createButton(entry.isSuppressed ? 'Unmute' : 'Mute', entry.isSuppressed ? 'Let this saved Lorecard affect future responses again.' : 'Keep this Lorecard saved but stop it from affecting future responses.', () => {
+            toggleSuppressEntry(entry.id, { deferSave: true });
+            refreshLorecardLifecycleSurface();
+        }, 'saga-small-button'));
+        item.appendChild(actions);
+    }
     return item;
 }
 
@@ -4279,7 +4234,8 @@ function inspectAcceptedLoreEntry(entryId = '') {
     const id = String(entryId || '').trim();
     if (!id) return;
     setPanelState({ selectedEntryId: id, mobileLifecycleStage: 'accepted' }, { deferSave: true });
-    if (isRuntimeMobileShell() && pushLorecardLifecycleSubview('accepted')) {
+    if (isRuntimeMobileShell()) {
+        selectRuntimeMobileLorecardsStage('accepted');
         refreshLoreWorkbench();
         return;
     }
@@ -4361,24 +4317,22 @@ function refreshAcceptedLoreSurfaces(entryId = '') {
 export function renderLorecardsTab(container, state) {
     const basic = isBasicExperience();
     const lifecycleStats = getLorecardLifecycleStats(state);
-    const mobileSubview = getLorecardsMobileSubview(state);
-    const mobileRoot = isRuntimeMobileShell() && !mobileSubview;
+    const mobileShell = isRuntimeMobileShell();
     const recommendedLifecycleStage = getRecommendedLorecardLifecycleStage(state, lifecycleStats);
-    const lifecycleStage = (isRuntimeMobileShell()
-        ? normalizeMobileLorecardLifecycleStage(mobileSubview?.params?.stage)
-        : normalizeLorecardLifecycleStage(mobileSubview?.params?.stage))
-        || (mobileRoot ? recommendedLifecycleStage : getLorecardLifecycleStage(state, lifecycleStats));
-    const mobileStageSubview = isRuntimeMobileShell() && !!mobileSubview;
+    const lifecycleStage = mobileShell
+        ? getRuntimeMobileLorecardsStage(state?.lorePanel, recommendedLifecycleStage, getSettings())
+        : getLorecardLifecycleStage(state, lifecycleStats);
     container.classList.add('saga-operator-tab', 'saga-lorecards-lifecycle-tab', `saga-lore-stage-filter-${lifecycleStage}`);
     container.dataset.sagaLoreLifecycleStage = lifecycleStage;
     container.appendChild(createSectionHeader(
         'Lorecards',
         basic ? 'Suggest, review, and manage Lorecards with advanced controls hidden.' : 'Suggest canon Lorecards from the local database, generate story-specific Lorecards with the model, review Pending Review entries, and manage Accepted Lorecards.'
     ));
-    container.appendChild(createLorecardPipelineSurface(state, { basic, stats: lifecycleStats, activeStage: lifecycleStage, compact: mobileStageSubview }));
-    if (isRuntimeMobileShell() && !mobileSubview) return;
+    if (!mobileShell) {
+        container.appendChild(createLorecardPipelineSurface(state, { basic, stats: lifecycleStats, activeStage: lifecycleStage }));
+    }
 
-    if (!basic && !mobileStageSubview) {
+    if (!basic && !mobileShell) {
         const timelineSection = createCollapsibleSection(
             'lore.timeline',
             'Lore Timeline',
@@ -4391,7 +4345,7 @@ export function renderLorecardsTab(container, state) {
         container.appendChild(timelineSection);
     }
 
-    if (!mobileStageSubview || lifecycleStage === 'suggested') {
+    if (!mobileShell || lifecycleStage === 'suggested') {
         const generationSection = createCollapsibleSection(
             'lore.generation',
             'Capture / Suggest',
@@ -4404,7 +4358,7 @@ export function renderLorecardsTab(container, state) {
         container.appendChild(generationSection);
     }
 
-    if (!basic && !mobileStageSubview) {
+    if (!basic && !mobileShell) {
         const autoRelevanceSection = createCollapsibleSection(
             'lore.autoRelevance',
             'Auto-Relevance',
@@ -4419,7 +4373,7 @@ export function renderLorecardsTab(container, state) {
 
     const pendingCount = isRuntimeMobileShell() ? lifecycleStats.allPendingCount : lifecycleStats.pendingCount;
     const reviewStageCount = pendingCount;
-    if (!mobileStageSubview || lifecycleStage === 'pending') {
+    if (!mobileShell || lifecycleStage === 'pending') {
         const pendingSection = createCollapsibleSection(
             'lore.pendingReview',
             'Pending Review',
@@ -4432,7 +4386,7 @@ export function renderLorecardsTab(container, state) {
         container.appendChild(pendingSection);
     }
 
-    if (!mobileStageSubview || lifecycleStage === 'accepted' || lifecycleStage === 'active') {
+    if (!mobileShell || lifecycleStage === 'accepted' || lifecycleStage === 'active') {
         const activeSetSection = createCollapsibleSection(
             'lore.activeSet',
             'Active Set',
@@ -4447,7 +4401,7 @@ export function renderLorecardsTab(container, state) {
 
     const acceptedCount = lifecycleStats.acceptedCount;
     const injectableCount = getSelectedLoreInjectionCount(state, getSettings());
-    if (!mobileStageSubview || lifecycleStage === 'accepted' || lifecycleStage === 'active') {
+    if (!mobileShell || lifecycleStage === 'accepted' || lifecycleStage === 'active') {
         const acceptedSection = createCollapsibleSection(
             'lore.acceptedEntries',
             'Accepted Lorecards',

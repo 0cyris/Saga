@@ -218,8 +218,22 @@ export function createButton(label, tooltip, handler, className = '') {
 
 export function wireOverlayBackdropClose(overlay, closeHandler) {
     if (!overlay || typeof closeHandler !== 'function') return overlay;
+    let sawPointerDown = false;
+    let startedOnBackdrop = false;
+    overlay.addEventListener('pointerdown', event => {
+        sawPointerDown = true;
+        startedOnBackdrop = event.target === overlay;
+    });
     overlay.addEventListener('click', event => {
-        if (event.target === overlay) closeHandler();
+        if (event.target !== overlay) return;
+        if (sawPointerDown && !startedOnBackdrop) {
+            sawPointerDown = false;
+            startedOnBackdrop = false;
+            return;
+        }
+        sawPointerDown = false;
+        startedOnBackdrop = false;
+        closeHandler();
     });
     return overlay;
 }
@@ -603,9 +617,7 @@ function showSagaConfirmDialog(title, message, options = {}) {
             if (event.key === 'Enter' && (event.ctrlKey || event.metaKey)) finish(true);
         }
 
-        overlay.addEventListener('click', (event) => {
-            if (event.target === overlay) finish(false);
-        });
+        wireOverlayBackdropClose(overlay, () => finish(false));
         document.addEventListener('keydown', onKeyDown);
         overlay.appendChild(shell);
         document.body.appendChild(overlay);
@@ -688,9 +700,7 @@ function showSagaInputDialog(title, message, initialValue = '', options = {}) {
             event.preventDefault();
             confirm.click();
         });
-        overlay.addEventListener('click', event => {
-            if (event.target === overlay) finish(null);
-        });
+        wireOverlayBackdropClose(overlay, () => finish(null));
         document.addEventListener('keydown', onKeyDown);
         overlay.appendChild(shell);
         document.body.appendChild(overlay);
@@ -762,9 +772,7 @@ function showSagaChoiceDialog(title, message, choices = []) {
             }
         }
 
-        overlay.addEventListener('click', event => {
-            if (event.target === overlay) finish(null);
-        });
+        wireOverlayBackdropClose(overlay, () => finish(null));
         document.addEventListener('keydown', onKeyDown);
         overlay.appendChild(shell);
         document.body.appendChild(overlay);

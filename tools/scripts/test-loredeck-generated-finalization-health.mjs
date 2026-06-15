@@ -105,7 +105,7 @@ const errorHealth = {
   },
 };
 
-async function runFinalization(initialPack, firstHealth) {
+async function runFinalization(initialPack, firstHealth, options = {}) {
   let savedPack = clone(initialPack);
   const savedRecords = [];
   const toasts = [];
@@ -113,6 +113,7 @@ async function runFinalization(initialPack, firstHealth) {
   const openedMetadata = [];
   const selected = [];
   const retirements = [];
+  const refreshed = [];
   let backupCount = 0;
   let validateCount = 0;
   const creatorJob = {
@@ -152,6 +153,7 @@ async function runFinalization(initialPack, firstHealth) {
     getLoredeckCreatorJobForPack: () => creatorJob,
     buildLoredeckCreatorCoverageFinalizationProvenance: () => null,
     retireGeneratedLoredeckAfterFinalization: async (sourcePack, finalizedRecord, linkedJob) => {
+      if (options.hangRetirement) return new Promise(() => {});
       retirements.push({
         sourcePackId: sourcePack.packId,
         finalizedPackId: finalizedRecord.packId,
@@ -159,6 +161,7 @@ async function runFinalization(initialPack, firstHealth) {
       });
       return { ok: true };
     },
+    getLoredeckFinalizationStepTimeoutMs: (label, fallback) => label === 'Generated Loredeck retirement' && options.hangRetirement ? 5 : fallback,
     confirmAction: async (title, message) => {
       confirmations.push({ title, message });
       return true;
@@ -176,7 +179,10 @@ async function runFinalization(initialPack, firstHealth) {
     },
     clearCanonLoreDatabaseCache: () => {},
     clearContextIndexCache: () => {},
-    refreshLoredeckSurfaces: () => {},
+    refreshLoredeckSurfaces: options.throwRefresh
+      ? () => { throw new Error('refresh exploded'); }
+      : opts => { refreshed.push(opts || {}); },
+    closeLoredeckCreatorWorkbenchOverlay: () => {},
     openLoredeckMetadataEditor: packId => {
       openedMetadata.push(packId);
     },
@@ -196,6 +202,7 @@ async function runFinalization(initialPack, firstHealth) {
     openedMetadata,
     selected,
     retirements,
+    refreshed,
     backupCount,
     validateCount,
   };
@@ -228,11 +235,26 @@ assert.ok(clean.result.tags.includes('source:generated'));
 assert.equal(clean.result.entryOverrides['nami.fact'].extensions.sagaLoredeckFinalizedFrom.packId, 'generated-finalization-clean-pack');
 assert.deepEqual(clean.selected, [clean.result.packId]);
 assert.deepEqual(clean.openedMetadata, [clean.result.packId]);
+assert.equal(clean.refreshed.length, 1);
+assert.equal(clean.refreshed[0].renderLibrary, false);
 assert.deepEqual(clean.retirements, [{
   sourcePackId: 'generated-finalization-clean-pack',
   finalizedPackId: clean.result.packId,
   jobId: 'creator_generated-finalization-clean-pack',
 }]);
 assert.ok(clean.toasts.some(toast => toast.type === 'success' && toast.message.includes('finalized as a Custom Loredeck')));
+
+const hungRetirement = await runFinalization(buildGeneratedPack('generated-finalization-hung-retirement-pack'), goodHealth, { hangRetirement: true });
+assert.ok(hungRetirement.result, 'Finalized Custom deck should still be returned when generated cleanup times out.');
+assert.equal(hungRetirement.savedRecords.length, 1);
+assert.equal(hungRetirement.openedMetadata.length, 1);
+assert.equal(hungRetirement.retirements.length, 0);
+assert.ok(hungRetirement.toasts.some(toast => toast.type === 'warning' && toast.message.includes('Generated draft cleanup did not finish')));
+assert.ok(hungRetirement.toasts.some(toast => toast.type === 'success' && toast.message.includes('finalized as a Custom Loredeck')));
+
+const refreshFailure = await runFinalization(buildGeneratedPack('generated-finalization-refresh-failure-pack'), goodHealth, { throwRefresh: true });
+assert.ok(refreshFailure.result, 'Finalized Custom deck should still be returned when post-finalization UI refresh throws.');
+assert.equal(refreshFailure.openedMetadata.length, 1);
+assert.ok(refreshFailure.toasts.some(toast => toast.type === 'warning' && toast.message.includes('editor view did not refresh cleanly')));
 
 console.log('Generated Loredeck finalization health tests passed.');

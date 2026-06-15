@@ -195,6 +195,7 @@ let loredeckLibraryFolderDragState = null;
 let loredeckLibrarySelectedFolderId = 'all';
 let loredeckLibrarySelectedFolderDetailsId = '';
 let loredeckLibraryMobileDetailPackId = '';
+let loredeckLibraryMobileDetailFolderId = '';
 let loredeckLibraryMobileReorderOpen = false;
 let loredeckLibrarySelectionRefreshFrame = 0;
 let loredeckLibraryHierarchyRefreshFrame = 0;
@@ -212,7 +213,10 @@ export function openLoredeckLibraryDetails(packId = '') {
     const id = String(packId || '').trim();
     if (!id) return false;
     selectLoredeckForDetails(id, { refresh: false });
-    if (isRuntimeMobileShell()) loredeckLibraryMobileDetailPackId = id;
+    if (isRuntimeMobileShell()) {
+        loredeckLibraryMobileDetailPackId = id;
+        loredeckLibraryMobileDetailFolderId = '';
+    }
     openLoredeckLibraryWindow();
     return true;
 }
@@ -233,6 +237,7 @@ export function closeLoredeckLibraryWindow() {
     loredeckLibraryOverlayRefreshFrame = 0;
     loredeckLibraryHierarchyRenderCache = null;
     loredeckLibraryMobileDetailPackId = '';
+    loredeckLibraryMobileDetailFolderId = '';
     loredeckLibraryMobileReorderOpen = false;
     document.querySelector('.saga-loredeck-library-overlay')?.remove();
 }
@@ -449,6 +454,10 @@ export function renderLoredeckLibraryOverlay(options = {}) {
         ? library.find(pack => pack.packId === loredeckLibraryMobileDetailPackId) || null
         : null;
     if (mobile && loredeckLibraryMobileDetailPackId && !mobileDetailPack) loredeckLibraryMobileDetailPackId = '';
+    const mobileDetailFolder = mobile && loredeckLibraryMobileDetailFolderId
+        ? getLoredeckLibraryFolderDetailsById(loredeckLibraryMobileDetailFolderId, libraryIndex)
+        : null;
+    if (mobile && loredeckLibraryMobileDetailFolderId && !mobileDetailFolder) loredeckLibraryMobileDetailFolderId = '';
 
     if (!canonDb) {
         loadCanonLoreDatabase()
@@ -557,6 +566,8 @@ export function renderLoredeckLibraryOverlay(options = {}) {
             shell.appendChild(createLoredeckLibraryMobileReorderSheet(stack, library));
         } else if (mobileDetailPack) {
             shell.appendChild(createLoredeckLibraryMobileDetailSheet(mobileDetailPack, stack, canonDb, health, libraryIndex, library));
+        } else if (mobileDetailFolder) {
+            shell.appendChild(createLoredeckLibraryMobileFolderDetailSheet(mobileDetailFolder, stack, canonDb, health, libraryIndex, library));
         }
         restoreLoredeckLibraryScrollState(scrollState);
     } catch (error) {
@@ -1655,6 +1666,7 @@ function getLoredeckLibraryMobileActiveStackRecords(stack = []) {
 function openLoredeckLibraryMobileReorderSheet() {
     if (getLoredeckLibraryMobileActiveStackRecords(getLoredeckStack(getState())).length < 2) return false;
     loredeckLibraryMobileDetailPackId = '';
+    loredeckLibraryMobileDetailFolderId = '';
     loredeckLibraryMobileReorderOpen = true;
     renderLoredeckLibraryOverlay();
     return true;
@@ -1767,15 +1779,29 @@ function openLoredeckLibraryMobileDetailSheet(packId = '') {
     const id = String(packId || '').trim();
     if (!id) return false;
     loredeckLibraryMobileDetailPackId = id;
+    loredeckLibraryMobileDetailFolderId = '';
     loredeckLibrarySelectedFolderDetailsId = '';
     selectLoredeckForDetails(id, { refresh: false });
     renderLoredeckLibraryOverlay();
     return true;
 }
 
-function closeLoredeckLibraryMobileDetailSheet() {
-    if (!loredeckLibraryMobileDetailPackId) return false;
+function openLoredeckLibraryMobileFolderDetailSheet(folderId = '') {
+    const id = String(folderId || '').trim();
+    if (!id) return false;
     loredeckLibraryMobileDetailPackId = '';
+    loredeckLibraryMobileDetailFolderId = id;
+    loredeckLibrarySelectedFolderDetailsId = id;
+    setLoredeckLibraryBulkSelection([], '');
+    clearLoredeckLibrarySelection({ clearFolderDetails: false });
+    renderLoredeckLibraryOverlay();
+    return true;
+}
+
+function closeLoredeckLibraryMobileDetailSheet() {
+    if (!loredeckLibraryMobileDetailPackId && !loredeckLibraryMobileDetailFolderId) return false;
+    loredeckLibraryMobileDetailPackId = '';
+    loredeckLibraryMobileDetailFolderId = '';
     renderLoredeckLibraryOverlay();
     return true;
 }
@@ -1813,6 +1839,39 @@ function createLoredeckLibraryMobileDetailSheet(pack = null, stack = [], canonDb
     return backdrop;
 }
 
+function createLoredeckLibraryMobileFolderDetailSheet(folder = null, stack = [], canonDb = null, health = null, libraryIndex = {}, library = []) {
+    const backdrop = document.createElement('div');
+    backdrop.className = 'saga-loredeck-library-mobile-detail-backdrop';
+    backdrop.setAttribute('role', 'presentation');
+    backdrop.addEventListener('click', event => {
+        if (event.target === backdrop) closeLoredeckLibraryMobileDetailSheet();
+    });
+
+    const sheet = document.createElement('div');
+    sheet.className = 'saga-loredeck-library-mobile-detail-sheet';
+    sheet.setAttribute('role', 'dialog');
+    sheet.setAttribute('aria-modal', 'true');
+    sheet.setAttribute('aria-label', `${folder?.title || folder?.id || 'Folder'} details`);
+    sheet.addEventListener('click', event => event.stopPropagation());
+
+    const header = document.createElement('div');
+    header.className = 'saga-loredeck-library-mobile-detail-sheet-header';
+    const title = document.createElement('div');
+    title.className = 'saga-loredeck-library-mobile-detail-sheet-title';
+    title.textContent = folder?.title || folder?.id || 'Folder Details';
+    header.appendChild(title);
+    const close = createButton('Close', 'Close folder details.', closeLoredeckLibraryMobileDetailSheet, 'saga-loredeck-library-small-button');
+    close.classList.add('saga-loredeck-library-mobile-detail-close');
+    header.appendChild(close);
+    sheet.appendChild(header);
+
+    const details = createLoredeckLibraryFolderDetailsPanel(folder, stack, canonDb, health, libraryIndex, library);
+    details.classList.add('saga-loredeck-library-mobile-detail-panel');
+    sheet.appendChild(details);
+    backdrop.appendChild(sheet);
+    return backdrop;
+}
+
 function toggleLoredeckLibraryMobileDeckActive(packId = '') {
     const id = String(packId || '').trim();
     if (!id) return false;
@@ -1820,7 +1879,7 @@ function toggleLoredeckLibraryMobileDeckActive(packId = '') {
     const stack = getLoredeckStack(getState());
     const key = createLoredeckStackDeckKey(id);
     const existing = (stack || []).find(item => getLoredeckStackItemKey(item) === key);
-    if (existing?.enabled !== false) return removeLoredecksFromStack([id]);
+    if (existing && existing.enabled !== false) return removeLoredecksFromStack([id]);
     return addLoredeckToStack(id);
 }
 
@@ -2146,6 +2205,7 @@ function appendLoredeckLibraryFolderBranch(target, folder = {}, depth = 0, rende
         stats,
         searchState,
         libraryIndex: renderContext.libraryIndex,
+        mobileTouch: renderContext.mobileTouch === true,
         coverPacks: renderContext.renderModel?.getCoverPacks?.(folderId) || [],
         totalCoverableCount: folderAllPacks.filter(pack => getLoredeckAssetRef(pack, 'cover')).length,
     });
@@ -2357,9 +2417,11 @@ function createLoredeckLibraryInlineFolderRow(folder = {}, options = {}) {
     const stats = options.stats || {};
     const depth = Math.max(0, Number(options.depth) || 0);
     const searchState = String(options.searchState || '').trim();
+    const mobileTouch = options.mobileTouch === true;
     const row = document.createElement('div');
     row.className = `saga-loredeck-library-inline-folder-row${loredeckLibrarySelectedFolderDetailsId === folderId ? ' saga-loredeck-library-folder-row-active' : ''}${options.special ? ' saga-loredeck-library-folder-row-special' : ''}`.trim();
     row.classList.add('saga-loredeck-library-folder-row-drop-enabled');
+    if (mobileTouch) row.classList.add('saga-loredeck-library-folder-mobile-touch');
     if (searchState === 'match') row.classList.add('saga-loredeck-library-search-match');
     else if (searchState === 'context') row.classList.add('saga-loredeck-library-search-context');
     row.style.setProperty('--saga-folder-depth', String(depth));
@@ -2380,13 +2442,62 @@ function createLoredeckLibraryInlineFolderRow(folder = {}, options = {}) {
         scheduleLoredeckLibrarySelectionSurfaceRefresh();
     };
     const getCurrentCollapsed = () => row.getAttribute('aria-expanded') !== 'true';
+    let mobileLongPressTimer = null;
+    let mobileLongPressFired = false;
+    const mobileInteractiveSelector = 'button, input, select, textarea, label, a';
+    if (mobileTouch) {
+        const clearLongPressTimer = () => {
+            if (mobileLongPressTimer) {
+                clearTimeout(mobileLongPressTimer);
+                mobileLongPressTimer = null;
+            }
+        };
+        row.addEventListener('pointerdown', e => {
+            if (e.target?.closest?.(mobileInteractiveSelector)) return;
+            mobileLongPressFired = false;
+            clearLongPressTimer();
+            mobileLongPressTimer = setTimeout(() => {
+                mobileLongPressFired = true;
+                openLoredeckLibraryMobileFolderDetailSheet(folderId);
+            }, 520);
+        });
+        row.addEventListener('pointerup', clearLongPressTimer);
+        row.addEventListener('pointerleave', clearLongPressTimer);
+        row.addEventListener('pointercancel', clearLongPressTimer);
+        row.addEventListener('contextmenu', e => {
+            if (e.target?.closest?.(mobileInteractiveSelector)) return;
+            e.preventDefault();
+            e.stopPropagation();
+            clearLongPressTimer();
+            openLoredeckLibraryMobileFolderDetailSheet(folderId);
+        });
+    }
     row.addEventListener('click', e => {
         e.stopPropagation();
+        if (mobileTouch) {
+            if (mobileLongPressFired) {
+                mobileLongPressFired = false;
+                return;
+            }
+            if (e.target?.closest?.(mobileInteractiveSelector)) return;
+            selectFolder();
+            toggleLoredeckLibraryFolderCollapsed(folderId, getCurrentCollapsed());
+            return;
+        }
         selectFolder();
     });
     row.addEventListener('keydown', e => {
         if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
+            if (mobileTouch) {
+                if (e.key === 'Enter') {
+                    openLoredeckLibraryMobileFolderDetailSheet(folderId);
+                    return;
+                }
+                selectFolder();
+                toggleLoredeckLibraryFolderCollapsed(folderId, getCurrentCollapsed());
+                return;
+            }
             selectFolder();
         } else if (e.key === 'ArrowRight' && getCurrentCollapsed()) {
             e.preventDefault();
@@ -2397,19 +2508,21 @@ function createLoredeckLibraryInlineFolderRow(folder = {}, options = {}) {
         }
     });
 
-    const grip = document.createElement('span');
-    grip.className = 'saga-loredeck-library-stack-grip saga-loredeck-library-folder-grip';
-    grip.style.setProperty('--saga-grip-dot-rows', String(Math.max(3, 6 - depth)));
-    grip.setAttribute('aria-hidden', 'true');
-    grip.innerHTML = '<span></span>';
-    grip.addEventListener('click', e => {
-        e.preventDefault();
-        e.stopPropagation();
-    });
-    grip.addEventListener('pointerdown', e => {
-        startLoredeckLibraryFolderDrag(e, folderId);
-    });
-    row.appendChild(grip);
+    if (!mobileTouch) {
+        const grip = document.createElement('span');
+        grip.className = 'saga-loredeck-library-stack-grip saga-loredeck-library-folder-grip';
+        grip.style.setProperty('--saga-grip-dot-rows', String(Math.max(3, 6 - depth)));
+        grip.setAttribute('aria-hidden', 'true');
+        grip.innerHTML = '<span></span>';
+        grip.addEventListener('click', e => {
+            e.preventDefault();
+            e.stopPropagation();
+        });
+        grip.addEventListener('pointerdown', e => {
+            startLoredeckLibraryFolderDrag(e, folderId);
+        });
+        row.appendChild(grip);
+    }
 
     const disclosure = document.createElement('button');
     disclosure.type = 'button';
@@ -2433,7 +2546,7 @@ function createLoredeckLibraryInlineFolderRow(folder = {}, options = {}) {
         value: folder.title || folderId || 'Folder',
         fallback: folderId || 'Folder',
         className: 'saga-loredeck-library-folder-label',
-        editable: !options.special && !!folderId && folderId !== 'unfiled',
+        editable: !mobileTouch && !options.special && !!folderId && folderId !== 'unfiled',
         kind: 'folder',
         onCommit: title => {
             const renamed = renameLoredeckLibraryFolder(folderId, title);
@@ -2930,16 +3043,43 @@ function createLoredeckLibraryDeckCard(pack, stack = [], canonDb = null, health 
         : `${pack.title || pack.packId}. Click to select, Ctrl/Cmd-click to toggle, Shift-click to select a visible range, double-click to add to the active stack.`);
     markTourTarget(card, 'loredecks.library.deckCard');
     card.addEventListener('mousedown', suppressLoredeckLibraryRangeTextSelection);
+    let mobileLongPressTimer = null;
+    let mobileLongPressFired = false;
+    const mobileInteractiveSelector = 'button, input, select, textarea, label, a';
     if (mobileTouch) {
+        const clearLongPressTimer = () => {
+            if (mobileLongPressTimer) {
+                clearTimeout(mobileLongPressTimer);
+                mobileLongPressTimer = null;
+            }
+        };
+        card.addEventListener('pointerdown', e => {
+            if (e.target?.closest?.(mobileInteractiveSelector)) return;
+            mobileLongPressFired = false;
+            clearLongPressTimer();
+            mobileLongPressTimer = setTimeout(() => {
+                mobileLongPressFired = true;
+                openLoredeckLibraryMobileDetailSheet(pack.packId);
+            }, 520);
+        });
+        card.addEventListener('pointerup', clearLongPressTimer);
+        card.addEventListener('pointerleave', clearLongPressTimer);
+        card.addEventListener('pointercancel', clearLongPressTimer);
         card.addEventListener('contextmenu', e => {
+            if (e.target?.closest?.(mobileInteractiveSelector)) return;
             e.preventDefault();
             e.stopPropagation();
+            clearLongPressTimer();
             openLoredeckLibraryMobileDetailSheet(pack.packId);
         });
     }
     card.addEventListener('click', e => {
         e.stopPropagation();
         if (mobileTouch) {
+            if (mobileLongPressFired) {
+                mobileLongPressFired = false;
+                return;
+            }
             toggleLoredeckLibraryMobileDeckActive(pack.packId);
             return;
         }
@@ -2951,6 +3091,10 @@ function createLoredeckLibraryDeckCard(pack, stack = [], canonDb = null, health 
         if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
             if (mobileTouch) {
+                if (e.key === 'Enter') {
+                    openLoredeckLibraryMobileDetailSheet(pack.packId);
+                    return;
+                }
                 toggleLoredeckLibraryMobileDeckActive(pack.packId);
                 return;
             }
@@ -2987,13 +3131,6 @@ function createLoredeckLibraryDeckCard(pack, stack = [], canonDb = null, health 
         orderBadge.textContent = mobileOrder ? String(mobileOrder) : '';
         orderBadge.setAttribute('aria-label', mobileOrder ? `Selected order ${mobileOrder}` : 'Not selected');
         card.appendChild(orderBadge);
-        const detailsButton = createButton('i', `Open details for ${pack.title || pack.packId}.`, (_btn, e) => {
-            e?.preventDefault?.();
-            openLoredeckLibraryMobileDetailSheet(pack.packId);
-        }, 'saga-loredeck-library-mobile-detail-affordance');
-        detailsButton.setAttribute('aria-label', `Open details for ${pack.title || pack.packId}`);
-        markTourTarget(detailsButton, 'loredecks.library.mobileDetails');
-        card.appendChild(detailsButton);
     }
 
     const main = document.createElement('div');
@@ -3002,7 +3139,7 @@ function createLoredeckLibraryDeckCard(pack, stack = [], canonDb = null, health 
         value: pack.title || pack.packId,
         fallback: pack.packId,
         className: 'saga-loredeck-library-deck-title',
-        editable: isEditableLoredeckLibraryPack(pack),
+        editable: !mobileTouch && isEditableLoredeckLibraryPack(pack),
         kind: 'Loredeck',
         onCommit: title => {
             const renamed = renameLoredeckLibraryDeckTitle(pack.packId, title);
@@ -4081,8 +4218,8 @@ function finishLoredeckStackDrag(commit = true) {
     }
 }
 
-function getLoredeckLibrarySelectedFolderDetails(libraryIndex = {}) {
-    const id = String(loredeckLibrarySelectedFolderDetailsId || '').trim();
+function getLoredeckLibraryFolderDetailsById(folderId = '', libraryIndex = {}) {
+    const id = String(folderId || '').trim();
     if (!id) return null;
     if (id === 'unfiled') {
         return {
@@ -4099,6 +4236,10 @@ function getLoredeckLibrarySelectedFolderDetails(libraryIndex = {}) {
         ...folder,
         path: getFolderPath(id, libraryIndex),
     };
+}
+
+function getLoredeckLibrarySelectedFolderDetails(libraryIndex = {}) {
+    return getLoredeckLibraryFolderDetailsById(loredeckLibrarySelectedFolderDetailsId, libraryIndex);
 }
 
 function createLoredeckLibraryDetailsPanel(pack = null, stack = [], canonDb = null, health = null, selectedFolder = null, libraryIndex = getLoredeckLibraryIndexForPacks(), library = getLoredeckLibrary(getState())) {

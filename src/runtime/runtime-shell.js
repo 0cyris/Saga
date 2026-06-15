@@ -33,6 +33,14 @@ let resizeStartHeight = 0;
 let resizeStartDirection = 'right';
 let pendingRuntimeMobileFocusSelector = '';
 
+export const MOBILE_LORECARDS_STAGES = Object.freeze(['suggested', 'pending', 'accepted']);
+
+export function normalizeRuntimeMobileLorecardsStage(value = '') {
+    const stage = String(value || '').trim().toLowerCase();
+    if (stage === 'active') return 'accepted';
+    return MOBILE_LORECARDS_STAGES.includes(stage) ? stage : '';
+}
+
 export function configureRuntimeShell(deps = {}) {
     runtimeShellDeps = { ...runtimeShellDeps, ...(deps || {}) };
 }
@@ -130,6 +138,7 @@ export function getDefaultMobilePanelState(activeTab = 'session', settings = {})
         activeRoute,
         activeMoreRoute,
         lastPrimaryRoute: activeRoute === 'more' ? 'session' : activeRoute,
+        lorecardsStage: '',
         subviewStacks: {
             loredecks: [],
             session: [],
@@ -153,6 +162,11 @@ function normalizeMobileSubviewStack(stack) {
                 : {};
             return { id, title, params };
         });
+}
+
+function normalizeMobileLoreSubviewStack(stack) {
+    return normalizeMobileSubviewStack(stack)
+        .filter(item => !normalizeRuntimeMobileLorecardsStage(item?.params?.stage));
 }
 
 function getMobileSubviewRouteKey(routeId, settings = getSettingsForShell()) {
@@ -182,11 +196,12 @@ export function normalizeMobilePanelState(panelState, settings = getSettingsForS
         activeRoute,
         activeMoreRoute: activeRoute === 'more' ? activeMoreRoute : '',
         lastPrimaryRoute,
+        lorecardsStage: normalizeRuntimeMobileLorecardsStage(previous.lorecardsStage || panelState.mobileLifecycleStage),
         subviewStacks: {
             loredecks: normalizeMobileSubviewStack(previousStacks.loredecks),
             session: normalizeMobileSubviewStack(previousStacks.session),
             context: normalizeMobileSubviewStack(previousStacks.context),
-            lore: normalizeMobileSubviewStack(previousStacks.lore),
+            lore: normalizeMobileLoreSubviewStack(previousStacks.lore),
             more: normalizeMobileSubviewStack(previousStacks.more),
         },
     };
@@ -208,6 +223,14 @@ export function getRuntimeMobileSubviewStack(panelState, routeId = null, setting
 export function getRuntimeMobileActiveSubview(panelState, routeId = null, settings = getSettingsForShell()) {
     const stack = getRuntimeMobileSubviewStack(panelState, routeId, settings);
     return stack.length ? stack[stack.length - 1] : null;
+}
+
+export function getRuntimeMobileLorecardsStage(panelState, fallback = 'pending', settings = getSettingsForShell()) {
+    const mobile = normalizeMobilePanelState(panelState, settings);
+    return normalizeRuntimeMobileLorecardsStage(mobile.lorecardsStage)
+        || normalizeRuntimeMobileLorecardsStage(panelState?.mobileLifecycleStage)
+        || normalizeRuntimeMobileLorecardsStage(fallback)
+        || 'pending';
 }
 
 export function getRuntimeMobileHeaderTitle(panelState, settings = getSettingsForShell()) {
@@ -232,6 +255,9 @@ function getRuntimeMobileFocusSelectorFromResult(result = null) {
     }
     if (result.action === 'pop-subview') {
         return '.saga-mobile-header-back, .saga-mobile-bottom-tab-active';
+    }
+    if (result.action === 'lorecards-subtab' && result.stage) {
+        return `.saga-mobile-lorecards-subtab[data-stage="${result.stage}"]`;
     }
     return '';
 }
@@ -288,6 +314,26 @@ export function selectRuntimeMobileMoreRoute(routeId) {
         return route;
     }, {
         focusSelector: '.saga-mobile-header-back, .saga-mobile-bottom-tab[data-mobile-route="more"]',
+    });
+}
+
+export function selectRuntimeMobileLorecardsStage(stage) {
+    const normalized = normalizeRuntimeMobileLorecardsStage(stage) || 'pending';
+    return updateRuntimeMobilePanelState(({ panelState, mobile }) => {
+        mobile.activeRoute = 'lore';
+        mobile.lastPrimaryRoute = 'lore';
+        mobile.activeMoreRoute = '';
+        mobile.lorecardsStage = normalized;
+        mobile.subviewStacks.lore = [];
+        panelState.activeTab = 'lore';
+        panelState.mobileLifecycleStage = normalized;
+        panelState.pendingReviewVisibleLimit = 10;
+        panelState.acceptedLoreVisibleLimit = Math.max(10, Number(panelState.acceptedLoreVisibleLimit) || 10);
+        panelState.drawerOpen = true;
+        panelState.collapsed = false;
+        return { action: 'lorecards-subtab', stage: normalized };
+    }, {
+        focusSelector: `.saga-mobile-lorecards-subtab[data-stage="${normalized}"]`,
     });
 }
 

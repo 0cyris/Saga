@@ -247,10 +247,6 @@
     margin: 0 !important;
 }
 
-.saga-lorecard-pipeline-compact {
-    gap: 6px;
-}
-
 .saga-lore-active-set-section {
     display: flex;
     flex-direction: column;
@@ -356,47 +352,12 @@
     cursor: pointer;
 }
 
-.saga-runtime-mobile .saga-lorecard-pipeline-header,
 .saga-runtime-mobile .saga-lore-active-set-header,
 .saga-runtime-mobile .saga-lore-active-set-subheader {
     flex-direction: column;
     align-items: stretch;
 }
 
-.saga-runtime-mobile .saga-lorecard-pipeline-status {
-    justify-content: flex-start;
-}
-
-.saga-runtime-mobile .saga-lorecard-pipeline-rail {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.saga-runtime-mobile .saga-lorecard-pipeline-compact {
-    padding: 8px !important;
-}
-
-.saga-runtime-mobile .saga-lorecard-pipeline-compact .saga-lorecard-pipeline-rail {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 4px;
-}
-
-.saga-runtime-mobile .saga-lorecard-pipeline-compact .saga-lorecard-pipeline-stage {
-    min-height: var(--saga-mobile-row-action-size, 40px);
-    padding-left: 6px;
-    padding-right: 6px;
-}
-
-.saga-runtime-mobile .saga-lorecard-pipeline-compact .saga-lorecard-pipeline-stage-label {
-    font-size: 0.92em;
-}
-
-.saga-runtime-mobile .saga-lorecard-pipeline-compact .saga-lorecard-pipeline-stage-count {
-    min-width: 20px;
-    padding-left: 4px;
-    padding-right: 4px;
-}
-
-.saga-runtime-mobile .saga-lorecard-pipeline-stage,
 .saga-runtime-mobile .saga-pending-entry-actions .saga-runtime-button,
 .saga-runtime-mobile .saga-lore-entry-actions .saga-lore-entry-btn,
 .saga-runtime-mobile .saga-lore-entry-actions .saga-lore-relevance-segment,
@@ -412,15 +373,6 @@
     cursor: pointer;
 }
 
-.saga-runtime-mobile .saga-lore-entry-details-btn {
-    flex: 0 0 var(--saga-mobile-row-action-size, 40px);
-    min-width: var(--saga-mobile-row-action-size, 40px);
-    min-height: var(--saga-mobile-row-action-size, 40px);
-    margin-left: auto;
-    border-color: var(--saga-border-soft, rgba(215, 181, 109, 0.28));
-    color: var(--saga-gold, #d7b56d);
-}
-
 .saga-runtime-mobile .saga-lore-active-set-tray,
 .saga-runtime-mobile .saga-lore-active-set-item {
     grid-template-columns: minmax(0, 1fr);
@@ -428,10 +380,6 @@
 
 .saga-runtime-mobile .saga-lore-active-set-item-actions {
     justify-content: flex-start;
-}
-
-.saga-runtime-mobile .saga-lorecard-pipeline-next-actions .saga-runtime-button {
-    width: 100%;
 }
 
 .saga-runtime-mobile .saga-pending-lore-detail-summary {

@@ -448,6 +448,23 @@
     gap: 10px;
 }
 
+.saga-runtime-mobile .saga-operator-summary-header-tappable {
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 6px;
+    margin: -6px;
+    transition:
+        background-color var(--saga-transition-fast, 0.16s ease),
+        box-shadow var(--saga-transition-fast, 0.16s ease);
+}
+
+.saga-runtime-mobile .saga-operator-summary-header-tappable:focus-visible,
+.saga-runtime-mobile .saga-operator-summary-header-tappable:hover {
+    outline: none;
+    background: rgba(215, 181, 109, 0.08);
+    box-shadow: inset 0 0 0 1px rgba(215, 181, 109, 0.28);
+}
+
 .saga-operator-summary-title-wrap {
     min-width: 0;
     display: flex;
@@ -2995,6 +3012,29 @@
     color: var(--saga-gold, #ffe1a2);
 }
 
+.saga-loredeck-library-shell-mobile .saga-loredeck-library-folder-mobile-touch {
+    grid-template-columns: 24px minmax(0, 1fr);
+    gap: 9px;
+    align-items: start;
+    min-height: 96px;
+}
+
+.saga-loredeck-library-shell-mobile .saga-loredeck-library-folder-mobile-touch .saga-loredeck-library-folder-topline {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+    gap: 5px;
+}
+
+.saga-loredeck-library-shell-mobile .saga-loredeck-library-folder-mobile-touch .saga-loredeck-library-folder-label {
+    font-size: 0.78em;
+    white-space: nowrap;
+}
+
+.saga-loredeck-library-shell-mobile .saga-loredeck-library-folder-mobile-touch .saga-loredeck-library-folder-meta {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
 .saga-loredeck-library-folder-disclosure {
     width: 24px;
     height: 24px;
@@ -4861,27 +4901,6 @@
 
 .saga-loredeck-library-mobile-order-badge[hidden] {
     display: none;
-}
-
-.saga-loredeck-library-mobile-detail-affordance {
-    position: absolute;
-    right: 8px;
-    bottom: 8px;
-    z-index: 2;
-    width: 28px;
-    min-width: 28px;
-    height: 28px;
-    min-height: 28px;
-    display: inline-grid !important;
-    place-items: center;
-    border-color: var(--saga-border-soft, rgba(215, 181, 109, 0.34));
-    border-radius: 999px;
-    background: rgba(5, 7, 12, 0.82);
-    color: var(--saga-gold, #d7b56d);
-    font-size: 0.82em;
-    font-weight: 900;
-    line-height: 1;
-    padding: 0;
 }
 
 .saga-loredeck-library-mobile-detail-backdrop {

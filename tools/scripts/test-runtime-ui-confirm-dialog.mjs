@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import {
   confirmAction,
+  promptTextAction,
   runBusyAction,
 } from '../../src/ui/runtime-ui-kit.js';
 
@@ -213,6 +214,36 @@ globalThis.requestAnimationFrame = callback => setTimeout(callback, 0);
   assert.equal(buttons[1].classList.contains('saga-danger-button'), true);
   await buttons[0].click();
   assert.equal(await pending, false);
+  assert.equal(document.querySelector('.saga-confirm-overlay'), null);
+}
+
+{
+  const pending = promptTextAction('New Folder', 'Name this Library folder.', 'Draft Folder', { required: true });
+  const overlay = document.querySelector('.saga-confirm-overlay');
+  assert.ok(overlay, 'Text prompt should render an overlay.');
+  const input = overlay.querySelector('.saga-confirm-input');
+  assert.ok(input, 'Text prompt should render the Saga input field.');
+  assert.equal(input.classList.contains('text_pole'), true);
+  assert.equal(input.classList.contains('saga-confirm-input'), true);
+
+  for (const handler of overlay.listeners.pointerdown || []) handler({ type: 'pointerdown', target: input });
+  for (const handler of overlay.listeners.click || []) await handler({ type: 'click', target: overlay });
+  assert.equal(document.querySelector('.saga-confirm-overlay'), overlay, 'Dragging an input selection onto the backdrop must not close the prompt.');
+
+  const buttons = overlay.querySelectorAll('button');
+  assert.deepEqual(buttons.map(button => button.textContent), ['Cancel', 'Save']);
+  await buttons[1].click();
+  assert.equal(await pending, 'Draft Folder');
+  assert.equal(document.querySelector('.saga-confirm-overlay'), null);
+}
+
+{
+  const pending = promptTextAction('Rename Folder', 'Rename this Library folder.', 'Archive');
+  const overlay = document.querySelector('.saga-confirm-overlay');
+  assert.ok(overlay, 'Text prompt should render an overlay before backdrop dismissal.');
+  for (const handler of overlay.listeners.pointerdown || []) handler({ type: 'pointerdown', target: overlay });
+  for (const handler of overlay.listeners.click || []) await handler({ type: 'click', target: overlay });
+  assert.equal(await pending, null);
   assert.equal(document.querySelector('.saga-confirm-overlay'), null);
 }
 

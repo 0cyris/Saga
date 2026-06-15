@@ -974,6 +974,45 @@ async function clickSelector(client, selector) {
     }, selector), { userGesture: true });
 }
 
+async function expandMobileLibraryFolders(client, maxPasses = 6) {
+    let total = 0;
+    for (let pass = 0; pass < maxPasses; pass += 1) {
+        const expanded = await evaluate(client, script(() => {
+            const buttons = [...document.querySelectorAll('.saga-loredeck-library-mobile-list .saga-loredeck-library-folder-disclosure')];
+            const closed = buttons.filter(button => {
+                const row = button.closest('.saga-loredeck-library-inline-folder-row');
+                return row?.getAttribute('aria-expanded') === 'false' || (button.textContent || '').trim() === '>';
+            });
+            for (const button of closed.slice(0, 16)) button.click();
+            return closed.length;
+        }), { userGesture: true }).catch(() => 0);
+        total += Number(expanded || 0);
+        if (!expanded) break;
+        await wait(500);
+    }
+    return total;
+}
+
+async function getVisibleMobileLibraryDeckCandidates(client, excludedPackIds = []) {
+    return await evaluate(client, script(excluded => {
+        const excludedIds = new Set((excluded || []).map(value => String(value || '').trim()).filter(Boolean));
+        const cards = [...document.querySelectorAll('.saga-loredeck-library-deck-mobile-touch[data-pack-id]')];
+        const candidates = [];
+        for (const card of cards) {
+            const packId = String(card.getAttribute('data-pack-id') || '').trim();
+            if (!packId || excludedIds.has(packId)) continue;
+            const rect = card.getBoundingClientRect?.();
+            const style = getComputedStyle(card);
+            if (!rect || rect.width <= 0 || rect.height <= 0 || style.display === 'none' || style.visibility === 'hidden') continue;
+            const title = card.querySelector('.saga-loredeck-library-deck-title, .saga-loredeck-library-inline-title-label')?.textContent?.trim()
+                || card.textContent?.trim()?.split('\n')?.[0]
+                || packId;
+            candidates.push({ packId, title });
+        }
+        return candidates;
+    }, excludedPackIds));
+}
+
 function sagaActiveTabExpression(tabId) {
     const expected = JSON.stringify(String(tabId || ''));
     return `document.querySelector(".saga-runtime-rail-tab-active")?.getAttribute("data-tab-id") === ${expected} || document.querySelector("#saga-lore-panel")?.dataset?.mobileActiveTab === ${expected}`;
@@ -996,14 +1035,16 @@ async function openMobileSessionDetailsForGuide(client) {
         const guideSelector = '[data-saga-tour="session.instructions.basic"], [data-saga-tour="session.instructions.advanced"]';
         const hasGuideCard = !!document.querySelector(guideSelector);
         if (hasGuideCard) return { mobile: true, opened: true, alreadyOpen: true };
-        const buttons = [...document.querySelectorAll('button')];
-        const target = buttons.find(button => (button.innerText || button.textContent || '').trim() === 'Session Details');
+        const target = document.querySelector('.saga-session-operator-summary .saga-operator-summary-header-tappable[aria-label="Open Session Details"]');
         if (!target) {
             return {
                 mobile: true,
                 opened: false,
                 reason: 'missing-session-details',
-                labels: buttons.map(button => (button.innerText || button.textContent || '').trim()).filter(Boolean).slice(0, 80),
+                headers: [...document.querySelectorAll('.saga-operator-summary-header-tappable')]
+                    .map(header => header.getAttribute('aria-label') || (header.innerText || header.textContent || '').trim())
+                    .filter(Boolean)
+                    .slice(0, 20),
             };
         }
         target.scrollIntoView({ block: 'center', inline: 'center' });
@@ -2560,6 +2601,58 @@ async function waitForLiveCreatorFinalizedDeckViaFiles(smokeUrl, created = {}, h
     return { ok: false, reason: 'timeout', last };
 }
 
+function cleanupLiveCreatorIndexValue(indexValue = {}, created = {}, deleteFiles = new Set()) {
+    const links = getLiveCreatorSmokeLinkSets(created);
+    const index = indexValue && typeof indexValue === 'object' && !Array.isArray(indexValue)
+        ? indexValue
+        : {};
+    const projects = index.projects && typeof index.projects === 'object' && !Array.isArray(index.projects)
+        ? index.projects
+        : {};
+    const removedCreatorProjectIds = [];
+    let changed = false;
+    for (const [projectId, project] of Object.entries(projects)) {
+        const id = String(project?.jobId || project?.projectId || projectId || '').trim();
+        const generatedPackId = String(project?.generatedPackId || project?.linkedGeneratedPackId || '').trim();
+        const projectFile = String(project?.projectFile || project?.payloadFile || '').trim();
+        const smokeOwned = links.jobIds.has(id)
+            || links.jobIds.has(projectId)
+            || links.generatedPackIds.has(generatedPackId)
+            || (projectFile && deleteFiles.has(projectFile));
+        if (!smokeOwned) continue;
+        delete projects[projectId];
+        if (projectFile) deleteFiles.add(projectFile);
+        removedCreatorProjectIds.push(projectId);
+        changed = true;
+    }
+    index.projects = projects;
+    const removed = new Set(removedCreatorProjectIds);
+    const remaining = Object.entries(projects)
+        .map(([projectId, project]) => ({
+            projectId,
+            jobId: String(project?.jobId || project?.projectId || projectId || '').trim(),
+            updatedAt: Number(project?.updatedAt || project?.createdAt || 0),
+        }))
+        .sort((a, b) => b.updatedAt - a.updatedAt || a.projectId.localeCompare(b.projectId));
+    const fallbackId = remaining[0]?.jobId || remaining[0]?.projectId || '';
+    for (const key of ['activeJobId', 'activeProjectId', 'lastJobId', 'lastProjectId']) {
+        const value = String(index[key] || '').trim();
+        if (value && (removed.has(value) || !projects[value])) {
+            index[key] = fallbackId;
+            changed = true;
+        }
+    }
+    if (changed) {
+        index.updatedAt = Date.now();
+        index.revision = Math.max(1, Number(index.revision || 0) + 1);
+    }
+    return {
+        index,
+        changed,
+        removedCreatorProjectIds,
+    };
+}
+
 async function deleteLiveCreatorPackById(client, packId = '') {
     const id = String(packId || '').trim();
     if (!id) return { ok: false, packId: id, reason: 'missing-pack-id' };
@@ -2619,10 +2712,12 @@ async function deleteLiveCreatorPackById(client, packId = '') {
 async function cleanupLiveCreatorArtifactsViaFilesApi(smokeUrl, created = {}, headers = {}) {
     const libraryRead = await readLiveUserJson(smokeUrl, '/user/files/saga-library-index.v1.json', { headers });
     const storageRead = await readLiveUserJson(smokeUrl, '/user/files/saga-storage-index.v1.json', { headers });
+    const creatorRead = await readLiveUserJson(smokeUrl, '/user/files/saga-creator-index.v1.json', { headers });
     const links = getLiveCreatorSmokeLinkSets(created);
     const deleted = [];
     const failed = [];
     const removedPackIds = [];
+    const removedCreatorProjectIds = [];
     const removedStoragePaths = [];
     const payloadFiles = new Set();
     const deleteFiles = new Set();
@@ -2633,6 +2728,7 @@ async function cleanupLiveCreatorArtifactsViaFilesApi(smokeUrl, created = {}, he
             reason: 'library-index-read-failed',
             libraryRead,
             storageRead,
+            creatorRead,
             deleted,
             failed,
         };
@@ -2696,6 +2792,15 @@ async function cleanupLiveCreatorArtifactsViaFilesApi(smokeUrl, created = {}, he
         }
     }
 
+    if (creatorRead.ok) {
+        const creatorCleanup = cleanupLiveCreatorIndexValue(creatorRead.value, created, deleteFiles);
+        removedCreatorProjectIds.push(...creatorCleanup.removedCreatorProjectIds);
+        if (creatorCleanup.changed) {
+            const upload = await uploadLiveUserJson(smokeUrl, 'saga-creator-index.v1.json', creatorCleanup.index, headers);
+            if (!upload.ok) failed.push({ kind: 'creator-index-upload', ...upload });
+        }
+    }
+
     for (const file of deleteFiles) {
         const result = await deleteLiveUserFile(smokeUrl, file, headers).catch(error => ({
             ok: false,
@@ -2720,6 +2825,7 @@ async function cleanupLiveCreatorArtifactsViaFilesApi(smokeUrl, created = {}, he
         ok: failed.length === 0,
         via: 'files-api',
         removedPackIds,
+        removedCreatorProjectIds,
         payloadFiles: [...payloadFiles],
         deletedFiles: [...deleteFiles],
         deleted,
@@ -2734,6 +2840,7 @@ async function cleanupLiveCreatorArtifactsViaFilesystem(created = {}) {
     const deleted = [];
     const failed = [];
     const removedPackIds = [];
+    const removedCreatorProjectIds = [];
     const removedStoragePaths = [];
     const payloadFiles = new Set();
     const deleteFiles = new Set();
@@ -2757,6 +2864,7 @@ async function cleanupLiveCreatorArtifactsViaFilesystem(created = {}) {
     const links = getLiveCreatorSmokeLinkSets(created);
     const libraryRead = await readLiveUserJsonFromFilesystem(userFilesDir, 'saga-library-index.v1.json');
     const storageRead = await readLiveUserJsonFromFilesystem(userFilesDir, 'saga-storage-index.v1.json');
+    const creatorRead = await readLiveUserJsonFromFilesystem(userFilesDir, 'saga-creator-index.v1.json');
     if (!libraryRead.ok) {
         return {
             ok: false,
@@ -2765,6 +2873,7 @@ async function cleanupLiveCreatorArtifactsViaFilesystem(created = {}) {
             userFilesDir,
             libraryRead,
             storageRead,
+            creatorRead,
             deleted,
             failed,
         };
@@ -2830,6 +2939,17 @@ async function cleanupLiveCreatorArtifactsViaFilesystem(created = {}) {
         failed.push({ kind: 'storage-index-read', ...storageRead });
     }
 
+    if (creatorRead.ok) {
+        const creatorCleanup = cleanupLiveCreatorIndexValue(creatorRead.value, created, deleteFiles);
+        removedCreatorProjectIds.push(...creatorCleanup.removedCreatorProjectIds);
+        if (creatorCleanup.changed) {
+            const written = await writeLiveUserJsonToFilesystem(userFilesDir, 'saga-creator-index.v1.json', creatorCleanup.index);
+            if (!written.ok) failed.push({ kind: 'creator-index-write', ...written });
+        }
+    } else {
+        failed.push({ kind: 'creator-index-read', ...creatorRead });
+    }
+
     for (const file of deleteFiles) {
         const result = await deleteLiveUserFileFromFilesystem(userFilesDir, file);
         if (result.ok) deleted.push(file);
@@ -2849,6 +2969,7 @@ async function cleanupLiveCreatorArtifactsViaFilesystem(created = {}) {
         via: 'filesystem',
         userFilesDir,
         removedPackIds,
+        removedCreatorProjectIds,
         payloadFiles: [...payloadFiles],
         deletedFiles: [...deleteFiles],
         deleted,
@@ -3515,6 +3636,13 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
         const text = document.body?.innerText || '';
         const primaryActions = [...document.querySelectorAll('.saga-loredecks-mobile-primary-actions button')].map(node => (node.innerText || node.textContent || '').trim()).filter(Boolean);
         const secondaryActions = [...document.querySelectorAll('.saga-loredecks-mobile-secondary-actions button')].map(node => (node.innerText || node.textContent || '').trim()).filter(Boolean);
+        const stackDetailsHeaders = [...document.querySelectorAll('.saga-operator-summary-header-tappable, [data-saga-tour="loredecks.operator.details"]')]
+            .map(node => ({
+                ariaLabel: node.getAttribute('aria-label') || '',
+                tour: node.getAttribute('data-saga-tour') || '',
+                className: node.className || '',
+                text: (node.innerText || node.textContent || '').trim().slice(0, 160),
+            }));
         return {
             mobileShell: !!root?.classList?.contains('saga-runtime-mobile'),
             activeTab: root?.dataset?.mobileActiveTab || document.querySelector('.saga-runtime-rail-tab-active')?.getAttribute('data-tab-id') || '',
@@ -3522,6 +3650,10 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
             hasActiveStack: text.includes('Active Stack'),
             hasOpenLibrary: text.includes('Open Loredeck Library'),
             hasCreateDeck: text.includes('Create Deck'),
+            hasStackDetailsHeader: stackDetailsHeaders.some(item => item.ariaLabel === 'Open Stack Details'
+                || item.tour === 'loredecks.operator.details'
+                || item.text.includes('Active Stack')),
+            stackDetailsHeaders,
             noHorizontalOverflow: !root || root.scrollWidth <= root.clientWidth + 1,
             primaryActions,
             secondaryActions,
@@ -3533,8 +3665,10 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
         if (!initialState.bottomRoutes.includes(route)) findings.push(`Mobile Advanced bottom bar missing route: ${route}.`);
     }
     if (!initialState.hasActiveStack || !initialState.hasOpenLibrary || !initialState.hasCreateDeck) findings.push('Mobile Advanced Loredecks root did not render stack, Library, and Creator actions.');
+    if (!initialState.hasStackDetailsHeader) findings.push('Mobile Advanced Loredecks root did not expose Stack Details through the tappable summary header.');
     if (initialState.primaryActions.length !== 1) findings.push('Mobile Advanced Loredecks root did not render exactly one dominant primary action.');
-    if (!initialState.primaryActions.some(label => /^Next:/.test(label))) findings.push('Mobile Advanced Loredecks dominant action was not the contextual next action.');
+    if (!initialState.primaryActions.some(label => /^Next:/.test(label) || label === 'Open Loredeck Library')) findings.push('Mobile Advanced Loredecks dominant action did not point at the next contextual mobile flow.');
+    if (initialState.primaryActions.includes('Open Loredeck Library') && initialState.secondaryActions.includes('Open Loredeck Library')) findings.push('Mobile Advanced Loredecks duplicated the Open Loredeck Library action.');
     if (initialState.secondaryActions.length < 2) findings.push('Mobile Advanced Loredecks secondary actions were not available after primary-action reduction.');
     if (!initialState.noHorizontalOverflow) findings.push('Mobile Advanced Loredecks root has horizontal overflow.');
     screenshots.push(await screenshot(client, 'mobile-advanced-harness-01-loredecks-root'));
@@ -3625,10 +3759,11 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
 
     await clickRuntimeRoute(client, 'lore');
     await waitFor(client, sagaActiveTabExpression('lore'), 'Mobile Advanced Lorecards route active', 10000);
-    await waitFor(client, 'document.body.innerText.includes("Lorecard Pipeline")', 'Mobile Advanced Lorecard Pipeline', 10000);
-    const activeSetClicked = await clickButtonMatching(client, { includes: 'Active Set' });
-    if (!activeSetClicked?.clicked) findings.push('Mobile Advanced Active Set stage button was not clickable.');
-    await waitFor(client, 'document.querySelector(".saga-mobile-subview")?.innerText.includes("Active Set") || document.body.innerText.includes("Available Accepted Lorecards")', 'Mobile Advanced Active Set subview', 10000);
+    await waitFor(client, '!!document.querySelector(".saga-mobile-lorecards-subtabs")', 'Mobile Advanced Lorecards secondary sub-tabs', 10000);
+    const activeSetClicked = await clickSelector(client, '.saga-mobile-lorecards-subtab[data-stage="accepted"]').catch(() => false);
+    if (!activeSetClicked) findings.push('Mobile Advanced Approved sub-tab was not clickable.');
+    await waitFor(client, 'document.querySelector(".saga-lorecards-lifecycle-tab")?.dataset?.sagaLoreLifecycleStage === "accepted"', 'Mobile Advanced Approved page active', 10000);
+    await waitFor(client, 'document.body.innerText.includes("Available Accepted Lorecards")', 'Mobile Advanced Approved active set', 10000);
     await wait(500);
     const activeSetState = await evaluate(client, script(() => {
         const text = document.body?.innerText || '';
@@ -3641,8 +3776,9 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
         return {
             hasActiveSet: text.includes('Active Set'),
             hasAvailable: text.includes('Available Accepted Lorecards'),
-            compactPipeline: !!document.querySelector('.saga-lorecard-pipeline-compact'),
-            fullPipelineHeader: !!document.querySelector('.saga-lorecard-pipeline-header'),
+            hasSubtabs: !!document.querySelector('.saga-mobile-lorecards-subtabs'),
+            activeSubtab: document.querySelector('.saga-mobile-lorecards-subtab[aria-selected="true"]')?.getAttribute('data-stage') || '',
+            hasPipelineCard: !!document.querySelector('.saga-lorecard-pipeline'),
             firstObjectVisibleAboveBottomBar: !!firstObjectRect && firstObjectRect.top < bottomBarTop - 8,
             activeItems: activeItems.length,
             availableItems: availableItems.length,
@@ -3653,31 +3789,16 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
     }));
     if (!activeSetState.hasActiveSet || activeSetState.activeItems < 1) findings.push('Mobile Advanced Active Set did not render active Lorecards.');
     if (!activeSetState.hasAvailable || activeSetState.availableItems < 1) findings.push('Mobile Advanced Active Set did not render available Accepted Lorecards.');
-    if (!activeSetState.compactPipeline || activeSetState.fullPipelineHeader) findings.push('Mobile Advanced Active Set did not use the compact lifecycle rail in the stage subview.');
+    if (!activeSetState.hasSubtabs || activeSetState.activeSubtab !== 'accepted' || activeSetState.hasPipelineCard) findings.push('Mobile Advanced Approved page did not use the secondary sub-tab bar or still rendered the mobile pipeline card.');
     if (!activeSetState.firstObjectVisibleAboveBottomBar) findings.push('Mobile Advanced Active Set did not show an active or available Lorecard object in the first viewport.');
     for (const label of ['Inspect', 'Pin', 'Mute', 'Activate']) {
-        if (!activeSetState.labels.includes(label)) findings.push(`Mobile Advanced Active Set missing visible action: ${label}.`);
+        if (activeSetState.labels.includes(label)) findings.push(`Mobile Advanced Active Set still exposed permanent action button: ${label}.`);
     }
     screenshots.push(await screenshot(client, 'mobile-advanced-harness-04-active-set'));
 
-    const pinClicked = await clickButtonInRow(client, '', '.saga-lore-active-set-item:not(.saga-lore-available-set-item)', 'Nami is hiding fear', 'Pin');
-    if (!pinClicked) findings.push('Mobile Advanced Active Set Pin action was not clickable.');
-    await wait(500);
-    const pinState = await evaluate(client, script(() => ({
-        hasUnpin: [...document.querySelectorAll('.saga-lore-active-set-item button')]
-            .some(button => (button.innerText || button.textContent || '').trim() === 'Unpin'),
-    })));
-    if (pinClicked && !pinState.hasUnpin) findings.push('Mobile Advanced Active Set Pin action did not update to Unpin.');
-
-    const activateClicked = await clickButtonInRow(client, '', '.saga-lore-available-set-item', 'Arlong tribute pattern', 'Activate');
-    if (!activateClicked) findings.push('Mobile Advanced Active Set Activate action was not clickable.');
-    await wait(600);
-    const activateState = await evaluate(client, script(() => ({
-        activeItems: document.querySelectorAll('.saga-lore-active-set-item:not(.saga-lore-available-set-item)').length,
-        hasActivatedTitle: [...document.querySelectorAll('.saga-lore-active-set-item:not(.saga-lore-available-set-item)')]
-            .some(item => (item.innerText || '').includes('Arlong tribute pattern')),
-    })));
-    if (activateClicked && (!activateState.hasActivatedTitle || activateState.activeItems < 2)) findings.push('Mobile Advanced Active Set Activate action did not move the available Lorecard into the active lane.');
+    const activeSetInspectClicked = await clickSelector(client, '.saga-lore-active-set-item:not(.saga-lore-available-set-item)').catch(() => false);
+    if (!activeSetInspectClicked) findings.push('Mobile Advanced Active Set item was not tappable for inspection.');
+    await waitFor(client, '!!document.querySelector(".saga-lore-entry-card.saga-lore-entry-expanded")', 'Mobile Advanced Active Set object inspection', 10000).catch(error => findings.push(error.message));
 
     await clickRuntimeRoute(client, 'loredecks');
     await waitFor(client, sagaActiveTabExpression('loredecks'), 'Mobile Advanced Loredecks restored before Library', 10000);
@@ -3703,39 +3824,65 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
         await waitFor(client, '!!document.querySelector(".saga-loredeck-library-overlay")', 'Mobile Advanced Library overlay fallback', 10000);
     }
     await wait(700);
-    const librarySelection = await selectLoredeckInLibraryByPackId(client, 'smoke-arlong-park', 'Smoke Test: Arlong Park');
-    if (!librarySelection.selected) findings.push(`Mobile Advanced Library could not select the seeded Loredeck (${librarySelection.mode || 'unknown'}).`);
+    const librarySelection = await evaluate(client, script(() => {
+        const overlay = document.querySelector('.saga-loredeck-library-overlay');
+        if (!overlay) return { selected: false, mode: 'missing-library' };
+        const card = overlay.querySelector('.saga-loredeck-library-deck-mobile-touch[data-pack-id="smoke-arlong-park"]');
+        if (!card) {
+            return {
+                selected: false,
+                mode: 'target-not-visible',
+                visiblePackIds: [...overlay.querySelectorAll('.saga-loredeck-library-deck-mobile-touch[data-pack-id]')]
+                    .map(element => element.getAttribute?.('data-pack-id') || '')
+                    .filter(Boolean)
+                    .slice(0, 80),
+                text: (overlay.innerText || overlay.textContent || '').slice(0, 800),
+            };
+        }
+        card.scrollIntoView({ block: 'center', inline: 'center' });
+        card.dispatchEvent(new MouseEvent('contextmenu', { bubbles: true, cancelable: true, view: window }));
+        return {
+            selected: true,
+            mode: 'mobile-detail-sheet',
+            packId: card.getAttribute?.('data-pack-id') || 'smoke-arlong-park',
+            text: (card.innerText || card.textContent || '').slice(0, 400),
+        };
+    }), { userGesture: true });
+    if (!librarySelection.selected) findings.push(`Mobile Advanced Library could not open the seeded Loredeck detail sheet (${librarySelection.mode || 'unknown'}).`);
+    await waitFor(client, '!!document.querySelector(".saga-loredeck-library-mobile-detail-sheet")', 'Mobile Advanced Library detail sheet', 10000).catch(error => findings.push(error.message));
     await wait(700);
-    await clickButtonText(client, 'Overview', { root: '.saga-loredeck-library-details', enabledOnly: false }).catch(() => false);
+    await clickButtonText(client, 'Overview', { root: '.saga-loredeck-library-mobile-detail-sheet', enabledOnly: false }).catch(() => false);
     await wait(300);
     const libraryOverviewState = await evaluate(client, script(() => {
         const overlay = document.querySelector('.saga-loredeck-library-overlay');
-        const details = overlay?.querySelector('.saga-loredeck-library-details');
+        const sheet = overlay?.querySelector('.saga-loredeck-library-mobile-detail-sheet');
+        const details = sheet?.querySelector('.saga-loredeck-library-details');
         const overlayLabels = [...overlay?.querySelectorAll('button') || []].map(button => (button.innerText || button.textContent || '').trim()).filter(Boolean);
         const detailLabels = [...details?.querySelectorAll('button') || []].map(button => (button.innerText || button.textContent || '').trim()).filter(Boolean);
         const text = details?.innerText || '';
         return {
             open: !!overlay,
+            sheetOpen: !!sheet,
             hasPackTitle: text.includes('Smoke Test: Arlong Park'),
             hasObjectActions: detailLabels.includes('Open Loredeck')
                 && detailLabels.includes('Open Pack Health Center')
                 && (detailLabels.includes('Edit Metadata') || detailLabels.includes('View Metadata'))
                 && detailLabels.includes('Export'),
-            hasCreateDeck: overlayLabels.includes('Create Deck'),
+            hasClose: overlayLabels.includes('Close'),
             hasDone: overlayLabels.includes('Done'),
+            hasDetailPanel: !!sheet?.querySelector('.saga-loredeck-library-mobile-detail-panel'),
             detailLabels,
             overlayLabels,
         };
     }));
-    const healthTabClicked = await clickButtonText(client, 'Health', { root: '.saga-loredeck-library-details', enabledOnly: false });
+    const healthTabClicked = await clickButtonText(client, 'Health', { root: '.saga-loredeck-library-mobile-detail-sheet', enabledOnly: false });
     if (!healthTabClicked) findings.push('Mobile Advanced Library Health detail tab was not clickable.');
     await wait(400);
     await evaluate(client, script(() => {
-        const body = document.querySelector('.saga-loredeck-library-body');
-        const details = document.querySelector('.saga-loredeck-library-details');
-        if (body && details) {
-            body.scrollTop = Math.max(0, details.offsetTop - body.offsetTop - 8);
-            details.scrollTop = 0;
+        const sheet = document.querySelector('.saga-loredeck-library-mobile-detail-sheet');
+        const details = sheet?.querySelector('.saga-loredeck-library-details');
+        if (sheet && details) {
+            details.scrollIntoView({ block: 'start', inline: 'nearest' });
         } else {
             details?.scrollIntoView({ block: 'start', inline: 'nearest' });
         }
@@ -3744,28 +3891,30 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
     await wait(250);
     const libraryState = await evaluate(client, script(() => {
         const overlay = document.querySelector('.saga-loredeck-library-overlay');
-        const details = overlay?.querySelector('.saga-loredeck-library-details');
+        const sheet = overlay?.querySelector('.saga-loredeck-library-mobile-detail-sheet');
+        const details = sheet?.querySelector('.saga-loredeck-library-details');
         const text = details?.innerText || '';
         const detailLabels = [...details?.querySelectorAll('button') || []].map(button => (button.innerText || button.textContent || '').trim()).filter(Boolean);
         const overlayLabels = [...overlay?.querySelectorAll('button') || []].map(button => (button.innerText || button.textContent || '').trim()).filter(Boolean);
         return {
             open: !!overlay,
+            sheetOpen: !!sheet,
             hasPackTitle: text.includes('Smoke Test: Arlong Park'),
             hasHealthTab: text.includes('Status') && text.includes('Last Scan'),
             hasHealthActions: detailLabels.includes('Open Pack Health Center') && detailLabels.includes('Run Pack Health'),
-            hasCreateDeck: overlayLabels.includes('Create Deck'),
+            hasClose: overlayLabels.includes('Close'),
             hasDone: overlayLabels.includes('Done'),
             detailLabels,
             overlayLabels,
         };
     }));
-    if (!libraryState.open || !libraryState.hasPackTitle) findings.push('Mobile Advanced Library did not render selected Loredeck details.');
-    if (!libraryOverviewState.hasObjectActions) findings.push('Mobile Advanced Library did not render selected object actions.');
+    if (!libraryState.open || !libraryState.sheetOpen || !libraryState.hasPackTitle) findings.push('Mobile Advanced Library did not render selected Loredeck detail sheet.');
+    if (!libraryOverviewState.sheetOpen || !libraryOverviewState.hasObjectActions || !libraryOverviewState.hasDetailPanel) findings.push('Mobile Advanced Library detail sheet did not render selected object actions.');
     if (!libraryState.hasHealthTab || !libraryState.hasHealthActions) findings.push('Mobile Advanced Library did not render Health detail actions.');
-    if (!libraryState.hasCreateDeck || !libraryState.hasDone) findings.push('Mobile Advanced Library did not expose Create Deck and Done actions.');
+    if (!libraryState.hasClose || !libraryState.hasDone) findings.push('Mobile Advanced Library did not expose Close and Done actions.');
     screenshots.push(await screenshot(client, 'mobile-advanced-harness-05-library-actions'));
 
-    const healthClicked = await clickButtonText(client, 'Open Pack Health Center', { root: '.saga-loredeck-library-details' })
+    const healthClicked = await clickButtonText(client, 'Open Pack Health Center', { root: '.saga-loredeck-library-mobile-detail-sheet' })
         || await clickButtonText(client, 'Open Pack Health Center', { root: '.saga-loredeck-library-overlay' });
     if (!healthClicked) findings.push('Mobile Advanced Open Pack Health Center action was not clickable.');
     let healthState = { open: false, hasTitle: false, hasPack: false, hasTabsOrActions: false, hasClose: false };
@@ -3790,6 +3939,10 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
         await clickButtonText(client, 'Close', { root: '.saga-loredeck-health-center-overlay', enabledOnly: false }).catch(() => false);
         await wait(400);
     }
+    await clickButtonText(client, 'Close', { root: '.saga-loredeck-library-mobile-detail-sheet', enabledOnly: false }).catch(() => false);
+    await waitFor(client, '!document.querySelector(".saga-loredeck-library-mobile-detail-backdrop")', 'Mobile Advanced Library detail sheet closed', 10000).catch(error => findings.push(error.message));
+    await clickButtonText(client, 'Done', { root: '.saga-loredeck-library-overlay', enabledOnly: false }).catch(() => false);
+    await waitFor(client, '!document.querySelector(".saga-loredeck-library-overlay")', 'Mobile Advanced Library overlay closed before Creator', 10000).catch(error => findings.push(error.message));
 
     const creatorClicked = await clickButtonText(client, 'Create Deck', { root: '.saga-loredeck-library-overlay' })
         || await clickButtonText(client, 'Create Deck');
@@ -3890,8 +4043,6 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
         settingsState,
         continuityState,
         activeSetState,
-        pinState,
-        activateState,
         libraryClick,
         librarySelection,
         libraryOverviewState,
@@ -3926,6 +4077,19 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
     }
     if (!shellState.noHorizontalOverflow) findings.push('Mobile redesign shell has horizontal overflow on the Loredecks root.');
 
+    const directStackSeed = await evaluate(client, script(() => {
+        const saga = window.__sagaSmokeContext?.chatMetadata?.saga;
+        if (!saga) return { ok: false, reason: 'missing-saga-state' };
+        saga.loredeckStack = [
+            { packId: 'smoke-arlong-park', enabled: true, priority: 100, locked: false, addedAt: Date.now() },
+        ];
+        return {
+            ok: true,
+            stackDeckIds: saga.loredeckStack.map(item => item.packId || item.folderId || ''),
+        };
+    }), { userGesture: true }).catch(error => ({ ok: false, reason: error?.message || String(error) }));
+    if (!directStackSeed?.ok) findings.push(`Mobile redesign could not seed direct mobile Library stack (${directStackSeed?.reason || 'unknown'}).`);
+
     const libraryClick = await clickVisibleButtonText(client, 'Open Loredeck Library', { root: '#saga-lore-panel', includes: true });
     let libraryOpened = false;
     if (libraryClick?.clicked) {
@@ -3958,7 +4122,10 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
             noDesktopColumns: !overlay?.querySelector('.saga-loredeck-library-columns'),
             noInlineDetails: !overlay?.querySelector('.saga-loredeck-library-details'),
             noResizeHandle: !overlay?.querySelector('.saga-loredeck-library-resize-handle'),
-            noDefaultDragHandles: !overlay?.querySelector('.saga-loredeck-library-deck-grip'),
+            noDefaultDragHandles: !overlay?.querySelector('.saga-loredeck-library-deck-grip')
+                && !overlay?.querySelector('.saga-loredeck-library-mobile-list .saga-loredeck-library-folder-grip'),
+            noInlineTitleEdits: !overlay?.querySelector('.saga-loredeck-library-mobile-list .saga-loredeck-library-title-edit-action'),
+            folderRows: overlay?.querySelectorAll('.saga-loredeck-library-folder-mobile-touch[data-folder-id]').length || 0,
             selectedStrip: overlay?.querySelector('.saga-loredeck-library-mobile-selected-strip')?.innerText || '',
             deckCards: cards.length,
             generatedVisible: !!overlay?.querySelector('.saga-loredeck-library-deck-mobile-touch[data-pack-id="smoke-generated-creator-project"]'),
@@ -3967,18 +4134,74 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
     }));
     if (!libraryInitial.open || !libraryInitial.mobileShell || !libraryInitial.mobileBody || !libraryInitial.mobileBrowse) findings.push('Mobile redesign Library did not render the mobile browse surface.');
     if (!libraryInitial.noDesktopColumns || !libraryInitial.noInlineDetails || !libraryInitial.noResizeHandle || !libraryInitial.noDefaultDragHandles) findings.push('Mobile redesign Library default browse still exposed desktop columns/details/resize/drag affordances.');
+    if (!libraryInitial.noInlineTitleEdits) findings.push('Mobile redesign Library default browse still exposed inline title edit affordances.');
     if (!libraryInitial.selectedStrip.includes('active') || libraryInitial.deckCards < 2 || !libraryInitial.generatedVisible) findings.push('Mobile redesign Library did not show active selected strip and multiple tappable deck cards.');
     if (!libraryInitial.noHorizontalOverflow) findings.push('Mobile redesign Library browse has horizontal overflow.');
     screenshots.push(await screenshot(client, `${shotPrefix}-01-library-browse`));
 
-    const tapGenerated = await clickSelector(client, '.saga-loredeck-library-deck-mobile-touch[data-pack-id="smoke-generated-creator-project"]');
-    if (!tapGenerated) findings.push('Mobile redesign Library generated deck card was not tappable.');
-    await waitFor(client, script(() => {
-        const card = document.querySelector('.saga-loredeck-library-deck-mobile-touch[data-pack-id="smoke-generated-creator-project"]');
-        return card?.getAttribute('aria-pressed') === 'true'
-            && card?.querySelector('.saga-loredeck-library-mobile-order-badge')?.textContent?.trim() === '2';
-    }), 'Mobile redesign generated deck selected with order 2', 10000).catch(error => findings.push(error.message));
-    const librarySelected = await evaluate(client, script(() => {
+    const folderDetailClicked = await evaluate(client, script(() => {
+        const row = document.querySelector('.saga-loredeck-library-folder-mobile-touch[data-folder-id]:not([data-folder-id="unfiled"])');
+        if (!row) return false;
+        row.dispatchEvent(new MouseEvent('contextmenu', { bubbles: true, cancelable: true, view: window }));
+        return true;
+    }), { userGesture: true });
+    if (!folderDetailClicked) findings.push('Mobile redesign Library folder row was not available for tap-hold detail.');
+    await waitFor(client, '!!document.querySelector(".saga-loredeck-library-mobile-detail-backdrop")', 'Mobile redesign Library folder detail sheet', 10000).catch(error => findings.push(error.message));
+    const folderDetailState = await evaluate(client, script(() => {
+        const sheet = document.querySelector('.saga-loredeck-library-mobile-detail-sheet');
+        const text = sheet?.innerText || '';
+        return {
+            open: !!sheet,
+            hasFolderTitle: text.includes('Harry Potter') || text.includes('Jujutsu Kaisen') || text.includes('Lord of The Rings'),
+            hasFolderActions: text.includes('New Subfolder') || text.includes('Move Selected Here') || text.includes('Add Folder to Stack'),
+            hasClose: [...sheet?.querySelectorAll('button') || []].some(button => (button.innerText || button.textContent || '').trim() === 'Close'),
+        };
+    }));
+    if (!folderDetailState.open || !folderDetailState.hasFolderTitle || !folderDetailState.hasFolderActions || !folderDetailState.hasClose) findings.push('Mobile redesign Library folder detail sheet did not expose expected folder details/actions.');
+    await clickButtonText(client, 'Close', { root: '.saga-loredeck-library-mobile-detail-sheet', enabledOnly: false });
+    await waitFor(client, '!document.querySelector(".saga-loredeck-library-mobile-detail-backdrop")', 'Mobile redesign Library folder detail sheet closed', 10000).catch(error => findings.push(error.message));
+
+    await expandMobileLibraryFolders(client);
+    const libraryCandidates = await getVisibleMobileLibraryDeckCandidates(client, ['smoke-arlong-park']);
+    let libraryTarget = null;
+    const libraryCandidateAttempts = [];
+    if (!libraryCandidates?.length) findings.push('Mobile redesign Library could not find a visible second Loredeck after expanding folders.');
+    const preferredCandidates = [...(libraryCandidates || [])]
+        .sort((a, b) => {
+            const aPreferred = a.packId === 'smoke-generated-creator-project' ? 0 : 1;
+            const bPreferred = b.packId === 'smoke-generated-creator-project' ? 0 : 1;
+            return aPreferred - bPreferred;
+        });
+    for (const candidate of preferredCandidates.slice(0, 16)) {
+        const selector = `.saga-loredeck-library-deck-mobile-touch[data-pack-id="${candidate.packId}"]`;
+        const tapped = await clickSelector(client, selector).catch(() => false);
+        if (!tapped) continue;
+        await wait(700);
+        const selected = await evaluate(client, script(targetId => {
+            const card = document.querySelector(`.saga-loredeck-library-deck-mobile-touch[data-pack-id="${targetId}"]`);
+            const stack = window.__sagaSmokeContext?.chatMetadata?.saga?.loredeckStack || [];
+            const stackDeckIds = stack.filter(item => item?.packId && item.enabled !== false).map(item => item.packId);
+            const badge = card?.querySelector('.saga-loredeck-library-mobile-order-badge')?.textContent?.trim() || '';
+            const pressed = card?.getAttribute('aria-pressed') || '';
+            return {
+                pressed,
+                badge,
+                stackDeckIds,
+                selected: (pressed === 'true' && badge === '2') || stackDeckIds[1] === targetId,
+                stripText: document.querySelector('.saga-loredeck-library-mobile-selected-strip')?.innerText || '',
+            };
+        }, candidate.packId)).catch(() => false);
+        libraryCandidateAttempts.push({ ...candidate, tapped, ...(selected && typeof selected === 'object' ? selected : { selected: false }) });
+        if (selected?.selected) {
+            libraryTarget = candidate;
+            break;
+        }
+    }
+    if (!libraryTarget?.packId) findings.push('Mobile redesign Library could not select a visible second Loredeck into order 2.');
+    const targetDeckSelector = libraryTarget?.packId
+        ? `.saga-loredeck-library-deck-mobile-touch[data-pack-id="${libraryTarget.packId}"]`
+        : '.saga-loredeck-library-deck-mobile-touch[data-pack-id]';
+    const librarySelected = await evaluate(client, script(targetId => {
         const overlay = document.querySelector('.saga-loredeck-library-overlay');
         const cardFor = id => overlay?.querySelector(`.saga-loredeck-library-deck-mobile-touch[data-pack-id="${id}"]`);
         const badgeFor = id => cardFor(id)?.querySelector('.saga-loredeck-library-mobile-order-badge')?.textContent?.trim() || '';
@@ -3987,43 +4210,46 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
         return {
             stripText: strip?.innerText || '',
             arlongBadge: badgeFor('smoke-arlong-park'),
-            generatedBadge: badgeFor('smoke-generated-creator-project'),
-            ariaPressed: cardFor('smoke-generated-creator-project')?.getAttribute('aria-pressed') || '',
+            targetBadge: badgeFor(targetId),
+            targetPackId: targetId,
+            ariaPressed: cardFor(targetId)?.getAttribute('aria-pressed') || '',
             stackDeckIds: stack.filter(item => item?.packId && item.enabled !== false).map(item => item.packId),
             selectedChips: [...strip?.querySelectorAll('.saga-loredeck-library-mobile-selected-chip') || []].map(node => node.textContent?.trim() || ''),
         };
-    }));
-    if (!librarySelected.stripText.includes('2 active') || librarySelected.arlongBadge !== '1' || librarySelected.generatedBadge !== '2') findings.push('Mobile redesign Library tap order did not render selected strip and order badges.');
-    if (librarySelected.stackDeckIds[0] !== 'smoke-arlong-park' || librarySelected.stackDeckIds[1] !== 'smoke-generated-creator-project') findings.push(`Mobile redesign Library tap order did not update shared stack order (${librarySelected.stackDeckIds.join(', ')}).`);
+    }, libraryTarget?.packId || ''));
+    if (!librarySelected.stripText.includes('2 active') || librarySelected.arlongBadge !== '1' || librarySelected.targetBadge !== '2') findings.push('Mobile redesign Library tap order did not render selected strip and order badges.');
+    if (librarySelected.stackDeckIds[0] !== 'smoke-arlong-park' || librarySelected.stackDeckIds[1] !== libraryTarget?.packId) findings.push(`Mobile redesign Library tap order did not update shared stack order (${librarySelected.stackDeckIds.join(', ')}).`);
 
-    await clickSelector(client, '.saga-loredeck-library-deck-mobile-touch[data-pack-id="smoke-generated-creator-project"]');
-    await waitFor(client, script(() => {
-        const card = document.querySelector('.saga-loredeck-library-deck-mobile-touch[data-pack-id="smoke-generated-creator-project"]');
+    await clickSelector(client, targetDeckSelector).catch(() => false);
+    await waitFor(client, script(targetId => {
+        const card = document.querySelector(`.saga-loredeck-library-deck-mobile-touch[data-pack-id="${targetId}"]`);
         return card?.getAttribute('aria-pressed') === 'false';
-    }), 'Mobile redesign generated deck removed', 10000).catch(error => findings.push(error.message));
-    const libraryRemoved = await evaluate(client, script(() => {
+    }, libraryTarget?.packId || ''), 'Mobile redesign second Loredeck removed', 10000).catch(error => findings.push(error.message));
+    const libraryRemoved = await evaluate(client, script(targetId => {
         const overlay = document.querySelector('.saga-loredeck-library-overlay');
         const cardFor = id => overlay?.querySelector(`.saga-loredeck-library-deck-mobile-touch[data-pack-id="${id}"]`);
         const badgeFor = id => cardFor(id)?.querySelector('.saga-loredeck-library-mobile-order-badge')?.textContent?.trim() || '';
         return {
             stripText: overlay?.querySelector('.saga-loredeck-library-mobile-selected-strip')?.innerText || '',
             arlongBadge: badgeFor('smoke-arlong-park'),
-            generatedBadge: badgeFor('smoke-generated-creator-project'),
+            targetBadge: badgeFor(targetId),
         };
-    }));
-    if (!libraryRemoved.stripText.includes('1 active') || libraryRemoved.arlongBadge !== '1' || libraryRemoved.generatedBadge) findings.push('Mobile redesign Library removal did not renumber remaining active Loredecks.');
+    }, libraryTarget?.packId || ''));
+    if (!libraryRemoved.stripText.includes('1 active') || libraryRemoved.arlongBadge !== '1' || libraryRemoved.targetBadge) findings.push('Mobile redesign Library removal did not renumber remaining active Loredecks.');
 
-    await waitFor(client, '!!document.querySelector(".saga-loredeck-library-deck-mobile-touch[data-pack-id=\\"smoke-generated-creator-project\\"]")', 'Mobile redesign generated deck visible for reselect', 10000).catch(error => findings.push(error.message));
-    const reselectGenerated = await clickSelector(client, '.saga-loredeck-library-deck-mobile-touch[data-pack-id="smoke-generated-creator-project"]').catch(() => false);
-    if (!reselectGenerated) findings.push('Mobile redesign Library generated deck card was not tappable for reselect.');
+    await waitFor(client, script(targetId => !!document.querySelector(`.saga-loredeck-library-deck-mobile-touch[data-pack-id="${targetId}"]`), libraryTarget?.packId || ''), 'Mobile redesign target deck visible for reselect', 10000).catch(error => findings.push(error.message));
+    const reselectTarget = await clickSelector(client, targetDeckSelector).catch(() => false);
+    if (!reselectTarget) findings.push('Mobile redesign Library target deck card was not tappable for reselect.');
     await waitFor(client, 'document.querySelector(".saga-loredeck-library-mobile-selected-strip")?.innerText.includes("2 active")', 'Mobile redesign reselected two decks', 10000).catch(error => findings.push(error.message));
+    await waitFor(client, '!!document.querySelector(".saga-loredeck-library-deck-mobile-touch[data-pack-id=\\"smoke-arlong-park\\"]")', 'Mobile redesign Arlong deck visible after clearing search', 10000).catch(error => findings.push(error.message));
 
     const detailClicked = await evaluate(client, script(() => {
-        const button = document.querySelector('.saga-loredeck-library-deck-mobile-touch[data-pack-id="smoke-arlong-park"] .saga-loredeck-library-mobile-detail-affordance');
-        button?.click();
-        return !!button;
+        const card = document.querySelector('.saga-loredeck-library-deck-mobile-touch[data-pack-id="smoke-arlong-park"]');
+        if (!card) return false;
+        card.dispatchEvent(new MouseEvent('contextmenu', { bubbles: true, cancelable: true, view: window }));
+        return true;
     }), { userGesture: true });
-    if (!detailClicked) findings.push('Mobile redesign Library detail affordance was not visible on the deck card.');
+    if (!detailClicked) findings.push('Mobile redesign Library deck card was not available for tap-hold detail.');
     await waitFor(client, '!!document.querySelector(".saga-loredeck-library-mobile-detail-backdrop")', 'Mobile redesign Library detail sheet', 10000).catch(error => findings.push(error.message));
     const detailState = await evaluate(client, script(() => {
         const sheet = document.querySelector('.saga-loredeck-library-mobile-detail-sheet');
@@ -4068,7 +4294,7 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
             stackDeckIds: stack.filter(item => item?.packId && item.enabled !== false).map(item => item.packId),
         };
     }));
-    if (movedDown && (!reorderMoved.firstTitle.includes('Smoke Generated: Arlong Park') || reorderMoved.stackDeckIds[0] !== 'smoke-generated-creator-project')) findings.push('Mobile redesign Library reorder did not apply to shared active stack order.');
+    if (movedDown && reorderMoved.stackDeckIds[0] !== libraryTarget?.packId) findings.push('Mobile redesign Library reorder did not apply to shared active stack order.');
     screenshots.push(await screenshot(client, `${shotPrefix}-03-library-reorder`));
     await clickButtonText(client, 'Done', { root: '.saga-loredeck-library-mobile-reorder-sheet', enabledOnly: false }).catch(() => false);
     await waitFor(client, '!document.querySelector(".saga-loredeck-library-mobile-reorder-sheet")', 'Mobile redesign Library reorder sheet closed', 10000).catch(error => findings.push(error.message));
@@ -4077,24 +4303,27 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
 
     await clickRuntimeRoute(client, 'lore');
     await waitFor(client, sagaActiveTabExpression('lore'), 'Mobile redesign Lorecards route active', 10000);
-    await waitFor(client, 'document.body.innerText.includes("Lorecard Pipeline")', 'Mobile redesign Lorecard Pipeline', 10000);
+    await waitFor(client, '!!document.querySelector(".saga-mobile-lorecards-subtabs")', 'Mobile redesign Lorecards secondary sub-tabs', 10000);
     const lorecardsRoot = await evaluate(client, script(() => {
         const root = document.querySelector('#saga-lore-panel');
-        const labels = [...document.querySelectorAll('.saga-lorecard-pipeline-stage-label')].map(node => node.textContent?.trim() || '').filter(Boolean);
+        const subtab = document.querySelector('.saga-mobile-lorecards-subtabs');
+        const subtabRect = subtab?.getBoundingClientRect?.();
+        const bottomRect = document.querySelector('.saga-mobile-bottom-bar')?.getBoundingClientRect?.();
+        const labels = [...document.querySelectorAll('.saga-mobile-lorecards-subtab-label')].map(node => node.textContent?.trim() || '').filter(Boolean);
         return {
             labels,
             noHorizontalOverflow: !root || root.scrollWidth <= root.clientWidth + 1,
-            subtitle: document.querySelector('.saga-lorecard-pipeline-header')?.innerText || '',
+            noPipeline: !document.querySelector('.saga-lorecard-pipeline'),
+            activeStage: root?.dataset?.mobileLorecardsStage || '',
+            subtabsAboveBottom: !!subtabRect && !!bottomRect && subtabRect.height > 0 && subtabRect.top < bottomRect.top,
         };
     }));
     if (lorecardsRoot.labels.join('|') !== 'Generation|Pending|Approved') findings.push(`Mobile redesign Lorecards root rendered lifecycle labels ${lorecardsRoot.labels.join(', ')} instead of Generation, Pending, Approved.`);
+    if (!lorecardsRoot.noPipeline) findings.push('Mobile redesign Lorecards root still rendered the page-body Lorecard Pipeline card.');
+    if (!lorecardsRoot.subtabsAboveBottom) findings.push('Mobile redesign Lorecards sub-tabs were not positioned above the main bottom bar.');
     if (!lorecardsRoot.noHorizontalOverflow) findings.push('Mobile redesign Lorecards root has horizontal overflow.');
 
-    const pendingStageClicked = await clickSelector(client, '.saga-lorecard-pipeline-stage[data-stage="pending"]').catch(() => false);
-    const pendingFallback = pendingStageClicked
-        ? { clicked: false }
-        : await clickVisibleButtonText(client, 'Next: Pending', { root: '.saga-lorecard-pipeline', includes: true }).catch(() => ({ clicked: false }));
-    const pendingClicked = pendingStageClicked || pendingFallback?.clicked;
+    const pendingClicked = await clickSelector(client, '.saga-mobile-lorecards-subtab[data-stage="pending"]').catch(() => false);
     if (!pendingClicked) findings.push('Mobile redesign Pending page button was not clickable.');
     await waitFor(client, 'document.querySelector(".saga-lorecards-lifecycle-tab")?.dataset?.sagaLoreLifecycleStage === "pending"', 'Mobile redesign Pending page active', 10000).catch(error => findings.push(error.message));
     await wait(500);
@@ -4115,16 +4344,20 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
         };
     }));
     if (!pendingState.trayOpen || pendingState.selectedCards < 1) findings.push('Mobile redesign Pending page did not select a card and reveal the action tray.');
-    for (const label of ['Accept', 'Reject', 'Edit', 'Clear']) {
+    for (const label of ['Accept', 'Reject', 'Clear']) {
         if (!pendingState.labels.includes(label)) findings.push(`Mobile redesign Pending selected tray missing action: ${label}.`);
     }
+    if (pendingState.labels.includes('Edit')) findings.push('Mobile redesign Pending selected tray still exposed Edit instead of relying on tap-hold details.');
     if (pendingState.permanentActionRows !== 0 || pendingState.hasAcceptAll || pendingState.hasRejectAll) findings.push('Mobile redesign Pending page still exposed permanent row actions or default Accept All/Reject All.');
     screenshots.push(await screenshot(client, `${shotPrefix}-04-lorecards-pending`));
-    await clickButtonText(client, 'Edit', { root: '.saga-pending-mobile-action-tray' }).catch(() => false);
+    await evaluate(client, script(() => {
+        const card = document.querySelector('.saga-pending-review-entry-card-tappable');
+        card?.dispatchEvent(new MouseEvent('contextmenu', { bubbles: true, cancelable: true, view: window }));
+        return !!card;
+    }), { userGesture: true }).catch(() => false);
     await waitFor(client, '!!document.querySelector(".saga-pending-lore-edit-details")', 'Mobile redesign Pending edit details', 10000).catch(error => findings.push(error.message));
 
-    const approvedClicked = await clickSelector(client, '.saga-lorecard-pipeline-stage[data-stage="accepted"]').catch(() => false)
-        || await clickVisibleButtonText(client, 'Approved', { root: '.saga-lorecard-pipeline', includes: true }).then(result => !!result?.clicked).catch(() => false);
+    const approvedClicked = await clickSelector(client, '.saga-mobile-lorecards-subtab[data-stage="accepted"]').catch(() => false);
     if (!approvedClicked) findings.push('Mobile redesign Approved page button was not clickable.');
     await waitFor(client, 'document.querySelector(".saga-lorecards-lifecycle-tab")?.dataset?.sagaLoreLifecycleStage === "accepted"', 'Mobile redesign Approved page active', 10000).catch(error => findings.push(error.message));
     await wait(700);
@@ -4157,7 +4390,7 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
     }));
     if (!approvedState.activeSetVisible || !approvedState.acceptedVisible) findings.push('Mobile redesign Approved page did not include Active Set and Accepted Lorecards management together.');
     if (!approvedState.longCard || !approvedState.wrapsAtLeastTwoLines || approvedState.cardHeight <= approvedState.titleHeight) findings.push(`Mobile redesign Approved long title did not wrap/read cleanly (title height ${approvedState.titleHeight}, line ${approvedState.lineHeight}).`);
-    if (approvedState.detailButtons < 1 || approvedState.defaultActionRows !== 0) findings.push('Mobile redesign Approved cards did not hide default full action rows behind a visible detail affordance.');
+    if (approvedState.detailButtons !== 0 || approvedState.defaultActionRows !== 0) findings.push('Mobile redesign Approved cards still exposed permanent detail buttons or default full action rows.');
     if (!approvedState.noHorizontalOverflow) findings.push('Mobile redesign Approved page has horizontal overflow.');
     screenshots.push(await screenshot(client, `${shotPrefix}-05-lorecards-approved`));
 
@@ -4181,8 +4414,7 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
         return card && !card.classList.contains('saga-lore-entry-active');
     }), 'Mobile redesign Approved card deactivated by second tap', 10000).catch(error => findings.push(error.message));
 
-    const generationClicked = await clickSelector(client, '.saga-lorecard-pipeline-stage[data-stage="suggested"]').catch(() => false)
-        || await clickVisibleButtonText(client, 'Generation', { root: '.saga-lorecard-pipeline', includes: true }).then(result => !!result?.clicked).catch(() => false);
+    const generationClicked = await clickSelector(client, '.saga-mobile-lorecards-subtab[data-stage="suggested"]').catch(() => false);
     if (!generationClicked) findings.push('Mobile redesign Generation page button was not clickable.');
     await waitFor(client, 'document.querySelector(".saga-lorecards-lifecycle-tab")?.dataset?.sagaLoreLifecycleStage === "suggested"', 'Mobile redesign Generation page active', 10000).catch(error => findings.push(error.message));
     const generationState = await evaluate(client, script(() => ({
@@ -4205,7 +4437,10 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
         errors,
         dialogEvents,
         shellState,
+        directStackSeed,
         libraryInitial,
+        folderDetailState,
+        libraryCandidateAttempts: libraryCandidateAttempts.slice(0, 4),
         librarySelected,
         libraryRemoved,
         detailState,

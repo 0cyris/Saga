@@ -83,6 +83,11 @@ Buttons remain valid, but mobile should lean on:
 - Contextual next actions.
 - Progressive disclosure for deep workbench tools.
 
+Inspecting, editing, renaming, or opening object details should come from the
+object itself: tap-hold, selected-object overflow, detail sheet actions, or an
+accessibility fallback. Do not keep permanent per-card `Inspect`, `Edit`,
+`Details`, rename, or `i` controls on normal mobile browse cards.
+
 ### Preserve Product Vocabulary
 
 Do not invent mobile-only names for Saga concepts. Keep `Loredecks`, `Session`,
@@ -211,7 +216,12 @@ Work:
 - Render selected-stage objects immediately after the section header on mobile
   subviews.
 - Ensure `Approved` shows active/available cards in the first viewport.
-- Preserve object-level actions: inspect, activate, mute, pin, and unpin.
+- Preserve object-level actions through tap, tap-hold, chips, selected trays,
+  and detail sheets.
+- Remove permanent mobile `Inspect`, `Edit`, `Details`, and `i` card controls
+  from Pending and Approved lists.
+- Remove mobile active-set `Inspect` rows; the active-set object should open
+  details through tap-hold or selected-object fallback.
 
 Done when:
 
@@ -219,6 +229,8 @@ Done when:
   above the main bottom nav and object cards before the first viewport ends.
 - Pending Review still supports selection and batch action drawer behavior.
 - Accepted Lorecards and active-state filters still work.
+- Details/editing remain reachable without permanent inspect/edit/detail card
+  buttons.
 
 ### Phase 3: Loredecks Root Revision
 
@@ -230,6 +242,11 @@ Work:
 - Promote only the next useful action as the primary text button.
 - Move import/create/details/library secondary actions into compact icon-led
   controls or an action menu.
+- Remove normal-browse Library card `i` details controls and inline title
+  rename/edit buttons; details and rename belong in tap-hold/detail-sheet flows
+  or selected-object overflow.
+- Remove normal-browse folder-row edit buttons and drag handles; folders tap
+  open/closed and tap-hold into folder details or folder actions.
 - Keep walkthrough and tour targets resolvable for the same named actions.
 
 Done when:
@@ -237,6 +254,10 @@ Done when:
 - The first Loredecks mobile viewport presents one dominant action and a clear
   active-stack object summary.
 - Library, Import Deck, Create Deck, and Stack Details remain reachable.
+- Library cards use tap for active order and tap-hold for details without
+  visible card-level edit/detail buttons.
+- Library folder rows open and close by tap, expose details through tap-hold,
+  and do not show inline edit or drag-handle affordances in normal browse.
 - The `390x844` Basic and `430x820` Advanced smoke paths still pass.
 
 ### Phase 4: Shell Polish
@@ -266,6 +287,9 @@ Work:
 
 - Audit Pack Health, Creator, Library details, and Injection screenshots.
 - Reduce top-heavy toolbars where a single primary action is enough.
+- Convert obvious root details buttons such as `Stack Details`, `Session
+  Details`, and `Context Details` into tappable summary objects when the
+  summary object is already visible.
 - Keep deep controls reachable through tabs, menus, or subviews.
 - Do not remove power-user controls from desktop.
 
@@ -291,6 +315,14 @@ The revision is complete when:
 - The selected Lorecards sub-tab owns the visual hierarchy on mobile.
 - `Loredecks` root uses one dominant next action rather than a row of equal
   primary buttons.
+- Mobile normal browse cards do not expose permanent inspect/edit/detail,
+  rename, or `i` controls.
+- Mobile Library folder rows do not expose normal-browse edit buttons or drag
+  handles.
+- Pending and Approved Lorecard details/editing are reached through tap-hold,
+  selected-object overflow, detail sheets, or accessibility fallback.
+- `Stack Details`, `Session Details`, and `Context Details` are represented as
+  object interactions where feasible instead of standalone root detail buttons.
 - `More` index has no redundant header More action.
 - Bottom bar labels remain readable at `360px`, `390px`, and `430px`.
 - Heavy workbenches preserve reachability while reducing first-viewport toolbar

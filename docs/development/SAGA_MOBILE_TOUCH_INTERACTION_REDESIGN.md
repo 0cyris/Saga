@@ -82,7 +82,7 @@ These gestures should be consistent across mobile Saga.
 | --- | --- | --- |
 | Tap object | Primary state change for the current screen | Select Loredeck, select Lorecard, open folder, choose Context row. |
 | Tap selected object | Toggle off or collapse, depending on screen | Removing selected Loredecks must renumber stack order. |
-| Tap-hold object | Inspect, edit, or open object actions | Must not be the only path to critical features. |
+| Tap-hold object | Inspect, edit, or open object actions | Primary path for object details on mobile. |
 | Tap chip | Toggle or filter when the chip represents state | Examples: `Pinned`, `Muted`, `In Stack`, `Health`, `Context`. |
 | Swipe | Optional fast secondary action | Use sparingly; avoid conflicts with vertical scrolling. |
 | Drag | Reorder only in explicit reorder mode | Do not show grab handles unless reorder mode is active. |
@@ -90,6 +90,11 @@ These gestures should be consistent across mobile Saga.
 Accessibility requirement: every tap-hold or gesture-only action must also be
 available through a visible selected-object sheet, overflow control, or keyboard
 reachable action.
+
+Discoverability requirement: the visible fallback must not become a permanent
+`Inspect`, `Edit`, `Details`, `Rename`, or `i` button on every card. Use a
+selected-object tray, long-press sheet, row-level overflow, or accessible
+keyboard action instead.
 
 ## Mobile Information Architecture
 
@@ -168,14 +173,19 @@ Allowed actions:
 - One primary action.
 - Two to three secondary actions.
 - Overflow for rare actions.
+- No inspect/edit/detail actions when the same object already opens details
+  through tap-hold.
 
 Examples:
 
 ```text
-Pending selection: Accept | Reject | Edit | Clear
-Approved Lorecard: Activate | Pin | Mute | Details
+Pending selection: Accept | Reject | Clear | ...
+Approved Lorecard: Active | Pinned | Muted | ...
 Loredeck detail: In Stack | Health | More
 ```
+
+`...` means an overflow or sheet action, not another row of equal text buttons.
+Deep editing and examination live in the detail sheet reached by tap-hold.
 
 ### Detail Sheet
 
@@ -183,11 +193,23 @@ The detail sheet is the replacement for inline desktop details panels.
 
 Required behavior:
 
-- Opens from tap-hold or visible detail affordance.
+- Opens from tap-hold, selected-object overflow, or keyboard/accessibility
+  fallback.
 - Can be collapsed, expanded, or closed.
 - Owns metadata, health, export, duplicate, delete, repair, and edit actions.
 - Does not obscure the list as a permanent inline panel.
 - Uses one scroll owner.
+
+Not allowed in normal card browse mode:
+
+- Per-card `Inspect` buttons.
+- Per-card `Edit` buttons.
+- Per-card `Details` buttons.
+- Per-card `i` buttons.
+- Inline title rename/edit buttons.
+
+Those affordances are valid inside detail sheets, explicit edit modes, desktop
+views, or keyboard/accessibility overflow surfaces.
 
 ### Route Sub-Tab Bar
 
@@ -255,6 +277,8 @@ Visible content:
 Default hidden content:
 
 - Details panel.
+- Per-card detail affordance buttons.
+- Inline title rename/edit buttons.
 - Active stack pane.
 - Transfer pane.
 - Resize handle.
@@ -281,6 +305,9 @@ Default hidden content:
 - Removing a selected Loredeck renumbers the remaining selected Loredecks.
 - Selection should write to the same active stack data used by desktop runtime
   behavior. Do not create a mobile-only stack that can drift from desktop.
+- Tap-hold a Loredeck card opens the detail sheet without changing active order.
+- Normal mobile browse cards must not show `i`, `Details`, `Inspect`, `Edit`,
+  or rename affordance buttons.
 
 ### Selected Strip Behavior
 
@@ -304,7 +331,8 @@ stack pane.
 ### Detail Sheet Behavior
 
 - Tap-hold a Loredeck card to open details.
-- A visible detail affordance is required for discoverability and accessibility.
+- Accessibility fallback comes from selected-object overflow, keyboard action,
+  or the selected strip detail path, not a permanent card-level detail button.
 - Detail sheet shows cover, title, type/source chips, active badge, health,
   description, metadata, and advanced actions.
 - Health opens Pack Health.
@@ -402,12 +430,15 @@ Interaction:
 - Tap selected card again removes it from the selection.
 - Selection reveals bottom action tray.
 - Tap-hold opens detail/edit.
-- Detail/edit is also reachable through selected tray or card affordance.
+- Detail/edit is also reachable through selected tray overflow or
+  accessibility fallback.
+- Do not show permanent per-card `Inspect`, `Edit`, `Details`, or `i` controls
+  in the Pending list.
 
 Action tray:
 
 ```text
-Accept | Reject | Edit | Clear
+Accept | Reject | Clear | ...
 ```
 
 Rules:
@@ -415,6 +446,8 @@ Rules:
 - Batch controls appear only after selection.
 - `Accept All` and `Reject All` should live behind overflow or a deliberate
   batch mode, not as permanent default controls.
+- `Edit` belongs inside the tap-hold detail sheet or selected overflow, not in
+  the default selected tray.
 - Destination notes should be chips or inline metadata, not full-width command
   blocks.
 
@@ -433,6 +466,11 @@ Interaction:
 - Tap-hold opens detail/edit.
 - `Pinned`, `Muted`, `Context`, and `Deck` are compact chips or toggles.
 - Search and filters remain above the object list.
+- Do not show permanent per-card `Inspect`, `Edit`, `Details`, or `i` controls
+  in the Approved list.
+- Do not show `Inspect`, `Pin`, `Mute`, and `Activate` as equal button rows on
+  every active-set card. Active, pinned, and muted state should read as object
+  state or selected-object controls.
 
 Mode options:
 
@@ -470,6 +508,8 @@ Rules:
 - Card height can grow to fit readable title and essential fact text.
 - The card body is the primary inspect/select surface.
 - `Inspect` should not be a permanent top-row button.
+- `Edit`, `Details`, and `i` should not be permanent top-row or corner
+  controls.
 - Tier/relevance should be a compact chip or selector, not a large square
   competing with the title.
 - Action tray belongs below content or in a selected sheet.
@@ -488,8 +528,9 @@ Required sections:
 - Edit controls.
 - Audit/relevance details when available.
 
-Tap-hold opens this sheet, but a visible fallback must be available through the
-selected tray or detail affordance.
+Tap-hold opens this sheet. The visible fallback must be available through the
+selected tray, selected-object overflow, keyboard action, or accessibility
+surface, not a permanent per-card detail button.
 
 ## Applying The Pattern Across Saga
 
@@ -546,6 +587,50 @@ Examples:
 More remains a route index. It should not become a dumping ground for button
 walls. Each More route should follow the same object-first approach where
 possible.
+
+## Button Demotion Inventory
+
+The following mobile-visible controls violate the touch-first model and should
+be demoted during implementation.
+
+### Remove From Normal Mobile Cards
+
+- Loredeck Library card `i` detail affordance: replace with card tap-hold plus
+  selected strip/detail-sheet fallback.
+- Loredeck Library inline title rename/edit affordance: move rename into the
+  Loredeck detail sheet or an explicit edit mode.
+- Loredeck Library folder-row edit affordances and normal-browse drag handles:
+  replace with tap to expand/collapse, tap-hold folder details, and explicit
+  reorder/move flows.
+- Pending Lorecard selected tray `Edit`: move edit into tap-hold detail sheet
+  or selected overflow.
+- Approved Lorecard card `i` detail affordance: replace with card tap-hold plus
+  selected-object fallback.
+- Active Set `Inspect` buttons: the active-set item itself should open details
+  through tap-hold or selected-object overflow.
+
+### Convert Root Detail Buttons Into Interactable Objects
+
+- `Stack Details` on the mobile Loredecks root should become a tappable stack
+  summary object or selected strip interaction.
+- `Session Details` should become a tappable readiness/session summary object.
+- `Context Details` should become a tappable Context summary object.
+
+### Keep As Explicit Commands
+
+These remain valid buttons because they commit state, close a mode, or launch a
+distinct tool:
+
+- `Accept`, `Reject`, and destructive/bulk confirmations.
+- `Clear`, when it clears a current selection and is not duplicated on every
+  object.
+- `Done`, `Close`, and explicit mode exits.
+- `Import`, `Create`, `Delete`, `Duplicate`, `Export`, and Pack Health repair
+  actions when they appear inside a sheet, route, or explicit mode.
+
+Rule of thumb: if the control means "look at this" or "edit this object's
+metadata," make the object itself open the detail sheet. If the control means
+"commit this change," an explicit button is appropriate.
 
 ## State And Data Contracts
 
@@ -664,16 +749,24 @@ Goal: keep advanced Library power without polluting browse mode.
 
 Work:
 
-- Add tap-hold and visible affordance for detail sheet.
+- Add tap-hold detail sheet behavior with selected strip, overflow, keyboard,
+  or accessibility fallback.
 - Move metadata, health, export, duplicate, delete, and editor actions into the
   detail sheet.
+- Remove permanent mobile card-level `i`, `Details`, `Inspect`, `Edit`, and
+  inline rename affordances from normal Library browse.
+- Remove normal-browse folder-row edit buttons and drag handles; folder rows
+  tap open/closed and tap-hold into folder details/actions.
 - Add explicit reorder mode for selected Loredecks.
 - Ensure reorder mode is discoverable and exits cleanly.
 - Preserve desktop Library behavior outside mobile breakpoints.
 
 Done when:
 
-- Tap-hold and visible affordance both open the same detail sheet.
+- Tap-hold opens the detail sheet, and a non-per-card fallback reaches the same
+  sheet for accessibility.
+- Folder details/editing open through tap-hold/detail sheet rather than a
+  visible folder-row edit button.
 - Reorder mode shows handles only while active.
 - Desktop Library still shows stack/details/resize affordances.
 
@@ -719,13 +812,18 @@ Work:
 - Allow at least two title lines.
 - Move actions below content or into selected tray.
 - Convert relevance/tier and pin/mute to compact state controls.
-- Keep tap-hold detail/edit path plus accessible visible fallback.
+- Keep tap-hold detail/edit path plus selected-object or accessibility fallback.
+- Remove permanent mobile card-level `Inspect`, `Edit`, `Details`, and `i`
+  controls from Pending and Approved lists.
+- Remove active-set permanent `Inspect` rows on mobile.
 
 Done when:
 
 - Long titles from the live-device screenshots are readable at phone width.
 - No permanent action row steals the title line.
 - Card height grows cleanly when title text wraps.
+- Pending and Approved cards open details through tap-hold or selected fallback,
+  not permanent inspect/edit buttons.
 
 ### Phase 6: Cross-Route Cleanup
 
@@ -736,12 +834,17 @@ Work:
 - Audit Session, Context, Continuity, Injection, Settings, Creator, and Pack
   Health for permanent button walls.
 - Convert obvious rows/chips into object interactables.
+- Convert `Stack Details`, `Session Details`, and `Context Details` buttons
+  into tappable summary objects where the route root already has the relevant
+  object on screen.
 - Keep advanced controls reachable through sheets, details, or selected modes.
 
 Done when:
 
 - The top-level mobile routes follow the same object-first vocabulary.
 - Advanced features remain reachable without dominating first viewport.
+- Detail navigation is carried by object rows/cards instead of separate
+  `Details` buttons when the object is already visible.
 
 ## Verification Plan
 
@@ -757,6 +860,8 @@ Rendered verification must include:
 - Selected Loredeck order badges after tap sequence.
 - Tap selected Loredeck removal and renumbering.
 - Detail sheet open and close path.
+- No card-level mobile Library `i` detail button or inline title edit affordance
+  in normal browse.
 - Reorder mode handle visibility only while reorder mode is active.
 - Lorecards secondary `Generation | Pending | Approved` sub-tab bar animating
   above the fixed bottom nav.
@@ -765,6 +870,9 @@ Rendered verification must include:
   stage switcher.
 - Pending selection tray.
 - Approved long-title Lorecard wrapping.
+- No permanent mobile Pending/Approved `Inspect`, `Edit`, `Details`, or `i`
+  card controls.
+- No mobile active-set `Inspect` button rows.
 - No horizontal overflow at `360px`, `390px`, and `430px`.
 - Tablet/desktop sanity pass proving desktop Library stack/details behavior
   remains available outside mobile breakpoint.
@@ -785,6 +893,7 @@ The redesign is successful when:
 - Tap order determines active stack order on mobile.
 - Library details open through object detail sheet behavior, not as an inline
   overlaying panel.
+- Normal mobile Library cards do not expose per-card detail or rename buttons.
 - Mobile normal browse mode does not render desktop resize handles.
 - Desktop Library stack, transfer, details, resize, and drag behavior remain
   available outside mobile breakpoints.
@@ -797,6 +906,12 @@ The redesign is successful when:
 - Lorecard titles are readable on phone widths and wrap to at least two lines.
 - Lorecard action trays appear from selection or detail context instead of
   permanently crowding the title row.
+- Pending and Approved Lorecard details/editing open through tap-hold,
+  selected-object overflow, or accessibility fallback, not permanent per-card
+  inspect/edit/detail buttons.
+- Active Set mobile cards do not show permanent `Inspect` rows.
+- `Stack Details`, `Session Details`, and `Context Details` are represented by
+  tappable summary objects instead of standalone root buttons where feasible.
 - Tap-hold paths have visible accessible alternatives.
 - Rendered smoke screenshots show object-first surfaces rather than toolbar rows
   and desktop panes.

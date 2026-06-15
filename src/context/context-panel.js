@@ -183,6 +183,24 @@ function createContextOperatorSummary(state = {}, contextIndex = null, options =
         chips.appendChild(createStatusPill(`${proposals.length} proposal${proposals.length === 1 ? '' : 's'}`, 'Reasoner-backed Context proposals waiting for review.', { tone: proposals.length ? 'review' : 'muted', kind: 'count' }));
     }
     header.appendChild(chips);
+    if (mobileRoot) {
+        header.classList.add('saga-operator-summary-header-tappable');
+        header.tabIndex = 0;
+        header.setAttribute('role', 'button');
+        addTooltip(header, 'Tap to open loaded Loredeck Context rows and resolver diagnostics.');
+        header.setAttribute('aria-label', 'Open Context Details');
+        const openDetails = event => {
+            if (event?.target?.closest?.('button, input, select, textarea, label, a')) return;
+            openContextMobileDetails();
+        };
+        header.addEventListener('click', openDetails);
+        header.addEventListener('keydown', event => {
+            if (event.key !== 'Enter' && event.key !== ' ') return;
+            event.preventDefault();
+            openDetails(event);
+        });
+        markTourTarget(header, 'context.operator.details');
+    }
     card.appendChild(header);
 
     const actions = document.createElement('div');
@@ -212,9 +230,6 @@ function createContextOperatorSummary(state = {}, contextIndex = null, options =
         },
         getContextOperatorActionClass('detect', nextActionId, 'saga-primary-button')
     ), 'context.operator.detect'));
-    if (mobileRoot) {
-        actions.appendChild(createButton('Context Details', 'Open loaded Loredeck Context rows and resolver diagnostics.', openContextMobileDetails));
-    }
     if (!basic || proposals.length) {
         actions.appendChild(markTourTarget(createButton(
             getContextOperatorActionLabel('proposals', proposals.length ? `Review Proposals (${proposals.length})` : 'Review Proposals', nextActionId),

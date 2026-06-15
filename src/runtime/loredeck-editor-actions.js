@@ -75,6 +75,9 @@ Follow the supplied prompt payload exactly:
 - Return choices when multiple plausible fixes exist.
 - Use the contract {"repairs":[],"choices":[],"warnings":[],"clarifyingQuestions":[]}.`;
 
+const FINALIZATION_POST_SAVE_TIMEOUT_MS = 15000;
+const FINALIZATION_RETIREMENT_TIMEOUT_MS = 20000;
+
 export function configureLoredeckEditorActions(deps = {}) {
     editorActionDeps = { ...editorActionDeps, ...(deps || {}) };
 }
@@ -107,6 +110,14 @@ function retireGeneratedLoredeckAfterFinalization(sourcePack, finalizedRecord, c
 function openLoredeckMetadataEditor(packId) { return dep('openLoredeckMetadataEditor')(packId); }
 function isLoredeckLibraryOpen() { return dep('isLoredeckLibraryOpen', () => false)(); }
 function renderLoredeckLibraryOverlay() { return dep('renderLoredeckLibraryOverlay')(); }
+function closeLoredeckCreatorWorkbenchOverlay() {
+    return dep('closeLoredeckCreatorWorkbenchOverlay', () => {
+        if (typeof document !== 'undefined') document.querySelector('.saga-loredeck-creator-workbench-overlay')?.remove();
+    })();
+}
+function getLoredeckFinalizationStepTimeoutMs(label, fallbackMs) {
+    return dep('getLoredeckFinalizationStepTimeoutMs', (_label, fallback) => fallback)(label, fallbackMs);
+}
 function addLoredeckToStack(packId) { return dep('addLoredeckToStack')(packId); }
 function setLoredeckManifestPreviewCacheRecord(packId, record = null) { return dep('setLoredeckManifestPreviewCacheRecord')(packId, record); }
 function deleteLoredeckManifestPreviewCacheRecord(packId) { return dep('deleteLoredeckManifestPreviewCacheRecord')(packId); }
@@ -153,6 +164,62 @@ function beginLoredeckHealthRepairRun(packId = '', label = 'Pack Health repair')
             }
         },
     };
+}
+
+async function runFinalizationStepWithTimeout(label, fallbackMs, task) {
+    const timeoutMs = Math.max(1, Math.floor(Number(getLoredeckFinalizationStepTimeoutMs(label, fallbackMs)) || fallbackMs));
+    let timeoutId = 0;
+    const work = Promise.resolve()
+        .then(task)
+        .then(value => ({ ok: true, value }))
+        .catch(error => ({ ok: false, error: error?.message || String(error || `${label} failed.`), cause: error }));
+    const timeout = new Promise(resolve => {
+        timeoutId = setTimeout(() => {
+            const seconds = Math.ceil(timeoutMs / 1000);
+            resolve({
+                ok: false,
+                timedOut: true,
+                error: `${label} did not finish within ${seconds} second${seconds === 1 ? '' : 's'}.`,
+            });
+        }, timeoutMs);
+    });
+    const result = await Promise.race([work, timeout]);
+    if (timeoutId) clearTimeout(timeoutId);
+    return result;
+}
+
+function warnFinalizationPostStep(message = '') {
+    const text = String(message || '').trim();
+    if (!text) return;
+    console.warn(`[Saga] ${text}`);
+    toast(text, 'warning');
+}
+
+function refreshFinalizedLoredeckUi(record = {}) {
+    const failures = [];
+    const capture = (label, task) => {
+        try {
+            task();
+        } catch (error) {
+            failures.push(`${label}: ${error?.message || error}`);
+            console.warn(`[Saga] ${label} failed after Loredeck finalization:`, error);
+        }
+    };
+    capture('Creator workbench close', () => closeLoredeckCreatorWorkbenchOverlay());
+    capture('Loredeck surface refresh', () => refreshLoredeckSurfaces({ clearCanon: true, clearContext: true, renderLibrary: false }));
+    capture('Metadata editor open', () => openLoredeckMetadataEditor(record.packId));
+    if (isLoredeckLibraryOpen()) {
+        setTimeout(() => {
+            try {
+                renderLoredeckLibraryOverlay();
+            } catch (error) {
+                console.warn('[Saga] Library overlay refresh failed after Loredeck finalization:', error);
+            }
+        }, 0);
+    }
+    if (failures.length) {
+        warnFinalizationPostStep(`${record.title || record.packId || 'Finalized Loredeck'} was created, but the editor view did not refresh cleanly. Reopen the Library if the new deck is not visible.`);
+    }
 }
 
 function showLoredeckHealthRepairRunBlockedToast(block = {}) {
@@ -1033,7 +1100,12 @@ export function buildFinalizedCustomLoredeckRecordFromGenerated(sourcePack = {},
 }
 
 export async function finalizeGeneratedLoredeckAsCustom(pack, button = null) {
-    const restoreBusy = setLoredeckActionButtonBusy(button, 'Finalizing...', { fallbackLabel: 'Finalize as Custom' });
+    let restoreBusy = setLoredeckActionButtonBusy(button, 'Finalizing...', { fallbackLabel: 'Finalize as Custom' });
+    const finishBusy = () => {
+        if (!restoreBusy) return;
+        restoreBusy();
+        restoreBusy = null;
+    };
     try {
         const fresh = getFreshLoredeckLibraryPack(pack.packId, pack);
         if (!isGeneratedLoredeckPack(fresh)) throw new Error('Only Generated Loredecks can be finalized as Custom.');
@@ -1077,21 +1149,33 @@ export async function finalizeGeneratedLoredeckAsCustom(pack, button = null) {
         selectLoredeckForDetails(record.packId, { refresh: false });
         clearCanonLoreDatabaseCache();
         clearContextIndexCache();
-        await validateLoredeckForEditor(record, null, { quiet: true, updateLibrary: true });
-        const retirement = await retireGeneratedLoredeckAfterFinalization(validated, record, creatorJob);
-        if (retirement?.ok === false) {
-            toast(retirement.error || 'Finalized Custom Loredeck was created, but the Creator draft could not be retired.', 'warning');
+        const postSaveValidation = await runFinalizationStepWithTimeout(
+            'Finalized Custom Loredeck validation',
+            FINALIZATION_POST_SAVE_TIMEOUT_MS,
+            () => validateLoredeckForEditor(record, null, { quiet: true, updateLibrary: true })
+        );
+        if (!postSaveValidation.ok) {
+            warnFinalizationPostStep(`Finalized Custom Loredeck was created, but the post-save Pack Health refresh did not finish: ${postSaveValidation.error}`);
         }
-        refreshLoredeckSurfaces({ clearCanon: true, clearContext: true });
-        openLoredeckMetadataEditor(record.packId);
-        if (isLoredeckLibraryOpen()) renderLoredeckLibraryOverlay();
+        const retirement = await runFinalizationStepWithTimeout(
+            'Generated Loredeck retirement',
+            FINALIZATION_RETIREMENT_TIMEOUT_MS,
+            () => retireGeneratedLoredeckAfterFinalization(validated, record, creatorJob)
+        );
+        if (!retirement.ok) {
+            warnFinalizationPostStep(`Finalized Custom Loredeck was created, but the Generated draft cleanup did not finish: ${retirement.error}`);
+        } else if (retirement.value?.ok === false) {
+            warnFinalizationPostStep(retirement.value.error || 'Finalized Custom Loredeck was created, but the Creator draft could not be retired.');
+        }
+        finishBusy();
+        refreshFinalizedLoredeckUi(record);
         toast(`${record.title || record.packId} finalized as a Custom Loredeck.`, 'success');
         return record;
     } catch (e) {
         toast(e?.message || 'Generated Loredeck finalization failed.', 'error');
         return null;
     } finally {
-        restoreBusy();
+        finishBusy();
     }
 }
 
