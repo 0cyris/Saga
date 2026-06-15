@@ -281,17 +281,20 @@ function renderMobileHeader(state, settings = getSettings()) {
 
     const actions = document.createElement('div');
     actions.className = 'saga-mobile-header-actions';
-    const more = createMobileHeaderActionButton(
-        'more',
-        'Open More.',
-        'saga-mobile-header-action saga-mobile-header-more',
-        (event) => {
-            event.stopPropagation();
-            openRuntimeMobileMoreSheet();
-        },
-        settings,
-    );
-    actions.appendChild(more);
+    const showMoreAction = mobile.activeRoute !== 'more' || !!mobile.activeMoreRoute;
+    if (showMoreAction) {
+        const more = createMobileHeaderActionButton(
+            'more',
+            'Open More.',
+            'saga-mobile-header-action saga-mobile-header-more',
+            (event) => {
+                event.stopPropagation();
+                openRuntimeMobileMoreSheet();
+            },
+            settings,
+        );
+        actions.appendChild(more);
+    }
     const close = createMobileHeaderActionButton(
         'close',
         'Close Saga.',

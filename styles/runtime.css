@@ -498,6 +498,31 @@
     min-height: var(--saga-mobile-control-height, 40px);
 }
 
+.saga-runtime-mobile .saga-loredecks-mobile-action-stack {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+}
+
+.saga-loredecks-mobile-primary-actions {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+}
+
+.saga-loredecks-mobile-primary-actions .saga-runtime-button {
+    width: 100%;
+}
+
+.saga-loredecks-mobile-secondary-actions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(112px, 1fr));
+    gap: 6px;
+}
+
+.saga-loredecks-mobile-secondary-action {
+    min-height: var(--saga-mobile-row-action-size, 40px) !important;
+}
+
 @media (max-width: 640px) {
     .saga-operator-summary-card {
         gap: 10px;
@@ -1422,6 +1447,8 @@
 }
 
 .saga-loredeck-creator-card {
+    display: flex;
+    flex-direction: column;
     gap: 10px;
     padding: 0;
     border: 0;
@@ -1948,17 +1975,48 @@
         padding: 8px;
     }
 
+    .saga-loredeck-creator-workbench-body .saga-loredeck-creator-card {
+        gap: 8px;
+    }
+
+    .saga-loredeck-creator-workbench-body .saga-loredeck-creator-form[data-saga-creator-anchor="intake"] {
+        order: -30;
+    }
+
+    .saga-loredeck-creator-workbench-body .saga-loredeck-creator-current-task {
+        order: -20;
+    }
+
+    .saga-loredeck-creator-workbench-body .saga-loredeck-creator-stage-guide {
+        order: -10;
+    }
+
     .saga-loredeck-creator-stage-guide {
         position: relative;
         top: auto;
+        padding: 8px;
     }
 
-    .saga-loredeck-creator-stage-list,
     .saga-loredeck-creator-current-task,
     .saga-loredeck-creator-output-grid,
     .saga-loredeck-creator-side-row,
     .saga-loredeck-creator-queue-row {
         grid-template-columns: minmax(0, 1fr);
+    }
+
+    .saga-loredeck-creator-stage-list {
+        grid-template-columns: none;
+        grid-auto-flow: column;
+        grid-auto-columns: minmax(132px, 42vw);
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x proximity;
+        padding-bottom: 2px;
+        scrollbar-width: thin;
+    }
+
+    .saga-loredeck-creator-stage-item {
+        scroll-snap-align: start;
     }
 
     .saga-loredeck-creator-stage-main,
@@ -1967,21 +2025,38 @@
         min-height: 40px;
     }
 
+    .saga-loredeck-creator-stage-main {
+        grid-template-columns: 26px minmax(0, 1fr);
+        gap: 6px;
+        padding: 6px;
+    }
+
+    .saga-loredeck-creator-stage-number {
+        width: 24px;
+        height: 24px;
+        font-size: 0.72rem;
+    }
+
     .saga-loredeck-creator-stage-resettable .saga-loredeck-creator-stage-main {
-        padding-right: 50px;
+        padding-right: 48px;
     }
 
     .saga-loredeck-creator-stage-reset {
-        top: 6px;
+        top: 50%;
         right: 6px;
         width: 40px;
         height: 40px;
+        transform: translateY(-50%);
         opacity: 1;
     }
 
-    .saga-loredeck-creator-stage-label,
+    .saga-loredeck-creator-stage-label {
+        font-size: 11.5px;
+        white-space: nowrap;
+    }
+
     .saga-loredeck-creator-stage-detail {
-        white-space: normal;
+        display: none;
     }
 
     .saga-loredeck-creator-current-task {

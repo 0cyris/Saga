@@ -312,6 +312,63 @@ function createLoredecksOperatorSummary(state = getState(), canonDb = null, heal
 
     const actions = document.createElement('div');
     actions.className = 'saga-primary-actions saga-operator-summary-actions';
+    if (mobileRoot) {
+        actions.classList.add('saga-loredecks-mobile-action-stack');
+
+        const primaryActions = document.createElement('div');
+        primaryActions.className = 'saga-loredecks-mobile-primary-actions';
+        if (nextActionId === 'library') {
+            primaryActions.appendChild(markTourTarget(createButton(
+                getLoredecksOperatorActionLabel('library', 'Open Loredeck Library', nextActionId),
+                'Open the fullscreen Loredeck Library and active stack manager.',
+                openLoredeckLibraryWithProgress,
+                'saga-primary-button'
+            ), 'loredecks.operator.library'));
+        } else if (nextActionId === 'details') {
+            primaryActions.appendChild(createButton(
+                getLoredecksOperatorActionLabel('details', 'Stack Details', nextActionId),
+                'Open active stack readiness and Creator project details.',
+                openLoredecksMobileDetails,
+                'saga-primary-button'
+            ));
+        } else {
+            primaryActions.appendChild(createButton('Next: Context', 'Open Context to set or review the current story position.', () => {
+                selectRuntimeMobileRoute('context');
+            }, 'saga-primary-button'));
+        }
+        actions.appendChild(primaryActions);
+
+        const secondaryActions = document.createElement('div');
+        secondaryActions.className = 'saga-loredecks-mobile-secondary-actions';
+        if (nextActionId !== 'library') {
+            secondaryActions.appendChild(markTourTarget(createButton(
+                'Open Loredeck Library',
+                'Open the fullscreen Loredeck Library and active stack manager.',
+                openLoredeckLibraryWithProgress,
+                'saga-small-button saga-loredecks-mobile-secondary-action'
+            ), 'loredecks.operator.library'));
+        }
+        secondaryActions.appendChild(markTourTarget(createButton('Import Deck', 'Import a Saga Loredeck zip package into the Library.', () => {
+            installLoredeckBundleFromFile();
+        }, 'saga-small-button saga-loredecks-mobile-secondary-action'), 'loredecks.operator.import'));
+        if (nextActionId !== 'details') {
+            secondaryActions.appendChild(createButton(
+                'Stack Details',
+                'Open active stack readiness and Creator project details.',
+                openLoredecksMobileDetails,
+                'saga-small-button saga-loredecks-mobile-secondary-action'
+            ));
+        }
+        if (!basic) {
+            secondaryActions.appendChild(markTourTarget(createButton('Create Deck', 'Open the staged Loredeck Creator wizard.', () => {
+                openLoredeckCreatorWorkbench();
+            }, 'saga-small-button saga-loredecks-mobile-secondary-action'), 'loredecks.operator.creator'));
+        }
+        actions.appendChild(secondaryActions);
+        card.appendChild(actions);
+        return card;
+    }
+
     actions.appendChild(markTourTarget(createButton(
         getLoredecksOperatorActionLabel('library', 'Open Loredeck Library', nextActionId),
         'Open the fullscreen Loredeck Library and active stack manager.',

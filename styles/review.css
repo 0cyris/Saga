@@ -170,6 +170,10 @@
     margin: 0 !important;
 }
 
+.saga-lorecard-pipeline-compact {
+    gap: 6px;
+}
+
 .saga-lore-active-set-section {
     display: flex;
     flex-direction: column;
@@ -288,6 +292,31 @@
 
 .saga-runtime-mobile .saga-lorecard-pipeline-rail {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.saga-runtime-mobile .saga-lorecard-pipeline-compact {
+    padding: 8px !important;
+}
+
+.saga-runtime-mobile .saga-lorecard-pipeline-compact .saga-lorecard-pipeline-rail {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 4px;
+}
+
+.saga-runtime-mobile .saga-lorecard-pipeline-compact .saga-lorecard-pipeline-stage {
+    min-height: var(--saga-mobile-row-action-size, 40px);
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+.saga-runtime-mobile .saga-lorecard-pipeline-compact .saga-lorecard-pipeline-stage-label {
+    font-size: 0.92em;
+}
+
+.saga-runtime-mobile .saga-lorecard-pipeline-compact .saga-lorecard-pipeline-stage-count {
+    min-width: 20px;
+    padding-left: 4px;
+    padding-right: 4px;
 }
 
 .saga-runtime-mobile .saga-lorecard-pipeline-stage,

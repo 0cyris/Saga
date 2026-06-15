@@ -1423,7 +1423,7 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     text-align: center;
-    font-size: 10px;
+    font-size: 10.5px;
     font-weight: 750;
     line-height: 1.12;
     letter-spacing: 0;
@@ -1584,7 +1584,4 @@
         padding-right: 6px;
     }
 
-    .saga-mobile-bottom-label {
-        font-size: 9px;
-    }
 }

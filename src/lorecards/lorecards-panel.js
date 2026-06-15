@@ -3790,35 +3790,40 @@ function createLorecardPipelineStatusFilter(stage, stats = {}, activeStage = '')
 function createLorecardPipelineSurface(state = getState(), options = {}) {
     const stats = options.stats || getLorecardLifecycleStats(state);
     const activeStage = options.activeStage || getLorecardLifecycleStage(state, stats);
+    const compact = options.compact === true;
     const card = document.createElement('div');
     card.className = 'saga-runtime-card saga-lorecard-pipeline-card saga-lorecard-pipeline';
+    if (compact) card.classList.add('saga-lorecard-pipeline-compact');
     markTourTarget(card, 'lore.pipeline');
 
-    const header = document.createElement('div');
-    header.className = 'saga-lorecard-pipeline-header';
-    const titleWrap = document.createElement('div');
-    titleWrap.className = 'saga-operator-summary-title-wrap';
-    const title = document.createElement('div');
-    title.className = 'saga-runtime-card-title saga-operator-summary-title';
-    title.textContent = 'Lorecard Pipeline';
-    addTooltip(title, 'Mobile lifecycle surface for moving Lorecards from capture through review into Accepted Lorecards and the Active Set.');
-    titleWrap.appendChild(title);
-    const subtitle = document.createElement('div');
-    subtitle.className = 'saga-runtime-help saga-operator-summary-subtitle';
-    subtitle.textContent = 'Capture / Suggest -> Pending Review -> Accepted Lorecards -> Active Set';
-    titleWrap.appendChild(subtitle);
-    header.appendChild(titleWrap);
+    if (!compact) {
+        const header = document.createElement('div');
+        header.className = 'saga-lorecard-pipeline-header';
+        const titleWrap = document.createElement('div');
+        titleWrap.className = 'saga-operator-summary-title-wrap';
+        const title = document.createElement('div');
+        title.className = 'saga-runtime-card-title saga-operator-summary-title';
+        title.textContent = 'Lorecard Pipeline';
+        addTooltip(title, 'Mobile lifecycle surface for moving Lorecards from capture through review into Accepted Lorecards and the Active Set.');
+        titleWrap.appendChild(title);
+        const subtitle = document.createElement('div');
+        subtitle.className = 'saga-runtime-help saga-operator-summary-subtitle';
+        subtitle.textContent = 'Capture / Suggest -> Pending Review -> Accepted Lorecards -> Active Set';
+        titleWrap.appendChild(subtitle);
+        header.appendChild(titleWrap);
 
-    const status = document.createElement('div');
-    status.className = 'saga-loredeck-row-meta saga-lorecard-pipeline-status';
-    for (const stage of LORECARD_LIFECYCLE_STAGES) {
-        status.appendChild(createLorecardPipelineStatusFilter(stage, stats, activeStage));
+        const status = document.createElement('div');
+        status.className = 'saga-loredeck-row-meta saga-lorecard-pipeline-status';
+        for (const stage of LORECARD_LIFECYCLE_STAGES) {
+            status.appendChild(createLorecardPipelineStatusFilter(stage, stats, activeStage));
+        }
+        header.appendChild(status);
+        card.appendChild(header);
     }
-    header.appendChild(status);
-    card.appendChild(header);
 
     const rail = document.createElement('div');
     rail.className = 'saga-lorecard-pipeline-rail';
+    rail.setAttribute('aria-label', compact ? 'Lorecard lifecycle stage navigation' : 'Lorecard lifecycle pipeline');
     for (const stage of LORECARD_LIFECYCLE_STAGES) {
         const meta = LORECARD_LIFECYCLE_STAGE_META[stage];
         const count = getLorecardLifecycleStageCount(stats, stage);
@@ -3828,7 +3833,7 @@ function createLorecardPipelineSurface(state = getState(), options = {}) {
         if (stage === activeStage) btn.classList.add('saga-lorecard-pipeline-stage-active');
         const label = document.createElement('span');
         label.className = 'saga-lorecard-pipeline-stage-label';
-        label.textContent = meta.label;
+        label.textContent = compact ? (meta.shortLabel || meta.label) : meta.label;
         const countEl = document.createElement('span');
         countEl.className = 'saga-lorecard-pipeline-stage-count';
         countEl.textContent = String(count);
@@ -3836,6 +3841,7 @@ function createLorecardPipelineSurface(state = getState(), options = {}) {
         rail.appendChild(btn);
     }
     card.appendChild(rail);
+    if (compact) return card;
 
     const nextStage = getLorecardPipelineNextActionStage(stats);
     const nextMeta = LORECARD_LIFECYCLE_STAGE_META[nextStage] || LORECARD_LIFECYCLE_STAGE_META.suggested;
@@ -4157,10 +4163,10 @@ export function renderLorecardsTab(container, state) {
         'Lorecards',
         basic ? 'Suggest, review, and manage Lorecards with advanced controls hidden.' : 'Suggest canon Lorecards from the local database, generate story-specific Lorecards with the model, review Pending Review entries, and manage Accepted Lorecards.'
     ));
-    container.appendChild(createLorecardPipelineSurface(state, { basic, stats: lifecycleStats, activeStage: lifecycleStage }));
+    container.appendChild(createLorecardPipelineSurface(state, { basic, stats: lifecycleStats, activeStage: lifecycleStage, compact: mobileStageSubview }));
     if (isRuntimeMobileShell() && !mobileSubview) return;
 
-    if (!basic && (!mobileStageSubview || lifecycleStage === 'accepted')) {
+    if (!basic && !mobileStageSubview) {
         const timelineSection = createCollapsibleSection(
             'lore.timeline',
             'Lore Timeline',
@@ -4186,7 +4192,7 @@ export function renderLorecardsTab(container, state) {
         container.appendChild(generationSection);
     }
 
-    if (!basic && (!mobileStageSubview || lifecycleStage === 'accepted')) {
+    if (!basic && !mobileStageSubview) {
         const autoRelevanceSection = createCollapsibleSection(
             'lore.autoRelevance',
             'Auto-Relevance',

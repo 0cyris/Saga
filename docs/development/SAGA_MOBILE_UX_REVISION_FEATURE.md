@@ -157,6 +157,8 @@ Revision target:
   into unreadable labels.
 - Move infrequent controls into overflow menus where that does not hide the
   next expected action.
+- For Creator, prioritize the `Current Task` card above the stage roadmap on
+  phones, then downgrade the roadmap to a compact horizontal rail.
 
 ## Feature Scope
 
@@ -250,6 +252,9 @@ Done when:
 
 - Saved mobile screenshots show the main task area above the fold for each
   heavy workbench where feasible.
+- The Creator mobile screenshot shows `Current Task` before the stage roadmap,
+  and the roadmap renders as a compact horizontal rail rather than eight
+  stacked stage cards.
 - The tablet desktop-shell sanity check still passes at `768x1024`.
 
 ## Acceptance Criteria
@@ -267,6 +272,8 @@ The revision is complete when:
 - Bottom bar labels remain readable at `360px`, `390px`, and `430px`.
 - Heavy workbenches preserve reachability while reducing first-viewport toolbar
   density.
+- Creator mobile opens with the current task before the stage roadmap, while
+  keeping stage navigation reachable as a compact rail.
 - The visual direction still reads as SAGA Archive and Saga Hero: hybrid
   mythic-tech, not fandom-specific fantasy, generic sci-fi, generic SaaS, or
   pure cyberpunk.
@@ -330,4 +337,3 @@ node tools\scripts\smoke-live-st-cdp.mjs
 - Full redesign of every Advanced workflow.
 - Native mobile app behavior.
 - Fandom-specific visual skinning.
-

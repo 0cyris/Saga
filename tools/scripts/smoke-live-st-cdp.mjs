@@ -94,6 +94,114 @@ function httpJson(url) {
     });
 }
 
+async function fetchTextWithTimeout(url, options = {}) {
+    if (typeof fetch !== 'function') throw new Error('Fetch is not available in this Node runtime.');
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), Math.max(1000, Number(options.timeoutMs) || 10000));
+    try {
+        const response = await fetch(url, {
+            method: options.method || 'GET',
+            headers: options.headers || {},
+            body: options.body,
+            signal: controller.signal,
+        });
+        const text = await response.text();
+        return {
+            ok: response.ok,
+            status: response.status,
+            text,
+        };
+    } finally {
+        clearTimeout(timeout);
+    }
+}
+
+function userFileUrl(smokeUrl, userPath = '') {
+    return new URL(String(userPath || '').replace(/^\/+/, '/'), smokeUrl).toString();
+}
+
+async function readLiveUserJson(smokeUrl, userPath = '', options = {}) {
+    const result = await fetchTextWithTimeout(userFileUrl(smokeUrl, userPath), {
+        headers: options.headers || {},
+        timeoutMs: options.timeoutMs || 10000,
+    });
+    if (!result.ok) {
+        return {
+            ok: false,
+            status: result.status,
+            error: `HTTP ${result.status}`,
+        };
+    }
+    try {
+        return {
+            ok: true,
+            status: result.status,
+            value: JSON.parse(result.text),
+            bytes: result.text.length,
+        };
+    } catch (error) {
+        return {
+            ok: false,
+            status: result.status,
+            error: error?.message || String(error),
+            bytes: result.text.length,
+        };
+    }
+}
+
+function mergeLiveJsonHeaders(headers = {}) {
+    return {
+        ...(headers || {}),
+        'Content-Type': headers?.['Content-Type'] || headers?.['content-type'] || 'application/json',
+    };
+}
+
+function base64EncodeUtf8(text = '') {
+    return Buffer.from(String(text || ''), 'utf8').toString('base64');
+}
+
+async function postLiveFilesApiJson(smokeUrl, endpoint = '', body = {}, headers = {}, options = {}) {
+    const result = await fetchTextWithTimeout(new URL(endpoint, smokeUrl).toString(), {
+        method: 'POST',
+        headers: mergeLiveJsonHeaders(headers),
+        body: JSON.stringify(body || {}),
+        timeoutMs: options.timeoutMs || 15000,
+    });
+    if (!result.ok) {
+        return {
+            ok: false,
+            status: result.status,
+            error: result.text.slice(0, 500) || `HTTP ${result.status}`,
+        };
+    }
+    let value = null;
+    if (result.text) {
+        try {
+            value = JSON.parse(result.text);
+        } catch {
+            value = result.text;
+        }
+    }
+    return {
+        ok: true,
+        status: result.status,
+        value,
+    };
+}
+
+async function uploadLiveUserJson(smokeUrl, fileName = '', value = {}, headers = {}) {
+    return postLiveFilesApiJson(smokeUrl, '/api/files/upload', {
+        name: fileName,
+        data: base64EncodeUtf8(`${JSON.stringify(value ?? null, null, 2)}\n`),
+    }, headers);
+}
+
+async function deleteLiveUserFile(smokeUrl, userPath = '', headers = {}) {
+    return postLiveFilesApiJson(smokeUrl, '/api/files/delete', {
+        path: userPath,
+    }, headers);
+}
+
 function sendStatic(res, status, body, contentType = 'text/plain; charset=utf-8') {
     res.writeHead(status, {
         'content-type': contentType,
@@ -1214,6 +1322,18 @@ async function restoreSagaSettings(client, snapshot) {
     }, snapshot));
 }
 
+async function captureSillyTavernRequestHeaders(client) {
+    return await evaluate(client, script(() => {
+        const ctx = window.SillyTavern?.getContext?.();
+        const headers = typeof ctx?.getRequestHeaders === 'function'
+            ? ctx.getRequestHeaders()
+            : { 'Content-Type': 'application/json' };
+        return headers && typeof headers === 'object' && !Array.isArray(headers)
+            ? JSON.parse(JSON.stringify(headers))
+            : { 'Content-Type': 'application/json' };
+    })).catch(() => ({ 'Content-Type': 'application/json' }));
+}
+
 async function clearTransientToasts(client) {
     return await evaluate(client, script(() => {
         for (const node of document.querySelectorAll('#toast-container, .toast')) node.remove();
@@ -2253,6 +2373,122 @@ async function verifyLiveCreatorFinalizedDeck(client, created = {}, screenshots,
     });
 }
 
+function getLiveCreatorSmokeLinkSets(created = {}) {
+    return {
+        generatedPackIds: new Set([...(created.generatedPackIds || [])].map(value => String(value || '').trim()).filter(Boolean)),
+        finalizedPackIds: new Set([...(created.finalizedPackIds || [])].map(value => String(value || '').trim()).filter(Boolean)),
+        jobIds: new Set([...(created.jobIds || [])].map(value => String(value || '').trim()).filter(Boolean)),
+    };
+}
+
+function isLiveCreatorSmokeLinkedPack(packId = '', pack = {}, created = {}) {
+    const links = getLiveCreatorSmokeLinkSets(created);
+    const id = String(pack?.packId || pack?.id || packId || '').trim();
+    const sourceId = String(pack?.source?.originalPackId || pack?.derivedFrom?.packId || '').trim();
+    const creatorJobId = String(pack?.derivedFrom?.creatorJobId || '').trim();
+    if (id && (links.generatedPackIds.has(id) || links.finalizedPackIds.has(id))) return true;
+    if (sourceId && links.generatedPackIds.has(sourceId)) return true;
+    if (creatorJobId && links.jobIds.has(creatorJobId)) return true;
+    return false;
+}
+
+function summarizeLiveCreatorFinalizedPayload(payload = null) {
+    if (!payload || typeof payload !== 'object') return null;
+    const packId = String(payload.packId || payload.id || '').trim();
+    const entries = payload.entryOverrides && typeof payload.entryOverrides === 'object' && !Array.isArray(payload.entryOverrides)
+        ? Object.values(payload.entryOverrides)
+        : [];
+    return {
+        packId,
+        type: payload.type || '',
+        title: payload.title || '',
+        sourceKind: payload.source?.kind || '',
+        originalPackId: payload.source?.originalPackId || payload.derivedFrom?.packId || '',
+        creatorJobId: payload.derivedFrom?.creatorJobId || '',
+        entryCount: entries.length,
+        pendingChangeCount: Array.isArray(payload.pendingChanges) ? payload.pendingChanges.length : 0,
+        disabledEntryCount: Array.isArray(payload.disabledEntryIds) ? payload.disabledEntryIds.length : 0,
+        manifestId: payload.manifestData?.id || '',
+        manifestType: payload.manifestData?.type || '',
+        payloadFile: payload.payloadFile || '',
+        finalizedEntryIds: entries.map(entry => entry?.id || '').filter(Boolean).slice(0, 20),
+        entriesReferenceCustomPack: !!packId && entries.every(entry => String(entry?.source || '').includes(`:${packId}:custom`)),
+        entriesRetiredCreatorMarker: entries.every(entry => !entry?.extensions?.sagaLoredeckCreator),
+        entriesHaveFinalizedFrom: entries.every(entry => !!entry?.extensions?.sagaLoredeckFinalizedFrom?.packId),
+    };
+}
+
+async function findLiveCreatorFinalizedDeckViaFiles(smokeUrl, created = {}, headers = {}) {
+    const libraryRead = await readLiveUserJson(smokeUrl, '/user/files/saga-library-index.v1.json', { headers });
+    if (!libraryRead.ok) {
+        return { ok: false, reason: 'library-index-read-failed', libraryRead };
+    }
+    const packs = libraryRead.value?.packs && typeof libraryRead.value.packs === 'object' && !Array.isArray(libraryRead.value.packs)
+        ? libraryRead.value.packs
+        : {};
+    const matches = Object.entries(packs)
+        .map(([packId, pack]) => ({ packId, pack }))
+        .filter(({ packId, pack }) => String(pack?.type || '').trim() === 'custom' && isLiveCreatorSmokeLinkedPack(packId, pack, created))
+        .sort((a, b) => Number(b.pack?.updatedAt || b.pack?.createdAt || 0) - Number(a.pack?.updatedAt || a.pack?.createdAt || 0));
+    if (!matches.length) {
+        return {
+            ok: false,
+            reason: 'finalized-pack-not-found',
+            libraryRead: { ok: true, bytes: libraryRead.bytes, packCount: Object.keys(packs).length },
+        };
+    }
+    const match = matches[0];
+    const payloadFile = String(match.pack?.payloadFile || `/user/files/saga-pack-${match.packId}.v1.json`).trim();
+    const payloadRead = await readLiveUserJson(smokeUrl, payloadFile, { headers });
+    const payloadSummary = summarizeLiveCreatorFinalizedPayload(payloadRead.ok ? payloadRead.value : null);
+    const sourceGeneratedPackIds = [...getLiveCreatorSmokeLinkSets(created).generatedPackIds];
+    const sourceRetired = sourceGeneratedPackIds.every(sourceId => !packs[sourceId]);
+    const check = {
+        ok: !!(
+            payloadRead.ok
+            && payloadSummary
+            && payloadSummary.type === 'custom'
+            && payloadSummary.entryCount > 0
+            && payloadSummary.pendingChangeCount === 0
+            && payloadSummary.entriesReferenceCustomPack
+            && payloadSummary.entriesRetiredCreatorMarker
+            && payloadSummary.entriesHaveFinalizedFrom
+            && sourceRetired
+        ),
+        finalizedPackId: match.packId,
+        libraryRecord: {
+            packId: match.pack?.packId || match.packId,
+            type: match.pack?.type || '',
+            title: match.pack?.title || '',
+            payloadFile,
+            originalPackId: match.pack?.source?.originalPackId || match.pack?.derivedFrom?.packId || '',
+            creatorJobId: match.pack?.derivedFrom?.creatorJobId || '',
+            entryCount: match.pack?.entryCount || match.pack?.stats?.entryCount || 0,
+            healthStatus: match.pack?.healthStatus || '',
+            coverageAcknowledged: !!match.pack?.derivedFrom?.creatorCoverage?.acknowledged,
+        },
+        payloadRead: payloadRead.ok ? { ok: true, status: payloadRead.status, bytes: payloadRead.bytes } : payloadRead,
+        payloadSummary,
+        sourceGeneratedPackIds,
+        sourceRetired,
+    };
+    return { ok: check.ok, finalizedPackId: match.packId, check };
+}
+
+async function waitForLiveCreatorFinalizedDeckViaFiles(smokeUrl, created = {}, headers = {}, timeoutMs = 90000) {
+    const deadline = Date.now() + Math.max(1000, Number(timeoutMs) || 90000);
+    let last = null;
+    while (Date.now() < deadline) {
+        last = await findLiveCreatorFinalizedDeckViaFiles(smokeUrl, created, headers).catch(error => ({
+            ok: false,
+            reason: error?.message || String(error),
+        }));
+        if (last?.ok) return last;
+        await wait(1000);
+    }
+    return { ok: false, reason: 'timeout', last };
+}
+
 async function deleteLiveCreatorPackById(client, packId = '') {
     const id = String(packId || '').trim();
     if (!id) return { ok: false, packId: id, reason: 'missing-pack-id' };
@@ -2307,6 +2543,108 @@ async function deleteLiveCreatorPackById(client, packId = '') {
         return !packs[packIdToDelete] && !visible;
     }, id), `cleanup pack ${id} removed`, 15000);
     return { ok: true, packId: id };
+}
+
+async function cleanupLiveCreatorArtifactsViaFilesApi(smokeUrl, created = {}, headers = {}) {
+    const libraryRead = await readLiveUserJson(smokeUrl, '/user/files/saga-library-index.v1.json', { headers });
+    const storageRead = await readLiveUserJson(smokeUrl, '/user/files/saga-storage-index.v1.json', { headers });
+    const deleted = [];
+    const failed = [];
+    const removedPackIds = [];
+    const removedStoragePaths = [];
+    const payloadFiles = new Set();
+    if (!libraryRead.ok) {
+        return {
+            ok: false,
+            via: 'files-api',
+            reason: 'library-index-read-failed',
+            libraryRead,
+            storageRead,
+            deleted,
+            failed,
+        };
+    }
+
+    const library = libraryRead.value && typeof libraryRead.value === 'object' && !Array.isArray(libraryRead.value)
+        ? libraryRead.value
+        : {};
+    const packs = library.packs && typeof library.packs === 'object' && !Array.isArray(library.packs)
+        ? library.packs
+        : {};
+    for (const [packId, pack] of Object.entries(packs)) {
+        if (!isLiveCreatorSmokeLinkedPack(packId, pack, created)) continue;
+        removedPackIds.push(packId);
+        const payloadFile = String(pack?.payloadFile || '').trim();
+        if (payloadFile) payloadFiles.add(payloadFile);
+        delete packs[packId];
+    }
+    library.packs = packs;
+    if (Array.isArray(library.activeStack)) {
+        library.activeStack = library.activeStack.filter(item => !removedPackIds.includes(String(item?.packId || item?.deckId || '').trim()));
+    }
+    if (Array.isArray(library.deckPlacements)) {
+        library.deckPlacements = library.deckPlacements.filter(item => !removedPackIds.includes(String(item?.packId || item?.deckId || '').trim()));
+    }
+    if (removedPackIds.length) {
+        library.updatedAt = Date.now();
+        library.revision = Math.max(1, Number(library.revision || 0) + 1);
+        const upload = await uploadLiveUserJson(smokeUrl, 'saga-library-index.v1.json', library, headers);
+        if (!upload.ok) failed.push({ kind: 'library-index-upload', ...upload });
+    }
+
+    for (const file of payloadFiles) {
+        const result = await deleteLiveUserFile(smokeUrl, file, headers).catch(error => ({
+            ok: false,
+            error: error?.message || String(error),
+        }));
+        if (result.ok || result.status === 404) deleted.push(file);
+        else failed.push({ kind: 'payload-delete', path: file, ...result });
+    }
+
+    if (storageRead.ok) {
+        const storage = storageRead.value && typeof storageRead.value === 'object' && !Array.isArray(storageRead.value)
+            ? storageRead.value
+            : {};
+        const files = storage.files && typeof storage.files === 'object' && !Array.isArray(storage.files)
+            ? storage.files
+            : {};
+        for (const [file, record] of Object.entries(files)) {
+            const ownerId = String(record?.ownerId || '').trim();
+            if (payloadFiles.has(file) || removedPackIds.includes(ownerId)) {
+                delete files[file];
+                removedStoragePaths.push(file);
+            }
+        }
+        if (removedStoragePaths.length) {
+            storage.files = files;
+            storage.updatedAt = Date.now();
+            storage.revision = Math.max(1, Number(storage.revision || 0) + 1);
+            const upload = await uploadLiveUserJson(smokeUrl, 'saga-storage-index.v1.json', storage, headers);
+            if (!upload.ok) failed.push({ kind: 'storage-index-upload', ...upload });
+        }
+    }
+
+    const verify = [];
+    for (const file of payloadFiles) {
+        const read = await fetchTextWithTimeout(userFileUrl(smokeUrl, file), { headers, timeoutMs: 10000 }).catch(error => ({
+            ok: false,
+            status: 0,
+            text: error?.message || String(error),
+        }));
+        verify.push({ path: file, status: read.status, deleted: read.status === 404 });
+        if (read.status !== 404) failed.push({ kind: 'payload-still-readable', path: file, status: read.status });
+    }
+
+    return {
+        ok: failed.length === 0,
+        via: 'files-api',
+        removedPackIds,
+        payloadFiles: [...payloadFiles],
+        deleted,
+        removedStoragePaths,
+        failed,
+        verify,
+    };
 }
 
 async function cleanupLiveCreatorArtifacts(client, created = {}, findings = []) {
@@ -2964,6 +3302,8 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
     const initialState = await evaluate(client, script(() => {
         const root = document.querySelector('#saga-lore-panel');
         const text = document.body?.innerText || '';
+        const primaryActions = [...document.querySelectorAll('.saga-loredecks-mobile-primary-actions button')].map(node => (node.innerText || node.textContent || '').trim()).filter(Boolean);
+        const secondaryActions = [...document.querySelectorAll('.saga-loredecks-mobile-secondary-actions button')].map(node => (node.innerText || node.textContent || '').trim()).filter(Boolean);
         return {
             mobileShell: !!root?.classList?.contains('saga-runtime-mobile'),
             activeTab: root?.dataset?.mobileActiveTab || document.querySelector('.saga-runtime-rail-tab-active')?.getAttribute('data-tab-id') || '',
@@ -2972,6 +3312,8 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
             hasOpenLibrary: text.includes('Open Loredeck Library'),
             hasCreateDeck: text.includes('Create Deck'),
             noHorizontalOverflow: !root || root.scrollWidth <= root.clientWidth + 1,
+            primaryActions,
+            secondaryActions,
         };
     }));
     if (!initialState.mobileShell) findings.push('Mobile Advanced harness did not render the mobile shell at 430px.');
@@ -2980,6 +3322,9 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
         if (!initialState.bottomRoutes.includes(route)) findings.push(`Mobile Advanced bottom bar missing route: ${route}.`);
     }
     if (!initialState.hasActiveStack || !initialState.hasOpenLibrary || !initialState.hasCreateDeck) findings.push('Mobile Advanced Loredecks root did not render stack, Library, and Creator actions.');
+    if (initialState.primaryActions.length !== 1) findings.push('Mobile Advanced Loredecks root did not render exactly one dominant primary action.');
+    if (!initialState.primaryActions.some(label => /^Next:/.test(label))) findings.push('Mobile Advanced Loredecks dominant action was not the contextual next action.');
+    if (initialState.secondaryActions.length < 2) findings.push('Mobile Advanced Loredecks secondary actions were not available after primary-action reduction.');
     if (!initialState.noHorizontalOverflow) findings.push('Mobile Advanced Loredecks root has horizontal overflow.');
     screenshots.push(await screenshot(client, 'mobile-advanced-harness-01-loredecks-root'));
 
@@ -2993,6 +3338,7 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
         return {
             open: !!sheet,
             activeTab: root?.dataset?.mobileActiveTab || '',
+            headerMoreActions: document.querySelectorAll('.saga-mobile-header-more').length,
             entries: [...sheet?.querySelectorAll('.saga-mobile-more-entry') || []].map(node => node.getAttribute('data-mobile-more-route') || ''),
             labels: [...sheet?.querySelectorAll('.saga-mobile-more-entry-label') || []].map(node => node.textContent?.trim() || '').filter(Boolean),
             hasDiagnostics: text.includes('Diagnostics'),
@@ -3000,6 +3346,7 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
         };
     }));
     if (!moreState.open) findings.push('Mobile Advanced More sheet did not open from the bottom bar.');
+    if (moreState.headerMoreActions > 0) findings.push('Mobile Advanced More index rendered a redundant header More action.');
     for (const route of ['continuity', 'injection', 'settings']) {
         if (!moreState.entries.includes(route)) findings.push(`Mobile Advanced More sheet missing route entry: ${route}.`);
     }
@@ -3077,9 +3424,15 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
         const activeItems = [...document.querySelectorAll('.saga-lore-active-set-item:not(.saga-lore-available-set-item)')];
         const availableItems = [...document.querySelectorAll('.saga-lore-available-set-item')];
         const labels = [...document.querySelectorAll('.saga-lore-active-set-item button')].map(button => (button.innerText || button.textContent || '').trim()).filter(Boolean);
+        const bottomBarTop = document.querySelector('.saga-mobile-bottom-bar')?.getBoundingClientRect?.().top || window.innerHeight;
+        const firstObject = activeItems[0] || availableItems[0] || null;
+        const firstObjectRect = firstObject?.getBoundingClientRect?.();
         return {
             hasActiveSet: text.includes('Active Set'),
             hasAvailable: text.includes('Available Accepted Lorecards'),
+            compactPipeline: !!document.querySelector('.saga-lorecard-pipeline-compact'),
+            fullPipelineHeader: !!document.querySelector('.saga-lorecard-pipeline-header'),
+            firstObjectVisibleAboveBottomBar: !!firstObjectRect && firstObjectRect.top < bottomBarTop - 8,
             activeItems: activeItems.length,
             availableItems: availableItems.length,
             labels,
@@ -3089,6 +3442,8 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
     }));
     if (!activeSetState.hasActiveSet || activeSetState.activeItems < 1) findings.push('Mobile Advanced Active Set did not render active Lorecards.');
     if (!activeSetState.hasAvailable || activeSetState.availableItems < 1) findings.push('Mobile Advanced Active Set did not render available Accepted Lorecards.');
+    if (!activeSetState.compactPipeline || activeSetState.fullPipelineHeader) findings.push('Mobile Advanced Active Set did not use the compact lifecycle rail in the stage subview.');
+    if (!activeSetState.firstObjectVisibleAboveBottomBar) findings.push('Mobile Advanced Active Set did not show an active or available Lorecard object in the first viewport.');
     for (const label of ['Inspect', 'Pin', 'Mute', 'Activate']) {
         if (!activeSetState.labels.includes(label)) findings.push(`Mobile Advanced Active Set missing visible action: ${label}.`);
     }
@@ -3228,12 +3583,29 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
     const creatorClicked = await clickButtonText(client, 'Create Deck', { root: '.saga-loredeck-library-overlay' })
         || await clickButtonText(client, 'Create Deck');
     if (!creatorClicked) findings.push('Mobile Advanced Create Deck action was not clickable.');
-    let creatorState = { open: false, hasTitle: false, hasReviewQueue: false, hasCurrentTask: false, hasClose: false, labels: [] };
+    let creatorState = {
+        open: false,
+        hasTitle: false,
+        hasReviewQueue: false,
+        hasCurrentTask: false,
+        hasClose: false,
+        currentTaskBeforeStageGuide: false,
+        currentTaskVisibleEarly: false,
+        stageRailHorizontal: false,
+        labels: [],
+    };
     if (creatorClicked) {
         await waitFor(client, '!!document.querySelector(".saga-loredeck-creator-workbench-overlay")', 'Mobile Advanced Creator overlay', 10000);
         await wait(800);
         creatorState = await evaluate(client, script(() => {
             const overlay = document.querySelector('.saga-loredeck-creator-workbench-overlay');
+            const body = overlay?.querySelector('.saga-loredeck-creator-workbench-body');
+            const currentTask = overlay?.querySelector('.saga-loredeck-creator-current-task');
+            const stageGuide = overlay?.querySelector('.saga-loredeck-creator-stage-guide');
+            const stageList = overlay?.querySelector('.saga-loredeck-creator-stage-list');
+            const bodyRect = body?.getBoundingClientRect?.();
+            const currentRect = currentTask?.getBoundingClientRect?.();
+            const stageRect = stageGuide?.getBoundingClientRect?.();
             const text = overlay?.innerText || '';
             const labels = [...overlay?.querySelectorAll('button') || []].map(button => (button.innerText || button.textContent || '').trim()).filter(Boolean);
             return {
@@ -3242,11 +3614,19 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
                 hasReviewQueue: text.includes('Review Queue'),
                 hasCurrentTask: text.includes('Current Task') || text.includes('Plan') || text.includes('Draft'),
                 hasClose: labels.includes('Close'),
+                currentTaskBeforeStageGuide: !!currentRect && !!stageRect && currentRect.top <= stageRect.top,
+                currentTaskVisibleEarly: !!currentRect && !!bodyRect && currentRect.top < bodyRect.top + Math.min(260, bodyRect.height * 0.34),
+                stageRailHorizontal: !!stageList && stageList.scrollWidth > stageList.clientWidth + 2,
+                currentTaskTop: currentRect ? Math.round(currentRect.top) : -1,
+                stageGuideTop: stageRect ? Math.round(stageRect.top) : -1,
+                stageGuideHeight: stageRect ? Math.round(stageRect.height) : -1,
                 labels,
             };
         }));
         if (!creatorState.open || !creatorState.hasTitle || !creatorState.hasReviewQueue || !creatorState.hasCurrentTask) findings.push('Mobile Advanced Creator did not render Review Queue/current-task state.');
         if (!creatorState.hasClose) findings.push('Mobile Advanced Creator did not expose Close.');
+        if (!creatorState.currentTaskBeforeStageGuide || !creatorState.currentTaskVisibleEarly) findings.push('Mobile Advanced Creator did not prioritize the current task before the stage roadmap.');
+        if (!creatorState.stageRailHorizontal) findings.push('Mobile Advanced Creator stage roadmap did not render as a compact horizontal rail.');
         screenshots.push(await screenshot(client, 'mobile-advanced-harness-07-creator-review-queue'));
         await clickButtonText(client, 'Close', { root: '.saga-loredeck-creator-workbench-overlay', enabledOnly: false }).catch(() => false);
         await wait(400);
@@ -4275,6 +4655,7 @@ async function runLiveCreatorSmoke(client, screenshots, findings, smokeUrl, dial
     let cleanupState = null;
     let finalDialogCancelState = null;
     let finalizedVerificationState = null;
+    let requestHeaders = { 'Content-Type': 'application/json' };
     let thrown = null;
 
     try {
@@ -4285,6 +4666,7 @@ async function runLiveCreatorSmoke(client, screenshots, findings, smokeUrl, dial
         }));
         metadataSnapshot = await captureSagaMetadata(client);
         settingsSnapshot = await captureSagaSettings(client);
+        requestHeaders = await captureSillyTavernRequestHeaders(client);
         freshStartState = await clearLiveCreatorActiveProjectPointers(client).catch(error => ({
             ok: false,
             error: error?.message || String(error),
@@ -4389,11 +4771,16 @@ async function runLiveCreatorSmoke(client, screenshots, findings, smokeUrl, dial
             if (!confirmed?.clicked) throw new Error(`Could not confirm Generate Remaining title batches: ${JSON.stringify(redactDiagnosticValue(confirmed))}`);
             await waitForLiveCreatorGenerationState(
                 client,
-                '((state?.job?.titleBatchTotal || 0) > 0 && (state?.job?.titleBatchDraftedCount || 0) >= (state?.job?.titleBatchTotal || 0))',
+                '((state?.job?.titleBatchTotal || 0) > 0 && (state?.job?.titleBatchDraftedCount || 0) >= (state?.job?.titleBatchTotal || 0) && !state?.job?.activeGeneration && !labels.includes("Cancel Generation") && !(state?.visible?.busyButtons || []).length)',
                 state => {
                     const total = state?.job?.titleBatchTotal || 0;
                     const drafted = state?.job?.titleBatchDraftedCount || 0;
-                    return total > 0 && drafted >= total;
+                    const labels = state?.visible?.buttonLabels || [];
+                    return total > 0
+                        && drafted >= total
+                        && !state?.job?.activeGeneration
+                        && !labels.includes('Cancel Generation')
+                        && !(state?.visible?.busyButtons || []).length;
                 },
                 'live Creator remaining Title Batches result',
                 timeout * 2,
@@ -4504,33 +4891,55 @@ async function runLiveCreatorSmoke(client, screenshots, findings, smokeUrl, dial
                 state = await stage('coverage-acknowledged');
             }
             await requireButtonMatching(client, { labels: ['Finalize as Custom Loredeck'] }, 'Finalize as Custom Loredeck', { root: '.saga-loredeck-creator-workbench-overlay' });
-            await waitForLiveCreatorState(
+            const finalizeUiState = await waitForLiveCreatorState(
                 client,
                 '(() => { const state = window.__sagaLiveCreatorSmokeState?.(); return state?.confirmOpen || state?.metadataEditorOpen || (state?.selectedPack?.type === "custom" && (state?.selectedPack?.originalPackId || state?.selectedPack?.creatorJobId)) || (state?.finalizedPacks || []).length > 0; })()',
                 'live Creator finalization confirmation or completion',
-                90000,
-            );
-            state = await collectLiveCreatorState(client);
-            if (state.confirmOpen) {
+                30000,
+            ).then(() => collectLiveCreatorState(client)).catch(error => ({
+                error: error?.message || String(error),
+            }));
+            if (finalizeUiState?.confirmOpen) {
                 confirmed = await confirmLiveCreatorDialog(client);
                 if (!confirmed?.clicked) throw new Error(`Could not confirm finalization warnings: ${JSON.stringify(redactDiagnosticValue(confirmed))}`);
             }
-            await waitForLiveCreatorState(
-                client,
-                '(() => { const state = window.__sagaLiveCreatorSmokeState?.(); return state?.metadataEditorOpen || (state?.selectedPack?.type === "custom" && (state?.selectedPack?.originalPackId || state?.selectedPack?.creatorJobId)) || (state?.finalizedPacks || []).length > 0; })()',
-                'live Creator finalized Custom Loredeck',
-                90000,
-            );
-            state = await stage('finalized-as-custom', '13-finalized');
-            if (!state.selectedPack && !(state.finalizedPacks || []).length) {
-                throw new Error('Live Creator finalization did not leave a detectable Custom Loredeck record.');
+            const finalizedViaFiles = await waitForLiveCreatorFinalizedDeckViaFiles(smokeUrl, snapshotArtifacts(), requestHeaders, 90000);
+            if (finalizedViaFiles?.ok && finalizedViaFiles.finalizedPackId) {
+                created.finalizedPackIds.add(finalizedViaFiles.finalizedPackId);
+                finalizedVerificationState = {
+                    ok: true,
+                    via: 'files',
+                    ...finalizedViaFiles,
+                    finalizeUiState,
+                };
+                const staged = await waitForLiveCreatorState(
+                    client,
+                    '(() => { const state = window.__sagaLiveCreatorSmokeState?.(); return state?.metadataEditorOpen || (state?.selectedPack?.type === "custom" && (state?.selectedPack?.originalPackId || state?.selectedPack?.creatorJobId)) || (state?.finalizedPacks || []).length > 0; })()',
+                    'live Creator finalized Custom Loredeck UI',
+                    5000,
+                ).then(() => stage('finalized-as-custom', '13-finalized')).catch(error => ({
+                    error: error?.message || String(error),
+                }));
+                if (!staged?.error) state = staged;
+                else finalizedVerificationState.uiStage = staged;
+            } else {
+                await waitForLiveCreatorState(
+                    client,
+                    '(() => { const state = window.__sagaLiveCreatorSmokeState?.(); return state?.metadataEditorOpen || (state?.selectedPack?.type === "custom" && (state?.selectedPack?.originalPackId || state?.selectedPack?.creatorJobId)) || (state?.finalizedPacks || []).length > 0; })()',
+                    'live Creator finalized Custom Loredeck',
+                    90000,
+                );
+                state = await stage('finalized-as-custom', '13-finalized');
+                if (!state.selectedPack && !(state.finalizedPacks || []).length) {
+                    throw new Error('Live Creator finalization did not leave a detectable Custom Loredeck record.');
+                }
+                finalizedVerificationState = await verifyLiveCreatorFinalizedDeck(
+                    client,
+                    snapshotArtifacts(),
+                    screenshots,
+                    `${config.screenshotPrefix}-14-finalized-library`,
+                );
             }
-            finalizedVerificationState = await verifyLiveCreatorFinalizedDeck(
-                client,
-                snapshotArtifacts(),
-                screenshots,
-                `${config.screenshotPrefix}-14-finalized-library`,
-            );
             if (!finalizedVerificationState?.ok) {
                 findings.push(`Live Creator finalized Custom deck verification failed: ${finalizedVerificationState?.check?.reason || finalizedVerificationState?.openState?.reason || 'unexpected finalized deck/library/file state'}.`);
             }
@@ -4546,10 +4955,45 @@ async function runLiveCreatorSmoke(client, screenshots, findings, smokeUrl, dial
         const createdSnapshot = snapshotArtifacts();
         finalDialogCancelState = await cancelLiveCreatorDialogIfPresent(client);
         if (config.cleanup) {
-            cleanupState = await cleanupLiveCreatorArtifacts(client, createdSnapshot, findings).catch(error => ({
+            const cleanupFindings = [];
+            const uiCleanup = await cleanupLiveCreatorArtifacts(client, createdSnapshot, cleanupFindings).catch(error => ({
                 ok: false,
                 error: error?.message || String(error),
             }));
+            const needsFileCleanup = !!(
+                createdSnapshot.finalizedPackIds?.length
+                && (!uiCleanup?.deleted?.length || uiCleanup?.failed?.length || uiCleanup?.ok === false)
+            );
+            if (needsFileCleanup) {
+                const fileCleanup = await cleanupLiveCreatorArtifactsViaFilesApi(smokeUrl, createdSnapshot, requestHeaders).catch(error => ({
+                    ok: false,
+                    via: 'files-api',
+                    error: error?.message || String(error),
+                }));
+                cleanupState = {
+                    ui: uiCleanup,
+                    file: fileCleanup,
+                    attempted: [
+                        ...(uiCleanup?.attempted || []),
+                        ...(fileCleanup?.removedPackIds || []).map(packId => ({ ok: fileCleanup.ok, packId, via: 'files-api' })),
+                    ],
+                    deleted: [
+                        ...(uiCleanup?.deleted || []),
+                        ...(fileCleanup?.ok ? (fileCleanup.removedPackIds || []) : []),
+                    ],
+                    failed: fileCleanup?.ok ? (uiCleanup?.failed || []) : [
+                        ...(uiCleanup?.failed || []),
+                        ...(fileCleanup?.failed || []),
+                    ],
+                };
+                if (!fileCleanup?.ok) {
+                    findings.push(...cleanupFindings);
+                    findings.push(`Live Creator files-api cleanup failed: ${fileCleanup?.reason || fileCleanup?.error || 'unknown failure'}.`);
+                }
+            } else {
+                cleanupState = uiCleanup;
+                findings.push(...cleanupFindings);
+            }
         }
         if (settingsSnapshot !== null) {
             restoreSettingsState = await restoreSagaSettings(client, settingsSnapshot).catch(error => ({
