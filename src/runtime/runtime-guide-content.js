@@ -140,14 +140,14 @@ function buildAdvancedGuideSteps() {
         advancedStep('advanced-library-duplicate-custom', 'Duplicate as Custom', 'Duplicate an existing Lorepack as a Custom Lorepack before making user-owned edits.', 'loredecks', 'loredecks.library.transfer', { prepare: 'openLoredeckDetails' }),
         advancedStep('advanced-library-folder-actions', 'Folder Actions', 'Create, rename, move, and remove Library folders without changing pack contents accidentally.', 'loredecks', 'loredecks.library.folderActions', { fallbackTarget: 'loredecks.library.filters', prepare: 'openLoredeckLibrary' }),
         advancedStep('advanced-library-open-workbench', 'Open Workbench Routes', 'Launch deeper Loredeck workbench or editor routes from selected Library records.', 'loredecks', 'loredecks.library.details', { prepare: 'openLoredeckDetails' }),
-        advancedStep('advanced-session-experience-mode', 'Experience Mode', 'Switch Basic and Advanced while keeping saved story state and understanding which controls are hidden.', 'session', 'session.experienceMode'),
+        advancedStep('advanced-session-experience-mode', 'Experience Mode', 'Switch Basic and Advanced while keeping saved story state and understanding which controls are hidden.', 'settings', 'settings.experienceMode'),
         advancedStep('advanced-session-saga-active', 'Saga Active', 'Toggle Saga Active without deleting data or changing saved Lorecards.', 'session', 'session.active'),
         advancedStep('advanced-session-automation-mode', 'Automation Mode', 'Compare Manual, Assisted, and Automatic automation modes before enabling background behavior.', 'session', 'session.automation'),
         advancedStep('advanced-session-runtime-metrics', 'Runtime Metrics', 'Read pending, accepted, selected, continuity, and prompt-size metrics.', 'session', 'session.metrics'),
         advancedStep('advanced-session-guide-modules', 'Guide Modules', 'Use the guide card as a module launcher instead of treating Advanced as one long checklist.', 'session', 'session.instructions.advanced'),
         advancedStep('advanced-session-active-chat', 'Active Chat Target', 'Confirm which chat state Saga is currently reading and updating.', 'session', 'session.metrics'),
         advancedStep('advanced-settings-danger-zone', 'Cleanup Actions', 'Find Active Chat and Global cleanup actions in Settings and understand their risk before using them.', 'settings', 'settings.dangerZone'),
-        advancedStep('advanced-session-mode-recovery', 'Mode Recovery', 'Recover when switching modes hides the previously active tab or control.', 'session', 'session.experienceMode'),
+        advancedStep('advanced-session-mode-recovery', 'Mode Recovery', 'Recover when switching modes hides the previously active tab or control.', 'settings', 'settings.experienceMode'),
         advancedStep('advanced-context-command-center', 'Context Command Center', 'Use Runtime Context as the status and action hub for story position.', 'context', 'context.commandCenter', { expandSections: Object.freeze(['context.commandCenter']) }),
         advancedStep('advanced-context-loaded-rows', 'Loaded Context Rows', 'Inspect per-Loredeck Context rows, source, lock state, and update state.', 'context', 'context.loadedLoredecks', { fallbackTarget: 'context.commandCenter', expandSections: Object.freeze(['context.loadedLoredecks']) }),
         advancedStep('advanced-context-browser-open', 'Open Context Workbench', 'Open the Context Workbench for manual timeline, story-position, alias, resolver, and validation workflows.', 'context', 'context.browser', { fallbackTarget: 'context.commandCenter' }),
@@ -279,7 +279,7 @@ function buildAdvancedGuideSteps() {
         advancedStep('advanced-troubleshoot-package-duplicate', 'Package Duplicate Warning', 'Resolve duplicate package import warnings before installing or updating.', 'loredecks', 'loredecks.library.import', { prepare: 'openLoredeckLibrary' }),
         advancedStep('advanced-troubleshoot-health-warnings', 'Health Warnings', 'Route Pack Health warnings to repair, ignore, duplicate-as-custom, or manual edit paths.', 'loredecks', 'loredecks.health.issues', { prepare: 'openDeckHealthCenter' }),
         advancedStep('advanced-troubleshoot-creator-failure', 'Creator Failure', 'Retry, retry smaller, cancel, or adjust Creator generation settings.', 'loredecks', 'loredecks.creator.currentTask', { fallbackTarget: 'loredecks.creator.workbench', prepare: 'openCreatorProject' }),
-        advancedStep('advanced-troubleshoot-return-basic', 'Return to Basic', 'Switch back to Basic when routine roleplay no longer needs advanced controls.', 'session', 'session.experienceMode'),
+        advancedStep('advanced-troubleshoot-return-basic', 'Return to Basic', 'Switch back to Basic when routine roleplay no longer needs advanced controls.', 'settings', 'settings.experienceMode'),
     ];
 }
 

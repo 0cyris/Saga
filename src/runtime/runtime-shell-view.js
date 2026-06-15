@@ -36,10 +36,8 @@ import {
     normalizeRailMode,
     onRuntimeDrawerResizeStart,
     onRuntimeRailDragStart,
-    openRuntimeMobileMoreSheet,
     resolveDrawerDirection,
     selectRuntimeMobileLorecardsStage,
-    selectRuntimeMobileMoreRoute,
     selectRuntimeMobileRoute,
     updateDrawerScrollMetrics,
 } from './runtime-shell.js';
@@ -47,7 +45,6 @@ import { markTourTarget } from './runtime-tour.js';
 import {
     TAB_ICONS,
     getMobileBottomRoutes,
-    getMobileMoreGroupsForExperience,
     getMobileRouteLabel,
     getMobileRouteTooltip,
     getAutomationLabel,
@@ -194,7 +191,6 @@ function renderMobilePanelShell(root, state, settings = getSettings(), options =
     if (mobile.activeRoute === 'lore' && !options.error) root.classList.add('saga-mobile-lorecards-subtabs-active');
     root.dataset.mobileRoute = mobile.activeRoute;
     root.dataset.mobileActiveTab = activeTab || '';
-    root.dataset.mobileMoreRoute = mobile.activeMoreRoute || '';
     root.dataset.mobileLorecardsStage = mobile.activeRoute === 'lore'
         ? getRuntimeMobileLorecardsStage(panelState, getMobileLorecardsFallbackStage(state), settings)
         : '';
@@ -219,13 +215,9 @@ function renderMobilePanelShell(root, state, settings = getSettings(), options =
 
     if (options.error) {
         renderMobileErrorBody(body, mobile, settings, options.error);
-    } else if (mobile.activeRoute === 'more' && !mobile.activeMoreRoute) {
-        renderMobileMoreSheet(body, settings);
     } else if (activeTab) {
         panelState.activeTab = activeTab;
         dep('renderPanelBody')(body, state);
-    } else {
-        renderMobileMoreSheet(body, settings);
     }
 
     const shellActions = renderMobileShellActionBar(state, settings);
@@ -266,7 +258,7 @@ function renderMobileShellActionBar(state, settings = getSettings()) {
     const panelState = state?.lorePanel || getDefaultState().lorePanel;
     const mobile = normalizeMobilePanelState(panelState, settings);
     const canGoBack = canGoBackRuntimeMobileShell(panelState, settings);
-    if (mobile.activeRoute === 'more' && !mobile.activeMoreRoute) return null;
+    if (mobile.activeRoute === 'loredecks') return null;
     if (!canGoBack) return null;
 
     const bar = document.createElement('div');
@@ -320,17 +312,15 @@ function createMobileShellActionIcon(kind, settings = getSettings()) {
 function renderMobileBottomBar(state, settings = getSettings()) {
     const panelState = state?.lorePanel || getDefaultState().lorePanel;
     const mobile = normalizeMobilePanelState(panelState, settings);
+    const routes = getMobileBottomRoutes(settings);
+    const advanced = normalizeExperienceMode(settings.experienceMode) === 'advanced';
     const bar = document.createElement('nav');
     bar.className = 'saga-mobile-bottom-bar';
+    if (advanced) bar.classList.add('saga-mobile-bottom-bar-icon-only');
     bar.setAttribute('aria-label', 'Saga mobile navigation');
+    bar.style.setProperty('--saga-mobile-bottom-tab-count', String(routes.length));
 
-    for (const route of getMobileBottomRoutes()) {
-        if (route === 'session') {
-            const divider = document.createElement('div');
-            divider.className = 'saga-mobile-bottom-divider';
-            divider.setAttribute('aria-hidden', 'true');
-            bar.appendChild(divider);
-        }
+    for (const route of routes) {
         const label = getMobileRouteLabel(route, settings);
         const tab = document.createElement('button');
         tab.type = 'button';
@@ -356,8 +346,7 @@ function renderMobileBottomBar(state, settings = getSettings()) {
                 hideRuntimeMobileShell();
                 return;
             }
-            if (route === 'more') openRuntimeMobileMoreSheet();
-            else selectRuntimeMobileRoute(route);
+            selectRuntimeMobileRoute(route);
         });
         bar.appendChild(tab);
     }
@@ -376,11 +365,11 @@ function createMobileBottomExitIcon() {
 }
 
 function createMobileRouteIcon(route, settings = getSettings(), className = 'saga-mobile-route-icon') {
-    const iconRoute = route === 'more' ? 'more' : route;
+    const iconRoute = route;
     const label = getMobileRouteLabel(route, settings);
     const icon = document.createElement('span');
     icon.className = className;
-    icon.dataset.fallbackIcon = route === 'more' ? 'M' : (TAB_ICONS[iconRoute] || label.slice(0, 1));
+    icon.dataset.fallbackIcon = TAB_ICONS[iconRoute] || label.slice(0, 1);
     const iconSrc = getTabIconSrc(iconRoute, settings);
     if (iconSrc) {
         const iconImg = document.createElement('img');
@@ -465,92 +454,10 @@ function renderMobileLorecardsSubTabs(state, settings = getSettings()) {
     return nav;
 }
 
-function renderMobileMoreSheet(container, settings = getSettings()) {
-    container.innerHTML = '';
-    const sheet = document.createElement('div');
-    sheet.className = 'saga-mobile-more-sheet';
-    sheet.setAttribute('role', 'menu');
-    sheet.setAttribute('aria-label', 'More Saga routes');
-
-    const modeWrap = document.createElement('div');
-    modeWrap.className = 'saga-mobile-more-mode';
-    const modeLabel = document.createElement('div');
-    modeLabel.className = 'saga-mobile-more-mode-label';
-    modeLabel.textContent = 'Experience Mode';
-    modeWrap.appendChild(modeLabel);
-    modeWrap.appendChild(createExperienceModeSwitch(settings));
-    sheet.appendChild(modeWrap);
-
-    for (const group of getMobileMoreGroupsForExperience(settings)) {
-        const groupEl = document.createElement('section');
-        groupEl.className = 'saga-mobile-more-group';
-        const heading = document.createElement('h3');
-        heading.className = 'saga-mobile-more-group-title';
-        heading.textContent = group.label;
-        groupEl.appendChild(heading);
-
-        const list = document.createElement('div');
-        list.className = 'saga-mobile-more-list';
-        for (const route of group.routes) {
-            const entry = document.createElement('button');
-            entry.type = 'button';
-            entry.className = 'saga-mobile-more-entry';
-            entry.dataset.mobileMoreRoute = route;
-            entry.setAttribute('role', 'menuitem');
-            entry.draggable = false;
-            entry.addEventListener('contextmenu', event => event.preventDefault());
-            addMobileNavigationLabel(entry, getMobileRouteTooltip(route, settings));
-            entry.appendChild(createMobileRouteIcon(route, settings, 'saga-mobile-more-entry-icon'));
-            const text = document.createElement('span');
-            text.className = 'saga-mobile-more-entry-label';
-            text.textContent = getMobileRouteLabel(route, settings);
-            entry.appendChild(text);
-            entry.addEventListener('click', (event) => {
-                event.stopPropagation();
-                hideFloatingTooltip();
-                selectRuntimeMobileMoreRoute(route);
-            });
-            list.appendChild(entry);
-        }
-        groupEl.appendChild(list);
-        sheet.appendChild(groupEl);
-    }
-
-    const shellGroup = document.createElement('section');
-    shellGroup.className = 'saga-mobile-more-group saga-mobile-more-shell-group';
-    const shellHeading = document.createElement('h3');
-    shellHeading.className = 'saga-mobile-more-group-title';
-    shellHeading.textContent = 'Runtime';
-    shellGroup.appendChild(shellHeading);
-    const shellList = document.createElement('div');
-    shellList.className = 'saga-mobile-more-list';
-    const exit = document.createElement('button');
-    exit.type = 'button';
-    exit.className = 'saga-mobile-more-entry saga-mobile-more-exit';
-    exit.setAttribute('role', 'menuitem');
-    exit.draggable = false;
-    exit.addEventListener('contextmenu', event => event.preventDefault());
-    addMobileNavigationLabel(exit, 'Close the Saga runtime window.');
-    exit.appendChild(createMobileShellActionIcon('close', settings));
-    const exitText = document.createElement('span');
-    exitText.className = 'saga-mobile-more-entry-label';
-    exitText.textContent = 'Exit Saga';
-    exit.appendChild(exitText);
-    exit.addEventListener('click', (event) => {
-        event.stopPropagation();
-        hideRuntimeMobileShell();
-    });
-    shellList.appendChild(exit);
-    shellGroup.appendChild(shellList);
-    sheet.appendChild(shellGroup);
-
-    container.appendChild(sheet);
-}
-
 function renderMobileErrorBody(container, mobile, settings, error) {
     container.innerHTML = '';
     const tabBody = document.createElement('div');
-    const activeTab = mobile.activeMoreRoute || mobile.activeRoute || 'session';
+    const activeTab = mobile.activeRoute || 'session';
     tabBody.className = `saga-runtime-tab-body saga-runtime-tab-body-${activeTab}`;
     tabBody.appendChild(dep('createRuntimeRenderErrorCard')(getMobileRouteLabel(activeTab, settings), error));
     container.appendChild(tabBody);
@@ -594,8 +501,6 @@ function renderRail(state) {
     sub.textContent = railMode === 'expanded' ? 'Fandom Loresystem' : '';
     drag.appendChild(sub);
     rail.appendChild(drag);
-    rail.appendChild(createExperienceModeSwitch(settings));
-
     const tabs = document.createElement('div');
     tabs.className = 'saga-runtime-rail-tabs';
     const visibleTabs = getVisibleTabsForExperience(settings);
@@ -684,11 +589,11 @@ function renderRail(state) {
     return rail;
 }
 
-function createExperienceModeSwitch(settings = getSettings()) {
+export function createExperienceModeSwitch(settings = getSettings(), options = {}) {
     const mode = normalizeExperienceMode(settings.experienceMode);
     const control = document.createElement('div');
     control.className = `saga-experience-switch saga-experience-switch-${mode}`;
-    markTourTarget(control, 'session.experienceMode');
+    markTourTarget(control, options.tourTarget || 'settings.experienceMode');
     control.setAttribute('role', 'radiogroup');
     control.setAttribute('aria-label', `Experience Mode: ${getExperienceLabel(settings)}`);
     addTooltip(control, getExperienceTooltip(settings));

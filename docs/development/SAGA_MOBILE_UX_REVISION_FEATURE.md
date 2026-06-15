@@ -3,8 +3,9 @@
 ## Purpose
 
 This feature follows the initial mobile support build. The first pass proved the
-foundation: phone shell, fixed bottom bar, More route, mobile subviews, touch
-targets, SAGA Archive theme, Saga Hero icons, and rendered smoke coverage.
+foundation: phone shell, fixed bottom bar, direct Settings route, mobile
+subviews, touch targets, SAGA Archive theme, Saga Hero icons, and rendered smoke
+coverage.
 
 The revision goal is different. Mobile should now feel less like dense desktop
 panels adapted to a phone and more like a purpose-built operator surface. The
@@ -25,21 +26,22 @@ asks to split the work again.
 
 Already achieved:
 
-- Fixed bottom bar using the desktop tab order:
+- Fixed bottom bar using the Experience Mode route contract:
 
 ```text
-Loredecks | divider | Session | Context | Lorecards | More
+Basic: Loredecks | Session | Context | Lorecards | Settings
+Advanced: Loredecks | Session | Continuity | Context | Lorecards | Injection | Settings
 ```
 
 - Mobile shell class, full-viewport page model, safe-area header, fixed bottom
-  navigation, More sheet, and subview stack primitives.
+  navigation, direct Settings route, and subview stack primitives.
 - SAGA Archive and Saga Hero visual direction: dark archive surfaces, warm gold
   trim, black cherry shell treatment, restrained data accents, and icon-led
   navigation.
 - Mobile Lorecards route labels:
 
 ```text
-Generation | Pending | Approved
+Generation | Automation | Pending | Approved
 ```
 
 Desktop and detail copy can still use precise product language such as
@@ -64,8 +66,9 @@ is trying to act on.
 ### Keep The Foundation
 
 Do not reopen the mobile shell architecture unless a defect proves it necessary.
-The bottom bar order, More route, Saga Hero icon treatment, safe-area behavior,
-and desktop/tablet breakpoint contracts should remain stable.
+The Basic/Advanced bottom bar order, direct Settings route, Saga Hero icon
+treatment, safe-area behavior, and desktop/tablet breakpoint contracts should
+remain stable.
 
 ### Make Mobile Object-First
 
@@ -91,8 +94,9 @@ accessibility fallback. Do not keep permanent per-card `Inspect`, `Edit`,
 ### Preserve Product Vocabulary
 
 Do not invent mobile-only names for Saga concepts. Keep `Loredecks`, `Session`,
-`Context`, `Lorecards`, and `More` for the main routes. For mobile Lorecards,
-use the secondary sub-tabs `Generation`, `Pending`, and `Approved`; use
+`Context`, `Lorecards`, and `Settings` for Basic routes, and keep `Continuity`
+and `Injection` as direct Advanced routes. For mobile Lorecards, use the
+secondary sub-tabs `Generation`, `Automation`, `Pending`, and `Approved`; use
 `Pending Review`, `Accepted Lorecards`, and active-state language only inside
 details, object chips, helper copy, or desktop/advanced contexts where that
 precision matters.
@@ -111,13 +115,14 @@ In the current advanced mobile Lorecards screenshot, the selected active state
 is visible, but the actual active and available Lorecard objects begin below
 the first viewport. The mobile pipeline card is the wrong
 navigation model: it keeps lifecycle switching inside the page body instead of
-making `Generation`, `Pending`, and `Approved` feel like route-level sub-tabs.
+making `Generation`, `Automation`, `Pending`, and `Approved` feel like
+route-level sub-tabs.
 
 Revision target:
 
-- Replace the in-content mobile pipeline with a secondary `Generation | Pending
-  | Approved` sub-tab bar that animates out above the fixed bottom nav when the
-  main `Lorecards` tab is active.
+- Replace the in-content mobile pipeline with a secondary `Generation |
+  Automation | Pending | Approved` sub-tab bar that animates out above the
+  fixed bottom nav when the main `Lorecards` tab is active.
 - Keep counts visible as compact sub-tab badges when useful.
 - Put the selected stage's object list in the first viewport.
 - When `Approved` is selected, active/available Lorecard cards should be visible
@@ -139,18 +144,18 @@ Revision target:
 - Keep `Open Loredeck Library`, `Import Deck`, `Create Deck`, and stack details
   reachable, but avoid making four equal text buttons the first interaction.
 
-### 3. More Route Has Redundant More Controls
+### 3. Settings Must Own Experience Mode
 
-The More sheet currently shows Back, header More, Close, active bottom More, and
-the More route contents. This is not broken, but it feels redundant.
+Experience Mode should not live in a rail, header, or transient mobile menu.
+Because it changes the route set, it belongs at the top of Settings where the
+user can understand that Basic and Advanced change navigation density.
 
 Revision target:
 
-- When the user is on the More index, hide or disable the header More action.
-- When the user is inside a More subroute, let the header More action return to
-  the More index only if that is clearer than Back.
-- Keep Close reachable.
-- Keep the bottom More tab active for orientation.
+- Move Experience Mode to the top of the Settings tab.
+- Keep Settings direct in both Basic and Advanced.
+- Keep Continuity and Injection as direct icon-only Advanced routes.
+- Remove the old mobile overflow-sheet path from the active mobile contract.
 
 ### 4. Bottom Bar Labels Are Functional But Tight
 
@@ -159,12 +164,11 @@ widths, especially on 360px screens.
 
 Revision target:
 
-- Preserve five slots and the divider.
-- Keep every tab name readable at 360px without truncating the core labels.
-- Prefer a modest label-size or active-label emphasis change over increasing the
-  bar height dramatically.
-- Do not remove labels entirely; Saga's concepts are too broad for unlabeled
-  icons in the MVP.
+- Preserve five labeled slots in Basic.
+- Use seven icon-only slots in Advanced: Loredecks, Session, Continuity,
+  Context, Lorecards, Injection, Settings.
+- Keep Basic tab names readable at 360px without truncating the core labels.
+- Keep Advanced icons theme-aware and visually memorable enough for power users.
 
 ### 5. Heavy Workbenches Still Expose Desktop Density
 
@@ -194,7 +198,7 @@ Work:
 - Add static checks for the new mobile revision document.
 - Update visual smoke wording away from Agent 1/2/3 ownership.
 - Add rendered-review checklist items for object-first Approved cards, Loredecks
-  primary-action reduction, More header deduplication, and bottom label
+  primary-action reduction, direct Settings/Advanced routing, and bottom label
   readability.
 
 Done when:
@@ -209,8 +213,8 @@ not a control card.
 
 Work:
 
-- Add the animated secondary `Generation | Pending | Approved` sub-tab bar
-  above the fixed main bottom nav while `Lorecards` is active.
+- Add the animated secondary `Generation | Automation | Pending | Approved`
+  sub-tab bar above the fixed main bottom nav while `Lorecards` is active.
 - Remove the mobile `Lorecard Pipeline` card and any in-content lifecycle
   button row as the primary stage switcher.
 - Render selected-stage objects immediately after the section header on mobile
@@ -266,16 +270,18 @@ Goal: remove small UX frictions without destabilizing the route system.
 
 Work:
 
-- Deduplicate the More header action on the More index.
+- Ensure Settings opens directly and starts with Experience Mode.
+- Ensure Advanced shows the seven direct icon-only routes.
 - Improve bottom label readability at 360px and 390px.
-- Verify header status pills do not crowd route titles on narrow screens.
-- Preserve the bottom bar divider and active route styling.
+- Verify no removed top header/status chrome crowds the first viewport.
+- Preserve active route styling and active-tab `Exit` behavior.
 
 Done when:
 
-- The More screenshot no longer shows a redundant active More action in the
-  header.
-- Bottom labels remain readable in saved renders at 360px and 430px.
+- The Settings screenshot shows Experience Mode before providers and themes.
+- Advanced screenshots show Loredecks, Session, Continuity, Context, Lorecards,
+  Injection, and Settings as icon-only bottom routes.
+- Basic bottom labels remain readable in saved renders at 360px and 430px.
 - No horizontal overflow appears in mobile smoke output.
 
 ### Phase 5: Heavy Workbench Polish
@@ -307,9 +313,9 @@ Done when:
 The revision is complete when:
 
 - Existing mobile MVP acceptance criteria still pass.
-- `Lorecards` exposes `Generation`, `Pending`, and `Approved` through a
-  secondary sub-tab bar above the fixed bottom nav while the main `Lorecards`
-  tab is active.
+- `Lorecards` exposes `Generation`, `Automation`, `Pending`, and `Approved`
+  through a secondary sub-tab bar above the fixed bottom nav while the main
+  `Lorecards` tab is active.
 - `Approved` opens with active or available Lorecard objects in the first
   viewport.
 - The selected Lorecards sub-tab owns the visual hierarchy on mobile.
@@ -323,8 +329,11 @@ The revision is complete when:
   selected-object overflow, detail sheets, or accessibility fallback.
 - `Stack Details`, `Session Details`, and `Context Details` are represented as
   object interactions where feasible instead of standalone root detail buttons.
-- `More` index has no redundant header More action.
-- Bottom bar labels remain readable at `360px`, `390px`, and `430px`.
+- Settings is a direct route in Basic and Advanced, and Experience Mode is the
+  first Settings control.
+- Advanced bottom nav is icon-only and includes Loredecks, Session, Continuity,
+  Context, Lorecards, Injection, and Settings.
+- Basic bottom bar labels remain readable at `360px`, `390px`, and `430px`.
 - Heavy workbenches preserve reachability while reducing first-viewport toolbar
   density.
 - Creator mobile opens with the current task before the stage roadmap, while

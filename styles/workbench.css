@@ -1237,6 +1237,90 @@
         min-height: 40px;
     }
 
+    .saga-mobile-touch-surface,
+    .saga-mobile-touch-surface * {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+
+    .saga-mobile-touch-surface input,
+    .saga-mobile-touch-surface textarea,
+    .saga-mobile-touch-surface select,
+    .saga-mobile-touch-surface [contenteditable="true"] {
+        -webkit-user-select: text;
+        user-select: text;
+    }
+
+    .saga-mobile-lorecard-editor-shell {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .saga-mobile-lorecard-editor-header {
+        flex: 0 0 auto;
+    }
+
+    .saga-mobile-lorecard-editor-body {
+        flex: 1 1 auto;
+        min-height: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .saga-mobile-lorecard-editor-status,
+    .saga-mobile-lorecard-editor-details {
+        flex: 0 0 auto;
+    }
+
+    .saga-mobile-lorecard-editor-shell .saga-lore-entry-editor {
+        flex: 0 0 auto;
+        display: grid;
+        gap: 8px;
+    }
+
+    .saga-mobile-lorecard-editor-shell .saga-new-lore-meta-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .saga-mobile-accepted-filters-shell {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .saga-mobile-accepted-filters-header {
+        flex: 0 0 auto;
+    }
+
+    .saga-mobile-accepted-filters-body {
+        flex: 1 1 auto;
+        min-height: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .saga-mobile-accepted-filter-field {
+        display: grid;
+        gap: 5px;
+        color: var(--saga-text, #f1ead8);
+        font-weight: 750;
+    }
+
+    .saga-mobile-accepted-filter-field > span {
+        color: var(--saga-gold, #d7b56d);
+        font-size: 0.82em;
+    }
+
+    .saga-mobile-accepted-filters-actions {
+        position: sticky;
+        bottom: 0;
+        margin-top: auto;
+        padding-top: 8px;
+        background: linear-gradient(180deg, transparent, rgba(7, 9, 13, 0.96) 24%);
+    }
+
     .saga-context-workbench-main,
     .saga-context-workbench-validation-layout,
     .saga-context-workbench-context-layout {

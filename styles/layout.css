@@ -455,6 +455,26 @@
     font-size: 10px;
 }
 
+.saga-settings-experience-card {
+    display: grid;
+    gap: 8px;
+    justify-items: center;
+    text-align: center;
+}
+
+.saga-settings-experience-card h4 {
+    margin: 0;
+}
+
+.saga-settings-experience-card .saga-runtime-help {
+    max-width: 42rem;
+}
+
+.saga-settings-experience-card .saga-experience-switch {
+    width: min(100%, 300px);
+    min-height: var(--saga-mobile-control-height, 40px);
+}
+
 .saga-runtime-rail-tab,
 .saga-runtime-rail-control {
     background:
@@ -1062,7 +1082,17 @@
     border-radius: 0 !important;
     box-shadow: none !important;
     box-sizing: border-box !important;
-    user-select: text;
+    -webkit-touch-callout: none !important;
+    -webkit-user-select: none !important;
+    user-select: none !important;
+}
+
+.saga-lore-panel.saga-runtime-shell.saga-runtime-mobile input,
+.saga-lore-panel.saga-runtime-shell.saga-runtime-mobile textarea,
+.saga-lore-panel.saga-runtime-shell.saga-runtime-mobile select,
+.saga-lore-panel.saga-runtime-shell.saga-runtime-mobile [contenteditable="true"] {
+    -webkit-user-select: text !important;
+    user-select: text !important;
 }
 
 .saga-runtime-mobile .saga-runtime-rail,
@@ -1575,7 +1605,7 @@
     flex: 0 0 auto;
     min-height: calc(var(--saga-mobile-bottom-bar-height, 72px) + var(--saga-mobile-safe-area-bottom, 0px));
     display: grid;
-    grid-template-columns: minmax(54px, 1fr) 8px repeat(4, minmax(54px, 1fr));
+    grid-template-columns: repeat(var(--saga-mobile-bottom-tab-count, 5), minmax(0, 1fr));
     gap: 4px;
     align-items: stretch;
     padding: 6px 8px calc(6px + var(--saga-mobile-safe-area-bottom, 0px));
@@ -1589,6 +1619,10 @@
     box-sizing: border-box;
     -webkit-touch-callout: none;
     user-select: none;
+}
+
+.saga-mobile-bottom-bar-icon-only {
+    --saga-mobile-bottom-bar-height: 60px;
 }
 
 .saga-mobile-bottom-tab {
@@ -1627,6 +1661,23 @@
     box-shadow:
         0 0 0 1px var(--saga-gold-surface, rgba(215, 181, 109, 0.08)) inset,
         0 0 14px var(--saga-gold-surface, rgba(215, 181, 109, 0.08));
+}
+
+.saga-mobile-bottom-bar-icon-only .saga-mobile-bottom-tab {
+    grid-template-rows: minmax(34px, 1fr);
+    padding: 4px 1px;
+}
+
+.saga-mobile-bottom-bar-icon-only .saga-mobile-bottom-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
 }
 
 .saga-mobile-bottom-divider {
@@ -1862,7 +1913,6 @@
     }
 
     .saga-mobile-bottom-bar {
-        grid-template-columns: minmax(50px, 1fr) 6px repeat(4, minmax(50px, 1fr));
         gap: 3px;
         padding-left: 6px;
         padding-right: 6px;

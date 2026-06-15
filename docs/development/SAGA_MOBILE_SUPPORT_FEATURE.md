@@ -78,7 +78,9 @@ Each primary mobile tab should answer one question:
 | Session | Is Saga ready, and what should I do next? |
 | Context | Where are we in the story? |
 | Lorecards | What facts should affect future responses? |
-| More | What advanced tool do I need? |
+| Settings | Which experience mode, provider, and appearance settings are active? |
+| Continuity | Advanced only: what continuity state needs attention? |
+| Injection | Advanced only: what prompt/injection state needs attention? |
 
 If a mobile screen cannot be summarized by one question, it should be split into subviews.
 
@@ -102,7 +104,7 @@ The full Library, deck details, health diagnostics, import/export, and Creator t
 Use disclosure as the simplification mechanism:
 
 - Basic shows the smallest useful set of choices.
-- Advanced exposes more entries through **More**, overflow menus, and subviews.
+- Advanced exposes more direct bottom-nav routes, overflow menus, and subviews.
 - Both modes keep the same vocabulary and core labels.
 - Deep controls remain reachable, but the first mobile screen should prioritize the next task.
 
@@ -171,7 +173,7 @@ Bottom bar and header icons should use the `Saga Hero` visual direction:
 - Illustrated, emblem-like, and warm gold by default.
 - Active icons may glow or gain a stronger gold edge.
 - Inactive icons should remain readable without becoming full-color distractions.
-- More, utility, and future mobile-only icons should match the `Saga Hero` family instead of falling back to unrelated generic symbols.
+- Settings, utility, and future mobile-only icons should match the `Saga Hero` family instead of falling back to unrelated generic symbols.
 
 The mobile shell should feel like Saga's operator console: half mythic archive artifact, half advanced routing tool. It should not feel like a specific fandom skin.
 
@@ -335,26 +337,34 @@ Gesture interactions can make the flow faster, but every critical action needs a
 
 ### Bottom Bar
 
-Use five fixed slots for the MVP, preserving the desktop tab order where mobile exposes the primary tabs. Add a visual divider after **Loredecks** to separate the deck management entry point from the session/runtime controls.
+Use fixed bottom navigation whose route set is driven by Experience Mode.
+
+Basic uses five labeled slots:
 
 | Slot | Label | Purpose |
 | --- | --- | --- |
 | 1 | Loredecks | Active Stack, Library entry point, deck readiness, Creator entry when available |
-| Divider | Visual separator | Spacing between Loredeck management and the runtime control group |
 | 2 | Session | Current status, Start Checklist, next action, Saga activity state |
 | 3 | Context | Story position, Context selection, resolver status |
 | 4 | Lorecards | Suggested, pending, accepted, manual, and generated Lorecards |
-| 5 | More | Advanced and lower-frequency surfaces |
+| 5 | Settings | Experience Mode, provider setup, Theme Packs, and configuration |
 
-The **More** sheet contains:
+Advanced uses seven icon-only slots:
 
-- Diagnostics: Continuity, Injection
-- Configuration: Settings
-- Guidance: Guide or walkthrough entry points if needed
-- Utilities: Health Center and utility entry points that are not already reached from Loredecks
-- Advanced authoring and repair tools where appropriate
+| Slot | Label | Purpose |
+| --- | --- | --- |
+| 1 | Loredecks | Active Stack, Library entry point, deck readiness, Creator entry when available |
+| 2 | Session | Current status, next action, Saga activity state |
+| 3 | Continuity | Continuity tracking, timeline state, and continuity diagnostics |
+| 4 | Context | Story position, Context selection, resolver status |
+| 5 | Lorecards | Generation, Automation, Pending, and Approved Lorecards |
+| 6 | Injection | Prompt preview, injection state, and compression diagnostics |
+| 7 | Settings | Experience Mode, provider setup, Theme Packs, and configuration |
 
-Do not use seven fixed bottom slots for the MVP. They will be too small on narrow phones. Do not make the primary navigation horizontally scrollable unless a later usability pass proves it necessary; hidden navigation is a poor default for a repeated-use tool.
+Do not make the primary navigation horizontally scrollable unless a later
+usability pass proves it necessary; hidden navigation is a poor default for a
+repeated-use tool. Advanced solves the space issue by using icon-only tabs for
+memorized power-user destinations.
 
 ### Basic And Advanced Modes
 
@@ -363,16 +373,17 @@ Basic and Advanced should share the same mobile shell.
 Basic bottom bar:
 
 ```text
-Loredecks | divider | Session | Context | Lorecards | More
+Loredecks | Session | Context | Lorecards | Settings
 ```
 
 Advanced bottom bar:
 
 ```text
-Loredecks | divider | Session | Context | Lorecards | More
+Loredecks | Session | Continuity | Context | Lorecards | Injection | Settings
 ```
 
-Advanced exposes Continuity, Injection, and advanced Settings through **More**. Basic may hide unavailable advanced entries from **More**, but it should not learn a different navigation vocabulary.
+Experience Mode selection lives at the top of `Settings`. Changing the mode
+updates the bottom-nav route set in place.
 
 ## Shell Specification
 
@@ -388,15 +399,16 @@ Recommended initial contract:
 
 ### Header
 
-The mobile header should be fixed or sticky at the top of Saga's active surface.
+The first mobile pass allowed a compact header. The current design direction is
+to remove the redundant runtime top navbar wherever possible because the bottom
+nav already communicates the active section.
 
-Required header affordances:
+Required shell affordances without a persistent top navbar:
 
-- Active tab or subview title.
-- Back button when inside a subview.
-- Close button when Saga is presented as a dismissible surface.
+- Back action when inside a subview.
+- Exit action by morphing the active bottom tab into `Exit`.
 - Overflow menu for lower-frequency actions.
-- Compact status row only when the status changes the next action.
+- Compact status row only inside page content when it changes the next action.
 
 Example:
 
@@ -408,7 +420,7 @@ Example:
 Header rules:
 
 - Never hide the only way to leave a screen.
-- Do not carry every desktop rail metric into the mobile header.
+- Do not carry desktop rail metrics into a mobile top bar.
 - Status chips may wrap to a second row only if they remain readable.
 - Keep exact user-facing labels for existing features and controls.
 
@@ -419,10 +431,11 @@ The bottom bar is fixed to the bottom of the Saga surface.
 Required behavior:
 
 - Safe-area aware padding.
-- Five stable slots.
-- The divider after **Loredecks** is visual spacing, not a sixth tab stop.
+- Stable slots for the active Experience Mode.
+- Basic labels remain visible; Advanced labels are visually hidden so seven
+  routes fit as icon-only tabs.
 - 44px minimum interactive target per slot.
-- Icon plus short label.
+- Icon plus short label in Basic; icon-only in Advanced.
 - Clear active state.
 - No hover-only state.
 - Content area includes bottom padding so controls do not sit under the bar.
@@ -437,26 +450,19 @@ Visual direction:
 - Active state can be a top indicator, accent icon, or restrained filled state.
 - Avoid large pill treatments that reduce available label width.
 
-### More Sheet
+### Settings Route
 
-The **More** slot opens a sheet or full-height menu.
+Settings is a direct bottom-nav route in both Basic and Advanced.
 
-Required entries:
+Required top-of-page order:
 
-- Continuity
-- Injection
-- Settings
+- Experience Mode selector.
+- Provider setup.
+- Theme Pack and icon set controls.
+- Remaining configuration groups.
 
-Optional entries:
-
-- Guide
-- Health Center
-- Pack utilities
-- Developer diagnostics in Advanced only
-
-Group More entries by purpose instead of presenting one long undifferentiated list. The initial groups are Diagnostics, Configuration, Guidance, Utilities, and Advanced authoring.
-
-The sheet should close after selecting an entry. If the selected entry opens a full tab, the bottom bar active state should move to **More** with the selected title shown in the header.
+Continuity and Injection are direct Advanced routes rather than Settings
+children or overflow-menu entries.
 
 ## Subview Model
 
@@ -579,7 +585,7 @@ Defer:
 
 MVP scope:
 
-- Reachable from More in Advanced.
+- Reachable as a direct icon-only Advanced bottom-nav route.
 - Status and selected item detail are readable.
 - Graph or timeline interactions have tap-to-select behavior.
 
@@ -592,7 +598,7 @@ Defer:
 
 MVP scope:
 
-- Reachable from More in Advanced.
+- Reachable as a direct icon-only Advanced bottom-nav route.
 - Prompt preview, placement controls, and compression status are readable.
 - Tiny placement controls are touch-sized.
 
@@ -604,7 +610,8 @@ Defer:
 
 MVP scope:
 
-- Reachable from More.
+- Reachable as a direct Basic and Advanced bottom-nav route.
+- Experience Mode selector appears at the top of the page.
 - Provider setup works.
 - Theme Pack controls wrap cleanly.
 - Danger Zone remains explicit and confirmable.
@@ -637,7 +644,6 @@ The current desktop shell stores rail position, drawer side, drawer width, and d
 Mobile state should track:
 
 - Active bottom-bar route.
-- Active More route, when selected.
 - Subview stack for the current tab.
 - Optional scroll restoration per tab if needed.
 
@@ -653,10 +659,10 @@ Because Saga is pre-alpha, state migration can be direct:
 
 Mobile MVP should include:
 
-- Keyboard-focusable bottom bar and More sheet.
+- Keyboard-focusable bottom bar and route subviews.
 - `aria-current` or equivalent active tab state.
 - Accessible names for icon buttons.
-- Focus return after closing More or subviews.
+- Focus return after closing subviews.
 - Escape/back behavior for sheets where applicable.
 - Visible focus styles retained from desktop.
 - No essential action available only through hover.
@@ -672,7 +678,10 @@ Goal: make the current desktop behavior and mobile requirements explicit before 
 Scope:
 
 - Identify the runtime shell, tab registry, layout CSS, state normalization, and visual smoke harness entry points that will change.
-- Record the desktop tab order and mobile bottom-bar order: `Loredecks | divider | Session | Context | Lorecards | More`.
+- Record the mobile bottom-bar orders:
+  `Loredecks | Session | Context | Lorecards | Settings` in Basic and
+  `Loredecks | Session | Continuity | Context | Lorecards | Injection |
+  Settings` in Advanced.
 - Confirm the mobile viewport contract: `360px`, `390px`, `430px`, and `768px`.
 - Confirm the visual identity contract: `SAGA Archive` dark shell, `Saga Hero` icon language, hybrid mythic-tech accents.
 - Confirm the Lorecards lifecycle contract: Capture / Suggest -> Pending Review -> Accepted Lorecards -> Active Set.
@@ -698,8 +707,10 @@ Scope:
 - Add viewport-based mobile shell detection.
 - Add a mobile root class such as `.saga-runtime-mobile`.
 - Render the active tab as a full-width mobile page.
-- Render the compact mobile header.
-- Render the fixed bottom bar with safe-area padding and the divider after **Loredecks**.
+- Remove the redundant runtime top navbar at phone width.
+- Render the fixed bottom bar with safe-area padding.
+- Morph the active bottom tab into `Exit` so Saga can close without a top-bar
+  close button.
 - Disable rail dragging and drawer resizing in mobile mode.
 - Stop enforcing desktop drawer minimums on phone-width surfaces.
 - Add bottom padding so content and sticky actions do not sit under the bottom bar.
@@ -715,18 +726,20 @@ Exit criteria:
 
 - At `360px`, `390px`, and `430px`, the shell itself has no horizontal overflow.
 - Bottom bar is reachable and uses the required tab order.
-- Header has a visible title and close/back affordance where required.
+- Back appears only for pushed subviews, and the active bottom tab provides the
+  primary `Exit` affordance.
 - Desktop rail/drawer behavior still works at desktop widths.
 
-### Phase 2: Navigation, More, And Subviews
+### Phase 2: Navigation And Subviews
 
 Goal: make every mobile route reachable without exposing every desktop panel at once.
 
 Scope:
 
-- Wire the five bottom-bar slots.
-- Add the **More** sheet or route.
-- Group More entries by Diagnostics, Configuration, Guidance, Utilities, and Advanced authoring.
+- Wire the Basic five-slot bottom bar.
+- Wire the Advanced seven-slot icon-only bottom bar.
+- Keep Settings direct in both modes.
+- Keep Continuity and Injection direct in Advanced.
 - Add a subview stack primitive for pushed mobile flows.
 - Add back behavior and focus return for sheets and subviews.
 - Map existing runtime tabs into mobile routes without renaming core labels.
@@ -734,15 +747,14 @@ Scope:
 Deliverables:
 
 - Reachable routes for Session, Loredecks, Context, Lorecards, Continuity, Injection, and Settings.
-- More entry grouping.
 - Subview stack state and back behavior.
 - Basic and Advanced mode route filtering.
 
 Exit criteria:
 
 - Every Basic tab is reachable from the bottom bar.
-- Every Advanced tab is reachable from the bottom bar or More.
-- Selecting a More entry updates the header title and active state clearly.
+- Every Advanced tab is reachable from the icon-only bottom bar.
+- Settings exposes Experience Mode at the top.
 - Back and close never depend on desktop rail behavior.
 
 ### Phase 3: Visual Identity And Touch System
@@ -782,8 +794,9 @@ Scope:
 - Session opens with readiness and the next useful action.
 - Loredecks opens with Active Stack status, deck readiness, and Library access.
 - Context opens with current story position and the next Context action before diagnostics.
-- Settings remains reachable and usable through More.
-- Continuity and Injection remain reachable through More with readable status-first layouts.
+- Settings remains directly reachable and starts with Experience Mode.
+- Continuity and Injection remain directly reachable in Advanced with readable
+  status-first layouts.
 
 Deliverables:
 
@@ -862,7 +875,8 @@ Scope:
 
 - Extend visual smoke harness coverage for mobile viewports.
 - Add no-horizontal-overflow checks.
-- Add bottom-bar, header, More, and subview checks.
+- Add bottom-bar, active-tab exit, direct Settings, Advanced direct-route, and
+  subview checks.
 - Add touch-target checks for critical controls.
 - Add Lorecards lifecycle checks.
 - Add visual review checks for `Saga Hero` icon usage and hybrid mythic-tech styling.
@@ -891,7 +905,7 @@ Mobile support MVP is done when:
 - At `360px`, `390px`, and `430px` widths, Saga has no horizontal page overflow in the runtime shell.
 - The bottom bar is always reachable and does not cover active controls.
 - Every Basic tab is reachable.
-- Every Advanced tab is reachable through the bottom bar or More.
+- Every Advanced tab is reachable through the icon-only bottom bar.
 - Every active mobile screen has a visible way to go back or close.
 - Primary controls meet the touch target contract.
 - Each primary mobile tab opens with a summary and next useful action, not a dense desktop control cluster.
@@ -917,10 +931,9 @@ Mobile support MVP is done when:
 ## Open Decisions
 
 - Whether the mobile header should be sticky inside Saga's surface or fixed to the viewport.
-- Whether **More** should be a bottom sheet or a full-page route.
 - Whether tablet should use desktop shell, mobile shell, or a hybrid shell.
-- Whether the bottom bar should show Settings directly in Basic if user testing shows provider setup is too hidden.
-- Whether Health Center belongs under Loredecks or More in Advanced.
+- Whether Health Center belongs under Loredecks, Settings, or its own Advanced
+  route later.
 
 ## Verification Plan
 
@@ -935,21 +948,22 @@ Recommended visual matrix:
 
 | Viewport | Mode | Required Coverage |
 | --- | --- | --- |
-| `360x740` | Basic | Session, Loredecks, Context, Lorecards, More |
+| `360x740` | Basic | Session, Loredecks, Context, Lorecards, Settings |
 | `390x844` | Basic | Start Checklist, Library entry, Context actions, Lorecard review |
-| `430x820` | Advanced | More sheet, Continuity, Injection, Settings, Lorecard Active Set |
+| `430x820` | Advanced | Icon-only nav, Continuity, Injection, Settings, Lorecard Active Set |
 | `768x1024` | Advanced | Tablet shell decision, overlays, Library, Context Workbench |
 
 Automated checks should include:
 
 - No horizontal overflow.
 - Bottom bar visible and safe-area padded.
-- Header back/close visible when required.
+- Subview back and active-tab `Exit` visible when required.
 - Active tab state exposed.
 - `Saga Hero` icons render in the bottom bar and header entry points.
 - Screens preserve the hybrid mythic-tech aesthetic without source-franchise cues.
 - Critical controls have minimum touch target size.
-- More sheet opens, routes, and closes.
+- Settings, Continuity, and Injection direct routes open without an overflow
+  sheet.
 - Lorecard lifecycle filters for suggested, pending, accepted, and active states are reachable.
 - Lorecard accept, reject, activate, mute, pin, and inspect actions have visible tap targets.
 - Existing guide and walkthrough targets remain resolvable after layout changes.

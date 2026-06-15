@@ -98,22 +98,34 @@ keyboard action instead.
 
 ## Mobile Information Architecture
 
-Keep the main bottom bar order:
+Keep the mobile bottom bar aligned to the current Experience Mode.
+
+Basic uses five labeled tabs:
 
 ```text
-Loredecks | divider | Session | Context | Lorecards | More
+Loredecks | Session | Context | Lorecards | Settings
+```
+
+Advanced uses seven icon-only tabs:
+
+```text
+Loredecks | Session | Continuity | Context | Lorecards | Injection | Settings
 ```
 
 Route-specific navigation can appear above the bottom bar when a route has
 multiple peer workspaces. It must behave as tabs, not as another row of command
 buttons.
 
+Experience Mode selection lives at the top of `Settings`, not in the shell rail
+or a transient mobile menu. Changing Experience Mode immediately updates the
+bottom navigation contract above.
+
 For the MVP, `Lorecards` owns a secondary bottom sub-tab bar. When the main
 bottom nav route is `Lorecards`, the sub-tab bar animates out cleanly from the
 Lorecards tab area and settles directly above the fixed main bottom bar:
 
 ```text
-Generation | Pending | Approved
+Generation | Automation | Pending | Approved
 ```
 
 The sub-tab bar is route navigation. It is not an in-content `Lorecard Pipeline`
@@ -126,9 +138,11 @@ Primary mobile route responsibilities:
 | --- | --- | --- |
 | Loredecks | Choose active source decks by touching Loredeck objects | Tap Loredecks in order to activate them. |
 | Session | See readiness and move to the next setup/play action | Tap readiness objects for details or next route. |
+| Continuity | Advanced continuity tracking and timeline state | Tap timeline or state objects to inspect. |
 | Context | Choose current story position | Tap Context rows or anchors directly. |
 | Lorecards | Generate, review, and manage durable facts | Use the secondary sub-tab bar; tap Lorecards to select or activate. |
-| More | Secondary routes and diagnostics | Open a route; each route keeps its own object-first flow. |
+| Injection | Advanced prompt/injection diagnostics | Inspect injection objects and compression state. |
+| Settings | Experience Mode, providers, themes, and configuration | Change mode at the top, then configure providers or appearance. |
 
 ## Shared Mobile Components
 
@@ -181,7 +195,7 @@ Examples:
 ```text
 Pending selection: Accept | Reject | Clear | ...
 Approved Lorecard: Active | Pinned | Muted | ...
-Loredeck detail: In Stack | Health | More
+Loredeck detail: In Stack | Health | ...
 ```
 
 `...` means an overflow or sheet action, not another row of equal text buttons.
@@ -220,7 +234,7 @@ buttons.
 Lorecards required sub-tabs:
 
 ```text
-Generation | Pending | Approved
+Generation | Automation | Pending | Approved
 ```
 
 Behavior:
@@ -367,7 +381,7 @@ The mobile Lorecards route must use a secondary bottom sub-tab bar above the
 main bottom bar:
 
 ```text
-Generation | Pending | Approved
+Generation | Automation | Pending | Approved
 ```
 
 Each sub-tab has one job. Avoid stacking all lifecycle sections on one phone
@@ -582,11 +596,16 @@ Examples:
 - Repair choices appear in selected issue context, not as permanent buttons on
   every row.
 
-### More
+### Settings And Advanced Routes
 
-More remains a route index. It should not become a dumping ground for button
-walls. Each More route should follow the same object-first approach where
-possible.
+Settings is a direct bottom-nav destination in both Basic and Advanced. It owns
+Experience Mode at the top of the page, followed by providers, Theme Packs, and
+configuration surfaces.
+
+Advanced-only routes such as Continuity and Injection are direct icon-only
+bottom-nav destinations in Advanced mode. They should follow the same
+object-first approach as the primary routes rather than being hidden behind a
+catch-all menu.
 
 ## Button Demotion Inventory
 
@@ -776,8 +795,8 @@ Goal: make Lorecards a set of singular-purpose pages.
 
 Work:
 
-- Add the animated secondary bottom sub-tab bar for `Generation | Pending |
-  Approved`.
+- Add the animated secondary bottom sub-tab bar for `Generation | Automation |
+  Pending | Approved`.
 - Anchor the sub-tab bar above the fixed main bottom nav and animate it from
   the Lorecards tab area when the Lorecards route becomes active.
 - Implement the sub-tab bar with tab semantics, selected state, and optional
@@ -791,7 +810,7 @@ Work:
 
 Done when:
 
-- The secondary `Generation | Pending | Approved` tab bar appears above the
+- The secondary `Generation | Automation | Pending | Approved` tab bar appears above the
   main bottom nav only while `Lorecards` is active.
 - The transition in and out of the sub-tab bar reads as a clean navigation
   animation, not a page content jump.
@@ -863,7 +882,7 @@ Rendered verification must include:
 - No card-level mobile Library `i` detail button or inline title edit affordance
   in normal browse.
 - Reorder mode handle visibility only while reorder mode is active.
-- Lorecards secondary `Generation | Pending | Approved` sub-tab bar animating
+- Lorecards secondary `Generation | Automation | Pending | Approved` sub-tab bar animating
   above the fixed bottom nav.
 - Lorecards `Generation`, `Pending`, and `Approved` pages.
 - No mobile `Lorecard Pipeline` card or in-content lifecycle button row as the

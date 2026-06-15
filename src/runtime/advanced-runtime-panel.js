@@ -133,7 +133,7 @@ export function renderSessionTab(container, state) {
         const modeTitle = document.createElement('div');
         modeTitle.className = 'saga-runtime-card-title';
         modeTitle.textContent = 'Automation Mode';
-        addTooltip(modeTitle, 'Automation Mode controls whether Saga scans and generates only when clicked, or automatically after roleplay turns. Experience Mode lives on the shelf.');
+        addTooltip(modeTitle, 'Automation Mode controls whether Saga scans and generates only when clicked, or automatically after roleplay turns. Experience Mode lives in Settings.');
         modeCard.appendChild(modeTitle);
 
         const modeButtons = document.createElement('div');

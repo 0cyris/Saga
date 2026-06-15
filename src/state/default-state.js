@@ -304,14 +304,15 @@ export function getDefaultState() {
             height: 640,
             mobile: {
                 activeRoute: 'session',
-                activeMoreRoute: '',
                 lastPrimaryRoute: 'session',
                 subviewStacks: {
                     loredecks: [],
                     session: [],
+                    continuity: [],
                     context: [],
                     lore: [],
-                    more: [],
+                    injection: [],
+                    settings: [],
                 },
             },
         },

@@ -42,16 +42,17 @@ to discover which pane owns the gesture.
 
 ### Sub-Tab Pages Do Not Use Available Height
 
-Lorecards sub-pages such as `Generation`, `Pending`, and `Approved` currently
-read like embedded panels. Lists stop short even when there is empty vertical
-space available. A selected sub-tab should behave like a real page that owns the
-available mobile viewport between persistent shell controls.
+Lorecards sub-pages such as `Generation`, `Automation`, `Pending`, and
+`Approved` currently read like embedded panels. Lists stop short even when there
+is empty vertical space available. A selected sub-tab should behave like a real
+page that owns the available mobile viewport between persistent shell controls.
 
 ### The Top Navbar Wastes Space
 
 The mobile top bar repeats the active route title even though the bottom bar
-already communicates the current section. It also exposes Settings access even
-though `More` owns that route. On a phone, that top chrome costs too much.
+already communicates the current section. It also duplicates Settings access now
+that Settings is a direct bottom-nav route. On a phone, that top chrome costs
+too much.
 
 The only essential function currently living there is closing/exiting the Saga
 runtime window.
@@ -89,7 +90,7 @@ Do not:
 - attach hover/floating tooltips to mobile navigation;
 - add adjacent `Edit`, `Inspect`, `Open`, or `Details` buttons when tap-hold can
   own the detail path;
-- turn `Generation | Pending | Approved` into three command buttons;
+- turn `Generation | Automation | Pending | Approved` into command buttons;
 - duplicate the active route title in a top navbar.
 
 ### Content Starts The Page
@@ -134,7 +135,7 @@ top navbar. The exit path should be a shell-level action that fits the mobile
 model, such as:
 
 - a compact affordance attached to the active bottom route state;
-- an `Exit Saga` item in `More` as a fallback;
+- an active bottom tab that morphs into `Exit`;
 - a bottom action affordance when the runtime is in a modal or overlay state.
 
 The final design can choose the exact pattern during implementation, but it
@@ -147,8 +148,8 @@ must not reintroduce the redundant top bar just to preserve `Close`.
 Disable tooltip behavior for:
 
 - bottom navigation tabs;
-- Lorecards `Generation | Pending | Approved` sub-tabs;
-- mobile More entries;
+- Lorecards `Generation | Automation | Pending | Approved` sub-tabs;
+- direct Settings, Continuity, and Injection mobile route tabs;
 - persistent bottom action bars.
 
 Accessible labels can remain in markup. Visual hover/floating tooltips should
@@ -173,9 +174,9 @@ Not allowed:
 
 ### Sub-Tabs Are Pages, Not Panels
 
-`Generation`, `Pending`, and `Approved` should each occupy the available mobile
-page space. The active sub-tab content should expand naturally down to the
-bottom sub-tab bar and bottom nav boundary.
+`Generation`, `Automation`, `Pending`, and `Approved` should each occupy the
+available mobile page space. The active sub-tab content should expand naturally
+down to the bottom sub-tab bar and bottom nav boundary.
 
 The selected sub-tab should not render as a short desktop list region inside a
 larger scroll page.
@@ -183,7 +184,7 @@ larger scroll page.
 ### Minimize Or Remove Top Chrome
 
 The mobile top navbar should be treated as expendable. It should not repeat the
-current route title, and it should not duplicate Settings or More.
+current route title, and it should not duplicate Settings or route navigation.
 
 The close/exit function must remain reachable. Candidate patterns:
 
@@ -191,8 +192,7 @@ The close/exit function must remain reachable. Candidate patterns:
   long-press;
 - reserve a compact bottom action affordance for exit in the current route;
 - expose exit through a minimal floating corner affordance only when the shell
-  has no better bottom placement;
-- keep exit in `More` as a fallback, but not as the only way to close.
+  has no better bottom placement.
 
 The chosen pattern must be obvious enough for first-use and must not compete
 with normal route switching.
@@ -231,15 +231,14 @@ Revision 3 MVP decision:
 - remove the mobile top navbar entirely;
 - show a bottom-oriented shell `Back` action only when the current mobile state
   can actually go back;
-- expose `Exit Saga` in `More` as the explicit runtime close path;
-- defer active-tab morphing or active-tab long-press exit behavior until there
-  is evidence that `More -> Exit Saga` is too hidden.
+- morph the active bottom tab into `Exit` as the explicit runtime close path;
+- keep Settings as a normal bottom-nav route rather than an overflow entry.
 
 ### Lorecards
 
 Target:
 
-- Remove visual tooltips from `Generation | Pending | Approved`.
+- Remove visual tooltips from `Generation | Automation | Pending | Approved`.
 - Make each sub-tab a full-height page.
 - Remove nested scroll regions from Pending and Approved lists.
 - Let Pending and Approved cards flow in the primary route scroll.
@@ -282,16 +281,15 @@ Target:
 Heavy workbenches can still be dense, but their first mobile viewport should not
 feel like a desktop header plus a trapped scroll box.
 
-### More
+### Settings And Advanced Routes
 
 Target:
 
-- Remove mobile tooltip behavior from More entries.
-- Keep More as the home for secondary routes such as Settings, Injection, and
-  Continuity.
-- Do not duplicate More or Settings in top chrome.
-- Consider adding `Exit Saga` here as a fallback if exit moves out of the top
-  navbar.
+- Remove mobile tooltip behavior from direct route tabs.
+- Keep Settings as the home for Experience Mode, providers, Theme Packs, and
+  configuration.
+- Keep Continuity and Injection as direct icon-only Advanced routes.
+- Do not duplicate Settings or route navigation in top chrome.
 
 ## Implementation Phases
 
@@ -303,7 +301,8 @@ Work:
 
 - Disable floating tooltip listeners for mobile bottom tabs.
 - Disable floating tooltip listeners for Lorecards sub-tabs.
-- Disable floating tooltip listeners for mobile More entries.
+- Disable floating tooltip listeners for direct Settings, Continuity, and
+  Injection route tabs.
 - Preserve accessible labels where needed.
 - Add a smoke/static check that route changes do not create a visible floating
   tooltip.
@@ -323,8 +322,8 @@ Work:
 - Remove mobile max-height and overflow rules from nested Pending and Approved
   list regions.
 - Let active sub-tab content fill available space.
-- Confirm `Generation`, `Pending`, and `Approved` each use the route page as the
-  scroll owner.
+- Confirm `Generation`, `Automation`, `Pending`, and `Approved` each use the
+  route page as the scroll owner.
 - Keep bottom sub-tabs and bottom nav fixed without trapping list scroll.
 
 Done when:
@@ -340,7 +339,7 @@ Goal: reclaim vertical space and remove duplicated navigation.
 Work:
 
 - Remove repeated route title from the mobile top navbar.
-- Remove Settings/More duplication from the top navbar.
+- Remove Settings and route duplication from the top navbar.
 - Design and implement the replacement close/exit path.
 - Preserve safe-area behavior and route context.
 
@@ -389,7 +388,7 @@ Work:
   under route/list/workbench selectors.
 - Exempt only true modal sheets and text editing controls.
 - Capture screenshots for Library, Lorecards, Creator, Context, Pack Health,
-  and More.
+  and Settings.
 
 Done when:
 
@@ -401,13 +400,13 @@ Done when:
 
 - Mobile bottom tabs and Lorecards sub-tabs do not show visual tooltips.
 - No route change causes a tooltip flicker in the upper-left corner.
-- Lorecards `Generation`, `Pending`, and `Approved` each occupy the available
-  mobile route space.
+- Lorecards `Generation`, `Automation`, `Pending`, and `Approved` each occupy
+  the available mobile route space.
 - Pending and Approved lists do not use nested scroll boxes on mobile.
 - Mobile routes and major overlays have one primary scroll owner, except for
   modal sheets and text editing controls.
 - The mobile top navbar is removed, collapsed, or reduced enough that it no
-  longer repeats route title or Settings/More access.
+  longer repeats route title or Settings/route access.
 - Saga runtime exit remains clear and reachable.
 - Library and heavy workbenches move persistent commands toward bottom action
   areas.

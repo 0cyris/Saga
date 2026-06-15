@@ -30,34 +30,18 @@ export const TAB_TOOLTIPS = Object.freeze({
     settings: 'Configure providers, runtime appearance, Saga Theme Packs, State Safety, and Danger Zone cleanup.',
 });
 
-export const MOBILE_BOTTOM_ROUTES = Object.freeze(['loredecks', 'session', 'context', 'lore', 'more']);
-export const MOBILE_PRIMARY_ROUTES = Object.freeze(['loredecks', 'session', 'context', 'lore']);
-export const MOBILE_MORE_ROUTES = Object.freeze(['continuity', 'injection', 'settings']);
+export const BASIC_MOBILE_BOTTOM_ROUTES = Object.freeze(['loredecks', 'session', 'context', 'lore', 'settings']);
+export const ADVANCED_MOBILE_BOTTOM_ROUTES = Object.freeze(['loredecks', 'session', 'continuity', 'context', 'lore', 'injection', 'settings']);
+export const MOBILE_BOTTOM_ROUTES = Object.freeze([...new Set([...BASIC_MOBILE_BOTTOM_ROUTES, ...ADVANCED_MOBILE_BOTTOM_ROUTES])]);
+export const MOBILE_PRIMARY_ROUTES = MOBILE_BOTTOM_ROUTES;
 
 export const MOBILE_ROUTE_LABELS = Object.freeze({
     ...TAB_LABELS,
-    more: 'More',
 });
 
 export const MOBILE_ROUTE_TOOLTIPS = Object.freeze({
     ...TAB_TOOLTIPS,
-    more: 'Open advanced Saga tools, settings, guidance, and utilities.',
 });
-
-export const MOBILE_MORE_GROUPS = Object.freeze([
-    Object.freeze({
-        id: 'diagnostics',
-        label: 'Diagnostics',
-        routes: Object.freeze(['continuity', 'injection']),
-        advancedOnly: true,
-    }),
-    Object.freeze({
-        id: 'configuration',
-        label: 'Configuration',
-        routes: Object.freeze(['settings']),
-        advancedOnly: false,
-    }),
-]);
 
 export const AUTOMATION_MODES = Object.freeze({
     manual: Object.freeze({
@@ -105,56 +89,35 @@ export function normalizeTab(tab) {
     return Object.prototype.hasOwnProperty.call(TAB_LABELS, tab) ? tab : 'session';
 }
 
-export function normalizeMobileBottomRoute(route) {
-    return MOBILE_BOTTOM_ROUTES.includes(route) ? route : 'session';
+export function normalizeMobileBottomRoute(route, settings = getSettings()) {
+    return getMobileBottomRoutes(settings).includes(route) ? route : 'session';
 }
 
-export function normalizeMobileMoreRoute(route, settings = getSettings()) {
-    const normalized = normalizeTab(route);
-    return getMobileMoreRoutesForExperience(settings).includes(normalized) ? normalized : '';
+export function getMobileBottomRoutes(settings = getSettings()) {
+    return normalizeExperienceMode(settings?.experienceMode) === 'advanced'
+        ? ADVANCED_MOBILE_BOTTOM_ROUTES
+        : BASIC_MOBILE_BOTTOM_ROUTES;
 }
 
-export function getMobileBottomRoutes() {
-    return MOBILE_BOTTOM_ROUTES;
-}
-
-export function getMobilePrimaryRoutes() {
-    return MOBILE_PRIMARY_ROUTES;
-}
-
-export function getMobileMoreRoutesForExperience(settings = getSettings()) {
-    const advanced = normalizeExperienceMode(settings?.experienceMode) === 'advanced';
-    return MOBILE_MORE_GROUPS
-        .filter(group => advanced || group.advancedOnly !== true)
-        .flatMap(group => group.routes);
-}
-
-export function getMobileMoreGroupsForExperience(settings = getSettings()) {
-    const allowed = new Set(getMobileMoreRoutesForExperience(settings));
-    return MOBILE_MORE_GROUPS
-        .map(group => ({
-            ...group,
-            routes: group.routes.filter(route => allowed.has(route)),
-        }))
-        .filter(group => group.routes.length > 0);
+export function getMobilePrimaryRoutes(settings = getSettings()) {
+    return getMobileBottomRoutes(settings);
 }
 
 export function getMobileRouteForTab(tab, settings = getSettings()) {
     const normalized = normalizeTabForExperience(tab, settings);
-    if (MOBILE_PRIMARY_ROUTES.includes(normalized)) return normalized;
-    if (getMobileMoreRoutesForExperience(settings).includes(normalized)) return 'more';
+    if (getMobileBottomRoutes(settings).includes(normalized)) return normalized;
     return 'session';
 }
 
 export function getMobileRouteLabel(route, settings = getSettings()) {
     void settings;
-    const normalized = route === 'more' ? 'more' : normalizeTab(route);
+    const normalized = normalizeTab(route);
     return MOBILE_ROUTE_LABELS[normalized] || 'Saga';
 }
 
 export function getMobileRouteTooltip(route, settings = getSettings()) {
     void settings;
-    const normalized = route === 'more' ? 'more' : normalizeTab(route);
+    const normalized = normalizeTab(route);
     return MOBILE_ROUTE_TOOLTIPS[normalized] || 'Saga runtime screen.';
 }
 

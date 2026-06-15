@@ -1,11 +1,9 @@
 import { DEFAULT_SETTINGS, getDefaultState } from '../state/constants.js';
 import {
-    getMobileMoreRoutesForExperience,
     getMobileRouteForTab,
     getMobileRouteLabel,
     getMobilePrimaryRoutes,
     normalizeMobileBottomRoute,
-    normalizeMobileMoreRoute,
     normalizeTabForExperience,
 } from './runtime-navigation.js';
 
@@ -133,18 +131,18 @@ export function isRuntimeMobileShell(width = getViewportWidth()) {
 
 export function getDefaultMobilePanelState(activeTab = 'session', settings = {}) {
     const activeRoute = getMobileRouteForTab(activeTab, settings);
-    const activeMoreRoute = activeRoute === 'more' ? normalizeMobileMoreRoute(activeTab, settings) : '';
     return {
         activeRoute,
-        activeMoreRoute,
-        lastPrimaryRoute: activeRoute === 'more' ? 'session' : activeRoute,
+        lastPrimaryRoute: getMobilePrimaryRoutes(settings).includes(activeRoute) ? activeRoute : 'session',
         lorecardsStage: '',
         subviewStacks: {
             loredecks: [],
             session: [],
+            continuity: [],
             context: [],
             lore: [],
-            more: [],
+            injection: [],
+            settings: [],
         },
     };
 }
@@ -170,8 +168,8 @@ function normalizeMobileLoreSubviewStack(stack) {
 }
 
 function getMobileSubviewRouteKey(routeId, settings = getSettingsForShell()) {
-    const route = routeId === 'more' ? 'more' : getMobileRouteForTab(routeId, settings);
-    return getMobilePrimaryRoutes().includes(route) ? route : 'more';
+    const route = getMobileRouteForTab(routeId, settings);
+    return getMobilePrimaryRoutes(settings).includes(route) ? route : 'session';
 }
 
 export function normalizeMobilePanelState(panelState, settings = getSettingsForShell()) {
@@ -181,28 +179,24 @@ export function normalizeMobilePanelState(panelState, settings = getSettingsForS
 
     const hasMobileState = panelState.mobile && typeof panelState.mobile === 'object' && !Array.isArray(panelState.mobile);
     const previous = hasMobileState ? panelState.mobile : getDefaultMobilePanelState(panelState.activeTab, settings);
-    const activeRoute = normalizeMobileBottomRoute(previous.activeRoute || getMobileRouteForTab(panelState.activeTab, settings));
-    const hasPreviousMoreRoute = Object.prototype.hasOwnProperty.call(previous, 'activeMoreRoute');
-    const previousMoreRoute = hasPreviousMoreRoute
-        ? previous.activeMoreRoute
-        : (activeRoute === 'more' ? panelState.activeTab : '');
-    const activeMoreRoute = normalizeMobileMoreRoute(previousMoreRoute, settings);
-    const lastPrimaryRoute = getMobilePrimaryRoutes().includes(previous.lastPrimaryRoute)
+    const activeRoute = normalizeMobileBottomRoute(previous.activeRoute || getMobileRouteForTab(panelState.activeTab, settings), settings);
+    const lastPrimaryRoute = getMobilePrimaryRoutes(settings).includes(previous.lastPrimaryRoute)
         ? previous.lastPrimaryRoute
-        : (getMobilePrimaryRoutes().includes(activeRoute) ? activeRoute : 'session');
+        : (getMobilePrimaryRoutes(settings).includes(activeRoute) ? activeRoute : 'session');
     const previousStacks = previous.subviewStacks && typeof previous.subviewStacks === 'object' ? previous.subviewStacks : {};
 
     panelState.mobile = {
         activeRoute,
-        activeMoreRoute: activeRoute === 'more' ? activeMoreRoute : '',
         lastPrimaryRoute,
         lorecardsStage: normalizeRuntimeMobileLorecardsStage(previous.lorecardsStage || panelState.mobileLifecycleStage),
         subviewStacks: {
             loredecks: normalizeMobileSubviewStack(previousStacks.loredecks),
             session: normalizeMobileSubviewStack(previousStacks.session),
+            continuity: normalizeMobileSubviewStack(previousStacks.continuity),
             context: normalizeMobileSubviewStack(previousStacks.context),
             lore: normalizeMobileLoreSubviewStack(previousStacks.lore),
-            more: normalizeMobileSubviewStack(previousStacks.more),
+            injection: normalizeMobileSubviewStack(previousStacks.injection),
+            settings: normalizeMobileSubviewStack(previousStacks.settings),
         },
     };
     return panelState.mobile;
@@ -210,7 +204,6 @@ export function normalizeMobilePanelState(panelState, settings = getSettingsForS
 
 export function getRuntimeMobileActiveTab(panelState, settings = getSettingsForShell()) {
     const mobile = normalizeMobilePanelState(panelState, settings);
-    if (mobile.activeRoute === 'more') return mobile.activeMoreRoute || '';
     return mobile.activeRoute;
 }
 
@@ -237,19 +230,11 @@ export function getRuntimeMobileHeaderTitle(panelState, settings = getSettingsFo
     const mobile = normalizeMobilePanelState(panelState, settings);
     const activeSubview = getRuntimeMobileActiveSubview(panelState, mobile.activeRoute, settings);
     if (activeSubview?.title) return activeSubview.title;
-    if (mobile.activeRoute === 'more') {
-        return mobile.activeMoreRoute
-            ? getMobileRouteLabel(mobile.activeMoreRoute, settings)
-            : 'More';
-    }
     return getMobileRouteLabel(mobile.activeRoute, settings);
 }
 
 function getRuntimeMobileFocusSelectorFromResult(result = null) {
     if (!result || typeof result !== 'object') return '';
-    if (result.action === 'more-sheet' && result.route) {
-        return `.saga-mobile-more-entry[data-mobile-more-route="${result.route}"]`;
-    }
     if (result.action === 'primary-route' && result.route) {
         return `.saga-mobile-bottom-tab[data-mobile-route="${result.route}"]`;
     }
@@ -276,18 +261,12 @@ function updateRuntimeMobilePanelState(mutator, options = {}) {
 }
 
 export function selectRuntimeMobileRoute(routeId, options = {}) {
-    const route = normalizeMobileBottomRoute(routeId);
+    const route = normalizeMobileBottomRoute(routeId, getSettingsForShell());
     return updateRuntimeMobilePanelState(({ panelState, mobile, settings }) => {
         mobile.activeRoute = route;
-        if (getMobilePrimaryRoutes().includes(route)) {
+        if (getMobilePrimaryRoutes(settings).includes(route)) {
             mobile.lastPrimaryRoute = route;
-            mobile.activeMoreRoute = '';
             panelState.activeTab = route;
-        } else if (route === 'more') {
-            const requestedMoreRoute = normalizeMobileMoreRoute(options.moreRoute || '', settings);
-            mobile.activeMoreRoute = requestedMoreRoute;
-            panelState.activeTab = requestedMoreRoute
-                || (getMobilePrimaryRoutes().includes(mobile.lastPrimaryRoute) ? mobile.lastPrimaryRoute : 'session');
         }
         panelState.drawerOpen = true;
         panelState.collapsed = false;
@@ -297,32 +276,11 @@ export function selectRuntimeMobileRoute(routeId, options = {}) {
     });
 }
 
-export function openRuntimeMobileMoreSheet() {
-    return selectRuntimeMobileRoute('more');
-}
-
-export function selectRuntimeMobileMoreRoute(routeId) {
-    const requestedRoute = normalizeMobileMoreRoute(routeId, getSettingsForShell());
-    return updateRuntimeMobilePanelState(({ panelState, mobile, settings }) => {
-        const route = normalizeMobileMoreRoute(requestedRoute || routeId, settings);
-        if (!route) return '';
-        mobile.activeRoute = 'more';
-        mobile.activeMoreRoute = route;
-        panelState.activeTab = route;
-        panelState.drawerOpen = true;
-        panelState.collapsed = false;
-        return route;
-    }, {
-        focusSelector: '.saga-mobile-shell-back, .saga-mobile-bottom-tab[data-mobile-route="more"]',
-    });
-}
-
 export function selectRuntimeMobileLorecardsStage(stage) {
     const normalized = normalizeRuntimeMobileLorecardsStage(stage) || 'pending';
     return updateRuntimeMobilePanelState(({ panelState, mobile }) => {
         mobile.activeRoute = 'lore';
         mobile.lastPrimaryRoute = 'lore';
-        mobile.activeMoreRoute = '';
         mobile.lorecardsStage = normalized;
         mobile.subviewStacks.lore = [];
         panelState.activeTab = 'lore';
@@ -347,19 +305,9 @@ export function pushRuntimeMobileSubview(routeId, subview = {}, options = {}) {
         };
         mobile.subviewStacks[routeKey] = normalizeMobileSubviewStack([...(mobile.subviewStacks[routeKey] || []), record]);
         if (options.activate !== false) {
-            if (routeKey === 'more') {
-                const moreRoute = normalizeMobileMoreRoute(routeId, settings);
-                mobile.activeRoute = 'more';
-                if (moreRoute) {
-                    mobile.activeMoreRoute = moreRoute;
-                    panelState.activeTab = moreRoute;
-                }
-            } else {
-                mobile.activeRoute = routeKey;
-                mobile.lastPrimaryRoute = routeKey;
-                mobile.activeMoreRoute = '';
-                panelState.activeTab = routeKey;
-            }
+            mobile.activeRoute = routeKey;
+            mobile.lastPrimaryRoute = routeKey;
+            panelState.activeTab = routeKey;
         }
         return record;
     }, {
@@ -397,19 +345,6 @@ export function goBackRuntimeMobileShell() {
             mobile.subviewStacks[routeKey] = stack.slice(0, -1);
             return { action: 'pop-subview', subview: popped };
         }
-        if (mobile.activeRoute === 'more' && mobile.activeMoreRoute) {
-            const route = mobile.activeMoreRoute;
-            mobile.activeMoreRoute = '';
-            panelState.activeTab = getMobilePrimaryRoutes().includes(mobile.lastPrimaryRoute) ? mobile.lastPrimaryRoute : 'session';
-            return { action: 'more-sheet', route };
-        }
-        if (mobile.activeRoute === 'more') {
-            const route = getMobilePrimaryRoutes().includes(mobile.lastPrimaryRoute) ? mobile.lastPrimaryRoute : 'session';
-            mobile.activeRoute = route;
-            mobile.activeMoreRoute = '';
-            panelState.activeTab = route;
-            return { action: 'primary-route', route };
-        }
         return { action: 'none' };
     });
 }
@@ -417,7 +352,7 @@ export function goBackRuntimeMobileShell() {
 export function canGoBackRuntimeMobileShell(panelState, settings = getSettingsForShell()) {
     const mobile = normalizeMobilePanelState(panelState, settings);
     if (getRuntimeMobileSubviewStack(panelState, mobile.activeRoute, settings).length > 0) return true;
-    return mobile.activeRoute === 'more';
+    return false;
 }
 
 export function getEstimatedRailHeight(panelState = null) {
@@ -718,11 +653,7 @@ export function toggleRuntimeDrawerForTab(tabId) {
     const normalizedTab = normalizeTabForExperience(tabId, settings);
     if (isRuntimeMobileShell()) {
         const mobileRoute = getMobileRouteForTab(normalizedTab, settings);
-        if (mobileRoute === 'more' && getMobileMoreRoutesForExperience(settings).includes(normalizedTab)) {
-            selectRuntimeMobileMoreRoute(normalizedTab);
-        } else {
-            selectRuntimeMobileRoute(mobileRoute);
-        }
+        selectRuntimeMobileRoute(mobileRoute);
         return;
     }
     const sameActiveTab = normalizeTabForExperience(state.lorePanel.activeTab, settings) === normalizedTab;

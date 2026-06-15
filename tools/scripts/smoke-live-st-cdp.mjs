@@ -961,15 +961,14 @@ async function waitFor(client, expression, label, timeoutMs = 15000) {
                     className: root.className || '',
                     mobileRoute: root.dataset?.mobileRoute || '',
                     mobileActiveTab: root.dataset?.mobileActiveTab || '',
-                    mobileMoreRoute: root.dataset?.mobileMoreRoute || '',
                     mobileLorecardsStage: root.dataset?.mobileLorecardsStage || '',
                 } : null;
             })(),
-            visibleMobileNav: [...document.querySelectorAll('.saga-mobile-bottom-tab, .saga-mobile-more-entry')].map(element => {
+            visibleMobileNav: [...document.querySelectorAll('.saga-mobile-bottom-tab')].map(element => {
                 const rect = element.getBoundingClientRect?.();
                 const style = getComputedStyle(element);
                 return {
-                    route: element.getAttribute('data-mobile-route') || element.getAttribute('data-mobile-more-route') || '',
+                    route: element.getAttribute('data-mobile-route') || '',
                     text: (element.innerText || element.textContent || '').trim(),
                     visible: !!rect && rect.width > 0 && rect.height > 0 && style.display !== 'none' && style.visibility !== 'hidden',
                     left: Math.round(rect?.left || 0),
@@ -1054,13 +1053,11 @@ async function clickRuntimeRoute(client, routeId) {
         const selectors = mobileShell
             ? [
                 `.saga-mobile-bottom-tab[data-mobile-route="${targetRoute}"]`,
-                `.saga-mobile-more-entry[data-mobile-more-route="${targetRoute}"]`,
                 `.saga-runtime-rail-tab[data-tab-id="${targetRoute}"]`,
             ]
             : [
                 `.saga-runtime-rail-tab[data-tab-id="${targetRoute}"]`,
                 `.saga-mobile-bottom-tab[data-mobile-route="${targetRoute}"]`,
-                `.saga-mobile-more-entry[data-mobile-more-route="${targetRoute}"]`,
             ];
         const isVisible = element => {
             const rect = element?.getBoundingClientRect?.();
@@ -3895,7 +3892,7 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
     if (!initialState.mobileShell) findings.push('Mobile Advanced harness did not render the mobile shell at 430px.');
     if (initialState.activeTab !== 'loredecks') findings.push('Mobile Advanced harness did not start on Loredecks.');
     if (initialState.activeBottomLabel !== 'Exit' || !initialState.activeBottomHasExitIcon) findings.push('Mobile Advanced active Loredecks bottom tab did not morph into the Exit control.');
-    for (const route of ['loredecks', 'session', 'context', 'lore', 'more']) {
+    for (const route of ['loredecks', 'session', 'continuity', 'context', 'lore', 'injection', 'settings']) {
         if (!initialState.bottomRoutes.includes(route)) findings.push(`Mobile Advanced bottom bar missing route: ${route}.`);
     }
     if (!initialState.hasActiveStack || !initialState.hasOpenLibrary || !initialState.hasCreateDeck) findings.push('Mobile Advanced Loredecks root did not render stack, Library, and Creator actions.');
@@ -3942,49 +3939,6 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
     });
     addMobileNestedScrollFindings(findings, sessionRootScrollAudit);
 
-    await clickRuntimeRoute(client, 'more');
-    await waitFor(client, '!!document.querySelector(".saga-mobile-more-sheet")', 'Mobile Advanced More sheet', 10000);
-    await wait(400);
-    const moreTooltipState = await getVisibleFloatingTooltipState(client);
-    const moreState = await evaluate(client, script(() => {
-        const root = document.querySelector('#saga-lore-panel');
-        const sheet = document.querySelector('.saga-mobile-more-sheet');
-        const text = sheet?.innerText || '';
-        return {
-            open: !!sheet,
-            activeTab: root?.dataset?.mobileActiveTab || '',
-            headerMoreActions: document.querySelectorAll('.saga-mobile-header-more').length,
-            mobileHeaders: document.querySelectorAll('.saga-mobile-header').length,
-            shellBackActions: document.querySelectorAll('.saga-mobile-shell-back').length,
-            activeBottomLabel: document.querySelector('.saga-mobile-bottom-tab-active .saga-mobile-bottom-label')?.textContent?.trim() || '',
-            hasModeLabel: text.includes('Experience Mode'),
-            entries: [...sheet?.querySelectorAll('.saga-mobile-more-entry') || []].map(node => node.getAttribute('data-mobile-more-route') || ''),
-            labels: [...sheet?.querySelectorAll('.saga-mobile-more-entry-label') || []].map(node => node.textContent?.trim() || '').filter(Boolean),
-            hasDiagnostics: text.includes('Diagnostics'),
-            hasConfiguration: text.includes('Configuration'),
-            hasExitSaga: text.includes('Exit Saga'),
-        };
-    }));
-    if (!moreState.open) findings.push('Mobile Advanced More sheet did not open from the bottom bar.');
-    if (moreState.headerMoreActions > 0) findings.push('Mobile Advanced More index rendered a redundant header More action.');
-    if (moreState.mobileHeaders > 0) findings.push('Mobile Advanced rendered the removed mobile top header.');
-    if (moreState.shellBackActions > 0) findings.push('Mobile Advanced More index rendered a shell Back action.');
-    if (moreState.activeBottomLabel !== 'Exit') findings.push('Mobile Advanced More active bottom tab did not morph into Exit.');
-    if (!moreState.hasModeLabel) findings.push('Mobile Advanced More sheet did not label the Basic/Advanced control as Experience Mode.');
-    if (!moreState.hasExitSaga) findings.push('Mobile Advanced More sheet did not expose Exit Saga after removing the top header close button.');
-    if (moreTooltipState.visible) findings.push(`Mobile Advanced More route change showed a floating tooltip: ${moreTooltipState.text || 'blank'}.`);
-    for (const route of ['continuity', 'injection', 'settings']) {
-        if (!moreState.entries.includes(route)) findings.push(`Mobile Advanced More sheet missing route entry: ${route}.`);
-    }
-    if (!moreState.hasDiagnostics || !moreState.hasConfiguration) findings.push('Mobile Advanced More sheet did not render Diagnostics and Configuration groups.');
-    const moreScrollAudit = await getMobileNestedScrollAuditState(client, {
-        label: 'More sheet',
-        scopeSelector: '#saga-lore-panel.saga-runtime-mobile',
-        allowedSelectors: ['.saga-mobile-more-sheet'],
-    });
-    addMobileNestedScrollFindings(findings, moreScrollAudit);
-    screenshots.push(await screenshot(client, 'mobile-advanced-harness-02-more-sheet'));
-
     await clickRuntimeRoute(client, 'injection');
     await waitFor(client, sagaActiveTabExpression('injection'), 'Mobile Advanced Injection route active', 10000);
     await waitFor(client, '!!document.querySelector("[data-saga-tour=\\"injection.toggles\\"]")', 'Mobile Advanced Injection toggles', 10000);
@@ -3994,15 +3948,14 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
         const text = document.body?.innerText || '';
         return {
             activeTab: root?.dataset?.mobileActiveTab || '',
-            activeMoreRoute: root?.dataset?.mobileMoreRoute || '',
             moreSheetClosed: !document.querySelector('.saga-mobile-more-sheet'),
             hasInjection: text.includes('Injection'),
             hasToggles: text.includes('Inject Continuity') && text.includes('Inject Lore'),
             targetVisible: !!document.querySelector('[data-saga-tour="injection.toggles"]'),
         };
     }));
-    if (injectionState.activeTab !== 'injection' || injectionState.activeMoreRoute !== 'injection') findings.push('Mobile Advanced Injection route did not update mobile More route state.');
-    if (!injectionState.moreSheetClosed) findings.push('Mobile Advanced More sheet remained open after selecting Injection.');
+    if (injectionState.activeTab !== 'injection') findings.push('Mobile Advanced Injection route did not update active tab state.');
+    if (!injectionState.moreSheetClosed) findings.push('Mobile Advanced rendered a removed More sheet after selecting Injection.');
     if (!injectionState.hasInjection || !injectionState.hasToggles || !injectionState.targetVisible) findings.push('Mobile Advanced Injection route did not render the expected toggles.');
     const injectionScrollAudit = await getMobileNestedScrollAuditState(client, {
         label: 'Injection route',
@@ -4010,10 +3963,8 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
         allowedSelectors: ['.saga-runtime-tab-body'],
     });
     addMobileNestedScrollFindings(findings, injectionScrollAudit);
-    screenshots.push(await screenshot(client, 'mobile-advanced-harness-03-injection-route'));
+    screenshots.push(await screenshot(client, 'mobile-advanced-harness-02-injection-route'));
 
-    await clickMobileShellBack(client);
-    await waitFor(client, '!!document.querySelector(".saga-mobile-more-sheet")', 'Mobile Advanced More sheet reopened after Injection', 10000);
     await clickRuntimeRoute(client, 'settings');
     await waitFor(client, sagaActiveTabExpression('settings'), 'Mobile Advanced Settings route active', 10000);
     await wait(500);
@@ -4022,14 +3973,14 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
         const text = document.body?.innerText || '';
         return {
             activeTab: root?.dataset?.mobileActiveTab || '',
-            activeMoreRoute: root?.dataset?.mobileMoreRoute || '',
             hasSettings: text.includes('Settings'),
+            hasExperienceMode: text.includes('Experience Mode'),
             hasProviders: text.includes('Provider') || text.includes('Providers'),
             moreSheetClosed: !document.querySelector('.saga-mobile-more-sheet'),
         };
     }));
-    if (settingsState.activeTab !== 'settings' || settingsState.activeMoreRoute !== 'settings') findings.push('Mobile Advanced Settings route did not update mobile More route state.');
-    if (!settingsState.hasSettings || !settingsState.hasProviders || !settingsState.moreSheetClosed) findings.push('Mobile Advanced Settings route did not render expected settings/provider content.');
+    if (settingsState.activeTab !== 'settings') findings.push('Mobile Advanced Settings route did not update active tab state.');
+    if (!settingsState.hasSettings || !settingsState.hasExperienceMode || !settingsState.hasProviders || !settingsState.moreSheetClosed) findings.push('Mobile Advanced Settings route did not render expected settings/provider content.');
     const settingsScrollAudit = await getMobileNestedScrollAuditState(client, {
         label: 'Settings route',
         scopeSelector: '#saga-lore-panel.saga-runtime-mobile',
@@ -4037,8 +3988,6 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
     });
     addMobileNestedScrollFindings(findings, settingsScrollAudit);
 
-    await clickMobileShellBack(client);
-    await waitFor(client, '!!document.querySelector(".saga-mobile-more-sheet")', 'Mobile Advanced More sheet reopened after Settings', 10000);
     await clickRuntimeRoute(client, 'continuity');
     await waitFor(client, sagaActiveTabExpression('continuity'), 'Mobile Advanced Continuity route active', 10000);
     await wait(500);
@@ -4047,13 +3996,12 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
         const text = document.body?.innerText || '';
         return {
             activeTab: root?.dataset?.mobileActiveTab || '',
-            activeMoreRoute: root?.dataset?.mobileMoreRoute || '',
             hasContinuity: text.includes('Continuity'),
             hasScanOrState: text.includes('Scan') || text.includes('State') || text.includes('Timeline'),
             moreSheetClosed: !document.querySelector('.saga-mobile-more-sheet'),
         };
     }));
-    if (continuityState.activeTab !== 'continuity' || continuityState.activeMoreRoute !== 'continuity') findings.push('Mobile Advanced Continuity route did not update mobile More route state.');
+    if (continuityState.activeTab !== 'continuity') findings.push('Mobile Advanced Continuity route did not update active tab state.');
     if (!continuityState.hasContinuity || !continuityState.hasScanOrState || !continuityState.moreSheetClosed) findings.push('Mobile Advanced Continuity route did not render expected continuity content.');
     const continuityScrollAudit = await getMobileNestedScrollAuditState(client, {
         label: 'Continuity route',
@@ -4103,9 +4051,18 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
     }
     screenshots.push(await screenshot(client, 'mobile-advanced-harness-04-active-set'));
 
-    const activeSetInspectClicked = await clickSelector(client, '.saga-lore-active-set-item:not(.saga-lore-available-set-item)').catch(() => false);
-    if (!activeSetInspectClicked) findings.push('Mobile Advanced Active Set item was not tappable for inspection.');
-    await waitFor(client, '!!document.querySelector(".saga-lore-entry-card.saga-lore-entry-expanded")', 'Mobile Advanced Active Set object inspection', 10000).catch(error => findings.push(error.message));
+    const activeSetInspectOpened = await evaluate(client, script(() => {
+        const item = document.querySelector('.saga-lore-active-set-item:not(.saga-lore-available-set-item)');
+        if (!item) return false;
+        item.dispatchEvent(new MouseEvent('contextmenu', { bubbles: true, cancelable: true, view: window }));
+        return true;
+    }), { userGesture: true }).catch(() => false);
+    if (!activeSetInspectOpened) findings.push('Mobile Advanced Active Set item did not accept tap-hold/context-menu inspection.');
+    await waitFor(client, '!!document.querySelector(".saga-mobile-lorecard-editor-shell")', 'Mobile Advanced Active Set full-window Lorecard editor', 10000).catch(error => findings.push(error.message));
+    await evaluate(client, script(() => {
+        document.querySelector('#saga-mobile-lorecard-editor')?.remove();
+        return true;
+    }));
 
     await clickRuntimeRoute(client, 'loredecks');
     await waitFor(client, sagaActiveTabExpression('loredecks'), 'Mobile Advanced Loredecks restored before Library', 10000);
@@ -4401,12 +4358,9 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
         errors,
         dialogEvents,
         initialState,
-        moreState,
-        moreTooltipState,
         loredecksRootScrollAudit,
         sessionRootState,
         sessionRootScrollAudit,
-        moreScrollAudit,
         injectionState,
         injectionScrollAudit,
         settingsState,
@@ -4449,7 +4403,7 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
     if (!shellState.mobileShell) findings.push(`Mobile redesign harness did not render the mobile shell at ${VIEWPORT.width}x${VIEWPORT.height}.`);
     if (shellState.activeTab !== 'loredecks') findings.push('Mobile redesign harness did not start on Loredecks.');
     if (shellState.activeBottomLabel !== 'Exit' || !shellState.activeBottomHasExitIcon) findings.push('Mobile redesign active Loredecks bottom tab did not morph into the Exit control.');
-    for (const route of ['loredecks', 'session', 'context', 'lore', 'more']) {
+    for (const route of ['loredecks', 'session', 'continuity', 'context', 'lore', 'injection', 'settings']) {
         if (!shellState.bottomRoutes.includes(route)) findings.push(`Mobile redesign bottom bar missing route: ${route}.`);
     }
     if (shellState.mobileHeaders > 0) findings.push('Mobile redesign shell rendered the removed mobile top header.');
@@ -4709,28 +4663,30 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
     await clickButtonText(client, 'Done', { root: '.saga-loredeck-library-overlay', enabledOnly: false }).catch(() => false);
     await waitFor(client, '!document.querySelector(".saga-loredeck-library-overlay")', 'Mobile redesign Library overlay closed', 10000).catch(error => findings.push(error.message));
 
-    await clickRuntimeRoute(client, 'more');
-    await waitFor(client, '!!document.querySelector(".saga-mobile-more-sheet")', 'Mobile redesign More sheet after Library', 10000).catch(error => findings.push(error.message));
+    await clickRuntimeRoute(client, 'settings');
+    await waitFor(client, sagaActiveTabExpression('settings'), 'Mobile redesign Settings route after Library', 10000).catch(error => findings.push(error.message));
     await wait(300);
-    const mobileMoreTooltipState = await getVisibleFloatingTooltipState(client);
-    const mobileMoreState = await evaluate(client, script(() => {
-        const sheet = document.querySelector('.saga-mobile-more-sheet');
+    const mobileSettingsTooltipState = await getVisibleFloatingTooltipState(client);
+    const mobileSettingsState = await evaluate(client, script(() => {
+        const root = document.querySelector('#saga-lore-panel');
+        const text = document.body?.innerText || '';
         return {
-            open: !!sheet,
-            hasExitSaga: (sheet?.innerText || '').includes('Exit Saga'),
-            hasModeLabel: (sheet?.innerText || '').includes('Experience Mode'),
+            activeTab: root?.dataset?.mobileActiveTab || '',
+            hasSettings: text.includes('Settings'),
+            hasModeLabel: text.includes('Experience Mode'),
+            hasProviders: text.includes('Providers') || text.includes('Provider'),
+            hasMoreSheet: !!document.querySelector('.saga-mobile-more-sheet'),
             shellBackActions: document.querySelectorAll('.saga-mobile-shell-back').length,
             activeBottomLabel: document.querySelector('.saga-mobile-bottom-tab-active .saga-mobile-bottom-label')?.textContent?.trim() || '',
             mobileHeaders: document.querySelectorAll('.saga-mobile-header').length,
-            entryLabels: [...sheet?.querySelectorAll('.saga-mobile-more-entry-label') || []].map(node => node.textContent?.trim() || '').filter(Boolean),
         };
     }));
-    if (!mobileMoreState.open || !mobileMoreState.hasExitSaga) findings.push('Mobile redesign More sheet did not expose Exit Saga as the shell close path.');
-    if (mobileMoreState.shellBackActions > 0) findings.push('Mobile redesign More index rendered a shell Back action.');
-    if (mobileMoreState.activeBottomLabel !== 'Exit') findings.push('Mobile redesign More active bottom tab did not morph into Exit.');
-    if (!mobileMoreState.hasModeLabel) findings.push('Mobile redesign More sheet did not label the Basic/Advanced control as Experience Mode.');
-    if (mobileMoreState.mobileHeaders > 0) findings.push('Mobile redesign More sheet rendered the removed mobile top header.');
-    if (mobileMoreTooltipState.visible) findings.push(`Mobile redesign More route change showed a floating tooltip: ${mobileMoreTooltipState.text || 'blank'}.`);
+    if (mobileSettingsState.activeTab !== 'settings' || !mobileSettingsState.hasSettings || !mobileSettingsState.hasModeLabel || !mobileSettingsState.hasProviders) findings.push('Mobile redesign Settings route did not expose Settings, Experience Mode, and Providers.');
+    if (mobileSettingsState.hasMoreSheet) findings.push('Mobile redesign rendered the removed More sheet.');
+    if (mobileSettingsState.shellBackActions > 0) findings.push('Mobile redesign Settings route rendered a shell Back action.');
+    if (mobileSettingsState.activeBottomLabel !== 'Exit') findings.push('Mobile redesign Settings active bottom tab did not morph into Exit.');
+    if (mobileSettingsState.mobileHeaders > 0) findings.push('Mobile redesign Settings route rendered the removed mobile top header.');
+    if (mobileSettingsTooltipState.visible) findings.push(`Mobile redesign Settings route change showed a floating tooltip: ${mobileSettingsTooltipState.text || 'blank'}.`);
 
     await clickRuntimeRoute(client, 'lore');
     await waitFor(client, sagaMobileRouteExpression('lore'), 'Mobile redesign Lorecards mobile route active', 10000);
@@ -4956,8 +4912,8 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
         detailState,
         reorderState,
         reorderMoved,
-        mobileMoreState,
-        mobileMoreTooltipState,
+        mobileSettingsState,
+        mobileSettingsTooltipState,
         lorecardsRoot,
         loreRouteTooltipState,
         automationState,

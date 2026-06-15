@@ -141,18 +141,12 @@ export {
 
 const MAX_CHAT_STATE_BYTES_BEFORE_AUTO_PERSIST = 200000;
 const migratedStateRefs = new WeakSet();
-const MOBILE_PRIMARY_PANEL_ROUTES = new Set(['loredecks', 'session', 'context', 'lore']);
-const MOBILE_MORE_PANEL_ROUTES = new Set(['continuity', 'injection', 'settings']);
-const MOBILE_BOTTOM_PANEL_ROUTES = new Set([...MOBILE_PRIMARY_PANEL_ROUTES, 'more']);
+const MOBILE_PRIMARY_PANEL_ROUTES = new Set(['loredecks', 'session', 'continuity', 'context', 'lore', 'injection', 'settings']);
+const MOBILE_BOTTOM_PANEL_ROUTES = new Set(MOBILE_PRIMARY_PANEL_ROUTES);
 
 function normalizeMobilePanelRouteForStorage(route, fallback = 'session') {
     const value = String(route || '').trim();
     return MOBILE_BOTTOM_PANEL_ROUTES.has(value) ? value : fallback;
-}
-
-function normalizeMobileMoreRouteForStorage(route) {
-    const value = String(route || '').trim();
-    return MOBILE_MORE_PANEL_ROUTES.has(value) ? value : '';
 }
 
 function normalizeMobileSubviewStackForStorage(stack) {
@@ -177,12 +171,8 @@ function normalizeLorePanelMobileState(panelState, defaultsPanel = getDefaultSta
         : {};
     const activeTabRoute = MOBILE_PRIMARY_PANEL_ROUTES.has(panelState.activeTab)
         ? panelState.activeTab
-        : (MOBILE_MORE_PANEL_ROUTES.has(panelState.activeTab) ? 'more' : defaultsPanel.mobile.activeRoute);
+        : defaultsPanel.mobile.activeRoute;
     const activeRoute = normalizeMobilePanelRouteForStorage(mobile.activeRoute, activeTabRoute);
-    const hasActiveMoreRoute = Object.prototype.hasOwnProperty.call(mobile, 'activeMoreRoute');
-    const activeMoreRoute = activeRoute === 'more'
-        ? normalizeMobileMoreRouteForStorage(hasActiveMoreRoute ? mobile.activeMoreRoute : panelState.activeTab)
-        : '';
     const lastPrimaryRoute = MOBILE_PRIMARY_PANEL_ROUTES.has(mobile.lastPrimaryRoute)
         ? mobile.lastPrimaryRoute
         : (MOBILE_PRIMARY_PANEL_ROUTES.has(activeRoute) ? activeRoute : defaultsPanel.mobile.lastPrimaryRoute);
@@ -191,14 +181,15 @@ function normalizeLorePanelMobileState(panelState, defaultsPanel = getDefaultSta
         : {};
     panelState.mobile = {
         activeRoute,
-        activeMoreRoute,
         lastPrimaryRoute,
         subviewStacks: {
             loredecks: normalizeMobileSubviewStackForStorage(stacks.loredecks),
             session: normalizeMobileSubviewStackForStorage(stacks.session),
+            continuity: normalizeMobileSubviewStackForStorage(stacks.continuity),
             context: normalizeMobileSubviewStackForStorage(stacks.context),
             lore: normalizeMobileSubviewStackForStorage(stacks.lore),
-            more: normalizeMobileSubviewStackForStorage(stacks.more),
+            injection: normalizeMobileSubviewStackForStorage(stacks.injection),
+            settings: normalizeMobileSubviewStackForStorage(stacks.settings),
         },
     };
 }

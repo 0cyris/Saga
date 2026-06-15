@@ -2126,3 +2126,27 @@
     padding-right: 0 !important;
     touch-action: pan-y !important;
 }
+
+.saga-lore-panel.saga-runtime-mobile .saga-accepted-lore-section-mobile .saga-lore-controls {
+    position: static !important;
+    max-height: none !important;
+    overflow: visible !important;
+    display: grid !important;
+    gap: 8px !important;
+    padding: 0 0 8px !important;
+    background: transparent !important;
+    border-bottom: 0 !important;
+}
+
+.saga-lore-panel.saga-runtime-mobile .saga-accepted-lore-section-mobile .saga-lore-filter-row {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(108px, auto) !important;
+    gap: 7px !important;
+    align-items: stretch !important;
+}
+
+.saga-lore-panel.saga-runtime-mobile .saga-accepted-lore-section-mobile .saga-mobile-accepted-filter-button {
+    min-width: 0 !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+}

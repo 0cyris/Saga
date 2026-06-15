@@ -5,6 +5,7 @@ import {
     createSectionHeader,
 } from '../ui/runtime-ui-kit.js';
 import { isBasicExperience } from '../runtime/runtime-navigation.js';
+import { createExperienceModeSwitch } from '../runtime/runtime-shell-view.js';
 import { getActiveThemeColors, getThemePackLibrary, getThemePreset } from '../theme/runtime-theme.js';
 import {
     createBasicProviderQuickSetupCard,
@@ -46,6 +47,7 @@ export function renderSettingsTab(container, state) {
     void state;
     const settings = getSettings();
     const basic = isBasicExperience(settings);
+    container.appendChild(createExperienceModeSettingsCard(settings));
     container.appendChild(createSectionHeader(
         'SAGA',
         basic ? 'Providers and Theme Pack.' : 'Fandom Loresystem.'
@@ -103,6 +105,25 @@ export function renderSettingsTab(container, state) {
     ), 'settings.stateSafety'));
 
     appendDangerZoneCard(container, state);
+}
+
+function createExperienceModeSettingsCard(settings = getSettings()) {
+    const card = document.createElement('div');
+    card.className = 'saga-runtime-card saga-settings-experience-card';
+    markTourTarget(card, 'settings.experienceMode');
+
+    const title = document.createElement('h4');
+    title.textContent = 'Experience Mode';
+    addTooltip(title, 'Basic keeps the mobile nav focused. Advanced exposes every runtime workspace.');
+    card.appendChild(title);
+
+    const help = document.createElement('div');
+    help.className = 'saga-runtime-help';
+    help.textContent = 'Choose how much of Saga is visible in the runtime window.';
+    card.appendChild(help);
+
+    card.appendChild(createExperienceModeSwitch(settings, { tourTarget: 'settings.experienceMode' }));
+    return card;
 }
 
 export function createThemeSettingsCard(settings = getSettings()) {
