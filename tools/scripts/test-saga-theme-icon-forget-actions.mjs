@@ -299,6 +299,7 @@ const themeImport = await importExternalThemePack({
     background: '#120c12',
     surface: '#2b1c1c',
     accent: '#d7b56d',
+    activate: '#6bff59',
   },
   tags: ['theme:custom'],
 }, { fileApi, now: () => 1000, sourceFileName: 'storage-forget.theme.json' });

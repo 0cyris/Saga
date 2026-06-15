@@ -41,7 +41,7 @@ The current state of development is **alpha-release**: `0.1.0-alpha.1`, with min
 3. Saga does not auto-open on first load. Open it from the **SAGA** extension dropdown: **Open SAGA Window**.
 4. Start in **Basic Workflow**. Go to the **Session** tab, follow the **Start Checklist**, and consider viewing the **Basic Walkthrough** below it.
 
-For guided walkthroughs, see [Basic Workflow](docs/user/BASIC_WORKFLOW.md) and [Advanced Workflow](docs/user/ADVANCED_WORKFLOW.md). For the full surface-by-surface guide with screenshots, see the [Operator's Manual](docs/user/OPERATOR_MANUAL.md).
+For guided walkthroughs, see [Basic Workflow](docs/user/BASIC_WORKFLOW.md) and [Advanced Workflow](docs/user/ADVANCED_WORKFLOW.md). For full surface-by-surface guides with screenshots, see the [Saga for Desktop Operator's Manual](docs/user/DESKTOP_OPERATOR_MANUAL.md) and [Saga for Mobile Operator's Manual](docs/user/MOBILE_OPERATOR_MANUAL.md).
 
 ## Key Features
 
@@ -61,7 +61,8 @@ Release-facing docs:
 
 - [Documentation Index](docs/DOCUMENTATION_INDEX.md)
 - [Alpha Release Notes](docs/release/0.1.0-alpha.1.md)
-- [Operator's Manual](docs/user/OPERATOR_MANUAL.md)
+- [Saga for Desktop Operator's Manual](docs/user/DESKTOP_OPERATOR_MANUAL.md)
+- [Saga for Mobile Operator's Manual](docs/user/MOBILE_OPERATOR_MANUAL.md)
 - [Basic Workflow](docs/user/BASIC_WORKFLOW.md)
 - [Advanced Workflow](docs/user/ADVANCED_WORKFLOW.md)
 - [Loredeck And Lorecard Creation](docs/loredecks/LOREDECK_AND_LORECARD_CREATION_GUIDE.md)

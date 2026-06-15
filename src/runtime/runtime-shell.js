@@ -31,7 +31,7 @@ let resizeStartHeight = 0;
 let resizeStartDirection = 'right';
 let pendingRuntimeMobileFocusSelector = '';
 
-export const MOBILE_LORECARDS_STAGES = Object.freeze(['lore', 'generate', 'automation']);
+export const MOBILE_LORECARDS_STAGES = Object.freeze(['generate', 'automation', 'lore']);
 
 export function normalizeRuntimeMobileLorecardsStage(value = '') {
     const stage = String(value || '').trim().toLowerCase();

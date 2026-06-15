@@ -517,7 +517,27 @@
 
 .saga-settings-qol-card {
     display: grid;
-    gap: 8px;
+    gap: 0;
+}
+
+.saga-settings-qol-list {
+    display: grid;
+    min-width: 0;
+}
+
+.saga-settings-qol-item {
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    padding: 8px 0;
+}
+
+.saga-settings-qol-item + .saga-settings-qol-item {
+    border-top: 1px solid var(--saga-border-soft, rgba(185, 139, 54, 0.18));
+}
+
+.saga-runtime-card.saga-settings-qol-card .saga-settings-qol-item {
+    padding: 6px 0;
 }
 
 .saga-settings-switch-row {
@@ -607,10 +627,59 @@
 }
 
 .saga-settings-switch-label {
+    display: block;
     min-width: 0;
     font-size: 0.86em;
     line-height: 1.25;
-    overflow-wrap: anywhere;
+    overflow-wrap: normal;
+}
+
+.saga-settings-switch-text {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.saga-settings-switch-description {
+    display: block;
+    color: var(--saga-muted, rgba(241, 234, 216, 0.68));
+    font-size: 0.74em;
+    line-height: 1.3;
+}
+
+.saga-settings-qol-card .saga-settings-qol-item {
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+}
+
+.saga-settings-qol-card .saga-settings-qol-item:hover {
+    background: var(--saga-surface-2, rgba(10, 12, 16, 0.24));
+}
+
+.saga-settings-qol-card .saga-settings-qol-item + .saga-settings-qol-item {
+    border-top: 1px solid var(--saga-border-soft, rgba(185, 139, 54, 0.18));
+}
+
+.saga-runtime-mobile .saga-settings-qol-section .saga-collapsible-content {
+    padding-top: 0;
+}
+
+.saga-runtime-mobile .saga-settings-qol-card {
+    gap: 0;
+}
+
+.saga-runtime-mobile .saga-settings-qol-item {
+    grid-template-columns: 44px minmax(0, 1fr);
+    align-items: flex-start;
+    gap: 12px;
+    min-height: 44px;
+    padding: 10px 0;
+}
+
+.saga-runtime-mobile .saga-settings-qol-item .saga-settings-switch-slider {
+    margin-top: 1px;
 }
 
 .saga-runtime-mobile .saga-loredecks-mobile-action-stack {
@@ -4235,29 +4304,29 @@
 }
 
 .saga-loredeck-library-stack-toggle-active {
-    border-color: rgba(119, 184, 93, 0.72);
+    border-color: var(--saga-activate-soft, rgba(107, 255, 89, 0.56));
     background:
-        radial-gradient(circle at 50% 42%, rgba(231, 255, 192, 0.38), transparent 42%),
-        radial-gradient(circle at 50% 50%, rgba(103, 216, 82, 0.26), transparent 72%),
-        rgba(12, 30, 21, 0.9);
+        radial-gradient(circle at 50% 42%, color-mix(in srgb, var(--saga-activate, #6bff59) 38%, #ffffff) 0%, transparent 44%),
+        radial-gradient(circle at 50% 50%, var(--saga-activate-surface, rgba(107, 255, 89, 0.18)) 0%, transparent 74%),
+        color-mix(in srgb, var(--saga-activate, #6bff59) 12%, rgba(12, 30, 21, 0.92));
     box-shadow:
-        0 0 0 1px rgba(202, 255, 146, 0.2) inset,
-        0 0 12px rgba(107, 255, 89, 0.44),
-        0 0 24px rgba(107, 255, 89, 0.16);
+        0 0 0 1px color-mix(in srgb, var(--saga-activate, #6bff59) 28%, transparent) inset,
+        0 0 14px var(--saga-activate-glow, rgba(107, 255, 89, 0.48)),
+        0 0 30px var(--saga-activate-surface, rgba(107, 255, 89, 0.18));
 }
 
 .saga-loredeck-library-stack-toggle-active::before {
     background:
-        radial-gradient(circle at 38% 28%, #ffffff 0 12%, #f0ffd3 18%, #9cff6d 54%, #3ecf58 100%);
+        radial-gradient(circle at 38% 28%, #ffffff 0 12%, color-mix(in srgb, var(--saga-activate, #6bff59) 32%, #ffffff) 18%, var(--saga-activate, #6bff59) 56%, color-mix(in srgb, var(--saga-activate, #6bff59) 72%, #12351f) 100%);
     box-shadow:
-        0 0 5px rgba(229, 255, 198, 0.9),
-        0 0 12px rgba(110, 255, 91, 0.78);
+        0 0 6px color-mix(in srgb, var(--saga-activate, #6bff59) 42%, #ffffff),
+        0 0 14px var(--saga-activate-glow-strong, rgba(107, 255, 89, 0.72));
 }
 
 .saga-loredeck-library-stack-toggle-active::after {
     opacity: 1;
     box-shadow:
-        0 0 12px 2px rgba(119, 255, 87, 0.5),
+        0 0 14px 3px var(--saga-activate-glow, rgba(107, 255, 89, 0.48)),
         0 0 3px rgba(255, 255, 255, 0.72) inset;
 }
 
@@ -4281,11 +4350,11 @@
 
 .saga-loredeck-library-stack-toggle-button:hover,
 .saga-loredeck-library-stack-toggle-button:focus-visible {
-    border-color: rgba(245, 196, 91, 0.72);
+    border-color: var(--saga-activate-soft, rgba(107, 255, 89, 0.56));
     transform: translateY(-1px);
     box-shadow:
-        0 0 0 1px rgba(245, 196, 91, 0.18) inset,
-        0 0 14px rgba(245, 196, 91, 0.16);
+        0 0 0 1px color-mix(in srgb, var(--saga-activate, #6bff59) 24%, transparent) inset,
+        0 0 16px var(--saga-activate-surface, rgba(107, 255, 89, 0.18));
 }
 
 .saga-loredeck-library-center-actions {

@@ -62,17 +62,17 @@ let deps = {};
 let mobileLorecardsSubtabsIntroSeen = false;
 
 const MOBILE_LORECARDS_SUBTAB_META = Object.freeze({
-    lore: Object.freeze({
-        label: 'Lore',
-        tooltip: 'Review and manage all Lorecards in one object list.',
-    }),
     generate: Object.freeze({
         label: 'Generate',
         tooltip: 'Create or suggest new Lorecards.',
     }),
     automation: Object.freeze({
-        label: 'Automation',
+        label: 'Automate',
         tooltip: 'Configure and run Lore Automation.',
+    }),
+    lore: Object.freeze({
+        label: 'Lore',
+        tooltip: 'Review and manage all Lorecards in one object list.',
     }),
 });
 const MOBILE_NAV_TOOLTIP_OPTIONS = Object.freeze({ showOnHover: false, showOnFocus: false });
@@ -404,8 +404,8 @@ function getMobileLorecardsSubTabCounts(state) {
 }
 
 function getMobileLorecardsFallbackStage(state) {
-    const counts = getMobileLorecardsSubTabCounts(state);
-    return counts.lore > 0 ? 'lore' : 'generate';
+    void state;
+    return 'generate';
 }
 
 function renderMobileLorecardsSubTabs(state, settings = getSettings()) {

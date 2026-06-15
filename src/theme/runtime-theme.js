@@ -33,6 +33,7 @@ export const THEMEPACK_PRESETS = Object.freeze([
             accent: '#d7b56d',
             danger: '#5c1724',
             success: '#1f4a38',
+            activate: '#6bff59',
             warning: '#b9903c',
             focus: '#ffeaa7',
             button: '#18121a',
@@ -72,6 +73,7 @@ export const THEMEPACK_PRESETS = Object.freeze([
             accent: '#f0d58a',
             danger: '#5a1930',
             success: '#1f5b45',
+            activate: '#75f2a1',
             warning: '#c7963e',
             focus: '#f5e5a6',
             button: '#141a2e',
@@ -111,6 +113,7 @@ export const THEMEPACK_PRESETS = Object.freeze([
             accent: '#d6b45a',
             danger: '#64161b',
             success: '#31533f',
+            activate: '#8cff72',
             warning: '#c58b32',
             focus: '#f3d474',
             button: '#141414',
@@ -150,6 +153,7 @@ export const THEMEPACK_PRESETS = Object.freeze([
             accent: '#9bdcff',
             danger: '#532332',
             success: '#1d5a55',
+            activate: '#55ffd9',
             warning: '#d0a33f',
             focus: '#d4f2ff',
             button: '#0b1b2a',
@@ -189,6 +193,7 @@ export const THEMEPACK_PRESETS = Object.freeze([
             accent: '#44e4ff',
             danger: '#65133c',
             success: '#0e6d5b',
+            activate: '#39ff88',
             warning: '#f2d75e',
             focus: '#ff66d8',
             button: '#111425',
@@ -228,6 +233,7 @@ export const THEMEPACK_PRESETS = Object.freeze([
             accent: '#ffcf4d',
             danger: '#7c1f28',
             success: '#2c6b45',
+            activate: '#7cff5a',
             warning: '#ffb84d',
             focus: '#fff2a3',
             button: '#13203a',
@@ -267,6 +273,7 @@ export const THEMEPACK_PRESETS = Object.freeze([
             accent: '#f3c86a',
             danger: '#6a2a25',
             success: '#2f684a',
+            activate: '#42f5a7',
             warning: '#dba14a',
             focus: '#ffe09a',
             button: '#0d2835',
@@ -306,6 +313,7 @@ export const THEMEPACK_PRESETS = Object.freeze([
             accent: '#cde889',
             danger: '#653021',
             success: '#36744a',
+            activate: '#a6ff5f',
             warning: '#caa24a',
             focus: '#e5f7b2',
             button: '#112216',
@@ -345,6 +353,7 @@ export const THEMEPACK_PRESETS = Object.freeze([
             accent: '#f1d18c',
             danger: '#5f2147',
             success: '#2c6254',
+            activate: '#66ffe1',
             warning: '#dba75c',
             focus: '#98fff2',
             button: '#12142b',
@@ -384,6 +393,7 @@ export const THEMEPACK_PRESETS = Object.freeze([
             accent: '#e0b86b',
             danger: '#5b1b19',
             success: '#315f43',
+            activate: '#78ff8a',
             warning: '#c8892d',
             focus: '#ffd27a',
             button: '#111715',
@@ -423,6 +433,7 @@ export const THEMEPACK_PRESETS = Object.freeze([
             accent: '#c8ff4d',
             danger: '#9e123f',
             success: '#2f7d45',
+            activate: '#b6ff2e',
             warning: '#ffc145',
             focus: '#f8ff7a',
             button: '#11180e',
@@ -462,6 +473,7 @@ export const THEMEPACK_PRESETS = Object.freeze([
             accent: '#81f7d8',
             danger: '#7b1022',
             success: '#2a745d',
+            activate: '#5dffd6',
             warning: '#e2a83c',
             focus: '#ffe0b5',
             button: '#11191d',
@@ -501,6 +513,7 @@ export const THEMEPACK_PRESETS = Object.freeze([
             accent: '#ff7ab6',
             danger: '#b31942',
             success: '#3fa66b',
+            activate: '#4dff9f',
             warning: '#f6c845',
             focus: '#5be7ff',
             button: '#18191d',
@@ -540,6 +553,7 @@ export const THEMEPACK_PRESETS = Object.freeze([
             accent: '#49f0bc',
             danger: '#811d16',
             success: '#2e8a63',
+            activate: '#6df7c9',
             warning: '#d7b84a',
             focus: '#d9ff66',
             button: '#0b1414',
@@ -579,6 +593,7 @@ export const THEMEPACK_PRESETS = Object.freeze([
             accent: '#ffb000',
             danger: '#8f112d',
             success: '#3d7a4f',
+            activate: '#9dff4a',
             warning: '#e58f2f',
             focus: '#fff06a',
             button: '#1a1110',
@@ -613,6 +628,7 @@ export const THEME_COLOR_FIELDS = Object.freeze([
     ['Accent', 'themeAccentColor', 'accent'],
     ['Danger', 'themeDangerColor', 'danger'],
     ['Success', 'themeSuccessColor', 'success'],
+    ['Activate', 'themeActivateColor', 'activate'],
     ['Warning', 'themeWarningColor', 'warning'],
     ['Focus', 'themeFocusColor', 'focus'],
     ['Button', 'themeButtonColor', 'button'],
@@ -936,6 +952,7 @@ export function completeThemeColors(colors = {}) {
     merged.inputBorder = merged.inputBorder || merged.border;
     merged.focus = merged.focus || merged.accent;
     merged.success = merged.success || '#1f4a38';
+    merged.activate = colors.activate || merged.success || fallback.activate || '#6bff59';
     merged.warning = merged.warning || merged.accent;
     merged.chipNeutral = merged.chipNeutral || merged.mutedText || '#c8cbd2';
     merged.chipSource = merged.chipSource || merged.accent || merged.chipNeutral;
@@ -996,6 +1013,12 @@ function writeRuntimeThemeVars(target, colors) {
     target.style.setProperty('--saga-danger-hover', hexToRgba(colors.danger, 0.34));
     target.style.setProperty('--saga-green', colors.success);
     target.style.setProperty('--saga-green-soft', hexToRgba(colors.success, 0.42));
+    target.style.setProperty('--saga-activate', colors.activate);
+    target.style.setProperty('--saga-activate-soft', hexToRgba(colors.activate, 0.56));
+    target.style.setProperty('--saga-activate-surface', hexToRgba(colors.activate, 0.18));
+    target.style.setProperty('--saga-activate-hover', hexToRgba(colors.activate, 0.34));
+    target.style.setProperty('--saga-activate-glow', hexToRgba(colors.activate, 0.48));
+    target.style.setProperty('--saga-activate-glow-strong', hexToRgba(colors.activate, 0.72));
     target.style.setProperty('--saga-warning', colors.warning);
     target.style.setProperty('--saga-warning-soft', hexToRgba(colors.warning, 0.42));
     target.style.setProperty('--saga-focus', colors.focus);
@@ -1096,6 +1119,7 @@ export function buildThemeAccessibilityReport(colors = {}) {
         { key: 'button', label: 'Button Text', foreground: complete.buttonText, background: complete.button, target: 4.5, purpose: 'Action buttons.' },
         { key: 'accent', label: 'Accent Controls', foreground: complete.accent, background: complete.background, target: 3, purpose: 'Selected tabs, links, and highlights.' },
         { key: 'focus', label: 'Focus Ring', foreground: complete.focus, background: complete.background, target: 3, purpose: 'Keyboard focus visibility.' },
+        { key: 'activate', label: 'Activate Glow', foreground: complete.activate, background: complete.background, target: 3, purpose: 'Active stack and Lorecard activation controls.' },
         { key: 'danger', label: 'Danger Surface', foreground: complete.text, background: complete.danger, target: 4.5, purpose: 'Danger-zone controls and warnings.' },
     ].map(check => {
         const ratio = getContrastRatio(check.foreground, check.background);

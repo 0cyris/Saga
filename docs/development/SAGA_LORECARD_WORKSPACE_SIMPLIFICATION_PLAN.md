@@ -2,7 +2,7 @@
 
 Status: proposed two-stage target architecture for simplifying Lorecards across desktop and mobile. No compatibility scaffolding is required; Saga is pre-alpha, so old surfaces should be replaced in place when implementation starts.
 
-This plan redesigns the Lorecards tab around one canonical object workspace instead of a pipeline of stacked sections. Delivery is intentionally staged: desktop establishes the shared model and primary workspace first, then mobile adopts the same model with a cleaner `Lore | Generate | Automation` route structure.
+This plan redesigns the Lorecards tab around one canonical object workspace instead of a pipeline of stacked sections. Delivery is intentionally staged: desktop establishes the shared model and primary workspace first, then mobile adopts the same model with a cleaner `Generate | Automate | Lore` route structure.
 
 The design rule is:
 
@@ -19,7 +19,7 @@ This is a two-stage redesign:
 
 Stage 1 replaces the desktop stacked lifecycle surfaces with the unified Lorecards workspace. It owns the shared row model, default sorting, visual state language, detail-pane interaction, and retirement of the desktop Pipeline, Active Set, Pending Review, and Accepted Lorecards sections as separate primary blocks.
 
-Stage 2 updates mobile after the shared model is in place. Mobile should not be a separate product direction; it should express the same Lorecards model through phone-sized workspaces: `Lore | Generate | Automation`.
+Stage 2 updates mobile after the shared model is in place. Mobile should not be a separate product direction; it should express the same Lorecards model through phone-sized workspaces: `Generate | Automate | Lore`.
 
 Do not begin by redesigning mobile first. Mobile depends on the row model and interaction budget created in Stage 1, and implementing both at once is likely to blur the ownership boundaries between generation, automation, review, and accepted-card management.
 
@@ -345,14 +345,14 @@ Generation | Automation | Pending | Approved
 to:
 
 ```text
-Lore | Generate | Automation
+Generate | Automate | Lore
 ```
-
-`Lore` is the unified object workspace. Pending, accepted, active, pinned, muted, conflict, source, type, deck, and Context are states or filters inside `Lore`, not separate mobile routes.
 
 `Generate` is the creation/suggestion workspace.
 
-`Automation` is the Lore Automation workspace.
+`Automate` is the Lore Automation workspace.
+
+`Lore` is the unified object workspace. Pending, accepted, active, pinned, muted, conflict, source, type, deck, and Context are states or filters inside `Lore`, not separate mobile routes.
 
 ### Mobile Route Responsibilities
 
@@ -523,10 +523,10 @@ Replace desktop surfaces with:
 
 Replace mobile surfaces with:
 
-- `Lore | Generate | Automation` sub-tabs.
-- unified mobile `Lore` page backed by the shared row model.
+- `Generate | Automate | Lore` sub-tabs.
 - `Generate` page that owns creation/suggestion only.
-- `Automation` page that owns automation mode/status/activity only.
+- `Automate` page that owns automation mode/status/activity only.
+- unified mobile `Lore` page backed by the shared row model.
 
 The exact function names can change, but the ownership boundary should be clear: one workspace owns normal Lorecards management.
 
@@ -574,7 +574,7 @@ Goal: align mobile with the same object-first model after the shared row model a
 
 #### Phase 1: Mobile Navigation Contract
 
-- Replace mobile Lorecards sub-tabs with `Lore | Generate | Automation`.
+- Replace mobile Lorecards sub-tabs with `Generate | Automate | Lore`.
 - Update `src/runtime/runtime-shell.js` mobile Lorecards stage constants and normalization.
 - Update `src/runtime/runtime-shell-view.js` sub-tab metadata, label order, count badges, and tab rendering.
 - Normalize old mobile stage values during pre-alpha cleanup:
@@ -582,7 +582,8 @@ Goal: align mobile with the same object-first model after the shared row model a
   - `suggested` and `generation` -> `generate`;
   - `automation` -> `automation`.
 - Update fallback/default routing:
-  - pending or accepted rows exist -> `Lore`;
+  - first entry into the Lorecards route -> `Generate`;
+  - explicit user selection or persisted stage -> selected stage;
   - no rows exist -> `Generate`;
   - generation creates pending rows -> route or highlight `Lore`.
 
@@ -628,16 +629,17 @@ Focused checks:
 - Default sort places pending cards before active/pinned accepted cards.
 - Timeline remains reachable.
 - Capture / Suggest can add new pending rows that appear in the unified list.
-- After Stage 2, mobile Lorecards sub-tabs are exactly `Lore | Generate | Automation`.
-- After Stage 2, mobile `Lore` renders pending and accepted/active cards in one list.
+- After Stage 2, mobile Lorecards sub-tabs are exactly `Generate | Automate | Lore`.
 - After Stage 2, mobile `Generate` creates pending rows without owning review management.
+- After Stage 2, mobile `Automate` owns automation mode/status/activity only.
+- After Stage 2, mobile `Lore` renders pending and accepted/active cards in one list.
 - After Stage 2, mobile Timeline/history is reachable without becoming a sub-tab.
 
 Broad checks:
 
 - `node tools/scripts/test-visual-smoke-harness.mjs`
 - rendered desktop Lorecards screenshot refresh after Stage 1;
-- mobile Lorecards smoke after Stage 2 to confirm `Lore | Generate | Automation`;
+- mobile Lorecards smoke after Stage 2 to confirm `Generate | Automate | Lore`;
 - alpha gate if implementation touches shared state contracts.
 
 ## Open Questions

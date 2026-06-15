@@ -146,7 +146,7 @@ const LORE_ENTRY_TYPE_FILTERS = Object.freeze([
 ]);
 
 const LORECARD_LIFECYCLE_STAGES = Object.freeze(['suggested', 'pending', 'accepted', 'active']);
-const MOBILE_LORECARD_LIFECYCLE_STAGES = Object.freeze(['lore', 'generate', 'automation']);
+const MOBILE_LORECARD_LIFECYCLE_STAGES = Object.freeze(['generate', 'automation', 'lore']);
 const LORECARD_LIFECYCLE_STAGE_META = Object.freeze({
     lore: {
         label: 'Lore',
@@ -164,8 +164,8 @@ const LORECARD_LIFECYCLE_STAGE_META = Object.freeze({
         tooltip: 'Create or suggest Lorecards from manual notes, recent story, canon sources, or Loredeck context.',
     },
     automation: {
-        label: 'Automation',
-        shortLabel: 'Automation',
+        label: 'Automate',
+        shortLabel: 'Automate',
         tooltip: 'Configure Lore Automation, run it now, inspect recent activity, and recover the last run.',
     },
     pending: {
@@ -2647,7 +2647,7 @@ export function createAutoRelevanceCard(state) {
     card.className = 'saga-runtime-card saga-auto-relevance-card';
     if (mobileShell) card.classList.add('saga-mobile-lore-automation-card');
     markTourTarget(card, 'lore.autoRelevance');
-    card.appendChild(createLoreAutomationHeader('Lore Automation', settings));
+    card.appendChild(createLoreAutomationHeader(mobileShell ? 'Automate' : 'Lore Automation', settings));
 
     const modeRow = document.createElement('div');
     modeRow.className = 'saga-lore-automation-choice-row';
@@ -3942,6 +3942,32 @@ function createLoreAutomationStateBadge(entry) {
     );
 }
 
+function createLorecardActiveToggleButton(entry = {}, options = {}) {
+    const activeNow = isActiveLorecardEntry(entry);
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = `saga-lorecard-active-toggle-button saga-lorecard-active-toggle ${activeNow ? 'saga-lorecard-active-toggle-active' : 'saga-lorecard-active-toggle-inactive'} ${options.className || ''}`.trim();
+    button.setAttribute('aria-pressed', activeNow ? 'true' : 'false');
+    button.setAttribute('aria-label', activeNow ? 'Deactivate Lorecard' : 'Activate Lorecard');
+    addTooltip(button, activeNow
+        ? 'Active. Click to remove this Lorecard from prompt eligibility.'
+        : 'Inactive. Click to make this Lorecard eligible for active prompt injection.');
+    button.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        const current = getState();
+        const currentEntry = normalizeLoreMatrix(current?.loreMatrix || []).find(item => item?.id === entry.id) || entry;
+        const updated = isActiveLorecardEntry(currentEntry)
+            ? deactivateAcceptedLoreEntry(entry.id)
+            : activateAcceptedLoreEntry(entry.id);
+        if (updated) {
+            if (typeof options.onChange === 'function') options.onChange(entry.id);
+            else refreshAcceptedLoreSurfaces(entry.id);
+        }
+    });
+    return button;
+}
+
 export function createEntryCard(entry, state, options = {}) {
     const basicReview = !!options.basicReview;
     const workspaceRow = options.workspaceRow === true;
@@ -4012,21 +4038,7 @@ export function createEntryCard(entry, state, options = {}) {
         );
         actions.appendChild(inspectBtn);
 
-        const activateBtn = createIconButton(
-            mobileShell && activeNow ? 'Deactivate' : activeNow ? 'Active' : 'Activate',
-            activeNow
-                ? (mobileShell ? 'Remove this Lorecard from the Active Set.' : 'This Lorecard is already in the Active Set.')
-                : 'Move this Accepted Lorecard into the Active Set by setting High relevance and clearing mute.',
-            `saga-lore-entry-btn saga-lore-entry-activate-btn saga-lorecard-active-toggle ${activeNow ? 'saga-lorecard-active-toggle-active' : 'saga-lorecard-active-toggle-inactive'}`,
-            (e) => {
-                e.stopPropagation();
-                if (mobileShell && activeNow) {
-                    if (deactivateAcceptedLoreEntry(entry.id)) refreshAcceptedLoreSurfaces(entry.id);
-                } else if (activateAcceptedLoreEntry(entry.id)) refreshAcceptedLoreSurfaces(entry.id);
-            }
-        );
-        if (activeNow && !mobileShell) activateBtn.disabled = true;
-        actions.appendChild(activateBtn);
+        actions.appendChild(createLorecardActiveToggleButton(entry, { className: 'saga-lore-entry-activate-btn' }));
 
         const pinBtn = createIconButton(
             entry.isPinned ? 'Pinned' : 'Pin',
@@ -4061,9 +4073,18 @@ export function createEntryCard(entry, state, options = {}) {
             }
         );
         actions.appendChild(suppressBtn);
+    } else if (workspaceRow && !mobileShell && !entry.isPending) {
+        actions.appendChild(createLorecardActiveToggleButton(entry, {
+            className: 'saga-lorecard-row-active-toggle',
+            onChange: () => {
+                refreshPanelBody({ preserveScroll: true });
+                refreshHeader();
+                refreshLoreWorkbench();
+            },
+        }));
     }
 
-    if (!workspaceRow && !mobileShell) {
+    if (actions.children.length && !mobileShell) {
         headerRow.appendChild(actions);
     }
     card.appendChild(headerRow);
@@ -4779,10 +4800,14 @@ function createAcceptedLorecardWorkspaceDetail(entry = {}, options = {}) {
 
     const actions = document.createElement('div');
     actions.className = 'saga-primary-actions saga-lorecard-detail-actions';
-    actions.appendChild(createButton(isActiveLorecardEntry(entry) ? 'Deactivate' : 'Activate', isActiveLorecardEntry(entry) ? 'Remove this Lorecard from active prompt eligibility.' : 'Make this Lorecard active for prompt eligibility.', () => {
-        const updated = isActiveLorecardEntry(entry) ? deactivateAcceptedLoreEntry(entry.id) : activateAcceptedLoreEntry(entry.id);
-        if (updated) refreshPanelBody({ preserveScroll: true });
-    }, `saga-small-button saga-lorecard-active-toggle ${isActiveLorecardEntry(entry) ? 'saga-lorecard-active-toggle-active' : 'saga-lorecard-active-toggle-inactive'}`));
+    actions.appendChild(createLorecardActiveToggleButton(entry, {
+        className: 'saga-lorecard-detail-active-toggle',
+        onChange: () => {
+            refreshPanelBody({ preserveScroll: true });
+            refreshHeader();
+            refreshLoreWorkbench();
+        },
+    }));
     actions.appendChild(createButton(entry.isPinned ? 'Unpin' : 'Pin', entry.isPinned ? 'Remove this Lorecard from pinned lore.' : 'Pin this Lorecard for prominence.', () => {
         togglePinEntry(entry.id, { deferSave: true });
         refreshPanelBody({ preserveScroll: true });
@@ -4811,7 +4836,9 @@ function createAcceptedLorecardWorkspaceDetail(entry = {}, options = {}) {
 
 function getRecommendedLorecardLifecycleStage(state = getState(), stats = getLorecardLifecycleStats(state)) {
     if (isRuntimeMobileShell()) {
-        return (Number(stats.allPendingCount || 0) || Number(stats.acceptedCount || 0)) ? 'lore' : 'generate';
+        void state;
+        void stats;
+        return 'generate';
     }
     if (!isRuntimeMobileShell() && stats.suggestedCount) return 'suggested';
     if (stats.pendingCount) return 'pending';
@@ -5392,7 +5419,7 @@ function createLorecardGenerationCollapsible(state, options = {}) {
     const lifecycleStage = normalizeMobileLorecardLifecycleStage(options.lifecycleStage) || normalizeLorecardLifecycleStage(options.lifecycleStage);
     const generationSection = createCollapsibleSection(
         'lore.generation',
-        'Capture / Suggest',
+        lifecycleStage === 'generate' ? 'Generate' : 'Capture / Suggest',
         basic ? 'manual note + story scan' : 'manual note + canon/story sources',
         lifecycleStage === 'generate' || lifecycleStage === 'suggested' || (!lifecycleStats.pendingCount && !lifecycleStats.acceptedCount),
         dep('createLoreGenerationCard')(state),

@@ -1,8 +1,8 @@
-# Saga Operator's Manual
+# Saga for Desktop Operator's Manual
 
-This manual is the detailed operating guide for Saga's runtime surfaces. Use it after the README has given you the basic mental model and install path.
+This manual is the detailed operating guide for Saga's desktop and tablet-width runtime surfaces. Use it after the README has given you the basic mental model and install path.
 
-For short workflow guides, see [Basic Workflow](BASIC_WORKFLOW.md) and [Advanced Workflow](ADVANCED_WORKFLOW.md).
+For phone-width operation, see [Saga for Mobile Operator's Manual](MOBILE_OPERATOR_MANUAL.md). For short workflow guides, see [Basic Workflow](BASIC_WORKFLOW.md) and [Advanced Workflow](ADVANCED_WORKFLOW.md).
 
 ## First Run Checklist
 

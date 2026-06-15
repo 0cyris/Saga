@@ -6,6 +6,7 @@ import {
 } from '../ui/runtime-ui-kit.js';
 import { isBasicExperience } from '../runtime/runtime-navigation.js';
 import { createExperienceModeSwitch } from '../runtime/runtime-shell-view.js';
+import { isRuntimeMobileShell } from '../runtime/runtime-shell.js';
 import { getActiveThemeColors, getThemePackLibrary, getThemePreset } from '../theme/runtime-theme.js';
 import {
     createBasicProviderQuickSetupCard,
@@ -48,11 +49,25 @@ export function renderSettingsTab(container, state) {
     const settings = getSettings();
     const basic = isBasicExperience(settings);
     container.appendChild(createExperienceModeSettingsCard(settings));
-    container.appendChild(createSectionHeader(
-        'Quality of Life',
-        'Mobile readability and touch-safety preferences.'
-    ));
-    container.appendChild(createQualityOfLifeSettingsCard(settings));
+    if (isRuntimeMobileShell()) {
+        container.appendChild(markTourTarget(createCollapsibleSection(
+            'settings.qualityOfLife',
+            'Quality of Life',
+            'Mobile list density',
+            true,
+            createQualityOfLifeSettingsCard(settings, { embedded: true }),
+            {
+                className: 'saga-settings-qol-section',
+                tooltip: 'Mobile readability and touch-safety preferences.',
+            }
+        ), 'settings.qualityOfLife'));
+    } else {
+        container.appendChild(createSectionHeader(
+            'Quality of Life',
+            'Mobile readability and touch-safety preferences.'
+        ));
+        container.appendChild(createQualityOfLifeSettingsCard(settings));
+    }
 
     if (basic) {
         container.appendChild(markTourTarget(createCollapsibleSection(
@@ -127,13 +142,16 @@ function createExperienceModeSettingsCard(settings = getSettings()) {
     return card;
 }
 
-function createQualityOfLifeSettingsCard(settings = getSettings()) {
+function createQualityOfLifeSettingsCard(settings = getSettings(), options = {}) {
     const card = document.createElement('div');
-    card.className = 'saga-runtime-card saga-settings-qol-card';
+    card.className = `${options.embedded ? '' : 'saga-runtime-card '}saga-settings-qol-card`.trim();
     markTourTarget(card, 'settings.qualityOfLife');
 
+    const list = document.createElement('div');
+    list.className = 'saga-settings-qol-list';
+
     const toggle = document.createElement('label');
-    toggle.className = 'saga-settings-switch-row saga-settings-mobile-tags-toggle';
+    toggle.className = 'saga-settings-qol-item saga-settings-switch-row saga-settings-mobile-tags-toggle';
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.className = 'saga-settings-switch-input';
@@ -150,17 +168,20 @@ function createQualityOfLifeSettingsCard(settings = getSettings()) {
     switchVisual.className = 'saga-settings-switch-slider';
     switchVisual.setAttribute('aria-hidden', 'true');
     toggle.appendChild(switchVisual);
+    const text = document.createElement('span');
+    text.className = 'saga-settings-switch-text';
     const label = document.createElement('span');
     label.className = 'saga-settings-switch-label';
     label.textContent = 'Show Lorecard tags in the mobile Lore list';
-    toggle.appendChild(label);
-    addTooltip(toggle, 'When off, mobile lists hide tags so cards stay shorter. Tags remain editable inside the long-press Lorecard editor.');
-    card.appendChild(toggle);
-
-    const help = document.createElement('div');
-    help.className = 'saga-runtime-help';
+    text.appendChild(label);
+    const help = document.createElement('span');
+    help.className = 'saga-settings-switch-description';
     help.textContent = 'Tags stay available in the editor; this only changes mobile list density.';
-    card.appendChild(help);
+    text.appendChild(help);
+    toggle.appendChild(text);
+    addTooltip(toggle, 'When off, mobile lists hide tags so cards stay shorter. Tags remain editable inside the long-press Lorecard editor.');
+    list.appendChild(toggle);
+    card.appendChild(list);
     return card;
 }
 

@@ -6,7 +6,8 @@ Saga documentation is being organized into release-facing topic folders. Older i
 
 - [Basic Workflow](user/BASIC_WORKFLOW.md): Basic Walkthrough module guide for First Run, Loredecks, Context, Lorecards, Continue Roleplay, and Settings without advanced prompt controls.
 - [Advanced Workflow](user/ADVANCED_WORKFLOW.md): Advanced Walkthrough task-track guide for Library mastery, runtime control, Context, Lorecards, Injection, Continuity, Creator, Pack Health, Settings, and troubleshooting.
-- [Operator's Manual](user/OPERATOR_MANUAL.md): full screenshot-backed guide to Session, Loredecks, Pack Health, Creator, Context, Lorecards, Continuity, Injection, Settings, and troubleshooting.
+- [Saga for Desktop Operator's Manual](user/DESKTOP_OPERATOR_MANUAL.md): full screenshot-backed guide to the desktop/tablet Session, Loredecks, Pack Health, Creator, Context, Lorecards, Continuity, Injection, Settings, and troubleshooting surfaces.
+- [Saga for Mobile Operator's Manual](user/MOBILE_OPERATOR_MANUAL.md): phone-width operating guide for the bottom navigation shell, mobile subviews, touch interactions, Loredeck Library detail sheets, mobile Lorecards, Advanced mobile routes, and troubleshooting.
 - [Storage And State Safety](user/STORAGE_AND_STATE_SAFETY.md): operator guide for Saga's `/user/files` storage model, `settings.json` boundaries, import storage, State Safety maintenance, and Danger Zone cleanup.
 - [Alpha Release Notes](release/0.1.0-alpha.1.md): versioned alpha compatibility, manual update, State Safety, and release-gate notes.
 - [Loredecks](loredecks/LOREDECK_AND_LORECARD_CREATION_GUIDE.md): Loredeck and Lorecard creation guidance, reference-deck expectations, authoring workflow, and schema links.

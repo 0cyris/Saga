@@ -542,7 +542,7 @@ Manual verification:
 Update:
 
 - `docs/user/STORAGE_AND_STATE_SAFETY.md`
-- `docs/user/OPERATOR_MANUAL.md`
+- `docs/user/DESKTOP_OPERATOR_MANUAL.md`
 - `docs/DOCUMENTATION_INDEX.md` if a new user-facing Danger Zone doc is added.
 
 User docs should explain:

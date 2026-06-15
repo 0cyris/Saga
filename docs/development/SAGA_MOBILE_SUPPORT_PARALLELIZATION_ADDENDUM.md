@@ -1035,7 +1035,7 @@ Entry format:
 #### 2026-06-14 03:20 MT - User Workflow Label Sweep
 
 - Completed: Swept current user workflow docs for lifecycle wording that still described `manual Lorecards`, `Pending Lorecards`, lowercase `accepted lore`, and `dismiss` in review flows.
-- Notes: `docs\user\BASIC_WORKFLOW.md`, `docs\user\ADVANCED_WORKFLOW.md`, and `docs\user\OPERATOR_MANUAL.md` now align with the Agent 2 lifecycle vocabulary: `Manual Lore Note`, `Pending Review entries`, accept/reject review actions, and `Accepted Lorecards`.
+- Notes: `docs\user\BASIC_WORKFLOW.md`, `docs\user\ADVANCED_WORKFLOW.md`, and `docs\user\DESKTOP_OPERATOR_MANUAL.md` now align with the Agent 2 lifecycle vocabulary: `Manual Lore Note`, `Pending Review entries`, accept/reject review actions, and `Accepted Lorecards`.
 - Dependencies: No Agent 1 request was opened. This is Agent 2-owned lifecycle documentation and does not require shell route state, More routing, breakpoint behavior, shared touch tokens, or shell accessibility changes.
 - Verification: Documentation patch is applied; focused lifecycle-label scans, diff whitespace checks, visual-smoke checks, and the full alpha gate still need to run after this shared-log update.
 - Next: Run targeted `rg` scans for the user docs, focused `git diff --check`, `node tools\scripts\test-visual-smoke-harness.mjs`, and `node tools\scripts\run-alpha-gate.mjs`.
@@ -1045,7 +1045,7 @@ Entry format:
 - Completed: Re-ran focused user-doc lifecycle scans, focused diff whitespace validation, the visual-smoke harness, the visual-smoke server check, and the full alpha gate after the workflow-doc label sweep.
 - Notes: The focused user-doc scan now finds no `manual Lorecard`, `Manual Lorecards`, `Pending Lorecards`, `pending Lorecards`, lowercase `accepted lore`, `accepted Lorecards`, `dismiss`, or `Pending Lorecard Review` hits in the current Basic, Advanced, or Operator Manual docs.
 - Dependencies: No Agent 1 request was opened and no Agent 3 source change is requested. Rendered Browser confirmation remains environment-blocked until Browser support is restored.
-- Verification: Targeted user-doc `rg` scan passed with no matches; focused `git diff --check -- docs\user\BASIC_WORKFLOW.md docs\user\ADVANCED_WORKFLOW.md docs\user\OPERATOR_MANUAL.md docs\development\SAGA_MOBILE_SUPPORT_PARALLELIZATION_ADDENDUM.md` passed with only LF-to-CRLF normalization warnings; `node tools\scripts\test-visual-smoke-harness.mjs`, `node tools\scripts\serve-visual-smoke.mjs --check --port 0`, and `node tools\scripts\run-alpha-gate.mjs` passed.
+- Verification: Targeted user-doc `rg` scan passed with no matches; focused `git diff --check -- docs\user\BASIC_WORKFLOW.md docs\user\ADVANCED_WORKFLOW.md docs\user\DESKTOP_OPERATOR_MANUAL.md docs\development\SAGA_MOBILE_SUPPORT_PARALLELIZATION_ADDENDUM.md` passed with only LF-to-CRLF normalization warnings; `node tools\scripts\test-visual-smoke-harness.mjs`, `node tools\scripts\serve-visual-smoke.mjs --check --port 0`, and `node tools\scripts\run-alpha-gate.mjs` passed.
 - Next: Agent 2 remains source-ready unless restored Browser verification isolates a concrete operator-tab or Lorecards lifecycle defect.
 
 #### 2026-06-14 03:25 MT - Active Set Product Label Polish

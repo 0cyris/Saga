@@ -40,6 +40,7 @@ const THEME_COLOR_KEYS = Object.freeze([
     'accent',
     'danger',
     'success',
+    'activate',
     'warning',
     'focus',
     'button',

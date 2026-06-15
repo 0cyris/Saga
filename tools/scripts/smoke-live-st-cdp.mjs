@@ -18,6 +18,7 @@ const LIVE_CONTEXT_LOADED_PACK_ID = 'hp-year-6-half-blood-prince';
 const LIVE_CONTEXT_LOADED_PACK_TITLE = 'Harry Potter Year 6: Half-Blood Prince';
 const LIVE_CONTEXT_REASONER_TARGET = 'live-context-reasoner';
 const LIVE_CREATOR_TARGET = 'live-creator';
+const LIVE_LORE_AUTOMATION_TARGET = 'live-lore-automation';
 const STORAGE_HARNESS_TARGET = 'storage-harness';
 const MOBILE_ADVANCED_HARNESS_TARGET = 'mobile-advanced-harness';
 const MOBILE_REDESIGN_HARNESS_TARGET = 'mobile-redesign-harness';
@@ -926,6 +927,13 @@ function isExpectedLiveCreator404(error = '') {
     return SMOKE_TARGET === LIVE_CREATOR_TARGET
         && /Failed to load resource: the server responded with a status of 404/i.test(message)
         && /\/user\/files\/saga-(?:theme-index|iconset-index|creator-project-[^)\s]+)\.v1\.json/i.test(message);
+}
+
+function isExpectedLiveLoreAutomation404(error = '') {
+    const message = String(error || '');
+    return SMOKE_TARGET === LIVE_LORE_AUTOMATION_TARGET
+        && /Failed to load resource: the server responded with a status of 404/i.test(message)
+        && /\/user\/files\/saga-(?:theme-index|iconset-index|library-index|storage-index)\.v1\.json/i.test(message);
 }
 
 function isExpectedRepoLocalHarnessStorageError(error = '') {
@@ -1846,8 +1854,12 @@ async function screenshot(client, name) {
     return file;
 }
 
+function getSmokeReportFile(target) {
+    return process.env.SAGA_SMOKE_REPORT || path.join(OUT_DIR, `${target}-report.json`);
+}
+
 async function writeSmokeReport(target, report) {
-    const file = process.env.SAGA_SMOKE_REPORT || path.join(OUT_DIR, `${target}-report.json`);
+    const file = getSmokeReportFile(target);
     await fs.mkdir(path.dirname(file), { recursive: true });
     await fs.writeFile(file, JSON.stringify(report, null, 2));
     return file;
@@ -1903,6 +1915,384 @@ function getLiveCreatorSmokeConfig() {
             titleRunRemainingLimit: Number(process.env.SAGA_LIVE_CREATOR_TITLE_RUN_LIMIT) || 10,
             retryAttempts: Number(process.env.SAGA_LIVE_CREATOR_RETRY_ATTEMPTS) || 1,
         },
+    };
+}
+
+function getDefaultLiveLoreAutomationDataDir() {
+    const explicit = String(process.env.SAGA_LIVE_LORE_AUTOMATION_DATA_DIR || process.env.SAGA_ST_DATA_DIR || '').trim();
+    if (explicit) return path.resolve(explicit);
+    const localDefault = 'F:\\SillyTavern\\SillyTavern\\data\\default-user';
+    return localDefault;
+}
+
+function parseLiveLoreAutomationMatrix(raw = '') {
+    const text = String(raw || '').trim();
+    const fallback = [
+        { mode: 'ar', style: 'balanced', routing: 'local' },
+        { mode: 'armp', style: 'balanced', routing: 'auto' },
+        { mode: 'armp', style: 'aggressive', routing: 'utility' },
+        { mode: 'armpc', style: 'careful', routing: 'auto' },
+        { mode: 'armpc', style: 'balanced', routing: 'auto' },
+    ];
+    if (!text) return fallback;
+    if (text.startsWith('[')) {
+        try {
+            const parsed = JSON.parse(text);
+            if (Array.isArray(parsed) && parsed.length) {
+                return parsed.map(item => ({
+                    mode: String(item.mode || item.loreAutomationMode || 'ar').trim().toLowerCase(),
+                    style: String(item.style || item.loreAutomationStyle || 'balanced').trim().toLowerCase(),
+                    routing: String(item.routing || item.providerRouting || item.loreAutomationProviderRouting || 'auto').trim().toLowerCase(),
+                    task: String(item.task || item.runMode || 'full').trim().toLowerCase(),
+                    label: String(item.label || '').trim(),
+                }));
+            }
+        } catch (error) {
+            throw new Error(`Invalid SAGA_LIVE_LORE_AUTOMATION_MATRIX JSON: ${error.message}`);
+        }
+    }
+    return text
+        .split(/[;,]/)
+        .map(part => part.trim())
+        .filter(Boolean)
+        .map(part => {
+            const [mode = 'ar', style = 'balanced', routing = 'auto', task = 'full'] = part.split(':').map(value => value.trim());
+            return {
+                mode: mode.toLowerCase(),
+                style: style.toLowerCase(),
+                routing: routing.toLowerCase(),
+                task: task.toLowerCase(),
+            };
+        });
+}
+
+function parseLiveLoreAutomationScenarios(raw = '') {
+    const text = String(raw || '').trim();
+    const fallback = ['tail'];
+    if (!text) return fallback;
+    return text.split(/[;,]/).map(part => part.trim().toLowerCase()).filter(Boolean);
+}
+
+async function findLatestJsonlFile(dir) {
+    const entries = await fs.readdir(dir, { withFileTypes: true });
+    const files = [];
+    for (const entry of entries) {
+        if (!entry.isFile() || !entry.name.toLowerCase().endsWith('.jsonl')) continue;
+        const file = path.join(dir, entry.name);
+        const stat = await fs.stat(file);
+        files.push({ file, mtimeMs: stat.mtimeMs, size: stat.size });
+    }
+    files.sort((a, b) => b.mtimeMs - a.mtimeMs || b.size - a.size || a.file.localeCompare(b.file));
+    return files[0]?.file || '';
+}
+
+function safeParseJsonLine(line = '', index = 0) {
+    try {
+        return JSON.parse(line);
+    } catch (error) {
+        throw new Error(`Could not parse Story2 JSONL line ${index + 1}: ${error.message}`);
+    }
+}
+
+function countStoryWords(text = '') {
+    return (String(text || '').match(/\b[\p{L}\p{N}][\p{L}\p{N}'-]*\b/gu) || []).length;
+}
+
+function compactLiveLoreAutomationMessage(message = {}, index = 0) {
+    return {
+        name: message.name || (message.is_user ? 'User' : 'Story'),
+        is_user: message.is_user === true,
+        mes: String(message.mes || message.content || ''),
+        send_date: message.send_date || message.extra?.send_date || '',
+        extra: {
+            gen_id: message.extra?.gen_id || '',
+        },
+        swipe_id: message.swipe_id,
+        swipe_info: Array.isArray(message.swipe_info) ? message.swipe_info.slice(0, 1) : undefined,
+        index,
+    };
+}
+
+function inferLiveLoreAutomationScene(baseState = {}) {
+    const signals = baseState.contextBrief?.signals || {};
+    const coordinates = signals.coordinates || {};
+    const summary = String(baseState.contextBrief?.summary || '').trim();
+    const events = Array.isArray(signals.eventLabels) ? signals.eventLabels : [];
+    const currentActivity = [
+        signals.quest,
+        signals.phase,
+        events.slice(-4).join('; '),
+        summary,
+    ].map(value => String(value || '').trim()).filter(Boolean).join(' | ');
+    return {
+        location: String(baseState.scene?.location || coordinates.location || '').trim(),
+        timeOfDay: String(baseState.scene?.timeOfDay || '').trim(),
+        weather: String(baseState.scene?.weather || coordinates.weather || '').trim(),
+        ambience: String(baseState.scene?.ambience || '').trim(),
+        presentCharacters: Array.isArray(baseState.scene?.presentCharacters) && baseState.scene.presentCharacters.length
+            ? baseState.scene.presentCharacters
+            : ['Hermione Granger', 'Harry Potter', 'Ron Weasley'],
+        nearbyCharacters: Array.isArray(baseState.scene?.nearbyCharacters) ? baseState.scene.nearbyCharacters : [],
+        currentActivity: currentActivity.slice(0, 900),
+    };
+}
+
+function normalizeLiveLoreAutomationDeckStack(baseState = {}, alternateState = {}) {
+    const source = Array.isArray(baseState.loredeckStack) && baseState.loredeckStack.length
+        ? baseState.loredeckStack
+        : (Array.isArray(alternateState.loredeckStack) && alternateState.loredeckStack.length
+            ? alternateState.loredeckStack
+            : [{ packId: LIVE_CONTEXT_LOADED_PACK_ID, enabled: true }]);
+    return source.map((item, index) => ({
+        ...item,
+        packId: item.packId || item.deckId || item.id || LIVE_CONTEXT_LOADED_PACK_ID,
+        enabled: item.enabled !== false,
+        order: Number(item.order ?? item.sortOrder ?? index) || index,
+    }));
+}
+
+async function readLiveLoreAutomationFixture(config = {}) {
+    const chatFile = config.chatFile || await findLatestJsonlFile(config.chatDir);
+    if (!chatFile) throw new Error(`No Story2 JSONL chat file found in ${config.chatDir}`);
+    const raw = await fs.readFile(chatFile, 'utf8');
+    const lines = raw.split(/\r?\n/).filter(Boolean);
+    if (lines.length < 2) throw new Error(`Story2 chat file has too few JSONL lines: ${chatFile}`);
+    const header = safeParseJsonLine(lines[0], 0);
+    const messages = lines.slice(1).map((line, index) => compactLiveLoreAutomationMessage(safeParseJsonLine(line, index + 1), index));
+    const metadata = header.chat_metadata || {};
+    const baseState = metadata.saga && typeof metadata.saga === 'object' ? metadata.saga : {};
+    const alternateState = metadata.wandlight && typeof metadata.wandlight === 'object' ? metadata.wandlight : {};
+    if (!Array.isArray(baseState.loreMatrix) || !baseState.loreMatrix.length) {
+        throw new Error(`Story2 Saga metadata has no Accepted Lorecards in ${chatFile}`);
+    }
+    const messageLimit = Math.max(0, Number(config.messageLimit) || 0);
+    const selectedMessages = messageLimit > 0 ? messages.slice(-messageLimit) : messages;
+    const scenarioIds = parseLiveLoreAutomationScenarios(config.scenarios);
+    const scene = inferLiveLoreAutomationScene(baseState);
+    const deckStack = normalizeLiveLoreAutomationDeckStack(baseState, alternateState);
+    const baseScenario = {
+        id: 'tail',
+        label: `Story2 latest ${selectedMessages.length}-message tail`,
+        messages: selectedMessages,
+        state: {
+            ...baseState,
+            scene,
+            loredeckStack: deckStack,
+            loreAutomationRuns: [],
+            loreAutomationLastRun: null,
+            loreAutomationSuggestions: [],
+        },
+    };
+    const scenarios = scenarioIds.map(id => {
+        if (id === 'tail') return baseScenario;
+        if (id === 'malfoy-manor') {
+            return {
+                ...baseScenario,
+                id,
+                label: 'Story2 Malfoy Manor pressure probe',
+                state: {
+                    ...baseScenario.state,
+                    scene: {
+                        ...baseScenario.state.scene,
+                        location: 'Malfoy Manor',
+                        currentActivity: 'Hermione prepares to go to Malfoy Manor after Harry gives the go order; Voldemort is believed to be there.',
+                    },
+                },
+            };
+        }
+        if (id === 'east-cloister') {
+            return {
+                ...baseScenario,
+                id,
+                label: 'Story2 East Cloister current scene',
+                state: {
+                    ...baseScenario.state,
+                    scene: {
+                        ...baseScenario.state.scene,
+                        location: baseScenario.state.scene.location || 'East Cloister, Hogwarts, Ground Floor',
+                    },
+                },
+            };
+        }
+        if (id === 'curation-gap') {
+            return {
+                ...baseScenario,
+                id,
+                label: 'Story2 active-deck curation gap probe',
+                probe: {
+                    type: 'curation-gap',
+                    removeAcceptedCount: Math.max(1, Math.min(12, Number(config.curationGapCount) || 4)),
+                },
+            };
+        }
+        if (id === 'retirement-overload') {
+            return {
+                ...baseScenario,
+                id,
+                label: 'Story2 stale automation retirement probe',
+                probe: {
+                    type: 'retirement-overload',
+                    markAutomationOwnedCount: Math.max(1, Math.min(16, Number(config.retirementProbeCount) || 8)),
+                },
+            };
+        }
+        return {
+            ...baseScenario,
+            id,
+            label: `Story2 custom scenario: ${id}`,
+        };
+    });
+    return {
+        chatFile,
+        characterFolder: path.basename(path.dirname(chatFile)),
+        characterName: header.character_name || '',
+        userName: header.user_name || '',
+        messageCount: messages.length,
+        selectedMessageCount: selectedMessages.length,
+        totalWords: messages.reduce((total, message) => total + countStoryWords(message.mes), 0),
+        selectedWords: selectedMessages.reduce((total, message) => total + countStoryWords(message.mes), 0),
+        acceptedLoreCount: Array.isArray(baseState.loreMatrix) ? baseState.loreMatrix.length : 0,
+        pendingLoreCount: Array.isArray(baseState.pendingLoreEntries) ? baseState.pendingLoreEntries.length : 0,
+        activeDeckIds: deckStack.map(item => item.packId).filter(Boolean),
+        contextSummary: String(baseState.contextBrief?.summary || '').slice(0, 500),
+        loreContext: baseState.loreContext || {},
+        scenarios,
+    };
+}
+
+function getLiveLoreAutomationConfig() {
+    const dataDir = getDefaultLiveLoreAutomationDataDir();
+    const characterFolder = String(process.env.SAGA_LIVE_LORE_AUTOMATION_CHARACTER || 'Story2').trim() || 'Story2';
+    const chatDir = path.resolve(String(process.env.SAGA_LIVE_LORE_AUTOMATION_CHAT_DIR || path.join(dataDir, 'chats', characterFolder)).trim());
+    const chatFile = String(process.env.SAGA_LIVE_LORE_AUTOMATION_CHAT_FILE || '').trim();
+    return {
+        runId: String(process.env.SAGA_LIVE_LORE_AUTOMATION_RUN_ID || `live-lore-automation-${Date.now().toString(36)}`).trim(),
+        dataDir,
+        chatDir,
+        chatFile: chatFile ? path.resolve(chatFile) : '',
+        messageLimit: Number(process.env.SAGA_LIVE_LORE_AUTOMATION_MESSAGE_LIMIT) || 20,
+        scenarios: process.env.SAGA_LIVE_LORE_AUTOMATION_SCENARIOS || 'tail',
+        matrix: parseLiveLoreAutomationMatrix(process.env.SAGA_LIVE_LORE_AUTOMATION_MATRIX || ''),
+        providerTimeoutMs: Number(process.env.SAGA_LIVE_LORE_AUTOMATION_TIMEOUT_MS || process.env.SAGA_PROVIDER_SMOKE_TIMEOUT_MS) || 240000,
+        persist: process.env.SAGA_LIVE_LORE_AUTOMATION_PERSIST === '1',
+        useArModel: process.env.SAGA_LIVE_LORE_AUTOMATION_AR_MODEL === '1',
+        curationGapCount: Number(process.env.SAGA_LIVE_LORE_AUTOMATION_CURATION_GAP_COUNT) || 4,
+        retirementProbeCount: Number(process.env.SAGA_LIVE_LORE_AUTOMATION_RETIREMENT_PROBE_COUNT) || 8,
+        screenshotPrefix: String(process.env.SAGA_LIVE_LORE_AUTOMATION_SCREENSHOT_PREFIX || 'live-lore-automation').trim() || 'live-lore-automation',
+    };
+}
+
+function compactLiveLoreAutomationDiagnostics(diagnostics = {}) {
+    const preview = diagnostics?.preview || {};
+    const pressure = diagnostics?.stackPressure || {};
+    return {
+        stackPressure: pressure ? {
+            pressure: pressure.pressure || '',
+            ownedCount: pressure.ownedCount || 0,
+            targetMin: pressure.targetMin || 0,
+            targetMax: pressure.targetMax || 0,
+            staleCount: pressure.staleCount || 0,
+            duplicateLaneCount: pressure.duplicateLaneCount || 0,
+            missingLaneCount: Array.isArray(pressure.missingLanes) ? pressure.missingLanes.length : 0,
+            reason: pressure.reason || '',
+        } : null,
+        preview: preview ? {
+            status: preview.status || '',
+            matchedCount: preview.matchedCount || 0,
+            newCount: preview.newCount || 0,
+            duplicateCount: preview.duplicateCount || 0,
+            sceneIso: preview.sceneIso || '',
+            schoolYear: preview.schoolYear || '',
+            topNew: Array.isArray(preview.topNew) ? preview.topNew.slice(0, 5).map(entry => ({
+                id: entry.id,
+                title: entry.title,
+                score: entry.score,
+            })) : [],
+        } : null,
+        error: diagnostics?.error || '',
+    };
+}
+
+function compactLiveLoreAutomationProbe(probe = null) {
+    if (!probe || typeof probe !== 'object') return null;
+    return {
+        type: probe.type || '',
+        notes: Array.isArray(probe.notes) ? probe.notes : [],
+        removedAcceptedCount: probe.removedAcceptedCount || 0,
+        markedAutomationOwnedCount: probe.markedAutomationOwnedCount || 0,
+        forceStaleCount: probe.forceStaleCount || 0,
+        removedAccepted: Array.isArray(probe.removedAccepted) ? probe.removedAccepted.slice(0, 5).map(entry => ({
+            id: entry.id,
+            title: entry.title,
+            score: entry.score,
+        })) : [],
+        markedAutomationOwned: Array.isArray(probe.markedAutomationOwned) ? probe.markedAutomationOwned.slice(0, 5).map(entry => ({
+            id: entry.id,
+            title: entry.title,
+            localScore: entry.localScore,
+            localRelevance: entry.localRelevance,
+            recentHit: entry.recentHit,
+            coverageLaneCount: entry.coverageLaneCount,
+            neutralizedForProbe: entry.neutralizedForProbe,
+        })) : [],
+        error: probe.error || '',
+    };
+}
+
+function buildLiveLoreAutomationConsoleReport(report = {}, reportPath = '') {
+    return {
+        ok: report.ok === true,
+        target: report.target || SMOKE_TARGET,
+        url: report.url || '',
+        reportPath,
+        findings: report.findings || [],
+        errors: report.errors || [],
+        totalProviderCalls: report.totalProviderCalls || 0,
+        saveCallCount: report.saveCallCount || 0,
+        config: report.config || {},
+        fixture: report.fixture ? {
+            characterFolder: report.fixture.characterFolder || '',
+            characterName: report.fixture.characterName || '',
+            selectedMessageCount: report.fixture.selectedMessageCount || 0,
+            selectedWords: report.fixture.selectedWords || 0,
+            acceptedLoreCount: report.fixture.acceptedLoreCount || 0,
+            pendingLoreCount: report.fixture.pendingLoreCount || 0,
+            activeDeckIds: report.fixture.activeDeckIds || [],
+            loreContext: report.fixture.loreContext || {},
+        } : null,
+        results: Array.isArray(report.results) ? report.results.map(row => ({
+            id: row.id,
+            durationMs: row.durationMs,
+            status: row.status,
+            combo: row.combo,
+            providerCallCount: row.providerCallCount,
+            saveCallCount: row.saveCallCount,
+            result: row.result ? {
+                status: row.result.status || '',
+                changed: row.result.changed || 0,
+                promotions: row.result.promotions || 0,
+                demotions: row.result.demotions || 0,
+                pinned: row.result.pinned || 0,
+                muted: row.result.muted || 0,
+                curated: row.result.curated || 0,
+                retired: row.result.retired || 0,
+                modelStatus: row.result.modelStatus || '',
+                providerStatus: row.result.providerStatus || '',
+            } : null,
+            diff: row.diff?.counts || {},
+            scenarioProbe: compactLiveLoreAutomationProbe(row.scenarioProbe || null),
+            diagnostics: compactLiveLoreAutomationDiagnostics(row.diagnostics || {}),
+            qualityNotes: row.qualityNotes || [],
+            lastRun: row.lastRun ? {
+                status: row.lastRun.status || '',
+                changed: row.lastRun.changed || 0,
+                curated: row.lastRun.curated || 0,
+                retired: row.lastRun.retired || 0,
+                modelStatus: row.lastRun.modelStatus || '',
+                providerStatus: row.lastRun.providerStatus || '',
+                operations: Array.isArray(row.lastRun.operations) ? row.lastRun.operations.slice(0, 6) : [],
+            } : null,
+        })) : [],
     };
 }
 
@@ -4560,6 +4950,9 @@ async function runDesktopLorecardsHarnessSmoke(client, screenshots, findings, sm
         const detailTitle = document.querySelector('.saga-lorecard-detail-card .saga-runtime-card-title');
         const detailFact = document.querySelector('.saga-lorecard-detail-card .saga-lore-entry-full-fact');
         const activeToggle = document.querySelector('.saga-lorecard-detail-actions .saga-lorecard-active-toggle');
+        const activeRow = document.querySelector('.saga-lorecard-workspace-row.saga-lore-entry-active');
+        const activeRowStyle = activeRow ? getComputedStyle(activeRow) : null;
+        const activateToken = getComputedStyle(document.documentElement).getPropertyValue('--saga-activate').trim();
         const workspaceRect = rectOf('.saga-lorecard-workspace');
         const listRect = rectOf('.saga-lorecard-workspace-list');
         const detailRect = rectOf('.saga-lorecard-workspace-detail');
@@ -4580,13 +4973,20 @@ async function runDesktopLorecardsHarnessSmoke(client, screenshots, findings, sm
             rowFactFontSize: rowFact ? num(getComputedStyle(rowFact).fontSize) : 0,
             detailTitleFontSize: detailTitle ? num(getComputedStyle(detailTitle).fontSize) : 0,
             detailFactFontSize: detailFact ? num(getComputedStyle(detailFact).fontSize) : 0,
-            activeToggleText: activeToggle?.textContent?.trim() || '',
+            activeToggleLabel: activeToggle?.getAttribute('aria-label') || '',
             activeToggleActive: !!activeToggle?.classList?.contains('saga-lorecard-active-toggle-active'),
+            activeToggleRound: !!activeToggle?.classList?.contains('saga-lorecard-active-toggle-button'),
+            activeToggleBorderColor: activeToggle ? getComputedStyle(activeToggle).borderColor : '',
             activeToggleRect: activeToggle ? (() => {
                 const rect = activeToggle.getBoundingClientRect();
                 return { width: rect.width, height: rect.height };
             })() : null,
             activeToggleShadow: activeToggle ? getComputedStyle(activeToggle).boxShadow : '',
+            activateToken,
+            activeRowBorderColor: activeRowStyle?.borderColor || '',
+            activeRowShadow: activeRowStyle?.boxShadow || '',
+            rowActiveToggleCount: document.querySelectorAll('.saga-lorecard-workspace-row .saga-lorecard-row-active-toggle').length,
+            rowActiveToggleActiveCount: document.querySelectorAll('.saga-lorecard-workspace-row .saga-lorecard-row-active-toggle.saga-lorecard-active-toggle-active').length,
             workspaceRect,
             bodyRect,
             listRect,
@@ -4607,11 +5007,22 @@ async function runDesktopLorecardsHarnessSmoke(client, screenshots, findings, sm
     if (layout.tagRowsInList) findings.push('Desktop Lorecards workspace rows still rendered tag walls in the scanning list.');
     if (layout.toolbarOverflow || layout.workspaceOverflow || layout.pageOverflow) findings.push('Desktop Lorecards workspace or toolbar still has horizontal overflow.');
     if (!layout.detailFitsWorkspace) findings.push('Desktop Lorecards detail pane overflows the workspace bounds.');
-    if (!layout.activeToggleText || !layout.activeToggleActive || !layout.activeToggleShadow || layout.activeToggleShadow === 'none') findings.push('Desktop Lorecards active/deactivate button did not render with the glowing active-toggle treatment.');
-    if (layout.activeToggleRect && layout.activeToggleRect.height < 32) findings.push('Desktop Lorecards active toggle is too small.');
+    if (!layout.activeToggleLabel || !layout.activeToggleRound || !layout.activeToggleActive || !layout.activeToggleShadow || layout.activeToggleShadow === 'none' || layout.rowActiveToggleCount < 1 || layout.rowActiveToggleActiveCount < 1) findings.push('Desktop Lorecards active/deactivate controls did not render with the round glowing active-toggle treatment on detail and rows.');
+    if (!layout.activateToken || !layout.activeRowShadow || layout.activeRowBorderColor === 'rgb(215, 181, 109)') findings.push('Desktop Lorecards active row did not consume the Activate Theme Pack glow token.');
+    if (!layout.activeToggleRect || layout.activeToggleRect.height > 20 || layout.activeToggleRect.width > 20) findings.push('Desktop Lorecards active toggle did not render at the compact desktop scale.');
     if (!layout.detailStacksBelowList && layout.bodyRect?.width < 920) findings.push('Desktop Lorecards narrow drawer did not stack the detail pane below the list.');
-    if (layout.rowTitleFontSize < 15 || layout.rowFactFontSize < 13.5 || layout.detailTitleFontSize < 17 || layout.detailFactFontSize < 13.5) {
-        findings.push(`Desktop Lorecards text is too small (${JSON.stringify({
+    const desktopLorecardsFontScaleInvalid = !layout.rowTitleFontSize
+        || !layout.rowFactFontSize
+        || !layout.detailTitleFontSize
+        || !layout.detailFactFontSize
+        || layout.rowTitleFontSize <= layout.rowFactFontSize + 0.25
+        || layout.detailTitleFontSize <= layout.detailFactFontSize + 0.25
+        || layout.rowFactFontSize > 13.5
+        || layout.detailFactFontSize > 13.5
+        || layout.rowTitleFontSize > 15
+        || layout.detailTitleFontSize > 15.5;
+    if (desktopLorecardsFontScaleInvalid) {
+        findings.push(`Desktop Lorecards font scale drifted from the shared desktop card scale (${JSON.stringify({
             rowTitle: layout.rowTitleFontSize,
             rowFact: layout.rowFactFontSize,
             detailTitle: layout.detailTitleFontSize,
@@ -4928,24 +5339,34 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
         const root = document.querySelector('#saga-lore-panel');
         const text = document.body?.innerText || '';
         const sectionHeaders = [...document.querySelectorAll('.saga-section-header h3')].map(node => node.textContent?.trim() || '').filter(Boolean);
+        const qualitySection = document.querySelector('.saga-settings-qol-section');
         const qualityCard = document.querySelector('.saga-settings-qol-card');
+        const qualityRow = qualityCard?.querySelector('.saga-settings-qol-item');
         const qualityInput = qualityCard?.querySelector('.saga-settings-switch-input');
         const qualityInputStyle = qualityInput ? getComputedStyle(qualityInput) : null;
         const qualityInputRect = qualityInput?.getBoundingClientRect?.();
         const qualitySlider = qualityCard?.querySelector('.saga-settings-switch-slider');
         const qualityLabel = qualityCard?.querySelector('.saga-settings-switch-label');
+        const qualityText = qualityCard?.querySelector('.saga-settings-switch-text');
         const sliderRect = qualitySlider?.getBoundingClientRect?.();
         const labelRect = qualityLabel?.getBoundingClientRect?.();
+        const textRect = qualityText?.getBoundingClientRect?.();
+        const rowStyle = qualityRow ? getComputedStyle(qualityRow) : null;
         return {
             activeTab: root?.dataset?.mobileActiveTab || '',
             hasSettings: text.includes('Settings'),
             hasModeLabel: text.includes('Experience Mode'),
             hasProviders: text.includes('Providers') || text.includes('Provider'),
+            hasQualityDropdown: !!qualitySection,
+            qualityDropdownOpen: !!qualitySection?.open,
             hasQualitySectionHeader: sectionHeaders.includes('Quality of Life'),
             hasSagaSeparator: sectionHeaders.includes('SAGA') || text.includes('Providers and Theme Pack.') || text.includes('Fandom Loresystem.'),
             hasQualitySwitch: !!qualitySlider,
             qualityInputHidden: !!qualityInputStyle && qualityInputStyle.opacity === '0' && Number(qualityInputRect?.width || 0) <= 1,
             qualitySwitchBeforeLabel: !!sliderRect && !!labelRect && sliderRect.right <= labelRect.left,
+            qualityGap: sliderRect && textRect ? Math.round(textRect.left - sliderRect.right) : 0,
+            qualityTextWidth: textRect ? Math.round(textRect.width) : 0,
+            qualityGridTemplateColumns: rowStyle?.gridTemplateColumns || '',
             qualityLabel: qualityLabel?.textContent?.trim() || '',
             hasOverflowSheet: !!document.querySelector('.saga-mobile-more-sheet'),
             shellBackActions: document.querySelectorAll('.saga-mobile-shell-back').length,
@@ -4954,7 +5375,7 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
         };
     }));
     if (mobileSettingsState.activeTab !== 'settings' || !mobileSettingsState.hasSettings || !mobileSettingsState.hasModeLabel || !mobileSettingsState.hasProviders) findings.push('Mobile redesign Settings route did not expose Settings, Experience Mode, and Providers.');
-    if (!mobileSettingsState.hasQualitySectionHeader || !mobileSettingsState.hasQualitySwitch || !mobileSettingsState.qualityInputHidden || !mobileSettingsState.qualitySwitchBeforeLabel || mobileSettingsState.qualityLabel !== 'Show Lorecard tags in the mobile Lore list') findings.push('Mobile redesign Settings route did not render the Quality of Life switch row correctly.');
+    if (mobileSettingsState.hasQualitySectionHeader || !mobileSettingsState.hasQualityDropdown || !mobileSettingsState.qualityDropdownOpen || !mobileSettingsState.hasQualitySwitch || !mobileSettingsState.qualityInputHidden || !mobileSettingsState.qualitySwitchBeforeLabel || mobileSettingsState.qualityGap < 8 || mobileSettingsState.qualityTextWidth < 170 || !mobileSettingsState.qualityGridTemplateColumns.includes('44px') || mobileSettingsState.qualityLabel !== 'Show Lorecard tags in the mobile Lore list') findings.push('Mobile redesign Settings route did not render Quality of Life as an open dropdown with a clean left-switch/right-text row.');
     if (mobileSettingsState.hasSagaSeparator) findings.push('Mobile redesign Settings route still rendered the retired SAGA providers/theme separator.');
     if (mobileSettingsState.hasOverflowSheet) findings.push('Mobile redesign rendered the removed overflow sheet.');
     if (mobileSettingsState.shellBackActions > 0) findings.push('Mobile redesign Settings route rendered a shell Back action.');
@@ -4990,7 +5411,7 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
             bottomContextPrevented: bottomContextEvent.defaultPrevented,
         };
     }));
-    if (lorecardsRoot.labels.join('|') !== 'Lore|Generate|Automation') findings.push(`Mobile redesign Lorecards root rendered lifecycle labels ${lorecardsRoot.labels.join(', ')} instead of Lore, Generate, Automation.`);
+    if (lorecardsRoot.labels.join('|') !== 'Generate|Automate|Lore') findings.push(`Mobile redesign Lorecards root rendered lifecycle labels ${lorecardsRoot.labels.join(', ')} instead of Generate, Automate, Lore.`);
     if (!lorecardsRoot.noPipeline) findings.push('Mobile redesign Lorecards root still rendered the page-body Lorecard Pipeline card.');
     if (!lorecardsRoot.subtabsAboveBottom) findings.push('Mobile redesign Lorecards sub-tabs were not positioned above the main bottom bar.');
     if (!lorecardsRoot.noHorizontalOverflow) findings.push('Mobile redesign Lorecards root has horizontal overflow.');
@@ -5003,8 +5424,8 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
     }));
 
     const automationClicked = await clickSelector(client, '.saga-mobile-lorecards-subtab[data-stage="automation"]').catch(() => false);
-    if (!automationClicked) findings.push('Mobile redesign Automation page button was not clickable.');
-    await waitFor(client, 'document.querySelector(".saga-lorecards-lifecycle-tab")?.dataset?.sagaLoreLifecycleStage === "automation"', 'Mobile redesign Automation page active', 10000).catch(error => findings.push(error.message));
+    if (!automationClicked) findings.push('Mobile redesign Automate page button was not clickable.');
+    await waitFor(client, 'document.querySelector(".saga-lorecards-lifecycle-tab")?.dataset?.sagaLoreLifecycleStage === "automation"', 'Mobile redesign Automate page active', 10000).catch(error => findings.push(error.message));
     await waitFor(client, '!document.querySelector(".saga-mobile-lorecards-loading-shell") && !!document.querySelector(".saga-mobile-lore-automation-page .saga-auto-relevance-card")', 'Mobile redesign Automation deferred content', 10000).catch(error => findings.push(error.message));
     await wait(500);
     const automationTooltipState = await getVisibleFloatingTooltipState(client);
@@ -5019,6 +5440,7 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
         return {
             page: !!page,
             activeStage: document.querySelector('.saga-lorecards-lifecycle-tab')?.dataset?.sagaLoreLifecycleStage || '',
+            heading: page?.querySelector('.saga-lore-automation-title')?.textContent?.trim() || '',
             hasMode: text.includes('Mode') && text.includes('ARMP') && text.includes('ARMPC'),
             hasStyle: text.includes('Style') && text.includes('Balanced'),
             hasPacing: text.includes('Pacing'),
@@ -5040,16 +5462,17 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
             noHorizontalOverflow: !page || page.scrollWidth <= page.clientWidth + 1,
         };
     }));
-    if (!automationState.page || automationState.activeStage !== 'automation') findings.push('Mobile redesign Automation page did not become the active Lorecards sub-page.');
+    if (!automationState.page || automationState.activeStage !== 'automation') findings.push('Mobile redesign Automate page did not become the active Lorecards sub-page.');
+    if (automationState.heading !== 'Automate') findings.push(`Mobile redesign Automate heading was ${automationState.heading || 'blank'} instead of Automate.`);
     if (!automationState.hasMode || !automationState.hasStyle || !automationState.hasPacing || !automationState.hasStatus || !automationState.hasCardControl || !automationState.hasCurrentTiers || !automationState.hasCadenceSwitch || !automationState.hasRunNow || !automationState.hasUndo || !automationState.hasActivity) {
-        findings.push('Mobile redesign Automation page did not render the full Lore Automation cockpit.');
+        findings.push('Mobile redesign Automate page did not render the full Lore Automation cockpit.');
     }
     if (!automationState.cadenceLabels.includes('Manual') || !automationState.cadenceLabels.includes('Auto')) findings.push('Mobile redesign Automation cadence switch did not expose Manual and Auto.');
-    if (automationState.hasPauseResume) findings.push('Mobile redesign Automation page still exposed Pause/Resume instead of using cadence.');
-    if (automationState.modeButtons !== 3 || automationState.styleButtons !== 3 || automationState.pacingButtons !== 3 || automationState.selectCount > 0) findings.push('Mobile redesign Automation controls did not render as three-button segmented groups.');
-    if (automationState.hasLoreWorkspace) findings.push('Mobile redesign Automation page leaked the Lore object list.');
-    if (!automationState.noHorizontalOverflow) findings.push('Mobile redesign Automation page has horizontal overflow.');
-    if (automationTooltipState.visible) findings.push(`Mobile redesign Automation sub-tab showed a floating tooltip: ${automationTooltipState.text || 'blank'}.`);
+    if (automationState.hasPauseResume) findings.push('Mobile redesign Automate page still exposed Pause/Resume instead of using cadence.');
+    if (automationState.modeButtons !== 3 || automationState.styleButtons !== 3 || automationState.pacingButtons !== 3 || automationState.selectCount > 0) findings.push('Mobile redesign Automate controls did not render as three-button segmented groups.');
+    if (automationState.hasLoreWorkspace) findings.push('Mobile redesign Automate page leaked the Lore object list.');
+    if (!automationState.noHorizontalOverflow) findings.push('Mobile redesign Automate page has horizontal overflow.');
+    if (automationTooltipState.visible) findings.push(`Mobile redesign Automate sub-tab showed a floating tooltip: ${automationTooltipState.text || 'blank'}.`);
     const automationChoiceState = await evaluate(client, script(() => {
         const page = document.querySelector('.saga-mobile-lore-automation-page');
         const target = page?.querySelector('.saga-lore-automation-choice-group[data-choice-group="style"] .saga-lore-automation-choice-button:not([aria-pressed="true"])');
@@ -5061,8 +5484,8 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
             activeStage: document.querySelector('.saga-lorecards-lifecycle-tab')?.dataset?.sagaLoreLifecycleStage || '',
         };
     }), { userGesture: true }).catch(() => ({ clicked: false, loadingShell: true, automationCard: false, activeStage: '' }));
-    if (!automationChoiceState.clicked) findings.push('Mobile redesign Automation style choice was not clickable.');
-    if (automationChoiceState.loadingShell || !automationChoiceState.automationCard || automationChoiceState.activeStage !== 'automation') findings.push('Mobile redesign Automation option click rebuilt the stage or showed a loading shell.');
+    if (!automationChoiceState.clicked) findings.push('Mobile redesign Automate style choice was not clickable.');
+    if (automationChoiceState.loadingShell || !automationChoiceState.automationCard || automationChoiceState.activeStage !== 'automation') findings.push('Mobile redesign Automate option click rebuilt the stage or showed a loading shell.');
     screenshots.push(await screenshot(client, `${shotPrefix}-04-lorecards-automation`));
 
     const pendingClicked = await clickSelector(client, '.saga-mobile-lorecards-subtab[data-stage="lore"]').catch(() => false);
@@ -5198,11 +5621,13 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
             hasActiveBadge: !!activeChip,
             anyActiveClass: !!activeCard,
             anyActiveBadge: !!activeChip,
+            activateToken: getComputedStyle(document.documentElement).getPropertyValue('--saga-activate').trim(),
             activeBoxShadow: activeStyle?.boxShadow || '',
             activeBorderColor: activeStyle?.borderColor || '',
         };
     }));
     if (!approvedActiveState.anyActiveClass || !approvedActiveState.activeBoxShadow || approvedActiveState.activeBoxShadow === 'none') findings.push('Mobile redesign Accepted active state was not visible through object-card glow.');
+    if (!approvedActiveState.activateToken || approvedActiveState.activeBorderColor === 'rgb(215, 181, 109)') findings.push('Mobile redesign Accepted active state did not consume the Activate Theme Pack glow token.');
     if (approvedActiveState.anyActiveBadge) findings.push('Mobile redesign Accepted active state still used a redundant active metadata chip.');
     screenshots.push(await screenshot(client, `${shotPrefix}-06-lorecards-lore-active`));
     await clickButtonText(client, 'Close', { root: '#saga-mobile-lorecard-editor' }).catch(() => false);
@@ -5217,10 +5642,12 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
         '.saga-lorecards-lifecycle-tab .saga-lorecard-workspace-list',
     ]);
     const generationState = await evaluate(client, script(() => ({
-        hasGenerationWorkspace: document.body.innerText.includes('Capture / Suggest') || document.body.innerText.includes('Manual Lore Note'),
+        heading: document.querySelector('.saga-lore-generation-collapsible .saga-collapsible-title')?.textContent?.trim() || '',
+        hasGenerationWorkspace: document.body.innerText.includes('Generate') && document.body.innerText.includes('Manual Lore Note'),
         pendingVisible: !!document.querySelector('.saga-lore-pending-collapsible:not([hidden])') && getComputedStyle(document.querySelector('.saga-lore-pending-collapsible')).display !== 'none',
         acceptedVisible: !!document.querySelector('.saga-lore-accepted-collapsible:not([hidden])') && getComputedStyle(document.querySelector('.saga-lore-accepted-collapsible')).display !== 'none',
     })));
+    if (generationState.heading !== 'Generate') findings.push(`Mobile redesign Generate heading was ${generationState.heading || 'blank'} instead of Generate.`);
     if (!generationState.hasGenerationWorkspace || generationState.pendingVisible || generationState.acceptedVisible) findings.push('Mobile redesign Generate page did not stay focused on creation/suggestion only.');
     if (generationTooltipState.visible) findings.push(`Mobile redesign Generate sub-tab showed a floating tooltip: ${generationTooltipState.text || 'blank'}.`);
     if (generationScrollState.offenders.length) findings.push(`Mobile redesign Generate page still has nested list scroll styling: ${JSON.stringify(generationScrollState.offenders)}`);
@@ -5632,6 +6059,7 @@ async function runStorageHarnessSmoke(client, screenshots, findings, smokeUrl, d
                 background: '#111111',
                 surface: '#222222',
                 accent: '#d7b56d',
+                activate: '#6bff59',
                 chipWarning: '#e0c184',
             },
             tags: ['theme:storage-smoke'],
@@ -5694,7 +6122,7 @@ async function runStorageHarnessSmoke(client, screenshots, findings, smokeUrl, d
             payloadEntryCount: Object.keys(payload?.entryOverrides || {}).length,
             payloadHasUniqueFact: JSON.stringify(payload || {}).includes('Storage smoke unique fact'),
             themePayloadFile: themeImport.payloadFile || '',
-            themePayloadOk: themePayload?.title === 'Storage Smoke Theme' && themePayload?.colors?.accent === '#d7b56d',
+            themePayloadOk: themePayload?.title === 'Storage Smoke Theme' && themePayload?.colors?.accent === '#d7b56d' && themePayload?.colors?.activate === '#6bff59',
             iconPayloadFile: iconImport.payloadFile || '',
             iconAssetFile,
             iconPayloadOk: iconPayload?.title === 'Storage Smoke Icons' && String(iconAssetFile).startsWith('/user/files/saga-iconset-asset-storage-smoke-icons-tab-loredecks-'),
@@ -6186,6 +6614,645 @@ async function runStorageHarnessSmoke(client, screenshots, findings, smokeUrl, d
             reloadState,
             serverStorage: harness?.storage?.snapshot?.() || null,
         }, null, 2));
+}
+
+async function runLiveLoreAutomationSmoke(client, screenshots, findings, smokeUrl, dialogEvents) {
+    const config = getLiveLoreAutomationConfig();
+    const fixture = await readLiveLoreAutomationFixture(config);
+
+    if (!ALLOW_PROVIDER_CALLS) {
+        const reportPath = getSmokeReportFile(SMOKE_TARGET);
+        const report = redactDiagnosticValue({
+            ok: false,
+            target: SMOKE_TARGET,
+            url: smokeUrl,
+            reportPath,
+            skipped: true,
+            findings: ['Live Lore Automation matrix is opt-in. Set SAGA_ALLOW_PROVIDER_CALLS=1 to spend bounded Utility/Reasoning Provider calls against Story2.'],
+            errors: [],
+            dialogEvents,
+            config: {
+                runId: config.runId,
+                chatFile: fixture.chatFile,
+                messageLimit: config.messageLimit,
+                scenarios: fixture.scenarios.map(scenario => scenario.id),
+                matrix: config.matrix,
+                persist: config.persist,
+                useArModel: config.useArModel,
+            },
+            fixture: {
+                characterFolder: fixture.characterFolder,
+                messageCount: fixture.messageCount,
+                selectedMessageCount: fixture.selectedMessageCount,
+                totalWords: fixture.totalWords,
+                selectedWords: fixture.selectedWords,
+                acceptedLoreCount: fixture.acceptedLoreCount,
+                pendingLoreCount: fixture.pendingLoreCount,
+                activeDeckIds: fixture.activeDeckIds,
+                contextSummary: fixture.contextSummary,
+                loreContext: fixture.loreContext,
+            },
+        });
+        const savedPath = await writeSmokeReport(SMOKE_TARGET, report);
+        console.log(JSON.stringify(buildLiveLoreAutomationConsoleReport(report, savedPath), null, 2));
+        process.exitCode = 1;
+        return;
+    }
+
+    screenshots.push(await screenshot(client, `${config.screenshotPrefix}-00-loaded`));
+    const activeChatState = await evaluate(client, script(() => {
+        const ctx = window.SillyTavern?.getContext?.();
+        return {
+            title: document.title,
+            hasContext: !!ctx,
+            chatLength: Array.isArray(ctx?.chat) ? ctx.chat.length : null,
+            metadataKeys: ctx?.chatMetadata ? Object.keys(ctx.chatMetadata).slice(0, 24) : [],
+            sagaLoreCount: Array.isArray(ctx?.chatMetadata?.saga?.loreMatrix) ? ctx.chatMetadata.saga.loreMatrix.length : null,
+            settingsKeys: ctx?.extensionSettings?.saga ? Object.keys(ctx.extensionSettings.saga).slice(0, 24) : [],
+            providerSummaryText: document.body?.innerText?.match(/(?:Utility|Reasoning) Provider[^\n]{0,160}/g)?.slice(0, 8) || [],
+        };
+    }));
+
+    const browserResult = await evaluate(client, script(async (fixturePayload, matrix, options) => {
+        const clone = value => JSON.parse(JSON.stringify(value ?? null));
+        const normalizeRelevance = value => ['high', 'normal', 'low'].includes(String(value || '').toLowerCase())
+            ? String(value).toLowerCase()
+            : 'normal';
+        const summarizeEntry = entry => ({
+            id: String(entry?.id || '').slice(0, 160),
+            title: String(entry?.title || entry?.id || '').slice(0, 200),
+            relevance: normalizeRelevance(entry?.relevance || 'normal'),
+            owner: String(entry?.extensions?.loreAutomation?.owner || '').slice(0, 40),
+            lastAction: String(entry?.extensions?.loreAutomation?.lastAction || '').slice(0, 80),
+            automationEnabled: entry?.extensions?.loreAutomation?.enabled !== false,
+            category: String(entry?.category || entry?.kind || '').slice(0, 80),
+            fact: String(entry?.content?.fact || entry?.fact || '').slice(0, 240),
+        });
+        const summarizeState = state => {
+            const entries = Array.isArray(state?.loreMatrix) ? state.loreMatrix : [];
+            const pinned = new Set(state?.loreSelection?.pinnedIds || []);
+            const muted = new Set(state?.loreSelection?.suppressedIds || []);
+            const relevance = { high: 0, normal: 0, low: 0 };
+            let automationOwned = 0;
+            let automationDisabled = 0;
+            for (const entry of entries) {
+                relevance[normalizeRelevance(entry?.relevance || 'normal')] += 1;
+                const automation = entry?.extensions?.loreAutomation || {};
+                if (automation.owner === 'auto' || entry?.extensions?.loreAutomationCuration?.source === 'active_deck' || automation.lastAction === 'accept_from_active_decks') automationOwned += 1;
+                if (automation.enabled === false) automationDisabled += 1;
+            }
+            return {
+                total: entries.length,
+                relevance,
+                pinnedCount: pinned.size,
+                mutedCount: muted.size,
+                automationOwned,
+                automationDisabled,
+                activeDeckCount: Array.isArray(state?.loredeckStack) ? state.loredeckStack.filter(item => item?.enabled !== false).length : 0,
+                runCount: Array.isArray(state?.loreAutomationRuns) ? state.loreAutomationRuns.length : 0,
+                lastRunStatus: state?.loreAutomationLastRun?.status || '',
+            };
+        };
+        const diffState = (beforeState, afterState) => {
+            const beforeEntries = new Map((beforeState?.loreMatrix || []).map(entry => [entry.id, summarizeEntry(entry)]));
+            const afterEntries = new Map((afterState?.loreMatrix || []).map(entry => [entry.id, summarizeEntry(entry)]));
+            const beforePinned = new Set(beforeState?.loreSelection?.pinnedIds || []);
+            const afterPinned = new Set(afterState?.loreSelection?.pinnedIds || []);
+            const beforeMuted = new Set(beforeState?.loreSelection?.suppressedIds || []);
+            const afterMuted = new Set(afterState?.loreSelection?.suppressedIds || []);
+            const accepted = [];
+            const retired = [];
+            const relevanceChanges = [];
+            for (const [id, entry] of afterEntries) {
+                const prior = beforeEntries.get(id);
+                if (!prior) accepted.push(entry);
+                else if (prior.relevance !== entry.relevance) relevanceChanges.push({ ...entry, before: prior.relevance, after: entry.relevance });
+            }
+            for (const [id, entry] of beforeEntries) {
+                if (!afterEntries.has(id)) retired.push(entry);
+            }
+            const pinAdded = [...afterPinned].filter(id => !beforePinned.has(id)).map(id => afterEntries.get(id) || beforeEntries.get(id) || { id });
+            const pinRemoved = [...beforePinned].filter(id => !afterPinned.has(id)).map(id => afterEntries.get(id) || beforeEntries.get(id) || { id });
+            const muteAdded = [...afterMuted].filter(id => !beforeMuted.has(id)).map(id => afterEntries.get(id) || beforeEntries.get(id) || { id });
+            const muteRemoved = [...beforeMuted].filter(id => !afterMuted.has(id)).map(id => afterEntries.get(id) || beforeEntries.get(id) || { id });
+            return {
+                accepted: accepted.slice(0, 16),
+                retired: retired.slice(0, 16),
+                relevanceChanges: relevanceChanges.slice(0, 24),
+                pinAdded: pinAdded.slice(0, 16),
+                pinRemoved: pinRemoved.slice(0, 16),
+                muteAdded: muteAdded.slice(0, 16),
+                muteRemoved: muteRemoved.slice(0, 16),
+                counts: {
+                    accepted: accepted.length,
+                    retired: retired.length,
+                    relevanceChanges: relevanceChanges.length,
+                    pinAdded: pinAdded.length,
+                    pinRemoved: pinRemoved.length,
+                    muteAdded: muteAdded.length,
+                    muteRemoved: muteRemoved.length,
+                },
+            };
+        };
+        const ctx = window.SillyTavern?.getContext?.();
+        if (!ctx?.chatMetadata || !ctx?.extensionSettings) throw new Error('SillyTavern context, chat metadata, or extension settings are unavailable.');
+
+        const originalSaga = clone(ctx.chatMetadata.saga || null);
+        const originalSettings = clone(ctx.extensionSettings.saga || null);
+        const originalChat = Array.isArray(ctx.chat) ? clone(ctx.chat) : null;
+        const originalSaveMetadata = typeof ctx.saveMetadata === 'function' ? ctx.saveMetadata.bind(ctx) : null;
+        const originalSaveSettingsDebounced = typeof ctx.saveSettingsDebounced === 'function' ? ctx.saveSettingsDebounced.bind(ctx) : null;
+        const saveCalls = [];
+        const providerCalls = [];
+        const restoreFns = [];
+        const recordProviderCall = call => providerCalls.push({ at: Date.now(), ...call });
+        if (!options.persist) {
+            ctx.saveMetadata = async () => {
+                saveCalls.push({ type: 'metadata', at: Date.now() });
+                return undefined;
+            };
+            ctx.saveSettingsDebounced = () => {
+                saveCalls.push({ type: 'settings', at: Date.now() });
+                return undefined;
+            };
+        }
+        if (typeof window.fetch === 'function') {
+            const originalFetch = window.fetch.bind(window);
+            window.fetch = async (...args) => {
+                const input = args[0];
+                const init = args[1] || {};
+                const url = typeof input === 'string' ? input : String(input?.url || '');
+                if (/chat\/completions|\/v1\/models|\/api\/backends|\/api\/plugins|\/api\/openai/i.test(url)) {
+                    let bodySummary = {};
+                    try {
+                        const parsed = typeof init.body === 'string' ? JSON.parse(init.body) : null;
+                        bodySummary = parsed ? {
+                            model: parsed.model || '',
+                            maxTokens: parsed.max_tokens || parsed.max_completion_tokens || '',
+                            messages: Array.isArray(parsed.messages) ? parsed.messages.map(message => ({
+                                role: message.role || '',
+                                chars: String(message.content || '').length,
+                            })) : [],
+                        } : {};
+                    } catch (_) {}
+                    recordProviderCall({ type: 'fetch', url: url.slice(0, 220), method: init.method || 'GET', bodySummary });
+                }
+                return originalFetch(...args);
+            };
+            restoreFns.push(() => { window.fetch = originalFetch; });
+        }
+        if (ctx.ConnectionManagerRequestService && typeof ctx.ConnectionManagerRequestService.sendRequest === 'function') {
+            const service = ctx.ConnectionManagerRequestService;
+            const originalSendRequest = service.sendRequest.bind(service);
+            service.sendRequest = async (...args) => {
+                const messages = Array.isArray(args[1]) ? args[1] : [];
+                recordProviderCall({
+                    type: 'connection-profile',
+                    profileId: String(args[0] || '').slice(0, 160),
+                    maxTokens: args[2] || '',
+                    messages: messages.map(message => ({ role: message.role || '', chars: String(message.content || '').length })),
+                });
+                return originalSendRequest(...args);
+            };
+            restoreFns.push(() => { service.sendRequest = originalSendRequest; });
+        }
+        for (const method of ['generateRaw', 'generateQuietPrompt']) {
+            if (typeof ctx[method] !== 'function') continue;
+            const original = ctx[method].bind(ctx);
+            ctx[method] = async (...args) => {
+                recordProviderCall({
+                    type: method,
+                    argShape: typeof args[0],
+                    promptChars: typeof args[0] === 'string' ? args[0].length : String(args[0]?.prompt || args[0]?.quietPrompt || '').length,
+                    systemChars: String(args[0]?.systemPrompt || '').length,
+                    responseLength: args[0]?.responseLength || '',
+                });
+                return original(...args);
+            };
+            restoreFns.push(() => { ctx[method] = original; });
+        }
+
+        const replaceChat = messages => {
+            const next = clone(messages || []);
+            if (Array.isArray(ctx.chat)) {
+                ctx.chat.splice(0, ctx.chat.length, ...next);
+                return 'mutated';
+            }
+            ctx.chat = next;
+            return 'assigned';
+        };
+        const restoreChat = () => {
+            if (originalChat === null) return;
+            if (Array.isArray(ctx.chat)) ctx.chat.splice(0, ctx.chat.length, ...clone(originalChat));
+            else ctx.chat = clone(originalChat);
+        };
+        const buildSettings = combo => {
+            const mode = ['off', 'ar', 'armp', 'armpc'].includes(String(combo.mode || '').toLowerCase()) ? String(combo.mode).toLowerCase() : 'ar';
+            const style = ['careful', 'balanced', 'aggressive'].includes(String(combo.style || '').toLowerCase()) ? String(combo.style).toLowerCase() : 'balanced';
+            const routing = ['auto', 'local', 'utility', 'reasoning'].includes(String(combo.routing || '').toLowerCase()) ? String(combo.routing).toLowerCase() : 'auto';
+            return {
+                ...(originalSettings || {}),
+                experienceMode: 'advanced',
+                automationMode: 'manual',
+                workflowMode: 'manual',
+                autoGenerateLore: false,
+                loreAutomationMode: mode,
+                loreAutomationStyle: style,
+                loreAutomationProviderRouting: routing,
+                loreAutomationCadenceMode: 'manual',
+                loreAutomationPaused: false,
+                loreAutomationPacing: 'normal',
+                loreAutomationRemapWordBudget: 600,
+                loreAutomationCurationWordBudget: 1200,
+                autoRelevanceEnabled: mode !== 'off',
+                autoRelevanceUseModel: options.useArModel === true,
+                autoRelevanceRecentMessages: Math.max(4, Math.min(80, Number(options.recentMessages) || 20)),
+                autoRelevanceCandidateCap: 48,
+                autoRelevanceModelCandidateCap: 32,
+                autoRelevanceModelRecentChars: 9000,
+                autoRelevanceModelMaxTokens: 2048,
+                autoRelevanceMinConfidence: 0.65,
+            };
+        };
+        const prepareState = scenario => {
+            const state = clone(scenario.state || {});
+            state.loreAutomationRuns = [];
+            state.loreAutomationLastRun = null;
+            state.loreAutomationSuggestions = [];
+            state.autoRelevanceSuggestions = [];
+            state.loreAutomationCadence = {
+                ...(state.loreAutomationCadence || {}),
+                lastRemapAtMessageId: '',
+                lastRemapWordCount: 0,
+                lastCurationAtMessageId: '',
+                lastCurationWordCount: 0,
+                accumulatedRemapWords: 0,
+                accumulatedCurationWords: 0,
+                pendingReason: '',
+                staleEvidenceByCardId: {},
+                cooldownByCardId: {},
+            };
+            if (!state.loreSelection || typeof state.loreSelection !== 'object') state.loreSelection = { pinnedIds: [], suppressedIds: [] };
+            if (!Array.isArray(state.loreSelection.pinnedIds)) state.loreSelection.pinnedIds = [];
+            if (!Array.isArray(state.loreSelection.suppressedIds)) state.loreSelection.suppressedIds = [];
+            return state;
+        };
+        const recentTextFromMessages = messages => (messages || []).slice(-Math.max(1, Number(options.recentMessages) || 20))
+            .map(message => {
+                const speaker = message?.name || (message?.is_user ? 'User' : 'Story');
+                const body = String(message?.mes || message?.content || '').trim();
+                return body ? `${speaker}: ${body}` : '';
+            })
+            .filter(Boolean)
+            .join('\n')
+            .slice(-12000);
+        const summarizePreviewEntry = entry => ({
+            id: String(entry?.id || '').slice(0, 160),
+            title: String(entry?.title || entry?.id || '').slice(0, 200),
+            score: Number(entry?.extensions?.canonPreview?.score || 0) || 0,
+            duplicateStatus: String(entry?.extensions?.canonPreview?.duplicateStatus || '').slice(0, 80),
+            duplicateReason: String(entry?.extensions?.canonPreview?.duplicateReason || '').slice(0, 160),
+            matchedBy: String(entry?.extensions?.canonPreview?.matchedBy || '').slice(0, 80),
+            relevance: normalizeRelevance(entry?.relevance || 'normal'),
+        });
+        const removeIdsFromSelection = (state, ids) => {
+            if (!state?.loreSelection) return;
+            const remove = new Set([...ids].map(id => String(id || '')));
+            state.loreSelection.pinnedIds = (state.loreSelection.pinnedIds || []).filter(id => !remove.has(String(id || '')));
+            state.loreSelection.suppressedIds = (state.loreSelection.suppressedIds || []).filter(id => !remove.has(String(id || '')));
+        };
+        const markEntryAutomationOwnedForProbe = (entry, index = 0, options = {}) => ({
+            ...(options.forceStale ? {
+                ...entry,
+                title: `Stale automation probe: ${entry?.title || entry?.id || index}`,
+                category: 'other',
+                lorePurpose: 'branch_fact',
+                scope: {
+                    characters: ['Florean Fortescue'],
+                    locations: ['Diagon Alley Ice Cream Parlour'],
+                    topics: ['shop inventory audit'],
+                },
+                activeWhen: {
+                    charactersPresentAny: ['Florean Fortescue'],
+                    locationsAny: ['Diagon Alley Ice Cream Parlour'],
+                    tagsAny: ['shop inventory audit'],
+                },
+                tags: ['live-eval-stale-probe'],
+                date: { validFrom: '1900-01-01', validTo: '1900-01-02' },
+                content: {
+                    ...(entry?.content || {}),
+                    fact: 'A stale automation-owned Lorecard from an unrelated prior shop-inventory scene.',
+                    injection: 'A stale automation-owned Lorecard from an unrelated prior shop-inventory scene.',
+                },
+            } : entry),
+            relevance: 'low',
+            extensions: {
+                ...(entry.extensions || {}),
+                loreAutomation: {
+                    ...(entry.extensions?.loreAutomation || {}),
+                    enabled: true,
+                    enabledAt: Date.now() - 3600000,
+                    enabledBy: 'live_eval_probe',
+                    disabledReason: '',
+                    disabledAt: 0,
+                    disabledBy: '',
+                    lastAction: 'accept_from_active_decks',
+                    lastReason: 'Live eval retirement probe marked this existing Story2 Lorecard automation-owned.',
+                    lastRunId: `live-eval-retire-probe-${index}`,
+                    lastTouchedAt: Date.now() - 3600000,
+                    lastProvider: 'probe',
+                    owner: 'auto',
+                },
+                loreAutomationCuration: {
+                    ...(entry.extensions?.loreAutomationCuration || {}),
+                    source: 'active_deck',
+                    acceptedAt: Date.now() - 3600000,
+                    reason: 'Live eval retirement probe.',
+                    provider: 'probe',
+                },
+            },
+        });
+        const applyScenarioProbe = async (scenario, state, settings, recentText = '') => {
+            const probe = scenario?.probe || {};
+            const type = String(probe.type || '').trim();
+            if (!type) return null;
+            const summary = { type, notes: [] };
+            if (!Array.isArray(state.loreMatrix)) state.loreMatrix = [];
+            if (!state.loreSelection || typeof state.loreSelection !== 'object') state.loreSelection = { pinnedIds: [], suppressedIds: [] };
+            if (!Array.isArray(state.loreSelection.pinnedIds)) state.loreSelection.pinnedIds = [];
+            if (!Array.isArray(state.loreSelection.suppressedIds)) state.loreSelection.suppressedIds = [];
+            ctx.chatMetadata.saga = state;
+            ctx.extensionSettings.saga = settings;
+            let preview = null;
+            try {
+                preview = await canonModule.previewCanonLoreForContext(state?.loreContext || null, {
+                    maxCandidates: 240,
+                    includeAudit: false,
+                });
+            } catch (error) {
+                summary.error = error?.message || String(error);
+                return summary;
+            }
+            if (type === 'curation-gap') {
+                const cap = Math.max(1, Math.min(12, Number(probe.removeAcceptedCount) || 4));
+                const acceptedIds = new Set(state.loreMatrix.map(entry => String(entry?.id || '')).filter(Boolean));
+                const selected = (preview?.entries || [])
+                    .filter(entry => entry?.id && entry.extensions?.canonPreview?.duplicateStatus === 'accepted' && acceptedIds.has(String(entry.id)))
+                    .slice(0, cap);
+                const removeIds = new Set(selected.map(entry => String(entry.id)));
+                state.loreMatrix = state.loreMatrix.filter(entry => !removeIds.has(String(entry?.id || '')));
+                removeIdsFromSelection(state, removeIds);
+                summary.removedAcceptedCount = selected.length;
+                summary.removedAccepted = selected.map(summarizePreviewEntry);
+                if (!selected.length) summary.notes.push('No accepted active-deck preview entries were available to remove.');
+            } else if (type === 'retirement-overload') {
+                const cap = Math.max(1, Math.min(16, Number(probe.markAutomationOwnedCount) || 8));
+                const previewIds = new Set((preview?.entries || []).map(entry => String(entry?.id || '')).filter(Boolean));
+                const pinned = new Set(state.loreSelection.pinnedIds || []);
+                const muted = new Set(state.loreSelection.suppressedIds || []);
+                const maxScore = settings.loreAutomationStyle === 'aggressive' ? 12 : settings.loreAutomationStyle === 'balanced' ? 6 : 3;
+                const scoreRetirementProbeEntry = entry => {
+                    const local = loreRelevanceModule.computeLocalLoreRelevance(entry, { ...state, autoRelevanceContext: { recentText } }, { ...settings, recentText });
+                    const coverageLaneIds = autoModule.__autoRelevanceTestHooks?.getEntryCoverageLaneIds?.(entry, state) || [];
+                    return {
+                        entry,
+                        local,
+                        coverageLaneIds,
+                        staleShape: normalizeRelevance(local?.relevance || 'normal') === 'low'
+                            && (Number(local?.score) || 0) <= maxScore
+                            && local?.recentHit !== true
+                            && !coverageLaneIds.length,
+                    };
+                };
+                const allScored = state.loreMatrix
+                    .filter(entry => entry?.id && !pinned.has(entry.id) && !muted.has(entry.id))
+                    .map(scoreRetirementProbeEntry)
+                    .sort((a, b) => Number(a.local?.score || 0) - Number(b.local?.score || 0)
+                        || a.coverageLaneIds.length - b.coverageLaneIds.length
+                        || String(a.entry.id).localeCompare(String(b.entry.id)));
+                const preferred = allScored.filter(item => item.staleShape && !previewIds.has(String(item.entry.id)));
+                const selectedRows = preferred.concat(allScored.filter(item => !preferred.some(preferredItem => preferredItem.entry.id === item.entry.id))).slice(0, cap);
+                const selectedIds = new Set(selectedRows.map(item => String(item.entry.id)));
+                const forceStaleIds = new Set(selectedRows.filter(item => !item.staleShape).map(item => String(item.entry.id)));
+                state.loreMatrix = state.loreMatrix.map((entry, index) => selectedIds.has(String(entry?.id || ''))
+                    ? markEntryAutomationOwnedForProbe(entry, index, { forceStale: forceStaleIds.has(String(entry.id)) })
+                    : entry);
+                removeIdsFromSelection(state, selectedIds);
+                state.loreAutomationCadence = {
+                    ...(state.loreAutomationCadence || {}),
+                    staleEvidenceByCardId: {
+                        ...(state.loreAutomationCadence?.staleEvidenceByCardId || {}),
+                    },
+                };
+                for (const id of selectedIds) state.loreAutomationCadence.staleEvidenceByCardId[id] = Math.max(1, Number(state.loreAutomationCadence.staleEvidenceByCardId[id]) || 0);
+                summary.markedAutomationOwnedCount = selectedRows.length;
+                summary.forceStaleCount = forceStaleIds.size;
+                summary.markedAutomationOwned = selectedRows.map(item => ({
+                    ...summarizeEntry(item.entry),
+                    localScore: Number(item.local?.score || 0),
+                    localRelevance: normalizeRelevance(item.local?.relevance || 'normal'),
+                    recentHit: item.local?.recentHit === true,
+                    coverageLaneCount: item.coverageLaneIds.length,
+                    neutralizedForProbe: forceStaleIds.has(String(item.entry.id)),
+                }));
+                if (!selectedRows.length) summary.notes.push('No unpinned, unmuted Story2 Lorecards were available to mark automation-owned.');
+            }
+            ctx.chatMetadata.saga = state;
+            return summary;
+        };
+
+        const autoModule = await import(`${location.origin}/scripts/extensions/third-party/Saga/src/context/auto-relevance.js?liveLoreAutomation=${Date.now()}`);
+        const canonModule = await import(`${location.origin}/scripts/extensions/third-party/Saga/src/context/canon-lore-db.js?liveLoreAutomation=${Date.now()}`);
+        const loreRelevanceModule = await import(`${location.origin}/scripts/extensions/third-party/Saga/src/lorecards/lore-relevance.js?liveLoreAutomation=${Date.now()}`);
+        const results = [];
+        const browserFindings = [];
+        try {
+            for (const scenario of fixturePayload.scenarios || []) {
+                for (const combo of matrix || []) {
+                    const beforeProviderCalls = providerCalls.length;
+                    const beforeSaveCalls = saveCalls.length;
+                    const state = prepareState(scenario);
+                    const settings = buildSettings(combo);
+                    replaceChat(scenario.messages || []);
+                    ctx.chatMetadata.saga = state;
+                    ctx.extensionSettings.saga = settings;
+                    const recentText = recentTextFromMessages(scenario.messages || []);
+                    const scenarioProbe = await applyScenarioProbe(scenario, state, settings, recentText);
+                    const before = clone(ctx.chatMetadata.saga);
+                    let diagnostics = null;
+                    try {
+                        const pressure = autoModule.__autoRelevanceTestHooks?.computeLoreAutomationStackPressure?.(before, settings, recentText) || null;
+                        const contextLanes = autoModule.__autoRelevanceTestHooks?.getContextCoverageLaneIds?.(before) || [];
+                        const preview = await canonModule.previewCanonLoreForContext(before?.loreContext || null, {
+                            maxCandidates: 240,
+                            includeAudit: false,
+                        });
+                        diagnostics = {
+                            stackPressure: pressure,
+                            contextLanes,
+                            preview: {
+                                status: preview?.status || '',
+                                matchedCount: preview?.matchedCount || 0,
+                                newCount: preview?.newCount || 0,
+                                duplicateCount: preview?.duplicateCount || 0,
+                                sceneIso: preview?.sceneIso || '',
+                                schoolYear: preview?.schoolYear || '',
+                                top: Array.isArray(preview?.entries) ? preview.entries.slice(0, 12).map(summarizePreviewEntry) : [],
+                                topNew: Array.isArray(preview?.entries)
+                                    ? preview.entries.filter(entry => entry?.extensions?.canonPreview?.duplicateStatus === 'new').slice(0, 12).map(summarizePreviewEntry)
+                                    : [],
+                            },
+                        };
+                    } catch (error) {
+                        diagnostics = { error: error?.message || String(error) };
+                    }
+                    const startedAt = Date.now();
+                    let result = null;
+                    let thrown = null;
+                    try {
+                        result = await autoModule.runAutoRelevance({ force: true });
+                    } catch (error) {
+                        thrown = { message: error?.message || String(error), stack: String(error?.stack || '').slice(0, 1200) };
+                    }
+                    const durationMs = Date.now() - startedAt;
+                    const after = clone(ctx.chatMetadata.saga);
+                    const providerDelta = providerCalls.slice(beforeProviderCalls);
+                    const saveDelta = saveCalls.slice(beforeSaveCalls);
+                    const diff = diffState(before, after);
+                    const run = after?.loreAutomationLastRun || null;
+                    const status = thrown ? 'thrown' : String(result?.status || run?.status || '');
+                    const hardProviderStatus = ['unavailable', 'failed_parse', 'model_failed'].includes(status)
+                        || ['unavailable', 'failed_parse', 'model_failed'].includes(String(result?.modelStatus || ''))
+                        || ['unavailable', 'failed_parse', 'model_failed'].includes(String(result?.providerStatus || ''));
+                    if (thrown) browserFindings.push(`${scenario.id}/${combo.mode}:${combo.style}:${combo.routing} threw: ${thrown.message}`);
+                    if (hardProviderStatus && combo.routing !== 'local') browserFindings.push(`${scenario.id}/${combo.mode}:${combo.style}:${combo.routing} provider path did not complete cleanly (${status || result?.modelStatus || result?.providerStatus}).`);
+                    const qualityNotes = [];
+                    if (settings.loreAutomationMode === 'armpc' && Number(diagnostics?.preview?.newCount || 0) > 0 && diff.counts.accepted === 0) {
+                        qualityNotes.push(`ARMPC saw ${diagnostics.preview.newCount} new active-deck preview candidates but accepted none.`);
+                    }
+                    if (settings.loreAutomationMode === 'armpc' && diagnostics?.stackPressure?.pressure === 'none' && diff.counts.accepted === 0) {
+                        qualityNotes.push('Stack pressure was none, so curation was not strongly pulled toward additions.');
+                    }
+                    if (settings.loreAutomationMode === 'armp' && providerDelta.length === 0 && settings.loreAutomationProviderRouting !== 'local') {
+                        qualityNotes.push('ARMP recorded no provider calls, usually because local remap candidates were empty.');
+                    }
+                    results.push({
+                        id: `${scenario.id}:${combo.label || `${combo.mode}-${combo.style}-${combo.routing}`}`,
+                        scenario: { id: scenario.id, label: scenario.label },
+                        combo: {
+                            mode: settings.loreAutomationMode,
+                            style: settings.loreAutomationStyle,
+                            routing: settings.loreAutomationProviderRouting,
+                            label: combo.label || '',
+                        },
+                        durationMs,
+                        status,
+                        result,
+                        thrown,
+                        providerCallCount: providerDelta.length,
+                        providerCalls: providerDelta,
+                        saveCallCount: saveDelta.length,
+                        before: summarizeState(before),
+                        after: summarizeState(after),
+                        diff,
+                        diagnostics,
+                        scenarioProbe,
+                        qualityNotes,
+                        lastRun: run ? {
+                            status: run.status || '',
+                            mode: run.mode || '',
+                            changed: run.changed || 0,
+                            curated: run.curated || 0,
+                            retired: run.retired || 0,
+                            modelStatus: run.modelStatus || '',
+                            providerStatus: run.providerStatus || '',
+                            operations: Array.isArray(run.operations) ? run.operations.slice(0, 16) : [],
+                        } : null,
+                    });
+                }
+            }
+        } finally {
+            restoreChat();
+            if (originalSaga && typeof originalSaga === 'object') ctx.chatMetadata.saga = clone(originalSaga);
+            else delete ctx.chatMetadata.saga;
+            if (originalSettings && typeof originalSettings === 'object') ctx.extensionSettings.saga = clone(originalSettings);
+            else delete ctx.extensionSettings.saga;
+            if (originalSaveMetadata) ctx.saveMetadata = originalSaveMetadata;
+            if (originalSaveSettingsDebounced) ctx.saveSettingsDebounced = originalSaveSettingsDebounced;
+            for (const restore of restoreFns.reverse()) {
+                try { restore(); } catch (_) {}
+            }
+            if (options.persist) {
+                try { if (originalSaveMetadata) await originalSaveMetadata(); } catch (_) {}
+                try { if (originalSaveSettingsDebounced) originalSaveSettingsDebounced(); } catch (_) {}
+            }
+        }
+        const totalProviderCalls = results.reduce((total, item) => total + Number(item.providerCallCount || 0), 0);
+        if (totalProviderCalls < 1) browserFindings.push('Lore Automation matrix completed without recording any provider calls.');
+        return {
+            results,
+            findings: browserFindings,
+            providerCalls,
+            saveCalls,
+            totalProviderCalls,
+        };
+    }, {
+        scenarios: fixture.scenarios,
+    }, config.matrix, {
+        persist: config.persist,
+        useArModel: config.useArModel,
+        recentMessages: fixture.selectedMessageCount,
+    }), {
+        timeoutMs: Math.max(60000, config.providerTimeoutMs * Math.max(1, fixture.scenarios.length * config.matrix.length) + 60000),
+        label: 'live Lore Automation matrix',
+    });
+
+    for (const finding of browserResult.findings || []) findings.push(finding);
+    screenshots.push(await screenshot(client, `${config.screenshotPrefix}-01-after-matrix`));
+    const errors = collectClientErrors(client)
+        .filter(error => !isExpectedLiveLoreAutomation404(error));
+    const reportPath = getSmokeReportFile(SMOKE_TARGET);
+    const report = redactDiagnosticValue({
+        ok: findings.length === 0 && errors.length === 0,
+        target: SMOKE_TARGET,
+        url: smokeUrl,
+        reportPath,
+        providerCallsOptIn: ALLOW_PROVIDER_CALLS,
+        config: {
+            runId: config.runId,
+            chatFile: fixture.chatFile,
+            messageLimit: config.messageLimit,
+            scenarios: fixture.scenarios.map(scenario => scenario.id),
+            matrix: config.matrix,
+            persist: config.persist,
+            useArModel: config.useArModel,
+            providerTimeoutMs: config.providerTimeoutMs,
+        },
+        fixture: {
+            characterFolder: fixture.characterFolder,
+            characterName: fixture.characterName,
+            messageCount: fixture.messageCount,
+            selectedMessageCount: fixture.selectedMessageCount,
+            totalWords: fixture.totalWords,
+            selectedWords: fixture.selectedWords,
+            acceptedLoreCount: fixture.acceptedLoreCount,
+            pendingLoreCount: fixture.pendingLoreCount,
+            activeDeckIds: fixture.activeDeckIds,
+            contextSummary: fixture.contextSummary,
+            loreContext: fixture.loreContext,
+        },
+        activeChatState,
+        screenshots,
+        findings,
+        errors,
+        dialogEvents,
+        totalProviderCalls: browserResult.totalProviderCalls || 0,
+        saveCallCount: Array.isArray(browserResult.saveCalls) ? browserResult.saveCalls.length : 0,
+        results: browserResult.results || [],
+    });
+    const savedPath = await writeSmokeReport(SMOKE_TARGET, report);
+    console.log(JSON.stringify(buildLiveLoreAutomationConsoleReport(report, savedPath), null, 2));
+    if (!report.ok) process.exitCode = 1;
 }
 
 async function runLiveCreatorSmoke(client, screenshots, findings, smokeUrl, dialogEvents) {
@@ -6918,6 +7985,11 @@ async function main() {
                 applyState,
                 workbenchState,
             }, null, 2));
+            return;
+        }
+
+        if (SMOKE_TARGET === LIVE_LORE_AUTOMATION_TARGET) {
+            await runLiveLoreAutomationSmoke(client, screenshots, findings, smokeUrl, dialogEvents);
             return;
         }
 

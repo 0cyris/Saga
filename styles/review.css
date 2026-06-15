@@ -247,25 +247,46 @@
 .saga-lorecard-workspace-row {
     position: relative;
     min-width: 0;
-    font-size: 14px;
 }
 
-.saga-lorecard-workspace-row .saga-lore-entry-title {
-    font-size: 16px;
+.saga-lore-panel:not(.saga-runtime-mobile) .saga-lorecard-workspace-row .saga-lore-entry-title {
+    font-size: 0.96em !important;
     line-height: 1.22;
 }
 
-.saga-lorecard-workspace-row .saga-lore-entry-fact,
-.saga-lorecard-workspace-row .saga-pending-target-help {
-    font-size: 14px;
+.saga-lore-panel:not(.saga-runtime-mobile) .saga-lorecard-workspace-row .saga-lore-entry-fact,
+.saga-lore-panel:not(.saga-runtime-mobile) .saga-lorecard-workspace-row .saga-pending-target-help {
+    font-size: 0.82em;
     line-height: 1.35;
 }
 
+.saga-runtime-mobile .saga-lorecard-workspace-row {
+    font-size: 14px;
+}
+
+.saga-runtime-mobile .saga-lorecard-workspace-row .saga-lore-entry-title {
+    font-size: 16px;
+}
+
+.saga-runtime-mobile .saga-lorecard-workspace-row .saga-lore-entry-fact,
+.saga-runtime-mobile .saga-lorecard-workspace-row .saga-pending-target-help {
+    font-size: 14px;
+}
+
 .saga-lorecard-workspace-row.saga-lore-entry-active {
-    border-color: var(--saga-accent, var(--saga-gold, #d7b56d)) !important;
+    border-color: var(--saga-activate, #6bff59) !important;
     box-shadow:
-        0 0 0 1px color-mix(in srgb, var(--saga-accent, var(--saga-gold, #d7b56d)) 42%, transparent),
-        0 0 18px color-mix(in srgb, var(--saga-accent, var(--saga-gold, #d7b56d)) 26%, transparent);
+        0 0 0 1px var(--saga-activate-soft, rgba(107, 255, 89, 0.56)),
+        0 0 22px var(--saga-activate-glow, rgba(107, 255, 89, 0.48)),
+        0 0 36px var(--saga-activate-surface, rgba(107, 255, 89, 0.18));
+}
+
+.saga-lore-panel:not(.saga-runtime-mobile) .saga-lorecard-workspace-row.saga-lore-entry-active {
+    box-shadow:
+        0 0 0 1px var(--saga-activate-soft, rgba(107, 255, 89, 0.56)),
+        0 0 6px var(--saga-activate-glow, rgba(107, 255, 89, 0.48)),
+        0 0 10px var(--saga-activate-surface, rgba(107, 255, 89, 0.18)),
+        0 0 12px var(--saga-activate-surface, rgba(107, 255, 89, 0.12)) inset;
 }
 
 .saga-lorecard-workspace-row.saga-lore-entry-suppressed {
@@ -322,15 +343,15 @@
     min-width: 0;
 }
 
-.saga-lorecard-detail-card .saga-runtime-card-title {
-    font-size: 18px;
+.saga-lore-panel:not(.saga-runtime-mobile) .saga-lorecard-detail-card .saga-runtime-card-title {
+    font-size: 1em;
     line-height: 1.25;
 }
 
-.saga-lorecard-detail-card .saga-lore-entry-full-fact,
-.saga-lorecard-detail-card .saga-key-value,
-.saga-lorecard-detail-card .saga-key-value-value {
-    font-size: 14px;
+.saga-lore-panel:not(.saga-runtime-mobile) .saga-lorecard-detail-card .saga-lore-entry-full-fact,
+.saga-lore-panel:not(.saga-runtime-mobile) .saga-lorecard-detail-card .saga-key-value,
+.saga-lore-panel:not(.saga-runtime-mobile) .saga-lorecard-detail-card .saga-key-value-value {
+    font-size: 0.82em;
     line-height: 1.4;
 }
 
@@ -505,7 +526,7 @@
     align-items: center;
     justify-content: center;
     gap: 7px;
-    border-color: rgba(119, 184, 93, 0.48) !important;
+    border-color: var(--saga-activate-soft, rgba(107, 255, 89, 0.56)) !important;
     overflow: visible;
     transition: border-color 140ms ease, box-shadow 140ms ease, transform 140ms ease, background 140ms ease;
 }
@@ -534,30 +555,30 @@
 }
 
 .saga-lorecard-active-toggle-active {
-    border-color: rgba(119, 184, 93, 0.78) !important;
+    border-color: var(--saga-activate-soft, rgba(107, 255, 89, 0.56)) !important;
     background:
-        radial-gradient(circle at 16px 50%, rgba(231, 255, 192, 0.34), transparent 34%),
-        radial-gradient(circle at 16px 50%, rgba(103, 216, 82, 0.22), transparent 68%),
-        rgba(12, 30, 21, 0.82) !important;
-    color: #dfffc5 !important;
+        radial-gradient(circle at 16px 50%, color-mix(in srgb, var(--saga-activate, #6bff59) 34%, #ffffff) 0%, transparent 38%),
+        radial-gradient(circle at 16px 50%, var(--saga-activate-surface, rgba(107, 255, 89, 0.18)) 0%, transparent 70%),
+        color-mix(in srgb, var(--saga-activate, #6bff59) 10%, rgba(12, 30, 21, 0.86)) !important;
+    color: color-mix(in srgb, var(--saga-activate, #6bff59) 38%, #ffffff) !important;
     box-shadow:
-        0 0 0 1px rgba(202, 255, 146, 0.18) inset,
-        0 0 12px rgba(107, 255, 89, 0.34),
-        0 0 22px rgba(107, 255, 89, 0.13);
+        0 0 0 1px color-mix(in srgb, var(--saga-activate, #6bff59) 26%, transparent) inset,
+        0 0 14px var(--saga-activate-glow, rgba(107, 255, 89, 0.48)),
+        0 0 28px var(--saga-activate-surface, rgba(107, 255, 89, 0.18));
 }
 
 .saga-lorecard-active-toggle-active::before {
     background:
-        radial-gradient(circle at 38% 28%, #ffffff 0 12%, #f0ffd3 18%, #9cff6d 54%, #3ecf58 100%);
+        radial-gradient(circle at 38% 28%, #ffffff 0 12%, color-mix(in srgb, var(--saga-activate, #6bff59) 32%, #ffffff) 18%, var(--saga-activate, #6bff59) 56%, color-mix(in srgb, var(--saga-activate, #6bff59) 72%, #12351f) 100%);
     box-shadow:
-        0 0 5px rgba(229, 255, 198, 0.9),
-        0 0 12px rgba(110, 255, 91, 0.72);
+        0 0 6px color-mix(in srgb, var(--saga-activate, #6bff59) 42%, #ffffff),
+        0 0 14px var(--saga-activate-glow-strong, rgba(107, 255, 89, 0.72));
 }
 
 .saga-lorecard-active-toggle-active::after {
     opacity: 1;
     box-shadow:
-        0 0 12px 2px rgba(119, 255, 87, 0.42),
+        0 0 14px 3px var(--saga-activate-glow, rgba(107, 255, 89, 0.48)),
         0 0 3px rgba(255, 255, 255, 0.62) inset;
 }
 
@@ -576,10 +597,97 @@
 .saga-lorecard-active-toggle:not(:disabled):hover,
 .saga-lorecard-active-toggle:not(:disabled):focus-visible {
     transform: translateY(-1px);
-    border-color: rgba(119, 184, 93, 0.72) !important;
+    border-color: var(--saga-activate-soft, rgba(107, 255, 89, 0.56)) !important;
     box-shadow:
-        0 0 0 1px rgba(202, 255, 146, 0.18) inset,
-        0 0 16px rgba(107, 255, 89, 0.28);
+        0 0 0 1px color-mix(in srgb, var(--saga-activate, #6bff59) 24%, transparent) inset,
+        0 0 18px var(--saga-activate-glow, rgba(107, 255, 89, 0.48));
+}
+
+.saga-lorecard-active-toggle-button {
+    width: 16px;
+    height: 16px;
+    min-width: 16px !important;
+    padding: 0 !important;
+    display: inline-grid !important;
+    place-items: center;
+    border-radius: 50% !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
+    box-sizing: border-box;
+}
+
+.saga-lorecard-active-toggle-button::before {
+    width: 7px;
+    height: 7px;
+    flex: 0 0 7px;
+}
+
+.saga-lorecard-active-toggle-button::after {
+    inset: 3px;
+    left: 3px;
+    top: 3px;
+    width: auto;
+    height: auto;
+    transform: none;
+}
+
+.saga-lorecard-active-toggle-button.saga-lorecard-active-toggle-active {
+    border-color: var(--saga-activate-soft, rgba(107, 255, 89, 0.56)) !important;
+    background:
+        radial-gradient(circle at 50% 42%, color-mix(in srgb, var(--saga-activate, #6bff59) 38%, #ffffff) 0%, transparent 44%),
+        radial-gradient(circle at 50% 50%, var(--saga-activate-surface, rgba(107, 255, 89, 0.18)) 0%, transparent 74%),
+        color-mix(in srgb, var(--saga-activate, #6bff59) 12%, rgba(12, 30, 21, 0.92)) !important;
+    box-shadow:
+        0 0 0 1px color-mix(in srgb, var(--saga-activate, #6bff59) 28%, transparent) inset,
+        0 0 7px var(--saga-activate-glow, rgba(107, 255, 89, 0.48)),
+        0 0 12px var(--saga-activate-surface, rgba(107, 255, 89, 0.18));
+}
+
+.saga-lorecard-active-toggle-button.saga-lorecard-active-toggle-inactive {
+    border-color: rgba(185, 139, 54, 0.22) !important;
+    background:
+        radial-gradient(circle at 50% 38%, rgba(241, 234, 216, 0.08), transparent 48%),
+        rgba(16, 16, 18, 0.86) !important;
+}
+
+.saga-lorecard-active-toggle-button.saga-lorecard-active-toggle-inactive::before {
+    opacity: 0.58;
+    background:
+        radial-gradient(circle at 38% 28%, rgba(241, 234, 216, 0.7) 0 10%, rgba(120, 120, 118, 0.46) 44%, rgba(38, 38, 40, 0.82) 100%);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.44) inset;
+}
+
+.saga-lorecard-active-toggle-button:not(:disabled):hover,
+.saga-lorecard-active-toggle-button:not(:disabled):focus-visible {
+    box-shadow:
+        0 0 0 1px color-mix(in srgb, var(--saga-activate, #6bff59) 24%, transparent) inset,
+        0 0 9px var(--saga-activate-glow, rgba(107, 255, 89, 0.48));
+}
+
+.saga-runtime-mobile .saga-lorecard-active-toggle-button {
+    width: 32px;
+    height: 32px;
+    min-width: 32px !important;
+}
+
+.saga-runtime-mobile .saga-lorecard-active-toggle-button::before {
+    width: 13px;
+    height: 13px;
+    flex: 0 0 13px;
+}
+
+.saga-runtime-mobile .saga-lorecard-active-toggle-button::after {
+    inset: 5px;
+    left: 5px;
+    top: 5px;
+}
+
+.saga-lorecard-row-active-toggle {
+    margin-top: 0;
+}
+
+.saga-lorecard-detail-active-toggle {
+    align-self: center;
 }
 
 .saga-pending-lore-edit-details {

@@ -91,6 +91,7 @@ const themeResult = await importExternalThemePack({
     background: '#120c12',
     surface: '#2b1c1c',
     accent: '#d7b56d',
+    activate: '#6bff59',
     chipDanger: '#e1a0a0',
   },
   tags: ['theme:custom'],
@@ -101,9 +102,11 @@ assert.equal(themeResult.ok, true);
 assert.equal(themeResult.payloadFile, '/user/files/saga-theme-pack-arlong-theme.v1.json');
 assert.equal(JSON.parse(stored.get(themeResult.payloadFile)).kind, 'saga_theme_pack');
 assert.equal(JSON.parse(stored.get(themeResult.payloadFile)).colors.accent, '#d7b56d');
+assert.equal(JSON.parse(stored.get(themeResult.payloadFile)).colors.activate, '#6bff59');
 assert.equal(JSON.parse(stored.get(SAGA_STORAGE_DOMAIN_INDEX_FILES.themes)).packs['arlong-theme'].payloadFile, themeResult.payloadFile);
 assert.equal(JSON.parse(stored.get(SAGA_STORAGE_INDEX_PATH)).files[themeResult.payloadFile].kind, 'theme_pack_payload');
 assert.equal(getExternalThemePackLibraryRegistry().packs['arlong-theme'].colors.chipDanger, '#e1a0a0');
+assert.equal(getExternalThemePackLibraryRegistry().packs['arlong-theme'].colors.activate, '#6bff59');
 assert(getThemePackLibrary({ themePackLibrary: { schemaVersion: 1, packs: {} } }).some(pack => pack.id === 'arlong-theme'), 'Runtime Theme Pack library should merge external storage cache.');
 assert.equal(getThemePreset('arlong-theme', { themePackId: 'arlong-theme', themePackLibrary: { schemaVersion: 1, packs: {} } }).type, 'custom', 'Active external Theme Pack presets must stay custom so Settings can forget them.');
 

@@ -39,7 +39,7 @@ export function createThemeEmblem(preset, colors, options = {}) {
 export function createThemeSwatchStrip(colors = {}) {
     const strip = document.createElement('div');
     strip.className = 'saga-theme-swatch-strip';
-    for (const key of ['background', 'surface', 'accent', 'danger', 'borderStrong', 'button', 'text']) {
+    for (const key of ['background', 'surface', 'accent', 'activate', 'danger', 'borderStrong', 'button', 'text']) {
         const swatch = document.createElement('span');
         swatch.style.background = normalizeHexColor(colors[key], '#000000');
         addTooltip(swatch, `${humanizeScopeKey(key)}: ${normalizeHexColor(colors[key], '#000000')}`);
@@ -58,6 +58,7 @@ export function applyThemePreviewVariables(el, colors = {}) {
     el.style.setProperty('--theme-preview-border', complete.border);
     el.style.setProperty('--theme-preview-border-strong', complete.borderStrong);
     el.style.setProperty('--theme-preview-accent', complete.accent);
+    el.style.setProperty('--theme-preview-activate', complete.activate);
     el.style.setProperty('--theme-preview-danger', complete.danger);
     el.style.setProperty('--theme-preview-success', complete.success);
     el.style.setProperty('--theme-preview-warning', complete.warning);
@@ -413,6 +414,7 @@ export function createThemeColorOverridesPanel(settings = {}, activePreset, colo
     ], options));
     panel.appendChild(createThemeColorGroup('State Colors', colors, [
         ['Success', 'themeSuccessColor', 'success'],
+        ['Activate', 'themeActivateColor', 'activate'],
         ['Warning', 'themeWarningColor', 'warning'],
         ['Danger', 'themeDangerColor', 'danger'],
         ['Focus Ring', 'themeFocusColor', 'focus'],
