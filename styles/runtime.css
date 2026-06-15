@@ -515,6 +515,19 @@
     min-height: var(--saga-mobile-control-height, 40px);
 }
 
+.saga-settings-qol-card {
+    display: grid;
+    gap: 8px;
+}
+
+.saga-settings-qol-card h4 {
+    margin: 0;
+}
+
+.saga-settings-mobile-tags-toggle {
+    align-items: center;
+}
+
 .saga-runtime-mobile .saga-loredecks-mobile-action-stack {
     display: grid;
     grid-template-columns: minmax(0, 1fr);

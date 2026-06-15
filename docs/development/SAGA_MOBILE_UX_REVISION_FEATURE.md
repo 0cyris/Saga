@@ -33,8 +33,8 @@ Basic: Loredecks | Session | Context | Lorecards | Settings
 Advanced: Loredecks | Session | Continuity | Context | Lorecards | Injection | Settings
 ```
 
-- Mobile shell class, full-viewport page model, safe-area header, fixed bottom
-  navigation, direct Settings route, and subview stack primitives.
+- Mobile shell class, full-viewport page model, bottom-owned shell actions,
+  fixed bottom navigation, direct Settings route, and subview stack primitives.
 - SAGA Archive and Saga Hero visual direction: dark archive surfaces, warm gold
   trim, black cherry shell treatment, restrained data accents, and icon-led
   navigation.

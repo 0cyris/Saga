@@ -361,8 +361,8 @@ Work:
   bottom action areas where practical.
 - Specifically move Pack Health `Refresh Scan`/`Export Report`/`Close`, Creator
   `Project Settings`/`Close`, Context Workbench `Refresh Index`/`Done`, and
-  Context Proposal Review `Apply All`/`Dismiss All`/`Close` out of mobile header
-  action rows.
+  Context Proposal Review `Apply All`/`Dismiss All`/`Close` out of top action
+  rows.
 - Convert remaining top actions into local object actions, overflow actions, or
   selected-object trays.
 - Keep destructive actions behind confirmation.

@@ -97,6 +97,26 @@ const LORE_AUTOMATION_SETTING_KEYS = Object.freeze([
     'autoRelevanceModelRecentChars',
 ]);
 
+const LORE_AUTOMATION_MODE_BUTTON_VALUES = Object.freeze(['ar', 'armp', 'armpc']);
+const LORE_AUTOMATION_MODE_DESCRIPTIONS = Object.freeze({
+    ar: 'Auto-Relevance',
+    armp: 'Auto-Relevance Muting Pinning',
+    armpc: 'Auto-Relevance Muting Pinning Curating',
+});
+const LORE_AUTOMATION_STYLE_LABELS = Object.freeze({ careful: 'Careful', balanced: 'Balanced', aggressive: 'Aggressive' });
+const LORE_AUTOMATION_STYLE_DESCRIPTIONS = Object.freeze({
+    careful: 'Conservative changes',
+    balanced: 'Balanced changes',
+    aggressive: 'Faster cleanup',
+});
+const LORE_AUTOMATION_PACING_VALUES = Object.freeze(['responsive', 'normal', 'relaxed']);
+const LORE_AUTOMATION_PACING_LABELS = Object.freeze({ responsive: 'Responsive', normal: 'Normal', relaxed: 'Relaxed' });
+const LORE_AUTOMATION_PACING_DESCRIPTIONS = Object.freeze({
+    responsive: 'Checks sooner',
+    normal: 'Default cadence',
+    relaxed: 'Checks less often',
+});
+
 const RELEVANCE_META = Object.freeze({
     high: { label: 'High', color: '#166534', textColor: '#dcfce7', tooltip: 'Current-scene or immediate story relevance. Injects in the High-Relevance lore group.' },
     normal: { label: 'Normal', color: '#1e3a8a', textColor: '#dbeafe', tooltip: 'Recent, branch-defining, or medium-range story relevance. Injects in the Normal-Relevance lore group.' },
@@ -1241,7 +1261,7 @@ export function createPendingLoreReviewCard(entry, index, selected = false, opti
         : 'Accepting this candidate creates a new Accepted Lorecard.');
     card.appendChild(destinationBox);
 
-    if (Array.isArray(entry.tags) && entry.tags.length) {
+    if (Array.isArray(entry.tags) && entry.tags.length && shouldShowLorecardListTags()) {
         const tags = createReadOnlyTags(entry.tags);
         tags.classList.add('saga-pending-readonly-tags');
         card.appendChild(tags);
@@ -2486,6 +2506,79 @@ function undoLastLoreAutomationRun() {
     return dep('undoLastLoreAutomationRun', () => ({ undone: 0 }))();
 }
 
+function createLoreAutomationHeader(titleText = 'Lore Automation') {
+    const header = document.createElement('div');
+    header.className = 'saga-lore-automation-header';
+    const title = document.createElement('div');
+    title.className = 'saga-runtime-card-title saga-lore-automation-title';
+    title.textContent = titleText;
+    addTooltip(title, 'Select how much authority Saga has over Accepted Lorecards.');
+    header.appendChild(title);
+    appendSettingsResetButton(header, LORE_AUTOMATION_SETTING_KEYS, 'Lore Automation settings');
+    return header;
+}
+
+function getLoreAutomationGroupSummary(title, selectedValue, labels = {}, descriptions = {}, options = {}) {
+    const value = String(selectedValue || '').trim();
+    if (options.blankWhen?.(value)) return title;
+    const label = labels[value] || humanizeScopeKey(value);
+    const description = descriptions[value] || '';
+    return description ? `${title} - ${label}: ${description}` : `${title} - ${label}`;
+}
+
+function createLoreAutomationChoiceGroup(config = {}) {
+    const {
+        title = '',
+        selectedValue = '',
+        labels = {},
+        descriptions = {},
+        values = [],
+        tooltip = '',
+        blankWhen = null,
+        onSelect = () => {},
+    } = config;
+    const group = document.createElement('div');
+    group.className = 'saga-lore-automation-choice-group';
+    group.dataset.choiceGroup = title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+
+    const header = document.createElement('div');
+    header.className = 'saga-lore-automation-choice-header';
+    const summary = document.createElement('div');
+    summary.className = 'saga-lore-automation-choice-title';
+    summary.textContent = getLoreAutomationGroupSummary(title, selectedValue, labels, descriptions, { blankWhen });
+    if (tooltip) addTooltip(summary, tooltip);
+    header.appendChild(summary);
+    group.appendChild(header);
+
+    const buttons = document.createElement('div');
+    buttons.className = 'saga-lore-automation-choice-buttons';
+    buttons.setAttribute('role', 'group');
+    buttons.setAttribute('aria-label', title);
+    for (const value of values) {
+        const normalized = String(value || '').trim();
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'saga-lore-automation-choice-button';
+        button.dataset.value = normalized;
+        button.textContent = labels[normalized] || humanizeScopeKey(normalized);
+        const active = normalized === selectedValue;
+        button.setAttribute('aria-pressed', active ? 'true' : 'false');
+        if (active) button.classList.add('saga-lore-automation-choice-button-active');
+        const description = descriptions[normalized] || tooltip || '';
+        addTooltip(button, active && config.allowToggleOff
+            ? `${description} Tap again to turn ${title.toLowerCase()} off.`
+            : description);
+        button.addEventListener('click', (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            onSelect(normalized, { active });
+        });
+        buttons.appendChild(button);
+    }
+    group.appendChild(buttons);
+    return group;
+}
+
 export function createAutoRelevanceCard(state) {
     const settings = getSettings();
     const loreAutomationMode = normalizeLoreAutomationMode(settings.loreAutomationMode || (settings.autoRelevanceEnabled ? 'ar' : 'off'));
@@ -2495,98 +2588,68 @@ export function createAutoRelevanceCard(state) {
     card.className = 'saga-runtime-card saga-auto-relevance-card';
     if (mobileShell) card.classList.add('saga-mobile-lore-automation-card');
     markTourTarget(card, 'lore.autoRelevance');
-    const title = document.createElement('div');
-    title.className = 'saga-runtime-card-title';
-    title.textContent = 'Lore Automation';
-    addTooltip(title, 'Select how much authority Saga has over Accepted Lorecards.');
-    card.appendChild(title);
-    appendSettingsResetButton(card, LORE_AUTOMATION_SETTING_KEYS, 'Lore Automation settings');
+    card.appendChild(createLoreAutomationHeader('Lore Automation'));
 
     const modeRow = document.createElement('div');
-    modeRow.className = 'saga-runtime-grid';
+    modeRow.className = 'saga-lore-automation-choice-row';
     markTourTarget(modeRow, 'lore.autoRelevance.mode');
-    const modeLabel = document.createElement('label');
-    modeLabel.className = 'saga-inline-field';
-    const modeSpan = document.createElement('span');
-    modeSpan.textContent = 'Mode';
-    addTooltip(modeSpan, 'Lore Automation authority level.');
-    const modeSelect = document.createElement('select');
-    for (const value of LORE_AUTOMATION_MODE_VALUES) {
-        const option = document.createElement('option');
-        option.value = value;
-        option.textContent = LORE_AUTOMATION_MODE_LABELS[value] || value;
-        option.title = LORE_AUTOMATION_MODE_TOOLTIPS[value] || '';
-        if (loreAutomationMode === value) option.selected = true;
-        modeSelect.appendChild(option);
-    }
-    modeSelect.addEventListener('change', () => {
-        const next = getSettings();
-        const mode = normalizeLoreAutomationMode(modeSelect.value);
-        next.loreAutomationMode = mode;
-        next.autoRelevanceEnabled = mode !== 'off';
-        next.autoRelevanceMode = mode === 'off' ? 'off' : 'apply_high_confidence';
-        saveSettings(next);
-        refreshPanelBody({ preserveScroll: true });
-    });
-    modeLabel.appendChild(modeSpan);
-    modeLabel.appendChild(modeSelect);
-    modeRow.appendChild(modeLabel);
-
-    const styleLabel = document.createElement('label');
-    styleLabel.className = 'saga-inline-field';
-    const styleSpan = document.createElement('span');
-    styleSpan.textContent = 'Style';
-    addTooltip(styleSpan, 'Controls how conservative Lore Automation is when applying eligible changes.');
-    const styleSelect = document.createElement('select');
-    const styleLabels = { careful: 'Careful', balanced: 'Balanced', aggressive: 'Aggressive' };
-    for (const value of LORE_AUTOMATION_STYLE_VALUES) {
-        const option = document.createElement('option');
-        option.value = value;
-        option.textContent = styleLabels[value] || value;
-        if (loreAutomationStyle === value) option.selected = true;
-        styleSelect.appendChild(option);
-    }
-    styleSelect.addEventListener('change', () => {
-        const next = getSettings();
-        next.loreAutomationStyle = normalizeLoreAutomationStyle(styleSelect.value);
-        if (normalizeLoreAutomationMode(next.loreAutomationMode) !== 'off') {
-            next.autoRelevanceEnabled = true;
-            next.autoRelevanceMode = 'apply_high_confidence';
-        }
-        saveSettings(next);
-        refreshPanelBody({ preserveScroll: true });
-    });
-    styleLabel.appendChild(styleSpan);
-    styleLabel.appendChild(styleSelect);
-    modeRow.appendChild(styleLabel);
+    modeRow.appendChild(createLoreAutomationChoiceGroup({
+        title: 'Mode',
+        selectedValue: loreAutomationMode === 'off' ? '' : loreAutomationMode,
+        values: LORE_AUTOMATION_MODE_BUTTON_VALUES,
+        labels: LORE_AUTOMATION_MODE_LABELS,
+        descriptions: LORE_AUTOMATION_MODE_DESCRIPTIONS,
+        tooltip: 'Lore Automation authority level.',
+        blankWhen: value => !value,
+        allowToggleOff: true,
+        onSelect: (value, meta = {}) => {
+            const next = getSettings();
+            const mode = meta.active ? 'off' : normalizeLoreAutomationMode(value);
+            next.loreAutomationMode = mode;
+            next.autoRelevanceEnabled = mode !== 'off';
+            next.autoRelevanceMode = mode === 'off' ? 'off' : 'apply_high_confidence';
+            saveSettings(next);
+            refreshPanelBody({ preserveScroll: true });
+        },
+    }));
+    modeRow.appendChild(createLoreAutomationChoiceGroup({
+        title: 'Style',
+        selectedValue: loreAutomationStyle,
+        values: LORE_AUTOMATION_STYLE_VALUES,
+        labels: LORE_AUTOMATION_STYLE_LABELS,
+        descriptions: LORE_AUTOMATION_STYLE_DESCRIPTIONS,
+        tooltip: 'Controls how conservative Lore Automation is when applying eligible changes.',
+        onSelect: (value) => {
+            const next = getSettings();
+            next.loreAutomationStyle = normalizeLoreAutomationStyle(value);
+            if (normalizeLoreAutomationMode(next.loreAutomationMode) !== 'off') {
+                next.autoRelevanceEnabled = true;
+                next.autoRelevanceMode = 'apply_high_confidence';
+            }
+            saveSettings(next);
+            refreshPanelBody({ preserveScroll: true });
+        },
+    }));
     card.appendChild(modeRow);
 
     const row = document.createElement('div');
-    row.className = 'saga-runtime-grid';
+    row.className = 'saga-lore-automation-tuning-row';
     markTourTarget(row, 'lore.autoRelevance.tuning');
+    row.appendChild(createLoreAutomationChoiceGroup({
+        title: 'Pacing',
+        selectedValue: settings.loreAutomationPacing || 'normal',
+        values: LORE_AUTOMATION_PACING_VALUES,
+        labels: LORE_AUTOMATION_PACING_LABELS,
+        descriptions: LORE_AUTOMATION_PACING_DESCRIPTIONS,
+        tooltip: 'Advanced cadence preset. It changes story-budget sensitivity, not automation authority.',
+        onSelect: (value) => {
+            const next = getSettings();
+            next.loreAutomationPacing = value;
+            saveSettings(next);
+            refreshPanelBody({ preserveScroll: true });
+        },
+    }));
     row.appendChild(createKeyValue('Cadence', 'Auto', 'Runs from narrative movement, structured Context/stack changes, and local stack pressure.'));
-    const pacingLabel = document.createElement('label');
-    pacingLabel.className = 'saga-inline-field';
-    const pacingSpan = document.createElement('span');
-    pacingSpan.textContent = 'Pacing';
-    addTooltip(pacingSpan, 'Advanced cadence preset. It changes story-budget sensitivity, not automation authority.');
-    const pacingSelect = document.createElement('select');
-    for (const value of ['responsive', 'normal', 'relaxed']) {
-        const option = document.createElement('option');
-        option.value = value;
-        option.textContent = humanizeScopeKey(value);
-        if ((settings.loreAutomationPacing || 'normal') === value) option.selected = true;
-        pacingSelect.appendChild(option);
-    }
-    pacingSelect.addEventListener('change', () => {
-        const next = getSettings();
-        next.loreAutomationPacing = pacingSelect.value;
-        saveSettings(next);
-        refreshPanelBody({ preserveScroll: true });
-    });
-    pacingLabel.appendChild(pacingSpan);
-    pacingLabel.appendChild(pacingSelect);
-    row.appendChild(pacingLabel);
     row.appendChild(createNumberSettingMini('Recent messages', 'autoRelevanceRecentMessages', settings.autoRelevanceRecentMessages || 20, 1, 200));
     card.appendChild(row);
 
@@ -2941,6 +3004,10 @@ export function createNewLoreSelect(container, labelText, values, selected, disp
         if (String(value) === String(selected)) option.selected = true;
         select.appendChild(option);
     }
+    select.addEventListener('click', e => e.stopPropagation());
+    select.addEventListener('mousedown', e => e.stopPropagation());
+    select.addEventListener('pointerdown', e => e.stopPropagation());
+    select.addEventListener('touchstart', e => e.stopPropagation(), { passive: true });
     label.appendChild(select);
     container.appendChild(label);
     return select;
@@ -3141,11 +3208,11 @@ function labelToField(label) {
 }
 
 function getAcceptedLoreInitialVisibleLimit() {
-    return dep('getAcceptedLoreInitialVisibleLimit', () => 40)();
+    return isRuntimeMobileShell() ? 20 : dep('getAcceptedLoreInitialVisibleLimit', () => 40)();
 }
 
 function getAcceptedLorePageIncrement() {
-    return dep('getAcceptedLorePageIncrement', () => 40)();
+    return isRuntimeMobileShell() ? 20 : dep('getAcceptedLorePageIncrement', () => 40)();
 }
 
 export function getFilteredLoreEntries(state) {
@@ -3397,6 +3464,8 @@ function createEditableLoreMetaBadge(entry, field, value, values = null, tooltip
     select.setAttribute('aria-label', `${prefix.textContent} metadata`);
     select.addEventListener('click', e => e.stopPropagation());
     select.addEventListener('mousedown', e => e.stopPropagation());
+    select.addEventListener('pointerdown', e => e.stopPropagation());
+    select.addEventListener('touchstart', e => e.stopPropagation(), { passive: true });
 
     for (const optionValue of effectiveValues) {
         const option = document.createElement('option');
@@ -3447,6 +3516,8 @@ function createEditablePriorityBadge(entry) {
     select.setAttribute('aria-label', 'Priority metadata');
     select.addEventListener('click', e => e.stopPropagation());
     select.addEventListener('mousedown', e => e.stopPropagation());
+    select.addEventListener('pointerdown', e => e.stopPropagation());
+    select.addEventListener('touchstart', e => e.stopPropagation(), { passive: true });
 
     for (const value of getLorePriorityValues()) {
         const option = document.createElement('option');
@@ -3473,11 +3544,26 @@ function createEditablePriorityBadge(entry) {
 function createEditableLoreEntryEditor(entry, options = {}) {
     const basicReview = !!options.basicReview;
     const pendingReview = !!options.pendingReview || entry?.isPending === true;
+    const mobileEditor = options.mobileEditor === true;
     const editor = document.createElement('div');
     editor.className = 'saga-lore-entry-editor';
+    if (mobileEditor) editor.classList.add('saga-mobile-lorecard-entry-editor');
     addTooltip(editor, pendingReview
         ? 'Edit this Pending Review entry directly. Changes are saved only when you click Save Entry.'
         : (basicReview ? 'Edit this Accepted Lorecard directly. Changes are saved only when you click Save Entry.' : 'Edit this Accepted Lorecard directly. Changes are saved only when you click Save Entry.'));
+    for (const eventName of ['click', 'mousedown', 'pointerdown', 'touchstart']) {
+        editor.addEventListener(eventName, event => event.stopPropagation(), eventName === 'touchstart' ? { passive: true } : undefined);
+    }
+
+    const autosizeTextarea = (input) => {
+        if (!input || input.tagName !== 'TEXTAREA') return;
+        const grow = () => {
+            input.style.height = 'auto';
+            input.style.height = `${Math.max(88, input.scrollHeight + 2)}px`;
+        };
+        input.addEventListener('input', grow);
+        requestAnimationFrame(grow);
+    };
 
     const makeField = (labelText, value, multiline = false) => {
         const label = document.createElement('label');
@@ -3491,8 +3577,11 @@ function createEditableLoreEntryEditor(entry, options = {}) {
         input.value = value || '';
         input.addEventListener('click', e => e.stopPropagation());
         input.addEventListener('mousedown', e => e.stopPropagation());
+        input.addEventListener('pointerdown', e => e.stopPropagation());
+        input.addEventListener('touchstart', e => e.stopPropagation(), { passive: true });
         label.appendChild(input);
         editor.appendChild(label);
+        autosizeTextarea(input);
         return input;
     };
 
@@ -3833,7 +3922,9 @@ export function createEntryCard(entry, state, options = {}) {
     if (entry.isSuppressed) metaRow.appendChild(createBadge('muted', 'Muted entries are excluded from injection.', { tone: 'muted', kind: 'status' }));
     card.appendChild(metaRow);
 
-    card.appendChild(createTagsRow(entry));
+    if (!mobileShell || shouldShowLorecardListTags()) {
+        card.appendChild(createTagsRow(entry, { editable: !mobileShell }));
+    }
 
     const factEl = document.createElement('div');
     factEl.className = 'saga-lore-entry-fact';
@@ -3946,10 +4037,18 @@ export function createEntryCard(entry, state, options = {}) {
     return card;
 }
 
-function createTagsRow(entry) {
+function shouldShowLorecardListTags() {
+    return !isRuntimeMobileShell() || getSettings().mobileLorecardListTagsVisible === true;
+}
+
+function createTagsRow(entry, options = {}) {
+    const editable = options.editable !== false;
     const row = document.createElement('div');
     row.className = 'saga-lore-entry-tags';
-    addTooltip(row, 'Tags are editable search labels. Search matches tags as well as entry titles.');
+    if (!editable) row.classList.add('saga-lore-entry-tags-readonly');
+    addTooltip(row, editable
+        ? 'Tags are editable search labels. Search matches tags as well as entry titles.'
+        : 'Lorecard tags. Long-press the card and open the editor to change tags.');
 
     const tags = Array.isArray(entry.tags) ? entry.tags : [];
     for (const tag of tags) {
@@ -3962,19 +4061,21 @@ function createTagsRow(entry) {
             className: 'saga-lore-tag-chip',
         });
 
-        const removeBtn = document.createElement('button');
-        removeBtn.className = 'saga-lore-tag-remove';
-        removeBtn.type = 'button';
-        removeBtn.textContent = 'x';
-        addTooltip(removeBtn, `Remove tag: ${tag}`);
-        removeBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            removeLoreTag(entry.id, tag, { deferSave: true });
-            if (!refreshAcceptedLoreRow(entry.id)) refreshAcceptedLoreList({ preserveScroll: true });
-            refreshLoreWorkbench();
-        });
-        chip.appendChild(removeBtn);
+        if (editable) {
+            const removeBtn = document.createElement('button');
+            removeBtn.className = 'saga-lore-tag-remove';
+            removeBtn.type = 'button';
+            removeBtn.textContent = 'x';
+            addTooltip(removeBtn, `Remove tag: ${tag}`);
+            removeBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                removeLoreTag(entry.id, tag, { deferSave: true });
+                if (!refreshAcceptedLoreRow(entry.id)) refreshAcceptedLoreList({ preserveScroll: true });
+                refreshLoreWorkbench();
+            });
+            chip.appendChild(removeBtn);
+        }
 
         const label = document.createElement('span');
         label.className = 'saga-lore-tag-label';
@@ -3983,17 +4084,19 @@ function createTagsRow(entry) {
         row.appendChild(chip);
     }
 
-    const addBtn = document.createElement('button');
-    addBtn.className = 'saga-lore-tag-add';
-    addBtn.type = 'button';
-    addBtn.textContent = '+';
-    addTooltip(addBtn, 'Add a searchable tag to this lore entry.');
-    addBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        showInlineTagInput(row, entry.id, addBtn);
-    });
-    row.appendChild(addBtn);
+    if (editable) {
+        const addBtn = document.createElement('button');
+        addBtn.className = 'saga-lore-tag-add';
+        addBtn.type = 'button';
+        addBtn.textContent = '+';
+        addTooltip(addBtn, 'Add a searchable tag to this lore entry.');
+        addBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            showInlineTagInput(row, entry.id, addBtn);
+        });
+        row.appendChild(addBtn);
+    }
 
     return row;
 }
@@ -4590,6 +4693,9 @@ function openAcceptedLorecardMobileEditor(entryId = '') {
     shell.setAttribute('aria-modal', 'true');
     shell.setAttribute('aria-label', 'Edit Accepted Lorecard');
     shell.addEventListener('click', event => event.stopPropagation());
+    shell.addEventListener('mousedown', event => event.stopPropagation());
+    shell.addEventListener('pointerdown', event => event.stopPropagation());
+    shell.addEventListener('touchstart', event => event.stopPropagation(), { passive: true });
 
     const header = document.createElement('div');
     header.className = 'saga-lore-workbench-header saga-mobile-lorecard-editor-header';

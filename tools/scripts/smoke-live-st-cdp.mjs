@@ -3948,14 +3948,14 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
         const text = document.body?.innerText || '';
         return {
             activeTab: root?.dataset?.mobileActiveTab || '',
-            moreSheetClosed: !document.querySelector('.saga-mobile-more-sheet'),
+            overflowSheetClosed: !document.querySelector('.saga-mobile-more-sheet'),
             hasInjection: text.includes('Injection'),
             hasToggles: text.includes('Inject Continuity') && text.includes('Inject Lore'),
             targetVisible: !!document.querySelector('[data-saga-tour="injection.toggles"]'),
         };
     }));
     if (injectionState.activeTab !== 'injection') findings.push('Mobile Advanced Injection route did not update active tab state.');
-    if (!injectionState.moreSheetClosed) findings.push('Mobile Advanced rendered a removed More sheet after selecting Injection.');
+    if (!injectionState.overflowSheetClosed) findings.push('Mobile Advanced rendered a removed overflow sheet after selecting Injection.');
     if (!injectionState.hasInjection || !injectionState.hasToggles || !injectionState.targetVisible) findings.push('Mobile Advanced Injection route did not render the expected toggles.');
     const injectionScrollAudit = await getMobileNestedScrollAuditState(client, {
         label: 'Injection route',
@@ -3976,11 +3976,11 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
             hasSettings: text.includes('Settings'),
             hasExperienceMode: text.includes('Experience Mode'),
             hasProviders: text.includes('Provider') || text.includes('Providers'),
-            moreSheetClosed: !document.querySelector('.saga-mobile-more-sheet'),
+            overflowSheetClosed: !document.querySelector('.saga-mobile-more-sheet'),
         };
     }));
     if (settingsState.activeTab !== 'settings') findings.push('Mobile Advanced Settings route did not update active tab state.');
-    if (!settingsState.hasSettings || !settingsState.hasExperienceMode || !settingsState.hasProviders || !settingsState.moreSheetClosed) findings.push('Mobile Advanced Settings route did not render expected settings/provider content.');
+    if (!settingsState.hasSettings || !settingsState.hasExperienceMode || !settingsState.hasProviders || !settingsState.overflowSheetClosed) findings.push('Mobile Advanced Settings route did not render expected settings/provider content.');
     const settingsScrollAudit = await getMobileNestedScrollAuditState(client, {
         label: 'Settings route',
         scopeSelector: '#saga-lore-panel.saga-runtime-mobile',
@@ -3998,11 +3998,11 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
             activeTab: root?.dataset?.mobileActiveTab || '',
             hasContinuity: text.includes('Continuity'),
             hasScanOrState: text.includes('Scan') || text.includes('State') || text.includes('Timeline'),
-            moreSheetClosed: !document.querySelector('.saga-mobile-more-sheet'),
+            overflowSheetClosed: !document.querySelector('.saga-mobile-more-sheet'),
         };
     }));
     if (continuityState.activeTab !== 'continuity') findings.push('Mobile Advanced Continuity route did not update active tab state.');
-    if (!continuityState.hasContinuity || !continuityState.hasScanOrState || !continuityState.moreSheetClosed) findings.push('Mobile Advanced Continuity route did not render expected continuity content.');
+    if (!continuityState.hasContinuity || !continuityState.hasScanOrState || !continuityState.overflowSheetClosed) findings.push('Mobile Advanced Continuity route did not render expected continuity content.');
     const continuityScrollAudit = await getMobileNestedScrollAuditState(client, {
         label: 'Continuity route',
         scopeSelector: '#saga-lore-panel.saga-runtime-mobile',
@@ -4675,14 +4675,14 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
             hasSettings: text.includes('Settings'),
             hasModeLabel: text.includes('Experience Mode'),
             hasProviders: text.includes('Providers') || text.includes('Provider'),
-            hasMoreSheet: !!document.querySelector('.saga-mobile-more-sheet'),
+            hasOverflowSheet: !!document.querySelector('.saga-mobile-more-sheet'),
             shellBackActions: document.querySelectorAll('.saga-mobile-shell-back').length,
             activeBottomLabel: document.querySelector('.saga-mobile-bottom-tab-active .saga-mobile-bottom-label')?.textContent?.trim() || '',
             mobileHeaders: document.querySelectorAll('.saga-mobile-header').length,
         };
     }));
     if (mobileSettingsState.activeTab !== 'settings' || !mobileSettingsState.hasSettings || !mobileSettingsState.hasModeLabel || !mobileSettingsState.hasProviders) findings.push('Mobile redesign Settings route did not expose Settings, Experience Mode, and Providers.');
-    if (mobileSettingsState.hasMoreSheet) findings.push('Mobile redesign rendered the removed More sheet.');
+    if (mobileSettingsState.hasOverflowSheet) findings.push('Mobile redesign rendered the removed overflow sheet.');
     if (mobileSettingsState.shellBackActions > 0) findings.push('Mobile redesign Settings route rendered a shell Back action.');
     if (mobileSettingsState.activeBottomLabel !== 'Exit') findings.push('Mobile redesign Settings active bottom tab did not morph into Exit.');
     if (mobileSettingsState.mobileHeaders > 0) findings.push('Mobile redesign Settings route rendered the removed mobile top header.');
@@ -4743,6 +4743,10 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
             hasMode: text.includes('Mode') && text.includes('ARMP') && text.includes('ARMPC'),
             hasStyle: text.includes('Style') && text.includes('Balanced'),
             hasPacing: text.includes('Pacing'),
+            modeButtons: page?.querySelectorAll('.saga-lore-automation-choice-group[data-choice-group="mode"] .saga-lore-automation-choice-button').length || 0,
+            styleButtons: page?.querySelectorAll('.saga-lore-automation-choice-group[data-choice-group="style"] .saga-lore-automation-choice-button').length || 0,
+            pacingButtons: page?.querySelectorAll('.saga-lore-automation-choice-group[data-choice-group="pacing"] .saga-lore-automation-choice-button').length || 0,
+            selectCount: page?.querySelectorAll('select').length || 0,
             hasStatus: text.includes('Status'),
             hasCardControl: text.includes('Card control'),
             hasCurrentTiers: text.includes('Current tiers'),
@@ -4759,6 +4763,7 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
     if (!automationState.hasMode || !automationState.hasStyle || !automationState.hasPacing || !automationState.hasStatus || !automationState.hasCardControl || !automationState.hasCurrentTiers || !automationState.hasRunNow || !automationState.hasPauseResume || !automationState.hasUndo || !automationState.hasActivity) {
         findings.push('Mobile redesign Automation page did not render the full Lore Automation cockpit.');
     }
+    if (automationState.modeButtons !== 3 || automationState.styleButtons !== 3 || automationState.pacingButtons !== 3 || automationState.selectCount > 0) findings.push('Mobile redesign Automation controls did not render as three-button segmented groups.');
     if (automationState.hasPendingList || automationState.hasAcceptedList) findings.push('Mobile redesign Automation page leaked Pending or Approved list content.');
     if (!automationState.noHorizontalOverflow) findings.push('Mobile redesign Automation page has horizontal overflow.');
     if (automationTooltipState.visible) findings.push(`Mobile redesign Automation sub-tab showed a floating tooltip: ${automationTooltipState.text || 'blank'}.`);
@@ -4788,6 +4793,7 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
             hasAcceptAll: labels.includes('Accept All'),
             hasRejectAll: labels.includes('Reject All'),
             lifecycleStage: document.querySelector('.saga-lorecards-lifecycle-tab')?.dataset?.sagaLoreLifecycleStage || '',
+            tagRows: document.querySelectorAll('.saga-pending-readonly-tags, .saga-pending-review-entry-card .saga-lore-entry-tags').length,
         };
     }));
     if (!pendingState.trayOpen || pendingState.selectedCards < 1) findings.push('Mobile redesign Pending page did not select a card and reveal the action tray.');
@@ -4796,6 +4802,7 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
     }
     if (pendingState.labels.includes('Edit')) findings.push('Mobile redesign Pending selected tray still exposed Edit instead of relying on tap-hold details.');
     if (pendingState.permanentActionRows !== 0 || pendingState.hasAcceptAll || pendingState.hasRejectAll) findings.push('Mobile redesign Pending page still exposed permanent row actions or default Accept All/Reject All.');
+    if (pendingState.tagRows !== 0) findings.push('Mobile redesign Pending cards showed tag rows despite the default hidden mobile tag setting.');
     if (pendingTooltipState.visible) findings.push(`Mobile redesign Pending sub-tab showed a floating tooltip: ${pendingTooltipState.text || 'blank'}.`);
     if (pendingScrollState.offenders.length) findings.push(`Mobile redesign Pending page still has nested list scroll styling: ${JSON.stringify(pendingScrollState.offenders)}`);
     screenshots.push(await screenshot(client, `${shotPrefix}-05-lorecards-pending`));
@@ -4840,12 +4847,21 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
             cardHeight: longCard?.getBoundingClientRect?.().height || 0,
             detailButtons: longCard?.querySelectorAll('.saga-lore-entry-details-btn').length || 0,
             defaultActionRows: unexpandedCards.filter(card => !!card.querySelector('.saga-lore-entry-actions')).length,
+            tagRows: document.querySelectorAll('.saga-lore-entry-card .saga-lore-entry-tags').length,
+            acceptedSectionClips: (() => {
+                const section = document.querySelector('.saga-accepted-lore-section');
+                const list = document.querySelector('.saga-accepted-lore-scroll-region');
+                if (!section || !list) return false;
+                return section.getBoundingClientRect().bottom + 1 < list.getBoundingClientRect().bottom;
+            })(),
             noHorizontalOverflow: !root || root.scrollWidth <= root.clientWidth + 1,
         };
     }));
     if (!approvedState.activeSetVisible || !approvedState.acceptedVisible) findings.push('Mobile redesign Approved page did not include Active Set and Accepted Lorecards management together.');
     if (!approvedState.longCard || !approvedState.wrapsAtLeastTwoLines || approvedState.cardHeight <= approvedState.titleHeight) findings.push(`Mobile redesign Approved long title did not wrap/read cleanly (title height ${approvedState.titleHeight}, line ${approvedState.lineHeight}).`);
     if (approvedState.detailButtons !== 0 || approvedState.defaultActionRows !== 0) findings.push('Mobile redesign Approved cards still exposed permanent detail buttons or default full action rows.');
+    if (approvedState.tagRows !== 0) findings.push('Mobile redesign Approved cards showed tag rows despite the default hidden mobile tag setting.');
+    if (approvedState.acceptedSectionClips) findings.push('Mobile redesign Approved accepted section clipped before the list bottom.');
     if (!approvedState.noHorizontalOverflow) findings.push('Mobile redesign Approved page has horizontal overflow.');
     if (approvedTooltipState.visible) findings.push(`Mobile redesign Approved sub-tab showed a floating tooltip: ${approvedTooltipState.text || 'blank'}.`);
     if (approvedScrollState.offenders.length) findings.push(`Mobile redesign Approved page still has nested list scroll styling: ${JSON.stringify(approvedScrollState.offenders)}`);
@@ -4951,7 +4967,7 @@ async function runTabletAdvancedHarnessSmoke(client, screenshots, findings, smok
             drawerText: (drawer?.innerText || '').slice(0, 900),
             railTabs,
             mobileBottomTabs: document.querySelectorAll('.saga-mobile-bottom-tab').length,
-            moreSheet: !!document.querySelector('.saga-mobile-more-sheet'),
+            overflowSheet: !!document.querySelector('.saga-mobile-more-sheet'),
             hasActiveStack: text.includes('Active Stack'),
             hasOpenLibrary: text.includes('Open Loredeck Library'),
             hasCreateDeck: text.includes('Create Deck'),
@@ -4971,7 +4987,7 @@ async function runTabletAdvancedHarnessSmoke(client, screenshots, findings, smok
     for (const route of ['loredecks', 'session', 'context', 'lore', 'continuity', 'injection', 'settings']) {
         if (!shellState.railTabs.includes(route)) findings.push(`Tablet Advanced rail missing route: ${route}.`);
     }
-    if (shellState.mobileBottomTabs > 0 || shellState.moreSheet) findings.push('Tablet Advanced harness rendered mobile bottom-bar or More-sheet UI above the mobile breakpoint.');
+    if (shellState.mobileBottomTabs > 0 || shellState.overflowSheet) findings.push('Tablet Advanced harness rendered mobile bottom-bar or overflow-sheet UI above the mobile breakpoint.');
     if (!shellState.hasActiveStack || !shellState.hasOpenLibrary || !shellState.hasCreateDeck) findings.push('Tablet Advanced Loredecks drawer did not render stack, Library, and Creator actions.');
     if (!shellState.noHorizontalOverflow) findings.push(`Tablet Advanced shell has horizontal overflow (drawer ${shellState.drawerScrollWidth}/${shellState.drawerClientWidth}, body ${shellState.bodyScrollWidth}/${shellState.bodyClientWidth}).`);
     screenshots.push(await screenshot(client, 'tablet-advanced-harness-01-loredecks-desktop-shell'));

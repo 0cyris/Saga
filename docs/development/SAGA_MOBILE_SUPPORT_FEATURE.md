@@ -851,7 +851,7 @@ Scope:
 - Convert Context Workbench into overview, timeline, resolver, and proposal review subviews.
 - Adapt Health Center to a mobile shell.
 - Adapt Creator project and draft surfaces enough for mobile MVP usability.
-- Ensure large overlays use mobile header/back behavior instead of desktop-only close paths.
+- Ensure large overlays use mobile shell back/close behavior instead of desktop-only close paths.
 
 Deliverables:
 
@@ -930,7 +930,6 @@ Mobile support MVP is done when:
 
 ## Open Decisions
 
-- Whether the mobile header should be sticky inside Saga's surface or fixed to the viewport.
 - Whether tablet should use desktop shell, mobile shell, or a hybrid shell.
 - Whether Health Center belongs under Loredecks, Settings, or its own Advanced
   route later.

@@ -1,4 +1,4 @@
-import { getSettings, getStateSafety } from '../state/state-manager.js';
+import { getSettings, getStateSafety, saveSettings } from '../state/state-manager.js';
 import {
     addTooltip,
     createButton,
@@ -48,6 +48,7 @@ export function renderSettingsTab(container, state) {
     const settings = getSettings();
     const basic = isBasicExperience(settings);
     container.appendChild(createExperienceModeSettingsCard(settings));
+    container.appendChild(createQualityOfLifeSettingsCard(settings));
     container.appendChild(createSectionHeader(
         'SAGA',
         basic ? 'Providers and Theme Pack.' : 'Fandom Loresystem.'
@@ -123,6 +124,39 @@ function createExperienceModeSettingsCard(settings = getSettings()) {
     card.appendChild(help);
 
     card.appendChild(createExperienceModeSwitch(settings, { tourTarget: 'settings.experienceMode' }));
+    return card;
+}
+
+function createQualityOfLifeSettingsCard(settings = getSettings()) {
+    const card = document.createElement('div');
+    card.className = 'saga-runtime-card saga-settings-qol-card';
+    markTourTarget(card, 'settings.qualityOfLife');
+
+    const title = document.createElement('h4');
+    title.textContent = 'Quality of Life';
+    addTooltip(title, 'Mobile readability and touch-safety preferences.');
+    card.appendChild(title);
+
+    const toggle = document.createElement('label');
+    toggle.className = 'saga-inline-toggle saga-settings-mobile-tags-toggle';
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.checked = settings.mobileLorecardListTagsVisible === true;
+    checkbox.addEventListener('change', () => {
+        const next = getSettings();
+        next.mobileLorecardListTagsVisible = checkbox.checked;
+        saveSettings(next);
+        dep('refreshPanelBody', () => null)({ preserveScroll: true });
+    });
+    toggle.appendChild(checkbox);
+    toggle.appendChild(document.createTextNode(' Show Lorecard tags in mobile Pending and Approved lists'));
+    addTooltip(toggle, 'When off, mobile lists hide tags so cards stay shorter. Tags remain editable inside the long-press Lorecard editor.');
+    card.appendChild(toggle);
+
+    const help = document.createElement('div');
+    help.className = 'saga-runtime-help';
+    help.textContent = 'Tags stay available in the editor; this only changes mobile list density.';
+    card.appendChild(help);
     return card;
 }
 

@@ -199,6 +199,7 @@ export const DEFAULT_SETTINGS = {
     loreAutomationCurationWordBudget: 1800,
     loreAutomationRunJournalLimit: 20,
     loreAutomationLevelsMigrated20260615: true,
+    mobileLorecardListTagsVisible: false,
 
     // Prompt injection transport / placement
     // 'extension_prompt' uses SillyTavern setExtensionPrompt with role/depth.

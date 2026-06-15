@@ -1374,6 +1374,7 @@ configureRuntimeSettingsTab({
     createDangerZoneCard,
     createStateSafetyCard,
     markTourTarget,
+    refreshPanelBody,
 });
 
 configureLoreTimelinePanel({
