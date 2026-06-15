@@ -13119,7 +13119,7 @@ function createLoreGenerationCard(state) {
     card.appendChild(createKeyValue(
         'Review flow',
         'Manual notes, story scans, context-aware suggestions, and Creator drafts all wait in Pending Review before acceptance.',
-        'Every capture source produces reviewable drafts. Accepted Lorecards become eligible for the Active Set only after review.'
+        'Every capture source produces reviewable drafts. Accepted Lorecards become eligible for relevance-tiered injection only after review.'
     ));
 
     return card;

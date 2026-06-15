@@ -139,7 +139,7 @@ export function getLoreTimelineEventClass(event = {}) {
     const counts = event.counts || {};
     if (counts.deleted > 0 || /delete|remove/i.test(event.type || '')) return 'saga-lore-timeline-event-delete';
     if (counts.restored > 0 || /restore|recover/i.test(event.type || '')) return 'saga-lore-timeline-event-restore';
-    if (counts.updated > 0 || counts.pinned > 0 || counts.muted > 0 || /edit|relevance|pin|mute|metadata/i.test(event.type || '')) return 'saga-lore-timeline-event-update';
+    if (counts.updated > 0 || counts.elevated > 0 || counts.muted > 0 || /edit|relevance|elevate|mute|metadata/i.test(event.type || '')) return 'saga-lore-timeline-event-update';
     if (counts.pending > 0 || /pending|generate/i.test(event.type || '')) return 'saga-lore-timeline-event-pending';
     return 'saga-lore-timeline-event-add';
 }
@@ -535,7 +535,7 @@ function classifyLoreTimelineNodeType(event = {}) {
     if (categories.some(category => ['timeline', 'event'].includes(category))) return 'timeline_event';
     if (categories.some(category => ['character', 'knowledge', 'secret'].includes(category))) return 'character_knowledge';
     if (categories.some(category => ['item', 'artifact', 'spell', 'object'].includes(category))) return 'object_lore';
-    if (/relevance|knowledge|pin|mute|edit|metadata/.test(type)) return 'character_knowledge';
+    if (/relevance|knowledge|elevate|mute|edit|metadata/.test(type)) return 'character_knowledge';
     return 'story_lore';
 }
 
@@ -1273,7 +1273,7 @@ function formatTimelineCounts(counts = {}) {
     if (counts.added) parts.push(`+${counts.added}`);
     if (counts.deleted) parts.push(`-${counts.deleted}`);
     if (counts.updated) parts.push(`${counts.updated} updated`);
-    if (counts.pinned) parts.push(`${counts.pinned} pin`);
+    if (counts.elevated) parts.push(`${counts.elevated} elevated`);
     if (counts.muted) parts.push(`${counts.muted} mute`);
     if (counts.pending) parts.push(`${counts.pending} pending`);
     if (counts.restored) parts.push(`${counts.restored} restored`);

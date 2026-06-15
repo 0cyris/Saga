@@ -1043,7 +1043,7 @@ Compression retention contract:
 - Acceptable range: ${vars.minimumTokens}-${vars.maximumTokens} tokens / ${vars.minimumCharacters}-${vars.maximumCharacters} characters.
 - Do not compress below the minimum range; restore useful details if the output is too short.
 - Do not exceed the maximum range; remove lower-value wording if the output is too long.
-- If information must be sacrificed, preserve active continuity constraints, secrets, knowledge boundaries, pinned/protected details, and current-scene hazards first.
+- If information must be sacrificed, preserve active continuity constraints, secrets, knowledge boundaries, Elevated/protected details, and current-scene hazards first.
 - Output only the compressed injection text.`;
 }
 

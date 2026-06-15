@@ -559,8 +559,8 @@ export function createActiveChatDangerZoneGroup(state = getState()) {
     const actions = document.createElement('div');
     actions.className = 'saga-primary-actions';
 
-    actions.appendChild(createButton('Delete All Lore', 'Deletes Accepted Lorecards, Pending Review entries, and pin/mute selections. Lightweight continuity state is left intact.', async button => {
-        const proceed = await confirmAction('Are you sure? Delete all Saga lore?', 'You are about to delete every Accepted Lorecard, every Pending Review entry, and all pin/mute selections for this chat. Lightweight continuity state will remain. Accepted Lorecards can be restored to Pending Review through Lore Timeline when retained. Continue?');
+    actions.appendChild(createButton('Delete All Lore', 'Deletes Accepted Lorecards, Pending Review entries, and elevation/mute selections. Lightweight continuity state is left intact.', async button => {
+        const proceed = await confirmAction('Are you sure? Delete all Saga lore?', 'You are about to delete every Accepted Lorecard, every Pending Review entry, and all elevation/mute selections for this chat. Lightweight continuity state will remain. Accepted Lorecards can be restored to Pending Review through Lore Timeline when retained. Continue?');
         if (!proceed) return;
         await runBusyAction(button, 'Deleting...', async ({ setText }) => {
             setText('Clearing lore...');
@@ -571,7 +571,7 @@ export function createActiveChatDangerZoneGroup(state = getState()) {
             current.loreMatrix = [];
             current.pendingLoreEntries = [];
             current.pendingLoreMeta = null;
-            current.loreSelection = { pinnedIds: [], suppressedIds: [] };
+            current.loreSelection = { pinnedIds: [], suppressedIds: [], elevated: {} };
             if (current.lorePanel) {
                 current.lorePanel.selectedEntryId = '';
                 current.lorePanel.reviewSelectedIds = [];

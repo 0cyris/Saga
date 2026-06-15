@@ -16,6 +16,7 @@ import {
     normalizeLorePurpose,
     computeSpecificityScore,
 } from './lore-relevance.js';
+import { getLoreEntryEffectiveRelevance, getLoreSelectionSets } from './lore-selection.js';
 
 const DEFAULT_CATEGORIES = [
     'character', 'event', 'location', 'item', 'spell', 'faction', 'relationship', 'rule', 'timeline',
@@ -751,8 +752,8 @@ function parseIsoDate(value) {
  */
 export function isLoreEntryActive(entry, state) {
     const e = normalizeLoreEntry(entry);
-    const suppressedIds = new Set(state?.loreSelection?.suppressedIds || []);
-    return e.status !== 'archived' && e.status !== 'disabled' && !suppressedIds.has(e.id);
+    const { muted } = getLoreSelectionSets(state);
+    return e.status !== 'archived' && e.status !== 'disabled' && !muted.has(e.id);
 }
 
 /**
@@ -817,11 +818,10 @@ function compareStateDate(state, value) {
 
 export function evaluateLoreEntryLifecycle(entry, state = {}) {
     const e = normalizeLoreEntry(entry);
-    const suppressedIds = new Set(state?.loreSelection?.suppressedIds || []);
-    const pinnedIds = new Set(state?.loreSelection?.pinnedIds || []);
+    const { muted, activePinned } = getLoreSelectionSets(state);
     const lifecycle = e.lifecycle || {};
 
-    if (suppressedIds.has(e.id)) {
+    if (muted.has(e.id)) {
         return { status: 'muted', shouldInject: false, reason: 'Muted by user.', entry: e };
     }
 
@@ -829,7 +829,7 @@ export function evaluateLoreEntryLifecycle(entry, state = {}) {
         const status = lifecycle.status;
         return {
             status,
-            shouldInject: INJECTABLE_LIFECYCLE_STATUSES.has(status) || status === 'active' || pinnedIds.has(e.id),
+            shouldInject: INJECTABLE_LIFECYCLE_STATUSES.has(status) || status === 'active' || activePinned.has(e.id),
             reason: lifecycle.reason || 'Manual lifecycle override.',
             entry: e,
         };
@@ -1217,26 +1217,30 @@ function normalizeList(values) {
 export function getPanelLoreState(state) {
     const allEntries = normalizeLoreMatrix(state?.loreMatrix || []);
     const pendingEntries = normalizeLoreMatrix(state?.pendingLoreEntries || []);
-    const pinnedIds = new Set(state?.loreSelection?.pinnedIds || []);
-    const suppressedIds = new Set(state?.loreSelection?.suppressedIds || []);
+    const { muted, elevated, activePinned } = getLoreSelectionSets(state);
 
     const categories = new Set();
-    const counts = { all: 0, active: 0, high: 0, normal: 0, low: 0, pinned: 0, suppressed: 0, pending: pendingEntries.length };
+    const counts = { all: 0, active: 0, high: 0, normal: 0, low: 0, elevated: 0, pinned: 0, suppressed: 0, pending: pendingEntries.length };
 
     const entries = allEntries.map(entry => {
-        const relevance = normalizeLoreRelevance(entry.relevance || 'normal');
-        const isPinned = pinnedIds.has(entry.id);
-        const isSuppressed = suppressedIds.has(entry.id);
+        const baseRelevance = normalizeLoreRelevance(entry.relevance || 'normal');
+        const relevance = getLoreEntryEffectiveRelevance(entry, state);
+        const isElevated = elevated.has(entry.id);
+        const isPinned = activePinned.has(entry.id);
+        const isSuppressed = muted.has(entry.id);
         if (entry.category) categories.add(entry.category);
         counts.all++;
         counts[relevance]++;
         if (relevance === 'high' && !isSuppressed) counts.active++;
+        if (isElevated) counts.elevated++;
         if (isPinned) counts.pinned++;
         if (isSuppressed) counts.suppressed++;
         return {
             ...entry,
+            baseRelevance,
             relevance,
             isActive: relevance === 'high' && !isSuppressed,
+            isElevated,
             isPinned,
             isSuppressed,
             isPending: false,
@@ -1249,10 +1253,12 @@ export function getPanelLoreState(state) {
         if (entry.category) categories.add(entry.category);
         return {
             ...entry,
+            baseRelevance: relevance,
             relevance,
             isActive: relevance === 'high',
-            isPinned: pinnedIds.has(entry.id),
-            isSuppressed: suppressedIds.has(entry.id),
+            isElevated: elevated.has(entry.id),
+            isPinned: activePinned.has(entry.id),
+            isSuppressed: muted.has(entry.id),
             isPending: true,
             lifecycleStatus: relevance,
         };
@@ -1265,7 +1271,7 @@ export function getPanelLoreState(state) {
 
     return {
         entries: allAnnotated,
-        categories: ['all', 'high', 'normal', 'low', 'pinned', 'suppressed', 'pending', ...Array.from(categories).sort()],
+        categories: ['all', 'high', 'normal', 'low', 'elevated', 'suppressed', 'pending', ...Array.from(categories).sort()],
         counts,
     };
 }
@@ -1282,24 +1288,28 @@ export function getPanelLoreState(state) {
  */
 export function getInjectableLoreEntries(state, limit = 0, relevance = null) {
     const all = normalizeLoreMatrix(state?.loreMatrix || []);
-    const suppressed = new Set(state?.loreSelection?.suppressedIds || []);
-    const pinned = new Set(state?.loreSelection?.pinnedIds || []);
+    const { muted, elevated, activePinned } = getLoreSelectionSets(state);
     const tier = relevance ? normalizeLoreRelevance(relevance) : null;
     const injectable = all
         .filter(entry => entry.status !== 'archived' && entry.status !== 'disabled')
         .filter(entry => entry.injectableByDefault !== false)
-        .filter(entry => !suppressed.has(entry.id))
-        .filter(entry => !tier || normalizeLoreRelevance(entry.relevance) === tier)
+        .filter(entry => !muted.has(entry.id))
+        .filter(entry => !tier || getLoreEntryEffectiveRelevance(entry, state) === tier)
         .map(entry => ({
             ...entry,
-            isPinned: pinned.has(entry.id),
+            baseRelevance: normalizeLoreRelevance(entry.relevance),
+            isElevated: elevated.has(entry.id),
+            isPinned: activePinned.has(entry.id),
             isSuppressed: false,
-            isActive: normalizeLoreRelevance(entry.relevance) === 'high',
-            relevance: normalizeLoreRelevance(entry.relevance),
+            isActive: getLoreEntryEffectiveRelevance(entry, state) === 'high',
+            relevance: getLoreEntryEffectiveRelevance(entry, state),
         }));
-    const sorted = sortLoreEntriesForInjection(injectable, pinned);
+    const sorted = sortLoreEntriesForInjection(injectable, activePinned);
     const effectiveLimit = Number(limit) > 0 ? Number(limit) : Infinity;
-    return Number.isFinite(effectiveLimit) ? sorted.slice(0, effectiveLimit) : sorted;
+    if (!Number.isFinite(effectiveLimit)) return sorted;
+    const pinnedEntries = sorted.filter(entry => entry.isPinned);
+    const regularEntries = sorted.filter(entry => !entry.isPinned).slice(0, effectiveLimit);
+    return [...pinnedEntries, ...regularEntries];
 }
 
 export function getInjectableLoreEntriesByRelevance(state, relevance = 'normal', limit = 0) {
@@ -1308,10 +1318,10 @@ export function getInjectableLoreEntriesByRelevance(state, relevance = 'normal',
 
 export function getLoreRelevanceCounts(state = {}) {
     const counts = { high: 0, normal: 0, low: 0, muted: 0 };
-    const suppressed = new Set(state?.loreSelection?.suppressedIds || []);
+    const { muted } = getLoreSelectionSets(state);
     for (const entry of normalizeLoreMatrix(state?.loreMatrix || [])) {
-        if (suppressed.has(entry.id)) { counts.muted += 1; continue; }
-        counts[normalizeLoreRelevance(entry.relevance)] += 1;
+        if (muted.has(entry.id)) { counts.muted += 1; continue; }
+        counts[getLoreEntryEffectiveRelevance(entry, state)] += 1;
     }
     return counts;
 }

@@ -17,14 +17,15 @@ export const LORE_AUTOMATION_MODE_LABELS = Object.freeze({
 export const LORE_AUTOMATION_MODE_TOOLTIPS = Object.freeze({
     off: 'Lore Automation disabled.',
     ar: 'Auto-Relevance.',
-    armp: 'Auto-Relevance, Muting, Pinning.',
-    armpc: 'Auto-Relevance, Muting, Pinning, Curating.',
+    armp: 'Auto-Relevance and Muting.',
+    armpc: 'Auto-Relevance, Muting, and Curating.',
 });
 
 export const LORE_AUTOMATION_MANUAL_DISABLE_REASONS = Object.freeze({
     relevance: 'manual_relevance_change',
-    pin: 'manual_pin_change',
+    pin: 'manual_elevation_change',
     mute: 'manual_mute_change',
+    elevation: 'manual_elevation',
     content: 'manual_content_edit',
     metadata: 'manual_metadata_edit',
     bulk: 'manual_bulk_change',

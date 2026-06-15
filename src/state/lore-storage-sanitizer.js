@@ -4,6 +4,7 @@
 
 import { applyLoreLifecycleEvaluation, normalizeLoreEntry } from '../lorecards/lore-matrix.js';
 import { computeSpecificityScore, normalizeLoreCanon, normalizeLorePurpose, normalizeLoreRelevance } from '../lorecards/lore-relevance.js';
+import { normalizeLoreElevationRecords } from '../lorecards/lore-selection.js';
 import { normalizeLoreTimeline } from '../lorecards/lore-timeline.js';
 import { stripRetiredStateHistoryFields } from './storage-safety.js';
 
@@ -615,13 +616,23 @@ export function sanitizeLoreArraysForStorage(state) {
     }
 
     if (Array.isArray(state.loreMatrix)) {
-        if (!state.loreSelection || typeof state.loreSelection !== 'object') state.loreSelection = { pinnedIds: [], suppressedIds: [] };
+        if (!state.loreSelection || typeof state.loreSelection !== 'object') state.loreSelection = { pinnedIds: [], suppressedIds: [], elevated: {} };
+        state.loreSelection.pinnedIds = Array.isArray(state.loreSelection.pinnedIds) ? state.loreSelection.pinnedIds : [];
         state.loreSelection.suppressedIds = Array.isArray(state.loreSelection.suppressedIds) ? state.loreSelection.suppressedIds : [];
+        state.loreSelection.elevated = normalizeLoreElevationRecords(state.loreSelection.elevated || {});
         const suppressedSet = new Set(state.loreSelection.suppressedIds);
+        const elevatedRecords = state.loreSelection.elevated;
         const cap = Number(MAX_ACCEPTED_LORE_ENTRIES_FOR_AUTOSANITIZE) || 0;
         const limited = cap > 0 && state.loreMatrix.length > cap
             ? state.loreMatrix.slice(-cap)
             : state.loreMatrix;
+        const acceptedIds = new Set(limited.map(entry => String(entry?.id || '').trim()).filter(Boolean));
+        for (const id of [...suppressedSet]) {
+            if (!acceptedIds.has(id)) suppressedSet.delete(id);
+        }
+        for (const id of Object.keys(elevatedRecords)) {
+            if (!acceptedIds.has(id)) delete elevatedRecords[id];
+        }
         state.loreMatrix = limited.map(raw => {
             // Relevance-tier architecture: lifecycle/date evaluation may add review
             // metadata, but it must not secretly mutate mute/injection state. Mute is
@@ -631,6 +642,7 @@ export function sanitizeLoreArraysForStorage(state) {
             return compactLoreEntryForStorage(evaluated);
         });
         state.loreSelection.suppressedIds = Array.from(suppressedSet);
+        state.loreSelection.elevated = elevatedRecords;
     } else {
         state.loreMatrix = [];
     }

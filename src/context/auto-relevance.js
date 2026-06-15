@@ -4,7 +4,7 @@
  *
  * The pass is deliberately local-first: every accepted entry is scored without an
  * LLM call, then only high-signal promotion and demotion candidates are changed.
- * Higher automation levels add validated pin/mute/remap and curation operations.
+ * Higher automation levels add validated mute/remap and curation operations.
  */
 
 import { getSettings, getState, saveState } from '../state/state-manager.js';
@@ -25,6 +25,7 @@ import {
     LORE_PARSE_ERROR_CODES,
 } from '../providers/lore-response-normalizer.js';
 import { captureLoreTimelineState, getLoreTimelineEvents, recordLoreTimelineEvent } from '../lorecards/lore-timeline.js';
+import { getLoreSelectionSets } from '../lorecards/lore-selection.js';
 import {
     previewCanonLoreForContext,
 } from './canon-lore-db.js';
@@ -94,6 +95,34 @@ function getLoreAutomationStyleProfile(settings = {}) {
     return {
         style,
         ...(LORE_AUTOMATION_STYLE_THRESHOLDS[style] || LORE_AUTOMATION_STYLE_THRESHOLDS.balanced),
+    };
+}
+
+function getLoreAutomationStylePromptPolicy(profile = getLoreAutomationStyleProfile()) {
+    const style = normalizeLoreAutomationStyle(profile.style || 'balanced');
+    const curationCap = Math.max(0, Number(profile.curationCap) || 0);
+    const retirementCap = Math.max(0, Number(profile.retirementCap) || 0);
+    if (style === 'careful') {
+        return {
+            style,
+            additionPolicy: `Add only indispensable near-term constraints. It is valid to add 0 cards; add more than 1 only when every selected card prevents a likely continuity mistake now. Never fill the ${curationCap}-card cap just because space exists.`,
+            retirementPolicy: `Retire only automation-owned cards that are unmistakably stale. It is valid to retire 0 cards; use the ${retirementCap}-card cap only for clearly obsolete accepted cards.`,
+            ambiguityPolicy: 'Choose hold or keep when evidence is thin, indirect, or mostly glossary-level.',
+        };
+    }
+    if (style === 'aggressive') {
+        return {
+            style,
+            additionPolicy: `Add every clearly useful active-scene constraint up to the ${curationCap}-card cap, including subtle secrets, guardrails, powers, nearby threats, and location/date rules that may shape the next few turns.`,
+            retirementPolicy: `Retire clearly stale automation-owned cards up to the ${retirementCap}-card cap so the accepted stack keeps moving with the current scene.`,
+            ambiguityPolicy: 'When evidence is plausible and specific to the scene, prefer add_now or retire instead of passive hold/keep.',
+        };
+    }
+    return {
+        style: 'balanced',
+        additionPolicy: `Add specific cards that are likely to matter in the next few turns, up to the ${curationCap}-card cap. It is valid to add fewer when coverage is already healthy.`,
+        retirementPolicy: `Retire automation-owned cards that no longer constrain the active scene, up to the ${retirementCap}-card cap.`,
+        ambiguityPolicy: 'Choose hold or keep for weak evidence, but do not ignore concrete current-scene constraints.',
     };
 }
 
@@ -235,14 +264,13 @@ function buildDeckStackAutomationHash(state = {}) {
 }
 
 function buildAcceptedAutomationHash(state = {}) {
-    const pinned = new Set(state?.loreSelection?.pinnedIds || []);
-    const muted = new Set(state?.loreSelection?.suppressedIds || []);
+    const { elevated, muted } = getLoreSelectionSets(state);
     return stableHash(normalizeLoreMatrix(state?.loreMatrix || []).map(entry => {
         const automation = getLoreAutomationState(entry);
         return {
             id: entry.id,
             relevance: normalizeLoreRelevance(entry.relevance || 'normal'),
-            pinned: pinned.has(entry.id),
+            elevated: elevated.has(entry.id),
             muted: muted.has(entry.id),
             automationEnabled: automation.enabled !== false,
             owner: automation.owner,
@@ -623,20 +651,20 @@ function summarizeEntryForModel(item) {
         currentRelevance: item.current,
         localSuggestedRelevance: item.next,
         priority: Number(e.priority || 50),
-        pinned: !!item.pinned,
+        elevated: item.elevated === true,
         canon: e.canon || e.canonStatus || 'canon',
         category: e.category || 'other',
         lorePurpose: e.lorePurpose || '',
         specificityScore: Number(e.specificityScore || 0),
         dateWindow: [date.validFrom || e.validFrom || '', date.validTo || e.validTo || ''].filter(Boolean).join(' to '),
         scope: {
-            characters: (scope.characters || []).slice?.(0, 8) || [],
-            locations: (scope.locations || []).slice?.(0, 6) || [],
-            topics: (scope.topics || []).slice?.(0, 8) || [],
-            tags: (e.tags || []).slice?.(0, 10) || [],
+            characters: (scope.characters || []).slice?.(0, 6) || [],
+            locations: (scope.locations || []).slice?.(0, 4) || [],
+            topics: (scope.topics || []).slice?.(0, 6) || [],
+            tags: (e.tags || []).slice?.(0, 6) || [],
         },
-        fact: String(content.fact || e.fact || content.injection || '').slice(0, 500),
-        localReason: `score=${item.local.score}; temporal=${item.local.temporalRole}; recentHit=${!!item.local.recentHit}`,
+        fact: String(content.fact || e.fact || content.injection || '').slice(0, 280),
+        localReason: `score=${item.local.score}; temporal=${item.local.temporalRole}; recent=${!!item.local.recentHit}`,
     };
 }
 
@@ -653,7 +681,7 @@ Task:
 - Normal = specific recent background, near-future/near-past, important story facts, or medium-context lore.
 - Low = specific but long-term background, distant past/future, or not currently needed.
 - Never promote generic reference/glossary/basic canon facts to High. If an entry lacks a specific lorePurpose, keep it Low.
-- Respect pinned entries: do not demote them unless clearly irrelevant.
+- Elevated entries are protected and omitted from candidates.
 - Treat priority as ordering inside a tier, not as a reason to make generic facts High.
 - Output only JSON: {"changes":[{"id":"...","relevance":"high|normal|low","confidence":0.0-1.0,"reason":"short"}]}
 - Include an entry only when you recommend a change from currentRelevance and confidence is meaningful.`;
@@ -688,7 +716,7 @@ async function adjudicateCandidatesWithModel(candidates, state, settings, recent
     if (!settings.autoRelevanceUseModel) return { changes: [], status: 'skipped' };
     const validation = validateLoreProviderConfiguration('continuity');
     if (!validation.ok) return { changes: [], status: 'unavailable', error: validation.message };
-    const maxModelCandidates = Math.max(1, Math.min(80, Number(settings.autoRelevanceModelCandidateCap) || 30));
+    const maxModelCandidates = Math.max(1, Math.min(40, Number(settings.autoRelevanceModelCandidateCap) || 20));
     const modelCandidates = candidates.slice(0, maxModelCandidates);
     if (!modelCandidates.length) return { changes: [], status: 'no_candidates' };
     const { system, user } = buildModelAdjudicationPrompts({ state, settings, candidates: modelCandidates, recentText });
@@ -715,7 +743,7 @@ async function adjudicateCandidatesWithModel(candidates, state, settings, recent
             next,
             confidence: Math.max(0, Math.min(1, Number(raw.confidence) || item.confidence || 0.7)),
             reason: String(raw.reason || `Model adjusted relevance to ${next}.`).slice(0, 240),
-            source: 'model',
+            source: 'utility',
         });
     }
     return { changes, status: 'model', rawCount: rawChanges.length };
@@ -741,12 +769,14 @@ function isManualLocked(entry) {
     return entry?.extensions?.autoRelevance?.mode === 'manual' || entry?.extensions?.autoRelevance?.locked === true;
 }
 
-function buildScoredCandidates(entries, state, settings, suppressed, pinned) {
-    const recentText = getRecentChatText(settings.autoRelevanceRecentMessages || 20);
+function buildScoredCandidates(entries, state, settings, suppressed, protectedIds = new Set(), recentTextOverride = '') {
+    const recentText = String(recentTextOverride || '') || getRecentChatText(settings.autoRelevanceRecentMessages || 20);
     const scoringOptions = { ...settings, recentText };
+    const { elevated } = getLoreSelectionSets(state);
     return entries
         .filter(entry => entry.injectableByDefault !== false)
         .filter(entry => isLoreAutomationEnabledForEntry(entry))
+        .filter(entry => !elevated.has(entry.id))
         .filter(entry => settings.autoRelevanceEvaluateMuted === true || !suppressed.has(entry.id))
         .map(entry => {
             const local = computeLocalLoreRelevance(entry, { ...state, autoRelevanceContext: { recentText } }, scoringOptions);
@@ -766,7 +796,7 @@ function buildScoredCandidates(entries, state, settings, suppressed, pinned) {
             } else {
                 confidence = Math.max(0, Math.min(1, Math.abs(local.score) / 100));
             }
-            return { entry, current, next, local, confidence, delta, pinned: pinned.has(entry.id) };
+            return { entry, current, next, local, confidence, delta, elevated: protectedIds.has(entry.id) || elevated.has(entry.id) };
         });
 }
 
@@ -800,13 +830,13 @@ function selectCandidates(scored, settings, candidateCap) {
     ], candidateCap);
 }
 
-function shouldApplyCandidate(item, settings, threshold, pinned) {
+function shouldApplyCandidate(item, settings, threshold, protectedIds = new Set()) {
     if (!item || item.current === item.next) return false;
     if (item.confidence < threshold) return false;
     if (!isLoreAutomationEnabledForEntry(item.entry)) return false;
     if (isManualLocked(item.entry) && settings.autoRelevanceOverrideManual !== true) return false;
-    const protectPinned = settings.autoRelevanceProtectPinned !== false;
-    if (protectPinned && pinned.has(item.entry.id) && relevanceWeight(item.next) < relevanceWeight(item.current)) return false;
+    const protectElevated = settings.autoRelevanceProtectPinned !== false;
+    if (protectElevated && protectedIds.has(item.entry.id) && relevanceWeight(item.next) < relevanceWeight(item.current)) return false;
     return true;
 }
 
@@ -830,7 +860,7 @@ function buildRemappingOperation(item, operation, profile, reason, override = {}
     };
 }
 
-function buildLocalRemappingCandidates(scored, state, settings, suppressed, pinned) {
+function buildLocalRemappingCandidates(scored, state, settings, suppressed, protectedIds = new Set()) {
     const profile = getLoreAutomationStyleProfile(settings);
     const operations = [];
     const sorted = [...scored]
@@ -842,31 +872,12 @@ function buildLocalRemappingCandidates(scored, state, settings, suppressed, pinn
         const id = item.entry.id;
         const score = Number(item.local?.score) || 0;
         const recentHit = !!item.local?.recentHit;
-        const isPinned = pinned.has(id);
+        const isElevated = protectedIds.has(id) || item.elevated === true;
         const isMuted = suppressed.has(id);
         const current = normalizeLoreRelevance(item.current || item.entry.relevance || 'normal');
         const next = normalizeLoreRelevance(item.next || current);
 
-        if (!isMuted && !isPinned && score >= profile.pinScore && next === 'high') {
-            operations.push(buildRemappingOperation(
-                item,
-                'pin',
-                profile,
-                `High current-context score ${score}; pin so it shapes the next reply.`,
-                { confidence: Math.max(item.confidence || 0, 0.84) },
-            ));
-            continue;
-        }
-        if (isPinned && score <= profile.unpinScore && !recentHit) {
-            operations.push(buildRemappingOperation(
-                item,
-                'unpin',
-                profile,
-                `Pinned card no longer has current-context support; local score ${score}.`,
-                { confidence: Math.max(item.confidence || 0, 0.78) },
-            ));
-            continue;
-        }
+        if (isElevated) continue;
         if (isMuted && score >= profile.unmuteScore && next === 'high') {
             operations.push(buildRemappingOperation(
                 item,
@@ -877,7 +888,7 @@ function buildLocalRemappingCandidates(scored, state, settings, suppressed, pinn
             ));
             continue;
         }
-        if (!isMuted && !isPinned && profile.muteScore >= 0 && score <= profile.muteScore && current === 'low' && !recentHit) {
+        if (!isMuted && profile.muteScore >= 0 && score <= profile.muteScore && current === 'low' && !recentHit) {
             operations.push(buildRemappingOperation(
                 item,
                 'mute',
@@ -891,6 +902,30 @@ function buildLocalRemappingCandidates(scored, state, settings, suppressed, pinn
     return operations;
 }
 
+function previewLoreAutomationRemapCandidates(state = getState(), settings = getSettings(), recentText = '') {
+    const entries = normalizeLoreMatrix(state?.loreMatrix || []);
+    const { muted: suppressed, elevated } = getLoreSelectionSets(state);
+    const scored = buildScoredCandidates(entries, state, settings, suppressed, elevated, recentText);
+    const operations = buildLocalRemappingCandidates(scored, state, settings, suppressed, elevated);
+    const counts = { mute: 0, unmute: 0 };
+    for (const operation of operations) {
+        const kind = String(operation?.operation || '');
+        if (Object.hasOwn(counts, kind)) counts[kind] += 1;
+    }
+    return {
+        candidateCount: operations.length,
+        counts,
+        operations: operations.slice(0, 16).map(operation => ({
+            id: operation.targetId || operation.id || '',
+            title: operation.title || operation.id || '',
+            operation: operation.operation || '',
+            confidence: Math.max(0, Math.min(1, Number(operation.confidence) || 0)),
+            score: Number(operation.score) || 0,
+            reason: String(operation.reason || '').slice(0, 180),
+        })),
+    };
+}
+
 function summarizeRemappingCandidateForModel(operation = {}, entry = {}) {
     const scope = entry.scope || {};
     const content = entry.content || {};
@@ -901,7 +936,7 @@ function summarizeRemappingCandidateForModel(operation = {}, entry = {}) {
         currentRelevance: normalizeLoreRelevance(entry.relevance || 'normal'),
         localScore: Number(operation.score) || 0,
         localReason: operation.reason || '',
-        pinned: !!operation.pinned,
+        elevated: !!operation.elevated,
         muted: !!operation.muted,
         category: entry.category || 'other',
         priority: Number(entry.priority || 50),
@@ -917,16 +952,14 @@ function summarizeRemappingCandidateForModel(operation = {}, entry = {}) {
 }
 
 function buildRemappingModelPrompts({ state, settings, operations, entriesById, recentText }) {
-    const system = `You are Saga's ARMP Lore Automation adjudicator.
+    const system = `You are Saga's Lore Automation remapping adjudicator.
 
-Task:
-- Decide which proposed pin, unpin, mute, or unmute operations are justified for the next roleplay turn.
-- Pin only cards that must strongly shape the next reply.
+- Decide which proposed mute or unmute operations are justified for the next roleplay turn.
 - Mute only cards that should stop influencing prompt output now.
 - Unmute only cards that are clearly current again.
-- Unpin cards that are no longer critical.
+- Elevated cards are user-controlled and must not be changed.
 - Never invent ids or operations.
-- Output only JSON: {"operations":[{"id":"...","operation":"pin|unpin|mute|unmute","confidence":0.0-1.0,"reason":"short"}]}`;
+- Output only JSON: {"operations":[{"id":"...","operation":"mute|unmute","confidence":0.0-1.0,"reason":"short"}]}`;
     const payload = {
         storyContext: {
             sceneDate: state?.loreContext?.sceneDate || state?.canon?.inUniverseDate || '',
@@ -960,7 +993,7 @@ async function adjudicateRemappingWithModel(operations, state, settings, recentT
     });
     const parsed = parseJsonObject(response);
     if (!parsed) return { operations: [], status: 'failed_parse', error: 'ARMP model returned malformed JSON.' };
-    const allowed = new Set(['pin', 'unpin', 'mute', 'unmute']);
+    const allowed = new Set(['mute', 'unmute']);
     const candidateById = new Map(operations.map(operation => [operation.targetId || operation.id, operation]));
     const adjudicated = [];
     for (const raw of Array.isArray(parsed.operations) ? parsed.operations : []) {
@@ -984,8 +1017,7 @@ function validateRemappingOperations(operations, state, settings, mode) {
     if (!supportsLoreAutomationMode(mode, 'armp')) return [];
     const profile = getLoreAutomationStyleProfile(settings);
     const entriesById = new Map(normalizeLoreMatrix(state.loreMatrix || []).map(entry => [entry.id, entry]));
-    const suppressed = new Set(state?.loreSelection?.suppressedIds || []);
-    const pinned = new Set(state?.loreSelection?.pinnedIds || []);
+    const { muted: suppressed, elevated } = getLoreSelectionSets(state);
     const threshold = Math.max(profile.relevanceThreshold, Math.min(0.98, Number(settings.autoRelevanceMinConfidence) || profile.relevanceThreshold));
     const validated = [];
     const seen = new Set();
@@ -994,16 +1026,13 @@ function validateRemappingOperations(operations, state, settings, mode) {
         const id = String(operation.targetId || operation.id || '').trim();
         const kind = String(operation.operation || '').trim().toLowerCase();
         if (!id || seen.has(`${kind}:${id}`)) continue;
-        if (!['pin', 'unpin', 'mute', 'unmute'].includes(kind)) continue;
+        if (!['mute', 'unmute'].includes(kind)) continue;
+        if (elevated.has(id)) continue;
         const entry = entriesById.get(id);
         if (!entry || !isLoreAutomationEnabledForEntry(entry)) continue;
         if ((Number(operation.confidence) || 0) < threshold) continue;
-        if (kind === 'pin' && suppressed.has(id)) continue;
-        if (kind === 'mute' && pinned.has(id)) continue;
-        if (kind === 'unpin' && !pinned.has(id)) continue;
-        if (kind === 'unmute' && !suppressed.has(id)) continue;
-        if (kind === 'pin' && pinned.has(id)) continue;
         if (kind === 'mute' && suppressed.has(id)) continue;
+        if (kind === 'unmute' && !suppressed.has(id)) continue;
         seen.add(`${kind}:${id}`);
         validated.push({ ...operation, targetId: id, id });
     }
@@ -1012,27 +1041,20 @@ function validateRemappingOperations(operations, state, settings, mode) {
 
 function applyRemappingOperations(state, operations, runId = '') {
     const valid = Array.isArray(operations) ? operations : [];
-    if (!valid.length) return { changed: 0, pinned: 0, unpinned: 0, muted: 0, unmuted: 0, operations: [] };
-    if (!state.loreSelection) state.loreSelection = { pinnedIds: [], suppressedIds: [] };
+    if (!valid.length) return { changed: 0, muted: 0, unmuted: 0, operations: [] };
+    if (!state.loreSelection) state.loreSelection = { pinnedIds: [], suppressedIds: [], elevated: {} };
     const acceptedIds = new Set(normalizeLoreMatrix(state.loreMatrix || []).map(entry => entry.id));
-    const pinSet = new Set((state.loreSelection.pinnedIds || []).filter(id => acceptedIds.has(id)));
     const suppressedSet = new Set((state.loreSelection.suppressedIds || []).filter(id => acceptedIds.has(id)));
+    const { elevated } = getLoreSelectionSets(state);
     const touched = new Map();
-    const counts = { changed: 0, pinned: 0, unpinned: 0, muted: 0, unmuted: 0, operations: [] };
+    const counts = { changed: 0, muted: 0, unmuted: 0, operations: [] };
 
     for (const operation of valid) {
         const id = operation.targetId || operation.id;
         if (!acceptedIds.has(id)) continue;
-        if (operation.operation === 'pin') {
-            pinSet.add(id);
-            suppressedSet.delete(id);
-            counts.pinned += 1;
-        } else if (operation.operation === 'unpin') {
-            pinSet.delete(id);
-            counts.unpinned += 1;
-        } else if (operation.operation === 'mute') {
+        if (elevated.has(id)) continue;
+        if (operation.operation === 'mute') {
             suppressedSet.add(id);
-            pinSet.delete(id);
             counts.muted += 1;
         } else if (operation.operation === 'unmute') {
             suppressedSet.delete(id);
@@ -1045,7 +1067,6 @@ function applyRemappingOperations(state, operations, runId = '') {
         counts.operations.push(operation);
     }
 
-    state.loreSelection.pinnedIds = Array.from(pinSet);
     state.loreSelection.suppressedIds = Array.from(suppressedSet);
     if (touched.size) {
         state.loreMatrix = normalizeLoreMatrix(state.loreMatrix || []).map(entry => {
@@ -1094,23 +1115,41 @@ function summarizeCurationCandidateForModel(entry = {}) {
     };
 }
 
-function buildCurationModelPrompts({ state, candidates, recentText }) {
+function buildCurationModelPrompts({ state, candidates, recentText, settings = getSettings() }) {
     const retirementCandidates = Array.isArray(state?.__loreAutomationRetirementCandidates)
         ? state.__loreAutomationRetirementCandidates
         : [];
+    const profile = getLoreAutomationStyleProfile(settings);
+    const stylePolicy = getLoreAutomationStylePromptPolicy(profile);
     const system = `You are Saga's ARMPC Lorecard curator.
 
 Task:
 - Choose which active-deck Lorecards should enter this chat's Accepted Lorecards now.
 - Choose automation-owned Accepted Lorecards that are safe to retire from this chat's Accepted stack.
 - Use only the provided candidate ids.
+- Style policy: ${stylePolicy.style.toUpperCase()}.
+- Addition policy: ${stylePolicy.additionPolicy}
+- Retirement policy: ${stylePolicy.retirementPolicy}
+- Ambiguity policy: ${stylePolicy.ambiguityPolicy}
 - Prefer subtle but concrete cards that constrain the next few roleplay turns: present characters, location rules, current secrets, items, abilities, date gates, or active guardrails.
 - Do not select broad glossary/reference cards unless they directly constrain the active scene.
 - Retire only automation-owned cards that no longer matter to the active scene.
 - Classify coverage explicitly: add_now, keep, retire, hold, or ignore.
-- Prefer hold over weak additions and keep over uncertain retirement.
+- Follow the style policy when choosing between add_now/hold and retire/keep.
 - Output only JSON: {"operations":[{"id":"...","operation":"accept_from_active_decks|retire_from_accepted_stack","classification":"add_now|keep|retire|hold|ignore","confidence":0.0-1.0,"reason":"short"}],"accept":[{"id":"...","confidence":0.0-1.0,"reason":"short"}],"retire":[{"id":"...","confidence":0.0-1.0,"reason":"short"}]}`;
     const payload = {
+        stylePolicy: {
+            style: stylePolicy.style,
+            curationCap: profile.curationCap,
+            retirementCap: profile.retirementCap,
+            targetMin: profile.targetMin,
+            targetMax: profile.targetMax,
+            relevanceThreshold: profile.relevanceThreshold,
+            stalePasses: profile.stalePasses,
+            additionPolicy: stylePolicy.additionPolicy,
+            retirementPolicy: stylePolicy.retirementPolicy,
+            ambiguityPolicy: stylePolicy.ambiguityPolicy,
+        },
         storyContext: {
             sceneDate: state?.loreContext?.sceneDate || state?.canon?.inUniverseDate || '',
             canonBoundary: state?.loreContext?.canonBoundary || state?.canon?.canonBoundary || '',
@@ -1146,14 +1185,65 @@ async function adjudicateCurationWithModel(candidates, retireCandidates, state, 
     const validation = validateLoreProviderConfiguration(providerKind);
     if (!validation.ok) return { selections: [], retireSelections: [], status: 'unavailable', error: validation.message };
     const promptState = { ...state, __loreAutomationRetirementCandidates: retireCandidates };
-    const { system, user } = buildCurationModelPrompts({ state: promptState, candidates, recentText });
-    const response = await sendLoreRequest(system, user, {
-        providerKind,
-        expectedOutput: 'json',
-        maxTokens: Math.max(768, Math.min(4096, Number(settings.autoRelevanceModelMaxTokens) || 2048)),
-    });
-    const parsed = parseJsonObject(response);
+    const { system, user } = buildCurationModelPrompts({ state: promptState, candidates, recentText, settings });
+    const maxTokens = Math.max(768, Math.min(4096, Number(settings.autoRelevanceModelMaxTokens) || 2048));
+    const routing = normalizeLoreAutomationProviderRouting(settings.loreAutomationProviderRouting || 'auto');
+    const canFallbackToUtility = routing === 'auto' && providerKind === 'lore';
+    const summarizeProviderError = error => cleanAutomationText(error?.message || error || 'Unknown provider error.', 240);
+    let resolvedProviderKind = providerKind;
+    let parsed = null;
+    let primaryError = '';
+    try {
+        const response = await sendLoreRequest(system, user, {
+            providerKind,
+            expectedOutput: 'json',
+            maxTokens,
+        });
+        parsed = parseJsonObject(response);
+        if (!parsed) primaryError = 'ARMPC Reasoning provider returned malformed JSON.';
+    } catch (error) {
+        primaryError = summarizeProviderError(error);
+        if (!canFallbackToUtility) throw error;
+    }
+    if (!parsed && canFallbackToUtility) {
+        const fallbackProviderKind = 'continuity';
+        const fallbackValidation = validateLoreProviderConfiguration(fallbackProviderKind);
+        if (!fallbackValidation.ok) {
+            return {
+                selections: [],
+                retireSelections: [],
+                status: 'model_failed',
+                error: `Reasoning curation failed (${primaryError || 'no usable JSON'}); Utility fallback unavailable: ${fallbackValidation.message || 'not configured'}`,
+            };
+        }
+        try {
+            const fallbackResponse = await sendLoreRequest(system, user, {
+                providerKind: fallbackProviderKind,
+                expectedOutput: 'json',
+                maxTokens,
+            });
+            parsed = parseJsonObject(fallbackResponse);
+            resolvedProviderKind = fallbackProviderKind;
+        } catch (error) {
+            return {
+                selections: [],
+                retireSelections: [],
+                status: 'model_failed',
+                error: `Reasoning curation failed (${primaryError || 'no usable JSON'}); Utility fallback failed: ${summarizeProviderError(error)}`,
+            };
+        }
+        if (!parsed) {
+            return {
+                selections: [],
+                retireSelections: [],
+                status: 'failed_parse',
+                error: `Reasoning curation failed (${primaryError || 'no usable JSON'}); Utility fallback returned malformed JSON.`,
+            };
+        }
+    }
     if (!parsed) return { selections: [], retireSelections: [], status: 'failed_parse', error: 'ARMPC model returned malformed JSON.' };
+    const providerLabel = resolvedProviderKind === 'lore' ? 'reasoning' : 'utility';
+    const statusLabel = providerKind === 'lore' && resolvedProviderKind === 'continuity' ? 'utility_fallback' : providerLabel;
     const candidateById = new Map(candidates.map(entry => [entry.id, entry]));
     const retireById = new Map(retireCandidates.map(item => [item.entry.id, item]));
     const selections = [];
@@ -1173,7 +1263,7 @@ async function adjudicateCurationWithModel(candidates, retireCandidates, state, 
             entry,
             confidence: Math.max(0, Math.min(1, Number(raw.confidence) || 0)),
             reason: String(raw.reason || 'Model selected this active-deck Lorecard for curation.').slice(0, 240),
-            provider: providerKind === 'lore' ? 'reasoning' : 'utility',
+            provider: providerLabel,
         });
     }
     const retireSelections = [];
@@ -1193,10 +1283,10 @@ async function adjudicateCurationWithModel(candidates, retireCandidates, state, 
             entry: item.entry,
             confidence: Math.max(0, Math.min(1, Number(raw.confidence) || 0)),
             reason: String(raw.reason || item.reason || 'Model selected this automation-owned Lorecard for retirement.').slice(0, 240),
-            provider: providerKind === 'lore' ? 'reasoning' : 'utility',
+            provider: providerLabel,
         });
     }
-    return { selections, retireSelections, status: providerKind === 'lore' ? 'reasoning' : 'utility' };
+    return { selections, retireSelections, status: statusLabel };
 }
 
 function selectLocalCurationCandidates(candidates = [], profile = getLoreAutomationStyleProfile()) {
@@ -1293,13 +1383,11 @@ function packCurationCandidates(entries = [], state = {}, max = LORE_AUTOMATION_
 }
 
 function getRetirementScanItems(state, settings, recentText, profile = getLoreAutomationStyleProfile(settings), options = {}) {
-    const pinned = new Set(state?.loreSelection?.pinnedIds || []);
-    const suppressed = new Set(state?.loreSelection?.suppressedIds || []);
     const scoringOptions = { ...settings, recentText };
     const maxScore = profile.style === 'aggressive' ? 12 : profile.style === 'balanced' ? 6 : 3;
     const cadence = normalizeLoreAutomationCadence(state);
     return normalizeLoreMatrix(state.loreMatrix || [])
-        .filter(entry => entry?.id && !pinned.has(entry.id) && !suppressed.has(entry.id))
+        .filter(entry => entry?.id)
         .filter(entry => isLoreAutomationEnabledForEntry(entry))
         .filter(entry => isAutomationOwnedEntry(entry))
         .map(entry => {
@@ -1432,6 +1520,8 @@ async function runArmPcCuration({ state, settings, recentText, runId, beforeTime
     selections = selections
         .filter(selection => selection?.entry?.id && (Number(selection.confidence) || 0) >= threshold)
         .slice(0, Math.min(profile.curationCap, availableSlots));
+    const { elevated } = getLoreSelectionSets(state);
+    retireSelections = retireSelections.filter(selection => !elevated.has(selection.id));
 
     const existingIds = new Set(normalizeLoreMatrix(state.loreMatrix || []).map(entry => entry.id));
     const acceptedEntries = [];
@@ -1452,6 +1542,9 @@ async function runArmPcCuration({ state, settings, recentText, runId, beforeTime
         if (state.loreSelection) {
             state.loreSelection.pinnedIds = (state.loreSelection.pinnedIds || []).filter(id => !retireIds.has(id));
             state.loreSelection.suppressedIds = (state.loreSelection.suppressedIds || []).filter(id => !retireIds.has(id));
+            if (state.loreSelection.elevated && typeof state.loreSelection.elevated === 'object' && !Array.isArray(state.loreSelection.elevated)) {
+                for (const id of retireIds) delete state.loreSelection.elevated[id];
+            }
         }
     }
     const retired = Math.max(0, beforeCount + acceptedEntries.length - state.loreMatrix.length);
@@ -1600,8 +1693,6 @@ export function applyLoreAutomationSuggestions(ids = null) {
             style: settings.loreAutomationStyle || 'careful',
             status: 'applied_suggestions',
             changed: result.changed,
-            pinned: result.pinned,
-            unpinned: result.unpinned,
             muted: result.muted,
             unmuted: result.unmuted,
             ranAt: Date.now(),
@@ -1809,14 +1900,13 @@ async function runAutoRelevanceInternal(options = {}) {
         };
     }
 
-    const suppressed = new Set(state?.loreSelection?.suppressedIds || []);
-    const pinned = new Set(state?.loreSelection?.pinnedIds || []);
+    const { muted: suppressed, elevated, activePinned } = getLoreSelectionSets(state);
     const candidateCap = Math.max(1, Math.min(500, Number(settings.autoRelevanceCandidateCap) || 40));
     const threshold = Math.max(profile.relevanceThreshold, Math.min(1, Number(settings.autoRelevanceMinConfidence) || profile.relevanceThreshold));
     const recentText = getRecentChatText(settings.autoRelevanceRecentMessages || 20);
     const beforeTimeline = captureLoreTimelineState(state);
 
-    const scored = buildScoredCandidates(entries, state, settings, suppressed, pinned);
+    const scored = buildScoredCandidates(entries, state, settings, suppressed, elevated);
     const candidates = selectCandidates(scored, settings, candidateCap);
     let adjudicated = { changes: [], status: 'local' };
     try {
@@ -1833,11 +1923,11 @@ async function runAutoRelevanceInternal(options = {}) {
             if (!model) return item;
             return { ...item, next: normalizeLoreRelevance(model.next), confidence: model.confidence, modelReason: model.reason, modelSource: model.source || 'model' };
         })
-        .filter(item => shouldApplyCandidate(item, settings, threshold, pinned));
+        .filter(item => shouldApplyCandidate(item, settings, threshold, activePinned));
     const promotionCount = actionable.filter(item => relevanceWeight(item.next) > relevanceWeight(item.current)).length;
     const demotionCount = actionable.filter(item => relevanceWeight(item.next) < relevanceWeight(item.current)).length;
     let changed = 0;
-    let remapResult = { changed: 0, pinned: 0, unpinned: 0, muted: 0, unmuted: 0, operations: [], modelStatus: '' };
+    let remapResult = { changed: 0, muted: 0, unmuted: 0, operations: [], modelStatus: '' };
     let curationResult = { status: 'skipped', curated: 0, pendingCurated: 0, providerStatus: '', operations: [] };
 
     const byId = new Map(actionable.map(item => [item.entry.id, item]));
@@ -1869,10 +1959,9 @@ async function runAutoRelevanceInternal(options = {}) {
     entries = normalizeLoreMatrix(state.loreMatrix || []);
 
     if (supportsLoreAutomationMode(loreAutomationMode, 'armp')) {
-        const remapSuppressed = new Set(state?.loreSelection?.suppressedIds || []);
-        const remapPinned = new Set(state?.loreSelection?.pinnedIds || []);
-        const remapScored = buildScoredCandidates(entries, state, settings, remapSuppressed, remapPinned);
-        const localRemapOperations = buildLocalRemappingCandidates(remapScored, state, settings, remapSuppressed, remapPinned);
+        const { muted: remapSuppressed, elevated: remapElevated } = getLoreSelectionSets(state);
+        const remapScored = buildScoredCandidates(entries, state, settings, remapSuppressed, remapElevated);
+        const localRemapOperations = buildLocalRemappingCandidates(remapScored, state, settings, remapSuppressed, remapElevated);
         let remapAdjudicated = { operations: [], status: 'local' };
         try {
             remapAdjudicated = await adjudicateRemappingWithModel(localRemapOperations, state, settings, recentText);
@@ -1922,8 +2011,6 @@ async function runAutoRelevanceInternal(options = {}) {
         changed,
         promotions: promotionCount,
         demotions: demotionCount,
-        pinned: remapResult.pinned || 0,
-        unpinned: remapResult.unpinned || 0,
         muted: remapResult.muted || 0,
         unmuted: remapResult.unmuted || 0,
         curated: curationResult.curated || 0,
@@ -1968,8 +2055,6 @@ async function runAutoRelevanceInternal(options = {}) {
         promotions: promotionCount,
         demotions: demotionCount,
         considered: candidates.length,
-        pinned: remapResult.pinned || 0,
-        unpinned: remapResult.unpinned || 0,
         muted: remapResult.muted || 0,
         unmuted: remapResult.unmuted || 0,
         curated: curationResult.curated || 0,
@@ -1977,6 +2062,7 @@ async function runAutoRelevanceInternal(options = {}) {
         retired: curationResult.retired || 0,
         modelStatus: adjudicated.status,
         providerStatus: [remapResult.modelStatus, curationResult.providerStatus].filter(Boolean).join('/'),
+        modelError: adjudicated.error || remapResult.modelError || curationResult.modelError || '',
     };
 }
 
@@ -2096,8 +2182,10 @@ export const __autoRelevanceTestHooks = Object.freeze({
     getContextCoverageLaneIds,
     getEntryCoverageLaneIds,
     getLoreAutomationPacingPolicy,
+    getLoreAutomationStylePromptPolicy,
     hasUsableLoreAutomationContext,
     isLoreAutomationBackgroundEnabled,
     packCurationCandidates,
     parseJsonObject,
+    previewLoreAutomationRemapCandidates,
 });

@@ -15,6 +15,7 @@ import {
     LOG_PREFIX,
 } from './constants.js';
 import { normalizeLoreContext, normalizeLoreMatrix, normalizeLoreEntry } from '../lorecards/lore-matrix.js';
+import { normalizeLoreElevationRecords } from '../lorecards/lore-selection.js';
 import { normalizeLoreRelevance, normalizeLoreCanon, normalizeLoreCategory, computeLocalLoreRelevance, normalizeLorePurpose, computeSpecificityScore } from '../lorecards/lore-relevance.js';
 import { normalizeLoreTimeline } from '../lorecards/lore-timeline.js';
 import { normalizeLoredeckCreatorRegistry } from './lore-creator-state.js';
@@ -849,6 +850,7 @@ export function migrateState(state) {
     } else {
         state.loreSelection.pinnedIds = Array.isArray(state.loreSelection.pinnedIds) ? state.loreSelection.pinnedIds : [];
         state.loreSelection.suppressedIds = Array.isArray(state.loreSelection.suppressedIds) ? state.loreSelection.suppressedIds : [];
+        state.loreSelection.elevated = normalizeLoreElevationRecords(state.loreSelection.elevated || {});
     }
 
     if (!state.canonLoreDatabase || typeof state.canonLoreDatabase !== 'object' || Array.isArray(state.canonLoreDatabase)) {

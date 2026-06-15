@@ -326,6 +326,7 @@ export function getDefaultState() {
         loreSelection: {
             pinnedIds: [],
             suppressedIds: [],
+            elevated: {},
         },
 
         knowledge: {},

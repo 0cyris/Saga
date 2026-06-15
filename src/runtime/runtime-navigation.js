@@ -25,7 +25,7 @@ export const TAB_TOOLTIPS = Object.freeze({
     session: 'Runtime overview, preset status, instructions, and active chat readiness.',
     context: 'Detect, browse, resolve, and lock story position across loaded Loredecks.',
     continuity: 'Scan, automatically track, view, and edit lightweight live continuity state: scene/timeline, active characters, key items, and active goals/threads.',
-    lore: 'Capture reviewable Lorecards, review Pending Review entries, and manage Accepted Lorecards with search, filters, tags, pinning, and muting.',
+    lore: 'Capture reviewable Lorecards, review Pending Review entries, and manage Accepted Lorecards with search, filters, tags, Elevate, and Mute.',
     injection: 'Choose what Saga sends to the model: continuity state, lore entries, direct/compressed handling, and live split injection previews.',
     settings: 'Configure providers, runtime appearance, Saga Theme Packs, State Safety, and Danger Zone cleanup.',
 });

@@ -13,6 +13,7 @@ import {
     getLoreEntryInjectionContextGate,
 } from './lore-injection-filter.js';
 import { normalizeLoreRelevance } from './lore-relevance.js';
+import { getLoreEntryEffectiveRelevance, getLoreSelectionSets } from './lore-selection.js';
 
 const RELEVANCE_TIERS = Object.freeze(['high', 'normal', 'low']);
 const MAX_AUDIT_ENTRIES = 240;
@@ -139,7 +140,7 @@ function scoreSearchHit(entry = {}, query = '') {
         if (tokens.has(token)) score += 10;
     }
     if (score <= 0) return 0;
-    if (entry.isPinned) score += 8;
+    if (entry.isElevated) score += 8;
     if (entry.isSuppressed) score -= 20;
     score += Math.max(0, Math.min(12, Number(entry.priority || 50) / 10));
     return Math.round(score);
@@ -158,7 +159,8 @@ function compactEntry(entry = {}, extra = {}) {
         packTitle: loredeck.packTitle,
         stackIndex: loredeck.stackIndex,
         stackPriority: loredeck.stackPriority,
-        pinned: entry.isPinned === true,
+        elevated: entry.isElevated === true,
+        pinned: entry.isElevated === true,
         muted: entry.isSuppressed === true,
         ...extra,
     };
@@ -168,14 +170,14 @@ export function searchAcceptedLorecards(state = {}, query = '', options = {}) {
     const limit = Math.max(1, Math.min(MAX_SEARCH_RESULTS, Number(options.limit) || 8));
     const includeMuted = options.includeMuted === true;
     const includeDisabled = options.includeDisabled === true;
-    const pinnedIds = new Set(state?.loreSelection?.pinnedIds || []);
-    const mutedIds = new Set(state?.loreSelection?.suppressedIds || []);
+    const { elevated, activePinned, muted } = getLoreSelectionSets(state);
     const entries = normalizeLoreMatrix(state?.loreMatrix || [])
         .map(entry => ({
             ...entry,
-            isPinned: pinnedIds.has(entry.id),
-            isSuppressed: mutedIds.has(entry.id),
-            relevance: normalizeLoreRelevance(entry.relevance || 'normal'),
+            isElevated: elevated.has(entry.id),
+            isPinned: activePinned.has(entry.id),
+            isSuppressed: muted.has(entry.id),
+            relevance: getLoreEntryEffectiveRelevance(entry, state),
         }))
         .filter(entry => includeMuted || !entry.isSuppressed)
         .filter(entry => includeDisabled || !['archived', 'disabled'].includes(String(entry.status || '').toLowerCase()))
@@ -198,8 +200,7 @@ export function searchAcceptedLorecards(state = {}, query = '', options = {}) {
 
 export function buildLoreInjectionAudit(state = {}, settings = {}, promptInfo = {}) {
     const allEntries = normalizeLoreMatrix(state?.loreMatrix || []);
-    const pinnedIds = new Set(state?.loreSelection?.pinnedIds || []);
-    const mutedIds = new Set(state?.loreSelection?.suppressedIds || []);
+    const { elevated, activePinned, muted } = getLoreSelectionSets(state);
     const tierSelections = {};
     const tierSummary = {};
 
@@ -223,6 +224,7 @@ export function buildLoreInjectionAudit(state = {}, settings = {}, promptInfo = 
     const summary = {
         accepted: allEntries.length,
         injected: 0,
+        elevatedInjected: 0,
         pinnedInjected: 0,
         muted: 0,
         disabled: 0,
@@ -236,9 +238,10 @@ export function buildLoreInjectionAudit(state = {}, settings = {}, promptInfo = 
     for (const raw of allEntries) {
         const entry = {
             ...raw,
-            isPinned: pinnedIds.has(raw.id),
-            isSuppressed: mutedIds.has(raw.id),
-            relevance: normalizeLoreRelevance(raw.relevance || 'normal'),
+            isElevated: elevated.has(raw.id),
+            isPinned: activePinned.has(raw.id),
+            isSuppressed: muted.has(raw.id),
+            relevance: getLoreEntryEffectiveRelevance(raw, state),
         };
         const tier = entry.relevance;
         const tierEnabled = tierSummary[tier]?.enabled === true;
@@ -269,9 +272,14 @@ export function buildLoreInjectionAudit(state = {}, settings = {}, promptInfo = 
             summary.tierDisabled += 1;
         } else if (selected) {
             decision = 'injected';
-            reason = entry.isPinned ? 'pinned and selected' : 'selected by relevance tier';
+            reason = entry.isElevated ? 'elevated and selected' : entry.isPinned ? 'pinned and selected' : 'selected by relevance tier';
             summary.injected += 1;
-            if (entry.isPinned) summary.pinnedInjected += 1;
+            if (entry.isElevated) {
+                summary.elevatedInjected += 1;
+            }
+            if (entry.isPinned) {
+                summary.pinnedInjected += 1;
+            }
         } else {
             const maxEntries = tierSummary[tier]?.maxEntries || 0;
             decision = maxEntries > 0 ? 'over_cap' : 'not_injected';

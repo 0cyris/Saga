@@ -14,6 +14,7 @@ import {
     getInjectableLoreEntriesByRelevanceForInjection,
 } from '../lorecards/lore-injection-filter.js';
 import { normalizeLoreRelevance, LORE_RELEVANCE_LABELS } from '../lorecards/lore-relevance.js';
+import { getElevatedLoreIds } from '../lorecards/lore-selection.js';
 
 export function buildMemo(state, settingsOverride = {}) {
     const settings = { ...getSettings(), ...(settingsOverride || {}) };
@@ -98,12 +99,12 @@ export function getCompressionSourceSignature(state, kind = 'lore', directTextOv
                 : buildLoreDirectMemo(state, { ...settings, loreInjectionMode: 'direct' }));
     const compressionTemplate = getCompressionTemplate(settings, kind);
     return JSON.stringify({
-        signatureVersion: 4,
+        signatureVersion: 5,
         kind: normalizedKind,
         compressionLevel: getCompressionLevel(settings, kind),
         compressionTemplateHash: stableStringHash(compressionTemplate),
         compressionTemplateCharacters: compressionTemplate.length,
-        pinnedLoreIds: parsed.base === 'lore' ? (state?.loreSelection?.pinnedIds || []).join('|') : '',
+        elevatedLoreIds: parsed.base === 'lore' ? getElevatedLoreIds(state).join('|') : '',
         directTextHash: stableStringHash(directText),
         directTextCharacters: directText.length,
     });
@@ -237,7 +238,7 @@ export function buildLoreMemo(state, settingsOverride = {}) {
     if (settings.relevanceTier) {
         const tier = normalizeLoreRelevance(settings.relevanceTier);
         const cached = getCachedModelCompression(state, settings, `lore-${tier}`);
-        if (cached) return cached;
+        if (cached) return appendElevatedLoreDirectMemoIfNeeded(cached, state, settings, tier);
         return buildLoreDirectMemoForTier(state, tier, settings);
     }
     const chunks = [];
@@ -245,10 +246,33 @@ export function buildLoreMemo(state, settingsOverride = {}) {
         const enabledKey = tierSettingKey(tier, 'InjectionEnabled');
         if (settings[enabledKey] === false) continue;
         const cached = getCachedModelCompression(state, settings, `lore-${tier}`);
-        const direct = cached || buildLoreDirectMemoForTier(state, tier, settings);
+        const direct = cached
+            ? appendElevatedLoreDirectMemoIfNeeded(cached, state, settings, tier)
+            : buildLoreDirectMemoForTier(state, tier, settings);
         if (direct) chunks.push(direct);
     }
     return chunks.join('\n\n');
+}
+
+function appendElevatedLoreDirectMemoIfNeeded(text, state, settings, tier = '') {
+    const normalizedTier = normalizeLoreRelevance(tier || 'normal');
+    if (normalizedTier !== 'high') return text;
+    if (getInjectionMode(settings, 'lore-high') !== 'compressed') return text;
+    const elevatedDirect = buildElevatedLoreDirectMemo(state, settings);
+    return elevatedDirect ? `${text}\n\n${elevatedDirect}` : text;
+}
+
+function buildElevatedLoreDirectMemo(state, settings = {}) {
+    const elevatedIds = new Set(getElevatedLoreIds(state));
+    if (!elevatedIds.size) return '';
+    const entries = getInjectableLoreEntriesByRelevanceForInjection(state, 'high', 0)
+        .filter(entry => elevatedIds.has(entry.id));
+    if (!entries.length) return '';
+    const lines = ['## Elevated Lore (Direct)'];
+    for (const entry of entries) {
+        lines.push(formatLoreEntryForInjection(entry, settings, true, state));
+    }
+    return lines.filter(Boolean).join('\n');
 }
 
 function buildLoreDirectMemo(state, settingsOverride = {}) {
@@ -265,9 +289,8 @@ function buildLoreDirectMemo(state, settingsOverride = {}) {
     const lines = [];
     const label = tier ? `${LORE_RELEVANCE_LABELS[tier]}-Relevance Lore` : 'Lore Entries';
     lines.push(`## ${label}${getInjectionMode(settings, tier ? `lore-${tier}` : 'lore') === 'compressed' ? ' (Compressed)' : ''}`);
-    const pinnedIds = new Set(state?.loreSelection?.pinnedIds || []);
     for (const entry of activeLore) {
-        lines.push(formatLoreEntryForInjection(entry, settings, pinnedIds.has(entry.id), state));
+        lines.push(formatLoreEntryForInjection(entry, settings, entry.isElevated === true, state));
     }
     return lines.join('\n');
 }
@@ -412,7 +435,7 @@ export function getMemoSignature(state, mode = null, kind = 'combined') {
             threads: state?.threads || [],
         } : null,
         loreIds: kind !== 'continuity' ? (state?.loreMatrix || []).map(e => `${e?.id || ''}:${e?.relevance || ''}:${e?.priority || 0}:${e?.updatedAt || ''}:${e?.userEdited ? 1 : 0}`).join('|') : '',
-        pinned: (state?.loreSelection?.pinnedIds || []).join('|'),
+        elevated: getElevatedLoreIds(state).join('|'),
         muted: (state?.loreSelection?.suppressedIds || []).join('|'),
     };
     return JSON.stringify(payload);

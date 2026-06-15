@@ -2,6 +2,8 @@
 
 This loop runs the installed Saga extension inside real SillyTavern through the CDP smoke harness, seeds the latest `Story2` chat fixture into the live browser context, spends explicit provider calls, and writes a JSON report that Codex can use for iterative tuning.
 
+Iteration results are logged in `docs/development/SAGA_LORE_AUTOMATION_LIVE_EVAL_LOG.md`.
+
 ## Default Run
 
 ```powershell
@@ -49,12 +51,68 @@ $env:SAGA_LIVE_LORE_AUTOMATION_TIMEOUT_MS='300000'
 node tools/scripts/smoke-live-st-cdp.mjs
 ```
 
+Recommended ARMP Utility style pass:
+
+```powershell
+$env:SAGA_LIVE_LORE_AUTOMATION_SCENARIOS='tail,east-cloister,malfoy-manor'
+$env:SAGA_LIVE_LORE_AUTOMATION_MATRIX='armp:careful:utility;armp:balanced:utility;armp:aggressive:utility'
+$env:SAGA_LIVE_LORE_AUTOMATION_MESSAGE_LIMIT='20'
+$env:SAGA_LIVE_LORE_AUTOMATION_TIMEOUT_MS='300000'
+$env:SAGA_SMOKE_REPORT='assets/documentation/renders/saga-smoke/live-lore-automation-armp-style-report.json'
+node tools/scripts/smoke-live-st-cdp.mjs
+```
+
+Recommended Level 1 Off/AR baseline:
+
+```powershell
+$env:SAGA_LIVE_LORE_AUTOMATION_SCENARIOS='tail,malfoy-manor'
+$env:SAGA_LIVE_LORE_AUTOMATION_MATRIX='off:balanced:local;ar:careful:local;ar:balanced:local;ar:aggressive:local'
+$env:SAGA_LIVE_LORE_AUTOMATION_MESSAGE_LIMIT='20'
+$env:SAGA_LIVE_LORE_AUTOMATION_AR_MODEL='0'
+$env:SAGA_SMOKE_REPORT='assets/documentation/renders/saga-smoke/live-lore-automation-ar-local-baseline-report.json'
+node tools/scripts/smoke-live-st-cdp.mjs
+```
+
+Recommended Level 1 AR Utility model pass:
+
+```powershell
+$env:SAGA_LIVE_LORE_AUTOMATION_SCENARIOS='tail,malfoy-manor'
+$env:SAGA_LIVE_LORE_AUTOMATION_MATRIX='ar:careful:utility;ar:balanced:utility;ar:aggressive:utility'
+$env:SAGA_LIVE_LORE_AUTOMATION_MESSAGE_LIMIT='20'
+$env:SAGA_LIVE_LORE_AUTOMATION_TIMEOUT_MS='300000'
+$env:SAGA_LIVE_LORE_AUTOMATION_AR_MODEL='1'
+$env:SAGA_SMOKE_REPORT='assets/documentation/renders/saga-smoke/live-lore-automation-ar-utility-model-report.json'
+node tools/scripts/smoke-live-st-cdp.mjs
+```
+
 Recommended isolated curation pass:
 
 ```powershell
 $env:SAGA_LIVE_LORE_AUTOMATION_SCENARIOS='curation-gap,retirement-overload'
 $env:SAGA_LIVE_LORE_AUTOMATION_MATRIX='armpc:balanced:reasoning:curation'
 $env:SAGA_LIVE_LORE_AUTOMATION_TIMEOUT_MS='300000'
+node tools/scripts/smoke-live-st-cdp.mjs
+```
+
+Recommended curation style-isolation pass:
+
+```powershell
+$env:SAGA_LIVE_LORE_AUTOMATION_SCENARIOS='curation-gap,retirement-overload'
+$env:SAGA_LIVE_LORE_AUTOMATION_MATRIX='armpc:careful:reasoning:curation;armpc:aggressive:reasoning:curation'
+$env:SAGA_LIVE_LORE_AUTOMATION_MESSAGE_LIMIT='20'
+$env:SAGA_LIVE_LORE_AUTOMATION_TIMEOUT_MS='300000'
+$env:SAGA_SMOKE_REPORT='assets/documentation/renders/saga-smoke/live-lore-automation-style-curation-report.json'
+node tools/scripts/smoke-live-st-cdp.mjs
+```
+
+Recommended full ARMPC style pass:
+
+```powershell
+$env:SAGA_LIVE_LORE_AUTOMATION_SCENARIOS='curation-gap,retirement-overload'
+$env:SAGA_LIVE_LORE_AUTOMATION_MATRIX='armpc:careful:auto;armpc:balanced:auto;armpc:aggressive:auto'
+$env:SAGA_LIVE_LORE_AUTOMATION_MESSAGE_LIMIT='20'
+$env:SAGA_LIVE_LORE_AUTOMATION_TIMEOUT_MS='300000'
+$env:SAGA_SMOKE_REPORT='assets/documentation/renders/saga-smoke/live-lore-automation-style-full-report.json'
 node tools/scripts/smoke-live-st-cdp.mjs
 ```
 
@@ -92,14 +150,19 @@ For each scenario and matrix entry, inspect:
 - `diff.accepted`, `diff.retired`, `diff.relevanceChanges`, `diff.pinAdded`, and `diff.muteAdded`.
 - `scenarioProbe` for any in-memory setup the harness applied before automation ran.
 - `diagnostics.stackPressure` and `diagnostics.preview` for candidate/pressure evidence before the run.
+- `diagnostics.remapPreview` for local ARMP pin/mute/unpin/unmute candidates that were sent to the Utility or Reasoning Provider.
 - `lastRun.operations` for the run journal evidence that users can later inspect or undo.
+- `lastRun.automationOperations` for pin/mute/accept/retire evidence that might appear after the truncated relevance-operation preview in full-pass runs.
 
 Treat these as tuning signals:
 
 - Provider path unavailable or malformed: fix provider routing, prompt shape, or response parsing before tuning thresholds.
-- No provider calls recorded in a provider-backed matrix: the candidate gate is too narrow, the scenario lacks active-deck/context pressure, or the route fell back to local unexpectedly.
+- No provider calls recorded in a provider-backed matrix: the candidate gate is too narrow, the scenario lacks active-deck/context pressure, or the route fell back to local unexpectedly. All-local and Off baseline matrices are allowed to record zero provider calls.
+- AR Utility model rows return `No message generated`: reduce the model candidate packet before accepting local fallback as good enough.
 - ARMPC accepts too many broad cards: tighten curation prompt language, candidate packing, or target caps.
 - ARMPC accepts nothing despite clear current-scene pressure: improve scene/context seeding, coverage lanes, or candidate ranking before raising caps.
+- Careful and Aggressive curation behave the same on a gap/retirement probe: inspect whether the provider prompt carries style policy, caps, and stack-pressure context before tuning thresholds.
+- ARMPC full-pass retirement pressure turns only into mutes: verify stale automation-owned cards remain eligible for curation after ARMP remapping mutates pin/mute state.
 - ARMP pins/mutes unrelated cards: inspect local score reasons and model operations before changing thresholds.
 - ARMP never acts: verify local remap candidates exist before blaming the Utility Provider.
 

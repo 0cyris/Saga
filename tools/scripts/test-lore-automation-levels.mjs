@@ -114,7 +114,7 @@ const disabledEntry = disableLoreAutomationForManualChange(
   { at: Date.now(), by: 'user' },
 );
 state.loreMatrix = [enabledEntry, disabledEntry];
-state.loreSelection = { pinnedIds: [], suppressedIds: [] };
+state.loreSelection = { pinnedIds: [], suppressedIds: [], elevated: {} };
 state.autoRelevanceSuggestions = [];
 state.loreAutomationSuggestions = [];
 state.loreAutomationRuns = [];
@@ -126,13 +126,19 @@ assert.equal(LORE_AUTOMATION_MODE_LABELS.off, 'Off');
 assert.equal(LORE_AUTOMATION_MODE_LABELS.ar, 'AR');
 assert.equal(LORE_AUTOMATION_MODE_LABELS.armp, 'ARMP');
 assert.equal(LORE_AUTOMATION_MODE_LABELS.armpc, 'ARMPC');
-assert.equal(LORE_AUTOMATION_MODE_TOOLTIPS.armpc, 'Auto-Relevance, Muting, Pinning, Curating.');
+assert.equal(LORE_AUTOMATION_MODE_TOOLTIPS.armpc, 'Auto-Relevance, Muting, and Curating.');
 assert.equal(isLoreAutomationEnabledForEntry(disabledEntry), false);
+
+const initialRemapPreview = __autoRelevanceTestHooks.previewLoreAutomationRemapCandidates(getState(), getSettings(), ctx.chat.map(message => message.mes).join('\n'));
+assert.equal(Object.hasOwn(initialRemapPreview.counts, 'pin'), false, `ARMP remap diagnostics must not expose pin candidates: ${JSON.stringify(initialRemapPreview)}`);
+assert.equal(Object.hasOwn(initialRemapPreview.counts, 'unpin'), false, `ARMP remap diagnostics must not expose unpin candidates: ${JSON.stringify(initialRemapPreview)}`);
 
 const actionResult = await runAutoRelevance({ force: true });
 assert.equal(actionResult.status, 'changed', `Expected careful ARMP to act directly: ${JSON.stringify(actionResult)}`);
-assert.deepEqual(getState().loreSelection.pinnedIds, ['bezoar_rescue']);
-assert.ok(!getState().loreSelection.pinnedIds.includes('disabled_bezoar_rescue'), 'Manual-disabled card must remain untouched.');
+assert.equal(getState().loreMatrix.find(entry => entry.id === 'bezoar_rescue')?.relevance, 'high', 'ARMP should promote a strongly current card through relevance, not Pin.');
+assert.deepEqual(getState().loreSelection.pinnedIds, [], 'ARMP must not write legacy pinnedIds.');
+assert.deepEqual(getState().loreSelection.elevated, {}, 'Lore Automation must not Elevate cards.');
+assert.equal(getState().loreMatrix.find(entry => entry.id === 'disabled_bezoar_rescue')?.relevance, 'normal', 'Manual-disabled card must remain untouched.');
 assert.equal(getState().loreAutomationSuggestions.length, 0, 'Careful ARMP must not create a primary remap suggestion queue.');
 assert.equal(getState().loreAutomationLastRun.status, 'changed');
 assert.equal(getSettings().loreAutomationMode, 'armp');
@@ -149,6 +155,10 @@ const pacing = __autoRelevanceTestHooks.getLoreAutomationPacingPolicy(getSetting
 assert.equal(pacing.pacing, 'normal');
 assert.equal(pacing.remapWordBudget, 120, 'Narrative remap cadence should use word budgets, not turn counters.');
 assert.equal(pacing.curationWordBudget, 240, 'Narrative curation cadence should use word budgets, not turn counters.');
+const carefulPolicy = __autoRelevanceTestHooks.getLoreAutomationStylePromptPolicy({ style: 'careful', curationCap: 1, retirementCap: 1 });
+const aggressivePolicy = __autoRelevanceTestHooks.getLoreAutomationStylePromptPolicy({ style: 'aggressive', curationCap: 4, retirementCap: 3 });
+assert.ok(carefulPolicy.additionPolicy.includes('It is valid to add 0 cards') && carefulPolicy.ambiguityPolicy.includes('hold'), 'Careful curation prompt policy must preserve conservative action semantics.');
+assert.ok(aggressivePolicy.additionPolicy.includes('Add every clearly useful active-scene constraint') && aggressivePolicy.ambiguityPolicy.includes('prefer add_now or retire'), 'Aggressive curation prompt policy must push the reasoner to act on specific current-scene evidence.');
 ctx.extensionSettings[MODULE_KEY] = {
   ...ctx.extensionSettings[MODULE_KEY],
   loreAutomationCadenceMode: 'manual',
@@ -163,7 +173,7 @@ assert.equal(__autoRelevanceTestHooks.isLoreAutomationBackgroundEnabled(getSetti
 
 const undoResult = undoLastLoreAutomationRun();
 assert.equal(undoResult.status, 'undone', `Expected undo to reverse latest automation run: ${JSON.stringify(undoResult)}`);
-assert.deepEqual(getState().loreSelection.pinnedIds, [], 'Undo Last Run should reverse automation pin changes.');
+assert.equal(getState().loreMatrix.find(entry => entry.id === 'bezoar_rescue')?.relevance, 'normal', 'Undo Last Run should reverse automation relevance changes.');
 assert.equal(getState().loreAutomationLastRun.status, 'undone');
 
 ctx.extensionSettings[MODULE_KEY] = {
@@ -189,7 +199,7 @@ curationState.loreContext = state.loreContext;
 curationState.canon = state.canon;
 curationState.scene = state.scene;
 curationState.loreMatrix = [staleAutoEntry];
-curationState.loreSelection = { pinnedIds: [], suppressedIds: [] };
+curationState.loreSelection = { pinnedIds: [], suppressedIds: ['stale_auto_curated_card'] };
 curationState.loreAutomationCadence = {
   ...(curationState.loreAutomationCadence || {}),
   staleEvidenceByCardId: { stale_auto_curated_card: 1 },

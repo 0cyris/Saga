@@ -162,6 +162,137 @@
     top: 8px;
 }
 
+.saga-lore-relevance-segmented-elevated {
+    border-color: var(--saga-activate-soft, rgba(107, 255, 89, 0.56));
+    box-shadow: 0 0 10px var(--saga-activate-surface, rgba(107, 255, 89, 0.18));
+}
+
+.saga-lore-relevance-segment:disabled {
+    cursor: default;
+    opacity: 0.88;
+}
+
+.saga-lorecard-mute-toggle,
+.saga-lorecard-elevate-toggle {
+    width: 28px;
+    height: 28px;
+    min-width: 28px !important;
+    padding: 0 !important;
+    display: inline-grid !important;
+    place-items: center;
+    border-radius: 7px !important;
+    box-sizing: border-box;
+}
+
+.saga-lorecard-mic-icon {
+    position: relative;
+    width: 14px;
+    height: 16px;
+    color: currentColor;
+}
+
+.saga-lorecard-mic-head,
+.saga-lorecard-mic-stem,
+.saga-lorecard-mic-slash {
+    position: absolute;
+    display: block;
+}
+
+.saga-lorecard-mic-head {
+    left: 4px;
+    top: 1px;
+    width: 6px;
+    height: 9px;
+    border: 1.6px solid currentColor;
+    border-radius: 5px;
+}
+
+.saga-lorecard-mic-stem {
+    left: 6px;
+    top: 10px;
+    width: 2px;
+    height: 5px;
+    background: currentColor;
+    border-radius: 2px;
+}
+
+.saga-lorecard-mic-stem::after {
+    content: "";
+    position: absolute;
+    left: -4px;
+    bottom: 0;
+    width: 10px;
+    height: 2px;
+    border-radius: 2px;
+    background: currentColor;
+}
+
+.saga-lorecard-mic-slash {
+    left: 1px;
+    top: 1px;
+    width: 14px;
+    height: 2px;
+    border-radius: 2px;
+    background: currentColor;
+    transform: rotate(-42deg);
+    transform-origin: center;
+    opacity: 0;
+}
+
+.saga-lorecard-mute-toggle-live {
+    color: var(--saga-chip-source-fg, #d8b66d) !important;
+}
+
+.saga-lorecard-mute-toggle-muted {
+    color: var(--saga-chip-muted-fg, #b8ad98) !important;
+    background: var(--saga-chip-muted-bg, rgba(174, 179, 189, 0.08)) !important;
+    border-color: var(--saga-chip-muted-border, rgba(174, 179, 189, 0.22)) !important;
+}
+
+.saga-lorecard-mute-toggle-muted .saga-lorecard-mic-slash {
+    opacity: 1;
+}
+
+.saga-lorecard-elevate-toggle {
+    border-color: var(--saga-activate-soft, rgba(107, 255, 89, 0.56)) !important;
+}
+
+.saga-mobile-lorecard-status-controls {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 6px;
+    flex: 0 0 auto;
+    order: 2;
+    margin-left: auto;
+}
+
+.saga-mobile-lorecard-relevance-status {
+    display: inline-grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border: 1px solid var(--saga-chip-neutral-border, rgba(209, 213, 219, 0.2));
+    border-radius: 7px;
+    color: var(--saga-chip-muted-fg, #b8ad98);
+    background: var(--saga-chip-neutral-bg, rgba(24, 25, 31, 0.82));
+}
+
+.saga-mobile-lorecard-relevance-status[data-saga-relevance="high"] {
+    color: var(--saga-chip-relevance-high-fg, #dcfce7);
+    background: var(--saga-chip-relevance-high-bg, rgba(22, 101, 52, 0.46));
+}
+
+.saga-mobile-lorecard-relevance-status[data-saga-relevance="normal"] {
+    color: var(--saga-chip-relevance-normal-fg, #dbeafe);
+    background: var(--saga-chip-relevance-normal-bg, rgba(30, 64, 175, 0.42));
+}
+
+.saga-mobile-lorecard-relevance-status[data-saga-relevance="low"] {
+    color: var(--saga-chip-relevance-low-fg, #e2e8f0);
+    background: var(--saga-chip-relevance-low-bg, rgba(71, 85, 105, 0.42));
+}
+
 .saga-lorecard-workspace {
     container-type: inline-size;
     display: flex;
@@ -189,20 +320,29 @@
     gap: 6px;
 }
 
+.saga-lorecard-workspace-search-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1 1 100%;
+    min-width: 0;
+    max-width: 100%;
+}
+
 .saga-lorecard-workspace-search {
-    flex: 1 1 260px;
-    min-width: min(100%, 240px);
+    flex: 1 1 220px;
+    min-width: 0;
     min-height: 34px;
     font-size: 14px;
 }
 
 .saga-lorecard-workspace-sort-toggle {
     display: inline-grid;
-    grid-template-columns: repeat(2, 28px);
+    grid-template-columns: repeat(2, 16px);
     align-items: center;
     flex: 0 0 auto;
-    min-height: 34px;
-    padding: 2px;
+    min-height: 20px;
+    padding: 1px;
     border: 1px solid var(--saga-border-soft, rgba(185, 139, 54, 0.24));
     border-radius: 999px;
     background: var(--saga-input, rgba(12, 13, 18, 0.78));
@@ -211,16 +351,16 @@
 .saga-lorecard-workspace-sort-option {
     display: inline-grid;
     place-items: center;
-    width: 28px;
-    height: 28px;
-    min-width: 28px;
+    width: 16px;
+    height: 16px;
+    min-width: 16px;
     margin: 0;
     padding: 0;
     border: 0;
     border-radius: 999px;
     background: transparent;
     color: var(--saga-muted, rgba(226, 219, 207, 0.72));
-    font-size: 13px;
+    font-size: 9.5px;
     font-weight: 800;
     line-height: 1;
     cursor: pointer;
@@ -238,7 +378,7 @@
     color: var(--saga-on-accent, #181008);
     box-shadow:
         0 0 0 1px rgba(255, 236, 170, 0.22) inset,
-        0 0 10px var(--saga-gold-surface, rgba(215, 181, 109, 0.16));
+        0 0 6px var(--saga-gold-surface, rgba(215, 181, 109, 0.16));
 }
 
 .saga-lorecard-workspace-utilities {
@@ -318,7 +458,8 @@
     font-size: 14px;
 }
 
-.saga-lorecard-workspace-row.saga-lore-entry-active {
+.saga-lorecard-workspace-row.saga-lore-entry-elevated,
+.saga-lore-entry-card.saga-lore-entry-elevated {
     border-color: var(--saga-activate, #6bff59) !important;
     box-shadow:
         0 0 0 1px var(--saga-activate-soft, rgba(107, 255, 89, 0.56)),
@@ -326,7 +467,8 @@
         0 0 36px var(--saga-activate-surface, rgba(107, 255, 89, 0.18));
 }
 
-.saga-lore-panel:not(.saga-runtime-mobile) .saga-lorecard-workspace-row.saga-lore-entry-active {
+.saga-lore-panel:not(.saga-runtime-mobile) .saga-lorecard-workspace-row.saga-lore-entry-elevated,
+.saga-lore-panel:not(.saga-runtime-mobile) .saga-lore-entry-card.saga-lore-entry-elevated {
     box-shadow:
         0 0 0 1px var(--saga-activate-soft, rgba(107, 255, 89, 0.56)),
         0 0 6px var(--saga-activate-glow, rgba(107, 255, 89, 0.48)),
@@ -339,13 +481,10 @@
     filter: saturate(0.75);
 }
 
-.saga-lorecard-workspace-row.saga-lore-entry-suppressed.saga-lore-entry-active {
+.saga-lorecard-workspace-row.saga-lore-entry-suppressed.saga-lore-entry-elevated,
+.saga-lore-entry-card.saga-lore-entry-suppressed.saga-lore-entry-elevated {
     border-color: var(--saga-border-soft, rgba(185, 139, 54, 0.18)) !important;
     box-shadow: none;
-}
-
-.saga-lorecard-workspace-row.saga-lore-entry-pinned:not(.saga-lore-entry-active) {
-    border-color: var(--saga-border-strong, rgba(215, 181, 109, 0.58));
 }
 
 .saga-lorecard-workspace-row.saga-lore-entry-pending,
@@ -454,7 +593,7 @@
 }
 
 .saga-runtime-mobile .saga-lorecard-workspace-toolbar {
-    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-columns: minmax(0, 1fr);
     align-items: center;
 }
 
@@ -756,6 +895,7 @@
 
 .saga-runtime-mobile .saga-lore-entry-card-tappable {
     cursor: pointer;
+    touch-action: pan-y;
 }
 
 .saga-runtime-mobile .saga-lore-entry-card-tappable,
@@ -790,6 +930,62 @@
     animation: saga-mobile-lorecard-longpress-commit 180ms ease-out;
 }
 
+.saga-runtime-mobile .saga-mobile-lorecard-gesture-feedback {
+    position: relative;
+    overflow: hidden;
+}
+
+.saga-runtime-mobile .saga-mobile-lorecard-gesture-feedback::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    border-radius: inherit;
+    opacity: 0;
+    animation: saga-mobile-lorecard-power-sweep 520ms ease-out forwards;
+}
+
+.saga-runtime-mobile .saga-mobile-lorecard-gesture-feedback::after {
+    content: attr(data-saga-gesture-label);
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 2;
+    padding: 3px 7px;
+    border: 1px solid currentColor;
+    border-radius: 7px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0;
+    line-height: 1;
+    color: var(--saga-text, #f1ead8);
+    background: rgba(8, 12, 14, 0.82);
+    opacity: 0;
+    transform: translateY(4px);
+    animation: saga-mobile-lorecard-feedback-pop 520ms ease-out forwards;
+}
+
+.saga-runtime-mobile .saga-mobile-lorecard-gesture-up::before {
+    background:
+        linear-gradient(90deg, transparent 0%, var(--saga-activate-surface, rgba(107, 255, 89, 0.18)) 34%, rgba(107, 255, 89, 0.28) 58%, transparent 100%),
+        radial-gradient(circle at 88% 24%, rgba(107, 255, 89, 0.28), transparent 38%);
+}
+
+.saga-runtime-mobile .saga-mobile-lorecard-gesture-down::before {
+    background:
+        linear-gradient(270deg, transparent 0%, rgba(96, 165, 250, 0.2) 36%, rgba(99, 102, 241, 0.24) 58%, transparent 100%),
+        radial-gradient(circle at 12% 24%, rgba(96, 165, 250, 0.24), transparent 38%);
+}
+
+.saga-runtime-mobile .saga-mobile-lorecard-relevance-flash {
+    animation: saga-mobile-lorecard-relevance-flash 420ms ease-out;
+}
+
+.saga-runtime-mobile .saga-mobile-lorecard-elevation-pop {
+    animation: saga-mobile-lorecard-elevation-pop 360ms ease-out;
+}
+
 @keyframes saga-mobile-lorecard-longpress-hold {
     0% {
         opacity: 0;
@@ -816,10 +1012,73 @@
     }
 }
 
+@keyframes saga-mobile-lorecard-power-sweep {
+    0% {
+        opacity: 0;
+        transform: translateX(var(--saga-sweep-start, -20%));
+    }
+    22% {
+        opacity: 0.95;
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(var(--saga-sweep-end, 18%));
+    }
+}
+
+@keyframes saga-mobile-lorecard-feedback-pop {
+    0% {
+        opacity: 0;
+        transform: translateY(4px) scale(0.96);
+    }
+    22% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-4px) scale(1);
+    }
+}
+
+@keyframes saga-mobile-lorecard-relevance-flash {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+    }
+    38% {
+        transform: scale(1.16);
+        box-shadow: 0 0 16px currentColor;
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+    }
+}
+
+@keyframes saga-mobile-lorecard-elevation-pop {
+    0% {
+        transform: scale(1);
+    }
+    45% {
+        transform: scale(1.018);
+        box-shadow:
+            0 0 0 1px var(--saga-activate-soft, rgba(107, 255, 89, 0.56)),
+            0 0 22px var(--saga-activate-glow, rgba(107, 255, 89, 0.48));
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     .saga-runtime-mobile .saga-mobile-lorecard-longpress-armed,
     .saga-runtime-mobile .saga-mobile-lorecard-longpress-armed::after,
-    .saga-runtime-mobile .saga-mobile-lorecard-longpress-commit {
+    .saga-runtime-mobile .saga-mobile-lorecard-longpress-commit,
+    .saga-runtime-mobile .saga-mobile-lorecard-gesture-feedback::before,
+    .saga-runtime-mobile .saga-mobile-lorecard-gesture-feedback::after,
+    .saga-runtime-mobile .saga-mobile-lorecard-relevance-flash,
+    .saga-runtime-mobile .saga-mobile-lorecard-elevation-pop {
         animation: none;
         transform: none;
     }
@@ -2794,6 +3053,26 @@
 .saga-mobile-lorecard-entry-editor {
     gap: 10px;
     padding: 10px;
+}
+
+.saga-mobile-lorecard-editor-overlay-closing {
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.saga-mobile-lorecard-editor-loading {
+    flex: 1 1 auto;
+    min-height: 160px;
+    display: grid;
+    place-content: center;
+    justify-items: center;
+    gap: 8px;
+    color: var(--saga-muted, rgba(241, 234, 216, 0.72));
+    font-size: 0.86rem;
+}
+
+.saga-mobile-lorecard-editor-action-slot {
+    min-width: 0;
 }
 
 .saga-mobile-lorecard-entry-editor .saga-lore-editor-field,

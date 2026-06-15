@@ -2706,9 +2706,9 @@
 }
 
 .saga-loredeck-library-launch-card {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
     align-items: center;
     border-color: rgba(215, 181, 109, 0.26);
     background:
@@ -2717,14 +2717,22 @@
 }
 
 .saga-loredeck-library-launch-main {
-    min-width: 0;
+    flex: 1 1 280px;
+    min-width: min(100%, 280px);
     display: flex;
     flex-direction: column;
     gap: 5px;
 }
 
 .saga-loredeck-library-launch-actions {
+    flex: 0 1 auto;
     justify-content: flex-end;
+    margin-left: auto;
+    max-width: 100%;
+}
+
+.saga-loredeck-library-launch-actions .saga-runtime-button {
+    white-space: nowrap;
 }
 
 .saga-loredeck-library-shell {
@@ -4818,7 +4826,6 @@
 }
 
 @media (max-width: 640px) {
-    .saga-loredeck-library-launch-card,
     .saga-loredeck-library-detail-identity,
     .saga-loredeck-library-stack-card,
     .saga-loredeck-library-deck-card {
@@ -4836,6 +4843,10 @@
     .saga-loredeck-library-launch-actions,
     .saga-loredeck-library-folder-actions {
         justify-content: flex-start;
+    }
+
+    .saga-loredeck-library-launch-actions {
+        margin-left: 0;
     }
 
     .saga-loredeck-library-controls,

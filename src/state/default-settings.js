@@ -185,7 +185,7 @@ export const DEFAULT_SETTINGS = {
     autoRelevanceProtectPinned: true,
     autoRelevanceEvaluateMuted: false,
     autoRelevanceUseModel: false,
-    autoRelevanceModelCandidateCap: 30,
+    autoRelevanceModelCandidateCap: 20,
     autoRelevanceModelMaxTokens: 2048,
     autoRelevanceModelRecentChars: 5000,
 
@@ -292,7 +292,7 @@ Do not exceed the maximum range; remove lower-value wording if the output is too
 
 Rules:
 - Preserve secrets, knowledge boundaries, canon or story-established constraints, current-scene relevant facts, and active hazards.
-- Preserve pinned/protected lore more fully than ordinary lore.
+- Preserve Elevated/protected lore more fully than ordinary lore.
 - Merge redundant entries where possible and drop low-value wording. Drop generic reference/glossary facts if they appear; preserve only specific constraints, dates, knowledge boundaries, status changes, and story-established facts.
 - At compression level 3 or higher, prefer compact bullets and phrase fragments over prose.
 - Do not invent facts.

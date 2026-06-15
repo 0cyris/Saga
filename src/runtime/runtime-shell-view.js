@@ -715,7 +715,7 @@ export function refreshRuntimeHeader(panelRoot) {
     if (pendingDelta + pendingLore > 0) {
         status.appendChild(createStatusPill(`Pending: ${pendingDelta + pendingLore}`, 'Pending Review entries plus any legacy continuity delta.', { tone: 'review', kind: 'count' }));
     }
-    status.appendChild(createStatusPill(`Lore Selected: ${selectedLore}`, 'Accepted Lorecards selected for the next injection after context activation, priority, pinning, and muting.', { tone: selectedLore ? 'selected' : 'muted', kind: 'count' }));
+    status.appendChild(createStatusPill(`Lore Selected: ${selectedLore}`, 'Accepted Lorecards selected for the next injection after context activation, relevance, Elevate, and Mute rules.', { tone: selectedLore ? 'selected' : 'muted', kind: 'count' }));
     void counts;
 }
 

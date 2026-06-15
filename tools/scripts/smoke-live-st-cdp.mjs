@@ -19,6 +19,7 @@ const LIVE_CONTEXT_LOADED_PACK_TITLE = 'Harry Potter Year 6: Half-Blood Prince';
 const LIVE_CONTEXT_REASONER_TARGET = 'live-context-reasoner';
 const LIVE_CREATOR_TARGET = 'live-creator';
 const LIVE_LORE_AUTOMATION_TARGET = 'live-lore-automation';
+const LIVE_MOBILE_LORECARD_LATENCY_TARGET = 'live-mobile-lorecard-latency';
 const STORAGE_HARNESS_TARGET = 'storage-harness';
 const MOBILE_ADVANCED_HARNESS_TARGET = 'mobile-advanced-harness';
 const MOBILE_REDESIGN_HARNESS_TARGET = 'mobile-redesign-harness';
@@ -936,6 +937,13 @@ function isExpectedLiveLoreAutomation404(error = '') {
         && /\/user\/files\/saga-(?:theme-index|iconset-index|library-index|storage-index)\.v1\.json/i.test(message);
 }
 
+function isExpectedLiveMobileLorecardLatency404(error = '') {
+    const message = String(error || '');
+    return SMOKE_TARGET === LIVE_MOBILE_LORECARD_LATENCY_TARGET
+        && /Failed to load resource: the server responded with a status of 404/i.test(message)
+        && /\/user\/files\/saga-(?:theme-index|iconset-index)\.v1\.json/i.test(message);
+}
+
 function isExpectedRepoLocalHarnessStorageError(error = '') {
     const message = String(error || '');
     return ['context-harness', 'guide-harness', 'creator-harness', DESKTOP_LORECARDS_HARNESS_TARGET, MOBILE_ADVANCED_HARNESS_TARGET, MOBILE_REDESIGN_HARNESS_TARGET, TABLET_ADVANCED_HARNESS_TARGET].includes(SMOKE_TARGET)
@@ -1328,6 +1336,119 @@ function addMobileFontFindings(findings, audit) {
         .map(item => `${item.size}px ${item.selector || item.text}`)
         .join('; ');
     findings.push(`Mobile font audit failed for ${audit.label}: ${audit.min}px-${audit.max}px (${audit.ratio.toFixed(2)}x). Smallest: ${smallest}. Largest: ${largest}.`);
+}
+
+async function measureMobileLorecardEditorLatency(client, options = {}) {
+    return await evaluate(client, script(async input => {
+        const selector = input?.selector || '.saga-lore-entry-card[data-entry-id="smoke_long_title_lore"]';
+        const iterations = Math.max(1, Math.min(8, Number(input?.iterations) || 3));
+        const holdDelayMs = Math.max(0, Number(input?.holdDelayMs) || 520);
+        const timeoutMs = Math.max(1000, Number(input?.timeoutMs) || 3000);
+        const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+        const nextFrame = () => new Promise(resolve => requestAnimationFrame(() => resolve()));
+        const round = value => Number.isFinite(value) ? Math.round(value * 10) / 10 : null;
+        const summarize = values => {
+            const clean = values.filter(value => Number.isFinite(value)).sort((a, b) => a - b);
+            if (!clean.length) return { count: 0, min: null, median: null, p95: null, max: null };
+            const at = ratio => clean[Math.min(clean.length - 1, Math.max(0, Math.ceil(clean.length * ratio) - 1))];
+            return {
+                count: clean.length,
+                min: round(clean[0]),
+                median: round(clean[Math.floor(clean.length / 2)]),
+                p95: round(at(0.95)),
+                max: round(clean[clean.length - 1]),
+            };
+        };
+        const waitForState = async (predicate, startedAt, label) => {
+            const deadline = performance.now() + timeoutMs;
+            let ok = false;
+            while (performance.now() < deadline) {
+                if (predicate()) {
+                    ok = true;
+                    break;
+                }
+                await nextFrame();
+            }
+            return { ok, ms: round(performance.now() - startedAt), label };
+        };
+        const isOverlayReady = () => document.querySelector('#saga-mobile-lorecard-editor')?.dataset?.sagaEditorReady === 'true';
+        const isOverlayHidden = () => {
+            const overlay = document.querySelector('#saga-mobile-lorecard-editor');
+            if (!overlay) return true;
+            const style = getComputedStyle(overlay);
+            return overlay.getAttribute('aria-hidden') === 'true'
+                || style.visibility === 'hidden'
+                || style.display === 'none'
+                || Number(style.opacity || 1) === 0;
+        };
+        const samples = [];
+        const failures = [];
+        for (let index = 0; index < iterations; index += 1) {
+            document.querySelector('#saga-mobile-lorecard-editor')?.remove();
+            const card = document.querySelector(selector);
+            if (!card) {
+                failures.push(`missing-card:${selector}`);
+                break;
+            }
+            card.scrollIntoView({ block: 'center', inline: 'nearest' });
+            await nextFrame();
+            const rect = card.getBoundingClientRect();
+            const pointer = {
+                bubbles: true,
+                cancelable: true,
+                pointerId: 91 + index,
+                pointerType: 'touch',
+                clientX: rect.left + Math.max(8, Math.min(32, rect.width / 3)),
+                clientY: rect.top + Math.max(8, Math.min(32, rect.height / 3)),
+            };
+            const openStart = performance.now();
+            card.dispatchEvent(new PointerEvent('pointerdown', pointer));
+            const ready = await waitForState(isOverlayReady, openStart, 'longpress-ready');
+            card.dispatchEvent(new PointerEvent('pointerup', pointer));
+            if (!ready.ok) {
+                failures.push(`open-timeout:${index}`);
+                continue;
+            }
+            const overlayBeforeContextMenu = document.querySelector('#saga-mobile-lorecard-editor');
+            card.dispatchEvent(new MouseEvent('contextmenu', { bubbles: true, cancelable: true, view: window }));
+            await nextFrame();
+            const duplicateReopened = overlayBeforeContextMenu !== document.querySelector('#saga-mobile-lorecard-editor');
+            const closeButton = [...document.querySelectorAll('#saga-mobile-lorecard-editor button')]
+                .find(button => (button.innerText || button.textContent || '').trim() === 'Close');
+            if (!closeButton) {
+                failures.push(`missing-close:${index}`);
+                continue;
+            }
+            const closeStart = performance.now();
+            closeButton.click();
+            const hidden = await waitForState(isOverlayHidden, closeStart, 'close-hidden');
+            const gone = await waitForState(() => !document.querySelector('#saga-mobile-lorecard-editor'), closeStart, 'close-gone');
+            if (!hidden.ok) failures.push(`close-hidden-timeout:${index}`);
+            if (!gone.ok) failures.push(`close-gone-timeout:${index}`);
+            samples.push({
+                longPressReadyMs: ready.ms,
+                postHoldReadyMs: round(Math.max(0, ready.ms - holdDelayMs)),
+                closeHiddenMs: hidden.ms,
+                closeGoneMs: gone.ms,
+                duplicateContextmenuReopened: duplicateReopened,
+            });
+            await sleep(80);
+        }
+        return {
+            selector,
+            iterations,
+            holdDelayMs,
+            samples,
+            failures,
+            summary: {
+                longPressReadyMs: summarize(samples.map(sample => sample.longPressReadyMs)),
+                postHoldReadyMs: summarize(samples.map(sample => sample.postHoldReadyMs)),
+                closeHiddenMs: summarize(samples.map(sample => sample.closeHiddenMs)),
+                closeGoneMs: summarize(samples.map(sample => sample.closeGoneMs)),
+                duplicateContextmenuReopened: samples.some(sample => sample.duplicateContextmenuReopened),
+            },
+        };
+    }, options), { userGesture: true, timeoutMs: options.timeoutMs || 20000, label: 'Measure mobile Lorecard editor latency' });
 }
 
 async function openMobileSessionDetailsForGuide(client) {
@@ -2218,6 +2339,10 @@ function compactLiveLoreAutomationProbe(probe = null) {
     return {
         type: probe.type || '',
         notes: Array.isArray(probe.notes) ? probe.notes : [],
+        protectedId: probe.protectedId || '',
+        protectedTitle: probe.protectedTitle || '',
+        protectedOperation: probe.protectedOperation || '',
+        previewCandidateCount: probe.previewCandidateCount || 0,
         removedAcceptedCount: probe.removedAcceptedCount || 0,
         markedAutomationOwnedCount: probe.markedAutomationOwnedCount || 0,
         forceStaleCount: probe.forceStaleCount || 0,
@@ -2278,6 +2403,7 @@ function buildLiveLoreAutomationConsoleReport(report = {}, reportPath = '') {
                 retired: row.result.retired || 0,
                 modelStatus: row.result.modelStatus || '',
                 providerStatus: row.result.providerStatus || '',
+                modelError: row.result.modelError || '',
             } : null,
             diff: row.diff?.counts || {},
             scenarioProbe: compactLiveLoreAutomationProbe(row.scenarioProbe || null),
@@ -2290,6 +2416,8 @@ function buildLiveLoreAutomationConsoleReport(report = {}, reportPath = '') {
                 retired: row.lastRun.retired || 0,
                 modelStatus: row.lastRun.modelStatus || '',
                 providerStatus: row.lastRun.providerStatus || '',
+                modelError: row.lastRun.modelError || '',
+                automationOperations: Array.isArray(row.lastRun.automationOperations) ? row.lastRun.automationOperations.slice(0, 8) : [],
                 operations: Array.isArray(row.lastRun.operations) ? row.lastRun.operations.slice(0, 6) : [],
             } : null,
         })) : [],
@@ -4555,7 +4683,7 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
         return true;
     }), { userGesture: true }).catch(() => false);
     if (!activeSetEditOpened) findings.push('Mobile Advanced Lore workspace item did not accept long-press/context-menu edit.');
-    await waitFor(client, '!!document.querySelector(".saga-mobile-lorecard-editor-shell")', 'Mobile Advanced Lore workspace full-window Lorecard editor', 10000).catch(error => findings.push(error.message));
+    await waitFor(client, 'document.querySelector("#saga-mobile-lorecard-editor")?.dataset?.sagaEditorReady === "true"', 'Mobile Advanced Lore workspace full-window Lorecard editor ready', 10000).catch(error => findings.push(error.message));
     const editorState = await evaluate(client, script(() => {
         const overlay = document.querySelector('#saga-mobile-lorecard-editor');
         const footer = overlay?.querySelector('.saga-mobile-lorecard-editor-footer');
@@ -4923,23 +5051,23 @@ async function runDesktopLorecardsHarnessSmoke(client, screenshots, findings, sm
     await waitFor(client, 'document.querySelector(".saga-runtime-rail-tab-active")?.getAttribute("data-tab-id") === "lore"', 'Desktop Lorecards tab active', 10000);
     await waitFor(client, '!!document.querySelector(".saga-lorecard-workspace-list") && !!document.querySelector(".saga-lorecard-workspace-detail")', 'Desktop Lorecards workspace rendered', 10000);
     await evaluate(client, script(() => {
-        const active = document.querySelector('.saga-lorecard-workspace-row.saga-lore-entry-active');
-        active?.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
-        return !!active;
+        const accepted = document.querySelector('.saga-lorecard-workspace-row[data-lorecard-workspace-status="accepted"]');
+        accepted?.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
+        return !!accepted;
     }), { userGesture: true }).catch(() => false);
     await wait(500);
 
     const interactionState = await evaluate(client, script(() => {
         const acceptedRow = document.querySelector('.saga-lorecard-workspace-row[data-lorecard-workspace-status="accepted"]');
         acceptedRow?.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
-        const activeSetItem = document.querySelector('.saga-lore-active-set-item');
-        activeSetItem?.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
+        const elevateButton = document.querySelector('.saga-lorecard-detail-actions .saga-lorecard-elevate-toggle');
+        elevateButton?.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
         const buttonLabels = [...document.querySelectorAll('.saga-lorecard-workspace button, .saga-lorecard-detail-card button, .saga-lore-active-set-section button')]
             .map(button => (button.innerText || button.textContent || '').trim())
             .filter(Boolean);
         return {
             acceptedRowClicked: !!acceptedRow,
-            activeSetItemClicked: !!activeSetItem,
+            elevatedClicked: !!elevateButton,
             editFieldsOpen: !!document.querySelector('.saga-lorecard-detail-card .saga-lore-editor-field, .saga-lorecard-detail-card .saga-lore-editor-textarea, .saga-lore-active-set-section .saga-lore-editor-field'),
             inspectLabels: buttonLabels.filter(label => /^inspect$/i.test(label)),
             editLabels: buttonLabels.filter(label => /^edit$/i.test(label)),
@@ -4986,11 +5114,14 @@ async function runDesktopLorecardsHarnessSmoke(client, screenshots, findings, sm
         const rowFact = document.querySelector('.saga-lorecard-workspace-row .saga-lore-entry-fact');
         const detailTitle = document.querySelector('.saga-lorecard-detail-card .saga-runtime-card-title');
         const detailFact = document.querySelector('.saga-lorecard-detail-card .saga-lore-entry-full-fact');
-        const activeToggle = document.querySelector('.saga-lorecard-detail-actions .saga-lorecard-active-toggle');
-        const activeRow = document.querySelector('.saga-lorecard-workspace-row.saga-lore-entry-active');
-        const activeRowStyle = activeRow ? getComputedStyle(activeRow) : null;
+        const elevateToggle = document.querySelector('.saga-lorecard-detail-actions .saga-lorecard-elevate-toggle');
+        const elevatedRow = document.querySelector('.saga-lorecard-workspace-row.saga-lore-entry-elevated');
+        const elevatedRowStyle = elevatedRow ? getComputedStyle(elevatedRow) : null;
         const activateToken = getComputedStyle(document.documentElement).getPropertyValue('--saga-activate').trim();
         const workspaceRect = rectOf('.saga-lorecard-workspace');
+        const searchRowRect = rectOf('.saga-lorecard-workspace-search-row');
+        const searchRect = rectOf('.saga-lorecard-workspace-search');
+        const sortToggleRect = rectOf('.saga-lorecard-workspace-sort-toggle');
         const listRect = rectOf('.saga-lorecard-workspace-list');
         const detailRect = rectOf('.saga-lorecard-workspace-detail');
         const bodyRect = rectOf('.saga-lorecard-workspace-body');
@@ -5006,25 +5137,28 @@ async function runDesktopLorecardsHarnessSmoke(client, screenshots, findings, sm
             workspaceOverflow: workspace ? workspace.scrollWidth > workspace.clientWidth + 1 : true,
             pageOverflow: document.documentElement.scrollWidth > document.documentElement.clientWidth + 1,
             sortOptions,
+            searchRowRect,
+            searchRect,
+            sortToggleRect,
             utilityButtons,
             rowTitleFontSize: rowTitle ? num(getComputedStyle(rowTitle).fontSize) : 0,
             rowFactFontSize: rowFact ? num(getComputedStyle(rowFact).fontSize) : 0,
             detailTitleFontSize: detailTitle ? num(getComputedStyle(detailTitle).fontSize) : 0,
             detailFactFontSize: detailFact ? num(getComputedStyle(detailFact).fontSize) : 0,
-            activeToggleLabel: activeToggle?.getAttribute('aria-label') || '',
-            activeToggleActive: !!activeToggle?.classList?.contains('saga-lorecard-active-toggle-active'),
-            activeToggleRound: !!activeToggle?.classList?.contains('saga-lorecard-active-toggle-button'),
-            activeToggleBorderColor: activeToggle ? getComputedStyle(activeToggle).borderColor : '',
-            activeToggleRect: activeToggle ? (() => {
-                const rect = activeToggle.getBoundingClientRect();
+            elevateToggleLabel: elevateToggle?.getAttribute('aria-label') || '',
+            elevateToggleActive: !!elevateToggle?.classList?.contains('saga-lorecard-elevate-toggle-active'),
+            elevateTogglePresent: !!elevateToggle?.classList?.contains('saga-lorecard-elevate-toggle'),
+            elevateToggleBorderColor: elevateToggle ? getComputedStyle(elevateToggle).borderColor : '',
+            elevateToggleRect: elevateToggle ? (() => {
+                const rect = elevateToggle.getBoundingClientRect();
                 return { width: rect.width, height: rect.height };
             })() : null,
-            activeToggleShadow: activeToggle ? getComputedStyle(activeToggle).boxShadow : '',
+            elevateToggleShadow: elevateToggle ? getComputedStyle(elevateToggle).boxShadow : '',
             activateToken,
-            activeRowBorderColor: activeRowStyle?.borderColor || '',
-            activeRowShadow: activeRowStyle?.boxShadow || '',
-            rowActiveToggleCount: document.querySelectorAll('.saga-lorecard-workspace-row .saga-lorecard-row-active-toggle').length,
-            rowActiveToggleActiveCount: document.querySelectorAll('.saga-lorecard-workspace-row .saga-lorecard-row-active-toggle.saga-lorecard-active-toggle-active').length,
+            elevatedRowBorderColor: elevatedRowStyle?.borderColor || '',
+            elevatedRowShadow: elevatedRowStyle?.boxShadow || '',
+            rowElevateToggleCount: document.querySelectorAll('.saga-lorecard-workspace-row .saga-lorecard-row-elevate-toggle').length,
+            rowElevateToggleActiveCount: document.querySelectorAll('.saga-lorecard-workspace-row .saga-lorecard-row-elevate-toggle.saga-lorecard-elevate-toggle-active').length,
             workspaceRect,
             bodyRect,
             listRect,
@@ -5044,11 +5178,19 @@ async function runDesktopLorecardsHarnessSmoke(client, screenshots, findings, sm
     if (!interactionState.editLabels.length) findings.push('Desktop Lorecards did not render an explicit Edit button.');
     if (layout.tagRowsInList) findings.push('Desktop Lorecards workspace rows still rendered tag walls in the scanning list.');
     if (!layout.sortOptions?.some(option => option.label === 'A' && option.value === 'alphabetical') || !layout.sortOptions?.some(option => option.label === 'P' && option.value === 'priority' && option.checked)) findings.push(`Desktop Lorecards workspace did not render the compact A/P sort toggle with Priority selected by default: ${JSON.stringify(layout.sortOptions)}.`);
+    if (!layout.searchRowRect || !layout.searchRect || !layout.sortToggleRect || layout.sortToggleRect.width > 38 || layout.sortToggleRect.height > 24 || Math.abs(layout.searchRect.top - layout.sortToggleRect.top) > 8 || layout.sortToggleRect.left < layout.searchRect.right - 1) {
+        findings.push(`Desktop Lorecards workspace sort toggle was not compact and aligned to the right of Search: ${JSON.stringify({
+            searchRowRect: layout.searchRowRect,
+            searchRect: layout.searchRect,
+            sortToggleRect: layout.sortToggleRect,
+        })}.`);
+    }
     if (layout.toolbarOverflow || layout.workspaceOverflow || layout.pageOverflow) findings.push('Desktop Lorecards workspace or toolbar still has horizontal overflow.');
     if (!layout.detailFitsWorkspace) findings.push('Desktop Lorecards detail pane overflows the workspace bounds.');
-    if (!layout.activeToggleLabel || !layout.activeToggleRound || !layout.activeToggleActive || !layout.activeToggleShadow || layout.activeToggleShadow === 'none' || layout.rowActiveToggleCount < 1 || layout.rowActiveToggleActiveCount < 1) findings.push('Desktop Lorecards active/deactivate controls did not render with the round glowing active-toggle treatment on detail and rows.');
-    if (!layout.activateToken || !layout.activeRowShadow || layout.activeRowBorderColor === 'rgb(215, 181, 109)') findings.push('Desktop Lorecards active row did not consume the Activate Theme Pack glow token.');
-    if (!layout.activeToggleRect || layout.activeToggleRect.height > 20 || layout.activeToggleRect.width > 20) findings.push('Desktop Lorecards active toggle did not render at the compact desktop scale.');
+    if (!interactionState.elevatedClicked) findings.push('Desktop Lorecards detail pane did not expose an Elevate button to click.');
+    if (!layout.elevateToggleLabel || !/remove elevation|elevated/i.test(layout.elevateToggleLabel) || !layout.elevateTogglePresent || !layout.elevateToggleActive || !layout.elevateToggleShadow || layout.elevateToggleShadow === 'none' || layout.rowElevateToggleCount < 1 || layout.rowElevateToggleActiveCount < 1) findings.push('Desktop Lorecards Elevate controls did not render active green treatment on detail and rows after Elevate was clicked.');
+    if (!layout.activateToken || !layout.elevatedRowShadow || layout.elevatedRowBorderColor === 'rgb(215, 181, 109)') findings.push('Desktop Lorecards Elevated row did not consume the Activate Theme Pack glow token.');
+    if (!layout.elevateToggleRect || layout.elevateToggleRect.height > 32 || layout.elevateToggleRect.width > 32) findings.push('Desktop Lorecards Elevate toggle did not render at the compact desktop control scale.');
     if (!layout.detailStacksBelowList && layout.bodyRect?.width < 920) findings.push('Desktop Lorecards narrow drawer did not stack the detail pane below the list.');
     const desktopLorecardsFontScaleInvalid = !layout.rowTitleFontSize
         || !layout.rowFactFontSize
@@ -5153,6 +5295,8 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
         const body = overlay?.querySelector('.saga-loredeck-library-mobile-body');
         const browse = overlay?.querySelector('.saga-loredeck-library-mobile-browse');
         const cards = [...overlay?.querySelectorAll('.saga-loredeck-library-deck-mobile-touch') || []];
+        const mobileDeckStatsLineCount = cards
+            .filter(card => !!card.querySelector('.saga-loredeck-library-card-stats')).length;
         const headerActionLabels = [...overlay?.querySelectorAll('.saga-loredeck-library-header-actions button') || []]
             .map(button => (button.innerText || button.textContent || '').trim())
             .filter(Boolean);
@@ -5178,6 +5322,7 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
             folderRows: overlay?.querySelectorAll('.saga-loredeck-library-folder-mobile-touch[data-folder-id]').length || 0,
             selectedStrip: overlay?.querySelector('.saga-loredeck-library-mobile-selected-strip')?.innerText || '',
             deckCards: cards.length,
+            mobileDeckStatsLineCount,
             generatedVisible: !!overlay?.querySelector('.saga-loredeck-library-deck-mobile-touch[data-pack-id="smoke-generated-creator-project"]'),
             noHorizontalOverflow: !overlay || overlay.scrollWidth <= overlay.clientWidth + 1,
         };
@@ -5193,6 +5338,7 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
     if (!libraryInitial.noDesktopColumns || !libraryInitial.noInlineDetails || !libraryInitial.noResizeHandle || !libraryInitial.noDefaultDragHandles) findings.push('Mobile redesign Library default browse still exposed desktop columns/details/resize/drag affordances.');
     if (!libraryInitial.noInlineTitleEdits) findings.push('Mobile redesign Library default browse still exposed inline title edit affordances.');
     if (!libraryInitial.selectedStrip.includes('active') || libraryInitial.deckCards < 2 || !libraryInitial.generatedVisible) findings.push('Mobile redesign Library did not show active selected strip and multiple tappable deck cards.');
+    if (libraryInitial.mobileDeckStatsLineCount) findings.push(`Mobile redesign Library still rendered deck file/update stats lines on ${libraryInitial.mobileDeckStatsLineCount} mobile cards.`);
     if (!libraryInitial.noHorizontalOverflow) findings.push('Mobile redesign Library browse has horizontal overflow.');
     screenshots.push(await screenshot(client, `${shotPrefix}-01-library-browse`));
 
@@ -5622,7 +5768,6 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
         count: approvedState.rowActiveToggleCount,
         activeCount: approvedState.rowActiveToggleActiveCount,
     })}.`);
-    if (!approvedState.activeBoxShadow || approvedState.activeBoxShadow === 'none' || approvedState.activeBorderColor === 'rgb(215, 181, 109)') findings.push('Mobile redesign Accepted active state did not render the Activate outline glow on the list card.');
     if (approvedState.tagRows !== 0) findings.push('Mobile redesign Accepted cards showed tag rows despite the default hidden mobile tag setting.');
     if (!approvedState.noHorizontalOverflow) findings.push('Mobile redesign Lore page has horizontal overflow.');
     if (approvedTooltipState.visible) findings.push(`Mobile redesign Lore sub-tab showed a floating tooltip: ${approvedTooltipState.text || 'blank'}.`);
@@ -5663,25 +5808,56 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
     }), { userGesture: true }).catch(error => ({ found: false, error: error?.message || String(error) }));
     if (!longPressCueState.found || !longPressCueState.armed || !longPressCueState.cleared || !longPressCueState.pressX || !longPressCueState.pressY) findings.push(`Mobile redesign Accepted card long-press cue did not arm and clear correctly: ${JSON.stringify(longPressCueState)}.`);
 
-    const longCardTapState = await evaluate(client, script(() => {
+    const longCardDoubleTapState = await evaluate(client, script(async () => {
         const card = document.querySelector('.saga-lore-entry-card[data-entry-id="smoke_long_title_lore"]');
-        if (!card) return { found: false, openedAfterTap: false };
-        const wasActive = card.classList.contains('saga-lore-entry-active');
-        card.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
-        const updatedCard = document.querySelector('.saga-lore-entry-card[data-entry-id="smoke_long_title_lore"]');
+        if (!card) return { found: false, openedAfterDoubleTap: false };
+        const wasElevated = card.classList.contains('saga-lore-entry-elevated');
+        const tap = (target, pointerId) => {
+            const rect = target.getBoundingClientRect();
+            const base = {
+                bubbles: true,
+                cancelable: true,
+                pointerId,
+                pointerType: 'touch',
+                clientX: rect.left + Math.min(40, Math.max(8, rect.width / 2)),
+                clientY: rect.top + Math.min(40, Math.max(8, rect.height / 2)),
+            };
+            target.dispatchEvent(new PointerEvent('pointerdown', base));
+            target.dispatchEvent(new PointerEvent('pointerup', base));
+        };
+        const doubleTap = (target, pointerId) => {
+            tap(target, pointerId);
+            tap(target, pointerId + 1);
+        };
+        doubleTap(card, 81);
+        await new Promise(resolve => setTimeout(resolve, 260));
+        const toggledCard = document.querySelector('.saga-lore-entry-card[data-entry-id="smoke_long_title_lore"]');
+        const isElevatedAfterDoubleTap = !!toggledCard?.classList?.contains('saga-lore-entry-elevated');
+        const elevatedStyle = toggledCard ? getComputedStyle(toggledCard) : null;
+        const elevatedBoxShadow = elevatedStyle?.boxShadow || '';
+        const elevatedBorderColor = elevatedStyle?.borderColor || '';
+        if (toggledCard) doubleTap(toggledCard, 83);
+        await new Promise(resolve => setTimeout(resolve, 260));
+        const restoredCard = document.querySelector('.saga-lore-entry-card[data-entry-id="smoke_long_title_lore"]');
         return {
             found: true,
-            wasActive,
-            isActiveAfterTap: !!updatedCard?.classList?.contains('saga-lore-entry-active'),
-            rowStillWorkspace: !!updatedCard?.classList?.contains('saga-lorecard-workspace-row'),
-            rowActionButtons: updatedCard?.querySelectorAll('.saga-lore-entry-actions button').length || 0,
-            openedAfterTap: !!document.querySelector('.saga-mobile-lorecard-editor-shell'),
+            wasElevated,
+            isElevatedAfterDoubleTap,
+            elevatedBoxShadow,
+            elevatedBorderColor,
+            isElevatedAfterRestore: !!restoredCard?.classList?.contains('saga-lore-entry-elevated'),
+            hasElevatedBadge: [...restoredCard?.querySelectorAll?.('.saga-chip, .saga-status-pill') || []].some(node => (node.innerText || node.textContent || '').trim().toLowerCase() === 'elevated'),
+            rowStillWorkspace: !!restoredCard?.classList?.contains('saga-lorecard-workspace-row'),
+            rowActionButtons: restoredCard?.querySelectorAll('.saga-lore-entry-actions button').length || 0,
+            openedAfterDoubleTap: !!document.querySelector('#saga-mobile-lorecard-editor, .saga-mobile-lorecard-editor-shell'),
         };
-    }), { userGesture: true }).catch(() => ({ found: false, openedAfterTap: false }));
-    if (!longCardTapState.found) findings.push('Mobile redesign Accepted long-title card was not present.');
-    if (longCardTapState.openedAfterTap) findings.push('Mobile redesign Accepted card opened editor on tap instead of reserving edit for long press.');
-    if (longCardTapState.wasActive === longCardTapState.isActiveAfterTap) findings.push(`Mobile redesign Accepted card tap did not toggle active state: ${JSON.stringify(longCardTapState)}.`);
-    if (!longCardTapState.rowStillWorkspace || longCardTapState.rowActionButtons) findings.push(`Mobile redesign Accepted card tap corrupted the workspace row or reintroduced action buttons: ${JSON.stringify(longCardTapState)}.`);
+    }), { userGesture: true }).catch(() => ({ found: false, openedAfterDoubleTap: false }));
+    if (!longCardDoubleTapState.found) findings.push('Mobile redesign Accepted long-title card was not present.');
+    if (longCardDoubleTapState.openedAfterDoubleTap) findings.push('Mobile redesign Accepted card opened editor on double-tap instead of reserving edit for long press.');
+    if (longCardDoubleTapState.wasElevated === longCardDoubleTapState.isElevatedAfterDoubleTap) findings.push(`Mobile redesign Accepted card double-tap did not toggle Elevation: ${JSON.stringify(longCardDoubleTapState)}.`);
+    if (longCardDoubleTapState.isElevatedAfterDoubleTap && (!longCardDoubleTapState.elevatedBoxShadow || longCardDoubleTapState.elevatedBoxShadow === 'none' || longCardDoubleTapState.elevatedBorderColor === 'rgba(185, 139, 54, 0.18)')) findings.push(`Mobile redesign Accepted card double-tap did not render the Elevated glow: ${JSON.stringify(longCardDoubleTapState)}.`);
+    if (longCardDoubleTapState.isElevatedAfterRestore !== longCardDoubleTapState.wasElevated) findings.push(`Mobile redesign Accepted card double-tap did not restore Elevation after the probe: ${JSON.stringify(longCardDoubleTapState)}.`);
+    if (!longCardDoubleTapState.rowStillWorkspace || longCardDoubleTapState.rowActionButtons) findings.push(`Mobile redesign Accepted card double-tap corrupted the workspace row or reintroduced action buttons: ${JSON.stringify(longCardDoubleTapState)}.`);
     const longCardLongPressed = await evaluate(client, script(() => {
         const card = document.querySelector('.saga-lore-entry-card[data-entry-id="smoke_long_title_lore"]');
         if (!card) return false;
@@ -5689,7 +5865,7 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
         return true;
     }), { userGesture: true }).catch(() => false);
     if (!longCardLongPressed) findings.push('Mobile redesign Accepted long-title card did not accept long-press/context-menu edit.');
-    await waitFor(client, '!!document.querySelector(".saga-mobile-lorecard-editor-shell")', 'Mobile redesign Accepted card long-press editor', 10000).catch(error => findings.push(error.message));
+    await waitFor(client, 'document.querySelector("#saga-mobile-lorecard-editor")?.dataset?.sagaEditorReady === "true"', 'Mobile redesign Accepted card long-press editor ready', 10000).catch(error => findings.push(error.message));
     const editorTagRemoveState = await evaluate(client, script(() => {
         const button = document.querySelector('.saga-mobile-lorecard-tags-remove');
         const style = button ? getComputedStyle(button) : null;
@@ -5726,12 +5902,23 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
             activeBorderColor: activeStyle?.borderColor || '',
         };
     }));
-    if (!approvedActiveState.anyActiveClass || !approvedActiveState.activeBoxShadow || approvedActiveState.activeBoxShadow === 'none') findings.push('Mobile redesign Accepted active state was not visible through object-card glow.');
-    if (!approvedActiveState.activateToken || approvedActiveState.activeBorderColor === 'rgb(215, 181, 109)') findings.push('Mobile redesign Accepted active state did not consume the Activate Theme Pack glow token.');
+    if (!approvedActiveState.anyActiveClass) findings.push('Mobile redesign Accepted High-relevance state was not present on an object card.');
+    if (!approvedActiveState.activateToken) findings.push('Mobile redesign Accepted state did not expose the Activate Theme Pack token.');
     if (approvedActiveState.anyActiveBadge) findings.push('Mobile redesign Accepted active state still used a redundant active metadata chip.');
     screenshots.push(await screenshot(client, `${shotPrefix}-06b-lorecards-editor`));
     await clickButtonText(client, 'Close', { root: '#saga-mobile-lorecard-editor' }).catch(() => false);
     await waitFor(client, '!document.querySelector("#saga-mobile-lorecard-editor")', 'Mobile redesign Accepted editor closed', 10000).catch(error => findings.push(error.message));
+    const editorLatencyState = await measureMobileLorecardEditorLatency(client, {
+        selector: '.saga-lore-entry-card[data-entry-id="smoke_long_title_lore"]',
+        iterations: 3,
+    }).catch(error => ({
+        failures: [error?.message || String(error)],
+        summary: {},
+    }));
+    if (editorLatencyState.failures?.length) findings.push(`Mobile redesign Lorecard editor latency measurement failed: ${editorLatencyState.failures.join('; ')}.`);
+    if (editorLatencyState.summary?.duplicateContextmenuReopened) findings.push('Mobile redesign Lorecard long-press fired a duplicate contextmenu editor open.');
+    if (Number(editorLatencyState.summary?.postHoldReadyMs?.p95 || 0) > 250) findings.push(`Mobile redesign Lorecard editor post-hold ready latency exceeded budget: ${JSON.stringify(editorLatencyState.summary.postHoldReadyMs)}.`);
+    if (Number(editorLatencyState.summary?.closeGoneMs?.p95 || 0) > 180) findings.push(`Mobile redesign Lorecard editor Close latency exceeded budget: ${JSON.stringify(editorLatencyState.summary.closeGoneMs)}.`);
 
     const generationClicked = await clickSelector(client, '.saga-mobile-lorecards-subtab[data-stage="generate"]').catch(() => false);
     if (!generationClicked) findings.push('Mobile redesign Generate page button was not clickable.');
@@ -5788,7 +5975,9 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
         approvedTooltipState,
         approvedScrollState,
         longPressCueState,
+        longCardDoubleTapState,
         approvedActiveState,
+        editorLatencyState,
         generationState,
         generationTooltipState,
         generationScrollState,
@@ -5840,6 +6029,88 @@ async function runTabletAdvancedHarnessSmoke(client, screenshots, findings, smok
     if (!shellState.hasOpenLibrary || !shellState.hasCreateDeck) findings.push('Tablet Advanced Loredecks drawer did not render the static Library and Creator actions.');
     if (!shellState.noHorizontalOverflow) findings.push(`Tablet Advanced shell has horizontal overflow (drawer ${shellState.drawerScrollWidth}/${shellState.drawerClientWidth}, body ${shellState.bodyScrollWidth}/${shellState.bodyClientWidth}).`);
     screenshots.push(await screenshot(client, 'tablet-advanced-harness-01-loredecks-desktop-shell'));
+
+    await evaluate(client, script(async () => {
+        const stateManager = await import('/src/state/state-manager.js');
+        const runtime = await import('/src/runtime/lore-panel.js');
+        const state = stateManager.getState();
+        if (!state.lorePanel) state.lorePanel = {};
+        state.lorePanel.drawerOpen = true;
+        state.lorePanel.drawerWidth = 360;
+        state.lorePanel.drawerHeight = 720;
+        state.lorePanel.activeTab = 'loredecks';
+        stateManager.saveState(state, { syncPrompt: false });
+        runtime.showLorePanel();
+    }), { timeoutMs: 10000, label: 'Force minimum desktop Loredecks drawer' });
+    await waitFor(client, 'document.querySelector(".saga-runtime-drawer")?.getBoundingClientRect().width <= 380 && document.querySelector(".saga-runtime-rail-tab-active")?.getAttribute("data-tab-id") === "loredecks"', 'Tablet Advanced minimum Loredecks drawer', 10000);
+    await wait(400);
+    const narrowLoredecksState = await evaluate(client, script(() => {
+        const drawer = document.querySelector('.saga-runtime-drawer');
+        const drawerContent = drawer?.querySelector('.saga-runtime-tab-body, .saga-lore-panel-body') || drawer;
+        const card = document.querySelector('.saga-loredeck-library-launch-card');
+        const main = card?.querySelector('.saga-loredeck-library-launch-main');
+        const help = main?.querySelector('.saga-runtime-help');
+        const actions = card?.querySelector('.saga-loredeck-library-launch-actions');
+        const pills = [...(card?.querySelectorAll('.saga-status-pill') || [])].map(node => {
+            const rect = node.getBoundingClientRect();
+            return {
+                text: (node.innerText || node.textContent || '').trim(),
+                width: Math.round(rect.width),
+                height: Math.round(rect.height),
+            };
+        });
+        const buttons = [...(actions?.querySelectorAll('button') || [])].map(node => {
+            const rect = node.getBoundingClientRect();
+            return {
+                text: (node.innerText || node.textContent || '').trim(),
+                width: Math.round(rect.width),
+                height: Math.round(rect.height),
+            };
+        });
+        const cardStyle = card ? getComputedStyle(card) : null;
+        const helpRect = help?.getBoundingClientRect?.();
+        const helpStyle = help ? getComputedStyle(help) : null;
+        const helpLineHeight = helpStyle ? Number.parseFloat(helpStyle.lineHeight) || 0 : 0;
+        const cardRect = card?.getBoundingClientRect?.();
+        const mainRect = main?.getBoundingClientRect?.();
+        const actionsRect = actions?.getBoundingClientRect?.();
+        return {
+            drawerWidth: Math.round(drawer?.getBoundingClientRect?.().width || 0),
+            cardWidth: Math.round(cardRect?.width || 0),
+            mainWidth: Math.round(mainRect?.width || 0),
+            actionsWidth: Math.round(actionsRect?.width || 0),
+            display: cardStyle?.display || '',
+            flexWrap: cardStyle?.flexWrap || '',
+            actionsBelowMain: !!mainRect && !!actionsRect && actionsRect.top >= mainRect.bottom - 2,
+            helpLines: helpRect && helpLineHeight ? Math.round((helpRect.height / helpLineHeight) * 10) / 10 : 0,
+            helpWidth: Math.round(helpRect?.width || 0),
+            minPillWidth: pills.length ? Math.min(...pills.map(item => item.width)) : 0,
+            minButtonWidth: buttons.length ? Math.min(...buttons.map(item => item.width)) : 0,
+            hasOpenLibrary: buttons.some(item => item.text === 'Open Loredeck Library' && item.width >= 130),
+            hasCreateDeck: buttons.some(item => item.text === 'Create Deck' && item.width >= 82),
+            drawerOverflow: drawerContent ? drawerContent.scrollWidth > drawerContent.clientWidth + 2 : false,
+            cardOverflow: card ? card.scrollWidth > card.clientWidth + 2 : false,
+            pills,
+            buttons,
+        };
+    }));
+    if (narrowLoredecksState.display !== 'flex' || narrowLoredecksState.flexWrap !== 'wrap') findings.push('Desktop minimum Loredecks Library launch card did not use the wrapping flex layout.');
+    if (narrowLoredecksState.drawerWidth > 380 || narrowLoredecksState.cardWidth <= 0) findings.push(`Desktop minimum Loredecks drawer did not render at the expected constrained width: ${JSON.stringify(narrowLoredecksState)}.`);
+    if (narrowLoredecksState.mainWidth < 260 || narrowLoredecksState.helpWidth < 240 || narrowLoredecksState.helpLines > 5) findings.push(`Desktop minimum Loredecks Library launch copy collapsed into a narrow text column: ${JSON.stringify(narrowLoredecksState)}.`);
+    if (!narrowLoredecksState.actionsBelowMain || !narrowLoredecksState.hasOpenLibrary || !narrowLoredecksState.hasCreateDeck || narrowLoredecksState.minButtonWidth < 78) findings.push(`Desktop minimum Loredecks Library launch actions did not wrap into readable buttons: ${JSON.stringify(narrowLoredecksState)}.`);
+    if (narrowLoredecksState.minPillWidth < 38 || narrowLoredecksState.drawerOverflow || narrowLoredecksState.cardOverflow) findings.push(`Desktop minimum Loredecks Library launch metadata clipped or overflowed: ${JSON.stringify(narrowLoredecksState)}.`);
+    screenshots.push(await screenshot(client, 'tablet-advanced-harness-01b-loredecks-min-drawer'));
+
+    await evaluate(client, script(async () => {
+        const stateManager = await import('/src/state/state-manager.js');
+        const runtime = await import('/src/runtime/lore-panel.js');
+        const state = stateManager.getState();
+        if (!state.lorePanel) state.lorePanel = {};
+        state.lorePanel.drawerWidth = 720;
+        stateManager.saveState(state, { syncPrompt: false });
+        runtime.showLorePanel();
+    }), { timeoutMs: 10000, label: 'Restore tablet Loredecks drawer width' });
+    await waitFor(client, 'document.querySelector(".saga-runtime-drawer")?.getBoundingClientRect().width > 400', 'Tablet Advanced restored drawer width', 10000);
 
     await clickRuntimeRoute(client, 'settings');
     await waitFor(client, sagaActiveTabExpression('settings'), 'Tablet Advanced Settings route active', 10000);
@@ -6767,6 +7038,220 @@ async function runStorageHarnessSmoke(client, screenshots, findings, smokeUrl, d
         }, null, 2));
 }
 
+async function runLiveMobileLorecardLatencySmoke(client, screenshots, findings, smokeUrl, dialogEvents) {
+    const metadataSnapshot = await captureSagaMetadata(client);
+    const settingsSnapshot = await captureSagaSettings(client);
+    let restoreState = null;
+    let restoreSettingsState = null;
+    let installedSourceState = null;
+    let seedState = null;
+    let routeState = null;
+    let preVisibilityState = null;
+    let editorLatencyState = null;
+    let thrown = null;
+
+    try {
+        installedSourceState = await evaluate(client, script(async () => {
+            const base = `${location.origin}/scripts/extensions/third-party/Saga`;
+            const read = async rel => {
+                const response = await fetch(`${base}/${rel}?latencyCheck=${Date.now()}`);
+                const text = await response.text();
+                return { ok: response.ok, status: response.status, text };
+            };
+            const [lorecards, library] = await Promise.all([
+                read('src/lorecards/lorecards-panel.js'),
+                read('src/loredecks/loredeck-library-panel.js'),
+            ]);
+            return {
+                lorecardsStatus: lorecards.status,
+                libraryStatus: library.status,
+                hasEditorReadyFlag: lorecards.text.includes("overlay.dataset.sagaEditorReady = 'true'"),
+                hasLongPressDuplicateGuard: lorecards.text.includes('if (longPressFired) return;'),
+                hasDeferredEditorShell: lorecards.text.includes('saga-mobile-lorecard-editor-loading'),
+                mobileLibrarySkipsStats: library.text.includes('if (!mobileTouch) {')
+                    && library.text.includes('saga-loredeck-library-card-stats'),
+            };
+        }), { timeoutMs: 15000, label: 'Check installed Saga mobile source' });
+        if (!installedSourceState.hasEditorReadyFlag || !installedSourceState.hasLongPressDuplicateGuard || !installedSourceState.hasDeferredEditorShell || !installedSourceState.mobileLibrarySkipsStats) {
+            findings.push(`Installed Saga source is not current for mobile latency validation: ${JSON.stringify(installedSourceState)}.`);
+        }
+
+        seedState = await evaluate(client, script(async () => {
+            const base = `${location.origin}/scripts/extensions/third-party/Saga`;
+            const stateManager = await import(`${base}/src/state/state-manager.js`);
+            const runtime = await import(`${base}/src/runtime/lore-panel.js`);
+            const ctx = window.SillyTavern?.getContext?.();
+            if (!ctx?.chatMetadata || !ctx?.extensionSettings) return { ok: false, reason: 'missing-st-context' };
+            const settings = ctx.extensionSettings.saga ||= {};
+            settings.experienceMode = 'advanced';
+            const state = stateManager.getState();
+            const now = Date.now();
+            const entry = {
+                id: 'saga_live_latency_probe_lorecard',
+                title: 'Live mobile latency probe Lorecard with enough title text to exercise wrapping',
+                fact: 'Temporary accepted Lorecard used only to measure mobile editor open and close latency in real SillyTavern.',
+                category: 'event',
+                purpose: 'event_anchor',
+                canon: 'canon',
+                canonStatus: 'canon',
+                relevance: 'normal',
+                priority: 50,
+                tags: ['latency', 'probe'],
+                source: 'live-mobile-lorecard-latency',
+                createdAt: now,
+                updatedAt: now,
+                content: {
+                    fact: 'Temporary accepted Lorecard used only to measure mobile editor open and close latency in real SillyTavern.',
+                    injection: 'Use the temporary latency probe only for UI smoke validation.',
+                    notes: 'Temporary live smoke fixture. Restored after the run.',
+                },
+            };
+            state.loreMatrix = [
+                ...(Array.isArray(state.loreMatrix) ? state.loreMatrix : []).filter(item => item?.id !== entry.id),
+                entry,
+            ];
+            const panel = state.lorePanel ||= {};
+            panel.activeTab = 'lore';
+            panel.mobileLifecycleStage = 'lore';
+            panel.search = '';
+            panel.selectedCategory = 'all';
+            panel.sourceFilter = 'all';
+            panel.acceptedDeckFilter = 'all';
+            panel.acceptedContextFilter = 'all';
+            panel.loreTypeFilter = 'all';
+            panel.lorecardWorkspaceFilter = 'all';
+            panel.lorecardWorkspaceTool = '';
+            panel.lorecardWorkspaceSort = 'priority';
+            panel.selectedEntryId = '';
+            panel.lorecardWorkspaceEditId = '';
+            panel.acceptedLoreVisibleLimit = Math.max(20, Number(panel.acceptedLoreVisibleLimit) || 20);
+            panel.pendingReviewVisibleLimit = 10;
+            panel.mobile = {
+                ...(panel.mobile || {}),
+                activeRoute: 'lore',
+                lastPrimaryRoute: 'lore',
+                lorecardsStage: 'lore',
+                subviewStacks: {
+                    loredecks: [],
+                    session: [],
+                    continuity: [],
+                    context: [],
+                    lore: [],
+                    injection: [],
+                    settings: [],
+                    ...((panel.mobile && typeof panel.mobile === 'object' && panel.mobile.subviewStacks) || {}),
+                },
+            };
+            stateManager.saveState(state, { syncPrompt: false });
+            if (typeof ctx.saveSettingsDebounced === 'function') ctx.saveSettingsDebounced();
+            runtime.showLorePanel();
+            return { ok: true, entryId: entry.id, count: state.loreMatrix.length };
+        }), { userGesture: true, timeoutMs: 15000, label: 'Seed live mobile Lorecard latency fixture' });
+        if (!seedState?.ok) findings.push(`Live mobile Lorecard latency smoke could not seed the temporary Lorecard: ${seedState?.reason || 'unknown'}.`);
+
+        await waitFor(client, '!!document.querySelector("#saga-lore-panel.saga-runtime-mobile")', 'Live mobile Saga shell', 10000);
+        await waitFor(client, 'document.querySelector("#saga-lore-panel")?.dataset?.mobileRoute === "lore"', 'Live mobile Lorecards route', 10000);
+        await waitFor(client, '!!document.querySelector(".saga-mobile-lorecards-subtabs")', 'Live mobile Lorecards sub-tabs', 10000);
+        await waitFor(client, 'document.querySelector(".saga-lorecards-lifecycle-tab")?.dataset?.sagaLoreLifecycleStage === "lore"', 'Live mobile Lore page active', 10000);
+        await wait(700);
+        preVisibilityState = await evaluate(client, script(async () => {
+            const base = `${location.origin}/scripts/extensions/third-party/Saga`;
+            const stateManager = await import(`${base}/src/state/state-manager.js`);
+            const state = stateManager.getState();
+            const panel = state?.lorePanel || {};
+            const root = document.querySelector('#saga-lore-panel');
+            const workspace = root?.querySelector('.saga-lorecard-workspace');
+            const list = root?.querySelector('.saga-lorecard-workspace-list');
+            return {
+                loreMatrixCount: Array.isArray(state?.loreMatrix) ? state.loreMatrix.length : -1,
+                loreMatrixIds: (Array.isArray(state?.loreMatrix) ? state.loreMatrix : []).map(entry => entry?.id || '').filter(Boolean).slice(0, 12),
+                panel: {
+                    activeTab: panel.activeTab || '',
+                    mobileLifecycleStage: panel.mobileLifecycleStage || '',
+                    search: panel.search || '',
+                    selectedCategory: panel.selectedCategory || '',
+                    lorecardWorkspaceFilter: panel.lorecardWorkspaceFilter || '',
+                    lorecardWorkspaceTool: panel.lorecardWorkspaceTool || '',
+                    acceptedLoreVisibleLimit: panel.acceptedLoreVisibleLimit,
+                    mobileRoute: panel.mobile?.activeRoute || '',
+                    mobileStage: panel.mobile?.lorecardsStage || '',
+                },
+                rootClass: root?.className || '',
+                rootStage: root?.dataset?.mobileLorecardsStage || '',
+                loading: !!root?.querySelector('.saga-mobile-lorecards-loading-shell'),
+                workspace: !!workspace,
+                list: !!list,
+                card: !!root?.querySelector('.saga-lore-entry-card[data-entry-id="saga_live_latency_probe_lorecard"]'),
+                cards: [...root?.querySelectorAll('.saga-lore-entry-card[data-entry-id]') || []].map(card => card.getAttribute('data-entry-id')).slice(0, 12),
+                emptyMessages: [...root?.querySelectorAll('.saga-empty-message, .saga-runtime-empty, .saga-runtime-help') || []].map(node => (node.innerText || node.textContent || '').trim()).filter(Boolean).slice(0, 12),
+                workspaceText: (workspace?.innerText || workspace?.textContent || '').slice(0, 900),
+                rootText: (root?.innerText || root?.textContent || '').slice(0, 1200),
+            };
+        }), { timeoutMs: 15000, label: 'Live mobile latency pre-visibility state' });
+        await waitFor(client, `!document.querySelector(".saga-mobile-lorecards-loading-shell") && !!document.querySelector('.saga-lore-entry-card[data-entry-id="saga_live_latency_probe_lorecard"]')`, 'Live mobile latency Lorecard visible', 10000);
+        await wait(500);
+        screenshots.push(await screenshot(client, 'live-mobile-lorecard-latency-01-lorecards'));
+
+        routeState = await evaluate(client, script(() => {
+            const root = document.querySelector('#saga-lore-panel');
+            const card = document.querySelector('.saga-lore-entry-card[data-entry-id="saga_live_latency_probe_lorecard"]');
+            const libraryStatsLines = document.querySelectorAll('.saga-loredeck-library-deck-mobile-touch .saga-loredeck-library-card-stats').length;
+            return {
+                mobileShell: !!root?.classList?.contains('saga-runtime-mobile'),
+                mobileRoute: root?.dataset?.mobileRoute || '',
+                mobileLorecardsStage: root?.dataset?.mobileLorecardsStage || '',
+                cardVisible: !!card,
+                cardText: (card?.innerText || card?.textContent || '').slice(0, 500),
+                libraryStatsLines,
+                noHorizontalOverflow: !root || root.scrollWidth <= root.clientWidth + 1,
+            };
+        }));
+        if (!routeState.mobileShell || routeState.mobileRoute !== 'lore' || routeState.mobileLorecardsStage !== 'lore' || !routeState.cardVisible) {
+            findings.push(`Live mobile Lorecard latency route did not render the seeded Lorecard: ${JSON.stringify(routeState)}.`);
+        }
+        if (!routeState.noHorizontalOverflow) findings.push('Live mobile Lorecard latency route has horizontal overflow.');
+
+        editorLatencyState = await measureMobileLorecardEditorLatency(client, {
+            selector: '.saga-lore-entry-card[data-entry-id="saga_live_latency_probe_lorecard"]',
+            iterations: 4,
+        });
+        if (editorLatencyState.failures?.length) findings.push(`Live mobile Lorecard editor latency measurement failed: ${editorLatencyState.failures.join('; ')}.`);
+        if (editorLatencyState.summary?.duplicateContextmenuReopened) findings.push('Live mobile Lorecard long-press fired a duplicate contextmenu editor open.');
+        if (Number(editorLatencyState.summary?.postHoldReadyMs?.p95 || 0) > 300) findings.push(`Live mobile Lorecard editor post-hold ready latency exceeded budget: ${JSON.stringify(editorLatencyState.summary.postHoldReadyMs)}.`);
+        if (Number(editorLatencyState.summary?.closeGoneMs?.p95 || 0) > 220) findings.push(`Live mobile Lorecard editor Close latency exceeded budget: ${JSON.stringify(editorLatencyState.summary.closeGoneMs)}.`);
+    } catch (error) {
+        thrown = error?.stack || error?.message || String(error);
+        findings.push(`Live mobile Lorecard latency smoke threw: ${error?.message || String(error)}.`);
+    } finally {
+        restoreState = await restoreSagaMetadata(client, metadataSnapshot).catch(error => ({ ok: false, reason: error?.message || String(error) }));
+        restoreSettingsState = await restoreSagaSettings(client, settingsSnapshot).catch(error => ({ ok: false, reason: error?.message || String(error) }));
+    }
+
+    const errors = collectClientErrors(client)
+        .filter(error => !isExpectedLiveMobileLorecardLatency404(error));
+    const report = {
+        ok: findings.length === 0 && errors.length === 0,
+        target: SMOKE_TARGET,
+        viewport: VIEWPORT,
+        url: smokeUrl,
+        screenshots,
+        findings,
+        errors,
+        dialogEvents,
+        installedSourceState,
+        seedState,
+        routeState,
+        preVisibilityState,
+        editorLatencyState,
+        restoreState,
+        restoreSettingsState,
+        thrown,
+    };
+    const reportPath = await writeSmokeReport(SMOKE_TARGET, report);
+    console.log(JSON.stringify({ ...report, reportPath }, null, 2));
+    if (!report.ok) process.exitCode = 1;
+}
+
 async function runLiveLoreAutomationSmoke(client, screenshots, findings, smokeUrl, dialogEvents) {
     const config = getLiveLoreAutomationConfig();
     const fixture = await readLiveLoreAutomationFixture(config);
@@ -7019,15 +7504,19 @@ async function runLiveLoreAutomationSmoke(client, screenshots, findings, smokeUr
                 autoRelevanceUseModel: options.useArModel === true,
                 autoRelevanceRecentMessages: Math.max(4, Math.min(80, Number(options.recentMessages) || 20)),
                 autoRelevanceCandidateCap: 48,
-                autoRelevanceModelCandidateCap: 32,
-                autoRelevanceModelRecentChars: 9000,
+                autoRelevanceModelCandidateCap: 20,
+                autoRelevanceModelRecentChars: 5000,
                 autoRelevanceModelMaxTokens: 2048,
                 autoRelevanceMinConfidence: 0.65,
             };
         };
-        const getRunTask = combo => ['full', 'curation'].includes(String(combo.task || '').toLowerCase())
-            ? String(combo.task).toLowerCase()
-            : 'full';
+        const getRunTask = combo => {
+            const raw = String(combo.task || '').toLowerCase();
+            if (raw === 'cadence-manual') return 'manual-protection';
+            return ['full', 'curation', 'cadence', 'cadence-wait', 'manual-protection', 'manual-cadence'].includes(raw)
+                ? raw
+                : 'full';
+        };
         const prepareState = scenario => {
             const state = clone(scenario.state || {});
             state.loreAutomationRuns = [];
@@ -7060,6 +7549,67 @@ async function runLiveLoreAutomationSmoke(client, screenshots, findings, smokeUr
             .filter(Boolean)
             .join('\n')
             .slice(-12000);
+        const countWords = text => String(text || '').trim().split(/\s+/).filter(Boolean).length;
+        const storyWordCount = messages => (messages || []).reduce((total, message) => {
+            const body = String(message?.mes || message?.content || '').trim();
+            return total + countWords(body);
+        }, 0);
+        const latestMessageId = messages => {
+            const index = (messages || []).length - 1;
+            const message = index >= 0 ? messages[index] : null;
+            return message ? String(message.extra?.gen_id || message.send_date || message.id || `${index}:${String(message.mes || message.content || '').slice(0, 60)}`).slice(0, 120) : '';
+        };
+        const applyCadenceTaskState = ({ task, state, settings, messages, autoModule }) => {
+            if (!String(task || '').startsWith('cadence')) return null;
+            const words = storyWordCount(messages);
+            const messageId = latestMessageId(messages);
+            const cadence = {
+                ...(state.loreAutomationCadence || {}),
+                lastRemapAtMessageId: messageId,
+                lastCurationAtMessageId: messageId,
+                lastRemapWordCount: task === 'cadence-wait' ? words : 0,
+                lastCurationWordCount: task === 'cadence-wait' ? words : 0,
+                accumulatedRemapWords: task === 'cadence-wait' ? 0 : words,
+                accumulatedCurationWords: task === 'cadence-wait' ? 0 : words,
+                pendingReason: '',
+                lastContextHash: autoModule.__autoRelevanceTestHooks?.buildContextAutomationHash?.(state) || '',
+                lastDeckStackHash: autoModule.__autoRelevanceTestHooks?.buildDeckStackAutomationHash?.(state) || '',
+                lastAcceptedAutomationHash: autoModule.__autoRelevanceTestHooks?.buildAcceptedAutomationHash?.(state) || '',
+                lastEdgeClassifier: {
+                    ...(state.loreAutomationCadence?.lastEdgeClassifier || {}),
+                    edge: 'none',
+                    confidence: 0,
+                    wordCount: task === 'cadence-wait' ? words : 0,
+                    checkedAt: 0,
+                },
+                staleEvidenceByCardId: {
+                    ...(state.loreAutomationCadence?.staleEvidenceByCardId || {}),
+                },
+                cooldownByCardId: {
+                    ...(state.loreAutomationCadence?.cooldownByCardId || {}),
+                },
+            };
+            state.loreAutomationCadence = cadence;
+            settings.loreAutomationCadenceMode = task === 'manual-cadence' ? 'manual' : 'auto';
+            return { words, messageId, cadenceMode: settings.loreAutomationCadenceMode };
+        };
+        const waitForCadenceRun = async ({ beforeRunCount, timeoutMs = 180000 }) => {
+            const startedAt = Date.now();
+            while (Date.now() - startedAt < timeoutMs) {
+                await new Promise(resolve => setTimeout(resolve, 350));
+                const state = ctx.chatMetadata?.saga || {};
+                const runCount = Array.isArray(state.loreAutomationRuns) ? state.loreAutomationRuns.length : 0;
+                if (runCount > beforeRunCount || state.loreAutomationLastRun) {
+                    return {
+                        status: 'completed',
+                        runCount,
+                        lastRunStatus: state.loreAutomationLastRun?.status || '',
+                        waitedMs: Date.now() - startedAt,
+                    };
+                }
+            }
+            return { status: 'timeout', waitedMs: Date.now() - startedAt };
+        };
         const summarizePreviewEntry = entry => ({
             id: String(entry?.id || '').slice(0, 160),
             title: String(entry?.title || entry?.id || '').slice(0, 200),
@@ -7214,10 +7764,80 @@ async function runLiveLoreAutomationSmoke(client, screenshots, findings, smokeUr
             ctx.chatMetadata.saga = state;
             return summary;
         };
+        const applyManualProtectionProbe = ({ state, settings, recentText = '', autoModule }) => {
+            const summary = { type: 'manual-protection', notes: [] };
+            if (!Array.isArray(state?.loreMatrix)) {
+                summary.notes.push('No Lore Matrix entries were available to protect.');
+                return summary;
+            }
+            if (!state.loreSelection || typeof state.loreSelection !== 'object') state.loreSelection = { pinnedIds: [], suppressedIds: [] };
+            if (!Array.isArray(state.loreSelection.pinnedIds)) state.loreSelection.pinnedIds = [];
+            if (!Array.isArray(state.loreSelection.suppressedIds)) state.loreSelection.suppressedIds = [];
+            let preview = null;
+            try {
+                preview = autoModule.__autoRelevanceTestHooks?.previewLoreAutomationRemapCandidates?.(state, settings, recentText) || null;
+            } catch (error) {
+                summary.error = error?.message || String(error);
+                return summary;
+            }
+            const operation = (Array.isArray(preview?.operations) ? preview.operations : []).find(item => item?.id);
+            if (!operation) {
+                summary.notes.push('No local remap candidate was available for manual-protection probing.');
+                summary.previewCandidateCount = Number(preview?.candidateCount || 0);
+                return summary;
+            }
+            const protectedId = String(operation.id);
+            const protectedEntry = state.loreMatrix.find(entry => String(entry?.id || '') === protectedId);
+            if (!protectedEntry) {
+                summary.notes.push(`Remap candidate ${protectedId} was not found in Lore Matrix.`);
+                return summary;
+            }
+            const pinned = new Set(state.loreSelection.pinnedIds.map(id => String(id || '')));
+            const muted = new Set(state.loreSelection.suppressedIds.map(id => String(id || '')));
+            summary.protectedId = protectedId;
+            summary.protectedTitle = String(protectedEntry.title || protectedId).slice(0, 200);
+            summary.protectedOperation = String(operation.operation || '');
+            summary.previewCandidateCount = Number(preview?.candidateCount || 0);
+            summary.before = {
+                relevance: normalizeRelevance(protectedEntry.relevance || 'normal'),
+                pinned: pinned.has(protectedId),
+                muted: muted.has(protectedId),
+            };
+            state.loreMatrix = state.loreMatrix.map(entry => String(entry?.id || '') === protectedId
+                ? {
+                    ...entry,
+                    extensions: {
+                        ...(entry.extensions || {}),
+                        loreAutomation: {
+                            ...(entry.extensions?.loreAutomation || {}),
+                            enabled: false,
+                            disabledReason: 'live_eval_manual_protection',
+                            disabledBy: 'live_eval',
+                            disabledAt: Date.now(),
+                        },
+                    },
+                }
+                : entry);
+            ctx.chatMetadata.saga = state;
+            return summary;
+        };
 
-        const autoModule = await import(`${location.origin}/scripts/extensions/third-party/Saga/src/context/auto-relevance.js?liveLoreAutomation=${Date.now()}`);
-        const canonModule = await import(`${location.origin}/scripts/extensions/third-party/Saga/src/context/canon-lore-db.js?liveLoreAutomation=${Date.now()}`);
-        const loreRelevanceModule = await import(`${location.origin}/scripts/extensions/third-party/Saga/src/lorecards/lore-relevance.js?liveLoreAutomation=${Date.now()}`);
+        const importSagaModule = async modulePath => {
+            let lastError = null;
+            for (let attempt = 0; attempt < 3; attempt += 1) {
+                const url = `${location.origin}/scripts/extensions/third-party/Saga/${modulePath}?liveLoreAutomation=${Date.now()}-${attempt}`;
+                try {
+                    return await import(url);
+                } catch (error) {
+                    lastError = error;
+                    await new Promise(resolve => setTimeout(resolve, 400 * (attempt + 1)));
+                }
+            }
+            throw lastError || new Error(`Could not import Saga module ${modulePath}.`);
+        };
+        const autoModule = await importSagaModule('src/context/auto-relevance.js');
+        const canonModule = await importSagaModule('src/context/canon-lore-db.js');
+        const loreRelevanceModule = await importSagaModule('src/lorecards/lore-relevance.js');
         const results = [];
         const browserFindings = [];
         try {
@@ -7227,16 +7847,24 @@ async function runLiveLoreAutomationSmoke(client, screenshots, findings, smokeUr
                     const beforeSaveCalls = saveCalls.length;
                     const state = prepareState(scenario);
                     const settings = buildSettings(combo);
+                    const task = getRunTask(combo);
+                    if (task.startsWith('cadence') || task === 'manual-cadence') settings.loreAutomationCadenceMode = task === 'manual-cadence' ? 'manual' : 'auto';
                     replaceChat(scenario.messages || []);
                     ctx.chatMetadata.saga = state;
                     ctx.extensionSettings.saga = settings;
                     const recentText = recentTextFromMessages(scenario.messages || []);
-                    const scenarioProbe = await applyScenarioProbe(scenario, state, settings, recentText);
+                    const cadenceSetup = applyCadenceTaskState({ task, state, settings, messages: scenario.messages || [], autoModule });
+                    ctx.chatMetadata.saga = state;
+                    ctx.extensionSettings.saga = settings;
+                    const scenarioProbe = task === 'manual-protection'
+                        ? applyManualProtectionProbe({ state, settings, recentText, autoModule })
+                        : await applyScenarioProbe(scenario, state, settings, recentText);
                     const before = clone(ctx.chatMetadata.saga);
                     let diagnostics = null;
                     try {
                         const pressure = autoModule.__autoRelevanceTestHooks?.computeLoreAutomationStackPressure?.(before, settings, recentText) || null;
                         const contextLanes = autoModule.__autoRelevanceTestHooks?.getContextCoverageLaneIds?.(before) || [];
+                        const remapPreview = autoModule.__autoRelevanceTestHooks?.previewLoreAutomationRemapCandidates?.(before, settings, recentText) || null;
                         const preview = await canonModule.previewCanonLoreForContext(before?.loreContext || null, {
                             maxCandidates: 240,
                             includeAudit: false,
@@ -7244,6 +7872,7 @@ async function runLiveLoreAutomationSmoke(client, screenshots, findings, smokeUr
                         diagnostics = {
                             stackPressure: pressure,
                             contextLanes,
+                            remapPreview,
                             preview: {
                                 status: preview?.status || '',
                                 matchedCount: preview?.matchedCount || 0,
@@ -7264,9 +7893,26 @@ async function runLiveLoreAutomationSmoke(client, screenshots, findings, smokeUr
                     let result = null;
                     let thrown = null;
                     try {
-                        result = await autoModule.runAutoRelevance(getRunTask(combo) === 'curation'
-                            ? { force: true, curationOnly: true }
-                            : { force: true });
+                        if (task.startsWith('cadence') || task === 'manual-cadence') {
+                            const beforeRunCount = Array.isArray(ctx.chatMetadata?.saga?.loreAutomationRuns) ? ctx.chatMetadata.saga.loreAutomationRuns.length : 0;
+                            const decision = autoModule.onGenerationEndedAutoRelevance();
+                            let background = { status: 'not_scheduled' };
+                            if (decision?.status === 'scheduled') {
+                                background = await waitForCadenceRun({ beforeRunCount, timeoutMs: Math.max(30000, Number(options.providerTimeoutMs) || 180000) });
+                            } else if (decision?.status === 'scheduled_classifier') {
+                                await new Promise(resolve => setTimeout(resolve, 2500));
+                                background = {
+                                    status: 'classifier_checked',
+                                    edge: ctx.chatMetadata?.saga?.loreAutomationCadence?.lastEdgeClassifier?.edge || '',
+                                    classifierStatus: ctx.chatMetadata?.saga?.loreAutomationCadence?.lastEdgeClassifier?.status || '',
+                                };
+                            }
+                            result = { status: decision?.status || 'unknown', cadenceDecision: decision, cadenceBackground: background, cadenceSetup };
+                        } else {
+                            result = await autoModule.runAutoRelevance(task === 'curation'
+                                ? { force: true, curationOnly: true }
+                                : { force: true });
+                        }
                     } catch (error) {
                         thrown = { message: error?.message || String(error), stack: String(error?.stack || '').slice(0, 1200) };
                     }
@@ -7281,9 +7927,34 @@ async function runLiveLoreAutomationSmoke(client, screenshots, findings, smokeUr
                         || ['unavailable', 'failed_parse', 'model_failed'].includes(String(result?.modelStatus || ''))
                         || ['unavailable', 'failed_parse', 'model_failed'].includes(String(result?.providerStatus || ''));
                     if (thrown) browserFindings.push(`${scenario.id}/${combo.mode}:${combo.style}:${combo.routing} threw: ${thrown.message}`);
-                    if (hardProviderStatus && combo.routing !== 'local') browserFindings.push(`${scenario.id}/${combo.mode}:${combo.style}:${combo.routing} provider path did not complete cleanly (${status || result?.modelStatus || result?.providerStatus}).`);
-                    if (getRunTask(combo) === 'curation' && settings.loreAutomationProviderRouting !== 'local' && providerDelta.length === 0) {
+                    if (hardProviderStatus && combo.routing !== 'local') {
+                        const problemStatus = ['unavailable', 'failed_parse', 'model_failed'].find(value => [status, result?.modelStatus, result?.providerStatus].map(item => String(item || '')).includes(value)) || status || result?.modelStatus || result?.providerStatus || 'unknown';
+                        const problemError = String(result?.modelError || '').trim();
+                        browserFindings.push(`${scenario.id}/${combo.mode}:${combo.style}:${combo.routing} provider path did not complete cleanly (${problemStatus}${problemError ? `: ${problemError.slice(0, 220)}` : ''}).`);
+                    }
+                    const curationCandidateCount = Number(diagnostics?.preview?.newCount || 0) + Number(diagnostics?.stackPressure?.staleCount || 0);
+                    if (getRunTask(combo) === 'curation' && settings.loreAutomationProviderRouting !== 'local' && curationCandidateCount > 0 && providerDelta.length === 0) {
                         browserFindings.push(`${scenario.id}/${combo.mode}:${combo.style}:${combo.routing}:curation completed without a provider call.`);
+                    }
+                    if (settings.loreAutomationMode === 'armp' && settings.loreAutomationProviderRouting !== 'local' && Number(diagnostics?.remapPreview?.candidateCount || 0) > 0 && providerDelta.length === 0) {
+                        browserFindings.push(`${scenario.id}/${combo.mode}:${combo.style}:${combo.routing} had ${diagnostics.remapPreview.candidateCount} local remap candidates but completed without a provider call.`);
+                    }
+                    if (task === 'manual-protection' && scenarioProbe?.protectedId) {
+                        const protectedId = String(scenarioProbe.protectedId);
+                        const beforeEntry = Array.isArray(before?.loreMatrix) ? before.loreMatrix.find(entry => String(entry?.id || '') === protectedId) : null;
+                        const afterEntry = Array.isArray(after?.loreMatrix) ? after.loreMatrix.find(entry => String(entry?.id || '') === protectedId) : null;
+                        const beforePinned = new Set(before?.loreSelection?.pinnedIds || []).has(protectedId);
+                        const afterPinned = new Set(after?.loreSelection?.pinnedIds || []).has(protectedId);
+                        const beforeMuted = new Set(before?.loreSelection?.suppressedIds || []).has(protectedId);
+                        const afterMuted = new Set(after?.loreSelection?.suppressedIds || []).has(protectedId);
+                        const beforeRelevance = normalizeRelevance(beforeEntry?.relevance || 'normal');
+                        const afterRelevance = normalizeRelevance(afterEntry?.relevance || 'normal');
+                        if (beforePinned !== afterPinned || beforeMuted !== afterMuted || beforeRelevance !== afterRelevance) {
+                            browserFindings.push(`${scenario.id}/${combo.mode}:${combo.style}:${combo.routing}:manual-protection changed disabled card ${protectedId} (relevance ${beforeRelevance}->${afterRelevance}, pinned ${beforePinned}->${afterPinned}, muted ${beforeMuted}->${afterMuted}).`);
+                        }
+                        if (afterEntry?.extensions?.loreAutomation?.enabled !== false) {
+                            browserFindings.push(`${scenario.id}/${combo.mode}:${combo.style}:${combo.routing}:manual-protection re-enabled disabled card ${protectedId}.`);
+                        }
                     }
                     if (getRunTask(combo) === 'curation' && settings.loreAutomationMode === 'armpc' && scenarioProbe?.type === 'curation-gap' && Number(scenarioProbe.removedAcceptedCount || 0) > 0 && diff.counts.accepted < 1) {
                         browserFindings.push(`${scenario.id}/${combo.mode}:${combo.style}:${combo.routing}:curation did not accept any active-deck cards after the curation-gap probe removed ${scenarioProbe.removedAcceptedCount}.`);
@@ -7300,6 +7971,11 @@ async function runLiveLoreAutomationSmoke(client, screenshots, findings, smokeUr
                     }
                     if (settings.loreAutomationMode === 'armp' && providerDelta.length === 0 && settings.loreAutomationProviderRouting !== 'local') {
                         qualityNotes.push('ARMP recorded no provider calls, usually because local remap candidates were empty.');
+                    }
+                    const remapStateChangeCount = diff.counts.pinAdded + diff.counts.pinRemoved + diff.counts.muteAdded + diff.counts.muteRemoved;
+                    if (settings.loreAutomationMode === 'armp' && providerDelta.length > 0 && settings.loreAutomationProviderRouting !== 'local' && Number(diagnostics?.remapPreview?.candidateCount || 0) > 0 && remapStateChangeCount === 0) {
+                        const counts = diagnostics.remapPreview.counts || {};
+                        qualityNotes.push(`ARMP had ${diagnostics.remapPreview.candidateCount} local remap candidates before the provider call but applied no pin/mute changes (pin ${counts.pin || 0}, unpin ${counts.unpin || 0}, mute ${counts.mute || 0}, unmute ${counts.unmute || 0}).`);
                     }
                     results.push({
                         id: `${scenario.id}:${combo.label || `${combo.mode}-${combo.style}-${combo.routing}-${getRunTask(combo)}`}`,
@@ -7332,6 +8008,10 @@ async function runLiveLoreAutomationSmoke(client, screenshots, findings, smokeUr
                             retired: run.retired || 0,
                             modelStatus: run.modelStatus || '',
                             providerStatus: run.providerStatus || '',
+                            modelError: run.modelError || '',
+                            automationOperations: Array.isArray(run.operations)
+                                ? run.operations.filter(operation => ['pin', 'unpin', 'mute', 'unmute', 'accept_from_active_decks', 'retire_from_accepted_stack'].includes(String(operation?.operation || ''))).slice(0, 16)
+                                : [],
                             operations: Array.isArray(run.operations) ? run.operations.slice(0, 16) : [],
                         } : null,
                     });
@@ -7354,7 +8034,28 @@ async function runLiveLoreAutomationSmoke(client, screenshots, findings, smokeUr
             }
         }
         const totalProviderCalls = results.reduce((total, item) => total + Number(item.providerCallCount || 0), 0);
-        if (totalProviderCalls < 1) browserFindings.push('Lore Automation matrix completed without recording any provider calls.');
+        const expectsProviderCall = item => {
+            const mode = String(item?.combo?.mode || '').toLowerCase();
+            const routing = String(item?.combo?.routing || '').toLowerCase();
+            const task = String(item?.combo?.task || 'full').toLowerCase();
+            if (!mode || mode === 'off' || routing === 'local') return false;
+            if (mode === 'ar') {
+                return options.useArModel === true && !['disabled', 'no_lore', 'no_candidates'].includes(String(item?.result?.modelStatus || item?.status || ''));
+            }
+            if (mode === 'armp') {
+                return Number(item?.diagnostics?.remapPreview?.candidateCount || 0) > 0;
+            }
+            if (mode === 'armpc') {
+                if (task === 'curation') {
+                    return Number(item?.diagnostics?.preview?.newCount || 0) + Number(item?.diagnostics?.stackPressure?.staleCount || 0) > 0;
+                }
+                return Number(item?.diagnostics?.remapPreview?.candidateCount || 0) > 0
+                    || Number(item?.diagnostics?.preview?.newCount || 0) > 0
+                    || Number(item?.diagnostics?.stackPressure?.staleCount || 0) > 0;
+            }
+            return false;
+        };
+        if (results.some(expectsProviderCall) && totalProviderCalls < 1) browserFindings.push('Lore Automation matrix expected provider-backed rows but completed without recording any provider calls.');
         return {
             results,
             findings: browserFindings,
@@ -7368,6 +8069,7 @@ async function runLiveLoreAutomationSmoke(client, screenshots, findings, smokeUr
         persist: config.persist,
         useArModel: config.useArModel,
         recentMessages: fixture.selectedMessageCount,
+        providerTimeoutMs: config.providerTimeoutMs,
     }), {
         timeoutMs: Math.max(60000, config.providerTimeoutMs * Math.max(1, fixture.scenarios.length * config.matrix.length) + 60000),
         label: 'live Lore Automation matrix',
@@ -7999,6 +8701,11 @@ async function main() {
 
         await client.send('Page.navigate', { url: smokeUrl });
         await waitFor(client, 'document.readyState === "complete"', REPO_LOCAL_HARNESS_TARGETS.has(SMOKE_TARGET) ? 'Repo-local smoke harness load' : 'SillyTavern load', 20000);
+        if (SMOKE_TARGET === LIVE_LORE_AUTOMATION_TARGET) {
+            await wait(2500);
+            await runLiveLoreAutomationSmoke(client, screenshots, findings, smokeUrl, dialogEvents);
+            return;
+        }
         await waitFor(client, '!!document.querySelector("#saga-lore-panel")', 'Saga runtime panel', 20000);
         await wait(2500);
 
@@ -8154,11 +8861,6 @@ async function main() {
             return;
         }
 
-        if (SMOKE_TARGET === LIVE_LORE_AUTOMATION_TARGET) {
-            await runLiveLoreAutomationSmoke(client, screenshots, findings, smokeUrl, dialogEvents);
-            return;
-        }
-
         if (SMOKE_TARGET === LIVE_CREATOR_TARGET) {
             if (!ALLOW_PROVIDER_CALLS) {
                 console.log(JSON.stringify({
@@ -8173,6 +8875,11 @@ async function main() {
                 return;
             }
             await runLiveCreatorSmoke(client, screenshots, findings, smokeUrl, dialogEvents);
+            return;
+        }
+
+        if (SMOKE_TARGET === LIVE_MOBILE_LORECARD_LATENCY_TARGET) {
+            await runLiveMobileLorecardLatencySmoke(client, screenshots, findings, smokeUrl, dialogEvents);
             return;
         }
 

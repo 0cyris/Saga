@@ -18,7 +18,7 @@ const lorePanel = await readText('src/runtime/lore-panel.js');
 const runtimeNavigation = await readText('src/runtime/runtime-navigation.js');
 const activeStackPanel = await readText('src/runtime/active-stack-panel.js');
 const storageAndStateSafetyDoc = await readText('docs/user/STORAGE_AND_STATE_SAFETY.md');
-const operatorManual = await readText('docs/user/OPERATOR_MANUAL.md');
+const operatorManual = await readText('docs/user/DESKTOP_OPERATOR_MANUAL.md');
 const style = await readText('styles/tokens.css');
 const runtimeTheme = await readText('src/theme/runtime-theme.js');
 

@@ -26,13 +26,21 @@ const {
 
 const state = {
   loreSelection: {
-    pinnedIds: ['harry-secret'],
+    pinnedIds: [],
     suppressedIds: [],
+    elevated: {
+      'harry-secret': {
+        elevatedAt: 1,
+        previousRelevance: 'normal',
+        previousMuted: false,
+        previousLoreAutomation: { enabled: true },
+      },
+    },
   },
   loreMatrix: [{
     id: 'harry-secret',
     title: 'Harry Secret',
-    relevance: 'high',
+    relevance: 'normal',
     priority: 100,
     status: 'active',
     injectableByDefault: true,
@@ -47,10 +55,10 @@ assert.equal(direct, '## High-Relevance Lore\n- Harry knows the hidden passage.'
 
 const signature = getCompressionSourceSignature(state, 'lore-high', direct, sagaSettings);
 const parsedSignature = JSON.parse(signature);
-assert.equal(parsedSignature.signatureVersion, 4);
+assert.equal(parsedSignature.signatureVersion, 5);
 assert.equal(parsedSignature.kind, 'lore-high');
 assert.equal(parsedSignature.compressionLevel, 3);
-assert.equal(parsedSignature.pinnedLoreIds, 'harry-secret');
+assert.equal(parsedSignature.elevatedLoreIds, 'harry-secret');
 
 state.loreCompressionStatusByRelevance = {
   high: {
@@ -61,8 +69,8 @@ state.loreCompressionStatusByRelevance = {
 
 assert.equal(
   buildLorePreview(state, 'compressed', 'high'),
-  'COMPRESSED HIGH LORE',
-  'Matching high-relevance compression cache must replace the direct lore prompt.'
+  'COMPRESSED HIGH LORE\n\n## Elevated Lore (Direct)\n- Harry knows the hidden passage.',
+  'Matching high-relevance compression cache must append exact Elevated lore directly.'
 );
 
 state.loreCompressionStatusByRelevance.high.lastSignature = 'stale-signature';
@@ -78,14 +86,14 @@ const higherCompressionSignature = getCompressionSourceSignature(state, 'lore-hi
 });
 assert.notEqual(higherCompressionSignature, signature, 'Changing compression level must invalidate cached compression.');
 
-const unpinnedSignature = getCompressionSourceSignature({
+const unelevatedSignature = getCompressionSourceSignature({
   ...state,
   loreSelection: {
     ...state.loreSelection,
-    pinnedIds: [],
+    elevated: {},
   },
 }, 'lore-high', direct, sagaSettings);
-assert.notEqual(unpinnedSignature, signature, 'Changing pinned lore must invalidate cached lore compression.');
+assert.notEqual(unelevatedSignature, signature, 'Changing Elevated lore must invalidate cached lore compression.');
 
 const compressionSource = Array.from({ length: 120 }, (_, index) => (
   `- Lore fact ${index + 1}: preserve this concrete character constraint, timing detail, secret boundary, and scene hazard for roleplay continuity.`

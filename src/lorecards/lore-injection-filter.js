@@ -7,6 +7,7 @@ import { evaluateEntryContextGate } from '../context/context-gating.js';
 import { getContextIndexSync } from '../context/context-index.js';
 import { normalizeLoreMatrix } from './lore-matrix.js';
 import { normalizeLoreRelevance, sortLoreEntriesForInjection } from './lore-relevance.js';
+import { getLoreEntryEffectiveRelevance, getLoreSelectionSets } from './lore-selection.js';
 
 function cleanString(value = '', limit = 240) {
     return String(value || '').trim().slice(0, limit);
@@ -37,25 +38,29 @@ export function getLoreEntryInjectionContextGate(entry = {}, state = {}, options
 
 export function getInjectableLoreEntriesForInjection(state = {}, options = {}) {
     const all = normalizeLoreMatrix(state?.loreMatrix || []);
-    const suppressed = new Set(state?.loreSelection?.suppressedIds || []);
-    const pinned = new Set(state?.loreSelection?.pinnedIds || []);
+    const { muted, elevated, activePinned } = getLoreSelectionSets(state);
     const tier = options.relevance ? normalizeLoreRelevance(options.relevance) : null;
     const injectable = all
         .filter(entry => entry.status !== 'archived' && entry.status !== 'disabled')
         .filter(entry => entry.injectableByDefault !== false)
-        .filter(entry => !suppressed.has(entry.id))
-        .filter(entry => !tier || normalizeLoreRelevance(entry.relevance) === tier)
+        .filter(entry => !muted.has(entry.id))
+        .filter(entry => !tier || getLoreEntryEffectiveRelevance(entry, state) === tier)
         .filter(entry => getLoreEntryInjectionContextGate(entry, state, options).eligible)
         .map(entry => ({
             ...entry,
-            isPinned: pinned.has(entry.id),
+            baseRelevance: normalizeLoreRelevance(entry.relevance),
+            isElevated: elevated.has(entry.id),
+            isPinned: activePinned.has(entry.id),
             isSuppressed: false,
-            isActive: normalizeLoreRelevance(entry.relevance) === 'high',
-            relevance: normalizeLoreRelevance(entry.relevance),
+            isActive: getLoreEntryEffectiveRelevance(entry, state) === 'high',
+            relevance: getLoreEntryEffectiveRelevance(entry, state),
         }));
-    const sorted = sortLoreEntriesForInjection(injectable, pinned);
+    const sorted = sortLoreEntriesForInjection(injectable, activePinned);
     const limit = numericLimit(options.limit);
-    return limit > 0 ? sorted.slice(0, limit) : sorted;
+    if (limit <= 0) return sorted;
+    const pinnedEntries = sorted.filter(entry => entry.isPinned);
+    const regularEntries = sorted.filter(entry => !entry.isPinned).slice(0, limit);
+    return [...pinnedEntries, ...regularEntries];
 }
 
 export function getInjectableLoreEntriesByRelevanceForInjection(state = {}, relevance = 'normal', limit = 0, options = {}) {

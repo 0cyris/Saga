@@ -24,8 +24,16 @@ const state = {
     },
   },
   loreSelection: {
-    pinnedIds: ['harry_secret'],
+    pinnedIds: [],
     suppressedIds: ['muted_card'],
+    elevated: {
+      harry_secret: {
+        elevatedAt: 1,
+        previousRelevance: 'high',
+        previousMuted: false,
+        previousLoreAutomation: { enabled: true },
+      },
+    },
   },
   loreMatrix: [
     {
@@ -74,7 +82,7 @@ const audit = buildLoreInjectionAudit(state, settings, {
 
 assert.equal(audit.summary.accepted, 3);
 assert.equal(audit.summary.injected, 1);
-assert.equal(audit.summary.pinnedInjected, 1);
+assert.equal(audit.summary.elevatedInjected, 1);
 assert.equal(audit.entries.find(entry => entry.id === 'harry_secret').decision, 'injected');
 assert.equal(audit.entries.find(entry => entry.id === 'muted_card').decision, 'muted');
 assert.equal(audit.entries.find(entry => entry.id === 'normal_card').decision, 'tier_disabled');

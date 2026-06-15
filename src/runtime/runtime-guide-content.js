@@ -189,12 +189,12 @@ function buildAdvancedGuideSteps() {
         advancedStep('advanced-lore-accepted-list', 'Accepted Lorecards', 'Inspect Accepted Lorecards before they guide prompts.', 'lore', 'lore.accepted', { prepare: 'openAcceptedLoreDetails' }),
         advancedStep('advanced-lore-accepted-search-filter', 'Accepted Lorecards Filters', 'Search and filter Accepted Lorecards by text, status, category, relevance, or suppression state.', 'lore', 'lore.accepted.filters', { fallbackTarget: 'lore.accepted', prepare: 'openAcceptedLoreDetails' }),
         advancedStep('advanced-lore-accepted-open-edit', 'Open Accepted Lorecard', 'Open and edit an Accepted Lorecard when stored memory needs correction.', 'lore', 'lore.accepted.entry', { fallbackTarget: 'lore.accepted', prepare: 'openAcceptedLoreDetails' }),
-        advancedStep('advanced-lore-pin-mute', 'Pin and Mute', 'Pin or mute Accepted Lorecards to control prominence and suppression without deleting them.', 'lore', 'lore.accepted.pinMuteHelp', { fallbackTarget: 'lore.accepted', prepare: 'openAcceptedLoreDetails' }),
+        advancedStep('advanced-lore-pin-mute', 'Elevate and Mute', 'Elevate or mute Accepted Lorecards to control protected prominence and suppression without deleting them.', 'lore', 'lore.accepted.pinMuteHelp', { fallbackTarget: 'lore.accepted', prepare: 'openAcceptedLoreDetails' }),
         advancedStep('advanced-lore-relevance-tier', 'Relevance Tier', 'Set relevance tier and understand prompt eligibility for High, Normal, and Low lore.', 'lore', 'lore.accepted.entry', { fallbackTarget: 'lore.accepted', prepare: 'openAcceptedLoreDetails' }),
         advancedStep('advanced-lore-tags-context', 'Tags and Context Metadata', 'Inspect tags, Context metadata, source metadata, and routing hints on Accepted Lorecards.', 'lore', 'lore.accepted.entry', { fallbackTarget: 'lore.accepted', prepare: 'openAcceptedLoreDetails' }),
         advancedStep('advanced-lore-similarity-duplicates', 'Similarity and Duplicates', 'Understand duplicate and similarity guards before accepting overlapping lore.', 'lore', 'lore.pending', { prepare: 'openPendingLoreReview' }),
         advancedStep('advanced-lore-auto-relevance', 'Lore Automation', 'Choose Off, AR, ARMP, or ARMPC and inspect the run activity for large Accepted Lorecards collections.', 'lore', 'lore.autoRelevance', { expandSections: Object.freeze(['lore.autoRelevance']) }),
-        advancedStep('advanced-lore-timeline-audit', 'Lore Timeline Audit', 'Use timeline and audit recovery for deleted, restored, pinned, muted, or changed lore.', 'lore', 'lore.timeline.open', { fallbackTarget: 'lore.workspace' }),
+        advancedStep('advanced-lore-timeline-audit', 'Lore Timeline Audit', 'Use timeline and audit recovery for deleted, restored, Elevated, muted, or changed lore.', 'lore', 'lore.timeline.open', { fallbackTarget: 'lore.workspace' }),
         advancedStep('advanced-lore-workbench', 'Lore Workbench', 'Open deeper Lorecard workbenches for large-list management and detailed editing.', 'lore', 'lore.accepted.entry', { fallbackTarget: 'lore.accepted', prepare: 'openAcceptedLoreDetails' }),
         advancedStep('advanced-lore-review-first-policy', 'Review-First Policy', 'Model-produced proposals must be reviewed before they can affect future responses.', 'lore', 'lore.pending', { prepare: 'openPendingLoreReview' }),
         advancedStep('advanced-injection-overview', 'Injection Overview', 'Injection is the exact prompt and debugging surface for what Saga sends.', 'injection', 'injection.toggles', { prepare: 'openInjectionPreview' }),
@@ -568,7 +568,7 @@ export const GUIDE_STEPS = Object.freeze({
             expected: 'Accepted Lorecards remain inspectable and correctable.',
             when: 'Use this when a response suggests Saga remembered something incorrectly.',
         }),
-        guideStep('basic-lorecards-pin-mute', 'Pin or Mute Lorecards', 'Pin important Accepted Lorecards for prominence or mute entries that should stay saved but not guide responses.', 'lore', 'lore.accepted.pinMuteHelp', {
+        guideStep('basic-lorecards-pin-mute', 'Elevate or Mute Lorecards', 'Elevate important Accepted Lorecards for protected prominence or mute entries that should stay saved but not guide responses.', 'lore', 'lore.accepted.pinMuteHelp', {
             fallbackTarget: 'lore.accepted',
             expandSections: Object.freeze(['lore.acceptedEntries']),
             prepare: 'openAcceptedLoreDetails',

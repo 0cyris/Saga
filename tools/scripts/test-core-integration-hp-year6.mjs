@@ -380,30 +380,38 @@ async function main() {
   assert.ok(acceptedState.loreMatrix.every(entry => getPackId(entry)), 'Accepted Lorecards should preserve Loredeck metadata.');
   assert.ok(acceptedState.loreMatrix.every(entry => entry.context && typeof entry.context === 'object'), 'Accepted Lorecards should preserve Context gates.');
 
-  const pinned = acceptedState.loreMatrix.find(entry => entry.id === 'future_guard_dumbledore_alive_before_tower') || acceptedState.loreMatrix[0];
-  const muted = acceptedState.loreMatrix.find(entry => entry.id !== pinned.id) || acceptedState.loreMatrix[1];
-  assert.ok(pinned, 'Expected a Lorecard to pin.');
+  const elevated = acceptedState.loreMatrix.find(entry => entry.id === 'future_guard_dumbledore_alive_before_tower') || acceptedState.loreMatrix[0];
+  const muted = acceptedState.loreMatrix.find(entry => entry.id !== elevated.id) || acceptedState.loreMatrix[1];
+  assert.ok(elevated, 'Expected a Lorecard to Elevate.');
   assert.ok(muted, 'Expected a Lorecard to mute.');
   acceptedState.loreSelection = {
-    pinnedIds: [pinned.id],
+    pinnedIds: [],
     suppressedIds: [muted.id],
+    elevated: {
+      [elevated.id]: {
+        elevatedAt: Date.now(),
+        previousRelevance: elevated.relevance || 'normal',
+        previousMuted: false,
+        previousLoreAutomation: { enabled: true },
+      },
+    },
   };
 
   const audit = buildLoreInjectionAudit(acceptedState, getSettings(), {
     transport: 'integration_test',
     promptCharsByTier: { high: 1000, normal: 1000, low: 1000 },
   });
-  const pinnedAudit = audit.entries.find(entry => entry.id === pinned.id);
+  const elevatedAudit = audit.entries.find(entry => entry.id === elevated.id);
   const mutedAudit = audit.entries.find(entry => entry.id === muted.id);
   const trustGuard = acceptedState.loreMatrix.find(entry => entry.id === 'canon_secret_disclosure_requires_trust');
   const trustGuardAudit = audit.entries.find(entry => entry.id === 'canon_secret_disclosure_requires_trust');
-  assert.equal(pinnedAudit?.decision, 'injected', 'Pinned eligible Lorecard should inject.');
+  assert.equal(elevatedAudit?.decision, 'injected', 'Elevated eligible Lorecard should inject.');
   assert.equal(mutedAudit?.decision, 'muted', 'Muted Lorecard should not inject.');
   assert.ok(trustGuard, 'Secret disclosure trust guard should be accepted in the Jan 25 Year 6 smoke.');
   assert.equal(trustGuardAudit?.decision, 'injected', 'Secret disclosure trust guard should inject when accepted and eligible.');
 
   const memo = buildLoreMemo(acceptedState, getSettings());
-  assert.ok(memo.includes(getInjectionNeedle(pinned)), 'Lore memo should include the pinned Lorecard content.');
+  assert.ok(memo.includes(getInjectionNeedle(elevated)), 'Lore memo should include the Elevated Lorecard content.');
   assert.ok(!memo.includes(getInjectionNeedle(muted)), 'Lore memo should omit the muted Lorecard content.');
   assert.ok(memo.includes(getInjectionNeedle(trustGuard)), 'Lore memo should include the secret disclosure trust guard content.');
 
@@ -433,7 +441,7 @@ async function main() {
     },
     accepted: {
       count: acceptedState.loreMatrix.length,
-      pinned: pinned.id,
+      elevated: elevated.id,
       muted: muted.id,
       injected: audit.summary.injected,
     },

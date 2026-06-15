@@ -3,6 +3,8 @@
  */
 
 import { buildLoreGenerationKey, mergeLoreEntries, normalizeLoreContext, normalizeLoreEntry, normalizeLoreMatrix } from '../lorecards/lore-matrix.js';
+import { getLoreAutomationState, setLoreAutomationEnabled } from '../lorecards/lore-automation.js';
+import { ensureLoreSelectionShape, getLoreEntryBaseRelevance } from '../lorecards/lore-selection.js';
 import { preprocessPendingLoreEntries } from '../lorecards/pending-lore-preprocessor.js';
 import { captureLoreTimelineState, recordLoreTimelineEvent, restoreTimelineEntriesToPending } from '../lorecards/lore-timeline.js';
 import { getDefaultState as createDefaultState } from './constants.js';
@@ -717,20 +719,40 @@ function preparePendingLoreEntryForAcceptance(pendingEntry, existingEntries = []
 }
 
 function applyAcceptedLoreSelectionRecommendations(state, entries = []) {
-    if (!state.loreSelection || typeof state.loreSelection !== 'object') state.loreSelection = { pinnedIds: [], suppressedIds: [] };
-    const pinSet = new Set(Array.isArray(state.loreSelection.pinnedIds) ? state.loreSelection.pinnedIds : []);
-    const muteSet = new Set(Array.isArray(state.loreSelection.suppressedIds) ? state.loreSelection.suppressedIds : []);
+    const selection = ensureLoreSelectionShape(state);
+    const pinSet = new Set(Array.isArray(selection.pinnedIds) ? selection.pinnedIds : []);
+    const muteSet = new Set(Array.isArray(selection.suppressedIds) ? selection.suppressedIds : []);
+    const elevatedRecords = selection.elevated || {};
+    const now = Date.now();
     for (const entry of normalizeLoreMatrix(entries)) {
         const generation = entry.extensions?.sagaGeneration || {};
         if (generation.recommendedMute) {
             muteSet.add(entry.id);
             pinSet.delete(entry.id);
+            delete elevatedRecords[entry.id];
         } else if (generation.recommendedPin || entry.protected) {
-            pinSet.add(entry.id);
+            elevatedRecords[entry.id] = {
+                elevatedAt: now,
+                previousRelevance: getLoreEntryBaseRelevance(entry),
+                previousIsActive: entry.isActive === true,
+                previousMuted: muteSet.has(entry.id),
+                previousLoreAutomation: getLoreAutomationState(entry),
+            };
+            muteSet.delete(entry.id);
+            pinSet.delete(entry.id);
         }
     }
     state.loreSelection.pinnedIds = Array.from(pinSet);
     state.loreSelection.suppressedIds = Array.from(muteSet);
+    state.loreSelection.elevated = elevatedRecords;
+    const elevatedIds = new Set(Object.keys(elevatedRecords));
+    if (elevatedIds.size) {
+        state.loreMatrix = normalizeLoreMatrix(state.loreMatrix || []).map(entry => (
+            elevatedIds.has(entry.id)
+                ? normalizeLoreEntry(setLoreAutomationEnabled(entry, false, { at: now, by: 'user', reason: 'manual_elevation' }))
+                : entry
+        ));
+    }
 }
 
 

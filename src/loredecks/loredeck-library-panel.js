@@ -3207,10 +3207,12 @@ function createLoredeckLibraryDeckCard(pack, stack = [], canonDb = null, health 
         chips.appendChild(createStatusPill(activeItem.enabled ? 'In Stack' : 'Disabled', 'Current session stack state.', { tone: activeItem.enabled ? 'success' : 'muted', kind: 'status' }));
     }
     main.appendChild(chips);
-    const statsLine = document.createElement('div');
-    statsLine.className = 'saga-loredeck-library-card-stats';
-    statsLine.textContent = `${stats.entryCount} Lorecards | ${stats.fileCount || 0} files | ${stats.updatedLabel}`;
-    main.appendChild(statsLine);
+    if (!mobileTouch) {
+        const statsLine = document.createElement('div');
+        statsLine.className = 'saga-loredeck-library-card-stats';
+        statsLine.textContent = `${stats.entryCount} Lorecards | ${stats.fileCount || 0} files | ${stats.updatedLabel}`;
+        main.appendChild(statsLine);
+    }
     card.appendChild(main);
 
     return card;

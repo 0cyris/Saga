@@ -8,7 +8,8 @@ import { getLoreTaxonomySync } from '../context/canon-lore-db.js';
 
 const CATEGORY_LABELS = Object.freeze({
     all: 'All',
-    pinned: 'Pinned',
+    pinned: 'Elevated',
+    elevated: 'Elevated',
     suppressed: 'Muted',
     pending: 'Pending',
     high: 'High Relevance',

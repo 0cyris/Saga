@@ -199,7 +199,7 @@ export function renderSessionTab(container, state) {
     stats.appendChild(createKeyValue('Pending Review', String((state?.pendingLoreEntries || []).length), 'Generated Lorecards waiting in the Lorecards tab Pending Review section.'));
     stats.appendChild(createKeyValue('Accepted Lorecards', String(counts.all - counts.pending), 'Accepted Lorecards currently stored in the lore matrix.'));
     stats.appendChild(createKeyValue('High-relevance Accepted Lorecards', String(counts.active), 'Accepted Lorecards currently assigned to the High-Relevance injection tier.'));
-    stats.appendChild(createKeyValue('Lorecards selected for injection', String(selectedLoreCount), 'Accepted Lorecards selected for Lore Injection after pin/mute rules, Context activation, and fallback priority selection. There is no hidden entry cap; mute entries to exclude them.'));
+    stats.appendChild(createKeyValue('Lorecards selected for injection', String(selectedLoreCount), 'Accepted Lorecards selected for Lore Injection after relevance, Elevate, Mute, Context activation, and fallback priority selection. There is no hidden entry cap; mute entries to exclude them.'));
     stats.appendChild(createKeyValue('Injection token estimate', injectionStats.totalChars ? `${injectionStats.totalTokens} tokens` : 'empty', 'Approximate token count for the combined Continuity + Lore injection previews.'));
     stats.appendChild(createKeyValue('Total chars injected', `${injectionStats.totalChars} chars`, 'Combined character count of Continuity Injection plus Lore Injection using current Injection tab toggles and handling modes.'));
     container.appendChild(stats);
