@@ -75,7 +75,7 @@ The current project already has several reusable core systems:
 - Canon/AU distinction.
 - Context detection.
 - Continuity scanning.
-- Auto-Relevance.
+- Lore Automation.
 - Prompt injection and compression.
 - Provider settings.
 
@@ -1694,7 +1694,7 @@ Recent production completed **Context-native Loredeck retrieval, HP reference-de
 
 The next major phase is **Context system hardening before broader core integration testing**. The schema, Context gates, Context Index, and bounded Reasoner proposal pieces exist, but the active detector and compact Context tab still carry too much date/canon-boundary Saga shape. The development plan is captured in [SAGA_CONTEXT_SYSTEM_DEVELOPMENT_PLAN.md](SAGA_CONTEXT_SYSTEM_DEVELOPMENT_PLAN.md). After that hardening, deterministic tests should prove the loop from loaded Loredecks to Context-gated Lorecard suggestion, Pending/Accepted state, pin/mute/relevance behavior, and final injection output. See [SAGA_CORE_INTEGRATION_TESTING.md](SAGA_CORE_INTEGRATION_TESTING.md).
 
-Planned Auto-Relevance expansion: the current High/Normal/Low system should eventually support optional pin/mute suggestions or high-confidence pin/mute application. This must remain separately configurable and testable because pin/mute changes are stronger than relevance-tier changes.
+Lore Automation expansion: the High/Normal/Low relevance pass now sits behind the `Off`, `AR`, `ARMP`, and `ARMPC` mode model described in [SAGA_LORE_AUTOMATION_LEVELS_PLAN.md](SAGA_LORE_AUTOMATION_LEVELS_PLAN.md). Pin/mute and curation remain stronger than relevance-tier changes and require per-card automation eligibility, audit visibility, and deterministic integration coverage.
 
 Legacy cleanup checkpoint: the Saga compatibility posture has changed. Saga should not ship the full Saga chat preset in MVP, and fast reply-header Context detection has been removed with it. The current removal plan is captured in [SAGA_LEGACY_REMOVAL_AUDIT.md](SAGA_LEGACY_REMOVAL_AUDIT.md).
 

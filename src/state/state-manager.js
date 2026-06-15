@@ -702,6 +702,44 @@ export function migrateState(state) {
         state._version = 24;
     }
 
+    // Schema v25: Lore Automation run journal and per-card automation eligibility
+    if (state._version < 25) {
+        state.loreAutomationSuggestions = Array.isArray(state.loreAutomationSuggestions) ? state.loreAutomationSuggestions : [];
+        state.loreAutomationRuns = Array.isArray(state.loreAutomationRuns) ? state.loreAutomationRuns : [];
+        state.loreAutomationLastRun = state.loreAutomationLastRun || null;
+        if (Array.isArray(state.loreMatrix)) {
+            state.loreMatrix = state.loreMatrix.map(entry => ({
+                ...entry,
+                extensions: (() => {
+                    const legacyManualLock = entry.extensions?.autoRelevance?.mode === 'manual'
+                        || entry.extensions?.autoRelevance?.locked === true;
+                    const existingAutomation = entry.extensions?.loreAutomation || {};
+                    const enabled = existingAutomation.enabled === undefined
+                        ? !legacyManualLock
+                        : existingAutomation.enabled !== false;
+                    return {
+                        ...(entry.extensions || {}),
+                        loreAutomation: {
+                            enabled,
+                            enabledAt: Number(existingAutomation.enabledAt || 0) || 0,
+                            enabledBy: existingAutomation.enabledBy || (enabled ? 'migration' : ''),
+                            disabledReason: existingAutomation.disabledReason || (enabled ? '' : 'legacy_manual_relevance'),
+                            disabledAt: Number(existingAutomation.disabledAt || 0) || 0,
+                            disabledBy: existingAutomation.disabledBy || (enabled ? '' : 'migration'),
+                            lastAction: existingAutomation.lastAction || '',
+                            lastReason: existingAutomation.lastReason || entry.extensions?.autoRelevance?.reason || '',
+                            lastRunId: existingAutomation.lastRunId || '',
+                            lastTouchedAt: Number(existingAutomation.lastTouchedAt || entry.extensions?.autoRelevance?.updatedAt || 0) || 0,
+                            lastProvider: existingAutomation.lastProvider || entry.extensions?.autoRelevance?.mode || '',
+                            owner: existingAutomation.owner || (entry.extensions?.sagaGeneration ? 'generated' : 'imported'),
+                        },
+                    };
+                })(),
+            }));
+        }
+        state._version = 25;
+    }
+
     // ── Always normalize lore fields post-migration ────────────────────────
     // First compact known-heavy canon DB payloads and oversized pending batches so
     // a poisoned chat can recover instead of freezing during panel render/save.
@@ -712,6 +750,9 @@ export function migrateState(state) {
     state.loreMatrix = normalizeLoreMatrix(state.loreMatrix || []);
     state.pendingLoreEntries = normalizeLoreMatrix(state.pendingLoreEntries || []);
     state.loreTimeline = normalizeLoreTimeline(state.loreTimeline || {});
+    state.loreAutomationSuggestions = Array.isArray(state.loreAutomationSuggestions) ? state.loreAutomationSuggestions : [];
+    state.loreAutomationRuns = Array.isArray(state.loreAutomationRuns) ? state.loreAutomationRuns : [];
+    state.loreAutomationLastRun = state.loreAutomationLastRun || null;
     sanitizeLoreArraysForStorage(state);
 
     normalizeContinuityStructure(state);

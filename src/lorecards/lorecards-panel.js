@@ -14,6 +14,18 @@ import {
     normalizeLoreRelevance,
 } from './lore-relevance.js';
 import {
+    LORE_AUTOMATION_MANUAL_DISABLE_REASONS,
+    LORE_AUTOMATION_MODE_LABELS,
+    LORE_AUTOMATION_MODE_TOOLTIPS,
+    LORE_AUTOMATION_MODE_VALUES,
+    LORE_AUTOMATION_STYLE_VALUES,
+    disableLoreAutomationForManualChange,
+    getLoreAutomationState,
+    normalizeLoreAutomationMode,
+    normalizeLoreAutomationStyle,
+    setLoreAutomationEnabled,
+} from './lore-automation.js';
+import {
     addTooltip,
     createBadge,
     createButton,
@@ -58,7 +70,14 @@ let loreWorkbenchPendingQuery = '';
 let loreWorkbenchFocusSelector = '';
 const loreWorkbenchScrollState = { accepted: 0, pending: 0 };
 
-const AUTO_RELEVANCE_SETTING_KEYS = Object.freeze([
+const LORE_AUTOMATION_SETTING_KEYS = Object.freeze([
+    'loreAutomationMode',
+    'loreAutomationStyle',
+    'loreAutomationPaused',
+    'loreAutomationProviderRouting',
+    'loreAutomationRemapEveryTurns',
+    'loreAutomationCurationEveryTurns',
+    'loreAutomationRunJournalLimit',
     'autoRelevanceEnabled',
     'autoRelevanceMode',
     'autoRelevanceEveryTurns',
@@ -1472,7 +1491,7 @@ function updateEntryRelevanceFromSegment(entry, nextValue, options = {}) {
                 updatedAt: Date.now(),
             },
         },
-    }), { deferSave: true });
+    }), { deferSave: true, loreAutomationDisableReason: LORE_AUTOMATION_MANUAL_DISABLE_REASONS.relevance });
     if (options.pending) refreshPanelBody({ preserveScroll: true });
     else if (!refreshAcceptedLoreRow(entry.id)) refreshAcceptedLoreList({ preserveScroll: true });
     refreshAcceptedLoreBulkToolbar();
@@ -2185,7 +2204,19 @@ export function toggleAcceptedLoreSelection(entryId, selected) {
     scheduleStateSave(state);
 }
 
-function bulkUpdateAcceptedLore(ids, updater) {
+function markLoreAutomationDisabledForEntryIds(state, ids, reason, meta = {}) {
+    if (!state || !ids?.length) return 0;
+    const idSet = new Set(ids);
+    let count = 0;
+    state.loreMatrix = normalizeLoreMatrix(state.loreMatrix || []).map(entry => {
+        if (!idSet.has(entry.id)) return entry;
+        count += 1;
+        return normalizeLoreEntry(disableLoreAutomationForManualChange(entry, reason, meta));
+    });
+    return count;
+}
+
+function bulkUpdateAcceptedLore(ids, updater, options = {}) {
     if (!ids?.length || typeof updater !== 'function') return false;
     const state = getState();
     const beforeTimeline = captureLoreTimelineState(state);
@@ -2194,7 +2225,15 @@ function bulkUpdateAcceptedLore(ids, updater) {
     state.loreMatrix = normalizeLoreMatrix(state.loreMatrix || []).map(entry => {
         if (!idSet.has(entry.id)) return entry;
         count += 1;
-        return normalizeLoreEntry({ ...updater(entry), userEdited: true });
+        let updated = normalizeLoreEntry({ ...updater(entry), userEdited: true });
+        if (options.preserveLoreAutomation !== true) {
+            updated = normalizeLoreEntry(disableLoreAutomationForManualChange(
+                updated,
+                options.loreAutomationDisableReason || LORE_AUTOMATION_MANUAL_DISABLE_REASONS.bulk,
+                { at: Date.now(), by: 'user' },
+            ));
+        }
+        return updated;
     });
     if (count) {
         recordLoreTimelineEvent(state, {
@@ -2232,6 +2271,12 @@ function bulkSetAcceptedPinned(ids, pinned) {
     }
     state.loreSelection.pinnedIds = Array.from(pinSet);
     state.loreSelection.suppressedIds = Array.from(suppressedSet);
+    markLoreAutomationDisabledForEntryIds(
+        state,
+        Array.from(idSet),
+        LORE_AUTOMATION_MANUAL_DISABLE_REASONS.pin,
+        { at: Date.now(), by: 'user' },
+    );
     recordLoreTimelineEvent(state, {
         before: beforeTimeline,
         after: captureLoreTimelineState(state),
@@ -2265,6 +2310,12 @@ function bulkSetAcceptedMuted(ids, muted) {
     }
     state.loreSelection.pinnedIds = Array.from(pinSet);
     state.loreSelection.suppressedIds = Array.from(suppressedSet);
+    markLoreAutomationDisabledForEntryIds(
+        state,
+        Array.from(idSet),
+        LORE_AUTOMATION_MANUAL_DISABLE_REASONS.mute,
+        { at: Date.now(), by: 'user' },
+    );
     recordLoreTimelineEvent(state, {
         before: beforeTimeline,
         after: captureLoreTimelineState(state),
@@ -2277,6 +2328,38 @@ function bulkSetAcceptedMuted(ids, muted) {
     refreshAcceptedLoreBulkToolbar();
     refreshHeader();
     refreshLoreWorkbench();
+}
+
+function bulkSetAcceptedLoreAutomation(ids, enabled) {
+    if (!ids?.length) return false;
+    const state = getState();
+    const beforeTimeline = captureLoreTimelineState(state);
+    const idSet = new Set(ids);
+    let count = 0;
+    state.loreMatrix = normalizeLoreMatrix(state.loreMatrix || []).map(entry => {
+        if (!idSet.has(entry.id)) return entry;
+        count += 1;
+        return normalizeLoreEntry(setLoreAutomationEnabled(entry, enabled, {
+            at: Date.now(),
+            by: 'manual',
+            reason: enabled ? '' : 'manual_bulk_change',
+        }));
+    });
+    if (count) {
+        recordLoreTimelineEvent(state, {
+            before: beforeTimeline,
+            after: captureLoreTimelineState(state),
+            type: enabled ? 'lore_automation_enable' : 'lore_automation_disable',
+            source: 'manual',
+            summary: `${enabled ? 'Enabled' : 'Disabled'} Lore Automation for ${count} Accepted Lorecard${count === 1 ? '' : 's'}.`,
+        });
+    }
+    saveState(state);
+    refreshAcceptedLoreList({ preserveScroll: true });
+    refreshAcceptedLoreBulkToolbar();
+    refreshHeader();
+    refreshLoreWorkbench();
+    return count > 0;
 }
 
 function bulkAddTagToAcceptedLore(ids, tag) {
@@ -2369,37 +2452,34 @@ function clearAutoRelevanceSuggestions() {
     return dep('clearAutoRelevanceSuggestions', () => null)();
 }
 
+function applyLoreAutomationSuggestions(ids = null) {
+    return dep('applyLoreAutomationSuggestions', () => ({ applied: 0 }))(ids);
+}
+
+function rejectLoreAutomationSuggestions(ids = null) {
+    return dep('rejectLoreAutomationSuggestions', () => ({ rejected: 0 }))(ids);
+}
+
+function clearLoreAutomationSuggestions() {
+    return dep('clearLoreAutomationSuggestions', () => null)();
+}
+
+function undoLastLoreAutomationRun() {
+    return dep('undoLastLoreAutomationRun', () => ({ undone: 0 }))();
+}
+
 export function createAutoRelevanceCard(state) {
     const settings = getSettings();
+    const loreAutomationMode = normalizeLoreAutomationMode(settings.loreAutomationMode || (settings.autoRelevanceEnabled ? 'ar' : 'off'));
+    const loreAutomationStyle = normalizeLoreAutomationStyle(settings.loreAutomationStyle || 'balanced');
     const card = document.createElement('div');
     card.className = 'saga-runtime-card saga-auto-relevance-card';
     const title = document.createElement('div');
     title.className = 'saga-runtime-card-title';
-    title.textContent = 'Auto-Relevance';
-    addTooltip(title, 'Periodically rescans recent context and adjusts Accepted Lorecards relevance tiers. Mute remains the hard injection on/off control.');
+    title.textContent = 'Lore Automation';
+    addTooltip(title, 'Select how much authority Saga has over Accepted Lorecards.');
     card.appendChild(title);
-    const help = document.createElement('div');
-    help.className = 'saga-runtime-help';
-    help.textContent = 'Auto-Relevance uses local scoring for performance. It can promote or demote High/Normal/Low relevance, but it does not change mute or pin.';
-    card.appendChild(help);
-    appendSettingsResetButton(card, AUTO_RELEVANCE_SETTING_KEYS, 'Auto-Relevance settings');
-
-    const enabled = document.createElement('label');
-    enabled.className = 'saga-inline-toggle';
-    markTourTarget(enabled, 'lore.autoRelevance.toggle');
-    const cb = document.createElement('input');
-    cb.type = 'checkbox';
-    cb.checked = !!settings.autoRelevanceEnabled;
-    cb.addEventListener('change', () => {
-        const next = getSettings();
-        next.autoRelevanceEnabled = cb.checked;
-        if (cb.checked && (!next.autoRelevanceMode || next.autoRelevanceMode === 'off')) next.autoRelevanceMode = 'suggest';
-        saveSettings(next);
-        refreshPanelBody({ preserveScroll: true });
-    });
-    enabled.appendChild(cb);
-    enabled.appendChild(document.createTextNode(' Enable Auto-Relevance'));
-    card.appendChild(enabled);
+    appendSettingsResetButton(card, LORE_AUTOMATION_SETTING_KEYS, 'Lore Automation settings');
 
     const modeRow = document.createElement('div');
     modeRow.className = 'saga-runtime-grid';
@@ -2407,36 +2487,80 @@ export function createAutoRelevanceCard(state) {
     const modeLabel = document.createElement('label');
     modeLabel.className = 'saga-inline-field';
     const modeSpan = document.createElement('span');
-    modeSpan.textContent = 'Action when enabled';
-    addTooltip(modeSpan, 'The checkbox turns Auto-Relevance on or off. This selector controls what Auto-Relevance does when it runs.');
+    modeSpan.textContent = 'Mode';
+    addTooltip(modeSpan, 'Lore Automation authority level.');
     const modeSelect = document.createElement('select');
-    const selectedMode = (settings.autoRelevanceMode || 'suggest') === 'off' ? 'suggest' : (settings.autoRelevanceMode || 'suggest');
-    for (const [value, label] of [['suggest', 'Suggest changes for review'], ['apply_high_confidence', 'Apply high-confidence changes']]) {
+    for (const value of LORE_AUTOMATION_MODE_VALUES) {
         const option = document.createElement('option');
         option.value = value;
-        option.textContent = label;
-        if (selectedMode === value) option.selected = true;
+        option.textContent = LORE_AUTOMATION_MODE_LABELS[value] || value;
+        option.title = LORE_AUTOMATION_MODE_TOOLTIPS[value] || '';
+        if (loreAutomationMode === value) option.selected = true;
         modeSelect.appendChild(option);
     }
     modeSelect.addEventListener('change', () => {
         const next = getSettings();
-        next.autoRelevanceMode = modeSelect.value;
+        const mode = normalizeLoreAutomationMode(modeSelect.value);
+        next.loreAutomationMode = mode;
+        next.autoRelevanceEnabled = mode !== 'off';
+        next.autoRelevanceMode = mode === 'off'
+            ? 'off'
+            : (normalizeLoreAutomationStyle(next.loreAutomationStyle || loreAutomationStyle) === 'careful' ? 'suggest' : 'apply_high_confidence');
         saveSettings(next);
         refreshPanelBody({ preserveScroll: true });
     });
     modeLabel.appendChild(modeSpan);
     modeLabel.appendChild(modeSelect);
     modeRow.appendChild(modeLabel);
+
+    const styleLabel = document.createElement('label');
+    styleLabel.className = 'saga-inline-field';
+    const styleSpan = document.createElement('span');
+    styleSpan.textContent = 'Style';
+    addTooltip(styleSpan, 'Controls how conservative Lore Automation is when applying eligible changes.');
+    const styleSelect = document.createElement('select');
+    const styleLabels = { careful: 'Careful', balanced: 'Balanced', aggressive: 'Aggressive' };
+    for (const value of LORE_AUTOMATION_STYLE_VALUES) {
+        const option = document.createElement('option');
+        option.value = value;
+        option.textContent = styleLabels[value] || value;
+        if (loreAutomationStyle === value) option.selected = true;
+        styleSelect.appendChild(option);
+    }
+    styleSelect.addEventListener('change', () => {
+        const next = getSettings();
+        next.loreAutomationStyle = normalizeLoreAutomationStyle(styleSelect.value);
+        if (normalizeLoreAutomationMode(next.loreAutomationMode) !== 'off') {
+            next.autoRelevanceEnabled = true;
+            next.autoRelevanceMode = next.loreAutomationStyle === 'careful' ? 'suggest' : 'apply_high_confidence';
+        }
+        saveSettings(next);
+        refreshPanelBody({ preserveScroll: true });
+    });
+    styleLabel.appendChild(styleSpan);
+    styleLabel.appendChild(styleSelect);
+    modeRow.appendChild(styleLabel);
     card.appendChild(modeRow);
 
     const row = document.createElement('div');
     row.className = 'saga-runtime-grid';
     markTourTarget(row, 'lore.autoRelevance.tuning');
-    row.appendChild(createNumberSettingMini('Run every turns', 'autoRelevanceEveryTurns', settings.autoRelevanceEveryTurns || 5, 1, 50));
+    row.appendChild(createNumberSettingMini('Remap every turns', 'loreAutomationRemapEveryTurns', settings.loreAutomationRemapEveryTurns || settings.autoRelevanceEveryTurns || 5, 1, 100));
+    row.appendChild(createNumberSettingMini('Curate every turns', 'loreAutomationCurationEveryTurns', settings.loreAutomationCurationEveryTurns || 10, 1, 200));
     row.appendChild(createNumberSettingMini('Recent messages', 'autoRelevanceRecentMessages', settings.autoRelevanceRecentMessages || 20, 1, 200));
-    row.appendChild(createNumberSettingMini('Candidate cap', 'autoRelevanceCandidateCap', settings.autoRelevanceCandidateCap || 40, 1, 500));
-    row.appendChild(createNumberSettingMini('Min confidence %', 'autoRelevanceMinConfidence', Math.round((settings.autoRelevanceMinConfidence || 0.7) * 100), 1, 100, value => Number(value) / 100));
     card.appendChild(row);
+
+    const advanced = document.createElement('details');
+    advanced.className = 'saga-lore-automation-advanced';
+    const advancedSummary = document.createElement('summary');
+    advancedSummary.textContent = 'Advanced';
+    addTooltip(advancedSummary, 'Advanced Lore Automation diagnostics and caps.');
+    advanced.appendChild(advancedSummary);
+    const advancedRow = document.createElement('div');
+    advancedRow.className = 'saga-runtime-grid';
+    advancedRow.appendChild(createNumberSettingMini('Candidate cap', 'autoRelevanceCandidateCap', settings.autoRelevanceCandidateCap || 40, 1, 500));
+    advancedRow.appendChild(createNumberSettingMini('Min confidence %', 'autoRelevanceMinConfidence', Math.round((settings.autoRelevanceMinConfidence || 0.7) * 100), 1, 100, value => Number(value) / 100));
+    advanced.appendChild(advancedRow);
 
     const modelRow = document.createElement('div');
     modelRow.className = 'saga-runtime-grid';
@@ -2458,8 +2582,16 @@ export function createAutoRelevanceCard(state) {
     modelRow.appendChild(modelToggle);
     modelRow.appendChild(createNumberSettingMini('Model candidate cap', 'autoRelevanceModelCandidateCap', settings.autoRelevanceModelCandidateCap || 30, 1, 80));
     modelRow.appendChild(createNumberSettingMini('Model max tokens', 'autoRelevanceModelMaxTokens', settings.autoRelevanceModelMaxTokens || 2048, 512, 4096));
-    card.appendChild(modelRow);
+    advanced.appendChild(modelRow);
+    card.appendChild(advanced);
     const counts = getLoreRelevanceCounts(state);
+    const lastRun = state?.loreAutomationLastRun || state?.autoRelevanceLastRun || null;
+    const statusText = loreAutomationMode === 'off'
+        ? 'Off'
+        : lastRun?.status
+            ? `${humanizeScopeKey(lastRun.status)}${lastRun.changed ? ` | ${lastRun.changed} changed` : ''}${lastRun.suggested ? ` | ${lastRun.suggested} suggested` : ''}`
+            : 'Ready';
+    card.appendChild(createKeyValue('Status', statusText, 'Current Lore Automation mode and last run result.'));
     card.appendChild(createKeyValue('Current tiers', `High ${counts.high} | Normal ${counts.normal} | Low ${counts.low} | Muted ${counts.muted}`, 'Current Accepted Lorecards counts by relevance.'));
 
     const suggestions = Array.isArray(state.autoRelevanceSuggestions) ? state.autoRelevanceSuggestions : [];
@@ -2477,7 +2609,7 @@ export function createAutoRelevanceCard(state) {
             const summary = document.createElement('div');
             summary.className = 'saga-auto-relevance-suggestion-summary';
             summary.textContent = `${suggestion.title || suggestion.id}: ${suggestion.currentRelevance || '?'} -> ${suggestion.suggestedRelevance} (${Math.round((suggestion.confidence || 0) * 100)}%, ${suggestion.source || 'local'})`;
-            addTooltip(summary, suggestion.reason || 'Auto-Relevance suggestion.');
+            addTooltip(summary, suggestion.reason || 'Lore Automation suggestion.');
             row.appendChild(summary);
             const applyOne = createButton('Apply', 'Apply this relevance suggestion only.', () => {
                 const result = applyAutoRelevanceSuggestions([suggestion.id]);
@@ -2503,10 +2635,50 @@ export function createAutoRelevanceCard(state) {
         card.appendChild(box);
     }
 
+    const automationSuggestions = Array.isArray(state.loreAutomationSuggestions) ? state.loreAutomationSuggestions : [];
+    if (automationSuggestions.length) {
+        const box = document.createElement('div');
+        box.className = 'saga-auto-relevance-suggestions';
+        const heading = document.createElement('div');
+        heading.className = 'saga-runtime-help';
+        heading.textContent = `Pending remap suggestions: ${automationSuggestions.length}`;
+        box.appendChild(heading);
+        for (const suggestion of automationSuggestions.slice(0, 12)) {
+            const row = document.createElement('div');
+            row.className = 'saga-auto-relevance-suggestion-row';
+            const summary = document.createElement('div');
+            summary.className = 'saga-auto-relevance-suggestion-summary';
+            summary.textContent = `${suggestion.title || suggestion.targetId || suggestion.id}: ${humanizeScopeKey(suggestion.operation)} (${Math.round((suggestion.confidence || 0) * 100)}%, ${suggestion.provider || suggestion.source || 'local'})`;
+            addTooltip(summary, suggestion.reason || 'Lore Automation remapping suggestion.');
+            row.appendChild(summary);
+            const applyOne = createButton('Apply', 'Apply this remapping suggestion only.', () => {
+                const result = applyLoreAutomationSuggestions([suggestion.id]);
+                refreshPanelBody({ preserveScroll: true });
+                refreshHeader();
+                toast(`Applied ${result.applied || 0} remapping suggestion.`, 'success');
+            }, 'saga-mini-button');
+            const rejectOne = createButton('Reject', 'Reject this remapping suggestion only.', () => {
+                const result = rejectLoreAutomationSuggestions([suggestion.id]);
+                refreshPanelBody({ preserveScroll: true });
+                toast(`Rejected ${result.rejected || 0} remapping suggestion.`, 'info');
+            }, 'saga-mini-button');
+            row.appendChild(applyOne);
+            row.appendChild(rejectOne);
+            box.appendChild(row);
+        }
+        if (automationSuggestions.length > 12) {
+            const more = document.createElement('div');
+            more.className = 'saga-runtime-help';
+            more.textContent = `${automationSuggestions.length - 12} additional remap suggestions hidden. Use Apply Suggestions or Clear Suggestions for the full queue.`;
+            box.appendChild(more);
+        }
+        card.appendChild(box);
+    }
+
     const actions = document.createElement('div');
     actions.className = 'saga-primary-actions';
     markTourTarget(actions, 'lore.autoRelevance.actions');
-    actions.appendChild(createButton('Run Auto-Relevance Now', 'Runs Auto-Relevance immediately. Local scoring always runs first; optional Utility Provider adjudication reviews only the candidate set.', async (btn) => {
+    actions.appendChild(createButton('Run Now', 'Runs Lore Automation immediately.', async (btn) => {
         const original = btn.textContent;
         btn.disabled = true;
         btn.textContent = 'Running...';
@@ -2515,34 +2687,42 @@ export function createAutoRelevanceCard(state) {
             refreshPanelBody({ preserveScroll: true });
             refreshHeader();
             if (result.status === 'no_accepted_lore') {
-                toast('Auto-Relevance runs on Accepted Lorecards. Preview Loredeck packs, add entries to Pending Review, then accept the cards you want before running it.', 'warning');
+                toast('Lore Automation runs on Accepted Lorecards. Preview Loredeck packs, add entries to Pending Review, then accept the cards you want before running it.', 'warning');
             } else if (result.status === 'pending_only') {
                 const pendingCount = result.pendingCount || 0;
-                toast(`Auto-Relevance found ${pendingCount} Pending Review entr${pendingCount === 1 ? 'y' : 'ies'}. Accept or reject Pending Review entries before relevance scanning.`, 'warning');
+                toast(`Lore Automation found ${pendingCount} Pending Review entr${pendingCount === 1 ? 'y' : 'ies'}. Accept or reject Pending Review entries before relevance scanning.`, 'warning');
             } else if (result.status === 'no_lore') {
-                toast('Auto-Relevance needs Accepted Lorecards before it can run.', 'warning');
+                toast('Lore Automation needs Accepted Lorecards before it can run.', 'warning');
             } else {
-                toast(`Auto-Relevance ${result.status}: ${result.changed || 0} changed, ${result.suggested || 0} suggested, ${result.considered || 0} considered${result.modelStatus ? `, model ${result.modelStatus}` : ''}.`, 'info');
+                toast(`Lore Automation ${result.status}: ${result.changed || 0} changed, ${result.suggested || 0} suggested, ${result.considered || 0} considered${result.modelStatus ? `, model ${result.modelStatus}` : ''}.`, 'info');
             }
         } catch (e) {
             console.error(e);
-            toast(`Auto-Relevance failed: ${e?.message || e}`, 'error');
+            toast(`Lore Automation failed: ${e?.message || e}`, 'error');
         } finally {
             btn.disabled = false;
             btn.textContent = original;
         }
     }, 'saga-primary-button'));
-    if (suggestions.length) {
-        actions.appendChild(createButton('Apply Suggestions', 'Applies all pending Auto-Relevance suggestions.', () => {
+    actions.appendChild(createButton('Undo Last Run', 'Reverts the latest Lore Automation timeline event when it is still reversible.', () => {
+        const result = undoLastLoreAutomationRun();
+        refreshPanelBody({ preserveScroll: true });
+        refreshHeader();
+        toast(result.undone ? 'Lore Automation run undone.' : 'No reversible Lore Automation run found.', result.undone ? 'success' : 'info');
+    }, 'saga-small-button'));
+    if (suggestions.length || automationSuggestions.length) {
+        actions.appendChild(createButton('Apply Suggestions', 'Applies all pending Lore Automation suggestions.', () => {
             const result = applyAutoRelevanceSuggestions();
+            const remapResult = applyLoreAutomationSuggestions();
             refreshPanelBody({ preserveScroll: true });
             refreshHeader();
-            toast(`Auto-Relevance suggestions applied: ${result.applied || 0}.`, 'success');
+            toast(`Lore Automation suggestions applied: ${(result.applied || 0) + (remapResult.applied || 0)}.`, 'success');
         }, 'saga-small-button'));
-        actions.appendChild(createButton('Reject All Suggestions', 'Rejects all pending Auto-Relevance suggestions without applying them.', () => {
+        actions.appendChild(createButton('Reject All Suggestions', 'Rejects all pending Lore Automation suggestions without applying them.', () => {
             clearAutoRelevanceSuggestions();
+            clearLoreAutomationSuggestions();
             refreshPanelBody({ preserveScroll: true });
-            toast('Auto-Relevance suggestions rejected.', 'info');
+            toast('Lore Automation suggestions rejected.', 'info');
         }, 'saga-small-button'));
     }
     card.appendChild(actions);
@@ -2794,6 +2974,8 @@ export function createAcceptedLoreBulkControls(state) {
     addAction('Unpin', 'Removes selected Accepted Lorecards from pinned lore.', ids => bulkSetAcceptedPinned(ids, false), 'saga-small-button', 'Selected entries will no longer be pinned. They may still inject if unmuted and active.');
     addAction('Mute', 'Mutes selected Accepted Lorecards so they are excluded from injection.', ids => bulkSetAcceptedMuted(ids, true), 'saga-small-button', 'Selected entries will be muted and excluded from injection.');
     addAction('Unmute', 'Unmutes selected Accepted Lorecards.', ids => bulkSetAcceptedMuted(ids, false), 'saga-small-button', 'Selected entries will be unmuted and may be injected again.');
+    addAction('Enable LA', 'Lets Lore Automation update selected Accepted Lorecards on its next run.', ids => bulkSetAcceptedLoreAutomation(ids, true), 'saga-small-button', 'Selected entries will allow Lore Automation changes again.');
+    addAction('Disable LA', 'Prevents Lore Automation from changing selected Accepted Lorecards.', ids => bulkSetAcceptedLoreAutomation(ids, false), 'saga-small-button', 'Selected entries will be skipped by Lore Automation.');
     addAction('Delete', 'Deletes selected Accepted Lorecards from this chat after confirmation.', ids => bulkDeleteAcceptedLore(ids), 'saga-small-button saga-danger-button', 'Deleted Accepted Lorecards can be restored to Pending Review from Lore Timeline while the recovery payload is retained.');
     wrap.appendChild(actionRow);
 
@@ -2808,7 +2990,7 @@ export function createAcceptedLoreBulkControls(state) {
             relevance: normalizeLoreRelevance(value),
             lifecycle: { ...(raw.lifecycle || {}), status: '', computedStatus: '', manualOverride: false, reason: 'Relevance replaced lifecycle state.' },
             extensions: { ...(raw.extensions || {}), autoRelevance: { ...(raw.extensions?.autoRelevance || {}), mode: 'manual', confidence: 1, reason: `Bulk relevance set to ${value}.`, updatedAt: Date.now() } },
-        }));
+        }), { loreAutomationDisableReason: LORE_AUTOMATION_MANUAL_DISABLE_REASONS.relevance });
     }, disabled, value => LORE_RELEVANCE_LABELS[value] || value));
     editRow.appendChild(createBulkSelect('Category', getLoreRegistryValues('categories', LORE_CATEGORY_VALUES), 'Set category for selected entries.', async value => {
         const ids = selectedIdsNow();
@@ -3096,6 +3278,12 @@ function togglePinEntry(entryId, options = {}) {
         const supIdx = sel.suppressedIds.indexOf(entryId);
         if (supIdx >= 0) sel.suppressedIds.splice(supIdx, 1);
     }
+    markLoreAutomationDisabledForEntryIds(
+        state,
+        [entryId],
+        LORE_AUTOMATION_MANUAL_DISABLE_REASONS.pin,
+        { at: Date.now(), by: 'user' },
+    );
     recordLoreTimelineEvent(state, {
         before: beforeTimeline,
         after: captureLoreTimelineState(state),
@@ -3122,6 +3310,12 @@ function toggleSuppressEntry(entryId, options = {}) {
         const pinIdx = sel.pinnedIds.indexOf(entryId);
         if (pinIdx >= 0) sel.pinnedIds.splice(pinIdx, 1);
     }
+    markLoreAutomationDisabledForEntryIds(
+        state,
+        [entryId],
+        LORE_AUTOMATION_MANUAL_DISABLE_REASONS.mute,
+        { at: Date.now(), by: 'user' },
+    );
     recordLoreTimelineEvent(state, {
         before: beforeTimeline,
         after: captureLoreTimelineState(state),
@@ -3315,7 +3509,12 @@ function createEditableLoreEntryEditor(entry, options = {}) {
                 notes,
             },
             userEdited: true,
-        }), { deferSave: false });
+        }), {
+            deferSave: false,
+            loreAutomationDisableReason: pendingReview
+                ? undefined
+                : LORE_AUTOMATION_MANUAL_DISABLE_REASONS.content,
+        });
         if (pendingReview) {
             refreshPanelBody({ preserveScroll: true });
             refreshHeader();
@@ -3341,8 +3540,16 @@ function updateLoreEntryById(entryId, updater, options = {}) {
         const idx = list.findIndex(item => item?.id === entryId);
         if (idx < 0) continue;
 
-        const updated = normalizeLoreEntry(updater(list[idx]));
+        let updated = normalizeLoreEntry(updater(list[idx]));
         updated.userEdited = true;
+        if (key === 'loreMatrix' && options.preserveLoreAutomation !== true) {
+            updated = normalizeLoreEntry(disableLoreAutomationForManualChange(
+                updated,
+                options.loreAutomationDisableReason || LORE_AUTOMATION_MANUAL_DISABLE_REASONS.metadata,
+                { at: Date.now(), by: 'user' },
+            ));
+            updated.userEdited = true;
+        }
         list[idx] = updated;
         state[key] = list;
         if (key === 'loreMatrix') {
@@ -3402,6 +3609,41 @@ function cssEscape(value) {
     return String(value).replace(/[^a-zA-Z0-9_-]/g, '\\$&');
 }
 
+function setAcceptedLoreEntryAutomation(entryId = '', enabled = true) {
+    const id = String(entryId || '').trim();
+    if (!id) return false;
+    return updateLoreEntryById(id, entry => setLoreAutomationEnabled(entry, enabled, {
+        at: Date.now(),
+        by: 'manual',
+        reason: enabled ? '' : LORE_AUTOMATION_MANUAL_DISABLE_REASONS.metadata,
+    }), {
+        deferSave: true,
+        preserveLoreAutomation: true,
+        timelineType: enabled ? 'lore_automation_enable' : 'lore_automation_disable',
+        timelineSummary: `${enabled ? 'Enabled' : 'Disabled'} Lore Automation for Lorecard.`,
+    });
+}
+
+function createLoreAutomationCardToggle(entry) {
+    const automation = getLoreAutomationState(entry);
+    const enabled = automation.enabled !== false;
+    const label = enabled ? 'A' : 'A-';
+    const reason = automation.disabledReason ? ` Disabled: ${humanizeScopeKey(automation.disabledReason)}.` : '';
+    const btn = createIconButton(
+        label,
+        enabled
+            ? 'Lore Automation enabled for this Lorecard. Click to disable it for this card.'
+            : `Lore Automation disabled for this Lorecard.${reason} Click to re-enable it for this card.`,
+        `saga-lore-entry-btn saga-lore-automation-toggle ${enabled ? 'saga-lore-automation-toggle-on' : 'saga-lore-automation-toggle-off'}`,
+        (e) => {
+            e.stopPropagation();
+            if (setAcceptedLoreEntryAutomation(entry.id, !enabled)) refreshAcceptedLoreSurfaces(entry.id);
+        }
+    );
+    btn.setAttribute('aria-label', enabled ? 'Disable Lore Automation for this Lorecard' : 'Enable Lore Automation for this Lorecard');
+    return btn;
+}
+
 export function createEntryCard(entry, state, options = {}) {
     const basicReview = !!options.basicReview;
     const mobileShell = isRuntimeMobileShell();
@@ -3454,6 +3696,7 @@ export function createEntryCard(entry, state, options = {}) {
 
     const actions = document.createElement('div');
     actions.className = 'saga-lore-entry-actions';
+    if (!entry.isPending) actions.appendChild(createLoreAutomationCardToggle(entry));
     actions.appendChild(createEditableRelevanceControl(entry));
 
     const inspectBtn = createIconButton(
@@ -4274,7 +4517,11 @@ function activateAcceptedLoreEntry(entryId = '') {
                 updatedAt: Date.now(),
             },
         },
-    }), { deferSave: true, timelineSummary: 'Activated Lorecard for the Active Set.' });
+    }), {
+        deferSave: true,
+        timelineSummary: 'Activated Lorecard for the Active Set.',
+        loreAutomationDisableReason: LORE_AUTOMATION_MANUAL_DISABLE_REASONS.relevance,
+    });
     return updated;
 }
 
@@ -4303,7 +4550,11 @@ function deactivateAcceptedLoreEntry(entryId = '') {
                 updatedAt: Date.now(),
             },
         },
-    }), { deferSave: true, timelineSummary: 'Removed Lorecard from the Active Set.' });
+    }), {
+        deferSave: true,
+        timelineSummary: 'Removed Lorecard from the Active Set.',
+        loreAutomationDisableReason: LORE_AUTOMATION_MANUAL_DISABLE_REASONS.relevance,
+    });
 }
 
 function refreshAcceptedLoreSurfaces(entryId = '') {
@@ -4359,13 +4610,14 @@ export function renderLorecardsTab(container, state) {
     }
 
     if (!basic && !mobileShell) {
+        const automationMode = normalizeLoreAutomationMode(getSettings().loreAutomationMode || (getSettings().autoRelevanceEnabled ? 'ar' : 'off'));
         const autoRelevanceSection = createCollapsibleSection(
             'lore.autoRelevance',
-            'Auto-Relevance',
-            getSettings().autoRelevanceEnabled ? `every ${getSettings().autoRelevanceEveryTurns || 5} turns` : 'off',
+            'Lore Automation',
+            automationMode === 'off' ? 'off' : `${LORE_AUTOMATION_MODE_LABELS[automationMode] || automationMode} | every ${getSettings().loreAutomationRemapEveryTurns || getSettings().autoRelevanceEveryTurns || 5} turns`,
             false,
             createAutoRelevanceCard(state),
-            { tooltip: 'Automatically promotes or demotes Accepted Lorecards between High, Normal, and Low relevance tiers.' }
+            { tooltip: 'Controls how much authority Saga has over Accepted Lorecards.' }
         );
         markTourTarget(autoRelevanceSection, 'lore.autoRelevance');
         container.appendChild(autoRelevanceSection);

@@ -136,7 +136,7 @@ export function configureRuntimeActions() {
         {
             id: 'lore.autoRelevance.run',
             category: 'lorecards',
-            label: 'Run Auto-Relevance',
+            label: 'Run Lore Automation',
             handler: options => runAutoRelevance(options || {}),
         },
     ], { replace: true });

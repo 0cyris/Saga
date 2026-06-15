@@ -955,6 +955,29 @@ async function waitFor(client, expression, label, timeoutMs = 15000) {
             readyState: document.readyState,
             title: document.title,
             bodyText: document.body?.innerText?.slice(0, 300) || '',
+            sagaRoot: (() => {
+                const root = document.querySelector('#saga-lore-panel');
+                return root ? {
+                    className: root.className || '',
+                    mobileRoute: root.dataset?.mobileRoute || '',
+                    mobileActiveTab: root.dataset?.mobileActiveTab || '',
+                    mobileMoreRoute: root.dataset?.mobileMoreRoute || '',
+                    mobileLorecardsStage: root.dataset?.mobileLorecardsStage || '',
+                } : null;
+            })(),
+            visibleMobileNav: [...document.querySelectorAll('.saga-mobile-bottom-tab, .saga-mobile-more-entry')].map(element => {
+                const rect = element.getBoundingClientRect?.();
+                const style = getComputedStyle(element);
+                return {
+                    route: element.getAttribute('data-mobile-route') || element.getAttribute('data-mobile-more-route') || '',
+                    text: (element.innerText || element.textContent || '').trim(),
+                    visible: !!rect && rect.width > 0 && rect.height > 0 && style.display !== 'none' && style.visibility !== 'hidden',
+                    left: Math.round(rect?.left || 0),
+                    top: Math.round(rect?.top || 0),
+                    width: Math.round(rect?.width || 0),
+                    height: Math.round(rect?.height || 0),
+                };
+            }),
         })));
     } catch (error) {
         diagnostics = { error: error?.message || 'diagnostics unavailable' };
@@ -1018,14 +1041,199 @@ function sagaActiveTabExpression(tabId) {
     return `document.querySelector(".saga-runtime-rail-tab-active")?.getAttribute("data-tab-id") === ${expected} || document.querySelector("#saga-lore-panel")?.dataset?.mobileActiveTab === ${expected}`;
 }
 
+function sagaMobileRouteExpression(routeId) {
+    const expected = JSON.stringify(String(routeId || ''));
+    return `document.querySelector("#saga-lore-panel.saga-runtime-mobile")?.dataset?.mobileRoute === ${expected}`;
+}
+
 async function clickRuntimeRoute(client, routeId) {
     const route = String(routeId || '').trim();
     if (!route) return false;
-    const desktopClicked = await clickSelector(client, `.saga-runtime-rail-tab[data-tab-id="${route}"]`).catch(() => false);
-    if (desktopClicked) return true;
-    const mobileClicked = await clickSelector(client, `.saga-mobile-bottom-tab[data-mobile-route="${route}"]`).catch(() => false);
-    if (mobileClicked) return true;
-    return await clickSelector(client, `.saga-mobile-more-entry[data-mobile-more-route="${route}"]`).catch(() => false);
+    return await evaluate(client, script(targetRoute => {
+        const mobileShell = !!document.querySelector('#saga-lore-panel.saga-runtime-mobile');
+        const selectors = mobileShell
+            ? [
+                `.saga-mobile-bottom-tab[data-mobile-route="${targetRoute}"]`,
+                `.saga-mobile-more-entry[data-mobile-more-route="${targetRoute}"]`,
+                `.saga-runtime-rail-tab[data-tab-id="${targetRoute}"]`,
+            ]
+            : [
+                `.saga-runtime-rail-tab[data-tab-id="${targetRoute}"]`,
+                `.saga-mobile-bottom-tab[data-mobile-route="${targetRoute}"]`,
+                `.saga-mobile-more-entry[data-mobile-more-route="${targetRoute}"]`,
+            ];
+        const isVisible = element => {
+            const rect = element?.getBoundingClientRect?.();
+            const style = element ? getComputedStyle(element) : null;
+            return !!rect
+                && rect.width > 0
+                && rect.height > 0
+                && style?.display !== 'none'
+                && style?.visibility !== 'hidden';
+        };
+        for (const selector of selectors) {
+            const element = [...document.querySelectorAll(selector)].find(isVisible);
+            if (!element) continue;
+            element.scrollIntoView({ block: 'center', inline: 'center' });
+            element.click();
+            return true;
+        }
+        return false;
+    }, route), { userGesture: true }).catch(() => false);
+}
+
+async function getVisibleFloatingTooltipState(client) {
+    return await evaluate(client, script(() => {
+        const tooltip = document.querySelector('.saga-floating-tooltip');
+        const style = tooltip ? getComputedStyle(tooltip) : null;
+        const rect = tooltip?.getBoundingClientRect?.();
+        const visible = !!tooltip
+            && style?.display !== 'none'
+            && style?.visibility !== 'hidden'
+            && Number(style?.opacity || 1) !== 0
+            && !!rect
+            && rect.width > 0
+            && rect.height > 0;
+        return {
+            visible,
+            text: tooltip?.textContent?.trim() || '',
+            left: rect?.left ?? null,
+            top: rect?.top ?? null,
+            display: style?.display || '',
+            visibility: style?.visibility || '',
+        };
+    }));
+}
+
+async function getNestedScrollStyleState(client, selectors = []) {
+    return await evaluate(client, script(inputSelectors => {
+        const regions = (inputSelectors || []).flatMap(selector => [...document.querySelectorAll(selector)].map(element => {
+            const style = getComputedStyle(element);
+            const rect = element.getBoundingClientRect?.();
+            const visible = !!rect
+                && rect.width > 0
+                && rect.height > 0
+                && style.display !== 'none'
+                && style.visibility !== 'hidden';
+            const maxHeight = style.maxHeight || '';
+            const overflowY = style.overflowY || '';
+            const nestedScrollStyle = /auto|scroll/i.test(overflowY) || (!!maxHeight && maxHeight !== 'none');
+            return {
+                selector,
+                className: element.className || '',
+                visible,
+                overflowY,
+                maxHeight,
+                clientHeight: element.clientHeight,
+                scrollHeight: element.scrollHeight,
+                nestedScrollStyle,
+            };
+        }));
+        return {
+            regions,
+            offenders: regions.filter(region => region.visible && region.nestedScrollStyle),
+        };
+    }, selectors));
+}
+
+async function getMobileNestedScrollAuditState(client, options = {}) {
+    return await evaluate(client, script(input => {
+        const scopeSelector = String(input?.scopeSelector || '#saga-lore-panel.saga-runtime-mobile').trim();
+        const scope = document.querySelector(scopeSelector) || document.querySelector('#saga-lore-panel.saga-runtime-mobile') || document.body;
+        const allowedSelectors = Array.isArray(input?.allowedSelectors) ? input.allowedSelectors.filter(Boolean) : [];
+        const ignoredSelectors = [
+            'textarea',
+            'select',
+            '[contenteditable="true"]',
+            '.saga-floating-tooltip',
+            '.saga-mobile-bottom-bar',
+            '.saga-mobile-lorecards-subtabs',
+            '.saga-mobile-shell-action-bar',
+            ...(Array.isArray(input?.ignoredSelectors) ? input.ignoredSelectors.filter(Boolean) : []),
+        ];
+        const matchesAny = (element, selectors) => selectors.some(selector => {
+            try {
+                return element.matches?.(selector) || element.closest?.(selector);
+            } catch {
+                return false;
+            }
+        });
+        const matchesSelf = (element, selectors) => selectors.some(selector => {
+            try {
+                return element.matches?.(selector);
+            } catch {
+                return false;
+            }
+        });
+        const visible = element => {
+            const rect = element?.getBoundingClientRect?.();
+            const style = element ? getComputedStyle(element) : null;
+            return !!rect
+                && rect.width > 0
+                && rect.height > 0
+                && style?.display !== 'none'
+                && style?.visibility !== 'hidden';
+        };
+        const selectorFor = element => {
+            const parts = [];
+            let current = element;
+            while (current && current.nodeType === 1 && current !== document.body && parts.length < 5) {
+                const tag = String(current.tagName || '').toLowerCase();
+                const id = current.id ? `#${current.id}` : '';
+                const classes = String(current.className || '')
+                    .split(/\s+/)
+                    .filter(Boolean)
+                    .slice(0, 3)
+                    .map(name => `.${name}`)
+                    .join('');
+                parts.unshift(`${tag}${id}${classes}`);
+                current = current.parentElement;
+            }
+            return parts.join(' > ');
+        };
+        const candidates = [scope, ...scope.querySelectorAll('*')].filter(element => visible(element) && !matchesAny(element, ignoredSelectors));
+        const regions = candidates.map(element => {
+            const style = getComputedStyle(element);
+            const overflowY = style.overflowY || '';
+            const overflow = style.overflow || '';
+            const maxHeight = style.maxHeight || '';
+            const verticalScrollStyle = /auto|scroll|overlay/i.test(overflowY) || /auto|scroll|overlay/i.test(overflow);
+            const actuallyScrollable = element.scrollHeight > element.clientHeight + 2;
+            const boundedScrollStyle = maxHeight && maxHeight !== 'none' && verticalScrollStyle;
+            const allowed = matchesSelf(element, allowedSelectors);
+            return {
+                selector: selectorFor(element),
+                className: element.className || '',
+                tagName: element.tagName || '',
+                overflowY,
+                overflow,
+                maxHeight,
+                clientHeight: element.clientHeight,
+                scrollHeight: element.scrollHeight,
+                allowed,
+                verticalScrollStyle,
+                actuallyScrollable,
+                boundedScrollStyle,
+            };
+        });
+        const offenders = regions.filter(region => !region.allowed && region.verticalScrollStyle && (region.actuallyScrollable || region.boundedScrollStyle));
+        return {
+            label: input?.label || scopeSelector,
+            scopeSelector,
+            allowedSelectors,
+            regions: regions.filter(region => region.verticalScrollStyle || region.maxHeight !== 'none'),
+            offenders,
+        };
+    }, options));
+}
+
+function addMobileNestedScrollFindings(findings, audit) {
+    if (!audit?.offenders?.length) return;
+    const summary = audit.offenders
+        .slice(0, 4)
+        .map(item => `${item.selector || item.className || item.tagName} (${item.overflowY || item.overflow || 'overflow'}, ${item.scrollHeight}/${item.clientHeight})`)
+        .join('; ');
+    findings.push(`Mobile nested scroll audit failed for ${audit.label || audit.scopeSelector}: ${summary}.`);
 }
 
 async function openMobileSessionDetailsForGuide(client) {
@@ -3516,7 +3724,7 @@ async function runGuideHarnessSmoke(client, screenshots, findings, smokeUrl, dia
         .map(event => formatLogEntry(event.params.entry))
         .filter(error => !isExpectedLiveCreator404(error))
         .filter(error => !isExpectedRepoLocalHarnessStorageError(error));
-    console.log(JSON.stringify({
+    const report = {
         ok: findings.length === 0 && errors.length === 0,
         target: SMOKE_TARGET,
         url: smokeUrl,
@@ -3532,7 +3740,9 @@ async function runGuideHarnessSmoke(client, screenshots, findings, smokeUrl, dia
         advancedModuleTour,
         advancedCreatorFallback,
         advancedTour,
-    }, null, 2));
+    };
+    console.log(JSON.stringify(report, null, 2));
+    if (!report.ok) process.exitCode = 1;
 }
 
 async function runCreatorHarnessSmoke(client, screenshots, findings, smokeUrl, dialogEvents) {
@@ -3614,7 +3824,7 @@ async function runCreatorHarnessSmoke(client, screenshots, findings, smokeUrl, d
         .filter(event => event.method === 'Log.entryAdded' && event.params?.entry?.level === 'error')
         .map(event => formatLogEntry(event.params.entry))
         .filter(error => !isExpectedRepoLocalHarnessStorageError(error));
-    console.log(JSON.stringify({
+    const report = {
         ok: findings.length === 0 && errors.length === 0,
         target: SMOKE_TARGET,
         url: smokeUrl,
@@ -3623,7 +3833,9 @@ async function runCreatorHarnessSmoke(client, screenshots, findings, smokeUrl, d
         errors,
         dialogEvents,
         resetState,
-    }, null, 2));
+    };
+    console.log(JSON.stringify(report, null, 2));
+    if (!report.ok) process.exitCode = 1;
 }
 
 async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smokeUrl, dialogEvents) {
@@ -3671,11 +3883,18 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
     if (initialState.primaryActions.includes('Open Loredeck Library') && initialState.secondaryActions.includes('Open Loredeck Library')) findings.push('Mobile Advanced Loredecks duplicated the Open Loredeck Library action.');
     if (initialState.secondaryActions.length < 2) findings.push('Mobile Advanced Loredecks secondary actions were not available after primary-action reduction.');
     if (!initialState.noHorizontalOverflow) findings.push('Mobile Advanced Loredecks root has horizontal overflow.');
+    const loredecksRootScrollAudit = await getMobileNestedScrollAuditState(client, {
+        label: 'Loredecks route',
+        scopeSelector: '#saga-lore-panel.saga-runtime-mobile',
+        allowedSelectors: ['.saga-runtime-tab-body'],
+    });
+    addMobileNestedScrollFindings(findings, loredecksRootScrollAudit);
     screenshots.push(await screenshot(client, 'mobile-advanced-harness-01-loredecks-root'));
 
     await clickRuntimeRoute(client, 'more');
     await waitFor(client, '!!document.querySelector(".saga-mobile-more-sheet")', 'Mobile Advanced More sheet', 10000);
     await wait(400);
+    const moreTooltipState = await getVisibleFloatingTooltipState(client);
     const moreState = await evaluate(client, script(() => {
         const root = document.querySelector('#saga-lore-panel');
         const sheet = document.querySelector('.saga-mobile-more-sheet');
@@ -3684,18 +3903,29 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
             open: !!sheet,
             activeTab: root?.dataset?.mobileActiveTab || '',
             headerMoreActions: document.querySelectorAll('.saga-mobile-header-more').length,
+            mobileHeaders: document.querySelectorAll('.saga-mobile-header').length,
             entries: [...sheet?.querySelectorAll('.saga-mobile-more-entry') || []].map(node => node.getAttribute('data-mobile-more-route') || ''),
             labels: [...sheet?.querySelectorAll('.saga-mobile-more-entry-label') || []].map(node => node.textContent?.trim() || '').filter(Boolean),
             hasDiagnostics: text.includes('Diagnostics'),
             hasConfiguration: text.includes('Configuration'),
+            hasExitSaga: text.includes('Exit Saga'),
         };
     }));
     if (!moreState.open) findings.push('Mobile Advanced More sheet did not open from the bottom bar.');
     if (moreState.headerMoreActions > 0) findings.push('Mobile Advanced More index rendered a redundant header More action.');
+    if (moreState.mobileHeaders > 0) findings.push('Mobile Advanced rendered the removed mobile top header.');
+    if (!moreState.hasExitSaga) findings.push('Mobile Advanced More sheet did not expose Exit Saga after removing the top header close button.');
+    if (moreTooltipState.visible) findings.push(`Mobile Advanced More route change showed a floating tooltip: ${moreTooltipState.text || 'blank'}.`);
     for (const route of ['continuity', 'injection', 'settings']) {
         if (!moreState.entries.includes(route)) findings.push(`Mobile Advanced More sheet missing route entry: ${route}.`);
     }
     if (!moreState.hasDiagnostics || !moreState.hasConfiguration) findings.push('Mobile Advanced More sheet did not render Diagnostics and Configuration groups.');
+    const moreScrollAudit = await getMobileNestedScrollAuditState(client, {
+        label: 'More sheet',
+        scopeSelector: '#saga-lore-panel.saga-runtime-mobile',
+        allowedSelectors: ['.saga-mobile-more-sheet'],
+    });
+    addMobileNestedScrollFindings(findings, moreScrollAudit);
     screenshots.push(await screenshot(client, 'mobile-advanced-harness-02-more-sheet'));
 
     await clickRuntimeRoute(client, 'injection');
@@ -3717,6 +3947,12 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
     if (injectionState.activeTab !== 'injection' || injectionState.activeMoreRoute !== 'injection') findings.push('Mobile Advanced Injection route did not update mobile More route state.');
     if (!injectionState.moreSheetClosed) findings.push('Mobile Advanced More sheet remained open after selecting Injection.');
     if (!injectionState.hasInjection || !injectionState.hasToggles || !injectionState.targetVisible) findings.push('Mobile Advanced Injection route did not render the expected toggles.');
+    const injectionScrollAudit = await getMobileNestedScrollAuditState(client, {
+        label: 'Injection route',
+        scopeSelector: '#saga-lore-panel.saga-runtime-mobile',
+        allowedSelectors: ['.saga-runtime-tab-body'],
+    });
+    addMobileNestedScrollFindings(findings, injectionScrollAudit);
     screenshots.push(await screenshot(client, 'mobile-advanced-harness-03-injection-route'));
 
     await clickRuntimeRoute(client, 'more');
@@ -3737,6 +3973,12 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
     }));
     if (settingsState.activeTab !== 'settings' || settingsState.activeMoreRoute !== 'settings') findings.push('Mobile Advanced Settings route did not update mobile More route state.');
     if (!settingsState.hasSettings || !settingsState.hasProviders || !settingsState.moreSheetClosed) findings.push('Mobile Advanced Settings route did not render expected settings/provider content.');
+    const settingsScrollAudit = await getMobileNestedScrollAuditState(client, {
+        label: 'Settings route',
+        scopeSelector: '#saga-lore-panel.saga-runtime-mobile',
+        allowedSelectors: ['.saga-runtime-tab-body'],
+    });
+    addMobileNestedScrollFindings(findings, settingsScrollAudit);
 
     await clickRuntimeRoute(client, 'more');
     await waitFor(client, '!!document.querySelector(".saga-mobile-more-sheet")', 'Mobile Advanced More sheet reopened after Settings', 10000);
@@ -3756,8 +3998,15 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
     }));
     if (continuityState.activeTab !== 'continuity' || continuityState.activeMoreRoute !== 'continuity') findings.push('Mobile Advanced Continuity route did not update mobile More route state.');
     if (!continuityState.hasContinuity || !continuityState.hasScanOrState || !continuityState.moreSheetClosed) findings.push('Mobile Advanced Continuity route did not render expected continuity content.');
+    const continuityScrollAudit = await getMobileNestedScrollAuditState(client, {
+        label: 'Continuity route',
+        scopeSelector: '#saga-lore-panel.saga-runtime-mobile',
+        allowedSelectors: ['.saga-runtime-tab-body'],
+    });
+    addMobileNestedScrollFindings(findings, continuityScrollAudit);
 
     await clickRuntimeRoute(client, 'lore');
+    await waitFor(client, sagaMobileRouteExpression('lore'), 'Mobile Advanced Lorecards mobile route active', 10000);
     await waitFor(client, sagaActiveTabExpression('lore'), 'Mobile Advanced Lorecards route active', 10000);
     await waitFor(client, '!!document.querySelector(".saga-mobile-lorecards-subtabs")', 'Mobile Advanced Lorecards secondary sub-tabs', 10000);
     const activeSetClicked = await clickSelector(client, '.saga-mobile-lorecards-subtab[data-stage="accepted"]').catch(() => false);
@@ -3925,16 +4174,34 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
             const overlay = document.querySelector('.saga-loredeck-health-center-overlay');
             const text = overlay?.innerText || '';
             const labels = [...overlay?.querySelectorAll('button') || []].map(button => (button.innerText || button.textContent || '').trim()).filter(Boolean);
+            const headerActionLabels = [...overlay?.querySelectorAll('.saga-loredeck-health-center-header .saga-loredeck-health-center-actions button') || []]
+                .map(button => (button.innerText || button.textContent || '').trim())
+                .filter(Boolean);
+            const bottomActionLabels = [...overlay?.querySelectorAll('.saga-loredeck-health-center-bottom-actions button') || []]
+                .map(button => (button.innerText || button.textContent || '').trim())
+                .filter(Boolean);
             return {
                 open: !!overlay,
                 hasTitle: text.includes('Pack Health Center'),
                 hasPack: text.includes('Smoke Test: Arlong Park') || text.includes('Harry Potter'),
                 hasTabsOrActions: text.includes('Summary') || text.includes('Issues') || labels.includes('Refresh Scan') || labels.includes('Run Scan'),
                 hasClose: labels.includes('Close'),
+                headerActionLabels,
+                bottomActionLabels,
             };
         }));
         if (!healthState.open || !healthState.hasTitle || !healthState.hasPack || !healthState.hasTabsOrActions) findings.push('Mobile Advanced Pack Health Center did not render expected mobile content.');
         if (!healthState.hasClose) findings.push('Mobile Advanced Pack Health Center did not expose Close.');
+        if (healthState.headerActionLabels.length) findings.push(`Mobile Advanced Pack Health Center still rendered persistent header actions: ${healthState.headerActionLabels.join(', ')}.`);
+        for (const label of ['Refresh Scan', 'Export Report', 'Close']) {
+            if (!healthState.bottomActionLabels.includes(label)) findings.push(`Mobile Advanced Pack Health Center bottom action bar missing: ${label}.`);
+        }
+        const healthScrollAudit = await getMobileNestedScrollAuditState(client, {
+            label: 'Pack Health Center',
+            scopeSelector: '.saga-loredeck-health-center-overlay',
+            allowedSelectors: ['.saga-loredeck-health-center-content'],
+        });
+        addMobileNestedScrollFindings(findings, healthScrollAudit);
         screenshots.push(await screenshot(client, 'mobile-advanced-harness-06-pack-health'));
         await clickButtonText(client, 'Close', { root: '.saga-loredeck-health-center-overlay', enabledOnly: false }).catch(() => false);
         await wait(400);
@@ -3972,12 +4239,20 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
             const stageRect = stageGuide?.getBoundingClientRect?.();
             const text = overlay?.innerText || '';
             const labels = [...overlay?.querySelectorAll('button') || []].map(button => (button.innerText || button.textContent || '').trim()).filter(Boolean);
+            const headerActionLabels = [...overlay?.querySelectorAll('.saga-loredeck-creator-pipeline-header .saga-loredeck-creator-header-actions button') || []]
+                .map(button => (button.innerText || button.textContent || '').trim())
+                .filter(Boolean);
+            const bottomActionLabels = [...overlay?.querySelectorAll('.saga-loredeck-creator-workbench-bottom-actions button') || []]
+                .map(button => (button.innerText || button.textContent || '').trim())
+                .filter(Boolean);
             return {
                 open: !!overlay,
                 hasTitle: text.includes('Loredeck Creator'),
                 hasReviewQueue: text.includes('Review Queue'),
                 hasCurrentTask: text.includes('Current Task') || text.includes('Plan') || text.includes('Draft'),
                 hasClose: labels.includes('Close'),
+                headerActionLabels,
+                bottomActionLabels,
                 currentTaskBeforeStageGuide: !!currentRect && !!stageRect && currentRect.top <= stageRect.top,
                 currentTaskVisibleEarly: !!currentRect && !!bodyRect && currentRect.top < bodyRect.top + Math.min(260, bodyRect.height * 0.34),
                 stageRailHorizontal: !!stageList && stageList.scrollWidth > stageList.clientWidth + 2,
@@ -3989,8 +4264,19 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
         }));
         if (!creatorState.open || !creatorState.hasTitle || !creatorState.hasReviewQueue || !creatorState.hasCurrentTask) findings.push('Mobile Advanced Creator did not render Review Queue/current-task state.');
         if (!creatorState.hasClose) findings.push('Mobile Advanced Creator did not expose Close.');
+        if (creatorState.headerActionLabels.length) findings.push(`Mobile Advanced Creator still rendered persistent header actions: ${creatorState.headerActionLabels.join(', ')}.`);
+        for (const label of ['Project Settings', 'Close']) {
+            if (!creatorState.bottomActionLabels.includes(label)) findings.push(`Mobile Advanced Creator bottom action bar missing: ${label}.`);
+        }
         if (!creatorState.currentTaskBeforeStageGuide || !creatorState.currentTaskVisibleEarly) findings.push('Mobile Advanced Creator did not prioritize the current task before the stage roadmap.');
         if (!creatorState.stageRailHorizontal) findings.push('Mobile Advanced Creator stage roadmap did not render as a compact horizontal rail.');
+        const creatorScrollAudit = await getMobileNestedScrollAuditState(client, {
+            label: 'Loredeck Creator workbench',
+            scopeSelector: '.saga-loredeck-creator-workbench-overlay',
+            allowedSelectors: ['.saga-loredeck-creator-workbench-body'],
+        });
+        addMobileNestedScrollFindings(findings, creatorScrollAudit);
+        creatorState.scrollAudit = creatorScrollAudit;
         screenshots.push(await screenshot(client, 'mobile-advanced-harness-07-creator-review-queue'));
         await clickButtonText(client, 'Close', { root: '.saga-loredeck-creator-workbench-overlay', enabledOnly: false }).catch(() => false);
         await wait(400);
@@ -4014,14 +4300,33 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
             const overlay = document.querySelector('#saga-context-proposal-review');
             const text = overlay?.innerText || '';
             const labels = [...overlay?.querySelectorAll('button') || []].map(button => (button.innerText || button.textContent || '').trim()).filter(Boolean);
+            const headerActionLabels = [...overlay?.querySelectorAll('.saga-context-proposal-review-header .saga-context-proposal-review-actions button') || []]
+                .map(button => (button.innerText || button.textContent || '').trim())
+                .filter(Boolean);
+            const bottomActionLabels = [...overlay?.querySelectorAll('.saga-context-proposal-review-bottom-actions button') || []]
+                .map(button => (button.innerText || button.textContent || '').trim())
+                .filter(Boolean);
             return {
                 open: !!overlay,
                 hasTitle: text.includes('Context Proposal Review'),
                 rows: overlay?.querySelectorAll('.saga-context-proposal-review-row').length || 0,
                 hasActions: labels.includes('Apply') && labels.includes('Dismiss'),
+                headerActionLabels,
+                bottomActionLabels,
             };
         }));
         if (!proposalState.open || !proposalState.hasTitle || proposalState.rows < 1 || !proposalState.hasActions) findings.push('Mobile Advanced Context Proposal Review did not render expected proposal row/actions.');
+        if (proposalState.headerActionLabels.length) findings.push(`Mobile Advanced Context Proposal Review still rendered persistent header actions: ${proposalState.headerActionLabels.join(', ')}.`);
+        for (const label of ['Apply All', 'Dismiss All', 'Close']) {
+            if (!proposalState.bottomActionLabels.includes(label)) findings.push(`Mobile Advanced Context Proposal Review bottom action bar missing: ${label}.`);
+        }
+        const proposalScrollAudit = await getMobileNestedScrollAuditState(client, {
+            label: 'Context Proposal Review',
+            scopeSelector: '#saga-context-proposal-review',
+            allowedSelectors: ['.saga-context-proposal-review-body'],
+        });
+        addMobileNestedScrollFindings(findings, proposalScrollAudit);
+        proposalState.scrollAudit = proposalScrollAudit;
         screenshots.push(await screenshot(client, 'mobile-advanced-harness-08-context-proposals'));
     }
 
@@ -4029,7 +4334,7 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
         .filter(event => event.method === 'Log.entryAdded' && event.params?.entry?.level === 'error')
         .map(event => formatLogEntry(event.params.entry))
         .filter(error => !isExpectedRepoLocalHarnessStorageError(error));
-    console.log(JSON.stringify({
+    const report = {
         ok: findings.length === 0 && errors.length === 0,
         target: SMOKE_TARGET,
         url: smokeUrl,
@@ -4039,9 +4344,15 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
         dialogEvents,
         initialState,
         moreState,
+        moreTooltipState,
+        loredecksRootScrollAudit,
+        moreScrollAudit,
         injectionState,
+        injectionScrollAudit,
         settingsState,
+        settingsScrollAudit,
         continuityState,
+        continuityScrollAudit,
         activeSetState,
         libraryClick,
         librarySelection,
@@ -4051,7 +4362,9 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
         creatorState,
         proposalClick,
         proposalState,
-    }, null, 2));
+    };
+    console.log(JSON.stringify(report, null, 2));
+    if (!report.ok) process.exitCode = 1;
 }
 
 async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smokeUrl, dialogEvents) {
@@ -4067,6 +4380,7 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
             mobileShell: !!root?.classList?.contains('saga-runtime-mobile'),
             activeTab: root?.dataset?.mobileActiveTab || '',
             bottomRoutes: [...document.querySelectorAll('.saga-mobile-bottom-tab')].map(node => node.getAttribute('data-mobile-route') || ''),
+            mobileHeaders: document.querySelectorAll('.saga-mobile-header').length,
             noHorizontalOverflow: !root || root.scrollWidth <= root.clientWidth + 1,
         };
     }));
@@ -4075,6 +4389,7 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
     for (const route of ['loredecks', 'session', 'context', 'lore', 'more']) {
         if (!shellState.bottomRoutes.includes(route)) findings.push(`Mobile redesign bottom bar missing route: ${route}.`);
     }
+    if (shellState.mobileHeaders > 0) findings.push('Mobile redesign shell rendered the removed mobile top header.');
     if (!shellState.noHorizontalOverflow) findings.push('Mobile redesign shell has horizontal overflow on the Loredecks root.');
 
     const directStackSeed = await evaluate(client, script(() => {
@@ -4114,11 +4429,19 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
         const body = overlay?.querySelector('.saga-loredeck-library-mobile-body');
         const browse = overlay?.querySelector('.saga-loredeck-library-mobile-browse');
         const cards = [...overlay?.querySelectorAll('.saga-loredeck-library-deck-mobile-touch') || []];
+        const headerActionLabels = [...overlay?.querySelectorAll('.saga-loredeck-library-header-actions button') || []]
+            .map(button => (button.innerText || button.textContent || '').trim())
+            .filter(Boolean);
+        const bottomActionLabels = [...overlay?.querySelectorAll('.saga-loredeck-library-mobile-bottom-actions button') || []]
+            .map(button => (button.innerText || button.textContent || '').trim())
+            .filter(Boolean);
         return {
             open: !!overlay,
             mobileShell: !!root,
             mobileBody: !!body,
             mobileBrowse: !!browse,
+            headerActionLabels,
+            bottomActionLabels,
             noDesktopColumns: !overlay?.querySelector('.saga-loredeck-library-columns'),
             noInlineDetails: !overlay?.querySelector('.saga-loredeck-library-details'),
             noResizeHandle: !overlay?.querySelector('.saga-loredeck-library-resize-handle'),
@@ -4132,7 +4455,13 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
             noHorizontalOverflow: !overlay || overlay.scrollWidth <= overlay.clientWidth + 1,
         };
     }));
+    const libraryScrollState = await getNestedScrollStyleState(client, ['.saga-loredeck-library-mobile-list']);
     if (!libraryInitial.open || !libraryInitial.mobileShell || !libraryInitial.mobileBody || !libraryInitial.mobileBrowse) findings.push('Mobile redesign Library did not render the mobile browse surface.');
+    if (libraryInitial.headerActionLabels.length) findings.push(`Mobile redesign Library still rendered persistent header actions: ${libraryInitial.headerActionLabels.join(', ')}.`);
+    for (const label of ['Import', 'Refresh', 'Done']) {
+        if (!libraryInitial.bottomActionLabels.includes(label)) findings.push(`Mobile redesign Library bottom action bar missing: ${label}.`);
+    }
+    if (libraryScrollState.offenders.length) findings.push(`Mobile redesign Library still has nested mobile list scroll styling: ${JSON.stringify(libraryScrollState.offenders)}`);
     if (!libraryInitial.noDesktopColumns || !libraryInitial.noInlineDetails || !libraryInitial.noResizeHandle || !libraryInitial.noDefaultDragHandles) findings.push('Mobile redesign Library default browse still exposed desktop columns/details/resize/drag affordances.');
     if (!libraryInitial.noInlineTitleEdits) findings.push('Mobile redesign Library default browse still exposed inline title edit affordances.');
     if (!libraryInitial.selectedStrip.includes('active') || libraryInitial.deckCards < 2 || !libraryInitial.generatedVisible) findings.push('Mobile redesign Library did not show active selected strip and multiple tappable deck cards.');
@@ -4301,9 +4630,28 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
     await clickButtonText(client, 'Done', { root: '.saga-loredeck-library-overlay', enabledOnly: false }).catch(() => false);
     await waitFor(client, '!document.querySelector(".saga-loredeck-library-overlay")', 'Mobile redesign Library overlay closed', 10000).catch(error => findings.push(error.message));
 
+    await clickRuntimeRoute(client, 'more');
+    await waitFor(client, '!!document.querySelector(".saga-mobile-more-sheet")', 'Mobile redesign More sheet after Library', 10000).catch(error => findings.push(error.message));
+    await wait(300);
+    const mobileMoreTooltipState = await getVisibleFloatingTooltipState(client);
+    const mobileMoreState = await evaluate(client, script(() => {
+        const sheet = document.querySelector('.saga-mobile-more-sheet');
+        return {
+            open: !!sheet,
+            hasExitSaga: (sheet?.innerText || '').includes('Exit Saga'),
+            mobileHeaders: document.querySelectorAll('.saga-mobile-header').length,
+            entryLabels: [...sheet?.querySelectorAll('.saga-mobile-more-entry-label') || []].map(node => node.textContent?.trim() || '').filter(Boolean),
+        };
+    }));
+    if (!mobileMoreState.open || !mobileMoreState.hasExitSaga) findings.push('Mobile redesign More sheet did not expose Exit Saga as the shell close path.');
+    if (mobileMoreState.mobileHeaders > 0) findings.push('Mobile redesign More sheet rendered the removed mobile top header.');
+    if (mobileMoreTooltipState.visible) findings.push(`Mobile redesign More route change showed a floating tooltip: ${mobileMoreTooltipState.text || 'blank'}.`);
+
     await clickRuntimeRoute(client, 'lore');
+    await waitFor(client, sagaMobileRouteExpression('lore'), 'Mobile redesign Lorecards mobile route active', 10000);
     await waitFor(client, sagaActiveTabExpression('lore'), 'Mobile redesign Lorecards route active', 10000);
     await waitFor(client, '!!document.querySelector(".saga-mobile-lorecards-subtabs")', 'Mobile redesign Lorecards secondary sub-tabs', 10000);
+    const loreRouteTooltipState = await getVisibleFloatingTooltipState(client);
     const lorecardsRoot = await evaluate(client, script(() => {
         const root = document.querySelector('#saga-lore-panel');
         const subtab = document.querySelector('.saga-mobile-lorecards-subtabs');
@@ -4322,11 +4670,17 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
     if (!lorecardsRoot.noPipeline) findings.push('Mobile redesign Lorecards root still rendered the page-body Lorecard Pipeline card.');
     if (!lorecardsRoot.subtabsAboveBottom) findings.push('Mobile redesign Lorecards sub-tabs were not positioned above the main bottom bar.');
     if (!lorecardsRoot.noHorizontalOverflow) findings.push('Mobile redesign Lorecards root has horizontal overflow.');
+    if (loreRouteTooltipState.visible) findings.push(`Mobile redesign Lorecards route change showed a floating tooltip: ${loreRouteTooltipState.text || 'blank'}.`);
 
     const pendingClicked = await clickSelector(client, '.saga-mobile-lorecards-subtab[data-stage="pending"]').catch(() => false);
     if (!pendingClicked) findings.push('Mobile redesign Pending page button was not clickable.');
     await waitFor(client, 'document.querySelector(".saga-lorecards-lifecycle-tab")?.dataset?.sagaLoreLifecycleStage === "pending"', 'Mobile redesign Pending page active', 10000).catch(error => findings.push(error.message));
     await wait(500);
+    const pendingTooltipState = await getVisibleFloatingTooltipState(client);
+    const pendingScrollState = await getNestedScrollStyleState(client, [
+        '.saga-lorecards-lifecycle-tab .saga-pending-lore-list',
+        '.saga-lorecards-lifecycle-tab .saga-accepted-lore-section .saga-accepted-lore-scroll-region',
+    ]);
     const pendingCardClicked = await clickSelector(client, '.saga-pending-review-entry-card-tappable');
     if (!pendingCardClicked) findings.push('Mobile redesign Pending card was not tappable.');
     await waitFor(client, '!!document.querySelector(".saga-pending-mobile-action-tray")', 'Mobile redesign Pending selected tray', 10000).catch(error => findings.push(error.message));
@@ -4349,6 +4703,8 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
     }
     if (pendingState.labels.includes('Edit')) findings.push('Mobile redesign Pending selected tray still exposed Edit instead of relying on tap-hold details.');
     if (pendingState.permanentActionRows !== 0 || pendingState.hasAcceptAll || pendingState.hasRejectAll) findings.push('Mobile redesign Pending page still exposed permanent row actions or default Accept All/Reject All.');
+    if (pendingTooltipState.visible) findings.push(`Mobile redesign Pending sub-tab showed a floating tooltip: ${pendingTooltipState.text || 'blank'}.`);
+    if (pendingScrollState.offenders.length) findings.push(`Mobile redesign Pending page still has nested list scroll styling: ${JSON.stringify(pendingScrollState.offenders)}`);
     screenshots.push(await screenshot(client, `${shotPrefix}-04-lorecards-pending`));
     await evaluate(client, script(() => {
         const card = document.querySelector('.saga-pending-review-entry-card-tappable');
@@ -4361,6 +4717,11 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
     if (!approvedClicked) findings.push('Mobile redesign Approved page button was not clickable.');
     await waitFor(client, 'document.querySelector(".saga-lorecards-lifecycle-tab")?.dataset?.sagaLoreLifecycleStage === "accepted"', 'Mobile redesign Approved page active', 10000).catch(error => findings.push(error.message));
     await wait(700);
+    const approvedTooltipState = await getVisibleFloatingTooltipState(client);
+    const approvedScrollState = await getNestedScrollStyleState(client, [
+        '.saga-lorecards-lifecycle-tab .saga-pending-lore-list',
+        '.saga-lorecards-lifecycle-tab .saga-accepted-lore-section .saga-accepted-lore-scroll-region',
+    ]);
     await evaluate(client, script(() => {
         document.querySelector('.saga-lore-entry-card[data-entry-id="smoke_long_title_lore"]')?.scrollIntoView({ block: 'center', inline: 'nearest' });
         return true;
@@ -4392,6 +4753,8 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
     if (!approvedState.longCard || !approvedState.wrapsAtLeastTwoLines || approvedState.cardHeight <= approvedState.titleHeight) findings.push(`Mobile redesign Approved long title did not wrap/read cleanly (title height ${approvedState.titleHeight}, line ${approvedState.lineHeight}).`);
     if (approvedState.detailButtons !== 0 || approvedState.defaultActionRows !== 0) findings.push('Mobile redesign Approved cards still exposed permanent detail buttons or default full action rows.');
     if (!approvedState.noHorizontalOverflow) findings.push('Mobile redesign Approved page has horizontal overflow.');
+    if (approvedTooltipState.visible) findings.push(`Mobile redesign Approved sub-tab showed a floating tooltip: ${approvedTooltipState.text || 'blank'}.`);
+    if (approvedScrollState.offenders.length) findings.push(`Mobile redesign Approved page still has nested list scroll styling: ${JSON.stringify(approvedScrollState.offenders)}`);
     screenshots.push(await screenshot(client, `${shotPrefix}-05-lorecards-approved`));
 
     const longCardTapped = await clickSelector(client, '.saga-lore-entry-card[data-entry-id="smoke_long_title_lore"]');
@@ -4417,12 +4780,19 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
     const generationClicked = await clickSelector(client, '.saga-mobile-lorecards-subtab[data-stage="suggested"]').catch(() => false);
     if (!generationClicked) findings.push('Mobile redesign Generation page button was not clickable.');
     await waitFor(client, 'document.querySelector(".saga-lorecards-lifecycle-tab")?.dataset?.sagaLoreLifecycleStage === "suggested"', 'Mobile redesign Generation page active', 10000).catch(error => findings.push(error.message));
+    const generationTooltipState = await getVisibleFloatingTooltipState(client);
+    const generationScrollState = await getNestedScrollStyleState(client, [
+        '.saga-lorecards-lifecycle-tab .saga-pending-lore-list',
+        '.saga-lorecards-lifecycle-tab .saga-accepted-lore-section .saga-accepted-lore-scroll-region',
+    ]);
     const generationState = await evaluate(client, script(() => ({
         hasGenerationWorkspace: document.body.innerText.includes('Capture / Suggest') || document.body.innerText.includes('Manual Lore Note'),
         pendingVisible: !!document.querySelector('.saga-lore-pending-collapsible:not([hidden])') && getComputedStyle(document.querySelector('.saga-lore-pending-collapsible')).display !== 'none',
         acceptedVisible: !!document.querySelector('.saga-lore-accepted-collapsible:not([hidden])') && getComputedStyle(document.querySelector('.saga-lore-accepted-collapsible')).display !== 'none',
     })));
     if (!generationState.hasGenerationWorkspace || generationState.pendingVisible || generationState.acceptedVisible) findings.push('Mobile redesign Generation page did not stay focused on creation/suggestion only.');
+    if (generationTooltipState.visible) findings.push(`Mobile redesign Generation sub-tab showed a floating tooltip: ${generationTooltipState.text || 'blank'}.`);
+    if (generationScrollState.offenders.length) findings.push(`Mobile redesign Generation page still has nested list scroll styling: ${JSON.stringify(generationScrollState.offenders)}`);
     screenshots.push(await screenshot(client, `${shotPrefix}-06-lorecards-generation`));
 
     const errors = collectClientErrors(client)
@@ -4441,16 +4811,26 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
         libraryInitial,
         folderDetailState,
         libraryCandidateAttempts: libraryCandidateAttempts.slice(0, 4),
+        libraryScrollState,
         librarySelected,
         libraryRemoved,
         detailState,
         reorderState,
         reorderMoved,
+        mobileMoreState,
+        mobileMoreTooltipState,
         lorecardsRoot,
+        loreRouteTooltipState,
         pendingState,
+        pendingTooltipState,
+        pendingScrollState,
         approvedState,
+        approvedTooltipState,
+        approvedScrollState,
         approvedActiveState,
         generationState,
+        generationTooltipState,
+        generationScrollState,
     };
     console.log(JSON.stringify(report, null, 2));
     if (!report.ok) process.exitCode = 1;
@@ -6050,6 +6430,12 @@ async function main() {
             const workbenchState = await evaluate(client, script(() => {
                 const overlay = document.querySelector('#saga-context-workbench');
                 const text = overlay?.innerText || '';
+                const headerActionLabels = [...overlay?.querySelectorAll('.saga-context-workbench-header .saga-context-workbench-header-actions button') || []]
+                    .map(button => (button.innerText || button.textContent || '').trim())
+                    .filter(Boolean);
+                const bottomActionLabels = [...overlay?.querySelectorAll('.saga-context-workbench-bottom-actions button') || []]
+                    .map(button => (button.innerText || button.textContent || '').trim())
+                    .filter(Boolean);
                 return {
                     open: !!overlay,
                     hasTimeline: text.includes('Timeline'),
@@ -6057,12 +6443,27 @@ async function main() {
                     hasValidation: text.includes('Validation'),
                     hasManualLock: /Manual lock|Auto allowed/i.test(text),
                     hasPackTitle: text.includes('Smoke Test: Arlong Park') || text.includes('Harry Potter: Core') || text.includes('loaded Loredecks'),
+                    headerActionLabels,
+                    bottomActionLabels,
                 };
             }));
             if (!workbenchState.open) findings.push('Context Workbench did not open.');
             if (!workbenchState.hasTimeline || !workbenchState.hasAliases || !workbenchState.hasValidation) findings.push('Context Workbench tabs did not render.');
             if (!workbenchState.hasManualLock) findings.push('Context Workbench did not expose lock state.');
             if (!workbenchState.hasPackTitle) findings.push('Context Workbench did not render a loaded Loredeck title.');
+            if (firstState.mobileShell) {
+                if (workbenchState.headerActionLabels.length) findings.push(`Mobile Context Workbench still rendered persistent header actions: ${workbenchState.headerActionLabels.join(', ')}.`);
+                for (const label of ['Refresh Index', 'Done']) {
+                    if (!workbenchState.bottomActionLabels.includes(label)) findings.push(`Mobile Context Workbench bottom action bar missing: ${label}.`);
+                }
+                const contextWorkbenchScrollAudit = await getMobileNestedScrollAuditState(client, {
+                    label: 'Context Workbench',
+                    scopeSelector: '#saga-context-workbench',
+                    allowedSelectors: ['.saga-context-workbench-body'],
+                });
+                addMobileNestedScrollFindings(findings, contextWorkbenchScrollAudit);
+                workbenchState.scrollAudit = contextWorkbenchScrollAudit;
+            }
 
             const errors = client.events
                 .filter(event => event.method === 'Log.entryAdded' && event.params?.entry?.level === 'error')

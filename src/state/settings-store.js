@@ -62,6 +62,21 @@ function normalizeExperienceModeValue(value, fallback = 'basic') {
     return EXPERIENCE_MODE_VALUES.includes(value) ? value : fallback;
 }
 
+function normalizeLoreAutomationModeValue(value, fallback = 'off') {
+    const normalized = String(value || '').trim().toLowerCase();
+    return ['off', 'ar', 'armp', 'armpc'].includes(normalized) ? normalized : fallback;
+}
+
+function normalizeLoreAutomationStyleValue(value, fallback = 'balanced') {
+    const normalized = String(value || '').trim().toLowerCase();
+    return ['careful', 'balanced', 'aggressive'].includes(normalized) ? normalized : fallback;
+}
+
+function normalizeLoreAutomationProviderRoutingValue(value, fallback = 'auto') {
+    const normalized = String(value || '').trim().toLowerCase();
+    return ['auto', 'utility', 'reasoning', 'local'].includes(normalized) ? normalized : fallback;
+}
+
 function hasStoredSagaSettings(stored = {}) {
     return !!(stored && typeof stored === 'object' && Object.keys(stored).length > 0);
 }
@@ -229,6 +244,38 @@ export function getSettings() {
         merged.autoRelevanceEnabled = false;
         merged.autoRelevanceMode = 'suggest';
     }
+
+    if (stored.loreAutomationLevelsMigrated20260615 !== true) {
+        if (stored.loreAutomationMode === undefined) {
+            merged.loreAutomationMode = stored.autoRelevanceEnabled === true ? 'ar' : 'off';
+        }
+        if (stored.loreAutomationStyle === undefined) {
+            merged.loreAutomationStyle = 'balanced';
+        }
+        if (stored.loreAutomationProviderRouting === undefined) {
+            merged.loreAutomationProviderRouting = 'auto';
+        }
+        if (stored.loreAutomationRemapEveryTurns === undefined) {
+            merged.loreAutomationRemapEveryTurns = Number(stored.autoRelevanceEveryTurns) || 5;
+        }
+        if (stored.loreAutomationCurationEveryTurns === undefined) {
+            merged.loreAutomationCurationEveryTurns = Math.max(1, (Number(stored.autoRelevanceEveryTurns) || 5) * 2);
+        }
+        if (stored.loreAutomationRunJournalLimit === undefined) {
+            merged.loreAutomationRunJournalLimit = 20;
+        }
+        merged.loreAutomationLevelsMigrated20260615 = true;
+    }
+    merged.loreAutomationMode = normalizeLoreAutomationModeValue(merged.loreAutomationMode, DEFAULT_SETTINGS.loreAutomationMode || 'off');
+    merged.loreAutomationStyle = normalizeLoreAutomationStyleValue(merged.loreAutomationStyle, DEFAULT_SETTINGS.loreAutomationStyle || 'balanced');
+    merged.loreAutomationProviderRouting = normalizeLoreAutomationProviderRoutingValue(merged.loreAutomationProviderRouting, DEFAULT_SETTINGS.loreAutomationProviderRouting || 'auto');
+    merged.loreAutomationPaused = merged.loreAutomationPaused === true;
+    merged.loreAutomationRemapEveryTurns = Math.max(1, Math.min(100, Number(merged.loreAutomationRemapEveryTurns) || DEFAULT_SETTINGS.loreAutomationRemapEveryTurns || 5));
+    merged.loreAutomationCurationEveryTurns = Math.max(1, Math.min(200, Number(merged.loreAutomationCurationEveryTurns) || DEFAULT_SETTINGS.loreAutomationCurationEveryTurns || 10));
+    merged.loreAutomationRunJournalLimit = Math.max(1, Math.min(100, Number(merged.loreAutomationRunJournalLimit) || DEFAULT_SETTINGS.loreAutomationRunJournalLimit || 20));
+    // Keep legacy AR switches readable while making Lore Automation the canonical visible mode.
+    merged.autoRelevanceEnabled = merged.loreAutomationMode !== 'off';
+    if (merged.loreAutomationMode === 'off') merged.autoRelevanceMode = 'suggest';
 
     if (stored.compressionLevelDefaultsMigrated20260602 !== true) {
         const migrateLevel = (key, oldValues, newValue = 3) => {

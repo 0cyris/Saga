@@ -35,7 +35,7 @@ The detailed test prework lives in [SAGA_CORE_INTEGRATION_TESTING.md](SAGA_CORE_
 
 The first deterministic HP Year 6 harness now exists at `tools/scripts/test-core-integration-hp-year6.mjs`. It validates stack loading, date-based Context resolution, Context-gated suggestions, Pending Review acceptance, pin/mute behavior, and final lore memo output without live model calls.
 
-The next progression harness, `tools/scripts/test-core-integration-hp-year6-progression.mjs`, validates Context movement from post-Christmas Year 6 to Ron's poisoning, suggestion-set changes, accepted Lorecards across checkpoints, Auto-Relevance tier changes, and final injection output.
+The next progression harness, `tools/scripts/test-core-integration-hp-year6-progression.mjs`, validates Context movement from post-Christmas Year 6 to Ron's poisoning, suggestion-set changes, accepted Lorecards across checkpoints, Lore Automation `AR` tier changes, and final injection output.
 
 The accepted-injection harness, `tools/scripts/test-core-integration-hp-year6-accepted-context.mjs`, validates that accepted Lorecards are still checked against active Loredeck Context before prompt injection. A stale accepted Year 6 Lorecard remains accepted after Context advances, but is omitted from memo output and audited as `context_blocked`; current matching lore still injects.
 
@@ -103,7 +103,7 @@ The deck-authoring system for anchors, windows, aliases, sortable coordinates, a
 
 Context-gated candidate selection, stack-priority scoring, relevance ranking, source chips, and wide-lore handling. This is the core system that decides which Lorecards should matter at a given moment.
 
-Auto-Relevance currently owns High/Normal/Low tier changes. Planned expansion: allow optional pin/mute recommendations or high-confidence pin/mute application as a separate, explicitly configured layer. This should not be treated as a silent side effect of tier scoring because pin and mute are stronger injection controls.
+Lore Automation expands the current relevance pass into the `Off`, `AR`, `ARMP`, and `ARMPC` mode model described in [SAGA_LORE_AUTOMATION_LEVELS_PLAN.md](SAGA_LORE_AUTOMATION_LEVELS_PLAN.md). Pin/mute and curation are guarded by per-card automation eligibility, audit visibility, deterministic operation validation, and focused integration coverage.
 
 ### 11. Injection System
 

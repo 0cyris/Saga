@@ -49,7 +49,7 @@ For guided walkthroughs, see [Basic Workflow](docs/user/BASIC_WORKFLOW.md) and [
 | --- | --- |
 | **Loredeck Library** | Browse Bundled, Generated, and Custom Loredecks; import/export `.saga-loredeck.zip` packages; organize folders; manage the Active Stack; and run Pack Health checks. |
 | **Loredeck Creator** | A staged, review-first workflow for drafting Loredecks with scope planning, Context planning, title batches, timeline/tag planning, Lorecard drafts, recovery, and finalization gates. |
-| **Lorecard System** | Suggested lore, Scan Story Lore, auto-relevance, Pending Review, approved Lorecards, pin/mute controls, and reviewable edits before lore affects the prompt. |
+| **Lorecard System** | Suggested lore, Scan Story Lore, Lore Automation levels, Pending Review, approved Lorecards, pin/mute controls, and reviewable edits before lore affects the prompt. |
 | **Lore Timeline** | An audit and recovery ledger for manual lore, accepted Lorecard changes, restored entries, deleted versions, and continuity-related lore events. |
 | **Injection System** | The final prompt layer that sends only eligible, relevant, Context-aware lore to the model, with Advanced controls for previewing and tuning prompt composition. |
 | **Basic/Advanced Workflow Modes** | Basic gives new users the shortest guided path to a working chat. Advanced exposes diagnostics, Creator authoring, Pack Health repair, Continuity, provider settings, and full Injection controls. |

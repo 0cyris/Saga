@@ -43,6 +43,7 @@ function setContextWorkbenchPackId(packId) { return dep('setContextWorkbenchPack
 function clearContextWorkbenchSelectedKey() { return dep('clearContextWorkbenchSelectedKey', () => null)(); }
 function renderContextWorkbench() { return dep('renderContextWorkbench', () => null)(); }
 function closeContextWorkbench() { return dep('closeContextWorkbench', () => null)(); }
+function isRuntimeMobileShell() { return dep('isRuntimeMobileShell', () => false)(); }
 function refreshContextHeader() { return dep('refreshContextHeader', () => null)(); }
 function clearContextIndexCache() { return dep('clearContextIndexCache', () => null)(); }
 function loadContextIndex(options) { return dep('loadContextIndex', async () => null)(options); }
@@ -377,8 +378,10 @@ function createContextWorkbenchInspector(pack, selected = null, allItems = [], c
 }
 
 export function createContextWorkbenchShell(state = {}, contextIndex = null) {
+    const mobile = isRuntimeMobileShell();
     const shell = document.createElement('div');
     shell.className = 'saga-lore-workbench-shell saga-context-workbench-shell';
+    if (mobile) shell.classList.add('saga-context-workbench-shell-mobile');
     markTourTarget(shell, 'context.workbench.shell');
     shell.addEventListener('click', event => event.stopPropagation());
 
@@ -397,6 +400,7 @@ export function createContextWorkbenchShell(state = {}, contextIndex = null) {
         body.appendChild(createContextWorkbenchContextView(state, contextIndex));
     }
     shell.appendChild(body);
+    if (mobile) shell.appendChild(createContextWorkbenchActions({ mobile: true }));
 
     return shell;
 }
@@ -451,7 +455,7 @@ function createContextWorkbenchHeader(state = {}, contextIndex = null) {
         if (activeTab === id) tab.classList.add('saga-lore-workbench-mode-tab-active');
         tab.textContent = label;
         markTourTarget(tab, `context.workbench.tab.${id}`);
-        addTooltip(tab, getContextWorkbenchTabTooltip(id));
+        addTooltip(tab, getContextWorkbenchTabTooltip(id), isRuntimeMobileShell() ? { showOnHover: false, showOnFocus: false } : {});
         tab.addEventListener('click', () => {
             setContextWorkbenchTab(id);
             renderContextWorkbench();
@@ -460,8 +464,15 @@ function createContextWorkbenchHeader(state = {}, contextIndex = null) {
     }
     header.appendChild(tabs);
 
+    if (!isRuntimeMobileShell()) header.appendChild(createContextWorkbenchActions());
+    return header;
+}
+
+function createContextWorkbenchActions(options = {}) {
     const actions = document.createElement('div');
-    actions.className = 'saga-primary-actions saga-context-workbench-header-actions';
+    actions.className = options.mobile
+        ? 'saga-primary-actions saga-context-workbench-bottom-actions'
+        : 'saga-primary-actions saga-context-workbench-header-actions';
     actions.appendChild(markTourTarget(createButton('Refresh Index', 'Reload loaded Loredeck timeline registries and refresh the workbench.', async (btn) => {
         await runBusyAction(btn, 'Refreshing...', async () => {
             clearContextIndexCache();
@@ -471,8 +482,7 @@ function createContextWorkbenchHeader(state = {}, contextIndex = null) {
         });
     }), 'context.workbench.refreshIndex'));
     actions.appendChild(markTourTarget(createButton('Done', 'Close the Context Workbench.', closeContextWorkbench, 'saga-primary-button'), 'context.workbench.done'));
-    header.appendChild(actions);
-    return header;
+    return actions;
 }
 
 function getContextWorkbenchTabTooltip(tabId = '') {

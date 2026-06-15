@@ -98,6 +98,7 @@ function attemptLoredeckHealthFixes(pack, button) {
 }
 function refreshRuntimePanelBody(options) { return dep('refreshPanelBody', () => null)(options); }
 function refreshRuntimeHeader() { return dep('refreshHeader', () => null)(); }
+function isRuntimeMobileShell() { return dep('isRuntimeMobileShell', () => false)() === true; }
 function markTourTarget(element, target) { return dep('markTourTarget', value => value)(element, target); }
 
 export function openLoredeckCreatorWorkbench(options = {}) {
@@ -112,6 +113,7 @@ export function openLoredeckCreatorWorkbench(options = {}) {
 
     const shell = document.createElement('div');
     shell.className = 'saga-lore-workbench-shell saga-loredeck-creator-workbench-shell';
+    if (isRuntimeMobileShell()) shell.classList.add('saga-loredeck-creator-workbench-shell-mobile');
     markTourTarget(shell, 'loredecks.creator.workbench');
     overlay.appendChild(shell);
 
@@ -124,6 +126,7 @@ export function openLoredeckCreatorWorkbench(options = {}) {
     markTourTarget(body, 'loredecks.creator.body');
     body.appendChild(createLoredeckCreatorCard(getState(), { embedded: true, showHeader: false }));
     shell.appendChild(body);
+    if (isRuntimeMobileShell()) shell.appendChild(createLoredeckCreatorWorkbenchActions(cached, { mobile: true, showClose: true }));
     const anchor = String(options.anchor || '').trim();
     if (anchor) {
         const scroll = () => scrollLoredeckCreatorWorkbenchToAnchor(anchor);
@@ -143,6 +146,14 @@ export function refreshLoredeckCreatorWorkbenchBody(options = {}) {
     const nextHeader = createLoredeckCreatorPipelineHeader(cached, pipeline, { showClose: true, workbench: true });
     if (header) header.replaceWith(nextHeader);
     else if (shell) shell.insertBefore(nextHeader, body);
+    const mobileActions = shell?.querySelector?.('.saga-loredeck-creator-workbench-bottom-actions');
+    if (isRuntimeMobileShell()) {
+        const nextActions = createLoredeckCreatorWorkbenchActions(cached, { mobile: true, showClose: true });
+        if (mobileActions) mobileActions.replaceWith(nextActions);
+        else shell?.appendChild(nextActions);
+    } else {
+        mobileActions?.remove();
+    }
     body.replaceChildren(createLoredeckCreatorCard(getState(), { embedded: true, showHeader: false }));
     if (options.preserveScroll !== false) {
         const restore = () => {
@@ -391,20 +402,28 @@ export function createLoredeckCreatorPipelineHeader(cached = {}, pipeline = getL
     titleWrap.appendChild(titleRow);
     wrap.appendChild(titleWrap);
 
+    if (!(options.workbench && isRuntimeMobileShell())) {
+        wrap.appendChild(createLoredeckCreatorWorkbenchActions(cached, { showClose: options.showClose }));
+    }
+    return wrap;
+}
+
+function closeLoredeckCreatorWorkbench() {
+    document.querySelector('.saga-loredeck-creator-workbench-overlay')?.remove();
+}
+
+function createLoredeckCreatorWorkbenchActions(cached = {}, options = {}) {
     const actions = document.createElement('div');
-    actions.className = 'saga-primary-actions saga-loredeck-library-header-actions saga-loredeck-creator-header-actions';
+    actions.className = `saga-primary-actions saga-loredeck-library-header-actions saga-loredeck-creator-header-actions${options.mobile ? ' saga-loredeck-creator-workbench-bottom-actions' : ''}`;
     const settingsButton = createButton('Project Settings', 'Jump to the editable project inputs or approved Scope Brief.', () => {
         scrollLoredeckCreatorWorkbenchToAnchor(cached.approved ? 'scope-brief' : 'intake');
     });
     markTourTarget(settingsButton, 'loredecks.creator.settings');
     actions.appendChild(settingsButton);
     if (options.showClose) {
-        actions.appendChild(createButton('Close', 'Close the Loredeck Creator wizard.', () => {
-            document.querySelector('.saga-loredeck-creator-workbench-overlay')?.remove();
-        }));
+        actions.appendChild(createButton('Close', 'Close the Loredeck Creator wizard.', closeLoredeckCreatorWorkbench));
     }
-    wrap.appendChild(actions);
-    return wrap;
+    return actions;
 }
 
 export function createLoredeckCreatorStageGuide(cached = {}, pipeline = getLoredeckCreatorPipelineModel(cached)) {

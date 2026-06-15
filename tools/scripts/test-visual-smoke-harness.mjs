@@ -801,6 +801,27 @@ assert(/@media \(max-width:\s*640px\)\s*\{[\s\S]*?\.saga-lore-workbench-overlay\
 assert(/@media \(max-width:\s*640px\)\s*\{[\s\S]*?\.saga-lore-workbench-shell\s*\{[\s\S]*?height:\s*100dvh;[\s\S]*?border-radius:\s*0;/.test(style), 'Mobile workbench shells must be full-height, square-edged surfaces.');
 assert(/@media \(max-width:\s*640px\)\s*\{[\s\S]*?\.saga-lore-workbench-header\s*\{[\s\S]*?position:\s*sticky;[\s\S]*?env\(safe-area-inset-top/.test(style), 'Mobile workbench headers must stay reachable and respect safe-area top padding.');
 assert(/@media \(max-width:\s*640px\)\s*\{[\s\S]*?\.saga-lore-workbench-mode-tab\s*\{[\s\S]*?min-height:\s*40px;/.test(style), 'Mobile workbench tabs must have touch-sized targets.');
+assert(
+    contextWorkbenchPanel.includes('function isRuntimeMobileShell')
+        && contextWorkbenchPanel.includes("if (mobile) shell.classList.add('saga-context-workbench-shell-mobile')")
+        && contextWorkbenchPanel.includes('if (mobile) shell.appendChild(createContextWorkbenchActions({ mobile: true }))')
+        && contextWorkbenchPanel.includes('if (!isRuntimeMobileShell()) header.appendChild(createContextWorkbenchActions())')
+        && contextWorkbenchPanel.includes('showOnHover: false, showOnFocus: false'),
+    'Mobile Context Workbench must move persistent actions to the bottom and suppress floating tab tooltips.'
+);
+assert(
+    style.includes('.saga-context-workbench-bottom-actions')
+        && /@media \(max-width:\s*640px\)\s*\{[\s\S]*?\.saga-context-workbench-shell-mobile\s*\{[\s\S]*?display:\s*flex;[\s\S]*?flex-direction:\s*column;/.test(style)
+        && /@media \(max-width:\s*640px\)\s*\{[\s\S]*?\.saga-context-workbench-shell-mobile \.saga-context-workbench-body\s*\{[\s\S]*?flex:\s*1 1 auto;[\s\S]*?min-height:\s*0;/.test(style),
+    'Mobile Context Workbench CSS must provide a bottom action bar while the body owns the remaining scrollable area.'
+);
+assert(
+    liveSmoke.includes('Mobile Context Workbench still rendered persistent header actions')
+        && liveSmoke.includes('Mobile Context Workbench bottom action bar missing')
+        && liveSmoke.includes("label: 'Context Workbench'")
+        && liveSmoke.includes("allowedSelectors: ['.saga-context-workbench-body']"),
+    'Context harness smoke must enforce mobile Context Workbench bottom actions and nested-scroll ownership.'
+);
 assert(/@media \(max-width:\s*980px\)\s*\{[\s\S]*?\.saga-context-workbench-row-header\s*\{[\s\S]*?display:\s*none;/.test(style), 'Tablet and mobile Context Workbench rows must not preserve desktop table headers after collapsing to one column.');
 assert(/@media \(max-width:\s*980px\)\s*\{[\s\S]*?\.saga-context-workbench-context-row:not\(\.saga-context-workbench-row-header\)[\s\S]*?flex:\s*0 0 auto;[\s\S]*?display:\s*flex;[\s\S]*?flex-direction:\s*column;[\s\S]*?\.saga-context-workbench-context-row:not\(\.saga-context-workbench-row-header\) \.saga-lore-workbench-cell-main,[\s\S]*?white-space:\s*normal;/.test(style), 'Tablet Context Workbench collapsed rows must render as non-shrinking wrapped cards instead of stacked desktop table cells.');
 assert(/@media \(max-width:\s*980px\)\s*\{[\s\S]*?\.saga-loredeck-library-details\s*\{[\s\S]*?height:\s*auto;[\s\S]*?linear-gradient\(180deg,\s*rgba\(22,\s*13,\s*18,\s*0\.98\),\s*rgba\(7,\s*8,\s*12,\s*0\.98\)\)/.test(style), 'Tablet Loredeck Library details must become a readable stacked card without translucent list bleed.');
@@ -858,15 +879,35 @@ assert(
 assert(/\.saga-loredeck-creator-card\s*\{[\s\S]*?display:\s*flex;[\s\S]*?flex-direction:\s*column;/.test(style), 'Creator workbench card must be a flex column so mobile ordering can prioritize the working object.');
 assert(/@media \(max-width:\s*640px\)\s*\{[\s\S]*?\.saga-loredeck-creator-workbench-body \.saga-loredeck-creator-current-task\s*\{[\s\S]*?order:\s*-20;[\s\S]*?\.saga-loredeck-creator-workbench-body \.saga-loredeck-creator-stage-guide\s*\{[\s\S]*?order:\s*-10;/.test(style), 'Mobile Creator workbench must render the current task before the stage roadmap.');
 assert(/@media \(max-width:\s*640px\)\s*\{[\s\S]*?\.saga-loredeck-creator-stage-list\s*\{[\s\S]*?grid-auto-flow:\s*column;[\s\S]*?grid-auto-columns:\s*minmax\(132px,\s*42vw\);[\s\S]*?overflow-x:\s*auto;/.test(style), 'Mobile Creator stage roadmap must become a compact horizontal rail instead of eight full-width cards.');
+assert(/@media \(max-width:\s*640px\)\s*\{[\s\S]*?\.saga-loredeck-creator-workbench-body \.saga-loredeck-entry-list\s*\{[\s\S]*?max-height:\s*none;[\s\S]*?overflow:\s*visible;/.test(style), 'Mobile Creator entry lists must flow in the Creator body scroll instead of creating nested vertical scroll panes.');
 assert(/@media \(max-width:\s*640px\)\s*\{[\s\S]*?\.saga-loredeck-creator-current-task,[\s\S]*?\.saga-loredeck-creator-queue-row\s*\{[\s\S]*?grid-template-columns:\s*minmax\(0,\s*1fr\);/.test(style), 'Mobile Creator workbench task and side rows must stack to one column.');
 assert(/\.saga-loredeck-creator-workbench-body\s*\{[\s\S]*?flex:\s*1 1 auto;[\s\S]*?min-height:\s*0;[\s\S]*?overflow-y:\s*auto;/.test(style) && /@media \(max-width:\s*640px\)\s*\{[\s\S]*?\.saga-loredeck-creator-workbench-body\s*\{[\s\S]*?padding:\s*8px;/.test(style), 'Mobile Creator workbench body must remain scrollable inside the fullscreen shell with compact phone padding.');
 assert(/@media \(max-width:\s*640px\)\s*\{[\s\S]*?\.saga-loredeck-creator-stage-main,[\s\S]*?\.saga-loredeck-creator-current-actions \.saga-runtime-button,[\s\S]*?\.saga-loredeck-creator-current-actions \.saga-primary-button\s*\{[\s\S]*?min-height:\s*40px;/.test(style), 'Mobile Creator current-task and stage actions must remain touch-sized.');
 assert(/@media \(max-width:\s*640px\)\s*\{[\s\S]*?\.saga-loredeck-creator-stage-reset\s*\{[\s\S]*?width:\s*40px;[\s\S]*?height:\s*40px;[\s\S]*?opacity:\s*1;/.test(style), 'Mobile Creator reset controls must be visible and touch-sized.');
 assert(/@media \(max-width:\s*640px\)\s*\{[\s\S]*?\.saga-loredeck-health-center-shell\s*\{[\s\S]*?width:\s*100vw;[\s\S]*?height:\s*100dvh;[\s\S]*?max-height:\s*100dvh;/.test(style), 'Mobile Pack Health Center shell must occupy the full phone viewport.');
-assert(/\.saga-loredeck-health-center-body\s*\{[\s\S]*?flex:\s*1 1 auto;[\s\S]*?min-height:\s*0;[\s\S]*?display:\s*flex;[\s\S]*?flex-direction:\s*column;[\s\S]*?overflow:\s*hidden;/.test(style) && /\.saga-loredeck-health-center-content\s*\{[\s\S]*?flex:\s*1 1 auto;[\s\S]*?min-height:\s*0;[\s\S]*?overflow-y:\s*auto;/.test(style) && /@media \(max-width:\s*640px\)\s*\{[\s\S]*?\.saga-loredeck-health-center-content\s*\{[\s\S]*?padding:\s*8px;/.test(style), 'Mobile Pack Health Center must preserve an internal scroll region inside the fullscreen shell.');
+assert(/\.saga-loredeck-health-center-body\s*\{[\s\S]*?flex:\s*1 1 auto;[\s\S]*?min-height:\s*0;[\s\S]*?display:\s*flex;[\s\S]*?flex-direction:\s*column;[\s\S]*?overflow:\s*hidden;/.test(style) && /\.saga-loredeck-health-center-content\s*\{[\s\S]*?flex:\s*1 1 auto;[\s\S]*?min-height:\s*0;[\s\S]*?overflow-y:\s*auto;/.test(style) && /@media \(max-width:\s*640px\)\s*\{[\s\S]*?\.saga-loredeck-health-center-content\s*\{[\s\S]*?padding:\s*8px;/.test(style), 'Mobile Pack Health Center must preserve one primary content scroll region inside the fullscreen shell.');
 assert(/@media \(max-width:\s*640px\)\s*\{[\s\S]*?\.saga-loredeck-health-tabs\s*\{[\s\S]*?flex-wrap:\s*nowrap;[\s\S]*?overflow-x:\s*auto;/.test(style), 'Mobile Pack Health tabs must scroll horizontally instead of shrinking into clipped labels.');
-assert(healthPanel.includes("createButton('Close', 'Close the Pack Health Center.', closeLoredeckHealthCenter)") && healthPanel.includes('wireOverlayBackdropClose(overlay, closeLoredeckHealthCenter)'), 'Pack Health Center overlays must keep reachable Close controls and backdrop close wiring for mobile fullscreen use.');
-assert(creatorPanel.includes('createLoredeckCreatorPipelineHeader(cached, pipeline, { showClose: true, workbench: true })') && creatorPanel.includes("createButton('Close', 'Close the Loredeck Creator wizard.'") && creatorPanel.includes("document.querySelector('.saga-loredeck-creator-workbench-overlay')?.remove()") && creatorPanel.includes('wireOverlayBackdropClose(overlay, () => overlay.remove())'), 'Creator workbench overlays must keep reachable header Close controls and backdrop close wiring for mobile fullscreen use.');
+assert(
+    healthPanel.includes('function isRuntimeMobileShell')
+    && healthPanel.includes('createLoredeckHealthCenterActions(context, { mobile: true })')
+    && healthPanel.includes('if (!mobile) header.appendChild(createLoredeckHealthCenterActions(context))')
+    && healthPanel.includes('saga-loredeck-health-center-bottom-actions')
+    && healthPanel.includes("createButton('Close', 'Close the Pack Health Center.', closeLoredeckHealthCenter)")
+    && healthPanel.includes('wireOverlayBackdropClose(overlay, closeLoredeckHealthCenter)')
+    && /\.saga-loredeck-health-center-bottom-actions\s*\{[\s\S]*?grid-template-columns:\s*repeat\(auto-fit,[\s\S]*?var\(--saga-mobile-safe-area-bottom/.test(style),
+    'Pack Health Center mobile must move persistent Refresh/Export/Close actions to a bottom action bar while keeping Close and backdrop close reachable.'
+);
+assert(/\.saga-runtime-mobile \.saga-injection-preview\s*\{[\s\S]*?max-height:\s*none;[\s\S]*?overflow:\s*visible;/.test(style), 'Mobile Injection previews must flow in the route scroll instead of creating bounded preview scroll panes.');
+assert(
+    creatorPanel.includes('function isRuntimeMobileShell')
+    && creatorPanel.includes('saga-loredeck-creator-workbench-shell-mobile')
+    && creatorPanel.includes('createLoredeckCreatorWorkbenchActions(cached, { mobile: true, showClose: true })')
+    && creatorPanel.includes('if (!(options.workbench && isRuntimeMobileShell()))')
+    && creatorPanel.includes("createButton('Close', 'Close the Loredeck Creator wizard.', closeLoredeckCreatorWorkbench)")
+    && creatorPanel.includes('wireOverlayBackdropClose(overlay, () => overlay.remove())')
+    && /\.saga-loredeck-creator-workbench-bottom-actions\s*\{[\s\S]*?grid-template-columns:\s*repeat\(auto-fit,[\s\S]*?var\(--saga-mobile-safe-area-bottom/.test(style),
+    'Creator workbench mobile must move persistent Project Settings and Close actions to a bottom action bar while keeping backdrop close reachable.'
+);
 assert(visualSmokeDoc.includes('## Mobile Workbench Matrix'), 'Visual smoke runbook must document the mobile workbench matrix.');
 for (const viewport of ['360x740', '390x844', '430x820', '768x1024']) {
     assert(visualSmokeDoc.includes(`\`${viewport}\``), `Visual smoke runbook is missing mobile viewport ${viewport}.`);
@@ -931,7 +972,7 @@ assert(
     'Visual smoke runbook must document the focused mobile touch redesign CDP target and screenshots.'
 );
 assert(visualSmokeDoc.includes('shared mobile shell contracts') && visualSmokeDoc.includes('touch-redesign contracts'), 'Visual smoke runbook must name the shared shell and touch-redesign contracts for final mobile assertions.');
-assert(visualSmokeDoc.includes('Mobile UX revision review') && visualSmokeDoc.includes('Lorecards secondary sub-tab bar') && visualSmokeDoc.includes('one dominant next action') && visualSmokeDoc.includes('redundant header More action') && visualSmokeDoc.includes('bottom bar labels'), 'Visual smoke runbook must document the mobile UX revision visual-review targets.');
+assert(visualSmokeDoc.includes('Mobile UX revision review') && visualSmokeDoc.includes('Lorecards secondary sub-tab bar') && visualSmokeDoc.includes('one dominant next action') && visualSmokeDoc.includes('runtime top header is absent') && visualSmokeDoc.includes('More exposes `Exit Saga`') && visualSmokeDoc.includes('bottom bar labels'), 'Visual smoke runbook must document the mobile UX revision visual-review targets.');
 assert(visualSmokeDoc.includes('Basic More Settings route') && visualSmokeDoc.includes('Basic More routing to Settings'), 'Visual smoke runbook must document rendered follow-up for Basic Settings reachability through More.');
 assert(visualSmokeDoc.includes('More sheet') && visualSmokeDoc.includes('Continuity, Injection, and Settings route entries') && visualSmokeDoc.includes('Advanced More sheet route groups for Continuity, Injection, and Settings') && visualSmokeDoc.includes('More route entries for Continuity, Injection, and Settings'), 'Visual smoke runbook must document rendered follow-up for Advanced More routing to Continuity, Injection, and Settings.');
 assert(visualSmokeDoc.includes('More sheet close-after-route behavior') && runtimeShellView.includes("mobile.activeRoute === 'more' && !mobile.activeMoreRoute") && runtimeShellView.includes('selectRuntimeMobileMoreRoute(route)'), 'Mobile More sheet must render only before a More route is selected and close into the selected route.');
@@ -947,12 +988,14 @@ assert(visualSmokeDoc.includes('Rendered Approved object-action review') && visu
 assert(/\| `360x740` \| Basic \|[^\n]*Lorecards secondary `Generation \| Pending \| Approved` sub-tab bar/.test(visualSmokeDoc), 'Visual smoke runbook must document the Lorecards secondary sub-tab bar in the 360px Basic matrix.');
 assert(/\| `430x820` \| Advanced \|[^\n]*Lorecards secondary sub-tabs/.test(visualSmokeDoc) && visualSmokeDoc.includes('Approved active/available object cards'), 'Visual smoke runbook must document Approved object cards and secondary sub-tabs in the 430px Advanced matrix.');
 assert(visualSmokeDoc.includes('scrollable Creator workbench body') && visualSmokeDoc.includes('Creator current-task actions'), 'Visual smoke runbook must document rendered follow-up for Creator body scrolling and current-task actions.');
-assert(visualSmokeDoc.includes('scrollable Pack Health content') && visualSmokeDoc.includes('Pack Health content scrolling'), 'Visual smoke runbook must document rendered follow-up for Pack Health internal scrolling.');
-assert(visualSmokeDoc.includes('bottom-bar content clearance') && /browser pass[\s\S]*bottom-bar content clearance/.test(visualSmokeDoc), 'Visual smoke runbook must document rendered follow-up for bottom-bar content clearance.');
+assert(visualSmokeDoc.includes('bottom-owned Pack Health actions') && visualSmokeDoc.includes('Pack Health bottom actions'), 'Visual smoke runbook must document rendered follow-up for Pack Health bottom-owned actions.');
+assert(visualSmokeDoc.includes('bottom-owned Creator actions') && visualSmokeDoc.includes('Health/Creator bottom actions'), 'Visual smoke runbook must document rendered follow-up for Creator bottom-owned actions.');
+assert(visualSmokeDoc.includes('global nested-scroll audit results'), 'Visual smoke runbook must document rendered follow-up for the global mobile nested-scroll audit.');
+assert(visualSmokeDoc.includes('compact content padding') && /browser pass[\s\S]*compact content padding/.test(visualSmokeDoc), 'Visual smoke runbook must document rendered follow-up for compact Revision 3 content padding.');
 assert(visualSmokeDoc.includes('bottom-bar safe-area padding') && /browser pass[\s\S]*bottom-bar safe-area padding/.test(visualSmokeDoc), 'Visual smoke runbook must document rendered follow-up for bottom-bar safe-area padding.');
 assert(visualSmokeDoc.includes('active tab state exposure') && /browser pass[\s\S]*active tab state exposure/.test(visualSmokeDoc), 'Visual smoke runbook must document rendered follow-up for active tab state exposure.');
-assert(visualSmokeDoc.includes('safe-area header rendering') && /browser pass[\s\S]*safe-area header rendering/.test(visualSmokeDoc), 'Visual smoke runbook must document rendered follow-up for safe-area header rendering.');
-assert(visualSmokeDoc.includes('header action icon treatment') && visualSmokeDoc.includes('header action icon selectors') && /browser pass[\s\S]*header action icon rendering/.test(visualSmokeDoc), 'Visual smoke runbook must document rendered follow-up for mobile header action icon treatment.');
+assert(visualSmokeDoc.includes('removed runtime top header') && /browser pass[\s\S]*removed runtime top header/.test(visualSmokeDoc), 'Visual smoke runbook must document rendered follow-up for removing the mobile runtime top header.');
+assert(visualSmokeDoc.includes('bottom shell back action') && visualSmokeDoc.includes('More `Exit Saga`') && /browser pass[\s\S]*More `Exit Saga`/.test(visualSmokeDoc), 'Visual smoke runbook must document rendered follow-up for bottom shell actions and the More Exit Saga close path.');
 assert(visualSmokeDoc.includes('Health/Creator close controls') && visualSmokeDoc.includes('reachable Health/Creator close affordances'), 'Visual smoke runbook must document rendered follow-up for Health and Creator close controls.');
 assert(visualSmokeDoc.includes('hybrid mythic-tech/source-franchise-free styling') && visualSmokeDoc.includes('not fandom-specific fantasy, generic sci-fi, generic SaaS, or pure cyberpunk treatment'), 'Visual smoke runbook must document rendered visual review for hybrid mythic-tech/source-franchise-free styling.');
 assert(/\| `768x1024` \| Advanced \|[^\n]*desktop rail\/drawer preservation/.test(visualSmokeDoc) && visualSmokeDoc.includes('Rendered desktop preservation review') && visualSmokeDoc.includes('desktop rail/drawer preservation at desktop widths'), 'Visual smoke runbook must document rendered desktop rail/drawer preservation for the tablet/desktop shell pass.');
@@ -963,12 +1006,11 @@ for (const token of [
     '--saga-mobile-icon-button-size',
     '--saga-mobile-row-action-size',
     '--saga-mobile-bottom-bar-height',
-    '--saga-mobile-header-min-height',
     '--saga-mobile-content-bottom-padding',
 ]) {
     assert(style.includes(token), `Mobile shell token ${token} must remain in the bundled CSS.`);
 }
-assert(style.includes('--saga-mobile-content-bottom-padding: calc(var(--saga-mobile-bottom-bar-height) + var(--saga-mobile-safe-area-bottom) + 10px);'), 'Mobile content bottom padding must include the fixed bottom bar height and safe-area clearance.');
+assert(/\.saga-lore-panel\.saga-runtime-shell\.saga-runtime-mobile\s*\{[\s\S]*?--saga-mobile-content-bottom-padding:\s*8px;/.test(style) && /\.saga-runtime-mobile\.saga-mobile-lorecards-subtabs-active\s*\{[\s\S]*?--saga-mobile-content-bottom-padding:\s*8px;/.test(style), 'Revision 3 mobile content must not reserve fake bottom-bar height because shell bars are flex siblings.');
 assert(/\.saga-mobile-bottom-bar\s*\{[\s\S]*?min-height:\s*calc\(var\(--saga-mobile-bottom-bar-height,\s*72px\) \+ var\(--saga-mobile-safe-area-bottom,\s*0px\)\)[\s\S]*?padding:\s*6px 8px calc\(6px \+ var\(--saga-mobile-safe-area-bottom,\s*0px\)\)/.test(style), 'Mobile bottom bar must include safe-area bottom padding in its height and inset.');
 assert(runtimeNavigation.includes("export const MOBILE_BOTTOM_ROUTES = Object.freeze(['loredecks', 'session', 'context', 'lore', 'more']);"), 'Mobile bottom bar order must remain Loredecks | divider | Session | Context | Lorecards | More.');
 assert(runtimeNavigation.includes("export const MOBILE_PRIMARY_ROUTES = Object.freeze(['loredecks', 'session', 'context', 'lore']);") && runtimeNavigation.includes("export const MOBILE_MORE_ROUTES = Object.freeze(['continuity', 'injection', 'settings']);"), 'Mobile primary and More route contracts must stay separated.');
@@ -985,21 +1027,20 @@ for (const helper of ['selectRuntimeMobileRoute', 'openRuntimeMobileMoreSheet', 
 assert(runtimeShellView.includes("root.className = 'saga-lore-panel saga-runtime-shell saga-runtime-mobile saga-mobile-touch'") && runtimeShellView.includes("body.className = 'saga-lore-panel-body saga-mobile-content'"), 'Runtime shell view must render the mobile shell and content classes.');
 assert(runtimeShellView.includes("bar.setAttribute('aria-label', 'Saga mobile navigation')") && runtimeShellView.includes("tab.setAttribute('aria-current', 'page')") && runtimeShellView.includes("tab.dataset.mobileRoute = route"), 'Mobile bottom bar must expose accessible current-route navigation.');
 assert(runtimeShellView.includes('root.dataset.mobileRoute = mobile.activeRoute') && runtimeShellView.includes('root.dataset.mobileActiveTab = activeTab') && runtimeShellView.includes("tab.classList.add('saga-mobile-bottom-tab-active')") && runtimeShellView.includes("tab.setAttribute('aria-current', 'page')"), 'Mobile shell must expose the active route through root datasets, active bottom-tab styling, and aria-current.');
+assert(runtimeShellView.includes('const MOBILE_NAV_TOOLTIP_OPTIONS = Object.freeze({ showOnHover: false, showOnFocus: false });') && runtimeShellView.includes('function addMobileNavigationLabel') && runtimeShellView.includes('hideFloatingTooltip();') && runtimeShellView.includes('addMobileNavigationLabel(tab, getMobileRouteTooltip(route, settings));') && runtimeShellView.includes('addMobileNavigationLabel(tab, meta.tooltip);') && runtimeShellView.includes('addMobileNavigationLabel(entry, getMobileRouteTooltip(route, settings));'), 'Revision 3 mobile bottom tabs, Lorecards sub-tabs, and More entries must keep accessible labels without wiring floating tooltip hover/focus listeners.');
 assert(runtimeShellView.includes("if (route === 'session')") && runtimeShellView.includes("divider.className = 'saga-mobile-bottom-divider'") && runtimeShellView.includes("divider.setAttribute('aria-hidden', 'true')"), 'Mobile bottom bar divider must remain visual spacing rather than a sixth tab stop.');
 assert(runtimeShellView.includes('function createMobileRouteIcon') && runtimeShellView.includes('getTabIconSrc(iconRoute, settings)') && runtimeShellView.includes("iconImg.alt = ''"), 'Mobile shell routes must use the configured Saga icon assets with decorative image alt text.');
-assert(runtimeShellView.includes('function createMobileHeaderActionButton') && runtimeShellView.includes('button.dataset.mobileHeaderAction = kind') && runtimeShellView.includes('createMobileHeaderActionIcon(kind, settings)') && runtimeShellView.includes("createMobileRouteIcon('more', settings, 'saga-mobile-header-action-icon')") && runtimeShellView.includes("icon.classList.add('saga-mobile-header-action-icon-more')") && runtimeShellView.includes('saga-mobile-header-action-symbol-${kind}') && !runtimeShellView.includes("createIconButton('<', 'Go back.'") && !runtimeShellView.includes("createIconButton('...', 'Open More.'") && !runtimeShellView.includes("createIconButton('x', 'Close Saga.'"), 'Mobile header Back, More, and Close actions must render icon-led Saga Hero-family controls instead of literal glyph text.');
-assert(runtimeShellView.includes("const showMoreAction = mobile.activeRoute !== 'more' || !!mobile.activeMoreRoute;") && runtimeShellView.includes('if (showMoreAction)') && runtimeShellView.includes('actions.appendChild(more);'), 'Mobile More index must dedupe the header More action while keeping it available inside More subroutes.');
-assert(runtimeShellView.includes('function renderMobileMoreSheet') && runtimeShellView.includes("sheet.setAttribute('role', 'menu')") && runtimeShellView.includes("sheet.setAttribute('aria-label', 'More Saga routes')") && runtimeShellView.includes("heading.textContent = group.label") && runtimeShellView.includes("entry.setAttribute('role', 'menuitem')") && runtimeShellView.includes("entry.dataset.mobileMoreRoute = route") && runtimeShellView.includes('getMobileRouteLabel(route, settings)') && runtimeShellView.includes('selectRuntimeMobileMoreRoute(route)'), 'Mobile More sheet must remain a grouped routed menu surface with labeled route entries.');
+assert(!runtimeShellView.includes('function renderMobileHeader') && !runtimeShellView.includes('root.appendChild(renderMobileHeader') && runtimeShellView.includes('function renderMobileShellActionBar') && runtimeShellView.includes("bar.className = 'saga-mobile-shell-action-bar'") && runtimeShellView.includes("button.dataset.mobileShellAction = kind") && runtimeShell.includes("'.saga-mobile-shell-back, .saga-mobile-bottom-tab-active'"), 'Revision 3 mobile shell must remove the redundant top header and keep back navigation in the bottom-oriented shell action bar.');
+assert(runtimeShellView.includes('function renderMobileMoreSheet') && runtimeShellView.includes("sheet.setAttribute('role', 'menu')") && runtimeShellView.includes("sheet.setAttribute('aria-label', 'More Saga routes')") && runtimeShellView.includes("heading.textContent = group.label") && runtimeShellView.includes("entry.setAttribute('role', 'menuitem')") && runtimeShellView.includes("entry.dataset.mobileMoreRoute = route") && runtimeShellView.includes('getMobileRouteLabel(route, settings)') && runtimeShellView.includes('selectRuntimeMobileMoreRoute(route)') && runtimeShellView.includes("exitText.textContent = 'Exit Saga'") && runtimeShellView.includes('hideRuntimeMobileShell();'), 'Mobile More sheet must remain a grouped routed menu surface and own a clear Exit Saga shell action.');
 assert(/\.saga-lore-panel\.saga-runtime-shell\.saga-runtime-mobile\s*\{[\s\S]*?height:\s*100dvh[\s\S]*?overflow:\s*hidden/.test(style), 'Mobile runtime shell must occupy the phone viewport without horizontal page overflow.');
 assert(/\.saga-lore-panel\.saga-runtime-shell\.saga-runtime-mobile\s*\{[\s\S]*?rgba\(215,\s*181,\s*109,\s*0\.12\)[\s\S]*?rgba\(36,\s*141,\s*150,\s*0\.12\)[\s\S]*?linear-gradient\(145deg,\s*var\(--saga-bg-gradient-start/.test(style), 'Mobile runtime shell must keep the SAGA Archive gold and data-accent background treatment.');
 assert(/\.saga-runtime-mobile \.saga-runtime-rail,[\s\S]*?\.saga-runtime-mobile \.saga-runtime-drawer,[\s\S]*?\.saga-runtime-mobile \.saga-lore-panel-resize-handle\s*\{[\s\S]*?display:\s*none !important;/.test(style), 'Mobile runtime shell must hide desktop rail, drawer, and resize handles.');
-assert(/\.saga-mobile-header\s*\{[\s\S]*?var\(--saga-mobile-safe-area-top[\s\S]*?grid-template-columns:\s*var\(--saga-mobile-icon-button-size/.test(style), 'Mobile runtime header must use safe-area-aware touch columns.');
-assert(/\.saga-mobile-header-action-icon\s*\{[\s\S]*?rgba\(215,\s*181,\s*109,\s*0\.14\)[\s\S]*?\.saga-mobile-header-action-icon-img\s*\{[\s\S]*?drop-shadow\(0 0 4px rgba\(215,\s*181,\s*109,\s*0\.34\)\)[\s\S]*?\.saga-mobile-header-action-symbol-back::before[\s\S]*?\.saga-mobile-header-action-symbol-close::before/.test(style), 'Mobile header action icons must keep the Saga Hero-family frame, More image treatment, and Back/Close symbols.');
+assert(/\.saga-mobile-shell-action-bar\s*\{[\s\S]*?border-top:[\s\S]*?linear-gradient\(180deg,\s*rgba\(9,\s*13,\s*18,\s*0\.9\)/.test(style) && /\.saga-mobile-shell-action-symbol-back::before[\s\S]*?\.saga-mobile-shell-action-symbol-close::before/.test(style), 'Revision 3 shell Back/Exit icon treatment must live in bottom-oriented shell action surfaces, not the removed mobile header.');
 assert(/\.saga-mobile-bottom-bar\s*\{[\s\S]*?grid-template-columns:\s*minmax\(54px,\s*1fr\) 8px repeat\(4,\s*minmax\(54px,\s*1fr\)\)/.test(style), 'Mobile bottom bar CSS must preserve the Loredecks divider plus four route columns.');
 assert(/\.saga-mobile-bottom-label\s*\{[\s\S]*?font-size:\s*10\.5px;/.test(style) && !/\.saga-mobile-bottom-label\s*\{[\s\S]*?font-size:\s*9px;/.test(style), 'Mobile bottom labels must keep a readable fixed size instead of shrinking to 9px at phone widths.');
 assert(/\.saga-mobile-bottom-tab-active\s*\{[\s\S]*?var\(--saga-border-strong[\s\S]*?rgba\(92,\s*23,\s*36,\s*0\.28\)[\s\S]*?var\(--saga-gold/.test(style), 'Mobile bottom active tabs must keep the warm gold and black-cherry Saga treatment.');
 assert(/\.saga-mobile-bottom-tab-active \.saga-mobile-bottom-icon-img\s*\{[\s\S]*?saturate\(1\.05\)[\s\S]*?rgba\(215,\s*181,\s*109,\s*0\.56\)/.test(style), 'Mobile active route icons must keep the Saga Hero warm glow treatment.');
-assert(/\.saga-runtime-mobile \.saga-lore-panel-body\.saga-mobile-content\s*\{[\s\S]*?overflow:\s*hidden !important;[\s\S]*?var\(--saga-mobile-content-bottom-padding/.test(style), 'Mobile content must reserve bottom-bar space without exposing horizontal overflow.');
+assert(/\.saga-runtime-mobile \.saga-lore-panel-body\.saga-mobile-content\s*\{[\s\S]*?overflow:\s*hidden !important;[\s\S]*?padding:\s*8px 8px var\(--saga-mobile-content-bottom-padding,\s*8px\)/.test(style), 'Mobile content must avoid horizontal overflow while using compact page padding under Revision 3.');
 assert(/\.saga-mobile-more-entry\s*\{[\s\S]*?min-height:\s*var\(--saga-mobile-control-height,[\s\S]*?grid-template-columns:\s*var\(--saga-mobile-row-action-size/.test(style), 'Mobile More entries must stay touch-sized and icon-led.');
 assert(lorecardsPanel.includes("const LORECARD_LIFECYCLE_STAGES = Object.freeze(['suggested', 'pending', 'accepted', 'active']);"), 'Lorecards lifecycle stages must remain suggested -> pending -> accepted -> active.');
 assert(lorecardsPanel.includes("const MOBILE_LORECARD_LIFECYCLE_STAGES = Object.freeze(['suggested', 'pending', 'accepted']);"), 'Mobile Lorecards lifecycle navigation must expose only Generation, Pending, and Approved.');
@@ -1021,6 +1062,7 @@ assert(lorecardsPanel.includes("'saga-lorecards-lifecycle-tab'") && lorecardsPan
 assert(!/\.saga-runtime-mobile \.saga-lorecards-lifecycle-tab\.saga-lore-stage-filter-accepted \.saga-lore-active-set-collapsible/.test(style), 'Mobile Approved Lorecards page must not hide Active Set management.');
 assert(style.includes('.saga-runtime-mobile .saga-lorecards-lifecycle-tab.saga-lore-stage-filter-suggested .saga-lore-active-set-collapsible') && style.includes('.saga-runtime-mobile .saga-lorecards-lifecycle-tab.saga-lore-stage-filter-active .saga-lore-pending-collapsible'), 'Mobile Lorecards lifecycle filters must hide inactive lifecycle sections.');
 assert(/\.saga-runtime-mobile \.saga-lorecards-lifecycle-tab \.saga-lore-pending-collapsible \.saga-pending-lore-list,[\s\S]*?\.saga-runtime-mobile \.saga-lorecards-lifecycle-tab \.saga-accepted-lore-section \.saga-accepted-lore-scroll-region\s*\{[\s\S]*?max-height:\s*none !important;[\s\S]*?overflow:\s*visible !important;/.test(style), 'Mobile Lorecards lifecycle lists must use the shell page as the primary scroll owner instead of nested list scroll regions.');
+assert(style.includes('Mobile UX Revision 3: Lorecards sub-tabs are pages, not nested list panes.') && /\.saga-lore-panel\.saga-runtime-mobile \.saga-lorecards-lifecycle-tab \.saga-pending-lore-list,[\s\S]*?\.saga-lore-panel\.saga-runtime-mobile \.saga-lorecards-lifecycle-tab \.saga-accepted-lore-section \.saga-accepted-lore-scroll-region\s*\{[\s\S]*?max-height:\s*none !important;[\s\S]*?overflow-y:\s*visible !important;[\s\S]*?scrollbar-gutter:\s*auto !important;/.test(style), 'Revision 3 mobile Lorecards lists must override later desktop scroll patches and stay in the primary page scroll.');
 assert(contextPanel.includes("'context.operator.summary'") && contextPanel.includes("'context.operator.browse'") && contextPanel.includes("'context.operator.detect'"), 'Mobile Context operator summary must expose Browse and Detect walkthrough targets.');
 assert(contextPanel.includes('function getContextOperatorNextActionId') && contextPanel.includes("'Next: Open Loredecks'") && contextPanel.includes('getContextOperatorActionLabel') && contextPanel.includes("selectRuntimeMobileRoute('loredecks')") && contextPanel.includes("return actionId === nextActionId ? `Next: ${label}` : label;"), 'Mobile Context operator summary must expose a concrete next-action path before diagnostics.');
 assert(loredecksTabPanel.includes("'loredecks.operator.summary'") && loredecksTabPanel.includes("'loredecks.operator.library'") && loredecksTabPanel.includes("'loredecks.operator.import'"), 'Mobile Loredecks operator summary must expose Library and Import walkthrough targets.');
@@ -1337,7 +1379,7 @@ assert(loredecksTabPanel.includes("createButton('Import Deck'") && basicGuideSou
 assert(loredecksTabPanel.includes("runBusyAction(btn, 'Opening...'") && loredecksTabPanel.includes("setText('Building...'") && loredecksTabPanel.includes('waitForNextUiFrame'), 'Open Loredeck Library must show spinner-backed in-button progress and yield frames before rendering the fullscreen Library.');
 assert(/if \(!basic\)\s*\{[\s\S]*createLoredeckCreatorProjectShelf\(state, projectModels\)/.test(loredecksTabPanel), 'Basic Loredecks must hide the In-Progress Creator Projects shelf.');
 assert(/if \(!basic\)\s*\{[\s\S]*createButton\('Create Deck'/.test(loredecksTabPanel), 'Basic Loredecks must hide the Create Deck launch action.');
-assert(libraryPanel.includes('function isBasicExperienceMode') && /if \(!basic && !mobile\)\s*\{[\s\S]*createButton\('Create Deck'/.test(libraryPanel), 'Basic and mobile Loredeck Library must hide the fullscreen Create Deck header action.');
+assert(libraryPanel.includes('function isBasicExperienceMode') && /if \(!mobile\)\s*\{[\s\S]*if \(!basic\) actions\.appendChild\(createButton\('Create Deck'/.test(libraryPanel), 'Basic and mobile Loredeck Library must hide the fullscreen Create Deck header action.');
 assert(!style.includes('saga-basic-loredeck-stack-card') && !style.includes('saga-basic-loredeck-stack-row'), 'Basic Loredecks must not keep dedicated layout styling.');
 assert(settingsPanel.includes('export function createBasicProviderQuickSetupCard') && settingsPanel.includes('function createBasicProviderQuickSetupRow'), 'Basic Settings must render a simplified Providers surface.');
 assert(settingsPanel.includes('getProviderModelStatus') && settingsPanel.includes("createBasicProviderSummaryRow('Model'"), 'Basic provider setup must summarize the resolved model or fallback profile label.');
@@ -1494,6 +1536,14 @@ assert(runtimePanelSource.includes('openContextProposalReview'), 'Context comman
 assert(runtimePanelSource.includes('createContextProposalReviewShell'), 'Context proposal review must render a dedicated fullscreen shell.');
 assert(runtimePanelSource.includes('Apply All'), 'Context proposal review must expose an apply-all action.');
 assert(runtimePanelSource.includes('Dismiss All'), 'Context proposal review must expose a dismiss-all action.');
+assert(
+    contextPanel.includes('saga-context-proposal-review-shell-mobile')
+    && contextPanel.includes('createContextProposalReviewActions(proposals, { mobile: true })')
+    && contextPanel.includes('if (!mobile) header.appendChild(createContextProposalReviewActions(proposals))')
+    && /\.saga-context-proposal-review-bottom-actions\s*\{[\s\S]*?grid-template-columns:\s*repeat\(auto-fit,[\s\S]*?var\(--saga-mobile-safe-area-bottom/.test(style)
+    && /\.saga-context-proposal-review-shell-mobile \.saga-context-proposal-review-list\s*\{[\s\S]*?height:\s*auto;[\s\S]*?overflow:\s*visible;/.test(style),
+    'Mobile Context Proposal Review must move persistent Apply All/Dismiss All/Close actions to a bottom bar and let the proposal list flow in the body scroll.'
+);
 assert(runtimePanelSource.includes('createContextProposalReviewRow'), 'Context proposal review must render per-proposal rows.');
 assert(runtimePanelSource.includes('formatContextPatchSummary'), 'Context proposal review must summarize proposed Context patches.');
 assert(runtimePanelSource.includes('createContextAdvancedBriefSection'), 'Context tab must move legacy global fields into an advanced brief section.');
@@ -1594,7 +1644,7 @@ assert(libraryPanel.includes("from './loredeck-action-rows.js'") && libraryPanel
 assert(healthPanel.includes("setLoredeckActionButtonBusy(button, 'Refreshing...'"), 'Pack Health report refresh must use the shared busy-button helper.');
 assert(loredeckWorkbenchPanel.includes("from './loredeck-action-rows.js'") && loredeckWorkbenchPanel.includes("setLoredeckActionButtonBusy(button, 'Saving...'") && loredeckWorkbenchPanel.includes("setLoredeckActionButtonBusy(button, 'Loading...'") && loredeckWorkbenchPanel.includes("setLoredeckActionButtonBusy(btn, 'Creating...'"), 'Loredeck Workbench save, create, and load flows must use the shared busy-button helper.');
 assert(loredeckWorkbenchPanel.includes('withLoredeckConfirmedActionButton,') && loredeckWorkbenchPanel.includes("busyText: 'Deleting...'") && loredeckWorkbenchPanel.includes("busyText: 'Applying...'") && loredeckWorkbenchPanel.includes("busyText: 'Restoring...'") && loredeckWorkbenchPanel.includes("busyText: 'Duplicating...'"), 'Loredeck Workbench delete, bulk, restore, and duplicate confirmations must use the shared confirmed-busy helper.');
-assert(libraryPanel.includes('createLoredeckActionRow({ className:') && healthPanel.includes('createLoredeckActionRow({ className:') && loredeckWorkbenchPanel.includes('createLoredeckActionRow({ className:'), 'Loredeck Library, Health, and Workbench primary action rows must use the shared action-row helper.');
+assert(libraryPanel.includes('createLoredeckActionRow({ className:') && /createLoredeckActionRow\(\{\s*className:/.test(healthPanel) && loredeckWorkbenchPanel.includes('createLoredeckActionRow({ className:'), 'Loredeck Library, Health, and Workbench primary action rows must use the shared action-row helper.');
 assert(/export function createLoredeckAssistantDraftBatchCard[\s\S]*const actions = createLoredeckActionRow\(\);[\s\S]*queueSelected\.dataset\.sagaAssistantDraftAction[\s\S]*const reviseActions = createLoredeckActionRow\(\);/.test(runtimeLoredeckAssistantReview), 'Runtime Assistant draft review and revision actions must use the shared action-row helper.');
 assert(/function openDuplicateLoredeckDialog[\s\S]*const actions = createLoredeckActionRow\(\);[\s\S]*Create Custom Loredeck/.test(panel), 'Runtime duplicate-as-Custom dialog must use the shared action-row helper.');
 assert(/function openLoredeckEntryOverrideDialog[\s\S]*const actions = createLoredeckActionRow\(\);[\s\S]*Queue Change/.test(panel), 'Runtime entry override review handoff must use the shared action-row helper.');
@@ -2263,6 +2313,26 @@ assert(
     && libraryPanel.includes('saga-loredeck-library-opening-status')
     && libraryPanel.includes('saga-loredeck-library-opening-spinner'),
     'Loredeck Library open must first paint a spinner-backed lightweight shell before hydrating the full Library body.'
+);
+assert(
+    libraryPanel.includes('function createLoredeckLibraryMobileBottomActions')
+    && libraryPanel.includes("saga-loredeck-library-mobile-bottom-actions")
+    && libraryPanel.includes("if (!mobile) {")
+    && libraryPanel.includes("shell.appendChild(createLoredeckLibraryMobileBottomActions())")
+    && libraryPanel.includes("shell.appendChild(createLoredeckLibraryMobileBottomActions({ opening: true }))")
+    && libraryPanel.includes('const LOREDECK_LIBRARY_MOBILE_ACTION_TOOLTIP_OPTIONS = Object.freeze({ showOnHover: false, showOnFocus: false });')
+    && libraryPanel.includes('function createLoredeckLibraryMobileBottomButton')
+    && libraryPanel.includes('addTooltip(button, tooltip || label, LOREDECK_LIBRARY_MOBILE_ACTION_TOOLTIP_OPTIONS)')
+    && libraryPanel.includes('hideFloatingTooltip();')
+    && libraryPanel.includes("createLoredeckLibraryMobileBottomButton('Import'")
+    && libraryPanel.includes("createLoredeckLibraryMobileBottomButton('Refresh'")
+    && libraryPanel.includes("createLoredeckLibraryMobileBottomButton('Done'"),
+    'Revision 3 Loredeck Library mobile must move persistent Import, Refresh, and Done actions to a bottom action bar without floating mobile tooltips.'
+);
+assert(
+    /\.saga-loredeck-library-mobile-body\s*\{[\s\S]*?overflow-y:\s*auto;[\s\S]*?overflow-x:\s*hidden;/.test(style)
+    && /\.saga-loredeck-library-mobile-list\s*\{[\s\S]*?overflow:\s*visible;[\s\S]*?scrollbar-gutter:\s*auto;/.test(style),
+    'Revision 3 Loredeck Library mobile body must be the page scroll owner while the deck list flows normally.'
 );
 
 console.log('Visual smoke harness contract passed.');

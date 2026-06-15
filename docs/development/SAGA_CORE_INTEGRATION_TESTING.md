@@ -70,11 +70,24 @@ It proves the next downstream layer:
 - Confirms early-only suggestions such as `lexcal_y6_horcrux_memory_task` leave the preview when the Context advances.
 - Confirms later-only suggestions such as `lexcal_y6_ron_poisoned_bezoar` appear when the Context advances.
 - Accepts Lorecards from both checkpoints.
-- Runs Auto-Relevance in local apply mode.
+- Runs Lore Automation `AR` in local apply mode.
 - Confirms current Ron poisoning lore is promoted and stale earlier memory-sequence lore is demoted.
 - Confirms final injection includes the promoted current Lorecard.
 
-Important product boundary: current Auto-Relevance changes relevance tiers only. It does **not** change mute or pin state. Manual pin/mute behavior is covered by the first harness.
+Important product boundary: `AR` changes relevance tiers only. It does **not** change mute or pin state. `ARMP` and `ARMPC` behavior is covered separately.
+
+The focused Lore Automation levels harness is:
+
+```powershell
+node tools\scripts\test-lore-automation-levels.mjs
+```
+
+It proves the feature-mode contract:
+
+- Mode labels remain `Off`, `AR`, `ARMP`, and `ARMPC`.
+- Manual-disabled cards are skipped by automation.
+- Careful `ARMP` writes reviewable remap suggestions instead of mutating pin/mute immediately.
+- Applying a remap suggestion mutates the pin set and records a Lore Automation run.
 
 The third accepted-injection harness is:
 
@@ -139,18 +152,19 @@ node tools\scripts\test-core-integration-hp-epilogue-post-war.mjs
 
 The Epilogue/Post-War harness proves the transition from immediate 1998 rebuilding to the 2014 Quidditch World Cup/DA reunion and then to the 2017 King's Cross epilogue. It confirms that pre-epilogue next-generation guards stop appearing when epilogue Context is current, stale immediate-rebuilding lore remains accepted but becomes `context_blocked`, and current 2017 platform lore injects.
 
-Planned extension: Auto-Relevance should eventually support optional pin/mute recommendations or high-confidence actions. This should be treated as stronger than High/Normal/Low tiering because pin and mute directly affect injection authority. It needs explicit user-facing controls, review behavior, and its own integration coverage before it is enabled.
+Lore Automation now expands the relevance pass into the `Off`, `AR`, `ARMP`, and `ARMPC` mode model described in [SAGA_LORE_AUTOMATION_LEVELS_PLAN.md](SAGA_LORE_AUTOMATION_LEVELS_PLAN.md). Pin/mute and curation remain stronger than High/Normal/Low tiering because they affect injection authority and accepted-stack membership.
 
-Recommended future modes:
+Modes:
 
-- `tiers_only`: current behavior; Auto-Relevance can promote or demote High/Normal/Low.
-- `suggest_pin_mute`: Auto-Relevance writes reviewable pin/mute suggestions, but does not mutate `loreSelection`.
-- `apply_high_confidence_pin_mute`: Auto-Relevance can apply pin/mute only when confidence is high and settings allow it.
+- `Off`: no background Lore Automation.
+- `AR`: Auto-Relevance; promotes or demotes High/Normal/Low.
+- `ARMP`: Auto-Relevance, Muting, Pinning.
+- `ARMPC`: Auto-Relevance, Muting, Pinning, Curating.
 
 Recommended guardrails:
 
-- Never auto-mute user-pinned Lorecards unless the user enables an override.
-- Never auto-pin muted Lorecards unless the user accepts a suggestion or enables an override.
+- Per-card Lore Automation state decides whether a Lorecard is automation-eligible.
+- Manual Lorecard changes disable Lore Automation for that card until the user re-enables it.
 - Distinguish temporary relevance from durable user intent. A temporary scene hit should usually promote to High, not pin.
 - Auto-mute should be reserved for clear out-of-context, expired, disabled, duplicate, or contradicted entries, not merely "less relevant right now."
 - All automatic pin/mute actions should be visible in the injection audit and timeline/history log.
@@ -227,8 +241,8 @@ Proves that accepted Lorecards remain stable while their injection eligibility c
 - Muted Lorecards are excluded even when eligible.
 - Context-gated suggestions change as the loaded Loredeck Context advances.
 - Relevance tiers control injection grouping and compression budget.
-- Auto-Relevance can promote and demote accepted Lorecards based on current scene and recent messages.
-- Future Auto-Relevance can optionally suggest or apply pin/mute state when configured.
+- `AR` can promote and demote accepted Lorecards based on current scene and recent messages.
+- `ARMP` can suggest or apply pin/mute state when configured.
 - Manual pin/mute choices survive Context changes.
 
 Current implementation note: accepted Lorecard injection now re-runs Loredeck Context gates before memo construction and injection audit selection. Accepted Lorecards remain in the user's accepted set when Context advances, but mismatched gated entries are omitted from prompt output and audited as `context_blocked`. Pin remains an ordering/authority signal for eligible Lorecards; it does not override Context gates.
@@ -331,8 +345,8 @@ Before alpha, Saga should have deterministic tests proving:
 - Pin, mute, relevance, and Context gates combine predictably.
 - Injection preview and prompt output agree.
 - Context progression changes suggested Lorecards over time.
-- Auto-Relevance can promote current lore and demote stale lore without mutating pin/mute state.
-- Future optional Auto-Relevance pin/mute behavior is covered separately, including suggestion mode, high-confidence apply mode, user override protection, and injection-audit visibility.
+- `AR` can promote current lore and demote stale lore without mutating pin/mute state.
+- `ARMP` pin/mute behavior is covered separately, including suggestion mode, high-confidence apply mode, user override protection, and injection-audit visibility.
 
 ## Non-Goals
 

@@ -880,11 +880,13 @@ export function renderContextProposalReview() {
 
 export function createContextProposalReviewShell(state = {}) {
     const basic = isBasicExperienceMode();
+    const mobile = isRuntimeMobileShell();
     const proposals = getContextResolutionProposals(state);
     const meta = state?.lorePanel?.contextResolutionProposalMeta || {};
     const shell = document.createElement('div');
     shell.className = 'saga-lore-workbench-shell saga-context-proposal-review-shell';
     if (basic) shell.classList.add('saga-context-proposal-review-shell-basic');
+    if (mobile) shell.classList.add('saga-context-proposal-review-shell-mobile');
     shell.addEventListener('click', event => event.stopPropagation());
 
     const header = document.createElement('div');
@@ -914,8 +916,25 @@ export function createContextProposalReviewShell(state = {}) {
     titleWrap.appendChild(chips);
     header.appendChild(titleWrap);
 
+    if (!mobile) header.appendChild(createContextProposalReviewActions(proposals));
+    shell.appendChild(header);
+
+    const body = document.createElement('div');
+    body.className = 'saga-context-proposal-review-body';
+    const list = document.createElement('div');
+    list.className = 'saga-context-proposal-review-list';
+    for (const proposal of proposals) {
+        list.appendChild(createContextProposalReviewRow(proposal, { basic }));
+    }
+    body.appendChild(list);
+    shell.appendChild(body);
+    if (mobile) shell.appendChild(createContextProposalReviewActions(proposals, { mobile: true }));
+    return shell;
+}
+
+function createContextProposalReviewActions(proposals = [], options = {}) {
     const actions = document.createElement('div');
-    actions.className = 'saga-primary-actions saga-context-proposal-review-actions';
+    actions.className = `saga-primary-actions saga-context-proposal-review-actions${options.mobile ? ' saga-context-proposal-review-bottom-actions' : ''}`;
     actions.appendChild(createButton('Apply All', 'Apply every listed Context proposal.', async () => {
         const ok = await confirmAction(
             'Apply Context proposals?',
@@ -932,19 +951,7 @@ export function createContextProposalReviewShell(state = {}) {
         dismissContextResolutionProposalSet(proposals, { clearAll: true });
     }));
     actions.appendChild(createButton('Close', 'Close Context proposal review.', closeContextProposalReview));
-    header.appendChild(actions);
-    shell.appendChild(header);
-
-    const body = document.createElement('div');
-    body.className = 'saga-context-proposal-review-body';
-    const list = document.createElement('div');
-    list.className = 'saga-context-proposal-review-list';
-    for (const proposal of proposals) {
-        list.appendChild(createContextProposalReviewRow(proposal, { basic }));
-    }
-    body.appendChild(list);
-    shell.appendChild(body);
-    return shell;
+    return actions;
 }
 
 function formatContextProposalSource(source = '') {

@@ -1,0 +1,926 @@
+# Saga Lore Automation Levels Plan
+
+Status: Design plan. No implementation has started in this document.
+
+This plan defines the next-generation Lore Automation system for Saga. It expands the current Auto-Relevance pass into a compact, cockpit-style automation feature that can keep Accepted Lorecards fresh without exposing a wall of brittle tuning controls.
+
+## Purpose
+
+Saga needs lore automation that feels powerful in the background but remains understandable at a glance.
+
+The user should not need to understand every scoring threshold, candidate cap, prompt depth, model adjudication rule, or context gate to operate the system. They should be able to choose the automation level quickly, see whether the system is working, override individual Lorecards when needed, and recover from a bad automation run.
+
+The product target is:
+
+```text
+Mode -> Status -> Per-card override -> Run history -> Undo
+```
+
+The implementation target is:
+
+```text
+Deterministic hard gates first.
+Broad multi-lane recall second.
+Optional model semantic adjudication third.
+Validated, capped, reversible operations last.
+```
+
+## User-Facing Modes
+
+The visible mode selector should use short cockpit labels. Documentation and tooltips carry the expanded meaning.
+
+| Mode | Tooltip | Automation Authority |
+| --- | --- | --- |
+| `Off` | Lore Automation disabled | No background lore automation. Manual controls still work. |
+| `AR` | Auto-Relevance | Promotes and demotes Accepted Lorecards between High, Normal, and Low. |
+| `ARMP` | Auto-Relevance, Muting, Pinning | AR plus automatic mute, unmute, pin, and unpin actions for eligible cards. |
+| `ARMPC` | Auto-Relevance, Muting, Pinning, Curating | ARMP plus active-deck curation: accepting newly relevant Lorecards and retiring stale automation-owned cards. |
+
+The UI should not spell out these acronyms inline beyond tooltip text. Users who want the deeper meaning can read documentation.
+
+## Relationship To Existing Automation Mode
+
+Saga already has a Session-level Automation Mode for whether runtime actions run only when clicked or automatically after roleplay turns.
+
+Lore Automation is a separate, narrower control:
+
+- Session Automation Mode decides **when Saga runs background workflows**.
+- Lore Automation Mode decides **what authority Saga has over Lorecards when the lore automation workflow runs**.
+
+Do not merge these concepts in the UI or data model. A user can have Saga Session automation enabled while Lore Automation is `Off`, or can manually click `Run Now` while Lore Automation is `ARMP`.
+
+The cockpit should make this clear through placement and copy:
+
+- Session automation belongs in Session.
+- Lore Automation belongs in Lorecards.
+- Status messages can mention when Session automation is needed for automatic cadence, but the Lore Automation mode selector should not become a global runtime automation selector.
+
+## Product Principles
+
+### Keep The Cockpit Small
+
+The primary Lore Automation surface should expose only the operational controls a user needs in the moment:
+
+- Mode: `Off`, `AR`, `ARMP`, `ARMPC`.
+- Style preset: likely `Careful`, `Balanced`, `Aggressive`.
+- Status: ready, paused, needs Context, provider unavailable, last run summary.
+- Actions: `Run Now`, `Pause`, `Undo Last Run`, `Review Activity`.
+
+Avoid exposing raw implementation controls in the main panel:
+
+- Candidate cap.
+- Confidence threshold.
+- Recent message character limit.
+- Model token cap.
+- Separate X-turn/Y-turn cadence fields.
+- Low-level scorer weights.
+
+Those can exist under an Advanced diagnostics/tuning section if needed, but the default experience should be mode and status driven.
+
+### Per-Card Automation Ownership Beats Global Protection UI
+
+Do not create a bulky "protection" settings block.
+
+Each Accepted Lorecard should have a small corner icon that indicates whether Lore Automation is enabled for that card.
+
+Recommended states:
+
+- Automation enabled: Saga may modify the card according to the active global mode.
+- Automation disabled: manual changes are protected; automation skips this card.
+
+Manual changes should automatically disable Lore Automation for that card. Re-enabling the icon makes the card eligible for the next automation pass. The toggle should not immediately mutate the card.
+
+Manual changes include:
+
+- Relevance changes.
+- Pin or unpin.
+- Mute or unmute.
+- Content edits.
+- Metadata edits that affect retrieval, gating, or injection.
+- User-authored manual notes, unless accepted through an explicit automation flow.
+
+Bulk actions should exist for selected or filtered cards:
+
+- Enable Lore Automation.
+- Disable Lore Automation.
+- Enable Lore Automation for filtered cards.
+- Disable Lore Automation for filtered cards.
+
+The mental model is:
+
+```text
+Icon on: Saga may manage this card.
+Icon off: the user owns this card.
+```
+
+### Background Process, Not Hidden Process
+
+ARMPC should feel like a background curator in the happy path. It can quietly keep the accepted stack fresh while the user roleplays.
+
+It must not be hidden, irreversible, or untraceable.
+
+Every run should produce:
+
+- A compact visible summary.
+- A durable run journal.
+- Per-action reasons.
+- Enough before/after data to undo the run.
+
+The default UI can stay quiet:
+
+```text
+Lore Automation: ARMPC
+Last run: 3 accepted, 5 promoted, 2 pinned, 4 muted, 1 retired
+```
+
+Detailed reasons belong in `Review Activity`, card details, injection audit, and Lore Timeline.
+
+### Local Hard Gates, Model-Assisted Recall
+
+Local scoring should not be the only discovery mechanism.
+
+The current Auto-Relevance scorer is useful as a fast evidence generator, but a single hand-weighted score is brittle when the system needs to find subtle Lorecards that do not share obvious keywords with recent chat. This matters most for ARMPC, where the job is not merely "rank accepted cards" but "notice which active-deck cards should enter the working set."
+
+The durable split should be:
+
+```text
+Local hard gates
+  -> broad multi-lane candidate gathering
+  -> model semantic recall/rerank
+  -> deterministic validation
+  -> capped apply
+```
+
+Keep these local and deterministic:
+
+- Active stack enabled/disabled state.
+- Context window and branch eligibility.
+- Duplicate detection against Pending Review and Accepted Lorecards.
+- Per-card Lore Automation enabled/disabled state.
+- Mode legality.
+- Per-run operation caps.
+- Undoability.
+
+Do not rely only on local keyword, scope, or date scoring for discovery. Candidate gathering should use multiple lanes:
+
+- Direct keyword, scope, and recent-message matches.
+- Context-window-eligible cards from active decks, even without keyword hits.
+- High-priority or high-specificity cards near the current Context.
+- Cards tied to present characters, nearby characters, locations, objects, spells, factions, or active tags.
+- Cards near neighboring timeline anchors or windows.
+- Recently injected, recently muted, recently pinned, or recently automation-touched cards.
+- A small rotating exploration sample from eligible active-deck cards, so scorer blind spots do not persist forever.
+- Optional model-expanded semantic needs from the current scene, converted back into local candidate lookups rather than direct state mutation.
+
+The model should not search or mutate the whole deck blindly. It should review a compact eligible candidate pool, identify subtle semantic matches, and return bounded operations with confidence and reasons.
+
+### Provider Routing
+
+Provider choice should not be part of the main Lore Automation cockpit. The default should be `Auto`, with internal routing by operation risk.
+
+Recommended routing:
+
+| Decision Type | Default Route |
+| --- | --- |
+| Obvious AR promote/demote | Local only |
+| Borderline or high-impact AR promote/demote | Utility Provider |
+| ARMP pin, unpin, mute, unmute | Utility Provider |
+| ARMPC shortlist expansion and accept-to-Pending Review | Utility Provider or Reasoning Provider depending on Style and provider availability |
+| ARMPC direct auto-accept | Reasoning Provider |
+| ARMPC retire from Accepted Lorecards | Reasoning Provider |
+| Branch-sensitive conflicts, duplicate semantics, or contradiction checks | Reasoning Provider |
+
+Advanced diagnostics may expose provider routing overrides such as `Auto`, `Utility only`, `Reasoning only`, or `Local only where possible`, but those controls should not appear in the primary panel.
+
+### Confidence Is Not A Single Score
+
+Do not let one scalar score decide every action.
+
+Each proposed operation should carry separate evidence:
+
+- `localConfidence`: how strongly deterministic signals support the operation.
+- `semanticConfidence`: how strongly the provider or semantic adjudicator supports it.
+- `policyConfidence`: whether the operation is safe under mode, style, ownership, cooldown, and Context rules.
+- `finalConfidence`: the bounded result after deterministic validation.
+
+This prevents a strong keyword hit from becoming an unsafe mute, or a confident model answer from bypassing ownership rules. Relevance, pinning, muting, accepting, and retiring are different decisions and should have operation-specific thresholds.
+
+## Mode Behavior
+
+### Off
+
+No automatic changes.
+
+Manual Lorecard controls remain available. Existing prompt injection still uses current relevance, pin, mute, Context gates, and injection settings.
+
+### AR
+
+AR is the current Auto-Relevance authority, but should be renamed and integrated into the broader Lore Automation system.
+
+Allowed operations:
+
+- `promote_relevance`
+- `demote_relevance`
+
+Skipped operations:
+
+- Pin.
+- Unpin.
+- Mute.
+- Unmute.
+- Accept from active decks.
+- Retire from accepted stack.
+
+AR only touches cards with Lore Automation enabled.
+
+### ARMP
+
+ARMP manages the active injection shape.
+
+Allowed operations:
+
+- `promote_relevance`
+- `demote_relevance`
+- `pin`
+- `unpin`
+- `mute`
+- `unmute`
+
+ARMP only touches cards with Lore Automation enabled.
+
+Recommended behavior:
+
+- Pin only high-confidence cards that currently constrain the next reply.
+- Unpin automation-pinned cards when their direct scene value fades.
+- Mute cards that are clearly out of Context, expired, contradicted, duplicate, or harmful to current injection.
+- Unmute automation-muted cards when they become context-current again.
+- Do not use mute as a synonym for "less important right now"; demotion is usually enough.
+
+### ARMPC
+
+ARMPC manages both the active injection shape and the accepted Lorecard collection for the current chat.
+
+Allowed operations:
+
+- All ARMP operations.
+- `accept_from_active_decks`
+- `retire_from_accepted_stack`
+- Potential future `restore_retired`.
+
+ARMPC should treat source Loredecks as the durable library and Accepted Lorecards as the chat's working set.
+
+Recommended behavior:
+
+- Scan enabled active stack entries for Context-eligible Lorecards.
+- Gather a broad multi-lane candidate pool so subtle but currently important Lorecards are not missed merely because they lack keyword overlap.
+- Use model semantic adjudication to choose high-confidence, non-duplicate cards for curation.
+- Accept selected cards into Pending Review or the chat's Accepted Lorecards depending on rollout stage and Style.
+- Default auto-accepted cards to Lore Automation enabled.
+- Retire stale automation-owned cards from the accepted working set.
+- Prefer "retire" over destructive delete.
+- Never delete source Loredeck content.
+- Only permanently delete generated/session lore if the action is explicitly designed, reversible through timeline/history, and clearly scoped.
+
+ARMPC curation should be capped per run so one bad Context read cannot flood or empty the accepted stack.
+
+## Style Presets
+
+The Style preset should compile to cadences, thresholds, caps, and model usage. It should not expose those values in the primary UI.
+
+Suggested hidden policy mapping:
+
+| Style | Apply Behavior | Model Use | Batch Shape | Retirement |
+| --- | --- | --- | --- | --- |
+| `Careful` | Suggest or apply only extremely clear actions | Utility for ARMP, Reasoning for ARMPC review | Tiny, conservative batches | Mostly disabled or review-only |
+| `Balanced` | Apply high-confidence actions after validation | Utility for AR/ARMP, Reasoning for direct ARMPC | Small bounded batches | Automation-owned cards only |
+| `Aggressive` | Apply broader high-confidence background changes | More frequent semantic adjudication | Larger but still capped batches | Automation-owned stale cards when reversible |
+
+The exact numeric thresholds should remain implementation details unless an Advanced diagnostics panel needs them for debugging.
+
+### Careful
+
+Recommended for cautious users and first-time use.
+
+- Suggests more often than it applies.
+- Smaller per-run caps.
+- Conservative pin/mute actions.
+- No automatic retirement unless automation ownership is clear.
+- May require more stable evidence before changing a card recently touched by automation.
+
+### Balanced
+
+Recommended default once the feature is stable.
+
+- Applies high-confidence local decisions.
+- Uses optional model adjudication for high-impact or borderline cases when configured.
+- Allows small ARMPC accept/retire batches.
+- Protects cards disabled for automation.
+- Keeps strong hysteresis to avoid flip-flopping.
+
+### Aggressive
+
+Recommended for users who want Saga to actively curate the chat.
+
+- Larger per-run caps.
+- Faster response to Context shifts.
+- More willing to auto-accept and retire automation-owned cards.
+- Still respects per-card automation disabled state.
+
+## Data Model
+
+Use a single automation model for all levels. Do not create separate AR, ARMP, and ARMPC state stores.
+
+### Settings
+
+Suggested settings shape:
+
+```js
+{
+  loreAutomationMode: "off|ar|armp|armpc",
+  loreAutomationStyle: "careful|balanced|aggressive",
+  loreAutomationPaused: false,
+  loreAutomationProviderRouting: "auto|utility|reasoning|local",
+  loreAutomationRunJournalLimit: 20
+}
+```
+
+Visible UI labels should remain `Off`, `AR`, `ARMP`, and `ARMPC`; stored values can be lowercase for consistency with existing settings.
+
+Existing `autoRelevance*` settings should be migrated or mapped rather than left as a parallel control family. During transition, implementation can keep compatibility readers, but the final user-facing system should have one Lore Automation mode and one Style preset.
+
+Suggested Accepted Lorecard extension:
+
+```js
+extensions: {
+  loreAutomation: {
+    enabled: true,
+    enabledAt: 0,
+    enabledBy: "migration|manual|automation",
+    disabledReason: "",
+    disabledAt: 0,
+    disabledBy: "",
+    lastAction: "",
+    lastReason: "",
+    lastRunId: "",
+    lastTouchedAt: 0,
+    lastProvider: "local|utility|reasoning",
+    owner: "manual|auto|imported|generated"
+  }
+}
+```
+
+`owner` is about origin. `enabled` is about whether the automation may touch this card. A manually imported card can still be automation-enabled if the user chooses that.
+
+### Manual Change Handling
+
+When a manual edit disables automation for a card, preserve the user-facing reason:
+
+```js
+{
+  enabled: false,
+  disabledReason: "manual_relevance_change|manual_pin_change|manual_mute_change|manual_content_edit|manual_metadata_edit",
+  disabledBy: "user",
+  disabledAt: Date.now()
+}
+```
+
+Bulk re-enable should clear `disabledReason`, set `enabled = true`, and record `enabledBy = "manual"`.
+
+Re-enabling should not immediately apply automation. The next scheduled run or `Run Now` handles mutation.
+
+Suggested run journal shape:
+
+```js
+state.loreAutomationRuns = [
+  {
+    id: "run_...",
+    mode: "AR|ARMP|ARMPC",
+    style: "careful|balanced|aggressive",
+    startedAt: 0,
+    finishedAt: 0,
+    status: "changed|unchanged|paused|failed",
+    summary: {
+      promoted: 0,
+      demoted: 0,
+      pinned: 0,
+      unpinned: 0,
+      muted: 0,
+      unmuted: 0,
+      accepted: 0,
+      retired: 0,
+      skipped: 0
+    },
+    actions: [
+      {
+        cardId: "",
+        operation: "",
+        sourceRef: "",
+        confidence: 0,
+        localConfidence: 0,
+        semanticConfidence: 0,
+        policyConfidence: 0,
+        provider: "local|utility|reasoning",
+        reason: "",
+        skipped: false,
+        skipReason: "",
+        before: {},
+        after: {}
+      }
+    ]
+  }
+]
+```
+
+The run journal should be compact and retention-limited, but it must support `Undo Last Run`.
+
+## Operation Contracts
+
+All automation actions should be represented as operations with explicit eligibility and validation.
+
+| Operation | Modes | Required Local Proof | Model Role | Reversible State |
+| --- | --- | --- | --- | --- |
+| `promote_relevance` | AR, ARMP, ARMPC | Card accepted, automation-enabled, injectable by default, not disabled/archived | Optional for borderline/high-impact cases | Previous relevance and metadata |
+| `demote_relevance` | AR, ARMP, ARMPC | Card accepted, automation-enabled, not protected by recent manual edit | Optional for stale/ambiguous cases | Previous relevance and metadata |
+| `pin` | ARMP, ARMPC | Card accepted, automation-enabled, not muted, Context-eligible | Decide whether card must shape next reply | Previous pinned set and metadata |
+| `unpin` | ARMP, ARMPC | Card was automation-pinned or automation-enabled and no longer critical | Decide whether pin is no longer justified | Previous pinned set and metadata |
+| `mute` | ARMP, ARMPC | Card accepted, automation-enabled, not manually pinned, clear exclusion reason | Decide whether card should stop influencing prompt | Previous muted set and metadata |
+| `unmute` | ARMP, ARMPC | Card was automation-muted and is now eligible/current | Decide whether it should return to influence | Previous muted set and metadata |
+| `accept_from_active_decks` | ARMPC | Source deck enabled, Context-eligible, not duplicate, source reference stable | Decide whether card belongs in working set | Accepted insertion and source ref |
+| `retire_from_accepted_stack` | ARMPC | Card automation-owned or automation-enabled, not manually edited, restorable | Decide whether retirement is safe | Accepted removal/archive state |
+
+The validator should reject operations that lack required local proof, even if the provider recommends them.
+
+## Evidence Packet Contract
+
+Local scoring should emit structured evidence packets. Providers should receive these packets, not raw unbounded state.
+
+Suggested compact candidate packet:
+
+```js
+{
+  candidateId: "accepted:card_id|deck:pack_id:card_id",
+  cardId: "card_id",
+  source: "accepted|active_deck|pending_review",
+  title: "",
+  compactFact: "",
+  injectionText: "",
+  currentState: {
+    relevance: "high|normal|low",
+    pinned: false,
+    muted: false,
+    automationEnabled: true,
+    owner: "manual|auto|imported|generated"
+  },
+  context: {
+    gateStatus: "eligible|blocked|unresolved",
+    temporalRole: "current_window|near_future|recent_past|distant_future|distant_past|ongoing",
+    branchMatch: true
+  },
+  evidence: {
+    localScore: 0,
+    specificityScore: 0,
+    characterHit: false,
+    locationHit: false,
+    topicHit: false,
+    titleHit: false,
+    recentHit: false,
+    laneIds: ["context_window", "present_character", "exploration"]
+  },
+  priorAutomation: {
+    lastAction: "",
+    lastRunId: "",
+    lastTouchedTurnsAgo: 0
+  }
+}
+```
+
+Candidate packets should be aggressively truncated and redacted like other model-facing Saga data. For ARMPC, send enough semantic text for the model to judge relevance, but keep source identifiers stable so returned operations map back deterministically.
+
+## Model Contracts
+
+Provider calls should be narrow, JSON-only, and operation-specific.
+
+### AR Adjudication
+
+Use for borderline or high-impact accepted-card relevance changes.
+
+Allowed operations:
+
+- `promote_relevance`
+- `demote_relevance`
+- `none`
+
+Output shape:
+
+```json
+{
+  "operations": [
+    {
+      "candidateId": "accepted:card_id",
+      "operation": "promote_relevance",
+      "targetRelevance": "high",
+      "confidence": 0.86,
+      "reason": "Current scene directly involves the card's secret."
+    }
+  ]
+}
+```
+
+### ARMP Adjudication
+
+Use Utility Provider by default. The task is bounded active-set classification, not long-horizon curation.
+
+Allowed operations:
+
+- `promote_relevance`
+- `demote_relevance`
+- `pin`
+- `unpin`
+- `mute`
+- `unmute`
+- `none`
+
+Prompt rules:
+
+- Prefer `none` unless the action is clear.
+- Pin means the card must shape the next reply.
+- Mute means the card should not influence the next reply.
+- Demote stale cards before muting them.
+- Never recommend operations for automation-disabled candidates.
+- Return only known candidate IDs.
+
+### ARMPC Adjudication
+
+Use Reasoning Provider for direct curation and retirement. Utility Provider can support accept-to-Pending Review or shortlist expansion when Style permits.
+
+Allowed operations:
+
+- `accept_from_active_decks`
+- `retire_from_accepted_stack`
+- ARMP operations.
+- `none`
+
+Prompt rules:
+
+- Choose only cards that are likely to matter now or soon.
+- Include subtle semantic matches even when keyword overlap is weak.
+- Do not accept general reference cards unless they directly constrain the current or near-future scene.
+- Retire only automation-owned or automation-eligible accepted cards that are clearly stale and restorable.
+- Return no more operations than the supplied per-run caps.
+
+All model responses must be parsed through the shared provider response normalizer and rejected on malformed JSON. A failed parse should degrade the run rather than applying partial free-form output.
+
+## Automation Engine
+
+Build one policy engine with mode-gated operations.
+
+Recommended pipeline:
+
+1. Read current settings, Context, recent chat, active stack, accepted Lorecards, pending review entries, and current prompt eligibility state.
+2. Apply deterministic hard gates for active stack, Context, branch, duplicates, automation eligibility, mode legality, and undoability.
+3. Gather a broad multi-lane candidate pool rather than relying on a single keyword/scoring pass.
+4. Build evidence packets for each candidate: local score, temporal role, gate status, entity/scope hits, recent-message hits, specificity, current tier, current pin/mute state, ownership, and prior automation actions.
+5. Run model semantic adjudication for the configured subset when the operation needs semantic judgment.
+6. Validate every proposed operation against mode, style, per-card automation state, Context gates, duplicate guards, cooldowns, hysteresis, and run caps.
+7. Apply a bounded batch.
+8. Record timeline and run-journal events.
+9. Sync prompt injection if the accepted set or injection-affecting state changed.
+
+The model should never be the sole authority for applying operations. It can adjudicate candidates, but deterministic validation decides what is legal.
+
+Model prompts should be operation-specific. Avoid asking the model to "manage lore." Ask bounded questions:
+
+- AR: Which accepted cards should change relevance tier?
+- ARMP: Which accepted cards must shape the next reply, should stop shaping it, or should be excluded?
+- ARMPC: Which eligible active-deck cards should enter the working set, and which automation-owned accepted cards are safe to retire?
+
+Model output should use only allowed operation names and known card IDs.
+
+## Candidate Gathering
+
+Candidate gathering should be broad enough for recall but structured enough for deterministic validation.
+
+Recommended lanes:
+
+| Lane | Applies To | Purpose |
+| --- | --- | --- |
+| `direct_recent_text` | AR, ARMP, ARMPC | Find obvious matches from recent chat terms. |
+| `context_window` | ARMPC | Include all cards eligible for the current Context window up to lane caps. |
+| `present_entities` | ARMP, ARMPC | Include cards tied to present or nearby characters, locations, objects, spells, or factions. |
+| `high_specificity` | ARMPC | Surface narrow gates, secrets, status changes, and constraints near current Context. |
+| `timeline_neighbor` | ARMPC | Catch cards adjacent to current anchors/windows. |
+| `recently_active` | ARMP, ARMPC | Re-evaluate cards recently injected, pinned, muted, accepted, or automation-touched. |
+| `exploration` | ARMPC | Rotate through eligible active-deck cards to expose scorer blind spots. |
+| `model_need_expansion` | ARMPC | Ask model for semantic needs, then map those needs back to local candidate lookups. |
+
+Lanes should dedupe by stable source reference and preserve lane IDs in evidence packets. Candidate caps should be per-lane before global caps so one noisy lane cannot starve subtle candidates.
+
+## Degraded Behavior
+
+Lore Automation should fail soft.
+
+| Condition | AR | ARMP | ARMPC |
+| --- | --- | --- | --- |
+| No Context | Local stale/current scoring only where safe | Disable pin/mute, run AR only or pause | Pause curation |
+| Utility unavailable | Local obvious AR only | Suggest local-only AR or pause ARMP operations | Use Reasoning if configured, otherwise pause curation |
+| Reasoning unavailable | No impact unless needed | No impact unless routed there | Fall back to accept-to-Pending Review with Utility or pause direct curation |
+| Malformed model JSON | Ignore model response and keep local-safe operations only | Do not apply model-only pin/mute | Do not apply curation |
+| Too many candidates | Use lane caps and summarize skipped counts | Use lane caps and summarize skipped counts | Use lane caps, exploration rotation, and summarize skipped counts |
+
+Status should explain degraded behavior compactly:
+
+- `Needs Context`
+- `Utility unavailable`
+- `Reasoning unavailable`
+- `Curation paused`
+- `Model output rejected`
+- `Run capped`
+
+## Robustness Requirements
+
+The system should be engineered as a reliable background controller, not a fragile suggestion script.
+
+Required safeguards:
+
+- Per-card automation enable/disable state.
+- Automation ownership tracking.
+- Manual changes disable per-card automation.
+- Local scoring is evidence, not sole authority for subtle discovery.
+- Multi-lane candidate gathering for ARMPC discovery.
+- Idempotent accept logic that prevents duplicate Accepted Lorecards.
+- Context-gate validation before acceptance or injection-affecting changes.
+- Hysteresis so a card does not flip relevance, pin, or mute every run.
+- Cooldowns for recently touched cards.
+- Per-run operation caps.
+- Degraded modes when Context is missing or provider configuration fails.
+- Compact run history and undo support.
+- Timeline/audit visibility for every applied action.
+- Strict source scope: only enabled active stack entries participate in ARMPC discovery.
+- Provider JSON parsing and operation validation before any mutation.
+- Per-lane candidate caps so broad recall remains bounded.
+- Exploration sampling that is deterministic by run seed and source IDs, not random churn.
+
+## UI Plan
+
+### Lore Automation Panel
+
+Primary controls:
+
+```text
+Lore Automation
+
+Mode:      ARMPC
+Style:     Balanced
+
+Status: Ready
+Last run: 3 accepted, 5 promoted, 2 pinned, 4 muted, 1 retired
+
+[Run Now] [Pause] [Undo Last Run] [Review Activity]
+```
+
+Mode selector:
+
+- Render as segmented control or compact select.
+- Labels are exactly `Off`, `AR`, `ARMP`, `ARMPC`.
+- Tooltips provide the expanded names.
+
+Style selector:
+
+- `Careful`
+- `Balanced`
+- `Aggressive`
+
+Status should be readable without opening diagnostics:
+
+- `Ready`
+- `Paused`
+- `Needs Context`
+- `No active decks`
+- `Provider unavailable`
+- `Last run failed`
+- `Undo available`
+
+### Card Icon
+
+Each Accepted Lorecard gets a compact corner icon.
+
+Requirements:
+
+- Visible enough to discover.
+- Small enough not to dominate card content.
+- Tooltip explains the current automation state.
+- Clicking toggles enabled/disabled for that card.
+- Disabled state should look clearly distinct from muted card state. Automation-disabled does not mean injection-muted.
+
+Suggested tooltip copy:
+
+- Enabled: `Lore Automation enabled for this card.`
+- Disabled: `Lore Automation disabled for this card. Manual changes are protected until re-enabled.`
+
+### Activity View
+
+The activity view should answer:
+
+- What changed?
+- Why did it change?
+- Was it local or model-adjudicated?
+- Can I undo it?
+- Which cards were skipped and why?
+
+It should not become the primary operating UI.
+
+### Advanced Diagnostics
+
+Advanced diagnostics may expose implementation detail, but it should be visually subordinate to the cockpit.
+
+Possible diagnostics:
+
+- Provider routing: `Auto`, `Utility only`, `Reasoning only`, `Local only where possible`.
+- Last candidate lane counts.
+- Last provider status.
+- Last run caps hit.
+- Last rejected operations.
+- Exportable run journal excerpt for debugging.
+
+Do not place these in the default panel body.
+
+## Integration Points
+
+### Accepted Lorecards
+
+Accepted card rendering needs:
+
+- Automation icon.
+- Bulk enable/disable actions.
+- Last automation reason in details.
+- Filtering by automation enabled/disabled may be useful in Advanced Workbench.
+
+### Pending Review
+
+ARMPC should avoid bypassing Pending Review in early rollout unless the user explicitly enables direct curation.
+
+Initial ARMPC rollout can support:
+
+- Add eligible active-deck cards to Pending Review.
+- Later direct-accept high-confidence cards once deterministic coverage is stable.
+
+### Lore Timeline
+
+Timeline events should include:
+
+- Automation run summary.
+- Individual accepted/retired actions where useful.
+- Restore/undo path.
+
+### Injection Audit
+
+Injection audit should show automation-caused pin/mute/relevance state when it affects prompt selection.
+
+### Active Stack
+
+ARMPC discovery only considers enabled active stack entries. Disabled stack entries must never contribute auto-accepted cards.
+
+### State And Settings
+
+State sanitization should preserve:
+
+- Per-card `extensions.loreAutomation` state.
+- Compact run journal entries up to the retention limit.
+- Last run summary for quick status rendering.
+
+Settings migration should:
+
+- Map `autoRelevanceEnabled: false` or legacy `autoRelevanceMode: "off"` to `loreAutomationMode: "off"`.
+- Map current enabled Auto-Relevance suggest/apply behavior to `loreAutomationMode: "ar"` plus Style defaults.
+- Keep old `autoRelevance*` settings readable during migration.
+- Avoid leaving two visible UI control families for the same behavior.
+- Use a new migration flag such as `loreAutomationLevelsMigratedYYYYMMDD`. Do not reuse the existing `loreAutomationDefaultsMigrated20260602` flag, which belongs to older lore-generation automation defaults.
+
+## Implementation Slices
+
+### Slice 1: Rename And Generalize Current AR
+
+- Keep current behavior unchanged.
+- Introduce `loreAutomationMode` with `Off` and `AR`.
+- Keep existing Auto-Relevance settings migrated or mapped.
+- Update UI labels to the new mode selector.
+- Ensure current integration coverage still passes.
+- Confirm Session Automation Mode remains separate from Lore Automation Mode.
+
+### Slice 2: Per-Card Automation State
+
+- Add `extensions.loreAutomation.enabled`.
+- Default existing Accepted Lorecards conservatively.
+- Manual relevance, pin, mute, and content edits disable automation for that card.
+- Add card corner icon.
+- Add bulk enable/disable actions.
+- Add sanitizer/storage handling.
+
+### Slice 3: Unified Operation Engine
+
+- Refactor the current Auto-Relevance pass into candidate operation generation.
+- Apply mode-gated operation validation.
+- Convert local scoring into reusable evidence packets rather than the only final decision path.
+- Add run journal and compact run summary.
+- Add undo last run.
+- Add operation contracts and shared validation.
+- Add evidence packet builder.
+
+### Slice 4: ARMP Suggestion Mode
+
+- Generate pin/mute/unpin/unmute candidates.
+- Show suggestions in activity/review UI.
+- Do not auto-apply pin/mute yet.
+- Add deterministic tests for manual override behavior.
+- Add Utility Provider adjudication contract for ARMP JSON operations.
+
+### Slice 5: ARMP Apply Mode
+
+- Enable high-confidence pin/mute application.
+- Respect per-card automation disabled state.
+- Record timeline and injection audit events.
+- Add tests for pin/mute changes, manual edit protection, and undo.
+
+### Slice 6: ARMPC Discovery To Pending Review
+
+- Scan active decks for Context-eligible cards.
+- Build multi-lane candidate pools from context-window eligibility, scope/entity matches, priority/specificity, timeline neighbors, recent activity, and exploration samples.
+- Add model semantic recall/rerank for subtle candidates that local scoring may miss.
+- Deduplicate against Accepted Lorecards and Pending Review.
+- Add high-confidence cards to Pending Review or a curation queue.
+- Add run caps and degraded behavior when Context is missing.
+- Add lane-count diagnostics and skipped-candidate summaries.
+
+### Slice 7: ARMPC Direct Curation
+
+- Allow direct auto-accept under selected Style and mode.
+- Default auto-accepted cards to automation enabled.
+- Add retirement of stale automation-owned cards.
+- Add restore/undo coverage.
+- Add Reasoning Provider direct curation contract.
+
+### Slice 8: UI Polish And Documentation
+
+- Update operator docs.
+- Add concise mode explanations.
+- Keep Advanced docs as the place for acronyms, policy, and troubleshooting.
+- Add visual smoke checks for mode selector, card icons, activity view, and bulk actions.
+
+## Test Plan
+
+Deterministic coverage should prove:
+
+- `Off` never mutates lore state.
+- `AR` only changes relevance.
+- `ARMP` can change relevance, pin, and mute, but only for automation-enabled cards.
+- `ARMPC` only discovers cards from enabled active stack entries.
+- Manual edits disable per-card automation.
+- Re-enabling a card makes it eligible for the next run but does not mutate immediately.
+- Bulk enable/disable works for selected and filtered cards.
+- Auto-accepted cards do not duplicate existing Pending Review or Accepted Lorecards.
+- Auto-retire does not affect manual/user-owned cards unless explicitly eligible.
+- Missing Context pauses or degrades curation instead of making broad guesses.
+- Provider failure falls back to local policy or pauses model-adjudicated operations.
+- ARMPC recall includes subtle cards that do not share direct keywords with recent chat.
+- Model adjudication cannot apply operations outside the deterministic hard-gated candidate pool.
+- Undo Last Run restores relevance, pin/mute, accepted/retired state, and automation metadata.
+- Injection output changes only when the accepted set or injection-affecting card state changes.
+
+Recommended integration path:
+
+- Extend the HP Year 6 progression harness for ARMP behavior.
+- Add a focused ARMPC active-stack curation harness.
+- Add source-level visual smoke checks for the compact Lore Automation panel and card icon behavior.
+- Add sanitizer/storage tests for `extensions.loreAutomation` and run journal retention.
+- Add mocked provider fixtures for ARMP and ARMPC JSON operation contracts.
+- Add degraded-provider tests for Utility unavailable, Reasoning unavailable, and malformed JSON.
+
+## Completion Criteria
+
+The feature plan is implementation-ready when it answers:
+
+- What the user sees in the cockpit.
+- What each mode may mutate.
+- How per-card automation enable/disable works.
+- How manual changes disable card-level automation.
+- How bulk enable/disable works.
+- How local gates, candidate gathering, model adjudication, and validation interact.
+- Which provider is used by default for each decision type.
+- How provider failures degrade.
+- What state is persisted.
+- How runs are undone.
+- How tests prove mode boundaries, curation recall, and manual protection.
+
+The implementation is feature-complete only when these contracts have deterministic coverage and no visible legacy Auto-Relevance control family conflicts with the new Lore Automation cockpit.
+
+## Open Questions
+
+- Should existing Accepted Lorecards default to automation enabled or disabled after migration?
+- Should manual acceptance disable automation by default, or should only subsequent manual edits disable it?
+- Should ARMPC first add cards to Pending Review, direct Accepted Lorecards, or a distinct Curation Review queue?
+- How much run history should be retained per chat?
+- Should `Undo Last Run` be available for multiple previous runs or only the latest run?
+- Should Style presets be visible in Basic, or should Basic only expose `Off`, `AR`, and possibly `ARMPC Balanced` once stable?
+- What compact active-deck index should ARMPC send to the model for semantic recall without overloading prompts?
+- How much exploration sampling is useful before it becomes noisy?
+- Should model adjudication routing remain entirely automatic, or should Advanced expose provider overrides only in diagnostics?

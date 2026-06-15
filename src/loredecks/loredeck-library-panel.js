@@ -331,6 +331,7 @@ function restoreLoredeckLibraryScrollState(snapshot = null) {
 }
 
 function renderLoredeckLibraryOpeningShell() {
+    const mobile = isRuntimeMobileShell();
     const overlay = document.createElement('div');
     overlay.className = 'saga-lore-workbench-overlay saga-loredeck-library-overlay saga-loredeck-library-overlay-opening';
     wireOverlayBackdropClose(overlay, closeLoredeckLibraryWindow);
@@ -338,6 +339,7 @@ function renderLoredeckLibraryOpeningShell() {
 
     const shell = document.createElement('div');
     shell.className = 'saga-lore-workbench-shell saga-loredeck-library-shell';
+    if (mobile) shell.classList.add('saga-loredeck-library-shell-mobile');
     overlay.appendChild(shell);
 
     const header = document.createElement('div');
@@ -364,11 +366,13 @@ function renderLoredeckLibraryOpeningShell() {
     titleWrap.appendChild(titleRow);
     header.appendChild(titleWrap);
 
-    const actions = createLoredeckActionRow({ className: 'saga-primary-actions saga-loredeck-library-header-actions' });
-    const doneButton = createButton('Done', 'Close the Loredeck Library.', closeLoredeckLibraryWindow, 'saga-primary-button');
-    markTourTarget(doneButton, 'loredecks.library.done');
-    actions.appendChild(doneButton);
-    header.appendChild(actions);
+    if (!mobile) {
+        const actions = createLoredeckActionRow({ className: 'saga-primary-actions saga-loredeck-library-header-actions' });
+        const doneButton = createButton('Done', 'Close the Loredeck Library.', closeLoredeckLibraryWindow, 'saga-primary-button');
+        markTourTarget(doneButton, 'loredecks.library.done');
+        actions.appendChild(doneButton);
+        header.appendChild(actions);
+    }
     shell.appendChild(header);
 
     const body = document.createElement('div');
@@ -387,6 +391,7 @@ function renderLoredeckLibraryOpeningShell() {
     openingStatus.appendChild(openingText);
     body.appendChild(openingStatus);
     shell.appendChild(body);
+    if (mobile) shell.appendChild(createLoredeckLibraryMobileBottomActions({ opening: true }));
 }
 
 function scheduleLoredeckLibraryProgressiveHydration(options = {}) {
@@ -505,13 +510,13 @@ export function renderLoredeckLibraryOverlay(options = {}) {
     titleWrap.appendChild(titleRow);
     header.appendChild(titleWrap);
 
-    const actions = createLoredeckActionRow({ className: 'saga-primary-actions saga-loredeck-library-header-actions' });
-    const importButton = createButton('Import Deck', 'Import a Saga Loredeck zip package into the Library.', () => {
-        installLoredeckBundleFromFile();
-    });
-    markTourTarget(importButton, 'loredecks.library.import');
-    actions.appendChild(importButton);
     if (!mobile) {
+        const actions = createLoredeckActionRow({ className: 'saga-primary-actions saga-loredeck-library-header-actions' });
+        const importButton = createButton('Import Deck', 'Import a Saga Loredeck zip package into the Library.', () => {
+            installLoredeckBundleFromFile();
+        });
+        markTourTarget(importButton, 'loredecks.library.import');
+        actions.appendChild(importButton);
         const exportSelected = createButton(
             selectedPacks.length > 1 ? `Export Selected (${selectedPacks.length})` : 'Export Selected',
             selectedPacks.length
@@ -524,19 +529,17 @@ export function renderLoredeckLibraryOverlay(options = {}) {
         exportSelected.disabled = !selectedPacks.length;
         markTourTarget(exportSelected, 'loredecks.library.export');
         actions.appendChild(exportSelected);
-    }
-    if (!basic && !mobile) {
-        actions.appendChild(createButton('Create Deck', 'Open the staged Loredeck Creator wizard.', () => {
+        if (!basic) actions.appendChild(createButton('Create Deck', 'Open the staged Loredeck Creator wizard.', () => {
             openLoredeckCreatorWorkbench();
         }));
+        actions.appendChild(createButton('Refresh Library', 'Reload active Loredecks and recompute Pack Health.', async (btn) => {
+            await refreshLoredeckLibraryWindowData(btn);
+        }));
+        const doneButton = createButton('Done', 'Close the Loredeck Library.', closeLoredeckLibraryWindow, 'saga-primary-button');
+        markTourTarget(doneButton, 'loredecks.library.done');
+        actions.appendChild(doneButton);
+        header.appendChild(actions);
     }
-    actions.appendChild(createButton('Refresh Library', 'Reload active Loredecks and recompute Pack Health.', async (btn) => {
-        await refreshLoredeckLibraryWindowData(btn);
-    }));
-    const doneButton = createButton('Done', 'Close the Loredeck Library.', closeLoredeckLibraryWindow, 'saga-primary-button');
-    markTourTarget(doneButton, 'loredecks.library.done');
-    actions.appendChild(doneButton);
-    header.appendChild(actions);
     shell.appendChild(header);
 
     try {
@@ -562,6 +565,7 @@ export function renderLoredeckLibraryOverlay(options = {}) {
             body.appendChild(createLoredeckLibraryDetailsPanel(selectedPack, stack, canonDb, health, selectedFolderDetails, libraryIndex, library));
         }
         shell.appendChild(body);
+        if (mobile) shell.appendChild(createLoredeckLibraryMobileBottomActions());
         if (mobileReorderOpen) {
             shell.appendChild(createLoredeckLibraryMobileReorderSheet(stack, library));
         } else if (mobileDetailPack) {
@@ -1600,6 +1604,45 @@ function createLoredeckLibraryMobileBrowsePane(packs = [], stack = [], canonDb =
     pane.appendChild(createLoredeckLibraryMobileSelectedStrip(stack, library));
     pane.appendChild(createLoredeckLibraryHierarchyList(packs, stack, canonDb, health, libraryIndex, library, scopedLibrary, registry, { mobileTouch: true }));
     return pane;
+}
+
+const LOREDECK_LIBRARY_MOBILE_ACTION_TOOLTIP_OPTIONS = Object.freeze({ showOnHover: false, showOnFocus: false });
+
+function createLoredeckLibraryMobileBottomButton(label, tooltip, handler, className = '') {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = `saga-runtime-button ${className}`.trim();
+    button.textContent = label;
+    addTooltip(button, tooltip || label, LOREDECK_LIBRARY_MOBILE_ACTION_TOOLTIP_OPTIONS);
+    button.addEventListener('click', async (event) => {
+        event.stopPropagation();
+        hideFloatingTooltip();
+        await handler?.(button, event);
+    });
+    return button;
+}
+
+function createLoredeckLibraryMobileBottomActions(options = {}) {
+    const bar = createLoredeckActionRow({ className: 'saga-primary-actions saga-loredeck-library-mobile-bottom-actions' });
+    bar.setAttribute('aria-label', 'Loredeck Library actions');
+
+    if (!options.opening) {
+        const importButton = createLoredeckLibraryMobileBottomButton('Import', 'Import a Saga Loredeck zip package into the Library.', () => {
+            installLoredeckBundleFromFile();
+        }, 'saga-loredeck-library-mobile-bottom-action');
+        markTourTarget(importButton, 'loredecks.library.import');
+        bar.appendChild(importButton);
+
+        const refresh = createLoredeckLibraryMobileBottomButton('Refresh', 'Reload active Loredecks and recompute Pack Health.', async (btn) => {
+            await refreshLoredeckLibraryWindowData(btn);
+        }, 'saga-loredeck-library-mobile-bottom-action');
+        bar.appendChild(refresh);
+    }
+
+    const doneButton = createLoredeckLibraryMobileBottomButton('Done', 'Close the Loredeck Library.', closeLoredeckLibraryWindow, 'saga-primary-button saga-loredeck-library-mobile-bottom-action');
+    markTourTarget(doneButton, 'loredecks.library.done');
+    bar.appendChild(doneButton);
+    return bar;
 }
 
 function createLoredeckLibraryMobileSelectedStrip(stack = [], library = []) {

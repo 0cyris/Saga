@@ -188,6 +188,16 @@ export const DEFAULT_SETTINGS = {
     autoRelevanceModelMaxTokens: 2048,
     autoRelevanceModelRecentChars: 5000,
 
+    // Lore Automation Levels. These supersede the visible Auto-Relevance controls.
+    loreAutomationMode: 'off', // 'off' | 'ar' | 'armp' | 'armpc'
+    loreAutomationStyle: 'balanced', // 'careful' | 'balanced' | 'aggressive'
+    loreAutomationPaused: false,
+    loreAutomationProviderRouting: 'auto', // 'auto' | 'utility' | 'reasoning' | 'local'
+    loreAutomationRemapEveryTurns: 5,
+    loreAutomationCurationEveryTurns: 10,
+    loreAutomationRunJournalLimit: 20,
+    loreAutomationLevelsMigrated20260615: true,
+
     // Prompt injection transport / placement
     // 'extension_prompt' uses SillyTavern setExtensionPrompt with role/depth.
     // 'interceptor' preserves the legacy behavior: prepend combined memo to the last user message.

@@ -79,6 +79,7 @@ function prePruneLoreEntryForNormalization(entry) {
     const sagaContextGate = entry.extensions?.sagaContextGate;
     const relevanceMigration = entry.extensions?.relevanceMigration;
     const autoRelevance = entry.extensions?.autoRelevance;
+    const loreAutomation = entry.extensions?.loreAutomation;
     const pendingReview = entry.extensions?.sagaPendingReview;
     const extensions = {};
     if (generation && typeof generation === 'object') {
@@ -127,6 +128,7 @@ function prePruneLoreEntryForNormalization(entry) {
         reason: truncateText(autoRelevance.reason, 240),
         updatedAt: Number.isFinite(Number(autoRelevance.updatedAt)) ? Number(autoRelevance.updatedAt) : 0,
     };
+    if (loreAutomation && typeof loreAutomation === 'object') extensions.loreAutomation = compactLoreAutomationExtension(loreAutomation);
     if (pendingReview && typeof pendingReview === 'object') extensions.sagaPendingReview = pendingReview;
     pruned.extensions = extensions;
     return pruned;
@@ -316,9 +318,99 @@ function compactLoreExtensionsForStorage(normalized) {
         reason: truncateText(autoRelevance.reason, 240),
         updatedAt: Number.isFinite(Number(autoRelevance.updatedAt)) ? Number(autoRelevance.updatedAt) : 0,
     };
+    const loreAutomation = normalized?.extensions?.loreAutomation;
+    if (loreAutomation && typeof loreAutomation === 'object') out.loreAutomation = compactLoreAutomationExtension(loreAutomation);
     const pendingReview = normalized?.extensions?.sagaPendingReview;
     if (pendingReview && typeof pendingReview === 'object') out.sagaPendingReview = pendingReview;
     return Object.keys(out).length ? out : undefined;
+}
+
+function compactLoreAutomationExtension(value = {}) {
+    const raw = value && typeof value === 'object' && !Array.isArray(value) ? value : {};
+    return {
+        enabled: raw.enabled !== false,
+        enabledAt: Number.isFinite(Number(raw.enabledAt)) ? Number(raw.enabledAt) : 0,
+        enabledBy: truncateText(raw.enabledBy, 32),
+        disabledReason: truncateText(raw.disabledReason, 80),
+        disabledAt: Number.isFinite(Number(raw.disabledAt)) ? Number(raw.disabledAt) : 0,
+        disabledBy: truncateText(raw.disabledBy, 32),
+        lastAction: truncateText(raw.lastAction, 48),
+        lastReason: truncateText(raw.lastReason, 240),
+        lastRunId: truncateText(raw.lastRunId, 120),
+        lastTouchedAt: Number.isFinite(Number(raw.lastTouchedAt)) ? Number(raw.lastTouchedAt) : 0,
+        lastProvider: truncateText(raw.lastProvider, 24),
+        owner: truncateText(raw.owner, 24) || 'imported',
+    };
+}
+
+function compactLoreAutomationAction(value = {}) {
+    const raw = value && typeof value === 'object' && !Array.isArray(value) ? value : {};
+    return {
+        id: truncateText(raw.id, 160),
+        suggestionId: truncateText(raw.suggestionId, 180),
+        cardId: truncateText(raw.cardId || raw.targetId || raw.id, 140),
+        targetId: truncateText(raw.targetId || raw.cardId || raw.id, 140),
+        candidateId: truncateText(raw.candidateId, 180),
+        title: truncateText(raw.title, 180),
+        operation: truncateText(raw.operation, 48),
+        sourceRef: truncateText(raw.sourceRef, 220),
+        source: truncateText(raw.source, 24),
+        confidence: Number.isFinite(Number(raw.confidence)) ? Number(raw.confidence) : 0,
+        localConfidence: Number.isFinite(Number(raw.localConfidence)) ? Number(raw.localConfidence) : 0,
+        semanticConfidence: Number.isFinite(Number(raw.semanticConfidence)) ? Number(raw.semanticConfidence) : 0,
+        policyConfidence: Number.isFinite(Number(raw.policyConfidence)) ? Number(raw.policyConfidence) : 0,
+        provider: truncateText(raw.provider, 24),
+        reason: truncateText(raw.reason, 240),
+        skipped: raw.skipped === true,
+        skipReason: truncateText(raw.skipReason, 120),
+        before: raw.before && typeof raw.before === 'object' && !Array.isArray(raw.before) ? raw.before : {},
+        after: raw.after && typeof raw.after === 'object' && !Array.isArray(raw.after) ? raw.after : {},
+    };
+}
+
+function compactLoreAutomationRun(value = {}) {
+    const raw = value && typeof value === 'object' && !Array.isArray(value) ? value : {};
+    const summary = raw.summary && typeof raw.summary === 'object' && !Array.isArray(raw.summary) ? raw.summary : {};
+    const actions = Array.isArray(raw.actions) ? raw.actions : (Array.isArray(raw.operations) ? raw.operations : []);
+    return {
+        id: truncateText(raw.id, 120),
+        mode: truncateText(raw.mode, 16),
+        style: truncateText(raw.style, 16),
+        startedAt: Number.isFinite(Number(raw.startedAt)) ? Number(raw.startedAt) : 0,
+        finishedAt: Number.isFinite(Number(raw.finishedAt)) ? Number(raw.finishedAt) : 0,
+        status: truncateText(raw.status, 40),
+        providerStatus: truncateText(raw.providerStatus, 60),
+        modelStatus: truncateText(raw.modelStatus, 40),
+        modelError: truncateText(raw.modelError, 180),
+        considered: Number.isFinite(Number(raw.considered)) ? Number(raw.considered) : (Number.isFinite(Number(summary.considered)) ? Number(summary.considered) : 0),
+        changed: Number.isFinite(Number(raw.changed)) ? Number(raw.changed) : 0,
+        suggested: Number.isFinite(Number(raw.suggested)) ? Number(raw.suggested) : 0,
+        promotions: Number.isFinite(Number(raw.promotions)) ? Number(raw.promotions) : (Number.isFinite(Number(summary.promoted)) ? Number(summary.promoted) : 0),
+        demotions: Number.isFinite(Number(raw.demotions)) ? Number(raw.demotions) : (Number.isFinite(Number(summary.demoted)) ? Number(summary.demoted) : 0),
+        pinned: Number.isFinite(Number(raw.pinned)) ? Number(raw.pinned) : (Number.isFinite(Number(summary.pinned)) ? Number(summary.pinned) : 0),
+        unpinned: Number.isFinite(Number(raw.unpinned)) ? Number(raw.unpinned) : (Number.isFinite(Number(summary.unpinned)) ? Number(summary.unpinned) : 0),
+        muted: Number.isFinite(Number(raw.muted)) ? Number(raw.muted) : (Number.isFinite(Number(summary.muted)) ? Number(summary.muted) : 0),
+        unmuted: Number.isFinite(Number(raw.unmuted)) ? Number(raw.unmuted) : (Number.isFinite(Number(summary.unmuted)) ? Number(summary.unmuted) : 0),
+        curated: Number.isFinite(Number(raw.curated)) ? Number(raw.curated) : (Number.isFinite(Number(summary.accepted)) ? Number(summary.accepted) : 0),
+        pendingCurated: Number.isFinite(Number(raw.pendingCurated)) ? Number(raw.pendingCurated) : 0,
+        retired: Number.isFinite(Number(raw.retired)) ? Number(raw.retired) : (Number.isFinite(Number(summary.retired)) ? Number(summary.retired) : 0),
+        recentMessageChars: Number.isFinite(Number(raw.recentMessageChars)) ? Number(raw.recentMessageChars) : 0,
+        ranAt: Number.isFinite(Number(raw.ranAt)) ? Number(raw.ranAt) : 0,
+        summary: {
+            promoted: Number.isFinite(Number(summary.promoted)) ? Number(summary.promoted) : 0,
+            demoted: Number.isFinite(Number(summary.demoted)) ? Number(summary.demoted) : 0,
+            pinned: Number.isFinite(Number(summary.pinned)) ? Number(summary.pinned) : 0,
+            unpinned: Number.isFinite(Number(summary.unpinned)) ? Number(summary.unpinned) : 0,
+            muted: Number.isFinite(Number(summary.muted)) ? Number(summary.muted) : 0,
+            unmuted: Number.isFinite(Number(summary.unmuted)) ? Number(summary.unmuted) : 0,
+            accepted: Number.isFinite(Number(summary.accepted)) ? Number(summary.accepted) : 0,
+            retired: Number.isFinite(Number(summary.retired)) ? Number(summary.retired) : 0,
+            skipped: Number.isFinite(Number(summary.skipped)) ? Number(summary.skipped) : 0,
+            considered: Number.isFinite(Number(summary.considered)) ? Number(summary.considered) : 0,
+        },
+        actions: actions.slice(0, 120).map(compactLoreAutomationAction),
+        operations: actions.slice(0, 120).map(compactLoreAutomationAction),
+    };
 }
 
 function compactLoreEntryForStorage(entry) {
@@ -528,6 +620,23 @@ export function sanitizeLoreArraysForStorage(state) {
     } else {
         state.autoRelevanceSuggestions = [];
     }
+
+    if (Array.isArray(state.loreAutomationSuggestions)) {
+        state.loreAutomationSuggestions = state.loreAutomationSuggestions.slice(0, 120).map(compactLoreAutomationAction)
+            .filter(s => s.cardId || s.candidateId);
+    } else {
+        state.loreAutomationSuggestions = [];
+    }
+
+    const runLimit = Math.max(1, Math.min(100, Number(state.loreAutomationRunJournalLimit) || 20));
+    if (Array.isArray(state.loreAutomationRuns)) {
+        state.loreAutomationRuns = state.loreAutomationRuns.slice(-runLimit).map(compactLoreAutomationRun).filter(run => run.id);
+    } else {
+        state.loreAutomationRuns = [];
+    }
+    state.loreAutomationLastRun = state.loreAutomationLastRun && typeof state.loreAutomationLastRun === 'object' && !Array.isArray(state.loreAutomationLastRun)
+        ? compactLoreAutomationRun(state.loreAutomationLastRun)
+        : null;
 
     return state;
 }

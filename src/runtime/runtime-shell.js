@@ -104,7 +104,7 @@ function scheduleRuntimeMobileFocus(selector = '') {
         const focusSelector = pendingRuntimeMobileFocusSelector;
         pendingRuntimeMobileFocusSelector = '';
         const target = root.querySelector(focusSelector)
-            || root.querySelector('.saga-mobile-header-back')
+            || root.querySelector('.saga-mobile-shell-back')
             || root.querySelector('.saga-mobile-bottom-tab-active')
             || root.querySelector('.saga-mobile-bottom-tab[data-mobile-route="session"]');
         target?.focus?.({ preventScroll: true });
@@ -254,7 +254,7 @@ function getRuntimeMobileFocusSelectorFromResult(result = null) {
         return `.saga-mobile-bottom-tab[data-mobile-route="${result.route}"]`;
     }
     if (result.action === 'pop-subview') {
-        return '.saga-mobile-header-back, .saga-mobile-bottom-tab-active';
+        return '.saga-mobile-shell-back, .saga-mobile-bottom-tab-active';
     }
     if (result.action === 'lorecards-subtab' && result.stage) {
         return `.saga-mobile-lorecards-subtab[data-stage="${result.stage}"]`;
@@ -313,7 +313,7 @@ export function selectRuntimeMobileMoreRoute(routeId) {
         panelState.collapsed = false;
         return route;
     }, {
-        focusSelector: '.saga-mobile-header-back, .saga-mobile-bottom-tab[data-mobile-route="more"]',
+        focusSelector: '.saga-mobile-shell-back, .saga-mobile-bottom-tab[data-mobile-route="more"]',
     });
 }
 
@@ -363,7 +363,7 @@ export function pushRuntimeMobileSubview(routeId, subview = {}, options = {}) {
         }
         return record;
     }, {
-        focusSelector: '.saga-mobile-header-back, .saga-mobile-bottom-tab-active',
+        focusSelector: '.saga-mobile-shell-back, .saga-mobile-bottom-tab-active',
     });
 }
 
@@ -376,7 +376,7 @@ export function popRuntimeMobileSubview(routeId = null) {
         mobile.subviewStacks[routeKey] = stack.slice(0, -1);
         return popped;
     }, {
-        focusSelector: '.saga-mobile-header-back, .saga-mobile-bottom-tab-active',
+        focusSelector: '.saga-mobile-shell-back, .saga-mobile-bottom-tab-active',
     });
 }
 

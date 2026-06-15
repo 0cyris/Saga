@@ -36,7 +36,7 @@ Start here when canon suggestions, retrieval, or injection appear tied to the wr
 
 Coverage: A61-A82.
 
-Use this track to manage canon preview, canon selection, story-lore scans, scan scope, Manual Lore Notes, assistant drafts, Pending Review, Pending Review edits, accept/reject flows, bulk review, Accepted Lorecards, search/filter, Accepted Lorecard editing, pin/mute, relevance tiers, tags, Context metadata, duplicate guards, Auto-Relevance, timeline audit, workbenches, and the review-first policy.
+Use this track to manage canon preview, canon selection, story-lore scans, scan scope, Manual Lore Notes, assistant drafts, Pending Review, Pending Review edits, accept/reject flows, bulk review, Accepted Lorecards, search/filter, Accepted Lorecard editing, pin/mute, relevance tiers, tags, Context metadata, duplicate guards, Lore Automation, timeline audit, workbenches, and the review-first policy.
 
 Start here after Context is current and the story has durable facts or canon constraints worth saving.
 
@@ -109,7 +109,7 @@ Advanced should still remain review-first. Model-produced proposals should becom
 - Full rail access, including **Continuity** and **Injection**.
 - Automation and cadence controls.
 - Context auditing, proposals, locks, workbenches, and Advanced Context Brief details.
-- Lorecard workbenches, bulk actions, timeline/audit history, and Auto-Relevance.
+- Lorecard workbenches, bulk actions, timeline/audit history, and Lore Automation.
 - Full injection preview by relevance tier, prompt placement, compression, token estimates, omission reasons, and sync diagnostics.
 - Pack Health, package import/update/export, duplication, repair, Generated to Custom finalization, Create Deck, and in-progress Creator projects.
 

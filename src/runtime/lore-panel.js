@@ -350,7 +350,16 @@ import {
 } from '../loredecks/loredeck-assistant.js';
 import { analyzeContextQuery, clearContextIndexCache, findContextAnchors, getContextIndexSync, loadContextIndex, normalizeContextSearchText, rankContextAnchors, contextTextIncludesTerm } from '../context/context-index.js';
 import { applyContextResolutionResults, buildContextResolutionAudit, buildResolverContextFromState, resolveAndApplyContextsFromContext, resolveContextsWithModel } from '../context/context-resolver.js';
-import { runAutoRelevance, applyAutoRelevanceSuggestions, clearAutoRelevanceSuggestions, rejectAutoRelevanceSuggestions } from '../context/auto-relevance.js';
+import {
+    runAutoRelevance,
+    applyAutoRelevanceSuggestions,
+    applyLoreAutomationSuggestions,
+    clearAutoRelevanceSuggestions,
+    clearLoreAutomationSuggestions,
+    rejectAutoRelevanceSuggestions,
+    rejectLoreAutomationSuggestions,
+    undoLastLoreAutomationRun,
+} from '../context/auto-relevance.js';
 import {
     buildFolderTree,
     createFolderIdFromPath,
@@ -1024,6 +1033,7 @@ configureLoredeckHealthPanel({
     normalizeLoredeckPendingTimelineIdList,
     getFreshLoredeckLibraryPack,
     persistLoredeckLibraryRecordMutation,
+    isRuntimeMobileShell,
     markTourTarget,
 });
 
@@ -1179,6 +1189,7 @@ configureLoredeckCreatorPanel({
     attemptLoredeckHealthFixes,
     refreshPanelBody,
     refreshHeader,
+    isRuntimeMobileShell,
     getLoredeckCreatorPipelineReadinessView: (pack, cached = null) => {
         if (!isGeneratedLoredeckPack(pack)) return null;
         const linkedJob = cached || getLoredeckCreatorJobForPack(pack);
@@ -1263,6 +1274,7 @@ configureContextWorkbenchPanel({
     },
     renderContextWorkbench,
     closeContextWorkbench,
+    isRuntimeMobileShell,
     refreshContextHeader: refreshHeader,
     clearContextIndexCache,
     loadContextIndex,
@@ -1569,8 +1581,12 @@ configureLorecardsPanel({
     appendSettingsResetButton,
     runAutoRelevance,
     applyAutoRelevanceSuggestions,
+    applyLoreAutomationSuggestions,
     rejectAutoRelevanceSuggestions,
+    rejectLoreAutomationSuggestions,
     clearAutoRelevanceSuggestions,
+    clearLoreAutomationSuggestions,
+    undoLastLoreAutomationRun,
     getSelectedLoreInjectionCount,
     getInjectionCharacterStats,
     appendPendingLoreEntries,

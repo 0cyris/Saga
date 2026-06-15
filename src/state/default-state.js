@@ -167,9 +167,12 @@ export function getDefaultState() {
 
         pendingLoreMeta: null,
 
-        // Auto-Relevance suggestion queue/status. Suggest mode writes here instead of mutating accepted lore.
+        // Lore Automation suggestion queues/status. Suggest mode writes here instead of mutating accepted lore.
         autoRelevanceSuggestions: [],
         autoRelevanceLastRun: null,
+        loreAutomationSuggestions: [],
+        loreAutomationRuns: [],
+        loreAutomationLastRun: null,
 
         // Prompt injection/compression preview status
         loreCompressionStatus: {

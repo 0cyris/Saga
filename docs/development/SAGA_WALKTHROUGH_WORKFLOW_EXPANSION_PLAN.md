@@ -286,7 +286,7 @@ This order teaches dependencies before diagnostics: source packs first, then Con
 | A76 | `advanced-lore-relevance-tier` | Lorecard Generation And Review | Set relevance tier and understand prompt eligibility for High, Normal, and Low lore. |
 | A77 | `advanced-lore-tags-context` | Lorecard Generation And Review | Inspect tags, Context metadata, source metadata, and routing hints on accepted entries. |
 | A78 | `advanced-lore-similarity-duplicates` | Lorecard Generation And Review | Understand duplicate and similarity guards before accepting overlapping lore. |
-| A79 | `advanced-lore-auto-relevance` | Lorecard Generation And Review | Run, apply, or reject Auto-Relevance suggestions for large accepted-lore collections. |
+| A79 | `advanced-lore-auto-relevance` | Lorecard Generation And Review | Choose Lore Automation mode and review suggestions for large accepted-lore collections. |
 | A80 | `advanced-lore-timeline-audit` | Lorecard Generation And Review | Use timeline and audit recovery for deleted, restored, pinned, muted, or changed lore. |
 | A81 | `advanced-lore-workbench` | Lorecard Generation And Review | Open deeper Lorecard workbenches for large-list management and detailed editing. |
 | A82 | `advanced-lore-review-first-policy` | Lorecard Generation And Review | Model-produced proposals must be reviewed before they can affect future responses. |

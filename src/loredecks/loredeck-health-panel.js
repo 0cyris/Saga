@@ -76,6 +76,7 @@ function sanitizeFileStem(value) { return dep('sanitizeFileStem', value => Strin
 function downloadJson(data, filename) { return dep('downloadJson', () => {})(data, filename); }
 function openDuplicateLoredeckDialog(pack) { return dep('openDuplicateLoredeckDialog', () => {})(pack); }
 function canValidateLoredeckInEditor(pack) { return dep('canValidateLoredeckInEditor', () => false)(pack); }
+function isRuntimeMobileShell() { return dep('isRuntimeMobileShell', () => false)() === true; }
 function isLoredeckMalformedTagIssueGroup(group) { return dep('isLoredeckMalformedTagIssueGroup', () => false)(group); }
 function queueLoredeckMalformedTagRepairFromHealthGroup(pack, group, button) { return dep('queueLoredeckMalformedTagRepairFromHealthGroup', async () => {})(pack, group, button); }
 function applyLoredeckHealthRepairChoice(pack, choiceSet, option, session, button) { return dep('applyLoredeckHealthRepairChoice', async () => null)(pack, choiceSet, option, session, button); }
@@ -252,6 +253,7 @@ export function renderLoredeckHealthCenterOverlay(options = {}) {
     let overlay = null;
     try {
         const context = getLoredeckHealthCenterContext(loredeckHealthCenterPackId);
+        const mobile = isRuntimeMobileShell();
 
         overlay = document.createElement('div');
         overlay.className = 'saga-lore-workbench-overlay saga-loredeck-health-center-overlay';
@@ -259,6 +261,7 @@ export function renderLoredeckHealthCenterOverlay(options = {}) {
 
         const shell = document.createElement('div');
         shell.className = 'saga-lore-workbench-shell saga-loredeck-health-center-shell';
+        if (mobile) shell.classList.add('saga-loredeck-health-center-shell-mobile');
         overlay.appendChild(shell);
 
         const header = document.createElement('div');
@@ -276,16 +279,7 @@ export function renderLoredeckHealthCenterOverlay(options = {}) {
         titleWrap.appendChild(subtitle);
         header.appendChild(titleWrap);
 
-        const actions = createLoredeckActionRow({ className: 'saga-primary-actions saga-loredeck-health-center-actions' });
-        markTourTarget(actions, 'loredecks.health.actions');
-        actions.appendChild(markTourTarget(createButton('Refresh Scan', context.pack ? 'Validate this Loredeck and refresh its Pack Health report.' : 'Reload active Loredecks and recompute stack Pack Health.', async (btn) => {
-            await refreshLoredeckHealthCenterScan(context, btn);
-        }, 'saga-primary-button'), 'loredecks.health.refreshScan'));
-        const exportButton = createButton('Export Report', 'Download this Pack Health report as JSON.', () => exportLoredeckHealthCenterReport(context));
-        exportButton.disabled = !context.health;
-        actions.appendChild(exportButton);
-        actions.appendChild(createButton('Close', 'Close the Pack Health Center.', closeLoredeckHealthCenter));
-        header.appendChild(actions);
+        if (!mobile) header.appendChild(createLoredeckHealthCenterActions(context));
         shell.appendChild(header);
 
         const body = document.createElement('div');
@@ -300,6 +294,7 @@ export function renderLoredeckHealthCenterOverlay(options = {}) {
         else content.appendChild(createLoredeckHealthOverviewView(context));
         body.appendChild(content);
         shell.appendChild(body);
+        if (mobile) shell.appendChild(createLoredeckHealthCenterActions(context, { mobile: true }));
     } catch (e) {
         console.error('[Saga] Pack Health Center render failed:', e);
         toast('Pack Health Center failed to render. Keeping the previous view open.', 'error');
@@ -315,12 +310,14 @@ export function renderLoredeckHealthCenterOverlay(options = {}) {
 }
 
 function createLoredeckHealthCenterRenderErrorOverlay(error = null) {
+    const mobile = isRuntimeMobileShell();
     const overlay = document.createElement('div');
     overlay.className = 'saga-lore-workbench-overlay saga-loredeck-health-center-overlay';
     wireOverlayBackdropClose(overlay, closeLoredeckHealthCenter);
 
     const shell = document.createElement('div');
     shell.className = 'saga-lore-workbench-shell saga-loredeck-health-center-shell';
+    if (mobile) shell.classList.add('saga-loredeck-health-center-shell-mobile');
     overlay.appendChild(shell);
 
     const header = document.createElement('div');
@@ -337,9 +334,7 @@ function createLoredeckHealthCenterRenderErrorOverlay(error = null) {
     titleWrap.appendChild(subtitle);
     header.appendChild(titleWrap);
 
-    const actions = createLoredeckActionRow({ className: 'saga-primary-actions saga-loredeck-health-center-actions' });
-    actions.appendChild(createButton('Close', 'Close the Pack Health Center.', closeLoredeckHealthCenter));
-    header.appendChild(actions);
+    if (!mobile) header.appendChild(createLoredeckHealthCenterErrorActions());
     shell.appendChild(header);
 
     const body = document.createElement('div');
@@ -349,7 +344,31 @@ function createLoredeckHealthCenterRenderErrorOverlay(error = null) {
         message: error?.message || 'Close and reopen the Health Center after rerunning the scan.',
     }));
     shell.appendChild(body);
+    if (mobile) shell.appendChild(createLoredeckHealthCenterErrorActions({ mobile: true }));
     return overlay;
+}
+
+function createLoredeckHealthCenterActions(context, options = {}) {
+    const actions = createLoredeckActionRow({
+        className: `saga-primary-actions saga-loredeck-health-center-actions${options.mobile ? ' saga-loredeck-health-center-bottom-actions' : ''}`,
+    });
+    markTourTarget(actions, 'loredecks.health.actions');
+    actions.appendChild(markTourTarget(createButton('Refresh Scan', context.pack ? 'Validate this Loredeck and refresh its Pack Health report.' : 'Reload active Loredecks and recompute stack Pack Health.', async (btn) => {
+        await refreshLoredeckHealthCenterScan(context, btn);
+    }, 'saga-primary-button'), 'loredecks.health.refreshScan'));
+    const exportButton = createButton('Export Report', 'Download this Pack Health report as JSON.', () => exportLoredeckHealthCenterReport(context));
+    exportButton.disabled = !context.health;
+    actions.appendChild(exportButton);
+    actions.appendChild(createButton('Close', 'Close the Pack Health Center.', closeLoredeckHealthCenter));
+    return actions;
+}
+
+function createLoredeckHealthCenterErrorActions(options = {}) {
+    const actions = createLoredeckActionRow({
+        className: `saga-primary-actions saga-loredeck-health-center-actions${options.mobile ? ' saga-loredeck-health-center-bottom-actions' : ''}`,
+    });
+    actions.appendChild(createButton('Close', 'Close the Pack Health Center.', closeLoredeckHealthCenter));
+    return actions;
 }
 
 function createLoredeckHealthCenterTabs() {

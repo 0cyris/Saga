@@ -18,13 +18,13 @@ import {
     addTooltip,
     createIconButton,
     createStatusPill,
+    hideFloatingTooltip,
 } from '../ui/runtime-ui-kit.js';
 import {
     MOBILE_LORECARDS_STAGES,
     canGoBackRuntimeMobileShell,
     getRuntimeMobileActiveSubview,
     getRuntimeMobileActiveTab,
-    getRuntimeMobileHeaderTitle,
     getRuntimeMobileLorecardsStage,
     getConstrainedDrawerHeight,
     getConstrainedDrawerWidth,
@@ -77,6 +77,11 @@ const MOBILE_LORECARDS_SUBTAB_META = Object.freeze({
         tooltip: 'Manage approved Lorecards and active state.',
     }),
 });
+const MOBILE_NAV_TOOLTIP_OPTIONS = Object.freeze({ showOnHover: false, showOnFocus: false });
+
+function addMobileNavigationLabel(element, text) {
+    return addTooltip(element, text, MOBILE_NAV_TOOLTIP_OPTIONS);
+}
 
 function dep(name, fallback = () => undefined) {
     return typeof deps[name] === 'function' ? deps[name] : fallback;
@@ -200,8 +205,6 @@ function renderMobilePanelShell(root, state, settings = getSettings(), options =
     root.style.removeProperty('--saga-drawer-height');
     applyRuntimeTheme(root, settings);
 
-    root.appendChild(renderMobileHeader(state, settings));
-
     const body = document.createElement('div');
     body.className = 'saga-lore-panel-body saga-mobile-content';
     if (activeSubview) {
@@ -221,6 +224,11 @@ function renderMobilePanelShell(root, state, settings = getSettings(), options =
         renderMobileMoreSheet(body, settings);
     }
 
+    const shellActions = renderMobileShellActionBar(state, settings);
+    if (shellActions) {
+        root.classList.add('saga-mobile-shell-actions-active');
+        root.appendChild(shellActions);
+    }
     if (mobile.activeRoute === 'lore' && !options.error) {
         root.appendChild(renderMobileLorecardsSubTabs(state, settings));
     }
@@ -245,118 +253,60 @@ function onRuntimeMobileShellKeydown(event) {
     goBackRuntimeMobileShell();
 }
 
-function renderMobileHeader(state, settings = getSettings()) {
+function hideRuntimeMobileShell() {
+    hideFloatingTooltip();
+    dep('hideRuntimePanel')();
+}
+
+function renderMobileShellActionBar(state, settings = getSettings()) {
     const panelState = state?.lorePanel || getDefaultState().lorePanel;
-    const mobile = normalizeMobilePanelState(panelState, settings);
     const canGoBack = canGoBackRuntimeMobileShell(panelState, settings);
-    const header = document.createElement('div');
-    header.className = 'saga-mobile-header';
+    if (!canGoBack) return null;
 
-    const backSlot = document.createElement('div');
-    backSlot.className = 'saga-mobile-header-back-slot';
-    if (canGoBack) {
-        const back = createMobileHeaderActionButton(
-            'back',
-            'Go back.',
-            'saga-mobile-header-action saga-mobile-header-back',
-            (event) => {
-                event.stopPropagation();
-                goBackRuntimeMobileShell();
-            },
-            settings,
-        );
-        back.setAttribute('aria-keyshortcuts', 'Escape');
-        backSlot.appendChild(back);
-    }
-    header.appendChild(backSlot);
+    const bar = document.createElement('div');
+    bar.className = 'saga-mobile-shell-action-bar';
+    bar.setAttribute('aria-label', 'Saga shell actions');
 
-    const titleWrap = document.createElement('div');
-    titleWrap.className = 'saga-mobile-header-title-wrap';
-    const titleRow = document.createElement('div');
-    titleRow.className = 'saga-mobile-header-title-row';
-
-    const mark = document.createElement('span');
-    mark.className = 'saga-mobile-header-mark';
-    const markImg = document.createElement('img');
-    markImg.className = 'saga-mobile-header-mark-img';
-    markImg.src = getBrandLogoSrc('compact', settings);
-    markImg.alt = 'SAGA';
-    markImg.draggable = false;
-    markImg.addEventListener('error', () => {
-        markImg.remove();
-        mark.textContent = 'S';
-        mark.classList.add('saga-mobile-header-mark-fallback');
-    }, { once: true });
-    mark.appendChild(markImg);
-    titleRow.appendChild(mark);
-
-    const title = document.createElement('div');
-    title.className = 'saga-mobile-header-title';
-    title.textContent = getRuntimeMobileHeaderTitle(panelState, settings);
-    addTooltip(title, getMobileRouteTooltip(mobile.activeMoreRoute || mobile.activeRoute, settings));
-    titleRow.appendChild(title);
-    titleWrap.appendChild(titleRow);
-
-    const status = document.createElement('div');
-    status.className = 'saga-mobile-header-status';
-    status.appendChild(createStatusPill(`Experience: ${getExperienceLabel(settings)}`, getExperienceTooltip(settings), { tone: 'info', kind: 'status' }));
-    status.appendChild(createStatusPill(settings.enabled ? 'Active' : 'Paused', 'Master runtime toggle. When paused, Saga does not inject, scan, or generate.', { tone: settings.enabled ? 'success' : 'muted', kind: 'status' }));
-    titleWrap.appendChild(status);
-    header.appendChild(titleWrap);
-
-    const actions = document.createElement('div');
-    actions.className = 'saga-mobile-header-actions';
-    const showMoreAction = mobile.activeRoute !== 'more' || !!mobile.activeMoreRoute;
-    if (showMoreAction) {
-        const more = createMobileHeaderActionButton(
-            'more',
-            'Open More.',
-            'saga-mobile-header-action saga-mobile-header-more',
-            (event) => {
-                event.stopPropagation();
-                openRuntimeMobileMoreSheet();
-            },
-            settings,
-        );
-        actions.appendChild(more);
-    }
-    const close = createMobileHeaderActionButton(
-        'close',
-        'Close Saga.',
-        'saga-mobile-header-action saga-mobile-header-close',
+    const back = createMobileShellActionButton(
+        'back',
+        'Back',
+        'Go back.',
+        'saga-mobile-shell-action saga-mobile-shell-back',
         (event) => {
             event.stopPropagation();
-            dep('hideRuntimePanel')();
+            hideFloatingTooltip();
+            goBackRuntimeMobileShell();
         },
         settings,
     );
-    actions.appendChild(close);
-    header.appendChild(actions);
-
-    return header;
+    back.setAttribute('aria-keyshortcuts', 'Escape');
+    bar.appendChild(back);
+    return bar;
 }
 
-function createMobileHeaderActionButton(kind, tooltip, className, handler, settings = getSettings()) {
-    const button = createIconButton('', tooltip, className, handler);
-    button.dataset.mobileHeaderAction = kind;
-    button.appendChild(createMobileHeaderActionIcon(kind, settings));
+function createMobileShellActionButton(kind, label, tooltip, className, handler, settings = getSettings()) {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = className;
+    button.dataset.mobileShellAction = kind;
+    addMobileNavigationLabel(button, tooltip || label);
+    button.appendChild(createMobileShellActionIcon(kind, settings));
+    const text = document.createElement('span');
+    text.className = 'saga-mobile-shell-action-label';
+    text.textContent = label;
+    button.appendChild(text);
+    button.addEventListener('click', handler);
     return button;
 }
 
-function createMobileHeaderActionIcon(kind, settings = getSettings()) {
-    if (kind === 'more') {
-        const icon = createMobileRouteIcon('more', settings, 'saga-mobile-header-action-icon');
-        icon.classList.add('saga-mobile-header-action-icon-more');
-        icon.setAttribute('aria-hidden', 'true');
-        return icon;
-    }
-
+function createMobileShellActionIcon(kind, settings = getSettings()) {
+    void settings;
     const icon = document.createElement('span');
-    icon.className = `saga-mobile-header-action-icon saga-mobile-header-action-icon-${kind}`;
+    icon.className = `saga-mobile-shell-action-icon saga-mobile-shell-action-icon-${kind}`;
     icon.setAttribute('aria-hidden', 'true');
 
     const symbol = document.createElement('span');
-    symbol.className = `saga-mobile-header-action-symbol saga-mobile-header-action-symbol-${kind}`;
+    symbol.className = `saga-mobile-shell-action-symbol saga-mobile-shell-action-symbol-${kind}`;
     icon.appendChild(symbol);
     return icon;
 }
@@ -384,7 +334,7 @@ function renderMobileBottomBar(state, settings = getSettings()) {
             tab.classList.add('saga-mobile-bottom-tab-active');
             tab.setAttribute('aria-current', 'page');
         }
-        addTooltip(tab, getMobileRouteTooltip(route, settings));
+        addMobileNavigationLabel(tab, getMobileRouteTooltip(route, settings));
         tab.appendChild(createMobileRouteIcon(route, settings, 'saga-mobile-bottom-icon'));
         const text = document.createElement('span');
         text.className = 'saga-mobile-bottom-label';
@@ -392,6 +342,7 @@ function renderMobileBottomBar(state, settings = getSettings()) {
         tab.appendChild(text);
         tab.addEventListener('click', (event) => {
             event.stopPropagation();
+            hideFloatingTooltip();
             if (route === 'more') openRuntimeMobileMoreSheet();
             else selectRuntimeMobileRoute(route);
         });
@@ -460,7 +411,7 @@ function renderMobileLorecardsSubTabs(state, settings = getSettings()) {
         tab.setAttribute('aria-selected', stage === activeStage ? 'true' : 'false');
         tab.tabIndex = stage === activeStage ? 0 : -1;
         if (stage === activeStage) tab.classList.add('saga-mobile-lorecards-subtab-active');
-        addTooltip(tab, meta.tooltip);
+        addMobileNavigationLabel(tab, meta.tooltip);
 
         const label = document.createElement('span');
         label.className = 'saga-mobile-lorecards-subtab-label';
@@ -478,6 +429,7 @@ function renderMobileLorecardsSubTabs(state, settings = getSettings()) {
         tab.addEventListener('click', (event) => {
             event.preventDefault();
             event.stopPropagation();
+            hideFloatingTooltip();
             selectRuntimeMobileLorecardsStage(stage);
         });
         nav.appendChild(tab);
@@ -514,7 +466,7 @@ function renderMobileMoreSheet(container, settings = getSettings()) {
             entry.className = 'saga-mobile-more-entry';
             entry.dataset.mobileMoreRoute = route;
             entry.setAttribute('role', 'menuitem');
-            addTooltip(entry, getMobileRouteTooltip(route, settings));
+            addMobileNavigationLabel(entry, getMobileRouteTooltip(route, settings));
             entry.appendChild(createMobileRouteIcon(route, settings, 'saga-mobile-more-entry-icon'));
             const text = document.createElement('span');
             text.className = 'saga-mobile-more-entry-label';
@@ -522,6 +474,7 @@ function renderMobileMoreSheet(container, settings = getSettings()) {
             entry.appendChild(text);
             entry.addEventListener('click', (event) => {
                 event.stopPropagation();
+                hideFloatingTooltip();
                 selectRuntimeMobileMoreRoute(route);
             });
             list.appendChild(entry);
@@ -529,6 +482,32 @@ function renderMobileMoreSheet(container, settings = getSettings()) {
         groupEl.appendChild(list);
         sheet.appendChild(groupEl);
     }
+
+    const shellGroup = document.createElement('section');
+    shellGroup.className = 'saga-mobile-more-group saga-mobile-more-shell-group';
+    const shellHeading = document.createElement('h3');
+    shellHeading.className = 'saga-mobile-more-group-title';
+    shellHeading.textContent = 'Runtime';
+    shellGroup.appendChild(shellHeading);
+    const shellList = document.createElement('div');
+    shellList.className = 'saga-mobile-more-list';
+    const exit = document.createElement('button');
+    exit.type = 'button';
+    exit.className = 'saga-mobile-more-entry saga-mobile-more-exit';
+    exit.setAttribute('role', 'menuitem');
+    addMobileNavigationLabel(exit, 'Close the Saga runtime window.');
+    exit.appendChild(createMobileShellActionIcon('close', settings));
+    const exitText = document.createElement('span');
+    exitText.className = 'saga-mobile-more-entry-label';
+    exitText.textContent = 'Exit Saga';
+    exit.appendChild(exitText);
+    exit.addEventListener('click', (event) => {
+        event.stopPropagation();
+        hideRuntimeMobileShell();
+    });
+    shellList.appendChild(exit);
+    shellGroup.appendChild(shellList);
+    sheet.appendChild(shellGroup);
 
     container.appendChild(sheet);
 }

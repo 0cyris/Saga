@@ -77,11 +77,64 @@ function arr(value) {
     if (typeof value === 'string') return value.split(',').map(v => text(v)).filter(Boolean);
     return [];
 }
+
+const MONTH_INDEX = Object.freeze({
+    jan: 0,
+    january: 0,
+    feb: 1,
+    february: 1,
+    mar: 2,
+    march: 2,
+    apr: 3,
+    april: 3,
+    may: 4,
+    jun: 5,
+    june: 5,
+    jul: 6,
+    july: 6,
+    aug: 7,
+    august: 7,
+    sep: 8,
+    sept: 8,
+    september: 8,
+    oct: 9,
+    october: 9,
+    nov: 10,
+    november: 10,
+    dec: 11,
+    december: 11,
+});
+
+function utcDateFromParts(year, monthIndex, day) {
+    const y = Number(year);
+    const m = Number(monthIndex);
+    const d = Number(day);
+    if (!Number.isInteger(y) || !Number.isInteger(m) || !Number.isInteger(d)) return null;
+    if (y < 1 || m < 0 || m > 11 || d < 1 || d > 31) return null;
+    const date = new Date(Date.UTC(y, m, d));
+    return date.getUTCFullYear() === y && date.getUTCMonth() === m && date.getUTCDate() === d ? date : null;
+}
+
 function dateFrom(value) {
     const raw = text(value);
-    if (!/^\d{4}-\d{2}-\d{2}$/.test(raw)) return null;
-    const d = new Date(`${raw}T00:00:00Z`);
-    return Number.isNaN(d.getTime()) ? null : d;
+    const iso = raw.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+    if (iso) return utcDateFromParts(iso[1], Number(iso[2]) - 1, iso[3]);
+    const cleaned = raw
+        .replace(/^(?:mon|monday|tue|tues|tuesday|wed|wednesday|thu|thur|thurs|thursday|fri|friday|sat|saturday|sun|sunday),?\s+/i, '')
+        .replace(/\b(\d{1,2})(?:st|nd|rd|th)\b/gi, '$1')
+        .replace(/\s+/g, ' ')
+        .trim();
+    const monthFirst = cleaned.match(/^([A-Za-z]+)\.?\s+(\d{1,2}),?\s+(\d{4})$/);
+    if (monthFirst) {
+        const month = MONTH_INDEX[monthFirst[1].toLowerCase()];
+        if (month !== undefined) return utcDateFromParts(monthFirst[3], month, monthFirst[2]);
+    }
+    const dayFirst = cleaned.match(/^(\d{1,2})\s+([A-Za-z]+)\.?,?\s+(\d{4})$/);
+    if (dayFirst) {
+        const month = MONTH_INDEX[dayFirst[2].toLowerCase()];
+        if (month !== undefined) return utcDateFromParts(dayFirst[3], month, dayFirst[1]);
+    }
+    return null;
 }
 function daysBetween(a, b) { return Math.round((a.getTime() - b.getTime()) / 86400000); }
 function anyOverlap(a, b) {

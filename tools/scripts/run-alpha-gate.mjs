@@ -134,6 +134,7 @@ const gateScripts = [
   'tools/scripts/test-prompt-injection-chat-change-smoke.mjs',
   'tools/scripts/test-prompt-injection-event-lifecycle-smoke.mjs',
   'tools/scripts/test-basic-workflow-smoke-contract.mjs',
+  'tools/scripts/test-lore-automation-levels.mjs',
   'tools/scripts/test-css-sanity.mjs',
   'tools/scripts/test-runtime-ui-confirm-dialog.mjs',
   'tools/scripts/test-visual-smoke-harness.mjs',
