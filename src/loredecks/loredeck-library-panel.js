@@ -204,9 +204,15 @@ let loredeckLibraryHierarchyRenderCache = null;
 let bundledLoredeckIndexCache = null;
 let bundledLoredeckIndexLoading = false;
 let bundledLoredeckIndexLoadAttempted = false;
+
+function isLoredeckLibraryOverlayMounted() {
+    return typeof document !== 'undefined' && !!document.querySelector('.saga-loredeck-library-overlay');
+}
+
 export function openLoredeckLibraryWindow() {
     loredeckLibraryOpen = true;
-    renderLoredeckLibraryOverlay({ preserveScroll: false, progressiveOpen: true });
+    const hasOverlay = isLoredeckLibraryOverlayMounted();
+    renderLoredeckLibraryOverlay({ preserveScroll: hasOverlay, progressiveOpen: !hasOverlay });
 }
 
 export function openLoredeckLibraryDetails(packId = '') {
@@ -217,7 +223,9 @@ export function openLoredeckLibraryDetails(packId = '') {
         loredeckLibraryMobileDetailPackId = id;
         loredeckLibraryMobileDetailFolderId = '';
     }
-    openLoredeckLibraryWindow();
+    loredeckLibraryOpen = true;
+    const hasOverlay = isLoredeckLibraryOverlayMounted();
+    renderLoredeckLibraryOverlay({ preserveScroll: hasOverlay, progressiveOpen: !hasOverlay });
     return true;
 }
 

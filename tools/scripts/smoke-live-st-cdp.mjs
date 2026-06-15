@@ -4004,6 +4004,37 @@ async function runGuideHarnessSmoke(client, screenshots, findings, smokeUrl, dia
     if (!basicPreparedLibrary.overlayOpen || !basicPreparedLibrary.targetVisible || !basicPreparedLibrary.hasDone) findings.push('Basic Loredecks prepared Library step did not open the fullscreen Library with the expected header target.');
     screenshots.push(await screenshot(client, 'guide-harness-03-basic-prepared-library'));
 
+    const basicLibraryNextClicked = await clickButtonText(client, 'Next', { root: '#saga-tour-popover' });
+    if (!basicLibraryNextClicked) findings.push('Basic prepared Library walkthrough Next button was not clickable.');
+    const basicLibraryNextImmediateState = await evaluate(client, script(() => {
+        const overlay = document.querySelector('.saga-loredeck-library-overlay');
+        return {
+            openingShell: !!overlay?.classList?.contains('saga-loredeck-library-overlay-opening'),
+            openingText: !![...(overlay?.querySelectorAll('*') || [])]
+                .some(node => (node.innerText || node.textContent || '').includes('Opening Library')),
+        };
+    }));
+    await waitFor(client, 'document.querySelector("#saga-tour-popover .saga-tour-title")?.textContent?.trim() === "Lorepack Types"', 'Basic Library next step without reopening shell', 10000);
+    const basicLibraryNextState = await evaluate(client, script(immediate => {
+        const popover = document.querySelector('#saga-tour-popover');
+        const overlay = document.querySelector('.saga-loredeck-library-overlay');
+        return {
+            title: popover?.querySelector('.saga-tour-title')?.textContent?.trim() || '',
+            progress: popover?.querySelector('.saga-tour-progress')?.textContent?.trim() || '',
+            overlayOpen: !!overlay,
+            immediateOpeningShell: immediate.openingShell === true,
+            immediateOpeningText: immediate.openingText === true,
+            openingShell: !!overlay?.classList?.contains('saga-loredeck-library-overlay-opening'),
+            openingText: !![...(overlay?.querySelectorAll('*') || [])]
+                .some(node => (node.innerText || node.textContent || '').includes('Opening Library')),
+        };
+    }, basicLibraryNextImmediateState));
+    if (basicLibraryNextState.title !== 'Lorepack Types' || basicLibraryNextState.progress !== '4 / 14') findings.push('Basic prepared Library Next did not advance to Lorepack Types.');
+    if (!basicLibraryNextState.overlayOpen) findings.push('Basic prepared Library Next closed the Library overlay.');
+    if (basicLibraryNextState.immediateOpeningShell || basicLibraryNextState.immediateOpeningText || basicLibraryNextState.openingShell || basicLibraryNextState.openingText) {
+        findings.push('Basic prepared Library Next reopened the Opening Library shell instead of staying on the hydrated overlay.');
+    }
+
     await clickButtonText(client, 'Close', { root: '#saga-tour-popover', enabledOnly: false });
     await waitFor(client, '!document.querySelector("#saga-tour-popover")', 'Basic Loredecks module close', 10000);
     await clickButtonText(client, 'Done', { root: '.saga-loredeck-library-overlay', enabledOnly: false });
@@ -4211,6 +4242,7 @@ async function runGuideHarnessSmoke(client, screenshots, findings, smokeUrl, dia
         basicInitial,
         basicModuleTour,
         basicPreparedLibrary,
+        basicLibraryNextState,
         basicTour,
         advancedInitial,
         advancedModuleTour,
@@ -4938,6 +4970,11 @@ async function runDesktopLorecardsHarnessSmoke(client, screenshots, findings, sm
         };
         const workspace = document.querySelector('.saga-lorecard-workspace');
         const toolbar = document.querySelector('.saga-lorecard-workspace-toolbar');
+        const sortOptions = [...document.querySelectorAll('.saga-lorecard-workspace-sort-option')].map(node => ({
+            label: (node.innerText || node.textContent || '').trim(),
+            value: node.getAttribute('data-lorecard-workspace-sort') || '',
+            checked: node.getAttribute('aria-checked') === 'true',
+        }));
         const utilityButtons = [...document.querySelectorAll('.saga-lorecard-workspace-utilities button')].map(node => ({
             text: node.textContent?.trim() || '',
             rect: (() => {
@@ -4968,6 +5005,7 @@ async function runDesktopLorecardsHarnessSmoke(client, screenshots, findings, sm
             toolbarOverflow: toolbar ? toolbar.scrollWidth > toolbar.clientWidth + 1 : true,
             workspaceOverflow: workspace ? workspace.scrollWidth > workspace.clientWidth + 1 : true,
             pageOverflow: document.documentElement.scrollWidth > document.documentElement.clientWidth + 1,
+            sortOptions,
             utilityButtons,
             rowTitleFontSize: rowTitle ? num(getComputedStyle(rowTitle).fontSize) : 0,
             rowFactFontSize: rowFact ? num(getComputedStyle(rowFact).fontSize) : 0,
@@ -5005,6 +5043,7 @@ async function runDesktopLorecardsHarnessSmoke(client, screenshots, findings, sm
     if (interactionState.inspectLabels.length) findings.push(`Desktop Lorecards still rendered Inspect button labels: ${interactionState.inspectLabels.join(', ')}.`);
     if (!interactionState.editLabels.length) findings.push('Desktop Lorecards did not render an explicit Edit button.');
     if (layout.tagRowsInList) findings.push('Desktop Lorecards workspace rows still rendered tag walls in the scanning list.');
+    if (!layout.sortOptions?.some(option => option.label === 'A' && option.value === 'alphabetical') || !layout.sortOptions?.some(option => option.label === 'P' && option.value === 'priority' && option.checked)) findings.push(`Desktop Lorecards workspace did not render the compact A/P sort toggle with Priority selected by default: ${JSON.stringify(layout.sortOptions)}.`);
     if (layout.toolbarOverflow || layout.workspaceOverflow || layout.pageOverflow) findings.push('Desktop Lorecards workspace or toolbar still has horizontal overflow.');
     if (!layout.detailFitsWorkspace) findings.push('Desktop Lorecards detail pane overflows the workspace bounds.');
     if (!layout.activeToggleLabel || !layout.activeToggleRound || !layout.activeToggleActive || !layout.activeToggleShadow || layout.activeToggleShadow === 'none' || layout.rowActiveToggleCount < 1 || layout.rowActiveToggleActiveCount < 1) findings.push('Desktop Lorecards active/deactivate controls did not render with the round glowing active-toggle treatment on detail and rows.');
@@ -5502,9 +5541,15 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
     const pendingState = await evaluate(client, script(() => {
         const pendingCard = document.querySelector('.saga-lorecard-workspace-row[data-lorecard-workspace-status="pending"]');
         const labels = [...pendingCard?.querySelectorAll('.saga-pending-entry-actions button') || []].map(button => (button.innerText || button.textContent || '').trim()).filter(Boolean);
+        const sortOptions = [...document.querySelectorAll('.saga-lorecard-workspace-sort-option')].map(node => ({
+            label: (node.innerText || node.textContent || '').trim(),
+            value: node.getAttribute('data-lorecard-workspace-sort') || '',
+            checked: node.getAttribute('aria-checked') === 'true',
+        }));
         return {
             hasPendingCard: !!pendingCard,
             labels,
+            sortOptions,
             selectedCards: document.querySelectorAll('.saga-pending-review-entry-card.saga-review-lore-card-selected').length,
             permanentActionRows: document.querySelectorAll('.saga-pending-entry-actions').length,
             hasAcceptAll: labels.includes('Accept All'),
@@ -5519,6 +5564,7 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
     }
     if (pendingState.labels.includes('Edit') || pendingState.labels.includes('Clear')) findings.push('Mobile redesign Pending row exposed more than Accept/Reject.');
     if (pendingState.hasAcceptAll || pendingState.hasRejectAll) findings.push('Mobile redesign Lore page still exposed default Accept All/Reject All.');
+    if (!pendingState.sortOptions?.some(option => option.label === 'A' && option.value === 'alphabetical') || !pendingState.sortOptions?.some(option => option.label === 'P' && option.value === 'priority' && option.checked)) findings.push(`Mobile redesign Lore page did not render the compact A/P sort toggle with Priority selected by default: ${JSON.stringify(pendingState.sortOptions)}.`);
     if (pendingState.tagRows !== 0) findings.push('Mobile redesign Pending cards showed tag rows despite the default hidden mobile tag setting.');
     if (pendingTooltipState.visible) findings.push(`Mobile redesign Lore sub-tab showed a floating tooltip: ${pendingTooltipState.text || 'blank'}.`);
     if (pendingScrollState.offenders.length) findings.push(`Mobile redesign Lore page still has nested list scroll styling: ${JSON.stringify(pendingScrollState.offenders)}`);
@@ -5542,6 +5588,8 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
     const approvedState = await evaluate(client, script(() => {
         const root = document.querySelector('#saga-lore-panel');
         const longCard = document.querySelector('.saga-lore-entry-card[data-entry-id="smoke_long_title_lore"]');
+        const activeCard = document.querySelector('.saga-lorecard-workspace-row.saga-lore-entry-active');
+        const activeStyle = activeCard ? getComputedStyle(activeCard) : null;
         const title = longCard?.querySelector('.saga-lore-entry-title');
         const titleRect = title?.getBoundingClientRect?.();
         const titleStyle = title ? getComputedStyle(title) : null;
@@ -5557,7 +5605,11 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
             wrapsAtLeastTwoLines: !!titleRect && !!lineHeight && titleRect.height >= lineHeight * 1.75,
             cardHeight: longCard?.getBoundingClientRect?.().height || 0,
             detailButtons: longCard?.querySelectorAll('.saga-lore-entry-details-btn').length || 0,
-            defaultActionRows: unexpandedAcceptedCards.filter(card => !!card.querySelector('.saga-lore-entry-actions')).length,
+            defaultActionRows: unexpandedAcceptedCards.filter(card => [...card.querySelectorAll('.saga-lore-entry-actions button')].some(button => !button.classList.contains('saga-lorecard-active-toggle-button'))).length,
+            rowActiveToggleCount: document.querySelectorAll('.saga-lorecard-workspace-row .saga-lorecard-row-active-toggle').length,
+            rowActiveToggleActiveCount: document.querySelectorAll('.saga-lorecard-workspace-row .saga-lorecard-row-active-toggle.saga-lorecard-active-toggle-active').length,
+            activeBoxShadow: activeStyle?.boxShadow || '',
+            activeBorderColor: activeStyle?.borderColor || '',
             tagRows: document.querySelectorAll('.saga-lore-entry-card .saga-lore-entry-tags').length,
             acceptedSectionClips: false,
             noHorizontalOverflow: !root || root.scrollWidth <= root.clientWidth + 1,
@@ -5565,23 +5617,71 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
     }));
     if (!approvedState.workspaceVisible || !approvedState.acceptedVisible) findings.push('Mobile redesign Lore page did not include Accepted Lorecards in the unified workspace.');
     if (!approvedState.longCard || !approvedState.wrapsAtLeastTwoLines || approvedState.cardHeight <= approvedState.titleHeight) findings.push(`Mobile redesign Accepted long title did not wrap/read cleanly (title height ${approvedState.titleHeight}, line ${approvedState.lineHeight}).`);
-    if (approvedState.detailButtons !== 0 || approvedState.defaultActionRows !== 0) findings.push('Mobile redesign Accepted cards still exposed permanent detail buttons or default full action rows.');
+    if (approvedState.detailButtons !== 0 || approvedState.defaultActionRows !== 0) findings.push('Mobile redesign Accepted cards still exposed permanent detail buttons or non-activate action rows.');
+    if (approvedState.rowActiveToggleCount || approvedState.rowActiveToggleActiveCount) findings.push(`Mobile redesign Accepted cards still rendered row activate buttons instead of tap-to-toggle cards: ${JSON.stringify({
+        count: approvedState.rowActiveToggleCount,
+        activeCount: approvedState.rowActiveToggleActiveCount,
+    })}.`);
+    if (!approvedState.activeBoxShadow || approvedState.activeBoxShadow === 'none' || approvedState.activeBorderColor === 'rgb(215, 181, 109)') findings.push('Mobile redesign Accepted active state did not render the Activate outline glow on the list card.');
     if (approvedState.tagRows !== 0) findings.push('Mobile redesign Accepted cards showed tag rows despite the default hidden mobile tag setting.');
     if (!approvedState.noHorizontalOverflow) findings.push('Mobile redesign Lore page has horizontal overflow.');
     if (approvedTooltipState.visible) findings.push(`Mobile redesign Lore sub-tab showed a floating tooltip: ${approvedTooltipState.text || 'blank'}.`);
     if (approvedScrollState.offenders.length) findings.push(`Mobile redesign Lore page still has nested list scroll styling: ${JSON.stringify(approvedScrollState.offenders)}`);
+    screenshots.push(await screenshot(client, `${shotPrefix}-06-lorecards-lore-active`));
+
+    const longPressCueState = await evaluate(client, script(() => {
+        const card = document.querySelector('.saga-lore-entry-card[data-entry-id="smoke_long_title_lore"]');
+        if (!card) return { found: false };
+        const rect = card.getBoundingClientRect();
+        const downEvent = new PointerEvent('pointerdown', {
+            bubbles: true,
+            cancelable: true,
+            pointerId: 71,
+            pointerType: 'touch',
+            clientX: rect.left + Math.min(24, Math.max(4, rect.width / 3)),
+            clientY: rect.top + Math.min(24, Math.max(4, rect.height / 3)),
+        });
+        card.dispatchEvent(downEvent);
+        const style = getComputedStyle(card);
+        const armed = card.classList.contains('saga-mobile-lorecard-longpress-armed');
+        const pressX = card.style.getPropertyValue('--saga-press-x');
+        const pressY = card.style.getPropertyValue('--saga-press-y');
+        card.dispatchEvent(new PointerEvent('pointercancel', {
+            bubbles: true,
+            cancelable: true,
+            pointerId: 71,
+            pointerType: 'touch',
+        }));
+        return {
+            found: true,
+            armed,
+            cleared: !card.classList.contains('saga-mobile-lorecard-longpress-armed'),
+            transform: style.transform,
+            pressX,
+            pressY,
+        };
+    }), { userGesture: true }).catch(error => ({ found: false, error: error?.message || String(error) }));
+    if (!longPressCueState.found || !longPressCueState.armed || !longPressCueState.cleared || !longPressCueState.pressX || !longPressCueState.pressY) findings.push(`Mobile redesign Accepted card long-press cue did not arm and clear correctly: ${JSON.stringify(longPressCueState)}.`);
 
     const longCardTapState = await evaluate(client, script(() => {
         const card = document.querySelector('.saga-lore-entry-card[data-entry-id="smoke_long_title_lore"]');
         if (!card) return { found: false, openedAfterTap: false };
+        const wasActive = card.classList.contains('saga-lore-entry-active');
         card.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
+        const updatedCard = document.querySelector('.saga-lore-entry-card[data-entry-id="smoke_long_title_lore"]');
         return {
             found: true,
+            wasActive,
+            isActiveAfterTap: !!updatedCard?.classList?.contains('saga-lore-entry-active'),
+            rowStillWorkspace: !!updatedCard?.classList?.contains('saga-lorecard-workspace-row'),
+            rowActionButtons: updatedCard?.querySelectorAll('.saga-lore-entry-actions button').length || 0,
             openedAfterTap: !!document.querySelector('.saga-mobile-lorecard-editor-shell'),
         };
     }), { userGesture: true }).catch(() => ({ found: false, openedAfterTap: false }));
     if (!longCardTapState.found) findings.push('Mobile redesign Accepted long-title card was not present.');
     if (longCardTapState.openedAfterTap) findings.push('Mobile redesign Accepted card opened editor on tap instead of reserving edit for long press.');
+    if (longCardTapState.wasActive === longCardTapState.isActiveAfterTap) findings.push(`Mobile redesign Accepted card tap did not toggle active state: ${JSON.stringify(longCardTapState)}.`);
+    if (!longCardTapState.rowStillWorkspace || longCardTapState.rowActionButtons) findings.push(`Mobile redesign Accepted card tap corrupted the workspace row or reintroduced action buttons: ${JSON.stringify(longCardTapState)}.`);
     const longCardLongPressed = await evaluate(client, script(() => {
         const card = document.querySelector('.saga-lore-entry-card[data-entry-id="smoke_long_title_lore"]');
         if (!card) return false;
@@ -5629,7 +5729,7 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
     if (!approvedActiveState.anyActiveClass || !approvedActiveState.activeBoxShadow || approvedActiveState.activeBoxShadow === 'none') findings.push('Mobile redesign Accepted active state was not visible through object-card glow.');
     if (!approvedActiveState.activateToken || approvedActiveState.activeBorderColor === 'rgb(215, 181, 109)') findings.push('Mobile redesign Accepted active state did not consume the Activate Theme Pack glow token.');
     if (approvedActiveState.anyActiveBadge) findings.push('Mobile redesign Accepted active state still used a redundant active metadata chip.');
-    screenshots.push(await screenshot(client, `${shotPrefix}-06-lorecards-lore-active`));
+    screenshots.push(await screenshot(client, `${shotPrefix}-06b-lorecards-editor`));
     await clickButtonText(client, 'Close', { root: '#saga-mobile-lorecard-editor' }).catch(() => false);
     await waitFor(client, '!document.querySelector("#saga-mobile-lorecard-editor")', 'Mobile redesign Accepted editor closed', 10000).catch(error => findings.push(error.message));
 
@@ -5687,6 +5787,7 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
         approvedState,
         approvedTooltipState,
         approvedScrollState,
+        longPressCueState,
         approvedActiveState,
         generationState,
         generationTooltipState,
@@ -5739,6 +5840,56 @@ async function runTabletAdvancedHarnessSmoke(client, screenshots, findings, smok
     if (!shellState.hasOpenLibrary || !shellState.hasCreateDeck) findings.push('Tablet Advanced Loredecks drawer did not render the static Library and Creator actions.');
     if (!shellState.noHorizontalOverflow) findings.push(`Tablet Advanced shell has horizontal overflow (drawer ${shellState.drawerScrollWidth}/${shellState.drawerClientWidth}, body ${shellState.bodyScrollWidth}/${shellState.bodyClientWidth}).`);
     screenshots.push(await screenshot(client, 'tablet-advanced-harness-01-loredecks-desktop-shell'));
+
+    await clickRuntimeRoute(client, 'settings');
+    await waitFor(client, sagaActiveTabExpression('settings'), 'Tablet Advanced Settings route active', 10000);
+    await wait(500);
+    const settingsQolState = await evaluate(client, script(() => {
+        const drawer = document.querySelector('.saga-runtime-drawer');
+        const section = document.querySelector('.saga-settings-qol-section');
+        const card = section?.querySelector('.saga-settings-qol-card');
+        const row = card?.querySelector('.saga-settings-qol-item');
+        const slider = card?.querySelector('.saga-settings-switch-slider');
+        const text = card?.querySelector('.saga-settings-switch-text');
+        const label = card?.querySelector('.saga-settings-switch-label');
+        const rowRect = row?.getBoundingClientRect?.();
+        const sliderRect = slider?.getBoundingClientRect?.();
+        const textRect = text?.getBoundingClientRect?.();
+        const labelStyle = label ? getComputedStyle(label) : null;
+        const labelLineHeight = labelStyle ? Number.parseFloat(labelStyle.lineHeight) || 0 : 0;
+        const providerStatus = document.querySelector('.saga-provider-runtime-header > .saga-status-pill');
+        const providerStatusRect = providerStatus?.getBoundingClientRect?.();
+        const headers = [...document.querySelectorAll('.saga-section-header h3')].map(node => node.textContent?.trim() || '').filter(Boolean);
+        const bodyText = document.body?.innerText || '';
+        return {
+            activeTab: document.querySelector('.saga-runtime-rail-tab-active')?.getAttribute('data-tab-id') || '',
+            hasExperienceHelper: bodyText.includes('Choose how much of Saga is visible in the runtime window.'),
+            hasDropdown: !!section,
+            dropdownOpen: !!section?.open,
+            oldSectionHeader: headers.includes('Quality of Life'),
+            rowWidth: Math.round(rowRect?.width || 0),
+            textWidth: Math.round(textRect?.width || 0),
+            switchBeforeText: !!sliderRect && !!textRect && sliderRect.right <= textRect.left,
+            labelHeight: Math.round(label?.getBoundingClientRect?.().height || 0),
+            labelLineHeight: Math.round(labelLineHeight),
+            label: label?.textContent?.trim() || '',
+            providerStatusText: providerStatus?.textContent?.trim() || '',
+            providerStatusWidth: Math.round(providerStatusRect?.width || 0),
+            providerStatusClientWidth: providerStatus?.clientWidth || 0,
+            providerStatusScrollWidth: providerStatus?.scrollWidth || 0,
+            drawerOverflow: drawer ? drawer.scrollWidth > drawer.clientWidth + 2 : false,
+        };
+    }));
+    if (settingsQolState.hasExperienceHelper) findings.push('Tablet Advanced Settings still rendered the retired Experience Mode helper sentence.');
+    if (settingsQolState.activeTab !== 'settings' || !settingsQolState.hasDropdown || !settingsQolState.dropdownOpen || settingsQolState.oldSectionHeader) findings.push(`Tablet Advanced Settings Quality of Life did not render as an open dropdown (${JSON.stringify(settingsQolState)}).`);
+    if (!settingsQolState.switchBeforeText || settingsQolState.rowWidth < 300 || settingsQolState.textWidth < 220 || settingsQolState.labelHeight > Math.max(24, settingsQolState.labelLineHeight * 2.4) || settingsQolState.label !== 'Show Lorecard tags in the mobile Lore list') findings.push(`Tablet Advanced Settings Quality of Life toggle row collapsed or wrapped badly (${JSON.stringify(settingsQolState)}).`);
+    if (!settingsQolState.providerStatusText || settingsQolState.providerStatusScrollWidth > settingsQolState.providerStatusClientWidth + 1 || settingsQolState.providerStatusWidth < 44) findings.push(`Tablet Advanced provider status pill was clipped (${JSON.stringify(settingsQolState)}).`);
+    if (settingsQolState.drawerOverflow) findings.push('Tablet Advanced Settings Quality of Life route has horizontal overflow.');
+    screenshots.push(await screenshot(client, 'tablet-advanced-harness-01b-settings-qol'));
+
+    await clickRuntimeRoute(client, 'loredecks');
+    await waitFor(client, sagaActiveTabExpression('loredecks'), 'Tablet Advanced Loredecks route restored before Library', 10000);
+    await wait(400);
 
     const libraryClick = await clickVisibleButtonText(client, 'Open Loredeck Library', { root: '#saga-lore-panel', includes: true });
     const hydratedLibraryExpression = '!!document.querySelector(".saga-loredeck-library-overlay:not(.saga-loredeck-library-overlay-opening) .saga-loredeck-library-body:not(.saga-loredeck-library-body-opening)")';
@@ -6874,6 +7025,9 @@ async function runLiveLoreAutomationSmoke(client, screenshots, findings, smokeUr
                 autoRelevanceMinConfidence: 0.65,
             };
         };
+        const getRunTask = combo => ['full', 'curation'].includes(String(combo.task || '').toLowerCase())
+            ? String(combo.task).toLowerCase()
+            : 'full';
         const prepareState = scenario => {
             const state = clone(scenario.state || {});
             state.loreAutomationRuns = [];
@@ -7110,7 +7264,9 @@ async function runLiveLoreAutomationSmoke(client, screenshots, findings, smokeUr
                     let result = null;
                     let thrown = null;
                     try {
-                        result = await autoModule.runAutoRelevance({ force: true });
+                        result = await autoModule.runAutoRelevance(getRunTask(combo) === 'curation'
+                            ? { force: true, curationOnly: true }
+                            : { force: true });
                     } catch (error) {
                         thrown = { message: error?.message || String(error), stack: String(error?.stack || '').slice(0, 1200) };
                     }
@@ -7126,6 +7282,15 @@ async function runLiveLoreAutomationSmoke(client, screenshots, findings, smokeUr
                         || ['unavailable', 'failed_parse', 'model_failed'].includes(String(result?.providerStatus || ''));
                     if (thrown) browserFindings.push(`${scenario.id}/${combo.mode}:${combo.style}:${combo.routing} threw: ${thrown.message}`);
                     if (hardProviderStatus && combo.routing !== 'local') browserFindings.push(`${scenario.id}/${combo.mode}:${combo.style}:${combo.routing} provider path did not complete cleanly (${status || result?.modelStatus || result?.providerStatus}).`);
+                    if (getRunTask(combo) === 'curation' && settings.loreAutomationProviderRouting !== 'local' && providerDelta.length === 0) {
+                        browserFindings.push(`${scenario.id}/${combo.mode}:${combo.style}:${combo.routing}:curation completed without a provider call.`);
+                    }
+                    if (getRunTask(combo) === 'curation' && settings.loreAutomationMode === 'armpc' && scenarioProbe?.type === 'curation-gap' && Number(scenarioProbe.removedAcceptedCount || 0) > 0 && diff.counts.accepted < 1) {
+                        browserFindings.push(`${scenario.id}/${combo.mode}:${combo.style}:${combo.routing}:curation did not accept any active-deck cards after the curation-gap probe removed ${scenarioProbe.removedAcceptedCount}.`);
+                    }
+                    if (getRunTask(combo) === 'curation' && settings.loreAutomationMode === 'armpc' && scenarioProbe?.type === 'retirement-overload' && Number(diagnostics?.stackPressure?.staleCount || 0) > 0 && diff.counts.retired < 1) {
+                        browserFindings.push(`${scenario.id}/${combo.mode}:${combo.style}:${combo.routing}:curation did not retire any stale automation-owned cards from ${diagnostics.stackPressure.staleCount} stale candidates.`);
+                    }
                     const qualityNotes = [];
                     if (settings.loreAutomationMode === 'armpc' && Number(diagnostics?.preview?.newCount || 0) > 0 && diff.counts.accepted === 0) {
                         qualityNotes.push(`ARMPC saw ${diagnostics.preview.newCount} new active-deck preview candidates but accepted none.`);
@@ -7137,12 +7302,13 @@ async function runLiveLoreAutomationSmoke(client, screenshots, findings, smokeUr
                         qualityNotes.push('ARMP recorded no provider calls, usually because local remap candidates were empty.');
                     }
                     results.push({
-                        id: `${scenario.id}:${combo.label || `${combo.mode}-${combo.style}-${combo.routing}`}`,
+                        id: `${scenario.id}:${combo.label || `${combo.mode}-${combo.style}-${combo.routing}-${getRunTask(combo)}`}`,
                         scenario: { id: scenario.id, label: scenario.label },
                         combo: {
                             mode: settings.loreAutomationMode,
                             style: settings.loreAutomationStyle,
                             routing: settings.loreAutomationProviderRouting,
+                            task: getRunTask(combo),
                             label: combo.label || '',
                         },
                         durationMs,

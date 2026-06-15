@@ -192,6 +192,10 @@ const LORECARD_WORKSPACE_FILTERS = Object.freeze([
     ['muted', 'Muted'],
     ['conflicts', 'Conflicts'],
 ]);
+const LORECARD_WORKSPACE_SORTS = Object.freeze([
+    ['priority', 'P', 'Priority'],
+    ['alphabetical', 'A', 'Alphabetical'],
+]);
 const LORE_SOURCE_FILTER_OPTIONS = Object.freeze([
     ['all', 'Source: All'],
     ['canon-db', 'Canon Database'],
@@ -3414,6 +3418,17 @@ export function refreshAcceptedLoreRow(entryId) {
     if (!existing) return false;
     const state = getState();
     const basicReview = isBasicExperience();
+    if (existing.closest?.('.saga-lorecard-workspace-list')) {
+        const row = getFilteredLorecardWorkspaceRows(state).find(item => item.entry?.id === entryId || item.id === entryId);
+        if (!row) {
+            existing.remove();
+            scheduleAcceptedLoreLayoutUpdate();
+            return true;
+        }
+        existing.replaceWith(createLorecardWorkspaceRow(row, state, { basic: basicReview }));
+        scheduleAcceptedLoreLayoutUpdate();
+        return true;
+    }
     const lifecycleStage = getLorecardLifecycleStage(state);
     const baseEntries = basicReview ? getBasicAcceptedLoreEntries(state) : getFilteredLoreEntries(state);
     const entry = (lifecycleStage === 'active' ? baseEntries.filter(isActiveLorecardEntry) : baseEntries).find(item => item.id === entryId);
@@ -4016,7 +4031,7 @@ export function createEntryCard(entry, state, options = {}) {
     titleEl.className = 'saga-lore-entry-title';
     titleEl.textContent = entry.title || '(Untitled lore)';
     addTooltip(titleEl, mobileShell
-        ? 'Long-press this Accepted Lorecard to edit it.'
+        ? 'Tap this Accepted Lorecard to toggle active state. Long-press to edit it.'
         : (workspaceRow ? 'Select this Accepted Lorecard to review its details.' : 'Use Edit to open this Accepted Lorecard.'));
     titleWrap.appendChild(titleEl);
     headerRow.appendChild(titleWrap);
@@ -4084,7 +4099,7 @@ export function createEntryCard(entry, state, options = {}) {
         }));
     }
 
-    if (actions.children.length && !mobileShell) {
+    if (actions.children.length && (!mobileShell || workspaceRow)) {
         headerRow.appendChild(actions);
     }
     card.appendChild(headerRow);
@@ -4121,7 +4136,7 @@ export function createEntryCard(entry, state, options = {}) {
     factEl.className = 'saga-lore-entry-fact';
     factEl.textContent = truncateText(entry.fact || '', 140);
     addTooltip(factEl, mobileShell
-        ? 'Lore fact text. Long-press this Accepted Lorecard to edit the full entry.'
+        ? 'Lore fact text. Tap the card to toggle active state, or long-press to edit the full entry.'
         : (workspaceRow ? 'Lore fact text. Select this Lorecard to review its details.' : 'Lore fact text. Use Edit to review the full entry.'));
     card.appendChild(factEl);
 
@@ -4137,9 +4152,6 @@ export function createEntryCard(entry, state, options = {}) {
         card.addEventListener('click', (event) => {
             if (event.target?.closest?.(interactiveSelector)) return;
             if (press.consume()) return;
-            if (workspaceRow) {
-                return;
-            }
             const current = getState();
             const currentEntry = normalizeLoreMatrix(current?.loreMatrix || []).find(item => item?.id === entry.id) || entry;
             const updated = isActiveLorecardEntry(currentEntry)
@@ -4415,6 +4427,11 @@ function normalizeLorecardWorkspaceFilter(value = '') {
     return LORECARD_WORKSPACE_FILTERS.some(([key]) => key === filter) ? filter : 'all';
 }
 
+function normalizeLorecardWorkspaceSort(value = '') {
+    const sort = String(value || '').trim().toLowerCase();
+    return LORECARD_WORKSPACE_SORTS.some(([key]) => key === sort) ? sort : 'priority';
+}
+
 function getLorecardWorkspaceRows(state = getState()) {
     const pendingEntries = normalizeLoreMatrix(state?.pendingLoreEntries || []);
     const acceptedEntries = (getPanelLoreState(state).entries || []).filter(entry => !entry.isPending);
@@ -4479,26 +4496,28 @@ function rowMatchesLorecardWorkspaceFilter(row, filter = 'all') {
     return true;
 }
 
-function sortLorecardWorkspaceRows(a, b) {
-    const pendingScore = Number(!!b.isPending) - Number(!!a.isPending);
-    if (pendingScore) return pendingScore;
-    const activeScore = Number(!!b.isActive) - Number(!!a.isActive);
-    if (activeScore) return activeScore;
-    const pinnedScore = Number(!!b.isPinned) - Number(!!a.isPinned);
-    if (pinnedScore) return pinnedScore;
-    const conflictScore = Number(!!(b.hasConflict || b.hasDuplicate)) - Number(!!(a.hasConflict || a.hasDuplicate));
-    if (conflictScore) return conflictScore;
-    const updatedScore = Number(b.updatedAt || 0) - Number(a.updatedAt || 0);
-    if (updatedScore) return updatedScore;
+function getLorecardWorkspaceRowTitle(row = {}) {
+    return String(row.entry?.title || row.id || '').trim();
+}
+
+function sortLorecardWorkspaceRows(a, b, sortMode = 'priority') {
+    const titleScore = getLorecardWorkspaceRowTitle(a).localeCompare(getLorecardWorkspaceRowTitle(b));
     const priorityScore = Number(b.priority || 50) - Number(a.priority || 50);
+    if (normalizeLorecardWorkspaceSort(sortMode) === 'alphabetical') {
+        if (titleScore) return titleScore;
+        if (priorityScore) return priorityScore;
+        return String(a.id || '').localeCompare(String(b.id || ''));
+    }
     if (priorityScore) return priorityScore;
-    return String(a.entry?.title || '').localeCompare(String(b.entry?.title || ''));
+    if (titleScore) return titleScore;
+    return String(a.id || '').localeCompare(String(b.id || ''));
 }
 
 function getFilteredLorecardWorkspaceRows(state = getState()) {
     const rows = getLorecardWorkspaceRows(state);
     const panelState = state?.lorePanel || {};
     const filter = normalizeLorecardWorkspaceFilter(panelState.lorecardWorkspaceFilter || 'all');
+    const sort = normalizeLorecardWorkspaceSort(panelState.lorecardWorkspaceSort || 'priority');
     const query = String(panelState.search || '').trim().toLowerCase();
     const filtered = rows
         .filter(row => rowMatchesLorecardWorkspaceFilter(row, filter))
@@ -4508,7 +4527,7 @@ function getFilteredLorecardWorkspaceRows(state = getState()) {
             const score = scoreSearchEntry(b.entry, query) - scoreSearchEntry(a.entry, query);
             if (score) return score;
         }
-        return sortLorecardWorkspaceRows(a, b);
+        return sortLorecardWorkspaceRows(a, b, sort);
     });
 }
 
@@ -4517,6 +4536,14 @@ function setLorecardWorkspaceFilter(filter = 'all') {
         lorecardWorkspaceFilter: normalizeLorecardWorkspaceFilter(filter),
         acceptedLoreVisibleLimit: getAcceptedLoreInitialVisibleLimit(),
         pendingReviewVisibleLimit: 10,
+    }, { deferSave: true });
+    refreshPanelBody({ preserveScroll: true });
+}
+
+function setLorecardWorkspaceSort(sort = 'priority') {
+    setPanelState({
+        lorecardWorkspaceSort: normalizeLorecardWorkspaceSort(sort),
+        acceptedLoreVisibleLimit: getAcceptedLoreInitialVisibleLimit(),
     }, { deferSave: true });
     refreshPanelBody({ preserveScroll: true });
 }
@@ -4543,6 +4570,35 @@ function createLorecardWorkspaceFilterChip(filter, label, count, activeFilter) {
     return chip;
 }
 
+function createLorecardWorkspaceSortToggle(activeSort = 'priority') {
+    const normalized = normalizeLorecardWorkspaceSort(activeSort);
+    const wrap = document.createElement('div');
+    wrap.className = 'saga-lorecard-workspace-sort-toggle';
+    wrap.setAttribute('role', 'radiogroup');
+    wrap.setAttribute('aria-label', 'Sort Lorecards');
+
+    for (const [value, label, title] of LORECARD_WORKSPACE_SORTS) {
+        const active = value === normalized;
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'saga-lorecard-workspace-sort-option';
+        if (active) button.classList.add('saga-lorecard-workspace-sort-option-active');
+        button.dataset.lorecardWorkspaceSort = value;
+        button.setAttribute('role', 'radio');
+        button.setAttribute('aria-checked', active ? 'true' : 'false');
+        button.setAttribute('aria-label', `Sort Lorecards by ${title}`);
+        button.textContent = label;
+        addTooltip(button, `Sort by ${title}.`);
+        button.addEventListener('click', (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            setLorecardWorkspaceSort(value);
+        });
+        wrap.appendChild(button);
+    }
+    return wrap;
+}
+
 function createLorecardWorkspace(state = getState(), options = {}) {
     const basic = !!options.basic;
     const mobileShell = isRuntimeMobileShell();
@@ -4552,6 +4608,7 @@ function createLorecardWorkspace(state = getState(), options = {}) {
     const selectedCount = getAcceptedSelectionSet(state).size + getPendingReviewSelectedIds(state).size;
     const panelState = state?.lorePanel || {};
     const activeFilter = normalizeLorecardWorkspaceFilter(panelState.lorecardWorkspaceFilter || 'all');
+    const activeSort = normalizeLorecardWorkspaceSort(panelState.lorecardWorkspaceSort || 'priority');
     const tool = String(panelState.lorecardWorkspaceTool || '').trim();
 
     const workspace = document.createElement('div');
@@ -4599,6 +4656,7 @@ function createLorecardWorkspace(state = getState(), options = {}) {
         refreshPanelBody({ preserveScroll: true });
     });
     toolbar.appendChild(search);
+    toolbar.appendChild(createLorecardWorkspaceSortToggle(activeSort));
 
     if (!mobileShell) {
         const utilities = document.createElement('div');
@@ -5027,11 +5085,25 @@ function attachMobileLorecardLongPress(element, handler, options = {}) {
     let longPressStartX = 0;
     let longPressStartY = 0;
     const interactiveSelector = options.interactiveSelector || 'button, input, select, textarea, label, a';
+    const armedClass = options.armedClass || 'saga-mobile-lorecard-longpress-armed';
+    const commitClass = options.commitClass || 'saga-mobile-lorecard-longpress-commit';
+    const clearLongPressState = () => {
+        element.classList?.remove?.(armedClass);
+    };
+    const fireLongPress = (event) => {
+        longPressTimer = null;
+        longPressFired = true;
+        clearLongPressState();
+        element.classList?.add?.(commitClass);
+        setTimeout(() => element.classList?.remove?.(commitClass), 220);
+        handler?.(event);
+    };
     const clearLongPressTimer = () => {
         if (longPressTimer) {
             clearTimeout(longPressTimer);
             longPressTimer = null;
         }
+        clearLongPressState();
     };
     const isInteractiveTarget = event => !!event.target?.closest?.(interactiveSelector);
     element.addEventListener('pointerdown', (event) => {
@@ -5040,11 +5112,15 @@ function attachMobileLorecardLongPress(element, handler, options = {}) {
         longPressStartX = event.clientX || 0;
         longPressStartY = event.clientY || 0;
         clearLongPressTimer();
-        longPressTimer = setTimeout(() => {
-            longPressTimer = null;
-            longPressFired = true;
-            handler?.(event);
-        }, Number(options.delayMs) || 520);
+        const rect = element.getBoundingClientRect?.();
+        if (rect?.width && rect?.height) {
+            const pressX = Math.max(0, Math.min(100, ((longPressStartX - rect.left) / rect.width) * 100));
+            const pressY = Math.max(0, Math.min(100, ((longPressStartY - rect.top) / rect.height) * 100));
+            element.style?.setProperty?.('--saga-press-x', `${pressX}%`);
+            element.style?.setProperty?.('--saga-press-y', `${pressY}%`);
+        }
+        element.classList?.add?.(armedClass);
+        longPressTimer = setTimeout(() => fireLongPress(event), Number(options.delayMs) || 520);
     });
     element.addEventListener('pointermove', (event) => {
         if (!longPressTimer) return;
@@ -5059,8 +5135,7 @@ function attachMobileLorecardLongPress(element, handler, options = {}) {
         if (isInteractiveTarget(event)) return;
         event.preventDefault();
         clearLongPressTimer();
-        longPressFired = true;
-        handler?.(event);
+        fireLongPress(event);
     });
     return {
         consume() {

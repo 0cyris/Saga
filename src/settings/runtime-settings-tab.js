@@ -2,11 +2,9 @@ import { getSettings, getStateSafety, saveSettings } from '../state/state-manage
 import {
     addTooltip,
     createButton,
-    createSectionHeader,
 } from '../ui/runtime-ui-kit.js';
 import { isBasicExperience } from '../runtime/runtime-navigation.js';
 import { createExperienceModeSwitch } from '../runtime/runtime-shell-view.js';
-import { isRuntimeMobileShell } from '../runtime/runtime-shell.js';
 import { getActiveThemeColors, getThemePackLibrary, getThemePreset } from '../theme/runtime-theme.js';
 import {
     createBasicProviderQuickSetupCard,
@@ -49,25 +47,17 @@ export function renderSettingsTab(container, state) {
     const settings = getSettings();
     const basic = isBasicExperience(settings);
     container.appendChild(createExperienceModeSettingsCard(settings));
-    if (isRuntimeMobileShell()) {
-        container.appendChild(markTourTarget(createCollapsibleSection(
-            'settings.qualityOfLife',
-            'Quality of Life',
-            'Mobile list density',
-            true,
-            createQualityOfLifeSettingsCard(settings, { embedded: true }),
-            {
-                className: 'saga-settings-qol-section',
-                tooltip: 'Mobile readability and touch-safety preferences.',
-            }
-        ), 'settings.qualityOfLife'));
-    } else {
-        container.appendChild(createSectionHeader(
-            'Quality of Life',
-            'Mobile readability and touch-safety preferences.'
-        ));
-        container.appendChild(createQualityOfLifeSettingsCard(settings));
-    }
+    container.appendChild(markTourTarget(createCollapsibleSection(
+        'settings.qualityOfLife',
+        'Quality of Life',
+        'Display preferences',
+        true,
+        createQualityOfLifeSettingsCard(settings, { embedded: true }),
+        {
+            className: 'saga-settings-qol-section',
+            tooltip: 'Mobile readability and touch-safety preferences.',
+        }
+    ), 'settings.qualityOfLife'));
 
     if (basic) {
         container.appendChild(markTourTarget(createCollapsibleSection(
@@ -133,11 +123,6 @@ function createExperienceModeSettingsCard(settings = getSettings()) {
     addTooltip(title, 'Basic keeps the mobile nav focused. Advanced exposes every runtime workspace.');
     card.appendChild(title);
 
-    const help = document.createElement('div');
-    help.className = 'saga-runtime-help';
-    help.textContent = 'Choose how much of Saga is visible in the runtime window.';
-    card.appendChild(help);
-
     card.appendChild(createExperienceModeSwitch(settings, { tourTarget: 'settings.experienceMode' }));
     return card;
 }
@@ -176,7 +161,7 @@ function createQualityOfLifeSettingsCard(settings = getSettings(), options = {})
     text.appendChild(label);
     const help = document.createElement('span');
     help.className = 'saga-settings-switch-description';
-    help.textContent = 'Tags stay available in the editor; this only changes mobile list density.';
+    help.textContent = 'Tags stay available in the editor; this controls whether they appear in mobile Lore lists.';
     text.appendChild(help);
     toggle.appendChild(text);
     addTooltip(toggle, 'When off, mobile lists hide tags so cards stay shorter. Tags remain editable inside the long-press Lorecard editor.');

@@ -75,9 +75,13 @@ function getRuntimeGuideContextStack(state = getState()) {
     return getLoredeckStack(state).filter(item => item.enabled !== false);
 }
 
+function isLoredeckLibraryOverlayOpen() {
+    return typeof document !== 'undefined' && !!document.querySelector('.saga-loredeck-library-overlay');
+}
+
 function prepareOpenLoredeckLibrary() {
     dep('navigateRuntimeTab')('loredecks');
-    dep('openLoredeckLibraryWindow')();
+    if (!isLoredeckLibraryOverlayOpen()) dep('openLoredeckLibraryWindow')();
     return createGuidePrepareResult(true);
 }
 
@@ -85,7 +89,7 @@ function prepareOpenLoredeckDetails(step = {}) {
     dep('navigateRuntimeTab')('loredecks');
     const packId = getFirstRuntimeGuidePackId(step);
     if (!packId) {
-        dep('openLoredeckLibraryWindow')();
+        if (!isLoredeckLibraryOverlayOpen()) dep('openLoredeckLibraryWindow')();
         return createGuidePrepareResult(false, 'Loredeck Library is open, but no Loredeck is available to select yet.');
     }
     dep('openLoredeckLibraryDetails')(packId);

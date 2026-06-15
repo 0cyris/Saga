@@ -49,6 +49,20 @@ $env:SAGA_LIVE_LORE_AUTOMATION_TIMEOUT_MS='300000'
 node tools/scripts/smoke-live-st-cdp.mjs
 ```
 
+Recommended isolated curation pass:
+
+```powershell
+$env:SAGA_LIVE_LORE_AUTOMATION_SCENARIOS='curation-gap,retirement-overload'
+$env:SAGA_LIVE_LORE_AUTOMATION_MATRIX='armpc:balanced:reasoning:curation'
+$env:SAGA_LIVE_LORE_AUTOMATION_TIMEOUT_MS='300000'
+node tools/scripts/smoke-live-st-cdp.mjs
+```
+
+Matrix entries use `mode:style:routing` by default. A fourth field can set the task:
+
+- `full`: run the complete Lore Automation pass.
+- `curation`: run only the ARMPC curation path with `runAutoRelevance({ curationOnly: true })`.
+
 Scenario probes:
 
 - `tail`: latest Story2 message window with the real accepted stack.

@@ -129,6 +129,24 @@ function chatCompletion(content, finishReason = 'stop') {
 }
 
 {
+  const content = [
+    'Reasoning summary omitted.',
+    '{"operations":[{"id":"y6_guard_no_horcrux_term_before_memory_task","operation":"accept_from_active_decks","classification":"add_now","confidence":0.88,"reason":"Current mission constraint."}]}',
+    'A discarded diagnostic object: {"debug":true}',
+  ].join('\n');
+  const parsed = __autoRelevanceTestHooks.parseJsonObject(chatCompletion(content));
+  assert.equal(parsed.operations.length, 1);
+  assert.equal(parsed.operations[0].operation, 'accept_from_active_decks');
+}
+
+{
+  const content = '[{"id":"event_dumbledore_private_lessons","operation":"retire_from_accepted_stack","classification":"retire","confidence":0.95,"reason":"Stale automation-owned card."}]';
+  const parsed = __autoRelevanceTestHooks.parseJsonObject(chatCompletion(content));
+  assert.equal(parsed.operations.length, 1);
+  assert.equal(parsed.operations[0].operation, 'retire_from_accepted_stack');
+}
+
+{
   const failure = __autoRelevanceTestHooks.buildAutoRelevanceModelParseFailure();
   assert.equal(failure.status, 'failed_parse');
   assert.equal(failure.errorCode, LORE_PARSE_ERROR_CODES.JSON_INVALID);

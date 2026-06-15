@@ -807,6 +807,9 @@ export function migrateState(state) {
         state.lorePanel.loreTypeFilter = state.lorePanel.loreTypeFilter || defaultsPanel.loreTypeFilter || 'all';
         state.lorePanel.acceptedDeckFilter = state.lorePanel.acceptedDeckFilter || defaultsPanel.acceptedDeckFilter || 'all';
         state.lorePanel.acceptedContextFilter = state.lorePanel.acceptedContextFilter || defaultsPanel.acceptedContextFilter || 'all';
+        state.lorePanel.lorecardWorkspaceSort = ['priority', 'alphabetical'].includes(state.lorePanel.lorecardWorkspaceSort)
+            ? state.lorePanel.lorecardWorkspaceSort
+            : (defaultsPanel.lorecardWorkspaceSort || 'priority');
         state.lorePanel.selectedEntryId = state.lorePanel.selectedEntryId || '';
         state.lorePanel.selectedLoredeckId = String(state.lorePanel.selectedLoredeckId || defaultsPanel.selectedLoredeckId || '').trim();
         state.lorePanel.loredeckLibraryDetailsHeight = Number.isFinite(Number(state.lorePanel.loredeckLibraryDetailsHeight))

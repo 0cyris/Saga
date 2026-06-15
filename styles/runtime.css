@@ -517,19 +517,27 @@
 
 .saga-settings-qol-card {
     display: grid;
+    width: 100%;
+    min-width: 0;
     gap: 0;
+    box-sizing: border-box;
 }
 
 .saga-settings-qol-list {
     display: grid;
+    width: 100%;
     min-width: 0;
+    box-sizing: border-box;
 }
 
 .saga-settings-qol-item {
+    width: 100%;
+    min-width: 0;
     border: 0;
     border-radius: 0;
     background: transparent;
     padding: 8px 0;
+    box-sizing: border-box;
 }
 
 .saga-settings-qol-item + .saga-settings-qol-item {
@@ -538,6 +546,19 @@
 
 .saga-runtime-card.saga-settings-qol-card .saga-settings-qol-item {
     padding: 6px 0;
+}
+
+.saga-settings-qol-section {
+    width: 100%;
+}
+
+.saga-settings-qol-section > .saga-collapsible-content {
+    min-width: 0;
+}
+
+.saga-settings-qol-card .saga-settings-qol-item.saga-settings-switch-row {
+    grid-template-columns: 42px minmax(0, 1fr);
+    justify-self: stretch;
 }
 
 .saga-settings-switch-row {
@@ -635,10 +656,13 @@
 }
 
 .saga-settings-switch-text {
+    width: 100%;
     min-width: 0;
+    max-width: 72ch;
     display: flex;
     flex-direction: column;
     gap: 2px;
+    overflow-wrap: normal;
 }
 
 .saga-settings-switch-description {
@@ -670,7 +694,7 @@
     gap: 0;
 }
 
-.saga-runtime-mobile .saga-settings-qol-item {
+.saga-runtime-mobile .saga-settings-qol-card .saga-settings-qol-item.saga-settings-switch-row {
     grid-template-columns: 44px minmax(0, 1fr);
     align-items: flex-start;
     gap: 12px;

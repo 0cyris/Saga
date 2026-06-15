@@ -495,14 +495,67 @@ function stripJsonFences(text) {
     return (fence ? fence[1] : raw).trim();
 }
 
+function collectBalancedJsonFragments(text = '') {
+    const source = String(text || '');
+    const fragments = [];
+    for (let start = 0; start < source.length; start += 1) {
+        const first = source[start];
+        if (first !== '{' && first !== '[') continue;
+        const stack = [first === '{' ? '}' : ']'];
+        let inString = false;
+        let escaped = false;
+        for (let index = start + 1; index < source.length; index += 1) {
+            const char = source[index];
+            if (inString) {
+                if (escaped) {
+                    escaped = false;
+                } else if (char === '\\') {
+                    escaped = true;
+                } else if (char === '"') {
+                    inString = false;
+                }
+                continue;
+            }
+            if (char === '"') {
+                inString = true;
+                continue;
+            }
+            if (char === '{' || char === '[') {
+                stack.push(char === '{' ? '}' : ']');
+                continue;
+            }
+            if (char !== '}' && char !== ']') continue;
+            if (stack[stack.length - 1] !== char) break;
+            stack.pop();
+            if (!stack.length) {
+                fragments.push(source.slice(start, index + 1));
+                break;
+            }
+        }
+    }
+    return fragments;
+}
+
 function parseJsonObject(text) {
     const responseText = extractLoreResponseText(text);
     const cleaned = stripJsonFences(responseText).replace(/^\uFEFF/, '').trim();
-    try { return JSON.parse(cleaned); } catch (_) {}
-    const start = cleaned.indexOf('{');
-    const end = cleaned.lastIndexOf('}');
-    if (start >= 0 && end > start) {
-        try { return JSON.parse(cleaned.slice(start, end + 1)); } catch (_) {}
+    const variants = Array.from(new Set([
+        cleaned,
+        cleaned.replace(/[\u201c\u201d]/g, '"'),
+    ].filter(Boolean)));
+    for (const source of variants) {
+        try {
+            const parsed = JSON.parse(source);
+            if (Array.isArray(parsed)) return { operations: parsed };
+            if (parsed && typeof parsed === 'object') return parsed;
+        } catch (_) {}
+        for (const fragment of collectBalancedJsonFragments(source)) {
+            try {
+                const parsed = JSON.parse(fragment);
+                if (Array.isArray(parsed)) return { operations: parsed };
+                if (parsed && typeof parsed === 'object') return parsed;
+            } catch (_) {}
+        }
     }
     return null;
 }
@@ -1107,11 +1160,14 @@ async function adjudicateCurationWithModel(candidates, retireCandidates, state, 
     const acceptRaw = []
         .concat(Array.isArray(parsed.operations) ? parsed.operations.filter(item => item?.operation === 'accept_from_active_decks' || item?.classification === 'add_now') : [])
         .concat(Array.isArray(parsed.accept) ? parsed.accept : []);
+    const seenAcceptIds = new Set();
     for (const raw of acceptRaw) {
         const id = String(raw?.id || raw?.candidateId || '').replace(/^accepted:/, '').trim();
         const entry = candidateById.get(id);
         if (!entry) continue;
+        if (seenAcceptIds.has(id)) continue;
         if (raw.classification && String(raw.classification || '').trim() !== 'add_now') continue;
+        seenAcceptIds.add(id);
         selections.push({
             id,
             entry,
@@ -1124,11 +1180,14 @@ async function adjudicateCurationWithModel(candidates, retireCandidates, state, 
     const retireRaw = []
         .concat(Array.isArray(parsed.operations) ? parsed.operations.filter(item => item?.operation === 'retire_from_accepted_stack' || item?.classification === 'retire') : [])
         .concat(Array.isArray(parsed.retire) ? parsed.retire : []);
+    const seenRetireIds = new Set();
     for (const raw of retireRaw) {
         const id = String(raw?.id || '').trim();
         const item = retireById.get(id);
         if (!item) continue;
+        if (seenRetireIds.has(id)) continue;
         if (raw.classification && String(raw.classification || '').trim() !== 'retire') continue;
+        seenRetireIds.add(id);
         retireSelections.push({
             id,
             entry: item.entry,

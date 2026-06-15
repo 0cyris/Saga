@@ -31,7 +31,15 @@
 }
 
 .saga-provider-runtime-title-group {
+    flex: 1 1 auto;
     min-width: 0;
+}
+
+.saga-provider-runtime-header > .saga-status-pill,
+.saga-provider-preset-header > .saga-status-pill {
+    flex: 0 0 auto;
+    max-width: none;
+    white-space: nowrap;
 }
 
 .saga-provider-runtime-title-group h5 {
