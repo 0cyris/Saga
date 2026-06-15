@@ -4688,13 +4688,30 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
         const overlay = document.querySelector('#saga-mobile-lorecard-editor');
         const footer = overlay?.querySelector('.saga-mobile-lorecard-editor-footer');
         const header = overlay?.querySelector('.saga-mobile-lorecard-editor-header');
-        const footerLabels = [...footer?.querySelectorAll('button') || []].map(button => (button.innerText || button.textContent || '').trim()).filter(Boolean);
+        const footerButtons = [...footer?.querySelectorAll('button') || []].map(button => {
+            const rect = button.getBoundingClientRect();
+            return {
+                label: (button.innerText || button.textContent || '').trim(),
+                top: Math.round(rect.top * 10) / 10,
+                bottom: Math.round(rect.bottom * 10) / 10,
+                height: Math.round(rect.height * 10) / 10,
+            };
+        }).filter(button => button.label);
+        const footerLabels = footerButtons.map(button => button.label);
+        const saveRect = footerButtons.find(button => button.label === 'Save Entry');
+        const closeRect = footerButtons.find(button => button.label === 'Close');
+        const footerButtonsVerticallyAligned = !!saveRect && !!closeRect
+            && Math.abs(saveRect.top - closeRect.top) <= 1
+            && Math.abs(saveRect.bottom - closeRect.bottom) <= 1
+            && Math.abs(saveRect.height - closeRect.height) <= 1;
         const tagStack = overlay?.querySelector('.saga-mobile-lorecard-tags-chip-stack');
         const tagChips = [...tagStack?.querySelectorAll('.saga-mobile-lorecard-tags-chip') || []];
         return {
             open: !!overlay,
             hasFooter: !!footer,
             footerLabels,
+            footerButtons,
+            footerButtonsVerticallyAligned,
             headerCloseButtons: [...header?.querySelectorAll('button') || []].filter(button => /close/i.test((button.innerText || button.textContent || '').trim())).length,
             hasTagStack: !!tagStack,
             tagChipCount: tagChips.length,
@@ -4707,6 +4724,7 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
         };
     }));
     if (!editorState.open || !editorState.hasFooter || !editorState.footerLabels.includes('Save Entry') || !editorState.footerLabels.includes('Close')) findings.push('Mobile Advanced Lorecard editor did not put Save Entry and Close in the bottom footer.');
+    if (!editorState.footerButtonsVerticallyAligned) findings.push(`Mobile Advanced Lorecard editor Save Entry and Close footer buttons were vertically misaligned: ${JSON.stringify(editorState.footerButtons)}.`);
     if (editorState.headerCloseButtons > 0) findings.push('Mobile Advanced Lorecard editor still rendered Close in the header.');
     if (!editorState.hasTagStack || !editorState.hasTagAddRow || editorState.tagChipCount < 1 || editorState.tagRemoveCount !== editorState.tagChipCount || editorState.hasCommaTagsField) findings.push('Mobile Advanced Lorecard editor did not render mobile tag chips with remove controls and add row.');
     addMobileFontFindings(findings, await getMobileFontAuditState(client, {
@@ -5060,7 +5078,7 @@ async function runDesktopLorecardsHarnessSmoke(client, screenshots, findings, sm
     const interactionState = await evaluate(client, script(() => {
         const acceptedRow = document.querySelector('.saga-lorecard-workspace-row[data-lorecard-workspace-status="accepted"]');
         acceptedRow?.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
-        const elevateButton = document.querySelector('.saga-lorecard-detail-actions .saga-lorecard-elevate-toggle');
+        const elevateButton = acceptedRow?.querySelector('.saga-lorecard-row-elevate-toggle');
         elevateButton?.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
         const buttonLabels = [...document.querySelectorAll('.saga-lorecard-workspace button, .saga-lorecard-detail-card button, .saga-lore-active-set-section button')]
             .map(button => (button.innerText || button.textContent || '').trim())
@@ -5114,7 +5132,12 @@ async function runDesktopLorecardsHarnessSmoke(client, screenshots, findings, sm
         const rowFact = document.querySelector('.saga-lorecard-workspace-row .saga-lore-entry-fact');
         const detailTitle = document.querySelector('.saga-lorecard-detail-card .saga-runtime-card-title');
         const detailFact = document.querySelector('.saga-lorecard-detail-card .saga-lore-entry-full-fact');
-        const elevateToggle = document.querySelector('.saga-lorecard-detail-actions .saga-lorecard-elevate-toggle');
+        const elevateToggle = document.querySelector('.saga-lorecard-workspace-row .saga-lorecard-row-elevate-toggle.saga-lorecard-elevate-toggle-active')
+            || document.querySelector('.saga-lorecard-workspace-row .saga-lorecard-row-elevate-toggle');
+        const detailActions = document.querySelector('.saga-lorecard-detail-actions');
+        const detailActionLabels = [...(detailActions?.querySelectorAll('button') || [])]
+            .map(button => (button.innerText || button.textContent || '').trim())
+            .filter(Boolean);
         const elevatedRow = document.querySelector('.saga-lorecard-workspace-row.saga-lore-entry-elevated');
         const elevatedRowStyle = elevatedRow ? getComputedStyle(elevatedRow) : null;
         const activateToken = getComputedStyle(document.documentElement).getPropertyValue('--saga-activate').trim();
@@ -5157,6 +5180,11 @@ async function runDesktopLorecardsHarnessSmoke(client, screenshots, findings, sm
             activateToken,
             elevatedRowBorderColor: elevatedRowStyle?.borderColor || '',
             elevatedRowShadow: elevatedRowStyle?.boxShadow || '',
+            detailActionLabels,
+            detailRelevanceControlCount: document.querySelectorAll('.saga-lorecard-detail-actions .saga-lore-relevance-segmented').length,
+            detailMuteToggleCount: document.querySelectorAll('.saga-lorecard-detail-actions .saga-lorecard-mute-toggle').length,
+            detailElevateToggleCount: document.querySelectorAll('.saga-lorecard-detail-actions .saga-lorecard-elevate-toggle').length,
+            detailEditButtonCount: detailActionLabels.filter(label => /^edit$|^close edit$/i.test(label)).length,
             rowElevateToggleCount: document.querySelectorAll('.saga-lorecard-workspace-row .saga-lorecard-row-elevate-toggle').length,
             rowElevateToggleActiveCount: document.querySelectorAll('.saga-lorecard-workspace-row .saga-lorecard-row-elevate-toggle.saga-lorecard-elevate-toggle-active').length,
             workspaceRect,
@@ -5187,8 +5215,14 @@ async function runDesktopLorecardsHarnessSmoke(client, screenshots, findings, sm
     }
     if (layout.toolbarOverflow || layout.workspaceOverflow || layout.pageOverflow) findings.push('Desktop Lorecards workspace or toolbar still has horizontal overflow.');
     if (!layout.detailFitsWorkspace) findings.push('Desktop Lorecards detail pane overflows the workspace bounds.');
-    if (!interactionState.elevatedClicked) findings.push('Desktop Lorecards detail pane did not expose an Elevate button to click.');
-    if (!layout.elevateToggleLabel || !/remove elevation|elevated/i.test(layout.elevateToggleLabel) || !layout.elevateTogglePresent || !layout.elevateToggleActive || !layout.elevateToggleShadow || layout.elevateToggleShadow === 'none' || layout.rowElevateToggleCount < 1 || layout.rowElevateToggleActiveCount < 1) findings.push('Desktop Lorecards Elevate controls did not render active green treatment on detail and rows after Elevate was clicked.');
+    if (!interactionState.elevatedClicked) findings.push('Desktop Lorecards row did not expose an Elevate button to click.');
+    if (layout.detailRelevanceControlCount || layout.detailMuteToggleCount || layout.detailElevateToggleCount || layout.detailEditButtonCount !== 1 || layout.detailActionLabels.length !== 1) findings.push(`Desktop Lorecards detail inspector must be Edit-only, but rendered actions: ${JSON.stringify({
+        labels: layout.detailActionLabels,
+        relevance: layout.detailRelevanceControlCount,
+        mute: layout.detailMuteToggleCount,
+        elevate: layout.detailElevateToggleCount,
+    })}.`);
+    if (!layout.elevateToggleLabel || !/remove elevation|elevated/i.test(layout.elevateToggleLabel) || !layout.elevateTogglePresent || !layout.elevateToggleActive || !layout.elevateToggleShadow || layout.elevateToggleShadow === 'none' || layout.rowElevateToggleCount < 1 || layout.rowElevateToggleActiveCount < 1) findings.push('Desktop Lorecards row Elevate controls did not render active green treatment after Elevate was clicked.');
     if (!layout.activateToken || !layout.elevatedRowShadow || layout.elevatedRowBorderColor === 'rgb(215, 181, 109)') findings.push('Desktop Lorecards Elevated row did not consume the Activate Theme Pack glow token.');
     if (!layout.elevateToggleRect || layout.elevateToggleRect.height > 32 || layout.elevateToggleRect.width > 32) findings.push('Desktop Lorecards Elevate toggle did not render at the compact desktop control scale.');
     if (!layout.detailStacksBelowList && layout.bodyRect?.width < 920) findings.push('Desktop Lorecards narrow drawer did not stack the detail pane below the list.');
@@ -5774,6 +5808,31 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
     if (approvedScrollState.offenders.length) findings.push(`Mobile redesign Lore page still has nested list scroll styling: ${JSON.stringify(approvedScrollState.offenders)}`);
     screenshots.push(await screenshot(client, `${shotPrefix}-06-lorecards-lore-active`));
 
+    const relevanceTapState = await evaluate(client, script(async () => {
+        const cardSelector = '.saga-lore-entry-card[data-entry-id="smoke_long_title_lore"]';
+        const readButton = () => document.querySelector(`${cardSelector} .saga-mobile-lorecard-relevance-status`);
+        const readTier = () => readButton()?.getAttribute('data-saga-relevance') || '';
+        const sequence = [readTier()];
+        for (let index = 0; index < 3; index += 1) {
+            const button = readButton();
+            if (!button) break;
+            button.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
+            await new Promise(resolve => setTimeout(resolve, 260));
+            sequence.push(readTier());
+        }
+        return {
+            found: !!document.querySelector(cardSelector),
+            buttonFound: !!readButton(),
+            sequence,
+            finalMatchesInitial: sequence.length === 4 && sequence[0] === sequence[3],
+            uniqueTiers: [...new Set(sequence.filter(Boolean))],
+            editorOpened: !!document.querySelector('#saga-mobile-lorecard-editor, .saga-mobile-lorecard-editor-shell'),
+        };
+    }), { userGesture: true }).catch(error => ({ found: false, buttonFound: false, error: error?.message || String(error) }));
+    if (!relevanceTapState.found || !relevanceTapState.buttonFound || relevanceTapState.sequence?.length !== 4 || relevanceTapState.uniqueTiers?.length !== 3 || !relevanceTapState.finalMatchesInitial || relevanceTapState.editorOpened) {
+        findings.push(`Mobile redesign relevance tap control did not cycle Low/Normal/High cleanly: ${JSON.stringify(relevanceTapState)}.`);
+    }
+
     const longPressCueState = await evaluate(client, script(() => {
         const card = document.querySelector('.saga-lore-entry-card[data-entry-id="smoke_long_title_lore"]');
         if (!card) return { found: false };
@@ -5866,6 +5925,31 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
     }), { userGesture: true }).catch(() => false);
     if (!longCardLongPressed) findings.push('Mobile redesign Accepted long-title card did not accept long-press/context-menu edit.');
     await waitFor(client, 'document.querySelector("#saga-mobile-lorecard-editor")?.dataset?.sagaEditorReady === "true"', 'Mobile redesign Accepted card long-press editor ready', 10000).catch(error => findings.push(error.message));
+    const editorFooterState = await evaluate(client, script(() => {
+        const footer = document.querySelector('#saga-mobile-lorecard-editor .saga-mobile-lorecard-editor-footer');
+        const buttons = [...footer?.querySelectorAll('button') || []].map(button => {
+            const rect = button.getBoundingClientRect();
+            return {
+                label: (button.innerText || button.textContent || '').trim(),
+                top: Math.round(rect.top * 10) / 10,
+                bottom: Math.round(rect.bottom * 10) / 10,
+                height: Math.round(rect.height * 10) / 10,
+            };
+        }).filter(button => button.label);
+        const save = buttons.find(button => button.label === 'Save Entry');
+        const close = buttons.find(button => button.label === 'Close');
+        return {
+            found: !!footer,
+            buttons,
+            verticallyAligned: !!save && !!close
+                && Math.abs(save.top - close.top) <= 1
+                && Math.abs(save.bottom - close.bottom) <= 1
+                && Math.abs(save.height - close.height) <= 1,
+        };
+    }));
+    if (!editorFooterState.found || !editorFooterState.verticallyAligned) {
+        findings.push(`Mobile redesign Lorecard editor Save Entry and Close footer buttons were vertically misaligned: ${JSON.stringify(editorFooterState)}.`);
+    }
     const editorTagRemoveState = await evaluate(client, script(() => {
         const button = document.querySelector('.saga-mobile-lorecard-tags-remove');
         const style = button ? getComputedStyle(button) : null;
@@ -5974,9 +6058,11 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
         approvedState,
         approvedTooltipState,
         approvedScrollState,
+        relevanceTapState,
         longPressCueState,
         longCardDoubleTapState,
         approvedActiveState,
+        editorFooterState,
         editorLatencyState,
         generationState,
         generationTooltipState,

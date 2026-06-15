@@ -6,7 +6,7 @@ This plan resolves the current overlap between Active, Pin, Mute, relevance tier
 
 ```text
 Desktop/tablet: Relevance dots | Mute toggle | Elevate toggle
-Mobile: Relevance symbol | Mute toggle | gestures
+Mobile: Relevance tap-cycle symbol | Mute toggle | double-tap/long-press gestures
 ```
 
 The card should make three concepts visually and behaviorally distinct:
@@ -76,14 +76,18 @@ Every mobile Accepted Lorecard card should use the compact upper-right cluster:
 
 On mobile, the relevance symbol sits immediately to the left of the mic/mic-slash toggle. The green Elevate button is not required on the card face because mobile elevation is handled by double-tap.
 
-The mobile relevance symbol is display-first:
+The mobile relevance symbol is an explicit tap-cycle control:
 
 - Low shows 1 dot.
 - Normal shows 2 dots.
 - High shows 3 dots in triangle configuration.
 - Elevated shows the effective High 3-dot symbol plus the Elevated glow/status.
 
-The mobile relevance symbol can be tapped only if implementation needs a small explicit fallback. The primary mobile relevance control is horizontal dragging.
+Tapping the relevance symbol rotates the stored base tier in this order:
+
+Low -> Normal -> High -> Low
+
+The relevance symbol is a real button, not a hidden card-body gesture. It must stop propagation so it does not trigger double-tap Elevate or long-press Edit. Elevated cards still show effective High; relevance changes are blocked until Elevation is removed.
 
 The mobile Mute control remains explicit because Mute is a hard exclusion state and should not depend on hidden gestures.
 
@@ -98,8 +102,7 @@ Mobile cards use gestures to replace desktop button density. Gestures are mobile
 | Single tap | No action. |
 | Double tap | Toggle Elevate / Remove Elevation. |
 | Long press | Edit the Lorecard. |
-| Drag right | Immediately raise relevance one tier: Low -> Normal -> High. |
-| Drag left | Immediately lower relevance one tier: High -> Normal -> Low. |
+| Tap relevance symbol | Rotate relevance tier: Low -> Normal -> High -> Low. |
 
 Single tap intentionally does nothing. Mobile does not have room for tap-to-inspect on the card body, and accidental card taps should not mutate prompt behavior.
 
@@ -109,36 +112,24 @@ Double tap is the only card-body elevation gesture. It must show immediate feedb
 - Show a brief toast with undo where practical.
 - Do nothing if the double tap starts on the mic toggle or another explicit control.
 
-Horizontal relevance drags must be deliberate because Lorecards live inside scrollable lists. Drag behavior:
-
-- Horizontal travel should exceed roughly 70-80% of the card width before commit.
-- Vertical travel should remain below roughly 20-24px after the gesture is armed.
-- Horizontal intent should not arm until horizontal movement clearly exceeds vertical movement.
-- Commit immediately when the threshold is crossed. Do not wait for pointer release.
-- Apply only one tier step per drag gesture. Low cannot jump to High in one continuous drag.
-- Lock the gesture after the tier change until the pointer is released.
-- Snap back without changes if the threshold is not met.
-- Ignore swipes that start on the mic toggle, relevance symbol, editor controls, links, inputs, or any explicit button.
-- Show a live preview while dragging: next tier on right swipe, previous tier on left swipe.
-
-If a card is already Low, left swipe should preview and snap back without changing state. If a card is already High, right swipe should preview and snap back without changing state. Elevated cards display effective High; a left swipe may remove elevation and lower the effective tier one step to Normal, while a right swipe should snap back because the card is already at effective High.
+Mobile relevance tier changes must not use horizontal swipes. Swiping felt slower and less intuitive than an explicit control, and it competes with scroll ownership in long lists.
 
 ## Mobile Gesture Feedback
 
-Relevance drags should feel immediate and physical, not like a hidden setting changed silently.
+Relevance taps should feel immediate and physical, not like a hidden setting changed silently.
 
-When a drag right raises relevance:
+When tapping raises relevance:
 
 - The relevance symbol flashes the new tier.
 - Dot geometry should appear to power up.
-- A subtle green or warm sweep moves across the card from left to right.
+- A subtle green or warm pulse moves across the card.
 - A short `Low`, `Normal`, or `High` label can pop near the relevance symbol and fade quickly.
 
-When a drag left lowers relevance:
+When tapping wraps High back to Low:
 
 - The relevance symbol flashes the new tier.
 - Dot geometry should appear to power down.
-- A cooler dimming sweep moves across the card from right to left.
+- A cooler dimming pulse moves across the card.
 - A short `Low`, `Normal`, or `High` label can pop near the relevance symbol and fade quickly.
 
 Use animation as feedback, not decoration:
@@ -331,7 +322,7 @@ If an internal helper still uses those names during migration, it should not lea
 2. Add shared relevance helpers.
    - Read base relevance from the card.
    - Compute effective relevance from Elevated and Muted state.
-   - Apply one-step relevance changes through a helper that both desktop clicks and mobile drags can call.
+   - Apply one-step relevance changes through helpers that desktop clicks and mobile relevance-button taps can call.
 
 3. Update list filters and labels.
    - Replace `Pinned` filters/chips with `Elevated`.
@@ -371,20 +362,19 @@ If an internal helper still uses those names during migration, it should not lea
    - Single tap does nothing.
    - Double tap toggles Elevate / Remove Elevation.
    - Long press opens the Lorecard editor.
-   - Drag right raises relevance one tier.
-   - Drag left lowers relevance one tier.
+   - Tapping the relevance symbol cycles Low -> Normal -> High -> Low.
 
-3. Implement immediate drag commit:
-   - Arm horizontal drag only after horizontal movement clearly beats vertical movement.
-   - Commit as soon as the card crosses the long horizontal threshold.
-   - Apply only one tier change per drag.
-   - Lock the gesture after commit until pointer release.
-   - Prevent vertical scroll from committing relevance changes.
-   - Ignore drag starts on the mic toggle, relevance symbol, explicit controls, links, inputs, and buttons.
+3. Implement relevance tap handling:
+   - Use a real button for the mobile relevance symbol.
+   - Stop propagation so the relevance tap does not trigger card double-tap or long-press handlers.
+   - Apply exactly one tier change per tap.
+   - Do not use horizontal swipe, drag, or card-body movement to edit relevance.
+   - Keep vertical scroll ownership on the page.
+   - Block relevance edits while Elevated because Elevated temporarily owns the effective High tier.
 
 4. Implement mobile feedback animations:
-   - Power-up animation for drag-right relevance raises.
-   - Power-down animation for drag-left relevance lowers.
+   - Power-up animation when the tap raises relevance.
+   - Power-down animation when the tap wraps High back to Low.
    - Relevance-symbol flash and short tier label pop.
    - Reduced-motion fallback pulse.
    - Optional short haptic pulse where supported.
@@ -394,7 +384,7 @@ If an internal helper still uses those names during migration, it should not lea
 - Desktop/tablet must not rely on mobile gestures for core actions.
 - Mobile must not require the desktop green Elevate button on the card face.
 - Shared state helpers must not assume a specific visual control exists.
-- Mobile gesture code must call shared relevance/elevation helpers rather than duplicating state mutation.
+- Mobile tap and gesture code must call shared relevance/elevation helpers rather than duplicating state mutation.
 - Desktop control handlers must call the same shared helpers so tests cover one behavior contract.
 
 ## Verification
@@ -427,10 +417,9 @@ If an internal helper still uses those names during migration, it should not lea
 - Mobile single tap on a Lorecard body does not mutate state.
 - Mobile double tap toggles Elevate and Remove Elevation.
 - Mobile long press opens the Lorecard editor.
-- Mobile drag right raises relevance by one tier immediately when the deliberate horizontal threshold is crossed.
-- Mobile drag left lowers relevance by one tier immediately when the deliberate horizontal threshold is crossed.
-- Mobile drag gestures apply only one tier change until pointer release.
-- Mobile vertical scroll does not trigger relevance drags.
+- Mobile tapping the relevance symbol cycles Low -> Normal -> High -> Low, one tier per tap.
+- Mobile horizontal swipes do not change relevance.
+- Mobile vertical scroll does not trigger relevance changes.
 - Mobile relevance-symbol feedback fires on committed tier changes.
 - Mobile power-up and power-down card animations do not shift layout.
 - Mobile reduced-motion mode replaces sweep animations with a brief pulse.

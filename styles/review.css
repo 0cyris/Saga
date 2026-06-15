@@ -93,8 +93,9 @@
 
 .saga-lore-relevance-segment:hover,
 .saga-lore-relevance-segment:focus-visible {
-    background: var(--saga-button-hover, rgba(92, 23, 36, 0.48));
-    color: var(--saga-text, #f3f4f6);
+    background: var(--saga-surface-2, rgba(38, 42, 52, 0.72));
+    color: var(--saga-gold, var(--saga-text, #f3f4f6));
+    box-shadow: inset 0 0 0 1px var(--saga-border-soft, rgba(185, 139, 54, 0.18));
     outline: none;
 }
 
@@ -184,11 +185,20 @@
     box-sizing: border-box;
 }
 
+.saga-lorecard-mute-toggle {
+    --saga-lorecard-mic-live: var(--saga-gold, var(--saga-chip-source-fg, #d8b66d));
+    --saga-lorecard-mic-live-bg: var(--saga-gold-surface, var(--saga-chip-source-bg, rgba(216, 182, 109, 0.08)));
+    --saga-lorecard-mic-live-border: var(--saga-border-soft, var(--saga-chip-source-border, rgba(216, 182, 109, 0.24)));
+    --saga-lorecard-mic-muted: var(--saga-text-muted, var(--saga-chip-muted-fg, #b8ad98));
+    --saga-lorecard-mic-muted-bg: var(--saga-chip-muted-bg, rgba(174, 179, 189, 0.08));
+    --saga-lorecard-mic-muted-border: var(--saga-chip-muted-border, rgba(174, 179, 189, 0.22));
+}
+
 .saga-lorecard-mic-icon {
     position: relative;
     width: 14px;
     height: 16px;
-    color: currentColor;
+    color: inherit !important;
 }
 
 .saga-lorecard-mic-head,
@@ -203,7 +213,7 @@
     top: 1px;
     width: 6px;
     height: 9px;
-    border: 1.6px solid currentColor;
+    border: 1.6px solid currentColor !important;
     border-radius: 5px;
 }
 
@@ -212,7 +222,7 @@
     top: 10px;
     width: 2px;
     height: 5px;
-    background: currentColor;
+    background: currentColor !important;
     border-radius: 2px;
 }
 
@@ -224,7 +234,7 @@
     width: 10px;
     height: 2px;
     border-radius: 2px;
-    background: currentColor;
+    background: currentColor !important;
 }
 
 .saga-lorecard-mic-slash {
@@ -233,20 +243,22 @@
     width: 14px;
     height: 2px;
     border-radius: 2px;
-    background: currentColor;
+    background: currentColor !important;
     transform: rotate(-42deg);
     transform-origin: center;
     opacity: 0;
 }
 
 .saga-lorecard-mute-toggle-live {
-    color: var(--saga-chip-source-fg, #d8b66d) !important;
+    color: var(--saga-lorecard-mic-live) !important;
+    background: var(--saga-lorecard-mic-live-bg) !important;
+    border-color: var(--saga-lorecard-mic-live-border) !important;
 }
 
 .saga-lorecard-mute-toggle-muted {
-    color: var(--saga-chip-muted-fg, #b8ad98) !important;
-    background: var(--saga-chip-muted-bg, rgba(174, 179, 189, 0.08)) !important;
-    border-color: var(--saga-chip-muted-border, rgba(174, 179, 189, 0.22)) !important;
+    color: var(--saga-lorecard-mic-muted) !important;
+    background: var(--saga-lorecard-mic-muted-bg) !important;
+    border-color: var(--saga-lorecard-mic-muted-border) !important;
 }
 
 .saga-lorecard-mute-toggle-muted .saga-lorecard-mic-slash {
@@ -268,14 +280,33 @@
 }
 
 .saga-mobile-lorecard-relevance-status {
+    appearance: none;
     display: inline-grid;
     place-items: center;
     width: 28px;
     height: 28px;
+    min-width: 28px;
+    margin: 0;
+    padding: 0;
     border: 1px solid var(--saga-chip-neutral-border, rgba(209, 213, 219, 0.2));
     border-radius: 7px;
     color: var(--saga-chip-muted-fg, #b8ad98);
     background: var(--saga-chip-neutral-bg, rgba(24, 25, 31, 0.82));
+    cursor: pointer;
+    touch-action: manipulation;
+    box-sizing: border-box;
+}
+
+.saga-mobile-lorecard-relevance-status:hover,
+.saga-mobile-lorecard-relevance-status:focus-visible {
+    border-color: var(--saga-border-soft, rgba(185, 139, 54, 0.18));
+    box-shadow: inset 0 0 0 1px var(--saga-border-soft, rgba(185, 139, 54, 0.18));
+    outline: none;
+}
+
+.saga-mobile-lorecard-relevance-status[aria-disabled="true"] {
+    cursor: default;
+    opacity: 0.88;
 }
 
 .saga-mobile-lorecard-relevance-status[data-saga-relevance="high"] {
@@ -748,7 +779,7 @@
     background:
         radial-gradient(circle at 16px 50%, color-mix(in srgb, var(--saga-activate, #6bff59) 34%, #ffffff) 0%, transparent 38%),
         radial-gradient(circle at 16px 50%, var(--saga-activate-surface, rgba(107, 255, 89, 0.18)) 0%, transparent 70%),
-        color-mix(in srgb, var(--saga-activate, #6bff59) 10%, rgba(12, 30, 21, 0.86)) !important;
+        color-mix(in srgb, var(--saga-surface-2, rgba(38, 42, 52, 0.72)) 88%, var(--saga-activate, #6bff59)) !important;
     color: color-mix(in srgb, var(--saga-activate, #6bff59) 38%, #ffffff) !important;
     box-shadow:
         0 0 0 1px color-mix(in srgb, var(--saga-activate, #6bff59) 26%, transparent) inset,
@@ -772,10 +803,10 @@
 }
 
 .saga-lorecard-active-toggle-inactive {
-    border-color: rgba(185, 139, 54, 0.28) !important;
+    border-color: var(--saga-border-soft, rgba(185, 139, 54, 0.28)) !important;
     background:
-        radial-gradient(circle at 16px 50%, rgba(241, 234, 216, 0.08), transparent 48%),
-        rgba(16, 16, 18, 0.86) !important;
+        radial-gradient(circle at 16px 50%, color-mix(in srgb, var(--saga-text, #f1ead8) 10%, transparent), transparent 48%),
+        var(--saga-surface-2, rgba(38, 42, 52, 0.72)) !important;
 }
 
 .saga-lorecard-active-toggle-inactive::before {
@@ -825,7 +856,7 @@
     background:
         radial-gradient(circle at 50% 42%, color-mix(in srgb, var(--saga-activate, #6bff59) 38%, #ffffff) 0%, transparent 44%),
         radial-gradient(circle at 50% 50%, var(--saga-activate-surface, rgba(107, 255, 89, 0.18)) 0%, transparent 74%),
-        color-mix(in srgb, var(--saga-activate, #6bff59) 12%, rgba(12, 30, 21, 0.92)) !important;
+        color-mix(in srgb, var(--saga-surface-2, rgba(38, 42, 52, 0.72)) 86%, var(--saga-activate, #6bff59)) !important;
     box-shadow:
         0 0 0 1px color-mix(in srgb, var(--saga-activate, #6bff59) 28%, transparent) inset,
         0 0 7px var(--saga-activate-glow, rgba(107, 255, 89, 0.48)),
@@ -833,10 +864,10 @@
 }
 
 .saga-lorecard-active-toggle-button.saga-lorecard-active-toggle-inactive {
-    border-color: rgba(185, 139, 54, 0.22) !important;
+    border-color: var(--saga-border-soft, rgba(185, 139, 54, 0.22)) !important;
     background:
-        radial-gradient(circle at 50% 38%, rgba(241, 234, 216, 0.08), transparent 48%),
-        rgba(16, 16, 18, 0.86) !important;
+        radial-gradient(circle at 50% 38%, color-mix(in srgb, var(--saga-text, #f1ead8) 10%, transparent), transparent 48%),
+        var(--saga-surface-2, rgba(38, 42, 52, 0.72)) !important;
 }
 
 .saga-lorecard-active-toggle-button.saga-lorecard-active-toggle-inactive::before {
@@ -3073,6 +3104,9 @@
 
 .saga-mobile-lorecard-editor-action-slot {
     min-width: 0;
+    display: flex;
+    align-items: stretch;
+    align-self: stretch;
 }
 
 .saga-mobile-lorecard-entry-editor .saga-lore-editor-field,
@@ -3178,6 +3212,7 @@
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(92px, 0.42fr);
     gap: 7px;
+    align-items: stretch;
     padding: 8px 10px calc(8px + var(--saga-mobile-safe-area-bottom, 0px));
     border-top: 1px solid var(--saga-border-soft, rgba(185, 139, 54, 0.22));
     background:
@@ -3188,13 +3223,25 @@
 }
 
 .saga-mobile-lorecard-editor-footer .saga-primary-actions {
+    flex: 1 1 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: stretch;
+    gap: 0;
     margin: 0;
     min-width: 0;
 }
 
 .saga-mobile-lorecard-editor-footer .saga-runtime-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    align-self: stretch;
     width: 100%;
-    min-height: 40px;
+    height: 100%;
+    min-height: 42px;
+    margin: 0 !important;
+    box-sizing: border-box;
 }
 
 .saga-mobile-lorecard-editor-body .saga-lore-meta-select-wrap,

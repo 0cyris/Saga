@@ -4114,14 +4114,27 @@ function createLorecardElevateToggleButton(entry = {}, options = {}) {
 function createMobileLorecardStatusControls(entry = {}) {
     const controls = document.createElement('div');
     controls.className = 'saga-mobile-lorecard-status-controls';
-    const relevance = document.createElement('span');
+    const currentTier = getLifecycleStatus(entry);
+    const elevated = isElevatedLorecardEntry(entry);
+    const nextTier = getNextRelevanceTier(currentTier);
+    const relevance = document.createElement('button');
+    relevance.type = 'button';
     relevance.className = 'saga-mobile-lorecard-relevance-status';
-    relevance.dataset.sagaRelevance = getLifecycleStatus(entry);
-    relevance.setAttribute('aria-label', `${LORE_RELEVANCE_LABELS[getLifecycleStatus(entry)] || 'Normal'} relevance`);
-    addTooltip(relevance, isElevatedLorecardEntry(entry)
-        ? 'Elevated: temporarily forced to High relevance.'
-        : `${LORE_RELEVANCE_LABELS[getLifecycleStatus(entry)] || 'Normal'} relevance.`);
-    relevance.appendChild(createRelevanceDotIcon(getLifecycleStatus(entry)));
+    relevance.dataset.sagaRelevance = currentTier;
+    relevance.setAttribute('aria-label', elevated
+        ? 'Elevated: effective High relevance. Remove Elevation before changing relevance.'
+        : `${LORE_RELEVANCE_LABELS[currentTier] || 'Normal'} relevance. Tap to change to ${LORE_RELEVANCE_LABELS[nextTier] || nextTier}.`);
+    relevance.setAttribute('aria-disabled', elevated ? 'true' : 'false');
+    addTooltip(relevance, elevated
+        ? 'Elevated temporarily forces High relevance. Remove Elevation before changing relevance.'
+        : `${LORE_RELEVANCE_LABELS[currentTier] || 'Normal'} relevance. Tap to cycle to ${LORE_RELEVANCE_LABELS[nextTier] || nextTier}.`);
+    relevance.appendChild(createRelevanceDotIcon(currentTier));
+    relevance.addEventListener('click', event => {
+        event.preventDefault();
+        event.stopPropagation();
+        if (elevated) return;
+        cycleLorecardRelevanceByTap(entry.id, relevance);
+    });
     controls.appendChild(relevance);
     controls.appendChild(createLorecardMuteToggleButton(entry, { className: 'saga-mobile-lorecard-mute-toggle' }));
     return controls;
@@ -4176,7 +4189,7 @@ export function createEntryCard(entry, state, options = {}) {
     titleEl.className = 'saga-lore-entry-title';
     titleEl.textContent = entry.title || '(Untitled lore)';
     addTooltip(titleEl, mobileShell
-        ? 'Double-tap this Accepted Lorecard to toggle Elevation. Long-press to edit it. Swipe horizontally to adjust relevance.'
+        ? 'Double-tap this Accepted Lorecard to toggle Elevation. Long-press to edit it. Tap the relevance dots to change tier.'
         : (workspaceRow ? 'Select this Accepted Lorecard to review its details.' : 'Use Edit to open this Accepted Lorecard.'));
     titleWrap.appendChild(titleEl);
     headerRow.appendChild(titleWrap);
@@ -4252,7 +4265,7 @@ export function createEntryCard(entry, state, options = {}) {
     factEl.className = 'saga-lore-entry-fact';
     factEl.textContent = truncateText(entry.fact || '', 140);
     addTooltip(factEl, mobileShell
-        ? 'Lore fact text. Double-tap the card to toggle Elevation, swipe horizontally to adjust relevance, or long-press to edit.'
+        ? 'Lore fact text. Double-tap the card to toggle Elevation, tap the relevance dots to change tier, or long-press to edit.'
         : (workspaceRow ? 'Lore fact text. Select this Lorecard to review its details.' : 'Lore fact text. Use Edit to review the full entry.'));
     card.appendChild(factEl);
 
@@ -4966,23 +4979,6 @@ function createAcceptedLorecardWorkspaceDetail(entry = {}, options = {}) {
 
     const actions = document.createElement('div');
     actions.className = 'saga-primary-actions saga-lorecard-detail-actions';
-    actions.appendChild(createEditableRelevanceControl(entry));
-    actions.appendChild(createLorecardMuteToggleButton(entry, {
-        className: 'saga-lorecard-detail-mute-toggle',
-        onChange: () => {
-            refreshPanelBody({ preserveScroll: true });
-            refreshHeader();
-            refreshLoreWorkbench();
-        },
-    }));
-    actions.appendChild(createLorecardElevateToggleButton(entry, {
-        className: 'saga-lorecard-detail-elevate-toggle',
-        onChange: () => {
-            refreshPanelBody({ preserveScroll: true });
-            refreshHeader();
-            refreshLoreWorkbench();
-        },
-    }));
     const editActive = String(getState()?.lorePanel?.lorecardWorkspaceEditId || '') === String(entry.id || '');
     actions.appendChild(createButton(editActive ? 'Close Edit' : 'Edit', editActive ? 'Close edit mode.' : 'Edit this Lorecard.', () => {
         setPanelState({ lorecardWorkspaceEditId: editActive ? '' : entry.id }, { deferSave: true });
@@ -5184,14 +5180,13 @@ function makeActiveSetItemMobileEditable(item, entryId = '') {
     return item;
 }
 
-function getAdjacentRelevanceTier(tier = 'normal', direction = 0) {
+function getNextRelevanceTier(tier = 'normal') {
     const index = RELEVANCE_SEGMENT_ORDER.indexOf(normalizeLoreRelevance(tier));
     const safeIndex = index >= 0 ? index : RELEVANCE_SEGMENT_ORDER.indexOf('normal');
-    const nextIndex = Math.max(0, Math.min(RELEVANCE_SEGMENT_ORDER.length - 1, safeIndex + Math.sign(direction)));
-    return RELEVANCE_SEGMENT_ORDER[nextIndex] || 'normal';
+    return RELEVANCE_SEGMENT_ORDER[(safeIndex + 1) % RELEVANCE_SEGMENT_ORDER.length] || 'normal';
 }
 
-function playMobileLorecardGestureFeedback(card, direction = 0, tier = 'normal') {
+function playMobileLorecardRelevanceFeedback(card, direction = 0, tier = 'normal') {
     if (!card) return;
     const raised = direction > 0;
     const normalizedTier = normalizeLoreRelevance(tier);
@@ -5212,19 +5207,16 @@ function playMobileLorecardGestureFeedback(card, direction = 0, tier = 'normal')
     }, 520);
 }
 
-function adjustLorecardRelevanceByGesture(entryId = '', direction = 0, card = null) {
+function cycleLorecardRelevanceByTap(entryId = '', source = null) {
     const id = String(entryId || '').trim();
-    if (!id || !direction) return false;
+    if (!id) return false;
     const state = getState();
     const currentEntry = normalizeLoreMatrix(state?.loreMatrix || []).find(entry => entry.id === id);
     if (!currentEntry) return false;
-    const currentTier = isLoreEntryElevated(state, id) ? 'high' : getBaseLorecardRelevance(currentEntry);
-    const nextTier = getAdjacentRelevanceTier(currentTier, direction);
+    if (isLoreEntryElevated(state, id)) return false;
+    const currentTier = getBaseLorecardRelevance(currentEntry);
+    const nextTier = getNextRelevanceTier(currentTier);
     if (nextTier === currentTier) return false;
-
-    if (isLoreEntryElevated(state, id)) {
-        toggleElevateEntry(id, { elevated: false, deferSave: true });
-    }
     const updated = updateLoreEntryById(id, raw => ({
         ...raw,
         relevance: nextTier,
@@ -5233,7 +5225,7 @@ function adjustLorecardRelevanceByGesture(entryId = '', direction = 0, card = nu
             status: '',
             computedStatus: '',
             manualOverride: false,
-            reason: `Relevance changed to ${nextTier} by mobile gesture.`,
+            reason: `Relevance changed to ${nextTier} by mobile tap.`,
             lastEvaluatedAt: Date.now(),
         },
         extensions: {
@@ -5242,18 +5234,20 @@ function adjustLorecardRelevanceByGesture(entryId = '', direction = 0, card = nu
                 ...(raw.extensions?.autoRelevance || {}),
                 mode: 'manual',
                 confidence: 1,
-                reason: `User set relevance to ${nextTier} by mobile gesture.`,
+                reason: `User set relevance to ${nextTier} by mobile tap.`,
                 updatedAt: Date.now(),
             },
         },
     }), {
         deferSave: true,
         timelineType: 'relevance',
-        timelineSummary: `Set Lorecard relevance to ${nextTier} by mobile gesture.`,
+        timelineSummary: `Set Lorecard relevance to ${nextTier} by mobile tap.`,
         loreAutomationDisableReason: LORE_AUTOMATION_MANUAL_DISABLE_REASONS.relevance,
     });
     if (!updated) return false;
-    playMobileLorecardGestureFeedback(card, direction, nextTier);
+    const direction = RELEVANCE_SEGMENT_ORDER.indexOf(nextTier) > RELEVANCE_SEGMENT_ORDER.indexOf(currentTier) ? 1 : -1;
+    const card = source?.closest?.('.saga-lore-entry-card') || source;
+    playMobileLorecardRelevanceFeedback(card, direction, nextTier);
     setTimeout(() => refreshAcceptedLoreSurfaces(id), 180);
     return true;
 }
@@ -5325,7 +5319,6 @@ function attachMobileLorecardGestures(element, entryId = '', options = {}) {
         longPressTimer = setTimeout(() => {
             commitLongPress();
         }, Number(options.longPressMs) || 560);
-        try { element.setPointerCapture?.(event.pointerId); } catch (_) {}
     });
 
     element.addEventListener('pointermove', (event) => {
@@ -5341,14 +5334,6 @@ function attachMobileLorecardGestures(element, entryId = '', options = {}) {
             return;
         }
         if (absX > 10 || absY > 10) clearLongPress();
-        const rect = element.getBoundingClientRect?.();
-        const threshold = Math.max(130, Math.min((rect?.width || 0) * 0.72 || 180, 280));
-        if (absX >= threshold && absX > absY * 1.35) {
-            committed = true;
-            clearLongPress();
-            event.preventDefault?.();
-            adjustLorecardRelevanceByGesture(entryId, deltaX > 0 ? 1 : -1, element);
-        }
     });
 
     element.addEventListener('pointerup', (event) => {
