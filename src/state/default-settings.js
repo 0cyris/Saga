@@ -174,7 +174,7 @@ export const DEFAULT_SETTINGS = {
     autoMuteExpiredLore: false,
     includeCanonOverdueLore: false,
     autoRelevanceEnabled: false,
-    autoRelevanceMode: 'suggest', // 'suggest' | 'apply_high_confidence' (legacy 'off' is normalized to disabled settings)
+    autoRelevanceMode: 'apply_high_confidence', // Legacy 'suggest' is normalized to direct high-confidence action.
     autoRelevanceEveryTurns: 5,
     autoRelevanceRecentMessages: 20,
     autoRelevanceCandidateCap: 40,
@@ -193,8 +193,10 @@ export const DEFAULT_SETTINGS = {
     loreAutomationStyle: 'balanced', // 'careful' | 'balanced' | 'aggressive'
     loreAutomationPaused: false,
     loreAutomationProviderRouting: 'auto', // 'auto' | 'utility' | 'reasoning' | 'local'
-    loreAutomationRemapEveryTurns: 5,
-    loreAutomationCurationEveryTurns: 10,
+    loreAutomationCadenceMode: 'auto',
+    loreAutomationPacing: 'normal', // 'responsive' | 'normal' | 'relaxed'
+    loreAutomationRemapWordBudget: 900,
+    loreAutomationCurationWordBudget: 1800,
     loreAutomationRunJournalLimit: 20,
     loreAutomationLevelsMigrated20260615: true,
 

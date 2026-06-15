@@ -3,4 +3,4 @@
  */
 
 export const MODULE_KEY = 'saga';
-export const SCHEMA_VERSION = 25;
+export const SCHEMA_VERSION = 26;

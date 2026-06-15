@@ -3,9 +3,8 @@
  * Local high-performance Auto-Relevance pass for accepted lore entries.
  *
  * The pass is deliberately local-first: every accepted entry is scored without an
- * LLM call, then only high-signal promotion and demotion candidates are changed
- * or proposed. Suggest mode never mutates loreMatrix; it stores reviewable
- * suggestions under state.autoRelevanceSuggestions.
+ * LLM call, then only high-signal promotion and demotion candidates are changed.
+ * Higher automation levels add validated pin/mute/remap and curation operations.
  */
 
 import { getSettings, getState, saveState } from '../state/state-manager.js';
@@ -27,12 +26,9 @@ import {
 } from '../providers/lore-response-normalizer.js';
 import { captureLoreTimelineState, getLoreTimelineEvents, recordLoreTimelineEvent } from '../lorecards/lore-timeline.js';
 import {
-    addCanonLorePreviewEntriesToPending,
     previewCanonLoreForContext,
 } from './canon-lore-db.js';
 
-let remapTurnCounter = 0;
-let curationTurnCounter = 0;
 let autoRelevanceRunning = false;
 
 const LORE_AUTOMATION_MODE_RANK = Object.freeze({ off: 0, ar: 1, armp: 2, armpc: 3 });
@@ -45,7 +41,10 @@ const LORE_AUTOMATION_STYLE_THRESHOLDS = Object.freeze({
         unmuteScore: 86,
         remapCap: 4,
         curationCap: 1,
-        directCuration: false,
+        retirementCap: 1,
+        targetMin: 2,
+        targetMax: 6,
+        stalePasses: 2,
     },
     balanced: {
         relevanceThreshold: 0.72,
@@ -55,7 +54,10 @@ const LORE_AUTOMATION_STYLE_THRESHOLDS = Object.freeze({
         unmuteScore: 80,
         remapCap: 8,
         curationCap: 2,
-        directCuration: true,
+        retirementCap: 1,
+        targetMin: 3,
+        targetMax: 9,
+        stalePasses: 1,
     },
     aggressive: {
         relevanceThreshold: 0.62,
@@ -65,9 +67,19 @@ const LORE_AUTOMATION_STYLE_THRESHOLDS = Object.freeze({
         unmuteScore: 72,
         remapCap: 12,
         curationCap: 4,
-        directCuration: true,
+        retirementCap: 3,
+        targetMin: 4,
+        targetMax: 14,
+        stalePasses: 1,
     },
 });
+
+const LORE_AUTOMATION_CURATION_PACKET_CAP = 64;
+const LORE_AUTOMATION_COVERAGE_STOP_WORDS = new Set([
+    'about', 'after', 'again', 'before', 'being', 'from', 'have', 'into', 'near', 'needs',
+    'next', 'scene', 'that', 'their', 'them', 'then', 'there', 'they', 'this', 'with',
+]);
+const LORE_AUTOMATION_BLOCKED_CURATION_STATUSES = new Set(['needs_context', 'unavailable', 'failed_parse', 'model_failed']);
 
 function supportsLoreAutomationMode(actual = 'off', required = 'ar') {
     return (LORE_AUTOMATION_MODE_RANK[normalizeLoreAutomationMode(actual)] || 0) >= (LORE_AUTOMATION_MODE_RANK[normalizeLoreAutomationMode(required)] || 0);
@@ -87,8 +99,6 @@ function getLoreAutomationStyleProfile(settings = {}) {
 
 function getLoreAutomationActionMode(settings = {}, mode = 'ar') {
     if (normalizeLoreAutomationMode(mode) === 'off') return 'off';
-    const profile = getLoreAutomationStyleProfile(settings);
-    if (profile.style === 'careful') return 'suggest';
     return 'apply_high_confidence';
 }
 
@@ -143,6 +153,342 @@ function recordLoreAutomationRun(state, run, settings = getSettings()) {
     return compact;
 }
 
+function cleanAutomationText(value = '', limit = 400) {
+    return String(value || '').trim().slice(0, limit);
+}
+
+function countWords(text = '') {
+    return (String(text || '').match(/\b[\p{L}\p{N}][\p{L}\p{N}'-]*\b/gu) || []).length;
+}
+
+function getChatMessages() {
+    try {
+        const ctx = globalThis.SillyTavern?.getContext?.();
+        return Array.isArray(ctx?.chat) ? ctx.chat : [];
+    } catch (_) {
+        return [];
+    }
+}
+
+function getMessageStableId(message = {}, index = 0) {
+    return cleanAutomationText(message?.extra?.gen_id || message?.send_date || message?.id || `${index}:${String(message?.mes || message?.content || '').slice(0, 60)}`, 120);
+}
+
+function getTotalStoryWordCount() {
+    return getChatMessages().reduce((total, message) => {
+        const body = typeof message?.mes === 'string' ? message.mes : typeof message?.content === 'string' ? message.content : '';
+        return total + countWords(body);
+    }, 0);
+}
+
+function getLatestMessageId() {
+    const chat = getChatMessages();
+    return chat.length ? getMessageStableId(chat[chat.length - 1], chat.length - 1) : '';
+}
+
+function stableStringify(value) {
+    if (value === null || value === undefined) return '';
+    if (Array.isArray(value)) return `[${value.map(stableStringify).join(',')}]`;
+    if (typeof value === 'object') {
+        return `{${Object.keys(value).sort().map(key => `${JSON.stringify(key)}:${stableStringify(value[key])}`).join(',')}}`;
+    }
+    return JSON.stringify(value);
+}
+
+function stableHash(value) {
+    const text = stableStringify(value);
+    let hash = 2166136261;
+    for (let i = 0; i < text.length; i += 1) {
+        hash ^= text.charCodeAt(i);
+        hash = Math.imul(hash, 16777619);
+    }
+    return (hash >>> 0).toString(36);
+}
+
+function normalizeStringArray(values = [], limit = 24) {
+    return (Array.isArray(values) ? values : [values])
+        .map(value => cleanAutomationText(value, 120))
+        .filter(Boolean)
+        .slice(0, limit)
+        .sort((a, b) => a.localeCompare(b));
+}
+
+function buildContextAutomationHash(state = {}) {
+    return stableHash({
+        sceneDate: state?.loreContext?.sceneDate || state?.canon?.inUniverseDate || '',
+        canonBoundary: state?.loreContext?.canonBoundary || state?.canon?.canonBoundary || '',
+        branchId: state?.loreContext?.branchId || state?.branchId || 'main',
+        location: state?.scene?.location || '',
+        currentActivity: state?.scene?.currentActivity || '',
+        presentCharacters: normalizeStringArray(state?.scene?.presentCharacters || []),
+        nearbyCharacters: normalizeStringArray(state?.scene?.nearbyCharacters || []),
+    });
+}
+
+function buildDeckStackAutomationHash(state = {}) {
+    const stack = Array.isArray(state?.loredeckStack) ? state.loredeckStack : [];
+    return stableHash(stack.map(item => ({
+        id: item?.packId || item?.deckId || item?.id || '',
+        enabled: item?.enabled !== false,
+        order: Number(item?.sortOrder ?? item?.order ?? 0) || 0,
+    })));
+}
+
+function buildAcceptedAutomationHash(state = {}) {
+    const pinned = new Set(state?.loreSelection?.pinnedIds || []);
+    const muted = new Set(state?.loreSelection?.suppressedIds || []);
+    return stableHash(normalizeLoreMatrix(state?.loreMatrix || []).map(entry => {
+        const automation = getLoreAutomationState(entry);
+        return {
+            id: entry.id,
+            relevance: normalizeLoreRelevance(entry.relevance || 'normal'),
+            pinned: pinned.has(entry.id),
+            muted: muted.has(entry.id),
+            automationEnabled: automation.enabled !== false,
+            owner: automation.owner,
+            lastAction: automation.lastAction,
+        };
+    }));
+}
+
+function getDefaultLoreAutomationCadence() {
+    return {
+        lastRemapAtMessageId: '',
+        lastRemapWordCount: 0,
+        lastCurationAtMessageId: '',
+        lastCurationWordCount: 0,
+        accumulatedRemapWords: 0,
+        accumulatedCurationWords: 0,
+        lastContextHash: '',
+        lastDeckStackHash: '',
+        lastAcceptedAutomationHash: '',
+        pendingReason: '',
+        lastEdgeClassifier: { edge: 'none', confidence: 0, changed: [], reason: '', wordCount: 0, checkedAt: 0 },
+        staleEvidenceByCardId: {},
+        cooldownByCardId: {},
+    };
+}
+
+function normalizeLoreAutomationCadence(state = {}) {
+    const raw = state.loreAutomationCadence && typeof state.loreAutomationCadence === 'object' && !Array.isArray(state.loreAutomationCadence)
+        ? state.loreAutomationCadence
+        : {};
+    const defaults = getDefaultLoreAutomationCadence();
+    const next = {
+        ...defaults,
+        ...raw,
+        lastEdgeClassifier: {
+            ...defaults.lastEdgeClassifier,
+            ...(raw.lastEdgeClassifier && typeof raw.lastEdgeClassifier === 'object' && !Array.isArray(raw.lastEdgeClassifier) ? raw.lastEdgeClassifier : {}),
+        },
+        staleEvidenceByCardId: raw.staleEvidenceByCardId && typeof raw.staleEvidenceByCardId === 'object' && !Array.isArray(raw.staleEvidenceByCardId) ? raw.staleEvidenceByCardId : {},
+        cooldownByCardId: raw.cooldownByCardId && typeof raw.cooldownByCardId === 'object' && !Array.isArray(raw.cooldownByCardId) ? raw.cooldownByCardId : {},
+    };
+    state.loreAutomationCadence = next;
+    return next;
+}
+
+function getLoreAutomationPacingPolicy(settings = {}) {
+    const pacing = ['responsive', 'normal', 'relaxed'].includes(String(settings.loreAutomationPacing || '').toLowerCase())
+        ? String(settings.loreAutomationPacing).toLowerCase()
+        : 'normal';
+    const multipliers = { responsive: 0.65, normal: 1, relaxed: 1.6 };
+    const multiplier = multipliers[pacing] || 1;
+    return {
+        pacing,
+        remapWordBudget: Math.max(80, Math.round((Number(settings.loreAutomationRemapWordBudget) || 900) * multiplier)),
+        curationWordBudget: Math.max(160, Math.round((Number(settings.loreAutomationCurationWordBudget) || 1800) * multiplier)),
+        edgeClassifierMinWords: Math.max(120, Math.round((Number(settings.loreAutomationRemapWordBudget) || 900) * multiplier * 0.45)),
+    };
+}
+
+function normalizeLanePart(value = '') {
+    return cleanAutomationText(value, 80).toLowerCase().replace(/\s+/g, ' ');
+}
+
+function addLane(set, type, value) {
+    const clean = normalizeLanePart(value);
+    if (clean) set.add(`${type}:${clean}`);
+}
+
+function getCoverageTerms(value = '', options = {}) {
+    const clean = normalizeLanePart(value)
+        .replace(/[^a-z0-9'\s-]+/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+    if (!clean) return [];
+    const terms = new Set();
+    if (!LORE_AUTOMATION_COVERAGE_STOP_WORDS.has(clean)) terms.add(clean);
+    const tokens = clean.split(/\s+/)
+        .map(token => token.replace(/^-+|-+$/g, ''))
+        .filter(token => token.length >= 3 && !LORE_AUTOMATION_COVERAGE_STOP_WORDS.has(token));
+    for (const token of tokens) terms.add(token);
+    if (options.phrases !== false) {
+        for (let size = 2; size <= 3; size += 1) {
+            for (let index = 0; index <= tokens.length - size; index += 1) {
+                terms.add(tokens.slice(index, index + size).join(' '));
+            }
+        }
+    }
+    return Array.from(terms).slice(0, Math.max(1, Number(options.limit) || 18));
+}
+
+function splitCoverageLane(lane = '') {
+    const text = String(lane || '');
+    const index = text.indexOf(':');
+    if (index < 0) return { type: '', value: text };
+    return { type: text.slice(0, index), value: text.slice(index + 1) };
+}
+
+function getMatchingCoverageLanes(contextLanes, type, value) {
+    const clean = normalizeLanePart(value);
+    if (!clean || clean.length < 3) return [];
+    const matches = [];
+    for (const lane of contextLanes) {
+        const parsed = splitCoverageLane(lane);
+        if (parsed.type !== type || !parsed.value) continue;
+        if (
+            parsed.value === clean
+            || (clean.length >= 4 && parsed.value.includes(clean))
+            || (parsed.value.length >= 4 && clean.includes(parsed.value))
+        ) {
+            matches.push(lane);
+        }
+    }
+    return matches;
+}
+
+function getContextCoverageLaneIds(state = {}) {
+    const lanes = new Set();
+    for (const character of normalizeStringArray([...(state?.scene?.presentCharacters || []), ...(state?.scene?.nearbyCharacters || [])], 12)) {
+        addLane(lanes, 'character', character);
+    }
+    addLane(lanes, 'location', state?.scene?.location || '');
+    for (const token of getCoverageTerms(state?.scene?.currentActivity || '', { limit: 18 })) {
+        addLane(lanes, 'objective', token);
+    }
+    return Array.from(lanes);
+}
+
+function getEntryCoverageLaneIds(entry = {}, state = {}) {
+    const contextLanes = getContextCoverageLaneIds(state);
+    const lanes = new Set();
+    const scope = entry.scope || {};
+    const addMatching = (type, values = []) => {
+        for (const value of normalizeStringArray(values, 24)) {
+            for (const lane of getMatchingCoverageLanes(contextLanes, type, value)) lanes.add(lane);
+        }
+    };
+    const objectiveValues = [
+        ...(scope.topics || []),
+        ...(entry.activeWhen?.tagsAny || []),
+        ...(entry.tags || []),
+    ].flatMap(value => getCoverageTerms(value, { limit: 8 }));
+    addMatching('character', scope.characters || entry.activeWhen?.charactersPresentAny || []);
+    addMatching('location', scope.locations || entry.activeWhen?.locationsAny || []);
+    addMatching('objective', objectiveValues);
+    return Array.from(lanes);
+}
+
+function hasUsableLoreAutomationContext(state = {}) {
+    return !!(
+        state?.loreContext?.sceneDate
+        || state?.loreContext?.canonBoundary
+        || state?.canon?.inUniverseDate
+        || state?.canon?.canonBoundary
+        || state?.scene?.location
+        || state?.scene?.currentActivity
+        || (Array.isArray(state?.scene?.presentCharacters) && state.scene.presentCharacters.length)
+        || (Array.isArray(state?.scene?.nearbyCharacters) && state.scene.nearbyCharacters.length)
+    );
+}
+
+function isLoreAutomationBackgroundEnabled(settings = {}) {
+    const mode = String(settings.automationMode || settings.workflowMode || 'manual').toLowerCase();
+    return mode === 'automatic' || settings.autoGenerateLore === true;
+}
+
+function isAutomationOwnedEntry(entry = {}) {
+    const automation = getLoreAutomationState(entry);
+    return automation.owner === 'auto'
+        || entry.extensions?.loreAutomationCuration?.source === 'active_deck'
+        || automation.lastAction === 'accept_from_active_decks';
+}
+
+function getAutomationOwnedAcceptedEntries(state = {}) {
+    return normalizeLoreMatrix(state?.loreMatrix || [])
+        .filter(entry => entry?.id && isLoreAutomationEnabledForEntry(entry) && isAutomationOwnedEntry(entry));
+}
+
+function computeLoreAutomationStackPressure(state = {}, settings = getSettings(), recentText = '') {
+    const profile = getLoreAutomationStyleProfile(settings);
+    const owned = getAutomationOwnedAcceptedEntries(state);
+    const laneCoverage = new Map();
+    for (const entry of owned) {
+        for (const lane of getEntryCoverageLaneIds(entry, state)) {
+            if (!laneCoverage.has(lane)) laneCoverage.set(lane, []);
+            laneCoverage.get(lane).push(entry.id);
+        }
+    }
+    const activeDeckCount = Array.isArray(state?.loredeckStack)
+        ? state.loredeckStack.filter(item => item?.enabled !== false).length
+        : 0;
+    const contextLanes = getContextCoverageLaneIds(state);
+    const missingLanes = contextLanes.filter(lane => !laneCoverage.has(lane));
+    const missingCoverageCanBeFilled = missingLanes.length > 0 && activeDeckCount > 0;
+    const requiredPasses = Math.max(1, Number(profile.stalePasses) || 1);
+    const staleCandidates = getRetirementScanItems(state, settings, recentText, profile)
+        .filter(item => item.stale && item.stalePasses >= requiredPasses);
+    const belowTarget = owned.length < Math.max(0, Number(profile.targetMin) || 0) && activeDeckCount > 0;
+    const aboveTarget = owned.length > Math.max(1, Number(profile.targetMax) || 1);
+    const duplicateLaneCount = Array.from(laneCoverage.values()).filter(ids => ids.length > 1).length;
+    let pressure = 'none';
+    if (belowTarget || missingCoverageCanBeFilled) pressure = staleCandidates.length ? 'replace' : 'add';
+    if (aboveTarget || staleCandidates.length || duplicateLaneCount) pressure = pressure === 'add' ? 'replace' : 'remove';
+    const reasons = [];
+    if (belowTarget) reasons.push(`below target ${owned.length}/${profile.targetMin}`);
+    if (aboveTarget) reasons.push(`above target ${owned.length}/${profile.targetMax}`);
+    if (missingCoverageCanBeFilled) reasons.push(`${missingLanes.length} coverage lane${missingLanes.length === 1 ? '' : 's'} uncovered`);
+    if (staleCandidates.length) reasons.push(`${staleCandidates.length} stale automation-owned card${staleCandidates.length === 1 ? '' : 's'}`);
+    if (duplicateLaneCount) reasons.push(`${duplicateLaneCount} duplicate coverage lane${duplicateLaneCount === 1 ? '' : 's'}`);
+    return {
+        pressure,
+        ownedCount: owned.length,
+        targetMin: profile.targetMin,
+        targetMax: profile.targetMax,
+        missingLanes,
+        staleCount: staleCandidates.length,
+        duplicateLaneCount,
+        reason: reasons.join('; '),
+    };
+}
+
+function updateLoreAutomationCadenceHashes(state = {}) {
+    const cadence = normalizeLoreAutomationCadence(state);
+    cadence.lastContextHash = buildContextAutomationHash(state);
+    cadence.lastDeckStackHash = buildDeckStackAutomationHash(state);
+    cadence.lastAcceptedAutomationHash = buildAcceptedAutomationHash(state);
+    return cadence;
+}
+
+function markLoreAutomationCadenceRun(state = {}, options = {}) {
+    const cadence = updateLoreAutomationCadenceHashes(state);
+    const wordCount = getTotalStoryWordCount();
+    const messageId = getLatestMessageId();
+    if (options.remap !== false) {
+        cadence.lastRemapWordCount = wordCount;
+        cadence.lastRemapAtMessageId = messageId;
+        cadence.accumulatedRemapWords = 0;
+    }
+    if (options.curation === true) {
+        cadence.lastCurationWordCount = wordCount;
+        cadence.lastCurationAtMessageId = messageId;
+        cadence.accumulatedCurationWords = 0;
+    }
+    cadence.pendingReason = '';
+    return cadence;
+}
+
 function stripJsonFences(text) {
     const raw = String(text || '').trim();
     const fence = raw.match(/```(?:json)?\s*([\s\S]*?)```/i);
@@ -159,6 +505,58 @@ function parseJsonObject(text) {
         try { return JSON.parse(cleaned.slice(start, end + 1)); } catch (_) {}
     }
     return null;
+}
+
+function buildEdgeClassifierPrompts({ state, recentText, cadence }) {
+    const system = `You are Saga's Lore Automation cadence edge classifier.
+
+Task:
+- Decide whether recent prose indicates a narrative edge that should pull Lore Automation forward.
+- Do not choose Lorecards or recommend curation actions.
+- Return only JSON: {"edge":"none|soft_scene_shift|hard_scene_shift|chapter_or_arc_shift","confidence":0.0-1.0,"changed":["location|cast|objective|time|chapter|deck|other"],"reason":"short"}`;
+    const payload = {
+        lastSnapshot: {
+            contextHash: cadence?.lastContextHash || '',
+            deckStackHash: cadence?.lastDeckStackHash || '',
+            acceptedAutomationHash: cadence?.lastAcceptedAutomationHash || '',
+        },
+        currentContext: {
+            sceneDate: state?.loreContext?.sceneDate || state?.canon?.inUniverseDate || '',
+            canonBoundary: state?.loreContext?.canonBoundary || state?.canon?.canonBoundary || '',
+            branchId: state?.loreContext?.branchId || 'main',
+            location: state?.scene?.location || '',
+            currentActivity: state?.scene?.currentActivity || '',
+            presentCharacters: state?.scene?.presentCharacters || [],
+            nearbyCharacters: state?.scene?.nearbyCharacters || [],
+        },
+        recentMessages: String(recentText || '').slice(-4000),
+    };
+    return { system, user: JSON.stringify(payload, null, 2) };
+}
+
+async function classifyLoreAutomationEdge(state, settings, recentText, cadence) {
+    const providerKind = selectLoreAutomationProviderKind(settings, 'armp');
+    if (providerKind !== 'continuity') return { edge: 'none', confidence: 0, changed: [], reason: '', status: 'skipped' };
+    const validation = validateLoreProviderConfiguration(providerKind);
+    if (!validation.ok) return { edge: 'none', confidence: 0, changed: [], reason: validation.message || '', status: 'unavailable' };
+    const { system, user } = buildEdgeClassifierPrompts({ state, recentText, cadence });
+    const response = await sendLoreRequest(system, user, {
+        providerKind,
+        expectedOutput: 'json',
+        maxTokens: 512,
+    });
+    const parsed = parseJsonObject(response);
+    if (!parsed) return { edge: 'none', confidence: 0, changed: [], reason: 'Malformed edge classifier JSON.', status: 'failed_parse' };
+    const edge = ['none', 'soft_scene_shift', 'hard_scene_shift', 'chapter_or_arc_shift'].includes(String(parsed.edge || '').trim())
+        ? String(parsed.edge).trim()
+        : 'none';
+    return {
+        edge,
+        confidence: Math.max(0, Math.min(1, Number(parsed.confidence) || 0)),
+        changed: Array.isArray(parsed.changed) ? parsed.changed.map(item => cleanAutomationText(item, 40)).filter(Boolean).slice(0, 8) : [],
+        reason: cleanAutomationText(parsed.reason, 180),
+        status: 'classified',
+    };
 }
 
 function summarizeEntryForModel(item) {
@@ -254,7 +652,7 @@ async function adjudicateCandidatesWithModel(candidates, state, settings, recent
     const candidateById = new Map(modelCandidates.map(item => [item.entry.id, item]));
     const changes = [];
     for (const raw of rawChanges) {
-        const id = String(raw?.id || '').trim();
+        const id = String(raw?.id || raw?.candidateId || '').replace(/^deck:[^:]+:/, '').trim();
         const item = candidateById.get(id);
         if (!item) continue;
         const next = normalizeLoreRelevance(raw.relevance || raw.suggestedRelevance, item.next);
@@ -357,22 +755,6 @@ function shouldApplyCandidate(item, settings, threshold, pinned) {
     const protectPinned = settings.autoRelevanceProtectPinned !== false;
     if (protectPinned && pinned.has(item.entry.id) && relevanceWeight(item.next) < relevanceWeight(item.current)) return false;
     return true;
-}
-
-function suggestionFromCandidate(item, override = {}) {
-    const next = normalizeLoreRelevance(override.next || item.next);
-    return {
-        id: item.entry.id,
-        title: item.entry.title || item.entry.id,
-        currentRelevance: item.current,
-        suggestedRelevance: next,
-        confidence: Math.max(0, Math.min(1, Number(override.confidence ?? item.confidence) || 0)),
-        score: item.local.score,
-        temporalRole: item.local.temporalRole,
-        source: override.source || 'local',
-        reason: override.reason || `Local relevance score ${item.local.score}; temporal role ${item.local.temporalRole}${item.local.recentHit ? '; recent-message match' : ''}.`,
-        suggestedAt: Date.now(),
-    };
 }
 
 function getRemappingCandidateTitle(item = {}) {
@@ -646,6 +1028,9 @@ function summarizeCurationCandidateForModel(entry = {}) {
         lorePurpose: entry.lorePurpose || '',
         truthStatus: entry.truthStatus || '',
         revealPolicy: entry.revealPolicy || '',
+        coverageLaneIds: entry.extensions?.loreAutomationEvidence?.coverageLaneIds || [],
+        laneIds: entry.extensions?.loreAutomationEvidence?.laneIds || [],
+        stackPressure: entry.extensions?.loreAutomationEvidence?.stackPressure || 'none',
         scope: {
             characters: (scope.characters || []).slice?.(0, 8) || [],
             locations: (scope.locations || []).slice?.(0, 6) || [],
@@ -669,7 +1054,9 @@ Task:
 - Prefer subtle but concrete cards that constrain the next few roleplay turns: present characters, location rules, current secrets, items, abilities, date gates, or active guardrails.
 - Do not select broad glossary/reference cards unless they directly constrain the active scene.
 - Retire only automation-owned cards that no longer matter to the active scene.
-- Output only JSON: {"accept":[{"id":"...","confidence":0.0-1.0,"reason":"short"}],"retire":[{"id":"...","confidence":0.0-1.0,"reason":"short"}]}`;
+- Classify coverage explicitly: add_now, keep, retire, hold, or ignore.
+- Prefer hold over weak additions and keep over uncertain retirement.
+- Output only JSON: {"operations":[{"id":"...","operation":"accept_from_active_decks|retire_from_accepted_stack","classification":"add_now|keep|retire|hold|ignore","confidence":0.0-1.0,"reason":"short"}],"accept":[{"id":"...","confidence":0.0-1.0,"reason":"short"}],"retire":[{"id":"...","confidence":0.0-1.0,"reason":"short"}]}`;
     const payload = {
         storyContext: {
             sceneDate: state?.loreContext?.sceneDate || state?.canon?.inUniverseDate || '',
@@ -683,12 +1070,15 @@ Task:
             nearbyCharacters: state?.scene?.nearbyCharacters || [],
         },
         recentMessages: String(recentText || '').slice(-9000),
+        coverageLanes: getContextCoverageLaneIds(state),
         candidates: candidates.map(summarizeCurationCandidateForModel),
         acceptedRetirementCandidates: retirementCandidates.map(item => ({
             id: item.entry.id,
             title: item.entry.title || item.entry.id,
             localScore: item.local.score,
             temporalRole: item.local.temporalRole,
+            stalePasses: item.stalePasses || 0,
+            coverageLaneIds: item.coverageLaneIds || [],
             reason: item.reason,
             fact: String(item.entry.content?.fact || item.entry.fact || '').slice(0, 500),
         })),
@@ -714,10 +1104,14 @@ async function adjudicateCurationWithModel(candidates, retireCandidates, state, 
     const candidateById = new Map(candidates.map(entry => [entry.id, entry]));
     const retireById = new Map(retireCandidates.map(item => [item.entry.id, item]));
     const selections = [];
-    for (const raw of Array.isArray(parsed.accept) ? parsed.accept : []) {
-        const id = String(raw?.id || '').trim();
+    const acceptRaw = []
+        .concat(Array.isArray(parsed.operations) ? parsed.operations.filter(item => item?.operation === 'accept_from_active_decks' || item?.classification === 'add_now') : [])
+        .concat(Array.isArray(parsed.accept) ? parsed.accept : []);
+    for (const raw of acceptRaw) {
+        const id = String(raw?.id || raw?.candidateId || '').replace(/^accepted:/, '').trim();
         const entry = candidateById.get(id);
         if (!entry) continue;
+        if (raw.classification && String(raw.classification || '').trim() !== 'add_now') continue;
         selections.push({
             id,
             entry,
@@ -727,10 +1121,14 @@ async function adjudicateCurationWithModel(candidates, retireCandidates, state, 
         });
     }
     const retireSelections = [];
-    for (const raw of Array.isArray(parsed.retire) ? parsed.retire : []) {
+    const retireRaw = []
+        .concat(Array.isArray(parsed.operations) ? parsed.operations.filter(item => item?.operation === 'retire_from_accepted_stack' || item?.classification === 'retire') : [])
+        .concat(Array.isArray(parsed.retire) ? parsed.retire : []);
+    for (const raw of retireRaw) {
         const id = String(raw?.id || '').trim();
         const item = retireById.get(id);
         if (!item) continue;
+        if (raw.classification && String(raw.classification || '').trim() !== 'retire') continue;
         retireSelections.push({
             id,
             entry: item.entry,
@@ -752,49 +1150,146 @@ function selectLocalCurationCandidates(candidates = [], profile = getLoreAutomat
         .map(entry => ({
             id: entry.id,
             entry,
-            confidence: profile.style === 'aggressive' ? 0.72 : 0.82,
+            confidence: profile.style === 'aggressive' ? 0.72 : profile.style === 'balanced' ? 0.82 : 0.9,
             reason: `Active-deck Context score ${Number(entry.extensions?.canonPreview?.score) || 0}.`,
             provider: 'local',
         }));
 }
 
-function buildRetirementCandidates(state, settings, recentText, profile = getLoreAutomationStyleProfile(settings)) {
+function decorateCurationCandidate(entry = {}, state = {}, laneIds = []) {
+    const coverageLaneIds = getEntryCoverageLaneIds(entry, state);
+    return normalizeLoreEntry({
+        ...entry,
+        extensions: {
+            ...(entry.extensions || {}),
+            loreAutomationEvidence: {
+                laneIds: Array.from(new Set(laneIds.filter(Boolean))).slice(0, 12),
+                coverageLaneIds: coverageLaneIds.slice(0, 12),
+                stackPressure: coverageLaneIds.length ? 'add' : 'none',
+            },
+        },
+    });
+}
+
+function inferCurationLaneIds(entry = {}, state = {}) {
+    const lanes = new Set();
+    const preview = entry.extensions?.canonPreview || {};
+    if (preview.matchedBy) lanes.add(`context:${preview.matchedBy}`);
+    const score = Number(preview.score) || 0;
+    if (score >= 70) lanes.add('score:high');
+    else if (score >= 30) lanes.add('score:medium');
+    if (Number(entry.priority || 50) >= 90) lanes.add('priority:high');
+    const coverage = getEntryCoverageLaneIds(entry, state);
+    for (const lane of coverage) lanes.add(lane);
+    if (!lanes.size) lanes.add('exploration');
+    return Array.from(lanes);
+}
+
+function packCurationCandidates(entries = [], state = {}, max = LORE_AUTOMATION_CURATION_PACKET_CAP) {
+    const source = normalizeLoreMatrix(entries || [])
+        .filter(entry => entry?.id)
+        .map(entry => decorateCurationCandidate(entry, state, inferCurationLaneIds(entry, state)));
+    const byId = new Map();
+    for (const entry of source) {
+        if (!byId.has(entry.id)) byId.set(entry.id, entry);
+    }
+    const unique = Array.from(byId.values());
+    const laneBuckets = new Map();
+    for (const entry of unique) {
+        const lanes = entry.extensions?.loreAutomationEvidence?.laneIds || ['exploration'];
+        for (const lane of lanes) {
+            if (!laneBuckets.has(lane)) laneBuckets.set(lane, []);
+            laneBuckets.get(lane).push(entry);
+        }
+    }
+    for (const bucket of laneBuckets.values()) {
+        bucket.sort((a, b) => (Number(b.extensions?.canonPreview?.score) || 0) - (Number(a.extensions?.canonPreview?.score) || 0)
+            || Number(b.priority || 50) - Number(a.priority || 50)
+            || String(a.title || '').localeCompare(String(b.title || '')));
+    }
+    const laneNames = Array.from(laneBuckets.keys()).sort((a, b) => {
+        const aScore = Math.max(...laneBuckets.get(a).map(entry => Number(entry.extensions?.canonPreview?.score) || 0));
+        const bScore = Math.max(...laneBuckets.get(b).map(entry => Number(entry.extensions?.canonPreview?.score) || 0));
+        return bScore - aScore || a.localeCompare(b);
+    });
+    const selected = [];
+    const selectedIds = new Set();
+    let madeProgress = true;
+    while (selected.length < max && madeProgress) {
+        madeProgress = false;
+        for (const lane of laneNames) {
+            const bucket = laneBuckets.get(lane) || [];
+            while (bucket.length) {
+                const entry = bucket.shift();
+                if (selectedIds.has(entry.id)) continue;
+                selected.push(entry);
+                selectedIds.add(entry.id);
+                madeProgress = true;
+                break;
+            }
+            if (selected.length >= max) break;
+        }
+    }
+    return selected;
+}
+
+function getRetirementScanItems(state, settings, recentText, profile = getLoreAutomationStyleProfile(settings), options = {}) {
     const pinned = new Set(state?.loreSelection?.pinnedIds || []);
     const suppressed = new Set(state?.loreSelection?.suppressedIds || []);
     const scoringOptions = { ...settings, recentText };
-    const maxScore = profile.style === 'aggressive' ? 10 : profile.style === 'balanced' ? 4 : -1;
-    if (maxScore < 0) return [];
+    const maxScore = profile.style === 'aggressive' ? 12 : profile.style === 'balanced' ? 6 : 3;
+    const cadence = normalizeLoreAutomationCadence(state);
     return normalizeLoreMatrix(state.loreMatrix || [])
         .filter(entry => entry?.id && !pinned.has(entry.id) && !suppressed.has(entry.id))
         .filter(entry => isLoreAutomationEnabledForEntry(entry))
-        .filter(entry => {
-            const automation = getLoreAutomationState(entry);
-            return automation.owner === 'auto'
-                || entry.extensions?.loreAutomationCuration?.source === 'active_deck'
-                || automation.lastAction === 'accept_from_active_decks';
-        })
+        .filter(entry => isAutomationOwnedEntry(entry))
         .map(entry => {
             const local = computeLocalLoreRelevance(entry, { ...state, autoRelevanceContext: { recentText } }, scoringOptions);
+            const coverageLaneIds = getEntryCoverageLaneIds(entry, state);
+            const stale = normalizeLoreRelevance(local.relevance || 'normal') === 'low'
+                && (Number(local.score) || 0) <= maxScore
+                && !local.recentHit
+                && coverageLaneIds.length === 0;
+            const previousPasses = Math.max(0, Number(cadence.staleEvidenceByCardId?.[entry.id]) || 0);
             return {
                 entry,
                 local,
-                reason: `Automation-owned card is stale for current Context; local score ${local.score}.`,
+                stale,
+                stalePasses: stale ? previousPasses + 1 : 0,
+                coverageLaneIds,
+                reason: `Automation-owned card is stale for current Context; local score ${local.score}; stale passes ${stale ? previousPasses + 1 : 0}.`,
             };
         })
-        .filter(item => normalizeLoreRelevance(item.local.relevance || 'normal') === 'low' && (Number(item.local.score) || 0) <= maxScore && !item.local.recentHit)
+        .map(item => {
+            if (options.updateEvidence === true) {
+                if (item.stale) cadence.staleEvidenceByCardId[item.entry.id] = item.stalePasses;
+                else delete cadence.staleEvidenceByCardId[item.entry.id];
+            }
+            return item;
+        });
+}
+
+function buildRetirementCandidates(state, settings, recentText, profile = getLoreAutomationStyleProfile(settings)) {
+    const requiredPasses = Math.max(1, Number(profile.stalePasses) || 1);
+    return getRetirementScanItems(state, settings, recentText, profile, { updateEvidence: true })
+        .filter(item => item.stale && item.stalePasses >= requiredPasses)
         .sort((a, b) => (Number(a.local.score) || 0) - (Number(b.local.score) || 0))
-        .slice(0, profile.style === 'aggressive' ? 3 : 1);
+        .slice(0, Math.max(1, Number(profile.retirementCap) || 1));
 }
 
 function selectLocalRetirementCandidates(retireCandidates = [], profile = getLoreAutomationStyleProfile()) {
-    if (profile.style === 'careful') return [];
-    return retireCandidates.slice(0, profile.style === 'aggressive' ? 3 : 1).map(item => ({
+    return retireCandidates.slice(0, Math.max(1, Number(profile.retirementCap) || 1)).map(item => ({
         id: item.entry.id,
         entry: item.entry,
-        confidence: profile.style === 'aggressive' ? 0.72 : 0.82,
+        confidence: profile.style === 'aggressive' ? 0.72 : profile.style === 'balanced' ? 0.82 : 0.9,
         reason: item.reason,
         provider: 'local',
     }));
+}
+
+function getCurationNoChangeStatus(result = {}, fallback = 'unchanged') {
+    const status = String(result.status || '').trim();
+    return LORE_AUTOMATION_BLOCKED_CURATION_STATUSES.has(status) ? status : fallback;
 }
 
 function markCuratedAcceptedEntry(entry = {}, selection = {}, runId = '') {
@@ -824,23 +1319,29 @@ function markCuratedAcceptedEntry(entry = {}, selection = {}, runId = '') {
     });
 }
 
-async function runArmPcCuration({ state, settings, recentText, runId, beforeTimeline }) {
+async function runArmPcCuration({ state, settings, recentText, runId, beforeTimeline, recordTimeline = true }) {
     const mode = normalizeLoreAutomationMode(settings.loreAutomationMode || 'off');
     if (!supportsLoreAutomationMode(mode, 'armpc')) {
         return { status: 'skipped', curated: 0, pendingCurated: 0, providerStatus: '' };
     }
+    if (!hasUsableLoreAutomationContext(state)) {
+        return { status: 'needs_context', curated: 0, pendingCurated: 0, retired: 0, providerStatus: 'skipped' };
+    }
     const profile = getLoreAutomationStyleProfile(settings);
     const retireCandidates = buildRetirementCandidates(state, settings, recentText, profile);
     const preview = await previewCanonLoreForContext(state?.loreContext || null, {
-        maxCandidates: profile.style === 'aggressive' ? 240 : 160,
+        maxCandidates: 240,
         includeAudit: false,
     });
     if (preview.status !== 'preview' && !retireCandidates.length) {
         return { status: preview.status || 'empty', curated: 0, pendingCurated: 0, providerStatus: '' };
     }
-    const candidates = (preview.status === 'preview' ? (preview.entries || []) : [])
-        .filter(entry => entry?.id && entry.extensions?.canonPreview?.duplicateStatus === 'new')
-        .slice(0, Math.max(8, profile.curationCap * 12));
+    const candidates = packCurationCandidates(
+        (preview.status === 'preview' ? (preview.entries || []) : [])
+            .filter(entry => entry?.id && entry.extensions?.canonPreview?.duplicateStatus === 'new'),
+        state,
+        LORE_AUTOMATION_CURATION_PACKET_CAP,
+    );
     if (!candidates.length && !retireCandidates.length) {
         return { status: 'duplicates_only', curated: 0, pendingCurated: 0, providerStatus: '' };
     }
@@ -861,48 +1362,32 @@ async function runArmPcCuration({ state, settings, recentText, runId, beforeTime
     if (!retireSelections.length && (adjudicated.status === 'local_only' || normalizeLoreAutomationProviderRouting(settings.loreAutomationProviderRouting || 'auto') === 'local')) {
         retireSelections = selectLocalRetirementCandidates(retireCandidates, profile);
     }
+    const curationBlocked = LORE_AUTOMATION_BLOCKED_CURATION_STATUSES.has(adjudicated.status)
+        && normalizeLoreAutomationProviderRouting(settings.loreAutomationProviderRouting || 'auto') !== 'local';
     const threshold = profile.style === 'aggressive' ? 0.68 : profile.style === 'balanced' ? 0.78 : 0.88;
-    selections = selections
-        .filter(selection => selection?.entry?.id && (Number(selection.confidence) || 0) >= threshold)
-        .slice(0, profile.curationCap);
     retireSelections = retireSelections
         .filter(selection => selection?.entry?.id && (Number(selection.confidence) || 0) >= threshold)
-        .slice(0, profile.style === 'aggressive' ? 3 : 1);
-
-    if (!profile.directCuration && selections.length) {
-        const result = await addCanonLorePreviewEntriesToPending(selections.map(selection => selection.id), state?.loreContext || null, {
-            maxCandidates: profile.style === 'aggressive' ? 240 : 160,
-            includeAudit: false,
-        });
-        return {
-            status: result.proposedCount ? 'pending_curated' : (result.status || 'unchanged'),
-            curated: 0,
-            pendingCurated: result.proposedCount || 0,
-            providerStatus: adjudicated.status,
-            modelError: adjudicated.error || '',
-            operations: selections.map(selection => ({
-                id: selection.id,
-                operation: 'accept_from_active_decks_pending',
-                title: selection.entry.title || selection.id,
-                confidence: selection.confidence,
-                reason: selection.reason,
-                provider: selection.provider,
-            })),
-        };
-    }
+        .slice(0, Math.max(1, Number(profile.retirementCap) || 1));
+    const currentAutoOwnedCount = getAutomationOwnedAcceptedEntries(state).length;
+    const availableSlots = Math.max(0, (Number(profile.targetMax) || currentAutoOwnedCount) - currentAutoOwnedCount + retireSelections.length);
+    selections = selections
+        .filter(selection => selection?.entry?.id && (Number(selection.confidence) || 0) >= threshold)
+        .slice(0, Math.min(profile.curationCap, availableSlots));
 
     const existingIds = new Set(normalizeLoreMatrix(state.loreMatrix || []).map(entry => entry.id));
     const acceptedEntries = [];
-    for (const selection of profile.directCuration ? selections : []) {
+    for (const selection of selections) {
         if (existingIds.has(selection.id)) continue;
         existingIds.add(selection.id);
         acceptedEntries.push(markCuratedAcceptedEntry(selection.entry, selection, runId));
     }
+    const beforeEntries = normalizeLoreMatrix(state.loreMatrix || []);
     const retireIds = new Set(retireSelections.map(selection => selection.id));
-    const beforeCount = Array.isArray(state.loreMatrix) ? state.loreMatrix.length : 0;
+    const retiredEntries = beforeEntries.filter(entry => retireIds.has(entry.id));
+    const beforeCount = beforeEntries.length;
     if (acceptedEntries.length || retireIds.size) {
         state.loreMatrix = normalizeLoreMatrix([
-            ...normalizeLoreMatrix(state.loreMatrix || []).filter(entry => !retireIds.has(entry.id)),
+            ...beforeEntries.filter(entry => !retireIds.has(entry.id)),
             ...acceptedEntries,
         ]);
         if (state.loreSelection) {
@@ -912,15 +1397,24 @@ async function runArmPcCuration({ state, settings, recentText, runId, beforeTime
     }
     const retired = Math.max(0, beforeCount + acceptedEntries.length - state.loreMatrix.length);
     if (!acceptedEntries.length && !retired) {
-        return { status: 'duplicates_only', curated: 0, pendingCurated: 0, providerStatus: adjudicated.status, modelError: adjudicated.error || '' };
+        return {
+            status: curationBlocked ? adjudicated.status : 'duplicates_only',
+            curated: 0,
+            pendingCurated: 0,
+            retired: 0,
+            providerStatus: adjudicated.status,
+            modelError: adjudicated.error || '',
+        };
     }
-    recordLoreTimelineEvent(state, {
-        before: beforeTimeline,
-        after: captureLoreTimelineState(state),
-        type: 'lore_automation_curate',
-        source: 'lore_automation',
-        summary: `ARMPC curated ${acceptedEntries.length} active-deck Lorecard${acceptedEntries.length === 1 ? '' : 's'} and retired ${retired}.`,
-    });
+    if (recordTimeline !== false) {
+        recordLoreTimelineEvent(state, {
+            before: beforeTimeline,
+            after: captureLoreTimelineState(state),
+            type: 'lore_automation_curate',
+            source: 'lore_automation',
+            summary: `ARMPC curated ${acceptedEntries.length} active-deck Lorecard${acceptedEntries.length === 1 ? '' : 's'} and retired ${retired}.`,
+        });
+    }
     return {
         status: acceptedEntries.length ? 'curated' : 'retired',
         curated: acceptedEntries.length,
@@ -935,14 +1429,17 @@ async function runArmPcCuration({ state, settings, recentText, runId, beforeTime
             confidence: selection.confidence,
             reason: selection.reason,
             provider: selection.provider,
-        })).concat(retireSelections.map(selection => ({
-            id: selection.id,
-            operation: 'retire_from_accepted_stack',
-            title: selection.entry.title || selection.id,
-            confidence: selection.confidence,
-            reason: selection.reason,
-            provider: selection.provider,
-        }))),
+        })).concat(retiredEntries.map(entry => {
+            const selection = retireSelections.find(item => item.id === entry.id) || {};
+            return {
+                id: entry.id,
+                operation: 'retire_from_accepted_stack',
+                title: entry.title || entry.id,
+                confidence: selection.confidence,
+                reason: selection.reason,
+                provider: selection.provider,
+            };
+        })),
     };
 }
 
@@ -1159,7 +1656,7 @@ async function runAutoRelevanceInternal(options = {}) {
     const settings = getSettings();
     const loreAutomationMode = normalizeLoreAutomationMode(settings.loreAutomationMode || (settings.autoRelevanceEnabled === false ? 'off' : 'ar'));
     const profile = getLoreAutomationStyleProfile(settings);
-    const mode = options.mode || getLoreAutomationActionMode(settings, loreAutomationMode);
+    const mode = getLoreAutomationActionMode(settings, loreAutomationMode);
     if (loreAutomationMode === 'off' || (!options.force && (settings.autoRelevanceEnabled === false || mode === 'off'))) {
         return { status: 'disabled' };
     }
@@ -1171,7 +1668,9 @@ async function runAutoRelevanceInternal(options = {}) {
         const recentText = getRecentChatText(settings.autoRelevanceRecentMessages || 20);
         const beforeTimeline = captureLoreTimelineState(state);
         const curationResult = await runArmPcCuration({ state, settings, recentText, runId, beforeTimeline });
-        const status = curationResult.curated || curationResult.pendingCurated || curationResult.retired ? curationResult.status : 'unchanged';
+        const status = curationResult.curated || curationResult.pendingCurated || curationResult.retired
+            ? curationResult.status
+            : getCurationNoChangeStatus(curationResult, 'unchanged');
         recordLoreAutomationRun(state, {
             id: runId,
             mode: loreAutomationMode,
@@ -1186,6 +1685,7 @@ async function runAutoRelevanceInternal(options = {}) {
             ranAt: Date.now(),
             operations: curationResult.operations || [],
         }, settings);
+        markLoreAutomationCadenceRun(state, { remap: false, curation: true });
         saveState(state, { syncPrompt: !!(curationResult.curated || curationResult.retired) });
         return {
             status,
@@ -1204,7 +1704,9 @@ async function runAutoRelevanceInternal(options = {}) {
             const recentText = getRecentChatText(settings.autoRelevanceRecentMessages || 20);
             const beforeTimeline = captureLoreTimelineState(state);
             const curationResult = await runArmPcCuration({ state, settings, recentText, runId, beforeTimeline });
-        const status = curationResult.curated || curationResult.pendingCurated || curationResult.retired ? curationResult.status : 'no_accepted_lore';
+            const status = curationResult.curated || curationResult.pendingCurated || curationResult.retired
+                ? curationResult.status
+                : getCurationNoChangeStatus(curationResult, 'no_accepted_lore');
             recordLoreAutomationRun(state, {
                 id: runId,
                 mode: loreAutomationMode,
@@ -1219,6 +1721,7 @@ async function runAutoRelevanceInternal(options = {}) {
                 ranAt: Date.now(),
                 operations: curationResult.operations || [],
             }, settings);
+            markLoreAutomationCadenceRun(state, { remap: false, curation: true });
             saveState(state, { syncPrompt: !!(curationResult.curated || curationResult.retired) });
             return {
                 status,
@@ -1238,6 +1741,7 @@ async function runAutoRelevanceInternal(options = {}) {
             status,
             ranAt: Date.now(),
         }, settings);
+        markLoreAutomationCadenceRun(state, { remap: true, curation: false });
         if (options.force) saveState(state, { syncPrompt: false });
         return {
             status,
@@ -1271,88 +1775,11 @@ async function runAutoRelevanceInternal(options = {}) {
             return { ...item, next: normalizeLoreRelevance(model.next), confidence: model.confidence, modelReason: model.reason, modelSource: model.source || 'model' };
         })
         .filter(item => shouldApplyCandidate(item, settings, threshold, pinned));
-    const suggestions = actionable.map(item => suggestionFromCandidate(item, {
-        next: item.next,
-        confidence: item.confidence,
-        source: item.modelSource || 'local',
-        reason: item.modelReason || undefined,
-    }));
     const promotionCount = actionable.filter(item => relevanceWeight(item.next) > relevanceWeight(item.current)).length;
     const demotionCount = actionable.filter(item => relevanceWeight(item.next) < relevanceWeight(item.current)).length;
     let changed = 0;
     let remapResult = { changed: 0, pinned: 0, unpinned: 0, muted: 0, unmuted: 0, operations: [], modelStatus: '' };
     let curationResult = { status: 'skipped', curated: 0, pendingCurated: 0, providerStatus: '', operations: [] };
-
-    if (mode === 'suggest') {
-        let remapSuggestions = [];
-        let remapSuggestionStatus = '';
-        let remapSuggestionError = '';
-        if (supportsLoreAutomationMode(loreAutomationMode, 'armp')) {
-            const localRemapOperations = buildLocalRemappingCandidates(scored, state, settings, suppressed, pinned);
-            let remapAdjudicated = { operations: [], status: 'local' };
-            try {
-                remapAdjudicated = await adjudicateRemappingWithModel(localRemapOperations, state, settings, recentText);
-            } catch (e) {
-                console.warn('[Saga Lore Automation] ARMP suggestion adjudication failed.', e);
-                remapAdjudicated = { operations: [], status: 'model_failed', error: e?.message || String(e || '') };
-            }
-            const remapSource = remapAdjudicated.operations?.length
-                ? remapAdjudicated.operations
-                : (remapAdjudicated.status === 'local_only' || normalizeLoreAutomationProviderRouting(settings.loreAutomationProviderRouting || 'auto') === 'local' || remapAdjudicated.status === 'unavailable'
-                    ? localRemapOperations
-                    : []);
-            const validatedRemap = validateRemappingOperations(remapSource, state, settings, loreAutomationMode);
-            remapSuggestions = validatedRemap.map(operation => ({
-                ...operation,
-                id: `${operation.operation}:${operation.targetId || operation.id}`,
-                suggestionId: `${operation.operation}:${operation.targetId || operation.id}`,
-                targetId: operation.targetId || operation.id,
-                suggestedAt: Date.now(),
-            }));
-            remapSuggestionStatus = remapAdjudicated.status;
-            remapSuggestionError = remapAdjudicated.error || '';
-            state.loreAutomationSuggestions = remapSuggestions;
-        } else {
-            state.loreAutomationSuggestions = [];
-        }
-        state.autoRelevanceSuggestions = suggestions;
-        state.autoRelevanceLastRun = {
-            status: suggestions.length || remapSuggestions.length ? 'suggested' : 'unchanged',
-            considered: candidates.length,
-            suggested: suggestions.length + remapSuggestions.length,
-            promotions: promotionCount,
-            demotions: demotionCount,
-            modelStatus: adjudicated.status,
-            modelError: adjudicated.error || remapSuggestionError || '',
-            recentMessageChars: recentText.length,
-            ranAt: Date.now(),
-        };
-        recordLoreAutomationRun(state, {
-            id: runId,
-            mode: loreAutomationMode,
-            style: profile.style,
-            status: suggestions.length || remapSuggestions.length ? 'suggested' : 'unchanged',
-            considered: candidates.length,
-            suggested: suggestions.length + remapSuggestions.length,
-            promotions: promotionCount,
-            demotions: demotionCount,
-            modelStatus: adjudicated.status,
-            providerStatus: remapSuggestionStatus,
-            modelError: adjudicated.error || remapSuggestionError || '',
-            recentMessageChars: recentText.length,
-            ranAt: Date.now(),
-            operations: suggestions.map(suggestion => ({
-                id: suggestion.id,
-                title: suggestion.title,
-                operation: relevanceWeight(suggestion.suggestedRelevance) > relevanceWeight(suggestion.currentRelevance) ? 'promote_relevance' : 'demote_relevance',
-                confidence: suggestion.confidence,
-                reason: suggestion.reason,
-                provider: suggestion.source || 'local',
-            })).concat(remapSuggestions),
-        }, settings);
-        saveState(state, { syncPrompt: false });
-        return { status: suggestions.length || remapSuggestions.length ? 'suggested' : 'unchanged', suggested: suggestions.length + remapSuggestions.length, changed: 0, promotions: promotionCount, demotions: demotionCount, considered: candidates.length, modelStatus: adjudicated.status, providerStatus: remapSuggestionStatus };
-    }
 
     const byId = new Map(actionable.map(item => [item.entry.id, item]));
     state.loreMatrix = entries.map(entry => {
@@ -1408,14 +1835,14 @@ async function runAutoRelevanceInternal(options = {}) {
     }
 
     if (supportsLoreAutomationMode(loreAutomationMode, 'armpc') && options.skipCuration !== true) {
-        curationResult = await runArmPcCuration({ state, settings, recentText, runId, beforeTimeline });
+        curationResult = await runArmPcCuration({ state, settings, recentText, runId, beforeTimeline, recordTimeline: false });
     }
 
     state.autoRelevanceSuggestions = [];
     const totalChanged = changed + (remapResult.changed || 0) + (curationResult.curated || 0) + (curationResult.pendingCurated || 0) + (curationResult.retired || 0);
     const runStatus = totalChanged
         ? (curationResult.curated || curationResult.pendingCurated || curationResult.retired ? curationResult.status : 'changed')
-        : 'unchanged';
+        : getCurationNoChangeStatus(curationResult, 'unchanged');
     state.autoRelevanceLastRun = {
         status: runStatus,
         considered: candidates.length,
@@ -1461,16 +1888,20 @@ async function runAutoRelevanceInternal(options = {}) {
             ...(curationResult.operations || []),
         ],
     }, settings);
-    if (changed > 0 || remapResult.changed > 0) {
+    markLoreAutomationCadenceRun(state, {
+        remap: true,
+        curation: supportsLoreAutomationMode(loreAutomationMode, 'armpc') && options.skipCuration !== true,
+    });
+    if (totalChanged > 0) {
         recordLoreTimelineEvent(state, {
             before: beforeTimeline,
             after: captureLoreTimelineState(state),
             type: 'lore_automation',
             source: 'lore_automation',
-            summary: `Lore Automation applied ${changed} relevance and ${remapResult.changed || 0} remapping change${(changed + (remapResult.changed || 0)) === 1 ? '' : 's'}.`,
+            summary: `Lore Automation applied ${changed} relevance, ${remapResult.changed || 0} remapping, ${curationResult.curated || 0} accepted, and ${curationResult.retired || 0} retired change${totalChanged === 1 ? '' : 's'}.`,
         });
     }
-    if (totalChanged || options.force) saveState(state, { syncPrompt: totalChanged > 0 });
+    saveState(state, { syncPrompt: totalChanged > 0 });
     return {
         status: runStatus,
         changed,
@@ -1494,26 +1925,120 @@ export function onGenerationEndedAutoRelevance() {
     const settings = getSettings();
     const loreAutomationMode = normalizeLoreAutomationMode(settings.loreAutomationMode || (settings.autoRelevanceEnabled ? 'ar' : 'off'));
     if (loreAutomationMode === 'off' || settings.loreAutomationPaused === true) return { status: 'disabled' };
-    remapTurnCounter += 1;
-    curationTurnCounter += 1;
-    const remapEvery = Math.max(1, Number(settings.loreAutomationRemapEveryTurns || settings.autoRelevanceEveryTurns) || 5);
-    const curationEvery = Math.max(1, Number(settings.loreAutomationCurationEveryTurns) || Math.max(10, remapEvery * 2));
-    const remapDue = remapTurnCounter >= remapEvery;
-    const curationDue = supportsLoreAutomationMode(loreAutomationMode, 'armpc') && curationTurnCounter >= curationEvery;
+    if (!isLoreAutomationBackgroundEnabled(settings)) return { status: 'manual_mode' };
+    const state = getState();
+    const cadence = normalizeLoreAutomationCadence(state);
+    const policy = getLoreAutomationPacingPolicy(settings);
+    const totalWords = getTotalStoryWordCount();
+    const remapDelta = Math.max(0, totalWords - (Number(cadence.lastRemapWordCount) || 0));
+    const curationDelta = Math.max(0, totalWords - (Number(cadence.lastCurationWordCount) || 0));
+    cadence.accumulatedRemapWords = remapDelta;
+    cadence.accumulatedCurationWords = curationDelta;
+
+    const contextHash = buildContextAutomationHash(state);
+    const deckStackHash = buildDeckStackAutomationHash(state);
+    const acceptedAutomationHash = buildAcceptedAutomationHash(state);
+    const initialized = !!(cadence.lastContextHash || cadence.lastDeckStackHash || cadence.lastAcceptedAutomationHash);
+    const contextChanged = initialized && cadence.lastContextHash !== contextHash;
+    const deckChanged = initialized && cadence.lastDeckStackHash !== deckStackHash;
+    const acceptedChanged = initialized && cadence.lastAcceptedAutomationHash !== acceptedAutomationHash;
+    if (!initialized) {
+        cadence.lastContextHash = contextHash;
+        cadence.lastDeckStackHash = deckStackHash;
+        cadence.lastAcceptedAutomationHash = acceptedAutomationHash;
+        saveState(state, { syncPrompt: false });
+    }
+
+    const recentText = getRecentChatText(settings.autoRelevanceRecentMessages || 20);
+    const stackPressure = computeLoreAutomationStackPressure(state, settings, recentText);
+    const appEventDue = contextChanged || deckChanged || acceptedChanged;
+    const remapDue = appEventDue || remapDelta >= policy.remapWordBudget;
+    const curationDue = supportsLoreAutomationMode(loreAutomationMode, 'armpc')
+        && (appEventDue || curationDelta >= policy.curationWordBudget || stackPressure.pressure !== 'none');
     if (!remapDue && !curationDue) {
-        return { status: 'waiting', remapTurnCounter, curationTurnCounter, remapEvery, curationEvery };
+        const shouldClassify = supportsLoreAutomationMode(loreAutomationMode, 'armpc')
+            && normalizeLoreAutomationProviderRouting(settings.loreAutomationProviderRouting || 'auto') !== 'local'
+            && remapDelta >= policy.edgeClassifierMinWords
+            && Number(cadence.lastEdgeClassifier?.wordCount || 0) !== totalWords;
+        if (shouldClassify) {
+            cadence.lastEdgeClassifier = {
+                edge: 'pending',
+                confidence: 0,
+                changed: [],
+                reason: '',
+                wordCount: totalWords,
+                checkedAt: Date.now(),
+            };
+            saveState(state, { syncPrompt: false });
+            classifyLoreAutomationEdge(state, settings, recentText, cadence).then(result => {
+                const nextState = getState();
+                const nextCadence = normalizeLoreAutomationCadence(nextState);
+                nextCadence.lastEdgeClassifier = {
+                    edge: result.edge || 'none',
+                    confidence: Number(result.confidence) || 0,
+                    changed: result.changed || [],
+                    reason: result.reason || '',
+                    wordCount: totalWords,
+                    checkedAt: Date.now(),
+                    status: result.status || '',
+                };
+                const hardEdge = ['hard_scene_shift', 'chapter_or_arc_shift'].includes(result.edge) && (Number(result.confidence) || 0) >= 0.78;
+                if (hardEdge && !autoRelevanceRunning) {
+                    nextCadence.pendingReason = `Utility edge classifier: ${result.edge}`;
+                    saveState(nextState, { syncPrompt: false });
+                    runAutoRelevance({ skipCuration: false }).catch(e => console.error('[Saga Lore Automation] edge-triggered run failed:', e));
+                } else {
+                    saveState(nextState, { syncPrompt: false });
+                }
+            }).catch(e => console.warn('[Saga Lore Automation] edge classifier failed.', e));
+            return { status: 'scheduled_classifier', remapDelta, curationDelta, remapWordBudget: policy.remapWordBudget, curationWordBudget: policy.curationWordBudget };
+        }
+        cadence.pendingReason = '';
+        return {
+            status: 'waiting',
+            remapDelta,
+            curationDelta,
+            remapWordBudget: policy.remapWordBudget,
+            curationWordBudget: policy.curationWordBudget,
+            stackPressure: stackPressure.pressure,
+        };
     }
     if (autoRelevanceRunning) return { status: 'skipped_running' };
+    const reasons = [];
+    if (contextChanged) reasons.push('context_changed');
+    if (deckChanged) reasons.push('active_deck_changed');
+    if (acceptedChanged) reasons.push('accepted_stack_changed');
+    if (remapDelta >= policy.remapWordBudget) reasons.push('story_budget_remap');
+    if (curationDelta >= policy.curationWordBudget) reasons.push('story_budget_curation');
+    if (stackPressure.pressure !== 'none') reasons.push(`stack_pressure_${stackPressure.pressure}`);
+    cadence.pendingReason = reasons.join(',');
+    saveState(state, { syncPrompt: false });
     const options = curationDue && !remapDue
         ? { curationOnly: true }
         : { skipCuration: !curationDue };
-    if (remapDue) remapTurnCounter = 0;
-    if (curationDue) curationTurnCounter = 0;
     runAutoRelevance(options).catch(e => console.error('[Saga Lore Automation] failed:', e));
-    return { status: 'scheduled', remapDue, curationDue };
+    return {
+        status: 'scheduled',
+        remapDue,
+        curationDue,
+        remapDelta,
+        curationDelta,
+        reasons,
+        stackPressure: stackPressure.pressure,
+    };
 }
 
 export const __autoRelevanceTestHooks = Object.freeze({
     buildAutoRelevanceModelParseFailure,
+    buildContextAutomationHash,
+    buildDeckStackAutomationHash,
+    buildAcceptedAutomationHash,
+    computeLoreAutomationStackPressure,
+    getContextCoverageLaneIds,
+    getEntryCoverageLaneIds,
+    getLoreAutomationPacingPolicy,
+    hasUsableLoreAutomationContext,
+    isLoreAutomationBackgroundEnabled,
+    packCurationCandidates,
     parseJsonObject,
 });

@@ -14727,7 +14727,17 @@ function refreshPanelBody(options = {}) {
     const stateForShell = getState();
     normalizePanelLayoutState(stateForShell);
     if (panelRoot.classList.contains('saga-runtime-mobile')) {
+        const mobileTabScroll = getActiveTabScrollElement(panelRoot);
+        const mobileTabScrollTop = options.preserveScroll && mobileTabScroll ? mobileTabScroll.scrollTop : 0;
         renderPanelShell(panelRoot, stateForShell);
+        if (options.preserveScroll) {
+            const restoreMobileScroll = () => {
+                const nextMobileTabScroll = getActiveTabScrollElement(panelRoot);
+                if (nextMobileTabScroll) nextMobileTabScroll.scrollTop = mobileTabScrollTop;
+            };
+            restoreMobileScroll();
+            if (typeof requestAnimationFrame === 'function') requestAnimationFrame(restoreMobileScroll);
+        }
         return;
     }
     const body = panelRoot.querySelector('.saga-lore-panel-body');

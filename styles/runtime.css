@@ -4777,6 +4777,20 @@
     overflow: hidden;
 }
 
+.saga-loredeck-library-shell-mobile .saga-loredeck-library-header {
+    padding-top: calc(7px + env(safe-area-inset-top, 0px));
+    padding-bottom: 7px;
+}
+
+.saga-loredeck-library-shell-mobile .saga-lore-workbench-title {
+    font-size: 0.98em;
+    line-height: 1.1;
+}
+
+.saga-loredeck-library-shell-mobile .saga-loredeck-library-title-line {
+    gap: 0;
+}
+
 .saga-loredeck-library-mobile-body {
     flex: 1 1 auto;
     display: flex;

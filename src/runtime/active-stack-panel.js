@@ -20,10 +20,9 @@ import {
     getBundledLoredeckLibraryRecords,
     getLoredeckLibraryIndexForPacks,
     isLoredeckLibraryOpen,
-    refreshLoredeckLibrarySelectionSurfaces,
+    refreshLoredeckLibraryAfterStackMutation,
     refreshLoredeckSurfaces,
     renderLoredeckLibraryOverlay,
-    scheduleLoredeckLibraryOverlayRefresh,
 } from '../loredecks/loredeck-library-panel.js';
 import { toast } from '../ui/runtime-ui-kit.js';
 
@@ -223,8 +222,7 @@ export function commitLoredeckStackMutation(mutator) {
     saveState(state, { sanitize: false });
     refreshLoredeckSurfaces({ renderLibrary: false });
     if (isLoredeckLibraryOpen()) {
-        refreshLoredeckLibrarySelectionSurfaces();
-        scheduleLoredeckLibraryOverlayRefresh();
+        refreshLoredeckLibraryAfterStackMutation();
     }
     return true;
 }

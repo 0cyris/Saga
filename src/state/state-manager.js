@@ -740,6 +740,17 @@ export function migrateState(state) {
         state._version = 25;
     }
 
+    // Schema v26: narrative-movement cadence for Lore Automation
+    if (state._version < 26) {
+        state.loreAutomationCadence = {
+            ...getDefaultState().loreAutomationCadence,
+            ...(state.loreAutomationCadence && typeof state.loreAutomationCadence === 'object' && !Array.isArray(state.loreAutomationCadence)
+                ? state.loreAutomationCadence
+                : {}),
+        };
+        state._version = 26;
+    }
+
     // ── Always normalize lore fields post-migration ────────────────────────
     // First compact known-heavy canon DB payloads and oversized pending batches so
     // a poisoned chat can recover instead of freezing during panel render/save.
@@ -753,6 +764,12 @@ export function migrateState(state) {
     state.loreAutomationSuggestions = Array.isArray(state.loreAutomationSuggestions) ? state.loreAutomationSuggestions : [];
     state.loreAutomationRuns = Array.isArray(state.loreAutomationRuns) ? state.loreAutomationRuns : [];
     state.loreAutomationLastRun = state.loreAutomationLastRun || null;
+    state.loreAutomationCadence = {
+        ...getDefaultState().loreAutomationCadence,
+        ...(state.loreAutomationCadence && typeof state.loreAutomationCadence === 'object' && !Array.isArray(state.loreAutomationCadence)
+            ? state.loreAutomationCadence
+            : {}),
+    };
     sanitizeLoreArraysForStorage(state);
 
     normalizeContinuityStructure(state);

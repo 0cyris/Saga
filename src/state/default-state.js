@@ -167,12 +167,34 @@ export function getDefaultState() {
 
         pendingLoreMeta: null,
 
-        // Lore Automation suggestion queues/status. Suggest mode writes here instead of mutating accepted lore.
+        // Lore Automation status, run journal, and narrative-movement cadence.
         autoRelevanceSuggestions: [],
         autoRelevanceLastRun: null,
         loreAutomationSuggestions: [],
         loreAutomationRuns: [],
         loreAutomationLastRun: null,
+        loreAutomationCadence: {
+            lastRemapAtMessageId: '',
+            lastRemapWordCount: 0,
+            lastCurationAtMessageId: '',
+            lastCurationWordCount: 0,
+            accumulatedRemapWords: 0,
+            accumulatedCurationWords: 0,
+            lastContextHash: '',
+            lastDeckStackHash: '',
+            lastAcceptedAutomationHash: '',
+            pendingReason: '',
+            lastEdgeClassifier: {
+                edge: 'none',
+                confidence: 0,
+                changed: [],
+                reason: '',
+                wordCount: 0,
+                checkedAt: 0,
+            },
+            staleEvidenceByCardId: {},
+            cooldownByCardId: {},
+        },
 
         // Prompt injection/compression preview status
         loreCompressionStatus: {

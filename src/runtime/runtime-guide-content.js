@@ -193,7 +193,7 @@ function buildAdvancedGuideSteps() {
         advancedStep('advanced-lore-relevance-tier', 'Relevance Tier', 'Set relevance tier and understand prompt eligibility for High, Normal, and Low lore.', 'lore', 'lore.accepted.entry', { fallbackTarget: 'lore.accepted', prepare: 'openAcceptedLoreDetails' }),
         advancedStep('advanced-lore-tags-context', 'Tags and Context Metadata', 'Inspect tags, Context metadata, source metadata, and routing hints on Accepted Lorecards.', 'lore', 'lore.accepted.entry', { fallbackTarget: 'lore.accepted', prepare: 'openAcceptedLoreDetails' }),
         advancedStep('advanced-lore-similarity-duplicates', 'Similarity and Duplicates', 'Understand duplicate and similarity guards before accepting overlapping lore.', 'lore', 'lore.pending', { prepare: 'openPendingLoreReview' }),
-        advancedStep('advanced-lore-auto-relevance', 'Lore Automation', 'Choose Off, AR, ARMP, or ARMPC and review Lore Automation suggestions for large Accepted Lorecards collections.', 'lore', 'lore.autoRelevance', { expandSections: Object.freeze(['lore.autoRelevance']) }),
+        advancedStep('advanced-lore-auto-relevance', 'Lore Automation', 'Choose Off, AR, ARMP, or ARMPC and inspect the run activity for large Accepted Lorecards collections.', 'lore', 'lore.autoRelevance', { expandSections: Object.freeze(['lore.autoRelevance']) }),
         advancedStep('advanced-lore-timeline-audit', 'Lore Timeline Audit', 'Use timeline and audit recovery for deleted, restored, pinned, muted, or changed lore.', 'lore', 'lore.timeline.section', { expandSections: Object.freeze(['lore.timeline']) }),
         advancedStep('advanced-lore-workbench', 'Lore Workbench', 'Open deeper Lorecard workbenches for large-list management and detailed editing.', 'lore', 'lore.accepted.entry', { fallbackTarget: 'lore.accepted', prepare: 'openAcceptedLoreDetails' }),
         advancedStep('advanced-lore-review-first-policy', 'Review-First Policy', 'Model-produced proposals must be reviewed before they can affect future responses.', 'lore', 'lore.pending', { prepare: 'openPendingLoreReview' }),
@@ -310,7 +310,7 @@ export const GUIDE_STEPS = Object.freeze({
     basic: freezeGuideSteps([
         guideStep('basic-session-orientation', 'Basic Workflow Orientation', 'Basic mode is the focused setup and play loop: load Lorepacks, set Context, review useful Lorecards, then continue roleplay.', 'session', 'session.basicReadiness', {
             section: 'firstRun',
-            expected: 'You understand that the Start Checklist is the main Basic guidepost for readiness.',
+            expected: 'You understand that Session Readiness is the main Basic guidepost before roleplay.',
             when: 'Start here the first time you open Saga in a chat.',
         }),
         guideStep('basic-session-saga-active', 'Saga Active', 'Saga Active pauses or resumes Saga behavior without deleting saved data.', 'session', 'session.active', {
@@ -318,15 +318,15 @@ export const GUIDE_STEPS = Object.freeze({
             expected: 'When Saga is active, Accepted Lorecards and configured runtime behavior can affect the next response.',
             when: 'Turn it off for chats where Saga should not inject or run tools.',
         }),
-        guideStep('basic-session-start-checklist', 'Start Checklist', 'The Start Checklist turns the Basic workflow into one next action at a time.', 'session', 'session.basicReadiness', {
+        guideStep('basic-session-start-checklist', 'Session Readiness', 'Session Readiness turns the Basic workflow into one next action at a time.', 'session', 'session.basicReadiness', {
             section: 'firstRun',
-            expected: 'The checklist points to the next missing step: load Loredecks, set Context, review Lorecards, enable Saga, or continue roleplay.',
+            expected: 'Session Readiness points to the next missing step: load Loredecks, set Context, review Lorecards, enable Saga, or continue roleplay.',
             when: 'Use this as the first Session stop in Basic mode.',
         }),
-        guideStep('basic-session-next-action', 'Use the Recommended Action', 'The checklist action button sends you to the right tab instead of making you inspect every control manually.', 'session', 'session.basicReadiness', {
+        guideStep('basic-session-next-action', 'Use the Recommended Action', 'The readiness action button sends you to the right tab instead of making you inspect every control manually.', 'session', 'session.basicReadiness', {
             section: 'firstRun',
             expected: 'You can follow the next recommended action to keep setup moving.',
-            when: 'Use it whenever the checklist is not ready.',
+            when: 'Use it whenever Session Readiness is not ready.',
         }),
         guideStep('basic-loredecks-overview', 'Loredecks as Source Packs', 'Loredecks are source packs for Context, canon suggestions, retrieval, and Accepted Lorecards.', 'loredecks', 'loredecks.library.launch', {
             expandSections: Object.freeze(['loredecks.libraryLaunch']),
@@ -587,7 +587,7 @@ export const GUIDE_STEPS = Object.freeze({
             expected: 'You can tell whether Saga has data and whether Accepted Lorecards are selected for injection.',
             when: 'Check this if the model seems to ignore lore or if the prompt feels too heavy.',
         }),
-        guideStep('basic-session-ready', 'Checklist Ready', 'The Start Checklist is ready when the active stack, Context, review state, and Saga Active status are in place.', 'session', 'session.basicReadiness', {
+        guideStep('basic-session-ready', 'Session Ready', 'Session Readiness is ready when the active stack, Context, review state, and Saga Active status are in place.', 'session', 'session.basicReadiness', {
             section: 'continueRoleplay',
             expected: 'You can confirm Saga is ready before continuing roleplay.',
             when: 'Use this before sending the next story message.',
@@ -595,7 +595,7 @@ export const GUIDE_STEPS = Object.freeze({
         guideStep('basic-session-continue-roleplay', 'Continue Roleplay', 'Once lore is loaded, Context is set, and useful Lorecards are accepted, continue roleplay normally.', 'session', 'session.basicReadiness', {
             section: 'continueRoleplay',
             expected: 'The Basic setup work turns into normal play instead of constant configuration.',
-            when: 'Use this after the checklist is ready.',
+            when: 'Use this after Session Readiness is ready.',
         }),
         guideStep('basic-session-repeat-loop', 'Repeat the Basic Loop', 'After major story movement, update Context and review new Lorecards before continuing again.', 'session', 'session.basicReadiness', {
             section: 'continueRoleplay',

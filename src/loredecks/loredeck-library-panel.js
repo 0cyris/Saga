@@ -297,6 +297,7 @@ function ensureBundledLoredeckIndexLoaded() {
 }
 
 const LOREDECK_LIBRARY_SCROLL_SELECTORS = Object.freeze({
+    mobileBody: '.saga-loredeck-library-mobile-body',
     libraryList: '.saga-loredeck-library-deck-list',
     stackList: '.saga-loredeck-library-stack-list',
     details: '.saga-loredeck-library-details',
@@ -347,23 +348,16 @@ function renderLoredeckLibraryOpeningShell() {
     markTourTarget(header, 'loredecks.library.header');
     const titleWrap = document.createElement('div');
     titleWrap.className = 'saga-lore-workbench-title-wrap';
-    const titleRow = document.createElement('div');
-    titleRow.className = 'saga-loredeck-library-title-row';
-    const emblem = document.createElement('div');
-    emblem.className = 'saga-loredeck-library-emblem';
-    emblem.textContent = 'S';
-    titleRow.appendChild(emblem);
     const titleText = document.createElement('div');
     const title = document.createElement('div');
     title.className = 'saga-lore-workbench-title';
-    title.textContent = 'Loredeck Library';
+    title.textContent = mobile ? 'Library' : 'Loredeck Library';
     titleText.appendChild(title);
     const subtitle = document.createElement('div');
     subtitle.className = 'saga-lore-workbench-subtitle';
     subtitle.textContent = 'Opening Library...';
     titleText.appendChild(subtitle);
-    titleRow.appendChild(titleText);
-    titleWrap.appendChild(titleRow);
+    titleWrap.appendChild(titleText);
     header.appendChild(titleWrap);
 
     if (!mobile) {
@@ -485,29 +479,22 @@ export function renderLoredeckLibraryOverlay(options = {}) {
     markTourTarget(header, 'loredecks.library.header');
     const titleWrap = document.createElement('div');
     titleWrap.className = 'saga-lore-workbench-title-wrap';
-    const titleRow = document.createElement('div');
-    titleRow.className = 'saga-loredeck-library-title-row';
-    const emblem = document.createElement('div');
-    emblem.className = 'saga-loredeck-library-emblem';
-    emblem.textContent = 'S';
-    titleRow.appendChild(emblem);
     const titleText = document.createElement('div');
     const title = document.createElement('div');
     title.className = 'saga-lore-workbench-title';
-    title.textContent = 'Loredeck Library';
+    title.textContent = mobile ? 'Library' : 'Loredeck Library';
     const titleLine = document.createElement('div');
     titleLine.className = 'saga-loredeck-library-title-line';
     titleLine.appendChild(title);
-    titleLine.appendChild(createLoredeckLibraryHeaderMeta(stack, library, canonDb, health));
+    if (!mobile) titleLine.appendChild(createLoredeckLibraryHeaderMeta(stack, library, canonDb, health));
     titleText.appendChild(titleLine);
-    const subtitle = document.createElement('div');
-    subtitle.className = 'saga-lore-workbench-subtitle';
-    subtitle.textContent = mobile
-        ? 'Tap Loredecks in order to build this session loadout.'
-        : 'Build the active lore stack for this session.';
-    titleText.appendChild(subtitle);
-    titleRow.appendChild(titleText);
-    titleWrap.appendChild(titleRow);
+    if (!mobile) {
+        const subtitle = document.createElement('div');
+        subtitle.className = 'saga-lore-workbench-subtitle';
+        subtitle.textContent = 'Build the active lore stack for this session.';
+        titleText.appendChild(subtitle);
+    }
+    titleWrap.appendChild(titleText);
     header.appendChild(titleWrap);
 
     if (!mobile) {
@@ -596,6 +583,12 @@ export function scheduleLoredeckLibraryOverlayRefresh(options = {}) {
     loredeckLibraryOverlayRefreshFrame = requestAnimationFrame(() => {
         loredeckLibraryOverlayRefreshFrame = requestAnimationFrame(render);
     });
+}
+
+export function refreshLoredeckLibraryAfterStackMutation() {
+    if (!loredeckLibraryOpen) return;
+    refreshLoredeckLibrarySelectionSurfaces();
+    if (!isRuntimeMobileShell()) scheduleLoredeckLibraryOverlayRefresh();
 }
 
 function getLoredeckLibraryOverlayContext() {

@@ -651,6 +651,7 @@ const ICONSET_SCHEMA_VERSION = 1;
 const ICONSET_TARGET_ALIASES = Object.freeze({
     'tab.loredecks': 'tab.loredecks',
     'tab.lorecards': 'tab.lore',
+    'tab.more': 'tab.settings',
     loredecks: 'tab.loredecks',
     lorecards: 'tab.lore',
     loredecks: 'tab.loredecks',
@@ -660,6 +661,7 @@ const ICONSET_TARGET_ALIASES = Object.freeze({
     lore: 'tab.lore',
     injection: 'tab.injection',
     settings: 'tab.settings',
+    more: 'tab.settings',
     collapse: 'control.collapse',
 });
 

@@ -1,5 +1,5 @@
 /**
- * Basic workflow readiness card and Start Checklist mini-tours.
+ * Basic workflow readiness card and guided mini-tours.
  */
 
 import { getPanelLoreState, getInjectableLoreEntries, normalizeLoreMatrix } from '../lorecards/lore-matrix.js';
@@ -173,7 +173,7 @@ const BASIC_CHECKLIST_TOUR_TASKS_BY_ROW = Object.freeze({
                 fallbackTarget: 'loredecks.library.stack',
                 prepare: 'openLoredeckLibrary',
                 expected: 'The Loredecks tab reflects the loaded stack.',
-                when: 'Use this before returning to the Start Checklist.',
+                when: 'Use this before returning to Session Readiness.',
             }),
         ]),
     },
@@ -329,19 +329,19 @@ function getBasicChecklistTourFinishState(currentRow = {}) {
 
 function getBasicChecklistTourFinishLabel(currentRow = {}) {
     const finishState = getBasicChecklistTourFinishState(currentRow);
-    if (finishState.nextRow) return `Next: ${finishState.nextRow.actionLabel || finishState.nextRow.label || 'Checklist Item'}`;
-    return finishState.outstandingCount > 0 ? 'Return to Checklist' : 'Done';
+    if (finishState.nextRow) return `Next: ${finishState.nextRow.actionLabel || finishState.nextRow.label || 'Guided Step'}`;
+    return finishState.outstandingCount > 0 ? 'Return to Readiness' : 'Done';
 }
 
 function getBasicChecklistTourFinishTooltip(currentRow = {}) {
     const finishState = getBasicChecklistTourFinishState(currentRow);
     if (finishState.nextRow) {
-        return `Continue the Start Checklist with ${finishState.nextRow.label || finishState.nextRow.actionLabel || 'the next item'}.`;
+        return `Continue Session Readiness with ${finishState.nextRow.label || finishState.nextRow.actionLabel || 'the next guided step'}.`;
     }
     if (finishState.outstandingCount > 0) {
-        return 'Return to the Start Checklist to finish the remaining item.';
+        return 'Return to Session Readiness to finish the remaining item.';
     }
-    return 'Close this checklist guide.';
+    return 'Close this guided tour.';
 }
 
 function finishBasicChecklistTour(currentRow = {}) {
@@ -360,9 +360,9 @@ function launchBasicChecklistTour(row = {}) {
         mode: 'basic',
         sectionId: config.id,
         className: 'saga-checklist-tour-popover',
-        progressLabel: 'Start Checklist',
+        progressLabel: 'Guided Tour',
         closeLabel: 'Close',
-        closeTooltip: 'Close this checklist guide and return to the Start Checklist.',
+        closeTooltip: 'Close this guided tour and return to Session Readiness.',
         finishLabel: 'Done',
         getFinishLabel: () => getBasicChecklistTourFinishLabel(row),
         getFinishTooltip: () => getBasicChecklistTourFinishTooltip(row),
@@ -432,7 +432,7 @@ export function createBasicStartReadinessCard(state = getState(), settings = get
     const subtitle = model.nextAction?.ready ? 'ready' : (model.nextAction?.actionLabel || 'next action');
     return markTourTarget(createCollapsibleSection(
         'session.basicReadiness',
-        'Start Checklist',
+        'Session Readiness',
         subtitle,
         true,
         content,

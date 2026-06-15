@@ -3,7 +3,8 @@ import assert from 'node:assert/strict';
 import { DEFAULT_SETTINGS, MODULE_KEY, getDefaultState } from '../../src/state/constants.js';
 import { getSettings, getState, saveState } from '../../src/state/state-manager.js';
 import {
-  applyLoreAutomationSuggestions,
+  __autoRelevanceTestHooks,
+  onGenerationEndedAutoRelevance,
   runAutoRelevance,
   undoLastLoreAutomationRun,
 } from '../../src/context/auto-relevance.js';
@@ -78,8 +79,9 @@ ctx.extensionSettings[MODULE_KEY] = {
   loreAutomationMode: 'armp',
   loreAutomationStyle: 'careful',
   loreAutomationProviderRouting: 'local',
-  loreAutomationRemapEveryTurns: 1,
-  loreAutomationCurationEveryTurns: 5,
+  loreAutomationPacing: 'normal',
+  loreAutomationRemapWordBudget: 120,
+  loreAutomationCurationWordBudget: 240,
   autoRelevanceEnabled: true,
   autoRelevanceUseModel: false,
   autoRelevanceCandidateCap: 10,
@@ -127,19 +129,28 @@ assert.equal(LORE_AUTOMATION_MODE_LABELS.armpc, 'ARMPC');
 assert.equal(LORE_AUTOMATION_MODE_TOOLTIPS.armpc, 'Auto-Relevance, Muting, Pinning, Curating.');
 assert.equal(isLoreAutomationEnabledForEntry(disabledEntry), false);
 
-const suggestResult = await runAutoRelevance({ force: true });
-assert.equal(suggestResult.status, 'suggested', `Expected careful ARMP to suggest changes: ${JSON.stringify(suggestResult)}`);
-assert.equal(getState().loreSelection.pinnedIds.length, 0, 'Careful ARMP must not pin before suggestions are applied.');
-assert.ok(getState().loreAutomationSuggestions.some(s => s.targetId === 'bezoar_rescue' && s.operation === 'pin'), 'ARMP should suggest pinning the enabled current-scene card.');
-assert.ok(!getState().loreAutomationSuggestions.some(s => s.targetId === 'disabled_bezoar_rescue'), 'ARMP must skip cards with Lore Automation disabled.');
-
-const applyResult = applyLoreAutomationSuggestions();
-assert.equal(applyResult.status, 'applied', `Expected remap suggestions to apply: ${JSON.stringify(applyResult)}`);
+const actionResult = await runAutoRelevance({ force: true });
+assert.equal(actionResult.status, 'changed', `Expected careful ARMP to act directly: ${JSON.stringify(actionResult)}`);
 assert.deepEqual(getState().loreSelection.pinnedIds, ['bezoar_rescue']);
 assert.ok(!getState().loreSelection.pinnedIds.includes('disabled_bezoar_rescue'), 'Manual-disabled card must remain untouched.');
-assert.equal(getState().loreAutomationSuggestions.length, 0, 'Applied remap suggestions should be cleared.');
-assert.equal(getState().loreAutomationLastRun.status, 'applied_suggestions');
+assert.equal(getState().loreAutomationSuggestions.length, 0, 'Careful ARMP must not create a primary remap suggestion queue.');
+assert.equal(getState().loreAutomationLastRun.status, 'changed');
 assert.equal(getSettings().loreAutomationMode, 'armp');
+
+const contextLanes = __autoRelevanceTestHooks.getContextCoverageLaneIds(getState());
+assert.ok(contextLanes.includes('objective:bezoar'), `Context coverage should split objective terms: ${JSON.stringify(contextLanes)}`);
+assert.ok(!contextLanes.some(lane => lane.startsWith('time:') || lane.startsWith('canon:')), `Coverage pressure should not include unsatisfiable date/canon lanes: ${JSON.stringify(contextLanes)}`);
+const entryCoverage = __autoRelevanceTestHooks.getEntryCoverageLaneIds(getState().loreMatrix.find(entry => entry.id === 'bezoar_rescue'), getState());
+assert.ok(entryCoverage.includes('objective:bezoar'), `Entry topics should satisfy objective coverage: ${JSON.stringify(entryCoverage)}`);
+const noDeckPressure = __autoRelevanceTestHooks.computeLoreAutomationStackPressure(getState(), getSettings());
+assert.equal(noDeckPressure.pressure, 'none', `Missing lanes without an active deck should not create add pressure: ${JSON.stringify(noDeckPressure)}`);
+
+const pacing = __autoRelevanceTestHooks.getLoreAutomationPacingPolicy(getSettings());
+assert.equal(pacing.pacing, 'normal');
+assert.equal(pacing.remapWordBudget, 120, 'Narrative remap cadence should use word budgets, not turn counters.');
+assert.equal(pacing.curationWordBudget, 240, 'Narrative curation cadence should use word budgets, not turn counters.');
+assert.equal(__autoRelevanceTestHooks.isLoreAutomationBackgroundEnabled(getSettings()), false, 'Manual Session Automation must block background Lore Automation.');
+assert.equal(onGenerationEndedAutoRelevance().status, 'manual_mode', 'Generation-ended cadence must not act while Session Automation is Manual.');
 
 const undoResult = undoLastLoreAutomationRun();
 assert.equal(undoResult.status, 'undone', `Expected undo to reverse latest automation run: ${JSON.stringify(undoResult)}`);
@@ -150,7 +161,7 @@ ctx.extensionSettings[MODULE_KEY] = {
   ...ctx.extensionSettings[MODULE_KEY],
   canonLoreDatabaseEnabled: false,
   loreAutomationMode: 'armpc',
-  loreAutomationStyle: 'aggressive',
+  loreAutomationStyle: 'careful',
   loreAutomationProviderRouting: 'local',
 };
 const staleAutoEntry = makeEntry('stale_auto_curated_card', 'Stale automation-owned card', {
@@ -170,10 +181,19 @@ curationState.canon = state.canon;
 curationState.scene = state.scene;
 curationState.loreMatrix = [staleAutoEntry];
 curationState.loreSelection = { pinnedIds: [], suppressedIds: [] };
+curationState.loreAutomationCadence = {
+  ...(curationState.loreAutomationCadence || {}),
+  staleEvidenceByCardId: { stale_auto_curated_card: 1 },
+  cooldownByCardId: {},
+};
 curationState.loreAutomationRuns = [];
 curationState.loreAutomationLastRun = null;
 ctx.chatMetadata[MODULE_KEY] = curationState;
 saveState(curationState, { syncPrompt: false });
+
+const pressure = __autoRelevanceTestHooks.computeLoreAutomationStackPressure(getState(), getSettings());
+assert.equal(pressure.pressure, 'remove', `Expected stack pressure to request removal after repeated stale evidence: ${JSON.stringify(pressure)}`);
+assert.equal(pressure.staleCount, 1, 'Careful ARMPC should require repeated stale evidence before retirement.');
 
 const retireResult = await runAutoRelevance({ force: true, curationOnly: true });
 assert.equal(retireResult.status, 'retired', `Expected ARMPC to retire stale automation-owned lore: ${JSON.stringify(retireResult)}`);
@@ -182,5 +202,22 @@ assert.equal(getState().loreMatrix.some(entry => entry.id === 'stale_auto_curate
 const undoRetireResult = undoLastLoreAutomationRun();
 assert.equal(undoRetireResult.status, 'undone', `Expected undo to restore retired lore: ${JSON.stringify(undoRetireResult)}`);
 assert.equal(getState().loreMatrix.some(entry => entry.id === 'stale_auto_curated_card'), true, 'Undo Last Run should restore retired automation-owned lore.');
+
+ctx.extensionSettings[MODULE_KEY] = {
+  ...ctx.extensionSettings[MODULE_KEY],
+  loreAutomationMode: 'armpc',
+  loreAutomationProviderRouting: 'local',
+};
+const noContextState = getDefaultState();
+noContextState.loreContext = {};
+noContextState.canon = {};
+noContextState.scene = {};
+noContextState.loreMatrix = [];
+noContextState.loreSelection = { pinnedIds: [], suppressedIds: [] };
+ctx.chatMetadata[MODULE_KEY] = noContextState;
+saveState(noContextState, { syncPrompt: false });
+assert.equal(__autoRelevanceTestHooks.hasUsableLoreAutomationContext(getState()), false, 'Empty Context should be detected before ARMPC curation.');
+const noContextResult = await runAutoRelevance({ force: true, curationOnly: true });
+assert.equal(noContextResult.status, 'needs_context', `ARMPC curation should pause without usable Context: ${JSON.stringify(noContextResult)}`);
 
 console.log('Lore Automation Levels contract passed.');

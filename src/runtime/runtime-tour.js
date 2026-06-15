@@ -333,31 +333,81 @@ function repositionSagaTourPopover() {
     const margin = 12;
     const viewportWidth = window.innerWidth || document.documentElement.clientWidth || 1024;
     const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 768;
+    const mobile = viewportWidth <= 640;
+    popover.style.width = mobile ? `${Math.max(220, viewportWidth - (margin * 2))}px` : '';
+    popover.style.maxHeight = mobile ? `${Math.max(180, Math.round(viewportHeight * 0.42))}px` : '';
     const popRect = popover.getBoundingClientRect();
 
     if (!target) {
         popover.style.left = `${Math.max(margin, (viewportWidth - popRect.width) / 2)}px`;
         popover.style.top = `${Math.max(margin, (viewportHeight - popRect.height) / 2)}px`;
+        popover.dataset.placement = 'center';
         return;
     }
 
     const rect = target.getBoundingClientRect();
-    let left = rect.right + margin;
-    if (left + popRect.width > viewportWidth - margin) {
-        left = rect.left - popRect.width - margin;
-    }
-    if (left < margin) {
-        left = rect.left + (rect.width / 2) - (popRect.width / 2);
-    }
-    left = Math.max(margin, Math.min(left, viewportWidth - popRect.width - margin));
+    const popWidth = popRect.width;
+    const popHeight = popRect.height;
+    const clampLeft = left => Math.max(margin, Math.min(left, viewportWidth - popWidth - margin));
+    const clampTop = top => Math.max(margin, Math.min(top, viewportHeight - popHeight - margin));
+    const makeCandidate = (placement, left, top, priority = 0) => {
+        const nextLeft = clampLeft(left);
+        const nextTop = clampTop(top);
+        const nextRect = {
+            left: nextLeft,
+            top: nextTop,
+            right: nextLeft + popWidth,
+            bottom: nextTop + popHeight,
+        };
+        return {
+            placement,
+            left: nextLeft,
+            top: nextTop,
+            priority,
+            overlap: getRectOverlapArea(rect, nextRect),
+            distance: getRectCenterDistance(rect, nextRect),
+        };
+    };
+    const centeredLeft = rect.left + (rect.width / 2) - (popWidth / 2);
+    const centeredTop = rect.top + (rect.height / 2) - (popHeight / 2);
+    const candidates = mobile
+        ? [
+            makeCandidate('bottom', centeredLeft, rect.bottom + margin, 0),
+            makeCandidate('top', centeredLeft, rect.top - popHeight - margin, 1),
+            makeCandidate('bottom-sheet', margin, viewportHeight - popHeight - margin, 2),
+            makeCandidate('top-sheet', margin, margin, 3),
+        ]
+        : [
+            makeCandidate('right', rect.right + margin, centeredTop, 0),
+            makeCandidate('left', rect.left - popWidth - margin, centeredTop, 1),
+            makeCandidate('bottom', centeredLeft, rect.bottom + margin, 2),
+            makeCandidate('top', centeredLeft, rect.top - popHeight - margin, 3),
+        ];
+    const best = candidates.sort((a, b) => (
+        (a.overlap - b.overlap)
+        || (a.priority - b.priority)
+        || (a.distance - b.distance)
+    ))[0];
 
-    let top = rect.top + (rect.height / 2) - (popRect.height / 2);
-    if (top < margin) top = rect.bottom + margin;
-    if (top + popRect.height > viewportHeight - margin) top = rect.top - popRect.height - margin;
-    top = Math.max(margin, Math.min(top, viewportHeight - popRect.height - margin));
+    popover.style.left = `${best.left}px`;
+    popover.style.top = `${best.top}px`;
+    popover.dataset.placement = best.placement;
+}
 
-    popover.style.left = `${left}px`;
-    popover.style.top = `${top}px`;
+function getRectOverlapArea(a, b) {
+    if (!a || !b) return 0;
+    const width = Math.max(0, Math.min(a.right, b.right) - Math.max(a.left, b.left));
+    const height = Math.max(0, Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top));
+    return width * height;
+}
+
+function getRectCenterDistance(a, b) {
+    if (!a || !b) return 0;
+    const ax = a.left + ((a.right - a.left) / 2);
+    const ay = a.top + ((a.bottom - a.top) / 2);
+    const bx = b.left + ((b.right - b.left) / 2);
+    const by = b.top + ((b.bottom - b.top) / 2);
+    return Math.hypot(ax - bx, ay - by);
 }
 
 export function closeSagaTour(options = {}) {

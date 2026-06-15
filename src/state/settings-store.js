@@ -77,6 +77,11 @@ function normalizeLoreAutomationProviderRoutingValue(value, fallback = 'auto') {
     return ['auto', 'utility', 'reasoning', 'local'].includes(normalized) ? normalized : fallback;
 }
 
+function normalizeLoreAutomationPacingValue(value, fallback = 'normal') {
+    const normalized = String(value || '').trim().toLowerCase();
+    return ['responsive', 'normal', 'relaxed'].includes(normalized) ? normalized : fallback;
+}
+
 function hasStoredSagaSettings(stored = {}) {
     return !!(stored && typeof stored === 'object' && Object.keys(stored).length > 0);
 }
@@ -242,7 +247,7 @@ export function getSettings() {
 
     if (merged.autoRelevanceMode === 'off') {
         merged.autoRelevanceEnabled = false;
-        merged.autoRelevanceMode = 'suggest';
+        merged.autoRelevanceMode = 'apply_high_confidence';
     }
 
     if (stored.loreAutomationLevelsMigrated20260615 !== true) {
@@ -255,11 +260,17 @@ export function getSettings() {
         if (stored.loreAutomationProviderRouting === undefined) {
             merged.loreAutomationProviderRouting = 'auto';
         }
-        if (stored.loreAutomationRemapEveryTurns === undefined) {
-            merged.loreAutomationRemapEveryTurns = Number(stored.autoRelevanceEveryTurns) || 5;
+        if (stored.loreAutomationCadenceMode === undefined) {
+            merged.loreAutomationCadenceMode = 'auto';
         }
-        if (stored.loreAutomationCurationEveryTurns === undefined) {
-            merged.loreAutomationCurationEveryTurns = Math.max(1, (Number(stored.autoRelevanceEveryTurns) || 5) * 2);
+        if (stored.loreAutomationPacing === undefined) {
+            merged.loreAutomationPacing = 'normal';
+        }
+        if (stored.loreAutomationRemapWordBudget === undefined) {
+            merged.loreAutomationRemapWordBudget = Math.max(250, (Number(stored.loreAutomationRemapEveryTurns || stored.autoRelevanceEveryTurns) || 5) * 180);
+        }
+        if (stored.loreAutomationCurationWordBudget === undefined) {
+            merged.loreAutomationCurationWordBudget = Math.max(500, (Number(stored.loreAutomationCurationEveryTurns || stored.autoRelevanceEveryTurns) || 10) * 180);
         }
         if (stored.loreAutomationRunJournalLimit === undefined) {
             merged.loreAutomationRunJournalLimit = 20;
@@ -269,13 +280,15 @@ export function getSettings() {
     merged.loreAutomationMode = normalizeLoreAutomationModeValue(merged.loreAutomationMode, DEFAULT_SETTINGS.loreAutomationMode || 'off');
     merged.loreAutomationStyle = normalizeLoreAutomationStyleValue(merged.loreAutomationStyle, DEFAULT_SETTINGS.loreAutomationStyle || 'balanced');
     merged.loreAutomationProviderRouting = normalizeLoreAutomationProviderRoutingValue(merged.loreAutomationProviderRouting, DEFAULT_SETTINGS.loreAutomationProviderRouting || 'auto');
+    merged.loreAutomationCadenceMode = 'auto';
+    merged.loreAutomationPacing = normalizeLoreAutomationPacingValue(merged.loreAutomationPacing, DEFAULT_SETTINGS.loreAutomationPacing || 'normal');
     merged.loreAutomationPaused = merged.loreAutomationPaused === true;
-    merged.loreAutomationRemapEveryTurns = Math.max(1, Math.min(100, Number(merged.loreAutomationRemapEveryTurns) || DEFAULT_SETTINGS.loreAutomationRemapEveryTurns || 5));
-    merged.loreAutomationCurationEveryTurns = Math.max(1, Math.min(200, Number(merged.loreAutomationCurationEveryTurns) || DEFAULT_SETTINGS.loreAutomationCurationEveryTurns || 10));
+    merged.loreAutomationRemapWordBudget = Math.max(100, Math.min(20000, Number(merged.loreAutomationRemapWordBudget) || DEFAULT_SETTINGS.loreAutomationRemapWordBudget || 900));
+    merged.loreAutomationCurationWordBudget = Math.max(200, Math.min(40000, Number(merged.loreAutomationCurationWordBudget) || DEFAULT_SETTINGS.loreAutomationCurationWordBudget || 1800));
     merged.loreAutomationRunJournalLimit = Math.max(1, Math.min(100, Number(merged.loreAutomationRunJournalLimit) || DEFAULT_SETTINGS.loreAutomationRunJournalLimit || 20));
     // Keep legacy AR switches readable while making Lore Automation the canonical visible mode.
     merged.autoRelevanceEnabled = merged.loreAutomationMode !== 'off';
-    if (merged.loreAutomationMode === 'off') merged.autoRelevanceMode = 'suggest';
+    merged.autoRelevanceMode = 'apply_high_confidence';
 
     if (stored.compressionLevelDefaultsMigrated20260602 !== true) {
         const migrateLevel = (key, oldValues, newValue = 3) => {

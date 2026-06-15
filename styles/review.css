@@ -485,6 +485,32 @@
     overflow: visible !important;
     scrollbar-gutter: auto !important;
     padding-right: 0 !important;
+    touch-action: pan-y !important;
+}
+
+.saga-mobile-lorecards-loading-shell {
+    min-height: min(220px, 42dvh);
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: 12px;
+    padding: 18px;
+    border-color: var(--saga-border-soft, rgba(185, 139, 54, 0.24));
+    background:
+        radial-gradient(circle at 12% 0%, var(--saga-gold-surface, rgba(215, 181, 109, 0.1)), transparent 42%),
+        var(--saga-card, rgba(12, 14, 20, 0.54));
+}
+
+.saga-mobile-lorecards-loading-spinner {
+    width: 28px;
+    height: 28px;
+    border-width: 3px;
+}
+
+.saga-mobile-lorecards-loading-copy {
+    min-width: 0;
+    display: grid;
+    gap: 4px;
 }
 
 .saga-runtime-mobile .saga-lorecards-lifecycle-tab .saga-lore-accepted-collapsible[open],
@@ -2001,6 +2027,17 @@
     flex-direction: column !important;
     overflow-y: auto !important;
     overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    overscroll-behavior: contain !important;
+    touch-action: pan-y !important;
+}
+
+#saga-lore-panel.saga-runtime-mobile > .saga-lore-panel-body.saga-mobile-content > .saga-runtime-tab-body.saga-runtime-tab-body-lore {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    overscroll-behavior: contain !important;
+    touch-action: pan-y !important;
 }
 
 .saga-lore-panel.saga-runtime-mobile .saga-lorecards-lifecycle-tab,
@@ -2012,6 +2049,7 @@
     min-height: 0 !important;
     max-height: none !important;
     overflow: visible !important;
+    touch-action: pan-y !important;
 }
 
 .saga-lore-panel.saga-runtime-mobile .saga-lorecards-lifecycle-tab .saga-pending-lore-list,
@@ -2027,5 +2065,5 @@
     scrollbar-gutter: auto !important;
     scrollbar-width: auto !important;
     padding-right: 0 !important;
-    touch-action: auto !important;
+    touch-action: pan-y !important;
 }

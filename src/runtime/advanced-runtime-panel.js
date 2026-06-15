@@ -101,7 +101,7 @@ export function renderSessionTab(container, state) {
 
     container.appendChild(createSectionHeader(
         'Session Controls',
-        basic ? 'Review the Start Checklist and runtime state for this chat.' : 'Set how Saga behaves during roleplay.'
+        basic ? 'Review Session Readiness and runtime state for this chat.' : 'Set how Saga behaves during roleplay.'
     ));
     container.appendChild(createSessionOperatorSummary(state, settings, { basic, guideMode, mobileSubview }));
     if (isRuntimeMobileShell() && !mobileSubview) return;
@@ -289,8 +289,16 @@ function createSessionOperatorSummary(state, settings, options = {}) {
     const stats = document.createElement('div');
     stats.className = 'saga-operator-stat-grid';
     stats.appendChild(createKeyValue('Active chat', getActiveChatMetricName(), 'The active SillyTavern chat whose Saga runtime state is shown.'));
-    stats.appendChild(createKeyValue('Accepted Lorecards', String(Math.max(0, (counts?.all || 0) - (counts?.pending || 0))), 'Accepted Lorecards stored in the lore matrix.'));
-    stats.appendChild(createKeyValue('Injection estimate', injectionStats.totalChars ? `${injectionStats.totalTokens} tokens` : 'empty', 'Approximate current injection token count.'));
+    if (mobileRoot) {
+        stats.appendChild(createKeyValue('Pending Review', String(pendingLore), 'Generated Lorecards waiting in Pending Review.'));
+        stats.appendChild(createKeyValue('Accepted Lorecards', String(Math.max(0, (counts?.all || 0) - (counts?.pending || 0))), 'Accepted Lorecards stored in the lore matrix.'));
+        stats.appendChild(createKeyValue('High relevance', String(counts?.active || 0), 'Accepted Lorecards currently assigned to the High-Relevance injection tier.'));
+        stats.appendChild(createKeyValue('Selected for injection', String(selectedLore), 'Accepted Lorecards selected for the next injection.'));
+        stats.appendChild(createKeyValue('Injection estimate', injectionStats.totalChars ? `${injectionStats.totalTokens} tokens` : 'empty', 'Approximate current injection token count.'));
+    } else {
+        stats.appendChild(createKeyValue('Accepted Lorecards', String(Math.max(0, (counts?.all || 0) - (counts?.pending || 0))), 'Accepted Lorecards stored in the lore matrix.'));
+        stats.appendChild(createKeyValue('Injection estimate', injectionStats.totalChars ? `${injectionStats.totalTokens} tokens` : 'empty', 'Approximate current injection token count.'));
+    }
     card.appendChild(stats);
 
     const actions = document.createElement('div');
@@ -309,8 +317,8 @@ function createSessionOperatorSummary(state, settings, options = {}) {
         : null;
     if (nextAction) actions.appendChild(nextAction);
     actions.appendChild(createButton(
-        basic ? 'Start Checklist' : 'Start Walkthrough',
-        basic ? 'Open the Basic workflow guide from the Start Checklist.' : 'Open the Advanced runtime walkthrough.',
+        basic ? 'Start Guided Tour' : 'Start Walkthrough',
+        basic ? 'Open the Basic guided tour from Session Readiness.' : 'Open the Advanced runtime walkthrough.',
         () => startRuntimeWalkthrough(guideMode),
         enabled && !nextAction ? 'saga-primary-button' : ''
     ));

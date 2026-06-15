@@ -1164,6 +1164,7 @@
         align-items: stretch;
         justify-content: stretch;
         padding: 0;
+        background: #07090d;
     }
 
     .saga-lore-workbench-shell {
@@ -1175,6 +1176,12 @@
         border-radius: 0;
         border-left: 0;
         border-right: 0;
+        background-color: #07090d;
+        background:
+            radial-gradient(circle at 12% -8%, rgba(215, 181, 109, 0.12), transparent 34%),
+            radial-gradient(circle at 96% 104%, rgba(36, 141, 150, 0.1), transparent 36%),
+            linear-gradient(145deg, rgb(18, 12, 18), rgb(9, 12, 18)),
+            #07090d;
     }
 
     .saga-context-workbench-shell-mobile {

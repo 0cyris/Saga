@@ -413,6 +413,45 @@ function compactLoreAutomationRun(value = {}) {
     };
 }
 
+function compactLoreAutomationCardNumberMap(value = {}, limit = 240) {
+    const raw = value && typeof value === 'object' && !Array.isArray(value) ? value : {};
+    return Object.fromEntries(
+        Object.entries(raw)
+            .slice(-limit)
+            .map(([key, val]) => [truncateText(key, 140), Number.isFinite(Number(val)) ? Number(val) : 0])
+            .filter(([key]) => key)
+    );
+}
+
+function compactLoreAutomationCadence(value = {}) {
+    const raw = value && typeof value === 'object' && !Array.isArray(value) ? value : {};
+    const classifier = raw.lastEdgeClassifier && typeof raw.lastEdgeClassifier === 'object' && !Array.isArray(raw.lastEdgeClassifier)
+        ? raw.lastEdgeClassifier
+        : {};
+    return {
+        lastRemapAtMessageId: truncateText(raw.lastRemapAtMessageId, 120),
+        lastRemapWordCount: Number.isFinite(Number(raw.lastRemapWordCount)) ? Number(raw.lastRemapWordCount) : 0,
+        lastCurationAtMessageId: truncateText(raw.lastCurationAtMessageId, 120),
+        lastCurationWordCount: Number.isFinite(Number(raw.lastCurationWordCount)) ? Number(raw.lastCurationWordCount) : 0,
+        accumulatedRemapWords: Number.isFinite(Number(raw.accumulatedRemapWords)) ? Number(raw.accumulatedRemapWords) : 0,
+        accumulatedCurationWords: Number.isFinite(Number(raw.accumulatedCurationWords)) ? Number(raw.accumulatedCurationWords) : 0,
+        lastContextHash: truncateText(raw.lastContextHash, 160),
+        lastDeckStackHash: truncateText(raw.lastDeckStackHash, 160),
+        lastAcceptedAutomationHash: truncateText(raw.lastAcceptedAutomationHash, 160),
+        pendingReason: truncateText(raw.pendingReason, 180),
+        lastEdgeClassifier: {
+            edge: truncateText(classifier.edge || 'none', 40),
+            confidence: Number.isFinite(Number(classifier.confidence)) ? Math.max(0, Math.min(1, Number(classifier.confidence))) : 0,
+            changed: compactStringArray(classifier.changed, 12, 60),
+            reason: truncateText(classifier.reason, 180),
+            wordCount: Number.isFinite(Number(classifier.wordCount)) ? Number(classifier.wordCount) : 0,
+            checkedAt: Number.isFinite(Number(classifier.checkedAt)) ? Number(classifier.checkedAt) : 0,
+        },
+        staleEvidenceByCardId: compactLoreAutomationCardNumberMap(raw.staleEvidenceByCardId, 240),
+        cooldownByCardId: compactLoreAutomationCardNumberMap(raw.cooldownByCardId, 240),
+    };
+}
+
 function compactLoreEntryForStorage(entry) {
     const normalized = normalizeLoreEntry(prePruneLoreEntryForNormalization(entry || {}));
     const contextBlock = compactLoreContextForStorage(normalized.context);
@@ -637,6 +676,7 @@ export function sanitizeLoreArraysForStorage(state) {
     state.loreAutomationLastRun = state.loreAutomationLastRun && typeof state.loreAutomationLastRun === 'object' && !Array.isArray(state.loreAutomationLastRun)
         ? compactLoreAutomationRun(state.loreAutomationLastRun)
         : null;
+    state.loreAutomationCadence = compactLoreAutomationCadence(state.loreAutomationCadence);
 
     return state;
 }

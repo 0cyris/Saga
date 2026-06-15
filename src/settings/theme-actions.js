@@ -301,6 +301,7 @@ export function applyThemeIconSet(iconSetId = DEFAULT_ICONSET_ID) {
     saveSettings(next);
     applyRuntimeTheme(getPanelRoot(), next);
     refreshRuntimeRailIcons(next);
+    refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
     refreshThemeIconSetSurfaces(next);
     refreshHeader();
 }
