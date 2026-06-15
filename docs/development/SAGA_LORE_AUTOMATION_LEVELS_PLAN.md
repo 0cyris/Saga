@@ -1,6 +1,6 @@
 # Saga Lore Automation Levels Plan
 
-Status: Design plan. No implementation has started in this document.
+Status: Target architecture plan for the next Lore Automation revision. Initial implementation work exists, but this document defines the desired product and engine behavior going forward.
 
 This plan defines the next-generation Lore Automation system for Saga. It expands the current Auto-Relevance pass into a compact, cockpit-style automation feature that can keep Accepted Lorecards fresh without exposing a wall of brittle tuning controls.
 
@@ -23,6 +23,7 @@ Deterministic hard gates first.
 Broad multi-lane recall second.
 Optional model semantic adjudication third.
 Validated, capped, reversible operations last.
+Narrative movement cadence determines when the workflow is due.
 ```
 
 ## User-Facing Modes
@@ -62,7 +63,8 @@ The cockpit should make this clear through placement and copy:
 The primary Lore Automation surface should expose only the operational controls a user needs in the moment:
 
 - Mode: `Off`, `AR`, `ARMP`, `ARMPC`.
-- Style preset: likely `Careful`, `Balanced`, `Aggressive`.
+- Style preset: `Careful`, `Balanced`, `Aggressive`.
+- Cadence: `Auto` by default; optional Advanced pacing presets can tune responsiveness without exposing raw counters.
 - Status: ready, paused, needs Context, provider unavailable, last run summary.
 - Actions: `Run Now`, `Pause`, `Undo Last Run`, `Review Activity`.
 
@@ -72,10 +74,61 @@ Avoid exposing raw implementation controls in the main panel:
 - Confidence threshold.
 - Recent message character limit.
 - Model token cap.
-- Separate X-turn/Y-turn cadence fields.
+- Raw turn counters, word thresholds, remap timers, or curation timers.
 - Low-level scorer weights.
 
 Those can exist under an Advanced diagnostics/tuning section if needed, but the default experience should be mode and status driven.
+
+### Automation Means Action
+
+Lore Automation is an autonomous controller, not a suggestion workflow.
+
+All enabled Styles should act when the selected Mode permits an operation. `Careful` must not mean "mark for review"; it means "make fewer, stricter, more defensible changes per pass." Activity views explain what happened after the run. They should not become the primary approval queue.
+
+The capability boundary still belongs to Mode:
+
+- `AR` can only promote or demote relevance.
+- `ARMP` can also pin, unpin, mute, and unmute.
+- `ARMPC` can also accept from active decks and retire stale automation-owned cards.
+
+The Style boundary is per-pass assertiveness, not whether automation is allowed to automate.
+
+### Cadence Is Narrative Movement
+
+Turn count is not a reliable clock. Some users write a chapter-length message; others write several short exchanges. Lore Automation should run when enough narrative movement has accumulated, or sooner when Saga has strong structured evidence that the scene or stack changed.
+
+The robust cadence model is:
+
+```text
+Run when:
+  authoritative app event
+  OR accumulated story budget is reached
+  OR local stack pressure is outside target bands
+  OR optional Utility edge classifier reports a high-confidence hard edge
+```
+
+Session Automation still decides whether background workflows may run automatically. Lore Automation cadence decides whether the lore workflow is due when a safe run boundary is available. `Run Now` bypasses the due-state check.
+
+Cadence must not be a Style property. If the user chooses `ARMPC` with `Balanced`, changing to `Aggressive` should make each due pass more assertive, not secretly run the workflow more often.
+
+The baseline clock should be accumulated story text:
+
+- Track words or tokens since last remap.
+- Track words or tokens since last curation.
+- Keep separate meters for remap and curation because curation is heavier.
+- Coalesce multiple triggers into one pending run.
+- Do not run during generation.
+- Enforce a minimum movement delta unless a hard app event or urgent stack pressure fires.
+
+Authoritative app events should trigger or invalidate cadence locally:
+
+- Context Workbench applies a new context, window, or anchor.
+- Active Loredeck stack changes.
+- Accepted Lorecard stack changes.
+- User changes scene date, canon boundary, location, current activity, present characters, or nearby characters.
+- New chat/session starts.
+
+Do not hard-code a large bank of transition phrases. Prose-based scene movement is exactly the case where deterministic phrase matching becomes brittle. If semantic edge detection is needed, use the Utility Provider as an advisory classifier only. The classifier can pull a run forward when confidence is high, lower the remaining story budget when confidence is medium, and do nothing when confidence is low or unavailable. It must never directly curate or mutate Lorecards.
 
 ### Per-Card Automation Ownership Beats Global Protection UI
 
@@ -141,12 +194,15 @@ Local scoring should not be the only discovery mechanism.
 
 The current Auto-Relevance scorer is useful as a fast evidence generator, but a single hand-weighted score is brittle when the system needs to find subtle Lorecards that do not share obvious keywords with recent chat. This matters most for ARMPC, where the job is not merely "rank accepted cards" but "notice which active-deck cards should enter the working set."
 
+Style must not make discovery shallow. `Careful`, `Balanced`, and `Aggressive` should all use the same recall-oriented discovery funnel. They differ in how much action the system is allowed to take after discovery.
+
 The durable split should be:
 
 ```text
 Local hard gates
   -> broad multi-lane candidate gathering
-  -> model semantic recall/rerank
+  -> diverse bounded packet construction
+  -> model semantic classification/rerank
   -> deterministic validation
   -> capped apply
 ```
@@ -172,7 +228,14 @@ Do not rely only on local keyword, scope, or date scoring for discovery. Candida
 - A small rotating exploration sample from eligible active-deck cards, so scorer blind spots do not persist forever.
 - Optional model-expanded semantic needs from the current scene, converted back into local candidate lookups rather than direct state mutation.
 
-The model should not search or mutate the whole deck blindly. It should review a compact eligible candidate pool, identify subtle semantic matches, and return bounded operations with confidence and reasons.
+The model should not search or mutate the whole deck blindly. It should review a compact, diverse, eligible candidate pool, identify subtle semantic matches, classify coverage, and return bounded operations with confidence and reasons.
+
+The target is not "add N cards." The target is coverage:
+
+- Cover current scene constraints without bloating the working set.
+- Keep important lanes represented: present characters, location, objective, secrets, knowledge gates, items, abilities, rules, active temporal gates, and high-priority deck anchors.
+- Prefer no action over padding the stack with weak cards.
+- Retire cards that no longer cover an active lane, but only when deterministic policy says retirement is safe.
 
 ### Provider Routing
 
@@ -185,8 +248,8 @@ Recommended routing:
 | Obvious AR promote/demote | Local only |
 | Borderline or high-impact AR promote/demote | Utility Provider |
 | ARMP pin, unpin, mute, unmute | Utility Provider |
-| ARMPC shortlist expansion and accept-to-Pending Review | Utility Provider or Reasoning Provider depending on Style and provider availability |
-| ARMPC direct auto-accept | Reasoning Provider |
+| Semantic edge classifier for cadence acceleration | Utility Provider, advisory only |
+| ARMPC broad-packet classification and direct auto-accept | Reasoning Provider |
 | ARMPC retire from Accepted Lorecards | Reasoning Provider |
 | Branch-sensitive conflicts, duplicate semantics, or contradiction checks | Reasoning Provider |
 
@@ -273,39 +336,52 @@ Recommended behavior:
 
 - Scan enabled active stack entries for Context-eligible Lorecards.
 - Gather a broad multi-lane candidate pool so subtle but currently important Lorecards are not missed merely because they lack keyword overlap.
-- Use model semantic adjudication to choose high-confidence, non-duplicate cards for curation.
-- Accept selected cards into Pending Review or the chat's Accepted Lorecards depending on rollout stage and Style.
+- Use model semantic adjudication to choose high-confidence, non-duplicate cards for direct curation.
+- Accept selected cards into the chat's Accepted Lorecards. Pending Review is not the core ARMPC path because the feature promise is automation.
 - Default auto-accepted cards to Lore Automation enabled.
-- Retire stale automation-owned cards from the accepted working set.
+- Retire stale automation-owned cards from the accepted working set when they no longer cover current needs.
 - Prefer "retire" over destructive delete.
 - Never delete source Loredeck content.
 - Only permanently delete generated/session lore if the action is explicitly designed, reversible through timeline/history, and clearly scoped.
 
-ARMPC curation should be capped per run so one bad Context read cannot flood or empty the accepted stack.
+ARMPC curation should be capped per run so one bad Context read cannot flood or empty the accepted stack. The caps are action budgets, not discovery budgets.
 
 ## Style Presets
 
-The Style preset should compile to cadences, thresholds, caps, and model usage. It should not expose those values in the primary UI.
+The Style preset should compile to per-pass assertiveness: action budgets, confidence thresholds, stale-evidence requirements, cooldowns, and target-stack pressure. It must not control cadence, scan depth, or manual protection.
 
 Suggested hidden policy mapping:
 
-| Style | Apply Behavior | Model Use | Batch Shape | Retirement |
+| Style | Meaning | Add Budget | Retirement | Cooldown / Evidence |
 | --- | --- | --- | --- | --- |
-| `Careful` | Suggest or apply only extremely clear actions | Utility for ARMP, Reasoning for ARMPC review | Tiny, conservative batches | Mostly disabled or review-only |
-| `Balanced` | Apply high-confidence actions after validation | Utility for AR/ARMP, Reasoning for direct ARMPC | Small bounded batches | Automation-owned cards only |
-| `Aggressive` | Apply broader high-confidence background changes | More frequent semantic adjudication | Larger but still capped batches | Automation-owned stale cards when reversible |
+| `Careful` | Acts automatically, but only on very defensible changes | Low | Low; repeated stale evidence required | Long cooldowns |
+| `Balanced` | Maintains the stack toward target coverage | Medium | Medium; normal stale evidence window | Moderate cooldowns |
+| `Aggressive` | Adapts the working set quickly when the scene changes | Higher but still bounded | Higher; one strong stale signal can be enough | Short cooldowns |
 
 The exact numeric thresholds should remain implementation details unless an Advanced diagnostics panel needs them for debugging.
+
+Hard gates are identical across all Styles:
+
+- Per-card Lore Automation toggle.
+- Manual edits disabling card-level automation.
+- Pinned cards are not retired.
+- Existing Accepted or Pending duplicates are not re-added.
+- Source Loredeck content is never deleted by curation.
+- `Undo Last Run` remains available for applied changes.
+- Cadence is independent of Style.
+
+Style should never mean "scan less carefully." All Styles use broad, diverse candidate discovery. Style decides how much of the validated result can be applied on this pass.
 
 ### Careful
 
 Recommended for cautious users and first-time use.
 
-- Suggests more often than it applies.
+- Applies automatically.
 - Smaller per-run caps.
 - Conservative pin/mute actions.
-- No automatic retirement unless automation ownership is clear.
+- Automatic retirement is allowed, but only for automation-owned cards with repeated stale evidence and no current coverage value.
 - May require more stable evidence before changing a card recently touched by automation.
+- Longer re-add and replacement cooldowns.
 
 ### Balanced
 
@@ -316,14 +392,16 @@ Recommended default once the feature is stable.
 - Allows small ARMPC accept/retire batches.
 - Protects cards disabled for automation.
 - Keeps strong hysteresis to avoid flip-flopping.
+- Maintains the automation-owned stack inside target bands without padding with weak cards.
 
 ### Aggressive
 
 Recommended for users who want Saga to actively curate the chat.
 
 - Larger per-run caps.
-- Faster response to Context shifts.
+- Faster response to Context shifts per pass.
 - More willing to auto-accept and retire automation-owned cards.
+- Shorter stale and replacement cooldowns.
 - Still respects per-card automation disabled state.
 
 ## Data Model
@@ -339,12 +417,16 @@ Suggested settings shape:
   loreAutomationMode: "off|ar|armp|armpc",
   loreAutomationStyle: "careful|balanced|aggressive",
   loreAutomationPaused: false,
+  loreAutomationCadenceMode: "auto",
+  loreAutomationPacing: "responsive|normal|relaxed",
   loreAutomationProviderRouting: "auto|utility|reasoning|local",
   loreAutomationRunJournalLimit: 20
 }
 ```
 
 Visible UI labels should remain `Off`, `AR`, `ARMP`, and `ARMPC`; stored values can be lowercase for consistency with existing settings.
+
+`loreAutomationPacing` is an optional Advanced control. It tunes word/token budgets, classifier eagerness, and cooldown defaults. It does not change the selected Mode's authority or the selected Style's per-pass assertiveness.
 
 Existing `autoRelevance*` settings should be migrated or mapped rather than left as a parallel control family. During transition, implementation can keep compatibility readers, but the final user-facing system should have one Lore Automation mode and one Style preset.
 
@@ -433,6 +515,33 @@ state.loreAutomationRuns = [
 
 The run journal should be compact and retention-limited, but it must support `Undo Last Run`.
 
+Suggested cadence state:
+
+```js
+state.loreAutomationCadence = {
+  lastRemapAtMessageId: "",
+  lastRemapWordCount: 0,
+  lastCurationAtMessageId: "",
+  lastCurationWordCount: 0,
+  accumulatedRemapWords: 0,
+  accumulatedCurationWords: 0,
+  lastContextHash: "",
+  lastDeckStackHash: "",
+  lastAcceptedAutomationHash: "",
+  pendingReason: "",
+  lastEdgeClassifier: {
+    edge: "none|soft_scene_shift|hard_scene_shift|chapter_or_arc_shift",
+    confidence: 0,
+    changed: [],
+    reason: ""
+  },
+  staleEvidenceByCardId: {},
+  cooldownByCardId: {}
+}
+```
+
+The hashes should be deterministic summaries of structured Saga state, not model output. They let the scheduler detect authoritative app events and stack changes without fragile prose parsing.
+
 ## Operation Contracts
 
 All automation actions should be represented as operations with explicit eligibility and validation.
@@ -446,7 +555,7 @@ All automation actions should be represented as operations with explicit eligibi
 | `mute` | ARMP, ARMPC | Card accepted, automation-enabled, not manually pinned, clear exclusion reason | Decide whether card should stop influencing prompt | Previous muted set and metadata |
 | `unmute` | ARMP, ARMPC | Card was automation-muted and is now eligible/current | Decide whether it should return to influence | Previous muted set and metadata |
 | `accept_from_active_decks` | ARMPC | Source deck enabled, Context-eligible, not duplicate, source reference stable | Decide whether card belongs in working set | Accepted insertion and source ref |
-| `retire_from_accepted_stack` | ARMPC | Card automation-owned or automation-enabled, not manually edited, restorable | Decide whether retirement is safe | Accepted removal/archive state |
+| `retire_from_accepted_stack` | ARMPC | Card automation-owned, automation-enabled, not pinned, stale under policy, restorable | Decide whether retirement is safe | Accepted removal/archive state |
 
 The validator should reject operations that lack required local proof, even if the provider recommends them.
 
@@ -484,7 +593,11 @@ Suggested compact candidate packet:
     topicHit: false,
     titleHit: false,
     recentHit: false,
-    laneIds: ["context_window", "present_character", "exploration"]
+    laneIds: ["context_window", "present_character", "exploration"],
+    coverageLaneIds: ["present_character:Harry Potter", "location:Hogwarts"],
+    stackPressure: "none|add|remove|replace",
+    stalePasses: 0,
+    cooldownActive: false
   },
   priorAutomation: {
     lastAction: "",
@@ -551,7 +664,7 @@ Prompt rules:
 
 ### ARMPC Adjudication
 
-Use Reasoning Provider for direct curation and retirement. Utility Provider can support accept-to-Pending Review or shortlist expansion when Style permits.
+Use Reasoning Provider for direct curation and retirement. Utility Provider can support advisory edge classification, but it should not be the default authority for direct curation.
 
 Allowed operations:
 
@@ -565,8 +678,34 @@ Prompt rules:
 - Choose only cards that are likely to matter now or soon.
 - Include subtle semantic matches even when keyword overlap is weak.
 - Do not accept general reference cards unless they directly constrain the current or near-future scene.
-- Retire only automation-owned or automation-eligible accepted cards that are clearly stale and restorable.
+- Retire only automation-owned accepted cards that are clearly stale and restorable.
 - Return no more operations than the supplied per-run caps.
+- Classify coverage explicitly: `add_now`, `keep`, `retire`, `hold`, or `ignore`.
+- Prefer `hold` over weak additions and prefer `keep` over uncertain retirement.
+
+Suggested output shape:
+
+```json
+{
+  "operations": [
+    {
+      "candidateId": "deck:pack_id:card_id",
+      "operation": "accept_from_active_decks",
+      "classification": "add_now",
+      "coverageLaneIds": ["present_character:Ron Weasley", "objective:poisoned mead"],
+      "confidence": 0.84,
+      "reason": "This card constrains the immediate rescue scene."
+    },
+    {
+      "candidateId": "accepted:card_id",
+      "operation": "retire_from_accepted_stack",
+      "classification": "retire",
+      "confidence": 0.91,
+      "reason": "The automation-owned card no longer covers any active lane."
+    }
+  ]
+}
+```
 
 All model responses must be parsed through the shared provider response normalizer and rejected on malformed JSON. A failed parse should degrade the run rather than applying partial free-form output.
 
@@ -576,15 +715,17 @@ Build one policy engine with mode-gated operations.
 
 Recommended pipeline:
 
-1. Read current settings, Context, recent chat, active stack, accepted Lorecards, pending review entries, and current prompt eligibility state.
-2. Apply deterministic hard gates for active stack, Context, branch, duplicates, automation eligibility, mode legality, and undoability.
-3. Gather a broad multi-lane candidate pool rather than relying on a single keyword/scoring pass.
-4. Build evidence packets for each candidate: local score, temporal role, gate status, entity/scope hits, recent-message hits, specificity, current tier, current pin/mute state, ownership, and prior automation actions.
-5. Run model semantic adjudication for the configured subset when the operation needs semantic judgment.
-6. Validate every proposed operation against mode, style, per-card automation state, Context gates, duplicate guards, cooldowns, hysteresis, and run caps.
-7. Apply a bounded batch.
-8. Record timeline and run-journal events.
-9. Sync prompt injection if the accepted set or injection-affecting state changed.
+1. Read current settings, Context, recent chat, active stack, accepted Lorecards, pending review entries, cadence state, and current prompt eligibility state.
+2. Update narrative movement counters and structured state hashes.
+3. Decide whether remap and/or curation is due from app events, accumulated story budget, local stack pressure, or advisory Utility edge classification.
+4. Apply deterministic hard gates for active stack, Context, branch, duplicates, automation eligibility, mode legality, and undoability.
+5. Gather a broad multi-lane candidate pool rather than relying on a single keyword/scoring pass.
+6. Build evidence packets for each candidate: local score, temporal role, gate status, entity/scope hits, recent-message hits, specificity, coverage lanes, stack pressure, current tier, current pin/mute state, ownership, and prior automation actions.
+7. Run model semantic adjudication for the configured subset when the operation needs semantic judgment.
+8. Validate every proposed operation against mode, style, per-card automation state, Context gates, duplicate guards, cooldowns, hysteresis, target bands, and run caps.
+9. Apply a bounded batch.
+10. Record timeline, cadence, and run-journal events.
+11. Sync prompt injection if the accepted set or injection-affecting state changed.
 
 The model should never be the sole authority for applying operations. It can adjudicate candidates, but deterministic validation decides what is legal.
 
@@ -596,9 +737,67 @@ Model prompts should be operation-specific. Avoid asking the model to "manage lo
 
 Model output should use only allowed operation names and known card IDs.
 
+## Cadence And Triggering
+
+Lore Automation cadence should be clock-first, event-aware, pressure-aware, and model-assisted only when useful.
+
+### Due-State Sources
+
+| Source | Detection | Model Required | Effect |
+| --- | --- | --- | --- |
+| Story budget | Accumulated words/tokens since last remap or curation | No | Normal due signal |
+| Context app event | Structured Context hash changed after Saga-owned UI/action | No | Run soon |
+| Deck app event | Active Loredeck stack hash changed | No | Run curation soon in ARMPC |
+| Accepted stack event | Accepted automation stack hash changed | No | Recompute pressure |
+| Stack pressure | Local target-band, stale, duplicate, and coverage checks | No | Run curation when pressure crosses policy |
+| Semantic edge | Utility classifier on recent prose and last snapshot | Optional | Pull run forward only on high confidence |
+
+### Utility Edge Classifier
+
+Do not hard-code broad transition phrase banks. If prose needs semantic judgment, use a small Utility Provider classifier:
+
+```json
+{
+  "edge": "none|soft_scene_shift|hard_scene_shift|chapter_or_arc_shift",
+  "confidence": 0.82,
+  "changed": ["location", "cast", "objective", "time"],
+  "reason": "The scene moved from the infirmary to the common room."
+}
+```
+
+Classifier policy:
+
+- High-confidence hard edge can run remap/curation sooner.
+- Medium-confidence soft edge can lower the remaining story budget.
+- Low confidence, malformed output, unavailable provider, or timeout does nothing.
+- The classifier never recommends card operations and never mutates state.
+
+### Stack Pressure
+
+Stack pressure is local accounting, not a model call.
+
+Add pressure exists when:
+
+- Current coverage lanes are missing accepted cards.
+- Active decks contain strong candidates for uncovered lanes.
+- Automation-owned accepted cards are below the target band.
+- Active deck or Context hash changed and the accepted stack has not been refreshed.
+
+Remove pressure exists when:
+
+- Automation-owned cards no longer cover any active lane.
+- Automation-owned cards have low relevance, no recent hit, and stale evidence across the Style's required window.
+- Source deck is inactive or Context gate no longer matches.
+- Multiple automation-owned cards cover the same lane and the stack is above target.
+- Automation-owned accepted cards exceed the max band.
+
+The policy engine should prefer replacement over churn: add stronger coverage first when below target, retire stale automation-owned cards when above target or repeatedly stale, and avoid removing a card that would leave an important lane uncovered.
+
 ## Candidate Gathering
 
 Candidate gathering should be broad enough for recall but structured enough for deterministic validation.
+
+Do not use Style as a candidate-crop shortcut. `Careful`, `Balanced`, and `Aggressive` should all start from a broad eligible set. The engine should then pack a bounded, diverse model packet from lanes so subtle but important cards survive even when their raw local score is lower.
 
 Recommended lanes:
 
@@ -615,6 +814,14 @@ Recommended lanes:
 
 Lanes should dedupe by stable source reference and preserve lane IDs in evidence packets. Candidate caps should be per-lane before global caps so one noisy lane cannot starve subtle candidates.
 
+The final provider packet should be bounded by prompt budget, not by Style. Style constrains what can be applied after the reasoner and validator respond. If the packet is over budget, prefer diversity:
+
+- Keep at least one candidate per active coverage lane where possible.
+- Preserve high-priority narrow gates, secrets, constraints, current items, and temporal gates.
+- Include currently accepted automation-owned cards that may be stale so the model can compare add/keep/retire decisions.
+- Rotate exploration candidates deterministically across runs.
+- Summarize skipped lane counts in the run journal.
+
 ## Degraded Behavior
 
 Lore Automation should fail soft.
@@ -622,10 +829,11 @@ Lore Automation should fail soft.
 | Condition | AR | ARMP | ARMPC |
 | --- | --- | --- | --- |
 | No Context | Local stale/current scoring only where safe | Disable pin/mute, run AR only or pause | Pause curation |
-| Utility unavailable | Local obvious AR only | Suggest local-only AR or pause ARMP operations | Use Reasoning if configured, otherwise pause curation |
-| Reasoning unavailable | No impact unless needed | No impact unless routed there | Fall back to accept-to-Pending Review with Utility or pause direct curation |
+| Utility unavailable | Local obvious AR only | Apply local-safe ARMP only where deterministic proof is sufficient, otherwise pause ARMP operations | Edge acceleration unavailable; cadence falls back to app events, story budget, and stack pressure |
+| Reasoning unavailable | No impact unless needed | No impact unless routed there | Pause direct curation and explain provider unavailable |
 | Malformed model JSON | Ignore model response and keep local-safe operations only | Do not apply model-only pin/mute | Do not apply curation |
 | Too many candidates | Use lane caps and summarize skipped counts | Use lane caps and summarize skipped counts | Use lane caps, exploration rotation, and summarize skipped counts |
+| Utility edge classifier uncertain | No impact | No impact | Keep accumulating story budget; do not pull curation forward |
 
 Status should explain degraded behavior compactly:
 
@@ -652,6 +860,11 @@ Required safeguards:
 - Hysteresis so a card does not flip relevance, pin, or mute every run.
 - Cooldowns for recently touched cards.
 - Per-run operation caps.
+- Target stack bands for automation-owned curated cards.
+- Local stack-pressure accounting for add, remove, and replace pressure.
+- Narrative movement cadence based on story budget plus structured app events.
+- Utility edge classification is advisory and optional, not foundational.
+- No broad hard-coded transition phrase bank.
 - Degraded modes when Context is missing or provider configuration fails.
 - Compact run history and undo support.
 - Timeline/audit visibility for every applied action.
@@ -671,6 +884,7 @@ Lore Automation
 
 Mode:      ARMPC
 Style:     Balanced
+Cadence:   Auto
 
 Status: Ready
 Last run: 3 accepted, 5 promoted, 2 pinned, 4 muted, 1 retired
@@ -736,6 +950,11 @@ Advanced diagnostics may expose implementation detail, but it should be visually
 Possible diagnostics:
 
 - Provider routing: `Auto`, `Utility only`, `Reasoning only`, `Local only where possible`.
+- Pacing preset: `Responsive`, `Normal`, `Relaxed`.
+- Story budget progress since last remap and curation.
+- Last structured edge trigger.
+- Last Utility edge classifier result.
+- Stack pressure: add/remove/replace/none.
 - Last candidate lane counts.
 - Last provider status.
 - Last run caps hit.
@@ -757,12 +976,9 @@ Accepted card rendering needs:
 
 ### Pending Review
 
-ARMPC should avoid bypassing Pending Review in early rollout unless the user explicitly enables direct curation.
+Pending Review remains a manual review surface, not the core ARMPC path.
 
-Initial ARMPC rollout can support:
-
-- Add eligible active-deck cards to Pending Review.
-- Later direct-accept high-confidence cards once deterministic coverage is stable.
+ARMPC's product promise is automation. It should directly accept high-confidence active-deck cards into the chat's Accepted Lorecards and retire stale automation-owned cards from that working set. If an early rollout uses a feature flag to route direct curation through Pending Review for safety, that must be treated as a temporary rollout constraint, not the target behavior.
 
 ### Lore Timeline
 
@@ -826,36 +1042,41 @@ Settings migration should:
 - Add operation contracts and shared validation.
 - Add evidence packet builder.
 
-### Slice 4: ARMP Suggestion Mode
-
-- Generate pin/mute/unpin/unmute candidates.
-- Show suggestions in activity/review UI.
-- Do not auto-apply pin/mute yet.
-- Add deterministic tests for manual override behavior.
-- Add Utility Provider adjudication contract for ARMP JSON operations.
-
-### Slice 5: ARMP Apply Mode
+### Slice 4: ARMP Apply Mode
 
 - Enable high-confidence pin/mute application.
 - Respect per-card automation disabled state.
 - Record timeline and injection audit events.
 - Add tests for pin/mute changes, manual edit protection, and undo.
+- Add Utility Provider adjudication contract for ARMP JSON operations.
 
-### Slice 6: ARMPC Discovery To Pending Review
+### Slice 5: Narrative Cadence And Stack Pressure
+
+- Replace turn-only cadence with narrative movement cadence.
+- Track accumulated story words/tokens separately for remap and curation.
+- Track structured Context, active stack, and accepted automation stack hashes.
+- Add local stack pressure for target-band, stale, duplicate, and missing-coverage signals.
+- Add optional Utility Provider edge classifier for semantic scene/chapter movement.
+- Ensure classifier output is advisory only and cannot directly mutate Lorecards.
+- Add anti-spam guards: coalescing, no runs during generation, minimum movement deltas, and cooldowns.
+
+### Slice 6: ARMPC Broad Discovery And Coverage Packing
 
 - Scan active decks for Context-eligible cards.
 - Build multi-lane candidate pools from context-window eligibility, scope/entity matches, priority/specificity, timeline neighbors, recent activity, and exploration samples.
-- Add model semantic recall/rerank for subtle candidates that local scoring may miss.
+- Build bounded, diverse provider packets without making Style a scan-depth shortcut.
+- Add model semantic classification/rerank for subtle candidates that local scoring may miss.
+- Add coverage lanes and stack pressure to evidence packets.
 - Deduplicate against Accepted Lorecards and Pending Review.
-- Add high-confidence cards to Pending Review or a curation queue.
 - Add run caps and degraded behavior when Context is missing.
 - Add lane-count diagnostics and skipped-candidate summaries.
 
 ### Slice 7: ARMPC Direct Curation
 
-- Allow direct auto-accept under selected Style and mode.
+- Allow direct auto-accept under ARMPC for all Styles, with Style-specific assertiveness.
 - Default auto-accepted cards to automation enabled.
 - Add retirement of stale automation-owned cards.
+- Add target-stack bands and replacement/cooldown policy.
 - Add restore/undo coverage.
 - Add Reasoning Provider direct curation contract.
 
@@ -874,11 +1095,20 @@ Deterministic coverage should prove:
 - `AR` only changes relevance.
 - `ARMP` can change relevance, pin, and mute, but only for automation-enabled cards.
 - `ARMPC` only discovers cards from enabled active stack entries.
+- All Styles act automatically; `Careful` does not create a primary suggestion/review queue.
+- Style changes per-pass assertiveness only, not cadence, scan depth, or card protection.
 - Manual edits disable per-card automation.
 - Re-enabling a card makes it eligible for the next run but does not mutate immediately.
 - Bulk enable/disable works for selected and filtered cards.
 - Auto-accepted cards do not duplicate existing Pending Review or Accepted Lorecards.
-- Auto-retire does not affect manual/user-owned cards unless explicitly eligible.
+- Auto-retire does not affect manual/user-owned cards.
+- Pinned cards are not retired.
+- Target-stack bands prevent runaway additions and removals.
+- Broad discovery preserves subtle candidates through lane quotas even when raw local score is lower.
+- Story-word accumulation can trigger runs without turn-count dependence.
+- Structured Context, active stack, and accepted stack changes trigger or invalidate cadence without model calls.
+- Utility edge classifier can pull a run forward only when confidence is high and never mutates Lorecards.
+- Utility edge classifier failure falls back to story budget and app events.
 - Missing Context pauses or degrades curation instead of making broad guesses.
 - Provider failure falls back to local policy or pauses model-adjudicated operations.
 - ARMPC recall includes subtle cards that do not share direct keywords with recent chat.
@@ -894,6 +1124,7 @@ Recommended integration path:
 - Add sanitizer/storage tests for `extensions.loreAutomation` and run journal retention.
 - Add mocked provider fixtures for ARMP and ARMPC JSON operation contracts.
 - Add degraded-provider tests for Utility unavailable, Reasoning unavailable, and malformed JSON.
+- Add cadence tests for word-budget triggers, Context hash changes, deck-stack hash changes, stack-pressure triggers, and Utility edge classifier advisory behavior.
 
 ## Completion Criteria
 
@@ -904,6 +1135,9 @@ The feature plan is implementation-ready when it answers:
 - How per-card automation enable/disable works.
 - How manual changes disable card-level automation.
 - How bulk enable/disable works.
+- How narrative movement cadence decides when a run is due.
+- How stack pressure decides add/remove/replace pressure.
+- How Style controls per-pass assertiveness without changing cadence, scan breadth, or manual protection.
 - How local gates, candidate gathering, model adjudication, and validation interact.
 - Which provider is used by default for each decision type.
 - How provider failures degrade.
@@ -917,10 +1151,12 @@ The implementation is feature-complete only when these contracts have determinis
 
 - Should existing Accepted Lorecards default to automation enabled or disabled after migration?
 - Should manual acceptance disable automation by default, or should only subsequent manual edits disable it?
-- Should ARMPC first add cards to Pending Review, direct Accepted Lorecards, or a distinct Curation Review queue?
 - How much run history should be retained per chat?
 - Should `Undo Last Run` be available for multiple previous runs or only the latest run?
 - Should Style presets be visible in Basic, or should Basic only expose `Off`, `AR`, and possibly `ARMPC Balanced` once stable?
 - What compact active-deck index should ARMPC send to the model for semantic recall without overloading prompts?
 - How much exploration sampling is useful before it becomes noisy?
 - Should model adjudication routing remain entirely automatic, or should Advanced expose provider overrides only in diagnostics?
+- What default target-stack bands should `Careful`, `Balanced`, and `Aggressive` use?
+- What word/token budgets should `Responsive`, `Normal`, and `Relaxed` pacing use?
+- What confidence threshold should the Utility edge classifier need before it can pull a run forward?
