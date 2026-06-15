@@ -1071,7 +1071,6 @@ Legacy bridge classes:
 .saga-context-workbench-resolver-score
 .saga-lore-registry-badge
 .saga-lore-meta-select-wrap
-.saga-lore-lifecycle-select-wrap
 .saga-loredeck-creator-project-stage
 .saga-loredeck-library-stack-folder-preview-chip
 .saga-loredeck-library-folder-loredeck-entry-count
@@ -1130,8 +1129,8 @@ Do not do a broad visual rewrite without first establishing the shared classes a
 - Lore Timeline filter chips use shared `selected`/`muted` tones instead of per-filter chip color variables.
 - Lore Timeline summary status and per-event change counts render through schema-backed compact count chips instead of bespoke muted count text.
 - The unused legacy `saga-lore-panel-badge` class was removed.
-- Lorecard registry badges, context gate badges, source metadata, editable lifecycle controls, and editable metadata dropdown chips now carry schema tone/kind/density classes; their wrapper CSS only constrains layout.
-- Editable metadata and lifecycle dropdown chips use transparent inner selects; the schema-backed wrapper owns the chip fill, radius, padding, and type size.
+- Lorecard registry badges, context gate badges, source metadata, and editable metadata dropdown chips now carry schema tone/kind/density classes; their wrapper CSS only constrains layout.
+- Editable metadata dropdown chips use transparent inner selects; the schema-backed wrapper owns the chip fill, radius, padding, and type size. Accepted Lorecards relevance uses the dedicated one-click dot segmented control instead of a dropdown chip.
 - Context command summary, automation mode chip, loaded Loredeck Context rows, Context proposal review, Context Workbench browser/resolver/validation chips, Context brief status chips, and resolver score bubbles.
 - Context Workbench resolver score bubbles render through `createStatusPill` and keep only grid placement and width CSS on the score class.
 - Advanced walkthrough instruction-card pills rely on shared schema sizing; `info`, `count`, and `source` tones come from the chip schema.

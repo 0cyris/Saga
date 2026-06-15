@@ -1032,6 +1032,7 @@ configureLoredeckLibraryPanel({
     saveState,
     getSettings,
     isBasicExperience: () => isBasicExperience(getSettings()),
+    isRuntimeMobileShell,
     saveSettings,
     getDefaultState,
     getCanonLoreDatabaseSync,

@@ -11,6 +11,12 @@ panels adapted to a phone and more like a purpose-built operator surface. The
 core shell stays. The next pass should refine the first screens, object flows,
 and visual hierarchy.
 
+The next redesign layer is documented in
+`SAGA_MOBILE_TOUCH_INTERACTION_REDESIGN.md`. Use it for mobile work that replaces
+desktop panes, visible button rows, and explicit stack controls with direct
+touch selection, tap order, tap-hold details, contextual trays, and segmented
+single-purpose pages.
+
 The parallel agent plan is no longer the active development model for this
 phase. Continue this feature in one coordinated thread unless the user explicitly
 asks to split the work again.
@@ -30,11 +36,16 @@ Loredecks | divider | Session | Context | Lorecards | More
 - SAGA Archive and Saga Hero visual direction: dark archive surfaces, warm gold
   trim, black cherry shell treatment, restrained data accents, and icon-led
   navigation.
-- Lorecard lifecycle labels:
+- Mobile Lorecards route labels:
 
 ```text
-Capture / Suggest -> Pending Review -> Accepted Lorecards -> Active Set
+Generation | Pending | Approved
 ```
+
+Desktop and detail copy can still use precise product language such as
+`Pending Review`, `Accepted Lorecards`, and active state when explaining what a
+card will do. Mobile navigation should not expose `Active Set` as a fourth
+stage.
 
 - Visual smoke coverage for `360x740`, `390x844`, `430x820`, and `768x1024`
   targets.
@@ -75,8 +86,11 @@ Buttons remain valid, but mobile should lean on:
 ### Preserve Product Vocabulary
 
 Do not invent mobile-only names for Saga concepts. Keep `Loredecks`, `Session`,
-`Context`, `Lorecards`, `More`, `Capture / Suggest`, `Pending Review`,
-`Accepted Lorecards`, and `Active Set`.
+`Context`, `Lorecards`, and `More` for the main routes. For mobile Lorecards,
+use the secondary sub-tabs `Generation`, `Pending`, and `Approved`; use
+`Pending Review`, `Accepted Lorecards`, and active-state language only inside
+details, object chips, helper copy, or desktop/advanced contexts where that
+precision matters.
 
 ### Treat Screenshots As Product Evidence
 
@@ -86,20 +100,24 @@ whether the mobile screen actually reads correctly.
 
 ## Findings To Address
 
-### 1. Active Set Starts Below The Fold
+### 1. Approved Objects Start Below The Fold
 
-In the current `mobile-advanced-harness-04-active-set.png`, the selected
-`Active Set` state is visible, but the actual active and available Lorecard
-objects begin below the first viewport. The pipeline card is useful, but it is
-too large when the user has already selected a lifecycle stage.
+In the current advanced mobile Lorecards screenshot, the selected active state
+is visible, but the actual active and available Lorecard objects begin below
+the first viewport. The mobile pipeline card is the wrong
+navigation model: it keeps lifecycle switching inside the page body instead of
+making `Generation`, `Pending`, and `Approved` feel like route-level sub-tabs.
 
 Revision target:
 
-- On mobile stage subviews, collapse the pipeline into a compact lifecycle rail.
-- Keep counts and stage switching visible.
+- Replace the in-content mobile pipeline with a secondary `Generation | Pending
+  | Approved` sub-tab bar that animates out above the fixed bottom nav when the
+  main `Lorecards` tab is active.
+- Keep counts visible as compact sub-tab badges when useful.
 - Put the selected stage's object list in the first viewport.
-- When `Active Set` is selected, active/available Lorecard cards should be
-  visible without scrolling past a full pipeline card.
+- When `Approved` is selected, active/available Lorecard cards should be visible
+  without scrolling past a lifecycle navigation card.
+- Do not render the mobile lifecycle as a page-body button row.
 
 ### 2. Loredecks Root Still Reads As A Button Row
 
@@ -170,7 +188,7 @@ Work:
 
 - Add static checks for the new mobile revision document.
 - Update visual smoke wording away from Agent 1/2/3 ownership.
-- Add rendered-review checklist items for object-first Active Set, Loredecks
+- Add rendered-review checklist items for object-first Approved cards, Loredecks
   primary-action reduction, More header deduplication, and bottom label
   readability.
 
@@ -181,23 +199,26 @@ Done when:
 
 ### Phase 2: Lorecards Object-First Revision
 
-Goal: make the lifecycle feel like an object workflow instead of a control card.
+Goal: make the lifecycle feel like route-level sub-tabs plus object workflow,
+not a control card.
 
 Work:
 
-- Add a compact mobile lifecycle rail variant for stage subviews.
-- Keep the full `Lorecard Pipeline` card only on the Lorecards mobile root.
+- Add the animated secondary `Generation | Pending | Approved` sub-tab bar
+  above the fixed main bottom nav while `Lorecards` is active.
+- Remove the mobile `Lorecard Pipeline` card and any in-content lifecycle
+  button row as the primary stage switcher.
 - Render selected-stage objects immediately after the section header on mobile
   subviews.
-- Ensure `Active Set` shows active/available cards in the first viewport.
+- Ensure `Approved` shows active/available cards in the first viewport.
 - Preserve object-level actions: inspect, activate, mute, pin, and unpin.
 
 Done when:
 
-- The `430x820` Advanced Active Set screenshot shows object cards before the
-  first viewport ends.
+- The `430x820` Advanced Lorecards screenshot shows the secondary sub-tab bar
+  above the main bottom nav and object cards before the first viewport ends.
 - Pending Review still supports selection and batch action drawer behavior.
-- Accepted Lorecards and Active Set filters still work.
+- Accepted Lorecards and active-state filters still work.
 
 ### Phase 3: Loredecks Root Revision
 
@@ -262,10 +283,12 @@ Done when:
 The revision is complete when:
 
 - Existing mobile MVP acceptance criteria still pass.
-- `Active Set` mobile stage opens with active or available Lorecard objects in
-  the first viewport.
-- `Lorecards` still exposes the full lifecycle, but the selected stage owns the
-  visual hierarchy on mobile.
+- `Lorecards` exposes `Generation`, `Pending`, and `Approved` through a
+  secondary sub-tab bar above the fixed bottom nav while the main `Lorecards`
+  tab is active.
+- `Approved` opens with active or available Lorecard objects in the first
+  viewport.
+- The selected Lorecards sub-tab owns the visual hierarchy on mobile.
 - `Loredecks` root uses one dominant next action rather than a row of equal
   primary buttons.
 - `More` index has no redundant header More action.

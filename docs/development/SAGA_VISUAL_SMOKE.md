@@ -48,22 +48,22 @@ These checks do not replace a browser screenshot pass. They only verify that the
 
 ## Mobile Workbench Matrix
 
-The mobile revision feature owns the final mobile verification matrix. It consumes the shared mobile shell contracts and operator/lifecycle contracts from the initial mobile build, then verifies that fullscreen workbench fallbacks still render correctly:
+The mobile revision feature owns the final mobile verification matrix. It consumes the shared mobile shell contracts from the initial mobile build, then verifies that mobile workbenches now follow the touch-first redesign rather than a compressed desktop pane model:
 
 | Viewport | Mode | Workbench Coverage |
 | --- | --- | --- |
-| `360x740` | Basic | Loredeck Library, Context Workbench, safe-area header rendering, header action icon treatment, active tab state exposure, blank Lorecards Active Set prompt, most-useful Lorecards root stage, Capture / Suggest source flow, Pending Review source badges/filters, Pending Review selection drawer, Edit/Close Edit toggle, and Accept/Reject/Inspect labels, Accepted/Active Set deck and Context filters, single-scroll Lorecards lifecycle lists, full-viewport Pack Health, scrollable Pack Health content, Health/Creator close controls, Creator close/back controls, scrollable Creator body, bottom-bar safe-area padding, bottom-bar content clearance, no horizontal overflow. |
-| `390x844` | Basic | Session, Loredecks, and Context next-actions, Basic More Settings route, Library details and folder/stack touch alternatives, Context story-position and Use Anchor controls, Creator stage guide/current task, visible touch targets. |
-| `430x820` | Advanced | More sheet, More sheet close-after-route behavior, Continuity, Injection, and Settings route entries, Active Set inspect/activate/mute/pin/unpin controls, Pack Health tabs, Creator current-task priority and compact roadmap rail, Library object actions, Context proposal review. |
+| `360x740` | Basic | Loredeck Library direct browse, folder tap open/close, no default mobile stack pane, Loredeck tap-selection order badges, Context Workbench, safe-area header rendering, header action icon treatment, active tab state exposure, Lorecards secondary `Generation | Pending | Approved` sub-tab bar, Pending tap-selection tray, Approved long-title object cards, full-viewport Pack Health, scrollable Pack Health content, Health/Creator close controls, Creator close/back controls, scrollable Creator body, bottom-bar safe-area padding, bottom-bar content clearance, no horizontal overflow. |
+| `390x844` | Basic | Session, Loredecks, and Context next-actions, Basic More Settings route, Library details and folder/order touch alternatives, Context story-position and Use Anchor controls, Creator stage guide/current task, visible touch targets. |
+| `430x820` | Advanced | More sheet, More sheet close-after-route behavior, Continuity, Injection, and Settings route entries, Lorecards secondary sub-tabs, Approved active/available object cards, Approved tap/tap-hold/detail affordances, Pack Health tabs, Creator current-task priority and compact roadmap rail, Library object actions, Context proposal review. |
 | `768x1024` | Advanced | Tablet sanity for Library, Context Workbench, Pack Health, Creator, desktop rail/drawer preservation, and desktop shell coexistence above the mobile breakpoint. |
 
-Current static coverage verifies that phone-width fullscreen workbenches use full-viewport shells, sticky headers, stacked Context layouts, Context story-position and `Use Anchor` actions, hidden Library resize handles, visible Library cover/title actions, Library folder move/stack button alternatives, full-viewport Pack Health Center shell, scrollable Pack Health content, scrollable Creator workbench body, current-task priority before the Creator roadmap, the compact horizontal Creator roadmap rail, touch-sized Creator current-task controls, Creator review-queue anchors/actions, reachable Health/Creator close affordances, scrollable Health tabs, Context proposal review overlay actions, Basic More routing to Settings, Advanced More sheet route groups for Continuity, Injection, and Settings, Basic/Advanced walkthrough target resolvability, and the 768px tablet sanity viewport staying above the shared mobile-shell breakpoint. It also verifies shared shell contracts for the fixed bottom bar, bottom-bar safe-area padding, bottom-bar content clearance, active tab state exposure, visual divider, More sheet, safe-area header, header action icon selectors, subview helpers, Saga Hero route icons, SAGA Archive mobile visual treatment, and no horizontal runtime overflow, plus operator/lifecycle contracts for the Basic Session next-action, Loredecks operator next-action, Context operator next-action, blank Lorecards Active Set prompt, most-useful Lorecards root stage, and `Capture / Suggest -> Pending Review -> Accepted Lorecards -> Active Set`, including the Capture / Suggest source-flow labels, shared Pending Review destination note, Pending Review source badges/filters for manual notes, story scans, Creator drafts, and Context suggestions, Pending Review selection drawer behavior, Pending Review `Accept Selected`, `Reject Selected`, `Accept All`, `Reject All`, `Inspect`, `Edit`, `Accept Update`, `Accept as New`, and `Reject` labels, pipeline next-action button, Pending Review detail/destination previews, Accepted/Active Set deck and Context filters, single-scroll Lorecards lifecycle lists, and Active Set available-card inspect/activate/mute/pin/unpin controls. The browser pass should still capture the matrix above to confirm bottom-bar routing, bottom-bar safe-area padding, bottom-bar content clearance, active tab state exposure, safe-area header rendering, header action icon rendering, More, More sheet close-after-route behavior, Basic More Settings route, More route entries for Continuity, Injection, and Settings, walkthrough popover target reachability after mobile routing, subview back behavior, Health/Creator close controls, Session next-action routing, Loredecks next-action routing, Context next-action routing, blank Lorecards Active Set prompt routing, most-useful Lorecards root-stage routing, Capture / Suggest source-flow routing, Pending Review source badges/filters, Pending Review selection drawer appears only after selecting cards, Pending Review `Accept Selected`, `Reject Selected`, `Accept All`, `Reject All`, `Inspect`, `Edit`, `Accept Update`, `Accept as New`, and `Reject` action labels, Lorecards lifecycle reachability, pipeline next-action routing, Pending Review detail/destination previews, accepted deck/context filter routing, Lorecards lifecycle list scrolling, Active Set inspect/activate/mute/pin/unpin controls, Library folder move/stack touch alternatives, Creator current-task actions, Creator current-task priority before the roadmap, Creator compact roadmap rail, Creator review-queue routing, Context proposal review overlay/actions, 768px tablet desktop-shell coexistence, full-viewport Pack Health rendering, Pack Health content scrolling, Saga Hero route and header action icon rendering, warm gold/data-accent active styling, and no horizontal overflow in rendered pixels at each viewport.
+Current static coverage verifies that phone-width fullscreen workbenches use full-viewport shells, sticky headers, stacked Context layouts, Context story-position and `Use Anchor` actions, hidden Library resize handles, visible Library cover/title actions, Library folder and active-order touch alternatives, full-viewport Pack Health Center shell, scrollable Pack Health content, scrollable Creator workbench body, current-task priority before the Creator roadmap, the compact horizontal Creator roadmap rail, touch-sized Creator current-task controls, Creator review-queue anchors/actions, reachable Health/Creator close affordances, scrollable Health tabs, Context proposal review overlay actions, Basic More routing to Settings, Advanced More sheet route groups for Continuity, Injection, and Settings, Basic/Advanced walkthrough target resolvability, Basic Session next-action, Loredecks operator next-action, Context operator next-action, and the 768px tablet sanity viewport staying above the shared mobile-shell breakpoint. It also verifies shared shell contracts for the fixed bottom bar, bottom-bar safe-area padding, bottom-bar content clearance, active tab state exposure, visual divider, More sheet, safe-area header, header action icon selectors, subview helpers, Saga Hero route icons, SAGA Archive mobile visual treatment, and no horizontal runtime overflow, plus touch-redesign contracts for Loredeck folder tap open/close, Loredeck tap order reflected as runtime stack order, selected Loredeck order badges, the animated Lorecards secondary `Generation | Pending | Approved` sub-tab bar, object-first Lorecards page bodies, Pending selection tray behavior, Pending tap-hold/detail editing paths, Approved active/available object cards, Approved tap/tap-hold/detail affordances, Approved long-title wrapping, and no mobile `Lorecard Pipeline` card or in-content lifecycle button row as the stage switcher. The browser pass should still capture the matrix above to confirm bottom-bar routing, bottom-bar safe-area padding, bottom-bar content clearance, active tab state exposure, safe-area header rendering, header action icon rendering, More, More sheet close-after-route behavior, Basic More Settings route, More route entries for Continuity, Injection, and Settings, walkthrough popover target reachability after mobile routing, subview back behavior, Health/Creator close controls, Session next-action routing, Loredecks next-action routing, Context next-action routing, Library folder/order touch behavior, Lorecards secondary sub-tab animation and placement, Pending selection tray appears only after selecting cards, Pending detail/edit access through tap-hold or a visible affordance, Approved tap activation, Approved active/available object-card visibility, Approved long-title wrapping, Creator current-task actions, Creator current-task priority before the roadmap, Creator compact roadmap rail, Creator review-queue routing, Context proposal review overlay/actions, 768px tablet desktop-shell coexistence, full-viewport Pack Health rendering, Pack Health content scrolling, Saga Hero route and header action icon rendering, warm gold/data-accent active styling, and no horizontal overflow in rendered pixels at each viewport.
 
-Mobile UX revision review should additionally confirm that the `Active Set` stage shows active or available Lorecard objects in the first viewport, the Loredecks mobile root presents one dominant next action instead of a row of equal primary buttons, the More index does not repeat a redundant header More action, Creator opens with the current task above the stage roadmap, and bottom bar labels stay readable at the phone viewports.
+Mobile UX revision review should additionally confirm that the Lorecards secondary sub-tab bar appears only while `Lorecards` is active, animates above the fixed bottom nav without content jumps, and leaves the page body to the selected singular-purpose workspace; the Loredecks mobile root presents one dominant next action instead of a row of equal primary buttons; the More index does not repeat a redundant header More action; Creator opens with the current task above the stage roadmap; and bottom bar labels stay readable at the phone viewports.
 
-Rendered Active Set object-action review should confirm active and available rows expose inspect/activate/mute/pin/unpin controls, including mobile inspection routing into the Accepted Lorecards subview.
+Rendered Approved object-action review should confirm active and available rows expose object-state chips plus tap/tap-hold/detail affordances for activate, pin, mute, and inspection without showing equal permanent row buttons across every card.
 
-Rendered Pending Review wording review should confirm the card guidance, destination hints, action row, and Auto-Relevance pending-only warning use Accept/Reject wording, including accepted and accepted-as-new destination copy, and that the inline editor toggles between Edit and Close Edit without falling back to Apply/Dismiss copy.
+Rendered Pending wording review should confirm the card guidance, destination hints, selected action tray, and Auto-Relevance pending-only warning use Accept/Reject wording, including accepted and accepted-as-new destination copy, and that editing is reached through selected context or detail affordance without falling back to Apply/Dismiss copy.
 
 Rendered visual review should also confirm hybrid mythic-tech/source-franchise-free styling: the mobile shell should read as SAGA Archive/Saga Hero with warm gold and data accents, not fandom-specific fantasy, generic sci-fi, generic SaaS, or pure cyberpunk treatment.
 
@@ -139,6 +139,33 @@ assets/documentation/renders/saga-smoke/guide-harness-08-advanced-tour.png
 
 It verifies Basic module cards, Advanced task-track cards, hidden Basic rail tabs, Advanced rail availability, focused module starts, prepared fullscreen Library targeting, missing-project or resumable-project Creator state, and the first full-tour popover for both walkthroughs.
 
+## Repo-Local Mobile Touch Redesign Helper
+
+Run the focused mobile touch redesign smoke without depending on the installed SillyTavern extension copy:
+
+```powershell
+$env:SAGA_SMOKE_TARGET='mobile-redesign-harness'
+$env:SAGA_SMOKE_VIEWPORT_WIDTH='360'
+$env:SAGA_SMOKE_VIEWPORT_HEIGHT='740'
+$env:SAGA_SMOKE_NATIVE_WS='1'
+node tools\scripts\smoke-live-st-cdp.mjs
+```
+
+Repeat the same target at `390x844` and `430x820` before closing the mobile redesign feature.
+
+This starts the local harness in Advanced mobile mode and captures:
+
+```text
+assets/documentation/renders/saga-smoke/mobile-redesign-360x740-01-library-browse.png
+assets/documentation/renders/saga-smoke/mobile-redesign-360x740-02-library-detail.png
+assets/documentation/renders/saga-smoke/mobile-redesign-360x740-03-library-reorder.png
+assets/documentation/renders/saga-smoke/mobile-redesign-360x740-04-lorecards-pending.png
+assets/documentation/renders/saga-smoke/mobile-redesign-360x740-05-lorecards-approved.png
+assets/documentation/renders/saga-smoke/mobile-redesign-360x740-06-lorecards-generation.png
+```
+
+It verifies the mobile Library browse surface hides desktop stack/details/resize/grab handles, deck taps update active-stack order badges, the selected strip opens detail and selected-only reorder sheets, the Lorecards route shows an animated secondary `Generation | Pending | Approved` sub-tab bar above the fixed bottom nav, the Lorecards page body does not use a `Lorecard Pipeline` card or lifecycle button row as the stage switcher, Pending opens a contextual action tray only after tapping a Pending card, Approved shows active and available Accepted Lorecards with readable two-line titles and detail affordances instead of full row-action buttons, Approved card taps toggle active state visibly, Generation stays focused on creation/suggestion, and all checked surfaces avoid horizontal overflow.
+
 ## Repo-Local Advanced Mobile Matrix Helper
 
 Run the current-code `430x820` Advanced mobile matrix smoke without depending on the installed SillyTavern extension copy:
@@ -151,20 +178,20 @@ $env:SAGA_SMOKE_NATIVE_WS='1'
 node tools\scripts\smoke-live-st-cdp.mjs
 ```
 
-This starts the local harness in Advanced mode and captures:
+This starts the local harness in Advanced mode and should stay aligned with the mobile touch redesign captures:
 
 ```text
 assets/documentation/renders/saga-smoke/mobile-advanced-harness-01-loredecks-root.png
 assets/documentation/renders/saga-smoke/mobile-advanced-harness-02-more-sheet.png
 assets/documentation/renders/saga-smoke/mobile-advanced-harness-03-injection-route.png
-assets/documentation/renders/saga-smoke/mobile-advanced-harness-04-active-set.png
+assets/documentation/renders/saga-smoke/mobile-advanced-harness-04-lorecards-approved.png
 assets/documentation/renders/saga-smoke/mobile-advanced-harness-05-library-actions.png
 assets/documentation/renders/saga-smoke/mobile-advanced-harness-06-pack-health.png
 assets/documentation/renders/saga-smoke/mobile-advanced-harness-07-creator-review-queue.png
 assets/documentation/renders/saga-smoke/mobile-advanced-harness-08-context-proposals.png
 ```
 
-It verifies the Advanced More sheet entries for Continuity, Injection, and Settings, More sheet close-after-route behavior, Active Set inspect/pin/mute/activate controls, Library object actions, Pack Health close/content, Creator Review Queue/current-task state, Context Proposal Review actions, and no horizontal overflow on the mobile Loredecks root.
+It verifies the Advanced More sheet entries for Continuity, Injection, and Settings, More sheet close-after-route behavior, Lorecards secondary sub-tabs, Approved active/available object-card controls, Library object actions, Pack Health close/content, Creator Review Queue/current-task state, Context Proposal Review actions, and no horizontal overflow on the mobile Loredecks root.
 
 ## Repo-Local Advanced Tablet Matrix Helper
 
@@ -302,6 +329,7 @@ To run the installed Loredeck Creator end-to-end against real SillyTavern provid
 $env:SAGA_SMOKE_TARGET='live-creator'
 $env:SAGA_ALLOW_PROVIDER_CALLS='1'
 $env:SAGA_ST_URL='http://127.0.0.1:8000/'
+$env:SAGA_ST_USER_FILES_DIR='F:\SillyTavern\SillyTavern\data\default-user\user\files'
 node tools\scripts\smoke-live-st-cdp.mjs
 ```
 
@@ -309,7 +337,9 @@ This target snapshots Saga metadata/settings, opens the real Library and Creator
 
 If a prior interrupted automated Creator smoke project is active, the harness cancels any live smoke generation and resets that smoke project back to intake before applying the new inputs. If the active project does not look like an automated smoke project, the target stops instead of resetting it.
 
-The finalized-deck verification runs before cleanup. It selects the finalized Custom deck in the Library, verifies the Generated working deck was retired, verifies the Custom record links back to the Generated source, checks that at least one accepted Lorecard persisted with no pending changes, fetches the external payload file when present, checks any referenced cover file, and verifies the Library exposes deletion for cleanup.
+The finalized-deck verification runs before cleanup. It first verifies the finalized Custom record and payload through `/user/files`, then uses the Library UI when the page remains responsive. The check verifies the Generated working deck was retired, verifies the Custom record links back to the Generated source, checks that at least one accepted Lorecard persisted with no pending changes, verifies entries now reference the Custom pack instead of the Generated pack, and checks that Creator-only entry markers were retired.
+
+Cleanup tries the visible Library delete flow first. If the live page is wedged after finalization, the target falls back to SillyTavern's files API, and then to the local filesystem only when `SAGA_ST_USER_FILES_DIR` or `SAGA_ST_DATA_DIR` is set. The filesystem fallback is scoped to the smoke run's linked Library pack IDs, generated pack IDs, Creator job IDs, indexed payload files, and indexed Creator project files.
 
 Expected artifacts:
 

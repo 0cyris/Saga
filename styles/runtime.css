@@ -4656,6 +4656,463 @@
 
 }
 
+.saga-loredeck-library-shell-mobile {
+    position: relative;
+    width: 100vw;
+    height: 100dvh;
+    max-height: 100dvh;
+    border-radius: 0;
+    overflow: hidden;
+}
+
+.saga-loredeck-library-mobile-body {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    overflow: hidden;
+    padding: 8px;
+}
+
+.saga-loredeck-library-mobile-browse {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.saga-loredeck-library-mobile-controls {
+    flex: 0 0 auto;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 7px;
+}
+
+.saga-loredeck-library-mobile-selected-strip {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    flex: 0 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 8px;
+    align-items: center;
+    border: 1px solid var(--saga-border-soft, rgba(215, 181, 109, 0.24));
+    border-radius: 8px;
+    background:
+        radial-gradient(circle at 16% 0%, var(--saga-gold-surface, rgba(215, 181, 109, 0.12)), transparent 42%),
+        linear-gradient(180deg, rgba(15, 18, 25, 0.96), rgba(7, 9, 14, 0.98));
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28);
+    padding: 8px;
+}
+
+.saga-loredeck-library-mobile-selected-summary {
+    min-width: 0;
+    color: var(--saga-gold, #d7b56d);
+    font-size: 0.82em;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.saga-loredeck-library-mobile-selected-chips {
+    grid-column: 1 / -1;
+    min-width: 0;
+    display: flex;
+    gap: 5px;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    padding-bottom: 1px;
+}
+
+.saga-loredeck-library-mobile-selected-chip {
+    flex: 0 0 auto;
+    max-width: min(220px, 62vw);
+    border: 1px solid var(--saga-border-soft, rgba(215, 181, 109, 0.24));
+    border-radius: 999px;
+    background: var(--saga-chip-neutral-bg, rgba(255, 255, 255, 0.06));
+    color: var(--saga-chip-neutral-fg, rgba(241, 234, 216, 0.84));
+    font-size: 0.72em;
+    font-weight: 720;
+    line-height: 1.2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 4px 8px;
+}
+
+.saga-loredeck-library-mobile-clear {
+    min-width: 56px;
+    min-height: 36px;
+    align-self: start;
+}
+
+.saga-loredeck-library-mobile-selected-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 6px;
+}
+
+.saga-loredeck-library-mobile-reorder,
+.saga-loredeck-library-mobile-clear {
+    min-height: 36px;
+}
+
+.saga-loredeck-library-mobile-list {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 2px 2px 18px;
+    scrollbar-gutter: stable;
+}
+
+.saga-loredeck-library-deck-card.saga-loredeck-library-deck-mobile-touch {
+    min-height: 96px;
+    grid-template-columns: 64px minmax(0, 1fr);
+    gap: 10px;
+    align-items: stretch;
+    padding: 9px 42px 9px 9px;
+    touch-action: manipulation;
+}
+
+.saga-loredeck-library-deck-card.saga-loredeck-library-deck-mobile-touch.saga-loredeck-library-deck-card-nested {
+    width: calc(100% - (var(--saga-folder-depth, 0) * 10px));
+    margin-left: calc(var(--saga-folder-depth, 0) * 10px);
+}
+
+.saga-loredeck-library-deck-card.saga-loredeck-library-deck-mobile-touch.saga-loredeck-library-deck-active {
+    border-color: var(--saga-border-strong, rgba(255, 207, 105, 0.86));
+    background:
+        radial-gradient(circle at 86% 4%, rgba(245, 196, 91, 0.17), transparent 38%),
+        radial-gradient(circle at 6% 100%, rgba(86, 123, 143, 0.14), transparent 42%),
+        linear-gradient(180deg, rgba(31, 21, 24, 0.94), rgba(8, 10, 15, 0.96));
+    box-shadow:
+        0 0 0 1px rgba(255, 207, 105, 0.18) inset,
+        3px 0 0 rgba(255, 207, 105, 0.68) inset;
+}
+
+.saga-loredeck-library-deck-mobile-touch .saga-loredeck-library-monogram {
+    width: 64px;
+    height: 76px;
+    align-self: stretch;
+}
+
+.saga-loredeck-library-deck-mobile-touch .saga-loredeck-library-deck-main {
+    justify-content: center;
+    gap: 5px;
+}
+
+.saga-loredeck-library-deck-mobile-touch .saga-loredeck-library-deck-title,
+.saga-loredeck-library-deck-mobile-touch .saga-loredeck-library-inline-title-label {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+}
+
+.saga-loredeck-library-deck-mobile-touch .saga-loredeck-library-deck-title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-height: 1.2;
+}
+
+.saga-loredeck-library-deck-mobile-touch .saga-loredeck-library-deck-description,
+.saga-loredeck-library-deck-mobile-touch .saga-loredeck-library-card-stats {
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.saga-loredeck-library-deck-mobile-touch .saga-loredeck-library-deck-description {
+    -webkit-line-clamp: 2;
+}
+
+.saga-loredeck-library-deck-mobile-touch .saga-loredeck-library-card-stats {
+    -webkit-line-clamp: 1;
+}
+
+.saga-loredeck-library-deck-mobile-touch .saga-loredeck-row-meta {
+    flex-wrap: wrap;
+    max-height: 46px;
+}
+
+.saga-loredeck-library-mobile-order-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 28px;
+    height: 28px;
+    display: inline-grid;
+    place-items: center;
+    border: 1px solid var(--saga-border-strong, rgba(255, 207, 105, 0.82));
+    border-radius: 999px;
+    background:
+        radial-gradient(circle at 50% 32%, rgba(255, 225, 162, 0.22), transparent 58%),
+        linear-gradient(180deg, rgba(45, 27, 30, 0.98), rgba(8, 10, 15, 0.98));
+    color: var(--saga-gold, #d7b56d);
+    font-size: 0.78em;
+    font-weight: 900;
+    line-height: 1;
+    box-shadow:
+        0 0 0 1px rgba(0, 0, 0, 0.42),
+        0 0 16px rgba(245, 196, 91, 0.2);
+}
+
+.saga-loredeck-library-mobile-order-badge[hidden] {
+    display: none;
+}
+
+.saga-loredeck-library-mobile-detail-affordance {
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+    z-index: 2;
+    width: 28px;
+    min-width: 28px;
+    height: 28px;
+    min-height: 28px;
+    display: inline-grid !important;
+    place-items: center;
+    border-color: var(--saga-border-soft, rgba(215, 181, 109, 0.34));
+    border-radius: 999px;
+    background: rgba(5, 7, 12, 0.82);
+    color: var(--saga-gold, #d7b56d);
+    font-size: 0.82em;
+    font-weight: 900;
+    line-height: 1;
+    padding: 0;
+}
+
+.saga-loredeck-library-mobile-detail-backdrop {
+    position: absolute;
+    inset: 0;
+    z-index: 20;
+    display: flex;
+    align-items: flex-end;
+    background:
+        linear-gradient(180deg, rgba(3, 4, 8, 0.2), rgba(3, 4, 8, 0.72));
+}
+
+.saga-loredeck-library-mobile-reorder-backdrop {
+    position: absolute;
+    inset: 0;
+    z-index: 22;
+    display: flex;
+    align-items: flex-end;
+    background:
+        linear-gradient(180deg, rgba(3, 4, 8, 0.18), rgba(3, 4, 8, 0.76));
+}
+
+.saga-loredeck-library-mobile-detail-sheet {
+    width: 100%;
+    max-height: min(82dvh, 720px);
+    min-height: min(420px, 76dvh);
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--saga-border, rgba(215, 181, 109, 0.36));
+    border-radius: 12px 12px 0 0;
+    background:
+        radial-gradient(circle at 14% 0%, rgba(215, 181, 109, 0.12), transparent 36%),
+        linear-gradient(180deg, rgba(18, 14, 20, 0.99), rgba(5, 7, 12, 0.99));
+    box-shadow: 0 -18px 42px rgba(0, 0, 0, 0.46);
+    overflow: hidden;
+}
+
+.saga-loredeck-library-mobile-reorder-sheet {
+    width: 100%;
+    max-height: min(78dvh, 680px);
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--saga-border, rgba(215, 181, 109, 0.36));
+    border-radius: 12px 12px 0 0;
+    background:
+        radial-gradient(circle at 16% 0%, rgba(215, 181, 109, 0.13), transparent 36%),
+        linear-gradient(180deg, rgba(15, 17, 23, 0.99), rgba(5, 7, 12, 0.99));
+    box-shadow: 0 -18px 42px rgba(0, 0, 0, 0.48);
+    overflow: hidden;
+}
+
+.saga-loredeck-library-mobile-detail-sheet-header {
+    flex: 0 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 8px;
+    align-items: center;
+    border-bottom: 1px solid var(--saga-border-soft, rgba(215, 181, 109, 0.18));
+    padding: 8px 10px;
+}
+
+.saga-loredeck-library-mobile-reorder-header {
+    flex: 0 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 8px;
+    align-items: center;
+    border-bottom: 1px solid var(--saga-border-soft, rgba(215, 181, 109, 0.18));
+    padding: 8px 10px;
+}
+
+.saga-loredeck-library-mobile-detail-sheet-title {
+    min-width: 0;
+    color: var(--saga-gold, #d7b56d);
+    font-size: 0.95em;
+    font-weight: 820;
+    line-height: 1.2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.saga-loredeck-library-mobile-reorder-title {
+    min-width: 0;
+    color: var(--saga-gold, #d7b56d);
+    font-size: 0.95em;
+    font-weight: 820;
+    line-height: 1.2;
+}
+
+.saga-loredeck-library-mobile-detail-close {
+    min-height: 36px;
+}
+
+.saga-loredeck-library-mobile-reorder-done {
+    min-height: 36px;
+}
+
+.saga-loredeck-library-mobile-reorder-list {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    overflow-y: auto;
+    padding: 9px;
+}
+
+.saga-loredeck-library-mobile-reorder-row {
+    min-width: 0;
+    display: grid;
+    grid-template-columns: 28px 24px 46px minmax(0, 1fr) auto;
+    gap: 8px;
+    align-items: center;
+    border: 1px solid var(--saga-border-soft, rgba(215, 181, 109, 0.2));
+    border-radius: 8px;
+    background:
+        radial-gradient(circle at 0% 0%, rgba(215, 181, 109, 0.1), transparent 40%),
+        rgba(8, 10, 15, 0.72);
+    padding: 7px;
+}
+
+.saga-loredeck-library-mobile-reorder-order {
+    width: 26px;
+    height: 26px;
+    display: inline-grid;
+    place-items: center;
+    border: 1px solid var(--saga-border-strong, rgba(255, 207, 105, 0.72));
+    border-radius: 999px;
+    color: var(--saga-gold, #d7b56d);
+    font-size: 0.78em;
+    font-weight: 900;
+}
+
+.saga-loredeck-library-mobile-reorder-grip {
+    width: 24px;
+    height: 40px;
+    cursor: default;
+    opacity: 0.78;
+}
+
+.saga-loredeck-library-mobile-reorder-visual {
+    width: 46px;
+    height: 56px;
+}
+
+.saga-loredeck-library-mobile-reorder-main {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.saga-loredeck-library-mobile-reorder-label {
+    min-width: 0;
+    color: var(--saga-text, #f1ead8);
+    font-weight: 780;
+    line-height: 1.18;
+    overflow-wrap: anywhere;
+}
+
+.saga-loredeck-library-mobile-reorder-meta {
+    min-width: 0;
+    color: var(--saga-muted, rgba(241, 234, 216, 0.68));
+    font-size: 0.72em;
+    line-height: 1.25;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.saga-loredeck-library-mobile-reorder-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.saga-loredeck-library-mobile-reorder-controls .saga-runtime-button {
+    min-width: 58px;
+    min-height: 34px;
+}
+
+.saga-loredeck-library-mobile-detail-panel {
+    flex: 1 1 auto;
+    min-height: 0;
+    height: auto;
+    max-height: none;
+    border: 0;
+    border-radius: 0;
+    background:
+        radial-gradient(circle at 12% 0%, rgba(215, 181, 109, 0.08), transparent 30%),
+        linear-gradient(180deg, rgba(11, 10, 14, 0.96), rgba(3, 4, 7, 0.98));
+    overflow-y: auto;
+}
+
+@media (max-width: 640px) {
+    .saga-loredeck-library-mobile-body {
+        padding-bottom: max(10px, env(safe-area-inset-bottom));
+    }
+
+    .saga-loredeck-library-mobile-selected-strip {
+        top: 0;
+    }
+
+    .saga-loredeck-library-deck-card.saga-loredeck-library-deck-mobile-touch {
+        grid-template-columns: 58px minmax(0, 1fr);
+        min-height: 92px;
+        padding-right: 40px;
+    }
+
+    .saga-loredeck-library-deck-mobile-touch .saga-loredeck-library-monogram {
+        width: 58px;
+        height: 72px;
+    }
+
+    .saga-loredeck-library-mobile-selected-actions {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .saga-loredeck-library-mobile-reorder-row {
+        grid-template-columns: 26px 22px 42px minmax(0, 1fr);
+    }
+
+    .saga-loredeck-library-mobile-reorder-controls {
+        grid-column: 1 / -1;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+}
+
 .saga-loredeck-health-card {
     display: flex;
     flex-direction: column;
