@@ -68,6 +68,10 @@ const MOBILE_LORECARDS_SUBTAB_META = Object.freeze({
         label: 'Generation',
         tooltip: 'Create or suggest Lorecards.',
     }),
+    automation: Object.freeze({
+        label: 'Automation',
+        tooltip: 'Configure and run Lore Automation.',
+    }),
     pending: Object.freeze({
         label: 'Pending',
         tooltip: 'Review proposed Lorecards.',
@@ -402,6 +406,7 @@ function getMobileLorecardsSubTabCounts(state) {
     const acceptedCount = (loreState.entries || []).filter(entry => !entry?.isPending).length;
     return {
         suggested: 0,
+        automation: 0,
         pending: pendingCount,
         accepted: acceptedCount,
     };

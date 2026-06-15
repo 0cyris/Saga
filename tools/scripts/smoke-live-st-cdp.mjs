@@ -4759,13 +4759,54 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
             bottomContextPrevented: bottomContextEvent.defaultPrevented,
         };
     }));
-    if (lorecardsRoot.labels.join('|') !== 'Generation|Pending|Approved') findings.push(`Mobile redesign Lorecards root rendered lifecycle labels ${lorecardsRoot.labels.join(', ')} instead of Generation, Pending, Approved.`);
+    if (lorecardsRoot.labels.join('|') !== 'Generation|Automation|Pending|Approved') findings.push(`Mobile redesign Lorecards root rendered lifecycle labels ${lorecardsRoot.labels.join(', ')} instead of Generation, Automation, Pending, Approved.`);
     if (!lorecardsRoot.noPipeline) findings.push('Mobile redesign Lorecards root still rendered the page-body Lorecard Pipeline card.');
     if (!lorecardsRoot.subtabsAboveBottom) findings.push('Mobile redesign Lorecards sub-tabs were not positioned above the main bottom bar.');
     if (!lorecardsRoot.noHorizontalOverflow) findings.push('Mobile redesign Lorecards root has horizontal overflow.');
     if (lorecardsRoot.pageOverflowY !== 'auto' || !/pan-y/i.test(lorecardsRoot.pageTouchAction)) findings.push(`Mobile redesign Lorecards page is not configured as the finger-scroll owner (${lorecardsRoot.pageOverflowY}, ${lorecardsRoot.pageTouchAction}).`);
     if (!lorecardsRoot.bottomContextPrevented) findings.push('Mobile redesign active bottom tab did not suppress Android long-press context menu.');
     if (loreRouteTooltipState.visible) findings.push(`Mobile redesign Lorecards route change showed a floating tooltip: ${loreRouteTooltipState.text || 'blank'}.`);
+
+    const automationClicked = await clickSelector(client, '.saga-mobile-lorecards-subtab[data-stage="automation"]').catch(() => false);
+    if (!automationClicked) findings.push('Mobile redesign Automation page button was not clickable.');
+    await waitFor(client, 'document.querySelector(".saga-lorecards-lifecycle-tab")?.dataset?.sagaLoreLifecycleStage === "automation"', 'Mobile redesign Automation page active', 10000).catch(error => findings.push(error.message));
+    await waitFor(client, '!document.querySelector(".saga-mobile-lorecards-loading-shell") && !!document.querySelector(".saga-mobile-lore-automation-page .saga-auto-relevance-card")', 'Mobile redesign Automation deferred content', 10000).catch(error => findings.push(error.message));
+    await wait(500);
+    const automationTooltipState = await getVisibleFloatingTooltipState(client);
+    const automationState = await evaluate(client, script(() => {
+        const page = document.querySelector('.saga-mobile-lore-automation-page');
+        const text = page?.innerText || '';
+        const labels = [...page?.querySelectorAll('button, select, input') || []].map(node => {
+            if (node.tagName === 'SELECT') return node.closest('label')?.innerText?.trim() || '';
+            if (node.tagName === 'INPUT') return node.closest('label')?.innerText?.trim() || '';
+            return (node.innerText || node.textContent || '').trim();
+        }).filter(Boolean);
+        return {
+            page: !!page,
+            activeStage: document.querySelector('.saga-lorecards-lifecycle-tab')?.dataset?.sagaLoreLifecycleStage || '',
+            hasMode: text.includes('Mode') && text.includes('ARMP') && text.includes('ARMPC'),
+            hasStyle: text.includes('Style') && text.includes('Balanced'),
+            hasPacing: text.includes('Pacing'),
+            hasStatus: text.includes('Status'),
+            hasCardControl: text.includes('Card control'),
+            hasCurrentTiers: text.includes('Current tiers'),
+            hasRunNow: labels.includes('Run Now'),
+            hasPauseResume: labels.includes('Pause') || labels.includes('Resume'),
+            hasUndo: labels.includes('Undo Last Run'),
+            hasActivity: text.includes('Recent Activity'),
+            hasPendingList: !!document.querySelector('.saga-pending-lore-list'),
+            hasAcceptedList: !!document.querySelector('.saga-accepted-lore-scroll-region'),
+            noHorizontalOverflow: !page || page.scrollWidth <= page.clientWidth + 1,
+        };
+    }));
+    if (!automationState.page || automationState.activeStage !== 'automation') findings.push('Mobile redesign Automation page did not become the active Lorecards sub-page.');
+    if (!automationState.hasMode || !automationState.hasStyle || !automationState.hasPacing || !automationState.hasStatus || !automationState.hasCardControl || !automationState.hasCurrentTiers || !automationState.hasRunNow || !automationState.hasPauseResume || !automationState.hasUndo || !automationState.hasActivity) {
+        findings.push('Mobile redesign Automation page did not render the full Lore Automation cockpit.');
+    }
+    if (automationState.hasPendingList || automationState.hasAcceptedList) findings.push('Mobile redesign Automation page leaked Pending or Approved list content.');
+    if (!automationState.noHorizontalOverflow) findings.push('Mobile redesign Automation page has horizontal overflow.');
+    if (automationTooltipState.visible) findings.push(`Mobile redesign Automation sub-tab showed a floating tooltip: ${automationTooltipState.text || 'blank'}.`);
+    screenshots.push(await screenshot(client, `${shotPrefix}-04-lorecards-automation`));
 
     const pendingClicked = await clickSelector(client, '.saga-mobile-lorecards-subtab[data-stage="pending"]').catch(() => false);
     if (!pendingClicked) findings.push('Mobile redesign Pending page button was not clickable.');
@@ -4801,7 +4842,7 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
     if (pendingState.permanentActionRows !== 0 || pendingState.hasAcceptAll || pendingState.hasRejectAll) findings.push('Mobile redesign Pending page still exposed permanent row actions or default Accept All/Reject All.');
     if (pendingTooltipState.visible) findings.push(`Mobile redesign Pending sub-tab showed a floating tooltip: ${pendingTooltipState.text || 'blank'}.`);
     if (pendingScrollState.offenders.length) findings.push(`Mobile redesign Pending page still has nested list scroll styling: ${JSON.stringify(pendingScrollState.offenders)}`);
-    screenshots.push(await screenshot(client, `${shotPrefix}-04-lorecards-pending`));
+    screenshots.push(await screenshot(client, `${shotPrefix}-05-lorecards-pending`));
     await evaluate(client, script(() => {
         const card = document.querySelector('.saga-pending-review-entry-card-tappable');
         card?.dispatchEvent(new MouseEvent('contextmenu', { bubbles: true, cancelable: true, view: window }));
@@ -4852,7 +4893,7 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
     if (!approvedState.noHorizontalOverflow) findings.push('Mobile redesign Approved page has horizontal overflow.');
     if (approvedTooltipState.visible) findings.push(`Mobile redesign Approved sub-tab showed a floating tooltip: ${approvedTooltipState.text || 'blank'}.`);
     if (approvedScrollState.offenders.length) findings.push(`Mobile redesign Approved page still has nested list scroll styling: ${JSON.stringify(approvedScrollState.offenders)}`);
-    screenshots.push(await screenshot(client, `${shotPrefix}-05-lorecards-approved`));
+    screenshots.push(await screenshot(client, `${shotPrefix}-06-lorecards-approved`));
 
     const longCardTapped = await clickSelector(client, '.saga-lore-entry-card[data-entry-id="smoke_long_title_lore"]');
     if (!longCardTapped) findings.push('Mobile redesign Approved long-title card was not tappable.');
@@ -4891,7 +4932,7 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
     if (!generationState.hasGenerationWorkspace || generationState.pendingVisible || generationState.acceptedVisible) findings.push('Mobile redesign Generation page did not stay focused on creation/suggestion only.');
     if (generationTooltipState.visible) findings.push(`Mobile redesign Generation sub-tab showed a floating tooltip: ${generationTooltipState.text || 'blank'}.`);
     if (generationScrollState.offenders.length) findings.push(`Mobile redesign Generation page still has nested list scroll styling: ${JSON.stringify(generationScrollState.offenders)}`);
-    screenshots.push(await screenshot(client, `${shotPrefix}-06-lorecards-generation`));
+    screenshots.push(await screenshot(client, `${shotPrefix}-07-lorecards-generation`));
 
     const errors = collectClientErrors(client)
         .filter(error => !isExpectedRepoLocalHarnessStorageError(error));
@@ -4919,6 +4960,8 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
         mobileMoreTooltipState,
         lorecardsRoot,
         loreRouteTooltipState,
+        automationState,
+        automationTooltipState,
         pendingState,
         pendingTooltipState,
         pendingScrollState,

@@ -1471,9 +1471,9 @@
     flex: 0 0 auto;
     min-height: var(--saga-mobile-lorecards-subtab-height, 46px);
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     align-items: stretch;
-    padding: 5px 8px;
+    padding: 5px 6px;
     background:
         linear-gradient(180deg, rgba(12, 18, 24, 0.92), rgba(8, 9, 13, 0.98));
     border-top: 1px solid var(--saga-border-soft, rgba(185, 139, 54, 0.24));
@@ -1492,15 +1492,15 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 5px;
-    padding: 4px 6px;
+    gap: 3px;
+    padding: 4px 4px;
     border: 1px solid var(--saga-border-soft, rgba(185, 139, 54, 0.22));
     border-left-width: 0;
     border-radius: 0;
     background: rgba(255, 255, 255, 0.035);
     color: var(--saga-muted, rgba(241, 234, 216, 0.72));
     font: inherit;
-    font-size: 0.78em;
+    font-size: 0.72em;
     font-weight: 780;
     line-height: 1.1;
     letter-spacing: 0;

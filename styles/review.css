@@ -2021,6 +2021,65 @@
     color: #fecaca !important;
 }
 
+.saga-lore-automation-activity {
+    display: grid;
+    gap: 6px;
+}
+
+.saga-lore-automation-activity-title {
+    font-weight: 700;
+    color: var(--saga-gold, #d7b56d);
+}
+
+.saga-lore-automation-run-row {
+    display: grid;
+    gap: 3px;
+    padding: 7px 8px;
+    border: 1px solid var(--saga-border-soft, rgba(185, 139, 54, 0.22));
+    border-radius: 7px;
+    background: rgba(8, 12, 18, 0.36);
+}
+
+.saga-lore-automation-run-summary {
+    min-width: 0;
+    color: var(--saga-text, #f1ead8);
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.saga-lore-automation-run-meta {
+    min-width: 0;
+    color: var(--saga-muted, rgba(241, 234, 216, 0.68));
+    font-size: 0.78em;
+    line-height: 1.25;
+}
+
+.saga-runtime-mobile .saga-mobile-lore-automation-page {
+    display: grid;
+    gap: 8px;
+}
+
+.saga-runtime-mobile .saga-mobile-lore-automation-card {
+    gap: 10px !important;
+}
+
+.saga-runtime-mobile .saga-mobile-lore-automation-card > .saga-runtime-grid,
+.saga-runtime-mobile .saga-mobile-lore-automation-card .saga-lore-automation-advanced .saga-runtime-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+}
+
+.saga-runtime-mobile .saga-mobile-lore-automation-card .saga-inline-field input,
+.saga-runtime-mobile .saga-mobile-lore-automation-card .saga-inline-field select,
+.saga-runtime-mobile .saga-mobile-lore-automation-card .saga-inline-toggle {
+    min-height: var(--saga-mobile-control-height, 44px) !important;
+}
+
+.saga-runtime-mobile .saga-mobile-lore-automation-card .saga-primary-actions {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 6px;
+}
+
 /* Mobile UX Revision 3: Lorecards sub-tabs are pages, not nested list panes. */
 .saga-lore-panel.saga-runtime-mobile .saga-runtime-tab-body-lore {
     display: flex !important;

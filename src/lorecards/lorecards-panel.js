@@ -126,12 +126,17 @@ const LORE_ENTRY_TYPE_FILTERS = Object.freeze([
 ]);
 
 const LORECARD_LIFECYCLE_STAGES = Object.freeze(['suggested', 'pending', 'accepted', 'active']);
-const MOBILE_LORECARD_LIFECYCLE_STAGES = Object.freeze(['suggested', 'pending', 'accepted']);
+const MOBILE_LORECARD_LIFECYCLE_STAGES = Object.freeze(['suggested', 'automation', 'pending', 'accepted']);
 const LORECARD_LIFECYCLE_STAGE_META = Object.freeze({
     suggested: {
         label: 'Generation',
         shortLabel: 'Generation',
         tooltip: 'Create or suggest Lorecards from manual notes, recent story, canon sources, or Loredeck context.',
+    },
+    automation: {
+        label: 'Automation',
+        shortLabel: 'Automation',
+        tooltip: 'Configure Lore Automation, run it now, inspect recent activity, and recover the last run.',
     },
     pending: {
         label: 'Pending',
@@ -2485,8 +2490,11 @@ export function createAutoRelevanceCard(state) {
     const settings = getSettings();
     const loreAutomationMode = normalizeLoreAutomationMode(settings.loreAutomationMode || (settings.autoRelevanceEnabled ? 'ar' : 'off'));
     const loreAutomationStyle = normalizeLoreAutomationStyle(settings.loreAutomationStyle || 'balanced');
+    const mobileShell = isRuntimeMobileShell();
     const card = document.createElement('div');
     card.className = 'saga-runtime-card saga-auto-relevance-card';
+    if (mobileShell) card.classList.add('saga-mobile-lore-automation-card');
+    markTourTarget(card, 'lore.autoRelevance');
     const title = document.createElement('div');
     title.className = 'saga-runtime-card-title';
     title.textContent = 'Lore Automation';
@@ -2619,14 +2627,12 @@ export function createAutoRelevanceCard(state) {
     advanced.appendChild(modelRow);
     card.appendChild(advanced);
     const counts = getLoreRelevanceCounts(state);
+    const eligibility = getLoreAutomationEligibilityCounts(state);
     const lastRun = state?.loreAutomationLastRun || state?.autoRelevanceLastRun || null;
-    const statusText = loreAutomationMode === 'off'
-        ? 'Off'
-        : lastRun?.status
-            ? `${humanizeScopeKey(lastRun.status)}${lastRun.changed ? ` | ${lastRun.changed} changed` : ''}${lastRun.curated ? ` | ${lastRun.curated} accepted` : ''}${lastRun.retired ? ` | ${lastRun.retired} retired` : ''}`
-            : 'Ready';
+    const statusText = getLoreAutomationStatusText(loreAutomationMode, settings, lastRun);
     card.appendChild(createKeyValue('Status', statusText, 'Current Lore Automation mode and last run result.'));
     card.appendChild(createKeyValue('Current tiers', `High ${counts.high} | Normal ${counts.normal} | Low ${counts.low} | Muted ${counts.muted}`, 'Current Accepted Lorecards counts by relevance.'));
+    card.appendChild(createKeyValue('Card control', `${eligibility.enabled} managed | ${eligibility.disabled} protected`, 'Per-card Lore Automation ownership. Protected cards are skipped until re-enabled from the card details.'));
 
     const actions = document.createElement('div');
     actions.className = 'saga-primary-actions';
@@ -2657,6 +2663,17 @@ export function createAutoRelevanceCard(state) {
             btn.textContent = original;
         }
     }, 'saga-primary-button'));
+    actions.appendChild(createButton(
+        settings.loreAutomationPaused === true ? 'Resume' : 'Pause',
+        settings.loreAutomationPaused === true ? 'Resume automatic Lore Automation runs.' : 'Pause automatic Lore Automation runs without changing the selected authority mode.',
+        () => {
+            const next = getSettings();
+            next.loreAutomationPaused = next.loreAutomationPaused !== true;
+            saveSettings(next);
+            refreshPanelBody({ preserveScroll: true });
+        },
+        'saga-small-button'
+    ));
     actions.appendChild(createButton('Undo Last Run', 'Reverts the latest Lore Automation timeline event when it is still reversible.', () => {
         const result = undoLastLoreAutomationRun();
         refreshPanelBody({ preserveScroll: true });
@@ -2664,7 +2681,82 @@ export function createAutoRelevanceCard(state) {
         toast(result.undone ? 'Lore Automation run undone.' : 'No reversible Lore Automation run found.', result.undone ? 'success' : 'info');
     }, 'saga-small-button'));
     card.appendChild(actions);
+    card.appendChild(createLoreAutomationActivityList(state));
     return card;
+}
+
+function getLoreAutomationStatusText(loreAutomationMode = 'off', settings = {}, lastRun = null) {
+    if (loreAutomationMode === 'off') return 'Off';
+    if (settings.loreAutomationPaused === true) return 'Paused';
+    if (!lastRun?.status) return 'Ready';
+    return formatLoreAutomationRunSummary(lastRun);
+}
+
+function getLoreAutomationEligibilityCounts(state = getState()) {
+    const loreState = getPanelLoreState(state);
+    const accepted = (loreState.entries || []).filter(entry => !entry?.isPending);
+    const disabled = accepted.filter(entry => getLoreAutomationState(entry).enabled === false).length;
+    return {
+        total: accepted.length,
+        disabled,
+        enabled: Math.max(0, accepted.length - disabled),
+    };
+}
+
+function formatLoreAutomationRunSummary(run = {}) {
+    const parts = [humanizeScopeKey(run.status || 'unknown')];
+    const changed = Number(run.changed || 0);
+    const curated = Number(run.curated || run.pendingCurated || 0);
+    const retired = Number(run.retired || 0);
+    const pinned = Number(run.pinned || 0) + Number(run.unpinned || 0);
+    const muted = Number(run.muted || 0) + Number(run.unmuted || 0);
+    if (changed) parts.push(`${changed} changed`);
+    if (pinned) parts.push(`${pinned} pin updates`);
+    if (muted) parts.push(`${muted} mute updates`);
+    if (curated) parts.push(`${curated} accepted`);
+    if (retired) parts.push(`${retired} retired`);
+    if (run.modelStatus) parts.push(`model ${humanizeScopeKey(run.modelStatus)}`);
+    return parts.join(' | ');
+}
+
+function formatLoreAutomationRunTimestamp(value = 0) {
+    const time = Number(value || 0);
+    if (!time) return 'No timestamp';
+    try {
+        return new Date(time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    } catch (_) {
+        return 'Recent';
+    }
+}
+
+function createLoreAutomationActivityList(state = getState()) {
+    const wrap = document.createElement('div');
+    wrap.className = 'saga-lore-automation-activity';
+    const title = document.createElement('div');
+    title.className = 'saga-runtime-help saga-lore-automation-activity-title';
+    title.textContent = 'Recent Activity';
+    wrap.appendChild(title);
+
+    const runs = Array.isArray(state?.loreAutomationRuns) ? state.loreAutomationRuns.slice(-4).reverse() : [];
+    if (!runs.length) {
+        wrap.appendChild(createEmptyMessage('No Lore Automation runs recorded yet.'));
+        return wrap;
+    }
+
+    for (const run of runs) {
+        const row = document.createElement('div');
+        row.className = 'saga-lore-automation-run-row';
+        const summary = document.createElement('div');
+        summary.className = 'saga-lore-automation-run-summary';
+        summary.textContent = formatLoreAutomationRunSummary(run);
+        row.appendChild(summary);
+        const meta = document.createElement('div');
+        meta.className = 'saga-lore-automation-run-meta';
+        meta.textContent = `${LORE_AUTOMATION_MODE_LABELS[normalizeLoreAutomationMode(run.mode || 'off')] || 'Off'} | ${humanizeScopeKey(run.style || 'balanced')} | ${formatLoreAutomationRunTimestamp(run.ranAt)}`;
+        row.appendChild(meta);
+        wrap.appendChild(row);
+    }
+    return wrap;
 }
 
 function createNumberSettingMini(labelText, settingKey, value, min, max, transform = null) {
@@ -3582,6 +3674,19 @@ function createLoreAutomationCardToggle(entry) {
     return btn;
 }
 
+function createLoreAutomationStateBadge(entry) {
+    const automation = getLoreAutomationState(entry);
+    const enabled = automation.enabled !== false;
+    const reason = automation.disabledReason ? ` Reason: ${humanizeScopeKey(automation.disabledReason)}.` : '';
+    return createBadge(
+        enabled ? 'LA managed' : 'LA protected',
+        enabled
+            ? 'Lore Automation may manage this Accepted Lorecard within the selected authority mode.'
+            : `Lore Automation will skip this Accepted Lorecard until it is re-enabled.${reason}`,
+        { tone: enabled ? 'source' : 'muted', kind: 'status' }
+    );
+}
+
 export function createEntryCard(entry, state, options = {}) {
     const basicReview = !!options.basicReview;
     const mobileShell = isRuntimeMobileShell();
@@ -3722,6 +3827,7 @@ export function createEntryCard(entry, state, options = {}) {
     }
     if (!basicReview) metaRow.appendChild(createSpellMetadataBadges(entry));
     if (entry.isPending) metaRow.appendChild(createBadge('pending', 'This entry is in Pending Review.', { tone: 'review', kind: 'status' }));
+    if (!entry.isPending && mobileShell) metaRow.appendChild(createLoreAutomationStateBadge(entry));
     if (!entry.isPending && activeNow) metaRow.appendChild(createBadge('active', 'This Accepted Lorecard is currently eligible for the Active Set.', { tone: 'selected', kind: 'status' }));
     if (entry.isPinned) metaRow.appendChild(createBadge('pinned', 'Pinned entries are prioritized for injection.', { tone: 'success', kind: 'status' }));
     if (entry.isSuppressed) metaRow.appendChild(createBadge('muted', 'Muted entries are excluded from injection.', { tone: 'muted', kind: 'status' }));
@@ -3981,7 +4087,7 @@ function normalizeLorecardLifecycleStage(value = '') {
 }
 
 function normalizeMobileLorecardLifecycleStage(value = '') {
-    const stage = normalizeLorecardLifecycleStage(value);
+    const stage = String(value || '').trim().toLowerCase();
     if (stage === 'active') return 'accepted';
     return MOBILE_LORECARD_LIFECYCLE_STAGES.includes(stage) ? stage : '';
 }
@@ -4067,6 +4173,7 @@ function openLorecardLifecycleStage(stage) {
 
 function getLorecardLifecycleStageCount(stats = {}, stage = '') {
     if (stage === 'suggested') return isRuntimeMobileShell() ? 0 : Number(stats.suggestedCount || 0);
+    if (stage === 'automation') return 0;
     if (stage === 'pending') return isRuntimeMobileShell() ? Number(stats.allPendingCount || 0) : Number(stats.pendingCount || 0);
     if (stage === 'accepted') return Number(stats.acceptedCount || 0);
     if (stage === 'active') return Number(stats.activeCount || 0);
@@ -4613,6 +4720,9 @@ function getMobileLorecardsLoadingCopy(lifecycleStage = 'pending', lifecycleStat
     if (lifecycleStage === 'accepted') {
         return `${Number(lifecycleStats.acceptedCount || 0)} Approved Lorecards are being prepared.`;
     }
+    if (lifecycleStage === 'automation') {
+        return 'Lore Automation controls and recent activity are being prepared.';
+    }
     if (lifecycleStage === 'pending') {
         return `${Number(lifecycleStats.allPendingCount || lifecycleStats.pendingCount || 0)} Pending Review entries are being prepared.`;
     }
@@ -4639,6 +4749,10 @@ function createMobileLorecardsStageContent(state, options = {}) {
         fragment.appendChild(createLorecardGenerationCollapsible(state, { basic, lifecycleStats, lifecycleStage }));
         return fragment;
     }
+    if (lifecycleStage === 'automation') {
+        fragment.appendChild(createMobileLoreAutomationPage(state));
+        return fragment;
+    }
     if (lifecycleStage === 'pending') {
         const reviewStageCount = lifecycleStats.allPendingCount || lifecycleStats.pendingCount || 0;
         fragment.appendChild(createLorecardPendingCollapsible(state, { basic, lifecycleStage, reviewStageCount }));
@@ -4649,6 +4763,14 @@ function createMobileLorecardsStageContent(state, options = {}) {
     fragment.appendChild(createLorecardActiveSetCollapsible(state, { lifecycleStats, lifecycleStage }));
     fragment.appendChild(createLorecardAcceptedCollapsible(state, { basic, acceptedCount, injectableCount }));
     return fragment;
+}
+
+function createMobileLoreAutomationPage(state = getState()) {
+    const page = document.createElement('div');
+    page.className = 'saga-mobile-lore-automation-page';
+    markTourTarget(page, 'lore.autoRelevance.mobilePage');
+    page.appendChild(createAutoRelevanceCard(state));
+    return page;
 }
 
 function createLorecardGenerationCollapsible(state, options = {}) {
