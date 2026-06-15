@@ -46,7 +46,7 @@ export const BASIC_EXPERIENCE_SETTINGS = Object.freeze({
     loreAutomationStyle: 'careful',
     loreAutomationPaused: false,
     loreAutomationProviderRouting: 'auto',
-    loreAutomationCadenceMode: 'auto',
+    loreAutomationCadenceMode: 'manual',
     loreAutomationPacing: 'normal',
     loreAutomationRemapWordBudget: 900,
     loreAutomationCurationWordBudget: 1800,

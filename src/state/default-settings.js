@@ -193,7 +193,7 @@ export const DEFAULT_SETTINGS = {
     loreAutomationStyle: 'balanced', // 'careful' | 'balanced' | 'aggressive'
     loreAutomationPaused: false,
     loreAutomationProviderRouting: 'auto', // 'auto' | 'utility' | 'reasoning' | 'local'
-    loreAutomationCadenceMode: 'auto',
+    loreAutomationCadenceMode: 'manual',
     loreAutomationPacing: 'normal', // 'responsive' | 'normal' | 'relaxed'
     loreAutomationRemapWordBudget: 900,
     loreAutomationCurationWordBudget: 1800,

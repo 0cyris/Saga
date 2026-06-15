@@ -261,7 +261,7 @@ export function getSettings() {
             merged.loreAutomationProviderRouting = 'auto';
         }
         if (stored.loreAutomationCadenceMode === undefined) {
-            merged.loreAutomationCadenceMode = 'auto';
+            merged.loreAutomationCadenceMode = 'manual';
         }
         if (stored.loreAutomationPacing === undefined) {
             merged.loreAutomationPacing = 'normal';
@@ -280,9 +280,10 @@ export function getSettings() {
     merged.loreAutomationMode = normalizeLoreAutomationModeValue(merged.loreAutomationMode, DEFAULT_SETTINGS.loreAutomationMode || 'off');
     merged.loreAutomationStyle = normalizeLoreAutomationStyleValue(merged.loreAutomationStyle, DEFAULT_SETTINGS.loreAutomationStyle || 'balanced');
     merged.loreAutomationProviderRouting = normalizeLoreAutomationProviderRoutingValue(merged.loreAutomationProviderRouting, DEFAULT_SETTINGS.loreAutomationProviderRouting || 'auto');
-    merged.loreAutomationCadenceMode = 'auto';
+    merged.loreAutomationCadenceMode = ['manual', 'off'].includes(String(merged.loreAutomationCadenceMode || '').toLowerCase()) ? 'manual' : 'auto';
+    if (merged.loreAutomationMode === 'off') merged.loreAutomationCadenceMode = 'manual';
     merged.loreAutomationPacing = normalizeLoreAutomationPacingValue(merged.loreAutomationPacing, DEFAULT_SETTINGS.loreAutomationPacing || 'normal');
-    merged.loreAutomationPaused = merged.loreAutomationPaused === true;
+    merged.loreAutomationPaused = false;
     merged.loreAutomationRemapWordBudget = Math.max(100, Math.min(20000, Number(merged.loreAutomationRemapWordBudget) || DEFAULT_SETTINGS.loreAutomationRemapWordBudget || 900));
     merged.loreAutomationCurationWordBudget = Math.max(200, Math.min(40000, Number(merged.loreAutomationCurationWordBudget) || DEFAULT_SETTINGS.loreAutomationCurationWordBudget || 1800));
     merged.loreAutomationRunJournalLimit = Math.max(1, Math.min(100, Number(merged.loreAutomationRunJournalLimit) || DEFAULT_SETTINGS.loreAutomationRunJournalLimit || 20));

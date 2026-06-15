@@ -149,8 +149,17 @@ const pacing = __autoRelevanceTestHooks.getLoreAutomationPacingPolicy(getSetting
 assert.equal(pacing.pacing, 'normal');
 assert.equal(pacing.remapWordBudget, 120, 'Narrative remap cadence should use word budgets, not turn counters.');
 assert.equal(pacing.curationWordBudget, 240, 'Narrative curation cadence should use word budgets, not turn counters.');
-assert.equal(__autoRelevanceTestHooks.isLoreAutomationBackgroundEnabled(getSettings()), false, 'Manual Session Automation must block background Lore Automation.');
-assert.equal(onGenerationEndedAutoRelevance().status, 'manual_mode', 'Generation-ended cadence must not act while Session Automation is Manual.');
+ctx.extensionSettings[MODULE_KEY] = {
+  ...ctx.extensionSettings[MODULE_KEY],
+  loreAutomationCadenceMode: 'manual',
+};
+assert.equal(__autoRelevanceTestHooks.isLoreAutomationBackgroundEnabled(getSettings()), false, 'Manual Lore Automation cadence must block background Lore Automation.');
+assert.equal(onGenerationEndedAutoRelevance().status, 'manual_mode', 'Generation-ended cadence must not act while Lore Automation cadence is Manual.');
+ctx.extensionSettings[MODULE_KEY] = {
+  ...ctx.extensionSettings[MODULE_KEY],
+  loreAutomationCadenceMode: 'auto',
+};
+assert.equal(__autoRelevanceTestHooks.isLoreAutomationBackgroundEnabled(getSettings()), true, 'Auto Lore Automation cadence must allow background Lore Automation.');
 
 const undoResult = undoLastLoreAutomationRun();
 assert.equal(undoResult.status, 'undone', `Expected undo to reverse latest automation run: ${JSON.stringify(undoResult)}`);

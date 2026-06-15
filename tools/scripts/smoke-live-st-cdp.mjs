@@ -22,7 +22,8 @@ const STORAGE_HARNESS_TARGET = 'storage-harness';
 const MOBILE_ADVANCED_HARNESS_TARGET = 'mobile-advanced-harness';
 const MOBILE_REDESIGN_HARNESS_TARGET = 'mobile-redesign-harness';
 const TABLET_ADVANCED_HARNESS_TARGET = 'tablet-advanced-harness';
-const REPO_LOCAL_HARNESS_TARGETS = new Set(['context-harness', 'guide-harness', 'creator-harness', MOBILE_ADVANCED_HARNESS_TARGET, MOBILE_REDESIGN_HARNESS_TARGET, TABLET_ADVANCED_HARNESS_TARGET, STORAGE_HARNESS_TARGET]);
+const DESKTOP_LORECARDS_HARNESS_TARGET = 'desktop-lorecards-harness';
+const REPO_LOCAL_HARNESS_TARGETS = new Set(['context-harness', 'guide-harness', 'creator-harness', DESKTOP_LORECARDS_HARNESS_TARGET, MOBILE_ADVANCED_HARNESS_TARGET, MOBILE_REDESIGN_HARNESS_TARGET, TABLET_ADVANCED_HARNESS_TARGET, STORAGE_HARNESS_TARGET]);
 const LIVE_CONTEXT_METADATA_TARGETS = new Set([
     'live-context-loaded',
     'live-context-loaded-narrow',
@@ -394,6 +395,7 @@ function createRepoLocalFilesApiMock() {
 }
 
 function getVisualSmokeHarnessQuery(target = SMOKE_TARGET) {
+    if (target === DESKTOP_LORECARDS_HARNESS_TARGET) return '?mode=advanced&tab=lore';
     if (target === MOBILE_ADVANCED_HARNESS_TARGET) return '?mode=advanced&tab=loredecks';
     if (target === MOBILE_REDESIGN_HARNESS_TARGET) return '?mode=advanced&tab=loredecks';
     if (target === TABLET_ADVANCED_HARNESS_TARGET) return '?mode=advanced&tab=loredecks';
@@ -928,7 +930,7 @@ function isExpectedLiveCreator404(error = '') {
 
 function isExpectedRepoLocalHarnessStorageError(error = '') {
     const message = String(error || '');
-    return ['context-harness', 'guide-harness', 'creator-harness', MOBILE_ADVANCED_HARNESS_TARGET, MOBILE_REDESIGN_HARNESS_TARGET, TABLET_ADVANCED_HARNESS_TARGET].includes(SMOKE_TARGET)
+    return ['context-harness', 'guide-harness', 'creator-harness', DESKTOP_LORECARDS_HARNESS_TARGET, MOBILE_ADVANCED_HARNESS_TARGET, MOBILE_REDESIGN_HARNESS_TARGET, TABLET_ADVANCED_HARNESS_TARGET].includes(SMOKE_TARGET)
         && (
             (/Failed to load resource: the server responded with a status of 404/i.test(message)
                 && /\/user\/files\/saga-(?:theme-index|iconset-index|library-index|storage-index|creator-index|creator-project-[^)\s]+|pack-smoke-[^)\s]+)\.v1\.json/i.test(message))
@@ -3930,8 +3932,7 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
     const initialState = await evaluate(client, script(() => {
         const root = document.querySelector('#saga-lore-panel');
         const text = document.body?.innerText || '';
-        const primaryActions = [...document.querySelectorAll('.saga-loredecks-mobile-primary-actions button')].map(node => (node.innerText || node.textContent || '').trim()).filter(Boolean);
-        const secondaryActions = [...document.querySelectorAll('.saga-loredecks-mobile-secondary-actions button')].map(node => (node.innerText || node.textContent || '').trim()).filter(Boolean);
+        const libraryActions = [...document.querySelectorAll('.saga-loredeck-library-launch-actions button')].map(node => (node.innerText || node.textContent || '').trim()).filter(Boolean);
         const stackDetailsHeaders = [...document.querySelectorAll('.saga-operator-summary-header-tappable, [data-saga-tour="loredecks.operator.details"]')]
             .map(node => ({
                 ariaLabel: node.getAttribute('aria-label') || '',
@@ -3948,13 +3949,13 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
             hasActiveStack: text.includes('Active Stack'),
             hasOpenLibrary: text.includes('Open Loredeck Library'),
             hasCreateDeck: text.includes('Create Deck'),
+            hasLibraryCard: !!document.querySelector('[data-saga-tour="loredecks.library.launch"].saga-loredeck-library-launch-card'),
             hasStackDetailsHeader: stackDetailsHeaders.some(item => item.ariaLabel === 'Open Stack Details'
                 || item.tour === 'loredecks.operator.details'
                 || item.text.includes('Active Stack')),
             stackDetailsHeaders,
             noHorizontalOverflow: !root || root.scrollWidth <= root.clientWidth + 1,
-            primaryActions,
-            secondaryActions,
+            libraryActions,
         };
     }));
     if (!initialState.mobileShell) findings.push('Mobile Advanced harness did not render the mobile shell at 430px.');
@@ -3963,13 +3964,11 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
     for (const route of ['loredecks', 'session', 'continuity', 'context', 'lore', 'injection', 'settings']) {
         if (!initialState.bottomRoutes.includes(route)) findings.push(`Mobile Advanced bottom bar missing route: ${route}.`);
     }
-    if (!initialState.hasActiveStack || !initialState.hasOpenLibrary || !initialState.hasCreateDeck) findings.push('Mobile Advanced Loredecks root did not render stack, Library, and Creator actions.');
-    if (!initialState.hasStackDetailsHeader) findings.push('Mobile Advanced Loredecks root did not expose Stack Details through the tappable summary header.');
-    if (initialState.primaryActions.length !== 1) findings.push('Mobile Advanced Loredecks root did not render exactly one dominant primary action.');
-    if (!initialState.primaryActions.includes('Open Loredeck Library')) findings.push('Mobile Advanced Loredecks dominant action did not expose Open Loredeck Library.');
-    if ([...initialState.primaryActions, ...initialState.secondaryActions].some(label => /^Next:/.test(label))) findings.push('Mobile Advanced Loredecks root exposed checklist-style Next actions.');
-    if (initialState.primaryActions.includes('Open Loredeck Library') && initialState.secondaryActions.includes('Open Loredeck Library')) findings.push('Mobile Advanced Loredecks duplicated the Open Loredeck Library action.');
-    if (initialState.secondaryActions.length < 2) findings.push('Mobile Advanced Loredecks secondary actions were not available after primary-action reduction.');
+    if (initialState.hasActiveStack || initialState.hasStackDetailsHeader) findings.push('Mobile Advanced Loredecks root still rendered the retired Active Stack summary or Stack Details affordance.');
+    if (!initialState.hasLibraryCard || !initialState.hasOpenLibrary || !initialState.hasCreateDeck) findings.push('Mobile Advanced Loredecks root did not render the static Library card with Library and Creator actions.');
+    if (!initialState.libraryActions.includes('Open Loredeck Library') || !initialState.libraryActions.includes('Import Deck')) findings.push('Mobile Advanced Loredecks static Library card did not expose Library and Import actions.');
+    if (initialState.libraryActions.some(label => /^Next:/.test(label))) findings.push('Mobile Advanced Loredecks root exposed checklist-style Next actions.');
+    if (initialState.libraryActions.filter(label => label === 'Open Loredeck Library').length !== 1) findings.push('Mobile Advanced Loredecks duplicated the Open Loredeck Library action.');
     if (!initialState.noHorizontalOverflow) findings.push('Mobile Advanced Loredecks root has horizontal overflow.');
     const loredecksRootScrollAudit = await getMobileNestedScrollAuditState(client, {
         label: 'Loredecks route',
@@ -4122,18 +4121,18 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
     if (activeSetState.activeItems < 1) findings.push('Mobile Advanced Lore workspace did not render active Lorecards with active state.');
     if (!activeSetState.hasSubtabs || activeSetState.activeSubtab !== 'lore' || activeSetState.hasPipelineCard) findings.push('Mobile Advanced Lore page did not use the secondary sub-tab bar or still rendered the mobile pipeline card.');
     if (!activeSetState.firstObjectVisibleAboveBottomBar) findings.push('Mobile Advanced Lore workspace did not show a Lorecard object in the first viewport.');
-    for (const label of ['Inspect', 'Pin', 'Mute', 'Activate']) {
+    for (const label of ['Inspect', 'Edit', 'Pin', 'Mute', 'Activate']) {
         if (activeSetState.labels.includes(label)) findings.push(`Mobile Advanced Lore workspace still exposed permanent action button: ${label}.`);
     }
     screenshots.push(await screenshot(client, 'mobile-advanced-harness-04-lore-workspace'));
 
-    const activeSetInspectOpened = await evaluate(client, script(() => {
+    const activeSetEditOpened = await evaluate(client, script(() => {
         const item = document.querySelector('.saga-lorecard-workspace-row[data-lorecard-workspace-status="accepted"]');
         if (!item) return false;
         item.dispatchEvent(new MouseEvent('contextmenu', { bubbles: true, cancelable: true, view: window }));
         return true;
     }), { userGesture: true }).catch(() => false);
-    if (!activeSetInspectOpened) findings.push('Mobile Advanced Lore workspace item did not accept tap-hold/context-menu inspection.');
+    if (!activeSetEditOpened) findings.push('Mobile Advanced Lore workspace item did not accept long-press/context-menu edit.');
     await waitFor(client, '!!document.querySelector(".saga-mobile-lorecard-editor-shell")', 'Mobile Advanced Lore workspace full-window Lorecard editor', 10000).catch(error => findings.push(error.message));
     const editorState = await evaluate(client, script(() => {
         const overlay = document.querySelector('#saga-mobile-lorecard-editor');
@@ -4497,6 +4496,148 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
     if (!report.ok) process.exitCode = 1;
 }
 
+async function runDesktopLorecardsHarnessSmoke(client, screenshots, findings, smokeUrl, dialogEvents) {
+    await waitFor(client, 'window.__sagaSmokeReady === true', 'Desktop Lorecards smoke ready marker', 20000);
+    await waitFor(client, 'document.querySelector(".saga-runtime-rail-tab-active")?.getAttribute("data-tab-id") === "lore"', 'Desktop Lorecards tab active', 10000);
+    await waitFor(client, '!!document.querySelector(".saga-lorecard-workspace-list") && !!document.querySelector(".saga-lorecard-workspace-detail")', 'Desktop Lorecards workspace rendered', 10000);
+    await evaluate(client, script(() => {
+        const active = document.querySelector('.saga-lorecard-workspace-row.saga-lore-entry-active');
+        active?.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
+        return !!active;
+    }), { userGesture: true }).catch(() => false);
+    await wait(500);
+
+    const interactionState = await evaluate(client, script(() => {
+        const acceptedRow = document.querySelector('.saga-lorecard-workspace-row[data-lorecard-workspace-status="accepted"]');
+        acceptedRow?.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
+        const activeSetItem = document.querySelector('.saga-lore-active-set-item');
+        activeSetItem?.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
+        const buttonLabels = [...document.querySelectorAll('.saga-lorecard-workspace button, .saga-lorecard-detail-card button, .saga-lore-active-set-section button')]
+            .map(button => (button.innerText || button.textContent || '').trim())
+            .filter(Boolean);
+        return {
+            acceptedRowClicked: !!acceptedRow,
+            activeSetItemClicked: !!activeSetItem,
+            editFieldsOpen: !!document.querySelector('.saga-lorecard-detail-card .saga-lore-editor-field, .saga-lorecard-detail-card .saga-lore-editor-textarea, .saga-lore-active-set-section .saga-lore-editor-field'),
+            inspectLabels: buttonLabels.filter(label => /^inspect$/i.test(label)),
+            editLabels: buttonLabels.filter(label => /^edit$/i.test(label)),
+        };
+    }), { userGesture: true }).catch(() => ({
+        acceptedRowClicked: false,
+        activeSetItemClicked: false,
+        editFieldsOpen: true,
+        inspectLabels: ['error'],
+        editLabels: [],
+    }));
+    await wait(300);
+
+    const layout = await evaluate(client, script(() => {
+        const num = value => Number.isFinite(Number.parseFloat(value)) ? Number.parseFloat(value) : 0;
+        const rectOf = selector => {
+            const node = document.querySelector(selector);
+            if (!node) return null;
+            const rect = node.getBoundingClientRect();
+            return {
+                left: rect.left,
+                top: rect.top,
+                right: rect.right,
+                bottom: rect.bottom,
+                width: rect.width,
+                height: rect.height,
+            };
+        };
+        const workspace = document.querySelector('.saga-lorecard-workspace');
+        const toolbar = document.querySelector('.saga-lorecard-workspace-toolbar');
+        const utilityButtons = [...document.querySelectorAll('.saga-lorecard-workspace-utilities button')].map(node => ({
+            text: node.textContent?.trim() || '',
+            rect: (() => {
+                const rect = node.getBoundingClientRect();
+                return { left: rect.left, right: rect.right, width: rect.width, height: rect.height };
+            })(),
+        }));
+        const rowTitle = document.querySelector('.saga-lorecard-workspace-row .saga-lore-entry-title');
+        const rowFact = document.querySelector('.saga-lorecard-workspace-row .saga-lore-entry-fact');
+        const detailTitle = document.querySelector('.saga-lorecard-detail-card .saga-runtime-card-title');
+        const detailFact = document.querySelector('.saga-lorecard-detail-card .saga-lore-entry-full-fact');
+        const activeToggle = document.querySelector('.saga-lorecard-detail-actions .saga-lorecard-active-toggle');
+        const workspaceRect = rectOf('.saga-lorecard-workspace');
+        const listRect = rectOf('.saga-lorecard-workspace-list');
+        const detailRect = rectOf('.saga-lorecard-workspace-detail');
+        const bodyRect = rectOf('.saga-lorecard-workspace-body');
+        return {
+            mobileShell: !!document.querySelector('#saga-lore-panel.saga-runtime-mobile'),
+            hasWorkspace: !!workspace,
+            workspaceHeaderCount: document.querySelectorAll('.saga-lorecard-workspace-header').length,
+            rowCount: document.querySelectorAll('.saga-lorecard-workspace-row').length,
+            inlineEditorsInList: document.querySelectorAll('.saga-lorecard-workspace-list .saga-lore-entry-details, .saga-lorecard-workspace-list .saga-lore-editor-field').length,
+            saveButtonsInList: [...document.querySelectorAll('.saga-lorecard-workspace-list button')].filter(node => /save entry/i.test(node.textContent || '')).length,
+            tagRowsInList: document.querySelectorAll('.saga-lorecard-workspace-list .saga-lore-entry-tags').length,
+            toolbarOverflow: toolbar ? toolbar.scrollWidth > toolbar.clientWidth + 1 : true,
+            workspaceOverflow: workspace ? workspace.scrollWidth > workspace.clientWidth + 1 : true,
+            pageOverflow: document.documentElement.scrollWidth > document.documentElement.clientWidth + 1,
+            utilityButtons,
+            rowTitleFontSize: rowTitle ? num(getComputedStyle(rowTitle).fontSize) : 0,
+            rowFactFontSize: rowFact ? num(getComputedStyle(rowFact).fontSize) : 0,
+            detailTitleFontSize: detailTitle ? num(getComputedStyle(detailTitle).fontSize) : 0,
+            detailFactFontSize: detailFact ? num(getComputedStyle(detailFact).fontSize) : 0,
+            activeToggleText: activeToggle?.textContent?.trim() || '',
+            activeToggleActive: !!activeToggle?.classList?.contains('saga-lorecard-active-toggle-active'),
+            activeToggleRect: activeToggle ? (() => {
+                const rect = activeToggle.getBoundingClientRect();
+                return { width: rect.width, height: rect.height };
+            })() : null,
+            activeToggleShadow: activeToggle ? getComputedStyle(activeToggle).boxShadow : '',
+            workspaceRect,
+            bodyRect,
+            listRect,
+            detailRect,
+            detailStacksBelowList: !!(listRect && detailRect && detailRect.top >= listRect.bottom - 2),
+            detailFitsWorkspace: !!(workspaceRect && detailRect && detailRect.right <= workspaceRect.right + 1),
+        };
+    }));
+
+    if (layout.mobileShell) findings.push('Desktop Lorecards harness unexpectedly rendered the mobile shell.');
+    if (!layout.hasWorkspace || layout.rowCount < 1) findings.push('Desktop Lorecards workspace did not render object rows.');
+    if (layout.workspaceHeaderCount !== 0) findings.push('Desktop Lorecards workspace still rendered a duplicate inner title/header.');
+    if (layout.inlineEditorsInList || layout.saveButtonsInList) findings.push('Desktop Lorecards list still rendered inline editors or Save Entry controls.');
+    if (!interactionState.acceptedRowClicked) findings.push('Desktop Lorecards rendered no accepted row for body-click interaction validation.');
+    if (interactionState.editFieldsOpen) findings.push('Desktop Lorecards opened an editor from a card body click instead of requiring the explicit Edit button.');
+    if (interactionState.inspectLabels.length) findings.push(`Desktop Lorecards still rendered Inspect button labels: ${interactionState.inspectLabels.join(', ')}.`);
+    if (!interactionState.editLabels.length) findings.push('Desktop Lorecards did not render an explicit Edit button.');
+    if (layout.tagRowsInList) findings.push('Desktop Lorecards workspace rows still rendered tag walls in the scanning list.');
+    if (layout.toolbarOverflow || layout.workspaceOverflow || layout.pageOverflow) findings.push('Desktop Lorecards workspace or toolbar still has horizontal overflow.');
+    if (!layout.detailFitsWorkspace) findings.push('Desktop Lorecards detail pane overflows the workspace bounds.');
+    if (!layout.activeToggleText || !layout.activeToggleActive || !layout.activeToggleShadow || layout.activeToggleShadow === 'none') findings.push('Desktop Lorecards active/deactivate button did not render with the glowing active-toggle treatment.');
+    if (layout.activeToggleRect && layout.activeToggleRect.height < 32) findings.push('Desktop Lorecards active toggle is too small.');
+    if (!layout.detailStacksBelowList && layout.bodyRect?.width < 920) findings.push('Desktop Lorecards narrow drawer did not stack the detail pane below the list.');
+    if (layout.rowTitleFontSize < 15 || layout.rowFactFontSize < 13.5 || layout.detailTitleFontSize < 17 || layout.detailFactFontSize < 13.5) {
+        findings.push(`Desktop Lorecards text is too small (${JSON.stringify({
+            rowTitle: layout.rowTitleFontSize,
+            rowFact: layout.rowFactFontSize,
+            detailTitle: layout.detailTitleFontSize,
+            detailFact: layout.detailFactFontSize,
+        })}).`);
+    }
+
+    screenshots.push(await screenshot(client, 'desktop-lorecards-harness-01-workspace'));
+    const errors = client.events
+        .filter(event => event.method === 'Log.entryAdded' && event.params?.entry?.level === 'error')
+        .map(event => formatLogEntry(event.params.entry))
+        .filter(error => !isExpectedRepoLocalHarnessStorageError(error));
+    console.log(JSON.stringify({
+        ok: findings.length === 0 && errors.length === 0,
+        target: SMOKE_TARGET,
+        viewport: VIEWPORT,
+        url: smokeUrl,
+        screenshots,
+        findings,
+        errors,
+        dialogEvents,
+        layout,
+        interactionState,
+    }, null, 2));
+}
+
 async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smokeUrl, dialogEvents) {
     const shotPrefix = `mobile-redesign-${VIEWPORT.width}x${VIEWPORT.height}`;
     await waitFor(client, 'window.__sagaSmokeReady === true && window.__sagaSmokeMode === "advanced"', 'Mobile redesign smoke ready marker', 20000);
@@ -4786,11 +4927,26 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
     const mobileSettingsState = await evaluate(client, script(() => {
         const root = document.querySelector('#saga-lore-panel');
         const text = document.body?.innerText || '';
+        const sectionHeaders = [...document.querySelectorAll('.saga-section-header h3')].map(node => node.textContent?.trim() || '').filter(Boolean);
+        const qualityCard = document.querySelector('.saga-settings-qol-card');
+        const qualityInput = qualityCard?.querySelector('.saga-settings-switch-input');
+        const qualityInputStyle = qualityInput ? getComputedStyle(qualityInput) : null;
+        const qualityInputRect = qualityInput?.getBoundingClientRect?.();
+        const qualitySlider = qualityCard?.querySelector('.saga-settings-switch-slider');
+        const qualityLabel = qualityCard?.querySelector('.saga-settings-switch-label');
+        const sliderRect = qualitySlider?.getBoundingClientRect?.();
+        const labelRect = qualityLabel?.getBoundingClientRect?.();
         return {
             activeTab: root?.dataset?.mobileActiveTab || '',
             hasSettings: text.includes('Settings'),
             hasModeLabel: text.includes('Experience Mode'),
             hasProviders: text.includes('Providers') || text.includes('Provider'),
+            hasQualitySectionHeader: sectionHeaders.includes('Quality of Life'),
+            hasSagaSeparator: sectionHeaders.includes('SAGA') || text.includes('Providers and Theme Pack.') || text.includes('Fandom Loresystem.'),
+            hasQualitySwitch: !!qualitySlider,
+            qualityInputHidden: !!qualityInputStyle && qualityInputStyle.opacity === '0' && Number(qualityInputRect?.width || 0) <= 1,
+            qualitySwitchBeforeLabel: !!sliderRect && !!labelRect && sliderRect.right <= labelRect.left,
+            qualityLabel: qualityLabel?.textContent?.trim() || '',
             hasOverflowSheet: !!document.querySelector('.saga-mobile-more-sheet'),
             shellBackActions: document.querySelectorAll('.saga-mobile-shell-back').length,
             activeBottomLabel: document.querySelector('.saga-mobile-bottom-tab-active .saga-mobile-bottom-label')?.textContent?.trim() || '',
@@ -4798,11 +4954,14 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
         };
     }));
     if (mobileSettingsState.activeTab !== 'settings' || !mobileSettingsState.hasSettings || !mobileSettingsState.hasModeLabel || !mobileSettingsState.hasProviders) findings.push('Mobile redesign Settings route did not expose Settings, Experience Mode, and Providers.');
+    if (!mobileSettingsState.hasQualitySectionHeader || !mobileSettingsState.hasQualitySwitch || !mobileSettingsState.qualityInputHidden || !mobileSettingsState.qualitySwitchBeforeLabel || mobileSettingsState.qualityLabel !== 'Show Lorecard tags in the mobile Lore list') findings.push('Mobile redesign Settings route did not render the Quality of Life switch row correctly.');
+    if (mobileSettingsState.hasSagaSeparator) findings.push('Mobile redesign Settings route still rendered the retired SAGA providers/theme separator.');
     if (mobileSettingsState.hasOverflowSheet) findings.push('Mobile redesign rendered the removed overflow sheet.');
     if (mobileSettingsState.shellBackActions > 0) findings.push('Mobile redesign Settings route rendered a shell Back action.');
     if (mobileSettingsState.activeBottomLabel !== 'Exit') findings.push('Mobile redesign Settings active bottom tab did not morph into Exit.');
     if (mobileSettingsState.mobileHeaders > 0) findings.push('Mobile redesign Settings route rendered the removed mobile top header.');
     if (mobileSettingsTooltipState.visible) findings.push(`Mobile redesign Settings route change showed a floating tooltip: ${mobileSettingsTooltipState.text || 'blank'}.`);
+    screenshots.push(await screenshot(client, `${shotPrefix}-settings`));
 
     await clickRuntimeRoute(client, 'lore');
     await waitFor(client, sagaMobileRouteExpression('lore'), 'Mobile redesign Lorecards mobile route active', 10000);
@@ -4870,6 +5029,9 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
             hasStatus: text.includes('Status'),
             hasCardControl: text.includes('Card control'),
             hasCurrentTiers: text.includes('Current tiers'),
+            hasCadenceSwitch: !!page?.querySelector('.saga-lore-automation-cadence-switch'),
+            cadenceLabels: [...page?.querySelectorAll('.saga-lore-automation-cadence-option') || []].map(node => (node.innerText || node.textContent || '').trim()).filter(Boolean),
+            disabledConfigGroups: page?.querySelectorAll('.saga-lore-automation-choice-group-disabled').length || 0,
             hasRunNow: labels.includes('Run Now'),
             hasPauseResume: labels.includes('Pause') || labels.includes('Resume'),
             hasUndo: labels.includes('Undo Last Run'),
@@ -4879,13 +5041,28 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
         };
     }));
     if (!automationState.page || automationState.activeStage !== 'automation') findings.push('Mobile redesign Automation page did not become the active Lorecards sub-page.');
-    if (!automationState.hasMode || !automationState.hasStyle || !automationState.hasPacing || !automationState.hasStatus || !automationState.hasCardControl || !automationState.hasCurrentTiers || !automationState.hasRunNow || !automationState.hasPauseResume || !automationState.hasUndo || !automationState.hasActivity) {
+    if (!automationState.hasMode || !automationState.hasStyle || !automationState.hasPacing || !automationState.hasStatus || !automationState.hasCardControl || !automationState.hasCurrentTiers || !automationState.hasCadenceSwitch || !automationState.hasRunNow || !automationState.hasUndo || !automationState.hasActivity) {
         findings.push('Mobile redesign Automation page did not render the full Lore Automation cockpit.');
     }
+    if (!automationState.cadenceLabels.includes('Manual') || !automationState.cadenceLabels.includes('Auto')) findings.push('Mobile redesign Automation cadence switch did not expose Manual and Auto.');
+    if (automationState.hasPauseResume) findings.push('Mobile redesign Automation page still exposed Pause/Resume instead of using cadence.');
     if (automationState.modeButtons !== 3 || automationState.styleButtons !== 3 || automationState.pacingButtons !== 3 || automationState.selectCount > 0) findings.push('Mobile redesign Automation controls did not render as three-button segmented groups.');
     if (automationState.hasLoreWorkspace) findings.push('Mobile redesign Automation page leaked the Lore object list.');
     if (!automationState.noHorizontalOverflow) findings.push('Mobile redesign Automation page has horizontal overflow.');
     if (automationTooltipState.visible) findings.push(`Mobile redesign Automation sub-tab showed a floating tooltip: ${automationTooltipState.text || 'blank'}.`);
+    const automationChoiceState = await evaluate(client, script(() => {
+        const page = document.querySelector('.saga-mobile-lore-automation-page');
+        const target = page?.querySelector('.saga-lore-automation-choice-group[data-choice-group="style"] .saga-lore-automation-choice-button:not([aria-pressed="true"])');
+        target?.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
+        return {
+            clicked: !!target,
+            loadingShell: !!document.querySelector('.saga-mobile-lorecards-loading-shell'),
+            automationCard: !!document.querySelector('.saga-mobile-lore-automation-page .saga-auto-relevance-card'),
+            activeStage: document.querySelector('.saga-lorecards-lifecycle-tab')?.dataset?.sagaLoreLifecycleStage || '',
+        };
+    }), { userGesture: true }).catch(() => ({ clicked: false, loadingShell: true, automationCard: false, activeStage: '' }));
+    if (!automationChoiceState.clicked) findings.push('Mobile redesign Automation style choice was not clickable.');
+    if (automationChoiceState.loadingShell || !automationChoiceState.automationCard || automationChoiceState.activeStage !== 'automation') findings.push('Mobile redesign Automation option click rebuilt the stage or showed a loading shell.');
     screenshots.push(await screenshot(client, `${shotPrefix}-04-lorecards-automation`));
 
     const pendingClicked = await clickSelector(client, '.saga-mobile-lorecards-subtab[data-stage="lore"]').catch(() => false);
@@ -4971,20 +5148,62 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
     if (approvedTooltipState.visible) findings.push(`Mobile redesign Lore sub-tab showed a floating tooltip: ${approvedTooltipState.text || 'blank'}.`);
     if (approvedScrollState.offenders.length) findings.push(`Mobile redesign Lore page still has nested list scroll styling: ${JSON.stringify(approvedScrollState.offenders)}`);
 
-    const longCardTapped = await clickSelector(client, '.saga-lore-entry-card[data-entry-id="smoke_long_title_lore"]');
-    if (!longCardTapped) findings.push('Mobile redesign Accepted long-title card was not tappable.');
-    await waitFor(client, '!!document.querySelector(".saga-mobile-lorecard-editor-shell")', 'Mobile redesign Accepted card detail editor', 10000).catch(error => findings.push(error.message));
+    const longCardTapState = await evaluate(client, script(() => {
+        const card = document.querySelector('.saga-lore-entry-card[data-entry-id="smoke_long_title_lore"]');
+        if (!card) return { found: false, openedAfterTap: false };
+        card.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
+        return {
+            found: true,
+            openedAfterTap: !!document.querySelector('.saga-mobile-lorecard-editor-shell'),
+        };
+    }), { userGesture: true }).catch(() => ({ found: false, openedAfterTap: false }));
+    if (!longCardTapState.found) findings.push('Mobile redesign Accepted long-title card was not present.');
+    if (longCardTapState.openedAfterTap) findings.push('Mobile redesign Accepted card opened editor on tap instead of reserving edit for long press.');
+    const longCardLongPressed = await evaluate(client, script(() => {
+        const card = document.querySelector('.saga-lore-entry-card[data-entry-id="smoke_long_title_lore"]');
+        if (!card) return false;
+        card.dispatchEvent(new MouseEvent('contextmenu', { bubbles: true, cancelable: true, view: window }));
+        return true;
+    }), { userGesture: true }).catch(() => false);
+    if (!longCardLongPressed) findings.push('Mobile redesign Accepted long-title card did not accept long-press/context-menu edit.');
+    await waitFor(client, '!!document.querySelector(".saga-mobile-lorecard-editor-shell")', 'Mobile redesign Accepted card long-press editor', 10000).catch(error => findings.push(error.message));
+    const editorTagRemoveState = await evaluate(client, script(() => {
+        const button = document.querySelector('.saga-mobile-lorecard-tags-remove');
+        const style = button ? getComputedStyle(button) : null;
+        const rect = button?.getBoundingClientRect?.();
+        return {
+            count: document.querySelectorAll('.saga-mobile-lorecard-tags-remove').length,
+            className: button?.className || '',
+            background: style?.backgroundColor || '',
+            backgroundImage: style?.backgroundImage || '',
+            color: style?.color || '',
+            borderColor: style?.borderColor || '',
+            width: rect?.width || 0,
+            height: rect?.height || 0,
+        };
+    }));
+    if (!editorTagRemoveState.count) findings.push('Mobile redesign Lorecard editor did not render removable tag chips for the tagged smoke card.');
+    if (!/saga-runtime-icon-button/.test(editorTagRemoveState.className) || /rgb\(255,\s*255,\s*255\)/.test(editorTagRemoveState.background) || editorTagRemoveState.width < 28 || editorTagRemoveState.height < 28) {
+        findings.push(`Mobile redesign Lorecard tag remove button did not use the themed close-button treatment: ${JSON.stringify(editorTagRemoveState)}.`);
+    }
     const approvedActiveState = await evaluate(client, script(() => {
         const card = document.querySelector('.saga-lore-entry-card[data-entry-id="smoke_long_title_lore"]');
         const activeCard = document.querySelector('.saga-lorecard-workspace-row.saga-lore-entry-active');
+        const activeChip = activeCard
+            ? [...activeCard.querySelectorAll('.saga-chip, .saga-status-pill')].find(node => (node.innerText || node.textContent || '').trim().toLowerCase() === 'active')
+            : null;
+        const activeStyle = activeCard ? getComputedStyle(activeCard) : null;
         return {
             activeClass: !!card?.classList?.contains('saga-lore-entry-active'),
-            hasActiveBadge: /active/i.test(card?.innerText || ''),
+            hasActiveBadge: !!activeChip,
             anyActiveClass: !!activeCard,
-            anyActiveBadge: /active/i.test(activeCard?.innerText || ''),
+            anyActiveBadge: !!activeChip,
+            activeBoxShadow: activeStyle?.boxShadow || '',
+            activeBorderColor: activeStyle?.borderColor || '',
         };
     }));
-    if (!approvedActiveState.anyActiveClass || !approvedActiveState.anyActiveBadge) findings.push('Mobile redesign Accepted active state was not visible on an object card.');
+    if (!approvedActiveState.anyActiveClass || !approvedActiveState.activeBoxShadow || approvedActiveState.activeBoxShadow === 'none') findings.push('Mobile redesign Accepted active state was not visible through object-card glow.');
+    if (approvedActiveState.anyActiveBadge) findings.push('Mobile redesign Accepted active state still used a redundant active metadata chip.');
     screenshots.push(await screenshot(client, `${shotPrefix}-06-lorecards-lore-active`));
     await clickButtonText(client, 'Close', { root: '#saga-mobile-lorecard-editor' }).catch(() => false);
     await waitFor(client, '!document.querySelector("#saga-mobile-lorecard-editor")', 'Mobile redesign Accepted editor closed', 10000).catch(error => findings.push(error.message));
@@ -5089,7 +5308,8 @@ async function runTabletAdvancedHarnessSmoke(client, screenshots, findings, smok
         if (!shellState.railTabs.includes(route)) findings.push(`Tablet Advanced rail missing route: ${route}.`);
     }
     if (shellState.mobileBottomTabs > 0 || shellState.overflowSheet) findings.push('Tablet Advanced harness rendered mobile bottom-bar or overflow-sheet UI above the mobile breakpoint.');
-    if (!shellState.hasActiveStack || !shellState.hasOpenLibrary || !shellState.hasCreateDeck) findings.push('Tablet Advanced Loredecks drawer did not render stack, Library, and Creator actions.');
+    if (shellState.hasActiveStack) findings.push('Tablet Advanced Loredecks drawer still rendered the retired Active Stack section.');
+    if (!shellState.hasOpenLibrary || !shellState.hasCreateDeck) findings.push('Tablet Advanced Loredecks drawer did not render the static Library and Creator actions.');
     if (!shellState.noHorizontalOverflow) findings.push(`Tablet Advanced shell has horizontal overflow (drawer ${shellState.drawerScrollWidth}/${shellState.drawerClientWidth}, body ${shellState.bodyScrollWidth}/${shellState.bodyClientWidth}).`);
     screenshots.push(await screenshot(client, 'tablet-advanced-harness-01-loredecks-desktop-shell'));
 
@@ -6561,6 +6781,11 @@ async function main() {
 
         if (SMOKE_TARGET === MOBILE_ADVANCED_HARNESS_TARGET) {
             await runMobileAdvancedHarnessSmoke(client, screenshots, findings, smokeUrl, dialogEvents);
+            return;
+        }
+
+        if (SMOKE_TARGET === DESKTOP_LORECARDS_HARNESS_TARGET) {
+            await runDesktopLorecardsHarnessSmoke(client, screenshots, findings, smokeUrl, dialogEvents);
             return;
         }
 

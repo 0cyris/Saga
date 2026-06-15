@@ -404,8 +404,8 @@ function hasUsableLoreAutomationContext(state = {}) {
 }
 
 function isLoreAutomationBackgroundEnabled(settings = {}) {
-    const mode = String(settings.automationMode || settings.workflowMode || 'manual').toLowerCase();
-    return mode === 'automatic' || settings.autoGenerateLore === true;
+    const cadenceMode = String(settings.loreAutomationCadenceMode || 'auto').trim().toLowerCase();
+    return cadenceMode !== 'manual' && cadenceMode !== 'off';
 }
 
 function isAutomationOwnedEntry(entry = {}) {
@@ -1924,8 +1924,8 @@ async function runAutoRelevanceInternal(options = {}) {
 export function onGenerationEndedAutoRelevance() {
     const settings = getSettings();
     const loreAutomationMode = normalizeLoreAutomationMode(settings.loreAutomationMode || (settings.autoRelevanceEnabled ? 'ar' : 'off'));
-    if (loreAutomationMode === 'off' || settings.loreAutomationPaused === true) return { status: 'disabled' };
     if (!isLoreAutomationBackgroundEnabled(settings)) return { status: 'manual_mode' };
+    if (loreAutomationMode === 'off') return { status: 'disabled' };
     const state = getState();
     const cadence = normalizeLoreAutomationCadence(state);
     const policy = getLoreAutomationPacingPolicy(settings);

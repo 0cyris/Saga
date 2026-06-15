@@ -48,11 +48,11 @@ export function renderSettingsTab(container, state) {
     const settings = getSettings();
     const basic = isBasicExperience(settings);
     container.appendChild(createExperienceModeSettingsCard(settings));
-    container.appendChild(createQualityOfLifeSettingsCard(settings));
     container.appendChild(createSectionHeader(
-        'SAGA',
-        basic ? 'Providers and Theme Pack.' : 'Fandom Loresystem.'
+        'Quality of Life',
+        'Mobile readability and touch-safety preferences.'
     ));
+    container.appendChild(createQualityOfLifeSettingsCard(settings));
 
     if (basic) {
         container.appendChild(markTourTarget(createCollapsibleSection(
@@ -132,15 +132,12 @@ function createQualityOfLifeSettingsCard(settings = getSettings()) {
     card.className = 'saga-runtime-card saga-settings-qol-card';
     markTourTarget(card, 'settings.qualityOfLife');
 
-    const title = document.createElement('h4');
-    title.textContent = 'Quality of Life';
-    addTooltip(title, 'Mobile readability and touch-safety preferences.');
-    card.appendChild(title);
-
     const toggle = document.createElement('label');
-    toggle.className = 'saga-inline-toggle saga-settings-mobile-tags-toggle';
+    toggle.className = 'saga-settings-switch-row saga-settings-mobile-tags-toggle';
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
+    checkbox.className = 'saga-settings-switch-input';
+    checkbox.setAttribute('role', 'switch');
     checkbox.checked = settings.mobileLorecardListTagsVisible === true;
     checkbox.addEventListener('change', () => {
         const next = getSettings();
@@ -149,7 +146,14 @@ function createQualityOfLifeSettingsCard(settings = getSettings()) {
         dep('refreshPanelBody', () => null)({ preserveScroll: true });
     });
     toggle.appendChild(checkbox);
-    toggle.appendChild(document.createTextNode(' Show Lorecard tags in the mobile Lore list'));
+    const switchVisual = document.createElement('span');
+    switchVisual.className = 'saga-settings-switch-slider';
+    switchVisual.setAttribute('aria-hidden', 'true');
+    toggle.appendChild(switchVisual);
+    const label = document.createElement('span');
+    label.className = 'saga-settings-switch-label';
+    label.textContent = 'Show Lorecard tags in the mobile Lore list';
+    toggle.appendChild(label);
     addTooltip(toggle, 'When off, mobile lists hide tags so cards stay shorter. Tags remain editable inside the long-press Lorecard editor.');
     card.appendChild(toggle);
 
