@@ -149,7 +149,7 @@ function createQualityOfLifeSettingsCard(settings = getSettings()) {
         dep('refreshPanelBody', () => null)({ preserveScroll: true });
     });
     toggle.appendChild(checkbox);
-    toggle.appendChild(document.createTextNode(' Show Lorecard tags in mobile Pending and Approved lists'));
+    toggle.appendChild(document.createTextNode(' Show Lorecard tags in the mobile Lore list'));
     addTooltip(toggle, 'When off, mobile lists hide tags so cards stay shorter. Tags remain editable inside the long-press Lorecard editor.');
     card.appendChild(toggle);
 

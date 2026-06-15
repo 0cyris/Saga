@@ -1278,7 +1278,7 @@
     flex: 0 0 auto;
     min-height: var(--saga-mobile-lorecards-subtab-height, 46px);
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     align-items: stretch;
     padding: 5px 6px;
     background:
@@ -1290,6 +1290,9 @@
     box-sizing: border-box;
     -webkit-touch-callout: none;
     user-select: none;
+}
+
+.saga-mobile-lorecards-subtabs-intro .saga-mobile-lorecards-subtabs {
     animation: saga-mobile-lorecards-subtabs-in 170ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
@@ -1308,7 +1311,7 @@
     background: rgba(255, 255, 255, 0.035);
     color: var(--saga-muted, rgba(241, 234, 216, 0.72));
     font: inherit;
-    font-size: 0.72em;
+    font-size: 10px;
     font-weight: 780;
     line-height: 1.1;
     letter-spacing: 0;
@@ -1523,6 +1526,13 @@
 .saga-runtime-mobile.saga-mobile-touch input[type="password"],
 .saga-runtime-mobile.saga-mobile-touch input[type="search"] {
     min-height: var(--saga-mobile-control-height, 44px);
+}
+
+.saga-runtime-mobile.saga-mobile-touch select,
+.saga-runtime-mobile.saga-mobile-touch input[type="text"],
+.saga-runtime-mobile.saga-mobile-touch input[type="number"],
+.saga-runtime-mobile.saga-mobile-touch input[type="password"],
+.saga-runtime-mobile.saga-mobile-touch input[type="search"] {
     font-size: 0.95rem;
 }
 

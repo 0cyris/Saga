@@ -13,7 +13,6 @@ import {
     getRuntimeMobileActiveSubview,
     isRuntimeMobileShell,
     pushRuntimeMobileSubview,
-    selectRuntimeMobileRoute,
 } from '../runtime/runtime-shell.js';
 import { formatLoredeckContextUpdatedAt } from './context-formatters.js';
 import { getContextIndexSync, loadContextIndex } from './context-index.js';
@@ -124,15 +123,10 @@ function openContextMobileDetails() {
     });
 }
 
-function getContextOperatorNextActionId({ stack = [], selectedRows = [], proposals = [] } = {}) {
-    if (!stack.length) return 'loredecks';
-    if (proposals.length) return 'proposals';
-    if (!selectedRows.length) return 'browse';
-    return 'detect';
-}
-
 function getContextOperatorActionLabel(actionId, label, nextActionId = '') {
-    return actionId === nextActionId ? `Next: ${label}` : label;
+    void actionId;
+    void nextActionId;
+    return label;
 }
 
 function getContextOperatorActionClass(actionId, nextActionId = '', fallbackClass = '') {
@@ -151,7 +145,7 @@ function createContextOperatorSummary(state = {}, contextIndex = null, options =
     const primary = selectedRows[0] || (stack[0] ? { item: stack[0], context: getLoredeckContext(state, stack[0].packId) } : null);
     const primarySummary = primary ? formatContextSummary(primary.context) : 'No loaded Loredeck Context.';
     const mobileRoot = isRuntimeMobileShell() && !mobileSubview;
-    const nextActionId = mobileRoot ? getContextOperatorNextActionId({ stack, selectedRows, proposals }) : '';
+    const nextActionId = '';
 
     const card = document.createElement('div');
     card.className = 'saga-runtime-card saga-operator-summary-card saga-context-operator-summary';
@@ -205,11 +199,6 @@ function createContextOperatorSummary(state = {}, contextIndex = null, options =
 
     const actions = document.createElement('div');
     actions.className = 'saga-primary-actions saga-operator-summary-actions';
-    if (nextActionId === 'loredecks') {
-        actions.appendChild(createButton('Next: Open Loredecks', 'Open Loredecks to load the stack before setting Context.', () => {
-            selectRuntimeMobileRoute('loredecks');
-        }, 'saga-primary-button'));
-    }
     actions.appendChild(markTourTarget(createButton(
         getContextOperatorActionLabel('browse', 'Browse Context', nextActionId),
         'Open the fullscreen Context Browser for loaded Loredecks, anchors, windows, resolver tests, and manual locks.',

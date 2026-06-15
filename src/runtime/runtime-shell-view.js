@@ -59,23 +59,20 @@ import {
 } from './runtime-navigation.js';
 
 let deps = {};
+let mobileLorecardsSubtabsIntroSeen = false;
 
 const MOBILE_LORECARDS_SUBTAB_META = Object.freeze({
-    suggested: Object.freeze({
-        label: 'Generation',
-        tooltip: 'Create or suggest Lorecards.',
+    lore: Object.freeze({
+        label: 'Lore',
+        tooltip: 'Review and manage all Lorecards in one object list.',
+    }),
+    generate: Object.freeze({
+        label: 'Generate',
+        tooltip: 'Create or suggest new Lorecards.',
     }),
     automation: Object.freeze({
         label: 'Automation',
         tooltip: 'Configure and run Lore Automation.',
-    }),
-    pending: Object.freeze({
-        label: 'Pending',
-        tooltip: 'Review proposed Lorecards.',
-    }),
-    accepted: Object.freeze({
-        label: 'Approved',
-        tooltip: 'Manage approved Lorecards and active state.',
     }),
 });
 const MOBILE_NAV_TOOLTIP_OPTIONS = Object.freeze({ showOnHover: false, showOnFocus: false });
@@ -188,7 +185,13 @@ function renderMobilePanelShell(root, state, settings = getSettings(), options =
     root.innerHTML = '';
     root.className = 'saga-lore-panel saga-runtime-shell saga-runtime-mobile saga-mobile-touch';
     if (activeSubview) root.classList.add('saga-mobile-subview-active');
-    if (mobile.activeRoute === 'lore' && !options.error) root.classList.add('saga-mobile-lorecards-subtabs-active');
+    if (mobile.activeRoute === 'lore' && !options.error) {
+        root.classList.add('saga-mobile-lorecards-subtabs-active');
+        if (!mobileLorecardsSubtabsIntroSeen) {
+            root.classList.add('saga-mobile-lorecards-subtabs-intro');
+            mobileLorecardsSubtabsIntroSeen = true;
+        }
+    }
     root.dataset.mobileRoute = mobile.activeRoute;
     root.dataset.mobileActiveTab = activeTab || '';
     root.dataset.mobileLorecardsStage = mobile.activeRoute === 'lore'
@@ -394,16 +397,15 @@ function getMobileLorecardsSubTabCounts(state) {
     const loreState = getPanelLoreState(state);
     const acceptedCount = (loreState.entries || []).filter(entry => !entry?.isPending).length;
     return {
-        suggested: 0,
+        lore: pendingCount + acceptedCount,
+        generate: 0,
         automation: 0,
-        pending: pendingCount,
-        accepted: acceptedCount,
     };
 }
 
 function getMobileLorecardsFallbackStage(state) {
     const counts = getMobileLorecardsSubTabCounts(state);
-    return counts.pending > 0 ? 'pending' : 'accepted';
+    return counts.lore > 0 ? 'lore' : 'generate';
 }
 
 function renderMobileLorecardsSubTabs(state, settings = getSettings()) {
@@ -416,7 +418,7 @@ function renderMobileLorecardsSubTabs(state, settings = getSettings()) {
     nav.setAttribute('aria-label', 'Lorecards workspace');
 
     for (const stage of MOBILE_LORECARDS_STAGES) {
-        const meta = MOBILE_LORECARDS_SUBTAB_META[stage] || MOBILE_LORECARDS_SUBTAB_META.pending;
+        const meta = MOBILE_LORECARDS_SUBTAB_META[stage] || MOBILE_LORECARDS_SUBTAB_META.lore;
         const tab = document.createElement('button');
         tab.type = 'button';
         tab.className = 'saga-mobile-lorecards-subtab';

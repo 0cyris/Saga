@@ -162,89 +162,200 @@
     top: 8px;
 }
 
-/* Lorecards mobile lifecycle surface */
-.saga-lorecard-pipeline-card {
+.saga-lorecard-workspace {
     display: flex;
     flex-direction: column;
-    gap: 9px;
-    border-color: rgba(215, 181, 109, 0.3);
-    background:
-        linear-gradient(180deg, rgba(215, 181, 109, 0.075), rgba(0, 0, 0, 0.2)),
-        rgba(8, 12, 18, 0.68);
+    gap: 10px;
 }
 
-.saga-lorecard-pipeline-header {
+.saga-lorecard-workspace-header,
+.saga-lorecard-workspace-toolbar {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
     gap: 10px;
 }
 
-.saga-lorecard-pipeline-status {
+.saga-lorecard-workspace-status,
+.saga-lorecard-workspace-utilities,
+.saga-lorecard-workspace-filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+}
+
+.saga-lorecard-workspace-search {
+    flex: 1 1 260px;
+    min-width: min(100%, 220px);
+}
+
+.saga-lorecard-workspace-utilities {
+    flex: 0 0 auto;
     justify-content: flex-end;
 }
 
-.saga-lorecard-pipeline-status-filter {
-    min-width: 0;
-    white-space: nowrap;
+.saga-lorecard-workspace-filter-chip {
+    cursor: pointer;
 }
 
-.saga-lorecard-pipeline-status-filter-active,
-.saga-lorecard-pipeline-status-filter[aria-pressed="true"] {
-    border-color: rgba(215, 181, 109, 0.62);
-    box-shadow: 0 0 0 1px rgba(215, 181, 109, 0.14) inset;
+.saga-lorecard-workspace-filter-active,
+.saga-lorecard-workspace-filter-chip[aria-pressed="true"] {
+    border-color: var(--saga-border-strong, rgba(215, 181, 109, 0.58));
+    box-shadow: 0 0 0 1px var(--saga-gold-surface, rgba(185, 139, 54, 0.14)) inset;
 }
 
-.saga-lorecard-pipeline-rail {
+.saga-lorecard-workspace-body {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 6px;
+    grid-template-columns: minmax(320px, 1.2fr) minmax(280px, 0.8fr);
+    gap: 10px;
+    align-items: start;
+    min-height: 0;
 }
 
-.saga-lorecard-pipeline-stage {
-    min-width: 0;
-    min-height: 42px;
+.saga-lorecard-workspace-list {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 6px;
-    text-align: left;
-    border-color: rgba(215, 181, 109, 0.2) !important;
-    background: rgba(255, 255, 255, 0.04) !important;
-}
-
-.saga-lorecard-pipeline-stage-active,
-.saga-lorecard-pipeline-stage[aria-pressed="true"] {
-    border-color: rgba(215, 181, 109, 0.62) !important;
-    background: rgba(215, 181, 109, 0.15) !important;
-    color: var(--saga-gold, #d7b56d) !important;
-    box-shadow: 0 0 0 1px rgba(215, 181, 109, 0.12) inset;
-}
-
-.saga-lorecard-pipeline-stage-label,
-.saga-lorecard-pipeline-stage-count {
+    flex-direction: column;
+    gap: 8px;
     min-width: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    min-height: 0;
 }
 
-.saga-lorecard-pipeline-stage-label {
-    font-weight: 700;
+.saga-lorecard-workspace-list-summary {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    padding: 3px 0;
+    background: var(--saga-card, rgba(12, 14, 20, 0.72));
 }
 
-.saga-lorecard-pipeline-stage-count {
-    flex: 0 0 auto;
-    min-width: 24px;
-    padding: 1px 5px;
+.saga-lorecard-workspace-row {
+    position: relative;
+    min-width: 0;
+}
+
+.saga-lorecard-workspace-row.saga-lore-entry-active {
+    border-color: var(--saga-accent, var(--saga-gold, #d7b56d)) !important;
+    box-shadow:
+        0 0 0 1px color-mix(in srgb, var(--saga-accent, var(--saga-gold, #d7b56d)) 42%, transparent),
+        0 0 18px color-mix(in srgb, var(--saga-accent, var(--saga-gold, #d7b56d)) 26%, transparent);
+}
+
+.saga-lorecard-workspace-row.saga-lore-entry-active::before {
+    content: "";
+    position: absolute;
+    inset: 4px auto 4px 4px;
+    width: 3px;
     border-radius: 999px;
-    background: rgba(0, 0, 0, 0.28);
-    text-align: center;
-    color: #bde7ea;
+    background: var(--saga-accent, var(--saga-gold, #d7b56d));
+    box-shadow: 0 0 12px color-mix(in srgb, var(--saga-accent, var(--saga-gold, #d7b56d)) 52%, transparent);
 }
 
-.saga-lorecard-pipeline-next-actions {
-    margin: 0 !important;
+.saga-lorecard-workspace-row.saga-lore-entry-active .saga-lore-entry-header,
+.saga-lorecard-workspace-row.saga-lore-entry-active .saga-lore-entry-meta,
+.saga-lorecard-workspace-row.saga-lore-entry-active .saga-lore-entry-fact {
+    padding-left: 7px;
+}
+
+.saga-lorecard-workspace-row.saga-lore-entry-suppressed {
+    opacity: 0.68;
+    filter: saturate(0.75);
+}
+
+.saga-lorecard-workspace-row.saga-lore-entry-suppressed.saga-lore-entry-active {
+    border-color: var(--saga-border-soft, rgba(185, 139, 54, 0.18)) !important;
+    box-shadow: none;
+}
+
+.saga-lorecard-workspace-row.saga-lore-entry-suppressed.saga-lore-entry-active::before {
+    display: none;
+}
+
+.saga-lorecard-workspace-row.saga-lore-entry-pinned:not(.saga-lore-entry-active) {
+    border-color: var(--saga-border-strong, rgba(215, 181, 109, 0.58));
+}
+
+.saga-lorecard-workspace-row.saga-lore-entry-pending,
+.saga-lorecard-workspace-row.saga-pending-review-entry-card {
+    border-color: var(--saga-chip-review-border, rgba(216, 182, 109, 0.38));
+    background:
+        linear-gradient(180deg, rgba(216, 182, 109, 0.08), transparent),
+        var(--saga-surface-2, rgba(18, 18, 24, 0.62));
+}
+
+.saga-lorecard-workspace-detail {
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+    max-height: min(74vh, 760px);
+    overflow: auto;
+    padding: 10px;
+    border: 1px solid var(--saga-border-soft, rgba(185, 139, 54, 0.18));
+    border-radius: 8px;
+    background: var(--saga-surface-1, rgba(10, 12, 18, 0.58));
+}
+
+.saga-lorecard-detail-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+}
+
+.saga-lorecard-detail-actions {
+    justify-content: flex-start;
+}
+
+.saga-lorecard-workspace-tool-card {
+    border-color: var(--saga-border-soft, rgba(185, 139, 54, 0.24));
+}
+
+@media (max-width: 860px) {
+    .saga-lorecard-workspace-body {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .saga-lorecard-workspace-detail {
+        position: static;
+        max-height: none;
+    }
+}
+
+.saga-runtime-mobile .saga-lorecard-workspace {
+    gap: 8px;
+    padding: 8px;
+}
+
+.saga-runtime-mobile .saga-lorecard-workspace-header,
+.saga-runtime-mobile .saga-lorecard-workspace-toolbar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+}
+
+.saga-runtime-mobile .saga-lorecard-workspace-status,
+.saga-runtime-mobile .saga-lorecard-workspace-filters {
+    gap: 5px;
+}
+
+.saga-runtime-mobile .saga-lorecard-workspace-body {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+}
+
+.saga-runtime-mobile .saga-lorecard-workspace-list {
+    gap: 7px;
+    overflow: visible !important;
+}
+
+.saga-runtime-mobile .saga-lorecard-workspace-row .saga-pending-entry-actions {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+    margin-top: 6px;
 }
 
 .saga-lore-active-set-section {
@@ -521,18 +632,9 @@
 }
 
 @media (max-width: 640px) {
-    .saga-lorecard-pipeline-header,
     .saga-lore-active-set-header {
         flex-direction: column;
         align-items: stretch;
-    }
-
-    .saga-lorecard-pipeline-status {
-        justify-content: flex-start;
-    }
-
-    .saga-lorecard-pipeline-rail {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
     .saga-lore-active-set-tray,
@@ -2153,7 +2255,7 @@
 .saga-runtime-mobile .saga-mobile-lore-automation-card .saga-lore-automation-header .saga-runtime-button {
     min-height: 32px !important;
     padding: 4px 8px !important;
-    font-size: 0.72rem !important;
+    font-size: 0.78em !important;
 }
 
 .saga-runtime-mobile .saga-mobile-lore-automation-card .saga-lore-automation-choice-row,
@@ -2162,12 +2264,12 @@
 }
 
 .saga-runtime-mobile .saga-mobile-lore-automation-card .saga-lore-automation-choice-title {
-    font-size: 0.86rem;
+    font-size: 0.82em;
 }
 
 .saga-runtime-mobile .saga-mobile-lore-automation-card .saga-lore-automation-choice-button {
     min-height: 42px;
-    font-size: 0.84rem;
+    font-size: 0.84em;
 }
 
 .saga-runtime-mobile .saga-mobile-lore-automation-card > .saga-runtime-grid,
@@ -2284,7 +2386,7 @@
 .saga-mobile-lorecard-entry-editor .saga-lore-editor-field,
 .saga-mobile-lorecard-entry-editor .saga-new-lore-field {
     gap: 5px;
-    font-size: 1rem;
+    font-size: 0.86em;
     font-weight: 720;
     line-height: 1.2;
 }
@@ -2294,7 +2396,7 @@
 .saga-mobile-lorecard-entry-editor .saga-new-lore-field select {
     min-height: 44px;
     padding: 9px 10px;
-    font-size: 1rem;
+    font-size: 0.95rem;
     line-height: 1.35;
 }
 
@@ -2309,17 +2411,95 @@
     gap: 9px;
 }
 
+.saga-mobile-lorecard-tags-editor {
+    display: grid;
+    gap: 7px;
+}
+
+.saga-mobile-lorecard-tags-chip-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+}
+
+.saga-mobile-lorecard-tags-chip {
+    width: 100%;
+    min-width: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 28px;
+    align-items: center;
+    gap: 6px;
+    min-height: 32px;
+    padding: 4px 5px 4px 9px;
+    box-sizing: border-box;
+}
+
+.saga-mobile-lorecard-tags-chip-label {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.saga-mobile-lorecard-tags-remove,
+.saga-mobile-lorecard-tags-add-button {
+    min-width: 28px !important;
+    width: 28px !important;
+    min-height: 28px !important;
+    padding: 0 !important;
+    border-radius: 7px !important;
+    font-size: 0.86em !important;
+    line-height: 1 !important;
+}
+
+.saga-mobile-lorecard-tags-add-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 34px;
+    gap: 6px;
+    align-items: stretch;
+}
+
+.saga-mobile-lorecard-tags-empty {
+    margin: 0;
+    font-size: 0.78em;
+}
+
+.saga-mobile-lorecard-editor-footer {
+    flex: 0 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(92px, 0.42fr);
+    gap: 7px;
+    padding: 8px 10px calc(8px + var(--saga-mobile-safe-area-bottom, 0px));
+    border-top: 1px solid var(--saga-border-soft, rgba(185, 139, 54, 0.22));
+    background:
+        linear-gradient(180deg, rgba(9, 13, 18, 0.92), rgba(8, 9, 13, 0.98)),
+        var(--saga-surface, #11131a);
+    box-shadow: 0 -12px 28px rgba(0, 0, 0, 0.32);
+    box-sizing: border-box;
+}
+
+.saga-mobile-lorecard-editor-footer .saga-primary-actions {
+    margin: 0;
+    min-width: 0;
+}
+
+.saga-mobile-lorecard-editor-footer .saga-runtime-button {
+    width: 100%;
+    min-height: 40px;
+}
+
 .saga-mobile-lorecard-editor-body .saga-lore-meta-select-wrap,
 .saga-mobile-lorecard-editor-body .saga-lore-meta-select {
-    font-size: 0.98rem;
+    font-size: 0.92rem;
 }
 
 .saga-mobile-lorecard-editor-body .saga-lore-meta-select-prefix {
-    font-size: 0.95rem;
+    font-size: 0.86rem;
     font-weight: 800;
 }
 
 .saga-mobile-accepted-filters-body .saga-mobile-accepted-filter-field span,
 .saga-mobile-accepted-filters-body .saga-mobile-accepted-filter-field select {
-    font-size: 0.96rem;
+    font-size: 0.9rem;
 }

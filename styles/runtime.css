@@ -2081,6 +2081,10 @@
         order: -20;
     }
 
+    .saga-loredeck-creator-workbench-shell-mobile .saga-loredeck-creator-current-title {
+        font-size: 1rem;
+    }
+
     .saga-loredeck-creator-workbench-body .saga-loredeck-creator-stage-guide {
         order: -10;
     }
@@ -4893,7 +4897,7 @@
     border-radius: 999px;
     background: var(--saga-chip-neutral-bg, rgba(255, 255, 255, 0.06));
     color: var(--saga-chip-neutral-fg, rgba(241, 234, 216, 0.84));
-    font-size: 0.72em;
+    font-size: 0.78em;
     font-weight: 720;
     line-height: 1.2;
     overflow: hidden;
@@ -5187,7 +5191,7 @@
 .saga-loredeck-library-mobile-reorder-meta {
     min-width: 0;
     color: var(--saga-muted, rgba(241, 234, 216, 0.68));
-    font-size: 0.72em;
+    font-size: 0.78em;
     line-height: 1.25;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -5947,6 +5951,14 @@
 
     .saga-loredeck-health-center-content {
         padding: 8px;
+    }
+
+    .saga-loredeck-health-center-shell-mobile .saga-loredeck-health-severity-card strong {
+        font-size: 1.08em;
+    }
+
+    .saga-loredeck-health-center-shell-mobile .saga-loredeck-health-inventory-item span {
+        font-size: 0.78em;
     }
 
     .saga-loredeck-health-tabs {

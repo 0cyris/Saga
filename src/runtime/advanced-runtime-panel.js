@@ -9,7 +9,7 @@ import {
     createToggleCard,
 } from '../ui/runtime-ui-kit.js';
 import { formatActiveChatMetricName } from './runtime-formatters.js';
-import { createBasicStartReadinessCard, getBasicReadinessAction, getBasicReadinessModel } from './session-basic-panel.js';
+import { createBasicStartReadinessCard, getBasicReadinessModel } from './session-basic-panel.js';
 import {
     formatGuideStartLabel,
     getRuntimeGuideContent,
@@ -217,14 +217,6 @@ function openSessionMobileDetails() {
     });
 }
 
-function createBasicSessionNextActionButton(readiness) {
-    const row = readiness?.nextAction;
-    if (!row || row.ready || !row.actionLabel || row.actionId === 'enable-saga') return null;
-    const action = getBasicReadinessAction(row);
-    if (typeof action !== 'function') return null;
-    return createButton(`Next: ${row.actionLabel}`, row.missingText || 'Open the next Basic workflow step.', action, 'saga-primary-button');
-}
-
 function createSessionOperatorSummary(state, settings, options = {}) {
     const basic = options.basic === true;
     const guideMode = options.guideMode || (basic ? 'basic' : 'advanced');
@@ -312,15 +304,11 @@ function createSessionOperatorSummary(state, settings, options = {}) {
             refreshHeader();
         }, 'saga-primary-button'));
     }
-    const nextAction = basic && mobileRoot
-        ? createBasicSessionNextActionButton(readiness)
-        : null;
-    if (nextAction) actions.appendChild(nextAction);
     actions.appendChild(createButton(
         basic ? 'Start Guided Tour' : 'Start Walkthrough',
         basic ? 'Open the Basic guided tour from Session Readiness.' : 'Open the Advanced runtime walkthrough.',
         () => startRuntimeWalkthrough(guideMode),
-        enabled && !nextAction ? 'saga-primary-button' : ''
+        enabled ? 'saga-primary-button' : ''
     ));
     card.appendChild(actions);
     return card;

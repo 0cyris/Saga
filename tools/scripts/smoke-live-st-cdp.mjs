@@ -1252,6 +1252,74 @@ function addMobileNestedScrollFindings(findings, audit) {
     findings.push(`Mobile nested scroll audit failed for ${audit.label || audit.scopeSelector}: ${summary}.`);
 }
 
+async function getMobileFontAuditState(client, options = {}) {
+    return await evaluate(client, script((input) => {
+        const scopeSelector = input?.scopeSelector || '#saga-lore-panel.saga-runtime-mobile';
+        const root = document.querySelector(scopeSelector);
+        if (!root) return { label: input?.label || scopeSelector, present: false, min: 0, max: 0, ratio: 0, smallest: [], largest: [] };
+        const selectorFor = (element) => {
+            if (!element) return '';
+            if (element.id) return `#${element.id}`;
+            const parts = [];
+            let current = element;
+            while (current && current !== root && parts.length < 4) {
+                const tag = current.tagName ? current.tagName.toLowerCase() : 'node';
+                const cls = String(current.className || '').split(/\s+/).filter(Boolean).slice(0, 3).map(name => `.${name}`).join('');
+                parts.unshift(`${tag}${cls}`);
+                current = current.parentElement;
+            }
+            return parts.join(' > ');
+        };
+        const elements = [...root.querySelectorAll('button, label, span, div, p, h1, h2, h3, h4, strong, small, input, textarea, select')];
+        const samples = [];
+        for (const element of elements) {
+            const style = getComputedStyle(element);
+            if (style.display === 'none' || style.visibility === 'hidden' || Number(style.opacity || 1) === 0) continue;
+            const rect = element.getBoundingClientRect();
+            if (rect.width <= 0 || rect.height <= 0) continue;
+            const tag = String(element.tagName || '').toLowerCase();
+            const text = (tag === 'input' || tag === 'textarea' || tag === 'select')
+                ? (element.value || element.getAttribute('placeholder') || element.getAttribute('aria-label') || '')
+                : (element.innerText || element.textContent || '');
+            if (!String(text || '').trim()) continue;
+            const size = Number.parseFloat(style.fontSize || '0');
+            if (!Number.isFinite(size) || size <= 0) continue;
+            samples.push({
+                selector: selectorFor(element),
+                text: String(text || '').trim().replace(/\s+/g, ' ').slice(0, 80),
+                size,
+            });
+        }
+        samples.sort((a, b) => a.size - b.size);
+        const min = samples[0]?.size || 0;
+        const max = samples[samples.length - 1]?.size || 0;
+        return {
+            label: input?.label || scopeSelector,
+            present: true,
+            count: samples.length,
+            min,
+            max,
+            ratio: min > 0 ? max / min : 0,
+            smallest: samples.slice(0, 5),
+            largest: samples.slice(-5).reverse(),
+        };
+    }, options));
+}
+
+function addMobileFontFindings(findings, audit) {
+    if (!audit?.present || !audit.count) return;
+    if (audit.min <= 0 || audit.max <= 0 || audit.ratio <= 2.001) return;
+    const largest = (audit.largest || [])
+        .slice(0, 3)
+        .map(item => `${item.size}px ${item.selector || item.text}`)
+        .join('; ');
+    const smallest = (audit.smallest || [])
+        .slice(0, 3)
+        .map(item => `${item.size}px ${item.selector || item.text}`)
+        .join('; ');
+    findings.push(`Mobile font audit failed for ${audit.label}: ${audit.min}px-${audit.max}px (${audit.ratio.toFixed(2)}x). Smallest: ${smallest}. Largest: ${largest}.`);
+}
+
 async function openMobileSessionDetailsForGuide(client) {
     const state = await evaluate(client, script(() => {
         const root = document.querySelector('#saga-lore-panel.saga-runtime-mobile');
@@ -3898,7 +3966,8 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
     if (!initialState.hasActiveStack || !initialState.hasOpenLibrary || !initialState.hasCreateDeck) findings.push('Mobile Advanced Loredecks root did not render stack, Library, and Creator actions.');
     if (!initialState.hasStackDetailsHeader) findings.push('Mobile Advanced Loredecks root did not expose Stack Details through the tappable summary header.');
     if (initialState.primaryActions.length !== 1) findings.push('Mobile Advanced Loredecks root did not render exactly one dominant primary action.');
-    if (!initialState.primaryActions.some(label => /^Next:/.test(label) || label === 'Open Loredeck Library')) findings.push('Mobile Advanced Loredecks dominant action did not point at the next contextual mobile flow.');
+    if (!initialState.primaryActions.includes('Open Loredeck Library')) findings.push('Mobile Advanced Loredecks dominant action did not expose Open Loredeck Library.');
+    if ([...initialState.primaryActions, ...initialState.secondaryActions].some(label => /^Next:/.test(label))) findings.push('Mobile Advanced Loredecks root exposed checklist-style Next actions.');
     if (initialState.primaryActions.includes('Open Loredeck Library') && initialState.secondaryActions.includes('Open Loredeck Library')) findings.push('Mobile Advanced Loredecks duplicated the Open Loredeck Library action.');
     if (initialState.secondaryActions.length < 2) findings.push('Mobile Advanced Loredecks secondary actions were not available after primary-action reduction.');
     if (!initialState.noHorizontalOverflow) findings.push('Mobile Advanced Loredecks root has horizontal overflow.');
@@ -3908,6 +3977,11 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
         allowedSelectors: ['.saga-runtime-tab-body'],
     });
     addMobileNestedScrollFindings(findings, loredecksRootScrollAudit);
+    const loredecksFontAudit = await getMobileFontAuditState(client, {
+        label: 'Mobile Advanced Loredecks route',
+        scopeSelector: '#saga-lore-panel.saga-runtime-mobile',
+    });
+    addMobileFontFindings(findings, loredecksFontAudit);
     screenshots.push(await screenshot(client, 'mobile-advanced-harness-01-loredecks-root'));
 
     await clickRuntimeRoute(client, 'session');
@@ -4014,51 +4088,82 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
     await waitFor(client, sagaMobileRouteExpression('lore'), 'Mobile Advanced Lorecards mobile route active', 10000);
     await waitFor(client, sagaActiveTabExpression('lore'), 'Mobile Advanced Lorecards route active', 10000);
     await waitFor(client, '!!document.querySelector(".saga-mobile-lorecards-subtabs")', 'Mobile Advanced Lorecards secondary sub-tabs', 10000);
-    const activeSetClicked = await clickSelector(client, '.saga-mobile-lorecards-subtab[data-stage="accepted"]').catch(() => false);
-    if (!activeSetClicked) findings.push('Mobile Advanced Approved sub-tab was not clickable.');
-    await waitFor(client, 'document.querySelector(".saga-lorecards-lifecycle-tab")?.dataset?.sagaLoreLifecycleStage === "accepted"', 'Mobile Advanced Approved page active', 10000);
-    await waitFor(client, '!document.querySelector(".saga-mobile-lorecards-loading-shell") && !!document.querySelector(".saga-accepted-lore-scroll-region")', 'Mobile Advanced Approved deferred content', 10000);
-    await waitFor(client, 'document.body.innerText.includes("Available Accepted Lorecards")', 'Mobile Advanced Approved active set', 10000);
+    const loreClicked = await clickSelector(client, '.saga-mobile-lorecards-subtab[data-stage="lore"]').catch(() => false);
+    if (!loreClicked) findings.push('Mobile Advanced Lore sub-tab was not clickable.');
+    await waitFor(client, 'document.querySelector(".saga-lorecards-lifecycle-tab")?.dataset?.sagaLoreLifecycleStage === "lore"', 'Mobile Advanced Lore page active', 10000);
+    await waitFor(client, '!document.querySelector(".saga-mobile-lorecards-loading-shell") && !!document.querySelector(".saga-lorecard-workspace-list")', 'Mobile Advanced Lore deferred content', 10000);
     await wait(500);
     const activeSetState = await evaluate(client, script(() => {
         const text = document.body?.innerText || '';
-        const activeItems = [...document.querySelectorAll('.saga-lore-active-set-item:not(.saga-lore-available-set-item)')];
-        const availableItems = [...document.querySelectorAll('.saga-lore-available-set-item')];
-        const labels = [...document.querySelectorAll('.saga-lore-active-set-item button')].map(button => (button.innerText || button.textContent || '').trim()).filter(Boolean);
+        const rows = [...document.querySelectorAll('.saga-lorecard-workspace-row')];
+        const activeItems = rows.filter(row => row.classList.contains('saga-lore-entry-active'));
+        const acceptedItems = rows.filter(row => row.dataset.lorecardWorkspaceStatus === 'accepted');
+        const pendingItems = rows.filter(row => row.dataset.lorecardWorkspaceStatus === 'pending');
+        const labels = [...document.querySelectorAll('.saga-lorecard-workspace-row .saga-lore-entry-actions button')].map(button => (button.innerText || button.textContent || '').trim()).filter(Boolean);
         const bottomBarTop = document.querySelector('.saga-mobile-bottom-bar')?.getBoundingClientRect?.().top || window.innerHeight;
-        const firstObject = activeItems[0] || availableItems[0] || null;
+        const firstObject = activeItems[0] || acceptedItems[0] || pendingItems[0] || null;
         const firstObjectRect = firstObject?.getBoundingClientRect?.();
         return {
-            hasActiveSet: text.includes('Active Set'),
-            hasAvailable: text.includes('Available Accepted Lorecards'),
+            hasWorkspace: !!document.querySelector('.saga-lorecard-workspace'),
+            hasLoreHeading: text.includes('Lore'),
             hasSubtabs: !!document.querySelector('.saga-mobile-lorecards-subtabs'),
             activeSubtab: document.querySelector('.saga-mobile-lorecards-subtab[aria-selected="true"]')?.getAttribute('data-stage') || '',
             hasPipelineCard: !!document.querySelector('.saga-lorecard-pipeline'),
             firstObjectVisibleAboveBottomBar: !!firstObjectRect && firstObjectRect.top < bottomBarTop - 8,
             activeItems: activeItems.length,
-            availableItems: availableItems.length,
+            acceptedItems: acceptedItems.length,
+            pendingItems: pendingItems.length,
             labels,
             activeText: activeItems.map(item => item.innerText || '').join('\n'),
-            availableText: availableItems.map(item => item.innerText || '').join('\n'),
+            acceptedText: acceptedItems.map(item => item.innerText || '').join('\n'),
         };
     }));
-    if (!activeSetState.hasActiveSet || activeSetState.activeItems < 1) findings.push('Mobile Advanced Active Set did not render active Lorecards.');
-    if (!activeSetState.hasAvailable || activeSetState.availableItems < 1) findings.push('Mobile Advanced Active Set did not render available Accepted Lorecards.');
-    if (!activeSetState.hasSubtabs || activeSetState.activeSubtab !== 'accepted' || activeSetState.hasPipelineCard) findings.push('Mobile Advanced Approved page did not use the secondary sub-tab bar or still rendered the mobile pipeline card.');
-    if (!activeSetState.firstObjectVisibleAboveBottomBar) findings.push('Mobile Advanced Active Set did not show an active or available Lorecard object in the first viewport.');
+    if (!activeSetState.hasWorkspace || activeSetState.acceptedItems < 1) findings.push('Mobile Advanced Lore workspace did not render Accepted Lorecards.');
+    if (activeSetState.activeItems < 1) findings.push('Mobile Advanced Lore workspace did not render active Lorecards with active state.');
+    if (!activeSetState.hasSubtabs || activeSetState.activeSubtab !== 'lore' || activeSetState.hasPipelineCard) findings.push('Mobile Advanced Lore page did not use the secondary sub-tab bar or still rendered the mobile pipeline card.');
+    if (!activeSetState.firstObjectVisibleAboveBottomBar) findings.push('Mobile Advanced Lore workspace did not show a Lorecard object in the first viewport.');
     for (const label of ['Inspect', 'Pin', 'Mute', 'Activate']) {
-        if (activeSetState.labels.includes(label)) findings.push(`Mobile Advanced Active Set still exposed permanent action button: ${label}.`);
+        if (activeSetState.labels.includes(label)) findings.push(`Mobile Advanced Lore workspace still exposed permanent action button: ${label}.`);
     }
-    screenshots.push(await screenshot(client, 'mobile-advanced-harness-04-active-set'));
+    screenshots.push(await screenshot(client, 'mobile-advanced-harness-04-lore-workspace'));
 
     const activeSetInspectOpened = await evaluate(client, script(() => {
-        const item = document.querySelector('.saga-lore-active-set-item:not(.saga-lore-available-set-item)');
+        const item = document.querySelector('.saga-lorecard-workspace-row[data-lorecard-workspace-status="accepted"]');
         if (!item) return false;
         item.dispatchEvent(new MouseEvent('contextmenu', { bubbles: true, cancelable: true, view: window }));
         return true;
     }), { userGesture: true }).catch(() => false);
-    if (!activeSetInspectOpened) findings.push('Mobile Advanced Active Set item did not accept tap-hold/context-menu inspection.');
-    await waitFor(client, '!!document.querySelector(".saga-mobile-lorecard-editor-shell")', 'Mobile Advanced Active Set full-window Lorecard editor', 10000).catch(error => findings.push(error.message));
+    if (!activeSetInspectOpened) findings.push('Mobile Advanced Lore workspace item did not accept tap-hold/context-menu inspection.');
+    await waitFor(client, '!!document.querySelector(".saga-mobile-lorecard-editor-shell")', 'Mobile Advanced Lore workspace full-window Lorecard editor', 10000).catch(error => findings.push(error.message));
+    const editorState = await evaluate(client, script(() => {
+        const overlay = document.querySelector('#saga-mobile-lorecard-editor');
+        const footer = overlay?.querySelector('.saga-mobile-lorecard-editor-footer');
+        const header = overlay?.querySelector('.saga-mobile-lorecard-editor-header');
+        const footerLabels = [...footer?.querySelectorAll('button') || []].map(button => (button.innerText || button.textContent || '').trim()).filter(Boolean);
+        const tagStack = overlay?.querySelector('.saga-mobile-lorecard-tags-chip-stack');
+        const tagChips = [...tagStack?.querySelectorAll('.saga-mobile-lorecard-tags-chip') || []];
+        return {
+            open: !!overlay,
+            hasFooter: !!footer,
+            footerLabels,
+            headerCloseButtons: [...header?.querySelectorAll('button') || []].filter(button => /close/i.test((button.innerText || button.textContent || '').trim())).length,
+            hasTagStack: !!tagStack,
+            tagChipCount: tagChips.length,
+            tagRemoveCount: tagChips.filter(chip => !!chip.querySelector('.saga-mobile-lorecard-tags-remove')).length,
+            hasTagAddRow: !!overlay?.querySelector('.saga-mobile-lorecard-tags-add-row .saga-mobile-lorecard-tags-input'),
+            hasCommaTagsField: [...overlay?.querySelectorAll('.saga-lore-editor-field') || []].some(field => {
+                const label = field.querySelector('span')?.textContent?.trim();
+                return label === 'Tags' && !!field.querySelector('input.saga-lore-editor-input:not(.saga-mobile-lorecard-tags-input)');
+            }),
+        };
+    }));
+    if (!editorState.open || !editorState.hasFooter || !editorState.footerLabels.includes('Save Entry') || !editorState.footerLabels.includes('Close')) findings.push('Mobile Advanced Lorecard editor did not put Save Entry and Close in the bottom footer.');
+    if (editorState.headerCloseButtons > 0) findings.push('Mobile Advanced Lorecard editor still rendered Close in the header.');
+    if (!editorState.hasTagStack || !editorState.hasTagAddRow || editorState.tagChipCount < 1 || editorState.tagRemoveCount !== editorState.tagChipCount || editorState.hasCommaTagsField) findings.push('Mobile Advanced Lorecard editor did not render mobile tag chips with remove controls and add row.');
+    addMobileFontFindings(findings, await getMobileFontAuditState(client, {
+        label: 'Mobile Advanced Lorecard Editor',
+        scopeSelector: '#saga-mobile-lorecard-editor',
+    }));
     await evaluate(client, script(() => {
         document.querySelector('#saga-mobile-lorecard-editor')?.remove();
         return true;
@@ -4217,6 +4322,10 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
             allowedSelectors: ['.saga-loredeck-health-center-content'],
         });
         addMobileNestedScrollFindings(findings, healthScrollAudit);
+        addMobileFontFindings(findings, await getMobileFontAuditState(client, {
+            label: 'Mobile Advanced Pack Health Center',
+            scopeSelector: '.saga-loredeck-health-center-overlay',
+        }));
         screenshots.push(await screenshot(client, 'mobile-advanced-harness-06-pack-health'));
         await clickButtonText(client, 'Close', { root: '.saga-loredeck-health-center-overlay', enabledOnly: false }).catch(() => false);
         await wait(400);
@@ -4292,6 +4401,10 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
         });
         addMobileNestedScrollFindings(findings, creatorScrollAudit);
         creatorState.scrollAudit = creatorScrollAudit;
+        addMobileFontFindings(findings, await getMobileFontAuditState(client, {
+            label: 'Mobile Advanced Creator',
+            scopeSelector: '.saga-loredeck-creator-workbench-overlay',
+        }));
         screenshots.push(await screenshot(client, 'mobile-advanced-harness-07-creator-review-queue'));
         await clickButtonText(client, 'Close', { root: '.saga-loredeck-creator-workbench-overlay', enabledOnly: false }).catch(() => false);
         await wait(400);
@@ -4304,8 +4417,7 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
     await wait(700);
     const proposalClick = await clickVisibleButtonText(client, 'Review Proposals', { root: '#saga-lore-panel', includes: true });
     const proposalsClicked = proposalClick?.clicked
-        || await clickButtonText(client, 'Review Proposals')
-        || await clickButtonText(client, 'Next: Review Proposals');
+        || await clickButtonText(client, 'Review Proposals');
     if (!proposalsClicked) findings.push('Mobile Advanced Review Proposals action was not clickable.');
     let proposalState = { open: false, hasTitle: false, rows: 0, hasActions: false };
     if (proposalsClicked) {
@@ -4342,6 +4454,10 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
         });
         addMobileNestedScrollFindings(findings, proposalScrollAudit);
         proposalState.scrollAudit = proposalScrollAudit;
+        addMobileFontFindings(findings, await getMobileFontAuditState(client, {
+            label: 'Mobile Advanced Context Proposal Review',
+            scopeSelector: '#saga-context-proposal-review',
+        }));
         screenshots.push(await screenshot(client, 'mobile-advanced-harness-08-context-proposals'));
     }
 
@@ -4715,13 +4831,17 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
             bottomContextPrevented: bottomContextEvent.defaultPrevented,
         };
     }));
-    if (lorecardsRoot.labels.join('|') !== 'Generation|Automation|Pending|Approved') findings.push(`Mobile redesign Lorecards root rendered lifecycle labels ${lorecardsRoot.labels.join(', ')} instead of Generation, Automation, Pending, Approved.`);
+    if (lorecardsRoot.labels.join('|') !== 'Lore|Generate|Automation') findings.push(`Mobile redesign Lorecards root rendered lifecycle labels ${lorecardsRoot.labels.join(', ')} instead of Lore, Generate, Automation.`);
     if (!lorecardsRoot.noPipeline) findings.push('Mobile redesign Lorecards root still rendered the page-body Lorecard Pipeline card.');
     if (!lorecardsRoot.subtabsAboveBottom) findings.push('Mobile redesign Lorecards sub-tabs were not positioned above the main bottom bar.');
     if (!lorecardsRoot.noHorizontalOverflow) findings.push('Mobile redesign Lorecards root has horizontal overflow.');
     if (lorecardsRoot.pageOverflowY !== 'auto' || !/pan-y/i.test(lorecardsRoot.pageTouchAction)) findings.push(`Mobile redesign Lorecards page is not configured as the finger-scroll owner (${lorecardsRoot.pageOverflowY}, ${lorecardsRoot.pageTouchAction}).`);
     if (!lorecardsRoot.bottomContextPrevented) findings.push('Mobile redesign active bottom tab did not suppress Android long-press context menu.');
     if (loreRouteTooltipState.visible) findings.push(`Mobile redesign Lorecards route change showed a floating tooltip: ${loreRouteTooltipState.text || 'blank'}.`);
+    addMobileFontFindings(findings, await getMobileFontAuditState(client, {
+        label: 'Mobile redesign Lorecards route',
+        scopeSelector: '#saga-lore-panel.saga-runtime-mobile',
+    }));
 
     const automationClicked = await clickSelector(client, '.saga-mobile-lorecards-subtab[data-stage="automation"]').catch(() => false);
     if (!automationClicked) findings.push('Mobile redesign Automation page button was not clickable.');
@@ -4754,8 +4874,7 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
             hasPauseResume: labels.includes('Pause') || labels.includes('Resume'),
             hasUndo: labels.includes('Undo Last Run'),
             hasActivity: text.includes('Recent Activity'),
-            hasPendingList: !!document.querySelector('.saga-pending-lore-list'),
-            hasAcceptedList: !!document.querySelector('.saga-accepted-lore-scroll-region'),
+            hasLoreWorkspace: !!document.querySelector('.saga-lorecard-workspace-list'),
             noHorizontalOverflow: !page || page.scrollWidth <= page.clientWidth + 1,
         };
     }));
@@ -4764,29 +4883,27 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
         findings.push('Mobile redesign Automation page did not render the full Lore Automation cockpit.');
     }
     if (automationState.modeButtons !== 3 || automationState.styleButtons !== 3 || automationState.pacingButtons !== 3 || automationState.selectCount > 0) findings.push('Mobile redesign Automation controls did not render as three-button segmented groups.');
-    if (automationState.hasPendingList || automationState.hasAcceptedList) findings.push('Mobile redesign Automation page leaked Pending or Approved list content.');
+    if (automationState.hasLoreWorkspace) findings.push('Mobile redesign Automation page leaked the Lore object list.');
     if (!automationState.noHorizontalOverflow) findings.push('Mobile redesign Automation page has horizontal overflow.');
     if (automationTooltipState.visible) findings.push(`Mobile redesign Automation sub-tab showed a floating tooltip: ${automationTooltipState.text || 'blank'}.`);
     screenshots.push(await screenshot(client, `${shotPrefix}-04-lorecards-automation`));
 
-    const pendingClicked = await clickSelector(client, '.saga-mobile-lorecards-subtab[data-stage="pending"]').catch(() => false);
-    if (!pendingClicked) findings.push('Mobile redesign Pending page button was not clickable.');
-    await waitFor(client, 'document.querySelector(".saga-lorecards-lifecycle-tab")?.dataset?.sagaLoreLifecycleStage === "pending"', 'Mobile redesign Pending page active', 10000).catch(error => findings.push(error.message));
-    await waitFor(client, '!document.querySelector(".saga-mobile-lorecards-loading-shell") && !!document.querySelector(".saga-pending-lore-list")', 'Mobile redesign Pending deferred content', 10000).catch(error => findings.push(error.message));
+    const pendingClicked = await clickSelector(client, '.saga-mobile-lorecards-subtab[data-stage="lore"]').catch(() => false);
+    if (!pendingClicked) findings.push('Mobile redesign Lore page button was not clickable.');
+    await waitFor(client, 'document.querySelector(".saga-lorecards-lifecycle-tab")?.dataset?.sagaLoreLifecycleStage === "lore"', 'Mobile redesign Lore page active', 10000).catch(error => findings.push(error.message));
+    await waitFor(client, '!document.querySelector(".saga-mobile-lorecards-loading-shell") && !!document.querySelector(".saga-lorecard-workspace-list")', 'Mobile redesign Lore deferred content', 10000).catch(error => findings.push(error.message));
     await wait(500);
     const pendingTooltipState = await getVisibleFloatingTooltipState(client);
     const pendingScrollState = await getNestedScrollStyleState(client, [
-        '.saga-lorecards-lifecycle-tab .saga-pending-lore-list',
-        '.saga-lorecards-lifecycle-tab .saga-accepted-lore-section .saga-accepted-lore-scroll-region',
+        '.saga-lorecards-lifecycle-tab .saga-lorecard-workspace-list',
     ]);
     const pendingCardClicked = await clickSelector(client, '.saga-pending-review-entry-card-tappable');
     if (!pendingCardClicked) findings.push('Mobile redesign Pending card was not tappable.');
-    await waitFor(client, '!!document.querySelector(".saga-pending-mobile-action-tray")', 'Mobile redesign Pending selected tray', 10000).catch(error => findings.push(error.message));
     const pendingState = await evaluate(client, script(() => {
-        const tray = document.querySelector('.saga-pending-mobile-action-tray');
-        const labels = [...tray?.querySelectorAll('button') || []].map(button => (button.innerText || button.textContent || '').trim()).filter(Boolean);
+        const pendingCard = document.querySelector('.saga-lorecard-workspace-row[data-lorecard-workspace-status="pending"]');
+        const labels = [...pendingCard?.querySelectorAll('.saga-pending-entry-actions button') || []].map(button => (button.innerText || button.textContent || '').trim()).filter(Boolean);
         return {
-            trayOpen: !!tray,
+            hasPendingCard: !!pendingCard,
             labels,
             selectedCards: document.querySelectorAll('.saga-pending-review-entry-card.saga-review-lore-card-selected').length,
             permanentActionRows: document.querySelectorAll('.saga-pending-entry-actions').length,
@@ -4796,32 +4913,26 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
             tagRows: document.querySelectorAll('.saga-pending-readonly-tags, .saga-pending-review-entry-card .saga-lore-entry-tags').length,
         };
     }));
-    if (!pendingState.trayOpen || pendingState.selectedCards < 1) findings.push('Mobile redesign Pending page did not select a card and reveal the action tray.');
-    for (const label of ['Accept', 'Reject', 'Clear']) {
-        if (!pendingState.labels.includes(label)) findings.push(`Mobile redesign Pending selected tray missing action: ${label}.`);
+    if (!pendingState.hasPendingCard) findings.push('Mobile redesign Lore page did not render a Pending Review card.');
+    for (const label of ['Accept', 'Reject']) {
+        if (!pendingState.labels.includes(label)) findings.push(`Mobile redesign Pending row missing action: ${label}.`);
     }
-    if (pendingState.labels.includes('Edit')) findings.push('Mobile redesign Pending selected tray still exposed Edit instead of relying on tap-hold details.');
-    if (pendingState.permanentActionRows !== 0 || pendingState.hasAcceptAll || pendingState.hasRejectAll) findings.push('Mobile redesign Pending page still exposed permanent row actions or default Accept All/Reject All.');
+    if (pendingState.labels.includes('Edit') || pendingState.labels.includes('Clear')) findings.push('Mobile redesign Pending row exposed more than Accept/Reject.');
+    if (pendingState.hasAcceptAll || pendingState.hasRejectAll) findings.push('Mobile redesign Lore page still exposed default Accept All/Reject All.');
     if (pendingState.tagRows !== 0) findings.push('Mobile redesign Pending cards showed tag rows despite the default hidden mobile tag setting.');
-    if (pendingTooltipState.visible) findings.push(`Mobile redesign Pending sub-tab showed a floating tooltip: ${pendingTooltipState.text || 'blank'}.`);
-    if (pendingScrollState.offenders.length) findings.push(`Mobile redesign Pending page still has nested list scroll styling: ${JSON.stringify(pendingScrollState.offenders)}`);
-    screenshots.push(await screenshot(client, `${shotPrefix}-05-lorecards-pending`));
+    if (pendingTooltipState.visible) findings.push(`Mobile redesign Lore sub-tab showed a floating tooltip: ${pendingTooltipState.text || 'blank'}.`);
+    if (pendingScrollState.offenders.length) findings.push(`Mobile redesign Lore page still has nested list scroll styling: ${JSON.stringify(pendingScrollState.offenders)}`);
+    screenshots.push(await screenshot(client, `${shotPrefix}-05-lorecards-lore`));
     await evaluate(client, script(() => {
         const card = document.querySelector('.saga-pending-review-entry-card-tappable');
         card?.dispatchEvent(new MouseEvent('contextmenu', { bubbles: true, cancelable: true, view: window }));
         return !!card;
     }), { userGesture: true }).catch(() => false);
-    await waitFor(client, '!!document.querySelector(".saga-pending-lore-edit-details")', 'Mobile redesign Pending edit details', 10000).catch(error => findings.push(error.message));
+    await waitFor(client, '!!document.querySelector(".saga-pending-lore-edit-details, .saga-mobile-lorecard-editor-shell")', 'Mobile redesign Pending detail affordance', 10000).catch(error => findings.push(error.message));
 
-    const approvedClicked = await clickSelector(client, '.saga-mobile-lorecards-subtab[data-stage="accepted"]').catch(() => false);
-    if (!approvedClicked) findings.push('Mobile redesign Approved page button was not clickable.');
-    await waitFor(client, 'document.querySelector(".saga-lorecards-lifecycle-tab")?.dataset?.sagaLoreLifecycleStage === "accepted"', 'Mobile redesign Approved page active', 10000).catch(error => findings.push(error.message));
-    await waitFor(client, '!document.querySelector(".saga-mobile-lorecards-loading-shell") && !!document.querySelector(".saga-accepted-lore-scroll-region")', 'Mobile redesign Approved deferred content', 10000).catch(error => findings.push(error.message));
-    await wait(700);
     const approvedTooltipState = await getVisibleFloatingTooltipState(client);
     const approvedScrollState = await getNestedScrollStyleState(client, [
-        '.saga-lorecards-lifecycle-tab .saga-pending-lore-list',
-        '.saga-lorecards-lifecycle-tab .saga-accepted-lore-section .saga-accepted-lore-scroll-region',
+        '.saga-lorecards-lifecycle-tab .saga-lorecard-workspace-list',
     ]);
     await evaluate(client, script(() => {
         document.querySelector('.saga-lore-entry-card[data-entry-id="smoke_long_title_lore"]')?.scrollIntoView({ block: 'center', inline: 'nearest' });
@@ -4835,10 +4946,10 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
         const titleRect = title?.getBoundingClientRect?.();
         const titleStyle = title ? getComputedStyle(title) : null;
         const lineHeight = titleStyle ? Number.parseFloat(titleStyle.lineHeight) || 0 : 0;
-        const unexpandedCards = [...document.querySelectorAll('.saga-lore-entry-card:not(.saga-lore-entry-expanded)')];
+        const unexpandedAcceptedCards = [...document.querySelectorAll('.saga-lorecard-workspace-row[data-lorecard-workspace-status="accepted"]:not(.saga-lore-entry-expanded)')];
         return {
-            activeSetVisible: document.body.innerText.includes('Active Set'),
-            acceptedVisible: document.body.innerText.includes('Accepted Lorecards'),
+            workspaceVisible: !!document.querySelector('.saga-lorecard-workspace'),
+            acceptedVisible: !!document.querySelector('.saga-lorecard-workspace-row[data-lorecard-workspace-status="accepted"]'),
             longCard: !!longCard,
             titleText: title?.textContent || '',
             titleHeight: titleRect?.height || 0,
@@ -4846,65 +4957,55 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
             wrapsAtLeastTwoLines: !!titleRect && !!lineHeight && titleRect.height >= lineHeight * 1.75,
             cardHeight: longCard?.getBoundingClientRect?.().height || 0,
             detailButtons: longCard?.querySelectorAll('.saga-lore-entry-details-btn').length || 0,
-            defaultActionRows: unexpandedCards.filter(card => !!card.querySelector('.saga-lore-entry-actions')).length,
+            defaultActionRows: unexpandedAcceptedCards.filter(card => !!card.querySelector('.saga-lore-entry-actions')).length,
             tagRows: document.querySelectorAll('.saga-lore-entry-card .saga-lore-entry-tags').length,
-            acceptedSectionClips: (() => {
-                const section = document.querySelector('.saga-accepted-lore-section');
-                const list = document.querySelector('.saga-accepted-lore-scroll-region');
-                if (!section || !list) return false;
-                return section.getBoundingClientRect().bottom + 1 < list.getBoundingClientRect().bottom;
-            })(),
+            acceptedSectionClips: false,
             noHorizontalOverflow: !root || root.scrollWidth <= root.clientWidth + 1,
         };
     }));
-    if (!approvedState.activeSetVisible || !approvedState.acceptedVisible) findings.push('Mobile redesign Approved page did not include Active Set and Accepted Lorecards management together.');
-    if (!approvedState.longCard || !approvedState.wrapsAtLeastTwoLines || approvedState.cardHeight <= approvedState.titleHeight) findings.push(`Mobile redesign Approved long title did not wrap/read cleanly (title height ${approvedState.titleHeight}, line ${approvedState.lineHeight}).`);
-    if (approvedState.detailButtons !== 0 || approvedState.defaultActionRows !== 0) findings.push('Mobile redesign Approved cards still exposed permanent detail buttons or default full action rows.');
-    if (approvedState.tagRows !== 0) findings.push('Mobile redesign Approved cards showed tag rows despite the default hidden mobile tag setting.');
-    if (approvedState.acceptedSectionClips) findings.push('Mobile redesign Approved accepted section clipped before the list bottom.');
-    if (!approvedState.noHorizontalOverflow) findings.push('Mobile redesign Approved page has horizontal overflow.');
-    if (approvedTooltipState.visible) findings.push(`Mobile redesign Approved sub-tab showed a floating tooltip: ${approvedTooltipState.text || 'blank'}.`);
-    if (approvedScrollState.offenders.length) findings.push(`Mobile redesign Approved page still has nested list scroll styling: ${JSON.stringify(approvedScrollState.offenders)}`);
-    screenshots.push(await screenshot(client, `${shotPrefix}-06-lorecards-approved`));
+    if (!approvedState.workspaceVisible || !approvedState.acceptedVisible) findings.push('Mobile redesign Lore page did not include Accepted Lorecards in the unified workspace.');
+    if (!approvedState.longCard || !approvedState.wrapsAtLeastTwoLines || approvedState.cardHeight <= approvedState.titleHeight) findings.push(`Mobile redesign Accepted long title did not wrap/read cleanly (title height ${approvedState.titleHeight}, line ${approvedState.lineHeight}).`);
+    if (approvedState.detailButtons !== 0 || approvedState.defaultActionRows !== 0) findings.push('Mobile redesign Accepted cards still exposed permanent detail buttons or default full action rows.');
+    if (approvedState.tagRows !== 0) findings.push('Mobile redesign Accepted cards showed tag rows despite the default hidden mobile tag setting.');
+    if (!approvedState.noHorizontalOverflow) findings.push('Mobile redesign Lore page has horizontal overflow.');
+    if (approvedTooltipState.visible) findings.push(`Mobile redesign Lore sub-tab showed a floating tooltip: ${approvedTooltipState.text || 'blank'}.`);
+    if (approvedScrollState.offenders.length) findings.push(`Mobile redesign Lore page still has nested list scroll styling: ${JSON.stringify(approvedScrollState.offenders)}`);
 
     const longCardTapped = await clickSelector(client, '.saga-lore-entry-card[data-entry-id="smoke_long_title_lore"]');
-    if (!longCardTapped) findings.push('Mobile redesign Approved long-title card was not tappable.');
-    await waitFor(client, script(() => {
-        const card = document.querySelector('.saga-lore-entry-card[data-entry-id="smoke_long_title_lore"]');
-        return card?.classList?.contains('saga-lore-entry-active') && /active/i.test(card?.innerText || '');
-    }), 'Mobile redesign Approved card activated by tap', 10000).catch(error => findings.push(error.message));
+    if (!longCardTapped) findings.push('Mobile redesign Accepted long-title card was not tappable.');
+    await waitFor(client, '!!document.querySelector(".saga-mobile-lorecard-editor-shell")', 'Mobile redesign Accepted card detail editor', 10000).catch(error => findings.push(error.message));
     const approvedActiveState = await evaluate(client, script(() => {
         const card = document.querySelector('.saga-lore-entry-card[data-entry-id="smoke_long_title_lore"]');
+        const activeCard = document.querySelector('.saga-lorecard-workspace-row.saga-lore-entry-active');
         return {
             activeClass: !!card?.classList?.contains('saga-lore-entry-active'),
             hasActiveBadge: /active/i.test(card?.innerText || ''),
+            anyActiveClass: !!activeCard,
+            anyActiveBadge: /active/i.test(activeCard?.innerText || ''),
         };
     }));
-    if (!approvedActiveState.activeClass || !approvedActiveState.hasActiveBadge) findings.push('Mobile redesign Approved tap did not make active state visible on the object card.');
-    await clickSelector(client, '.saga-lore-entry-card[data-entry-id="smoke_long_title_lore"]').catch(() => false);
-    await waitFor(client, script(() => {
-        const card = document.querySelector('.saga-lore-entry-card[data-entry-id="smoke_long_title_lore"]');
-        return card && !card.classList.contains('saga-lore-entry-active');
-    }), 'Mobile redesign Approved card deactivated by second tap', 10000).catch(error => findings.push(error.message));
+    if (!approvedActiveState.anyActiveClass || !approvedActiveState.anyActiveBadge) findings.push('Mobile redesign Accepted active state was not visible on an object card.');
+    screenshots.push(await screenshot(client, `${shotPrefix}-06-lorecards-lore-active`));
+    await clickButtonText(client, 'Close', { root: '#saga-mobile-lorecard-editor' }).catch(() => false);
+    await waitFor(client, '!document.querySelector("#saga-mobile-lorecard-editor")', 'Mobile redesign Accepted editor closed', 10000).catch(error => findings.push(error.message));
 
-    const generationClicked = await clickSelector(client, '.saga-mobile-lorecards-subtab[data-stage="suggested"]').catch(() => false);
-    if (!generationClicked) findings.push('Mobile redesign Generation page button was not clickable.');
-    await waitFor(client, 'document.querySelector(".saga-lorecards-lifecycle-tab")?.dataset?.sagaLoreLifecycleStage === "suggested"', 'Mobile redesign Generation page active', 10000).catch(error => findings.push(error.message));
-    await waitFor(client, '!document.querySelector(".saga-mobile-lorecards-loading-shell") && !!document.querySelector(".saga-lore-generation-collapsible")', 'Mobile redesign Generation deferred content', 10000).catch(error => findings.push(error.message));
+    const generationClicked = await clickSelector(client, '.saga-mobile-lorecards-subtab[data-stage="generate"]').catch(() => false);
+    if (!generationClicked) findings.push('Mobile redesign Generate page button was not clickable.');
+    await waitFor(client, 'document.querySelector(".saga-lorecards-lifecycle-tab")?.dataset?.sagaLoreLifecycleStage === "generate"', 'Mobile redesign Generate page active', 10000).catch(error => findings.push(error.message));
+    await waitFor(client, '!document.querySelector(".saga-mobile-lorecards-loading-shell") && !!document.querySelector(".saga-lore-generation-collapsible")', 'Mobile redesign Generate deferred content', 10000).catch(error => findings.push(error.message));
     const generationTooltipState = await getVisibleFloatingTooltipState(client);
     const generationScrollState = await getNestedScrollStyleState(client, [
-        '.saga-lorecards-lifecycle-tab .saga-pending-lore-list',
-        '.saga-lorecards-lifecycle-tab .saga-accepted-lore-section .saga-accepted-lore-scroll-region',
+        '.saga-lorecards-lifecycle-tab .saga-lorecard-workspace-list',
     ]);
     const generationState = await evaluate(client, script(() => ({
         hasGenerationWorkspace: document.body.innerText.includes('Capture / Suggest') || document.body.innerText.includes('Manual Lore Note'),
         pendingVisible: !!document.querySelector('.saga-lore-pending-collapsible:not([hidden])') && getComputedStyle(document.querySelector('.saga-lore-pending-collapsible')).display !== 'none',
         acceptedVisible: !!document.querySelector('.saga-lore-accepted-collapsible:not([hidden])') && getComputedStyle(document.querySelector('.saga-lore-accepted-collapsible')).display !== 'none',
     })));
-    if (!generationState.hasGenerationWorkspace || generationState.pendingVisible || generationState.acceptedVisible) findings.push('Mobile redesign Generation page did not stay focused on creation/suggestion only.');
-    if (generationTooltipState.visible) findings.push(`Mobile redesign Generation sub-tab showed a floating tooltip: ${generationTooltipState.text || 'blank'}.`);
-    if (generationScrollState.offenders.length) findings.push(`Mobile redesign Generation page still has nested list scroll styling: ${JSON.stringify(generationScrollState.offenders)}`);
-    screenshots.push(await screenshot(client, `${shotPrefix}-07-lorecards-generation`));
+    if (!generationState.hasGenerationWorkspace || generationState.pendingVisible || generationState.acceptedVisible) findings.push('Mobile redesign Generate page did not stay focused on creation/suggestion only.');
+    if (generationTooltipState.visible) findings.push(`Mobile redesign Generate sub-tab showed a floating tooltip: ${generationTooltipState.text || 'blank'}.`);
+    if (generationScrollState.offenders.length) findings.push(`Mobile redesign Generate page still has nested list scroll styling: ${JSON.stringify(generationScrollState.offenders)}`);
+    screenshots.push(await screenshot(client, `${shotPrefix}-07-lorecards-generate`));
 
     const errors = collectClientErrors(client)
         .filter(error => !isExpectedRepoLocalHarnessStorageError(error));
@@ -5145,8 +5246,7 @@ async function runTabletAdvancedHarnessSmoke(client, screenshots, findings, smok
     if (!contextRouteState.hasRuntimeContext || !contextRouteState.hasBrowseContext || !contextRouteState.hasStoryPosition) findings.push('Tablet Advanced Context drawer did not render Runtime Context, Browse Context, and Story Position.');
     if (!contextRouteState.noHorizontalOverflow) findings.push(`Tablet Advanced Context route has horizontal overflow (drawer ${contextRouteState.drawerScrollWidth}/${contextRouteState.drawerClientWidth}, body ${contextRouteState.bodyScrollWidth}/${contextRouteState.bodyClientWidth}).`);
 
-    const browseClicked = await clickButtonText(client, 'Browse Context')
-        || await clickButtonText(client, 'Next: Browse Context');
+    const browseClicked = await clickButtonText(client, 'Browse Context');
     if (!browseClicked) findings.push('Tablet Advanced Browse Context action was not clickable.');
     let workbenchState = { open: false, hasTimeline: false, hasAliases: false, hasValidation: false, hasStoryPosition: false, hasPhraseResolver: false, hasClose: false };
     if (browseClicked) {
@@ -6534,8 +6634,7 @@ async function main() {
             if (applyState.proposalCount !== 0) findings.push('Applying the seeded Context proposal did not clear pending proposals.');
             if (applyState.context?.source !== 'model') findings.push('Applying the seeded Context proposal did not update the Loredeck Context source.');
 
-            const browseClicked = await clickButtonText(client, 'Browse Context')
-                || await clickButtonText(client, 'Next: Browse Context');
+            const browseClicked = await clickButtonText(client, 'Browse Context');
             if (!browseClicked) findings.push('Browse Context button was not clickable in the Context harness.');
             await waitFor(client, '!!document.querySelector("#saga-context-workbench")', 'Context Workbench overlay', 10000);
             await wait(800);

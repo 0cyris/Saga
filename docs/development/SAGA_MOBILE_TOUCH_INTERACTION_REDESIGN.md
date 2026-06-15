@@ -64,7 +64,7 @@ Use these as pattern references, not visual themes.
 | Apple Files | Folders open inline, files are objects, long-press opens secondary actions | Mobile Library folders and Loredeck details. |
 | Spotify or Apple Music Queue | Selected objects form an ordered active list | Loredeck tap order becomes active stack order. |
 | Google Maps | Compact preview expands into deeper sheet | Loredeck/Lorecard detail preview to full sheet. |
-| Things or Todoist | Rows carry state; details appear after opening the item | Pending/Approved Lorecard lists. |
+| Things or Todoist | Rows carry state; details appear after opening the item | Unified Lorecard list with Pending and Accepted states. |
 | Lightroom Mobile | One selected object exposes mode-specific tools | Selected Lorecard or selected Loredeck action tray. |
 
 What not to borrow:
@@ -125,7 +125,7 @@ bottom nav route is `Lorecards`, the sub-tab bar animates out cleanly from the
 Lorecards tab area and settles directly above the fixed main bottom bar:
 
 ```text
-Generation | Automation | Pending | Approved
+Lore | Generate | Automation
 ```
 
 The sub-tab bar is route navigation. It is not an in-content `Lorecard Pipeline`
@@ -194,7 +194,7 @@ Examples:
 
 ```text
 Pending selection: Accept | Reject | Clear | ...
-Approved Lorecard: Active | Pinned | Muted | ...
+Accepted Lorecard: Active | Pinned | Muted | ...
 Loredeck detail: In Stack | Health | ...
 ```
 
@@ -234,7 +234,7 @@ buttons.
 Lorecards required sub-tabs:
 
 ```text
-Generation | Automation | Pending | Approved
+Lore | Generate | Automation
 ```
 
 Behavior:
@@ -381,17 +381,17 @@ The mobile Lorecards route must use a secondary bottom sub-tab bar above the
 main bottom bar:
 
 ```text
-Generation | Automation | Pending | Approved
+Lore | Generate | Automation
 ```
 
-Each sub-tab has one job. Avoid stacking all lifecycle sections on one phone
-screen.
+Each sub-tab has one job. `Lore` owns normal card management. `Generate` owns
+creation/suggestion. `Automation` owns automation status and controls.
 
 This is a navigation layer, not an in-content control. Do not render a mobile
 `Lorecard Pipeline` card as the primary way to switch stages. Do not render
-`Generation`, `Pending`, and `Approved` as a row of ordinary buttons inside the
-page body. The active sub-tab selects the page, and the page body starts with
-the selected workspace's objects.
+`Pending`, `Approved`, or `Active` as route-level pages or as a row of ordinary
+buttons inside the page body. The active sub-tab selects the page, and the page
+body starts with the selected workspace's objects.
 
 Sub-tab bar behavior:
 
@@ -407,98 +407,60 @@ Sub-tab bar behavior:
 
 Product vocabulary:
 
-- `Generation` is the creation/suggestion workspace.
-- `Pending` is the review queue.
-- `Approved` is the mobile management surface for accepted durable Lorecards.
+- `Lore` is the unified object workspace for pending, accepted, active, pinned,
+  muted, and conflicted Lorecards.
+- `Generate` is the creation/suggestion workspace.
+- `Automation` is the Lore Automation workspace.
+- `Pending Review`, `Accepted Lorecards`, `Active`, `Pinned`, and `Muted` are
+  states or filters inside `Lore`, not route-level tabs.
 - Detail copy can continue to say `Accepted Lorecards` when precision matters.
 
-### Generation Page
+### Lore Page
+
+Purpose: review and manage all Lorecards in one list.
+
+Entry: selected by the `Lore` sub-tab in the secondary bottom bar.
+
+Interaction:
+
+- Pending and accepted cards appear together in the same list.
+- Pending cards expose only `Accept` and `Reject`.
+- Accepted cards use state chips, visual treatment, tap-hold, selected tray, or
+  detail sheet actions for activate, pin, mute, edit, and history.
+- Active cards use a strong accent edge/glow instead of a separate Active Set
+  page.
+- `Pinned`, `Muted`, `Context`, and `Deck` are compact chips or filters.
+- Search and filters remain above the object list.
+- Do not show permanent per-card `Inspect`, `Edit`, `Details`, or `i` controls
+  in the normal Lore list.
+- Do not show `Inspect`, `Pin`, `Mute`, and `Activate` as equal button rows on
+  every card. Active, pinned, and muted state should read as object state or
+  selected-object controls.
+
+Primary filters:
+
+```text
+All | Needs Review | Active | Pinned | Muted | Conflicts
+```
+
+### Generate Page
 
 Purpose: create or suggest new Lorecards.
 
-Entry: selected by the `Generation` sub-tab in the secondary bottom bar.
+Entry: selected by the `Generate` sub-tab in the secondary bottom bar.
 
 Default screen:
 
 - Current generation source/status.
 - Source cards for manual note, story scan, and canon/Loredeck suggestion.
 - One contextual primary next action.
-- Recent generated proposals route into `Pending`.
+- Recent generated proposals route into `Lore` with `Needs Review` visible.
 
 Advanced controls:
 
 - Provider/model controls go into a settings sheet.
 - Bulk generation details go into expandable sections.
 - Long-running generation shows in-place progress and does not block navigation.
-
-### Pending Page
-
-Purpose: review proposed Lorecards.
-
-Entry: selected by the `Pending` sub-tab in the secondary bottom bar.
-
-Interaction:
-
-- Tap a pending Lorecard to select it.
-- Tap more pending Lorecards to build a review selection.
-- Tap selected card again removes it from the selection.
-- Selection reveals bottom action tray.
-- Tap-hold opens detail/edit.
-- Detail/edit is also reachable through selected tray overflow or
-  accessibility fallback.
-- Do not show permanent per-card `Inspect`, `Edit`, `Details`, or `i` controls
-  in the Pending list.
-
-Action tray:
-
-```text
-Accept | Reject | Clear | ...
-```
-
-Rules:
-
-- Batch controls appear only after selection.
-- `Accept All` and `Reject All` should live behind overflow or a deliberate
-  batch mode, not as permanent default controls.
-- `Edit` belongs inside the tap-hold detail sheet or selected overflow, not in
-  the default selected tray.
-- Destination notes should be chips or inline metadata, not full-width command
-  blocks.
-
-### Approved Page
-
-Purpose: manage accepted Lorecards and current active/injected state.
-
-Entry: selected by the `Approved` sub-tab in the secondary bottom bar.
-
-Interaction:
-
-- Tap Lorecard to toggle active for the session if the page is in active
-  selection mode.
-- Tap selected/active Lorecard again removes it from active selection when
-  appropriate.
-- Tap-hold opens detail/edit.
-- `Pinned`, `Muted`, `Context`, and `Deck` are compact chips or toggles.
-- Search and filters remain above the object list.
-- Do not show permanent per-card `Inspect`, `Edit`, `Details`, or `i` controls
-  in the Approved list.
-- Do not show `Inspect`, `Pin`, `Mute`, and `Activate` as equal button rows on
-  every active-set card. Active, pinned, and muted state should read as object
-  state or selected-object controls.
-
-Mode options:
-
-```text
-All | Active | Pinned | Muted
-```
-
-or, if the page needs explicit action mode:
-
-```text
-Browse | Select Active
-```
-
-The MVP should choose the simpler mode set that makes active selection obvious.
 
 ### Lorecard Card Layout
 
@@ -623,7 +585,7 @@ be demoted during implementation.
   reorder/move flows.
 - Pending Lorecard selected tray `Edit`: move edit into tap-hold detail sheet
   or selected overflow.
-- Approved Lorecard card `i` detail affordance: replace with card tap-hold plus
+- Accepted Lorecard card `i` detail affordance: replace with card tap-hold plus
   selected-object fallback.
 - Active Set `Inspect` buttons: the active-set item itself should open details
   through tap-hold or selected-object overflow.
@@ -681,7 +643,7 @@ Lorecard list selection is screen-scoped unless it changes durable Lorecard
 state.
 
 - Pending selection is transient until accept/reject/edit.
-- Approved active selection changes active runtime state.
+- Accepted active selection changes active runtime state.
 - Pin/mute changes durable accepted Lorecard state.
 - Detail sheet edits follow existing Lorecard edit/repair paths.
 
@@ -789,37 +751,39 @@ Done when:
 - Reorder mode shows handles only while active.
 - Desktop Library still shows stack/details/resize affordances.
 
-### Phase 4: Lorecards Segmented Flow
+### Phase 4: Lorecards Workspace Flow
 
-Goal: make Lorecards a set of singular-purpose pages.
+Goal: make Lorecards a set of singular-purpose workspaces.
 
 Work:
 
-- Add the animated secondary bottom sub-tab bar for `Generation | Automation |
-  Pending | Approved`.
+- Add the animated secondary bottom sub-tab bar for `Lore | Generate |
+  Automation`.
 - Anchor the sub-tab bar above the fixed main bottom nav and animate it from
   the Lorecards tab area when the Lorecards route becomes active.
 - Implement the sub-tab bar with tab semantics, selected state, and optional
   count badges.
 - Remove the mobile `Lorecard Pipeline` card or in-content lifecycle button row
   as the primary stage switcher.
-- Make each section own its page instead of stacking all flows together.
-- Convert pending review into tap selection plus contextual action tray.
-- Convert approved management into object selection and state chips.
+- Make each workspace own its page instead of stacking all flows together.
+- Convert pending review into a `Needs Review` state inside `Lore`.
+- Convert accepted/active management into object selection, visual state, and
+  state chips inside `Lore`.
 - Preserve existing lifecycle state and data contracts.
 
 Done when:
 
-- The secondary `Generation | Automation | Pending | Approved` tab bar appears above the
+- The secondary `Lore | Generate | Automation` tab bar appears above the
   main bottom nav only while `Lorecards` is active.
 - The transition in and out of the sub-tab bar reads as a clean navigation
   animation, not a page content jump.
-- Each mobile Lorecards page has one primary purpose.
+- Each mobile Lorecards workspace has one primary purpose.
 - The mobile page body does not render a `Lorecard Pipeline` card or equal
   lifecycle button row.
-- Pending review batch actions appear only after selection.
-- Approved management uses object cards and chips rather than permanent button
-  rows.
+- `Lore` renders pending and accepted/active cards in one list.
+- Pending rows expose only `Accept` and `Reject`.
+- Accepted management uses object cards, visual state, chips, selected
+  affordances, and detail sheets rather than permanent button rows.
 
 ### Phase 5: Lorecard Card Redesign
 
@@ -833,15 +797,15 @@ Work:
 - Convert relevance/tier and pin/mute to compact state controls.
 - Keep tap-hold detail/edit path plus selected-object or accessibility fallback.
 - Remove permanent mobile card-level `Inspect`, `Edit`, `Details`, and `i`
-  controls from Pending and Approved lists.
-- Remove active-set permanent `Inspect` rows on mobile.
+  controls from the normal Lore list.
+- Remove separate Active Set object lists on mobile.
 
 Done when:
 
 - Long titles from the live-device screenshots are readable at phone width.
 - No permanent action row steals the title line.
 - Card height grows cleanly when title text wraps.
-- Pending and Approved cards open details through tap-hold or selected fallback,
+- Pending and accepted cards open details through tap-hold or selected fallback,
   not permanent inspect/edit buttons.
 
 ### Phase 6: Cross-Route Cleanup
@@ -882,16 +846,17 @@ Rendered verification must include:
 - No card-level mobile Library `i` detail button or inline title edit affordance
   in normal browse.
 - Reorder mode handle visibility only while reorder mode is active.
-- Lorecards secondary `Generation | Automation | Pending | Approved` sub-tab bar animating
+- Lorecards secondary `Lore | Generate | Automation` sub-tab bar animating
   above the fixed bottom nav.
-- Lorecards `Generation`, `Pending`, and `Approved` pages.
+- Lorecards `Lore`, `Generate`, and `Automation` workspaces.
 - No mobile `Lorecard Pipeline` card or in-content lifecycle button row as the
   stage switcher.
-- Pending selection tray.
-- Approved long-title Lorecard wrapping.
-- No permanent mobile Pending/Approved `Inspect`, `Edit`, `Details`, or `i`
+- `Lore` renders Pending Review and Accepted/Active cards in one list.
+- Pending rows expose only `Accept` and `Reject`.
+- Accepted long-title Lorecard wrapping.
+- No permanent mobile Lore list `Inspect`, `Edit`, `Details`, or `i`
   card controls.
-- No mobile active-set `Inspect` button rows.
+- No mobile Active Set object list or `Inspect` button rows.
 - No horizontal overflow at `360px`, `390px`, and `430px`.
 - Tablet/desktop sanity pass proving desktop Library stack/details behavior
   remains available outside mobile breakpoint.
@@ -916,19 +881,22 @@ The redesign is successful when:
 - Mobile normal browse mode does not render desktop resize handles.
 - Desktop Library stack, transfer, details, resize, and drag behavior remain
   available outside mobile breakpoints.
-- Lorecards mobile exposes `Generation`, `Pending`, and `Approved` as a
+- Lorecards mobile exposes `Lore`, `Generate`, and `Automation` as a
   secondary sub-tab bar above the fixed bottom nav while `Lorecards` is active.
-- Lorecards mobile uses singular-purpose `Generation`, `Pending`, and
-  `Approved` pages.
+- Lorecards mobile uses singular-purpose `Lore`, `Generate`, and `Automation`
+  workspaces.
 - Lorecards mobile does not use a page-body `Lorecard Pipeline` card or a row of
   equal stage buttons as the main stage switcher.
+- `Lore` combines Pending Review and Accepted Lorecards into one object list.
+- Active cards are visually indicated in that list instead of moved to a
+  separate Active Set list.
 - Lorecard titles are readable on phone widths and wrap to at least two lines.
 - Lorecard action trays appear from selection or detail context instead of
   permanently crowding the title row.
-- Pending and Approved Lorecard details/editing open through tap-hold,
+- Pending and accepted Lorecard details/editing open through tap-hold,
   selected-object overflow, or accessibility fallback, not permanent per-card
   inspect/edit/detail buttons.
-- Active Set mobile cards do not show permanent `Inspect` rows.
+- Separate mobile Active Set cards do not appear in the normal route.
 - `Stack Details`, `Session Details`, and `Context Details` are represented by
   tappable summary objects instead of standalone root buttons where feasible.
 - Tap-hold paths have visible accessible alternatives.
@@ -960,7 +928,7 @@ These should be resolved during implementation, not left to ad hoc UI choices:
 - Should the selected strip live above the list or fixed above the bottom nav?
 - Should Library detail sheet be half-height first, then expandable, or full
   screen immediately?
-- Should `Approved` include an explicit `Select Active` mode, or should tapping
+- Should `Lore` include an explicit `Select Active` mode, or should tapping
   always toggle active state?
 - Should folder-level selection be part of the MVP or deferred?
 - Which mobile routes need swipe actions, if any?

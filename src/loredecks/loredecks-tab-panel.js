@@ -40,7 +40,6 @@ import {
     getRuntimeMobileActiveSubview,
     isRuntimeMobileShell,
     pushRuntimeMobileSubview,
-    selectRuntimeMobileRoute,
 } from '../runtime/runtime-shell.js';
 
 let loredecksTabDeps = {};
@@ -162,14 +161,10 @@ function openLoredecksMobileDetails() {
     });
 }
 
-function getLoredecksOperatorNextActionId({ activeCount = 0, issueCount = 0 } = {}) {
-    if (!Number(activeCount || 0)) return 'library';
-    if (Number(issueCount || 0)) return 'details';
-    return 'context';
-}
-
 function getLoredecksOperatorActionLabel(actionId, label, nextActionId = '') {
-    return actionId === nextActionId ? `Next: ${label}` : label;
+    void actionId;
+    void nextActionId;
+    return label;
 }
 
 function getLoredecksOperatorActionClass(actionId, nextActionId = '', fallbackClass = '') {
@@ -278,7 +273,7 @@ function createLoredecksOperatorSummary(state = getState(), canonDb = null, heal
     const activeCount = Number(stats.activeCount || 0);
     const issueCount = Number(stats.errorCount || 0) + Number(stats.warningCount || 0);
     const mobileRoot = isRuntimeMobileShell() && !mobileSubview;
-    const nextActionId = mobileRoot ? getLoredecksOperatorNextActionId({ activeCount, issueCount }) : '';
+    const nextActionId = '';
 
     const card = document.createElement('div');
     card.className = 'saga-runtime-card saga-operator-summary-card saga-loredecks-operator-summary';
@@ -335,41 +330,16 @@ function createLoredecksOperatorSummary(state = getState(), canonDb = null, heal
 
         const primaryActions = document.createElement('div');
         primaryActions.className = 'saga-loredecks-mobile-primary-actions';
-        let primaryMobileActionId = '';
-        if (nextActionId === 'library') {
-            primaryMobileActionId = 'library';
-            primaryActions.appendChild(markTourTarget(createButton(
-                getLoredecksOperatorActionLabel('library', 'Open Loredeck Library', nextActionId),
-                'Open the fullscreen Loredeck Library and active stack manager.',
-                openLoredeckLibraryWithProgress,
-                'saga-primary-button'
-            ), 'loredecks.operator.library'));
-        } else if (nextActionId === 'context') {
-            primaryMobileActionId = 'context';
-            primaryActions.appendChild(createButton('Next: Context', 'Open Context to set or review the current story position.', () => {
-                selectRuntimeMobileRoute('context');
-            }, 'saga-primary-button'));
-        } else {
-            primaryMobileActionId = 'library';
-            primaryActions.appendChild(markTourTarget(createButton(
-                'Open Loredeck Library',
-                'Open the fullscreen Loredeck Library and active stack manager.',
-                openLoredeckLibraryWithProgress,
-                'saga-primary-button'
-            ), 'loredecks.operator.library'));
-        }
+        primaryActions.appendChild(markTourTarget(createButton(
+            'Open Loredeck Library',
+            'Open the fullscreen Loredeck Library and active stack manager.',
+            openLoredeckLibraryWithProgress,
+            'saga-primary-button'
+        ), 'loredecks.operator.library'));
         actions.appendChild(primaryActions);
 
         const secondaryActions = document.createElement('div');
         secondaryActions.className = 'saga-loredecks-mobile-secondary-actions';
-        if (primaryMobileActionId !== 'library') {
-            secondaryActions.appendChild(markTourTarget(createButton(
-                'Open Loredeck Library',
-                'Open the fullscreen Loredeck Library and active stack manager.',
-                openLoredeckLibraryWithProgress,
-                'saga-small-button saga-loredecks-mobile-secondary-action'
-            ), 'loredecks.operator.library'));
-        }
         secondaryActions.appendChild(markTourTarget(createButton('Import Deck', 'Import a Saga Loredeck zip package into the Library.', () => {
             installLoredeckBundleFromFile();
         }, 'saga-small-button saga-loredecks-mobile-secondary-action'), 'loredecks.operator.import'));

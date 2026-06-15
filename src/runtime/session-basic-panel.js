@@ -329,7 +329,7 @@ function getBasicChecklistTourFinishState(currentRow = {}) {
 
 function getBasicChecklistTourFinishLabel(currentRow = {}) {
     const finishState = getBasicChecklistTourFinishState(currentRow);
-    if (finishState.nextRow) return `Next: ${finishState.nextRow.actionLabel || finishState.nextRow.label || 'Guided Step'}`;
+    if (finishState.nextRow) return `Continue: ${finishState.nextRow.actionLabel || finishState.nextRow.label || 'Guided Step'}`;
     return finishState.outstandingCount > 0 ? 'Return to Readiness' : 'Done';
 }
 

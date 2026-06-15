@@ -31,11 +31,12 @@ let resizeStartHeight = 0;
 let resizeStartDirection = 'right';
 let pendingRuntimeMobileFocusSelector = '';
 
-export const MOBILE_LORECARDS_STAGES = Object.freeze(['suggested', 'automation', 'pending', 'accepted']);
+export const MOBILE_LORECARDS_STAGES = Object.freeze(['lore', 'generate', 'automation']);
 
 export function normalizeRuntimeMobileLorecardsStage(value = '') {
     const stage = String(value || '').trim().toLowerCase();
-    if (stage === 'active') return 'accepted';
+    if (stage === 'pending' || stage === 'accepted' || stage === 'approved' || stage === 'active' || stage === 'cards') return 'lore';
+    if (stage === 'suggested' || stage === 'generation') return 'generate';
     return MOBILE_LORECARDS_STAGES.includes(stage) ? stage : '';
 }
 
@@ -218,12 +219,12 @@ export function getRuntimeMobileActiveSubview(panelState, routeId = null, settin
     return stack.length ? stack[stack.length - 1] : null;
 }
 
-export function getRuntimeMobileLorecardsStage(panelState, fallback = 'pending', settings = getSettingsForShell()) {
+export function getRuntimeMobileLorecardsStage(panelState, fallback = 'lore', settings = getSettingsForShell()) {
     const mobile = normalizeMobilePanelState(panelState, settings);
     return normalizeRuntimeMobileLorecardsStage(mobile.lorecardsStage)
         || normalizeRuntimeMobileLorecardsStage(panelState?.mobileLifecycleStage)
         || normalizeRuntimeMobileLorecardsStage(fallback)
-        || 'pending';
+        || 'lore';
 }
 
 export function getRuntimeMobileHeaderTitle(panelState, settings = getSettingsForShell()) {
@@ -277,7 +278,7 @@ export function selectRuntimeMobileRoute(routeId, options = {}) {
 }
 
 export function selectRuntimeMobileLorecardsStage(stage) {
-    const normalized = normalizeRuntimeMobileLorecardsStage(stage) || 'pending';
+    const normalized = normalizeRuntimeMobileLorecardsStage(stage) || 'lore';
     return updateRuntimeMobilePanelState(({ panelState, mobile }) => {
         mobile.activeRoute = 'lore';
         mobile.lastPrimaryRoute = 'lore';
