@@ -396,6 +396,7 @@ export function getStoryOpenerStageDescriptors(session = {}) {
             status = 'error';
         }
         if (status === 'locked' && !dependency) dependency = 'Complete the previous stage first.';
+        const isCurrentStage = normalized.currentStage === stage.id && status !== 'locked';
         return {
             ...stage,
             index,
@@ -403,7 +404,7 @@ export function getStoryOpenerStageDescriptors(session = {}) {
             status,
             dependency,
             isComplete: status === 'approved',
-            isActive: status === 'active' || status === 'generating',
+            isActive: isCurrentStage || status === 'active' || status === 'generating',
             resettable: index > 0 && index < STORY_OPENER_STAGE_ORDER.length - 1 && status !== 'locked',
         };
     });

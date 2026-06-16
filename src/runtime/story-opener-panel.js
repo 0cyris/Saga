@@ -428,7 +428,13 @@ function createStoryOpenerStageBar(session = {}, state = {}, options = {}) {
                 if (stage.dependency) toast(stage.dependency, 'info');
                 return;
             }
-            document.querySelector(`[data-story-opener-anchor="${stage.anchor}"]`)?.scrollIntoView?.({ behavior: 'smooth', block: 'start' });
+            const next = normalizeStoryOpenerSession({
+                ...session,
+                currentStage: stage.id,
+                updatedAt: Date.now(),
+            });
+            saveStoryOpenerSession(next);
+            refresh({ ...options, preserveScroll: false });
         });
         const number = document.createElement('span');
         number.className = 'saga-loredeck-creator-stage-number';
@@ -468,6 +474,24 @@ function createStoryOpenerStageBar(session = {}, state = {}, options = {}) {
     }
     wrap.appendChild(list);
     return wrap;
+}
+
+function getVisibleStoryOpenerStage(session = {}) {
+    const normalized = normalizeStoryOpenerSession(session);
+    const stages = getStoryOpenerStageDescriptors(normalized);
+    return stages.find(stage => stage.id === normalized.currentStage && stage.status !== 'locked')
+        || stages.find(stage => stage.isActive && stage.status !== 'locked')
+        || stages.find(stage => stage.status !== 'locked')
+        || stages[0]
+        || null;
+}
+
+function createStoryOpenerStageCard(stageId = '', session = {}, state = {}, options = {}) {
+    if (stageId === 'context_packet') return createPacketCard(session, state, options);
+    if (stageId === 'opener_brief') return createBriefCard(session, state, options);
+    if (stageId === 'draft_variants') return createVariantsCard(session, state, options);
+    if (stageId === 'review_copy') return createReviewCard(session, state, options);
+    return createInputsCard(session, state, options);
 }
 
 function appendSourceActions(container, session = {}, state = {}, options = {}) {
@@ -900,6 +924,7 @@ function createSessionShelf(index = {}, state = {}, options = {}) {
 
 function renderActiveSession(container, session = {}, state = {}, options = {}) {
     const readiness = getStoryOpenerReadiness(session);
+    const visibleStage = getVisibleStoryOpenerStage(session);
     const header = document.createElement('div');
     header.className = 'saga-story-opener-active-header';
     const titleWrap = document.createElement('div');
@@ -922,11 +947,7 @@ function renderActiveSession(container, session = {}, state = {}, options = {}) 
     container.appendChild(createStoryOpenerStageBar(session, state, options));
     const failureCard = createFailureCard(session);
     if (failureCard) container.appendChild(failureCard);
-    container.appendChild(createInputsCard(session, state, options));
-    container.appendChild(createPacketCard(session, state, options));
-    container.appendChild(createBriefCard(session, state, options));
-    container.appendChild(createVariantsCard(session, state, options));
-    container.appendChild(createReviewCard(session, state, options));
+    container.appendChild(createStoryOpenerStageCard(visibleStage?.id || 'inputs', session, state, options));
 }
 
 export function createStoryOpenerCreatorSection(state = {}, options = {}) {

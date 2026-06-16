@@ -327,10 +327,8 @@ function hideRuntimeMobileShell() {
 function renderMobileShellActionBar(state, settings = getSettings()) {
     const panelState = state?.lorePanel || getDefaultState().lorePanel;
     const mobile = normalizeMobilePanelState(panelState, settings);
-    const activeSubview = getRuntimeMobileActiveSubview(panelState, mobile.activeRoute, settings);
     const canGoBack = canGoBackRuntimeMobileShell(panelState, settings);
     if (mobile.activeRoute === 'loredecks') return null;
-    if (activeSubview?.id === 'session-story-opener') return null;
     if (!canGoBack) return null;
 
     const bar = document.createElement('div');
