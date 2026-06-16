@@ -114,7 +114,7 @@ Mobile Lorecards use sub-tabs above the bottom bar:
 
 - **Lore**: one object list for Pending Review, Accepted, High relevance, Elevated, and Muted Lorecards.
 - **Generate**: canon preview, story scan, and Manual Lore Note drafting.
-- **Automation**: Advanced-only Lore Automation status and controls.
+- **Automate**: Advanced-only Lore Automation status and controls.
 
 In **Lore**, Pending Review and Accepted cards are object rows. Review Pending entries before they become durable lore. Accepted entries can be High relevance, Muted, Elevated, or protected by Lore Automation state. Tap the relevance dots to cycle tier, use the mic control to Mute, double-tap an Accepted card to toggle Elevation, and long-press to edit.
 
@@ -130,11 +130,53 @@ Use **Generate** for **Preview Canon Packs**, **Quick Add Top Matches**, **Scan 
 
 Long-press an Accepted Lorecard to edit it. The mobile editor keeps fields full-width and uses chip-style tag editing instead of dense desktop row controls.
 
+### Automate
+
 <p align="center">
   <img src="../../assets/documentation/renders/docs-mobile-advanced-lorecards-automation.png" alt="Saga mobile Lore Automation sub-tab" width="360">
 </p>
 
-In Advanced, use **Automation** to inspect Lore Automation mode, cadence, recent activity, and per-card management. Automatic changes should remain inspectable and reviewable.
+In Advanced, use **Automate** to inspect Lore Automation mode, cadence, recent activity, and per-card management. Automatic changes should remain inspectable and reviewable.
+
+#### Mode
+
+**Mode** controls how much authority Lore Automation has on mobile.
+
+- **Off** means no mode button is selected. Background automation is disabled, and Saga will not change Accepted Lorecards unless you pick a mode or run a manual pass.
+- **AR** is Auto-Relevance. Saga scores Accepted Lorecards against Context, scene state, and recent chat, then applies high-confidence Low, Normal, or High relevance changes.
+- **ARMP** adds Muting and Prominence. Saga can add or remove automation-owned prompt Prominence and can Mute or unmute cards when the evidence is strong enough. ARMP does not Elevate cards; **Elevate** remains a user-controlled protection state.
+- **ARMPC** adds Curating. Saga can accept useful active-deck Lorecards into Accepted Lorecards and retire stale automation-owned cards. ARMPC needs usable Context before it curates because it is choosing lore for the current story position.
+
+Under the hood, Saga scores locally first, validates every operation before applying it, records changed runs in Recent Activity, and writes reversible changes to the Lore Timeline when possible.
+
+#### Style
+
+**Style** changes how cautious the selected Mode is.
+
+- **Careful** has the strictest confidence bar. It makes fewer changes, curates very lightly, and requires repeated stale evidence before retiring automation-owned lore.
+- **Balanced** is the default. It keeps the accepted stack moving with moderate relevance changes, limited Prominence/Mute cleanup, and small curation passes.
+- **Aggressive** acts sooner and in larger batches. It is useful when the story has moved far from older accepted lore or when the accepted stack has become noisy.
+
+Style does not unlock new powers. It only adjusts thresholds, caps, stale-card tolerance, and provider instructions inside the active Mode.
+
+#### Pacing
+
+**Pacing** controls how soon Auto cadence decides a background run is due.
+
+- **Responsive** checks sooner by shrinking the effective word budgets.
+- **Normal** uses the configured word budgets.
+- **Relaxed** checks less often by expanding the effective word budgets.
+
+The budgets are story-word budgets, not simple turn counters. **Remap word budget** controls relevance, Prominence, and Mute checks. **Curate word budget** controls ARMPC curation and retirement checks. The **Recent messages** field is different: it controls how much recent chat Saga reads as evidence during scoring.
+
+#### Cadence
+
+**Cadence** decides whether Saga can run in the background.
+
+- **Manual** blocks background runs after model generations. Use **Run Now** when you want one deliberate pass.
+- **Auto** lets Saga schedule a run when Context, the Active Stack, Accepted Lorecards, recent narrative, story-word budget, or ARMPC stack pressure says the lore state may need attention.
+
+Auto cadence is still inspectable. Use **Status** for the latest summary, **Current tiers** for relevance counts, **Card control** for managed/protected card counts, **Recent Activity** for run history, and **Undo Last Run** when the latest reversible run should be rolled back.
 
 ## Continuity
 

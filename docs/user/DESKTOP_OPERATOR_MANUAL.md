@@ -206,17 +206,54 @@ Generated and manual output still goes to **Pending Review** before it can becom
   <img src="../../assets/documentation/renders/docs-lorecards-desktop-automate.png" alt="Saga desktop Lorecards Automate branch" width="712">
 </p>
 
-Use **Automate** when you want Saga to help rank or curate existing Accepted Lorecards. This branch contains:
+Use **Automate** when you want Saga to help rank or curate existing Accepted Lorecards. The key controls are:
 
-- **Manual / Auto** cadence: Manual keeps automation settings visible without running automatically; Auto allows configured automation runs.
-- **Mode**: **AR**, **ARMP**, or **ARMPC**, which control how much authority automation has.
-- **Style**: Careful, Balanced, or Aggressive update posture.
-- **Pacing**: Responsive, Normal, or Relaxed cadence sensitivity.
-- **Recent messages**: the conversation window used for relevance decisions.
-- **Advanced**: word-budget and model-routing controls.
-- **Status**, **Current tiers**, and **Card control** summaries.
-- **Run Now** and **Undo Last Run** actions.
-- **Recent Activity** for the latest automation runs.
+#### Mode
+
+**Mode** is the authority ceiling for Lore Automation. No selected mode means **Off**: background automation is disabled, and Saga will not change Accepted Lorecards until you pick a mode or use **Run Now**.
+
+- **AR** means Auto-Relevance. Saga scores Accepted Lorecards against the current Context, scene state, and recent chat, then applies high-confidence relevance changes such as Low, Normal, or High. AR does not Mute cards, give them prompt Prominence, accept new cards from Loredecks, or retire old cards.
+- **ARMP** means Auto-Relevance, Muting, and Prominence. It includes AR, then checks whether current High-relevance cards should gain automation-owned prompt Prominence, whether no-longer-current prominent cards should lose it, and whether low-support cards should be Muted or unmuted. ARMP does not use the user-controlled **Elevate** state; Elevated cards remain protected.
+- **ARMPC** means Auto-Relevance, Muting, Prominence, and Curating. It includes ARMP, then can curate useful active-deck Lorecards into Accepted Lorecards and retire stale automation-owned cards. ARMPC needs usable Context before it curates, because it is choosing lore for the current story position.
+
+Under the hood, every run is local-first. Saga scores candidates locally, then provider-backed adjudication may be used for higher-level decisions when provider routing is available. Operations are validated before they apply, recorded in Recent Activity, and written to the Lore Timeline when they change lore state.
+
+#### Style
+
+**Style** controls how conservative automation is. It does not change what the selected Mode is allowed to do; it changes confidence thresholds, caps, stale-card tolerance, and provider instructions.
+
+- **Careful** uses the highest confidence bar. It makes fewer relevance changes, limits remap work, usually avoids muting from weak low-score evidence, curates at most a very small number of cards, and requires repeated stale evidence before retiring automation-owned lore. Use it for long-running stories where false positives are expensive.
+- **Balanced** is the default. It allows moderate relevance movement, small mute/prominence cleanup, limited curation, and retirement when a card is clearly stale for the current Context. Use it when you want Saga to keep the accepted stack current without being aggressive.
+- **Aggressive** lowers the action threshold and raises caps. It can move more relevance tiers, add more prompt Prominence, Mute more low-support cards, curate more active-deck cards, and retire more stale automation-owned cards in one run. Use it when the accepted stack is noisy or the story has moved far enough that old automation-owned lore should clear out faster.
+
+#### Pacing
+
+**Pacing** controls how soon automatic runs become due. It is not a quality setting and does not give automation more authority.
+
+Saga tracks story-word movement, recent narrative changes, Context changes, Active Stack changes, and Accepted Lorecard state changes. The Advanced word budgets set the base distance between background checks: **Remap word budget** controls AR/ARMP relevance and prominence work, while **Curate word budget** controls ARMPC curation and retirement work.
+
+- **Responsive** checks sooner by shrinking the effective word budgets. Use it when the story is moving quickly or when you want automation to react soon after a scene shift.
+- **Normal** uses the configured budgets as-is.
+- **Relaxed** checks less often by expanding the effective word budgets. Use it when you prefer fewer background changes and plan to use **Run Now** for deliberate passes.
+
+The **Recent messages** setting is separate from Pacing. It controls the conversation window used as evidence during scoring; it is not the background scheduling counter.
+
+#### Cadence
+
+**Cadence** controls whether the background scheduler is allowed to run.
+
+- **Manual** keeps Lore Automation available but blocks background runs after model generations. Use **Run Now** when you want a deliberate pass. Manual is also what Saga falls back to when the Mode is Off.
+- **Auto** lets Saga schedule automation after generation events when something meaningful changed: Context, Active Stack, Accepted Lorecards, recent narrative hash, story-word budget, or ARMPC stack pressure. In ARMPC, Saga can also use a provider-backed edge classifier to notice hard scene, chapter, or arc shifts before the full curation budget is reached.
+
+Automatic cadence does not mean silent, irreversible edits. Runs appear in **Recent Activity**, changed state is summarized in **Status**, and **Undo Last Run** reverts the latest reversible automation timeline event.
+
+Other controls in this branch:
+
+- **Advanced** controls candidate caps, minimum confidence, remap and curation word budgets, provider candidate caps, and provider token limits.
+- **Status**, **Current tiers**, and **Card control** summarize the current automation state.
+- **Run Now** runs the selected automation path immediately.
+- **Undo Last Run** reverts the latest reversible run.
+- **Recent Activity** shows recent runs, mode, style, status, provider involvement, and counts.
 
 Elevated Lorecards are protected from Lore Automation. Muted Lorecards stay saved but remain excluded from injection.
 
