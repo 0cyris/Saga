@@ -61,6 +61,7 @@ const openerUiState = {
 };
 
 const STORY_OPENER_GENERATION_STATUSES = new Set(['queued', 'running', 'retrying']);
+const STORY_OPENER_STALE_ACTIVE_RUN_MS = 10 * 60 * 1000;
 const STORY_OPENER_STAGE_LABELS = Object.freeze({
     inputs: 'Inputs',
     context_packet: 'Context Packet',
@@ -111,6 +112,29 @@ function getStoryOpenerGenerationMessage(run = {}) {
 
 function getStoryOpenerGenerationMeta(run = {}) {
     return `Story Maker generation | ${getStoryOpenerStageLabel(run.stage)}`;
+}
+
+function getStoryOpenerRunUpdatedAt(run = {}, now = Date.now()) {
+    const updatedAt = Number(run.updatedAt || run.startedAt || now);
+    return Number.isFinite(updatedAt) && updatedAt > 0 ? updatedAt : now;
+}
+
+function isStoryOpenerRunLive(run = {}) {
+    return !!run?.id && openerUiState.activeRunIds.has(run.id);
+}
+
+function rememberStoryOpenerLiveRun(run = {}) {
+    if (run?.id) openerUiState.activeRunIds.add(run.id);
+}
+
+function forgetStoryOpenerLiveRun(run = {}) {
+    if (run?.id) openerUiState.activeRunIds.delete(run.id);
+}
+
+function isStoryOpenerActiveRunStale(run = {}, now = Date.now()) {
+    if (!run?.id) return false;
+    if (!STORY_OPENER_GENERATION_STATUSES.has(String(run.status || '').trim().toLowerCase())) return false;
+    return now - getStoryOpenerRunUpdatedAt(run, now) >= STORY_OPENER_STALE_ACTIVE_RUN_MS;
 }
 
 function updateStoryOpenerGenerationStatusRows(now = Date.now()) {
@@ -549,14 +573,17 @@ function readControlsFromRefs(refs = {}, base = {}) {
 }
 
 function makeRun(session = {}, stage = '', label = '', message = '') {
-    return recordStoryOpenerRun(session, createStoryOpenerRun(stage, {
+    const next = recordStoryOpenerRun(session, createStoryOpenerRun(stage, {
         label,
         message: message || label,
         status: 'running',
     }));
+    rememberStoryOpenerLiveRun(next.activeGeneration);
+    return next;
 }
 
 function finishRun(session = {}, run = {}, patch = {}) {
+    forgetStoryOpenerLiveRun(run);
     return recordStoryOpenerRun(session, {
         ...run,
         ...patch,
@@ -567,6 +594,7 @@ function finishRun(session = {}, run = {}, patch = {}) {
 }
 
 function failRun(session = {}, run = {}, failure = {}) {
+    forgetStoryOpenerLiveRun(run);
     return recordStoryOpenerRun(session, {
         ...run,
         status: 'error',
@@ -614,6 +642,31 @@ function updateSessionStage(session = {}, patch = {}, options = {}) {
         updatedAt: Date.now(),
     });
     return saveStoryOpenerSession(next, options) || next;
+}
+
+function recoverStoryOpenerInterruptedActiveGeneration(session = {}, options = {}) {
+    const normalized = normalizeStoryOpenerSession(session);
+    const active = normalized.activeGeneration;
+    const now = typeof options.now === 'function' ? options.now() : Date.now();
+    if (!active?.id || isStoryOpenerRunLive(active) || !isStoryOpenerActiveRunStale(active, now)) {
+        return { session: normalized, recovered: false, live: !!active?.id && isStoryOpenerRunLive(active) };
+    }
+    const label = active.label || getStoryOpenerGenerationLabel(active);
+    const interrupted = recordStoryOpenerRun(normalized, {
+        ...active,
+        status: 'interrupted',
+        message: `${label} was interrupted before it completed. Retry this Story Maker stage when ready.`,
+        updatedAt: now,
+        completedAt: now,
+    });
+    forgetStoryOpenerLiveRun(active);
+    const next = options.persist === false
+        ? interrupted
+        : (saveStoryOpenerSession(interrupted, { activate: true }) || interrupted);
+    if (options.toast && !openerUiState.activeRunIds.has(active.id)) {
+        toast(`${label} was interrupted. Saved Story Maker work is preserved.`, 'warning');
+    }
+    return { session: next, recovered: true, live: false };
 }
 
 async function runContextPacketStage(session = {}, state = {}, options = {}) {
@@ -1584,6 +1637,9 @@ export function createStoryOpenerCreatorSection(state = {}, options = {}) {
     }
     wrap.appendChild(createSessionShelf(index, state, options));
     if (activeSession) {
+        activeSession = recoverStoryOpenerInterruptedActiveGeneration(activeSession, {
+            toast: true,
+        }).session;
         renderActiveSession(wrap, activeSession, state, options);
     }
     return wrap;
@@ -1597,6 +1653,9 @@ export const __storyOpenerPanelTestHooks = Object.freeze({
     runFullPipeline,
     createStoryOpenerGenerationStatus,
     updateStoryOpenerGenerationStatusRows,
+    recoverStoryOpenerInterruptedActiveGeneration,
+    rememberStoryOpenerLiveRun,
+    forgetStoryOpenerLiveRun,
     renderStoryOpenerMarkdownToHtml,
     createStoryOpenerOutputPreview,
     readControlsFromRefs,

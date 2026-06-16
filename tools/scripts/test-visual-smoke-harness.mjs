@@ -107,7 +107,7 @@ const hpCoreCoverPath = path.join(root, 'content', 'loredecks', 'hp-core', 'asse
 const hpYearOneCoverPath = path.join(root, 'content', 'loredecks', 'hp-year-1-philosophers-stone', 'assets', 'cover.png');
 
 function read(file) {
-    return fs.readFileSync(file, 'utf8');
+    return fs.readFileSync(file, 'utf8').replace(/\r\n/g, '\n');
 }
 
 function readCssBundle(file, seen = new Set()) {

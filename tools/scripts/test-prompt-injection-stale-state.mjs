@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 
 async function readText(relativePath) {
-  return readFile(path.join(repoRoot, relativePath), 'utf8');
+  return (await readFile(path.join(repoRoot, relativePath), 'utf8')).replace(/\r\n/g, '\n');
 }
 
 function functionBody(source, name) {

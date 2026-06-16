@@ -9,6 +9,9 @@ const {
   buildStoryOpenerContextPacket,
 } = await import('../../src/story-openers/story-opener-source.js');
 const {
+  __storyOpenerPanelTestHooks,
+} = await import('../../src/runtime/story-opener-panel.js');
+const {
   getStoryOpenerStageDescriptors,
   normalizeStoryOpenerControls,
   normalizeStoryOpenerSession,
@@ -230,6 +233,14 @@ await withFakeStoryOpenerProvider(async () => {
   assert.equal(brief.attempts.length, 1);
 });
 
+await withFakeStoryOpenerProvider(async () => new Promise(() => {}), async () => {
+  const brief = await buildStoryOpenerBrief(providerSession, providerPacket, { retryDelayMs: 0, timeoutMs: 10 });
+  assert.equal(brief.ok, false);
+  assert.equal(brief.failure.code, 'provider_timeout');
+  assert.equal(brief.attempts.length, 3);
+  assert.match(brief.failure.message, /timed out/i);
+});
+
 await withFakeStoryOpenerProvider(async () => {
   if (!globalThis.__sagaStoryOpenerEmptyThenSuccessCalls) globalThis.__sagaStoryOpenerEmptyThenSuccessCalls = 0;
   globalThis.__sagaStoryOpenerEmptyThenSuccessCalls += 1;
@@ -311,6 +322,18 @@ await withFakeStoryOpenerProvider(async (_system, user) => {
   assert.equal(variants.partialFailure.code, 'draft_variants_partial_failed');
 });
 
+await withFakeStoryOpenerProvider(async (_system, user) => {
+  if (user.includes('Variant angle: B angle')) return new Promise(() => {});
+  if (user.includes('Variant angle: C angle')) return 'Variant C prose.';
+  return 'Variant A prose.';
+}, async () => {
+  const variants = await writeStoryOpenerVariants(providerSession, providerPacket, providerBrief, { retryDelayMs: 0, timeoutMs: 10 });
+  assert.equal(variants.ok, true);
+  assert.equal(variants.variants.length, 2);
+  assert.deepEqual(variants.failedVariantIndexes, [1]);
+  assert.equal(variants.failures[0].code, 'provider_timeout');
+});
+
 await withFakeStoryOpenerProvider(async () => '{}', async () => {
   const variants = await writeStoryOpenerVariants(providerSession, providerPacket, providerBrief, { retryDelayMs: 0 });
   assert.equal(variants.ok, false);
@@ -345,5 +368,35 @@ assert.equal(retryingSession.activeGeneration.status, 'retrying');
 assert.equal(retryingSession.generationRuns.run1.attempts.length, 1);
 const retryingStage = getStoryOpenerStageDescriptors(retryingSession).find(stage => stage.id === 'opener_brief');
 assert.equal(retryingStage.status, 'generating');
+
+const staleRunSession = normalizeStoryOpenerSession({
+  sessionId: 'opener-stale-run-test',
+  controls: {
+    userPrompt: 'Open on Hermione.',
+    context: 'Harry Potter Book 6 - January',
+  },
+  currentStage: 'review_copy',
+  variants: [{ id: 'variant-a', label: 'Variant A', text: 'Hermione checked the corridor.', status: 'selected' }],
+  generationRuns: {
+    run1: {
+      id: 'run1',
+      stage: 'context_packet',
+      status: 'running',
+      label: 'Building Context Packet',
+      message: 'Resolving active Loredecks, Context, and guardrails.',
+      startedAt: 1000,
+      updatedAt: 1000,
+    },
+  },
+  activeGeneration: { id: 'run1', stage: 'context_packet', status: 'running', startedAt: 1000, updatedAt: 1000 },
+});
+const recovered = __storyOpenerPanelTestHooks.recoverStoryOpenerInterruptedActiveGeneration(staleRunSession, {
+  now: () => 1000 + (11 * 60 * 1000),
+  persist: false,
+});
+assert.equal(recovered.recovered, true);
+assert.equal(recovered.session.activeGeneration, undefined);
+assert.equal(recovered.session.generationRuns.run1.status, 'interrupted');
+assert.equal(recovered.session.variants.length, 1);
 
 console.log('Story Opener pipeline tests passed.');

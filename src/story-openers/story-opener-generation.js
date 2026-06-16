@@ -18,6 +18,8 @@ import {
 const STORY_OPENER_PROVIDER_KIND = 'lore';
 const STORY_OPENER_VARIANT_LETTERS = Object.freeze(['A', 'B', 'C', 'D', 'E']);
 const STORY_OPENER_DEFAULT_MAX_ATTEMPTS = 3;
+const STORY_OPENER_PROVIDER_UNIT_TIMEOUT_MS = 5 * 60 * 1000;
+const STORY_OPENER_REPAIR_TIMEOUT_MS = 2 * 60 * 1000;
 const STORY_OPENER_RETRY_BACKOFF_MS = Object.freeze([0, 600, 1800]);
 const STORY_OPENER_RETRYABLE_CODES = new Set([
     'provider_timeout',
@@ -77,6 +79,69 @@ function compactPromptJson(value) {
 
 function nowTimestamp() {
     return Date.now();
+}
+
+function normalizeStoryOpenerTimeoutMs(value, fallback = STORY_OPENER_PROVIDER_UNIT_TIMEOUT_MS) {
+    const numeric = Math.floor(Number(value));
+    if (Number.isFinite(numeric) && numeric > 0) return numeric;
+    return Math.max(1, Math.floor(Number(fallback) || STORY_OPENER_PROVIDER_UNIT_TIMEOUT_MS));
+}
+
+function formatStoryOpenerTimeout(timeoutMs = 0) {
+    const seconds = Math.max(1, Math.ceil(Number(timeoutMs || 0) / 1000));
+    if (seconds < 60) return `${seconds} second${seconds === 1 ? '' : 's'}`;
+    const minutes = Math.ceil(seconds / 60);
+    return `${minutes} minute${minutes === 1 ? '' : 's'}`;
+}
+
+function createStoryOpenerTimeoutError(label = 'Story Maker provider request', timeoutMs = STORY_OPENER_PROVIDER_UNIT_TIMEOUT_MS) {
+    return createStoryOpenerUnitError(
+        'provider_timeout',
+        `${label || 'Story Maker provider request'} timed out after ${formatStoryOpenerTimeout(timeoutMs)}.`,
+        { timeoutMs },
+    );
+}
+
+async function runStoryOpenerTimedProviderRequest(label = '', options = {}, factory) {
+    const timeoutMs = normalizeStoryOpenerTimeoutMs(options.timeoutMs, STORY_OPENER_PROVIDER_UNIT_TIMEOUT_MS);
+    const parentSignal = options.signal || null;
+    const controller = typeof AbortController === 'function' ? new AbortController() : null;
+    const requestSignal = controller?.signal || parentSignal;
+    let timeoutId = 0;
+    let parentAbort = null;
+    let timedOut = false;
+    const work = Promise.resolve().then(() => factory(requestSignal));
+    const guards = [work];
+    guards.push(new Promise((_, reject) => {
+        timeoutId = setTimeout(() => {
+            timedOut = true;
+            if (controller && !controller.signal.aborted) controller.abort();
+            reject(createStoryOpenerTimeoutError(label, timeoutMs));
+        }, timeoutMs);
+    }));
+    if (parentSignal && typeof parentSignal.addEventListener === 'function') {
+        guards.push(new Promise((_, reject) => {
+            if (parentSignal.aborted) {
+                if (controller && !controller.signal.aborted) controller.abort();
+                reject(createStoryOpenerUnitError('user_cancelled', 'Story Maker generation was cancelled.'));
+                return;
+            }
+            parentAbort = () => {
+                if (controller && !controller.signal.aborted) controller.abort();
+                reject(createStoryOpenerUnitError('user_cancelled', 'Story Maker generation was cancelled.'));
+            };
+            parentSignal.addEventListener('abort', parentAbort, { once: true });
+        }));
+    }
+    try {
+        return await Promise.race(guards);
+    } finally {
+        if (timeoutId) clearTimeout(timeoutId);
+        if (parentSignal && parentAbort && typeof parentSignal.removeEventListener === 'function') {
+            parentSignal.removeEventListener('abort', parentAbort);
+        }
+        if (timedOut) work.catch(() => {});
+    }
 }
 
 function getStoryOpenerVariantLabel(index = 0) {
@@ -331,6 +396,7 @@ async function runStoryOpenerProviderUnit(config = {}) {
     const retryLabel = normalizeStoryOpenerString(config.retryLabel || config.label || unitId, 120);
     const expectedOutput = config.expectedOutput === 'text' ? 'text' : 'json';
     const maxTokens = Math.max(1, Math.floor(Number(config.maxTokens || 4096) || 4096));
+    const timeoutMs = normalizeStoryOpenerTimeoutMs(config.timeoutMs, STORY_OPENER_PROVIDER_UNIT_TIMEOUT_MS);
     for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
         const startedAt = nowTimestamp();
         const status = attempt > 1 ? 'retrying' : 'running';
@@ -363,11 +429,14 @@ async function runStoryOpenerProviderUnit(config = {}) {
                 expectedOutput,
                 previousFailure,
             });
-            const response = await storyOpenerSendLoreRequest(prompt.system, prompt.user, {
+            const response = await runStoryOpenerTimedProviderRequest(retryLabel, {
+                signal: config.signal,
+                timeoutMs,
+            }, signal => storyOpenerSendLoreRequest(prompt.system, prompt.user, {
                 providerKind: STORY_OPENER_PROVIDER_KIND,
                 maxTokens,
                 prefill: config.prefill,
-                signal: config.signal,
+                signal,
                 forceVisibleOutput: attempt > 1 && (
                     previousFailure?.code === LORE_RESPONSE_ERROR_CODES.EMPTY_CONTENT
                     || previousFailure?.code === LORE_RESPONSE_ERROR_CODES.REASONING_ONLY
@@ -387,7 +456,7 @@ async function runStoryOpenerProviderUnit(config = {}) {
                         message: event?.message || (attempt > 1 ? `Retrying ${retryLabel}.` : `Waiting for ${retryLabel}.`),
                     });
                 },
-            });
+            }));
             const text = assertLoreResponseText(response, {
                 providerTitle: 'Reasoning',
                 maxTokens,
@@ -563,13 +632,16 @@ Return valid JSON only. Preserve every usable field. Do not add facts that were 
 
 Malformed response:
 ${rawText}`;
-    const response = await storyOpenerSendLoreRequest(system, user, {
+    const response = await runStoryOpenerTimedProviderRequest(`${schemaName} repair`, {
+        signal: options.signal,
+        timeoutMs: normalizeStoryOpenerTimeoutMs(options.timeoutMs, STORY_OPENER_REPAIR_TIMEOUT_MS),
+    }, signal => storyOpenerSendLoreRequest(system, user, {
         providerKind: STORY_OPENER_PROVIDER_KIND,
         maxTokens: options.maxTokens || 2048,
         prefill: '{',
-        signal: options.signal,
+        signal,
         onProgress: options.onProgress,
-    });
+    }));
     const text = assertLoreResponseText(response, {
         providerTitle: 'Reasoning',
         maxTokens: options.maxTokens || 2048,
@@ -650,6 +722,7 @@ export async function refineStoryOpenerFacts(packet = {}, controls = {}, options
         maxTokens: options.maxTokens || 2048,
         prefill: '{',
         signal: options.signal,
+        timeoutMs: options.timeoutMs,
         retryDelayMs: options.retryDelayMs,
         onProgress: options.onProgress,
         buildPrompt: ({ compact = false }) => {
@@ -797,6 +870,7 @@ export async function buildStoryOpenerBrief(session = {}, packet = {}, options =
         maxTokens: options.maxTokens || 4096,
         prefill: '{',
         signal: options.signal,
+        timeoutMs: options.timeoutMs,
         retryDelayMs: options.retryDelayMs,
         onProgress: options.onProgress,
         buildPrompt: ({ compact = false }) => buildBriefPrompt(normalized, compact ? compactStoryOpenerPacketForRetry(effectivePacket) : effectivePacket),
@@ -937,6 +1011,7 @@ export async function writeStoryOpenerVariant(session = {}, packet = {}, brief =
         expectedOutput: 'text',
         maxTokens: options.maxTokens || 4096,
         signal: options.signal,
+        timeoutMs: options.timeoutMs,
         retryDelayMs: options.retryDelayMs,
         onProgress: options.onProgress,
         buildPrompt: ({ compact = false }) => buildOpenerPrompt(session, compact ? compactStoryOpenerPacketForRetry(packet) : packet, compact ? compactStoryOpenerBriefForRetry(brief) : brief, variantIndex, revisionPrompt),
