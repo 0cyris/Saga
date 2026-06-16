@@ -88,6 +88,7 @@ Development notes live in [docs/development](docs/development/) until promoted, 
 
 - Alpha stabilization and live SillyTavern hardening.
 - UI/UX polish across desktop, tablet, and phone-width surfaces.
+- Bundled Loredeck expansion: Star Trek (TNG, VOY, DS9), One Piece, Marvel MCU, and Pokemon.
 - Broader live-provider smoke coverage for Story Maker, Deck Maker, Context, and Lore Automation.
 
 ## Security
