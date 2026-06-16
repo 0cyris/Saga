@@ -577,6 +577,16 @@ function failRun(session = {}, run = {}, failure = {}) {
     });
 }
 
+function clearStoryOpenerDraftVariantsForRun(session = {}) {
+    return normalizeStoryOpenerSession({
+        ...session,
+        variants: [],
+        selectedVariantId: '',
+        currentStage: 'draft_variants',
+        status: 'running',
+    });
+}
+
 function updateActiveStoryOpenerRunProgress(working = {}, run = {}, event = {}, options = {}) {
     if (!event?.message && !event?.label) return working;
     const current = getCachedExternalStoryOpenerSession(working.sessionId) || working;
@@ -716,27 +726,32 @@ async function runDraftStage(session = {}, state = {}, options = {}) {
         brief = briefResult.brief;
     }
     const variantCount = Math.max(STORY_OPENER_VARIANT_COUNT_MIN, Math.min(STORY_OPENER_VARIANT_COUNT_MAX, Number(working.controls?.variantCount) || STORY_OPENER_VARIANT_COUNT_MIN));
-    const retryIndexesForLabel = Array.isArray(options.retryVariantIndexes)
+    const retryIndexes = Array.isArray(options.retryVariantIndexes)
         ? options.retryVariantIndexes.map(index => Math.floor(Number(index))).filter(index => Number.isFinite(index))
         : [];
-    const requestedVariantCount = retryIndexesForLabel.length || variantCount;
+    const replacingDrafts = !retryIndexes.length;
+    const previous = getStoryOpenerSelectedVariant(working);
+    const generationSession = working;
+    const requestedVariantCount = retryIndexes.length || variantCount;
     working = makeRun(
         working,
         'draft_variants',
-        retryIndexesForLabel.length
+        retryIndexes.length
             ? `Retrying ${requestedVariantCount} failed variant${requestedVariantCount === 1 ? '' : 's'}`
             : variantCount === 1
             ? `${options.revisionPrompt ? 'Revising' : 'Drafting'} Variant A`
             : `${options.revisionPrompt ? 'Revising' : 'Drafting'} ${variantCount} variants`,
-        retryIndexesForLabel.length
+        retryIndexes.length
             ? `Retrying ${requestedVariantCount} failed opener variant${requestedVariantCount === 1 ? '' : 's'}.`
             : `Starting ${variantCount} opener variant${variantCount === 1 ? '' : 's'}.`,
     );
+    if (replacingDrafts) {
+        working = clearStoryOpenerDraftVariantsForRun(working);
+    }
     saveStoryOpenerSession(working);
     refresh(options);
     const run = working.activeGeneration;
-    const previous = getStoryOpenerSelectedVariant(working);
-    const result = await writeStoryOpenerVariants(working, packet, brief, {
+    const result = await writeStoryOpenerVariants(generationSession, packet, brief, {
         revisionPrompt: options.revisionPrompt || '',
         variantIndexes: options.retryVariantIndexes,
         onProgress: event => {
@@ -766,9 +781,6 @@ async function runDraftStage(session = {}, state = {}, options = {}) {
             sourceRunId: run?.id || '',
         });
     }
-    const retryIndexes = Array.isArray(options.retryVariantIndexes)
-        ? options.retryVariantIndexes.map(index => Math.floor(Number(index))).filter(index => Number.isFinite(index))
-        : [];
     const existingVariants = retryIndexes.length
         ? working.variants.filter(variant => !retryIndexes.includes(Number(variant.variantIndex)))
         : [];

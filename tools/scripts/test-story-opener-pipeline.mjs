@@ -277,7 +277,10 @@ await withFakeStoryOpenerProvider(async () => {
 
 const providerBrief = JSON.parse(makeBriefJson());
 
-await withFakeStoryOpenerProvider(async (_system, user) => {
+await withFakeStoryOpenerProvider(async (system, user) => {
+  assert.match(system, /Use Markdown italics only where the formatting contract requires italics/);
+  assert.match(user, /Spoken dialogue must always be enclosed in quotation marks/);
+  assert.match(user, /internalized words or thoughts must be italicized with Markdown italics/);
   if (user.includes('Variant angle: B angle')) {
     if (!globalThis.__sagaStoryOpenerVariantBCalls) globalThis.__sagaStoryOpenerVariantBCalls = 0;
     globalThis.__sagaStoryOpenerVariantBCalls += 1;

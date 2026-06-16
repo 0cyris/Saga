@@ -39,6 +39,10 @@ const STORY_OPENER_NON_RETRYABLE_CODES = new Set([
     'source_resolution_failed',
     'guardrail_blocked',
 ]);
+const STORY_OPENER_PROSE_FORMATTING_CONTRACT = `Formatting contract:
+- Spoken dialogue must always be enclosed in quotation marks.
+- Written text, text being read, and internalized words or thoughts must be italicized with Markdown italics, like *this*.
+- Do not use other Markdown formatting unless the opener text itself requires it.`;
 
 let storyOpenerSendLoreRequest = sendLoreRequest;
 
@@ -208,9 +212,9 @@ function getStoryOpenerRetryInstruction(stage = '', expectedOutput = 'json', pre
     const code = normalizeStoryOpenerString(previousFailure.code, 160);
     if (expectedOutput === 'text') {
         if (code === LORE_RESPONSE_ERROR_CODES.TOKEN_LIMIT) {
-            return 'Retry instruction: return only the visible opener prose, keep it tighter, and do not include labels, JSON, markdown fences, commentary, or analysis.';
+            return `Retry instruction: return only the visible opener prose, keep it tighter, follow the formatting contract, and do not include labels, JSON, markdown fences, commentary, or analysis. ${STORY_OPENER_PROSE_FORMATTING_CONTRACT}`;
         }
-        return 'Retry instruction: return only visible opener prose in message.content. Do not return JSON, labels, title text, markdown fences, commentary, or analysis.';
+        return `Retry instruction: return only visible opener prose in message.content and follow the formatting contract. Do not return JSON, labels, title text, markdown fences, commentary, or analysis. ${STORY_OPENER_PROSE_FORMATTING_CONTRACT}`;
     }
     if (code === 'stage_contract_failed') {
         const missing = Array.isArray(previousFailure.details?.missing) ? previousFailure.details.missing.join(', ') : '';
@@ -868,7 +872,8 @@ function buildOpenerPrompt(session = {}, packet = {}, brief = {}, variantIndex =
     const selectedAngle = brief.variantAngles?.[variantIndex] || (variantIndex === 0 ? 'direct/default opener' : `minor variation ${variantIndex + 1}`);
     const previous = normalizeStoryOpenerString(normalized.variants.find(variant => variant.id === normalized.selectedVariantId)?.text || normalized.variants[0]?.text || '', 12000);
     const system = `You are Saga's Story Maker writer.
-Write only the finished opener prose. Do not include analysis, labels, markdown, JSON, commentary, or title text.
+Write only the finished opener prose. Do not include analysis, labels, JSON, commentary, title text, markdown fences, or extra wrapper formatting.
+Use Markdown italics only where the formatting contract requires italics.
 Respect all exclusions. Use only supplied facts. The style may evoke fandom-era prose conventions, but do not copy or quote canon prose.`;
     const user = `Write the opener from this brief.
 
@@ -876,6 +881,8 @@ Variant angle: ${selectedAngle}
 Revision instruction: ${revisionPrompt || 'None'}
 
 Length guidance: ${brief.lengthGuidance || getTargetLengthGuidance(controls.targetLength)}
+
+${STORY_OPENER_PROSE_FORMATTING_CONTRACT}
 
 Brief:
 ${compactPromptJson(brief)}
@@ -886,7 +893,7 @@ ${compactPromptJson(brief.mustAvoid?.length ? brief.mustAvoid : (packet.mustAvoi
 Previous opener to revise, if any:
 ${previous || 'None'}
 
-Output plain opener prose only.`;
+Output visible opener prose only, with the formatting contract applied.`;
     return { system, user };
 }
 
