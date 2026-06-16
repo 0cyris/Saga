@@ -939,6 +939,7 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
+    font-size: 0.94em;
 }
 
 .saga-loredeck-creator-project-header {
@@ -954,6 +955,8 @@
 
 .saga-loredeck-creator-project-title-wrap h4 {
     margin: 0 0 3px;
+    font-size: 0.9em;
+    line-height: 1.2;
 }
 
 .saga-loredeck-creator-project-meta {
@@ -971,8 +974,11 @@
 .saga-loredeck-creator-project-filter,
 .saga-loredeck-creator-project-folder-filter,
 .saga-loredeck-creator-project-move-select {
-    min-height: 30px;
+    min-height: 28px;
     width: 100%;
+    padding: 4px 7px;
+    font-size: 12px !important;
+    line-height: 1.25 !important;
     box-sizing: border-box;
 }
 
@@ -1090,7 +1096,8 @@
     white-space: nowrap;
     color: var(--saga-text, #f1ead8);
     font-weight: 700;
-    font-size: 0.92em;
+    font-size: 0.84em;
+    line-height: 1.22;
 }
 
 .saga-loredeck-creator-project-title .saga-loredeck-library-inline-title {
@@ -1117,7 +1124,7 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     color: var(--saga-muted, rgba(241, 234, 216, 0.74));
-    font-size: 0.76em;
+    font-size: 0.72em;
     line-height: 1.25;
 }
 
@@ -1156,9 +1163,9 @@
 }
 
 .saga-loredeck-creator-project-actions .saga-runtime-button {
-    min-height: 28px;
+    min-height: 26px;
     padding: 4px 9px;
-    font-size: 0.74em;
+    font-size: 0.72em;
 }
 
 .saga-loredeck-creator-project-actions .saga-loredeck-creator-project-select-active {
@@ -1199,6 +1206,28 @@
     max-height: none;
     overflow: visible;
     padding-right: 0;
+}
+
+.saga-runtime-mobile .saga-loredeck-creator-project-shelf {
+    font-size: 0.9em;
+}
+
+.saga-runtime-mobile .saga-loredeck-creator-project-search,
+.saga-runtime-mobile .saga-loredeck-creator-project-filter,
+.saga-runtime-mobile .saga-loredeck-creator-project-folder-filter,
+.saga-runtime-mobile .saga-loredeck-creator-project-move-select {
+    min-height: 34px;
+    font-size: 12px !important;
+}
+
+.saga-runtime-mobile .saga-loredeck-creator-project-title {
+    font-size: 0.82em;
+}
+
+.saga-runtime-mobile .saga-loredeck-creator-project-actions .saga-runtime-button,
+.saga-runtime-mobile .saga-loredeck-creator-project-bulk .saga-runtime-button {
+    min-height: 34px;
+    font-size: 0.72em;
 }
 
 .saga-loredeck-granularity-blurb {
@@ -3848,6 +3877,11 @@
     transform: translateY(-1px);
 }
 
+.saga-loredeck-library-visual-longpress-editable {
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
 .saga-loredeck-library-cover-action-remove {
     border-color: var(--saga-red-soft, rgba(219, 105, 105, 0.48));
     color: var(--saga-red, #f07f68);
@@ -3934,6 +3968,16 @@
 .saga-loredeck-library-inline-title-editing .saga-loredeck-library-title-edit-action {
     opacity: 1;
     transform: none;
+}
+
+.saga-loredeck-library-inline-title-longpress {
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+.saga-loredeck-library-inline-title-longpress.saga-longpress-armed,
+.saga-loredeck-library-visual-longpress-editable.saga-longpress-armed {
+    filter: brightness(1.12);
 }
 
 .saga-loredeck-library-title-edit-action:hover,

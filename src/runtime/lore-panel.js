@@ -13228,7 +13228,7 @@ function createLoreGenerationCard(state) {
 
     const title = document.createElement('div');
     title.className = 'saga-runtime-card-title';
-    title.textContent = 'Capture / Suggest';
+    title.textContent = 'Generate';
     addTooltip(title, 'Create reviewable Lorecards from manual notes, context-aware canon suggestions, story scans, or Creator drafts before they enter Pending Review.');
     card.appendChild(title);
 

@@ -507,10 +507,6 @@ function createInjectionPlacementCard(settings) {
     addTooltip(title, 'Controls how Saga injects Continuity and Lore into SillyTavern prompts. Extension Prompt mode uses SillyTavern role/depth injection; Interceptor mode prepends a combined block to the last user message.');
     card.appendChild(title);
 
-    const help = document.createElement('div');
-    help.className = 'saga-runtime-help';
-    help.textContent = 'Recommended: Extension Prompt/System. Depths: Continuity 3, High 2, Normal 5, Low 9. Depth 0 is closest to the latest message.';
-    card.appendChild(help);
     appendSettingsResetButton(card, PROMPT_PLACEMENT_SETTING_KEYS, 'Prompt placement settings');
 
     const placement = document.createElement('div');

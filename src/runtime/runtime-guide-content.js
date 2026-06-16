@@ -175,7 +175,7 @@ function buildAdvancedGuideSteps() {
         advancedStep('advanced-context-index-summary', 'Context Index Summary', 'Use Context index summaries to understand which anchors and windows are available.', 'context', 'context.editor', { fallbackTarget: 'context.commandCenter' }),
         advancedStep('advanced-context-workbench-routes', 'Context Workbench Routes', 'Route to timeline, story-position, alias, and validation workbenches for deeper source maintenance.', 'context', 'context.editor', { fallbackTarget: 'context.commandCenter' }),
         advancedStep('advanced-context-eligibility-debug', 'Eligibility Debugging', 'Explain why Context allows or blocks a Lorecard.', 'context', 'context.loadedLoredecks', { fallbackTarget: 'context.commandCenter' }),
-        advancedStep('advanced-lore-generation-overview', 'Capture / Suggest Overview', 'Understand canon preview, story scan, manual note, Draft Review, Pending Review, and Accepted Lorecards.', 'lore', 'lore.generation', { expandSections: Object.freeze(['lore.generation']) }),
+        advancedStep('advanced-lore-generation-overview', 'Generate Overview', 'Understand canon preview, story scan, manual note, Draft Review, Pending Review, and Accepted Lorecards.', 'lore', 'lore.generation', { expandSections: Object.freeze(['lore.generation']) }),
         advancedStep('advanced-lore-canon-preview', 'Preview Canon Packs', 'Preview local Context-aware suggestions from active Lorepacks.', 'lore', 'lore.canon.preview', { expandSections: Object.freeze(['lore.generation']) }),
         advancedStep('advanced-lore-canon-selection', 'Canon Selection', 'Select useful canon suggestions for Pending Review rather than accepting them automatically.', 'lore', 'lore.canon.addPending', { fallbackTarget: 'lore.canon.preview' }),
         advancedStep('advanced-lore-story-scan', 'Scan Story Lore', 'Run model-backed story-lore scan for durable chat facts.', 'lore', 'lore.story.scan', { expandSections: Object.freeze(['lore.generation']) }),
@@ -499,7 +499,7 @@ export const GUIDE_STEPS = Object.freeze({
             expected: 'You understand that suggestions do not guide the model until they pass review.',
             when: 'Use this before creating or accepting new memory.',
         }),
-        guideStep('basic-lorecards-generation-section', 'Capture / Suggest', 'The Capture / Suggest section gathers canon pack preview, story-lore scan, and Manual Lore Note drafting.', 'lore', 'lore.generation.section', {
+        guideStep('basic-lorecards-generation-section', 'Generate', 'The Generate section gathers canon pack preview, story-lore scan, and Manual Lore Note drafting.', 'lore', 'lore.generation.section', {
             fallbackTarget: 'lore.generation.section',
             expandSections: Object.freeze(['lore.generation']),
             expected: 'All new Lorecards still go to Pending Review before they can affect prompts.',

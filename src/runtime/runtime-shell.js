@@ -32,6 +32,7 @@ let resizeStartDirection = 'right';
 let pendingRuntimeMobileFocusSelector = '';
 
 export const MOBILE_LORECARDS_STAGES = Object.freeze(['generate', 'automation', 'lore']);
+export const RUNTIME_LORECARDS_STAGES = MOBILE_LORECARDS_STAGES;
 
 export function normalizeRuntimeMobileLorecardsStage(value = '') {
     const stage = String(value || '').trim().toLowerCase();
@@ -39,6 +40,8 @@ export function normalizeRuntimeMobileLorecardsStage(value = '') {
     if (stage === 'suggested' || stage === 'generation') return 'generate';
     return MOBILE_LORECARDS_STAGES.includes(stage) ? stage : '';
 }
+
+export const normalizeRuntimeLorecardsStage = normalizeRuntimeMobileLorecardsStage;
 
 export function configureRuntimeShell(deps = {}) {
     runtimeShellDeps = { ...runtimeShellDeps, ...(deps || {}) };
@@ -189,7 +192,7 @@ export function normalizeMobilePanelState(panelState, settings = getSettingsForS
     panelState.mobile = {
         activeRoute,
         lastPrimaryRoute,
-        lorecardsStage: normalizeRuntimeMobileLorecardsStage(previous.lorecardsStage || panelState.mobileLifecycleStage),
+        lorecardsStage: normalizeRuntimeLorecardsStage(previous.lorecardsStage || panelState.lorecardsStage || panelState.mobileLifecycleStage),
         subviewStacks: {
             loredecks: normalizeMobileSubviewStack(previousStacks.loredecks),
             session: normalizeMobileSubviewStack(previousStacks.session),
@@ -222,9 +225,19 @@ export function getRuntimeMobileActiveSubview(panelState, routeId = null, settin
 export function getRuntimeMobileLorecardsStage(panelState, fallback = 'lore', settings = getSettingsForShell()) {
     const mobile = normalizeMobilePanelState(panelState, settings);
     return normalizeRuntimeMobileLorecardsStage(mobile.lorecardsStage)
+        || normalizeRuntimeLorecardsStage(panelState?.lorecardsStage)
         || normalizeRuntimeMobileLorecardsStage(panelState?.mobileLifecycleStage)
         || normalizeRuntimeMobileLorecardsStage(fallback)
         || 'lore';
+}
+
+export function getRuntimeLorecardsStage(panelState, fallback = 'generate', settings = getSettingsForShell()) {
+    if (isRuntimeMobileShell()) return getRuntimeMobileLorecardsStage(panelState, fallback, settings);
+    return normalizeRuntimeLorecardsStage(panelState?.lorecardsStage)
+        || normalizeRuntimeLorecardsStage(panelState?.mobile?.lorecardsStage)
+        || normalizeRuntimeLorecardsStage(panelState?.mobileLifecycleStage)
+        || normalizeRuntimeLorecardsStage(fallback)
+        || 'generate';
 }
 
 export function getRuntimeMobileHeaderTitle(panelState, settings = getSettingsForShell()) {
@@ -285,6 +298,7 @@ export function selectRuntimeMobileLorecardsStage(stage) {
         mobile.lorecardsStage = normalized;
         mobile.subviewStacks.lore = [];
         panelState.activeTab = 'lore';
+        panelState.lorecardsStage = normalized;
         panelState.mobileLifecycleStage = normalized;
         panelState.pendingReviewVisibleLimit = 10;
         panelState.acceptedLoreVisibleLimit = Math.max(200, Number(panelState.acceptedLoreVisibleLimit) || 200);
@@ -294,6 +308,25 @@ export function selectRuntimeMobileLorecardsStage(stage) {
     }, {
         focusSelector: `.saga-mobile-lorecards-subtab[data-stage="${normalized}"]`,
     });
+}
+
+export function selectRuntimeLorecardsStage(stage) {
+    const normalized = normalizeRuntimeLorecardsStage(stage) || 'generate';
+    if (isRuntimeMobileShell()) return selectRuntimeMobileLorecardsStage(normalized);
+
+    const state = getStateForShell();
+    if (!state?.lorePanel) return null;
+    normalizePanelLayoutState(state);
+    state.lorePanel.activeTab = 'lore';
+    state.lorePanel.lorecardsStage = normalized;
+    state.lorePanel.mobileLifecycleStage = normalized;
+    state.lorePanel.pendingReviewVisibleLimit = 10;
+    state.lorePanel.acceptedLoreVisibleLimit = Math.max(200, Number(state.lorePanel.acceptedLoreVisibleLimit) || 200);
+    state.lorePanel.drawerOpen = true;
+    state.lorePanel.collapsed = false;
+    saveStateForShell(state);
+    showRuntimePanelForShell();
+    return { action: 'lorecards-subtab', stage: normalized };
 }
 
 export function pushRuntimeMobileSubview(routeId, subview = {}, options = {}) {
@@ -391,6 +424,7 @@ export function normalizePanelLayoutState(state, options = {}) {
     }
     panelState.collapsed = panelState.drawerOpen !== true;
     panelState.activeTab = normalizeTabForExperience(panelState.activeTab);
+    panelState.lorecardsStage = normalizeRuntimeLorecardsStage(panelState.lorecardsStage || panelState.mobile?.lorecardsStage || panelState.mobileLifecycleStage) || 'generate';
     panelState.drawerDirection = ['auto', 'right', 'left'].includes(panelState.drawerDirection) ? panelState.drawerDirection : 'auto';
     normalizeMobilePanelState(panelState);
 

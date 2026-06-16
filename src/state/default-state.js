@@ -290,6 +290,7 @@ export function getDefaultState() {
             acceptedDeckFilter: 'all',
             acceptedContextFilter: 'all',
             lorecardWorkspaceSort: 'alphabetical',
+            lorecardsStage: 'generate',
             selectedEntryId: '',
             selectedLoredeckId: '',
             loredeckLibraryDetailsHeight: 190,
@@ -319,6 +320,7 @@ export function getDefaultState() {
             mobile: {
                 activeRoute: 'session',
                 lastPrimaryRoute: 'session',
+                lorecardsStage: '',
                 subviewStacks: {
                     loredecks: [],
                     session: [],

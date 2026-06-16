@@ -64,6 +64,7 @@ import {
 } from './loredeck-health-panel.js';
 
 let libraryPanelDeps = {};
+const LOREDECK_LIBRARY_LONG_PRESS_MS = 520;
 
 export function configureLoredeckLibraryPanel(deps = {}) {
     libraryPanelDeps = { ...libraryPanelDeps, ...(deps || {}) };
@@ -2353,8 +2354,9 @@ export function createLoredeckLibraryEditableTitle(options = {}) {
     const value = normalizeLoredeckLibraryInlineTitle(options.value || options.fallback || '', 180) || 'Untitled';
     const kind = String(options.kind || 'title').trim() || 'title';
     const editable = options.editable === true && typeof options.onCommit === 'function';
+    const longPressOnly = editable && options.longPressOnly === true;
     const wrap = document.createElement('span');
-    wrap.className = `${options.className || ''} saga-loredeck-library-inline-title${editable ? ' saga-loredeck-library-inline-title-editable' : ''}`.trim();
+    wrap.className = `${options.className || ''} saga-loredeck-library-inline-title${editable ? ' saga-loredeck-library-inline-title-editable' : ''}${longPressOnly ? ' saga-loredeck-library-inline-title-longpress' : ''}`.trim();
 
     let label = document.createElement('span');
     label.className = 'saga-loredeck-library-inline-title-label';
@@ -2362,11 +2364,18 @@ export function createLoredeckLibraryEditableTitle(options = {}) {
     wrap.appendChild(label);
     if (!editable) return wrap;
 
-    const action = document.createElement('button');
-    action.type = 'button';
-    action.className = 'saga-loredeck-library-title-edit-action saga-loredeck-library-title-edit-mark';
-    addTooltip(action, `Rename ${kind}.`);
-    wrap.appendChild(action);
+    const action = longPressOnly ? null : document.createElement('button');
+    if (action) {
+        action.type = 'button';
+        action.className = 'saga-loredeck-library-title-edit-action saga-loredeck-library-title-edit-mark';
+        addTooltip(action, `Rename ${kind}.`);
+        wrap.appendChild(action);
+    } else {
+        wrap.tabIndex = 0;
+        wrap.setAttribute('role', 'button');
+        wrap.setAttribute('aria-label', `Long-press to rename ${kind}.`);
+        addTooltip(wrap, `Long-press to rename ${kind}.`);
+    }
 
     let editing = false;
     let input = null;
@@ -2377,10 +2386,12 @@ export function createLoredeckLibraryEditableTitle(options = {}) {
     const endEditing = nextTitle => {
         editing = false;
         wrap.classList.remove('saga-loredeck-library-inline-title-editing');
-        action.classList.remove('saga-loredeck-library-title-edit-accept');
-        action.classList.add('saga-loredeck-library-title-edit-mark');
-        action.dataset.sagaTooltip = `Rename ${kind}.`;
-        action.setAttribute('aria-label', `Rename ${kind}.`);
+        if (action) {
+            action.classList.remove('saga-loredeck-library-title-edit-accept');
+            action.classList.add('saga-loredeck-library-title-edit-mark');
+            action.dataset.sagaTooltip = `Rename ${kind}.`;
+            action.setAttribute('aria-label', `Rename ${kind}.`);
+        }
         const nextLabel = document.createElement('span');
         nextLabel.className = 'saga-loredeck-library-inline-title-label';
         nextLabel.textContent = normalizeLoredeckLibraryInlineTitle(nextTitle || value, 180) || value;
@@ -2412,10 +2423,12 @@ export function createLoredeckLibraryEditableTitle(options = {}) {
         editing = true;
         hideFloatingTooltip();
         wrap.classList.add('saga-loredeck-library-inline-title-editing');
-        action.classList.remove('saga-loredeck-library-title-edit-mark');
-        action.classList.add('saga-loredeck-library-title-edit-accept');
-        action.dataset.sagaTooltip = `Save ${kind} title.`;
-        action.setAttribute('aria-label', `Save ${kind} title.`);
+        if (action) {
+            action.classList.remove('saga-loredeck-library-title-edit-mark');
+            action.classList.add('saga-loredeck-library-title-edit-accept');
+            action.dataset.sagaTooltip = `Save ${kind} title.`;
+            action.setAttribute('aria-label', `Save ${kind} title.`);
+        }
         input = document.createElement('input');
         input.type = 'text';
         input.className = 'text_pole saga-loredeck-library-title-input';
@@ -2436,23 +2449,100 @@ export function createLoredeckLibraryEditableTitle(options = {}) {
                 e.stopPropagation();
             }
         });
+        if (longPressOnly) {
+            input.addEventListener('blur', () => {
+                if (editing) commitEditing();
+            });
+        }
         label.replaceWith(input);
         requestAnimationFrame(() => {
             input?.focus();
             input?.select();
         });
     };
-    action.addEventListener('click', e => {
-        if (editing) commitEditing(e);
-        else startEditing(e);
-    });
-    action.addEventListener('keydown', e => {
-        if (e.key === 'Enter' || e.key === ' ') {
+    if (action) {
+        action.addEventListener('click', e => {
             if (editing) commitEditing(e);
             else startEditing(e);
-        }
-    });
+        });
+        action.addEventListener('keydown', e => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                if (editing) commitEditing(e);
+                else startEditing(e);
+            }
+        });
+    } else {
+        attachLoredeckLibraryLongPressAction(wrap, startEditing);
+        wrap.addEventListener('keydown', e => {
+            if (editing || (e.key !== 'Enter' && e.key !== ' ')) return;
+            startEditing(e);
+        });
+    }
     return wrap;
+}
+
+function attachLoredeckLibraryLongPressAction(target, handler, options = {}) {
+    if (!target || typeof handler !== 'function') return target;
+    const delay = Math.max(240, Number(options.delayMs) || LOREDECK_LIBRARY_LONG_PRESS_MS);
+    const triggerOnRelease = options.triggerOnRelease === true;
+    const ignoreSelector = options.ignoreSelector || 'button, input, select, textarea, label, a, [contenteditable="true"], [contenteditable="plaintext-only"]';
+    let timer = null;
+    let fired = false;
+    let releasePending = false;
+    const clear = () => {
+        if (timer) {
+            clearTimeout(timer);
+            timer = null;
+        }
+        releasePending = false;
+        target.classList?.remove?.('saga-longpress-armed');
+    };
+    target.addEventListener('pointerdown', event => {
+        if (event.target?.closest?.(ignoreSelector)) return;
+        fired = false;
+        releasePending = false;
+        clear();
+        target.classList?.add?.('saga-longpress-armed');
+        timer = setTimeout(() => {
+            fired = true;
+            if (triggerOnRelease) {
+                timer = null;
+                releasePending = true;
+                return;
+            }
+            clear();
+            event.preventDefault?.();
+            event.stopPropagation?.();
+            hideFloatingTooltip();
+            handler(event);
+        }, delay);
+    });
+    target.addEventListener('pointerup', event => {
+        const shouldTrigger = releasePending;
+        clear();
+        if (!shouldTrigger) return;
+        event.preventDefault?.();
+        event.stopPropagation?.();
+        hideFloatingTooltip();
+        handler(event);
+    });
+    target.addEventListener('pointerleave', clear);
+    target.addEventListener('pointercancel', clear);
+    target.addEventListener('click', event => {
+        if (!fired) return;
+        fired = false;
+        event.preventDefault();
+        event.stopPropagation();
+    });
+    target.addEventListener('contextmenu', event => {
+        if (event.target?.closest?.(ignoreSelector)) return;
+        event.preventDefault();
+        event.stopPropagation();
+        clear();
+        hideFloatingTooltip();
+        handler(event);
+    });
+    return target;
 }
 
 function createLoredeckLibraryInlineFolderRow(folder = {}, options = {}) {
@@ -4292,6 +4382,7 @@ function createLoredeckLibraryDetailsPanel(pack = null, stack = [], canonDb = nu
     if (selectedFolder) {
         return createLoredeckLibraryFolderDetailsPanel(selectedFolder, stack, canonDb, health, libraryIndex, library);
     }
+    const mobile = isRuntimeMobileShell();
     if (!['overview', 'health'].includes(loredeckLibraryDetailsTab)) {
         loredeckLibraryDetailsTab = 'overview';
     }
@@ -4312,6 +4403,7 @@ function createLoredeckLibraryDetailsPanel(pack = null, stack = [], canonDb = nu
     identity.className = 'saga-loredeck-library-detail-identity';
     identity.appendChild(createLoredeckDeckVisual(pack, 'saga-loredeck-library-detail-monogram', {
         editableCover: true,
+        coverLongPressOnly: mobile,
     }));
     const main = document.createElement('div');
     main.className = 'saga-loredeck-library-detail-main';
@@ -4321,6 +4413,7 @@ function createLoredeckLibraryDetailsPanel(pack = null, stack = [], canonDb = nu
         fallback: pack.packId,
         className: 'saga-loredeck-library-detail-title',
         editable: isEditableLoredeckLibraryPack(pack),
+        longPressOnly: mobile,
         kind: 'Loredeck',
         onCommit: title => {
             const renamed = renameLoredeckLibraryDeckTitle(pack.packId, title);
@@ -4355,6 +4448,7 @@ function createLoredeckLibraryDetailsPanel(pack = null, stack = [], canonDb = nu
 }
 
 function createLoredeckLibraryFolderDetailsPanel(folder = {}, stack = [], canonDb = null, health = null, libraryIndex = {}, library = []) {
+    const mobile = isRuntimeMobileShell();
     const folderId = String(folder.id || '').trim();
     const panel = document.createElement('div');
     panel.className = 'saga-loredeck-library-details saga-loredeck-library-folder-details';
@@ -4405,6 +4499,7 @@ function createLoredeckLibraryFolderDetailsPanel(folder = {}, stack = [], canonD
         fallback: folderId || 'Folder',
         className: 'saga-loredeck-library-detail-title',
         editable: !!folderId && folderId !== 'unfiled',
+        longPressOnly: mobile,
         kind: 'folder',
         onCommit: title => {
             const renamed = renameLoredeckLibraryFolder(folderId, title);
@@ -5291,7 +5386,25 @@ export function createLoredeckDeckVisual(pack = {}, className = 'saga-loredeck-l
     const visual = document.createElement('div');
     visual.className = `${className} saga-loredeck-library-visual`;
     const cover = getLoredeckAssetRef(pack, 'cover');
-    const coverActions = options.editableCover ? createLoredeckCoverActionOverlay(pack, cover) : null;
+    const coverLongPressOnly = options.editableCover === true && options.coverLongPressOnly === true && isEditableLoredeckLibraryPack(pack);
+    const coverActions = options.editableCover && !coverLongPressOnly ? createLoredeckCoverActionOverlay(pack, cover) : null;
+    if (coverLongPressOnly) {
+        visual.classList.add('saga-loredeck-library-visual-longpress-editable');
+        visual.tabIndex = 0;
+        visual.setAttribute('role', 'button');
+        visual.setAttribute('aria-label', `Long-press to edit ${pack.title || pack.packId || 'this Loredeck'} cover image.`);
+        attachLoredeckLibraryLongPressAction(visual, event => {
+            event?.preventDefault?.();
+            event?.stopPropagation?.();
+            importLoredeckCoverImageFromFile(pack.packId);
+        }, { triggerOnRelease: true });
+        visual.addEventListener('keydown', event => {
+            if (event.key !== 'Enter' && event.key !== ' ') return;
+            event.preventDefault();
+            event.stopPropagation();
+            importLoredeckCoverImageFromFile(pack.packId);
+        });
+    }
     if (cover) {
         const img = document.createElement('img');
         img.src = getAssetSrc(cover);
@@ -5308,12 +5421,14 @@ export function createLoredeckDeckVisual(pack = {}, className = 'saga-loredeck-l
         if (cover.fit === 'contain') visual.classList.add('saga-loredeck-library-visual-contain');
         visual.appendChild(img);
         if (coverActions) visual.appendChild(coverActions);
-        addTooltip(visual, cover.title || cover.alt || `${pack.title || pack.packId} Deck Cover.`);
+        addTooltip(visual, coverLongPressOnly ? 'Long-press to replace this cover image.' : (cover.title || cover.alt || `${pack.title || pack.packId} Deck Cover.`));
         return visual;
     }
     setLoredeckDeckVisualFallback(visual, pack);
     if (coverActions) visual.appendChild(coverActions);
-    addTooltip(visual, `${pack.title || pack.packId || 'Loredeck'} monogram fallback.${isEditableLoredeckLibraryPack(pack) ? ' Import a cover image from this details panel.' : ' Duplicate as Custom to add a cover image.'}`);
+    addTooltip(visual, coverLongPressOnly
+        ? 'Long-press to add a cover image.'
+        : `${pack.title || pack.packId || 'Loredeck'} monogram fallback.${isEditableLoredeckLibraryPack(pack) ? ' Import a cover image from this details panel.' : ' Duplicate as Custom to add a cover image.'}`);
     return visual;
 }
 

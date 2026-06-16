@@ -53,8 +53,10 @@ import {
     truncateCleanText as truncateText,
 } from '../runtime/runtime-formatters.js';
 import {
+    getRuntimeLorecardsStage,
     getRuntimeMobileLorecardsStage,
     isRuntimeMobileShell,
+    selectRuntimeLorecardsStage,
     selectRuntimeMobileLorecardsStage,
 } from '../runtime/runtime-shell.js';
 import {
@@ -4773,7 +4775,6 @@ function createLorecardWorkspace(state = getState(), options = {}) {
     const panelState = state?.lorePanel || {};
     const activeFilter = normalizeLorecardWorkspaceFilter(panelState.lorecardWorkspaceFilter || 'all');
     const activeSort = normalizeLorecardWorkspaceSort(panelState.lorecardWorkspaceSort || 'alphabetical');
-    const tool = String(panelState.lorecardWorkspaceTool || '').trim();
 
     const workspace = document.createElement('div');
     workspace.className = 'saga-runtime-card saga-lorecard-workspace';
@@ -4829,20 +4830,12 @@ function createLorecardWorkspace(state = getState(), options = {}) {
     if (!mobileShell) {
         const utilities = document.createElement('div');
         utilities.className = 'saga-lorecard-workspace-utilities';
-        utilities.appendChild(createButton('Capture / Suggest', 'Open Lorecard creation and suggestion tools.', () => {
-            setPanelState({ lorecardWorkspaceTool: tool === 'generate' ? '' : 'generate' }, { deferSave: true });
-            refreshPanelBody({ preserveScroll: true });
-        }, tool === 'generate' ? 'saga-primary-button' : 'saga-small-button'));
         if (!basic) {
-            utilities.appendChild(createButton('Automation', 'Open Lore Automation controls.', () => {
-                setPanelState({ lorecardWorkspaceTool: tool === 'automation' ? '' : 'automation' }, { deferSave: true });
-                refreshPanelBody({ preserveScroll: true });
-            }, tool === 'automation' ? 'saga-primary-button' : 'saga-small-button'));
             utilities.appendChild(markTourTarget(createButton('Timeline', 'Open the Lore Timeline audit and recovery workbench.', () => {
                 openLoreTimeline();
             }, 'saga-small-button'), 'lore.timeline.open'));
         }
-        toolbar.appendChild(utilities);
+        if (utilities.childElementCount) toolbar.appendChild(utilities);
     }
     workspace.appendChild(toolbar);
 
@@ -4852,14 +4845,6 @@ function createLorecardWorkspace(state = getState(), options = {}) {
         filterRow.appendChild(createLorecardWorkspaceFilterChip(filter, label, Number(counts[filter] || 0), activeFilter));
     }
     workspace.appendChild(filterRow);
-
-    if (!mobileShell && tool === 'generate') {
-        workspace.appendChild(createLorecardGenerationCollapsible(state, { basic, lifecycleStats: getLorecardLifecycleStats(state), lifecycleStage: 'generate' }));
-    } else if (!mobileShell && !basic && tool === 'automation') {
-        const automation = createAutoRelevanceCard(state);
-        automation.classList.add('saga-lorecard-workspace-tool-card');
-        workspace.appendChild(automation);
-    }
 
     const body = document.createElement('div');
     body.className = 'saga-lorecard-workspace-body';
@@ -5081,15 +5066,14 @@ function openLorecardLifecycleStage(stage) {
         : normalized === 'active'
             ? 'active'
             : 'all';
-    const workspaceTool = normalized === 'suggested' ? 'generate' : '';
     setPanelState({
-        mobileLifecycleStage: normalized,
+        lorecardsStage: normalized === 'suggested' ? 'generate' : 'lore',
+        mobileLifecycleStage: normalized === 'suggested' ? 'generate' : 'lore',
         lorecardWorkspaceFilter: workspaceFilter,
-        lorecardWorkspaceTool: workspaceTool,
         pendingReviewVisibleLimit: 10,
         acceptedLoreVisibleLimit: getAcceptedLoreInitialVisibleLimit(),
     }, { deferSave: true });
-    refreshPanelBody({ preserveScroll: false });
+    selectRuntimeLorecardsStage(normalized === 'suggested' ? 'generate' : 'lore');
 }
 
 function createLorecardActiveSetSection(state = getState(), stats = getLorecardLifecycleStats(state)) {
@@ -5172,7 +5156,7 @@ function createLorecardActiveSetSection(state = getState(), stats = getLorecardL
         const actions = document.createElement('div');
         actions.className = 'saga-primary-actions saga-lore-active-set-actions';
         actions.appendChild(createButton('Accepted Lorecards', 'Show the Accepted Lorecards list for relevance, mute, Elevate, and edit controls.', () => openLorecardLifecycleStage('accepted'), hasAcceptedEntries ? 'saga-primary-button' : ''));
-        actions.appendChild(createButton('Capture / Suggest', 'Open Capture / Suggest to create more reviewable Lorecards.', () => openLorecardLifecycleStage('suggested'), hasAcceptedEntries ? '' : 'saga-primary-button'));
+        actions.appendChild(createButton('Generate', 'Open Generate to create more reviewable Lorecards.', () => openLorecardLifecycleStage('suggested'), hasAcceptedEntries ? '' : 'saga-primary-button'));
         section.appendChild(actions);
     }
     return section;
@@ -5753,12 +5737,13 @@ export function renderLorecardsTab(container, state) {
     const recommendedLifecycleStage = getRecommendedLorecardLifecycleStage(state, lifecycleStats);
     const lifecycleStage = mobileShell
         ? getRuntimeMobileLorecardsStage(state?.lorePanel, recommendedLifecycleStage, getSettings())
-        : 'lore';
+        : getRuntimeLorecardsStage(state?.lorePanel, recommendedLifecycleStage, getSettings());
+    const stageMeta = LORECARD_LIFECYCLE_STAGE_META[lifecycleStage] || LORECARD_LIFECYCLE_STAGE_META.lore;
     container.classList.add('saga-operator-tab', 'saga-lorecards-lifecycle-tab', 'saga-lorecards-workspace-tab', `saga-lore-stage-filter-${lifecycleStage}`);
     container.dataset.sagaLoreLifecycleStage = lifecycleStage;
     container.appendChild(createSectionHeader(
-        'Lorecards',
-        basic ? 'Review and manage Lorecards with advanced controls hidden.' : 'Review pending and accepted Lorecards in one workspace, with generation, automation, and timeline tools kept secondary.'
+        mobileShell ? 'Lorecards' : `Lorecards: ${stageMeta.label || 'Lore'}`,
+        getLorecardsStageSummary(lifecycleStage, { basic, lifecycleStats })
     ));
 
     if (mobileShell) {
@@ -5768,7 +5753,24 @@ export function renderLorecardsTab(container, state) {
         return;
     }
 
-    container.appendChild(createLorecardWorkspace(state, { basic, lifecycleStats }));
+    container.appendChild(createLorecardsStageContent(state, { basic, lifecycleStats, lifecycleStage }));
+}
+
+function getLorecardsStageSummary(lifecycleStage = 'lore', options = {}) {
+    const basic = !!options.basic;
+    const lifecycleStats = options.lifecycleStats || {};
+    if (lifecycleStage === 'generate') {
+        return basic
+            ? 'Draft Manual Lore Notes, scan story text, and prepare Pending Review entries.'
+            : 'Draft Manual Lore Notes, preview canon sources, scan story text, and prepare Pending Review entries.';
+    }
+    if (lifecycleStage === 'automation') {
+        return 'Configure Lore Automation, run it now, inspect recent activity, and recover the last run.';
+    }
+    const total = Number(lifecycleStats.allPendingCount || lifecycleStats.pendingCount || 0) + Number(lifecycleStats.acceptedCount || 0);
+    return basic
+        ? `Review and manage ${total} Lorecard${total === 1 ? '' : 's'} with advanced controls hidden.`
+        : 'Review pending and accepted Lorecards in one workspace with search, filters, timeline tools, and card details.';
 }
 
 function createMobileLorecardsStageLoadingShell(lifecycleStage = 'lore', lifecycleStats = {}) {
@@ -5821,7 +5823,7 @@ function scheduleMobileLorecardsStageRender(mount, state, options = {}) {
     schedule(() => setTimeout(render, 0));
 }
 
-function createMobileLorecardsStageContent(state, options = {}) {
+function createLorecardsStageContent(state, options = {}) {
     const fragment = document.createDocumentFragment();
     const basic = !!options.basic;
     const lifecycleStats = options.lifecycleStats || getLorecardLifecycleStats(state);
@@ -5831,16 +5833,21 @@ function createMobileLorecardsStageContent(state, options = {}) {
         return fragment;
     }
     if (lifecycleStage === 'automation') {
-        fragment.appendChild(createMobileLoreAutomationPage(state));
+        fragment.appendChild(createLoreAutomationPage(state));
         return fragment;
     }
     fragment.appendChild(createLorecardWorkspace(state, { basic, lifecycleStats }));
     return fragment;
 }
 
-function createMobileLoreAutomationPage(state = getState()) {
+function createMobileLorecardsStageContent(state, options = {}) {
+    return createLorecardsStageContent(state, options);
+}
+
+function createLoreAutomationPage(state = getState()) {
     const page = document.createElement('div');
-    page.className = 'saga-mobile-lore-automation-page';
+    page.className = 'saga-lore-automation-page';
+    if (isRuntimeMobileShell()) page.classList.add('saga-mobile-lore-automation-page');
     markTourTarget(page, 'lore.autoRelevance.mobilePage');
     page.appendChild(createAutoRelevanceCard(state));
     return page;
@@ -5852,7 +5859,7 @@ function createLorecardGenerationCollapsible(state, options = {}) {
     const lifecycleStage = normalizeMobileLorecardLifecycleStage(options.lifecycleStage) || normalizeLorecardLifecycleStage(options.lifecycleStage);
     const generationSection = createCollapsibleSection(
         'lore.generation',
-        lifecycleStage === 'generate' ? 'Generate' : 'Capture / Suggest',
+        'Generate',
         basic ? 'manual note + story scan' : 'manual note + canon/story sources',
         lifecycleStage === 'generate' || lifecycleStage === 'suggested' || (!lifecycleStats.pendingCount && !lifecycleStats.acceptedCount),
         dep('createLoreGenerationCard')(state),
@@ -6000,8 +6007,8 @@ export function createPendingLoreReviewSection(state, options = {}) {
         }
     } else {
         section.appendChild(createEmptyMessage(basicReview
-            ? 'No Pending Review entries are waiting. Use Capture / Suggest above or draft a Manual Lore Note.'
-            : 'No Pending Review entries are waiting. Use Capture / Suggest above for canon suggestions, story scans, or Manual Lore Notes.'
+            ? 'No Pending Review entries are waiting. Use Generate to draft a Manual Lore Note.'
+            : 'No Pending Review entries are waiting. Use Generate for canon suggestions, story scans, or Manual Lore Notes.'
         ));
     }
 

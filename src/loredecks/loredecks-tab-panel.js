@@ -112,15 +112,14 @@ export function renderLoredecksTab(container, state) {
         'Loredecks',
         'Source decks loaded for canon suggestions, relevance, and Saga deck editing.'
     ));
-    const creatorProjects = !basic ? createLoredeckCreatorProjectsSection(state, { mobile }) : null;
-    if (mobile && creatorProjects?.count) container.appendChild(creatorProjects.section);
-
     const libraryCard = createLoredeckLibraryLaunchCard(state, canonDb, health);
     markTourTarget(libraryCard, 'loredecks.library.launch');
     container.appendChild(libraryCard);
 
+    const creatorProjects = !basic ? createLoredeckCreatorProjectsSection(state, { mobile }) : null;
+
     if (mobile) {
-        if (creatorProjects && !creatorProjects.count) container.appendChild(creatorProjects.section);
+        if (creatorProjects) container.appendChild(creatorProjects.section);
         return;
     }
 
@@ -647,6 +646,7 @@ function moveLoredeckCreatorProjectsToFolder(jobIds = [], folderId = 'unfiled', 
 function createLoredeckCreatorProjectCard(model = {}, options = {}) {
     const card = document.createElement('div');
     card.className = 'saga-loredeck-creator-project-card';
+    const mobile = isRuntimeMobileShell();
     markTourTarget(card, 'loredecks.creator.projectCard');
     if (options.active) card.classList.add('saga-loredeck-creator-project-card-active');
     if (options.selected) card.classList.add('saga-loredeck-creator-project-card-selected');
@@ -672,6 +672,7 @@ function createLoredeckCreatorProjectCard(model = {}, options = {}) {
         fallback: model.title || 'Untitled Creator Project',
         kind: 'Creator project',
         editable: !!model.jobId,
+        longPressOnly: mobile,
         onCommit: nextTitle => renameLoredeckCreatorProjectTitle(model.jobId, nextTitle),
     }));
     top.appendChild(title);

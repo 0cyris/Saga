@@ -142,6 +142,136 @@
     color: #f1e8cf;
 }
 
+.saga-runtime-rail-tab-flyout-open {
+    background: rgba(180, 160, 140, 0.16);
+    border-color: rgba(215, 181, 109, 0.5);
+    color: var(--saga-gold, #d7b56d);
+    box-shadow:
+        0 0 0 1px rgba(215, 181, 109, 0.08) inset,
+        0 0 16px rgba(56, 184, 166, 0.12);
+}
+
+.saga-desktop-lorecards-flyout {
+    --saga-lorecards-flyout-height: 126px;
+    position: absolute;
+    z-index: 6;
+    left: calc(var(--saga-rail-width, 52px) + 12px);
+    top: calc(var(--saga-lorecards-flyout-center-y, 180px) - 63px);
+    width: 122px;
+    min-height: var(--saga-lorecards-flyout-height);
+    display: grid;
+    grid-template-rows: repeat(3, 36px);
+    gap: 5px;
+    padding: 4px;
+    border: 1px solid rgba(215, 181, 109, 0.28);
+    border-radius: 8px;
+    background:
+        linear-gradient(180deg, rgba(28, 26, 34, 0.98), rgba(13, 15, 22, 0.98));
+    box-shadow:
+        0 10px 24px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(255, 255, 255, 0.035) inset;
+    box-sizing: border-box;
+    transform-origin: left center;
+    animation: saga-desktop-lorecards-flyout-in 150ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.saga-desktop-lorecards-flyout::before {
+    content: "";
+    position: absolute;
+    left: -13px;
+    top: calc(50% - 1px);
+    width: 13px;
+    height: 2px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(215, 181, 109, 0.12), rgba(215, 181, 109, 0.64));
+    box-shadow: 0 0 8px rgba(56, 184, 166, 0.18);
+}
+
+.saga-desktop-lorecards-flyout-option {
+    min-width: 0;
+    min-height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 10px;
+    border: 1px solid rgba(180, 160, 140, 0.18);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.045);
+    color: var(--saga-muted, rgba(241, 234, 216, 0.74));
+    font: inherit;
+    font-size: 0.84em;
+    font-weight: 760;
+    line-height: 1.1;
+    letter-spacing: 0;
+    text-align: center;
+    cursor: pointer;
+    box-sizing: border-box;
+    opacity: 0;
+    transform: translateX(-5px) scale(0.98);
+    animation: saga-desktop-lorecards-flyout-option-in 140ms cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.saga-desktop-lorecards-flyout-option:nth-child(2) {
+    animation-delay: 20ms;
+}
+
+.saga-desktop-lorecards-flyout-option:nth-child(3) {
+    animation-delay: 40ms;
+}
+
+.saga-desktop-lorecards-flyout-option:hover,
+.saga-desktop-lorecards-flyout-option:focus-visible {
+    color: var(--saga-text, #f1ead8);
+    border-color: rgba(215, 181, 109, 0.38);
+    background: rgba(215, 181, 109, 0.08);
+}
+
+.saga-desktop-lorecards-flyout-option-active,
+.saga-desktop-lorecards-flyout-option[aria-selected="true"] {
+    color: var(--saga-gold, #d7b56d);
+    border-color: rgba(215, 181, 109, 0.56);
+    background:
+        radial-gradient(circle at 50% 0%, rgba(215, 181, 109, 0.13), transparent 60%),
+        rgba(92, 23, 36, 0.36);
+    box-shadow:
+        0 0 0 1px rgba(215, 181, 109, 0.08) inset,
+        0 0 11px rgba(56, 184, 166, 0.12);
+}
+
+.saga-desktop-lorecards-flyout-label {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@keyframes saga-desktop-lorecards-flyout-in {
+    from {
+        opacity: 0;
+        transform: translateX(-4px) scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+@keyframes saga-desktop-lorecards-flyout-option-in {
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .saga-desktop-lorecards-flyout,
+    .saga-desktop-lorecards-flyout-option {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+}
+
 .saga-runtime-rail-icon {
     flex: 0 0 26px;
     width: 26px;
@@ -923,6 +1053,12 @@
     white-space: nowrap;
 }
 
+.saga-prompt-placement-card .saga-inline-field select,
+.saga-prompt-placement-card .saga-inline-field input[type="number"] {
+    display: block;
+    margin: 0;
+}
+
 @container (max-width: 430px) {
     .saga-prompt-placement-line,
     .saga-prompt-placement-method-line {
@@ -988,11 +1124,14 @@
 .saga-lore-panel.saga-runtime-shell.saga-runtime-mobile .saga-prompt-placement-control-wrap {
     grid-template-columns: minmax(96px, 1fr) minmax(48px, 0.52fr) minmax(68px, 0.78fr);
     gap: 4px;
-    align-items: end;
+    align-items: stretch;
 }
 
 .saga-lore-panel.saga-runtime-shell.saga-runtime-mobile .saga-prompt-placement-card .saga-inline-field {
+    display: grid;
     grid-template-columns: 1fr;
+    grid-template-rows: 0.86rem 30px;
+    align-items: stretch;
     gap: 2px;
     font-size: 0.72rem;
     line-height: 1.1;
@@ -1000,25 +1139,31 @@
 
 .saga-lore-panel.saga-runtime-shell.saga-runtime-mobile .saga-prompt-placement-method-line > .saga-inline-field {
     grid-template-columns: minmax(112px, 0.72fr) minmax(0, 1fr);
+    grid-template-rows: 1fr;
     align-items: center;
     gap: 6px;
 }
 
 .saga-lore-panel.saga-runtime-shell.saga-runtime-mobile .saga-prompt-placement-card .saga-inline-field span {
+    display: block;
+    height: 0.86rem;
     min-width: 0;
     color: var(--saga-muted, rgba(241, 234, 216, 0.72));
     font-size: 0.72rem;
-    line-height: 1.1;
+    line-height: 0.86rem;
     opacity: 0.9;
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .saga-lore-panel.saga-runtime-shell.saga-runtime-mobile .saga-prompt-placement-card .saga-inline-field select,
 .saga-lore-panel.saga-runtime-shell.saga-runtime-mobile .saga-prompt-placement-card .saga-inline-field input[type="number"] {
+    display: block;
     width: 100%;
     min-height: 30px;
     height: 30px;
+    margin: 0;
     font-size: 0.8rem;
     line-height: 1.2;
     padding: 4px 6px;

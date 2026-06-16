@@ -4574,6 +4574,10 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
         const text = document.body?.innerText || '';
         const creatorSection = document.querySelector('[data-saga-tour="loredecks.creator.projects"]');
         const libraryCard = document.querySelector('[data-saga-tour="loredecks.library.launch"].saga-loredeck-library-launch-card');
+        const creatorControlFontSizes = [...document.querySelectorAll('.saga-loredeck-creator-project-search, .saga-loredeck-creator-project-filter, .saga-loredeck-creator-project-folder-filter, .saga-loredeck-creator-project-move-select')]
+            .map(node => Number.parseFloat(getComputedStyle(node).fontSize) || 0);
+        const creatorTitleFontSizes = [...document.querySelectorAll('.saga-loredeck-creator-project-title')]
+            .map(node => Number.parseFloat(getComputedStyle(node).fontSize) || 0);
         const libraryActions = [...document.querySelectorAll('.saga-loredeck-library-launch-actions button')].map(node => (node.innerText || node.textContent || '').trim()).filter(Boolean);
         const stackDetailsHeaders = [...document.querySelectorAll('.saga-operator-summary-header-tappable, [data-saga-tour="loredecks.operator.details"]')]
             .map(node => ({
@@ -4597,7 +4601,9 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
             creatorProjectCount: Number(creatorSection?.dataset?.sagaCreatorProjectCount || 0),
             creatorProjectCards: document.querySelectorAll('.saga-loredeck-creator-project-card').length,
             hasSeededCreatorProject: text.includes('Smoke Creator Project') || text.includes('Smoke Generated: Arlong Park'),
-            creatorSectionBeforeLibrary: !!creatorSection && !!libraryCard && !!(creatorSection.compareDocumentPosition(libraryCard) & Node.DOCUMENT_POSITION_FOLLOWING),
+            creatorSectionAfterLibrary: !!creatorSection && !!libraryCard && !!(libraryCard.compareDocumentPosition(creatorSection) & Node.DOCUMENT_POSITION_FOLLOWING),
+            maxCreatorProjectControlFontSize: creatorControlFontSizes.length ? Math.max(...creatorControlFontSizes) : 0,
+            maxCreatorProjectTitleFontSize: creatorTitleFontSizes.length ? Math.max(...creatorTitleFontSizes) : 0,
             hasStackDetailsHeader: stackDetailsHeaders.some(item => item.ariaLabel === 'Open Stack Details'
                 || item.tour === 'loredecks.operator.details'
                 || item.text.includes('Active Stack')),
@@ -4614,8 +4620,11 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
     }
     if (initialState.hasActiveStack || initialState.hasStackDetailsHeader) findings.push('Mobile Advanced Loredecks root still rendered the retired Active Stack summary or Stack Details affordance.');
     if (!initialState.hasLibraryCard || !initialState.hasOpenLibrary || !initialState.hasCreateDeck) findings.push('Mobile Advanced Loredecks root did not render the static Library card with Library and Creator actions.');
-    if (!initialState.hasCreatorProjectsSection || !initialState.creatorProjectsOpen || initialState.creatorProjectCount < 1 || initialState.creatorProjectCards < 1 || !initialState.hasSeededCreatorProject || !initialState.creatorSectionBeforeLibrary) {
-        findings.push(`Mobile Advanced Loredecks root did not show the in-progress Creator Projects shelf before the Library card: ${JSON.stringify(initialState)}.`);
+    if (!initialState.hasCreatorProjectsSection || !initialState.creatorProjectsOpen || initialState.creatorProjectCount < 1 || initialState.creatorProjectCards < 1 || !initialState.hasSeededCreatorProject || !initialState.creatorSectionAfterLibrary) {
+        findings.push(`Mobile Advanced Loredecks root did not show the in-progress Creator Projects shelf under the Library card: ${JSON.stringify(initialState)}.`);
+    }
+    if (initialState.maxCreatorProjectControlFontSize > 13.5 || initialState.maxCreatorProjectTitleFontSize > 14) {
+        findings.push(`Mobile Advanced Creator Projects typography is oversized: ${JSON.stringify({ controls: initialState.maxCreatorProjectControlFontSize, titles: initialState.maxCreatorProjectTitleFontSize })}.`);
     }
     if (!initialState.libraryActions.includes('Open Loredeck Library') || !initialState.libraryActions.includes('Import Deck')) findings.push('Mobile Advanced Loredecks static Library card did not expose Library and Import actions.');
     if (initialState.libraryActions.some(label => /^Next:/.test(label))) findings.push('Mobile Advanced Loredecks root exposed checklist-style Next actions.');
@@ -4707,6 +4716,23 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
                 width: round(controlRect.width),
             };
         });
+        const promptControlBoxAlignment = promptRows.map(row => {
+            const controls = [...row.querySelectorAll('.saga-inline-field select, .saga-inline-field input[type="number"]')].map(node => {
+                const controlRect = node.getBoundingClientRect();
+                return {
+                    top: round(controlRect.top),
+                    bottom: round(controlRect.bottom),
+                    width: round(controlRect.width),
+                };
+            });
+            const topValues = controls.map(item => item.top);
+            const bottomValues = controls.map(item => item.bottom);
+            return {
+                count: controls.length,
+                topSpread: topValues.length ? round(Math.max(...topValues) - Math.min(...topValues)) : 0,
+                bottomSpread: bottomValues.length ? round(Math.max(...bottomValues) - Math.min(...bottomValues)) : 0,
+            };
+        });
         const rowHeights = promptRows.map(row => round(row.getBoundingClientRect().height));
         const fontSizeOf = selector => {
             const node = card.querySelector(selector);
@@ -4719,6 +4745,12 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
             .map(node => round(num(getComputedStyle(node).fontSize)))
             .filter(Boolean);
         const distinctControlTops = new Set(firstWrapControls.map(item => item.top));
+        const maxPromptControlTopSpread = promptControlBoxAlignment.length
+            ? Math.max(...promptControlBoxAlignment.map(item => item.topSpread))
+            : 0;
+        const maxPromptControlBottomSpread = promptControlBoxAlignment.length
+            ? Math.max(...promptControlBoxAlignment.map(item => item.bottomSpread))
+            : 0;
         return {
             present: true,
             cardHeight: round(rect.height),
@@ -4727,6 +4759,11 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
             maxPromptRowHeight: rowHeights.length ? Math.max(...rowHeights) : 0,
             firstPromptControls: firstWrapControls.length,
             firstPromptControlsSameRow: distinctControlTops.size === 1,
+            promptControlBoxAlignment,
+            maxPromptControlTopSpread,
+            maxPromptControlBottomSpread,
+            allPromptControlBoxesAligned: promptControlBoxAlignment.length === 4
+                && promptControlBoxAlignment.every(item => item.count === 3 && item.topSpread <= 1 && item.bottomSpread <= 1),
             titleFontSize: fontSizeOf('.saga-runtime-card-title'),
             helpFontSize: fontSizeOf('.saga-runtime-help'),
             minLabelFontSize: labelFontSizes.length ? Math.min(...labelFontSizes) : 0,
@@ -4739,10 +4776,37 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
     if (!injectionPlacementState.present) findings.push('Mobile Advanced Injection route did not render Prompt Placement for layout audit.');
     if (injectionPlacementState.present && injectionPlacementState.rowCount !== 4) findings.push(`Mobile Prompt Placement rendered ${injectionPlacementState.rowCount} prompt rows instead of 4.`);
     if (injectionPlacementState.present && !injectionPlacementState.firstPromptControlsSameRow) findings.push('Mobile Prompt Placement stacked Position/Depth/Role controls instead of keeping them in one compact row.');
+    if (injectionPlacementState.present && !injectionPlacementState.allPromptControlBoxesAligned) findings.push(`Mobile Prompt Placement visible control boxes are vertically misaligned: ${JSON.stringify(injectionPlacementState.promptControlBoxAlignment)}.`);
     if (injectionPlacementState.present && injectionPlacementState.cardHeight > 430) findings.push(`Mobile Prompt Placement card is still too tall at ${injectionPlacementState.cardHeight}px.`);
     if (injectionPlacementState.present && injectionPlacementState.maxPromptRowHeight > 58) findings.push(`Mobile Prompt Placement rows are too tall at ${injectionPlacementState.maxPromptRowHeight}px.`);
     if (injectionPlacementState.present && (injectionPlacementState.minLabelFontSize < 10.5 || injectionPlacementState.maxControlFontSize > 14)) findings.push(`Mobile Prompt Placement font audit failed: labels ${injectionPlacementState.minLabelFontSize}-${injectionPlacementState.maxLabelFontSize}px, controls ${injectionPlacementState.minControlFontSize}-${injectionPlacementState.maxControlFontSize}px.`);
     if (injectionPlacementState.present && !injectionPlacementState.noHorizontalOverflow) findings.push('Mobile Prompt Placement introduced horizontal overflow.');
+    const compressionSectionOpen = await evaluate(client, script(() => {
+        const section = document.querySelector('[data-saga-tour="injection.compression"]');
+        if (!section) return { present: false, open: false };
+        if (section.tagName === 'DETAILS' && !section.open) section.open = true;
+        section.scrollIntoView({ block: 'center', inline: 'nearest' });
+        return { present: true, open: section.tagName !== 'DETAILS' || !!section.open };
+    }));
+    if (!compressionSectionOpen.present || !compressionSectionOpen.open) findings.push('Mobile Advanced Compression Prompts section could not be opened for font audit.');
+    await wait(150);
+    const compressionPromptFontState = await evaluate(client, script(() => {
+        const num = value => Number.isFinite(Number.parseFloat(value)) ? Number.parseFloat(value) : 0;
+        const round = value => Number.isFinite(value) ? Math.round(value * 10) / 10 : 0;
+        const editors = [...document.querySelectorAll('.saga-compression-template-editor')];
+        const fontSizes = editors.map(node => round(num(getComputedStyle(node).fontSize))).filter(Boolean);
+        const lineHeights = editors.map(node => round(num(getComputedStyle(node).lineHeight))).filter(Boolean);
+        return {
+            present: editors.length > 0,
+            editorCount: editors.length,
+            minFontSize: fontSizes.length ? Math.min(...fontSizes) : 0,
+            maxFontSize: fontSizes.length ? Math.max(...fontSizes) : 0,
+            minLineHeight: lineHeights.length ? Math.min(...lineHeights) : 0,
+            maxLineHeight: lineHeights.length ? Math.max(...lineHeights) : 0,
+        };
+    }));
+    if (!compressionPromptFontState.present || compressionPromptFontState.editorCount !== 2) findings.push(`Mobile Compression Prompts did not render both template editors for font audit: ${JSON.stringify(compressionPromptFontState)}.`);
+    if (compressionPromptFontState.present && compressionPromptFontState.maxFontSize > 12.5) findings.push(`Mobile Compression Prompts editor text is oversized: ${JSON.stringify(compressionPromptFontState)}.`);
     const injectionScrollAudit = await getMobileNestedScrollAuditState(client, {
         label: 'Injection route',
         scopeSelector: '#saga-lore-panel.saga-runtime-mobile',
@@ -4956,6 +5020,8 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
         const overlay = document.querySelector('.saga-loredeck-library-overlay');
         const sheet = overlay?.querySelector('.saga-loredeck-library-mobile-detail-sheet');
         const details = sheet?.querySelector('.saga-loredeck-library-details');
+        const titleEditActions = details?.querySelectorAll('.saga-loredeck-library-title-edit-action').length || 0;
+        const coverActions = details?.querySelectorAll('.saga-loredeck-library-cover-actions').length || 0;
         const overlayLabels = [...overlay?.querySelectorAll('button') || []].map(button => (button.innerText || button.textContent || '').trim()).filter(Boolean);
         const detailLabels = [...details?.querySelectorAll('button') || []].map(button => (button.innerText || button.textContent || '').trim()).filter(Boolean);
         const text = details?.innerText || '';
@@ -4970,6 +5036,10 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
             hasClose: overlayLabels.includes('Close'),
             hasDone: overlayLabels.includes('Done'),
             hasDetailPanel: !!sheet?.querySelector('.saga-loredeck-library-mobile-detail-panel'),
+            hasLongPressTitle: !!details?.querySelector('.saga-loredeck-library-inline-title-longpress'),
+            hasLongPressCover: !!details?.querySelector('.saga-loredeck-library-visual-longpress-editable'),
+            titleEditActions,
+            coverActions,
             detailLabels,
             overlayLabels,
         };
@@ -5009,6 +5079,9 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
     }));
     if (!libraryState.open || !libraryState.sheetOpen || !libraryState.hasPackTitle) findings.push('Mobile Advanced Library did not render selected Loredeck detail sheet.');
     if (!libraryOverviewState.sheetOpen || !libraryOverviewState.hasObjectActions || !libraryOverviewState.hasDetailPanel) findings.push('Mobile Advanced Library detail sheet did not render selected object actions.');
+    if (!libraryOverviewState.hasLongPressTitle || !libraryOverviewState.hasLongPressCover || libraryOverviewState.titleEditActions || libraryOverviewState.coverActions) {
+        findings.push(`Mobile Advanced Library detail sheet did not replace title/cover edit controls with long-press targets: ${JSON.stringify(libraryOverviewState)}.`);
+    }
     if (!libraryState.hasHealthTab || !libraryState.hasHealthActions) findings.push('Mobile Advanced Library did not render Health detail actions.');
     if (!libraryState.hasClose || !libraryState.hasDone) findings.push('Mobile Advanced Library did not expose Close and Done actions.');
     screenshots.push(await screenshot(client, 'mobile-advanced-harness-05-library-actions'));

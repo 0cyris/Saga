@@ -1387,15 +1387,20 @@
     background: rgba(0, 0, 0, 0.32);
     color: var(--SmartThemeBodyColor, #e0e0e0);
     font-family: 'Courier New', monospace;
-    font-size: 0.74em;
-    line-height: 1.35;
-    padding: 7px 8px;
+    font-size: 12px;
+    line-height: 1.32;
+    padding: 6px 7px;
 }
 
 .saga-compression-template-editor:focus {
     outline: none;
     border-color: rgba(120, 150, 180, 0.65);
     box-shadow: 0 0 4px rgba(80, 120, 160, 0.25);
+}
+
+.saga-lore-panel.saga-runtime-shell.saga-runtime-mobile .saga-compression-template-editor {
+    font-size: 12px;
+    line-height: 1.32;
 }
 
 .saga-compression-handling-card .saga-slider-row span {

@@ -26,6 +26,7 @@ import {
     getRuntimeMobileActiveSubview,
     getRuntimeMobileActiveTab,
     getRuntimeMobileLorecardsStage,
+    getRuntimeLorecardsStage,
     getConstrainedDrawerHeight,
     getConstrainedDrawerWidth,
     getRailWidth,
@@ -37,6 +38,7 @@ import {
     onRuntimeDrawerResizeStart,
     onRuntimeRailDragStart,
     resolveDrawerDirection,
+    selectRuntimeLorecardsStage,
     selectRuntimeMobileLorecardsStage,
     selectRuntimeMobileRoute,
     updateDrawerScrollMetrics,
@@ -60,6 +62,8 @@ import {
 
 let deps = {};
 let mobileLorecardsSubtabsIntroSeen = false;
+let desktopLorecardsFlyoutOpen = false;
+let desktopLorecardsFlyoutDocumentHandlerInstalled = false;
 
 const MOBILE_LORECARDS_SUBTAB_META = Object.freeze({
     generate: Object.freeze({
@@ -95,6 +99,7 @@ export function renderPanelShell(root, state) {
     const settings = getSettings();
 
     if (isRuntimeMobileShell()) {
+        setDesktopLorecardsFlyoutOpen(false, { render: false });
         renderMobilePanelShell(root, state, settings);
         return;
     }
@@ -102,21 +107,30 @@ export function renderPanelShell(root, state) {
     const railMode = normalizeRailMode(panelState.railMode);
     const drawerOpen = panelState.drawerOpen === true;
     const drawerDirection = drawerOpen ? resolveDrawerDirection(panelState) : 'right';
+    const activeTab = normalizeTabForExperience(panelState.activeTab, settings);
 
     root.innerHTML = '';
     root.className = 'saga-lore-panel saga-runtime-shell';
     root.removeEventListener('keydown', onRuntimeMobileShellKeydown);
+    root.removeEventListener('keydown', onRuntimeDesktopShellKeydown);
+    root.addEventListener('keydown', onRuntimeDesktopShellKeydown);
     root.classList.add(`saga-runtime-rail-${railMode}`);
     if (drawerOpen) root.classList.add('saga-runtime-drawer-open');
+    if (desktopLorecardsFlyoutOpen) root.classList.add('saga-runtime-lorecards-flyout-open');
     root.dataset.railMode = railMode;
     root.dataset.drawerDirection = drawerDirection;
+    root.dataset.lorecardsStage = activeTab === 'lore'
+        ? getRuntimeLorecardsStage(panelState, getDesktopLorecardsFallbackStage(state), settings)
+        : '';
     root.style.setProperty('--saga-rail-width', `${getRailWidth(panelState)}px`);
     root.style.setProperty('--saga-drawer-width', `${getConstrainedDrawerWidth(panelState, drawerDirection)}px`);
     root.style.setProperty('--saga-drawer-height', `${getConstrainedDrawerHeight(panelState)}px`);
     applyRuntimeTheme(root, settings);
 
     root.appendChild(renderRail(state));
+    if (desktopLorecardsFlyoutOpen) root.appendChild(renderDesktopLorecardsFlyout(root, state, settings));
     if (drawerOpen) root.appendChild(renderDrawer(state, drawerDirection));
+    syncDesktopLorecardsFlyoutDocumentHandler();
 
     refreshRuntimeHeader(root);
 }
@@ -137,6 +151,8 @@ export function renderPanelFallbackShell(root, state, error) {
     root.innerHTML = '';
     root.className = 'saga-lore-panel saga-runtime-shell';
     root.removeEventListener('keydown', onRuntimeMobileShellKeydown);
+    root.removeEventListener('keydown', onRuntimeDesktopShellKeydown);
+    root.addEventListener('keydown', onRuntimeDesktopShellKeydown);
     root.classList.add(`saga-runtime-rail-${railMode}`);
     root.classList.add('saga-runtime-drawer-open');
     root.dataset.railMode = railMode;
@@ -176,6 +192,56 @@ export function renderPanelFallbackShell(root, state, error) {
     root.appendChild(drawer);
 }
 
+function syncDesktopLorecardsFlyoutDocumentHandler() {
+    if (typeof document === 'undefined') return;
+    if (desktopLorecardsFlyoutOpen && !desktopLorecardsFlyoutDocumentHandlerInstalled) {
+        document.addEventListener('pointerdown', onDesktopLorecardsFlyoutDocumentPointerDown, true);
+        document.addEventListener('keydown', onDesktopLorecardsFlyoutDocumentKeydown, true);
+        desktopLorecardsFlyoutDocumentHandlerInstalled = true;
+    } else if (!desktopLorecardsFlyoutOpen && desktopLorecardsFlyoutDocumentHandlerInstalled) {
+        document.removeEventListener('pointerdown', onDesktopLorecardsFlyoutDocumentPointerDown, true);
+        document.removeEventListener('keydown', onDesktopLorecardsFlyoutDocumentKeydown, true);
+        desktopLorecardsFlyoutDocumentHandlerInstalled = false;
+    }
+}
+
+function setDesktopLorecardsFlyoutOpen(open, options = {}) {
+    const nextOpen = !!open;
+    if (desktopLorecardsFlyoutOpen === nextOpen) {
+        syncDesktopLorecardsFlyoutDocumentHandler();
+        return;
+    }
+    desktopLorecardsFlyoutOpen = nextOpen;
+    syncDesktopLorecardsFlyoutDocumentHandler();
+    if (options.render !== false) dep('showRuntimePanel')();
+}
+
+function onDesktopLorecardsFlyoutDocumentPointerDown(event) {
+    if (!desktopLorecardsFlyoutOpen) return;
+    const target = event.target;
+    if (target?.closest?.('.saga-desktop-lorecards-flyout, .saga-runtime-rail-tab[data-tab-id="lore"]')) return;
+    const schedule = globalThis.setTimeout || (callback => callback());
+    schedule(() => setDesktopLorecardsFlyoutOpen(false), 0);
+}
+
+function onDesktopLorecardsFlyoutDocumentKeydown(event) {
+    if (!desktopLorecardsFlyoutOpen || event.key !== 'Escape' || event.defaultPrevented) return;
+    event.preventDefault();
+    event.stopPropagation();
+    setDesktopLorecardsFlyoutOpen(false);
+}
+
+function onRuntimeDesktopShellKeydown(event) {
+    if (event.key !== 'Escape' || event.defaultPrevented || !desktopLorecardsFlyoutOpen) return;
+    const target = event.target;
+    const targetTag = String(target?.tagName || '').toUpperCase();
+    if (['INPUT', 'TEXTAREA', 'SELECT'].includes(targetTag) || target?.isContentEditable) return;
+
+    event.preventDefault();
+    event.stopPropagation();
+    setDesktopLorecardsFlyoutOpen(false);
+}
+
 function renderMobilePanelShell(root, state, settings = getSettings(), options = {}) {
     const panelState = state?.lorePanel || getDefaultState().lorePanel;
     const mobile = normalizeMobilePanelState(panelState, settings);
@@ -198,6 +264,7 @@ function renderMobilePanelShell(root, state, settings = getSettings(), options =
         ? getRuntimeMobileLorecardsStage(panelState, getMobileLorecardsFallbackStage(state), settings)
         : '';
     root.removeEventListener('keydown', onRuntimeMobileShellKeydown);
+    root.removeEventListener('keydown', onRuntimeDesktopShellKeydown);
     root.addEventListener('keydown', onRuntimeMobileShellKeydown);
     root.style.left = '';
     root.style.top = '';
@@ -408,6 +475,67 @@ function getMobileLorecardsFallbackStage(state) {
     return 'generate';
 }
 
+function getDesktopLorecardsFallbackStage(state) {
+    void state;
+    return 'generate';
+}
+
+function renderDesktopLorecardsFlyout(root, state, settings = getSettings()) {
+    const panelState = state?.lorePanel || getDefaultState().lorePanel;
+    const activeStage = getRuntimeLorecardsStage(panelState, getDesktopLorecardsFallbackStage(state), settings);
+    const nav = document.createElement('nav');
+    nav.id = 'saga-desktop-lorecards-flyout';
+    nav.className = 'saga-desktop-lorecards-flyout';
+    nav.setAttribute('role', 'tablist');
+    nav.setAttribute('aria-label', 'Lorecards workspace');
+
+    updateDesktopLorecardsFlyoutPosition(root, nav);
+    const schedule = globalThis.requestAnimationFrame || (callback => setTimeout(callback, 0));
+    schedule(() => updateDesktopLorecardsFlyoutPosition(root, nav));
+
+    for (const stage of MOBILE_LORECARDS_STAGES) {
+        const meta = MOBILE_LORECARDS_SUBTAB_META[stage] || MOBILE_LORECARDS_SUBTAB_META.lore;
+        const option = document.createElement('button');
+        option.type = 'button';
+        option.className = 'saga-desktop-lorecards-flyout-option';
+        option.dataset.stage = stage;
+        option.setAttribute('role', 'tab');
+        option.setAttribute('aria-selected', stage === activeStage ? 'true' : 'false');
+        option.tabIndex = stage === activeStage ? 0 : -1;
+        if (stage === activeStage) option.classList.add('saga-desktop-lorecards-flyout-option-active');
+        addTooltip(option, meta.tooltip);
+
+        const label = document.createElement('span');
+        label.className = 'saga-desktop-lorecards-flyout-label';
+        label.textContent = meta.label;
+        option.appendChild(label);
+
+        option.addEventListener('click', (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            hideFloatingTooltip();
+            setDesktopLorecardsFlyoutOpen(false, { render: false });
+            selectRuntimeLorecardsStage(stage);
+        });
+        nav.appendChild(option);
+    }
+
+    return nav;
+}
+
+function updateDesktopLorecardsFlyoutPosition(root, flyout) {
+    if (!root || !flyout) return;
+    const railTab = root.querySelector('.saga-runtime-rail-tab[data-tab-id="lore"]');
+    const rootRect = root.getBoundingClientRect?.();
+    const tabRect = railTab?.getBoundingClientRect?.();
+    const centerY = rootRect && tabRect && tabRect.height > 0
+        ? Math.round(tabRect.top - rootRect.top + (tabRect.height / 2))
+        : Math.round((Number(railTab?.offsetTop) || 0) + ((Number(railTab?.offsetHeight) || 36) / 2));
+    if (Number.isFinite(centerY) && centerY > 0) {
+        flyout.style.setProperty('--saga-lorecards-flyout-center-y', `${centerY}px`);
+    }
+}
+
 function renderMobileLorecardsSubTabs(state, settings = getSettings()) {
     const panelState = state?.lorePanel || getDefaultState().lorePanel;
     const counts = getMobileLorecardsSubTabCounts(state);
@@ -513,9 +641,16 @@ function renderRail(state) {
         tab.className = 'saga-runtime-rail-tab';
         tab.dataset.tabId = tabId;
         const isGlobalLoredecksTab = tabId === 'loredecks';
+        const isLorecardsTab = tabId === 'lore';
         if (isGlobalLoredecksTab) tab.classList.add('saga-runtime-rail-tab-global');
+        if (isLorecardsTab && desktopLorecardsFlyoutOpen) tab.classList.add('saga-runtime-rail-tab-flyout-open');
         if (drawerOpen && tabId === activeTab) tab.classList.add('saga-runtime-rail-tab-active');
         addTooltip(tab, getTabTooltipForExperience(tabId, settings));
+        if (isLorecardsTab) {
+            tab.setAttribute('aria-haspopup', 'true');
+            tab.setAttribute('aria-expanded', desktopLorecardsFlyoutOpen ? 'true' : 'false');
+            tab.setAttribute('aria-controls', 'saga-desktop-lorecards-flyout');
+        }
 
         const icon = document.createElement('span');
         icon.className = 'saga-runtime-rail-icon';
@@ -550,6 +685,12 @@ function renderRail(state) {
 
         tab.addEventListener('click', (e) => {
             e.stopPropagation();
+            hideFloatingTooltip();
+            if (isLorecardsTab) {
+                setDesktopLorecardsFlyoutOpen(!desktopLorecardsFlyoutOpen);
+                return;
+            }
+            setDesktopLorecardsFlyoutOpen(false, { render: false });
             dep('toggleRuntimeDrawerForTab')(tabId);
         });
         tabs.appendChild(tab);
@@ -582,6 +723,7 @@ function renderRail(state) {
         'saga-runtime-rail-control saga-runtime-rail-close',
         (e) => {
             e.stopPropagation();
+            setDesktopLorecardsFlyoutOpen(false, { render: false });
             dep('hideRuntimePanel')();
         }
     );
