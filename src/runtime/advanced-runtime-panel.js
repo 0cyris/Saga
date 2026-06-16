@@ -157,7 +157,8 @@ function createSagaActiveSection(settings = getSettings()) {
         {
             variant: 'switch',
             className: 'saga-session-active-toggle-card',
-            stateLabels: { checked: 'Active', unchecked: 'Paused' },
+            labelStates: { checked: 'Saga Active', unchecked: 'Saga Paused' },
+            showState: false,
         }
     ), 'session.active'));
     return toggles;

@@ -2,6 +2,11 @@
 
 Saga documentation is being organized into release-facing topic folders. Older implementation notes still live in `development/` until they are promoted, rewritten, or archived.
 
+## Release Notes
+
+- [Saga 0.2.0-alpha.2 - The Big Mobile Update](release/0.2.0-alpha.2.md): current alpha with phone-width mobile UI, Story Maker, Deck Maker polish, mobile docs, and release-gate notes.
+- [Saga 0.1.0-alpha.1 - Fox One](release/0.1.0-alpha.1.md): first controlled alpha release notes.
+
 ## Release-Facing Docs
 
 - [Basic Workflow](user/BASIC_WORKFLOW.md): Basic Walkthrough module guide for First Run, Loredecks, Context, Lorecards, Continue Roleplay, and Settings without advanced prompt controls.
@@ -13,7 +18,6 @@ Saga documentation is being organized into release-facing topic folders. Older i
 - [Deck Maker Guide for Desktop](user/DECK_MAKER_DESKTOP_GUIDE.md): complete desktop guide to Deck Maker stages, project shelf, current task, review queues, Pack Health, readiness, reset, and finalization.
 - [Deck Maker Guide for Mobile](user/DECK_MAKER_MOBILE_GUIDE.md): complete phone-width guide to Deck Maker from the Loredecks route, with mobile current-task, roadmap, review, and finalization workflow.
 - [Storage And State Safety](user/STORAGE_AND_STATE_SAFETY.md): operator guide for Saga's `/user/files` storage model, `settings.json` boundaries, import storage, State Safety maintenance, and Danger Zone cleanup.
-- [Alpha Release Notes](release/0.1.0-alpha.1.md): versioned alpha compatibility, manual update, State Safety, and release-gate notes.
 - [Loredecks](loredecks/LOREDECK_AND_LORECARD_CREATION_GUIDE.md): Loredeck and Lorecard creation guidance, reference-deck expectations, authoring workflow, and schema links.
 - [Loredeck Zip Package Structure](loredecks/LOREDECK_ZIP_PACKAGE_STRUCTURE.md): importable `.saga-loredeck.zip` folder layout, package index requirements, deck-local cover image rules, and LLM handoff checklist.
 - [LLM Loredeck Generation](loredecks/LLM_LOREDECK_GENERATION_GUIDE.md): compact handoff for another LLM that needs to generate or revise Saga Loredecks and Lorecards.

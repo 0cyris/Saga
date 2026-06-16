@@ -104,18 +104,18 @@
 }
 
 .saga-lore-relevance-segment[data-relevance="low"][aria-checked="true"] {
-    background: var(--saga-chip-relevance-low-bg, var(--saga-chip-neutral-bg, rgba(24, 25, 31, 0.82)));
-    color: var(--saga-chip-relevance-low-fg, var(--saga-chip-neutral-fg, #c8cbd2));
+    background: var(--saga-chip-relevance-low-bg, color-mix(in oklab, var(--saga-surface-2, rgba(18, 18, 24, 0.62)) 92%, var(--saga-activate, #ffcb5c) 8%));
+    color: var(--saga-chip-relevance-low-fg, color-mix(in oklab, var(--saga-muted, rgba(241, 234, 216, 0.68)) 48%, var(--saga-activate, #ffcb5c) 52%));
 }
 
 .saga-lore-relevance-segment[data-relevance="normal"][aria-checked="true"] {
-    background: var(--saga-chip-relevance-normal-bg, var(--saga-chip-info-bg, rgba(24, 27, 35, 0.82)));
-    color: var(--saga-chip-relevance-normal-fg, var(--saga-chip-info-fg, #c7cfdd));
+    background: var(--saga-chip-relevance-normal-bg, color-mix(in oklab, var(--saga-surface-2, rgba(18, 18, 24, 0.62)) 84%, var(--saga-activate, #ffcb5c) 16%));
+    color: var(--saga-chip-relevance-normal-fg, color-mix(in oklab, var(--saga-text, #f1ead8) 24%, var(--saga-activate, #ffcb5c) 76%));
 }
 
 .saga-lore-relevance-segment[data-relevance="high"][aria-checked="true"] {
-    background: var(--saga-chip-relevance-high-bg, var(--saga-activate-surface, rgba(107, 255, 89, 0.16)));
-    color: var(--saga-chip-relevance-high-fg, var(--saga-activate, #6bff59));
+    background: var(--saga-chip-relevance-high-bg, var(--saga-activate-surface, rgba(255, 203, 92, 0.16)));
+    color: var(--saga-chip-relevance-high-fg, var(--saga-activate, #ffcb5c));
 }
 
 .saga-lore-relevance-dots {
@@ -164,8 +164,8 @@
 }
 
 .saga-lore-relevance-segmented-elevated {
-    border-color: var(--saga-activate-soft, rgba(107, 255, 89, 0.56));
-    box-shadow: 0 0 10px var(--saga-activate-surface, rgba(107, 255, 89, 0.18));
+    border-color: var(--saga-activate-soft, rgba(255, 203, 92, 0.56));
+    box-shadow: 0 0 10px var(--saga-activate-surface, rgba(255, 203, 92, 0.18));
 }
 
 .saga-lore-relevance-segment:disabled {
@@ -279,7 +279,7 @@
 }
 
 .saga-lorecard-elevate-toggle {
-    border-color: var(--saga-activate-soft, rgba(107, 255, 89, 0.56)) !important;
+    border-color: var(--saga-activate-soft, rgba(255, 203, 92, 0.56)) !important;
 }
 
 .saga-mobile-lorecard-status-controls {
@@ -323,18 +323,18 @@
 }
 
 .saga-mobile-lorecard-relevance-status[data-saga-relevance="high"] {
-    color: var(--saga-chip-relevance-high-fg, var(--saga-activate, #6bff59));
-    background: var(--saga-chip-relevance-high-bg, var(--saga-activate-surface, rgba(107, 255, 89, 0.16)));
+    color: var(--saga-chip-relevance-high-fg, var(--saga-activate, #ffcb5c));
+    background: var(--saga-chip-relevance-high-bg, var(--saga-activate-surface, rgba(255, 203, 92, 0.16)));
 }
 
 .saga-mobile-lorecard-relevance-status[data-saga-relevance="normal"] {
-    color: var(--saga-chip-relevance-normal-fg, var(--saga-chip-info-fg, #c7cfdd));
-    background: var(--saga-chip-relevance-normal-bg, var(--saga-chip-info-bg, rgba(24, 27, 35, 0.82)));
+    color: var(--saga-chip-relevance-normal-fg, color-mix(in oklab, var(--saga-text, #f1ead8) 24%, var(--saga-activate, #ffcb5c) 76%));
+    background: var(--saga-chip-relevance-normal-bg, color-mix(in oklab, var(--saga-surface-2, rgba(18, 18, 24, 0.62)) 84%, var(--saga-activate, #ffcb5c) 16%));
 }
 
 .saga-mobile-lorecard-relevance-status[data-saga-relevance="low"] {
-    color: var(--saga-chip-relevance-low-fg, var(--saga-chip-neutral-fg, #c8cbd2));
-    background: var(--saga-chip-relevance-low-bg, var(--saga-chip-neutral-bg, rgba(24, 25, 31, 0.82)));
+    color: var(--saga-chip-relevance-low-fg, color-mix(in oklab, var(--saga-muted, rgba(241, 234, 216, 0.68)) 48%, var(--saga-activate, #ffcb5c) 52%));
+    background: var(--saga-chip-relevance-low-bg, color-mix(in oklab, var(--saga-surface-2, rgba(18, 18, 24, 0.62)) 92%, var(--saga-activate, #ffcb5c) 8%));
 }
 
 .saga-lorecard-workspace {
@@ -513,20 +513,20 @@
 
 .saga-lorecard-workspace-row.saga-lore-entry-elevated,
 .saga-lore-entry-card.saga-lore-entry-elevated {
-    border-color: var(--saga-activate, #6bff59) !important;
+    border-color: var(--saga-activate, #ffcb5c) !important;
     box-shadow:
-        0 0 0 1px var(--saga-activate-soft, rgba(107, 255, 89, 0.56)),
-        0 0 22px var(--saga-activate-glow, rgba(107, 255, 89, 0.48)),
-        0 0 36px var(--saga-activate-surface, rgba(107, 255, 89, 0.18));
+        0 0 0 1px var(--saga-activate-soft, rgba(255, 203, 92, 0.56)),
+        0 0 22px var(--saga-activate-glow, rgba(255, 203, 92, 0.48)),
+        0 0 36px var(--saga-activate-surface, rgba(255, 203, 92, 0.18));
 }
 
 .saga-lore-panel:not(.saga-runtime-mobile) .saga-lorecard-workspace-row.saga-lore-entry-elevated,
 .saga-lore-panel:not(.saga-runtime-mobile) .saga-lore-entry-card.saga-lore-entry-elevated {
     box-shadow:
-        0 0 0 1px var(--saga-activate-soft, rgba(107, 255, 89, 0.56)),
-        0 0 6px var(--saga-activate-glow, rgba(107, 255, 89, 0.48)),
-        0 0 10px var(--saga-activate-surface, rgba(107, 255, 89, 0.18)),
-        0 0 12px var(--saga-activate-surface, rgba(107, 255, 89, 0.12)) inset;
+        0 0 0 1px var(--saga-activate-soft, rgba(255, 203, 92, 0.56)),
+        0 0 6px var(--saga-activate-glow, rgba(255, 203, 92, 0.48)),
+        0 0 10px var(--saga-activate-surface, rgba(255, 203, 92, 0.18)),
+        0 0 12px var(--saga-activate-surface, rgba(255, 203, 92, 0.12)) inset;
 }
 
 .saga-lorecard-workspace-row.saga-lore-entry-suppressed {
@@ -768,7 +768,7 @@
     align-items: center;
     justify-content: center;
     gap: 7px;
-    border-color: var(--saga-activate-soft, rgba(107, 255, 89, 0.56)) !important;
+    border-color: var(--saga-activate-soft, rgba(255, 203, 92, 0.56)) !important;
     overflow: visible;
     transition: border-color 140ms ease, box-shadow 140ms ease, transform 140ms ease, background 140ms ease;
 }
@@ -797,30 +797,30 @@
 }
 
 .saga-lorecard-active-toggle-active {
-    border-color: var(--saga-activate-soft, rgba(107, 255, 89, 0.56)) !important;
+    border-color: var(--saga-activate-soft, rgba(255, 203, 92, 0.56)) !important;
     background:
-        radial-gradient(circle at 16px 50%, color-mix(in srgb, var(--saga-activate, #6bff59) 34%, #ffffff) 0%, transparent 38%),
-        radial-gradient(circle at 16px 50%, var(--saga-activate-surface, rgba(107, 255, 89, 0.18)) 0%, transparent 70%),
-        color-mix(in srgb, var(--saga-surface-2, rgba(38, 42, 52, 0.72)) 88%, var(--saga-activate, #6bff59)) !important;
-    color: color-mix(in srgb, var(--saga-activate, #6bff59) 38%, #ffffff) !important;
+        radial-gradient(circle at 16px 50%, color-mix(in srgb, var(--saga-activate, #ffcb5c) 34%, #ffffff) 0%, transparent 38%),
+        radial-gradient(circle at 16px 50%, var(--saga-activate-surface, rgba(255, 203, 92, 0.18)) 0%, transparent 70%),
+        color-mix(in srgb, var(--saga-surface-2, rgba(38, 42, 52, 0.72)) 88%, var(--saga-activate, #ffcb5c)) !important;
+    color: color-mix(in srgb, var(--saga-activate, #ffcb5c) 38%, #ffffff) !important;
     box-shadow:
-        0 0 0 1px color-mix(in srgb, var(--saga-activate, #6bff59) 26%, transparent) inset,
-        0 0 14px var(--saga-activate-glow, rgba(107, 255, 89, 0.48)),
-        0 0 28px var(--saga-activate-surface, rgba(107, 255, 89, 0.18));
+        0 0 0 1px color-mix(in srgb, var(--saga-activate, #ffcb5c) 26%, transparent) inset,
+        0 0 14px var(--saga-activate-glow, rgba(255, 203, 92, 0.48)),
+        0 0 28px var(--saga-activate-surface, rgba(255, 203, 92, 0.18));
 }
 
 .saga-lorecard-active-toggle-active::before {
     background:
-        radial-gradient(circle at 38% 28%, #ffffff 0 12%, color-mix(in srgb, var(--saga-activate, #6bff59) 32%, #ffffff) 18%, var(--saga-activate, #6bff59) 56%, color-mix(in srgb, var(--saga-activate, #6bff59) 72%, #12351f) 100%);
+        radial-gradient(circle at 38% 28%, #ffffff 0 12%, color-mix(in srgb, var(--saga-activate, #ffcb5c) 32%, #ffffff) 18%, var(--saga-activate, #ffcb5c) 56%, color-mix(in srgb, var(--saga-activate, #ffcb5c) 72%, #3b2b12) 100%);
     box-shadow:
-        0 0 6px color-mix(in srgb, var(--saga-activate, #6bff59) 42%, #ffffff),
-        0 0 14px var(--saga-activate-glow-strong, rgba(107, 255, 89, 0.72));
+        0 0 6px color-mix(in srgb, var(--saga-activate, #ffcb5c) 42%, #ffffff),
+        0 0 14px var(--saga-activate-glow-strong, rgba(255, 203, 92, 0.72));
 }
 
 .saga-lorecard-active-toggle-active::after {
     opacity: 1;
     box-shadow:
-        0 0 14px 3px var(--saga-activate-glow, rgba(107, 255, 89, 0.48)),
+        0 0 14px 3px var(--saga-activate-glow, rgba(255, 203, 92, 0.48)),
         0 0 3px rgba(255, 255, 255, 0.62) inset;
 }
 
@@ -839,10 +839,10 @@
 .saga-lorecard-active-toggle:not(:disabled):hover,
 .saga-lorecard-active-toggle:not(:disabled):focus-visible {
     transform: translateY(-1px);
-    border-color: var(--saga-activate-soft, rgba(107, 255, 89, 0.56)) !important;
+    border-color: var(--saga-activate-soft, rgba(255, 203, 92, 0.56)) !important;
     box-shadow:
-        0 0 0 1px color-mix(in srgb, var(--saga-activate, #6bff59) 24%, transparent) inset,
-        0 0 18px var(--saga-activate-glow, rgba(107, 255, 89, 0.48));
+        0 0 0 1px color-mix(in srgb, var(--saga-activate, #ffcb5c) 24%, transparent) inset,
+        0 0 18px var(--saga-activate-glow, rgba(255, 203, 92, 0.48));
 }
 
 .saga-lorecard-active-toggle-button {
@@ -874,15 +874,15 @@
 }
 
 .saga-lorecard-active-toggle-button.saga-lorecard-active-toggle-active {
-    border-color: var(--saga-activate-soft, rgba(107, 255, 89, 0.56)) !important;
+    border-color: var(--saga-activate-soft, rgba(255, 203, 92, 0.56)) !important;
     background:
-        radial-gradient(circle at 50% 42%, color-mix(in srgb, var(--saga-activate, #6bff59) 38%, #ffffff) 0%, transparent 44%),
-        radial-gradient(circle at 50% 50%, var(--saga-activate-surface, rgba(107, 255, 89, 0.18)) 0%, transparent 74%),
-        color-mix(in srgb, var(--saga-surface-2, rgba(38, 42, 52, 0.72)) 86%, var(--saga-activate, #6bff59)) !important;
+        radial-gradient(circle at 50% 42%, color-mix(in srgb, var(--saga-activate, #ffcb5c) 38%, #ffffff) 0%, transparent 44%),
+        radial-gradient(circle at 50% 50%, var(--saga-activate-surface, rgba(255, 203, 92, 0.18)) 0%, transparent 74%),
+        color-mix(in srgb, var(--saga-surface-2, rgba(38, 42, 52, 0.72)) 86%, var(--saga-activate, #ffcb5c)) !important;
     box-shadow:
-        0 0 0 1px color-mix(in srgb, var(--saga-activate, #6bff59) 28%, transparent) inset,
-        0 0 7px var(--saga-activate-glow, rgba(107, 255, 89, 0.48)),
-        0 0 12px var(--saga-activate-surface, rgba(107, 255, 89, 0.18));
+        0 0 0 1px color-mix(in srgb, var(--saga-activate, #ffcb5c) 28%, transparent) inset,
+        0 0 7px var(--saga-activate-glow, rgba(255, 203, 92, 0.48)),
+        0 0 12px var(--saga-activate-surface, rgba(255, 203, 92, 0.18));
 }
 
 .saga-lorecard-active-toggle-button.saga-lorecard-active-toggle-inactive {
@@ -902,8 +902,8 @@
 .saga-lorecard-active-toggle-button:not(:disabled):hover,
 .saga-lorecard-active-toggle-button:not(:disabled):focus-visible {
     box-shadow:
-        0 0 0 1px color-mix(in srgb, var(--saga-activate, #6bff59) 24%, transparent) inset,
-        0 0 9px var(--saga-activate-glow, rgba(107, 255, 89, 0.48));
+        0 0 0 1px color-mix(in srgb, var(--saga-activate, #ffcb5c) 24%, transparent) inset,
+        0 0 9px var(--saga-activate-glow, rgba(255, 203, 92, 0.48));
 }
 
 .saga-lorecard-row-active-toggle {
@@ -1012,8 +1012,8 @@
 
 .saga-runtime-mobile .saga-mobile-lorecard-gesture-up::before {
     background:
-        linear-gradient(90deg, transparent 0%, var(--saga-activate-surface, rgba(107, 255, 89, 0.18)) 34%, rgba(107, 255, 89, 0.28) 58%, transparent 100%),
-        radial-gradient(circle at 88% 24%, rgba(107, 255, 89, 0.28), transparent 38%);
+        linear-gradient(90deg, transparent 0%, var(--saga-activate-surface, rgba(255, 203, 92, 0.18)) 34%, rgba(255, 203, 92, 0.28) 58%, transparent 100%),
+        radial-gradient(circle at 88% 24%, rgba(255, 203, 92, 0.28), transparent 38%);
 }
 
 .saga-runtime-mobile .saga-mobile-lorecard-gesture-down::before {
@@ -1092,8 +1092,8 @@
     45% {
         transform: scale(1.018);
         box-shadow:
-            0 0 0 1px var(--saga-activate-soft, rgba(107, 255, 89, 0.56)),
-            0 0 22px var(--saga-activate-glow, rgba(107, 255, 89, 0.48));
+            0 0 0 1px var(--saga-activate-soft, rgba(255, 203, 92, 0.56)),
+            0 0 22px var(--saga-activate-glow, rgba(255, 203, 92, 0.48));
     }
     100% {
         transform: scale(1);

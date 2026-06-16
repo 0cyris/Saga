@@ -33,7 +33,7 @@ export const THEMEPACK_PRESETS = Object.freeze([
             accent: '#d7b56d',
             danger: '#5c1724',
             success: '#1f4a38',
-            activate: '#6bff59',
+            activate: '#ffcb5c',
             warning: '#b9903c',
             focus: '#ffeaa7',
             button: '#18121a',
@@ -73,7 +73,7 @@ export const THEMEPACK_PRESETS = Object.freeze([
             accent: '#f0d58a',
             danger: '#5a1930',
             success: '#1f5b45',
-            activate: '#75f2a1',
+            activate: '#d86bff',
             warning: '#c7963e',
             focus: '#f5e5a6',
             button: '#141a2e',
@@ -113,7 +113,7 @@ export const THEMEPACK_PRESETS = Object.freeze([
             accent: '#d6b45a',
             danger: '#64161b',
             success: '#31533f',
-            activate: '#8cff72',
+            activate: '#b57cff',
             warning: '#c58b32',
             focus: '#f3d474',
             button: '#141414',
@@ -153,7 +153,7 @@ export const THEMEPACK_PRESETS = Object.freeze([
             accent: '#9bdcff',
             danger: '#532332',
             success: '#1d5a55',
-            activate: '#55ffd9',
+            activate: '#e8f8ff',
             warning: '#d0a33f',
             focus: '#d4f2ff',
             button: '#0b1b2a',
@@ -193,7 +193,7 @@ export const THEMEPACK_PRESETS = Object.freeze([
             accent: '#44e4ff',
             danger: '#65133c',
             success: '#0e6d5b',
-            activate: '#39ff88',
+            activate: '#ff4dff',
             warning: '#f2d75e',
             focus: '#ff66d8',
             button: '#111425',
@@ -233,7 +233,7 @@ export const THEMEPACK_PRESETS = Object.freeze([
             accent: '#ffcf4d',
             danger: '#7c1f28',
             success: '#2c6b45',
-            activate: '#7cff5a',
+            activate: '#36d7ff',
             warning: '#ffb84d',
             focus: '#fff2a3',
             button: '#13203a',
@@ -273,7 +273,7 @@ export const THEMEPACK_PRESETS = Object.freeze([
             accent: '#f3c86a',
             danger: '#6a2a25',
             success: '#2f684a',
-            activate: '#42f5a7',
+            activate: '#3ef8ff',
             warning: '#dba14a',
             focus: '#ffe09a',
             button: '#0d2835',
@@ -313,7 +313,7 @@ export const THEMEPACK_PRESETS = Object.freeze([
             accent: '#cde889',
             danger: '#653021',
             success: '#36744a',
-            activate: '#a6ff5f',
+            activate: '#d16bff',
             warning: '#caa24a',
             focus: '#e5f7b2',
             button: '#112216',
@@ -353,7 +353,7 @@ export const THEMEPACK_PRESETS = Object.freeze([
             accent: '#f1d18c',
             danger: '#5f2147',
             success: '#2c6254',
-            activate: '#66ffe1',
+            activate: '#b7a2ff',
             warning: '#dba75c',
             focus: '#98fff2',
             button: '#12142b',
@@ -393,7 +393,7 @@ export const THEMEPACK_PRESETS = Object.freeze([
             accent: '#e0b86b',
             danger: '#5b1b19',
             success: '#315f43',
-            activate: '#78ff8a',
+            activate: '#64d8ff',
             warning: '#c8892d',
             focus: '#ffd27a',
             button: '#111715',
@@ -433,7 +433,7 @@ export const THEMEPACK_PRESETS = Object.freeze([
             accent: '#c8ff4d',
             danger: '#9e123f',
             success: '#2f7d45',
-            activate: '#b6ff2e',
+            activate: '#ff4fb8',
             warning: '#ffc145',
             focus: '#f8ff7a',
             button: '#11180e',
@@ -473,7 +473,7 @@ export const THEMEPACK_PRESETS = Object.freeze([
             accent: '#81f7d8',
             danger: '#7b1022',
             success: '#2a745d',
-            activate: '#5dffd6',
+            activate: '#9dfcff',
             warning: '#e2a83c',
             focus: '#ffe0b5',
             button: '#11191d',
@@ -513,7 +513,7 @@ export const THEMEPACK_PRESETS = Object.freeze([
             accent: '#ff7ab6',
             danger: '#b31942',
             success: '#3fa66b',
-            activate: '#4dff9f',
+            activate: '#3ee9ff',
             warning: '#f6c845',
             focus: '#5be7ff',
             button: '#18191d',
@@ -553,7 +553,7 @@ export const THEMEPACK_PRESETS = Object.freeze([
             accent: '#49f0bc',
             danger: '#811d16',
             success: '#2e8a63',
-            activate: '#6df7c9',
+            activate: '#f3ff5c',
             warning: '#d7b84a',
             focus: '#d9ff66',
             button: '#0b1414',
@@ -593,7 +593,7 @@ export const THEMEPACK_PRESETS = Object.freeze([
             accent: '#ffb000',
             danger: '#8f112d',
             success: '#3d7a4f',
-            activate: '#9dff4a',
+            activate: '#62ffe3',
             warning: '#e58f2f',
             focus: '#fff06a',
             button: '#1a1110',
@@ -911,6 +911,11 @@ function hexToRgba(hex, alpha = 1) {
     return `rgba(${r}, ${g}, ${b}, ${a})`;
 }
 
+function mixWithActivate(baseColor, activateColor, activatePercent) {
+    const percent = Math.max(0, Math.min(100, Number(activatePercent) || 0));
+    return `color-mix(in oklab, ${baseColor} ${100 - percent}%, ${normalizeHexColor(activateColor, '#000000')} ${percent}%)`;
+}
+
 export function getThemePackLibrary(settings = getSettings()) {
     const registry = mergeExternalThemePackLibraryRegistry(settings?.themePackLibrary || getThemePackLibraryRegistry());
     const customPacks = Object.values(registry?.packs || {})
@@ -952,7 +957,7 @@ export function completeThemeColors(colors = {}) {
     merged.inputBorder = merged.inputBorder || merged.border;
     merged.focus = merged.focus || merged.accent;
     merged.success = merged.success || '#1f4a38';
-    merged.activate = colors.activate || merged.success || fallback.activate || '#6bff59';
+    merged.activate = colors.activate || merged.success || fallback.activate || '#ffcb5c';
     merged.warning = merged.warning || merged.accent;
     merged.chipNeutral = merged.chipNeutral || merged.mutedText || '#c8cbd2';
     merged.chipSource = merged.chipSource || merged.accent || merged.chipNeutral;
@@ -1045,12 +1050,12 @@ function writeRuntimeThemeVars(target, colors) {
     target.style.setProperty('--saga-chip-tag-bg', hexToRgba(colors.surfaceAlt, 0.9));
     target.style.setProperty('--saga-chip-tag-border', hexToRgba(colors.chipMuted, 0.26));
     target.style.setProperty('--saga-chip-tag-fg', colors.chipMuted);
-    target.style.setProperty('--saga-chip-relevance-low-bg', hexToRgba(colors.chipNeutral, 0.08));
-    target.style.setProperty('--saga-chip-relevance-low-border', hexToRgba(colors.chipNeutral, 0.24));
-    target.style.setProperty('--saga-chip-relevance-low-fg', colors.chipNeutral);
-    target.style.setProperty('--saga-chip-relevance-normal-bg', hexToRgba(colors.chipInfo, 0.12));
-    target.style.setProperty('--saga-chip-relevance-normal-border', hexToRgba(colors.chipInfo, 0.30));
-    target.style.setProperty('--saga-chip-relevance-normal-fg', colors.chipInfo);
+    target.style.setProperty('--saga-chip-relevance-low-bg', mixWithActivate('var(--saga-surface-2)', colors.activate, 8));
+    target.style.setProperty('--saga-chip-relevance-low-border', mixWithActivate('var(--saga-border-soft)', colors.activate, 22));
+    target.style.setProperty('--saga-chip-relevance-low-fg', mixWithActivate('var(--saga-muted)', colors.activate, 52));
+    target.style.setProperty('--saga-chip-relevance-normal-bg', mixWithActivate('var(--saga-surface-2)', colors.activate, 16));
+    target.style.setProperty('--saga-chip-relevance-normal-border', mixWithActivate('var(--saga-border-soft)', colors.activate, 34));
+    target.style.setProperty('--saga-chip-relevance-normal-fg', mixWithActivate('var(--saga-text)', colors.activate, 76));
     target.style.setProperty('--saga-chip-relevance-high-bg', hexToRgba(colors.activate, 0.16));
     target.style.setProperty('--saga-chip-relevance-high-border', hexToRgba(colors.activate, 0.42));
     target.style.setProperty('--saga-chip-relevance-high-fg', colors.activate);

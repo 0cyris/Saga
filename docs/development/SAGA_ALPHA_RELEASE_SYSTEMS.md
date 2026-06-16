@@ -45,7 +45,7 @@ The HP reference-deck conformance check now exists at `tools/scripts/test-hp-ref
 
 ## Release Metadata And Gate
 
-The alpha manifest should stay visibly pre-1.0. Current release metadata is `0.1.0-alpha.1` with `minimum_client_version` set and `auto_update: false`. Alpha testers should update deliberately from the repository instead of receiving silent extension updates. The manifest also declares SillyTavern lifecycle hooks for install, update, delete, clean, enable, disable, and activate so Saga can create current-chat safety records, clear prompt injection, and clean direct provider key material when those extension actions run.
+The alpha manifest should stay visibly pre-1.0. Current release metadata is `0.2.0-alpha.2` with `minimum_client_version` set and `auto_update: false`. Alpha testers should update deliberately from the repository instead of receiving silent extension updates. The manifest also declares SillyTavern lifecycle hooks for install, update, delete, clean, enable, disable, and activate so Saga can create current-chat safety records, clear prompt injection, and clean direct provider key material when those extension actions run.
 
 Before tagging an alpha build, run:
 

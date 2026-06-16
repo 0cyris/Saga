@@ -310,6 +310,16 @@ function formatStoryOpenerVariantCount(value = 1) {
     return `${count} variant${count === 1 ? '' : 's'}`;
 }
 
+function updateVariantCountSliderPresentation(slider, readout) {
+    const count = normalizeStoryOpenerVariantCount(slider?.value);
+    const min = Number(slider?.min) || STORY_OPENER_VARIANT_COUNT_MIN;
+    const max = Number(slider?.max) || STORY_OPENER_VARIANT_COUNT_MAX;
+    const progress = max > min ? ((count - min) / (max - min)) * 100 : 0;
+    if (readout) readout.textContent = formatStoryOpenerVariantCount(count);
+    slider?.style?.setProperty('--saga-story-opener-variant-progress', `${Math.max(0, Math.min(100, progress))}%`);
+    slider?.setAttribute?.('aria-valuetext', formatStoryOpenerVariantCount(count));
+}
+
 function createVariantCountControl(value = 1) {
     const control = document.createElement('div');
     control.className = 'saga-story-opener-variant-count-control';
@@ -328,19 +338,10 @@ function createVariantCountControl(value = 1) {
     slider.value = String(normalizeStoryOpenerVariantCount(value));
     slider.setAttribute('aria-label', 'Variant count');
     slider.addEventListener('input', () => {
-        readout.textContent = formatStoryOpenerVariantCount(slider.value);
+        updateVariantCountSliderPresentation(slider, readout);
     });
+    updateVariantCountSliderPresentation(slider, readout);
     control.appendChild(slider);
-
-    const scale = document.createElement('div');
-    scale.className = 'saga-story-opener-variant-count-scale';
-    const min = document.createElement('span');
-    min.textContent = String(STORY_OPENER_VARIANT_COUNT_MIN);
-    const max = document.createElement('span');
-    max.textContent = String(STORY_OPENER_VARIANT_COUNT_MAX);
-    scale.appendChild(min);
-    scale.appendChild(max);
-    control.appendChild(scale);
 
     return { element: control, input: slider };
 }
@@ -987,6 +988,10 @@ function createInputsCard(session = {}, state = {}, options = {}) {
     card.appendChild(grid);
 
     refs.targetLength = controls.targetLength;
+    const lengthHeading = document.createElement('div');
+    lengthHeading.className = 'saga-story-opener-subtitle saga-story-opener-length-heading';
+    lengthHeading.textContent = 'Length';
+    card.appendChild(lengthHeading);
     const lengthRow = document.createElement('div');
     lengthRow.className = 'saga-story-opener-length-row';
     for (const target of STORY_OPENER_TARGET_LENGTHS) {

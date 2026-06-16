@@ -179,9 +179,13 @@ export function createToggleCard(label, checked, tooltip, onChange, options = {}
     const variant = String(options.variant || '').trim();
     const isSwitch = variant === 'switch';
     const initialChecked = !!checked;
+    const labelStates = options.labelStates || {};
+    const getVisibleLabel = value => value ? (labelStates.checked || label) : (labelStates.unchecked || label);
+    const showState = options.showState !== false;
     const card = document.createElement('label');
     card.className = `saga-toggle-card${isSwitch ? ' saga-toggle-card-switch' : ''}${options.className ? ` ${options.className}` : ''}`.trim();
     card.classList.add(initialChecked ? 'saga-toggle-card-checked' : 'saga-toggle-card-unchecked');
+    if (!showState) card.classList.add('saga-toggle-card-no-state');
     addTooltip(card, tooltip);
 
     const input = document.createElement('input');
@@ -191,7 +195,7 @@ export function createToggleCard(label, checked, tooltip, onChange, options = {}
         input.className = 'saga-toggle-switch-input';
         input.setAttribute('role', 'switch');
         input.setAttribute('aria-checked', input.checked ? 'true' : 'false');
-        input.setAttribute('aria-label', label);
+        input.setAttribute('aria-label', getVisibleLabel(input.checked));
     }
     card.appendChild(input);
 
@@ -204,22 +208,26 @@ export function createToggleCard(label, checked, tooltip, onChange, options = {}
 
     const text = document.createElement('span');
     text.className = 'saga-toggle-label';
-    text.textContent = label;
+    text.textContent = getVisibleLabel(input.checked);
     card.appendChild(text);
 
     const stateLabels = options.stateLabels || {};
     const checkedLabel = stateLabels.checked || 'On';
     const uncheckedLabel = stateLabels.unchecked || 'Off';
-    const state = document.createElement('span');
-    state.className = 'saga-toggle-state';
-    state.textContent = input.checked ? checkedLabel : uncheckedLabel;
-    card.appendChild(state);
+    const state = showState ? document.createElement('span') : null;
+    if (state) {
+        state.className = 'saga-toggle-state';
+        state.textContent = input.checked ? checkedLabel : uncheckedLabel;
+        card.appendChild(state);
+    }
 
     input.addEventListener('change', () => {
         if (isSwitch) input.setAttribute('aria-checked', input.checked ? 'true' : 'false');
+        if (isSwitch) input.setAttribute('aria-label', getVisibleLabel(input.checked));
         card.classList.toggle('saga-toggle-card-checked', input.checked);
         card.classList.toggle('saga-toggle-card-unchecked', !input.checked);
-        state.textContent = input.checked ? checkedLabel : uncheckedLabel;
+        text.textContent = getVisibleLabel(input.checked);
+        if (state) state.textContent = input.checked ? checkedLabel : uncheckedLabel;
         onChange(input.checked);
     });
 

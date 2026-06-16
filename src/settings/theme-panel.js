@@ -477,24 +477,64 @@ function createThemeColorGroup(titleText, colors, fields = [], options = {}) {
     return group;
 }
 
+function getThemeColorParts(value) {
+    const hex = normalizeHexColor(value, '#000000');
+    const int = parseInt(hex.slice(1), 16);
+    return {
+        hex,
+        r: (int >> 16) & 255,
+        g: (int >> 8) & 255,
+        b: int & 255,
+    };
+}
+
 function createThemeColorField(labelText, settingKey, value, enabled, options = {}) {
     const label = document.createElement('label');
     label.className = 'saga-theme-color-field';
-    const text = document.createElement('span');
-    text.textContent = labelText;
-    label.appendChild(text);
 
     const input = document.createElement('input');
     input.type = 'color';
     input.value = normalizeHexColor(value, '#000000');
     input.disabled = !enabled;
+
+    const main = document.createElement('div');
+    main.className = 'saga-theme-color-field-main';
+    const text = document.createElement('span');
+    text.className = 'saga-theme-color-name';
+    text.textContent = labelText;
+    main.appendChild(text);
+
+    const values = document.createElement('div');
+    values.className = 'saga-theme-color-values';
+    const rgb = document.createElement('span');
+    rgb.className = 'saga-theme-color-rgb';
+    values.appendChild(rgb);
+    const hex = document.createElement('span');
+    hex.className = 'saga-theme-color-hex';
+    values.appendChild(hex);
+    main.appendChild(values);
+
+    function syncColorKey(valueToDisplay = input.value) {
+        const parts = getThemeColorParts(valueToDisplay);
+        label.style.setProperty('--theme-color-field', parts.hex);
+        rgb.textContent = `RGB ${parts.r}, ${parts.g}, ${parts.b}`;
+        hex.textContent = `Hex ${parts.hex}`;
+        if (input.value !== parts.hex) input.value = parts.hex;
+    }
+
     input.addEventListener('input', () => {
-        options.onColorInput?.(settingKey, normalizeHexColor(input.value, '#000000'));
+        const color = normalizeHexColor(input.value, '#000000');
+        syncColorKey(color);
+        options.onColorInput?.(settingKey, color);
     });
     input.addEventListener('change', () => {
-        options.onColorChange?.(settingKey, normalizeHexColor(input.value, '#000000'));
+        const color = normalizeHexColor(input.value, '#000000');
+        syncColorKey(color);
+        options.onColorChange?.(settingKey, color);
     });
+    syncColorKey(input.value);
     label.appendChild(input);
+    label.appendChild(main);
     return label;
 }
 

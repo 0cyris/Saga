@@ -39,7 +39,7 @@ export const DEFAULT_SETTINGS = {
     themeAccentColor: '#d7b56d',
     themeDangerColor: '#5c1724',
     themeSuccessColor: '#1f4a38',
-    themeActivateColor: '#6bff59',
+    themeActivateColor: '#ffcb5c',
     themeWarningColor: '#b9903c',
     themeFocusColor: '#ffeaa7',
     themeButtonColor: '#18121a',

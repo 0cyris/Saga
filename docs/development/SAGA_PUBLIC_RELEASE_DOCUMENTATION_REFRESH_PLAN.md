@@ -261,13 +261,15 @@ Required changes:
 
 ### Alpha Release Notes
 
-Update `docs/release/0.1.0-alpha.1.md`.
+Add `docs/release/0.2.0-alpha.2.md` for the `mobile-support` release and keep `docs/release/0.1.0-alpha.1.md` as the historical **Fox One** alpha note.
 
 Required changes:
 
 - Keep the established structure: `Compatibility`, `Implemented Features`, `Alpha Boundaries`, `Verification`.
-- Add mobile shell/support as an implemented feature.
-- Add current Lore Automation, mobile Lorecards, Deck Maker progress/retry/review, Context Workbench/Phrase Resolver, and Pack Health/package details where release-facing.
+- Make mobile shell/support the headline release feature.
+- Add Story Maker as a new feature.
+- Treat Deck Maker as a rebrand plus progress/retry/review polish, not as a brand-new feature.
+- Add current Lore Automation, mobile Lorecards, Context Workbench/Phrase Resolver, and Pack Health/package details where release-facing.
 - Preserve required alpha-contract wording checked by `tools/scripts/test-manifest-alpha.mjs`, including the exact sentence: `Unsupported old imported state schemas are rejected instead of partially migrated.`
 - Keep internal churn out of release notes unless it changes user behavior.
 
@@ -477,4 +479,3 @@ This release-doc refresh is done when:
 - Whether all 70 renderer rows should be committed, or whether some should remain verification-only and be removed from the default documentation matrix.
 - Whether to add a separate generated `RENDER_INVENTORY.md` mapping every committed PNG to its owning doc section.
 - Whether mobile walkthrough copy should share the same step IDs as desktop where targets are equivalent, or introduce explicit mobile-only steps for route/subview education.
-- Whether the release notes should stay `0.1.0-alpha.1` or move to a new alpha version before public release from `mobile-support`.
