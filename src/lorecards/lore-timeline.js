@@ -189,6 +189,7 @@ export function ensureLoreTimeline(state) {
 export function captureLoreTimelineState(state = {}) {
     const entries = normalizeLoreMatrix(state?.loreMatrix || []);
     const byId = new Map(entries.map(entry => [entry.id, entry]));
+    const pinSet = new Set(asArray(state?.loreSelection?.pinnedIds).filter(Boolean));
     const muteSet = new Set(asArray(state?.loreSelection?.suppressedIds).filter(Boolean));
     const elevatedIds = Object.keys(state?.loreSelection?.elevated && typeof state.loreSelection.elevated === 'object' && !Array.isArray(state.loreSelection.elevated)
         ? state.loreSelection.elevated
@@ -197,6 +198,7 @@ export function captureLoreTimelineState(state = {}) {
         entries,
         byId,
         hashes: new Map(entries.map(entry => [entry.id, hashLoreEntry(entry)])),
+        pinnedIds: Array.from(pinSet),
         mutedIds: Array.from(muteSet),
         elevatedIds,
     };
@@ -246,9 +248,10 @@ function buildDiff(before, after) {
         touchedIds.add(entry.id);
     }
 
+    const pinChanges = listChangedSelection(before?.pinnedIds, after?.pinnedIds);
     const muteChanges = listChangedSelection(before?.mutedIds, after?.mutedIds);
     const elevatedChanges = listChangedSelection(before?.elevatedIds, after?.elevatedIds);
-    for (const id of [...muteChanges.added, ...muteChanges.removed, ...elevatedChanges.added, ...elevatedChanges.removed]) {
+    for (const id of [...pinChanges.added, ...pinChanges.removed, ...muteChanges.added, ...muteChanges.removed, ...elevatedChanges.added, ...elevatedChanges.removed]) {
         touchedIds.add(id);
     }
 
@@ -262,6 +265,7 @@ function buildDiff(before, after) {
         deletedEntries,
         beforeEntries,
         afterEntries,
+        pinChanges,
         muteChanges,
         elevatedChanges,
         refs,
@@ -270,6 +274,7 @@ function buildDiff(before, after) {
             added: addedEntries.length,
             deleted: deletedEntries.length,
             updated: beforeEntries.length,
+            pinned: pinChanges.added.length + pinChanges.removed.length,
             elevated: elevatedChanges.added.length + elevatedChanges.removed.length,
             muted: muteChanges.added.length + muteChanges.removed.length,
         },
@@ -281,6 +286,7 @@ function summarizeEvent(type, counts, fallback = 'Lore changed.') {
     if (counts.added) parts.push(`+${counts.added} added`);
     if (counts.deleted) parts.push(`-${counts.deleted} deleted`);
     if (counts.updated) parts.push(`${counts.updated} updated`);
+    if (counts.pinned) parts.push(`${counts.pinned} pin changes`);
     if (counts.elevated) parts.push(`${counts.elevated} elevation changes`);
     if (counts.muted) parts.push(`${counts.muted} mute changes`);
     if (counts.pending) parts.push(`${counts.pending} pending`);
@@ -298,6 +304,7 @@ export function recordLoreTimelineEvent(state, input = {}) {
         deletedEntries: asArray(input.deletedEntries).map(compactLoreEntry),
         beforeEntries: asArray(input.beforeEntries).map(compactLoreEntry),
         afterEntries: asArray(input.afterEntries).map(compactLoreEntry),
+        pinChanges: input.pinChanges || { added: [], removed: [] },
         muteChanges: input.muteChanges || { added: [], removed: [] },
         elevatedChanges: input.elevatedChanges || { added: [], removed: [] },
         refs: asArray(input.refs),
@@ -309,6 +316,7 @@ export function recordLoreTimelineEvent(state, input = {}) {
         added: Math.max(0, Number(input.counts?.added ?? diff.counts?.added) || 0),
         deleted: Math.max(0, Number(input.counts?.deleted ?? diff.counts?.deleted) || 0),
         updated: Math.max(0, Number(input.counts?.updated ?? diff.counts?.updated) || 0),
+        pinned: Math.max(0, Number(input.counts?.pinned ?? diff.counts?.pinned) || 0),
         elevated: Math.max(0, Number(input.counts?.elevated ?? diff.counts?.elevated) || 0),
         muted: Math.max(0, Number(input.counts?.muted ?? diff.counts?.muted) || 0),
         pending: Math.max(0, Number(input.counts?.pending) || 0),
@@ -339,6 +347,7 @@ export function recordLoreTimelineEvent(state, input = {}) {
             deletedEntries: diff.deletedEntries.slice(0, LORE_TIMELINE_MAX_PAYLOAD_ENTRIES),
             beforeEntries: diff.beforeEntries.slice(0, LORE_TIMELINE_MAX_PAYLOAD_ENTRIES),
             afterEntries: diff.afterEntries.slice(0, LORE_TIMELINE_MAX_PAYLOAD_ENTRIES),
+            pinChanges: diff.pinChanges,
             muteChanges: diff.muteChanges,
             elevatedChanges: diff.elevatedChanges,
             touchedIds: diff.touchedIds.slice(0, LORE_TIMELINE_MAX_PAYLOAD_ENTRIES),
@@ -364,11 +373,13 @@ export function getLoreTimelineSummary(state = {}) {
         acc.added += Number(event.counts?.added) || 0;
         acc.deleted += Number(event.counts?.deleted) || 0;
         acc.updated += Number(event.counts?.updated) || 0;
+        acc.pinned += Number(event.counts?.pinned) || 0;
         acc.elevated += Number(event.counts?.elevated) || 0;
+        acc.muted += Number(event.counts?.muted) || 0;
         acc.pending += Number(event.counts?.pending) || 0;
         acc.restored += Number(event.counts?.restored) || 0;
         return acc;
-    }, { added: 0, deleted: 0, updated: 0, elevated: 0, pending: 0, restored: 0 });
+    }, { added: 0, deleted: 0, updated: 0, pinned: 0, elevated: 0, muted: 0, pending: 0, restored: 0 });
     return {
         eventCount: events.length,
         counts,

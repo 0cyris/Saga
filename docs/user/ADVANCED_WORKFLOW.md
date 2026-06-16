@@ -2,7 +2,7 @@
 
 Use Advanced Experience when you want the full Saga control surface for authoring, diagnostics, automation, package work, and prompt tuning.
 
-Advanced uses the same saved data as Basic. Loredecks, Context, Pending Review entries, Accepted Lorecards, pin/mute choices, provider settings, Theme Packs, and stack state carry across mode changes.
+Advanced uses the same saved data as Basic. Loredecks, Context, Pending Review entries, Accepted Lorecards, Elevate/Mute choices, provider settings, Theme Packs, and stack state carry across mode changes.
 
 ## Advanced Walkthrough
 
@@ -36,7 +36,7 @@ Start here when canon suggestions, retrieval, or injection appear tied to the wr
 
 Coverage: A61-A82.
 
-Use this track to manage canon preview, canon selection, story-lore scans, scan scope, Manual Lore Notes, assistant drafts, Pending Review, Pending Review edits, accept/reject flows, bulk review, Accepted Lorecards, search/filter, Accepted Lorecard editing, pin/mute, relevance tiers, tags, Context metadata, duplicate guards, Lore Automation, timeline audit, workbenches, and the review-first policy.
+Use this track to manage canon preview, canon selection, story-lore scans, scan scope, Manual Lore Notes, assistant drafts, Pending Review, Pending Review edits, accept/reject flows, bulk review, Accepted Lorecards, search/filter, Accepted Lorecard editing, Elevate/Mute, relevance tiers, tags, Context metadata, duplicate guards, Lore Automation, timeline audit, workbenches, and the review-first policy.
 
 Start here after Context is current and the story has durable facts or canon constraints worth saving.
 
@@ -109,10 +109,10 @@ Advanced should still remain review-first. Model-produced proposals should becom
 - Full rail access, including **Continuity** and **Injection**.
 - Automation and cadence controls.
 - Context auditing, proposals, locks, workbenches, and Advanced Context Brief details.
-- Lorecard workbenches, bulk actions, timeline/audit history, and Lore Automation.
+- Lorecard workbenches, bulk actions, timeline/audit history, Elevate/Mute controls, and Lore Automation.
 - Full injection preview by relevance tier, prompt placement, compression, token estimates, omission reasons, and sync diagnostics.
 - Pack Health, package import/update/export, duplication, repair, Generated to Custom finalization, Create Deck, and in-progress Creator projects.
 
 ## When To Return To Basic
 
-Switch back to Basic when routine roleplay no longer needs Advanced controls visible. Basic keeps the same Accepted Lorecards, Context, stack, pin/mute choices, and settings, but hides diagnostic and authoring surfaces.
+Switch back to Basic when routine roleplay no longer needs Advanced controls visible. Basic keeps the same Accepted Lorecards, Context, stack, Elevate/Mute choices, and settings, but hides diagnostic and authoring surfaces.

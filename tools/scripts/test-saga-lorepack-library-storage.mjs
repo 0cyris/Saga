@@ -171,11 +171,15 @@ const merged = mergeExternalLoredeckLibraryRegistry({
   packs: {
     chat: { packId: 'chat', title: 'Chat Pack', type: 'custom' },
   },
+  folders: [{ id: 'chat-folder', title: 'Chat Folder' }],
+  deckPlacements: [{ deckId: 'chat', folderId: 'chat-folder', sortOrder: 50 }],
 });
 assert.equal(merged.packs.bundled.title, 'Bundled');
 assert.equal(merged.packs.chat.title, 'Chat Pack');
 assert.equal(merged.packs['arlong-pack'].title, 'Arlong Park');
 assert(merged.folders.some(folder => folder.id === 'fishmen'), 'External library folders should merge into the runtime registry.');
+assert(merged.folders.some(folder => folder.id === 'chat-folder'), 'Chat-local library folders should merge into the runtime registry.');
+assert(merged.deckPlacements.some(placement => placement.deckId === 'chat' && placement.folderId === 'chat-folder'), 'Chat-local library placements should merge into the runtime registry.');
 
 clock = 3000;
 const syncUpsert = upsertExternalLoredeckLibraryRecordSync({

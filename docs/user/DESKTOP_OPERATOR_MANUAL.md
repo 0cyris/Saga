@@ -6,7 +6,7 @@ For phone-width operation, see [Saga for Mobile Operator's Manual](MOBILE_OPERAT
 
 ## First Run Checklist
 
-Basic Experience keeps the first-run path narrow. The Start Checklist is the operator's quick answer to: "Is Saga ready to influence this chat?"
+Basic Experience keeps the first-run path narrow. **Session Readiness** is the operator's quick answer to: "Is Saga ready to influence this chat?"
 
 Use it to confirm that Saga is active, Loredecks are loaded, Context has been browsed and selected in the Context Workbench, Lorecards are available, and injection has something useful to send.
 
@@ -158,7 +158,7 @@ Good Lorecards are not broad wiki summaries. They describe specific facts, const
   <img src="../../assets/documentation/renders/docs-lorecards-accepted-list.png" alt="Saga Accepted Lorecards list" width="800">
 </p>
 
-Accepted Lorecards can be filtered by relevance, pinned, muted, edited, or inspected. Relevance tiers help Saga decide what deserves prompt space now.
+Accepted Lorecards can be filtered by relevance, Elevated, Muted, edited, or inspected. Relevance tiers help Saga decide what deserves prompt space now. **Elevated** entries are forced to High relevance, protected from Lore Automation, and injected directly when needed. **Muted** entries stay saved but are excluded from injection.
 
 <p align="center">
   <img src="../../assets/documentation/renders/docs-lorecards-workbench.png" alt="Saga Lorecard Workbench" width="800">
@@ -170,7 +170,7 @@ The Lorecard Workbench is for heavier review and batch management.
   <img src="../../assets/documentation/renders/docs-lore-timeline.png" alt="Saga Lore Timeline" width="800">
 </p>
 
-The Lore Timeline shows how lore changed over time: accepted entries, rejected drafts, pin/mute changes, restores, and other review events.
+The Lore Timeline shows how lore changed over time: accepted entries, rejected drafts, Elevate/Mute changes, restores, and other review events.
 
 ## Continuity
 
@@ -249,7 +249,7 @@ For the full storage contract, see [Storage And State Safety](STORAGE_AND_STATE_
 | Saga shelf does not open | Confirm the extension was installed from the Saga GitHub URL in SillyTavern's Extension installer, then reload SillyTavern. |
 | No Loredecks are active | Open Loredecks, then Loredeck Library, and add a Loredeck to the Active Stack. |
 | Lore seems from the wrong point in the story | Open Context and check the active Context for each loaded Loredeck. |
-| Accepted Lorecards are not reaching the model | Open Injection and inspect the relevance preview, pin/mute state, Context gate, and injection enable toggles. |
+| Accepted Lorecards are not reaching the model | Open Injection and inspect the relevance preview, Elevate/Mute state, Context gate, and injection enable toggles. |
 | Imported or generated deck behaves strangely | Run Pack Health and review grouped issues. |
 | Saga storage reports missing files | Open Advanced Settings, run State Safety **Verify Storage**, then use **Clean Missing Records** only for stale indexed files. |
 | You need to delete custom Loredecks or appearance packs | Open Settings, then **Danger Zone**. Use **Remove Custom Loredecks** or **Remove Custom Themes + Icon Packs**. |

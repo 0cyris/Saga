@@ -55,6 +55,12 @@ export function isDocumentationFixtureLoredeckPack(packId = '', pack = {}) {
     return DOCUMENTATION_FIXTURE_LOREDECK_PACK_IDS.includes(id) || sourceKind === 'documentation_fixture';
 }
 
+function shouldKeepDocumentationFixtureLoredeckPack(packId = '', pack = {}) {
+    return typeof globalThis !== 'undefined'
+        && globalThis.__sagaDocFixtureActive === true
+        && isDocumentationFixtureLoredeckPack(packId, pack);
+}
+
 function normalizeSagaUserFilesPointer(value = '', allowedExtensions = []) {
     try {
         return assertSagaUserFilesPath(value, { allowedExtensions });
@@ -81,7 +87,7 @@ export function normalizeLoredeckStack(value) {
         const type = item.type === 'folder' || item.folderId ? 'folder' : 'deck';
         const packId = String(item.packId || item.deckId || '').trim();
         const folderId = String(item.folderId || '').trim();
-        if (type === 'deck' && isDocumentationFixtureLoredeckPack(packId)) continue;
+        if (type === 'deck' && isDocumentationFixtureLoredeckPack(packId) && !shouldKeepDocumentationFixtureLoredeckPack(packId)) continue;
         const key = getLoredeckStackItemKey({ type, packId, folderId });
         if (!key || seen.has(key)) continue;
         seen.add(key);
@@ -895,7 +901,7 @@ export function normalizeLoredeckRegistry(value, defaults = getDefaultState().lo
 
     const mergedPacks = { ...defaultPacks, ...inputPacks };
     for (const [packId, mergedRaw] of Object.entries(mergedPacks)) {
-        if (isDocumentationFixtureLoredeckPack(packId, mergedRaw)) {
+        if (isDocumentationFixtureLoredeckPack(packId, mergedRaw) && !shouldKeepDocumentationFixtureLoredeckPack(packId, mergedRaw)) {
             const fixtureId = String(mergedRaw?.packId || mergedRaw?.id || packId || '').trim();
             if (fixtureId) removedDocumentationFixturePackIds.add(fixtureId);
             continue;
@@ -1041,7 +1047,7 @@ export function normalizeLoredeckRegistry(value, defaults = getDefaultState().lo
     const libraryIndex = normalizeLoredeckLibraryIndex(registryInput, { defaults, packs });
     const shouldRemoveFixtureLayoutPackId = packId => (
         removedDocumentationFixturePackIds.has(String(packId || '').trim())
-        || isDocumentationFixtureLoredeckPack(packId)
+        || (isDocumentationFixtureLoredeckPack(packId) && !shouldKeepDocumentationFixtureLoredeckPack(packId))
     );
 
     return {

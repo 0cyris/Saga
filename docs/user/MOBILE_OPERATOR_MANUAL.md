@@ -90,13 +90,13 @@ Use **Review Proposals** when Saga has Reasoner-backed Context changes waiting f
   <img src="../../assets/documentation/renders/docs-mobile-basic-lorecards-lore.png" alt="Saga mobile Lorecards object list" width="360">
 </p>
 
-Mobile Lorecards use three sub-tabs above the bottom bar:
+Mobile Lorecards use sub-tabs above the bottom bar:
 
-- **Lore**: one object list for Pending Review, Accepted, active, pinned, and muted Lorecards.
+- **Lore**: one object list for Pending Review, Accepted, High relevance, Elevated, and Muted Lorecards.
 - **Generate**: canon preview, story scan, and Manual Lore Note drafting.
 - **Automation**: Advanced-only Lore Automation status and controls.
 
-In **Lore**, Pending Review and Accepted cards are object rows. Review Pending entries before they become durable lore. Accepted entries can be active, muted, pinned, or protected by Lore Automation state.
+In **Lore**, Pending Review and Accepted cards are object rows. Review Pending entries before they become durable lore. Accepted entries can be High relevance, Muted, Elevated, or protected by Lore Automation state. Tap the relevance dots to cycle tier, use the mic control to Mute, double-tap an Accepted card to toggle Elevation, and long-press to edit.
 
 <p align="center">
   <img src="../../assets/documentation/renders/docs-mobile-basic-lorecards-generate.png" alt="Saga mobile Lorecards Generate sub-tab" width="360">

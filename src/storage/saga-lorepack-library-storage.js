@@ -326,16 +326,18 @@ export function mergeExternalLoredeckLibraryRegistry(settingsRegistry = {}, chat
             ...externalPacks,
         },
         folders: [
+            ...(chat.folders || []),
             ...(settings.folders || []),
             ...(external.folders || []),
         ],
         deckPlacements: [
+            ...(chat.deckPlacements || []),
             ...(settings.deckPlacements || []),
             ...(external.deckPlacements || []),
         ],
         activeStack: (settings.activeStack || []).length
             ? settings.activeStack
-            : (external.activeStack || []),
+            : ((external.activeStack || []).length ? external.activeStack : (chat.activeStack || [])),
     }, DEFAULT_SETTINGS.loredeckLibrary);
 }
 

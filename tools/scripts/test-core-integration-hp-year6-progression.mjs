@@ -282,7 +282,6 @@ async function main() {
     loreAutomationMode: 'ar',
     loreAutomationStyle: 'aggressive',
     loreAutomationProviderRouting: 'local',
-    autoRelevanceUseModel: false,
     autoRelevanceCandidateCap: 20,
     autoRelevanceMinConfidence: 0.25,
     autoRelevanceRecentMessages: 2,

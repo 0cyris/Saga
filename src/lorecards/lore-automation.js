@@ -17,8 +17,8 @@ export const LORE_AUTOMATION_MODE_LABELS = Object.freeze({
 export const LORE_AUTOMATION_MODE_TOOLTIPS = Object.freeze({
     off: 'Lore Automation disabled.',
     ar: 'Auto-Relevance.',
-    armp: 'Auto-Relevance and Muting.',
-    armpc: 'Auto-Relevance, Muting, and Curating.',
+    armp: 'Auto-Relevance, Muting, Prominence.',
+    armpc: 'Auto-Relevance, Muting, Prominence, Curating.',
 });
 
 export const LORE_AUTOMATION_MANUAL_DISABLE_REASONS = Object.freeze({

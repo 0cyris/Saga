@@ -82,32 +82,32 @@ function basicChecklistTourStep(id, title, body, tab, target, options = {}) {
 }
 
 const BASIC_CHECKLIST_REVIEW_GENERATION_STEPS = Object.freeze([
-    basicChecklistTourStep('basic-checklist-review-generate-canon', 'Preview Canon Packs', 'Use Preview Canon Packs when loaded Loredecks can suggest current-scene canon guardrails.', 'lore', 'lore.canon.preview', {
+    basicChecklistTourStep('basic-checklist-review-generate-canon', 'Preview Canon Packs', 'Use Preview Canon Packs when loaded Loredecks can suggest current-scene canon guardrails. On mobile, open the Lorecards Generate sub-tab first.', 'lore', 'lore.canon.preview', {
         fallbackTarget: 'lore.generation.section',
         expandSections: Object.freeze(['lore.generation']),
         expected: 'Useful canon suggestions can be sent to Pending Review.',
         when: 'Use this before scenes where canon constraints matter.',
     }),
-    basicChecklistTourStep('basic-checklist-review-scan-story', 'Scan Story Lore', 'Use Scan Story Lore when the recent chat has durable facts worth extracting.', 'lore', 'lore.story.scan', {
+    basicChecklistTourStep('basic-checklist-review-scan-story', 'Scan Story Lore', 'Use Scan Story Lore when the recent chat has durable facts worth extracting. On mobile, run this from the Lorecards Generate sub-tab.', 'lore', 'lore.story.scan', {
         fallbackTarget: 'lore.generation.section',
         expandSections: Object.freeze(['lore.generation']),
         expected: 'Story facts become Pending Review entries, not Accepted Lorecards.',
         when: 'Run this after substantial new roleplay.',
     }),
-    basicChecklistTourStep('basic-checklist-review-manual-add', 'Manual Lore Note', 'Use Draft Manual Note when you already know the exact fact Saga should remember.', 'lore', 'lore.manual.add', {
+    basicChecklistTourStep('basic-checklist-review-manual-add', 'Manual Lore Note', 'Use Draft Manual Note when you already know the exact fact Saga should remember. On mobile, keep the note short enough to review comfortably in the follow-up card.', 'lore', 'lore.manual.add', {
         fallbackTarget: 'lore.generation.section',
         expandSections: Object.freeze(['lore.generation']),
         expected: 'The draft enters Pending Review for one final decision.',
         when: 'Use this for trusted facts that do not need model discovery.',
     }),
-    basicChecklistTourStep('basic-checklist-review-pending-after-create', 'Review Pending Review', 'Read each Pending Review entry and accept only facts that should affect future responses.', 'lore', 'lore.pending.entry', {
+    basicChecklistTourStep('basic-checklist-review-pending-after-create', 'Review Pending Review', 'Read each Pending Review entry and accept only facts that should affect future responses. On mobile, the pending card stays inside the Lore sub-tab.', 'lore', 'lore.pending.entry', {
         fallbackTarget: 'lore.pending',
         expandSections: Object.freeze(['lore.pendingReview']),
         prepare: 'openPendingLoreReview',
         expected: 'Accepted entries move into durable Lorecards.',
-        when: 'Use this after canon preview, story scan, or manual entry.',
+        when: 'Use this after canon preview, story scan, or Manual Lore Note drafting.',
     }),
-    basicChecklistTourStep('basic-checklist-review-apply', 'Accept or Reject', 'Use the card actions to accept useful Lorecards and reject noise, recap, or wrong canon.', 'lore', 'lore.pending.actions', {
+    basicChecklistTourStep('basic-checklist-review-apply', 'Accept or Reject', 'Use the card actions to accept useful Lorecards and reject noise, recap, or wrong canon. On mobile, use the row actions at the bottom of the pending card.', 'lore', 'lore.pending.actions', {
         fallbackTarget: 'lore.pending.entry',
         expandSections: Object.freeze(['lore.pendingReview']),
         prepare: 'openPendingLoreReview',
@@ -117,21 +117,21 @@ const BASIC_CHECKLIST_REVIEW_GENERATION_STEPS = Object.freeze([
 ]);
 
 const BASIC_CHECKLIST_REVIEW_PENDING_STEPS = Object.freeze([
-    basicChecklistTourStep('basic-checklist-review-open-pending', 'Open Pending Review', 'Saga opens Pending Review so the next decision is visible.', 'lore', 'lore.pending.entry', {
+    basicChecklistTourStep('basic-checklist-review-open-pending', 'Open Pending Review', 'Saga opens Pending Review so the next decision is visible. On mobile, this appears in the Lorecards Lore sub-tab.', 'lore', 'lore.pending.entry', {
         fallbackTarget: 'lore.pending',
         expandSections: Object.freeze(['lore.pendingReview']),
         prepare: 'openPendingLoreReview',
         expected: 'A Pending Review entry is visible for review.',
         when: 'Use this when the checklist reports pending review.',
     }),
-    basicChecklistTourStep('basic-checklist-review-read-card', 'Read the Entry', 'Check the title, category, tags, and fact text before it becomes an Accepted Lorecard.', 'lore', 'lore.pending.entry', {
+    basicChecklistTourStep('basic-checklist-review-read-card', 'Read the Entry', 'Check the title, category, tags, and fact text before it becomes an Accepted Lorecard. Mobile users should read the card itself before using the compact action row.', 'lore', 'lore.pending.entry', {
         fallbackTarget: 'lore.pending.list',
         expandSections: Object.freeze(['lore.pendingReview']),
         prepare: 'openPendingLoreReview',
         expected: 'You can decide whether the fact should guide future responses.',
         when: 'Use this before accepting or rejecting the card.',
     }),
-    basicChecklistTourStep('basic-checklist-review-apply-pending', 'Accept or Reject', 'Press Accept for useful durable facts, or reject entries that should stay out of memory.', 'lore', 'lore.pending.actions', {
+    basicChecklistTourStep('basic-checklist-review-apply-pending', 'Accept or Reject', 'Press Accept for useful durable facts, or reject entries that should stay out of memory. On mobile, use the visible card actions instead of looking for a separate desktop toolbar.', 'lore', 'lore.pending.actions', {
         fallbackTarget: 'lore.pending.entry',
         expandSections: Object.freeze(['lore.pendingReview']),
         prepare: 'openPendingLoreReview',
@@ -145,31 +145,31 @@ const BASIC_CHECKLIST_TOUR_TASKS_BY_ROW = Object.freeze({
         id: 'basic-checklist-loredecks',
         title: 'Add Loredecks to Stack',
         steps: Object.freeze([
-            basicChecklistTourStep('basic-checklist-loredecks-open', 'Open Loredeck Library', 'Press Open Loredeck Library to open the fullscreen stack manager.', 'loredecks', 'loredecks.library.open', {
+            basicChecklistTourStep('basic-checklist-loredecks-open', 'Open Loredeck Library', 'Press Open Loredeck Library to open the stack manager. On mobile, this opens the Library browse surface.', 'loredecks', 'loredecks.library.open', {
                 fallbackTarget: 'loredecks.library.launch',
                 expandSections: Object.freeze(['loredecks.libraryLaunch']),
-                expected: 'The Library window opens over the chat.',
+                expected: 'The Library window or mobile Library surface opens over the chat.',
                 when: 'Start here when no Loredeck is loaded.',
             }),
-            basicChecklistTourStep('basic-checklist-loredecks-open-folder', 'Open a Folder', 'Use a folder dropdown to reveal the Loredecks inside it. The folder is only a container; the Loredecks are the selectable rows under it.', 'loredecks', 'loredecks.library.folderDisclosure', {
+            basicChecklistTourStep('basic-checklist-loredecks-open-folder', 'Open a Folder', 'Use a folder dropdown to reveal the Loredecks inside it. The folder is only a container; the Loredecks are the selectable rows or mobile cards under it.', 'loredecks', 'loredecks.library.folderDisclosure', {
                 fallbackTarget: 'loredecks.library.list',
                 prepare: 'openLoredeckLibrary',
                 expected: 'A folder is expanded so its Loredecks are visible.',
                 when: 'Use this when the Library shows folder rows instead of individual Loredecks.',
             }),
-            basicChecklistTourStep('basic-checklist-loredecks-pick', 'Select 1-2 Loredecks', 'Choose one core Loredeck for the fandom, then add one story-position Loredeck for where this chat is in the story.', 'loredecks', 'loredecks.library.deckCard', {
+            basicChecklistTourStep('basic-checklist-loredecks-pick', 'Select 1-2 Loredecks', 'Choose one core Loredeck for the fandom, then add one story-position Loredeck for where this chat is in the story. On mobile, select from the card list and open details only when you need to inspect first.', 'loredecks', 'loredecks.library.deckCard', {
                 fallbackTarget: 'loredecks.library.list',
                 prepare: 'openLoredeckLibrary',
                 expected: 'One or two Loredecks are selected before stack changes.',
                 when: 'Use this before adding anything to the active stack.',
             }),
-            basicChecklistTourStep('basic-checklist-loredecks-add', 'Add to Active Stack', 'Use the transfer controls to add the selected Loredecks to the active stack.', 'loredecks', 'loredecks.library.transfer', {
+            basicChecklistTourStep('basic-checklist-loredecks-add', 'Add to Active Stack', 'Use the transfer controls to add the selected Loredecks to the active stack. On mobile, the same transfer action is grouped with the Library card controls.', 'loredecks', 'loredecks.library.transfer', {
                 fallbackTarget: 'loredecks.library.list',
                 prepare: 'openLoredeckLibrary',
                 expected: 'The active stack contains the selected Core and story-position Loredecks.',
                 when: 'Do this before setting Context.',
             }),
-            basicChecklistTourStep('basic-checklist-loredecks-confirm', 'Confirm Stack', 'Check the active stack, then press Done when the loaded Loredecks are correct.', 'loredecks', 'loredecks.library.done', {
+            basicChecklistTourStep('basic-checklist-loredecks-confirm', 'Confirm Stack', 'Check the active stack, then press Done or Close when the loaded Loredecks are correct.', 'loredecks', 'loredecks.library.done', {
                 fallbackTarget: 'loredecks.library.stack',
                 prepare: 'openLoredeckLibrary',
                 expected: 'The Loredecks tab reflects the loaded stack.',
@@ -181,19 +181,19 @@ const BASIC_CHECKLIST_TOUR_TASKS_BY_ROW = Object.freeze({
         id: 'basic-checklist-context',
         title: 'Browse Context',
         steps: Object.freeze([
-            basicChecklistTourStep('basic-checklist-context-open', 'Open Context Workbench', 'Press Browse Context to open the fullscreen Context Workbench before the story starts.', 'context', 'context.browser', {
+            basicChecklistTourStep('basic-checklist-context-open', 'Open Context Workbench', 'Press Browse Context to open the Context Workbench before the story starts. On mobile, start from the Context route or Context Details, then open Browse Context.', 'context', 'context.browser', {
                 fallbackTarget: 'context.commandCenter',
                 expandSections: Object.freeze(['context.commandCenter']),
                 expected: 'The Context Workbench opens for the loaded Loredecks.',
                 when: 'Use this when you know the current story position.',
             }),
-            basicChecklistTourStep('basic-checklist-context-loredeck', 'Choose Loaded Loredeck', 'Select the loaded Loredeck whose story position you want to set.', 'context', 'context.workbench.loadedLoredeck', {
+            basicChecklistTourStep('basic-checklist-context-loredeck', 'Choose Loaded Loredeck', 'Select the loaded Loredeck whose story position you want to set. Mobile users still choose the loaded row before applying any story position.', 'context', 'context.workbench.loadedLoredeck', {
                 fallbackTarget: 'context.workbench.contextTable',
                 prepare: 'openContextBrowser',
                 expected: 'The Workbench focuses the Loredeck that needs Context.',
                 when: 'Use this when the active stack has more than one Loredeck.',
             }),
-            basicChecklistTourStep('basic-checklist-context-browse', 'Choose Story Position', 'Use Choose Story Position to search timeline anchors, windows, aliases, and loaded story events.', 'context', 'context.workbench.storyPosition', {
+            basicChecklistTourStep('basic-checklist-context-browse', 'Choose Story Position', 'Use Choose Story Position to search timeline anchors, windows, aliases, and loaded story events. On mobile, this is the main way to pick Context without learning desktop timeline panels.', 'context', 'context.workbench.storyPosition', {
                 fallbackTarget: 'context.workbench.editor',
                 prepare: 'openContextBrowser',
                 expected: 'Anchors and Windows are visible before you choose the current story position.',
@@ -205,7 +205,7 @@ const BASIC_CHECKLIST_TOUR_TASKS_BY_ROW = Object.freeze({
                 expected: 'A real Anchor, Window, date, or story position is selected for the loaded Loredeck.',
                 when: 'Use this to set a trusted manual Context.',
             }),
-            basicChecklistTourStep('basic-checklist-context-verify', 'Verify Loaded Rows', 'Confirm the loaded Loredeck Context rows show the story position you expect.', 'context', 'context.loadedLoredecks', {
+            basicChecklistTourStep('basic-checklist-context-verify', 'Verify Loaded Rows', 'Confirm the loaded Loredeck Context rows show the story position you expect. On mobile, return to the Context route summary or details after the Workbench closes.', 'context', 'context.loadedLoredecks', {
                 fallbackTarget: 'context.commandCenter',
                 expandSections: Object.freeze(['context.loadedLoredecks']),
                 expected: 'The checklist can mark Browse Context as complete.',
@@ -221,21 +221,21 @@ const BASIC_CHECKLIST_TOUR_TASKS_BY_ROW = Object.freeze({
         id: 'basic-checklist-lore-ready',
         title: 'Confirm Lorecards',
         steps: Object.freeze([
-            basicChecklistTourStep('basic-checklist-lore-ready-open', 'Open Accepted Lorecards', 'Saga opens Accepted Lorecards so you can inspect what may guide prompts.', 'lore', 'lore.accepted.list', {
+            basicChecklistTourStep('basic-checklist-lore-ready-open', 'Open Accepted Lorecards', 'Saga opens Accepted Lorecards so you can inspect what may guide prompts. On mobile, this lands in the Lorecards Lore sub-tab.', 'lore', 'lore.accepted.list', {
                 fallbackTarget: 'lore.accepted',
                 expandSections: Object.freeze(['lore.acceptedEntries']),
                 prepare: 'openAcceptedLoreDetails',
                 expected: 'Accepted Lorecards are visible.',
                 when: 'Use this after review has accepted at least one card.',
             }),
-            basicChecklistTourStep('basic-checklist-lore-ready-search', 'Search Accepted Lorecards', 'Use the search field if you need to confirm a specific fact before continuing.', 'lore', 'lore.accepted.filters', {
+            basicChecklistTourStep('basic-checklist-lore-ready-search', 'Search Accepted Lorecards', 'Use the search field if you need to confirm a specific fact before continuing. On mobile, use filters from the Lore sub-tab rather than looking for a separate Active Set page.', 'lore', 'lore.accepted.filters', {
                 fallbackTarget: 'lore.accepted.list',
                 expandSections: Object.freeze(['lore.acceptedEntries']),
                 prepare: 'openAcceptedLoreDetails',
                 expected: 'You can verify what Saga remembers.',
                 when: 'Use this when the accepted list is long.',
             }),
-            basicChecklistTourStep('basic-checklist-lore-ready-entry', 'Open a Lorecard', 'Open or inspect an accepted Lorecard when the stored fact needs correction.', 'lore', 'lore.accepted.entry', {
+            basicChecklistTourStep('basic-checklist-lore-ready-entry', 'Open a Lorecard', 'Open or inspect an accepted Lorecard when the stored fact needs correction. On mobile, long-press the card when you need the editor.', 'lore', 'lore.accepted.entry', {
                 fallbackTarget: 'lore.accepted.list',
                 expandSections: Object.freeze(['lore.acceptedEntries']),
                 prepare: 'openAcceptedLoreDetails',
@@ -248,19 +248,19 @@ const BASIC_CHECKLIST_TOUR_TASKS_BY_ROW = Object.freeze({
         id: 'basic-checklist-provider',
         title: 'Configure Provider',
         steps: Object.freeze([
-            basicChecklistTourStep('basic-checklist-provider-utility', 'Check Utility Provider', 'Read Utility Provider status for scans, summaries, and other model-backed support actions.', 'settings', 'settings.provider.utility', {
+            basicChecklistTourStep('basic-checklist-provider-utility', 'Check Utility Provider', 'Read Utility Provider status for scans, summaries, and other model-backed support actions. On mobile, use the Settings route provider rows.', 'settings', 'settings.provider.utility', {
                 fallbackTarget: 'settings.providers',
                 expandSections: Object.freeze(['settings.providers']),
                 expected: 'The status says Ready or explains what is missing.',
                 when: 'Use this if model-backed helper actions fail.',
             }),
-            basicChecklistTourStep('basic-checklist-provider-reasoning', 'Check Reasoning Provider', 'Read Reasoning Provider status for Lorecard generation and model-backed Context help.', 'settings', 'settings.provider.reasoning', {
+            basicChecklistTourStep('basic-checklist-provider-reasoning', 'Check Reasoning Provider', 'Read Reasoning Provider status for Lorecard generation and model-backed Context help. On mobile, the same status is in Settings.', 'settings', 'settings.provider.reasoning', {
                 fallbackTarget: 'settings.providers',
                 expandSections: Object.freeze(['settings.providers']),
                 expected: 'The status says Ready or explains what is missing.',
                 when: 'Use this before scans or generated lore.',
             }),
-            basicChecklistTourStep('basic-checklist-provider-test', 'Test a Provider', 'Press a Test button to confirm the selected provider route can answer a small request.', 'settings', 'settings.provider.test', {
+            basicChecklistTourStep('basic-checklist-provider-test', 'Test a Provider', 'Press a Test button to confirm the selected provider route can answer a small request. On mobile, use the touch-sized Test action in the provider row.', 'settings', 'settings.provider.test', {
                 fallbackTarget: 'settings.provider.reasoning',
                 expandSections: Object.freeze(['settings.providers']),
                 expected: 'Saga reports whether the provider connected.',

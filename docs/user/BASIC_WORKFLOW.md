@@ -10,7 +10,7 @@ The in-app **Basic Walkthrough** is split into compact workflow cards. Use **Sta
 
 ### First Run
 
-Start here when you are new to a chat. This module explains what Basic mode is for, confirms **Saga Active**, shows the **Start Checklist**, and teaches the recommended next action.
+Start here when you are new to a chat. This module explains what Basic mode is for, confirms **Saga Active**, shows **Session Readiness**, and teaches the recommended next action.
 
 Use this module when the checklist is not ready and you want Saga to tell you the next setup step instead of scanning every tab.
 
@@ -38,7 +38,7 @@ Return to Context whenever the story crosses a meaningful boundary. Correct Cont
 
 Use **Lorecards** to preview canon packs, scan recent story, draft a Manual Lore Note, review Pending Review entries, and inspect Accepted Lorecards.
 
-New facts should stay pending until you decide they should affect future responses. Edit useful proposals before accepting them, reject recap/noise/wrong canon, and use pin or mute to adjust Accepted Lorecard behavior without deleting data.
+New facts should stay pending until you decide they should affect future responses. Edit useful proposals before accepting them, reject recap/noise/wrong canon, and use **Elevate** or **Mute** to adjust Accepted Lorecard behavior without deleting data.
 
 The core review question is:
 
@@ -48,7 +48,7 @@ Should this fact affect future responses?
 
 ### Continue Roleplay
 
-Use **Continue Roleplay** after Loredecks are loaded, Context is current, useful Lorecards are accepted, and the **Start Checklist** is ready.
+Use **Continue Roleplay** after Loredecks are loaded, Context is current, useful Lorecards are accepted, and **Session Readiness** is ready.
 
 Session metrics help confirm whether Saga has Pending Review entries, Accepted Lorecards, selected injection, and a prompt-size estimate. After major story movement, repeat the loop: update Context, review new Lorecards, then continue roleplay.
 
@@ -68,7 +68,7 @@ Switch to Advanced for provider profile internals, endpoint/model controls, Crea
 4. Use **Browse Context** to select the current story position for each loaded Loredeck before the story starts.
 5. Open **Lorecards** and generate or draft only the facts you need.
 6. Review Pending Review entries. Accept useful durable facts and reject anything that should not guide future responses.
-7. Confirm the **Start Checklist** is ready.
+7. Confirm **Session Readiness** is ready.
 8. Continue roleplay.
 9. Repeat Context update and Lorecard review after major story movement.
 
@@ -88,7 +88,7 @@ Basic does not show:
 - Package repair/update conflict resolution.
 - Provider profile internals.
 
-Those workflows still use the same saved Loredecks, Context, Pending Review entries, Accepted Lorecards, pin/mute choices, and settings. Switch to Advanced when you need the full control surface, then return to Basic for routine roleplay.
+Those workflows still use the same saved Loredecks, Context, Pending Review entries, Accepted Lorecards, Elevate/Mute choices, and settings. Switch to Advanced when you need the full control surface, then return to Basic for routine roleplay.
 
 ## Common Fixes
 
@@ -96,6 +96,6 @@ Those workflows still use the same saved Loredecks, Context, Pending Review entr
 - **The Library is empty or incomplete:** use **Import Deck** or switch to Advanced if you need Creator.
 - **Suggestions look wrong:** revisit Context and choose the correct story position manually.
 - **A saved Lorecard should not affect responses:** mute it in Lorecards.
-- **A Lorecard should stay prominent:** pin it in Lorecards.
+- **A Lorecard should stay prominent:** Elevate it in Lorecards.
 - **A model-backed action says provider setup is needed:** open Settings, test the provider, or use the current SillyTavern model.
 - **You need to inspect exactly what Saga sends:** switch to Advanced and open **Injection**.

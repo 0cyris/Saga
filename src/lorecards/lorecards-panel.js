@@ -99,7 +99,6 @@ const LORE_AUTOMATION_SETTING_KEYS = Object.freeze([
     'autoRelevanceRecentPastDays',
     'autoRelevanceProtectPinned',
     'autoRelevanceEvaluateMuted',
-    'autoRelevanceUseModel',
     'autoRelevanceModelCandidateCap',
     'autoRelevanceModelMaxTokens',
     'autoRelevanceModelRecentChars',
@@ -108,8 +107,8 @@ const LORE_AUTOMATION_SETTING_KEYS = Object.freeze([
 const LORE_AUTOMATION_MODE_BUTTON_VALUES = Object.freeze(['ar', 'armp', 'armpc']);
 const LORE_AUTOMATION_MODE_DESCRIPTIONS = Object.freeze({
     ar: 'Auto-Relevance',
-    armp: 'Auto-Relevance Muting',
-    armpc: 'Auto-Relevance Muting Curating',
+    armp: 'Auto-Relevance Muting Prominence',
+    armpc: 'Auto-Relevance Muting Prominence Curating',
 });
 const LORE_AUTOMATION_STYLE_LABELS = Object.freeze({ careful: 'Careful', balanced: 'Balanced', aggressive: 'Aggressive' });
 const LORE_AUTOMATION_STYLE_DESCRIPTIONS = Object.freeze({
@@ -2812,23 +2811,8 @@ export function createAutoRelevanceCard(state) {
     const modelRow = document.createElement('div');
     modelRow.className = 'saga-runtime-grid';
     markTourTarget(modelRow, 'lore.autoRelevance.model');
-    const modelToggle = document.createElement('label');
-    modelToggle.className = 'saga-inline-toggle';
-    const modelCb = document.createElement('input');
-    modelCb.type = 'checkbox';
-    modelCb.checked = !!settings.autoRelevanceUseModel;
-    modelCb.addEventListener('change', () => {
-        const next = getSettings();
-        next.autoRelevanceUseModel = modelCb.checked;
-        saveSettings(next);
-        refreshPanelBody({ preserveScroll: true });
-    });
-    modelToggle.appendChild(modelCb);
-    modelToggle.appendChild(document.createTextNode(' Use Utility Provider adjudication'));
-    addTooltip(modelToggle, 'Optional second-stage model review. Saga still scores locally first and sends only the candidate cap subset.');
-    modelRow.appendChild(modelToggle);
-    modelRow.appendChild(createNumberSettingMini('Model candidate cap', 'autoRelevanceModelCandidateCap', settings.autoRelevanceModelCandidateCap || 30, 1, 80));
-    modelRow.appendChild(createNumberSettingMini('Model max tokens', 'autoRelevanceModelMaxTokens', settings.autoRelevanceModelMaxTokens || 2048, 512, 4096));
+    modelRow.appendChild(createNumberSettingMini('Relevance provider cap', 'autoRelevanceModelCandidateCap', settings.autoRelevanceModelCandidateCap || 30, 1, 80));
+    modelRow.appendChild(createNumberSettingMini('Provider max tokens', 'autoRelevanceModelMaxTokens', settings.autoRelevanceModelMaxTokens || 2048, 512, 4096));
     advanced.appendChild(modelRow);
     card.appendChild(advanced);
     const counts = getLoreRelevanceCounts(state);
@@ -2854,7 +2838,7 @@ export function createAutoRelevanceCard(state) {
                 current.autoRelevanceMode = 'apply_high_confidence';
                 saveSettings(current);
             }
-            const result = await runAutoRelevance({ force: true });
+            const result = await runAutoRelevance({ force: true, forceProvider: true });
             refreshPanelBody({ preserveScroll: true });
             refreshHeader();
             if (result.status === 'no_accepted_lore') {
@@ -2865,7 +2849,7 @@ export function createAutoRelevanceCard(state) {
             } else if (result.status === 'no_lore') {
                 toast('Lore Automation needs Accepted Lorecards before it can run.', 'warning');
             } else {
-                toast(`Lore Automation ${result.status}: ${result.changed || 0} changed, ${result.curated || 0} accepted, ${result.retired || 0} retired, ${result.considered || 0} considered${result.modelStatus ? `, model ${result.modelStatus}` : ''}.`, 'info');
+                toast(`Lore Automation: ${formatLoreAutomationRunSummary(result)}.`, 'info');
             }
         } catch (e) {
             console.error(e);
@@ -2907,16 +2891,22 @@ function getLoreAutomationEligibilityCounts(state = getState()) {
 }
 
 function formatLoreAutomationRunSummary(run = {}) {
-    const parts = [humanizeScopeKey(run.status || 'unknown')];
+    const parts = [formatLoreAutomationStatusLabel(run.status || 'unknown')];
     const changed = Number(run.changed || 0);
     const curated = Number(run.curated || run.pendingCurated || 0);
     const retired = Number(run.retired || 0);
+    const pinned = Number(run.pinned || 0) + Number(run.unpinned || 0);
     const muted = Number(run.muted || 0) + Number(run.unmuted || 0);
     if (changed) parts.push(`${changed} changed`);
+    if (pinned) parts.push(`${pinned} prominence updates`);
     if (muted) parts.push(`${muted} mute updates`);
     if (curated) parts.push(`${curated} accepted`);
     if (retired) parts.push(`${retired} retired`);
-    if (run.modelStatus) parts.push(`model ${humanizeScopeKey(run.modelStatus)}`);
+    const relevanceProvider = formatLoreAutomationProviderLabel(run.modelStatus || '');
+    const automationProvider = formatLoreAutomationProviderSummary(run.providerStatus || '');
+    if (relevanceProvider) parts.push(`Relevance: ${relevanceProvider}`);
+    if (automationProvider) parts.push(`Provider: ${automationProvider}`);
+    if (run.modelError) parts.push(String(run.modelError).slice(0, 120));
     return parts.join(' | ');
 }
 
@@ -2928,6 +2918,53 @@ function formatLoreAutomationRunTimestamp(value = 0) {
     } catch (_) {
         return 'Recent';
     }
+}
+
+function formatLoreAutomationStatusLabel(status = '') {
+    const key = String(status || '').trim().toLowerCase();
+    const labels = {
+        changed: 'Changed',
+        unchanged: 'Unchanged',
+        curated: 'Curated',
+        retired: 'Retired',
+        duplicates_only: 'No new cards',
+        needs_context: 'Needs Context',
+        no_accepted_lore: 'No accepted Lorecards',
+        pending_only: 'Pending review blocked',
+        no_lore: 'No Lorecards',
+        disabled: 'Disabled',
+        skipped_running: 'Already running',
+        manual_mode: 'Manual',
+        waiting: 'Waiting',
+        model_failed: 'Provider failed',
+        failed_parse: 'Provider parse failed',
+        unavailable: 'Provider unavailable',
+    };
+    return labels[key] || humanizeScopeKey(key || 'unknown');
+}
+
+function formatLoreAutomationProviderLabel(status = '') {
+    const key = String(status || '').trim().toLowerCase();
+    const labels = {
+        model: 'Utility',
+        utility: 'Utility',
+        reasoning: 'Reasoning',
+        utility_fallback: 'Reasoning -> Utility fallback',
+        model_failed: 'Provider failed',
+        failed_parse: 'Provider parse failed',
+        unavailable: 'Provider unavailable',
+    };
+    if (!key || ['skipped', 'local', 'local_only', 'no_candidates', 'duplicates_only'].includes(key)) return '';
+    return labels[key] || humanizeScopeKey(key);
+}
+
+function formatLoreAutomationProviderSummary(rawStatus = '') {
+    const labels = String(rawStatus || '')
+        .split('/')
+        .map(formatLoreAutomationProviderLabel)
+        .filter(Boolean);
+    const unique = Array.from(new Set(labels));
+    return unique.join(' + ');
 }
 
 function createLoreAutomationActivityList(state = getState()) {
@@ -4831,6 +4868,12 @@ function createLorecardWorkspace(state = getState(), options = {}) {
         const utilities = document.createElement('div');
         utilities.className = 'saga-lorecard-workspace-utilities';
         if (!basic) {
+            utilities.appendChild(markTourTarget(createButton('Pending Workbench', 'Open a larger Pending Review workspace with dense rows and a detail pane.', () => {
+                openLoreWorkbench('pending');
+            }, 'saga-small-button'), 'lore.pending.workbench'));
+            utilities.appendChild(markTourTarget(createButton('Accepted Workbench', 'Open a larger Accepted Lorecards workspace with filters, bulk actions, dense rows, and a detail pane.', () => {
+                openLoreWorkbench('accepted');
+            }, 'saga-small-button'), 'lore.accepted.workbench'));
             utilities.appendChild(markTourTarget(createButton('Timeline', 'Open the Lore Timeline audit and recovery workbench.', () => {
                 openLoreTimeline();
             }, 'saga-small-button'), 'lore.timeline.open'));

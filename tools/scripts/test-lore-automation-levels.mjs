@@ -83,7 +83,6 @@ ctx.extensionSettings[MODULE_KEY] = {
   loreAutomationRemapWordBudget: 120,
   loreAutomationCurationWordBudget: 240,
   autoRelevanceEnabled: true,
-  autoRelevanceUseModel: false,
   autoRelevanceCandidateCap: 10,
   autoRelevanceMinConfidence: 0.25,
   autoRelevanceRecentMessages: 4,
@@ -126,18 +125,17 @@ assert.equal(LORE_AUTOMATION_MODE_LABELS.off, 'Off');
 assert.equal(LORE_AUTOMATION_MODE_LABELS.ar, 'AR');
 assert.equal(LORE_AUTOMATION_MODE_LABELS.armp, 'ARMP');
 assert.equal(LORE_AUTOMATION_MODE_LABELS.armpc, 'ARMPC');
-assert.equal(LORE_AUTOMATION_MODE_TOOLTIPS.armpc, 'Auto-Relevance, Muting, and Curating.');
+assert.equal(LORE_AUTOMATION_MODE_TOOLTIPS.armpc, 'Auto-Relevance, Muting, Prominence, Curating.');
 assert.equal(isLoreAutomationEnabledForEntry(disabledEntry), false);
 
 const initialRemapPreview = __autoRelevanceTestHooks.previewLoreAutomationRemapCandidates(getState(), getSettings(), ctx.chat.map(message => message.mes).join('\n'));
-assert.equal(Object.hasOwn(initialRemapPreview.counts, 'pin'), false, `ARMP remap diagnostics must not expose pin candidates: ${JSON.stringify(initialRemapPreview)}`);
-assert.equal(Object.hasOwn(initialRemapPreview.counts, 'unpin'), false, `ARMP remap diagnostics must not expose unpin candidates: ${JSON.stringify(initialRemapPreview)}`);
+assert.ok(initialRemapPreview.candidateCount >= 1 && initialRemapPreview.counts.pin >= 1, `ARMP remap diagnostics should expose local prominence candidates before automation applies them: ${JSON.stringify(initialRemapPreview)}`);
 
 const actionResult = await runAutoRelevance({ force: true });
 assert.equal(actionResult.status, 'changed', `Expected careful ARMP to act directly: ${JSON.stringify(actionResult)}`);
-assert.equal(getState().loreMatrix.find(entry => entry.id === 'bezoar_rescue')?.relevance, 'high', 'ARMP should promote a strongly current card through relevance, not Pin.');
-assert.deepEqual(getState().loreSelection.pinnedIds, [], 'ARMP must not write legacy pinnedIds.');
+assert.deepEqual(getState().loreSelection.pinnedIds, ['bezoar_rescue'], 'ARMP should promote strongly current cards through automation-owned prompt prominence.');
 assert.deepEqual(getState().loreSelection.elevated, {}, 'Lore Automation must not Elevate cards.');
+assert.equal(getState().loreSelection.pinnedIds.includes('disabled_bezoar_rescue'), false, 'Manual-disabled card must not receive automation-owned prompt prominence.');
 assert.equal(getState().loreMatrix.find(entry => entry.id === 'disabled_bezoar_rescue')?.relevance, 'normal', 'Manual-disabled card must remain untouched.');
 assert.equal(getState().loreAutomationSuggestions.length, 0, 'Careful ARMP must not create a primary remap suggestion queue.');
 assert.equal(getState().loreAutomationLastRun.status, 'changed');
@@ -173,8 +171,14 @@ assert.equal(__autoRelevanceTestHooks.isLoreAutomationBackgroundEnabled(getSetti
 
 const undoResult = undoLastLoreAutomationRun();
 assert.equal(undoResult.status, 'undone', `Expected undo to reverse latest automation run: ${JSON.stringify(undoResult)}`);
-assert.equal(getState().loreMatrix.find(entry => entry.id === 'bezoar_rescue')?.relevance, 'normal', 'Undo Last Run should reverse automation relevance changes.');
+assert.deepEqual(getState().loreSelection.pinnedIds, [], 'Undo Last Run should reverse automation pin changes.');
 assert.equal(getState().loreAutomationLastRun.status, 'undone');
+
+const narrativeHashBeforeEdit = __autoRelevanceTestHooks.buildRecentNarrativeAutomationHash(getSettings());
+ctx.chat[1].mes = 'The bezoar rescue stays urgent in the Hogwarts scene.';
+const narrativeHashAfterEdit = __autoRelevanceTestHooks.buildRecentNarrativeAutomationHash(getSettings());
+assert.notEqual(narrativeHashAfterEdit, narrativeHashBeforeEdit, 'Recent narrative hash must change when a visible recent message is edited or re-swiped.');
+ctx.chat[1].mes = 'The bezoar rescue becomes the urgent focus in Hogwarts.';
 
 ctx.extensionSettings[MODULE_KEY] = {
   ...ctx.extensionSettings[MODULE_KEY],

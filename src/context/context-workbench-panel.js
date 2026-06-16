@@ -763,7 +763,7 @@ function createContextWorkbenchStoryPositionPicker(pack, context = {}, contextIn
     const eventCount = allItems.filter(item => item.source === 'lorecard').length;
     meta.appendChild(createStatusPill(`${firstClassCount} timeline`, 'First-class anchors/windows from the Loredeck timeline registry.', { tone: 'source', kind: 'count' }));
     meta.appendChild(createStatusPill(cachedEntries?.loadedAt ? `${eventCount} events` : 'Events unloaded', 'Lorecard-derived Context candidates are optional and loaded on demand.', { tone: cachedEntries?.loadedAt ? 'info' : 'muted', kind: cachedEntries?.loadedAt ? 'count' : 'status' }));
-    meta.appendChild(createStatusPill(`${rowItems.length} shown`, 'Story positions shown after current selection pinning, search, and filtering.', { tone: rowItems.length ? 'selected' : 'muted', kind: 'count' }));
+    meta.appendChild(createStatusPill(`${rowItems.length} shown`, 'Story positions shown after current selection, search, and filtering.', { tone: rowItems.length ? 'selected' : 'muted', kind: 'count' }));
     if (activeFilter === 'major') {
         meta.appendChild(createStatusPill('Major only', 'Major shows first-class timeline anchors/windows by default. Search or load Events for denser event selection.', { tone: 'info', kind: 'status' }));
     }
@@ -1624,7 +1624,7 @@ export function createContextWorkbenchValidationView(state = {}, contextIndex = 
     controls.appendChild(createStatusPill(`${counts.error} errors`, 'Structural timeline issues that can break resolution.', { tone: counts.error ? 'danger' : 'muted', kind: 'severity' }));
     controls.appendChild(createStatusPill(`${counts.warning} warnings`, 'Timeline issues that should be reviewed.', { tone: counts.warning ? 'warning' : 'muted', kind: 'severity' }));
     controls.appendChild(createStatusPill(`${counts.suggestion} suggestions`, 'Optional improvements for resolver coverage.', { tone: counts.suggestion ? 'info' : 'muted', kind: 'severity' }));
-    controls.appendChild(createButton('Validate Deck', 'Run Deck Health validation and refresh timeline diagnostics.', async (btn) => {
+    controls.appendChild(createButton('Validate Deck', 'Run Pack Health validation and refresh timeline diagnostics.', async (btn) => {
         await validateLoredeckForEditor(pack, btn);
         await loadContextIndex({ force: true }).catch(() => null);
         renderContextWorkbench();
@@ -1810,7 +1810,7 @@ function createContextWorkbenchValidationSummary(pack, items = [], issues = []) 
     panel.appendChild(grid);
     const help = document.createElement('div');
     help.className = 'saga-runtime-help';
-    help.textContent = 'This validation is focused on Context structure. Deck Health remains the broader import/export and schema health report.';
+    help.textContent = 'This validation is focused on Context structure. Pack Health remains the broader import/export and schema health report.';
     panel.appendChild(help);
     return panel;
 }

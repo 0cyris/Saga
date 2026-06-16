@@ -272,7 +272,7 @@ export function buildLoreInjectionAudit(state = {}, settings = {}, promptInfo = 
             summary.tierDisabled += 1;
         } else if (selected) {
             decision = 'injected';
-            reason = entry.isElevated ? 'elevated and selected' : entry.isPinned ? 'pinned and selected' : 'selected by relevance tier';
+            reason = entry.isElevated ? 'elevated and selected' : entry.isPinned ? 'elevated and selected' : 'selected by relevance tier';
             summary.injected += 1;
             if (entry.isElevated) {
                 summary.elevatedInjected += 1;

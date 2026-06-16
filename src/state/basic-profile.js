@@ -41,7 +41,6 @@ export const BASIC_EXPERIENCE_SETTINGS = Object.freeze({
     loreStrictQualityGate: true,
     loreTagCount: 4,
     autoRelevanceEnabled: false,
-    autoRelevanceUseModel: false,
     loreAutomationMode: 'off',
     loreAutomationStyle: 'careful',
     loreAutomationPaused: false,

@@ -184,7 +184,6 @@ export const DEFAULT_SETTINGS = {
     autoRelevanceRecentPastDays: 45,
     autoRelevanceProtectPinned: true,
     autoRelevanceEvaluateMuted: false,
-    autoRelevanceUseModel: false,
     autoRelevanceModelCandidateCap: 20,
     autoRelevanceModelMaxTokens: 2048,
     autoRelevanceModelRecentChars: 5000,

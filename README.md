@@ -6,13 +6,13 @@
 
 **SAGA: Fandom Loresystem.**
 
-Saga is a SillyTavern extension for long-form fanfiction and fandom roleplay, where canon timing, secrets, alternate branches, and durable story memory matter--addressing the 'lore-rich', but 'timeline-dumb' problem with LLMs, where they reveal secrets out of step, and create characatures of beloved characters, poorly expressing them as they should act and exist in that moment in the story.
+Saga is a SillyTavern extension for long-form fanfiction and fandom roleplay, where canon timing, secrets, alternate branches, and durable story memory matter--addressing the 'lore-rich', but 'timeline-dumb' problem with LLMs, where they reveal secrets out of step, and create caricatures of beloved characters, poorly expressing them as they should act and exist in that moment in the story.
 
 It turns canon, alternate-universe, crossover, and user-created lore into modular **Loredecks**, reviewable **Lorecards**, context-aware retrieval, and prompt-ready injection.
 
 Saga is a lore system for deciding what belongs in the story **now**: what is true, what is hidden, who knows what, and what has changed in this chat.
 
-The current state of development is **alpha-release**: `0.1.0-alpha.1`, with minimum SillyTavern version `1.12.0`. Automatic updates are disabled for alpha builds, so update manually from the repository. Bundled loredecks include Harry Potter, Jujutsu Kaisen, LOTR, My Hero Academia, and Star Wars. The built-in Loredeck Creator is functional, and loredeck imports are working, but set your expectations for 'alpha'. Stability is being improved with testing, and user feedback is highly valued.
+The current state of development is **alpha-release**: `0.1.0-alpha.1`, with minimum SillyTavern version `1.12.0`. Automatic updates are disabled for alpha builds, so update manually from the repository. Bundled loredecks include Harry Potter, Jujutsu Kaisen, LOTR, My Hero Academia, and Star Wars. The desktop/tablet shell, phone-width mobile shell, Loredeck Creator, Loredeck imports, Pack Health, and Basic/Advanced workflows are functional, but set your expectations for 'alpha'. Stability is being improved with testing, and user feedback is highly valued.
 
 ## Contents
 
@@ -39,7 +39,7 @@ The current state of development is **alpha-release**: `0.1.0-alpha.1`, with min
 
 2. In SillyTavern, open **Extensions** and use **Install Extension** with the copied URL. Reload the page.
 3. Saga does not auto-open on first load. Open it from the **SAGA** extension dropdown: **Open SAGA Window**.
-4. Start in **Basic Workflow**. Go to the **Session** tab, follow the **Start Checklist**, and consider viewing the **Basic Walkthrough** below it.
+4. Start in **Basic Workflow**. On desktop, go to the **Session** tab, follow **Session Readiness**, and consider viewing the **Basic Walkthrough** below it. On phone width, use the bottom navigation, start from **Session**, and tap the Session summary to open Session Details when you need the readiness checklist or walkthrough.
 
 For guided walkthroughs, see [Basic Workflow](docs/user/BASIC_WORKFLOW.md) and [Advanced Workflow](docs/user/ADVANCED_WORKFLOW.md). For full surface-by-surface guides with screenshots, see the [Saga for Desktop Operator's Manual](docs/user/DESKTOP_OPERATOR_MANUAL.md) and [Saga for Mobile Operator's Manual](docs/user/MOBILE_OPERATOR_MANUAL.md).
 
@@ -48,9 +48,10 @@ For guided walkthroughs, see [Basic Workflow](docs/user/BASIC_WORKFLOW.md) and [
 | Surface | What it does |
 | --- | --- |
 | **Loredeck Library** | Browse Bundled, Generated, and Custom Loredecks; import/export `.saga-loredeck.zip` packages; organize folders; manage the Active Stack; and run Pack Health checks. |
-| **Loredeck Creator** | A staged, review-first workflow for drafting Loredecks with scope planning, Context planning, title batches, timeline/tag planning, Lorecard drafts, recovery, and finalization gates. |
-| **Lorecard System** | Suggested lore, Scan Story Lore, Lore Automation levels, Pending Review, approved Lorecards, pin/mute controls, and reviewable edits before lore affects the prompt. |
+| **Loredeck Creator** | A staged, review-first workflow for drafting Loredecks with scope planning, Context planning, title batches, timeline/tag planning, Lorecard drafts, retry recovery, review queues, and finalization gates. |
+| **Lorecard System** | Suggested lore, Scan Story Lore, Lore Automation levels, Pending Review, accepted Lorecards, relevance tiers, Elevate/Mute controls, and reviewable edits before lore affects the prompt. |
 | **Lore Timeline** | An audit and recovery ledger for manual lore, accepted Lorecard changes, restored entries, deleted versions, and continuity-related lore events. |
+| **Mobile Shell** | Phone-width operation replaces the desktop rail/drawer with bottom navigation, route pages, subviews, detail sheets, touch-sized controls, and long-press mobile editing where dense desktop controls would not fit. |
 | **Injection System** | The final prompt layer that sends only eligible, relevant, Context-aware lore to the model, with Advanced controls for previewing and tuning prompt composition. |
 | **Basic/Advanced Workflow Modes** | Basic gives new users the shortest guided path to a working chat. Advanced exposes diagnostics, Creator authoring, Pack Health repair, Continuity, provider settings, and full Injection controls. |
 | **Custom Theme Packs** | User-imported Theme Packs and Icon Sets for changing Saga's runtime appearance without changing bundled content. |
@@ -75,9 +76,9 @@ Development notes live in [docs/development](docs/development/) until promoted, 
 
 ## Roadmap
 
--Mobile Support
--Stability
--UI/UX Improvements
+- Alpha stabilization and live SillyTavern hardening.
+- UI/UX polish across desktop, tablet, and phone-width surfaces.
+- Broader live-provider smoke coverage for Creator, Context, and Lore Automation.
 
 ## Security
 
