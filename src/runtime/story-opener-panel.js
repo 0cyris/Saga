@@ -141,6 +141,18 @@ function createTextInput(value = '', placeholder = '', maxLength = 1000) {
     return input;
 }
 
+function createSelectInput(options = [], value = '') {
+    const select = document.createElement('select');
+    for (const option of options) {
+        const item = document.createElement('option');
+        item.value = String(option?.value || '');
+        item.textContent = String(option?.label || option?.value || '');
+        select.appendChild(item);
+    }
+    select.value = value || '';
+    return select;
+}
+
 function createTextArea(value = '', placeholder = '', rows = 3, maxLength = 5000) {
     const input = document.createElement('textarea');
     input.value = value || '';
@@ -509,6 +521,16 @@ function createInputsCard(session = {}, state = {}, options = {}) {
     grid.appendChild(createField('Character Focus', 'Optional focus; leave empty for source-driven focus.', refs.characterFocus));
     refs.openingShape = createTextInput(controls.openingShape, 'Scene-setting, Dialogue first...', 180);
     grid.appendChild(createField('Opening Shape', 'Editable shape instruction. Quick buttons can populate it.', refs.openingShape));
+    refs.openingShapePreset = createSelectInput([
+        { value: '', label: 'Custom / typed shape' },
+        ...STORY_OPENER_OPENING_SHAPES.map(shape => ({ value: shape, label: shape })),
+    ], STORY_OPENER_OPENING_SHAPES.includes(controls.openingShape) ? controls.openingShape : '');
+    refs.openingShapePreset.addEventListener('change', () => {
+        if (refs.openingShapePreset.value) refs.openingShape.value = refs.openingShapePreset.value;
+    });
+    const shapePresetField = createField('Opening Shape Preset', 'Mobile preset picker for common opener shapes. The Opening Shape field remains editable.', refs.openingShapePreset);
+    shapePresetField.classList.add('saga-story-opener-shape-select-field');
+    grid.appendChild(shapePresetField);
     refs.pov = createTextInput(controls.pov, '3rd person limited', 160);
     grid.appendChild(createField('PoV', 'Point of view, such as 3rd person limited.', refs.pov));
     refs.tense = createTextInput(controls.tense, 'past tense', 120);

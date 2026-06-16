@@ -185,7 +185,10 @@ export function renderSessionTab(container, state) {
             'Create, revise, and copy lore-aware opening prose from the active Saga setup.',
             false,
             createStoryOpenerCreatorSection(state, { refreshPanelBody, markTourTarget }),
-            { tooltip: 'Use active Loredecks, Context, and accepted Lorecards to build a first message or chat opener through the Reasoning Provider.' }
+            {
+                tooltip: 'Use active Loredecks, Context, and accepted Lorecards to build a first message or chat opener through the Reasoning Provider.',
+                className: 'saga-story-opener-section',
+            }
         );
         markTourTarget(storyOpenerSection, 'session.storyOpener');
         container.appendChild(storyOpenerSection);
