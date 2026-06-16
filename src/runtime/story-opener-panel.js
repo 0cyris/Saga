@@ -876,7 +876,7 @@ function createSessionShelf(index = {}, state = {}, options = {}) {
     const wrap = document.createElement('div');
     wrap.className = 'saga-story-opener-shelf';
     const actions = document.createElement('div');
-    actions.className = 'saga-primary-actions';
+    actions.className = 'saga-primary-actions saga-story-opener-shelf-actions';
     actions.appendChild(createButton('New Opener', 'Create a new global Story Opener session.', () => createNewStoryOpener(state, options), 'saga-primary-button'));
     wrap.appendChild(actions);
     const sessions = Object.values(index.sessions || {})
@@ -885,11 +885,23 @@ function createSessionShelf(index = {}, state = {}, options = {}) {
         wrap.appendChild(createEmptyMessage('No Story Opener sessions yet.'));
         return wrap;
     }
+    const picker = document.createElement('details');
+    picker.className = 'saga-story-opener-session-picker';
+    picker.open = !index.activeSessionId;
+    const summary = document.createElement('summary');
+    const label = document.createElement('span');
+    label.textContent = `Saved openers (${sessions.length})`;
+    summary.appendChild(label);
+    const hint = document.createElement('span');
+    hint.textContent = 'manage';
+    summary.appendChild(hint);
+    picker.appendChild(summary);
     const list = document.createElement('div');
     list.className = 'saga-story-opener-session-list';
     for (const record of sessions.slice(0, 8)) {
         const row = document.createElement('div');
         row.className = 'saga-story-opener-session-row';
+        if (record.sessionId === index.activeSessionId) row.classList.add('saga-story-opener-session-row-active');
         const main = document.createElement('button');
         main.type = 'button';
         main.className = 'saga-story-opener-session-main';
@@ -914,11 +926,12 @@ function createSessionShelf(index = {}, state = {}, options = {}) {
             if (!result.ok) toast(result.error || 'Story Opener session could not be deleted.', 'error');
             else toast('Story Opener session deleted.', 'success');
             refresh(options);
-        });
+        }, 'saga-story-opener-delete-button');
         row.appendChild(del);
         list.appendChild(row);
     }
-    wrap.appendChild(list);
+    picker.appendChild(list);
+    wrap.appendChild(picker);
     return wrap;
 }
 
