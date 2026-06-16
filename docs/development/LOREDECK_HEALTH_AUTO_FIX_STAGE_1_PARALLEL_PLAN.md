@@ -387,7 +387,7 @@ Stage 2 should provide storage adapters for:
 - applying validated repair patches transactionally
 - writing and deleting active repair session files
 - updating compact library health summaries
-- refreshing Library, Workbench, Health Center, and Creator surfaces
+- refreshing Library, Workbench, Health Center, and Deck Maker surfaces
 
 Stage 2 must not bypass the Stage 1 validator. Direct model repairs should be applied only after `validateLoredeckRepairPatch()` returns `directApply: true`.
 

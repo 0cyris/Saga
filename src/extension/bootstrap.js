@@ -41,7 +41,7 @@ export async function bootstrapSagaExtension() {
     try {
         await hydrateSagaCreatorProjectStorage();
     } catch (e) {
-        console.warn(`${LOG_PREFIX} Creator project external storage could not be hydrated:`, e);
+        console.warn(`${LOG_PREFIX} Deck Maker project external storage could not be hydrated:`, e);
     }
     wireEvents(ctx);
     registerSlashCommands(ctx);

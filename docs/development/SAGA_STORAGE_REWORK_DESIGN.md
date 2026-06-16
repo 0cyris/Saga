@@ -1,6 +1,6 @@
 # Saga Storage Rework Design
 
-Status: Alpha storage rework signoff complete for the implemented flat-file model. Theme/Icon externalization, Lorepack Library index persistence, Lorepack payload files, Creator project index files, Creator project payload files, async Creator project resume after cold reload, migration planner/executor, State Safety migration, State Safety storage integrity diagnostics, Pack Health external-payload validation and repair writes, durable repair sessions, indexed cleanup/write-settle actions, stale-write blocking, read/write settings compaction guards, repo-local storage persistence smoke coverage, release-facing storage/operator docs, and real-profile audit signoff are in place.
+Status: Alpha storage rework signoff complete for the implemented flat-file model. Theme/Icon externalization, Lorepack Library index persistence, Lorepack payload files, Deck Maker project index files, Deck Maker project payload files, async Deck Maker project resume after cold reload, migration planner/executor, State Safety migration, State Safety storage integrity diagnostics, Pack Health external-payload validation and repair writes, durable repair sessions, indexed cleanup/write-settle actions, stale-write blocking, read/write settings compaction guards, repo-local storage persistence smoke coverage, release-facing storage/operator docs, and real-profile audit signoff are in place.
 
 ## Executive Summary
 
@@ -12,8 +12,8 @@ The target model is:
 - `/user/files/saga-storage-index.v1.json`: master manifest of Saga-owned files.
 - `/user/files/saga-library-index.v1.json`: Lorepack Library organization, folders, placement, ordering, lightweight metadata, and payload pointers.
 - `/user/files/saga-pack-<packId>.v1.json`: actual imported, generated, or custom Lorepack payloads.
-- `/user/files/saga-creator-index.v1.json`: resumable Creator project index and project pointers.
-- `/user/files/saga-creator-project-<projectId>.v1.json`: full in-progress Creator project state.
+- `/user/files/saga-creator-index.v1.json`: resumable Deck Maker project index and project pointers.
+- `/user/files/saga-creator-project-<projectId>.v1.json`: full in-progress Deck Maker project state.
 - `/user/files/saga-theme-index.v1.json`: installed custom Theme Pack index.
 - `/user/files/saga-theme-pack-<themeId>.v1.json`: custom Theme Pack payload.
 - `/user/files/saga-iconset-index.v1.json`: installed custom Icon Set index.
@@ -35,7 +35,7 @@ settings.json -> saga-storage-index -> domain indexes -> payload files -> passiv
 - Stop storing large Loredeck, Creator, Theme Pack, Icon Set, and asset payloads in `settings.json`.
 - Keep Saga installation and usage frontend-only from the user's perspective.
 - Avoid server plugins, custom backend routes, executable import formats, and any workflow that looks like installing arbitrary code.
-- Preserve the full feature set: imported Lorepacks, generated Lorepacks, custom editable decks, library folders, cover images, Theme Packs, Icon Sets, icons, Creator projects, Pack Health, repair, import/export, and delete cleanup.
+- Preserve the full feature set: imported Lorepacks, generated Lorepacks, custom editable decks, library folders, cover images, Theme Packs, Icon Sets, icons, Deck Maker projects, Pack Health, repair, import/export, and delete cleanup.
 - Make storage inspectable and recoverable by using JSON documents with stable filenames.
 - Make deletion reliable: forgetting a pack/project/theme/icon set must remove index records and owned payload/assets.
 - Keep bundled content out of user storage. Bundled Lorepacks, bundled Theme Packs, and bundled Icon Sets should be loaded from extension files/code/assets.
@@ -78,7 +78,7 @@ The current package import flow parses `.saga-loredeck.zip`, builds a registry, 
 
 There is a lighter bundled-reference path for imports that map back to a bundled original. Normal custom imports must be externalized into Saga storage instead of settings-backed.
 
-### Creator Projects Are Too Heavy For Settings
+### Deck Maker Projects Are Too Heavy For Settings
 
 Creator state is staged and resumable:
 
@@ -88,7 +88,7 @@ Creator state is staged and resumable:
 - title batches
 - Context/tag planning
 - Lorecard drafting
-- Creator draft review
+- Deck Maker draft review
 - Pending Review handoff
 - Pack Health and finalization
 
@@ -203,7 +203,7 @@ The built-in files API can verify known files, but it does not provide a Saga-sc
 - full Lorecard arrays
 - imported deck payloads
 - generated deck payloads
-- Creator stage artifacts
+- Deck Maker stage artifacts
 - embedded image data
 - full Theme Pack libraries
 - full Icon Set libraries
@@ -314,7 +314,7 @@ src/state/loredeck-library-store.js
   Uses storage layer for library index and pack payload pointers.
 
 src/state/lore-creator-store.js
-  Uses storage layer for Creator project index and project files.
+  Uses storage layer for Deck Maker project index and project files.
 
 src/state/theme-library-store.js
   Uses storage layer for custom Theme Pack and Icon Set indexes.
@@ -346,7 +346,7 @@ Internally, these APIs should stop writing large payloads to `saveSettings()`.
 | --- | --- | --- |
 | `saga-storage-index.v1.json` | Yes after migration | Master list of Saga-owned files and domain indexes. |
 | `saga-library-index.v1.json` | Yes if any custom/generated/imported packs or library organization exists | Lorepack Library organization and pack payload pointers. |
-| `saga-creator-index.v1.json` | Yes if any Creator project exists | Creator shelf/project pointers. |
+| `saga-creator-index.v1.json` | Yes if any Deck Maker project exists | Creator shelf/project pointers. |
 | `saga-theme-index.v1.json` | Yes if any custom Theme Pack exists | Theme Pack library pointers. |
 | `saga-iconset-index.v1.json` | Yes if any custom Icon Set exists | Icon Set library pointers. |
 
@@ -363,7 +363,7 @@ Internally, these APIs should stop writing large payloads to `saveSettings()`.
 
 | File Pattern | Purpose |
 | --- | --- |
-| `saga-creator-project-<projectId>.v1.json` | Full resumable Creator project state. |
+| `saga-creator-project-<projectId>.v1.json` | Full resumable Deck Maker project state. |
 | `saga-creator-artifact-<projectId>-<artifactId>.v1.json` | Optional future split artifact if one project file becomes too large. |
 
 The initial implementation should prefer one project file per project. Split artifacts should be a later optimization only if project files become unwieldy.
@@ -536,7 +536,7 @@ The library index should save:
 It should not save:
 
 - full Lorecards
-- full Creator projects
+- full Deck Maker projects
 - raw imported zip files
 - full health reports
 - embedded image data
@@ -751,7 +751,7 @@ This should be used only when it genuinely points to an installed bundled source
 
 `/user/files/saga-creator-index.v1.json`
 
-Purpose: drive the In-Progress Creator Projects shelf without loading every project file.
+Purpose: drive the In-Progress Deck Maker Projects shelf without loading every project file.
 
 ```json
 {
@@ -792,7 +792,7 @@ Purpose: drive the In-Progress Creator Projects shelf without loading every proj
 }
 ```
 
-### Creator Project Payload
+### Deck Maker Project Payload
 
 `/user/files/saga-creator-project-<projectId>.v1.json`
 
@@ -809,7 +809,7 @@ It should include:
 - Context planning batches
 - tag planning batches
 - Lorecard draft batches
-- Creator Draft Review list
+- Deck Maker Draft Review list
 - Pending Review handoff state
 - accepted/rejected IDs
 - generation settings
@@ -868,7 +868,7 @@ Example shape:
 
 ### Creator And Generated Pack Relationship
 
-A Creator project may own or link to a Generated Lorepack.
+A Deck Maker project may own or link to a Generated Lorepack.
 
 The relationship should be explicit in both directions:
 
@@ -876,7 +876,7 @@ The relationship should be explicit in both directions:
 - Generated pack library index record has `creatorProjectId`.
 - Generated pack payload has `source.kind = "creator"` and `source.creatorProjectId`.
 
-Deleting a Creator project should not always delete its linked Generated pack. The UI should choose between:
+Deleting a Deck Maker project should not always delete its linked Generated pack. The UI should choose between:
 
 - delete project only
 - delete project and linked Generated pack
@@ -1348,7 +1348,7 @@ Migration should create:
 - library index
 - pack payload files for custom/generated/imported packs
 - Creator index
-- Creator project files
+- Deck Maker project files
 - theme index and theme payload files
 - icon set index and icon set payload files
 - passive asset files where legacy payloads contain data URLs or embedded assets
@@ -1365,7 +1365,7 @@ Chat metadata should keep:
 Chat metadata should not keep:
 
 - duplicated library pack payloads
-- duplicated Creator project payloads
+- duplicated Deck Maker project payloads
 
 ### Storage Bootstrap Procedure
 
@@ -1374,7 +1374,7 @@ Chat metadata should not keep:
 3. Create or hydrate domain indexes for Library, Creator, Theme Packs, Icon Sets, and repair sessions.
 4. Validate all generated filenames before uploading payloads or assets.
 5. Write new custom/generated/imported pack records directly to payload files.
-6. Write new Creator projects directly to project files and Creator index records.
+6. Write new Deck Maker projects directly to project files and Creator index records.
 7. Write new custom Theme Packs directly to theme payload files and the theme index.
 8. Write new custom Icon Sets directly to icon set payload files and the icon set index.
 9. Upload payload files and passive assets.
@@ -1475,7 +1475,7 @@ Target responsibilities:
 
 Current responsibilities:
 
-- save Creator project registry into settings and/or chat metadata
+- save Deck Maker project registry into settings and/or chat metadata
 - update active jobs
 - clear jobs
 - manage generated pack links
@@ -1592,7 +1592,7 @@ This includes:
 - manual pack ordering
 - package folder placement on import
 - bulk move operations
-- Creator project folder association if the project shelf filters by Library folders
+- Deck Maker project folder association if the project shelf filters by Library folders
 
 The folder system should not be encoded into pack payloads. A pack can be moved without rewriting the pack file.
 
@@ -1630,11 +1630,11 @@ Chat metadata:
 10. Update master index.
 11. Clear linked Creator references if requested by user.
 
-### Delete Creator Project
+### Delete Deck Maker Project
 
 1. Confirm deletion.
 2. Check for active generation. If active, require cancellation first.
-3. Remove project from Creator index.
+3. Remove project from Deck Maker index.
 4. Delete project payload file.
 5. Clear active/last project IDs if needed.
 6. If user selected "also delete generated pack", call Delete Custom/Generated Lorepack flow.
@@ -1752,7 +1752,7 @@ Users should not need to understand the storage files to use Saga. Normal UI sho
 If storage breaks, messages should name the affected domain:
 
 - "Lorepack payload file is missing."
-- "Creator project file could not be loaded."
+- "Deck Maker project file could not be loaded."
 - "Icon Set asset is missing; using text fallback."
 - "Saga storage index could not be verified."
 
@@ -1782,20 +1782,20 @@ Reasonable initial targets:
 - Icon asset: under 1 MB each
 - Cover image: under 5 MB each after optional resize/compression
 - Pack payload: under 25 MB for normal use
-- Creator project payload: under 25 MB for normal use
+- Deck Maker project payload: under 25 MB for normal use
 - Master/domain indexes: under 2 MB
 
 These are product limits, not SillyTavern hard limits. They keep the UI responsive.
 
 ### Lazy Loading Is Required
 
-Opening the runtime should not fetch every pack and every Creator project. Fetch indexes first; fetch heavy payloads on demand.
+Opening the runtime should not fetch every pack and every Deck Maker project. Fetch indexes first; fetch heavy payloads on demand.
 
 ### Batch Writes
 
 High-frequency mutations should debounce:
 
-- Creator project updates during generation
+- Deck Maker project updates during generation
 - draft pool changes
 - health repair batch progress
 - library sort operations
@@ -1915,12 +1915,12 @@ Implementation notes:
 - `normalizeLoredeckRegistry` preserves lightweight `payloadFile` and `coverFile` pointers, while the external Library index still strips heavy payload fields such as `manifestData`, `entryOverrides`, registries, assets, and health issue state.
 - `upsertLoredeckLibraryPack` refuses to save over an external payload-backed pack from a compact, unhydrated row. Editors and validation paths hydrate the payload before mutating so a rename or metadata edit cannot silently replace the real entries with an empty normalized shell.
 
-### Phase 5: Creator Project Externalization
+### Phase 5: Deck Maker Project Externalization
 
 Deliverables:
 
 - External Creator index.
-- One external project file per Creator project.
+- One external project file per Deck Maker project.
 - Project shelf reads Creator index.
 - Opening project fetches project payload.
 - Generation updates write project payload.
@@ -1928,20 +1928,20 @@ Deliverables:
 
 Acceptance:
 
-- Starting and progressing a Creator project does not bloat `settings.json`.
+- Starting and progressing a Deck Maker project does not bloat `settings.json`.
 - Closing/reloading can resume project from external file.
 - Creator shelf remains fast because it reads the index, not every project.
 - Deleting a project removes its project file and updates index.
 
 Implementation notes:
 
-- `src/storage/saga-creator-project-storage.js` owns the external Creator index cache, full Creator project payload cache, queued project/index writes, lazy project payload hydration helpers, and project-file deletion cleanup.
+- `src/storage/saga-creator-project-storage.js` owns the external Creator index cache, full Deck Maker project payload cache, queued project/index writes, lazy project payload hydration helpers, and project-file deletion cleanup.
 - `src/state/lore-creator-store.js` routes project creation, update, activation, generation checkpoints, deletion, and chat-local promotion through external Creator storage instead of writing full jobs into `settings.loredeckCreatorProjects`.
 - The active chat mirror remains full and synchronous for now. This preserves in-progress generation behavior while the external project service takes over global storage.
 - Compact Creator index rows preserve lightweight `projectFile`, title, status, stage, folder, generated-pack link, and progress metadata, but they do not retain stage artifacts, title drafts, draft changes, generation unit payloads, or diagnostics.
-- Compact external Creator rows are guarded against stale overwrites: the store refuses to mutate an unloaded external project unless the full payload is already cached or available from the active chat mirror.
-- `bootstrapSagaExtension` hydrates the external Creator index on startup so the In-Progress Creator Projects shelf can be populated from the index without loading every project payload.
-- Deleting a linked Generated Loredeck clears external Creator projects as well as legacy settings/chat-local mirrors.
+- Compact external Deck Maker rows are guarded against stale overwrites: the store refuses to mutate an unloaded external project unless the full payload is already cached or available from the active chat mirror.
+- `bootstrapSagaExtension` hydrates the external Creator index on startup so the In-Progress Deck Maker Projects shelf can be populated from the index without loading every project payload.
+- Deleting a linked Generated Loredeck clears external Deck Maker projects as well as legacy settings/chat-local mirrors.
 - `openLoredeckCreatorProject` uses `activateLoredeckCreatorJobAsync` so clicking an unloaded compact Creator row fetches its `projectFile`, hydrates the payload cache, then activates the project.
 
 ### Phase 6: Compact Settings Enforcement
@@ -1957,7 +1957,7 @@ Deliverables:
 Acceptance:
 
 - New custom/generated/imported decks are created directly as external files.
-- New Creator projects are created directly as external files.
+- New Deck Maker projects are created directly as external files.
 - New custom Theme/Icon records are created directly as external files.
 - `settings.json` remains compact during ordinary settings saves.
 - Old settings-backed payload records are not treated as supported data.
@@ -2017,7 +2017,7 @@ Implementation notes:
 - Pack Health external payload wiring is now covered by `tools/scripts/test-saga-lorepack-health-external-payloads.mjs`. The runtime validation path hydrates a compact external Lorepack payload after a cold cache reset, saves the updated health summary through the external payload service, and keeps the Library index/settings compact.
 - Pack Health repair entry points now hydrate payload-backed Lorepacks before building repair writes. Attempt Fixing writes deterministic local repairs and validated model repairs to the external payload file, while malformed-tag review planning hydrates before reading rows or queueing review changes.
 - Pack Health repair sessions are storage-indexed compact JSON files. The Health Center can continue model batches, apply or re-evaluate saved review choices, clear finished sessions, export compact diagnostics, and explicitly clear a selected saved session without writing repair details into settings.
-- Stale-write detection now uses the shared `storage_changed` contract for high-risk external JSON writes. Library index writes, Lorepack payload writes, Creator project payload/index writes, and generic domain record index writes compare cached revisions against the latest stored file and return reload guidance instead of silently overwriting newer storage.
+- Stale-write detection now uses the shared `storage_changed` contract for high-risk external JSON writes. Library index writes, Lorepack payload writes, Deck Maker project payload/index writes, and generic domain record index writes compare cached revisions against the latest stored file and return reload guidance instead of silently overwriting newer storage.
 - The State Safety card exposes `Settle Storage Writes` for queued adapter writes and `Clean Missing Records` for verified missing non-index records. These actions are intentionally named around their actual scope rather than implying Saga can discover arbitrary orphan files.
 - The closeout work is tracked in `docs/development/SAGA_STORAGE_FINALIZATION_SCOPE_PLAN.md`. That plan records the completed same-ID Theme/Icon collision policy, durable repair-session lifecycle, stale-write coverage, repo-local storage harness pass, and real-profile audit signoff.
 
@@ -2045,10 +2045,10 @@ Real-profile audit result:
 - `settings.sagaStorage.storageVersion` is `external-files-v1` when present.
 - `settings.json` remains compact after imports, generation, and ordinary settings saves.
 - Saga's settings payload remains limited to preferences, pointers, and compact shells.
-- settings compact shells contain 0 Loredeck Library pack records, 0 Creator jobs, 0 Theme Packs, and 0 Icon Sets.
+- settings compact shells contain 0 Loredeck Library pack records, 0 Deck Maker jobs, 0 Theme Packs, and 0 Icon Sets.
 - `/user/files` has 5 Saga files, all tracked by the master index.
 - no missing tracked files or orphan Saga files were reported.
-- the generated Arlong Lorepack and its active Creator project remained indexed externally.
+- the generated Arlong Lorepack and its active Deck Maker project remained indexed externally.
 
 Post-alpha boundaries remain:
 
@@ -2079,7 +2079,7 @@ Reviewer handoff:
 - library index normalizer preserves folders and placements.
 - pack payload normalizer preserves entries, registries, pending changes, and health issue states.
 - Creator index normalizer preserves project summaries.
-- Creator project normalizer preserves stage artifacts.
+- Deck Maker project normalizer preserves stage artifacts.
 - theme/icon normalizers preserve payload references.
 
 ### Mocked Files API Tests
@@ -2094,7 +2094,7 @@ Reviewer handoff:
 ### External Storage Creation Tests
 
 - create custom deck directly as a payload file.
-- create generated deck plus Creator project link directly in external storage.
+- create generated deck plus Deck Maker project link directly in external storage.
 - create theme library records directly in the theme index.
 - create icon set records with existing path mappings.
 - create icon set records with uploaded raster assets.
@@ -2149,7 +2149,7 @@ After a representative test run, inspect:
 - `/user/files` contains expected `saga-*.json` and passive asset files.
 - library folder changes appear in `saga-library-index.v1.json`.
 - pack payload files contain entries.
-- Creator project files contain stage artifacts.
+- Deck Maker project files contain stage artifacts.
 - no unexpected base64 image blobs appear in settings.
 
 ## Code Impact Map
@@ -2213,7 +2213,7 @@ Recommendation: yes for JSON payloads and indexes. They are user-visible files i
 The rework is successful when:
 
 - importing a large Lorepack does not materially bloat `settings.json`
-- generating a large Creator project does not materially bloat `settings.json`
+- generating a large Deck Maker project does not materially bloat `settings.json`
 - library folders, placements, and ordering persist externally
 - custom Theme Packs and Icon Sets persist externally
 - cover and icon images are stored as passive files, not embedded settings blobs
@@ -2245,8 +2245,8 @@ The rework is successful when:
 - [x] Update Loredeck loader/export to read external payload/assets.
 - [x] Guard compact external Lorepack rows from stale payload overwrites.
 - [x] Externalize Creator index.
-- [x] Externalize Creator project payloads.
-- [x] Wire async Creator project payload hydration on open after fresh reload.
+- [x] Externalize Deck Maker project payloads.
+- [x] Wire async Deck Maker project payload hydration on open after fresh reload.
 - [x] Add migration planner.
 - [x] Add migration executor.
 - [x] Wire migration into State Safety runtime action.

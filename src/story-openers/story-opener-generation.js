@@ -1,5 +1,5 @@
 /**
- * Story Opener Creator provider pipeline.
+ * Story Maker provider pipeline.
  */
 
 import { sendLoreRequest } from '../providers/lore-llm-client.js';
@@ -125,7 +125,7 @@ export function parseStoryOpenerJsonResponse(text = '') {
     };
 }
 
-async function repairStoryOpenerJsonWithProvider(rawText = '', schemaName = 'Story Opener JSON', options = {}) {
+async function repairStoryOpenerJsonWithProvider(rawText = '', schemaName = 'Story Maker JSON', options = {}) {
     const system = `You repair malformed Saga ${schemaName} responses.
 Return valid JSON only. Preserve every usable field. Do not add facts that were not present.`;
     const user = `Repair this malformed response into valid JSON for ${schemaName}.
@@ -163,7 +163,7 @@ function normalizeProviderFailure(error = {}, stage = '') {
     return normalizeStoryOpenerFailure({
         code,
         stage,
-        message: error?.message || String(error || 'Story Opener generation failed.'),
+        message: error?.message || String(error || 'Story Maker generation failed.'),
         recovery,
         providerTitle: details.providerTitle || 'Reasoning',
         finishReason: details.finishReason || '',
@@ -236,7 +236,7 @@ export async function refineStoryOpenerFacts(packet = {}, controls = {}, options
     if (!candidates.length || candidates.length <= 18) {
         return { ok: true, packet, skipped: true };
     }
-    const system = `You are Saga's Story Opener source selector.
+    const system = `You are Saga's Story Maker source selector.
 Choose the facts that matter most for one opening scene. Return JSON only.`;
     const user = `Select the highest-value facts for the opener. Use only IDs from the candidate lists.
 
@@ -272,7 +272,7 @@ ${compactPromptJson({
         });
         let parsed = parseStoryOpenerJsonResponse(text);
         if (!parsed.ok && options.repair !== false) {
-            parsed = await repairStoryOpenerJsonWithProvider(text, 'Story Opener Fact Refinement', options);
+            parsed = await repairStoryOpenerJsonWithProvider(text, 'Story Maker Fact Refinement', options);
         }
         if (!parsed.ok) throw new Error(parsed.error || 'Fact refinement JSON could not be parsed.');
         return { ok: true, packet: applyFactRefinement(packet, parsed.value), refinement: parsed.value };
@@ -289,7 +289,7 @@ function buildBriefPrompt(session = {}, packet = {}) {
     const normalized = normalizeStoryOpenerSession(session);
     const controls = normalized.controls;
     const target = getStoryOpenerTargetLength(controls.targetLength);
-    const system = `You are Saga's Story Opener prompt architect.
+    const system = `You are Saga's Story Maker prompt architect.
 Create a precise writing brief for a later model call. Return JSON only.
 Use only the supplied Context Packet facts. Do not introduce unsupported facts.
 Respect mustAvoid as hard exclusions. The prose style should evoke fandom-era conventions without copying any passage.`;
@@ -361,7 +361,7 @@ export async function buildStoryOpenerBrief(session = {}, packet = {}, options =
         let repairAttempted = false;
         if (!parsed.ok && options.repair !== false) {
             repairAttempted = true;
-            parsed = await repairStoryOpenerJsonWithProvider(text, 'Story Opener Brief', options);
+            parsed = await repairStoryOpenerJsonWithProvider(text, 'Story Maker Brief', options);
         }
         if (!parsed.ok) {
             const failure = normalizeStoryOpenerFailure({
@@ -418,7 +418,7 @@ function buildOpenerPrompt(session = {}, packet = {}, brief = {}, variantIndex =
     const controls = normalized.controls;
     const selectedAngle = brief.variantAngles?.[variantIndex] || (variantIndex === 0 ? 'direct/default opener' : `minor variation ${variantIndex + 1}`);
     const previous = normalizeStoryOpenerString(normalized.variants.find(variant => variant.id === normalized.selectedVariantId)?.text || normalized.variants[0]?.text || '', 12000);
-    const system = `You are Saga's Story Opener writer.
+    const system = `You are Saga's Story Maker writer.
 Write only the finished opener prose. Do not include analysis, labels, markdown, JSON, commentary, or title text.
 Respect all exclusions. Use only supplied facts. The style may evoke fandom-era prose conventions, but do not copy or quote canon prose.`;
     const user = `Write the opener from this brief.

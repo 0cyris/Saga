@@ -376,7 +376,7 @@ async function removeCustomLoredecksFromButton(button) {
         setText('Awaiting confirmation...');
         const proceed = await confirmAction(
             'Remove custom Loredecks?',
-            `Saga will delete ${preview.loredeckCount} custom, imported, or generated Loredeck${preview.loredeckCount === 1 ? '' : 's'} plus owned payload files, cover assets, and Health repair sessions. Bundled Loredecks and Creator drafts will remain. Continue?`
+            `Saga will delete ${preview.loredeckCount} custom, imported, or generated Loredeck${preview.loredeckCount === 1 ? '' : 's'} plus owned payload files, cover assets, and Health repair sessions. Bundled Loredecks and Deck Maker drafts will remain. Continue?`
         );
         if (!proceed) return;
         setText('Deleting Loredeck files...');
@@ -396,7 +396,7 @@ function formatTotalCleanupPreview(preview = {}) {
     const parts = [
         `${preview.totalSagaFileCount || 0} tracked/known/referenced Saga file${preview.totalSagaFileCount === 1 ? '' : 's'}`,
         `${preview.loredeckCount || 0} custom Loredeck${preview.loredeckCount === 1 ? '' : 's'}`,
-        `${preview.creatorProjectCount || 0} Creator project${preview.creatorProjectCount === 1 ? '' : 's'}`,
+        `${preview.creatorProjectCount || 0} Deck Maker project${preview.creatorProjectCount === 1 ? '' : 's'}`,
         `${preview.themePackCount || 0} Theme Pack${preview.themePackCount === 1 ? '' : 's'}`,
         `${preview.iconSetCount || 0} Icon Set${preview.iconSetCount === 1 ? '' : 's'}`,
     ];
@@ -417,7 +417,7 @@ async function runTotalSagaCleanupFromButton(button) {
         setText('Awaiting confirmation...');
         const entered = await promptTextAction(
             'Total Saga Cleanup',
-            `Type ${phrase} to delete tracked Saga-owned custom content and reset Saga settings, stored Saga API keys, active-chat Saga state, State Safety backups, Creator projects, and all user-created/imported/generated Loredecks. Bundled extension content remains. Unknown unindexed orphan files that Saga cannot see through its indexes may remain. Preview: ${formatTotalCleanupPreview(preview)}.`,
+            `Type ${phrase} to delete tracked Saga-owned custom content and reset Saga settings, stored Saga API keys, active-chat Saga state, State Safety backups, Deck Maker projects, and all user-created/imported/generated Loredecks. Bundled extension content remains. Unknown unindexed orphan files that Saga cannot see through its indexes may remain. Preview: ${formatTotalCleanupPreview(preview)}.`,
             '',
             {
                 placeholder: phrase,
@@ -649,7 +649,7 @@ function appendGlobalDangerZoneRows(rows, cleanupSnapshot = getSagaGlobalCleanup
     if (!rows) return;
     rows.textContent = '';
     rows.appendChild(createKeyValue('Custom Loredecks', String(cleanupSnapshot.loredeckCount || 0), 'Custom, imported, or generated Loredecks installed in external Saga Library storage.'));
-    rows.appendChild(createKeyValue('Creator Projects', String(cleanupSnapshot.creatorProjectCount || 0), 'Externalized Loredeck Creator projects that Total Saga Cleanup deletes.'));
+    rows.appendChild(createKeyValue('Deck Maker Projects', String(cleanupSnapshot.creatorProjectCount || 0), 'Externalized Deck Maker projects that Total Saga Cleanup deletes.'));
     rows.appendChild(createKeyValue('Custom Theme Packs', String(cleanupSnapshot.themePackCount || 0), 'Imported custom Theme Packs stored in Saga-owned files.'));
     rows.appendChild(createKeyValue('Custom Icon Sets', String(cleanupSnapshot.iconSetCount || 0), 'Imported custom Icon Sets and their uploaded raster assets.'));
     rows.appendChild(createKeyValue('Storage integrity', formatStorageDiagnosticsSummary(storageDiagnostics), 'Latest Saga storage verification summary from the master index.'));
@@ -740,7 +740,7 @@ export function createGlobalDangerZoneGroup() {
     }, 'saga-danger-button');
     actions.appendChild(removeLoredecks);
 
-    const totalCleanup = createButton('Total Saga Cleanup', 'Delete tracked Saga-owned custom content, settings, stored Saga API keys, Creator projects, and active chat Saga state. Unknown unindexed orphan files may remain.', button => {
+    const totalCleanup = createButton('Total Saga Cleanup', 'Delete tracked Saga-owned custom content, settings, stored Saga API keys, Deck Maker projects, and active chat Saga state. Unknown unindexed orphan files may remain.', button => {
         runTotalSagaCleanupFromButton(button);
     }, 'saga-danger-button');
     actions.appendChild(totalCleanup);

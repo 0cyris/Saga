@@ -72,7 +72,7 @@ Passed:
 - Local visual smoke harness contract: validates the harness, seeded Custom Loredeck, update fixture, runtime panel strings, and CSS hooks.
 - Local visual smoke server self-check: serves the harness and update fixture without external dependencies.
 - First SillyTavern smoke pass: the extension loads without console errors, the shelf opens correctly, and the Loredecks tab renders well enough for focused UX feedback.
-- Targeted current-code visual smoke harness pass: runtime shelf, fullscreen Loredeck Library, Active Stack, Deck Health Center, Creator wizard, update preview, Settings/Theme Packs, and Injection preview render without browser console errors.
+- Targeted current-code visual smoke harness pass: runtime shelf, fullscreen Loredeck Library, Active Stack, Deck Health Center, Deck Maker wizard, update preview, Settings/Theme Packs, and Injection preview render without browser console errors.
 - Live SillyTavern screenshot pass after syncing the current workspace into `data/default-user/extensions/Saga`: saved `live-st-01-initial.png`, `live-st-02-loredecks.png`, `live-st-03-library.png`, `live-st-03-delete-confirm.png`, `live-st-04-health.png`, `live-st-05-creator.png`, `live-st-07-theme-pack.png`, and `live-st-08-injection.png` under `assets/documentation/renders/saga-smoke/`; the final pass reported no findings, no browser console errors, and no native dialog events.
 
 ## Known Non-Blockers
@@ -102,18 +102,18 @@ Context-aware Loredeck retrieval:
 - Done: begin the Lore Assistant proposal pipeline with an editable Loredeck panel, structured JSON proposal parsing, and Pending Review queue integration for entry, tag, and timeline patches.
 - Done: add field-level Pending Review diffs for entry, tag, and timeline record patches.
 - Done: add assistant proposal provenance/risk display polish and Deck Health rerun hooks.
-- Done: add Lore Assistant quality-rubric guardrails and proposal review affordances before deeper Loredeck Creator work.
+- Done: add Lore Assistant quality-rubric guardrails and proposal review affordances before deeper Deck Maker work.
 - Done: add assistant batch review controls for edit-before-queue, queue selected/all, drop selected, edit draft JSON, and revise selected proposals before they enter Pending Review.
 - Done: wire Deck Health issue repair planning into the Lore Assistant so users can turn selected health warnings into reviewable repair proposals.
-- Done: begin the Loredeck Creator intake scaffold with staged scope briefing, granularity selection, generated deck brief review, revision, and approval.
-- Done: add Creator title-pass generation from an approved brief, with selectable title drafts, approve/drop controls, revise-selected generation, and JSON editing before full entries exist.
+- Done: begin the Deck Maker intake scaffold with staged scope briefing, granularity selection, generated deck brief review, revision, and approval.
+- Done: add Deck Maker title-pass generation from an approved brief, with selectable title drafts, approve/drop controls, revise-selected generation, and JSON editing before full entries exist.
 - Done: add Creator timeline/tag planning from the approved brief and title shape, creating a Generated Loredeck shell and routing generated anchors/windows/tag definitions through Pending Review before full entry generation.
 - Done: generate full schema v3 entry drafts from approved titles plus accepted planning metadata, landing them in the same edit-before-queue and Pending Review pipeline before activation.
 - Done: harden Generated Loredeck validation/export for accepted Creator entries, including virtual generated manifest stats, Deck Health rerun affordances, runtime loading for virtual generated entries, and export readiness checks.
 - Done: build JSON import/install handling for exported Saga Loredeck bundles, including Generated-to-Custom installation, collision-safe deck IDs, embedded virtual Custom Lorecard loading, and source/update metadata capture.
 - Done: add a fuller install preview and duplicate-deck review surface, including content-hash comparison, editable deck update/reinstall choices, local-modification warnings, and clearer duplicate-match reasons.
 - Done: add source/update handling for installed Loredecks, including check-for-updates from URL/GitHub metadata, GitHub raw/blob URL normalization, content-hash current-version detection, update/reinstall preview prompts, and local-modification warnings.
-- Done: add a local visual smoke harness and contract test for the Saga runtime shelf, seeded Custom Loredeck, Pending Review content, update-source preview fixture, Creator surface, and runtime CSS hooks.
+- Done: add a local visual smoke harness and contract test for the Saga runtime shelf, seeded Custom Loredeck, Pending Review content, update-source preview fixture, Deck Maker surface, and runtime CSS hooks.
 - Done: add a no-dependency visual smoke server and runbook so the harness can be opened in a normal browser or repeated inside SillyTavern with a concrete screenshot checklist.
 - Done: complete the first real SillyTavern smoke pass and capture focused Loredecks UX feedback.
 - Done: apply the first low-risk Loredecks feedback fixes: collapsible Loredeck sections with reset defaults, stricter tag ID normalization, HP reference-deck tag cleanup, Lorecard-aligned metadata chips and titles, fullscreen Creator launcher, Saga-styled granularity labels/blurbs, stack arrow controls, individual-deck install focus, and Saga banner/minimized branding assets.
@@ -124,7 +124,7 @@ Context-aware Loredeck retrieval:
 - Done: migrate runtime Context controls from the Loredeck tab into the Context tab, including loaded-Loredeck Context review, current-context resolving, Reasoner fallback launch, quick anchors, manual locks, reset actions, and fullscreen Context Browser access.
 - Done: upgrade Reasoner-backed Context resolution so automatic fallback follows the existing message-count and character-count cadence, chooses from bounded anchor/window candidates, and stores structured, confirmable Context patches for user review.
 - Done: revise timeline densification policy around high-value candidate quality rather than alias sprawl. Deck Health now gives non-blocking sparse-candidate, concentrated-anchor, and missing-window suggestions.
-- Done: chunk Loredeck Creator full-entry drafting into resumable micro-batches. The Creator now drafts the next small approved-title set per provider call, can optionally run a bounded sequence of separate calls, and preserves successful draft batches if a later call fails.
+- Done: chunk Deck Maker full-entry drafting into resumable micro-batches. Deck Maker now drafts the next small approved-title set per provider call, can optionally run a bounded sequence of separate calls, and preserves successful draft batches if a later call fails.
 - Done: make accepted Lorecard injection Context-aware. Accepted Lorecards now remain in the accepted set when Context advances, but prompt memo selection and injection audit re-check active Loredeck Context gates and report stale accepted entries as `context_blocked` instead of injecting future/out-of-window lore.
 - Done: lock the Jan. 25, 1997 / `before Apparition lessons` resolver edge. Explicit `sceneDate` now remains authoritative over loose supporting boundary text, so the resolver selects the post-Christmas/pre-Apparition window instead of jumping to the upcoming Apparition anchor.
 - Done: expand deterministic core integration coverage into Year 1 with `tools/scripts/test-core-integration-hp-year1.mjs`. The Year 1 harness validates Core + Philosopher's Stone stack loading, Sorting to Stone-aftermath Context progression, late Quirrell/Stone suggestion blocking/activation, accepted stale-lore Context blocking, and current aftermath-lore injection.

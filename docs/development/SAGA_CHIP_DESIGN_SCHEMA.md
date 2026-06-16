@@ -12,7 +12,7 @@ Saga now uses chip-like UI in many places:
 
 - Runtime shelf header status.
 - Loredeck Library cards, stack rows, folder rows, and detail panels.
-- Loredeck Creator project shelf, stage guide, Scope Brief, Story Outline, Title Pass, Context Plan, Lorecard drafting, Pending Review handoff, Pack Health, and finalization surfaces.
+- Deck Maker project shelf, stage guide, Scope Brief, Story Outline, Title Pass, Context Plan, Lorecard drafting, Pending Review handoff, Pack Health, and finalization surfaces.
 - Context panels and Context Workbench.
 - Lorecard cards, Pending Review, Accepted Lorecards, and tag rows.
 - Pack Health issue cards and readiness panels.
@@ -22,14 +22,14 @@ The style has drifted into several competing systems:
 
 - `createStatusPill(...)` and `createBadge(...)` both route through `createChip(...)`, but older call sites and CSS bridge classes still need migration discipline.
 - Many rows use `.saga-loredeck-row-meta`.
-- Creator project model chips already carry a `tone`, but not every render path uses that tone.
+- Deck Maker project model chips already carry a `tone`, but not every render path uses that tone.
 - Specialized classes exist for Pack Health, folder previews, stage labels, provider states, and tag chips.
 
 The visible failure is not just size. It is hierarchy collapse:
 
 - Some chips appear larger or heavier than card titles.
 - Many chips use the same dark neutral fill, so metadata, status, severity, and counts all read the same.
-- Creator surfaces can show many chips at once, making every stage look equally important.
+- Deck Maker surfaces can show many chips at once, making every stage look equally important.
 - Color coding is either absent or too local to one older Lorecard surface.
 
 ## Design Goal
@@ -66,7 +66,7 @@ Chips should not behave like headings, cards, buttons, paragraphs, or alert bann
 
    Avoid one color per feature. Saga should use a small shared set of tones across the shelf, Creator, Library, Context, Lorecards, Settings, and Pack Health.
 
-6. Creator needs stricter limits than ordinary cards.
+6. Deck Maker needs stricter limits than ordinary cards.
 
    Creator repeats chips across stages. It needs caps, grouping, and tonal restraint more than any other surface.
 
@@ -309,7 +309,7 @@ Use when:
 - Chips sit under a title.
 - A row can contain more than three chips.
 - Chips are repeated in lists.
-- The surface is a workbench or Creator stage.
+- The surface is a workbench or Deck Maker stage.
 
 ### Standard Chip
 
@@ -606,7 +606,7 @@ When a header needs more state, use a compact summary sentence or a secondary de
 
 ### Creator Stage Rows
 
-Creator stage cards are chip-dense by nature. Use stricter ordering:
+Deck Maker stage cards are chip-dense by nature. Use stricter ordering:
 
 1. Workflow state: `Ready`, `Needs review`, `Running`, `Blocked`.
 2. One primary count: `12 titles`, `3 pending`, `5 accepted`.
@@ -646,7 +646,7 @@ Long IDs should almost never be visible as chips in cards. They belong in detail
 
 ## Creator-Specific Schema
 
-The Loredeck Creator should use the following chip groups.
+The Deck Maker should use the following chip groups.
 
 ### Project Shelf Card
 
@@ -909,7 +909,7 @@ Recommended behavior:
 
 - Card list: one or two chip rows maximum.
 - Workbench header: wrap allowed, but avoid pushing primary actions below the fold.
-- Creator stage list: preserve vertical rhythm; do not let chip rows make one stage much taller than adjacent stages unless it contains warnings/blockers.
+- Deck Maker stage list: preserve vertical rhythm; do not let chip rows make one stage much taller than adjacent stages unless it contains warnings/blockers.
 
 ## Data Schema
 
@@ -1090,7 +1090,7 @@ CSS pseudo-element chips, such as Library drag/drop target labels, cannot use `c
 Current relevant implementation points:
 
 - `src/ui/runtime-ui-kit.js` owns `createStatusPill(...)` and `createBadge(...)`.
-- `styles/runtime.css` owns the generic chip base, tone classes, Loredecks tab overrides, Creator stage labels, and many Library/Pack Health chip layout classes.
+- `styles/runtime.css` owns the generic chip base, tone classes, Loredecks tab overrides, Deck Maker stage labels, and many Library/Pack Health chip layout classes.
 - `styles/components.css` and `styles/continuity.css` may still contain Lorecard layout rules, but text-derived Lorecard badge color classes have been removed.
 - `.saga-loredeck-row-meta` is the common metadata row wrapper.
 - `src/loredecks/loredeck-creator-projects.js` already creates chip objects with `tone`, which should be preserved and rendered.
@@ -1112,9 +1112,9 @@ Do not do a broad visual rewrite without first establishing the shared classes a
 
 ### Completed Surface Migration
 
-- Loredeck Creator project shelf stage and metadata chips.
-- Loredeck Creator project stage chips keep only layout styling; review/running/warning/success colors come from shared schema tones.
-- Loredeck Creator header, brief, outline, title set planner, title-pass rows, Context/Tag planning, Lorecard draft summaries, adaptive coverage, and readiness summaries.
+- Deck Maker project shelf stage and metadata chips.
+- Deck Maker project stage chips keep only layout styling; review/running/warning/success colors come from shared schema tones.
+- Deck Maker header, brief, outline, title set planner, title-pass rows, Context/Tag planning, Lorecard draft summaries, adaptive coverage, and readiness summaries.
 - Loredeck Workbench registries, tag/timeline manager rows, entry override rows, generated export snapshot, and package install summaries.
 - Loredeck Library header, folder rows, Active Stack rows, detail panels, package install, folder previews, and drag/drop metadata labels.
 - Loredeck Library stack folder preview chips keep only the compact layout hook; stack status and health colors come from shared schema tones.
@@ -1144,7 +1144,7 @@ Do not do a broad visual rewrite without first establishing the shared classes a
 - Provider setup status pills rely on shared success/warning schema tones; `saga-provider-status-ready` and `saga-provider-status-warning` local palettes were removed.
 - Provider preset compact stat values render through schema source/muted chips instead of bespoke `strong` value bubbles.
 - Provider runtime model/key storage statuses and Theme Icon Set coverage status render through schema-backed compact status pills instead of bespoke small-text status labels.
-- Loredeck Creator sidebar inputs, queue counts, job/cache values, failure diagnostic values, and generation toggle states render through schema-backed compact status pills instead of bespoke `strong` value bubbles.
+- Deck Maker sidebar inputs, queue counts, job/cache values, failure diagnostic values, and generation toggle states render through schema-backed compact status pills instead of bespoke `strong` value bubbles.
 
 ### Remaining Guardrails
 
@@ -1176,7 +1176,7 @@ Avoid these:
 - Passive metadata uses warning/error-level contrast.
 - Chips are taller than 20px in dense card rows.
 - Chip text is larger than adjacent descriptions or close to title size.
-- Creator rows show all counts, all source fields, all statuses, and all IDs at once.
+- Deck Maker rows show all counts, all source fields, all statuses, and all IDs at once.
 - Long machine IDs are visible by default in compact cards.
 - Theme settings expose dozens of chip-specific knobs.
 

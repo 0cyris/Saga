@@ -1,6 +1,6 @@
 /**
  * loredeck-creator-projects.js -- Saga
- * UI-free card models for resumable Loredeck Creator projects.
+ * UI-free card models for resumable Deck Maker projects.
  */
 
 const MAX_CHIPS = 8;
@@ -246,7 +246,7 @@ export function getLoredeckCreatorProjectTitle(job = {}, context = {}) {
       || job.fandom
       || job.scope
       || job.jobId
-      || 'Untitled Creator Project',
+      || 'Untitled Deck Maker Project',
     180
   );
 }
@@ -276,7 +276,7 @@ export function getLoredeckCreatorProjectNextAction(job = {}, context = {}) {
       targetStage: stage.id,
       tone: 'running',
       disabled: true,
-      tooltip: 'This Creator project already has a generation call in progress.',
+      tooltip: 'This Deck Maker project already has a generation call in progress.',
     };
   }
   if (stage.isBlocked || counts.errorCount || counts.blockerCount) {
@@ -286,7 +286,7 @@ export function getLoredeckCreatorProjectNextAction(job = {}, context = {}) {
       targetStage: stage.id,
       tone: 'warning',
       disabled: false,
-      tooltip: 'Open the Creator project and resolve the blocking issue before continuing.',
+      tooltip: 'Open the Deck Maker project and resolve the blocking issue before continuing.',
     };
   }
   if (counts.draftChangeCount && counts.entryRemainingCount > 0) {
@@ -335,7 +335,7 @@ export function getLoredeckCreatorProjectNextAction(job = {}, context = {}) {
     targetStage: base.nextStage,
     tone: base.tone,
     disabled: false,
-    tooltip: `Open this Creator project at ${base.label}.`,
+    tooltip: `Open this Deck Maker project at ${base.label}.`,
   };
 }
 
@@ -367,7 +367,7 @@ export function buildLoredeckCreatorProjectChips(job = {}, context = {}) {
   const counts = getLoredeckCreatorProjectCounts(job, context);
   const chips = [
     createProjectChipDescriptor(pack ? 'Generated' : 'Draft', pack ? 'This project has a linked Generated Loredeck shell.' : 'This project has not created a Generated Loredeck shell yet.', pack ? 'source' : 'review'),
-    createProjectChipDescriptor(stage.label, 'Current Creator stage.', stage.tone),
+    createProjectChipDescriptor(stage.label, 'Current Deck Maker stage.', stage.tone),
   ];
   if (counts.approvedTitleCount || counts.titleDraftCount) {
     chips.push(createProjectChipDescriptor(`${counts.approvedTitleCount}/${counts.titleDraftCount} titles`, 'Approved title drafts over total drafted titles.', 'neutral'));
@@ -380,7 +380,7 @@ export function buildLoredeckCreatorProjectChips(job = {}, context = {}) {
   }
   if (counts.draftChangeCount) chips.push(createProjectChipDescriptor(`${counts.draftChangeCount} drafted`, 'Drafted Lorecards waiting for review.', 'review'));
   if (counts.pendingChangeCount) chips.push(createProjectChipDescriptor(`${counts.pendingChangeCount} pending`, 'Pending Review Lorecards waiting for acceptance or rejection.', 'review'));
-  if (counts.blockerCount || counts.errorCount) chips.push(createProjectChipDescriptor(`${counts.blockerCount + counts.errorCount} issue${counts.blockerCount + counts.errorCount === 1 ? '' : 's'}`, 'Blocking Creator or export-readiness issues.', 'warning'));
+  if (counts.blockerCount || counts.errorCount) chips.push(createProjectChipDescriptor(`${counts.blockerCount + counts.errorCount} issue${counts.blockerCount + counts.errorCount === 1 ? '' : 's'}`, 'Blocking Deck Maker or export-readiness issues.', 'warning'));
   return chips.filter(Boolean).slice(0, MAX_CHIPS);
 }
 

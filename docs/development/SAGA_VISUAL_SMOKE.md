@@ -29,7 +29,7 @@ The harness seeds:
 
 - Expanded Saga shelf with the Loredecks tab open.
 - A Custom Loredeck named `Smoke Test: Arlong Park`.
-- A normalized in-progress Creator project named `Smoke Creator Project`.
+- A normalized in-progress Deck Maker project named `Smoke Deck Maker Project`.
 - A loaded Loredeck stack with the Custom deck above `hp-golden-trio`.
 - Embedded schema v3 Lorecards.
 - A Pending Review proposal on the Custom deck.
@@ -52,12 +52,12 @@ The mobile revision feature owns the final mobile verification matrix. It consum
 
 | Viewport | Mode | Workbench Coverage |
 | --- | --- | --- |
-| `360x740` | Basic | Basic mobile nav: Loredecks, Session, Context, Lorecards, Settings; Loredeck Library direct browse, folder tap open/close, no default mobile stack pane, Loredeck tap-selection order badges, Context Workbench, removed runtime top header, bottom shell back action, active bottom tab becomes `Exit`, active tab state exposure, Lorecards secondary `Generate | Automate | Lore` sub-tab bar, unified Lore list with Pending Review and Accepted/Active cards, Accepted long-title object cards, full-viewport Pack Health, bottom-owned Pack Health actions, Health/Creator close controls, bottom-owned Creator actions, scrollable Creator body, bottom-bar safe-area padding, no horizontal overflow. |
-| `390x844` | Basic | Session, Loredecks, and Context next-actions, Basic bottom nav includes Settings, Library details and folder/order touch alternatives, Context story-position and Use Anchor controls, Creator stage guide/current task, visible touch targets. |
-| `430x820` | Advanced | Advanced icon-only bottom nav with Loredecks, Session, Continuity, Context, Lorecards, Injection, Settings; Lorecards secondary sub-tabs, unified Lore object list, active/pinned/muted visual states, Accepted long-press editing without permanent Edit/Inspect buttons, Pack Health tabs and bottom actions, Creator current-task priority and bottom actions, Library object actions, Context proposal review bottom actions. |
+| `360x740` | Basic | Basic mobile nav: Loredecks, Session, Context, Lorecards, Settings; Loredeck Library direct browse, folder tap open/close, no default mobile stack pane, Loredeck tap-selection order badges, Context Workbench, removed runtime top header, bottom shell back action, active bottom tab becomes `Exit`, active tab state exposure, Lorecards secondary `Generate | Automate | Lore` sub-tab bar, unified Lore list with Pending Review and Accepted/Active cards, Accepted long-title object cards, full-viewport Pack Health, bottom-owned Pack Health actions, Health/Deck Maker close controls, bottom-owned Deck Maker actions, scrollable Deck Maker body, bottom-bar safe-area padding, no horizontal overflow. |
+| `390x844` | Basic | Session, Loredecks, and Context next-actions, Basic bottom nav includes Settings, Library details and folder/order touch alternatives, Context story-position and Use Anchor controls, Deck Maker stage guide/current task, visible touch targets. |
+| `430x820` | Advanced | Advanced icon-only bottom nav with Loredecks, Session, Continuity, Context, Lorecards, Injection, Settings; Lorecards secondary sub-tabs, unified Lore object list, active/pinned/muted visual states, Accepted long-press editing without permanent Edit/Inspect buttons, Pack Health tabs and bottom actions, Deck Maker current-task priority and bottom actions, Library object actions, Context proposal review bottom actions. |
 | `768x1024` | Advanced | Tablet sanity for Library, Context Workbench, Pack Health, Creator, desktop rail/drawer preservation, and desktop shell coexistence above the mobile breakpoint. |
 
-Current static coverage verifies that phone-width fullscreen workbenches use full-viewport shells, stacked Context layouts, Context story-position and `Use Anchor` actions, hidden Library resize handles, visible Library cover/title actions, Library folder and active-order touch alternatives, full-viewport Pack Health Center shell, bottom-owned Pack Health Center actions, scrollable Creator workbench body, bottom-owned Creator workbench actions, bottom-owned Context Workbench actions, current-task priority before the Creator roadmap, the compact horizontal Creator roadmap rail, touch-sized Creator current-task controls, Creator review-queue anchors/actions, reachable Health/Creator close affordances, scrollable Health tabs, bottom-owned Context proposal review actions, Basic bottom nav includes Settings, Advanced icon-only bottom nav with direct Continuity, Injection, and Settings routes, Basic/Advanced walkthrough target resolvability, Basic Session next-action, Loredecks static Library launch card, Context operator next-action, and the 768px tablet sanity viewport staying above the shared mobile-shell breakpoint. It also verifies shared shell contracts for the fixed bottom bar, bottom-bar safe-area padding, compact content padding, active tab state exposure, dynamic route-count columns, removed runtime top header, bottom shell back action, active bottom tab becomes `Exit`, tooltip-free mobile navigation, subview helpers, Saga Hero route icons, SAGA Archive mobile visual treatment, and no horizontal runtime overflow, plus touch-redesign contracts for Loredeck folder tap open/close, Loredeck tap order reflected as runtime stack order, selected Loredeck order badges, bottom-owned mobile Library actions, one-scroll Library browse, the animated Lorecards secondary `Generate | Automate | Lore` sub-tab bar, object-first Lorecards page bodies, one-scroll Lorecards workspaces, unified Lore page ownership, Pending Review Accept/Reject-only rows, Accepted/Active object cards, Accepted long-press editing without tap-to-edit or permanent Edit/Inspect buttons, Accepted long-title wrapping, full-window mobile Lorecard editing, mobile Lore filters, and no mobile `Lorecard Pipeline` card or in-content lifecycle button row as the stage switcher. The browser pass should still capture the matrix above to confirm bottom-bar routing, bottom-bar safe-area padding, compact content padding, active tab state exposure, removed runtime top header, bottom shell back action, active bottom tab becomes `Exit`, direct Settings route reachability, direct Continuity and Injection route reachability in Advanced, walkthrough popover target reachability after mobile routing, subview back behavior, Health/Creator bottom actions, Context Workbench bottom actions, Session next-action routing, Loredecks static Library launch routing, Context next-action routing, Library folder/order touch behavior, Library bottom actions, Lorecards secondary sub-tab animation and placement, unified Lore list ownership, Pending Review rows with only Accept/Reject, Accepted long-press edit access, global nested-scroll audit results, active-card visual treatment without redundant active chips, Accepted object-card visibility, Accepted long-title wrapping, Creator current-task actions, Creator current-task priority before the roadmap, Creator compact roadmap rail, Creator review-queue routing, Context proposal review bottom actions, 768px tablet desktop-shell coexistence, full-viewport Pack Health rendering, Pack Health bottom actions, Saga Hero route icons, warm gold/data-accent active styling, and no horizontal overflow in rendered pixels at each viewport.
+Current static coverage verifies that phone-width fullscreen workbenches use full-viewport shells, stacked Context layouts, Context story-position and `Use Anchor` actions, hidden Library resize handles, visible Library cover/title actions, Library folder and active-order touch alternatives, full-viewport Pack Health Center shell, bottom-owned Pack Health Center actions, scrollable Deck Maker workbench body, bottom-owned Deck Maker workbench actions, bottom-owned Context Workbench actions, current-task priority before the Deck Maker roadmap, the compact horizontal Deck Maker roadmap rail, touch-sized Deck Maker current-task controls, Deck Maker review-queue anchors/actions, reachable Health/Deck Maker close affordances, scrollable Health tabs, bottom-owned Context proposal review actions, Basic bottom nav includes Settings, Advanced icon-only bottom nav with direct Continuity, Injection, and Settings routes, Basic/Advanced walkthrough target resolvability, Basic Session next-action, Loredecks static Library launch card, Context operator next-action, and the 768px tablet sanity viewport staying above the shared mobile-shell breakpoint. It also verifies shared shell contracts for the fixed bottom bar, bottom-bar safe-area padding, compact content padding, active tab state exposure, dynamic route-count columns, removed runtime top header, bottom shell back action, active bottom tab becomes `Exit`, tooltip-free mobile navigation, subview helpers, Saga Hero route icons, SAGA Archive mobile visual treatment, and no horizontal runtime overflow, plus touch-redesign contracts for Loredeck folder tap open/close, Loredeck tap order reflected as runtime stack order, selected Loredeck order badges, bottom-owned mobile Library actions, one-scroll Library browse, the animated Lorecards secondary `Generate | Automate | Lore` sub-tab bar, object-first Lorecards page bodies, one-scroll Lorecards workspaces, unified Lore page ownership, Pending Review Accept/Reject-only rows, Accepted/Active object cards, Accepted long-press editing without tap-to-edit or permanent Edit/Inspect buttons, Accepted long-title wrapping, full-window mobile Lorecard editing, mobile Lore filters, and no mobile `Lorecard Pipeline` card or in-content lifecycle button row as the stage switcher. The browser pass should still capture the matrix above to confirm bottom-bar routing, bottom-bar safe-area padding, compact content padding, active tab state exposure, removed runtime top header, bottom shell back action, active bottom tab becomes `Exit`, direct Settings route reachability, direct Continuity and Injection route reachability in Advanced, walkthrough popover target reachability after mobile routing, subview back behavior, Health/Deck Maker bottom actions, Context Workbench bottom actions, Session next-action routing, Loredecks static Library launch routing, Context next-action routing, Library folder/order touch behavior, Library bottom actions, Lorecards secondary sub-tab animation and placement, unified Lore list ownership, Pending Review rows with only Accept/Reject, Accepted long-press edit access, global nested-scroll audit results, active-card visual treatment without redundant active chips, Accepted object-card visibility, Accepted long-title wrapping, Deck Maker current-task actions, Deck Maker current-task priority before the roadmap, Creator compact roadmap rail, Deck Maker review-queue routing, Context proposal review bottom actions, 768px tablet desktop-shell coexistence, full-viewport Pack Health rendering, Pack Health bottom actions, Saga Hero route icons, warm gold/data-accent active styling, and no horizontal overflow in rendered pixels at each viewport.
 
 Mobile UX revision review should additionally confirm that the Lorecards secondary sub-tab bar appears only while `Lorecards` is active, animates above the fixed bottom nav without content jumps, and leaves the page body to the selected singular-purpose workspace with one dominant next action; the Loredecks mobile root presents the static Loredeck Library launch card instead of an Active Stack summary; the runtime top header is absent; the active bottom tab becomes `Exit`; Pack Health, Creator, and Context Proposal Review persistent actions sit in bottom bars; Creator opens with the current task above the stage roadmap; Basic bottom bar labels stay readable; and Advanced uses icon-only bottom navigation.
 
@@ -119,14 +119,14 @@ It verifies the Runtime Context command center, proposal review overlay, proposa
 
 ## Repo-Local Creator Reset Screenshot Helper
 
-Run the current-code Creator reset smoke without depending on the installed SillyTavern extension copy:
+Run the current-code Deck Maker reset smoke without depending on the installed SillyTavern extension copy:
 
 ```powershell
 $env:SAGA_SMOKE_TARGET='creator-harness'
 node tools\scripts\smoke-live-st-cdp.mjs
 ```
 
-This starts the local harness, opens the Loredecks tab, resumes the seeded in-progress Creator project, clicks `Reset to Title Pass`, and cancels the destructive confirmation. It captures:
+This starts the local harness, opens the Loredecks tab, resumes the seeded in-progress Deck Maker project, clicks `Reset to Title Pass`, and cancels the destructive confirmation. It captures:
 
 ```text
 assets/documentation/renders/saga-smoke/creator-harness-01-reset-controls.png
@@ -211,7 +211,7 @@ assets/documentation/renders/saga-smoke/mobile-advanced-harness-07-creator-revie
 assets/documentation/renders/saga-smoke/mobile-advanced-harness-08-context-proposals.png
 ```
 
-It verifies the Advanced icon-only bottom routes for Loredecks, Session, Continuity, Context, Lorecards, Injection, and Settings; direct Settings with Experience Mode at the top; direct Injection and Continuity routing; absence of the removed overflow sheet; Lorecards secondary sub-tabs; unified Lore object-card controls; Library object actions; Pack Health close/content; Creator Review Queue/current-task state; Creator review-queue routing; Context proposal review overlay/actions; and no horizontal overflow on the mobile Loredecks root.
+It verifies the Advanced icon-only bottom routes for Loredecks, Session, Continuity, Context, Lorecards, Injection, and Settings; direct Settings with Experience Mode at the top; direct Injection and Continuity routing; absence of the removed overflow sheet; Lorecards secondary sub-tabs; unified Lore object-card controls; Library object actions; Pack Health close/content; Deck Maker Review Queue/current-task state; Deck Maker review-queue routing; Context proposal review overlay/actions; and no horizontal overflow on the mobile Loredecks root.
 
 ## Repo-Local Advanced Tablet Matrix Helper
 
@@ -235,7 +235,7 @@ assets/documentation/renders/saga-smoke/tablet-advanced-harness-04-creator-revie
 assets/documentation/renders/saga-smoke/tablet-advanced-harness-05-context-workbench.png
 ```
 
-It verifies 768px tablet desktop-shell coexistence: the desktop rail and drawer remain rendered, the mobile bottom bar and mobile route sheet are absent, Loredecks opens with Library/Creator actions, the selected Library details and Pack Health Center render without horizontal overflow, Creator shows Review Queue/current-task state, Context opens through the desktop rail, and Context Workbench shows Timeline, Aliases, Validation, Story Position, and Phrase Resolver controls.
+It verifies 768px tablet desktop-shell coexistence: the desktop rail and drawer remain rendered, the mobile bottom bar and mobile route sheet are absent, Loredecks opens with Library/Deck Maker actions, the selected Library details and Pack Health Center render without horizontal overflow, Creator shows Review Queue/current-task state, Context opens through the desktop rail, and Context Workbench shows Timeline, Aliases, Validation, Story Position, and Phrase Resolver controls.
 
 ## Live ST Screenshot Helper
 
@@ -341,9 +341,9 @@ assets/documentation/renders/saga-smoke/live-context-reasoner-02-proposals.png
 
 Without `SAGA_ALLOW_PROVIDER_CALLS=1`, the target exits before modifying metadata or calling the provider.
 
-## Live ST Loredeck Creator Provider Smoke
+## Live ST Deck Maker Provider Smoke
 
-To run the installed Loredeck Creator end-to-end against real SillyTavern providers:
+To run the installed Deck Maker end-to-end against real SillyTavern providers:
 
 ```powershell
 $env:SAGA_SMOKE_TARGET='live-creator'
@@ -355,11 +355,11 @@ node tools\scripts\smoke-live-st-cdp.mjs
 
 This target snapshots Saga metadata/settings, opens the real Library and Creator UI, drafts and approves the Scope Brief, drafts and approves the Story Outline, drafts all title batches, approves one title, plans Context/tags, accepts planning through Pending Review, drafts one Lorecard, sends it to Pending Review, accepts it, runs Pack Health, finalizes as Custom, verifies the finalized Library record and referenced files, then deletes the finalized Custom deck and restores the original metadata/settings snapshot.
 
-If a prior interrupted automated Creator smoke project is active, the harness cancels any live smoke generation and resets that smoke project back to intake before applying the new inputs. If the active project does not look like an automated smoke project, the target stops instead of resetting it.
+If a prior interrupted automated Deck Maker smoke project is active, the harness cancels any live smoke generation and resets that smoke project back to intake before applying the new inputs. If the active project does not look like an automated smoke project, the target stops instead of resetting it.
 
 The finalized-deck verification runs before cleanup. It first verifies the finalized Custom record and payload through `/user/files`, then uses the Library UI when the page remains responsive. The check verifies the Generated working deck was retired, verifies the Custom record links back to the Generated source, checks that at least one accepted Lorecard persisted with no pending changes, verifies entries now reference the Custom pack instead of the Generated pack, and checks that Creator-only entry markers were retired.
 
-Cleanup tries the visible Library delete flow first. If the live page is wedged after finalization, the target falls back to SillyTavern's files API, and then to the local filesystem only when `SAGA_ST_USER_FILES_DIR` or `SAGA_ST_DATA_DIR` is set. The filesystem fallback is scoped to the smoke run's linked Library pack IDs, generated pack IDs, Creator job IDs, indexed payload files, and indexed Creator project files.
+Cleanup tries the visible Library delete flow first. If the live page is wedged after finalization, the target falls back to SillyTavern's files API, and then to the local filesystem only when `SAGA_ST_USER_FILES_DIR` or `SAGA_ST_DATA_DIR` is set. The filesystem fallback is scoped to the smoke run's linked Library pack IDs, generated pack IDs, Deck Maker job IDs, indexed payload files, and indexed Deck Maker project files.
 
 Expected artifacts:
 
@@ -383,7 +383,7 @@ assets/documentation/renders/saga-smoke/live-creator-report.json
 
 The JSON report includes `steps`, `providerUnits`, `staleSmokeResetState`, `finalizedVerificationState`, `cleanupState`, and restore results. Saga does not retain complete raw provider text after parsing; the report surfaces each generation unit's stage, status, elapsed time, received character count, result references, diagnostics, and the short streaming snippet when available.
 
-By default the smoke adds the generated run id to the scope so repeated runs do not collide with the same deterministic Creator project id. Set `SAGA_LIVE_CREATOR_SCOPE` when you intentionally want to reproduce a fixed project id.
+By default the smoke adds the generated run id to the scope so repeated runs do not collide with the same deterministic Deck Maker project id. Set `SAGA_LIVE_CREATOR_SCOPE` when you intentionally want to reproduce a fixed project id.
 
 Useful overrides:
 
@@ -419,7 +419,7 @@ Use a desktop-width browser first, then repeat at a narrow/mobile-ish width.
 - The tab shows the Library launcher card, not a dropdown/collapsible `Loredeck Library` list.
 - The deck detail panel shows Custom/editable controls.
 - `Save Metadata`, `Sync From Manifest`, `Attempt Fixing`, and zip-package export controls fit cleanly.
-- Remaining collapsible sections, such as In-Progress Creator Projects, have visible dropdown arrows.
+- Remaining collapsible sections, such as In-Progress Deck Maker Projects, have visible dropdown arrows.
 - `Reset Window` from the SillyTavern extension menu restores the expected default open/closed section state, default tab, shelf mode, and safe position/size.
 
 3. Fullscreen Loredeck Library
@@ -468,8 +468,8 @@ Use a desktop-width browser first, then repeat at a narrow/mobile-ish width.
 
 7. Creator
 
-- `Loredeck Creator` is visible on the Loredecks tab.
-- `Open Creator Wizard` opens the fullscreen Creator surface.
+- `Deck Maker` is visible on the Loredecks tab.
+- `Open Deck Maker` opens the fullscreen Deck Maker surface.
 - Fandom, Scope, Granularity, and Notes controls fit within the wizard.
 - Granularity copy updates when the dropdown changes.
 - Buttons, inputs, sliders, and tabs use the same runtime visual scale.
@@ -530,7 +530,7 @@ Capture at least:
 - Pack Health Center issue details.
 - Zip package import preview modal.
 - Pending Review Queue.
-- Fullscreen Loredeck Creator wizard.
+- Fullscreen Deck Maker wizard.
 - Settings tab with provider controls.
 - Theme Pack section with Live Preview and Installed Theme Packs.
 - Injection tab with lore preview sections.

@@ -258,8 +258,8 @@ assert.ok(
 );
 assert.ok(confirmCall?.message.includes('up to 3 separate Reasoning Provider calls'));
 assert.equal(confirmCall?.options?.confirmLabel, 'Auto-Draft 7 Lorecards');
-assert.equal(confirmCall?.options?.confirmTooltip, 'Auto-generate 7 remaining Creator Lorecards.');
+assert.equal(confirmCall?.options?.confirmTooltip, 'Auto-generate 7 remaining Deck Maker Lorecards.');
 assert.equal(draftCall?.buttonText, 'Auto-Draft All');
 assert.deepEqual(draftCall?.options, { maxBatches: 3, bypassRunLimit: true });
 
-console.log('Loredeck Creator Auto-Draft All UI tests passed.');
+console.log('Deck Maker Auto-Draft All UI tests passed.');

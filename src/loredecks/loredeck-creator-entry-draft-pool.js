@@ -1,5 +1,5 @@
 /**
- * Pure selection helpers for Loredeck Creator entry drafting.
+ * Pure selection helpers for Deck Maker entry drafting.
  */
 
 function cleanId(value = '') {

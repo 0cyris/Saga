@@ -750,7 +750,7 @@ Add durable anchors/windows when they represent high-value recurring structure:
 
 - Major story turns, reveals, battles, deaths, betrayals, lessons, relationship changes, public-knowledge changes, location shifts, phase changes, quest stages, seasons, chapters, arcs, or school years.
 - Missing coverage found while browsing Context or resolving phrases.
-- Loredeck Creator output that survives user review.
+- Deck Maker output that survives user review.
 - Accepted user/model suggestions from the Timeline Registry Editor, Context Browser, Pack Health, or Lore Assistant.
 
 Do not add anchors solely to catch casual synonyms. Casual phrasing belongs to the Reasoner Provider selecting from bounded candidates. Direct aliases should remain stable labels, abbreviations, and canonical alternate names.
@@ -1091,9 +1091,9 @@ Update support:
 
 This source/update metadata is internal. The UI type remains Custom Loredeck.
 
-## Loredeck Creator
+## Deck Maker
 
-The built-in Loredeck Creator is a major differentiating feature.
+The built-in Deck Maker is a major differentiating feature.
 
 It should create Generated Loredecks from a small, natural-language intake:
 
@@ -1105,7 +1105,7 @@ Optional supporting context can include user notes, existing chat/story history,
 
 The creator should not feel like a taxonomy form. It should feel like the user asks for the pack they want, Saga narrows scope when needed, then shows reviewable drafts before spending model calls on full entries.
 
-### Creator Intake
+### Deck Maker Intake
 
 The only front-facing required fields should be:
 
@@ -1176,11 +1176,11 @@ The output of scope negotiation should be a short pack brief:
 
 The user approves or revises the brief before generation proceeds.
 
-### Creator Readiness Gate
+### Deck Maker Readiness Gate
 
-Before Saga begins full Loredeck Creator development, the review layer must be strong enough to safely inspect model-generated batches.
+Before Saga begins full Deck Maker development, the review layer must be strong enough to safely inspect model-generated batches.
 
-The Creator will eventually generate timelines, tag registries, title lists, and entry batches. That means a weak Pending Review surface would make generated packs feel opaque and risky. The next production work should harden review before broad generation:
+Deck Maker will eventually generate timelines, tag registries, title lists, and entry batches. That means a weak Pending Review surface would make generated packs feel opaque and risky. The next production work should harden review before broad generation:
 
 - Field-level diffs for entries, tags, timeline anchors, and timeline windows.
 - Clear proposal provenance, especially `lore_assistant`, `manual`, `bulk_edit`, `attempt_fixing`, and Creator-generated proposals.
@@ -1189,7 +1189,7 @@ The Creator will eventually generate timelines, tag registries, title lists, and
 - Acceptance warnings for changes that affect Context gates, disable entries, create undefined tags, or alter timeline anchors/windows.
 - Batch review affordances so generated title and entry batches can be accepted, rejected, or revised in chunks.
 
-This is the bridge from Lore Assistant MVP to Loredeck Creator. The Creator should reuse the same Pending Review and diff machinery instead of inventing a separate approval workflow.
+This is the bridge from Lore Assistant MVP to Deck Maker. Deck Maker should reuse the same Pending Review and diff machinery instead of inventing a separate approval workflow.
 
 ### Creator Flow
 
@@ -1215,7 +1215,7 @@ No full card generation should happen until the scope, outline, title list, time
 
 The Story Outline stage is intentionally inserted before title generation because it catches scope mistakes at a cheaper granularity than title lists. The initial title pass is still allowed before timeline and tag generation because titles are cheap to review and expose remaining coverage mistakes early. Approved titles are not entries; they are planning records that guide later timeline, tag, and full-entry stages.
 
-Full-entry drafting must be chunked. A Creator call should never attempt to draft an entire Loredeck or even a large approved title set at once. Saga should select the next small set of approved titles from one accepted planning batch that are not already accepted, pending, or sitting in the edit-before-queue draft batch, then ask the model to draft only that micro-batch. This keeps thinking/reasoning models from spending the entire response budget before producing usable JSON, makes retries cheaper, and lets users review or revise a partial batch before continuing.
+Full-entry drafting must be chunked. A Deck Maker call should never attempt to draft an entire Loredeck or even a large approved title set at once. Saga should select the next small set of approved titles from one accepted planning batch that are not already accepted, pending, or sitting in the edit-before-queue draft batch, then ask the model to draft only that micro-batch. This keeps thinking/reasoning models from spending the entire response budget before producing usable JSON, makes retries cheaper, and lets users review or revise a partial batch before continuing.
 
 Implementation policy:
 
@@ -1224,11 +1224,11 @@ Implementation policy:
 - Title generation should also be chunked by the approved Story Outline's `titleBatches`. Each title-pass model call should receive one `targetTitleBatch`, append that batch's drafts, and preserve already approved titles from other batches.
 - Context and Tag planning should be chunked by approved title set as well. Each planning call should receive one `targetPlanningBatch`, only the approved titles in that set, and existing registry IDs so it can avoid duplicates.
 - Entry drafting should require at least one accepted planning batch. Each entry micro-batch should draw titles from one accepted planning batch and pass that planning batch to the model with `targetTitleDrafts`.
-- The Creator may offer a guarded multi-batch button, but it should still run separate provider calls and stop cleanly if a batch asks for clarification or fails.
+- Deck Maker may offer a guarded multi-batch button, but it should still run separate provider calls and stop cleanly if a batch asks for clarification or fails.
 - Successful batches should be cached immediately in the edit-before-queue draft batch so later failures do not discard earlier work.
 - Outline, title, timeline, tag, and entry stages remain separately reviewable; chunking entry drafts should not bypass Pending Review.
 
-Architecture note: the Creator should use a fresh Creator-specific batch model while reusing the proven job/checkpoint/retry patterns from Scan Story Lore. The detailed runner and idempotency plan is captured in [LOREDECK_CREATOR_BATCHING_ARCHITECTURE.md](LOREDECK_CREATOR_BATCHING_ARCHITECTURE.md).
+Architecture note: Deck Maker should use a fresh Creator-specific batch model while reusing the proven job/checkpoint/retry patterns from Scan Story Lore. The detailed runner and idempotency plan is captured in [LOREDECK_CREATOR_BATCHING_ARCHITECTURE.md](LOREDECK_CREATOR_BATCHING_ARCHITECTURE.md).
 
 ### Coverage Versus Injection
 
@@ -1302,7 +1302,7 @@ Pack Health should eventually warn softly when a Generated Loredeck has too many
 
 ## Lore Assistant
 
-The Lore Assistant is Saga's AI helper for creating, revising, repairing, and expanding Loredecks. It should be available from the Loredeck Creator, Loredeck Editor, Timeline Registry Editor, Tag Manager, Pack Health report, and Lorecards workbenches.
+The Lore Assistant is Saga's AI helper for creating, revising, repairing, and expanding Loredecks. It should be available from the Deck Maker, Loredeck Editor, Timeline Registry Editor, Tag Manager, Pack Health report, and Lorecards workbenches.
 
 Core rule:
 
@@ -1436,17 +1436,17 @@ Implemented MVP behavior:
 - Requests Lore Value Rubric metadata for assistant proposals and surfaces scene utility, behavioral impact, Context fit, wiki-summary risk, rubric notes, and local quality flags in Pending Review.
 - Drafts now land in an Assistant Draft Batch first, where users can select proposals, queue selected/all into Pending Review, drop selected proposals, edit draft JSON, or ask the assistant to revise selected proposals before queueing.
 - Pack Health validation issues can now be selected from the editor validation preview and sent to the Lore Assistant as repair-planning context; returned repairs land in the Assistant Draft Batch before Pending Review.
-- Loredeck Creator intake now drafts an approval-gated compact Scope Brief from fandom, scope, granularity, and notes without asking the model to plan the whole Loredeck in one response.
-- Loredeck Creator now adds a reviewable Story Outline and Context plan between Scope Brief approval and title generation, giving users a cheap approval gate for major beats, Context milestones, and title-batch slices.
-- Loredeck Creator title-pass generation now follows the approved Story Outline's title-batch queue, generating one target batch per provider call and appending/redrafting only that batch instead of replacing the full title set.
-- Loredeck Creator Context and Tag planning now follows approved title sets, drafting one target set of planning proposals at a time onto a Generated Loredeck shell through Pending Review before full entry generation exists.
-- Loredeck Creator entry drafting now tracks accepted Context and Tag sets and drafts Lorecard micro-batches from one accepted set at a time, preserving provenance on generated entry drafts.
-- Loredeck Creator entry drafting now uses accepted Context and Tag metadata plus approved titles to draft schema v3 entry proposals into a Creator Lorecard Draft Review batch before they can enter Pending Review.
-- Loredeck Creator entry drafting now blocks additional Lorecard generation while Creator drafts are waiting for review, forcing users to send useful drafts to Pending Review, edit/revise them, or drop them before spending more model calls.
-- Creator entry drafting now runs in resumable micro-batches instead of one large call: the next approved, undrafted titles are selected, the model drafts only that small batch, and successful batches are cached before any optional follow-on batch starts.
+- Deck Maker intake now drafts an approval-gated compact Scope Brief from fandom, scope, granularity, and notes without asking the model to plan the whole Loredeck in one response.
+- Deck Maker now adds a reviewable Story Outline and Context plan between Scope Brief approval and title generation, giving users a cheap approval gate for major beats, Context milestones, and title-batch slices.
+- Deck Maker title-pass generation now follows the approved Story Outline's title-batch queue, generating one target batch per provider call and appending/redrafting only that batch instead of replacing the full title set.
+- Deck Maker Context and Tag planning now follows approved title sets, drafting one target set of planning proposals at a time onto a Generated Loredeck shell through Pending Review before full entry generation exists.
+- Deck Maker entry drafting now tracks accepted Context and Tag sets and drafts Lorecard micro-batches from one accepted set at a time, preserving provenance on generated entry drafts.
+- Deck Maker entry drafting now uses accepted Context and Tag metadata plus approved titles to draft schema v3 entry proposals into a Deck Maker Lorecard Draft Review batch before they can enter Pending Review.
+- Deck Maker entry drafting now blocks additional Lorecard generation while Deck Maker drafts are waiting for review, forcing users to send useful drafts to Pending Review, edit/revise them, or drop them before spending more model calls.
+- Deck Maker entry drafting now runs in resumable micro-batches instead of one large call: the next approved, undrafted titles are selected, the model drafts only that small batch, and successful batches are cached before any optional follow-on batch starts.
 - Generated Loredecks now validate and export from accepted Creator entries without requiring a fetchable manifest path; the virtual generated manifest derives entry stats, local Context/timeline and tag registries feed Pack Health, and export readiness blocks unresolved Pending Review or draft-batch state.
-- Generated Loredeck export readiness now understands the staged Creator pipeline: linked Creator job, drafted title sets, planned/accepted Context and Tag sets, accepted generated Lorecards, and approved-title coverage are surfaced as deterministic readiness warnings before sharing.
-- Reviewed Generated Loredecks can now be finalized into normal editable Custom Loredecks. Finalization validates first, respects the same readiness blockers as export, warns before proceeding with incomplete Creator coverage, embeds accepted entries/registries into a Custom virtual deck, and leaves the original Generated draft intact.
+- Generated Loredeck export readiness now understands the staged Deck Maker pipeline: linked Deck Maker job, drafted title sets, planned/accepted Context and Tag sets, accepted generated Lorecards, and approved-title coverage are surfaced as deterministic readiness warnings before sharing.
+- Reviewed Generated Loredecks can now be finalized into normal editable Custom Loredecks. Finalization validates first, respects the same readiness blockers as export, warns before proceeding with incomplete Deck Maker coverage, embeds accepted entries/registries into a Custom virtual deck, and leaves the original Generated draft intact.
 - Pending Review acceptance now automatically reruns Pack Health when accepted entry/tag/timeline changes affect validation and the Loredeck can be validated. If validation cannot run, Saga keeps the stale-health warning visible.
 - Exported Loredeck bundles now carry a stable canonical content hash, and import/update previews recompute that hash from installable deck content rather than volatile timestamps. The preview surfaces bundle type, embedded Lorecard count, dropped pending proposals, declared-hash mismatches, duplicate matches, and update/install source metadata.
 - Leaves runtime behavior unchanged until the user accepts queued Pending Review items.
@@ -1472,7 +1472,7 @@ Required views:
 - Resolver Alias Editor.
 - Pack Health Report.
 - Import / Export / Update.
-- Loredeck Creator.
+- Deck Maker.
 - Lore Assistant panel.
 
 ### Entry Workbench
@@ -1560,7 +1560,7 @@ The first shippable Saga milestone should include:
 - Canon suggestions still working through the Loredeck loader.
 - Basic Pack Health for manifest, duplicate IDs, missing files, undefined tags, and entry counts.
 
-Do not include the full Loredeck Creator in MVP. Design for it, then build it after the loader, stack, and editor foundations exist.
+Do not include the full Deck Maker in MVP. Design for it, then build it after the loader, stack, and editor foundations exist.
 
 ## Later Milestones
 
@@ -1604,7 +1604,7 @@ Do not include the full Loredeck Creator in MVP. Design for it, then build it af
 - Version/hash comparison.
 - Local modification warnings.
 
-### Milestone 6: Loredeck Creator
+### Milestone 6: Deck Maker
 
 - Simple creator intake: fandom, coverage range, and granularity.
 - Scope negotiation and pack brief approval.
@@ -1690,7 +1690,7 @@ Mitigation: Build a runtime index, cache loaded manifests, score candidates in s
 
 The initial Loredeck foundation is historical. Saga has moved beyond the single `hp-golden-trio` scaffold into pre-alpha integration hardening. Current production direction is the split HP reference family: `hp-core`, Years 1-7, and Epilogue/Post-War, with Context-native schema v3 Lorecards, dense timeline registries, and deck-local assets.
 
-Recent production completed **Context-native Loredeck retrieval, HP reference-deck scaffolding, the Loredeck Library/Health/Creator workflow surfaces, and the first Creator batching architecture**.
+Recent production completed **Context-native Loredeck retrieval, HP reference-deck scaffolding, the Loredeck Library/Health/Deck Maker workflow surfaces, and the first Deck Maker batching architecture**.
 
 The next major phase is **Context system hardening before broader core integration testing**. The schema, Context gates, Context Index, and bounded Reasoner proposal pieces exist, but the active detector and compact Context tab still carry too much date/canon-boundary Saga shape. The development plan is captured in [SAGA_CONTEXT_SYSTEM_DEVELOPMENT_PLAN.md](SAGA_CONTEXT_SYSTEM_DEVELOPMENT_PLAN.md). After that hardening, deterministic tests should prove the loop from loaded Loredecks to Context-gated Lorecard suggestion, Pending/Accepted state, pin/mute/relevance behavior, and final injection output. See [SAGA_CORE_INTEGRATION_TESTING.md](SAGA_CORE_INTEGRATION_TESTING.md).
 
@@ -1709,7 +1709,7 @@ Legacy cleanup checkpoint: the Saga compatibility posture has changed. Saga shou
 9. Done: add Context and retrieval fields to the Custom entry editor so new schema v3 entries can be authored fully instead of only preserving source entry Context gates.
 10. Done: add timeline anchor search/pickers and bulk Context editing to make v3 authoring less manual.
 11. Done: add bulk tag editing and a first Tag Manager surface for Custom Loredeck entries, including tag counts, tag filtering, add/remove/rename operations, and namespaced tag preservation.
-12. Done: capture the Creator, Timeline Registry Editor, Lore Assistant, Pending/Accepted lifecycle, and high-value lore rubric in preproduction.
+12. Done: capture Deck Maker, Timeline Registry Editor, Lore Assistant, Pending/Accepted lifecycle, and high-value lore rubric in preproduction.
 13. Done: wire Tag Manager into `tags.json` source loading plus embedded Custom/Generated tag registry editing for define/edit/rename/merge/deprecate workflows.
 14. Done: add Pack Health checks for undefined tags, deprecated tag usage, duplicate aliases, orphaned definitions, malformed namespaces, missing parent/replacement references, and entries using tags missing from `tags.json`.
 15. Done: build the Pending Review Queue foundation for Loredeck edits, including pending record patches, accept/reject actions, and routing current manual/bulk entry and tag edits through review before activation.
@@ -1720,15 +1720,15 @@ Legacy cleanup checkpoint: the Saga compatibility posture has changed. Saga shou
 20. Done: add Lore Assistant quality-rubric guardrails and proposal review affordances so AI revisions steer toward high-value Saga lore instead of generic wiki summaries.
 21. Done: add assistant batch review controls for edit-before-queue, queue selected/all, drop selected, edit draft JSON, and revise selected proposals before they enter Pending Review.
 22. Done: wire Pack Health issue repair planning into the Lore Assistant so users can turn selected health warnings into reviewable repair proposals.
-23. Done: begin the Loredeck Creator intake scaffold with staged scope briefing, granularity selection, generated pack brief review, revision, and approval.
-24. Done: add Creator title-pass generation from an approved brief, with selectable title drafts, approve/drop controls, revise-selected generation, and JSON editing before full entries exist.
-25. Done: add Creator Context and Tag planning from the approved brief and title shape, creating a Generated Loredeck shell and routing generated anchors/windows/tag definitions through Pending Review before full entry generation.
+23. Done: begin the Deck Maker intake scaffold with staged scope briefing, granularity selection, generated pack brief review, revision, and approval.
+24. Done: add Deck Maker title-pass generation from an approved brief, with selectable title drafts, approve/drop controls, revise-selected generation, and JSON editing before full entries exist.
+25. Done: add Deck Maker Context and Tag planning from the approved brief and title shape, creating a Generated Loredeck shell and routing generated anchors/windows/tag definitions through Pending Review before full entry generation.
 26. Done: generate full schema v3 entry drafts from approved titles plus accepted planning metadata, landing them in the same edit-before-queue and Pending Review pipeline before activation.
 27. Done: harden Generated Loredeck validation/export for accepted Creator entries, including virtual generated manifest stats, Pack Health rerun affordances, runtime loading for virtual generated entries, and export readiness checks.
 28. Done: build JSON import/install handling for exported Saga Loredeck bundles, including Generated-to-Custom installation, collision-safe deck IDs, embedded virtual Custom Lorecard loading, and source/update metadata capture.
 29. Done: add a fuller install preview and duplicate-deck review surface, including content-hash comparison, editable deck update/reinstall choices, local-modification warnings, and clearer duplicate-match reasons.
 30. Done: add source/update handling for installed Loredecks, including check-for-updates from URL/GitHub metadata, GitHub raw/blob URL normalization, content-hash current-version detection, update/reinstall preview prompts, and local-modification warnings.
-31. Done: add a local visual smoke harness and contract test for the Saga runtime shelf, seeded Custom Loredeck, Pending Review content, update-source preview fixture, Creator surface, and runtime CSS hooks.
+31. Done: add a local visual smoke harness and contract test for the Saga runtime shelf, seeded Custom Loredeck, Pending Review content, update-source preview fixture, Deck Maker surface, and runtime CSS hooks.
 32. Done: add a no-dependency visual smoke server and runbook so the harness can be opened in a normal browser or repeated inside SillyTavern with a concrete screenshot checklist.
 33. Done: complete the first real SillyTavern smoke pass. The shelf opens without console errors, the Loredecks tab renders, and the first UX feedback pass is captured.
 34. Done: apply the first low-risk Loredecks feedback fixes: collapsible Loredeck sections with reset defaults, stricter tag ID normalization, HP reference-deck tag cleanup, Lorecard-aligned metadata chips and titles, fullscreen Creator launcher, Saga-styled granularity labels/blurbs, stack arrow controls, individual-deck install focus, and Saga banner/minimized branding assets.
@@ -1738,7 +1738,7 @@ Legacy cleanup checkpoint: the Saga compatibility posture has changed. Saga shou
 38. Done: rework the runtime Theme Pack section with live preview, import/export/reset actions, color overrides, advisory accessibility checks, bundled theme presets, and Icon Set preview/selection groundwork.
 39. Done: formalize the pure-data asset direction for Icon Sets, deck covers, Theme Packs, and future zipped Loredeck bundles so user-installed visual assets stay passive and non-executable.
 40. Done: add Library deletion/removal polish for Custom/Generated Loredecks, including confirmation, Bundled-deck protection, active-stack cleanup, cache cleanup, and Library refresh after create/import/duplicate/delete style mutations.
-41. Done: run a targeted current-code visual smoke pass in the local harness across the runtime shelf, fullscreen Loredeck Library, Active Stack, Pack Health Center, Creator wizard, update preview, Settings/Theme Packs, and Injection preview. The harness produced no console errors. The live SillyTavern pass is blocked until the installed extension copy is synced, because ST is currently serving an older `data/default-user/extensions/Saga` build.
+41. Done: run a targeted current-code visual smoke pass in the local harness across the runtime shelf, fullscreen Loredeck Library, Active Stack, Pack Health Center, Deck Maker wizard, update preview, Settings/Theme Packs, and Injection preview. The harness produced no console errors. The live SillyTavern pass is blocked until the installed extension copy is synced, because ST is currently serving an older `data/default-user/extensions/Saga` build.
 42. Done: sync the current workspace into the active SillyTavern extension checkout, verify ST serves the current `src/runtime/lore-panel.js` and settings template, and run a real live-ST screenshot pass. The saved screenshots cover initial shelf, Loredecks drawer, fullscreen Library, Pack Health Center, Creator, Theme Pack, and Injection; the pass produced no browser console errors.
 43. Done: resolve the live-ST smoke findings before deeper feature work. Theme Pack now stacks responsively inside the real ST drawer, Pack Health keeps unscanned reports coherent with `Not checked` categories and no stack-only priority issue leakage, the extension-menu handoff normalizes stale Saga copy at mount time, legacy API/model drawer cleanup catches punctuation variants, Custom delete uses a Saga-owned confirmation modal, and the live smoke helper now verifies delete-cancel without native dialogs. The final live-ST pass produced no findings, no browser console errors, and no native dialog events.
 44. Done: implement selected-Loredeck package import/export. The fullscreen Library now supports click, Ctrl/Cmd-click, and Shift-click selection; exposes selected counts, Select Visible, Clear, and Export Selected actions; exports selected Loredecks as one `.saga-loredeck.zip` package without whole-library export/import; supports local zip package import through a safe preview that installs checked decks as Custom copies; and defers URL/GitHub/update flows until the package-update path is designed.
@@ -1748,16 +1748,16 @@ Legacy cleanup checkpoint: the Saga compatibility posture has changed. Saga shou
 48. Done: build the first Context Browser slice in the Context tab. `Choose Story Position` lets users search first-class timeline anchors/windows, load Lorecards on demand as Lorecard-derived story events, choose `Start Here`, apply `Use Window`, or create a window with `After` and `Before`. Manual Context selection remains the primary trusted workflow.
 49. Done: migrate runtime Context controls out of the Loredeck tab. The Context tab now owns loaded-Loredeck Context review, current-context resolving, Reasoner fallback launch, quick anchor selection, manual locks, reset actions, and fullscreen Context Browser access. The Loredeck tab remains focused on library/stack handling, Pack Health, import/export, Creator, and deck detail authoring.
 50. Done: upgrade Reasoner-backed Context resolution. Automatic Context detection now runs local/structured resolution first, then stores bounded Reasoner Context proposals only after the existing message-count cadence and the configured recent-message character threshold. Manual `Ask Reasoner` ignores the threshold, asks for bounded anchor/window candidates, and requires user review before applying patches.
-51. Done: revise timeline densification policy around candidate quality, not alias sprawl. Pack Health now surfaces advisory sparse-candidate, concentrated-anchor, and missing-window suggestions while keeping these findings non-blocking. Durable anchors/windows should be added for high-value recurring story moments, missing registry coverage, Creator output, or accepted user/model suggestions; the Reasoner handles casual phrasing.
+51. Done: revise timeline densification policy around candidate quality, not alias sprawl. Pack Health now surfaces advisory sparse-candidate, concentrated-anchor, and missing-window suggestions while keeping these findings non-blocking. Durable anchors/windows should be added for high-value recurring story moments, missing registry coverage, Deck Maker output, or accepted user/model suggestions; the Reasoner handles casual phrasing.
 52. Done: audit Saga legacy features for removal. The audit marks the full Saga chat preset, fast reply-header Context detection, HP-specific global Context inference, root `Lore/` fallback loading, slash/prompt/state namespaces, Provider preset naming, and legacy schema aliases by removal priority.
 53. Done: remove the full Saga chat preset product path and fast reply-header Context detection. The Session preset card, bundled Saga chat preset, header toggle, header resolver helpers, HP-specific global correction path, deleted header test, and visible UI/model prompt copy now point at Saga's Context workflow instead.
 54. Done: remove the root `Lore/` fallback and make bundled Loredeck content the only HP reference source. The loader now reports a missing Loredeck manifest instead of falling back to legacy root data, and the old root `Lore/` folder has been removed.
-55. Done: chunk Loredeck Creator full-entry drafting into resumable micro-batches so large generated Loredecks no longer depend on a single massive model response.
+55. Done: chunk Deck Maker full-entry drafting into resumable micro-batches so large generated Loredecks no longer depend on a single massive model response.
 56. Done: scaffold and register the Harry Potter Golden Trio split-deck family from [HP_LOREDECK_SPLIT_ANCHOR_PLAN.md](HP_LOREDECK_SPLIT_ANCHOR_PLAN.md). `hp-core` plus Year 1-7 folders now have first-class dense `timeline.json` registries, Loredeck manifests, deck-family metadata, `content/loredecks/index.json` registration, and conformance coverage through `tools/scripts/test-hp-reference-deck-conformance.mjs`.
-57. Done: harden Loredeck Creator readiness after staged generation. Generated Loredecks now show deterministic Creator pipeline warnings for missing linked jobs, incomplete title sets, unaccepted Context and Tag sets, unresolved approved titles, Pending Review blockers, draft-batch blockers, stale Pack Health, and export/share readiness.
-58. Done: add Generated-to-Custom finalization for reviewed Creator output. Generated Loredeck metadata now offers `Finalize as Custom`, validates before copying, blocks unresolved Pending Review or draft-batch state, preserves provenance in `derivedFrom`, converts accepted generated entries into Custom embedded overrides, and enforces generated readiness during selected export.
+57. Done: harden Deck Maker readiness after staged generation. Generated Loredecks now show deterministic Deck Maker pipeline warnings for missing linked jobs, incomplete title sets, unaccepted Context and Tag sets, unresolved approved titles, Pending Review blockers, draft-batch blockers, stale Pack Health, and export/share readiness.
+58. Done: add Generated-to-Custom finalization for reviewed Deck Maker output. Generated Loredeck metadata now offers `Finalize as Custom`, validates before copying, blocks unresolved Pending Review or draft-batch state, preserves provenance in `derivedFrom`, converts accepted generated entries into Custom embedded overrides, and enforces generated readiness during selected export.
 59. Done: close the Pending Review health loop. Accepting health-impact entry, tag, or timeline proposals now runs a quiet Pack Health validation immediately afterward when possible, updates cached deck health/status, refreshes library/runtime surfaces, and falls back to a stale-health warning if the deck cannot be validated.
 60. Done: polish exported Loredeck bundle install/update diagnostics. Export now includes a canonical content hash that ignores volatile wrapper fields, import/update recomputes the hash for duplicate/update detection, warns on declared-hash mismatch, and surfaces bundle type, embedded Lorecard count, and dropped pending proposals in single-file and bulk previews.
-61. Done: add a Loredeck Creator roadmap. The fullscreen Creator now derives a compact six-stage guide from the active Creator job, title sets, Context and Tag sets, draft-review state, Pending Review state, and Generated Loredeck readiness, then shows the user's next recommended action without adding new schema.
-62. Done: harden Loredeck Creator scroll stability. Fullscreen Creator rerenders now capture the active visible stage, restore that stage after DOM rebuilds, and mark intake, brief review, outline, title sets, Context and Tags, Lorecards, and final readiness with stable scroll anchors.
+61. Done: add a Deck Maker roadmap. The fullscreen Creator now derives a compact six-stage guide from the active Deck Maker job, title sets, Context and Tag sets, draft-review state, Pending Review state, and Generated Loredeck readiness, then shows the user's next recommended action without adding new schema.
+62. Done: harden Deck Maker scroll stability. Fullscreen Creator rerenders now capture the active visible stage, restore that stage after DOM rebuilds, and mark intake, brief review, outline, title sets, Context and Tags, Lorecards, and final readiness with stable scroll anchors.
 63. Done: complete the first alpha repository restructure pass. Runtime code now lives under `src/`, styles under `styles/`, bundled Loredeck and provider content under `content/`, passive assets under `assets/`, developer scripts under `tools/scripts/`, and the browser harness under `tests/browser/`. The active SillyTavern extension checkout was mirrored to this layout and live-smoked through the direct nested manifest paths with no findings, console errors, or dialogs.

@@ -242,7 +242,7 @@ const secondChange = createLoredeckRecordPatchChange({
   action: 'upsert_entry',
   targetKind: 'entry',
   title: 'Accept Nami village pressure',
-  description: 'Adds one more Creator Lorecard pending review item.',
+  description: 'Adds one more Deck Maker Lorecard pending review item.',
   affectedEntryIds: ['nami-village-pressure'],
   payload: {
     entryOverrides: {

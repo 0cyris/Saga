@@ -1,5 +1,5 @@
 /**
- * Loredeck Creator state normalization helpers for Saga.
+ * Deck Maker state normalization helpers for Saga.
  */
 
 import { GENERATION_RUN_STATUSES, GENERATION_UNIT_STATUSES } from '../generation/generation-job-runner.js';

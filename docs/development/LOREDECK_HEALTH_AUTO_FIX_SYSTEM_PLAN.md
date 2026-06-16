@@ -2,7 +2,7 @@
 
 Status: Split-stage planning. The original single health auto-fix plan is now divided into a safe parallel Stage 1 plan and a storage-dependent Stage 2 plan.
 
-This split exists because `SAGA_STORAGE_REWORK_DESIGN.md` is moving Saga-owned Lorepacks, Creator projects, and repair state out of `settings.json` and into external `/user/files` payloads. Health auto-fix work can start now, but only where it stays storage-neutral.
+This split exists because `SAGA_STORAGE_REWORK_DESIGN.md` is moving Saga-owned Lorepacks, Deck Maker projects, and repair state out of `settings.json` and into external `/user/files` payloads. Health auto-fix work can start now, but only where it stays storage-neutral.
 
 ## Stage Documents
 

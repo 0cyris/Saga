@@ -20,11 +20,11 @@ That bundle explains Saga's public terms, the authoring target, the schema contr
 
 ## Implementation-Backed Bundle
 
-If the LLM is expected to match Saga's current Creator workflow or produce data that fits the app, also include:
+If the LLM is expected to match Saga's current Deck Maker workflow or produce data that fits the app, also include:
 
-- `loredeck-assistant.js`: source of the current staged Creator prompt builders and output expectations.
+- `loredeck-assistant.js`: source of the current staged Deck Maker prompt builders and output expectations.
 - `src/loredecks/loredeck-loader.js`: source of runtime loading, validation, Context, tag, and Pack Health behavior.
-- `loredeck-creator-projects.js`: source of Creator stage state, review gates, and readiness concepts.
+- `loredeck-creator-projects.js`: source of Deck Maker stage state, review gates, and readiness concepts.
 - `docs/development/LOREDECK_CREATOR_BATCHING_ARCHITECTURE.md`: design notes for staged generation, micro-batching, retry, partial success, and review boundaries.
 
 Use these as implementation evidence. Do not ask the LLM to infer current behavior only from high-level docs when implementation files are available.
@@ -94,7 +94,7 @@ Poor generated Loredeck content:
 
 ## Staged Workflow
 
-Saga's Creator is intentionally staged. A useful LLM should follow the same order even when working outside the app.
+Saga's Deck Maker is intentionally staged. A useful LLM should follow the same order even when working outside the app.
 
 1. Scope Brief
    Define the fandom, source range, continuity, adaptation, rough granularity, assumptions, and risks. Do not generate Lorecards yet.
@@ -234,7 +234,7 @@ For a new LLM starting from scratch, provide:
 
 For an LLM expected to produce an importable package, also add one relevant bundled Loredeck folder from `content/loredecks/` and the root `content/loredecks/index.json`.
 
-For an LLM expected to match the app's current Creator behavior, add:
+For an LLM expected to match the app's current Deck Maker behavior, add:
 
 6. `loredeck-assistant.js`
 7. `src/loredecks/loredeck-loader.js`

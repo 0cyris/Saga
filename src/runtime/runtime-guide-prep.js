@@ -157,7 +157,7 @@ function prepareOpenCreatorProject(step = {}) {
     const job = getRuntimeGuideCreatorProjectJob(step);
     if (!job?.jobId) {
         dep('openLoredeckCreatorWorkbench')();
-        return createGuidePrepareResult(false, 'Loredeck Creator is open, but there is no in-progress Creator project to resume yet.');
+        return createGuidePrepareResult(false, 'Deck Maker is open, but there is no in-progress Deck Maker project to resume yet.');
     }
     const activated = activateLoredeckCreatorJob(job.jobId, { syncPrompt: false });
     dep('setLoredeckCreatorBriefCacheEntry')('current', activated?.job || job);

@@ -46,10 +46,10 @@ export function formatLoredeckPendingActionLabel(action = '') {
         assistant_upsert_tag_definition: 'Assistant Upsert Tag',
         assistant_upsert_timeline_anchor: 'Assistant Upsert Anchor',
         assistant_upsert_timeline_window: 'Assistant Upsert Window',
-        creator_upsert_entry: 'Creator Upsert Entry',
-        creator_upsert_tag_definition: 'Creator Upsert Tag',
-        creator_upsert_timeline_anchor: 'Creator Upsert Anchor',
-        creator_upsert_timeline_window: 'Creator Upsert Window',
+        creator_upsert_entry: 'Deck Maker Upsert Entry',
+        creator_upsert_tag_definition: 'Deck Maker Upsert Tag',
+        creator_upsert_timeline_anchor: 'Deck Maker Upsert Anchor',
+        creator_upsert_timeline_window: 'Deck Maker Upsert Window',
         remove_entry_override: 'Remove Override',
         disable_entry: 'Disable Entry',
         restore_entry: 'Restore Entry',
@@ -91,7 +91,7 @@ export function formatLoredeckPendingSourceLabel(source = '') {
         manual: 'Manual',
         bulk_edit: 'Bulk Edit',
         lore_assistant: 'Lore Assistant',
-        loredeck_creator: 'Loredeck Creator',
+        loredeck_creator: 'Deck Maker',
         attempt_fixing: 'Attempt Fixing',
         import: 'Import',
     };
@@ -101,7 +101,7 @@ export function formatLoredeckPendingSourceLabel(source = '') {
 export function getLoredeckPendingSourceTooltip(source = '') {
     const key = String(source || 'manual').trim();
     if (key === 'lore_assistant') return 'Created by Saga Lore Assistant. Treat as a proposal until reviewed and accepted.';
-    if (key === 'loredeck_creator') return 'Created by Saga Loredeck Creator. Treat as a generated planning proposal until reviewed and accepted.';
+    if (key === 'loredeck_creator') return 'Created by Saga Deck Maker. Treat as a generated planning proposal until reviewed and accepted.';
     if (key === 'bulk_edit') return 'Created by a bulk-edit tool. Review the field diffs before acceptance.';
     if (key === 'attempt_fixing') return 'Created by Attempt Fixing. Review the proposed repair before acceptance.';
     return 'Proposal source.';

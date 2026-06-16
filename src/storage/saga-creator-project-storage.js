@@ -1,5 +1,5 @@
 /**
- * External Loredeck Creator project storage.
+ * External Deck Maker project storage.
  */
 
 import {
@@ -303,12 +303,12 @@ function shouldPersistQueuedWrites(options = {}) {
 
 function recordQueuedWriteError(error = {}, options = {}) {
     const merged = resolveStorageOptions(options);
-    lastCreatorWriteError = String(error?.message || error || 'Creator project external storage write failed.');
+    lastCreatorWriteError = String(error?.message || error || 'Deck Maker project external storage write failed.');
     if (typeof merged.onWriteError === 'function') {
         merged.onWriteError(error);
         return;
     }
-    console.warn('[Saga] Creator project external storage write failed:', error);
+    console.warn('[Saga] Deck Maker project external storage write failed:', error);
 }
 
 async function assertCreatorProjectPayloadFresh(fileApi, payload = {}, expectedRevision = 0) {
@@ -327,7 +327,7 @@ async function assertCreatorProjectPayloadFresh(fileApi, payload = {}, expectedR
         expectedRevision,
         domain: 'creator',
         path: projectFile,
-        message: 'Creator project storage changed. Reload this project before continuing.',
+        message: 'Deck Maker project storage changed. Reload this project before continuing.',
     });
     return true;
 }
@@ -346,7 +346,7 @@ async function assertCreatorIndexFresh(fileApi, expectedRevision = 0) {
         expectedRevision,
         domain: 'creator',
         path: SAGA_STORAGE_DOMAIN_INDEX_FILES.creator,
-        message: 'Creator project storage changed. Reload this project before continuing.',
+        message: 'Deck Maker project storage changed. Reload this project before continuing.',
     });
     return true;
 }
@@ -650,7 +650,7 @@ function queueExternalLoredeckCreatorProjectDelete(jobId = '', projectFile = '',
 
 export function upsertExternalLoredeckCreatorProjectSync(jobRecord = {}, options = {}) {
     const payload = setProjectPayloadCache(jobRecord, options);
-    if (!payload?.jobId) return { ok: false, error: 'Creator project must include a jobId/id.' };
+    if (!payload?.jobId) return { ok: false, error: 'Deck Maker project must include a jobId/id.' };
     const index = updateCreatorIndexRecord(hydratedCreatorIndex, createExternalLoredeckCreatorIndexRecord(payload, options), options);
     const external = setHydratedCreatorIndex(index, options);
     queueExternalLoredeckCreatorProjectWrite(payload, external, options);
@@ -666,12 +666,12 @@ export function upsertExternalLoredeckCreatorProjectSync(jobRecord = {}, options
 
 export function removeExternalLoredeckCreatorProjectSync(jobId = '', options = {}) {
     const id = normalizeJobId(jobId);
-    if (!id) return { ok: false, error: 'Missing Creator project id.' };
+    if (!id) return { ok: false, error: 'Missing Deck Maker project id.' };
     const cached = getCachedExternalLoredeckCreatorProject(id);
     const existing = hydratedCreatorIndex.projects?.[id] || {};
     const projectFile = normalizeStoragePath(options.projectFile || cached?.projectFile || existing.projectFile || '');
     if (!cached && !existing.projectFile && !projectFile) {
-        return { ok: false, notFound: true, error: 'Creator project is not registered in external storage.' };
+        return { ok: false, notFound: true, error: 'Deck Maker project is not registered in external storage.' };
     }
     projectPayloadCache.delete(id);
     const index = removeCreatorIndexRecord(hydratedCreatorIndex, id, options);
@@ -745,7 +745,7 @@ export async function hydrateSagaCreatorProjectStorage(options = {}) {
             loaded: false,
             loading: false,
             loadedAt: 0,
-            error: error?.message || String(error || 'Creator project storage hydration failed.'),
+            error: error?.message || String(error || 'Deck Maker project storage hydration failed.'),
         };
         hydrationPromise = null;
         throw error;

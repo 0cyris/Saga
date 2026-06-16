@@ -41,7 +41,7 @@ Behavior by deck type:
 
 - Bundled Loredeck: read-only. Show `Duplicate to Edit`.
 - Custom Loredeck: editable.
-- Generated Loredeck: editable if finalized into the Library or still associated with a Creator project.
+- Generated Loredeck: editable if finalized into the Library or still associated with a Deck Maker project.
 
 ## Workbench Shape
 
@@ -445,6 +445,6 @@ Phase 7:
 ## Open Questions
 
 - Should autosave be field-level only, or should large body edits use an explicit inline `Apply`/`Cancel` while the textarea is focused?
-- Should generated-but-unfinalized Creator decks open through this workbench, or should they stay inside the Creator until finalized?
+- Should generated-but-unfinalized Creator decks open through this workbench, or should they stay inside Deck Maker until finalized?
 - Should the Files tab allow moving entries between files in MVP, or only display file ownership until package export is fully stable?
-- Should AI diff previews reuse the Creator/Assistant diff card format, or do we need a simpler side-by-side field diff for normal users?
+- Should AI diff previews reuse the Deck Maker/Assistant diff card format, or do we need a simpler side-by-side field diff for normal users?

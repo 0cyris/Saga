@@ -84,7 +84,7 @@ They need:
 - Prompt placement, direct versus compressed handling, and compression templates.
 - Library organization, import/export, update previews, duplicate handling, and package details.
 - Pack Health Center diagnostics and repair routing.
-- Loredeck Creator, Lore Assistant, Pending Review, and generated-to-custom finalization.
+- Deck Maker, Lore Assistant, Pending Review, and generated-to-custom finalization.
 - Timeline, tag, and Context authoring tools.
 - Debuggable previews and audits for why lore did or did not inject.
 
@@ -177,7 +177,7 @@ Basic Loredecks should teach the same Library workflow as Advanced:
 
 - Show the same **Loredeck Library** section as Advanced.
 - Keep **Import Deck** visible in Basic.
-- Hide **Create Deck** and **In-Progress Creator Projects** in Basic.
+- Hide **Create Deck** and **In-Progress Deck Maker Projects** in Basic.
 - Keep the shared Library section name, order, and launch card structure as Advanced.
 - Do not rename the shared Library action to a Basic-only label.
 - Do not add a separate Basic stack card or Basic-only readiness badges.
@@ -340,7 +340,7 @@ Advanced Loredecks should expose the full Library and source-deck toolchain:
 - Duplicate as Custom.
 - Generated-to-Custom finalization.
 - Pack Health launch points.
-- Loredeck Creator launch points.
+- Deck Maker launch points.
 - Workbench editor launch points.
 
 ### Advanced Context

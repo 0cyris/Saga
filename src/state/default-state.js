@@ -148,7 +148,7 @@ export function getDefaultState() {
             lastRestoreSource: '',
         },
 
-        // Resumable Loredeck Creator jobs (schema v23)
+        // Resumable Deck Maker jobs (schema v23)
         loredeckCreator: {
             schemaVersion: 1,
             activeJobId: '',

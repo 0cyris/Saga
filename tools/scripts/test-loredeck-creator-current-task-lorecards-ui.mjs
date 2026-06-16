@@ -194,4 +194,4 @@ assert.equal(
   'Current task should switch to draft review only after remaining Lorecards are exhausted.'
 );
 
-console.log('Loredeck Creator current-task Lorecards UI tests passed.');
+console.log('Deck Maker current-task Lorecards UI tests passed.');

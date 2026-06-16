@@ -122,7 +122,7 @@ Out of scope:
 
 - Deleting custom Loredecks.
 - Deleting custom Theme Packs or Icon Sets.
-- Deleting Creator projects.
+- Deleting Deck Maker projects.
 - Deleting active-chat Saga state.
 
 Implementation note:
@@ -147,7 +147,7 @@ Out of scope:
 
 - Resetting unrelated settings.
 - Deleting custom Loredecks.
-- Deleting Creator projects.
+- Deleting Deck Maker projects.
 
 Preferred storage behavior:
 
@@ -166,19 +166,19 @@ In scope:
 - Delete health repair session files owned by those Loredecks.
 - Remove custom/generated/imported Library records.
 - Clear folders, placements, and active stack references that only point at removed custom Loredecks.
-- Clear generated-pack links in Creator project summaries if they point to removed Loredecks.
+- Clear generated-pack links in Deck Maker project summaries if they point to removed Loredecks.
 - Keep bundled Loredecks available.
 - Refresh Loredeck Library surfaces after cleanup.
 
 Out of scope:
 
-- Deleting in-progress Creator project payloads.
+- Deleting in-progress Deck Maker project payloads.
 - Deleting settings or provider keys.
 - Deleting active-chat accepted Lorecards generated from those Loredecks.
 
 Rationale:
 
-Creator projects are drafts/workflows, not installed Loredecks. The standalone Loredeck cleanup should remove installed custom content without unexpectedly deleting in-progress Creator work. **Total Saga Cleanup** handles Creator projects.
+Deck Maker projects are drafts/workflows, not installed Loredecks. The standalone Loredeck cleanup should remove installed custom content without unexpectedly deleting in-progress Creator work. **Total Saga Cleanup** handles Deck Maker projects.
 
 #### Total Saga Cleanup
 
@@ -219,7 +219,7 @@ Post-cleanup requirement:
 Saga must continue working without reinstalling the extension. After Total Saga Cleanup:
 
 - storage hydration should treat missing indexes as a clean empty state
-- new imports or Creator saves should recreate indexes through the existing missing-index tolerant write paths
+- new imports or Deck Maker saves should recreate indexes through the existing missing-index tolerant write paths
 - Settings should render normally from defaults
 - the Library should show bundled content and no custom content
 - State Safety should report uninitialized or empty storage without presenting it as a fatal error
@@ -257,7 +257,7 @@ Global:
 - custom Theme Pack count
 - custom Icon Set count
 - legacy settings-backed payload count when State Safety migration is still needed
-- Creator project count for Total Saga Cleanup preview
+- Deck Maker project count for Total Saga Cleanup preview
 - legacy settings-backed payload count in the Total Saga Cleanup preview
 - tracked Saga file count
 - last storage verification summary
@@ -422,7 +422,7 @@ Tasks:
 5. Delete repair session files owned by removed Loredecks.
 6. Remove Library records, folders, deck placements, and active stack references that only point to removed custom Loredecks.
 7. Prune the active chat's runtime stack after cleanup so deleted custom Loredecks and removed folder groups do not remain loaded in the current chat.
-8. Keep Creator project payloads intact. Clearing generated-pack summary links is deferred until the Creator storage contract stops inferring `generatedPackId` from `brief.packId`, because that field also represents the intended target deck id for a draft.
+8. Keep Deck Maker project payloads intact. Clearing generated-pack summary links is deferred until Deck Maker storage contract stops inferring `generatedPackId` from `brief.packId`, because that field also represents the intended target deck id for a draft.
 9. Flush and verify storage.
 10. Refresh Library and runtime surfaces.
 
@@ -433,7 +433,7 @@ Acceptance criteria:
 - External payload files and cover/passive asset files are deleted.
 - Health repair session files for deleted Loredecks are deleted.
 - Library and active-chat stacks no longer reference deleted Loredecks or removed folder groups.
-- Creator projects are not deleted by this standalone action.
+- Deck Maker projects are not deleted by this standalone action.
 
 ### Phase 6: Implement Total Saga Cleanup
 
@@ -448,7 +448,7 @@ Tasks:
 7. [x] Reset all storage caches:
    - Lorepack Library storage cache
    - Lorepack payload storage cache
-   - Creator project storage cache
+   - Deck Maker project storage cache
    - Theme/Icon storage cache
 8. [x] Reset active chat Saga state to defaults.
 9. [x] Reset or remove `extensionSettings.saga`.
@@ -514,7 +514,7 @@ Manual verification:
 1. Import a custom Loredeck with a cover image.
 2. Import a custom Theme Pack.
 3. Import a custom Icon Set with raster icons.
-4. Create or resume a Creator project.
+4. Create or resume a Deck Maker project.
 5. Run `Remove Custom Themes + Icon Packs`.
 6. Verify bundled theme/icons remain and raster files are removed.
 7. Run `Remove Custom Loredecks`.
@@ -564,9 +564,9 @@ User docs should explain:
 
    Preferred first pass: preserve storage bootstrap paths and migration metadata, but reset all user-facing preferences and clear key material. Reset All Settings should not make existing external custom content disappear.
 
-3. Should Remove Custom Loredecks delete Creator projects linked to generated Loredecks?
+3. Should Remove Custom Loredecks delete Deck Maker projects linked to generated Loredecks?
 
-   Preferred first pass: no. Keep Creator drafts intact and do not clear generated-pack target fields until the Creator storage contract separates draft target IDs from installed-pack links. Total Saga Cleanup deletes Creator projects.
+   Preferred first pass: no. Keep Deck Maker drafts intact and do not clear generated-pack target fields until Deck Maker storage contract separates draft target IDs from installed-pack links. Total Saga Cleanup deletes Deck Maker projects.
 
 4. Should Total Saga Cleanup delete State Safety backups?
 

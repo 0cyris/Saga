@@ -355,7 +355,7 @@ These are not required for the first integration harness:
 - Live Reasoner Provider calls.
 - Browser automation.
 - Visual layout checks.
-- Full Loredeck Creator QA.
+- Full Deck Maker QA.
 - Dozens of fandom fixtures.
 - Semantic conflict detection between unrelated Loredecks.
 

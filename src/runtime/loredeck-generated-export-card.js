@@ -27,8 +27,8 @@ export function configureGeneratedLoredeckExportCard(nextDeps = {}) {
 export function formatGeneratedLoredeckExportNotice(message = '') {
     if (message.includes('needs at least one accepted Lorecard')) return 'No Accepted Lorecards are available for export yet.';
     if (message.includes('Pending Review')) return 'Pending Review proposals are excluded from export until accepted.';
-    if (message.includes('Draft Batch')) return 'Creator/Assistant draft proposals are excluded from export until accepted.';
-    if (message.includes('Creator Coverage')) return 'Creator Coverage needs expansion or explicit light-coverage acknowledgement before finalization.';
+    if (message.includes('Draft Batch')) return 'Deck Maker/Assistant draft proposals are excluded from export until accepted.';
+    if (message.includes('Deck Maker Coverage')) return 'Deck Maker Coverage needs expansion or explicit light-coverage acknowledgement before finalization.';
     return message;
 }
 
@@ -68,10 +68,10 @@ export function createGeneratedLoredeckExportReadinessCard(pack = {}) {
     const summary = document.createElement('div');
     summary.className = 'saga-loredeck-entry-summary';
     summary.appendChild(createStatusPill(readiness.ready ? 'Clean' : 'Review state', 'Export is available; this summarizes accepted entries, pending review, and draft batch state.', { tone: readiness.ready ? 'success' : 'review', kind: 'status' }));
-    summary.appendChild(createStatusPill(readiness.pipeline?.statusLabel || 'Pipeline check', 'Creator pipeline status from staged generation metadata.', { tone: readiness.ready ? 'success' : 'warning', kind: readiness.ready ? 'status' : 'severity' }));
+    summary.appendChild(createStatusPill(readiness.pipeline?.statusLabel || 'Pipeline check', 'Deck Maker pipeline status from staged generation metadata.', { tone: readiness.ready ? 'success' : 'warning', kind: readiness.ready ? 'status' : 'severity' }));
     summary.appendChild(createStatusPill(`${readiness.acceptedEntryCount} accepted`, 'Accepted generated Lorecards that will export and load at runtime.', { tone: readiness.acceptedEntryCount ? 'success' : 'muted', kind: 'count' }));
     summary.appendChild(createStatusPill(`${readiness.pendingChangeCount} pending`, 'Pending Review proposals are excluded from export until accepted.', { tone: readiness.pendingChangeCount ? 'review' : 'muted', kind: 'count' }));
-    summary.appendChild(createStatusPill(`${readiness.draftChangeCount} drafted`, 'Creator/Assistant draft proposals are excluded from export until accepted.', { tone: readiness.draftChangeCount ? 'review' : 'muted', kind: 'count' }));
+    summary.appendChild(createStatusPill(`${readiness.draftChangeCount} drafted`, 'Deck Maker/Assistant draft proposals are excluded from export until accepted.', { tone: readiness.draftChangeCount ? 'review' : 'muted', kind: 'count' }));
     if (readiness.pipeline?.titleBatchCount) {
         summary.appendChild(createStatusPill(`${readiness.pipeline.titleBatchDraftedCount}/${readiness.pipeline.titleBatchCount} title sets`, 'Title sets drafted from the approved Story Outline.', { kind: 'count' }));
     }
@@ -84,7 +84,7 @@ export function createGeneratedLoredeckExportReadinessCard(pack = {}) {
     if (readiness.pipeline?.coverage?.available) {
         summary.appendChild(createStatusPill(
             `Coverage: ${readiness.pipeline.coverage.statusLabel || 'Review'}`,
-            'Adaptive Creator coverage status. This is advisory and does not enforce a fixed Lorecard count.',
+            'Adaptive Deck Maker coverage status. This is advisory and does not enforce a fixed Lorecard count.',
             { tone: readiness.pipeline.coverage.ready ? 'success' : 'warning', kind: readiness.pipeline.coverage.ready ? 'status' : 'severity' }
         ));
     }

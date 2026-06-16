@@ -426,7 +426,7 @@ Import flow should ask for folder destination:
 - Create new folder.
 - Place in Unfiled.
 
-Loredeck Creator should ask for destination late in the wizard, after scope has been approved:
+Deck Maker should ask for destination late in the wizard, after scope has been approved:
 
 - Suggested destination from fandom/saga/arc.
 - Existing folder picker.

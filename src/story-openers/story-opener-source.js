@@ -1,5 +1,5 @@
 /**
- * Story Opener source intent and Context Packet builder.
+ * Story Maker source intent and Context Packet builder.
  */
 
 import { evaluateLoreEntryLifecycle, normalizeLoreEntry, normalizeLoreMatrix } from '../lorecards/lore-matrix.js';

@@ -8,7 +8,7 @@ For desktop and tablet-width operation, see [Saga for Desktop Operator's Manual]
 
 Saga for Mobile replaces the floating desktop rail and drawer with a full-height mobile window and a fixed bottom bar. The active bottom tab becomes **Exit**. Tap another route to switch surfaces; tap **Exit** to close Saga.
 
-Basic mobile routes are **Loredecks**, **Session**, **Context**, **Lorecards**, and **Settings**. Advanced adds **Continuity** and **Injection**, and exposes Creator, Pack Health, Lore Automation, and deeper settings.
+Basic mobile routes are **Loredecks**, **Session**, **Context**, **Lorecards**, and **Settings**. Advanced adds **Continuity** and **Injection**, and exposes Deck Maker, Pack Health, Lore Automation, and deeper settings.
 
 <p align="center">
   <img src="../../assets/documentation/renders/docs-mobile-basic-shell-start.png" alt="Saga Basic mobile Session route" width="360">
@@ -40,7 +40,7 @@ The **Loredecks** route shows the active stack summary and the main Library acti
   <img src="../../assets/documentation/renders/docs-mobile-advanced-loredecks-root.png" alt="Saga Advanced mobile Loredecks route" width="360">
 </p>
 
-Advanced mobile adds **Create Deck** alongside Library and import actions. Use Creator only when you are ready for staged Loredeck authoring and review.
+Advanced mobile adds **Create Deck** alongside Library and import actions. Use Deck Maker only when you are ready for staged Loredeck authoring and review.
 
 <p align="center">
   <img src="../../assets/documentation/renders/docs-mobile-basic-library-detail.png" alt="Saga mobile Loredeck detail sheet" width="360">
@@ -134,13 +134,13 @@ Injection is Advanced-only on mobile. Use it when debugging what Saga will send 
 
 The preview is the operator truth source for "why did the model know this?" and "why did the model forget this?"
 
-## Creator
+## Deck Maker
 
 <p align="center">
-  <img src="../../assets/documentation/renders/docs-mobile-advanced-creator.png" alt="Saga mobile Loredeck Creator" width="360">
+  <img src="../../assets/documentation/renders/docs-mobile-advanced-creator.png" alt="Saga mobile Deck Maker" width="360">
 </p>
 
-The mobile Creator keeps the current task and review queue near the top. Use it for staged Loredeck authoring, not one-shot generation. Generated material remains draft material until reviewed, moved to Pending Review, accepted, and checked in Pack Health.
+The mobile Deck Maker keeps the current task and review queue near the top. Use it for staged Loredeck authoring, not one-shot generation. Generated material remains draft material until reviewed, moved to Pending Review, accepted, and checked in Pack Health.
 
 ## Settings
 

@@ -69,4 +69,4 @@ assert.deepEqual(getLoredeckCreatorLorecardsStageState({
   detail: '4 remaining, 2 drafts',
 });
 
-console.log('Loredeck Creator Lorecards stage status tests passed.');
+console.log('Deck Maker Lorecards stage status tests passed.');

@@ -88,7 +88,7 @@ function buildChange(entry = buildRawEntry()) {
     source: 'loredeck_creator',
     action: 'creator_upsert_entry',
     targetKind: 'entry',
-    title: `Creator entry: ${entry.title}`,
+    title: `Deck Maker entry: ${entry.title}`,
     affectedEntryIds: [entry.id],
     payload: {
       entryOverrides: {
@@ -172,7 +172,7 @@ const wrongTarget = guardLoredeckCreatorEntryDraftChange(pack, buildChange(), {
   targetEntryIds: new Set(['different-title']),
 });
 assert.equal(wrongTarget.change, null);
-assert.ok(wrongTarget.errors.some(error => error.includes('outside this Creator micro-batch')));
+assert.ok(wrongTarget.errors.some(error => error.includes('outside this Deck Maker micro-batch')));
 
 const missingContextLabel = guardLoredeckCreatorEntryDraftChange(pack, buildChange(buildRawEntry({
   context: {
@@ -239,4 +239,4 @@ assert.equal(Object.hasOwn(acceptedEntry, 'fact'), false);
 assert.equal(Object.hasOwn(acceptedEntry, 'date'), false);
 assert.deepEqual(acceptedEntry.tags, ['characternami', 'fact', 'secret', 'other']);
 
-console.log('Loredeck Creator entry guard tests passed.');
+console.log('Deck Maker entry guard tests passed.');

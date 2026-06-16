@@ -1,6 +1,6 @@
 # Saga Generation Hardening Plan
 
-Status: Slice 6 code and focused regression coverage are complete. Slice 1 added a shared provider response normalizer, Loredeck Creator parser wiring, and regression fixtures for chat-completion object responses. Slice 2/3 now include typed provider response failures for token-limit, reasoning-only, and empty-content outputs. Slice 3 now annotates uncoded parser failures as `json_invalid`, salvaged truncated row parses as `json_truncated_salvaged`, and commit callback failures as `commit_failed`. Slice 3 also maps those stable codes to Creator stage messages and structured console warnings so user notifications do not leak parser/eval-style text. Slice 3/4 added typed generation validation results and Creator stage-contract validators that can trigger repair before commit. Slice 5 records compact sanitized diagnostics on failed Creator generation units and surfaces them from the Creator Job panel with a copy action, without storing raw provider responses. Slice 6 hardens non-Creator parser boundaries and parse-failure codes for Lore Assistant drafting, Context resolution, Auto-Relevance, Continuity scanning, Story Lore generation, and Injection compression. Remaining validation is live-provider manual QA and the broader alpha gate.
+Status: Slice 6 code and focused regression coverage are complete. Slice 1 added a shared provider response normalizer, Deck Maker parser wiring, and regression fixtures for chat-completion object responses. Slice 2/3 now include typed provider response failures for token-limit, reasoning-only, and empty-content outputs. Slice 3 now annotates uncoded parser failures as `json_invalid`, salvaged truncated row parses as `json_truncated_salvaged`, and commit callback failures as `commit_failed`. Slice 3 also maps those stable codes to Deck Maker stage messages and structured console warnings so user notifications do not leak parser/eval-style text. Slice 3/4 added typed generation validation results and Deck Maker stage-contract validators that can trigger repair before commit. Slice 5 records compact sanitized diagnostics on failed Deck Maker generation units and surfaces them from Deck Maker Job panel with a copy action, without storing raw provider responses. Slice 6 hardens non-Creator parser boundaries and parse-failure codes for Lore Assistant drafting, Context resolution, Auto-Relevance, Continuity scanning, Story Lore generation, and Injection compression. Remaining validation is live-provider manual QA and the broader alpha gate.
 
 ## Purpose
 
@@ -15,25 +15,25 @@ Saga currently has several model-backed paths with different assumptions about p
 - OpenAI-compatible endpoints usually return chat-completion objects.
 - SillyTavern connection profiles can return strings, objects, or provider-shaped responses.
 - Some reasoning models may return hidden reasoning, empty visible content, token-limit finish reasons, or partial JSON.
-- Creator stages need stage-specific proposal validation after generic JSON parsing.
+- Deck Maker stages need stage-specific proposal validation after generic JSON parsing.
 
 When these assumptions drift, the user sees generic parse, eval, or failed-generation messages even when the response contains recoverable JSON.
 
 ## Goals
 
 - Make `sendLoreRequest()` and generation runners expose a stable visible-text contract.
-- Keep Loredeck Creator generation steps hardened consistently: Scope Brief, Story Outline, Title Pass, Context and Tag Planning, and Lorecard drafting.
+- Keep Deck Maker generation steps hardened consistently: Scope Brief, Story Outline, Title Pass, Context and Tag Planning, and Lorecard drafting.
 - Add deterministic fixtures for common provider response shapes.
 - Produce stage-specific failure messages that identify whether extraction, JSON parsing, schema validation, or commit failed.
 - Store small sanitized diagnostics for failed generation units.
-- Audit and harden similar model-call paths outside Loredeck Creator.
+- Audit and harden similar model-call paths outside Deck Maker.
 
 ## Non-Goals
 
 - Do not add legacy compatibility layers for old Creator states.
 - Do not store full raw model transcripts by default.
 - Do not make raw provider payloads a normal user-facing surface.
-- Do not replace staged Creator workflow, Pending Review, or Pack Health.
+- Do not replace staged Deck Maker workflow, Pending Review, or Pack Health.
 - Do not rely on prompt wording as the primary fix for provider-shape issues.
 
 ## Hardening Layers
@@ -81,7 +81,7 @@ Parsers should accept either normalized text or known chat-completion objects. T
 
 ### 3. Stage-Specific Validation
 
-Generic JSON parsing is not enough. Each Creator stage needs validation that names the failed contract:
+Generic JSON parsing is not enough. Each Deck Maker stage needs validation that names the failed contract:
 
 - Scope Brief: valid JSON but no usable `brief`.
 - Story Outline: valid JSON but no usable `outline`.
@@ -122,13 +122,13 @@ Rules:
 
 Scope:
 
-- Keep the shared Loredeck Creator runner using normalized visible text for parse, repair, commit result references, and saved `responseText`.
+- Keep the shared Deck Maker runner using normalized visible text for parse, repair, commit result references, and saved `responseText`.
 - Add runner-level tests where `callUnit()` returns a chat-completion object.
 - Assert parse, repair, commit, and result history receive visible assistant JSON.
 
 Acceptance:
 
-- All five Creator stages use the same normalized raw-result path.
+- All five Deck Maker stages use the same normalized raw-result path.
 - A chat-completion object does not produce `[object Object]`, object-inspection text, or generic invalid JSON errors.
 - `test-loredeck-assistant.mjs`, `test-loredeck-creator-generation-recovery.mjs`, and `test-generation-job-runner.mjs` cover the path.
 
@@ -175,7 +175,7 @@ Scope:
 
 Acceptance:
 
-- User notifications no longer use vague eval-style wording for Creator stages.
+- User notifications no longer use vague eval-style wording for Deck Maker stages.
 - Developer console warnings include stage, unit ID, and error code.
 
 Progress:
@@ -185,7 +185,7 @@ Progress:
 - Truncated Assistant proposal/title/entry responses that salvage complete rows return `warningCodes: ["json_truncated_salvaged"]`.
 - Repair callbacks receive the original parser error name plus the stable `json_invalid` code.
 - Commit callback exceptions without an existing code are normalized to `commit_failed`.
-- Creator stage catch paths format stable codes into stage-specific user messages for Scope Brief, Story Outline, Title Pass, Context and Tag Planning, and Lorecard drafting.
+- Deck Maker stage catch paths format stable codes into stage-specific user messages for Scope Brief, Story Outline, Title Pass, Context and Tag Planning, and Lorecard drafting.
 - Creator runner failures write structured console warnings with stage, unit ID, error code, phase, finish reason, and visible-content length.
 
 ### Slice 4: Stage-Specific Validators
@@ -207,19 +207,19 @@ Acceptance:
 Scope:
 
 - Extend generation unit checkpoints with sanitized diagnostic fields.
-- Surface a compact failed-unit detail in the Creator job row.
+- Surface a compact failed-unit detail in the Deck Maker job row.
 - Add a copyable diagnostic summary for developer troubleshooting.
 
 Acceptance:
 
 - A failed unit records result type, extracted length, finish reason, parse phase, and error code.
 - No full raw provider response is stored by default.
-- Reopening the Creator preserves the diagnostic summary.
+- Reopening Deck Maker preserves the diagnostic summary.
 
 Progress:
 
 - Failed units persist only the allowlisted diagnostic fields.
-- The Creator Job panel shows the latest recoverable unit's compact diagnostic summary.
+- Deck Maker Job panel shows the latest recoverable unit's compact diagnostic summary.
 - The diagnostic copy action serializes the same allowlisted fields and excludes raw provider payloads and provider headers.
 
 ### Slice 6: Audit Non-Creator Model Calls
@@ -252,7 +252,7 @@ Progress:
 
 #### Slice 6 Request Boundary Audit
 
-- Creator stage requests in `src/runtime/lore-panel.js` all request `expectedOutput: 'json'` and flow through the hardened Creator generation runner or shared Lore Assistant JSON helper before parsing or committing.
+- Deck Maker stage requests in `src/runtime/lore-panel.js` all request `expectedOutput: 'json'` and flow through the hardened Deck Maker generation runner or shared Lore Assistant JSON helper before parsing or committing.
 - Context resolution in `src/context/context-resolver.js` requests JSON, parses provider-shaped visible text, and reports malformed visible JSON as `model_parse_failed` with `json_invalid`.
 - Auto-Relevance in `src/context/auto-relevance.js` requests JSON, parses provider-shaped visible text, and returns `failed_parse` with `json_invalid` when visible JSON is malformed.
 - Continuity observation, reducer, and delta requests in `src/continuity/continuity-scanner.js` request JSON and parse provider-shaped visible text; reducer parse failures carry `json_invalid`.
@@ -297,7 +297,7 @@ Manual QA:
 
 This hardening track is complete when:
 
-- Creator generation no longer depends on provider responses being plain strings.
+- Deck Maker generation no longer depends on provider responses being plain strings.
 - Similar object-response failures are covered by deterministic tests across parser families.
 - Failed generation units identify the failing phase and stage contract.
 - Sanitized diagnostics make provider-specific failures debuggable without storing full model transcripts.

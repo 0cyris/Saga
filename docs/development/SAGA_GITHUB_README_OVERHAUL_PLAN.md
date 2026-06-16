@@ -11,7 +11,7 @@ The README pacing target is a light opener, quick setup, visual feature tour, th
 - Explain the product model clearly enough that a new tester can operate Saga without reading every development note.
 - Keep deep schema, authoring, and engineering detail linked out to focused docs.
 - Use the curated renderer set instead of expanding back toward the old 80-image batch.
-- Keep public terminology consistent: Loredeck, Lorecard, Loredeck Library, Active Stack, Context, Pending Review, Loredeck Creator, Bundled Lorepack, Generated Lorepack, Custom Lorepack, and Pack Health.
+- Keep public terminology consistent: Loredeck, Lorecard, Loredeck Library, Active Stack, Context, Pending Review, Deck Maker, Bundled Lorepack, Generated Lorepack, Custom Lorepack, and Pack Health.
 
 ## Proposed README Shape
 
@@ -156,11 +156,11 @@ Images:
 - `docs-pack-health-overview.png`
 - `docs-pack-health-issues.png`
 
-#### 6.5 Loredeck Creator
+#### 6.5 Deck Maker
 
 Cover:
 
-- Creator is staged generation, not one giant deck prompt.
+- Deck Maker is staged generation, not one giant deck prompt.
 - Scope Brief first.
 - Current task area.
 - Generated material remains draft until reviewed and finalized.

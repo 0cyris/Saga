@@ -63,12 +63,12 @@ Use this inventory as the first pass for the branch-delta audit. It is intention
 | Mobile routes | Basic mobile exposes `Loredecks`, `Session`, `Context`, `Lorecards`, `Settings`. Advanced mobile also exposes `Continuity` and `Injection` as direct icon routes. | Runtime shell/navigation files, `docs/user/MOBILE_OPERATOR_MANUAL.md`, visual smoke assertions | Mobile docs and tours need route-specific coverage and mode-specific omissions. |
 | Touch interaction model | Mobile shifts toward object-first rows, detail sheets, bottom-owned actions, long-press editing, tap order, and compact controls instead of desktop button rows. | `src/lorecards/lorecards-panel.js`, `src/loredecks/loredeck-library-panel.js`, `styles/review.css`, `docs/development/SAGA_MOBILE_TOUCH_INTERACTION_REDESIGN.md` | Mobile manual and walkthroughs must explain taps, long-press, sheets, subviews, Back, Close, and Exit directly. |
 | Desktop preservation | Desktop rail/drawer behavior still matters at desktop and tablet widths, while phone width uses the mobile shell. | `src/runtime/runtime-shell.js`, `styles/layout.css`, `docs/development/SAGA_DESKTOP_BEVEL_SYSTEM.md`, `docs/development/SAGA_VISUAL_SMOKE.md` | Desktop manual needs current screenshots and should not borrow phone-only control assumptions. |
-| Basic/Advanced modes | Basic remains the guided roleplay path. Advanced exposes diagnostics, Creator, Pack Health repair, Continuity, Injection, provider internals, and deeper settings. | `src/state/basic-profile.js`, `src/runtime/session-basic-panel.js`, `src/runtime/runtime-guide-content.js`, user workflow docs | README, Basic workflow, Advanced workflow, and release notes must align on what each mode hides and exposes. |
+| Basic/Advanced modes | Basic remains the guided roleplay path. Advanced exposes diagnostics, Deck Maker, Pack Health repair, Continuity, Injection, provider internals, and deeper settings. | `src/state/basic-profile.js`, `src/runtime/session-basic-panel.js`, `src/runtime/runtime-guide-content.js`, user workflow docs | README, Basic workflow, Advanced workflow, and release notes must align on what each mode hides and exposes. |
 | Session Readiness | Desktop Basic checklist and mini-tours now route users to next actions instead of making them scan all tabs. | `src/runtime/session-basic-panel.js`, `src/runtime/runtime-basic-readiness.js`, `src/runtime/runtime-tour.js` | Basic checklist quickrun must be revalidated on desktop and mobile; docs must explain readiness without overloading first-time users. |
 | Walkthroughs | Basic and Advanced walkthroughs are module/task-track systems, not small tab tours. Basic has B01-B55 style coverage; Advanced has A01-A165 style coverage. | `src/runtime/runtime-guide-content.js`, `src/runtime/runtime-guide-prep.js`, `src/runtime/runtime-tour.js`, `docs/development/SAGA_WALKTHROUGH_WORKFLOW_EXPANSION_PLAN.md` | Rework tours so desktop and mobile targets resolve, with mobile-first explanations where layout differs. |
 | Loredeck Library | Library now covers folders, source types, active stack management, import/export, selected details, mobile detail sheets, stack ordering, and active-stack controls. | `src/loredecks/loredeck-library-panel.js`, `src/runtime/lore-panel.js`, `styles/review.css` | README/manuals need current Library screenshots and a clearer active-stack mental model. |
 | Pack Health | Pack Health Center covers status, grouped issues, refresh, repair routing, accept-as-is, verify fixed, generated-readiness links, and mobile bottom actions. | `src/loredecks/loredeck-health-panel.js`, `src/runtime/loredeck-editor-actions.js`, `docs/user/DESKTOP_OPERATOR_MANUAL.md` | Docs must use `Pack Health`, not stale `Deck Health`, and explain structural health versus canon truth. |
-| Loredeck Creator | Creator is a staged workflow with current task/progress, draft review, title planning, context/tag planning, retry/retry-smaller, Auto-Draft All, generation settings, readiness, and finalization. | `src/loredecks/loredeck-creator-panel.js`, `src/state/lore-creator-state.js`, `docs/development/LOREDECK_CREATOR_LIVE_TEST_LOG.md` | Advanced manual, mobile manual, walkthroughs, and release notes need staged-authoring coverage rather than one-shot generation language. |
+| Deck Maker | Deck Maker is a staged workflow with current task/progress, draft review, title planning, context/tag planning, retry/retry-smaller, Auto-Draft All, generation settings, readiness, and finalization. | `src/loredecks/loredeck-creator-panel.js`, `src/state/lore-creator-state.js`, `docs/development/LOREDECK_CREATOR_LIVE_TEST_LOG.md` | Advanced manual, mobile manual, walkthroughs, and release notes need staged-authoring coverage rather than one-shot generation language. |
 | Lorecards workspace | Lorecards have a unified review-first workspace with Pending Review, Accepted Lorecards, Generate, mobile `Generate | Automate | Lore` sub-tabs, and long-press mobile editor. | `src/lorecards/lorecards-panel.js`, `src/lorecards/lore-selection.js`, `styles/review.css` | Documentation must explain review gates, accepted object rows, editing, and mobile sub-tabs. |
 | Accepted Lorecard controls | The current control model uses relevance tier, Mute, and Elevate/protection semantics. Older `Pin`, `Pinned`, `Active`, `Active Set`, and per-card `Disable Lore Automation` wording must be audited. | `src/lorecards/lore-selection.js`, `src/lorecards/lorecards-panel.js`, `docs/development/SAGA_LORECARDS_CONTROL_REVISION_PLAN.md` | Public docs and walkthrough copy must match current UI labels exactly. |
 | Lore Automation | Advanced Lorecards include Lore Automation levels and inspectable automation state. Elevated cards should be protected from automation. | `src/lorecards/lore-automation.js`, `src/context/auto-relevance.js`, `src/lorecards/lore-relevance.js`, `tools/scripts/test-lore-automation-levels.mjs` | README and advanced docs should explain automation as inspectable/reversible, not a hidden background mystery. |
@@ -76,7 +76,7 @@ Use this inventory as the first pass for the branch-delta audit. It is intention
 | Continuity | Continuity remains Advanced-only on mobile and desktop, covering scan controls, live scene state, active characters, items, goals, and injection link. | `src/continuity/*`, `src/runtime/advanced-runtime-panel.js`, `styles/continuity.css` | Desktop and mobile manuals need current Continuity screenshots and clear separation from durable Lorecards. |
 | Injection | Advanced Injection exposes prompt placement, high/normal/low preview, continuity/lore toggles, compression behavior, omission reasons, and mobile inspection routes. | `src/runtime/injection-preview-panel.js`, `src/runtime/advanced-runtime-panel.js`, `styles/runtime.css` | Advanced docs must make Injection the truth source for what reaches the model. Basic docs should route users to Advanced when they need it. |
 | Settings | Settings owns Experience Mode, providers, current-model routing, Theme Packs, Icon Sets, State Safety, and Danger Zone cleanup. | `src/settings/runtime-settings-tab.js`, `src/settings/settings-panel.js`, `src/settings/theme-actions.js`, `styles/settings.css` | README/manuals must update setup, provider, theme, State Safety, and cleanup guidance. |
-| Storage and packages | `.saga-loredeck.zip` packages, externalized Saga storage, passive assets, Library index, Creator projects, Theme/Icon assets, and cleanup are release-facing. | `src/state/*`, `docs/loredecks/*`, `docs/user/STORAGE_AND_STATE_SAFETY.md` | Docs must not imply old JSON-only import/export workflows or legacy migration support. |
+| Storage and packages | `.saga-loredeck.zip` packages, externalized Saga storage, passive assets, Library index, Deck Maker projects, Theme/Icon assets, and cleanup are release-facing. | `src/state/*`, `docs/loredecks/*`, `docs/user/STORAGE_AND_STATE_SAFETY.md` | Docs must not imply old JSON-only import/export workflows or legacy migration support. |
 | Visual smoke and renderer | Visual smoke now covers mobile, guide harnesses, tablet sanity, live ST smoke, and renderer output. | `tools/scripts/test-visual-smoke-harness.mjs`, `tools/scripts/smoke-live-st-cdp.mjs`, `.saga-doc-renderer/*`, `docs/development/SAGA_VISUAL_SMOKE.md` | Verification sections in docs and release notes should cite current commands and rendered evidence. |
 
 ## Workstream 1: Branch Delta Audit
@@ -173,7 +173,7 @@ Basic mobile render families to refresh:
 
 Advanced mobile render families to refresh:
 
-- Loredecks/Library/Health/Creator: `docs-mobile-advanced-loredecks-root`, `docs-mobile-advanced-library-overview`, `docs-mobile-advanced-library-detail`, `docs-mobile-advanced-pack-health`, `docs-mobile-advanced-creator`
+- Loredecks/Library/Health/Deck Maker: `docs-mobile-advanced-loredecks-root`, `docs-mobile-advanced-library-overview`, `docs-mobile-advanced-library-detail`, `docs-mobile-advanced-pack-health`, `docs-mobile-advanced-creator`
 - Session: `docs-mobile-advanced-session-root`, `docs-mobile-advanced-session-details`
 - Continuity: `docs-mobile-advanced-continuity-root`, `docs-mobile-advanced-continuity-scan`, `docs-mobile-advanced-continuity-character-state`
 - Context: `docs-mobile-advanced-context-root`, `docs-mobile-advanced-context-details`, `docs-mobile-advanced-context-workbench`, `docs-mobile-advanced-context-proposals`
@@ -219,7 +219,7 @@ Required changes:
 - Verify every screenshot against the current desktop render.
 - Ensure desktop manual does not describe mobile-only gestures as desktop requirements.
 - Update Lorecards controls to current relevance, Mute, Elevate/protection, review, and editing language.
-- Update Creator stages with current task/progress/retry/review/readiness behavior.
+- Update Deck Maker stages with current task/progress/retry/review/readiness behavior.
 - Update Context Workbench coverage with exact labels: `Start Here`, `Use Window`, `Use Anchor`, `After`, `Before`, `Timeline`, `Phrase Resolver`.
 - Update Settings coverage for Experience Mode, providers, Theme Packs, Icon Sets, State Safety, and Danger Zone.
 
@@ -243,7 +243,7 @@ Update `docs/user/BASIC_WORKFLOW.md`.
 Required changes:
 
 - Align with current Basic module order: First Run, Loredecks, Context, Lorecards, Continue Roleplay, Settings.
-- Keep Basic free of Creator, Continuity, Injection tuning, repair internals, and provider profile internals.
+- Keep Basic free of Deck Maker, Continuity, Injection tuning, repair internals, and provider profile internals.
 - Make the Quick Start match the desktop Basic checklist and mobile Basic route flow.
 - Preserve exact Context labels and explain enough for a user to set story position without Advanced knowledge.
 - Replace stale `pin` wording if the current UI now uses `Elevate`.
@@ -256,7 +256,7 @@ Required changes:
 
 - Align task tracks with the current Advanced guide modules.
 - Include mobile-specific notes only when layout or interaction differs materially.
-- Cover Library mastery, Session/runtime, Context resolution, Lorecards, Injection, Continuity, Creator, Pack Health/packages, Settings/providers, and troubleshooting.
+- Cover Library mastery, Session/runtime, Context resolution, Lorecards, Injection, Continuity, Deck Maker, Pack Health/packages, Settings/providers, and troubleshooting.
 - Update Lore Automation language around levels, ownership, protection, reviewability, and undo/inspection.
 
 ### Alpha Release Notes
@@ -267,7 +267,7 @@ Required changes:
 
 - Keep the established structure: `Compatibility`, `Implemented Features`, `Alpha Boundaries`, `Verification`.
 - Add mobile shell/support as an implemented feature.
-- Add current Lore Automation, mobile Lorecards, Creator progress/retry/review, Context Workbench/Phrase Resolver, and Pack Health/package details where release-facing.
+- Add current Lore Automation, mobile Lorecards, Deck Maker progress/retry/review, Context Workbench/Phrase Resolver, and Pack Health/package details where release-facing.
 - Preserve required alpha-contract wording checked by `tools/scripts/test-manifest-alpha.mjs`, including the exact sentence: `Unsupported old imported state schemas are rejected instead of partially migrated.`
 - Keep internal churn out of release notes unless it changes user behavior.
 
@@ -334,7 +334,7 @@ Advanced walkthrough must cover:
 - Lorecard generation/review, relevance, Mute, Elevate/protection, automation, editing, timeline/audit, and review-first policy.
 - Injection prompt placement, tier previews, compression, omission reasons, continuity link, and sync diagnostics.
 - Continuity scan scope, tracked sections, active characters, state blocks, and recovery.
-- Creator staged authoring, progress/current task, planning, drafting, review, retries, project shelf, readiness, and finalization.
+- Deck Maker staged authoring, progress/current task, planning, drafting, review, retries, project shelf, readiness, and finalization.
 - Pack Health status, grouped issues, Attempt Fixing, manual repair, accept-as-is, verify fixed, package update/export/finalization.
 - Settings providers, current model, generation parameters, Theme Packs, Icon Sets, State Safety, Danger Zone, and diagnostics.
 - Troubleshooting routes back to the right surface.

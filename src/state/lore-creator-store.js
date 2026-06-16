@@ -1,5 +1,5 @@
 /**
- * Loredeck Creator project persistence store.
+ * Deck Maker project persistence store.
  */
 
 import { DEFAULT_SETTINGS, getDefaultState as createDefaultState } from './constants.js';
@@ -33,12 +33,12 @@ export function configureLoredeckCreatorStore(deps = {}) {
 
 function getState() {
     if (typeof storeDeps.getState === 'function') return storeDeps.getState();
-    throw new Error('Loredeck Creator store is not configured.');
+    throw new Error('Deck Maker store is not configured.');
 }
 
 function saveState(state, options) {
     if (typeof storeDeps.saveState === 'function') return storeDeps.saveState(state, options);
-    throw new Error('Loredeck Creator store is not configured.');
+    throw new Error('Deck Maker store is not configured.');
 }
 
 function getSettings() {
@@ -53,12 +53,12 @@ function getDefaultState() {
     return typeof storeDeps.getDefaultState === 'function' ? storeDeps.getDefaultState() : createDefaultState();
 }
 
-function getLoredeckCreatorPersistenceErrorMessage(error = {}, fallback = 'Creator project persistence failed.') {
+function getLoredeckCreatorPersistenceErrorMessage(error = {}, fallback = 'Deck Maker project persistence failed.') {
     return normalizeLoredeckCreatorString(error?.message || error || fallback, 500) || fallback;
 }
 
-function failLoredeckCreatorPersistence(error = {}, fallback = 'Creator project persistence failed.') {
-    console.warn('[Saga] Loredeck Creator project persistence failed:', error);
+function failLoredeckCreatorPersistence(error = {}, fallback = 'Deck Maker project persistence failed.') {
+    console.warn('[Saga] Deck Maker project persistence failed:', error);
     return {
         ok: false,
         error: getLoredeckCreatorPersistenceErrorMessage(error, fallback),
@@ -95,8 +95,8 @@ function saveSettingsCleanup(settings = {}) {
         saveSettings(settings);
         return { ok: true };
     } catch (error) {
-        console.warn('[Saga] Loredeck Creator settings cleanup failed:', error);
-        return { ok: false, error: getLoredeckCreatorPersistenceErrorMessage(error, 'Creator project settings cleanup failed.') };
+        console.warn('[Saga] Deck Maker settings cleanup failed:', error);
+        return { ok: false, error: getLoredeckCreatorPersistenceErrorMessage(error, 'Deck Maker project settings cleanup failed.') };
     }
 }
 
@@ -111,7 +111,7 @@ function getBestAvailableCreatorJob(projectJob = null, localJob = null) {
 function getCreatorPayloadNotLoadedResult(jobId = '') {
     return {
         ok: false,
-        error: 'Creator project payload must be loaded before saving changes to this external Creator project.',
+        error: 'Deck Maker project payload must be loaded before saving changes to this external Deck Maker project.',
         code: 'creator_payload_not_loaded',
         jobId: normalizeLoredeckCreatorString(jobId, 160),
     };
@@ -195,7 +195,7 @@ export function upsertLoredeckCreatorJob(jobRecord = {}, options = {}) {
         jobId: requestedJobId || base?.jobId || active?.jobId || createLoredeckCreatorJobId(seed),
         updatedAt: Date.now(),
     }), jobRecord);
-    if (!job) return { ok: false, error: 'Creator job could not be normalized.' };
+    if (!job) return { ok: false, error: 'Deck Maker job could not be normalized.' };
 
     let settings;
     try {
@@ -232,7 +232,7 @@ export function upsertLoredeckCreatorJob(jobRecord = {}, options = {}) {
 
 export function activateLoredeckCreatorJob(jobId = '', options = {}) {
     const id = normalizeLoredeckCreatorString(jobId, 160);
-    if (!id) return { ok: false, error: 'Missing Creator project id.' };
+    if (!id) return { ok: false, error: 'Missing Deck Maker project id.' };
 
     const state = getState();
     const settings = getSettings();
@@ -240,7 +240,7 @@ export function activateLoredeckCreatorJob(jobId = '', options = {}) {
     const externalProjectRegistry = getLoredeckCreatorProjectRegistry();
     const localRegistry = normalizeLoredeckCreatorRegistry(state.loredeckCreator || getDefaultState().loredeckCreator);
     const sourceJob = getBestAvailableCreatorJob(externalProjectRegistry.jobs[id] || projectRegistry.jobs[id] || null, localRegistry.jobs[id] || null);
-    if (!sourceJob) return { ok: false, error: 'Creator project was not found.' };
+    if (!sourceJob) return { ok: false, error: 'Deck Maker project was not found.' };
     if (isExternalLoredeckCreatorProjectBackedRecord(sourceJob) && !isExternalLoredeckCreatorProjectHydratedRecord(sourceJob)) {
         return getCreatorPayloadNotLoadedResult(id);
     }
@@ -250,7 +250,7 @@ export function activateLoredeckCreatorJob(jobId = '', options = {}) {
         jobId: id,
         updatedAt: sourceJob.updatedAt || Date.now(),
     });
-    if (!job) return { ok: false, error: 'Creator project could not be normalized.' };
+    if (!job) return { ok: false, error: 'Deck Maker project could not be normalized.' };
 
     const externalResult = upsertExternalLoredeckCreatorProjectSync(job, {
         ...options,
@@ -286,7 +286,7 @@ export async function activateLoredeckCreatorJobAsync(jobId = '', options = {}) 
     } catch (error) {
         return {
             ok: false,
-            error: getLoredeckCreatorPersistenceErrorMessage(error, 'Creator project payload failed to load.'),
+            error: getLoredeckCreatorPersistenceErrorMessage(error, 'Deck Maker project payload failed to load.'),
             code: 'creator_payload_load_failed',
             jobId: id,
         };
@@ -296,9 +296,9 @@ export async function activateLoredeckCreatorJobAsync(jobId = '', options = {}) 
 
 export function updateLoredeckCreatorProject(jobId = '', patch = {}, options = {}) {
     const id = normalizeLoredeckCreatorString(jobId, 160);
-    if (!id) return { ok: false, error: 'Missing Creator project id.' };
+    if (!id) return { ok: false, error: 'Missing Deck Maker project id.' };
     if (!patch || typeof patch !== 'object' || Array.isArray(patch)) {
-        return { ok: false, error: 'Creator project update must be an object.' };
+        return { ok: false, error: 'Deck Maker project update must be an object.' };
     }
 
     const state = getState();
@@ -307,7 +307,7 @@ export function updateLoredeckCreatorProject(jobId = '', patch = {}, options = {
     const externalProjectRegistry = getLoredeckCreatorProjectRegistry();
     const localRegistry = normalizeLoredeckCreatorRegistry(state.loredeckCreator || getDefaultState().loredeckCreator);
     const sourceJob = getBestAvailableCreatorJob(externalProjectRegistry.jobs[id] || projectRegistry.jobs[id] || null, localRegistry.jobs[id] || null);
-    if (!sourceJob) return { ok: false, error: 'Creator project was not found.' };
+    if (!sourceJob) return { ok: false, error: 'Deck Maker project was not found.' };
     if (isExternalLoredeckCreatorProjectBackedRecord(sourceJob) && !isExternalLoredeckCreatorProjectHydratedRecord(sourceJob)) {
         return getCreatorPayloadNotLoadedResult(id);
     }
@@ -325,7 +325,7 @@ export function updateLoredeckCreatorProject(jobId = '', patch = {}, options = {
         jobId: id,
         updatedAt,
     }), patch);
-    if (!job) return { ok: false, error: 'Creator project could not be normalized.' };
+    if (!job) return { ok: false, error: 'Deck Maker project could not be normalized.' };
 
     try {
         const externalResult = upsertExternalLoredeckCreatorProjectSync(applyLoredeckCreatorExplicitGenerationClearsForStorage(job, patch), {
@@ -358,7 +358,7 @@ export function updateLoredeckCreatorProject(jobId = '', patch = {}, options = {
 
 export function setLoredeckCreatorActiveGeneration(jobId = '', activeGeneration = null, options = {}) {
     const id = normalizeLoredeckCreatorString(jobId, 160);
-    if (!id) return { ok: false, error: 'Missing Creator project id.' };
+    if (!id) return { ok: false, error: 'Missing Deck Maker project id.' };
     const normalizedActive = normalizeLoredeckCreatorActiveGeneration(activeGeneration, id);
     const sourceJob = getLoredeckCreatorRegistry(getState()).jobs[id] || null;
     return updateLoredeckCreatorProject(id, {
@@ -372,15 +372,15 @@ export function setLoredeckCreatorActiveGeneration(jobId = '', activeGeneration 
 
 export function updateLoredeckCreatorGenerationRun(jobId = '', runPatch = {}, options = {}) {
     const id = normalizeLoredeckCreatorString(jobId, 160);
-    if (!id) return { ok: false, error: 'Missing Creator project id.' };
+    if (!id) return { ok: false, error: 'Missing Deck Maker project id.' };
     if (!runPatch || typeof runPatch !== 'object' || Array.isArray(runPatch)) {
-        return { ok: false, error: 'Creator generation run update must be an object.' };
+        return { ok: false, error: 'Deck Maker generation run update must be an object.' };
     }
     const registry = getLoredeckCreatorRegistry(getState());
     const sourceJob = registry.jobs[id] || null;
-    if (!sourceJob) return { ok: false, error: 'Creator project was not found.' };
+    if (!sourceJob) return { ok: false, error: 'Deck Maker project was not found.' };
     const runId = normalizeLoredeckCreatorId(runPatch.runId || runPatch.id || sourceJob.activeGeneration?.runId || '', '');
-    if (!runId) return { ok: false, error: 'Missing Creator generation run id.' };
+    if (!runId) return { ok: false, error: 'Missing Deck Maker generation run id.' };
 
     const generationRuns = {
         ...(sourceJob.generationRuns || {}),
@@ -393,7 +393,7 @@ export function updateLoredeckCreatorGenerationRun(jobId = '', runPatch = {}, op
         jobId: id,
         updatedAt: Number.isFinite(Number(runPatch.updatedAt)) ? Number(runPatch.updatedAt) : Date.now(),
     }, Object.keys(generationRuns).length);
-    if (!run) return { ok: false, error: 'Creator generation run could not be normalized.' };
+    if (!run) return { ok: false, error: 'Deck Maker generation run could not be normalized.' };
     generationRuns[run.runId] = run;
 
     const patch = { generationRuns };
@@ -424,15 +424,15 @@ export function updateLoredeckCreatorGenerationRun(jobId = '', runPatch = {}, op
 
 export function updateLoredeckCreatorGenerationUnit(jobId = '', unitId = '', unitPatch = {}, options = {}) {
     const id = normalizeLoredeckCreatorString(jobId, 160);
-    if (!id) return { ok: false, error: 'Missing Creator project id.' };
+    if (!id) return { ok: false, error: 'Missing Deck Maker project id.' };
     if (!unitPatch || typeof unitPatch !== 'object' || Array.isArray(unitPatch)) {
-        return { ok: false, error: 'Creator generation unit update must be an object.' };
+        return { ok: false, error: 'Deck Maker generation unit update must be an object.' };
     }
     const registry = getLoredeckCreatorRegistry(getState());
     const sourceJob = registry.jobs[id] || null;
-    if (!sourceJob) return { ok: false, error: 'Creator project was not found.' };
+    if (!sourceJob) return { ok: false, error: 'Deck Maker project was not found.' };
     const resolvedUnitId = normalizeLoredeckCreatorId(unitId || unitPatch.unitId || unitPatch.id || sourceJob.activeGeneration?.unitId || '', '');
-    if (!resolvedUnitId) return { ok: false, error: 'Missing Creator generation unit id.' };
+    if (!resolvedUnitId) return { ok: false, error: 'Missing Deck Maker generation unit id.' };
     const incomingRunId = normalizeLoredeckCreatorId(unitPatch.runId || '', '');
     if (
         sourceJob.activeGeneration?.unitId === resolvedUnitId
@@ -461,7 +461,7 @@ export function updateLoredeckCreatorGenerationUnit(jobId = '', unitId = '', uni
         jobId: id,
         updatedAt: Number.isFinite(Number(unitPatch.updatedAt)) ? Number(unitPatch.updatedAt) : Date.now(),
     }, Object.keys(generationUnits).length);
-    if (!unit) return { ok: false, error: 'Creator generation unit could not be normalized.' };
+    if (!unit) return { ok: false, error: 'Deck Maker generation unit could not be normalized.' };
     generationUnits[unit.unitId] = unit;
 
     const patch = { generationUnits };

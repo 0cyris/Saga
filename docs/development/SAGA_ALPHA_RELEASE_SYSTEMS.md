@@ -19,7 +19,7 @@ Alpha is not the same as public polish. It can still have limited bundled fandom
 
 Saga is currently in **pre-alpha integration hardening**.
 
-Most foundational systems now exist in some form: the runtime shell, Loredeck Library, active stack, Context tab/browser, Deck Health Center, Theme/Icon Sets, Lore Assistant groundwork, Loredeck Creator batching, Pending Review, and the split Harry Potter reference deck family.
+Most foundational systems now exist in some form: the runtime shell, Loredeck Library, active stack, Context tab/browser, Deck Health Center, Theme/Icon Sets, Lore Assistant groundwork, Deck Maker batching, Pending Review, and the split Harry Potter reference deck family.
 
 The main risk has shifted from missing features to cross-system correctness. The next phase must prove that the core runtime loop works end to end:
 
@@ -125,7 +125,7 @@ Tag registry, namespaced tags, tag manager, bulk tag edits, malformed tag repair
 
 Current implementation uses `.saga-loredeck.zip` packages for the front-facing Library import/export workflow. Packages mirror bundled Loredeck folders, carry indexes/manifests/registries/covers, and preserve safe preview, content-hash comparison, collision handling, folder placement, and Custom-copy installation behavior. URL/GitHub package import and update checks are deferred until the local package path is stable. The package plan lives in [LOREDECK_ZIP_PACKAGE_IMPORT_EXPORT_PLAN.md](LOREDECK_ZIP_PACKAGE_IMPORT_EXPORT_PLAN.md).
 
-### 16. Loredeck Creator
+### 16. Deck Maker
 
 The staged generation workflow: compact Scope Brief, granularity, Story Outline and Context plan, outline-batched title pass, title-batch timeline/tag planning, planning-aware micro-batched Lorecard drafting, Generated Loredeck shell creation, Pending Review integration, validation, deterministic Creator-pipeline export readiness, and reviewed Generated-to-Custom finalization.
 
@@ -171,7 +171,7 @@ The main alpha blockers are:
 These can remain incomplete for alpha if the underlying architecture is stable:
 
 - Dozens of bundled fandoms.
-- Fully polished Loredeck Creator output quality.
+- Fully polished Deck Maker output quality.
 - Fully automated Context detection for every vague phrase.
 - Semantic conflict detection between unrelated fandoms.
 - Advanced Theme Pack marketplace behavior.

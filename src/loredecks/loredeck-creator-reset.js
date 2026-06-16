@@ -123,7 +123,7 @@ export function isLoredeckCreatorResetTarget(stepId = '') {
 
 export function getLoredeckCreatorResetStepLabel(stepId = '') {
     const id = String(stepId || '').trim();
-    return LOREDECK_CREATOR_RESET_STEPS.find(step => step.id === id)?.label || id || 'Creator step';
+    return LOREDECK_CREATOR_RESET_STEPS.find(step => step.id === id)?.label || id || 'Deck Maker step';
 }
 
 export function getLoredeckCreatorResetForwardSteps(stepId = '') {
@@ -144,8 +144,8 @@ export function buildLoredeckCreatorResetWarning(stepId = '') {
         ? forwardLabels.length === 1
             ? forwardLabels[0]
             : `${forwardLabels.slice(0, -1).join(', ')}, and ${forwardLabels[forwardLabels.length - 1]}`
-        : 'later Creator progress';
-    return `This will permanently erase all Creator data after ${label}, including ${cleared} progress. This cannot be undone.`;
+        : 'later Deck Maker progress';
+    return `This will permanently erase all Deck Maker data after ${label}, including ${cleared} progress. This cannot be undone.`;
 }
 
 function hasText(value) {
@@ -294,7 +294,7 @@ export function getLoredeckCreatorResetAvailability(job = {}, pack = null, stepI
         return {
             show: true,
             disabled: true,
-            reason: 'Cancel or finish the current Creator generation before resetting.',
+            reason: 'Cancel or finish the current Deck Maker generation before resetting.',
             forwardSteps,
         };
     }

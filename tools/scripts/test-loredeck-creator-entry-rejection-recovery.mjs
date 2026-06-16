@@ -20,7 +20,7 @@ const diagnostics = buildLoredeckCreatorEntryRejectionDiagnostics({
   errors: [
     'Unknown tag location:cocoyashi.',
     'Unknown validToAnchor one-piece.arlong.missing-anchor.',
-    'Entry genzos-vigil-over-cocoyashi is outside this Creator micro-batch.',
+    'Entry genzos-vigil-over-cocoyashi is outside this Deck Maker micro-batch.',
     'genzos-vigil-over-cocoyashi: Missing context.label.',
   ],
 });
@@ -86,4 +86,4 @@ assert.equal(isLoredeckCreatorEntryGuardRejectedAllError({
 }), true);
 assert.equal(isLoredeckCreatorEntryGuardRejectedAllError({ code: 'commit_failed' }), false);
 
-console.log('Loredeck Creator entry rejection recovery tests passed.');
+console.log('Deck Maker entry rejection recovery tests passed.');

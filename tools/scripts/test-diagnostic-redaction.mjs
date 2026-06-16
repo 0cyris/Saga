@@ -57,6 +57,6 @@ const lorePanel = await readFile(path.join(repoRoot, 'src/runtime/lore-panel.js'
 assert(healthPanel.includes('stringifyRedactedDiagnostic(context.report)'), 'Pack Health Copy Diagnostics must redact report JSON.');
 assert(healthPanel.includes('downloadJson(redactDiagnosticValue(context.report)'), 'Pack Health Export Report must redact report JSON.');
 assert(liveSmoke.includes('redactDiagnosticValue(payload)') && liveSmoke.includes('redactDiagnosticText(raw)'), 'Live smoke debug-frame logs must redact CDP payloads.');
-assert(lorePanel.includes('buildLoredeckCreatorGenerationFailureDiagnostic') && lorePanel.includes('redactDiagnosticValue(diagnostic)'), 'Loredeck Creator failure diagnostics must be redacted before persistence.');
+assert(lorePanel.includes('buildLoredeckCreatorGenerationFailureDiagnostic') && lorePanel.includes('redactDiagnosticValue(diagnostic)'), 'Deck Maker failure diagnostics must be redacted before persistence.');
 
 console.log('Diagnostic redaction contract passed.');

@@ -1,6 +1,6 @@
 # Saga Storage And State Safety
 
-Saga stores large Saga-owned content outside `settings.json` wherever the SillyTavern files API is available. This keeps generated Loredecks, imported packages, Creator drafts, Theme Packs, Icon Sets, and passive assets from bloating the main settings file.
+Saga stores large Saga-owned content outside `settings.json` wherever the SillyTavern files API is available. This keeps generated Loredecks, imported packages, Deck Maker drafts, Theme Packs, Icon Sets, and passive assets from bloating the main settings file.
 
 ## Storage Model
 
@@ -17,9 +17,9 @@ Saga uses a flat JSON file model under SillyTavern's `/user/files` area. It does
 
 - `saga-storage-index.v1.json`: master list of Saga-managed files
 - `saga-library-index.v1.json`: Library folders, placements, installed Lorepack summaries, and payload references
-- `saga-creator-index.v1.json`: Creator project summaries and active project pointers
+- `saga-creator-index.v1.json`: Deck Maker project summaries and active project pointers
 - `saga-pack-*.v1.json`: Generated and Custom Lorepack payloads
-- `saga-creator-project-*.v1.json`: in-progress Creator project stage artifacts
+- `saga-creator-project-*.v1.json`: in-progress Deck Maker project stage artifacts
 - `saga-theme-index.v1.json`: installed Theme Pack records and payload references
 - `saga-theme-pack-*.v1.json`: Custom Theme Pack payloads
 - `saga-iconset-index.v1.json`: installed Icon Set records and payload references
@@ -36,11 +36,11 @@ Theme Pack imports store JSON Theme Pack payloads as data. Theme Packs cannot ru
 
 Icon Set imports store JSON manifests and approved raster icon assets. SVG icon import remains intentionally restricted in the first pass because SVG can carry active content in some environments.
 
-## Creator Projects
+## Deck Maker Projects
 
-The Loredeck Creator stores heavy in-progress project data in Creator project payload files. This includes scope, outline, title batches, Context and tag planning, Lorecard draft batches, review queues, generation unit metadata, and generated-pack links.
+The Deck Maker stores heavy in-progress project data in Deck Maker project payload files. This includes scope, outline, title batches, Context and tag planning, Lorecard draft batches, review queues, generation unit metadata, and generated-pack links.
 
-The Creator index keeps the shelf summary and active project pointer compact. The current chat state can still point to the active Creator project, but it should not carry the full staged project payload.
+Deck Maker index keeps the shelf summary and active project pointer compact. The current chat state can still point to the active Deck Maker project, but it should not carry the full staged project payload.
 
 ## State Safety
 
@@ -65,14 +65,14 @@ The Global summary rows render from cached state first, then refresh from a read
 
 Global actions are destructive:
 
-- **Reset All Settings** resets Saga preferences, provider selections, generation settings, injection settings, theme choices, and UI defaults. It also removes stored Saga API keys. It does not delete custom Loredecks, Creator projects, custom Theme Packs, or custom Icon Sets.
+- **Reset All Settings** resets Saga preferences, provider selections, generation settings, injection settings, theme choices, and UI defaults. It also removes stored Saga API keys. It does not delete custom Loredecks, Deck Maker projects, custom Theme Packs, or custom Icon Sets.
 - **Remove Custom Themes + Icon Packs** deletes imported custom Theme Pack payloads, custom Icon Set manifests, and uploaded raster icon assets. Bundled Theme Packs and bundled Icon Sets remain available, and the active appearance falls back to bundled defaults.
-- **Remove Custom Loredecks** deletes custom, imported, and generated Loredeck Library records, payload files, cover/passive assets, and Pack Health repair sessions for those Loredecks. Bundled Loredecks remain available. Creator projects are kept because they are drafts, not installed Loredecks.
-- **Total Saga Cleanup** requires typing `DELETE SAGA`. Its confirmation preview includes tracked Saga files, known index files, referenced Saga files discovered from domain records and payloads, externalized custom content, and Health repair sessions. It deletes tracked Saga-owned custom storage files, known Saga index files, referenced Saga files, custom/imported/generated Loredecks, Creator projects, custom Theme Packs, custom Icon Sets, stored Saga API keys, Saga settings, active-chat Saga state, and State Safety backups. Bundled extension content remains because it ships with Saga.
+- **Remove Custom Loredecks** deletes custom, imported, and generated Loredeck Library records, payload files, cover/passive assets, and Pack Health repair sessions for those Loredecks. Bundled Loredecks remain available. Deck Maker projects are kept because they are drafts, not installed Loredecks.
+- **Total Saga Cleanup** requires typing `DELETE SAGA`. Its confirmation preview includes tracked Saga files, known index files, referenced Saga files discovered from domain records and payloads, externalized custom content, and Health repair sessions. It deletes tracked Saga-owned custom storage files, known Saga index files, referenced Saga files, custom/imported/generated Loredecks, Deck Maker projects, custom Theme Packs, custom Icon Sets, stored Saga API keys, Saga settings, active-chat Saga state, and State Safety backups. Bundled extension content remains because it ships with Saga.
 
 Saga does not support migrating old settings-backed payloads in this pre-alpha line. If stale settings payloads are present from an older local build, use **Total Saga Cleanup** or reinstall the extension with a clean Saga state.
 
-After Total Saga Cleanup, Saga should still open without reinstalling. New imports, Creator saves, Theme Pack imports, and Icon Set imports recreate the needed storage index files. If Total Saga Cleanup partially fails, Saga still clears prior State Safety backups, but writes one compact State Safety warning so the retry reason remains visible after the reset. If you are in Basic, switch to Advanced and open State Safety before retrying.
+After Total Saga Cleanup, Saga should still open without reinstalling. New imports, Deck Maker saves, Theme Pack imports, and Icon Set imports recreate the needed storage index files. If Total Saga Cleanup partially fails, Saga still clears prior State Safety backups, but writes one compact State Safety warning so the retry reason remains visible after the reset. If you are in Basic, switch to Advanced and open State Safety before retrying.
 
 ## Cleanup Boundaries
 
@@ -107,9 +107,9 @@ If Total Saga Cleanup cannot delete a tracked non-index file, Saga keeps the mas
 
 For alpha testing, inspect the active SillyTavern user profile after imports or generation:
 
-- `settings.json` should not contain full Loredeck entry arrays, full Creator stage artifacts, large Theme Pack libraries, or base64 cover/icon blobs.
+- `settings.json` should not contain full Loredeck entry arrays, full Deck Maker stage artifacts, large Theme Pack libraries, or base64 cover/icon blobs.
 - `/user/files` should contain Saga-owned `saga-*.json` records for imported, generated, and custom content.
 - imported cover images and icon rasters should appear as passive asset files referenced by JSON.
 - `saga-library-index.v1.json` should reflect Library folders and placements.
-- `saga-creator-index.v1.json` should reflect Creator project summaries.
-- full Creator stage data should live in `saga-creator-project-*.v1.json`.
+- `saga-creator-index.v1.json` should reflect Deck Maker project summaries.
+- full Deck Maker stage data should live in `saga-creator-project-*.v1.json`.

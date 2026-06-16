@@ -567,8 +567,8 @@ async function auditCreatorIndex(context, summary, index = null) {
     activeProjectId: String(index.activeProjectId || index.activeJobId || ''),
   };
   for (const [projectId, project] of Object.entries(projects)) {
-    const payload = await auditStorageJsonKind(context, project?.projectFile, `Creator project ${projectId} payload`, EXPECTED_STORAGE_JSON_KINDS.creatorProject, { required: true, expectedOwnerId: projectId });
-    auditStorageJsonId(context, payload, project?.projectFile, `Creator project ${projectId} payload`, projectId, ['jobId', 'projectId', 'id']);
+    const payload = await auditStorageJsonKind(context, project?.projectFile, `Deck Maker project ${projectId} payload`, EXPECTED_STORAGE_JSON_KINDS.creatorProject, { required: true, expectedOwnerId: projectId });
+    auditStorageJsonId(context, payload, project?.projectFile, `Deck Maker project ${projectId} payload`, projectId, ['jobId', 'projectId', 'id']);
   }
 }
 
@@ -727,7 +727,7 @@ async function main() {
   }
 
   if (countObject(libraryPacks)) addIssue(errors, 'unsupported_settings_backed_library', 'Settings contain unsupported settings-backed Loredeck Library pack records. Reset Saga storage instead of migrating them.', { count: countObject(libraryPacks) });
-  if (countObject(creatorJobs)) addIssue(errors, 'unsupported_settings_backed_creator', 'Settings contain unsupported settings-backed Creator project jobs. Reset Saga storage instead of migrating them.', { count: countObject(creatorJobs) });
+  if (countObject(creatorJobs)) addIssue(errors, 'unsupported_settings_backed_creator', 'Settings contain unsupported settings-backed Deck Maker project jobs. Reset Saga storage instead of migrating them.', { count: countObject(creatorJobs) });
   if (countObject(themePacks)) addIssue(errors, 'unsupported_settings_backed_themes', 'Settings contain unsupported settings-backed Theme Pack records. Reset Saga storage instead of migrating them.', { count: countObject(themePacks) });
   if (countObject(iconSets)) addIssue(errors, 'unsupported_settings_backed_iconsets', 'Settings contain unsupported settings-backed Icon Set records. Reset Saga storage instead of migrating them.', { count: countObject(iconSets) });
 

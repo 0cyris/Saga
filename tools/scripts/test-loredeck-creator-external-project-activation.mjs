@@ -161,7 +161,7 @@ assert.equal(clearedDrafts.job.entryDraftCount, 0);
 const clearFlush = await flushSagaCreatorProjectStorageWrites();
 assert.equal(clearFlush.ok, true);
 const clearedPayload = JSON.parse(stored.get('/user/files/saga-creator-project-creator_cold_reload.v1.json'));
-assert.equal(Object.prototype.hasOwnProperty.call(clearedPayload, 'draftChanges'), false, 'External Creator project payload must drop cleared draft rows.');
+assert.equal(Object.prototype.hasOwnProperty.call(clearedPayload, 'draftChanges'), false, 'External Deck Maker project payload must drop cleared draft rows.');
 assert.equal(clearedPayload.entryDraftCount, 0);
 
-console.log('Loredeck Creator external project activation tests passed.');
+console.log('Deck Maker external project activation tests passed.');

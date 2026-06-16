@@ -39,7 +39,7 @@ Saga Loredecks should be:
 Saga exposes only three public Lorepack type labels over the internal `type` values:
 
 - `bundled`: **Bundled Lorepack**, shipped with Saga and human-vetted.
-- `generated`: **Generated Lorepack**, created by Saga's Loredeck Creator and not human-vetted by default.
+- `generated`: **Generated Lorepack**, created by Saga's Deck Maker and not human-vetted by default.
 - `custom`: **Custom Lorepack**, user-made, user-shared, imported, duplicated, AU, crossover, or original.
 
 Internal metadata may record source, derivation, update URLs, generation details, and local modifications, but the UI should still classify the deck using only these three Lorepack types.
@@ -176,7 +176,7 @@ Existing Saga packs can start with `loredeck.json` plus the current entry files 
 | `timelineRegistry` | object | Library-only Custom/Generated Lorepack timeline overlay for accepted anchor/window edits before durable pack-folder writes exist. |
 | `tagRegistry` | object | Library-only Custom/Generated Lorepack tag overlay for accepted tag definition edits before durable pack-folder writes exist. |
 | `pendingChanges` | object[] | Library-only review queue for proposed Loredeck edits that have not been accepted yet. |
-| `generatedBy` | object | Loredeck Creator metadata. |
+| `generatedBy` | object | Deck Maker metadata. |
 | `license` | object | Pack license and usage notes. |
 | `health` | object | Last known Pack Health summary. |
 | `dependencies` | object[] | Optional pack compatibility hints. |
@@ -2059,7 +2059,7 @@ It does not need to fully support:
 - import/export zip
 - GitHub updates
 - full Context resolver
-- full Loredeck Creator
+- full Deck Maker
 - semantic conflict detection
 - entry-level update merging
 

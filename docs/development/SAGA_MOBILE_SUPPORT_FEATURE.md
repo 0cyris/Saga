@@ -343,7 +343,7 @@ Basic uses five labeled slots:
 
 | Slot | Label | Purpose |
 | --- | --- | --- |
-| 1 | Loredecks | Active Stack, Library entry point, deck readiness, Creator entry when available |
+| 1 | Loredecks | Active Stack, Library entry point, deck readiness, Deck Maker entry when available |
 | 2 | Session | Current status, Start Checklist, next action, Saga activity state |
 | 3 | Context | Story position, Context selection, resolver status |
 | 4 | Lorecards | Suggested, pending, accepted, manual, and generated Lorecards |
@@ -353,7 +353,7 @@ Advanced uses seven icon-only slots:
 
 | Slot | Label | Purpose |
 | --- | --- | --- |
-| 1 | Loredecks | Active Stack, Library entry point, deck readiness, Creator entry when available |
+| 1 | Loredecks | Active Stack, Library entry point, deck readiness, Deck Maker entry when available |
 | 2 | Session | Current status, next action, Saga activity state |
 | 3 | Continuity | Continuity tracking, timeline state, and continuity diagnostics |
 | 4 | Context | Story position, Context selection, resolver status |
@@ -475,7 +475,7 @@ Loredecks
   -> Library
   -> Deck Details
   -> Active Stack
-  -> Creator Projects
+  -> Deck Maker Projects
   -> Creator Draft
 ```
 
@@ -539,13 +539,13 @@ MVP scope:
 - Library can open in mobile mode.
 - Library uses staged views: Library list, stack/details, deck details.
 - Import and core deck actions remain reachable.
-- Creator entry is reachable in Advanced, but Creator workflows can remain MVP-simple if usable.
+- Deck Maker entry is reachable in Advanced, but Deck Maker workflows can remain MVP-simple if usable.
 
 Defer:
 
 - Touch drag-and-drop parity.
 - Fully redesigned Library organization.
-- Fully redesigned Creator authoring flow.
+- Fully redesigned Deck Maker authoring flow.
 
 ### Context
 
@@ -821,7 +821,7 @@ Scope:
 
 - Build the lifecycle surface: Capture / Suggest, Pending Review, Accepted Lorecards, Active Set.
 - Make pipeline counters filter suggested, pending, accepted, and active cards.
-- Route manual notes, story scans, Creator drafts, and Context suggestions into the same review flow.
+- Route manual notes, story scans, Deck Maker drafts, and Context suggestions into the same review flow.
 - Add review-stack cards with visible accept, edit, reject, and inspect controls.
 - Add Active Set tray behavior for inspect, activate, mute, and pin actions.
 - Add basic batch-selection support without requiring drag, swipe, or hover.
@@ -850,7 +850,7 @@ Scope:
 - Convert Loredeck Library into staged mobile views.
 - Convert Context Workbench into overview, timeline, resolver, and proposal review subviews.
 - Adapt Health Center to a mobile shell.
-- Adapt Creator project and draft surfaces enough for mobile MVP usability.
+- Adapt Deck Maker project and draft surfaces enough for mobile MVP usability.
 - Ensure large overlays use mobile shell back/close behavior instead of desktop-only close paths.
 
 Deliverables:
@@ -864,7 +864,7 @@ Exit criteria:
 
 - Loredeck Library does not require multiple desktop columns on phone widths.
 - Context Workbench does not require side-by-side desktop panes on phone widths.
-- Health and Creator surfaces have reachable close/back controls.
+- Health and Deck Maker surfaces have reachable close/back controls.
 - Touch alternatives exist for critical drag-heavy or hover-heavy workflows.
 
 ### Phase 7: Verification, Walkthroughs, And Release Readiness

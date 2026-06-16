@@ -1,6 +1,6 @@
-# Loredeck Creator Health Improvement Plan
+# Deck Maker Health Improvement Plan
 
-Status: Implementation pass complete. Regression coverage, schema-aware persistence, Creator entry guardrails, Pending Review hardening, final Pack Health UX, deterministic repair, and the alpha-gate verification sweep are in place. The only deferred item is an optional resolver UI for ambiguous repairs.
+Status: Implementation pass complete. Regression coverage, schema-aware persistence, Deck Maker entry guardrails, Pending Review hardening, final Pack Health UX, deterministic repair, and the alpha-gate verification sweep are in place. The only deferred item is an optional resolver UI for ambiguous repairs.
 
 ## Problem Statement
 
@@ -13,26 +13,26 @@ A recently generated `one-piece-arlong-park` Generated Loredeck reached the fina
 
 The likely root cause is local persistence, not the initial Creator prompt. `normalizeLoredeckEntryOverrides()` currently routes saved Loredeck `entryOverrides` through the general `normalizeLoreEntry()` path. That older general normalizer is useful for chat lore, but it is not schema v3-safe for Loredeck overrides: it adds legacy fields, compacts tags with `normalizeLoreTag()`, strips namespaced tag punctuation, and appends `kind` / `category` as tags.
 
-The Creator entry stage also accepts too much on trust. It asks the provider for schema v3 entries and calls the schema v3 scrubber during entry-change construction, but the stage validator only confirms that at least one supported `upsert_entry` proposal exists. It does not reject unknown anchor IDs, tags missing from the accepted registry, or health-breaking output before Draft Review.
+The Deck Maker entry stage also accepts too much on trust. It asks the provider for schema v3 entries and calls the schema v3 scrubber during entry-change construction, but the stage validator only confirms that at least one supported `upsert_entry` proposal exists. It does not reject unknown anchor IDs, tags missing from the accepted registry, or health-breaking output before Draft Review.
 
 ## Goals
 
 - Keep Generated Loredeck entries schema v3-clean through Draft Review, Pending Review, acceptance, save, reload, Pack Health, export, and Generated-to-Custom finalization.
-- Treat Pack Health errors as real blockers at the Creator final readiness gate.
-- Give users direct issue visibility and repair actions from the final Creator surface.
-- Prevent future Creator batches from saving unknown anchor/tag references when accepted planning metadata already exists.
+- Treat Pack Health errors as real blockers at Deck Maker final readiness gate.
+- Give users direct issue visibility and repair actions from the final Deck Maker surface.
+- Prevent future Deck Maker batches from saving unknown anchor/tag references when accepted planning metadata already exists.
 - Repair the current class of generated-pack errors deterministically without adding long-term compatibility scaffolding.
 
 ## Non-Goals
 
 - Do not introduce legacy migration layers. Saga is pre-alpha; fix the current normalized shape in place.
 - Do not weaken schema v3 health checks to hide the issue.
-- Do not make Pack Health judge subjective canon completeness. Creator Coverage remains separate from structural Pack Health.
+- Do not make Pack Health judge subjective canon completeness. Deck Maker Coverage remains separate from structural Pack Health.
 - Do not bypass Draft Review or Pending Review.
 
 ## Phase 1: Lock The Failure With Tests
 
-Status: Implemented for schema v3 override persistence, accepted Creator-style entry changes, and semantic-gate fixtures.
+Status: Implemented for schema v3 override persistence, accepted Deck Maker-style entry changes, and semantic-gate fixtures.
 
 Objective: make the observed failure reproducible without depending on the user's live `settings.json`.
 
@@ -43,7 +43,7 @@ Tasks:
 - Assert the saved entry does not gain legacy top-level fields.
 - Assert namespaced tags such as `character:nami` remain unchanged.
 - Assert `kind` and `category` do not get appended as entry tags for schema v3 Loredeck overrides.
-- Add a regression variant that accepts a Creator-style pending entry change and then reruns Pack Health.
+- Add a regression variant that accepts a Deck Maker-style pending entry change and then reruns Pack Health.
 
 Acceptance:
 
@@ -74,13 +74,13 @@ Acceptance:
 
 ## Phase 3: Add Creator Entry Semantic Gates
 
-Status: Implemented. Creator Lorecard drafts run through deterministic schema v3 guardrails before entering Draft Review. Regression coverage includes malformed context, retrieval, content, unknown tag, unknown anchor, wrong micro-batch payloads, Lorecards stage continuation, current-task UI, and Draft Review handoff state.
+Status: Implemented. Deck Maker Lorecard drafts run through deterministic schema v3 guardrails before entering Draft Review. Regression coverage includes malformed context, retrieval, content, unknown tag, unknown anchor, wrong micro-batch payloads, Lorecards stage continuation, current-task UI, and Draft Review handoff state.
 
-Objective: reject or repair bad Creator Lorecard drafts before they can become accepted Generated Loredeck entries.
+Objective: reject or repair bad Deck Maker Lorecard drafts before they can become accepted Generated Loredeck entries.
 
 Tasks:
 
-- After `buildLoredeckAssistantEntryChange()` creates an entry change, run a Creator entry validation step against the current generated pack.
+- After `buildLoredeckAssistantEntryChange()` creates an entry change, run a Deck Maker entry validation step against the current generated pack.
 - Validate:
   - No schema v3 legacy top-level fields remain.
   - `context.scope`, sort keys, `precision`, `label`, `retrieval.activation`, `retrieval.frequency`, and `retrieval.contextBoost` are present.
@@ -91,7 +91,7 @@ Tasks:
   - Map compacted tags to exact registry IDs when the mapping is unambiguous.
   - Drop generic `kind` / `category` tags from schema v3 Loredeck entries.
   - Replace an obvious anchor typo only when there is one exact normalized candidate.
-- If repair is not safe, keep the draft out of Draft Review and show a Creator generation warning with affected entry IDs.
+- If repair is not safe, keep the draft out of Draft Review and show a Deck Maker generation warning with affected entry IDs.
 
 Acceptance:
 
@@ -103,7 +103,7 @@ Acceptance:
 
 Status: Implemented. `applyLoredeckRecordPatch()` accepts a schema-aware entry override sanitizer from runtime configuration and uses it before writing `entryOverrides`. Pending Review surfaces non-clean Pack Health status with a direct `Open Pack Health Center` route, and health-impacting acceptance reports refreshed Pack Health issue counts.
 
-Objective: make the review pipeline preserve the same schema guarantees as the Creator stage.
+Objective: make the review pipeline preserve the same schema guarantees as the Deck Maker stage.
 
 Tasks:
 
@@ -124,20 +124,20 @@ Acceptance:
 
 Status: Implemented. Creator readiness receives cached Pack Health, treats cached Pack Health errors as blockers, summarizes issue counts, opens the Pack Health Center to Issues when errors exist, exposes final-card Pack Health actions, and uses `Pack Health` wording across the primary Creator, Library, Workbench, Pending Review, Attempt Fixing, and validation routes.
 
-Objective: make the final Creator surface explain and block structural health problems.
+Objective: make the final Deck Maker surface explain and block structural health problems.
 
 Tasks:
 
 - Pass cached Pack Health into `getLoredeckCreatorPipelineModel()` instead of computing generated readiness with `health = null`.
 - Change generated readiness so Pack Health errors are blockers, not warnings.
-- Keep warnings confirmable only for non-error conditions such as stale health or intentionally light Creator Coverage.
+- Keep warnings confirmable only for non-error conditions such as stale health or intentionally light Deck Maker Coverage.
 - Add final-card actions:
   - `Run Pack Health`
   - `Open Pack Health Center`
   - `Attempt Fixing` when repairable findings are available
 - Replace generic latest-health error copy with a compact summary such as `Pack Health: 56 errors, 3 warnings`.
 - Let Pack Health Center open directly to the Issues tab for packs with errors.
-- Align user-facing health labels so the Creator final gate, Pending Review, Library, Workbench, and Health Center all refer to `Pack Health`.
+- Align user-facing health labels so Deck Maker final gate, Pending Review, Library, Workbench, and Health Center all refer to `Pack Health`.
 
 Acceptance:
 
@@ -175,7 +175,7 @@ Acceptance:
 
 ## Phase 7: Verification And Smoke Coverage
 
-Status: Implemented for automated contract coverage. `tools/scripts/run-alpha-gate.mjs` now includes the Creator, Pending Review, Pack Health, library, workbench, visual smoke, schema guard, and repair tests added during this cycle.
+Status: Implemented for automated contract coverage. `tools/scripts/run-alpha-gate.mjs` now includes Deck Maker, Pending Review, Pack Health, library, workbench, visual smoke, schema guard, and repair tests added during this cycle.
 
 Objective: prove the full improvement cycle works from generation through finalization.
 

@@ -191,7 +191,7 @@ Do not send Agent 1 requests for:
 
 - Lorecards lifecycle labels, filters, review actions, or Active Set behavior,
 - Session, Loredecks, Context, or Lorecards summary content,
-- Loredeck Library, Context Workbench, Health Center, or Creator staged views,
+- Loredeck Library, Context Workbench, Health Center, or Deck Maker staged views,
 - walkthrough copy/targets,
 - final visual smoke matrix ownership, except for narrow shell-selector assertions.
 
@@ -706,7 +706,7 @@ Entry format:
 
 #### 2026-06-14 01:31 MT - Capture / Suggest Surface Alignment
 
-- Completed: Renamed the first Lorecards lifecycle content section and shared capture card from generation-first copy to the `Capture / Suggest` lifecycle label, renamed the manual source panel to `Manual Lore Note`, and added a shared review-flow note that manual notes, story scans, context-aware suggestions, and Creator drafts all wait in Pending Review before acceptance.
+- Completed: Renamed the first Lorecards lifecycle content section and shared capture card from generation-first copy to the `Capture / Suggest` lifecycle label, renamed the manual source panel to `Manual Lore Note`, and added a shared review-flow note that manual notes, story scans, context-aware suggestions, and Deck Maker drafts all wait in Pending Review before acceptance.
 - Notes: Existing `Suggest Canon Lore`, `Scan Story Lore`, and `Add Lorecard` actions and tour targets remain intact, so this aligns the visible lifecycle surface without adding another create/suggest entry point. Re-read Agent 3's latest `Pack Health Viewport Guard` note; it requests no Agent 1 or Agent 2 source changes. No Agent 1 request was opened.
 - Dependencies: No new Agent 1 or Agent 3 source change is requested. Rendered Capture / Suggest source flow remains Browser-environment follow-up.
 - Verification: `node --check src\lorecards\lorecards-panel.js`, `node --check src\runtime\lore-panel.js`, `node --check src\runtime\runtime-guide-content.js`, `node --check tools\scripts\test-visual-smoke-harness.mjs`, and `node tools\scripts\test-visual-smoke-harness.mjs` passed.
@@ -715,7 +715,7 @@ Entry format:
 #### 2026-06-14 01:31 MT - Post-Capture-Suggest Verification
 
 - Completed: Re-ran the full alpha gate after the Capture / Suggest surface alignment and shared-log update.
-- Notes: Static coverage now guards the `Capture / Suggest` shared card title, `Manual Lore Note` source label, Pending Review empty-state copy, and the review-flow note tying manual notes, story scans, context-aware suggestions, and Creator drafts to the same Pending Review destination. No Agent 1 request was opened.
+- Notes: Static coverage now guards the `Capture / Suggest` shared card title, `Manual Lore Note` source label, Pending Review empty-state copy, and the review-flow note tying manual notes, story scans, context-aware suggestions, and Deck Maker drafts to the same Pending Review destination. No Agent 1 request was opened.
 - Dependencies: No new Agent 1 or Agent 3 source change is requested. Rendered Capture / Suggest source-flow click-through remains Browser-environment follow-up.
 - Verification: `node tools\scripts\run-alpha-gate.mjs` passed; `Test-Path C:\Users\Keptin\.codex\plugins\cache\openai-bundled\browser\26.609.41114\scripts\browser-client.mjs` returned `False`.
 - Next: Agent 2 remains source-ready unless final rendered Browser verification isolates a concrete operator-tab or Lorecards lifecycle defect.
@@ -738,7 +738,7 @@ Entry format:
 
 #### 2026-06-14 01:42 MT - Pending Source Buckets
 
-- Completed: Distinguished Creator Drafts and Context Suggestions in the Lorecards Pending Review source path by centralizing source filter options, adding explicit source-bucket metadata, and giving those entries dedicated badges and fallback review reasons.
+- Completed: Distinguished Deck Maker Drafts and Context Suggestions in the Lorecards Pending Review source path by centralizing source filter options, adding explicit source-bucket metadata, and giving those entries dedicated badges and fallback review reasons.
 - Notes: This is Agent 2-owned review-stack metadata for the shared `Capture / Suggest -> Pending Review -> Accepted Lorecards -> Active Set` lifecycle. Re-read the Agent 1 Need-Request process and Agent 3's latest matrix notes; no shell/navigation/state/layout/token defect needed an `Agent 1 Request`.
 - Dependencies: No new Agent 1 or Agent 3 source change is requested. Rendered source-badge/filter click-through remains Browser-environment follow-up.
 - Verification: `node --check src\lorecards\lorecards-panel.js`, `node --check tools\scripts\test-visual-smoke-harness.mjs`, and `node tools\scripts\test-visual-smoke-harness.mjs` passed; `Test-Path C:\Users\Keptin\.codex\plugins\cache\openai-bundled\browser\26.609.41114\scripts\browser-client.mjs` returned `False`.
@@ -747,7 +747,7 @@ Entry format:
 #### 2026-06-14 01:43 MT - Post-Source-Bucket Verification
 
 - Completed: Re-ran the full alpha gate after the Pending Review source-bucket update and shared-log entries.
-- Notes: Static coverage now guards Creator Drafts and Context Suggestions as distinct Pending Review source filters/badges/reasons. The manual bucket matcher was narrowed to explicit manual markers plus `userEdited` so generic `user` text does not decide the source bucket. No Agent 1 request was opened.
+- Notes: Static coverage now guards Deck Maker Drafts and Context Suggestions as distinct Pending Review source filters/badges/reasons. The manual bucket matcher was narrowed to explicit manual markers plus `userEdited` so generic `user` text does not decide the source bucket. No Agent 1 request was opened.
 - Dependencies: No new Agent 1 or Agent 3 source change is requested. Rendered source-badge/filter click-through remains Browser-environment follow-up.
 - Verification: `node --check src\lorecards\lorecards-panel.js`, `node --check tools\scripts\test-visual-smoke-harness.mjs`, `node tools\scripts\test-visual-smoke-harness.mjs`, and `node tools\scripts\run-alpha-gate.mjs` passed after the final classifier narrowing; `Test-Path C:\Users\Keptin\.codex\plugins\cache\openai-bundled\browser\26.609.41114\scripts\browser-client.mjs` returned `False`.
 - Next: Agent 2 remains source-ready unless final rendered Browser verification isolates a concrete operator-tab or Lorecards lifecycle defect.
@@ -1019,7 +1019,7 @@ Entry format:
 #### 2026-06-14 03:15 MT - Checklist And Runtime Label Sweep
 
 - Completed: Re-read the Agent 2 brief, Agent 1's closed handoff state, and Agent 3's latest no-source-request matrix notes, then extended the lifecycle-label sweep into Basic Session checklist copy, Session metrics, guide prep, runtime navigation, State Safety, Lore Timeline recovery, injection empty states, command labels, and generation/canon progress messages.
-- Notes: Visible copy now uses `Manual Lore Note`, `Draft Manual Note`, `Pending Review entries`, and `Accepted Lorecards` across Agent 2-facing operator/checklist/lifecycle surfaces. Creator project `Review Pending Lorecards` stage text was intentionally left alone because Creator is outside Agent 2 ownership and has separate stage semantics.
+- Notes: Visible copy now uses `Manual Lore Note`, `Draft Manual Note`, `Pending Review entries`, and `Accepted Lorecards` across Agent 2-facing operator/checklist/lifecycle surfaces. Deck Maker project `Review Pending Lorecards` stage text was intentionally left alone because Deck Maker is outside Agent 2 ownership and has separate stage semantics.
 - Dependencies: No Agent 1 request was opened. The only Agent 1-owned file touched was a copy-only shell status tooltip alignment in `src\runtime\runtime-shell-view.js`; no shell route state, More routing, bottom-bar behavior, breakpoint logic, shared touch tokens, or accessibility behavior changed.
 - Verification: Source patch is applied and preliminary `node --check` runs passed for the first touched files; focused tests, visual-smoke checks, diff whitespace checks, and the full alpha gate still need to run after this shared-log update.
 - Next: Run syntax checks for all touched source/test files, targeted lifecycle-label scans, `test-visual-smoke-harness`, focused regression tests, smoke-server check, focused `git diff --check`, and `run-alpha-gate`.
@@ -1027,7 +1027,7 @@ Entry format:
 #### 2026-06-14 03:17 MT - Post-Checklist-Label Verification
 
 - Completed: Re-ran syntax checks, targeted lifecycle-label scans, focused regressions, visual-smoke checks, smoke-server check, focused diff whitespace validation, and the full alpha gate after the checklist/runtime label sweep.
-- Notes: The focused scan now leaves only static harness negative guards plus the intentionally untouched Creator project `Review Pending Lorecards` token. Agent 2-facing operator/checklist/lifecycle copy uses `Manual Lore Note`, `Draft Manual Note`, `Pending Review entries`, and `Accepted Lorecards`.
+- Notes: The focused scan now leaves only static harness negative guards plus the intentionally untouched Deck Maker project `Review Pending Lorecards` token. Agent 2-facing operator/checklist/lifecycle copy uses `Manual Lore Note`, `Draft Manual Note`, `Pending Review entries`, and `Accepted Lorecards`.
 - Dependencies: No Agent 1 request was opened and no Agent 3 source change is requested. Rendered confirmation remains environment-blocked until Browser support is restored.
 - Verification: `node --check` passed for all touched source/test files; `node tools\scripts\test-saga-danger-zone-relocation.mjs`, `node tools\scripts\test-prompt-injection-stale-state.mjs`, `node tools\scripts\test-basic-readiness.mjs`, `node tools\scripts\test-experience-modes.mjs`, `node tools\scripts\test-visual-smoke-harness.mjs`, `node tools\scripts\serve-visual-smoke.mjs --check --port 0`, focused lifecycle-label `rg` scans, focused `git diff --check -- ...`, and `node tools\scripts\run-alpha-gate.mjs` passed; `git diff --check` reported only LF-to-CRLF normalization warnings.
 - Next: Agent 2 remains source-ready unless restored Browser verification isolates a concrete operator-tab or Lorecards lifecycle defect.
@@ -1242,8 +1242,8 @@ Entry format:
 
 #### 2026-06-14 04:20 MT - Pending Review Source Filters
 
-- Completed: Added an Agent 2-owned Pending Review source filter for manual notes, story scans, Creator drafts, and Context suggestions in both the Pending Review workbench controls and the inline/mobile Pending Review filter row. The filter uses separate `pendingSourceFilter` state so Pending Review filtering does not change Accepted Lorecards source filters.
-- Notes: This closes the Phase 5 source-filter gap behind the existing Pending Review source badges. Manual notes, story scans, Creator drafts, and Context suggestions now remain distinguishable and filterable before acceptance, not only after they become Accepted Lorecards.
+- Completed: Added an Agent 2-owned Pending Review source filter for manual notes, story scans, Deck Maker drafts, and Context suggestions in both the Pending Review workbench controls and the inline/mobile Pending Review filter row. The filter uses separate `pendingSourceFilter` state so Pending Review filtering does not change Accepted Lorecards source filters.
+- Notes: This closes the Phase 5 source-filter gap behind the existing Pending Review source badges. Manual notes, story scans, Deck Maker drafts, and Context suggestions now remain distinguishable and filterable before acceptance, not only after they become Accepted Lorecards.
 - Dependencies: No Agent 1 request was opened. This change stays inside Agent 2 Lorecards lifecycle filtering and does not change shell state, More routing, bottom-bar behavior, shared touch tokens, or Agent 3 heavy-workbench ownership.
 - Verification: Source patch and static harness guard are applied; focused syntax, smoke, diff, Browser availability, and alpha-gate checks still need to run after this log update.
 - Next: Run `node --check src\lorecards\lorecards-panel.js`, `node --check tools\scripts\test-visual-smoke-harness.mjs`, `node tools\scripts\test-visual-smoke-harness.mjs`, `node tools\scripts\serve-visual-smoke.mjs --check --port 0`, focused `git diff --check`, Browser availability probe, and `node tools\scripts\run-alpha-gate.mjs`.
@@ -1259,7 +1259,7 @@ Entry format:
 #### 2026-06-14 04:24 MT - Pending Workbench Source Column
 
 - Completed: Aligned the dense Pending Review workbench with the new source filter by adding a visible `Source` column, source-bucket row values, matching grid sizing, and filter-aware empty/select copy.
-- Notes: This keeps manual notes, story scans, Creator drafts, and Context suggestions visible in both mobile/inline cards and the Advanced Pending Review workbench before acceptance. The change remains Agent 2-owned Lorecards lifecycle table/filter behavior.
+- Notes: This keeps manual notes, story scans, Deck Maker drafts, and Context suggestions visible in both mobile/inline cards and the Advanced Pending Review workbench before acceptance. The change remains Agent 2-owned Lorecards lifecycle table/filter behavior.
 - Dependencies: No Agent 1 request was opened. No Agent 3 source change is requested; rendered Browser confirmation remains environment-blocked until Browser support is restored.
 - Verification: Source, CSS, and static harness patches are applied; focused syntax, smoke, diff, Browser availability, and alpha-gate checks still need to run after this log update.
 - Next: Run `node --check src\lorecards\lorecards-panel.js`, `node --check tools\scripts\test-visual-smoke-harness.mjs`, `node tools\scripts\test-visual-smoke-harness.mjs`, `node tools\scripts\serve-visual-smoke.mjs --check --port 0`, focused `git diff --check`, Browser availability probe, and `node tools\scripts\run-alpha-gate.mjs`.
@@ -1556,7 +1556,7 @@ Entry format:
 
 #### 2026-06-14 00:53 MT - Health Creator Close Coverage
 
-- Completed: Added Agent 3-owned static visual-smoke coverage for existing Pack Health Center and Loredeck Creator fullscreen close affordances, plus runbook wording that the static matrix now guards reachable Health/Creator close controls.
+- Completed: Added Agent 3-owned static visual-smoke coverage for existing Pack Health Center and Deck Maker fullscreen close affordances, plus runbook wording that the static matrix now guards reachable Health/Deck Maker close controls.
 - Notes: This is verification coverage only. It consumes the existing Health Center `Close` action, Creator header `Close` action, and overlay backdrop-close wiring without redefining Agent 1 shell/header primitives or Agent 2 Lorecards lifecycle behavior.
 - Dependencies: No Agent 1 or Agent 2 source change is requested. Browser-rendered mobile matrix coverage remains environment-blocked because the Browser plugin bundle still lacks `scripts/browser-client.mjs`.
 - Verification: `node --check tools\scripts\test-visual-smoke-harness.mjs`, `node tools\scripts\test-visual-smoke-harness.mjs`, `node tools\scripts\serve-visual-smoke.mjs --check --port 0`, and focused `git diff --check -- docs/development/SAGA_VISUAL_SMOKE.md tools/scripts/test-visual-smoke-harness.mjs` passed with only CRLF normalization warnings; `Test-Path C:\Users\Keptin\.codex\plugins\cache\openai-bundled\browser\26.609.41114\scripts\browser-client.mjs` returned `False`.
@@ -1668,11 +1668,11 @@ Entry format:
 
 #### 2026-06-14 01:31 MT - Creator Current Task Mobile Coverage
 
-- Completed: Tightened Agent 3-owned visual-smoke coverage for the Creator mobile workbench by documenting the scrollable Creator body/current-task path and adding static harness checks for the Creator workbench scroll container, compact phone padding, and current-task/stage action touch height.
+- Completed: Tightened Agent 3-owned visual-smoke coverage for Deck Maker mobile workbench by documenting the scrollable Deck Maker body/current-task path and adding static harness checks for the Deck Maker workbench scroll container, compact phone padding, and current-task/stage action touch height.
 - Notes: This is verification coverage for existing Creator mobile behavior. It does not redefine Agent 1 shell primitives or Agent 2 Lorecards lifecycle behavior, and no shell/navigation/state/layout/token defect needed an `Agent 1 Request`.
-- Dependencies: No source changes are requested from Agent 1 or Agent 2. Rendered Creator current-task action confirmation remains environment-blocked until Browser support is restored.
+- Dependencies: No source changes are requested from Agent 1 or Agent 2. Rendered Deck Maker current-task action confirmation remains environment-blocked until Browser support is restored.
 - Verification: `node --check tools\scripts\test-visual-smoke-harness.mjs`, `node tools\scripts\test-visual-smoke-harness.mjs`, `node tools\scripts\serve-visual-smoke.mjs --check --port 0`, focused `git diff --check -- docs/development/SAGA_MOBILE_SUPPORT_PARALLELIZATION_ADDENDUM.md docs/development/SAGA_VISUAL_SMOKE.md tools/scripts/test-visual-smoke-harness.mjs`, and `node tools\scripts\run-alpha-gate.mjs` passed with only CRLF normalization warnings; `Test-Path C:\Users\Keptin\.codex\plugins\cache\openai-bundled\browser\26.609.41114\scripts\browser-client.mjs` returned `False`.
-- Next: Rerun the rendered mobile matrix once Browser support is restored, with Creator body scrolling and current-task actions included in the phone checks.
+- Next: Rerun the rendered mobile matrix once Browser support is restored, with Deck Maker body scrolling and current-task actions included in the phone checks.
 
 #### 2026-06-14 01:34 MT - Pack Health Scroll Region Coverage
 
@@ -1700,7 +1700,7 @@ Entry format:
 
 #### 2026-06-14 01:43 MT - Pending Review Source Matrix Detail
 
-- Completed: Audited the Phase 6/7 exit criteria against the current static smoke contract, then tightened the Agent 3 visual smoke runbook and doc contract so final rendered verification explicitly covers Pending Review source badges/filters for manual notes, story scans, Creator drafts, and Context suggestions.
+- Completed: Audited the Phase 6/7 exit criteria against the current static smoke contract, then tightened the Agent 3 visual smoke runbook and doc contract so final rendered verification explicitly covers Pending Review source badges/filters for manual notes, story scans, Deck Maker drafts, and Context suggestions.
 - Notes: The underlying static harness already guards Agent 2's source metadata and filters. Agent 3 only updated final verification coverage and found no shell/navigation/state/layout/token defect needing an `Agent 1 Request`.
 - Dependencies: No source changes are requested from Agent 1 or Agent 2. Rendered Pending Review source-badge/filter confirmation remains environment-blocked until Browser support is restored.
 - Verification: `node --check tools\scripts\test-visual-smoke-harness.mjs`, `node tools\scripts\test-visual-smoke-harness.mjs`, `node tools\scripts\serve-visual-smoke.mjs --check --port 0`, focused `git diff --check -- docs/development/SAGA_MOBILE_SUPPORT_PARALLELIZATION_ADDENDUM.md docs/development/SAGA_VISUAL_SMOKE.md tools/scripts/test-visual-smoke-harness.mjs`, and `node tools\scripts\run-alpha-gate.mjs` passed with only CRLF normalization warnings; `Test-Path C:\Users\Keptin\.codex\plugins\cache\openai-bundled\browser\26.609.41114\scripts\browser-client.mjs` returned `False`.
@@ -1708,11 +1708,11 @@ Entry format:
 
 #### 2026-06-14 01:46 MT - Advanced Review Surface Matrix Detail
 
-- Completed: Re-read Agent 2's `Pending Source Buckets` and `Post-Source-Bucket Verification` updates, then audited the 430px Advanced matrix row and tightened the Agent 3 visual smoke runbook/doc contract so rendered verification explicitly carries Creator review-queue anchors/actions and Context proposal review overlay/actions.
-- Notes: The underlying static harness already guards Creator review-queue targets, the Creator pending-review card/jump behavior, and Context proposal review overlay actions. Agent 3 only updated final verification coverage and found no shell/navigation/state/layout/token defect needing an `Agent 1 Request`.
-- Dependencies: No source changes are requested from Agent 1 or Agent 2. Rendered Creator review-queue and Context proposal-review confirmation remains environment-blocked until Browser support is restored.
+- Completed: Re-read Agent 2's `Pending Source Buckets` and `Post-Source-Bucket Verification` updates, then audited the 430px Advanced matrix row and tightened the Agent 3 visual smoke runbook/doc contract so rendered verification explicitly carries Deck Maker review-queue anchors/actions and Context proposal review overlay/actions.
+- Notes: The underlying static harness already guards Deck Maker review-queue targets, Deck Maker pending-review card/jump behavior, and Context proposal review overlay actions. Agent 3 only updated final verification coverage and found no shell/navigation/state/layout/token defect needing an `Agent 1 Request`.
+- Dependencies: No source changes are requested from Agent 1 or Agent 2. Rendered Deck Maker review-queue and Context proposal-review confirmation remains environment-blocked until Browser support is restored.
 - Verification: `node --check tools\scripts\test-visual-smoke-harness.mjs`, `node tools\scripts\test-visual-smoke-harness.mjs`, `node tools\scripts\serve-visual-smoke.mjs --check --port 0`, focused `git diff --check -- docs/development/SAGA_MOBILE_SUPPORT_PARALLELIZATION_ADDENDUM.md docs/development/SAGA_VISUAL_SMOKE.md tools/scripts/test-visual-smoke-harness.mjs`, and `node tools\scripts\run-alpha-gate.mjs` passed with only CRLF normalization warnings; `Test-Path C:\Users\Keptin\.codex\plugins\cache\openai-bundled\browser\26.609.41114\scripts\browser-client.mjs` returned `False`.
-- Next: Rerun the rendered mobile matrix once Browser support is restored, with Creator review-queue routing and Context proposal review overlay/actions included in the 430px Advanced checks.
+- Next: Rerun the rendered mobile matrix once Browser support is restored, with Deck Maker review-queue routing and Context proposal review overlay/actions included in the 430px Advanced checks.
 
 #### 2026-06-14 01:49 MT - Tablet Breakpoint Matrix Detail
 
@@ -1764,11 +1764,11 @@ Entry format:
 
 #### 2026-06-14 02:10 MT - Close Control Matrix Detail
 
-- Completed: Audited the acceptance criterion that every active mobile screen has a visible way to go back or close, then tightened the Agent 3 visual smoke runbook and static contract so rendered verification explicitly carries Health/Creator close controls alongside subview back behavior.
-- Notes: The harness now links the rendered matrix wording to the existing Pack Health Center and Creator overlay Close-button/backdrop-close source contracts. This is verification coverage for existing heavy-workbench close affordances, not a shell source change, and no shell/navigation/state/layout/token defect needed an `Agent 1 Request`.
+- Completed: Audited the acceptance criterion that every active mobile screen has a visible way to go back or close, then tightened the Agent 3 visual smoke runbook and static contract so rendered verification explicitly carries Health/Deck Maker close controls alongside subview back behavior.
+- Notes: The harness now links the rendered matrix wording to the existing Pack Health Center and Deck Maker overlay Close-button/backdrop-close source contracts. This is verification coverage for existing heavy-workbench close affordances, not a shell source change, and no shell/navigation/state/layout/token defect needed an `Agent 1 Request`.
 - Dependencies: No source changes are requested from Agent 1 or Agent 2. Rendered close-control confirmation remains environment-blocked until Browser support is restored.
 - Verification: `node --check tools\scripts\test-visual-smoke-harness.mjs`, `node tools\scripts\test-visual-smoke-harness.mjs`, `node tools\scripts\serve-visual-smoke.mjs --check --port 0`, focused `git diff --check -- docs/development/SAGA_MOBILE_SUPPORT_PARALLELIZATION_ADDENDUM.md docs/development/SAGA_VISUAL_SMOKE.md tools/scripts/test-visual-smoke-harness.mjs`, and `node tools\scripts\run-alpha-gate.mjs` passed with only CRLF normalization warnings; `Test-Path C:\Users\Keptin\.codex\plugins\cache\openai-bundled\browser\26.609.41114\scripts\browser-client.mjs` returned `False`.
-- Next: Rerun the rendered mobile matrix once Browser support is restored, with Health/Creator close controls included in the phone checks.
+- Next: Rerun the rendered mobile matrix once Browser support is restored, with Health/Deck Maker close controls included in the phone checks.
 
 #### 2026-06-14 02:12 MT - More Sheet Close Matrix Detail
 
@@ -1884,7 +1884,7 @@ Entry format:
 
 #### 2026-06-14 06:43 MT - 430px Advanced Matrix Rendered Smoke
 
-- Completed: Added and ran the repo-local CDP `mobile-advanced-harness` for the `430x820` Advanced mobile matrix row. The rendered pass covers More sheet entries and close-after-route behavior, Injection/Settings/Continuity routes, Active Set inspect/activate/mute/pin/unpin controls, Library selected-detail actions, Pack Health Center, Creator review queue/current task, and Context proposal review.
+- Completed: Added and ran the repo-local CDP `mobile-advanced-harness` for the `430x820` Advanced mobile matrix row. The rendered pass covers More sheet entries and close-after-route behavior, Injection/Settings/Continuity routes, Active Set inspect/activate/mute/pin/unpin controls, Library selected-detail actions, Pack Health Center, Deck Maker review queue/current task, and Context proposal review.
 - Notes: Seeded an accepted-but-inactive Lorecard plus chat-scoped custom Loredeck registry data for activation and Library detail coverage; tightened narrow Library detail CSS so selected Pack Health actions render as a readable mobile detail surface. Agent 3 found no shell/navigation/state/layout/token defect needing an `Agent 1 Request`.
 - Dependencies: No Agent 1 or Agent 2 source change is requested. README status copy was restored to satisfy the alpha manifest contract before the full alpha gate.
 - Verification: `node --check tools\scripts\smoke-live-st-cdp.mjs`, `node --check tools\scripts\test-visual-smoke-harness.mjs`, `node tools\scripts\test-visual-smoke-harness.mjs`, `node tools\scripts\serve-visual-smoke.mjs --check --port 0`, `node tools\scripts\run-alpha-gate.mjs`, and focused `git diff --check -- README.md docs\development\SAGA_MOBILE_SUPPORT_PARALLELIZATION_ADDENDUM.md docs\development\SAGA_VISUAL_SMOKE.md tests\browser\visual-smoke.html tools\scripts\smoke-live-st-cdp.mjs tools\scripts\test-visual-smoke-harness.mjs styles\runtime.css` passed with only CRLF normalization warnings. Visible-Chrome `SAGA_SMOKE_TARGET=mobile-advanced-harness`, `SAGA_SMOKE_VIEWPORT_WIDTH=430`, `SAGA_SMOKE_VIEWPORT_HEIGHT=820`, `SAGA_SMOKE_NATIVE_WS=1`, `SAGA_SMOKE_HEADLESS=0` passed with `"ok": true`, no findings, no errors, and screenshots `mobile-advanced-harness-01` through `mobile-advanced-harness-08`.
@@ -1892,7 +1892,7 @@ Entry format:
 
 #### 2026-06-14 07:04 MT - 768px Tablet Matrix Rendered Smoke
 
-- Completed: Added and ran the repo-local CDP `tablet-advanced-harness` for the `768x1024` Advanced tablet matrix row. The rendered pass covers the desktop rail/drawer path above the mobile breakpoint, absence of mobile bottom bar/More sheet UI, Library selected-detail actions, Pack Health Center, Creator review queue/current-task state, Context route activation, and Context Workbench Timeline/Aliases/Validation/Story Position/Phrase Resolver controls.
+- Completed: Added and ran the repo-local CDP `tablet-advanced-harness` for the `768x1024` Advanced tablet matrix row. The rendered pass covers the desktop rail/drawer path above the mobile breakpoint, absence of mobile bottom bar/More sheet UI, Library selected-detail actions, Pack Health Center, Deck Maker review queue/current-task state, Context route activation, and Context Workbench Timeline/Aliases/Validation/Story Position/Phrase Resolver controls.
 - Notes: Tightened Agent 3-owned tablet workbench presentation by making stacked Library details readable at the tablet breakpoint and converting collapsed Context Workbench rows into non-shrinking wrapped cards. The helper now waits for a hydrated Library overlay and asserts Context rows fit their content. The Agent 1 shell breakpoint and desktop rail/drawer state behaved as expected, so no `Agent 1 Request` was needed.
 - Dependencies: No Agent 1 or Agent 2 source change is requested.
 - Verification: `node --check tools\scripts\smoke-live-st-cdp.mjs`, `node --check tools\scripts\test-visual-smoke-harness.mjs`, `node tools\scripts\test-visual-smoke-harness.mjs`, `node tools\scripts\serve-visual-smoke.mjs --check --port 0`, `node tools\scripts\run-alpha-gate.mjs`, and focused `git diff --check -- README.md docs\development\SAGA_MOBILE_SUPPORT_PARALLELIZATION_ADDENDUM.md docs\development\SAGA_VISUAL_SMOKE.md tests\browser\visual-smoke.html tools\scripts\smoke-live-st-cdp.mjs tools\scripts\test-visual-smoke-harness.mjs styles\runtime.css styles\workbench.css` passed with only CRLF normalization warnings. Visible-Chrome `SAGA_SMOKE_TARGET=tablet-advanced-harness`, `SAGA_SMOKE_VIEWPORT_WIDTH=768`, `SAGA_SMOKE_VIEWPORT_HEIGHT=1024`, `SAGA_SMOKE_NATIVE_WS=1`, `SAGA_SMOKE_HEADLESS=0` passed with `"ok": true`, no findings, no errors, and screenshots `tablet-advanced-harness-01` through `tablet-advanced-harness-05`.
@@ -2000,7 +2000,7 @@ These are ownership defaults, not absolute locks. If an agent must edit outside 
 | Runtime shell, mobile class, bottom bar, header, More, subview stack | Agent 1 | Other agents should consume these primitives. |
 | Shared layout and touch tokens | Agent 1 | Agent 2/3 may add local panel rules after shared tokens exist. |
 | Session, Loredecks summary, Context summary, Lorecards lifecycle | Agent 2 | Avoid changing shell routing primitives. |
-| Loredeck Library, Context Workbench, Health Center, Creator surfaces | Agent 3 | Avoid duplicating Agent 2's core tab summaries. |
+| Loredeck Library, Context Workbench, Health Center, Deck Maker surfaces | Agent 3 | Avoid duplicating Agent 2's core tab summaries. |
 | Visual smoke harness and mobile verification matrix | Agent 3 | Agent 1 may add minimal shell smoke checks if needed. |
 | Walkthrough and guide target updates | Agent 3 | Coordinate exact labels with Agent 2 if Context UI moves. |
 | Documentation updates | Coordinator or owning agent | Keep implementation docs scoped to changed behavior. |
@@ -2431,7 +2431,7 @@ Make the core mobile tabs usable as operator-console screens, with Lorecards mov
   - Accepted Lorecards
   - Active Set
 - Pipeline counters filter suggested, pending, accepted, and active cards.
-- Manual notes, story scans, Creator drafts, and Context suggestions feed the same review flow.
+- Manual notes, story scans, Deck Maker drafts, and Context suggestions feed the same review flow.
 - Pending cards have visible accept, edit, reject, and inspect controls.
 - Active Lorecards can be inspected, activated, muted, and pinned without hover or drag.
 
@@ -2493,7 +2493,7 @@ Make the densest Saga surfaces usable on mobile and prove the mobile MVP across 
 - `src/context/context-workbench-panel.js`
 - `src/context/context-panel.js`
 - Health Center files
-- Creator project and draft files
+- Deck Maker project and draft files
 - `tools/scripts/test-visual-smoke-harness.mjs`
 - `docs/development/SAGA_VISUAL_SMOKE.md`
 - walkthrough files if target routing changes
@@ -2522,7 +2522,7 @@ Make the densest Saga surfaces usable on mobile and prove the mobile MVP across 
 
 - Loredeck Library does not require multiple desktop columns at phone widths.
 - Context Workbench does not require side-by-side desktop panes at phone widths.
-- Health and Creator surfaces have reachable close/back controls.
+- Health and Deck Maker surfaces have reachable close/back controls.
 - Walkthrough targets remain resolvable.
 - Phone and tablet visual smoke coverage passes.
 - Desktop runtime shell coverage still passes.
@@ -2599,5 +2599,5 @@ You are Agent 2 for Saga mobile support. Read docs/development/SAGA_MOBILE_SUPPO
 ### Agent 3 Prompt
 
 ```text
-You are Agent 3 for Saga mobile support. Read docs/development/SAGA_MOBILE_SUPPORT_PARALLELIZATION_ADDENDUM.md and docs/development/SAGA_MOBILE_SUPPORT_FEATURE.md. Follow the same-branch parallel work rules and the queued continue command protocol before editing or pushing. Own only the Heavy Workbenches, Walkthroughs, And Verification workstream. Consume Agent 1 shell primitives and Agent 2 lifecycle labels. Adapt Loredeck Library, Context Workbench, Health Center, and Creator surfaces for mobile staged views, then extend visual smoke coverage and walkthrough target checks. Do not redefine the mobile shell or core Lorecards lifecycle.
+You are Agent 3 for Saga mobile support. Read docs/development/SAGA_MOBILE_SUPPORT_PARALLELIZATION_ADDENDUM.md and docs/development/SAGA_MOBILE_SUPPORT_FEATURE.md. Follow the same-branch parallel work rules and the queued continue command protocol before editing or pushing. Own only the Heavy Workbenches, Walkthroughs, And Verification workstream. Consume Agent 1 shell primitives and Agent 2 lifecycle labels. Adapt Loredeck Library, Context Workbench, Health Center, and Deck Maker surfaces for mobile staged views, then extend visual smoke coverage and walkthrough target checks. Do not redefine the mobile shell or core Lorecards lifecycle.
 ```

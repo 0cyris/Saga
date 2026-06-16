@@ -14,7 +14,7 @@ The purpose is not to reopen the full storage architecture. The core external-fi
 
 - Protect user data before adding convenience. If a feature cannot restore safely after partial failure, the alpha behavior should block or create a new ID instead of overwriting existing files.
 - Keep storage readable. New files should remain pretty-printed JSON with stable Saga filename prefixes.
-- Keep settings compact. None of these scopes should put Loredeck payloads, Creator project payloads, Theme Pack payloads, Icon Set payloads, or repair session details back into `settings.json`.
+- Keep settings compact. None of these scopes should put Loredeck payloads, Deck Maker project payloads, Theme Pack payloads, Icon Set payloads, or repair session details back into `settings.json`.
 - Prefer explicit user recovery over silent merge. For alpha, stale writes should stop and ask the user to reload rather than trying to merge concurrent edits.
 - Keep repair sessions temporary. Saga should persist unresolved repair work, not routine full health reports or completed repair history.
 
@@ -188,7 +188,7 @@ The main design already defines this as temporary storage for active repair work
 SillyTavern's files API writes whole files. If two Saga panels or browser tabs edit the same Saga JSON file, a later write can overwrite a prior write without seeing it. This is most dangerous for:
 
 - Lorepack payload edits and repairs
-- Creator project updates during generation
+- Deck Maker project updates during generation
 - Library folder and placement edits
 - Theme/Icon replacement flows if replacement is later allowed
 
@@ -207,7 +207,7 @@ Storage changed. Reload this panel before saving.
 Domain-specific variants can name the affected area:
 
 - `Loredeck storage changed. Reload this Loredeck before saving.`
-- `Creator project storage changed. Reload this project before continuing.`
+- `Deck Maker project storage changed. Reload this project before continuing.`
 - `Library storage changed. Reload the Library before changing folders.`
 - `Theme/Icon storage changed. Reload Settings before importing again.`
 
@@ -233,9 +233,9 @@ Domain-specific variants can name the affected area:
 - Generic domain index and payload writes can compare an expected revision to the latest stored JSON before committing.
 - Library index writes compare the hydrated Library revision before committing folder, placement, active stack, or pack-row changes.
 - Lorepack payload writes bump payload revisions and compare the cached payload revision before committing repair, validation, editor, or import mutations.
-- Creator project writes bump project payload revisions and compare both the project payload and Creator index revision before committing generation checkpoints or shelf changes.
+- Deck Maker project writes bump project payload revisions and compare both the project payload and Creator index revision before committing generation checkpoints or shelf changes.
 - Theme/Icon domain record upsert/remove operations re-check the domain index revision before committing the compact index change. Explicit same-ID replacement remains out of scope.
-- `tools/scripts/test-saga-storage-stale-write-detection.mjs` simulates stale Library, Lorepack payload, and Creator project writers using the same starting revision and verifies the newer stored file is preserved.
+- `tools/scripts/test-saga-storage-stale-write-detection.mjs` simulates stale Library, Lorepack payload, and Deck Maker project writers using the same starting revision and verifies the newer stored file is preserved.
 
 ### First Targets
 
@@ -243,7 +243,7 @@ Implement stale-write detection in this order:
 
 1. Library index writes.
 2. Lorepack payload writes.
-3. Creator project payload/index writes.
+3. Deck Maker project payload/index writes.
 4. Theme/Icon domain index writes.
 5. Theme/Icon explicit replacement flow, if that flow is added.
 
@@ -259,7 +259,7 @@ Implement stale-write detection in this order:
 
 - Two stale Library folder writes cannot silently overwrite each other.
 - A stale Lorepack payload repair cannot overwrite a newer payload.
-- A stale Creator project checkpoint cannot overwrite a newer project file without a clear error.
+- A stale Deck Maker project checkpoint cannot overwrite a newer project file without a clear error.
 - UI tells the user to reload the affected panel.
 - Existing single-tab workflows remain fast and do not fetch every payload on startup.
 
@@ -303,7 +303,7 @@ Deliverables:
 - stale write helper or shared convention implemented
 - Library index stale-write test implemented
 - Lorepack payload stale-write test implemented
-- Creator project stale-write test implemented
+- Deck Maker project stale-write test implemented
 - UI error copy for reload guidance implemented through domain-specific `storage_changed` messages
 
 Exit criteria:
@@ -330,7 +330,7 @@ The audit checks:
 - the master storage index exists, has the expected managed domain records, uses valid `/user/files/saga-*` record paths, classifies known Saga index/payload/repair/asset files with the expected record metadata, keeps expected `ownerId`, MIME, and deletion-policy values for cleanup/delete ownership, and every tracked file is present.
 - physical Saga files are registered in the master index, with no untracked orphans.
 - Library, Creator, Theme, Icon Set, and repair-session records point at existing indexed files; domain indexes and JSON payload files use their expected `kind` values, and domain payload IDs match the index records that reference them.
-- settings do not contain heavy Saga payload fields such as Lorecard entries, Creator drafts, Theme/Icon payloads, or repair sessions.
+- settings do not contain heavy Saga payload fields such as Lorecard entries, Deck Maker drafts, Theme/Icon payloads, or repair sessions.
 - profiles with external Saga files have `sagaStorage.storageVersion === external-files-v1` and compact settings shells, so ordinary settings saves do not persist heavy payload records.
 
 The script is covered by `tools/scripts/test-saga-storage-profile-audit.mjs` and is part of the alpha gate.
@@ -368,7 +368,7 @@ node tools/scripts/audit-saga-storage-profile.mjs --profile F:\SillyTavern\Silly
 - audit warnings are absent or intentionally documented.
 - audit errors are absent.
 - `settings.sagaStorage.storageVersion` is `external-files-v1` when the field is present.
-- settings compact shells contain 0 Loredeck Library pack records, 0 Creator jobs, 0 Theme Packs, and 0 Icon Sets.
+- settings compact shells contain 0 Loredeck Library pack records, 0 Deck Maker jobs, 0 Theme Packs, and 0 Icon Sets.
 - external file graph remains healthy: tracked master-index records exist, no tracked files are missing, and no orphan Saga files appear.
 - external Library, Creator, Theme, Icon Set, and repair-session records point only at current external storage payloads.
 
@@ -399,7 +399,7 @@ node tools/scripts/audit-saga-storage-profile.mjs --profile F:\SillyTavern\Silly
    - audit returns `ok: true`
    - `settings.sagaStorage.storageVersion` is `external-files-v1` when present
    - bundled Loredeck Library records no longer bloat `settings.json`
-   - external Library and Creator records point at current generated packs and Creator projects
+   - external Library and Creator records point at current generated packs and Deck Maker projects
    - no missing tracked files or orphan Saga files appear
 
 If cleanup or reinstall signoff fails:

@@ -131,4 +131,4 @@ assert.equal(timelinePreflight.summary.omittedWindowCount, 1);
 assert.equal(timelinePreflight.summary.planningGapCount, 2);
 assert.deepEqual(timelinePreflight.diagnostics.map(item => item.reasonCode), ['unknown_anchor', 'unknown_timeline_window']);
 
-console.log('Loredeck Creator entry preflight tests passed.');
+console.log('Deck Maker entry preflight tests passed.');

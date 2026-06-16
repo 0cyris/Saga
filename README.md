@@ -12,7 +12,7 @@ It turns canon, alternate-universe, crossover, and user-created lore into modula
 
 Saga is a lore system for deciding what belongs in the story **now**: what is true, what is hidden, who knows what, and what has changed in this chat.
 
-The current state of development is **alpha-release**: `0.1.0-alpha.1`, with minimum SillyTavern version `1.12.0`. Automatic updates are disabled for alpha builds, so update manually from the repository. Bundled loredecks include Harry Potter, Jujutsu Kaisen, LOTR, My Hero Academia, and Star Wars. The desktop/tablet shell, phone-width mobile shell, Loredeck Creator, Loredeck imports, Pack Health, and Basic/Advanced workflows are functional, but set your expectations for 'alpha'. Stability is being improved with testing, and user feedback is highly valued.
+The current state of development is **alpha-release**: `0.1.0-alpha.1`, with minimum SillyTavern version `1.12.0`. Automatic updates are disabled for alpha builds, so update manually from the repository. Bundled loredecks include Harry Potter, Jujutsu Kaisen, LOTR, My Hero Academia, and Star Wars. The desktop/tablet shell, phone-width mobile shell, Deck Maker, Loredeck imports, Pack Health, and Basic/Advanced workflows are functional, but set your expectations for 'alpha'. Stability is being improved with testing, and user feedback is highly valued.
 
 ## Contents
 
@@ -48,12 +48,12 @@ For guided walkthroughs, see [Basic Workflow](docs/user/BASIC_WORKFLOW.md) and [
 | Surface | What it does |
 | --- | --- |
 | **Loredeck Library** | Browse Bundled, Generated, and Custom Loredecks; import/export `.saga-loredeck.zip` packages; organize folders; manage the Active Stack; and run Pack Health checks. |
-| **Loredeck Creator** | A staged, review-first workflow for drafting Loredecks with scope planning, Context planning, title batches, timeline/tag planning, Lorecard drafts, retry recovery, review queues, and finalization gates. |
+| **Deck Maker** | A staged, review-first workflow for drafting Loredecks with scope planning, Context planning, title batches, timeline/tag planning, Lorecard drafts, retry recovery, review queues, and finalization gates. |
 | **Lorecard System** | Suggested lore, Scan Story Lore, Lore Automation levels, Pending Review, accepted Lorecards, relevance tiers, Elevate/Mute controls, and reviewable edits before lore affects the prompt. |
 | **Lore Timeline** | An audit and recovery ledger for manual lore, accepted Lorecard changes, restored entries, deleted versions, and continuity-related lore events. |
 | **Mobile Shell** | Phone-width operation replaces the desktop rail/drawer with bottom navigation, route pages, subviews, detail sheets, touch-sized controls, and long-press mobile editing where dense desktop controls would not fit. |
 | **Injection System** | The final prompt layer that sends only eligible, relevant, Context-aware lore to the model, with Advanced controls for previewing and tuning prompt composition. |
-| **Basic/Advanced Workflow Modes** | Basic gives new users the shortest guided path to a working chat. Advanced exposes diagnostics, Creator authoring, Pack Health repair, Continuity, provider settings, and full Injection controls. |
+| **Basic/Advanced Workflow Modes** | Basic gives new users the shortest guided path to a working chat. Advanced exposes diagnostics, Deck Maker authoring, Pack Health repair, Continuity, provider settings, and full Injection controls. |
 | **Custom Theme Packs** | User-imported Theme Packs and Icon Sets for changing Saga's runtime appearance without changing bundled content. |
 
 ## Documentation
@@ -78,7 +78,7 @@ Development notes live in [docs/development](docs/development/) until promoted, 
 
 - Alpha stabilization and live SillyTavern hardening.
 - UI/UX polish across desktop, tablet, and phone-width surfaces.
-- Broader live-provider smoke coverage for Creator, Context, and Lore Automation.
+- Broader live-provider smoke coverage for Deck Maker, Context, and Lore Automation.
 
 ## Security
 
@@ -116,8 +116,8 @@ Important runtime modules:
 - `src/loredecks/loredeck-loader.js`: Loredeck loading, validation, Context, tags, and Pack Health behavior.
 - `src/loredecks/loredeck-library-panel.js`: Library UI.
 - `src/loredecks/loredeck-health-panel.js`: Pack Health Center UI.
-- `src/loredecks/loredeck-assistant.js`: model-assisted Creator and Lore Assistant prompt builders.
-- `src/loredecks/loredeck-creator-projects.js`: Creator project state and review-stage helpers.
+- `src/loredecks/loredeck-assistant.js`: model-assisted Deck Maker and Lore Assistant prompt builders.
+- `src/loredecks/loredeck-creator-projects.js`: Deck Maker project state and review-stage helpers.
 - `src/context/context-resolver.js`: Context resolution logic.
 - `src/context/context-index.js`: searchable Context index over loaded decks.
 - `src/continuity/prompt-injector.js`: prompt injection bridge.
@@ -130,7 +130,7 @@ Saga keeps large custom content out of `settings.json` wherever SillyTavern's fi
 Saga-owned payloads live under SillyTavern `/user/files` as flat, tracked files:
 
 - Library index and installed Custom/Generated Loredeck payloads.
-- Creator project stage data and generated-pack links.
+- Deck Maker project stage data and generated-pack links.
 - Imported Theme Packs, Icon Set manifests, and passive raster assets.
 - Imported Loredeck package payloads and cover images.
 - State Safety indexes, diagnostics, backups, and cleanup records.
@@ -143,7 +143,7 @@ See [Storage And State Safety](docs/user/STORAGE_AND_STATE_SAFETY.md) for the fu
 
 Saga supports two Loredeck authoring paths:
 
-1. **Use the Loredeck Creator.** In Advanced mode, Creator walks through scope, story outline, Context planning, title batches, timeline/tag planning, Lorecard drafting, review, Pack Health, and finalization. This is the in-app path for staged model-assisted authoring.
+1. **Use the Deck Maker.** In Advanced mode, Deck Maker walks through scope, story outline, Context planning, title batches, timeline/tag planning, Lorecard drafting, review, Pack Health, and finalization. This is the in-app path for staged model-assisted authoring.
 2. **Use the docs and a bundled Loredeck as a reference.** Hand the authoring docs, schema, package structure guide, and a relevant bundled Loredeck folder to another LLM. The output target is a compatible `.saga-loredeck.zip` package that can be imported through **Import Deck** and then checked in Pack Health.
 
 Start with these docs:

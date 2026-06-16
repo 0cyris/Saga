@@ -81,7 +81,7 @@ function checkpointCreatorRun(jobId, currentStage = 'titles_drafting') {
     const updated = updateLoredeckCreatorGenerationRun(jobId, run, {
       syncPrompt: false,
       currentStage,
-      label: `Generating ${run.stage || 'Creator unit'}`,
+      label: `Generating ${run.stage || 'Deck Maker unit'}`,
     });
     assert.equal(updated.ok, true);
   };
@@ -93,7 +93,7 @@ function checkpointCreatorUnit(jobId, currentStage = 'titles_drafting', statuses
     const updated = updateLoredeckCreatorGenerationUnit(jobId, unit.unitId, unit, {
       syncPrompt: false,
       currentStage,
-      label: unit.label || 'Generating Creator unit',
+      label: unit.label || 'Generating Deck Maker unit',
     });
     assert.equal(updated.ok, true);
   };
@@ -143,7 +143,7 @@ function checkpointCreatorUnit(jobId, currentStage = 'titles_drafting', statuses
   });
 
   assert.equal(result.status, 'complete');
-  assert.equal(calls, 1, 'Duplicate clicks for the same Creator unit should dedupe before provider execution.');
+  assert.equal(calls, 1, 'Duplicate clicks for the same Deck Maker unit should dedupe before provider execution.');
   assert.equal(result.completedUnits, 1);
   const job = getStoredJob(jobId);
   assert.equal(job.generationUnits['creator_title_batch:arlong-pressure'].status, 'complete');
@@ -174,7 +174,7 @@ function checkpointCreatorUnit(jobId, currentStage = 'titles_drafting', statuses
   });
 
   assert.equal(result.status, 'superseded');
-  assert.equal(committed, false, 'Late superseded Creator responses must not commit parsed output.');
+  assert.equal(committed, false, 'Late superseded Deck Maker responses must not commit parsed output.');
   assert.ok(statuses.includes('creator_title_batch:late-response:superseded'));
   const job = getStoredJob(jobId);
   assert.equal(job.generationUnits['creator_title_batch:late-response'].status, 'superseded');
@@ -222,7 +222,7 @@ function checkpointCreatorUnit(jobId, currentStage = 'titles_drafting', statuses
     runId,
     stage: 'outline',
     status: 'interrupted',
-    error: 'Previous Creator generation was interrupted before it completed.',
+    error: 'Previous Deck Maker generation was interrupted before it completed.',
     completedAt: 200,
   }, { syncPrompt: false });
   assert.equal(runInterrupted.ok, true);
@@ -231,7 +231,7 @@ function checkpointCreatorUnit(jobId, currentStage = 'titles_drafting', statuses
     runId,
     stage: 'outline',
     status: 'interrupted',
-    error: 'Previous Creator generation was interrupted before this unit completed.',
+    error: 'Previous Deck Maker generation was interrupted before this unit completed.',
     failedAt: 201,
   }, { syncPrompt: false });
   assert.equal(unitInterrupted.ok, true);
@@ -252,7 +252,7 @@ function checkpointCreatorUnit(jobId, currentStage = 'titles_drafting', statuses
   assert.equal(recovered.ok, true);
 
   const job = getStoredJob(jobId);
-  assert.equal(job.activeGeneration, undefined, 'Interrupted reopen recovery should unlock Creator actions.');
+  assert.equal(job.activeGeneration, undefined, 'Interrupted reopen recovery should unlock Deck Maker actions.');
   assert.equal(job.status, 'draft');
   assert.equal(job.generationRuns[runId].status, 'interrupted');
   assert.equal(job.generationUnits[unitId].status, 'interrupted');
@@ -424,8 +424,8 @@ function checkpointCreatorUnit(jobId, currentStage = 'titles_drafting', statuses
   assert.equal(job.generationUnits['creator_entry_micro_batch:arlong'].meta.targetTitleIds[0], 'arlong');
 }
 
-assert.equal(saveSettingsCount, 0, 'Creator recovery tests should externalize global Creator projects without writing them into settings.');
-assert.ok(Object.keys(getLoredeckCreatorProjectRegistry().jobs).length > 0, 'Creator recovery tests should retain global Creator projects in external storage.');
+assert.equal(saveSettingsCount, 0, 'Creator recovery tests should externalize global Deck Maker projects without writing them into settings.');
+assert.ok(Object.keys(getLoredeckCreatorProjectRegistry().jobs).length > 0, 'Creator recovery tests should retain global Deck Maker projects in external storage.');
 assert.ok(saveStateCount > 0, 'Creator recovery tests should mirror Creator state into chat metadata.');
 
-console.log('Loredeck Creator generation recovery tests passed.');
+console.log('Deck Maker generation recovery tests passed.');

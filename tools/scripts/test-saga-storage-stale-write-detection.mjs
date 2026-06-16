@@ -179,7 +179,7 @@ async function testCreatorProjectStaleWrite() {
 
   const upserted = upsertExternalLoredeckCreatorProjectSync({
     jobId: 'creator_stale_project',
-    projectTitle: 'Original Creator Project',
+    projectTitle: 'Original Deck Maker Project',
     fandom: 'One Piece',
     scope: 'Arlong Park',
     currentStage: 'titles',
@@ -201,20 +201,20 @@ async function testCreatorProjectStaleWrite() {
   writeStoredJson(stored, projectPath, {
     ...latestPayload,
     revision: latestPayload.revision + 1,
-    projectTitle: 'Newer Creator Project',
+    projectTitle: 'Newer Deck Maker Project',
   });
 
   clock = 2000;
   const stale = upsertExternalLoredeckCreatorProjectSync({
     ...hydrated,
-    projectTitle: 'Stale Creator Project',
+    projectTitle: 'Stale Deck Maker Project',
     updatedAt: 200,
   }, { fileApi, now, activeJobId: 'creator_stale_project', lastJobId: 'creator_stale_project' });
   assert.equal(stale.ok, true);
   const flush = await flushSagaCreatorProjectStorageWrites();
   assert.equal(flush.ok, false);
-  assert.match(flush.error, /Creator project storage changed/);
-  assert.equal(readStoredJson(stored, projectPath).projectTitle, 'Newer Creator Project');
+  assert.match(flush.error, /Deck Maker project storage changed/);
+  assert.equal(readStoredJson(stored, projectPath).projectTitle, 'Newer Deck Maker Project');
 }
 
 await testLibraryIndexStaleWrite();

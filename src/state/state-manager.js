@@ -681,7 +681,7 @@ export function migrateState(state) {
         state._version = 22;
     }
 
-    // Schema v23: persistent, resumable Loredeck Creator jobs
+    // Schema v23: persistent, resumable Deck Maker jobs
     if (state._version < 23) {
         state.loredeckCreator = normalizeLoredeckCreatorRegistry(state.loredeckCreator || getDefaultState().loredeckCreator);
         state._version = 23;

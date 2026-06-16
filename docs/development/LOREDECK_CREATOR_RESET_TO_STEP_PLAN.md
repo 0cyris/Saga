@@ -1,12 +1,12 @@
-# Loredeck Creator Reset To Step Plan
+# Deck Maker Reset To Step Plan
 
-Status: Implemented in first pass. Keep this feature destructive, simple, and local to the active Creator project.
+Status: Implemented in first pass. Keep this feature destructive, simple, and local to the active Deck Maker project.
 
 ## Purpose
 
-Loredeck Creator is an eight-step staged workflow. Users can discover late that an earlier decision was wrong, but the current workflow makes it awkward to return to an earlier step without manually deleting downstream generated data.
+Deck Maker is an eight-step staged workflow. Users can discover late that an earlier decision was wrong, but the current workflow makes it awkward to return to an earlier step without manually deleting downstream generated data.
 
-Add a small `Reset to this step` control to completed step cards in the Creator top bar. The control destructively clears all Creator data after the selected step and sends the project back to that stage.
+Add a small `Reset to this step` control to completed step cards in Deck Maker top bar. The control destructively clears all Deck Maker data after the selected step and sends the project back to that stage.
 
 This is not undo, history, restore, or checkpointing. It is a forward-data wipe with a clear warning.
 
@@ -30,7 +30,7 @@ Current regression coverage:
 
 ## Goals
 
-- Let users return to an earlier Creator step without deleting the whole project.
+- Let users return to an earlier Deck Maker step without deleting the whole project.
 - Keep the selected step and all earlier steps intact.
 - Delete all data owned by later steps.
 - Use a small back-arrow or rollback icon in the upper-right corner of eligible step cards.
@@ -42,7 +42,7 @@ Current regression coverage:
 - Do not add undo state.
 - Do not add checkpoint restoration.
 - Do not create a generic reset-plan system.
-- Do not support reset to `Finalize`; it is the last step, so there is no downstream Creator data to clear.
+- Do not support reset to `Finalize`; it is the last step, so there is no downstream Deck Maker data to clear.
 - Do not delete unrelated Loredeck Library packs, external exports, or non-Creator user content.
 - Do not preserve stale downstream state just because it was expensive to generate.
 
@@ -58,7 +58,7 @@ Meaning:
 
 - Keep the target step's current data.
 - Keep all earlier step data.
-- Permanently erase Creator data from every later step.
+- Permanently erase Deck Maker data from every later step.
 - Return the workflow to the selected step.
 
 Examples:
@@ -71,7 +71,7 @@ If users need to delete the target step itself, that should be a separate in-sec
 
 ## UI
 
-Add a small icon button inside each eligible step card in the Creator top bar.
+Add a small icon button inside each eligible step card in Deck Maker top bar.
 
 Placement:
 
@@ -94,7 +94,7 @@ Visibility:
 - Hidden or very low opacity until hover/focus on desktop.
 - Keyboard focusable.
 - Visible or moved into a compact step menu on touch/mobile.
-- Disabled while a Creator generation job is running.
+- Disabled while a Deck Maker generation job is running.
 - Hidden on locked future steps.
 - Hidden on `Finalize`.
 
@@ -117,7 +117,7 @@ Reset to Title Pass?
 Body pattern:
 
 ```text
-This will permanently erase all Creator data after Title Pass, including Context Plan, Lorecards, Review Queue, Pack Health, and Finalize progress. This cannot be undone.
+This will permanently erase all Deck Maker data after Title Pass, including Context Plan, Lorecards, Review Queue, Pack Health, and Finalize progress. This cannot be undone.
 ```
 
 Buttons:
@@ -165,7 +165,7 @@ The implementation should use direct stage-owned clearing rules, not a history s
 
 Keep:
 
-- Creator intake fields.
+- Deck Maker intake fields.
 - Scope Brief.
 - Scope Brief approval.
 
@@ -175,7 +175,7 @@ Clear:
 - Title drafts and title approvals.
 - Context planning.
 - Generated Lorepack shell and generated-pack link.
-- Creator Lorecard drafts.
+- Deck Maker Lorecard drafts.
 - Pending Review items owned by Creator.
 - Accepted Generated Lorecards owned by Creator.
 - Pack Health and finalization state.
@@ -193,7 +193,7 @@ Clear:
 - Title drafts and title approvals.
 - Context planning.
 - Generated Lorepack shell and generated-pack link.
-- Creator Lorecard drafts.
+- Deck Maker Lorecard drafts.
 - Pending Review items owned by Creator.
 - Accepted Generated Lorecards owned by Creator.
 - Pack Health and finalization state.
@@ -211,7 +211,7 @@ Clear:
 
 - Context planning.
 - Generated Lorepack planning registries.
-- Creator Lorecard drafts.
+- Deck Maker Lorecard drafts.
 - Pending Review items owned by Creator.
 - Accepted Generated Lorecards owned by Creator.
 - Pack Health and finalization state.
@@ -227,7 +227,7 @@ Keep:
 
 Clear:
 
-- Creator Lorecard drafts.
+- Deck Maker Lorecard drafts.
 - Pending Review Lorecards owned by Creator.
 - Accepted Generated Lorecards owned by Creator.
 - Pack Health and finalization state.
@@ -240,7 +240,7 @@ Keep:
 - Story Outline.
 - Title Pass.
 - Context Plan.
-- Creator Lorecard draft-review items.
+- Deck Maker Lorecard draft-review items.
 
 Clear:
 
@@ -287,11 +287,11 @@ Not supported in the top bar.
 
 ## Data Boundaries
 
-Clear only data tied to the active Creator project and its Generated Lorepack.
+Clear only data tied to the active Deck Maker project and its Generated Lorepack.
 
 Creator-owned data can be identified with existing provenance:
 
-- Active Creator job id.
+- Active Deck Maker job id.
 - `generatedPackId`.
 - Generated pack type/source metadata.
 - Pending changes with `source: 'loredeck_creator'`.
@@ -314,7 +314,7 @@ Add one reset handler in runtime code:
 async function handleLoredeckCreatorResetToStep(targetStepId) {
   const cached = getLoredeckCreatorBriefCache();
   if (cached.activeGeneration) {
-    toast('Wait for the current Creator generation to finish or cancel it before resetting.', 'warning');
+    toast('Wait for the current Deck Maker generation to finish or cancel it before resetting.', 'warning');
     return;
   }
 
@@ -326,7 +326,7 @@ async function handleLoredeckCreatorResetToStep(targetStepId) {
     buildLoredeckCreatorResetWarning(targetStepId),
     {
       confirmLabel: `Reset to ${getCreatorResetStepLabel(targetStepId)}`,
-      confirmTooltip: `Permanently erase later Creator data and return to ${getCreatorResetStepLabel(targetStepId)}.`
+      confirmTooltip: `Permanently erase later Deck Maker data and return to ${getCreatorResetStepLabel(targetStepId)}.`
     }
   );
   if (!confirmed) return;
@@ -348,7 +348,7 @@ When a Generated Lorepack exists, update or remove the generated pack record thr
 
 Field ownership can be refined during implementation, but the first version should start with this practical mapping.
 
-Creator job fields:
+Deck Maker job fields:
 
 - Scope: `brief`, `approved`, `approvedAt`, intake fields, project settings.
 - Outline: `outline`, `outlineApproved`, `outlineDraftedAt`, `outlineApprovedAt`, `outlineSummary`.
@@ -372,13 +372,13 @@ Show the reset icon when all are true:
 
 - The step is not `Finalize`.
 - The step is not locked/future.
-- At least one later step has materialized Creator data.
-- No Creator generation is currently running.
+- At least one later step has materialized Deck Maker data.
+- No Deck Maker generation is currently running.
 
 If generation is running, either hide the button or show it disabled with a tooltip:
 
 ```text
-Cancel or finish the current Creator generation before resetting.
+Cancel or finish the current Deck Maker generation before resetting.
 ```
 
 ## Acceptance Criteria
@@ -386,10 +386,10 @@ Cancel or finish the current Creator generation before resetting.
 - Completed step cards 1-7 show a `Reset to this step` affordance only when downstream data exists.
 - Clicking the affordance opens a destructive confirmation with the target step and cleared later step names.
 - Confirming reset clears all Creator-owned data after the target step.
-- Confirming reset returns the Creator workbench to the target step.
+- Confirming reset returns the Deck Maker workbench to the target step.
 - Reset refuses to run while generation is active.
 - Reset to `Finalize` is not available.
-- Generated pack records and Creator jobs do not drift between settings and chat-local mirrors.
+- Generated pack records and Deck Maker jobs do not drift between settings and chat-local mirrors.
 - Manual, unrelated Library data is not removed.
 - The UI refreshes without stale badges, stale Draft Review rows, stale Pending Review rows, or stale Pack Health readiness.
 
@@ -404,17 +404,17 @@ Add focused tests for:
 - Reset to `Lorecards` preserves draft-review rows and clears Pending Review/accepted generated entries.
 - Reset blocks while `activeGeneration` is running.
 - Generated pack cleanup updates both settings and chat-local mirrors.
-- Creator-owned data is cleared without removing unrelated packs or manual non-Creator data.
+- Creator-owned data is cleared without removing unrelated packs or manual non-Deck Maker data.
 
 ## Implementation Slices
 
 1. Add the stage map, warning copy builder, and reset eligibility helper.
-2. Add the reset icon to step cards in the Creator top bar.
+2. Add the reset icon to step cards in Deck Maker top bar.
 3. Add the destructive confirmation and runtime reset handler.
-4. Implement Creator job clearing rules.
+4. Implement Deck Maker job clearing rules.
 5. Implement Generated Lorepack clearing rules using existing library-store persistence paths.
 6. Add regression tests for each supported reset target.
-7. Run a visual smoke pass for the Creator top bar, confirmation modal, and post-reset stage state.
+7. Run a visual smoke pass for Deck Maker top bar, confirmation modal, and post-reset stage state.
 
 ## Validation
 
@@ -440,4 +440,4 @@ $env:SAGA_SMOKE_TARGET='creator-harness'
 node tools\scripts\smoke-live-st-cdp.mjs
 ```
 
-This opens the seeded in-progress Creator project, captures the reset controls, clicks `Reset to Title Pass`, verifies the destructive confirmation copy, and cancels without resetting the fixture.
+This opens the seeded in-progress Deck Maker project, captures the reset controls, clicks `Reset to Title Pass`, verifies the destructive confirmation copy, and cancels without resetting the fixture.

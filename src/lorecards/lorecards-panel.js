@@ -209,7 +209,7 @@ const LORE_SOURCE_FILTER_OPTIONS = Object.freeze([
     ['all', 'Source: All'],
     ['canon-db', 'Canon Database'],
     ['story-generation', 'Story Scan'],
-    ['creator', 'Creator Drafts'],
+    ['creator', 'Deck Maker Drafts'],
     ['context-suggestion', 'Context Suggestions'],
     ['manual', 'Manual / User'],
 ]);
@@ -729,7 +729,7 @@ function createPendingWorkbenchControls(state) {
         },
         {
             className: 'saga-lore-workbench-select saga-lore-source-filter',
-            tooltip: 'Filter Pending Review entries by source: manual notes, story scans, Creator drafts, or Context suggestions.',
+            tooltip: 'Filter Pending Review entries by source: manual notes, story scans, Deck Maker drafts, or Context suggestions.',
             showCounts: true,
         }
     ));
@@ -916,7 +916,7 @@ function createWorkbenchTextCell(primary, secondary = '') {
 function getLoreSourceBucketLabel(bucket) {
     if (bucket === 'canon-db') return 'Canon DB';
     if (bucket === 'story-generation') return 'Story Scan';
-    if (bucket === 'creator') return 'Creator';
+    if (bucket === 'creator') return 'Deck Maker';
     if (bucket === 'context-suggestion') return 'Context';
     if (bucket === 'manual') return 'Manual';
     return 'Other';
@@ -1039,7 +1039,7 @@ function getPendingLoreSuggestionReason(entry = {}) {
     const sourceBucket = getLoreSourceBucket(entry);
     if (sourceBucket === 'manual') return 'Manual note waiting for review before it becomes an Accepted Lorecard.';
     if (sourceBucket === 'canon-db') return 'Canon database suggestion waiting for review.';
-    if (sourceBucket === 'creator') return 'Creator Lorecard draft waiting for review before it becomes an Accepted Lorecard.';
+    if (sourceBucket === 'creator') return 'Deck Maker Lorecard draft waiting for review before it becomes an Accepted Lorecard.';
     if (sourceBucket === 'context-suggestion') return 'Context-aware suggestion waiting for review before it becomes an Accepted Lorecard.';
     return 'Generated story Lorecard waiting for review.';
 }
@@ -1667,8 +1667,8 @@ function getLoreSourceOriginMeta(entry = {}) {
     if (/loredeck_creator|creator lorecard|creator draft|creator_entry|creator entry/.test(sourceText)) {
         return {
             bucket: 'creator',
-            label: 'Source: Creator',
-            tooltip: 'Creator Lorecard draft sent into Pending Review.',
+            label: 'Source: Deck Maker',
+            tooltip: 'Deck Maker Lorecard draft sent into Pending Review.',
         };
     }
     if (/context[_ -]?(suggest|proposal|resolver|resolution)|context suggestion|context proposal/.test(sourceText)) {
@@ -6004,7 +6004,7 @@ export function createPendingLoreReviewSection(state, options = {}) {
             },
             {
                 className: 'saga-lore-source-filter',
-                tooltip: 'Filter Pending Review entries by source: manual notes, story scans, Creator drafts, or Context suggestions.',
+                tooltip: 'Filter Pending Review entries by source: manual notes, story scans, Deck Maker drafts, or Context suggestions.',
                 showCounts: true,
             }
         ));
@@ -6134,7 +6134,7 @@ export function createAcceptedLoreEntriesSection(state, options = {}) {
     } else if (!basicReview) {
         const sourceSelect = document.createElement('select');
         sourceSelect.className = 'saga-lore-source-filter';
-        addTooltip(sourceSelect, 'Filter Accepted Lorecards by origin: canon database, story scan, Creator drafts, Context suggestions, or manual/user-created entries.');
+        addTooltip(sourceSelect, 'Filter Accepted Lorecards by origin: canon database, story scan, Deck Maker drafts, Context suggestions, or manual/user-created entries.');
         for (const [value, label] of LORE_SOURCE_FILTER_OPTIONS) {
             const opt = document.createElement('option');
             opt.value = value;

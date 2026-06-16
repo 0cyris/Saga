@@ -9,7 +9,7 @@ const COVERAGE_STATUS_LABELS = Object.freeze({
 
 export const LOREDECK_CREATOR_COVERAGE_STATUS_LABELS = COVERAGE_STATUS_LABELS;
 export const LOREDECK_CREATOR_COVERAGE_APPLICABLE_STATUSES = Object.freeze(new Set(['missing', 'thin', 'adequate', 'rich']));
-export const LOREDECK_CREATOR_COVERAGE_FINALIZE_BLOCKER = 'Creator Coverage is unresolved. Add or expand the adaptive coverage plan, or acknowledge intentionally light/missing coverage before finalizing as Custom.';
+export const LOREDECK_CREATOR_COVERAGE_FINALIZE_BLOCKER = 'Deck Maker Coverage is unresolved. Add or expand the adaptive coverage plan, or acknowledge intentionally light/missing coverage before finalizing as Custom.';
 const NO_PLAN_FINALIZATION_SIGNATURE = 'no-coverage-plan:approved';
 
 function isPlainObjectValue(value) {
@@ -271,7 +271,7 @@ export function buildLoredeckCreatorCoverageModel(cached = {}, evidence = new Ma
             finalizeAcknowledged: !!finalizeAcknowledgement,
             finalizeAcknowledgement,
             finalizationSignature,
-            warnings: cached.approved ? ['Creator has no adaptive coverage plan yet. Redraft the Scope Brief or Story Outline before finalizing if coverage depth matters.'] : [],
+            warnings: cached.approved ? ['Deck Maker has no adaptive coverage plan yet. Redraft the Scope Brief or Story Outline before finalizing if coverage depth matters.'] : [],
         };
     }
     const dimensions = (plan.dimensions || []).map((dimension, index) => {

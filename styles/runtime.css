@@ -2622,7 +2622,7 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: clip;
-    font-size: 0.74rem;
+    font-size: 0.83em;
 }
 
 .saga-story-opener-session-main strong,
@@ -2634,9 +2634,17 @@
     overflow-wrap: anywhere;
 }
 
+.saga-story-opener-session-main strong {
+    color: var(--SmartThemeBodyColor, #e4dccb);
+    font-size: 0.82em;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
 .saga-story-opener-session-main span {
     color: var(--saga-muted, rgba(241, 234, 216, 0.72));
-    font-size: 0.78rem;
+    font-size: 0.76em;
+    line-height: 1.35;
 }
 
 .saga-story-opener-stage-list {

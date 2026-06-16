@@ -1,4 +1,4 @@
-# Story Opener Creator Live Test Results
+# Story Maker Live Test Results
 
 Date: 2026-06-16
 
@@ -19,8 +19,8 @@ Test scenario:
 - Variants: enabled.
 
 Results:
-- Desktop Session tab rendered Story Opener Creator after Automation Mode and before Session Metrics.
-- Created a global Story Opener session and confirmed the Creator-style stage bar, revert controls, source actions, variants, revision prompt, and copy button.
+- Desktop Session tab rendered Story Maker after Automation Mode and before Session Metrics.
+- Created a global Story Opener session and confirmed the Deck Maker-style stage bar, revert controls, source actions, variants, revision prompt, and copy button.
 - With no active stack, readiness clearly reported missing User Prompt, Context, and Loredeck stack.
 - After adding the Harry Potter stack, `Use Current Active Stack` detected Harry Potter and pre-populated editable Prose Style.
 - Full provider pipeline completed in about 116 seconds.

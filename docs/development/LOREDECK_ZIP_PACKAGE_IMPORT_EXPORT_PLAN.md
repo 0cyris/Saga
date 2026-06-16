@@ -185,7 +185,7 @@ Rules:
 - Existing duplicate detection should still check package hash, deck content hash, original ID, title/version, and fandom.
 - Default action should be `Install Selected`, with collision matches installed as new Custom copies under safe unique IDs.
 - `Update Existing` is deferred until we design safe in-place package updates for editable Custom decks.
-- Pending Creator/Assistant proposals should not be imported unless the package explicitly declares a supported draft package mode later.
+- Pending Deck Maker/Assistant proposals should not be imported unless the package explicitly declares a supported draft package mode later.
 
 Folder import:
 

@@ -1,5 +1,5 @@
 /**
- * Structured diagnostics for Loredeck Creator entry draft rejections.
+ * Structured diagnostics for Deck Maker entry draft rejections.
  */
 
 export const LOREDECK_CREATOR_ENTRY_GUARD_REJECTED_ALL = 'creator_entry_guard_rejected_all';
@@ -29,7 +29,7 @@ function classifyGuardError(message = '') {
             safeLocalRepairAvailable: false,
         };
     }
-    if (/outside this Creator micro-batch/i.test(text)) {
+    if (/outside this Deck Maker micro-batch/i.test(text)) {
         return {
             reasonCode: 'outside_micro_batch',
             retryable: false,
@@ -142,7 +142,7 @@ export function createLoredeckCreatorEntryGuardRejectedAllError(input = {}) {
         ? input.rejectedTargetIds.map(id => cleanString(id, 180)).filter(Boolean)
         : (Array.isArray(rejectionSummary?.targetEntryIds) ? rejectionSummary.targetEntryIds : []);
     const count = Number(input.invalidCount || rejectionSummary?.targetCount || rejectedTargetIds.length) || rejectedTargetIds.length || 1;
-    const message = input.message || `Creator Lorecard batch returned valid JSON, but Saga rejected ${count} draft${count === 1 ? '' : 's'} before Draft Review.`;
+    const message = input.message || `Deck Maker Lorecard batch returned valid JSON, but Saga rejected ${count} draft${count === 1 ? '' : 's'} before Draft Review.`;
     const error = new Error(message);
     error.name = 'LoredeckCreatorEntryGuardRejectedAllError';
     error.code = LOREDECK_CREATOR_ENTRY_GUARD_REJECTED_ALL;

@@ -205,7 +205,7 @@ function refreshFinalizedLoredeckUi(record = {}) {
             console.warn(`[Saga] ${label} failed after Loredeck finalization:`, error);
         }
     };
-    capture('Creator workbench close', () => closeLoredeckCreatorWorkbenchOverlay());
+    capture('Deck Maker workbench close', () => closeLoredeckCreatorWorkbenchOverlay());
     capture('Loredeck surface refresh', () => refreshLoredeckSurfaces({ clearCanon: true, clearContext: true, renderLibrary: false }));
     capture('Metadata editor open', () => openLoredeckMetadataEditor(record.packId));
     if (isLoredeckLibraryOpen()) {
@@ -1165,7 +1165,7 @@ export async function finalizeGeneratedLoredeckAsCustom(pack, button = null) {
         if (!retirement.ok) {
             warnFinalizationPostStep(`Finalized Custom Loredeck was created, but the Generated draft cleanup did not finish: ${retirement.error}`);
         } else if (retirement.value?.ok === false) {
-            warnFinalizationPostStep(retirement.value.error || 'Finalized Custom Loredeck was created, but the Creator draft could not be retired.');
+            warnFinalizationPostStep(retirement.value.error || 'Finalized Custom Loredeck was created, but the Deck Maker draft could not be retired.');
         }
         finishBusy();
         refreshFinalizedLoredeckUi(record);

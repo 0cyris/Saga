@@ -1,12 +1,12 @@
-# Loredeck Creator Coverage Overhaul
+# Deck Maker Coverage Overhaul
 
-Status: Development started. Slice 1 adds the adaptive coverage plan data path, Creator UI review card, and advisory readiness warnings. Slice 2 adds targeted title generation and user acknowledgement controls for missing/thin coverage rows. Slice 3 carries coverage metadata through planning and Lorecard drafting, with provisional evidence counts for drafts and Pending Review. Slice 4 adds finalization acknowledgement gating and finalized Custom Lorepack provenance for intentionally light coverage. Slice 5 adds focused readiness-card and source-contract regression coverage for the finalization acknowledgement path. Slice 6 wires the Library Generated Lorepack finalization button to the same readiness model so blocked finalization is visible before click. Slice 7 extracts the pure Creator Coverage model into a testable Loredeck helper and adds sparse/dense/acknowledgement model tests. Slice 8 makes the constructive expansion path first-class by routing coverage-blocked finalization surfaces directly to the Creator Coverage Plan. Slice 9 adds `Reopen` controls for intentionally light or not-applicable coverage rows so users can undo acknowledgements without redrafting the plan. Slice 10 blocks approved Creator jobs that have no adaptive coverage plan until the user redrafts coverage or explicitly acknowledges finalizing without it.
+Status: Development started. Slice 1 adds the adaptive coverage plan data path, Creator UI review card, and advisory readiness warnings. Slice 2 adds targeted title generation and user acknowledgement controls for missing/thin coverage rows. Slice 3 carries coverage metadata through planning and Lorecard drafting, with provisional evidence counts for drafts and Pending Review. Slice 4 adds finalization acknowledgement gating and finalized Custom Lorepack provenance for intentionally light coverage. Slice 5 adds focused readiness-card and source-contract regression coverage for the finalization acknowledgement path. Slice 6 wires the Library Generated Lorepack finalization button to the same readiness model so blocked finalization is visible before click. Slice 7 extracts the pure Deck Maker Coverage model into a testable Loredeck helper and adds sparse/dense/acknowledgement model tests. Slice 8 makes the constructive expansion path first-class by routing coverage-blocked finalization surfaces directly to the Deck Maker Coverage Plan. Slice 9 adds `Reopen` controls for intentionally light or not-applicable coverage rows so users can undo acknowledgements without redrafting the plan. Slice 10 blocks approved Deck Maker jobs that have no adaptive coverage plan until the user redrafts coverage or explicitly acknowledges finalizing without it.
 
 ## Purpose
 
-Saga's Loredeck Creator should help users create one strong Generated Lorepack for a chosen scope: a book, arc, chapter, episode range, game-rule slice, original-setting segment, or similar story boundary.
+Saga's Deck Maker should help users create one strong Generated Lorepack for a chosen scope: a book, arc, chapter, episode range, game-rule slice, original-setting segment, or similar story boundary.
 
-The Creator does not need a full Loredeck Series generator for alpha. Users can create several single-scope Loredecks and combine them manually in the Library and Active Stack.
+Deck Maker does not need a full Loredeck Series generator for alpha. Users can create several single-scope Loredecks and combine them manually in the Library and Active Stack.
 
 The risk to solve is narrower and more important: a Generated Lorepack can currently complete its own staged pipeline with a small approved title plan, even when the requested source is dense enough that the resulting deck is clearly underbuilt compared with Saga's Harry Potter and My Hero Academia reference decks.
 
@@ -14,7 +14,7 @@ The overhaul should make Creator completion depend on semantic coverage, not an 
 
 ## Product Goal
 
-Add a coverage-guided Creator workflow that answers:
+Add a coverage-guided Deck Maker workflow that answers:
 
 - What kind of story/source slice is this?
 - Which lore-bearing surfaces matter for this scope?
@@ -33,13 +33,13 @@ This lets sparse sources stay small. A Pac-Man-style scope should not be forced 
 - Do not generate filler entries to satisfy a metric.
 - Do not add public Lorepack types beyond Bundled Lorepack, Generated Lorepack, and Custom Lorepack.
 
-## Core Concept: Creator Coverage
+## Core Concept: Deck Maker Coverage
 
-Creator Coverage is an authoring-readiness layer for Generated Lorepacks.
+Deck Maker Coverage is an authoring-readiness layer for Generated Lorepacks.
 
-Pack Health answers whether a Lorepack is structurally valid. Creator Coverage answers whether the accepted/generated content appears sufficiently complete for the declared scope.
+Pack Health answers whether a Lorepack is structurally valid. Deck Maker Coverage answers whether the accepted/generated content appears sufficiently complete for the declared scope.
 
-Creator Coverage should use advisory statuses:
+Deck Maker Coverage should use advisory statuses:
 
 - `missing`: an applicable surface has no meaningful plan or accepted content.
 - `thin`: the surface has some content but likely misses important scene behavior.
@@ -52,7 +52,7 @@ These statuses should be explainable. Every non-adequate row should have a short
 
 ## Coverage Dimensions
 
-The Creator should start with a default matrix and let the model mark dimensions as applicable or not applicable.
+Deck Maker should start with a default matrix and let the model mark dimensions as applicable or not applicable.
 
 Recommended dimensions:
 
@@ -130,12 +130,12 @@ The model should justify `not_applicable`. Users should be able to override it d
 
 ## UI Direction
 
-Keep the current fullscreen Loredeck Creator workbench and staged roadmap. Add a compact Creator Coverage surface rather than a new wizard.
+Keep the current fullscreen Deck Maker workbench and staged roadmap. Add a compact Deck Maker Coverage surface rather than a new wizard.
 
 Recommended placement:
 
-- Add a Creator Coverage summary near the current task/readiness area.
-- Show coverage rows as a compact matrix or checklist in the Creator workbench.
+- Add a Deck Maker Coverage summary near the current task/readiness area.
+- Show coverage rows as a compact matrix or checklist in the Deck Maker workbench.
 - Reuse existing status pills and restrained row styling.
 - Keep detailed rationale in tooltips or secondary text.
 - Do not add new theme tokens unless an existing variable cannot support the UI.
@@ -143,7 +143,7 @@ Recommended placement:
 Summary card:
 
 ```text
-Creator Coverage: Thin
+Deck Maker Coverage: Thin
 Story Shape: Very dense battle arc
 Main gaps: Relationships, faction state, future guards
 Next action: Generate titles for missing coverage
@@ -205,12 +205,12 @@ Coverage evidence should update after drafts are queued and accepted. Draft-revi
 
 ### Readiness And Finalization
 
-Generated finalization should include Creator Coverage warnings alongside existing Generated readiness warnings.
+Generated finalization should include Deck Maker Coverage warnings alongside existing Generated readiness warnings.
 
 Example:
 
 ```text
-Creator Coverage is thin for a dense arc.
+Deck Maker Coverage is thin for a dense arc.
 Missing: future guards, faction consequences.
 Pack Health is good, but this deck may be underbuilt for the approved scope.
 ```
@@ -225,7 +225,7 @@ Finalization may remain allowed after explicit acknowledgement, but the UI shoul
 
 ## State Model
 
-Store coverage data on the active Creator job. Pre-alpha can update the job shape in place without compatibility scaffolding.
+Store coverage data on the active Deck Maker job. Pre-alpha can update the job shape in place without compatibility scaffolding.
 
 Suggested field:
 
@@ -288,21 +288,21 @@ Generated enough entries.
 
 ## Readiness Rules
 
-Creator Coverage should affect Generated readiness as warnings, not Pack Health errors.
+Deck Maker Coverage should affect Generated readiness as warnings, not Pack Health errors.
 
 Recommended behavior:
 
 - Block silent finalization when overall coverage is `missing` or `thin` for applicable dimensions.
 - Allow finalization after the user explicitly chooses `Mark Intentionally Light` or `Finalize Anyway`.
-- Preserve that acknowledgement on the Creator job and finalized Custom Lorepack provenance.
+- Preserve that acknowledgement on the Deck Maker job and finalized Custom Lorepack provenance.
 - Continue to block unresolved draft-review and Pending Review state as the current Creator already does.
 
 ## Implementation Slices
 
-1. Add coverage schema normalization helpers for Creator jobs.
+1. Add coverage schema normalization helpers for Deck Maker jobs.
 2. Update Scope Brief parser/prompt/repair prompt to preserve source shape and expected coverage.
 3. Update Story Outline parser/prompt/repair prompt to emit Coverage Plan rows and coverage-linked title batches.
-4. Add Creator Coverage summary and matrix UI in the workbench.
+4. Add Deck Maker Coverage summary and matrix UI in the workbench.
 5. Update Title Pass prompt/parser to attach coverage dimensions to title drafts.
 6. Add targeted title generation for one missing/thin coverage row.
 7. Update planning and entry-draft prompts to carry coverage metadata.
@@ -323,21 +323,21 @@ Unit tests:
 - Dense scopes remain thin when high-value dimensions are missing.
 - `not_applicable` and `intentionally_light` acknowledgements persist.
 - `not_applicable` and `intentionally_light` acknowledgements can be reopened for expansion.
-- Generated readiness includes Creator Coverage warnings without turning them into Pack Health errors.
-- Generated finalization blocks on unresolved missing/thin Creator Coverage until the user expands coverage or chooses `Finalize Anyway`.
-- Generated finalization blocks on a missing Creator Coverage plan for approved jobs until the user redrafts or explicitly acknowledges the missing plan.
-- Finalized Custom Lorepacks preserve Creator Coverage acknowledgement provenance.
+- Generated readiness includes Deck Maker Coverage warnings without turning them into Pack Health errors.
+- Generated finalization blocks on unresolved missing/thin Deck Maker Coverage until the user expands coverage or chooses `Finalize Anyway`.
+- Generated finalization blocks on a missing Deck Maker Coverage plan for approved jobs until the user redrafts or explicitly acknowledges the missing plan.
+- Finalized Custom Lorepacks preserve Deck Maker Coverage acknowledgement provenance.
 - Pure coverage-model tests cover sparse, dense, accepted, current-acknowledgement, and stale-acknowledgement cases.
 
 UI smoke tests:
 
-- Creator Coverage summary renders in the workbench.
+- Deck Maker Coverage summary renders in the workbench.
 - Missing/thin rows expose targeted generation actions.
 - Not-applicable rows are visibly distinct but not noisy.
 - Light and not-applicable rows expose `Reopen`.
-- Readiness/finalization surfaces show Creator Coverage warnings separately from Pack Health.
+- Readiness/finalization surfaces show Deck Maker Coverage warnings separately from Pack Health.
 - Readiness-card regression tests cover `Finalize Anyway` visibility and acknowledged-coverage state.
-- Library finalization controls disable and explain `Finalize as Custom` when Generated readiness or Creator Coverage blocks finalization.
+- Library finalization controls disable and explain `Finalize as Custom` when Generated readiness or Deck Maker Coverage blocks finalization.
 - Coverage-blocked readiness surfaces expose `Open Coverage Plan` as the primary route before `Finalize Anyway`.
 - Text fits in compact and expanded shelf layouts.
 
@@ -349,9 +349,9 @@ Manual QA:
 
 ## Remaining Decisions
 
-- Should `Creator Coverage` be the visible label, or should the public UI use a softer phrase such as `Coverage Review`?
-- Should Basic Experience ever show Creator Coverage summaries for Generated Lorepacks, or should this stay Advanced-only for alpha?
+- Should `Deck Maker Coverage` be the visible label, or should the public UI use a softer phrase such as `Coverage Review`?
+- Should Basic Experience ever show Deck Maker Coverage summaries for Generated Lorepacks, or should this stay Advanced-only for alpha?
 
 ## Recommendation
 
-Build this as an authoring-quality layer inside the existing Loredeck Creator. Keep the current staged, micro-batched workflow. Add source-shape classification, coverage rows, targeted title expansion, and readiness warnings so the Creator can distinguish a legitimately small source from an underbuilt dense arc.
+Build this as an authoring-quality layer inside the existing Deck Maker. Keep the current staged, micro-batched workflow. Add source-shape classification, coverage rows, targeted title expansion, and readiness warnings so Deck Maker can distinguish a legitimately small source from an underbuilt dense arc.

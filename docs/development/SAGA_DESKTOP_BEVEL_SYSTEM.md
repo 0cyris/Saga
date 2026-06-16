@@ -83,7 +83,7 @@ Conform these to `--saga-radius-window`:
 
 - Runtime rail exterior.
 - Runtime drawer exterior.
-- Fullscreen Library, Creator, Context, Pack Health, Timeline, and modal workbench shells.
+- Fullscreen Library, Deck Maker, Context, Pack Health, Timeline, and modal workbench shells.
 - Confirmation shell.
 
 Do not apply `--saga-radius-window` inside the workspace body. That makes dense controls too soft and visually competes with the outer shell.

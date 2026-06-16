@@ -1,6 +1,6 @@
 # Loredeck Health Auto-Fix Stage 2: Storage Integration
 
-Status: Phase 1 storage adapter, Phase 2 repair session persistence/lifecycle cleanup, Phase 3 Health Center UX cleanup, Phase 4 local Attempt Fixing core, Phase 5 model repair runner/session continuation/current-run guard/cancellation controls/retry-smaller hardening, the Phase 6 review-choice application and UX slices, Phase 7 Creator/Pending Review cleanup, Phase 8 legacy route removal, and the automated Phase 9 Verification slice are complete. The storage rework has stable external Lorepack payload APIs, the first storage-backed health repair adapter slice is in place, repair sessions can be written as compact storage-indexed JSON files, the main Health Center repair action now reads as `Attempt Fixing`, the shared editor command routes through storage-backed repair, model repair units can now run through a provider-injected batch runner that applies validated direct patches and persists compact progress, saved model-pending sessions can be continued or cancelled from the Health Center, same-pack repair commands are guarded against overlapping storage/model runs, truncated model repair output can retry with a smaller one-target prompt, saved review choices can now be applied or re-evaluated through the same storage-backed validator, saved review choices now show inline storage-change previews plus non-destructive skip controls, finished repair sessions expose clearable lifecycle state in the Health Center, Creator final readiness now blocks on compact saved health errors or stale health even when a full health report is not cached in the Creator panel, and automated verification covers the storage-backed repair workflow.
+Status: Phase 1 storage adapter, Phase 2 repair session persistence/lifecycle cleanup, Phase 3 Health Center UX cleanup, Phase 4 local Attempt Fixing core, Phase 5 model repair runner/session continuation/current-run guard/cancellation controls/retry-smaller hardening, the Phase 6 review-choice application and UX slices, Phase 7 Creator/Pending Review cleanup, Phase 8 legacy route removal, and the automated Phase 9 Verification slice are complete. The storage rework has stable external Lorepack payload APIs, the first storage-backed health repair adapter slice is in place, repair sessions can be written as compact storage-indexed JSON files, the main Health Center repair action now reads as `Attempt Fixing`, the shared editor command routes through storage-backed repair, model repair units can now run through a provider-injected batch runner that applies validated direct patches and persists compact progress, saved model-pending sessions can be continued or cancelled from the Health Center, same-pack repair commands are guarded against overlapping storage/model runs, truncated model repair output can retry with a smaller one-target prompt, saved review choices can now be applied or re-evaluated through the same storage-backed validator, saved review choices now show inline storage-change previews plus non-destructive skip controls, finished repair sessions expose clearable lifecycle state in the Health Center, Creator final readiness now blocks on compact saved health errors or stale health even when a full health report is not cached in Deck Maker panel, and automated verification covers the storage-backed repair workflow.
 
 Stage 2 begins after the storage rework has stable external Lorepack payload APIs and the Stage 1 repair foundation exists. Stage 2 wires the pure planner, repair, model, and validation modules into real Pack Health, external payload writes, repair sessions, Health Center UI, Creator final readiness, and provider-backed model repair batches.
 
@@ -355,14 +355,14 @@ Tasks:
 - Replace Creator final-card `Repair Safe Issues` with `Attempt Fixing`.
 - Ensure Creator final readiness opens Health Center directly to the relevant repair state.
 - Ensure generated decks with health errors do not show `Finalize ready`.
-- Allow Lorecard generation to continue to the next pending micro-batch while Creator Draft Review has unresolved drafts, unless a batch failed or active generation is running.
-- Ensure `Send Selected to Review` and `Send All to Review` remove rows from Creator Draft Review immediately.
+- Allow Lorecard generation to continue to the next pending micro-batch while Deck Maker Draft Review has unresolved drafts, unless a batch failed or active generation is running.
+- Ensure `Send Selected to Review` and `Send All to Review` remove rows from Deck Maker Draft Review immediately.
 - Ensure Pending Review acceptance removes accepted rows immediately.
 - Ensure health-impacting Pending Review acceptance marks health stale or reruns Pack Health through storage-backed validation.
 
 Acceptance:
 
-- The Creator Lorecards stage no longer feels blocked by review queues before all draft batches are generated.
+- The Deck Maker Lorecards stage no longer feels blocked by review queues before all draft batches are generated.
 - Draft Review and Pending Review rows behave consistently.
 - Creator final readiness routes users to `Attempt Fixing` for health errors.
 
@@ -372,7 +372,7 @@ Implemented Phase 7 slice:
 - Stale generated-pack health now blocks finalization until Pack Health is rerun instead of allowing a misleading `Finalize ready` state.
 - Unscanned generated packs now remain blocked at the readiness gate until Pack Health has been run.
 - Creator final-card health actions use the same `Attempt Fixing` label as the Health Center and Library repair route.
-- Existing Creator Lorecard stage behavior is covered so Draft Review rows do not block additional Lorecard generation while remaining micro-batches exist.
+- Existing Deck Maker Lorecard stage behavior is covered so Draft Review rows do not block additional Lorecard generation while remaining micro-batches exist.
 - Draft Review handoff and Pending Review acceptance/rejection refresh contracts remain covered by focused tests so rows clear from the visible queues after mutation.
 
 ## Phase 8: Compatibility Wrapper Removal
@@ -450,7 +450,7 @@ Live provider QA checklist:
   - Confirm the deck is external-payload backed before repair. The Library row should stay compact and the full Lorecard payload should live in `/user/files/saga-pack-<packId>.v1.json`.
   - Capture baseline: Pack Health status, error/warning counts, current repair sessions for the pack, payload file size, and whether `settings.json` contains any Lorecard payload text from the deck.
 - Run:
-  - Open Pack Health from Creator final readiness or Library details and confirm the primary action reads `Attempt Fixing`.
+  - Open Pack Health from Deck Maker final readiness or Library details and confirm the primary action reads `Attempt Fixing`.
   - Click `Attempt Fixing`.
   - Observe local repair progress, model batch progress, cancellation availability while a model batch is active, and saved session state if the run pauses or needs provider setup.
   - If review choices appear, verify each choice shows concrete A/B/C options with previews; apply one choice and verify Pack Health clears the related finding only after rerun.

@@ -1,5 +1,5 @@
 /**
- * Pure preflight helpers for Loredeck Creator schema v3 entry drafting.
+ * Pure preflight helpers for Deck Maker schema v3 entry drafting.
  */
 
 import {

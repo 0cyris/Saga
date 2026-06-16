@@ -46,7 +46,7 @@ Largest remaining Loredeck UI files:
 | `src/loredecks/loredeck-library-panel.js` | 4,830 lines | Library, folders, selection, import/export, stack actions, and package surfaces. |
 | `src/loredecks/loredeck-workbench-panel.js` | 2,513 lines | Editor workflows and repeated card/list controls. |
 | `src/loredecks/loredeck-health-panel.js` | 1,748 lines | Pack Health rendering and remediation views. |
-| `src/loredecks/loredeck-creator-panel.js` | 1,670 lines | Creator stage/job/status UI. |
+| `src/loredecks/loredeck-creator-panel.js` | 1,670 lines | Deck Maker stage/job/status UI. |
 | `src/loredecks/loredeck-assistant.js` | 1,448 lines | Assistant proposal, validation, and repair workflow UI. |
 
 Current passing contract checks:
@@ -167,11 +167,11 @@ Implementation notes:
 - `persistLoredeckLibraryRecordMutation` now calls `refreshOpenLoredeckMetadataEditor(next.packId)` after saving and refreshing shared surfaces.
 - `tools/scripts/test-visual-smoke-harness.mjs` asserts the mutation path keeps open metadata Pending Review counts fresh.
 
-### S4: Creator Generation Settings Summary Goes Stale
+### S4: Deck Maker Generation Settings Summary Goes Stale
 
 Status: Fixed locally on 2026-06-11. Live installed-extension retest is pending.
 
-Observed in live runtime while smoke-testing the Creator empty-project path:
+Observed in live runtime while smoke-testing Deck Maker empty-project path:
 
 - Opening Creator from the Library rendered the staged roadmap and `Draft the Scope Brief` task.
 - Toggling `Show streaming progress snippets` changed the row state from `On` to `Off`.
@@ -179,8 +179,8 @@ Observed in live runtime while smoke-testing the Creator empty-project path:
 
 Required fix:
 
-- Re-render the Creator generation settings summary after range, toggle, and reset actions persist a new value.
-- Keep the update local to the settings disclosure; do not refresh the whole Creator workbench for every control change.
+- Re-render the Deck Maker generation settings summary after range, toggle, and reset actions persist a new value.
+- Keep the update local to the settings disclosure; do not refresh the whole Deck Maker workbench for every control change.
 
 Implementation notes:
 
@@ -196,13 +196,13 @@ Observed in live runtime after resetting Creator advanced settings with no Scope
 
 - Closing and reopening Creator changed the header from no active project to `Resumable job`.
 - The Job & Cache panel showed `Last activity just now`.
-- No actual Scope Brief, Fandom, Scope, generated pack, or project card existed, so the settings action had created an empty persisted Creator job.
+- No actual Scope Brief, Fandom, Scope, generated pack, or project card existed, so the settings action had created an empty persisted Deck Maker job.
 
 Required fix:
 
-- Do not upsert a Creator project when generation settings are changed before a real Creator project exists.
+- Do not upsert a Deck Maker project when generation settings are changed before a real Deck Maker project exists.
 - Keep no-project settings changes local to the open Creator session.
-- Continue persisting settings changes for real Creator projects, active generations, generated packs, or jobs with meaningful project data.
+- Continue persisting settings changes for real Deck Maker projects, active generations, generated packs, or jobs with meaningful project data.
 
 Implementation notes:
 
@@ -241,48 +241,48 @@ Status: Fixed locally on 2026-06-11. Live installed-extension retest is pending.
 
 Observed during selectable-scroll audit after S6:
 
-- Assistant and Creator draft batch checkboxes updated `selectedDraftChangeIds`, then refreshed the full Lorecards tab.
+- Assistant and Deck Maker draft batch checkboxes updated `selectedDraftChangeIds`, then refreshed the full Lorecards tab.
 - The draft list uses the same nested-scroll shape as canon preview and pending review, so selection-only changes could lose the user's scroll position in long draft batches.
 
 Required fix:
 
-- Keep Assistant/Creator draft selection changes in the draft cache as the source of truth.
+- Keep Assistant/Deck Maker draft selection changes in the draft cache as the source of truth.
 - Refresh selected counts, row selected state, checkboxes, and selection-dependent buttons in place.
 - Keep full panel refreshes for queue/drop/revision paths because those paths change the draft list contents.
 - Add the Assistant draft list to runtime nested-scroll preservation and wheel handoff.
 
 Implementation notes:
 
-- `refreshLoredeckAssistantDraftSelectionUi` updates Assistant/Creator draft row classes, checkboxes, selected-count pills, and Queue/Drop/Revise/Select All/Clear Selection button states without rebuilding the Lorecards tab.
+- `refreshLoredeckAssistantDraftSelectionUi` updates Assistant/Deck Maker draft row classes, checkboxes, selected-count pills, and Queue/Drop/Revise/Select All/Clear Selection button states without rebuilding the Lorecards tab.
 - Draft batch rows and action buttons now expose stable `data-saga-assistant-*` hooks for selection refresh.
 - `src/runtime/runtime-shell.js` now treats `.saga-loredeck-assistant-draft-list` as a nested scroll surface.
-- `styles/runtime.css` adds a dedicated selected-row state for Assistant/Creator draft rows.
+- `styles/runtime.css` adds a dedicated selected-row state for Assistant/Deck Maker draft rows.
 - The visual smoke harness asserts the in-place Assistant selection refresh, nested-scroll registration, and selected-row styling.
 
-### S8: Creator Title Selection Scroll Stability
+### S8: Deck Maker Title Selection Scroll Stability
 
 Status: Fixed locally on 2026-06-11. Live installed-extension retest is pending.
 
 Observed during selectable-scroll audit after S7:
 
-- Creator Title Pass checkboxes updated `selectedTitleDraftIds`, then refreshed the full Creator workbench for a selection-only change.
+- Deck Maker Title Pass checkboxes updated `selectedTitleDraftIds`, then refreshed the full Deck Maker workbench for a selection-only change.
 - Long title batches use the same scrollable list pattern as Assistant drafts, so checkbox selection could lose position while reviewing generated title sets.
 
 Required fix:
 
-- Keep Creator title selection changes in the runtime-owned Creator cache as the source of truth.
+- Keep Deck Maker title selection changes in the runtime-owned Creator cache as the source of truth.
 - Let `loredeck-creator-panel.js` refresh selected counts, row state, checkboxes, and selection-dependent buttons in place.
 - Preserve active-generation button locks while updating selection-dependent revision affordances.
-- Add the Creator title list to runtime nested-scroll preservation and wheel handoff.
+- Add the Deck Maker title list to runtime nested-scroll preservation and wheel handoff.
 
 Implementation notes:
 
-- `refreshLoredeckCreatorTitleSelectionUi` updates Creator Title Pass row classes, checkboxes, selected-count pills, and Approve/Unapprove/Drop/Revise/Select All/Clear Selection button states without rebuilding the Creator workbench.
+- `refreshLoredeckCreatorTitleSelectionUi` updates Deck Maker Title Pass row classes, checkboxes, selected-count pills, and Approve/Unapprove/Drop/Revise/Select All/Clear Selection button states without rebuilding the Deck Maker workbench.
 - Title rows and action buttons now expose stable `data-saga-creator-title-*` hooks for selection refresh.
 - `applyLoredeckCreatorGenerationButtonLock` marks generation-locked buttons so in-place refreshes do not re-enable them.
 - `src/runtime/runtime-shell.js` now treats `.saga-loredeck-creator-title-list` as a nested scroll surface.
-- `styles/runtime.css` adds a dedicated selected-row state for Creator title rows.
-- The visual smoke harness asserts the in-place Creator title selection refresh, generation-lock preservation, nested-scroll registration, and selected-row styling.
+- `styles/runtime.css` adds a dedicated selected-row state for Deck Maker title rows.
+- The visual smoke harness asserts the in-place Deck Maker title selection refresh, generation-lock preservation, nested-scroll registration, and selected-row styling.
 
 ### S9: Context Workbench Selection Scroll Stability
 
@@ -432,7 +432,7 @@ Status: Fixed locally on 2026-06-11. Live installed-extension retest is pending.
 
 Observed during Assistant contract audit:
 
-- Fresh Assistant and Creator draft batches are intended to start with every draft selected for review actions.
+- Fresh Assistant and Deck Maker draft batches are intended to start with every draft selected for review actions.
 - `updateLoredeckAssistantDraftCache` normalized missing `selectedDraftChangeIds` to an empty array before calling mutators.
 - Future callers that upsert drafts through the helper without explicit selection metadata could accidentally turn the default selection from "all selected" into "nothing selected."
 
@@ -656,7 +656,7 @@ Prove the current split works as a user-facing extension before further extracti
 | Advanced workflow | Advanced rail entries and domain panel entry points. | Advanced-only panels remain reachable and do not leak into Basic mode. |
 | Lorepack Library | Empty state, selection, folders, stack controls, package controls, malformed timeline data. | No accidental first-deck auto-selection, stale selection, duplicated stack rows, or null-registry render crashes. |
 | Package import/export | Local `.saga-loredeck.zip` export, preview, install, duplicate handling. | Exported packages import as expected and preserve source/update metadata. |
-| Generated-to-Custom | Creator output, readiness, finalization, export/install. | Generated Lorepacks can become Custom Lorepacks without losing accepted content. |
+| Generated-to-Custom | Deck Maker output, readiness, finalization, export/install. | Generated Lorepacks can become Custom Lorepacks without losing accepted content. |
 | Pack Health | Scan, grouped issues, ignore/resolve, Attempt Fixing, repair sessions, and review choices. | Pack Health remains advisory where intended and saves remaining review/model/manual work with clear next actions. |
 | Context | Current Context controls, resolver fallback, manual lock/reset, Context Browser entry, malformed active-stack data. | Context changes persist, affect candidate/injection behavior, and do not crash when a Lorepack timeline registry is incomplete. |
 | Injection preview | Preview, stale accepted Lorecard blocking, prompt injector state. | Context-blocked entries do not inject and the audit explains why. |
@@ -673,7 +673,7 @@ Stabilization should proceed feature by feature. Each feature must prove its nor
 | Lorepack Library | Load bundled, Custom, and Generated Lorepacks; render no-selection empty state; select/de-select; folder navigation; bulk selection; stack add/remove/reorder; local package import/export. | Null or malformed timeline registry data must not crash `getLoredeckLibrary` or the Library tab. |
 | Active Stack | Show enabled stack, ordering, source type, Pack Health status, and action affordances. | Stack rows must not duplicate or preserve deleted/stale records after refresh. |
 | Context | Render selected/loaded Lorepack Contexts, manual lock/reset, resolver fallback, Context Browser launch, current Story Position. | Context must tolerate incomplete active-stack Lorepack metadata and report invalid data through health surfaces. |
-| Pending Review | Show queued entry/tag/timeline patches, accept/reject one, accept/reject all, jump from Creator/Assistant/Health. | Toast success must match saved state, not just local UI mutation. |
+| Pending Review | Show queued entry/tag/timeline patches, accept/reject one, accept/reject all, jump from Deck Maker/Assistant/Health. | Toast success must match saved state, not just local UI mutation. |
 | Workbench | Open a Custom Lorepack, edit entries, overrides, tags, timeline records, and queue reviewable changes. | Editor actions must not bypass Pending Review or lose schema v3 Context/retrieval fields. |
 | Pack Health | Scan selected and active Lorepacks, group issues, ignore/resolve advisories, run Attempt Fixing, continue repair sessions, and apply review choices. | Malformed timeline registries are health findings, not runtime render failures. |
 | Creator | Create brief, titles, timeline/tag plan, micro-batch entries, review generated content, finalize to Generated Lorepack, export/install as Custom. | Partial generation failures must preserve completed batches and not unlock downstream steps prematurely. |
@@ -893,9 +893,9 @@ node tools\scripts\test-visual-smoke-harness.mjs
 
 #### Slice 2.4: Async Job And Progress Views
 
-Status: Continued through S24. The shared job view helper exists; Loredeck Creator uses it for live generation status rows, and the Loredecks Creator project shelf uses it for staged progress bars. Creator still owns generation state, cancellation, and recovery behavior. Assistant, import/export, update checks, scans, and repairs still need adoption.
+Status: Continued through S24. The shared job view helper exists; Deck Maker uses it for live generation status rows, and the Loredecks Deck Maker project shelf uses it for staged progress bars. Deck Maker still owns generation state, cancellation, and recovery behavior. Assistant, import/export, update checks, scans, and repairs still need adoption.
 
-Extract repeated job status rendering from Creator, Assistant, import/export, update checks, scans, and repairs.
+Extract repeated job status rendering from Deck Maker, Assistant, import/export, update checks, scans, and repairs.
 
 Focus areas:
 
@@ -940,14 +940,14 @@ node tools\scripts\test-loredeck-creator-coverage-ui.mjs
 node tools\scripts\test-repository-layout.mjs
 ```
 
-### S24: Creator Project Progress Bar Extraction
+### S24: Deck Maker Project Progress Bar Extraction
 
 What changed:
 
 - Added shared progress-bar rendering to `src/loredecks/loredeck-job-view.js`.
-- Moved the Creator project shelf progress meter in `src/loredecks/loredecks-tab-panel.js` through `createLoredeckJobProgressBar`.
+- Moved the Deck Maker project shelf progress meter in `src/loredecks/loredecks-tab-panel.js` through `createLoredeckJobProgressBar`.
 - Kept project filtering, selection, folder moves, resume, Library handoff, and deletion behavior in the Loredecks tab panel.
-- Added visual harness assertions that Creator project shelf progress uses the shared job view helper.
+- Added visual harness assertions that Deck Maker project shelf progress uses the shared job view helper.
 
 Validation:
 
@@ -1161,7 +1161,7 @@ Preferred follow-up modules:
 | `src/runtime/loredeck-timeline-registry-panel.js` | Runtime timeline registry and anchor/window editing shell if it still lives in `lore-panel.js`. |
 | `src/runtime/generated-loredeck-workflow.js` | Generated-to-Custom and Creator bridge behavior still embedded in the runtime controller. |
 
-Runtime follow-up is done when `lore-panel.js` no longer owns large domain-specific Pack Health, editor, tag, timeline, package, or Creator workflow renderers.
+Runtime follow-up is done when `lore-panel.js` no longer owns large domain-specific Pack Health, editor, tag, timeline, package, or Deck Maker workflow renderers.
 
 ### S32: Runtime Loredeck Editor Actions Extraction
 
@@ -1333,7 +1333,7 @@ What changed:
 - Added `src/runtime/loredeck-pending-change-model.js` for runtime pending-change ID normalization, pending-change normalization, record-patch creation, and record-patch application.
 - Moved pure pending-change model helpers and tag/timeline patch application helpers out of `src/runtime/lore-panel.js`.
 - Configured the model module with the existing tag and timeline normalizers so accepted pending changes continue to apply entry, tag registry, and timeline registry patches identically.
-- Kept queueing, acceptance/rejection, persistence, Creator planning acknowledgement, Deck Health refresh, and UI refresh lifecycle in `lore-panel.js`.
+- Kept queueing, acceptance/rejection, persistence, Deck Maker planning acknowledgement, Deck Health refresh, and UI refresh lifecycle in `lore-panel.js`.
 - Added visual harness coverage that pending-change normalization and patch application live in the extracted module and `lore-panel.js` delegates to it.
 
 Validation:
@@ -1354,7 +1354,7 @@ Status: Continued the runtime follow-up trim.
 What changed:
 
 - Added `src/runtime/loredeck-pending-change-actions.js` for pending-change queue, accept, reject, and post-accept Deck Health refresh lifecycle.
-- Moved queueing, acceptance, rejection, accepted-change patch application, stale-health marking, generated-pack derived metadata refresh, Creator planning accepted-batch tracking, and post-action UI refresh out of `src/runtime/lore-panel.js`.
+- Moved queueing, acceptance, rejection, accepted-change patch application, stale-health marking, generated-pack derived metadata refresh, Deck Maker planning accepted-batch tracking, and post-action UI refresh out of `src/runtime/lore-panel.js`.
 - Kept the action module configured by `lore-panel.js` with persistence, validation, Creator cache, provider cache clearing, and UI refresh dependencies.
 - Left edit proposal builders for a later focused slice so S40 stayed limited to pending-change persistence and lifecycle behavior.
 - Added visual harness coverage that pending-change actions live in the extracted action module and `lore-panel.js` delegates to it.

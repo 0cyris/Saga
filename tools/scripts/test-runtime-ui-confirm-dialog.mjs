@@ -204,13 +204,13 @@ globalThis.requestAnimationFrame = callback => setTimeout(callback, 0);
   const pending = confirmAction('Reset to Title Pass?', 'This cannot be undone.', {
     cancelLabel: 'Keep current step',
     confirmLabel: 'Reset to Title Pass',
-    confirmTooltip: 'Permanently erase later Creator data and return to Title Pass.',
+    confirmTooltip: 'Permanently erase later Deck Maker data and return to Title Pass.',
   });
   const overlay = document.querySelector('.saga-confirm-overlay');
   assert.ok(overlay, 'Custom confirmation should render an overlay.');
   const buttons = overlay.querySelectorAll('button');
   assert.deepEqual(buttons.map(button => button.textContent), ['Keep current step', 'Reset to Title Pass']);
-  assert.equal(buttons[1].dataset.sagaTooltip, 'Permanently erase later Creator data and return to Title Pass.');
+  assert.equal(buttons[1].dataset.sagaTooltip, 'Permanently erase later Deck Maker data and return to Title Pass.');
   assert.equal(buttons[1].classList.contains('saga-danger-button'), true);
   await buttons[0].click();
   assert.equal(await pending, false);

@@ -96,7 +96,7 @@ const settingsAfterMigration = getSettings();
 assert.equal(settingsAfterMigration.loredeckCreatorProjects.schemaVersion, 1);
 assert.equal(settingsAfterMigration.loredeckCreatorProjects.activeJobId, '');
 assert.equal(settingsAfterMigration.loredeckCreatorProjects.jobs.creator_one_piece_arlong, undefined);
-assert.equal(saveSettingsCount, 0, 'Opening a chat with local Creator jobs should externalize them without saving full projects to settings.');
+assert.equal(saveSettingsCount, 0, 'Opening a chat with local Deck Maker jobs should externalize them without saving full projects to settings.');
 
 const globalRegistry = getLoredeckCreatorProjectRegistry();
 assert.equal(globalRegistry.activeJobId, 'creator_one_piece_arlong');
@@ -154,7 +154,7 @@ assert.equal(unitCompleted.ok, true);
 assert.equal(unitCompleted.job.generationUnits.unit_title_1.status, 'complete');
 assert.equal(unitCompleted.job.generationUnits.unit_title_1.resultRef.batchId, 'characters_pressure');
 assert.equal(unitCompleted.job.activeGeneration, undefined, 'Completing the active unit should clear activeGeneration.');
-assert.equal(unitCompleted.job.status, 'draft', 'Clearing activeGeneration should not leave the Creator project stuck as running.');
+assert.equal(unitCompleted.job.status, 'draft', 'Clearing activeGeneration should not leave the Deck Maker project stuck as running.');
 
 const runCompleted = updateLoredeckCreatorGenerationRun('creator_one_piece_arlong', {
   runId: 'run_titles_1',
@@ -270,7 +270,7 @@ assert.equal(getLoredeckCreatorProjectRegistry().jobs.creator_naruto_chunin.cove
 assert.equal(chatMetadata[MODULE_KEY].loredeckCreator.jobs.creator_naruto_chunin.folderId, 'naruto');
 assert.equal(chatMetadata[MODULE_KEY].loredeckCreator.jobs.creator_naruto_chunin.coverageFinalizeAcknowledgement?.mode, 'finalize_anyway');
 assert.equal(getCachedExternalLoredeckCreatorProject('creator_naruto_chunin').coverageFinalizeAcknowledgement?.mode, 'finalize_anyway');
-assert.ok(saveStateCount >= 1, 'Creator project upsert should keep the current chat mirror in sync.');
+assert.ok(saveStateCount >= 1, 'Deck Maker project upsert should keep the current chat mirror in sync.');
 
 const mergedRegistry = getLoredeckCreatorRegistry(getState());
 assert.equal(mergedRegistry.jobs.creator_one_piece_arlong.scope, 'Arlong Park Arc');
@@ -384,11 +384,11 @@ assert.ok(!getExternalLoredeckLibraryRegistry().packs[generatedPackId], 'Deletin
 assert.equal(getCachedExternalLorepackPayload(generatedPackId), null, 'Deleting a Generated Loredeck should clear the external payload cache.');
 assert.ok(!extensionSettings[MODULE_KEY].loredeckLibrary.packs[generatedPackId], 'Deleting a Generated Loredeck should keep settings free of the pack record.');
 assert.ok(!chatMetadata[MODULE_KEY].loredeckRegistry.packs[generatedPackId], 'Deleting a Generated Loredeck should remove the chat-local pack mirror.');
-assert.ok(!getLoredeckCreatorProjectRegistry().jobs.creator_one_piece_arlong, 'Deleting a Generated Loredeck should clear its external Creator project.');
-assert.ok(!chatMetadata[MODULE_KEY].loredeckCreator.jobs.creator_one_piece_arlong, 'Deleting a Generated Loredeck should clear its chat-local Creator project.');
-assert.ok(!getLoredeckCreatorProjectRegistry().jobs.creator_one_piece_arlong_title_only, 'Deleting a Generated Loredeck should clear Creator projects that only retain the normalized brief title.');
-assert.ok(!chatMetadata[MODULE_KEY].loredeckCreator.jobs.creator_one_piece_arlong_title_only, 'Deleting a Generated Loredeck should clear chat-local title-only Creator projects.');
-assert.ok(getLoredeckCreatorProjectRegistry().jobs.creator_naruto_chunin, 'Unrelated Creator projects should remain.');
+assert.ok(!getLoredeckCreatorProjectRegistry().jobs.creator_one_piece_arlong, 'Deleting a Generated Loredeck should clear its external Deck Maker project.');
+assert.ok(!chatMetadata[MODULE_KEY].loredeckCreator.jobs.creator_one_piece_arlong, 'Deleting a Generated Loredeck should clear its chat-local Deck Maker project.');
+assert.ok(!getLoredeckCreatorProjectRegistry().jobs.creator_one_piece_arlong_title_only, 'Deleting a Generated Loredeck should clear Deck Maker projects that only retain the normalized brief title.');
+assert.ok(!chatMetadata[MODULE_KEY].loredeckCreator.jobs.creator_one_piece_arlong_title_only, 'Deleting a Generated Loredeck should clear chat-local title-only Deck Maker projects.');
+assert.ok(getLoredeckCreatorProjectRegistry().jobs.creator_naruto_chunin, 'Unrelated Deck Maker projects should remain.');
 assert.equal(getLoredeckCreatorProjectRegistry().activeJobId, 'creator_naruto_chunin');
 
 const cleared = clearLoredeckCreatorJob('creator_naruto_chunin', { syncPrompt: false });
@@ -426,4 +426,4 @@ assert.equal(getExternalLoredeckLibraryRegistry().packs['storage-failure-pack'],
 assert.equal(getCachedExternalLorepackPayload('storage-failure-pack'), null);
 assert.deepEqual(Object.keys(getLoredeckCreatorProjectRegistry().jobs), []);
 
-console.log('Loredeck Creator project registry tests passed.');
+console.log('Deck Maker project registry tests passed.');

@@ -26,7 +26,7 @@ Current status: the HP database now loads as a Bundled Loredeck from `content/lo
 - Import/export.
 - GitHub updates.
 - Full Context resolver.
-- Loredeck Creator.
+- Deck Maker.
 - Semantic conflict detection.
 
 ## Development Order

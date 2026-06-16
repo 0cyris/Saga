@@ -806,13 +806,13 @@ export function parseLoredeckCreatorTitleResponse(text = '') {
 }
 
 export function buildLoredeckCreatorBriefSystemPrompt() {
-    return `You are Saga's Loredeck Creator intake assistant.
+    return `You are Saga's Deck Maker intake assistant.
 
 Return JSON only. Do not include markdown.
 
 Your task is to turn a user's fandom, scope, and granularity into a tiny scope brief for approval. This is intake only.
 
-Creator principles:
+Deck Maker principles:
 - Narrow vague or oversized requests into a practical story scope.
 - Do not require spoiler boundary, adaptation, continuity, or approximate entry count from the user.
 - Coverage says what the deck may contain; Context later decides what can inject.
@@ -876,7 +876,7 @@ Output shape:
 
 export function buildLoredeckCreatorBriefUserPrompt(context = {}) {
     return JSON.stringify({
-        task: cleanString(context.task || 'Draft a reviewable Loredeck Creator pack brief only.', 500),
+        task: cleanString(context.task || 'Draft a reviewable Deck Maker pack brief only.', 500),
         fandom: cleanString(context.fandom, 200),
         scope: cleanString(context.scope, 1000),
         granularity: cleanString(context.granularity || 'focused', 80),
@@ -901,7 +901,7 @@ export function buildLoredeckCreatorBriefUserPrompt(context = {}) {
 }
 
 export function buildLoredeckCreatorOutlineSystemPrompt() {
-    return `You are Saga's Loredeck Creator story outline assistant.
+    return `You are Saga's Deck Maker story outline assistant.
 
 Return JSON only. Do not include markdown.
 
@@ -999,7 +999,7 @@ Output shape:
 
 export function buildLoredeckCreatorOutlineUserPrompt(context = {}) {
     return JSON.stringify({
-        task: cleanString(context.task || 'Draft a reviewable Creator story outline and Context plan only.', 500),
+        task: cleanString(context.task || 'Draft a reviewable Deck Maker story outline and Context plan only.', 500),
         approvedBrief: isPlainObject(context.brief) ? compactCreatorBriefForPrompt(context.brief) : null,
         notes: cleanString(context.notes, 2000),
         revisionInstruction: cleanString(context.revisionInstruction, 2000),
@@ -1024,7 +1024,7 @@ export function buildLoredeckCreatorOutlineUserPrompt(context = {}) {
 }
 
 export function buildLoredeckCreatorTitleSystemPrompt() {
-    return `You are Saga's Loredeck Creator title-pass assistant.
+    return `You are Saga's Deck Maker title-pass assistant.
 
 Return JSON only. Do not include markdown.
 
@@ -1081,7 +1081,7 @@ Output shape:
 
 export function buildLoredeckCreatorTitleUserPrompt(context = {}) {
     return JSON.stringify({
-        task: cleanString(context.task || 'Draft a reviewable Creator title pass only.', 500),
+        task: cleanString(context.task || 'Draft a reviewable Deck Maker title pass only.', 500),
         approvedBrief: isPlainObject(context.brief) ? compactCreatorBriefForPrompt(context.brief) : null,
         approvedOutline: isPlainObject(context.outline) ? normalizeCreatorOutline(context.outline) : null,
         targetTitleBatch: isPlainObject(context.targetTitleBatch) ? context.targetTitleBatch : null,
@@ -1114,7 +1114,7 @@ export function buildLoredeckCreatorTitleUserPrompt(context = {}) {
 }
 
 export function buildLoredeckCreatorPlanningSystemPrompt() {
-    return `You are Saga's Loredeck Creator timeline and tag planning assistant.
+    return `You are Saga's Deck Maker timeline and tag planning assistant.
 
 Return JSON only. Do not include markdown.
 
@@ -1183,7 +1183,7 @@ Output shape:
 
 export function buildLoredeckCreatorPlanningUserPrompt(context = {}) {
     return JSON.stringify({
-        task: cleanString(context.task || 'Draft reviewable Creator timeline anchors/windows and tag definitions only.', 500),
+        task: cleanString(context.task || 'Draft reviewable Deck Maker timeline anchors/windows and tag definitions only.', 500),
         generatedPackId: cleanPackId(context.generatedPackId || '', 140),
         approvedBrief: isPlainObject(context.brief) ? compactCreatorBriefForPrompt(context.brief) : null,
         approvedOutline: isPlainObject(context.outline) ? normalizeCreatorOutline(context.outline) : null,
@@ -1215,7 +1215,7 @@ export function buildLoredeckCreatorPlanningUserPrompt(context = {}) {
 }
 
 export function buildLoredeckCreatorEntrySystemPrompt() {
-    return `You are Saga's Loredeck Creator Lorecard drafting assistant.
+    return `You are Saga's Deck Maker Lorecard drafting assistant.
 
 Return JSON only. Do not include markdown.
 
@@ -1227,7 +1227,7 @@ Hard limits:
 - Generate one Lorecard proposal per targetTitleDraft.
 - Treat targetTitleDrafts as the entire assignment for this response. Do not continue into unlisted titles, even if the deck needs more entries.
 - Use targetPlanningBatch as the current planning context. Do not draft titles from other planning batches.
-- Use targetTitleDraft.coverageDimensionIds and targetPlanningBatch.coverageDimensionIds as authoring guidance so entries serve the intended Creator Coverage surface.
+- Use targetTitleDraft.coverageDimensionIds and targetPlanningBatch.coverageDimensionIds as authoring guidance so entries serve the intended Deck Maker Coverage surface.
 - Use targetTitleDraft.titleId as entry.id unless it is invalid; preserve stable IDs.
 - Use only acceptedTimelineRegistry anchors/windows and acceptedTagRegistry tags. Do not invent anchor IDs or tag IDs at this stage.
 - For each targetTitleDraft, use only targetTitleDraft.allowedEntryTags when writing entry.tags. Treat targetTitleDraft.suggestedTags as semantic hints and targetTitleDraft.omittedTitleTags as forbidden IDs.

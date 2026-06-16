@@ -1,5 +1,5 @@
 /**
- * Loredeck Creator schema v3 entry draft guardrails.
+ * Deck Maker schema v3 entry draft guardrails.
  */
 
 import {
@@ -66,7 +66,7 @@ export function guardLoredeckCreatorEntryDraftChange(pack = {}, change = {}, opt
         const id = String(rawEntry.id || rawId || '').trim();
         if (!id) continue;
         if (targetIds.size && !targetIds.has(id)) {
-            errors.push(`Entry ${id} is outside this Creator micro-batch.`);
+            errors.push(`Entry ${id} is outside this Deck Maker micro-batch.`);
             continue;
         }
         const schemaVersion = Math.max(Number(rawEntry.schemaVersion) || 0, Number(pack.entrySchemaVersion) || Number(pack.manifestData?.entrySchemaVersion) || 0);

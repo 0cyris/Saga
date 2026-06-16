@@ -303,7 +303,7 @@ Done when:
 
 - Saved mobile screenshots show the main task area above the fold for each
   heavy workbench where feasible.
-- The Creator mobile screenshot shows `Current Task` before the stage roadmap,
+- Deck Maker mobile screenshot shows `Current Task` before the stage roadmap,
   and the roadmap renders as a compact horizontal rail rather than eight
   stacked stage cards.
 - The tablet desktop-shell sanity check still passes at `768x1024`.

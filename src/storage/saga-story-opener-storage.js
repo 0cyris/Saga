@@ -1,5 +1,5 @@
 /**
- * External Story Opener Creator session storage.
+ * External Story Maker session storage.
  */
 
 import {
@@ -123,12 +123,12 @@ function shouldPersistQueuedWrites(options = {}) {
 
 function recordQueuedWriteError(error = {}, options = {}) {
     const merged = resolveStorageOptions(options);
-    lastOpenerWriteError = String(error?.message || error || 'Story Opener external storage write failed.');
+    lastOpenerWriteError = String(error?.message || error || 'Story Maker external storage write failed.');
     if (typeof merged.onWriteError === 'function') {
         merged.onWriteError(error);
         return;
     }
-    console.warn('[Saga] Story Opener external storage write failed:', error);
+    console.warn('[Saga] Story Maker external storage write failed:', error);
 }
 
 function getSessionTitle(session = {}) {
@@ -137,9 +137,9 @@ function getSessionTitle(session = {}) {
         session.title
         || controls.context
         || controls.userPrompt
-        || 'Story opener',
+        || 'Untitled opener',
         240,
-    ) || 'Story opener';
+    ) || 'Untitled opener';
 }
 
 function normalizeStoryOpenerIndexRecord(value = {}, fallbackId = '', options = {}) {
@@ -327,7 +327,7 @@ async function assertStoryOpenerPayloadFresh(fileApi, payload = {}, expectedRevi
         expectedRevision,
         domain: 'story opener',
         path: sessionFile,
-        message: 'Story Opener session storage changed. Reload this opener before continuing.',
+        message: 'Story Maker session storage changed. Reload this opener before continuing.',
     });
     return true;
 }
@@ -346,7 +346,7 @@ async function assertStoryOpenerIndexFresh(fileApi, expectedRevision = 0) {
         expectedRevision,
         domain: 'story opener',
         path: SAGA_STORAGE_DOMAIN_INDEX_FILES.storyOpeners,
-        message: 'Story Opener index storage changed. Reload opener sessions before continuing.',
+        message: 'Story Maker session index changed. Reload opener sessions before continuing.',
     });
     return true;
 }
@@ -475,7 +475,7 @@ export function upsertExternalStoryOpenerSessionSync(sessionRecord = {}, options
         revision: existing ? normalizeRevision(baseRevision + 1, 2) : baseRevision,
         updatedAt: now,
     }, options);
-    if (!payload?.sessionId) return { ok: false, error: 'Story Opener session must include a sessionId/id.' };
+    if (!payload?.sessionId) return { ok: false, error: 'Story Maker session must include a sessionId/id.' };
     const index = updateOpenerIndexRecord(hydratedOpenerIndex, createExternalStoryOpenerIndexRecord(payload, options), options);
     const external = setHydratedOpenerIndex(index, options);
     queueExternalStoryOpenerSessionWrite(payload, external, {
@@ -493,12 +493,12 @@ export function upsertExternalStoryOpenerSessionSync(sessionRecord = {}, options
 
 export function removeExternalStoryOpenerSessionSync(sessionId = '', options = {}) {
     const id = normalizeStoryOpenerId(sessionId, '');
-    if (!id) return { ok: false, error: 'Missing Story Opener session id.' };
+    if (!id) return { ok: false, error: 'Missing Story Maker session id.' };
     const cached = getCachedExternalStoryOpenerSession(id);
     const existing = hydratedOpenerIndex.sessions?.[id] || {};
     const sessionFile = normalizeStoragePath(options.sessionFile || cached?.sessionFile || existing.sessionFile || existing.payloadFile || '');
     if (!cached && !existing.sessionFile && !sessionFile) {
-        return { ok: false, notFound: true, error: 'Story Opener session is not registered in external storage.' };
+        return { ok: false, notFound: true, error: 'Story Maker session is not registered in external storage.' };
     }
     openerPayloadCache.delete(id);
     const index = removeOpenerIndexRecord(hydratedOpenerIndex, id, options);
@@ -571,7 +571,7 @@ export async function hydrateSagaStoryOpenerStorage(options = {}) {
             loaded: false,
             loading: false,
             loadedAt: 0,
-            error: error?.message || String(error || 'Story Opener storage hydration failed.'),
+            error: error?.message || String(error || 'Story Maker storage hydration failed.'),
         };
         hydrationPromise = null;
         throw error;
@@ -584,7 +584,7 @@ export async function flushSagaStoryOpenerStorageWrites() {
         await pendingOpenerWrite;
         return { ok: !lastOpenerWriteError, error: lastOpenerWriteError };
     } catch (error) {
-        const message = error?.message || String(error || 'Story Opener storage write failed.');
+        const message = error?.message || String(error || 'Story Maker storage write failed.');
         return { ok: false, error: message };
     }
 }

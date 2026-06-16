@@ -231,4 +231,4 @@ const allModels = buildLoredeckCreatorProjectCardModels({
 });
 assert.deepEqual(allModels.map(item => item.id), ['archived', 'creator_complete', 'creator_one_piece_arlong']);
 
-console.log('Loredeck Creator project card model tests passed.');
+console.log('Deck Maker project card model tests passed.');

@@ -118,7 +118,7 @@ export function getGeneratedLoredeckExportReadiness(pack = {}, health = null, cr
     const warnings = [...(pipeline.warnings || [])];
     if (!acceptedEntries.length) blockers.push('Generated Loredeck needs at least one accepted Lorecard.');
     if (pendingChanges.length) blockers.push('Pending Review must be accepted or rejected before finalizing as Custom.');
-    if (draftChanges.length) blockers.push('Creator/Assistant Draft Batch must be queued, accepted, or dropped before finalizing as Custom.');
+    if (draftChanges.length) blockers.push('Deck Maker/Assistant Draft Batch must be queued, accepted, or dropped before finalizing as Custom.');
     if (pipeline.coverage?.finalizeAcknowledgementRequired) blockers.push(LOREDECK_CREATOR_COVERAGE_FINALIZE_BLOCKER);
     if (!healthScanned) blockers.push('Pack Health has not been run for this Generated Loredeck.');
     if (healthIsStale || staleByDependency) blockers.push('Pack Health is stale; rerun validation before finalizing as Custom.');

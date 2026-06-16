@@ -272,7 +272,7 @@ Potential bottom action model:
 
 Target:
 
-- Audit Creator, Context Workbench, Pack Health, Injection diagnostics, Settings,
+- Audit Deck Maker, Context Workbench, Pack Health, Injection diagnostics, Settings,
   and any generated editor surfaces for nested scroll regions.
 - Keep only one primary scroll owner per mobile workbench.
 - Move overlay-level close/commit actions to the bottom where practical.
@@ -355,7 +355,7 @@ Goal: align overlays and workbenches with bottom-first mobile control placement.
 
 Work:
 
-- Audit Library, Creator, Context Workbench, Pack Health, Settings, Injection,
+- Audit Library, Deck Maker, Context Workbench, Pack Health, Settings, Injection,
   and other heavy surfaces for top toolbar commands.
 - Move persistent commands such as `Done`, `Close`, and commit actions into
   bottom action areas where practical.
@@ -387,7 +387,7 @@ Work:
 - Review mobile CSS for `max-height`, `overflow: auto`, and `overflow-y: auto`
   under route/list/workbench selectors.
 - Exempt only true modal sheets and text editing controls.
-- Capture screenshots for Library, Lorecards, Creator, Context, Pack Health,
+- Capture screenshots for Library, Lorecards, Deck Maker, Context, Pack Health,
   and Settings.
 
 Done when:
@@ -410,7 +410,7 @@ Done when:
 - Saga runtime exit remains clear and reachable.
 - Library and heavy workbenches move persistent commands toward bottom action
   areas.
-- Pack Health, Creator, Context Workbench, and Context Proposal Review expose
+- Pack Health, Deck Maker, Context Workbench, and Context Proposal Review expose
   persistent mobile actions from bottom action bars, not header action rows.
 - Desktop behavior remains unchanged outside the mobile breakpoint.
 - Rendered phone screenshots show more working content in the first viewport
@@ -446,7 +446,7 @@ Add or extend smoke assertions for:
 - Lorecards sub-page list height reaches available route space;
 - top navbar removal or reduction;
 - close/exit reachability;
-- bottom action placement for Library, Pack Health, Creator, Context Workbench,
+- bottom action placement for Library, Pack Health, Deck Maker, Context Workbench,
   and Context Proposal Review.
 
 ## Non-Goals

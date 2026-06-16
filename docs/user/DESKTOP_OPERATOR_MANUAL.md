@@ -24,13 +24,13 @@ The **Basic Walkthrough** is organized as a short roleplay loop: First Run, Lore
 
 The **Session** tab is the runtime control room. It shows the current experience mode, automation state, readiness, and active system status.
 
-Use **Basic** when you want the guided path. Use **Advanced** when you need to inspect automation, run diagnostics, work with Continuity, manage prompt injection, or operate the Loredeck Creator.
+Use **Basic** when you want the guided path. Use **Advanced** when you need to inspect automation, run diagnostics, work with Continuity, manage prompt injection, or operate the Deck Maker.
 
 <p align="center">
   <img src="../../assets/documentation/renders/docs-advanced-walkthrough-modules.png" alt="Saga Advanced Walkthrough task tracks" width="800">
 </p>
 
-The **Advanced Walkthrough** is organized as task tracks instead of a flat tab tour. It covers Library mastery, Session control, Context resolution, Lorecard review, Injection diagnostics, Continuity, Creator authoring, Pack Health and package work, Settings, and troubleshooting.
+The **Advanced Walkthrough** is organized as task tracks instead of a flat tab tour. It covers Library mastery, Session control, Context resolution, Lorecard review, Injection diagnostics, Continuity, Deck Maker authoring, Pack Health and package work, Settings, and troubleshooting.
 
 ## Loredecks And Active Stack
 
@@ -47,7 +47,7 @@ A **Loredeck** is a portable, data-only lore package. It can represent canon, AU
 Saga uses three public Lorepack types:
 
 - **Bundled Lorepack**: shipped with Saga and human-vetted.
-- **Generated Lorepack**: produced by the Loredeck Creator and still review-oriented.
+- **Generated Lorepack**: produced by the Deck Maker and still review-oriented.
 - **Custom Lorepack**: user-created, duplicated, imported, edited, AU, crossover, or shared.
 
 <p align="center">
@@ -84,13 +84,13 @@ Pack Health is not a canon-truth oracle. A clean report means the deck is struct
 
 The Issues view groups related findings so deck authors can repair problems systematically. Run Pack Health after importing, generating, duplicating, finalizing, or heavily editing a Loredeck.
 
-## Loredeck Creator
+## Deck Maker
 
 <p align="center">
-  <img src="../../assets/documentation/renders/docs-loredeck-creator-intake.png" alt="Saga Loredeck Creator intake screen" width="800">
+  <img src="../../assets/documentation/renders/docs-loredeck-creator-intake.png" alt="Saga Deck Maker intake screen" width="800">
 </p>
 
-The **Loredeck Creator** is a staged generation workflow. It is deliberately not "ask a model for a whole deck in one response."
+The **Deck Maker** is a staged generation workflow. It is deliberately not "ask a model for a whole deck in one response."
 
 The intended flow is:
 
@@ -103,12 +103,12 @@ The intended flow is:
 7. Pack Health and finalization.
 
 <p align="center">
-  <img src="../../assets/documentation/renders/docs-loredeck-creator-current-task.png" alt="Saga Loredeck Creator current task area" width="800">
+  <img src="../../assets/documentation/renders/docs-loredeck-creator-current-task.png" alt="Saga Deck Maker current task area" width="800">
 </p>
 
 Generated material remains draft material until reviewed. A Generated Lorepack should become a Custom Lorepack only after its entries, Context, tags, and Pack Health are good enough to use.
 
-During Lorecard drafting, Saga separates provider failures from Saga-side schema rejections. If a model returns usable JSON but some Lorecards contain unavailable tags, unknown timeline anchors, or the wrong micro-batch target, Saga keeps valid drafts, records compact rejection details, and can retry affected titles as smaller batches. Use **Auto split failed batches** in Creator generation settings for that automatic recovery path. The Lorecards step can show **Last Lorecard preflight gaps** and **Last Lorecard rejection details**; draft rows can also show **Creator preflight note** or **Creator repair note** before the drafts move to Pending Review.
+During Lorecard drafting, Saga separates provider failures from Saga-side schema rejections. If a model returns usable JSON but some Lorecards contain unavailable tags, unknown timeline anchors, or the wrong micro-batch target, Saga keeps valid drafts, records compact rejection details, and can retry affected titles as smaller batches. Use **Auto split failed batches** in Deck Maker generation settings for that automatic recovery path. The Lorecards step can show **Last Lorecard preflight gaps** and **Last Lorecard rejection details**; draft rows can also show **Deck Maker preflight note** or **Deck Maker repair note** before the drafts move to Pending Review.
 
 ## Context
 
@@ -218,7 +218,7 @@ The preview shows the actual text Saga is preparing for injection. Use it when d
   <img src="../../assets/documentation/renders/docs-settings-providers.png" alt="Saga provider settings" width="800">
 </p>
 
-Saga is model/provider agnostic. Use stronger reasoning models for Context proposals, Creator planning, and complex repairs. Use faster utility models for smaller, lower-risk suggestions. Treat all model output as draft until reviewed.
+Saga is model/provider agnostic. Use stronger reasoning models for Context proposals, Deck Maker planning, and complex repairs. Use faster utility models for smaller, lower-risk suggestions. Treat all model output as draft until reviewed.
 
 <p align="center">
   <img src="../../assets/documentation/renders/docs-settings-theme-pack.png" alt="Saga Theme Pack settings" width="800">
@@ -228,7 +228,7 @@ Theme Packs and Icon Sets are passive data. They can change the shelf's appearan
 
 ## Storage And State Safety
 
-Saga keeps large Saga-owned payloads in SillyTavern `/user/files` instead of storing full Loredecks, Creator projects, Theme Packs, Icon Sets, and passive assets inside `settings.json`.
+Saga keeps large Saga-owned payloads in SillyTavern `/user/files` instead of storing full Loredecks, Deck Maker projects, Theme Packs, Icon Sets, and passive assets inside `settings.json`.
 
 Open **Settings**, switch to **Advanced**, then open **State Safety** to verify tracked storage files, settle queued writes, or clean missing non-index file records. State Safety is for maintenance and recovery.
 
@@ -238,7 +238,7 @@ The Global summary rows refresh from Saga's cleanup preview. **Cleanup file scop
 
 Saga does not migrate old settings-backed payloads in this pre-alpha line. If stale payloads from an older local build remain in settings, use **Total Saga Cleanup** for a full reset or reinstall Saga with a clean state.
 
-Use **Total Saga Cleanup** only when you want a fresh Saga state. It requires typing `DELETE SAGA`, removes stored Saga API keys, deletes custom/imported/generated Loredecks, deletes Creator projects and custom appearance packs, resets the current chat's Saga state, and clears State Safety backups. Bundled content remains available, and Saga recreates storage indexes when new custom content is imported or saved. If cleanup partially fails, Saga leaves one compact State Safety warning in the reset chat so the retry reason remains visible; in Basic, switch to Advanced and open State Safety before retrying.
+Use **Total Saga Cleanup** only when you want a fresh Saga state. It requires typing `DELETE SAGA`, removes stored Saga API keys, deletes custom/imported/generated Loredecks, deletes Deck Maker projects and custom appearance packs, resets the current chat's Saga state, and clears State Safety backups. Bundled content remains available, and Saga recreates storage indexes when new custom content is imported or saved. If cleanup partially fails, Saga leaves one compact State Safety warning in the reset chat so the retry reason remains visible; in Basic, switch to Advanced and open State Safety before retrying.
 
 For the full storage contract, see [Storage And State Safety](STORAGE_AND_STATE_SAFETY.md).
 

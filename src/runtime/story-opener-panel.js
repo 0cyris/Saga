@@ -1,5 +1,5 @@
 /**
- * Session-tab Story Opener Creator panel.
+ * Session-tab Story Maker panel.
  */
 
 import {
@@ -80,8 +80,8 @@ function ensureStoryOpenerStorageHydrated(options = {}) {
     openerUiState.hydrating = true;
     hydrateSagaStoryOpenerStorage()
         .catch(error => {
-            console.warn('[Saga] Story Opener storage hydration failed:', error);
-            toast(error?.message || 'Story Opener storage failed to load.', 'error');
+            console.warn('[Saga] Story Maker storage hydration failed:', error);
+            toast(error?.message || 'Story Maker storage failed to load.', 'error');
         })
         .finally(() => {
             openerUiState.hydrating = false;
@@ -98,8 +98,8 @@ function loadStoryOpenerPayloadIfNeeded(record = {}, options = {}, loadOptions =
             if (loadOptions.activate && payload?.sessionId) saveStoryOpenerSession(payload);
         })
         .catch(error => {
-            console.warn('[Saga] Story Opener session payload failed to load:', error);
-            toast(error?.message || 'Story Opener session payload failed to load.', 'error');
+            console.warn('[Saga] Story Maker session payload failed to load:', error);
+            toast(error?.message || 'Story Maker session payload failed to load.', 'error');
         })
         .finally(() => {
             openerUiState.loadingSessionIds.delete(sessionId);
@@ -114,7 +114,7 @@ function saveStoryOpenerSession(session = {}, options = {}) {
         lastSessionId: session.sessionId,
     });
     if (!result.ok) {
-        toast(result.error || 'Story Opener session could not be saved.', 'error');
+        toast(result.error || 'Story Maker session could not be saved.', 'error');
         return null;
     }
     return result.session || result.payload || session;
@@ -200,7 +200,7 @@ function failRun(session = {}, run = {}, failure = {}) {
         ...run,
         status: 'error',
         failure: normalizeStoryOpenerFailure(failure),
-        message: failure.message || 'Story Opener generation failed.',
+        message: failure.message || 'Story Maker generation failed.',
         updatedAt: Date.now(),
         completedAt: Date.now(),
     });
@@ -391,7 +391,7 @@ function createNewStoryOpener(state = {}, options = {}) {
     const fandomText = sourceIntent.fandoms?.length ? sourceIntent.fandoms.join(', ') : '';
     const session = normalizeStoryOpenerSession({
         sessionId: createStoryOpenerSessionId(context || 'opener'),
-        title: context || 'Story opener',
+        title: context || 'Untitled opener',
         controls: {
             context,
             proseStyle: fandomText ? `${fandomText} prose style for the selected story position` : '',
@@ -610,7 +610,7 @@ function createInputsCard(session = {}, state = {}, options = {}) {
             currentStage: 'context_packet',
             status: 'draft',
         });
-        toast('Story Opener inputs saved.', 'success');
+        toast('Story Maker inputs saved.', 'success');
         refresh(options);
         return next;
     }, 'saga-primary-button'));
@@ -801,7 +801,7 @@ function createReviewCard(session = {}, state = {}, options = {}) {
         }
         try {
             await navigator.clipboard.writeText(selected.text);
-            toast('Story opener copied.', 'success');
+            toast('Opener copied.', 'success');
         } catch (_error) {
             const input = document.createElement('textarea');
             input.value = selected.text;
@@ -811,7 +811,7 @@ function createReviewCard(session = {}, state = {}, options = {}) {
             input.select();
             document.execCommand('copy');
             input.remove();
-            toast('Story opener copied.', 'success');
+            toast('Opener copied.', 'success');
         }
     }, 'saga-primary-button');
     copy.disabled = !selected?.text;
@@ -862,7 +862,7 @@ function createFailureCard(session = {}) {
     title.textContent = failure.code || 'generation_failed';
     card.appendChild(title);
     const message = document.createElement('span');
-    message.textContent = failure.message || 'Story Opener generation failed.';
+    message.textContent = failure.message || 'Story Maker generation failed.';
     card.appendChild(message);
     if (failure.recovery) {
         const recovery = document.createElement('span');
@@ -877,12 +877,12 @@ function createSessionShelf(index = {}, state = {}, options = {}) {
     wrap.className = 'saga-story-opener-shelf';
     const actions = document.createElement('div');
     actions.className = 'saga-primary-actions saga-story-opener-shelf-actions';
-    actions.appendChild(createButton('New Opener', 'Create a new global Story Opener session.', () => createNewStoryOpener(state, options), 'saga-primary-button'));
+    actions.appendChild(createButton('New Opener', 'Create a new Story Maker session.', () => createNewStoryOpener(state, options), 'saga-primary-button'));
     wrap.appendChild(actions);
     const sessions = Object.values(index.sessions || {})
         .sort((left, right) => (Number(right.updatedAt) || 0) - (Number(left.updatedAt) || 0));
     if (!sessions.length) {
-        wrap.appendChild(createEmptyMessage('No Story Opener sessions yet.'));
+        wrap.appendChild(createEmptyMessage('No saved openers yet.'));
         return wrap;
     }
     const picker = document.createElement('details');
@@ -906,7 +906,7 @@ function createSessionShelf(index = {}, state = {}, options = {}) {
         main.type = 'button';
         main.className = 'saga-story-opener-session-main';
         const title = document.createElement('strong');
-        title.textContent = record.title || 'Story opener';
+        title.textContent = record.title || 'Untitled opener';
         main.appendChild(title);
         const meta = document.createElement('span');
         meta.textContent = `${record.currentStage || 'inputs'} | ${record.sourceSummary || record.sourceMode || 'sources'}`;
@@ -921,10 +921,10 @@ function createSessionShelf(index = {}, state = {}, options = {}) {
             loadStoryOpenerPayloadIfNeeded(record, options, { activate: true });
         });
         row.appendChild(main);
-        const del = createButton('Delete', 'Delete this Story Opener session and its payload file.', () => {
+        const del = createButton('Delete', 'Delete this Story Maker session and its payload file.', () => {
             const result = removeExternalStoryOpenerSessionSync(record.sessionId, { sessionFile: record.sessionFile || record.payloadFile });
-            if (!result.ok) toast(result.error || 'Story Opener session could not be deleted.', 'error');
-            else toast('Story Opener session deleted.', 'success');
+            if (!result.ok) toast(result.error || 'Story Maker session could not be deleted.', 'error');
+            else toast('Story Maker session deleted.', 'success');
             refresh(options);
         }, 'saga-story-opener-delete-button');
         row.appendChild(del);
@@ -943,7 +943,7 @@ function renderActiveSession(container, session = {}, state = {}, options = {}) 
     const titleWrap = document.createElement('div');
     const title = document.createElement('div');
     title.className = 'saga-runtime-card-title';
-    title.textContent = session.title || 'Story opener';
+    title.textContent = session.title || 'Untitled opener';
     titleWrap.appendChild(title);
     const subtitle = document.createElement('div');
     subtitle.className = 'saga-runtime-help';
@@ -952,8 +952,8 @@ function renderActiveSession(container, session = {}, state = {}, options = {}) 
     header.appendChild(titleWrap);
     const chips = document.createElement('div');
     chips.className = 'saga-loredeck-row-meta';
-    chips.appendChild(createStatusPill(session.status || 'draft', 'Story Opener session status.', { tone: session.status === 'complete' ? 'success' : session.status === 'blocked' ? 'warning' : 'info', kind: 'status' }));
-    chips.appendChild(createStatusPill(session.currentStage || 'inputs', 'Current Story Opener stage.', { tone: 'source', kind: 'status' }));
+    chips.appendChild(createStatusPill(session.status || 'draft', 'Story Maker session status.', { tone: session.status === 'complete' ? 'success' : session.status === 'blocked' ? 'warning' : 'info', kind: 'status' }));
+    chips.appendChild(createStatusPill(session.currentStage || 'inputs', 'Current Story Maker stage.', { tone: 'source', kind: 'status' }));
     if (session.activeGeneration) chips.appendChild(createStatusPill('Running', session.activeGeneration.message || 'Provider run active.', { tone: 'warning', kind: 'status' }));
     header.appendChild(chips);
     container.appendChild(header);
@@ -970,7 +970,7 @@ export function createStoryOpenerCreatorSection(state = {}, options = {}) {
     mark(options, wrap, 'session.storyOpener');
     const storageStatus = getStoryOpenerStorageStatus();
     if (storageStatus.loading || openerUiState.hydrating) {
-        wrap.appendChild(createEmptyMessage('Loading Story Opener sessions...'));
+        wrap.appendChild(createEmptyMessage('Loading Story Maker sessions...'));
         return wrap;
     }
     if (storageStatus.error) {

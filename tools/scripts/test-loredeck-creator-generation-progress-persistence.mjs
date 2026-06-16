@@ -26,8 +26,8 @@ function extractFunction(source, name) {
 }
 
 const localUpdater = extractFunction(runtimePanelSource, 'updateLoredeckCreatorActiveGenerationLocal');
-assert.ok(localUpdater.includes("loredeckCreatorBriefCache.set('current'"), 'Local active-generation updates should refresh the in-memory Creator job.');
-assert.equal(localUpdater.includes('upsertLoredeckCreatorJob('), false, 'Local active-generation updates must not persist the Creator project payload.');
+assert.ok(localUpdater.includes("loredeckCreatorBriefCache.set('current'"), 'Local active-generation updates should refresh the in-memory Deck Maker job.');
+assert.equal(localUpdater.includes('upsertLoredeckCreatorJob('), false, 'Local active-generation updates must not persist the Deck Maker project payload.');
 assert.equal(localUpdater.includes('setLoredeckCreatorBriefCache('), false, 'Local active-generation updates must not route through the persistent cache helper.');
 
 const ticker = extractFunction(runtimePanelSource, 'startLoredeckCreatorGenerationTicker');
@@ -42,4 +42,4 @@ assert.ok(generationUpdater.includes('updateLoredeckCreatorActiveGenerationLocal
 const progressHandler = extractFunction(runtimePanelSource, 'makeLoredeckCreatorProgressHandler');
 assert.ok(progressHandler.includes("event?.type === 'reasoning'") && progressHandler.includes('persist: false'), 'Reasoning-only progress should update the UI without persisting project storage.');
 
-console.log('Loredeck Creator generation progress persistence tests passed.');
+console.log('Deck Maker generation progress persistence tests passed.');

@@ -525,7 +525,7 @@ export function renderLoredeckLibraryOverlay(options = {}) {
         exportSelected.disabled = !selectedPacks.length;
         markTourTarget(exportSelected, 'loredecks.library.export');
         actions.appendChild(exportSelected);
-        if (!basic) actions.appendChild(createButton('Create Deck', 'Open the staged Loredeck Creator wizard.', () => {
+        if (!basic) actions.appendChild(createButton('Create Deck', 'Open the staged Deck Maker wizard.', () => {
             openLoredeckCreatorWorkbench();
         }));
         actions.appendChild(createButton('Refresh Library', 'Reload active Loredecks and recompute Pack Health.', async (btn) => {
@@ -5044,7 +5044,7 @@ function createLoredeckMetadataEditorCard(pack) {
         actions.appendChild(finalizeButton);
         if (readinessBlocker) {
             if (generatedReadiness.coverageAcknowledgementRequired) {
-                actions.appendChild(createButton('Open Coverage Plan', 'Open the linked Creator project at its adaptive coverage review.', () => {
+                actions.appendChild(createButton('Open Coverage Plan', 'Open the linked Deck Maker project at its adaptive coverage review.', () => {
                     openLoredeckCreatorWorkbench({ generatedPackId: pack.packId, anchor: 'coverage-plan' });
                 }, 'saga-primary-button'));
             }

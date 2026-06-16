@@ -14,7 +14,7 @@ This document records the public terminology for Saga after the Loredeck/Lore En
 | Built into Saga and human-vetted | Bundled Lorepack | Bundled Loredeck |
 | Created by Saga's model-assisted creator | Generated Lorepack | Generated Loredeck |
 | User-created, user-edited, imported, AU, crossover, or shared | Custom Lorepack | Custom Loredeck |
-| Deck creation workflow | Loredeck Creator | Loredeck Creator |
+| Deck creation workflow | Deck Maker | Deck Maker |
 | Deck browsing and management | Loredeck Library | Loredeck Library |
 | Ordered loaded deck list | Active Stack | Loredeck Stack |
 

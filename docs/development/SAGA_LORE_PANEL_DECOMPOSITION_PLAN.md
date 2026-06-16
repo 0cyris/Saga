@@ -48,7 +48,7 @@ Phase 4 progress:
 
 - `loredeck-library-panel.js` now owns the fullscreen Loredeck Library open/close state, render tree, search/sort/filter state, details-panel height/collapse state, folder collapse state, bulk selection state, drag state, cover resize observer, Library scroll preservation, inline folder rows, Active Stack rows, details tabs, cover import/remove UI, and Library folder management UI.
 - `lore-panel.js` configures the Library module through `configureLoredeckLibraryPanel(...)` with callbacks for state access, stack mutations, validation, Creator launch/finalize flows, import/export, duplicate/delete, metadata editing, manifest preview, and editor-detail panels that still live outside the Library module.
-- `lore-panel.js` imports the Library helpers still needed by the compact Loredecks tab, Creator project shelf, Context/Creator cross-links, import/export flows, duplicate/delete flows, stack mutations, and Health Center context.
+- `lore-panel.js` imports the Library helpers still needed by the compact Loredecks tab, Deck Maker project shelf, Context/Creator cross-links, import/export flows, duplicate/delete flows, stack mutations, and Health Center context.
 - The Library extraction intentionally leaves mutation-heavy helpers and editor repair surfaces in `lore-panel.js` until their owner modules are extracted. This avoids pulling Creator, pending-review, and metadata editor code into the Library module.
 - Current post-extraction line count: `lore-panel.js` is 28,904 lines, `loredeck-library-panel.js` is 4,103 lines, `loredeck-health-panel.js` is 1,580 lines, `runtime-theme.js` is 740 lines, and `runtime-ui-kit.js` is 507 lines.
 - Validation passed with `node --check` on `loredeck-library-panel.js`, `loredeck-health-panel.js`, `lore-panel.js`, and `index.js`; ES module import smoke passed for `loredeck-library-panel.js`, `loredeck-health-panel.js`, and `lore-panel.js`; a fake-data helper smoke passed for Library index, pack map, folder assignment, and open-state access; a conservative unresolved-call inventory found no real missing Library bridge functions.
@@ -56,21 +56,21 @@ Phase 4 progress:
 
 Phase 5 progress:
 
-- `loredecks-tab-panel.js` now owns the compact Loredecks tab render surface, Loredeck Library launch card, in-progress Creator project shelf, Creator project search/filter/folder-filter state, Creator project bulk selection state, project shelf cards, project folder move UI, project delete/rename/open actions, and Creator project shelf resume routing.
-- `lore-panel.js` configures the tab module through `configureLoredecksTabPanel(...)` with callbacks for panel refreshes, tour target marking, deck import, Creator workbench opening, Library and Creator cross-links, Generated Loredeck readiness, active generation attachment/recovery, and current Creator draft input synchronization.
-- `loredecks-tab-panel.js` imports durable project registry actions from `state-manager.js`, Creator project view-model construction from `loredeck-creator-projects.js`, Library folder helpers from the existing Library modules, and reusable UI primitives from `runtime-ui-kit.js`.
+- `loredecks-tab-panel.js` now owns the compact Loredecks tab render surface, Loredeck Library launch card, in-progress Deck Maker project shelf, Deck Maker project search/filter/folder-filter state, Deck Maker project bulk selection state, project shelf cards, project folder move UI, project delete/rename/open actions, and Deck Maker project shelf resume routing.
+- `lore-panel.js` configures the tab module through `configureLoredecksTabPanel(...)` with callbacks for panel refreshes, tour target marking, deck import, Deck Maker workbench opening, Library and Creator cross-links, Generated Loredeck readiness, active generation attachment/recovery, and current Deck Maker draft input synchronization.
+- `loredecks-tab-panel.js` imports durable project registry actions from `state-manager.js`, Deck Maker project view-model construction from `loredeck-creator-projects.js`, Library folder helpers from the existing Library modules, and reusable UI primitives from `runtime-ui-kit.js`.
 - Current post-extraction line count: `lore-panel.js` is 28,275 lines, `loredecks-tab-panel.js` is 728 lines, `loredeck-library-panel.js` is 4,103 lines, `loredeck-health-panel.js` is 1,580 lines, `runtime-theme.js` is 740 lines, and `runtime-ui-kit.js` is 507 lines.
 - Validation passed with `node --check` on `loredecks-tab-panel.js`, `lore-panel.js`, `loredeck-library-panel.js`, `loredeck-health-panel.js`, and `index.js`; ES module import smoke passed for the Loredecks tab, Library, Health, and panel modules; a conservative unresolved-call inventory found no real missing Loredecks tab bridge functions.
-- Browser visual smoke is still required for Open Library, Create Deck, Creator project resume, Creator project rename/delete, project folder filtering, bulk selection, and linked Generated Loredeck Library routing.
+- Browser visual smoke is still required for Open Library, Create Deck, Deck Maker project resume, Deck Maker project rename/delete, project folder filtering, bulk selection, and linked Generated Loredeck Library routing.
 
 Phase 6 progress:
 
-- `loredeck-creator-panel.js` now owns the Creator fullscreen overlay shell, workbench body refresh, scroll-anchor preservation, queued workbench refresh scheduling, generation status row rendering, generation elapsed/snippet formatting, wait-message text, pipeline header, stage roadmap, workbench anchor scrolling, shared Creator artifact disclosure shell, current-task display card, current-task output grid, current-task sidebar panels, Scope Brief review display, Story Outline review display, outline row normalization/display, shared assumptions/risks list rendering, Title Pass draft normalization, Title Pass batch lookup helpers, Title Pass revision compaction, Title Pass quality-warning counting, the read-only Title Set Plan renderer, the Title Pass card shell, the Title Pass action row, the Title Pass revision form, Title Pass row rendering, the Context Plan card shell, Context Plan batch planner rows, the Lorecard Drafts card shell/action UI, the Creator-specific Pending Review wrapper, and the Deck Health/Finalize readiness-card shell.
-- `lore-panel.js` configures the Creator panel through `configureLoredeckCreatorPanel(...)` with callbacks for state access, Creator job cache lookup, pipeline model construction, card rendering, interrupted-generation recovery, active generation cancellation, current draft input labels, granularity label formatting, current-task action rendering, recoverable-unit lookup, recovery-stage labels, relative time formatting, Scope Brief revision-form rendering, Story Outline action-form rendering, Title Pass selection lookup, Title Pass generation settings, Title Pass generation/remaining handlers, Title Pass selection mutations, Title Pass revision-instruction storage, Title Pass quality pill/list rendering, Title Pass JSON editor opening, Context Plan batch lookup, Context Plan pending-count lookup, Context Plan generation handling, Generated Loredeck lookup, Library detail opening, stack lookup, stack mutation, Lorecard Draft progress lookup, Lorecard Draft generation handling, draft-review cache lookup, draft-review batch rendering, generic Pending Review card rendering, Deck Health/Finalize readiness view-model construction, and confirmation prompts.
+- `loredeck-creator-panel.js` now owns Deck Maker fullscreen overlay shell, workbench body refresh, scroll-anchor preservation, queued workbench refresh scheduling, generation status row rendering, generation elapsed/snippet formatting, wait-message text, pipeline header, stage roadmap, workbench anchor scrolling, shared Creator artifact disclosure shell, current-task display card, current-task output grid, current-task sidebar panels, Scope Brief review display, Story Outline review display, outline row normalization/display, shared assumptions/risks list rendering, Title Pass draft normalization, Title Pass batch lookup helpers, Title Pass revision compaction, Title Pass quality-warning counting, the read-only Title Set Plan renderer, the Title Pass card shell, the Title Pass action row, the Title Pass revision form, Title Pass row rendering, the Context Plan card shell, Context Plan batch planner rows, the Lorecard Drafts card shell/action UI, Deck Maker-specific Pending Review wrapper, and the Deck Health/Finalize readiness-card shell.
+- `lore-panel.js` configures Deck Maker panel through `configureLoredeckCreatorPanel(...)` with callbacks for state access, Deck Maker job cache lookup, pipeline model construction, card rendering, interrupted-generation recovery, active generation cancellation, current draft input labels, granularity label formatting, current-task action rendering, recoverable-unit lookup, recovery-stage labels, relative time formatting, Scope Brief revision-form rendering, Story Outline action-form rendering, Title Pass selection lookup, Title Pass generation settings, Title Pass generation/remaining handlers, Title Pass selection mutations, Title Pass revision-instruction storage, Title Pass quality pill/list rendering, Title Pass JSON editor opening, Context Plan batch lookup, Context Plan pending-count lookup, Context Plan generation handling, Generated Loredeck lookup, Library detail opening, stack lookup, stack mutation, Lorecard Draft progress lookup, Lorecard Draft generation handling, draft-review cache lookup, draft-review batch rendering, generic Pending Review card rendering, Deck Health/Finalize readiness view-model construction, and confirmation prompts.
 - The completed Phase 6 slices intentionally leave current-task action behavior, Scope Brief revision behavior, Story Outline draft/revision/approval behavior, Title Pass provider-call behavior, Title Pass selection/cache mutation behavior, Title Pass JSON editor mutation behavior, Context Plan provider-call behavior, Context Plan generated-pack mutation behavior, Lorecard Draft provider-call behavior, Lorecard Draft review-cache mutation behavior, the generic Pending Review card and its mutation paths, Deck Health validation/finalization actions, generated-export readiness calculation, model-call execution, response repair, and retry/recovery unit actions in `lore-panel.js` until they can be moved in smaller stage-specific passes.
 - Current post-extraction line count: `lore-panel.js` is 27,067 lines, `loredeck-creator-panel.js` is 1,489 lines, `loredecks-tab-panel.js` is 728 lines, `loredeck-library-panel.js` is 4,103 lines, `loredeck-health-panel.js` is 1,580 lines, `runtime-theme.js` is 740 lines, and `runtime-ui-kit.js` is 507 lines.
-- Validation passed with `node --check` on `loredeck-creator-panel.js`, `lore-panel.js`, `loredecks-tab-panel.js`, `loredeck-library-panel.js`, `loredeck-health-panel.js`, and `index.js`; ES module import smoke passed for the Creator panel and main panel modules after Deck Health/Finalize readiness-card extraction.
-- SillyTavern browser smoke passed at `http://127.0.0.1:8000/`: Saga loaded, Loredecks tab opened, the in-progress Creator project resumed, all eight Creator stages rendered, extracted Pending Review and Deck Health/Finalize cards rendered, Pending Review routing scrolled to the queue after smooth-scroll settle, close/reopen restored the Creator, and no browser console errors were observed. No model-call buttons were pressed during smoke, so duplicate-click suppression was preserved by avoiding new generation calls.
+- Validation passed with `node --check` on `loredeck-creator-panel.js`, `lore-panel.js`, `loredecks-tab-panel.js`, `loredeck-library-panel.js`, `loredeck-health-panel.js`, and `index.js`; ES module import smoke passed for Deck Maker panel and main panel modules after Deck Health/Finalize readiness-card extraction.
+- SillyTavern browser smoke passed at `http://127.0.0.1:8000/`: Saga loaded, Loredecks tab opened, the in-progress Deck Maker project resumed, all eight Deck Maker stages rendered, extracted Pending Review and Deck Health/Finalize cards rendered, Pending Review routing scrolled to the queue after smooth-scroll settle, close/reopen restored Deck Maker, and no browser console errors were observed. No model-call buttons were pressed during smoke, so duplicate-click suppression was preserved by avoiding new generation calls.
 - The standalone visual-smoke server at `http://127.0.0.1:8776/` was not running during this pass; the smoke used the live SillyTavern page instead.
 
 Phase 7 progress:
@@ -158,7 +158,7 @@ Large responsibility clusters:
 
 ```text
 1-2100        imports, configuration bridges, public panel API, runtime shell
-2101-6700     Loredeck Creator provider-call and mutation controllers
+2101-6700     Deck Maker provider-call and mutation controllers
 6701-7800     Context editor/workbench controller behavior
 7801-14900    Loredeck import/export, editor details, assistant, pending review, tag/timeline mutation surfaces
 14901-15556   Loredeck pending-review, generated-pack finalization, duplicate/delete, and editor mutation surfaces
@@ -289,7 +289,7 @@ Responsibilities:
 
 - The compact Loredecks tab.
 - Loredeck Library launcher.
-- Creator project shelf.
+- Deck Maker project shelf.
 - In-progress Generated Loredeck cards.
 
 This module should not contain the fullscreen Library itself.
@@ -331,13 +331,13 @@ Validation rules should remain in `loredeck-loader.js` or dedicated health helpe
 
 Responsibilities:
 
-- Creator workbench shell.
+- Deck Maker workbench shell.
 - stage header.
 - current task panel.
 - status/progress UI.
 - generated project review surfaces.
-- Creator action buttons.
-- Pending Review routing from the Creator.
+- Deck Maker action buttons.
+- Pending Review routing from Deck Maker.
 
 Generation orchestration should stay in `generation-job-runner.js`, `loredeck-creator-projects.js`, and `loredeck-assistant.js` where possible.
 
@@ -660,7 +660,7 @@ Exit criteria:
 - search, sort, folder expand/collapse, selection, shift-select, duplicate, delete, import, export, cover import/remove, active stack add/remove, folder stack groups, drag reorder, drag between columns, and details collapse still work.
 - No scroll snap regressions.
 
-### Phase 5: Extract Loredecks Tab And Creator Project Shelf
+### Phase 5: Extract Loredecks Tab And Deck Maker Project Shelf
 
 Goal: separate the compact Loredecks tab from the fullscreen Library and Creator.
 
@@ -668,7 +668,7 @@ Tasks:
 
 - Move `renderLoredecksTab`.
 - Move Library launch card.
-- Move Creator project shelf.
+- Move Deck Maker project shelf.
 - Keep project mutations in `loredeck-creator-projects.js` or dedicated project helpers.
 
 Exit criteria:
@@ -677,14 +677,14 @@ Exit criteria:
 - Open Library and Create Deck buttons work.
 - unfinished Generated Loredeck projects still display and resume.
 
-### Phase 6: Extract Loredeck Creator Panel
+### Phase 6: Extract Deck Maker Panel
 
 Goal: isolate the staged Creator UI after the UI kit and project shelf are stable.
 
 Tasks:
 
-- Move Creator workbench shell and stage rendering.
-- Move Creator status/progress UI.
+- Move Deck Maker workbench shell and stage rendering.
+- Move Deck Maker status/progress UI.
 - Move stage cards one stage at a time if needed:
   - Scope Brief.
   - Story Outline.
@@ -710,7 +710,7 @@ Exit criteria:
 
 - Resume in-progress projects.
 - Draft brief, outline, titles, planning, and entries still work.
-- Active model-call status survives closing/reopening the Creator.
+- Active model-call status survives closing/reopening Deck Maker.
 - Pending Review routing still works.
 
 ### Phase 7: Extract Context Tab And Context Workbench
@@ -886,7 +886,7 @@ Minimum manual smoke checklist:
 - all sidebar tabs switch without disappearing.
 - Loredeck Library opens and closes.
 - Deck Health Center opens and refreshes without scroll snap.
-- Loredeck Creator opens and resumes project state.
+- Deck Maker opens and resumes project state.
 - Context tab renders loaded Loredeck Context rows.
 - Lorecards tab renders accepted and pending entries.
 - Settings tab opens.
@@ -1002,4 +1002,4 @@ Target line-count direction:
 - feature panel modules: ideally under 5k lines each.
 - pure service/helper modules: small and testable.
 
-The real success metric is not line count alone. The success metric is that a change to the Loredeck Library no longer risks breaking Creator generation, Context resolution, Theme Packs, or Lorecard review.
+The real success metric is not line count alone. The success metric is that a change to the Loredeck Library no longer risks breaking Deck Maker generation, Context resolution, Theme Packs, or Lorecard review.

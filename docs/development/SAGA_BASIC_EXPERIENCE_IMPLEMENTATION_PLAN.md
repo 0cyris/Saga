@@ -53,7 +53,7 @@ Relevant implementation points when this feature slice started:
 - Basic Lorecards now uses the shared Lorecard Generation, Pending Lorecard Review, and Accepted Lorecards sections while hiding prompt-engineering controls and adding an Advanced Injection handoff.
 - The dedicated Basic Injection tab implementation has been retired.
 - Basic Context now keeps shared Context labels while hiding Advanced Context diagnostics.
-- Basic Loredecks now reuses the shared Loredeck Library loading section, keeps Import Deck visible, and hides Create Deck plus In-Progress Creator Projects behind Advanced.
+- Basic Loredecks now reuses the shared Loredeck Library loading section, keeps Import Deck visible, and hides Create Deck plus In-Progress Deck Maker Projects behind Advanced.
 - Basic Settings now keeps Providers simplified while rendering the full shared Theme Pack section.
 - Starter Basic and Advanced user workflow docs are in place.
 
@@ -296,7 +296,7 @@ Tasks:
 1. Reuse the same Loredecks tab structure in Basic and Advanced.
 2. Keep **Loredeck Library** as the visible loading section in both modes.
 3. Keep **Import Deck** visible in Basic and Advanced.
-4. Hide **Create Deck** and **In-Progress Creator Projects** in Basic.
+4. Hide **Create Deck** and **In-Progress Deck Maker Projects** in Basic.
 5. Do not introduce Basic-only stack cards, renamed buttons, or plain readiness labels that teach a different Loredecks workflow.
 6. Let the Start checklist point users to the shared Library workflow.
 
@@ -305,7 +305,7 @@ Acceptance:
 - Basic Loredecks shows **Loredeck Library**.
 - Basic Loredecks shows **Import Deck**.
 - Basic Loredecks does not show **Create Deck**.
-- Basic Loredecks does not show **In-Progress Creator Projects**.
+- Basic Loredecks does not show **In-Progress Deck Maker Projects**.
 - Basic and Advanced Loredecks share the Library loading workflow.
 - The Start checklist directs users to open the Library and add a deck to the active stack.
 - No Basic-only Loredecks layout or CSS remains.
@@ -368,7 +368,7 @@ Add checks:
 10. Basic Context hides Advanced Context Brief and other Advanced Context diagnostics.
 11. Basic Context prioritizes Browse Context and presents proposals as proposals.
 12. Basic Loredecks reuses the shared Loredecks tab structure.
-13. Basic Loredecks shows Loredeck Library and Import Deck while hiding Create Deck and In-Progress Creator Projects.
+13. Basic Loredecks shows Loredeck Library and Import Deck while hiding Create Deck and In-Progress Deck Maker Projects.
 14. Basic Settings exposes Providers and Theme Pack.
 15. Basic Settings keeps provider internals behind Advanced while sharing the full Theme Pack surface.
 
@@ -410,7 +410,7 @@ http://127.0.0.1:8765/tests/browser/visual-smoke.html?mode=advanced&tab=injectio
 - Full Start Checklist redesign beyond readiness status.
 - Continuity simplification.
 - Full provider setup redesign beyond quick status, testing, and Advanced handoff.
-- Loredeck Creator UX changes.
+- Deck Maker UX changes.
 - Pack Health redesign.
 - Import/export simplification.
 - Full release-facing documentation beyond the starter Basic and Advanced workflow pages.

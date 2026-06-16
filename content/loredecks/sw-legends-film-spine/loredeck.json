@@ -111,7 +111,7 @@
   },
   "generatedBy": {
     "tool": "ChatGPT",
-    "workflow": "Saga Loredeck Creator staged workflow",
+    "workflow": "Saga Deck Maker staged workflow",
     "reviewStatus": "draft",
     "expandedFrom": "v0.2.0-dev",
     "curationPass": {

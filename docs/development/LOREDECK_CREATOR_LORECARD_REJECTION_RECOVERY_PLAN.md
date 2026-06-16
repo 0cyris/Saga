@@ -1,8 +1,8 @@
-# Loredeck Creator Lorecard Rejection Recovery Plan
+# Deck Maker Lorecard Rejection Recovery Plan
 
-Status: complete. Phase 1 diagnostic foundation, Phase 2 target preflight, the first Phase 3 deterministic omitted-tag cleanup, Phase 4 partial-result metadata, Phase 5 all-rejected retryable failures, Phase 6 automatic smaller retry plus per-run rejected-target retry limits, Phase 7 rejected-target retry context and explicit timeline filtering, Phase 8 rejection/repair UX slices, Phase 9 progress-write coalescing, and Phase 10 verification are implemented. Creator Lorecard prompts now receive explicit `allowedEntryTags`, `suggestedTags`, and `omittedTitleTags`; rejected guard results return compact structured diagnostics; title-sourced omitted tags can be dropped safely before Draft Review; entry micro-batch result refs include rejected-target metadata; all-rejected schema-guard batches become typed retryable failures; rejected targets are retried as one-title batches when smaller retries are enabled; one-title retries include compact `previousRejection` context; one-title retry prompts shrink accepted tags and explicit title-bound timeline IDs when available; split retries use the Reasoning Provider by default and can opt into the Utility Provider with automatic Reasoning fallback; exhausted retry targets are skipped for the rest of the current auto-draft run; Lorecards shows last preflight gaps, last rejection details, per-draft preflight notes, and per-draft repair notes; live Creator generation progress writes coalesce while start/run/unit checkpoints remain immediate; repeated upload counts stay an internal storage regression signal rather than a State Safety warning; and the alpha gate passes with the rejection-recovery and Creator storage tests included.
+Status: complete. Phase 1 diagnostic foundation, Phase 2 target preflight, the first Phase 3 deterministic omitted-tag cleanup, Phase 4 partial-result metadata, Phase 5 all-rejected retryable failures, Phase 6 automatic smaller retry plus per-run rejected-target retry limits, Phase 7 rejected-target retry context and explicit timeline filtering, Phase 8 rejection/repair UX slices, Phase 9 progress-write coalescing, and Phase 10 verification are implemented. Deck Maker Lorecard prompts now receive explicit `allowedEntryTags`, `suggestedTags`, and `omittedTitleTags`; rejected guard results return compact structured diagnostics; title-sourced omitted tags can be dropped safely before Draft Review; entry micro-batch result refs include rejected-target metadata; all-rejected schema-guard batches become typed retryable failures; rejected targets are retried as one-title batches when smaller retries are enabled; one-title retries include compact `previousRejection` context; one-title retry prompts shrink accepted tags and explicit title-bound timeline IDs when available; split retries use the Reasoning Provider by default and can opt into the Utility Provider with automatic Reasoning fallback; exhausted retry targets are skipped for the rest of the current auto-draft run; Lorecards shows last preflight gaps, last rejection details, per-draft preflight notes, and per-draft repair notes; live Deck Maker generation progress writes coalesce while start/run/unit checkpoints remain immediate; repeated upload counts stay an internal storage regression signal rather than a State Safety warning; and the alpha gate passes with the rejection-recovery and Creator storage tests included.
 
-This plan covers the Loredeck Creator failure mode where a Lorecard drafting provider call succeeds, but Saga rejects some or all returned Lorecard drafts before they reach Creator Draft Review. It is a focused companion to the broader Health Center `Attempt Fixing` work and the Creator batching architecture.
+This plan covers the Deck Maker failure mode where a Lorecard drafting provider call succeeds, but Saga rejects some or all returned Lorecard drafts before they reach Deck Maker Draft Review. It is a focused companion to the broader Health Center `Attempt Fixing` work and the Deck Maker batching architecture.
 
 ## Problem
 
@@ -10,11 +10,11 @@ Users can experience Lorecard drafting as "half the provider calls are rejected"
 
 - The model call can finish normally with visible JSON and `finish_reason: stop`.
 - Saga then guards the generated Lorecards against schema v3 tag and timeline references.
-- Unknown tags or anchors can reject a draft before it appears in Creator Draft Review.
+- Unknown tags or anchors can reject a draft before it appears in Deck Maker Draft Review.
 - If every proposal in a micro-batch is rejected by the guard, the batch can look complete to the generation runner instead of retryable.
 - `Retry attempts` helps malformed, empty, or failed provider units, but does not reliably help valid JSON that fails Creator schema guardrails.
 - `Prefer smaller retries` exists, but the smaller-batch path is mostly a manual recovery affordance instead of the default automatic fallback.
-- The console can be flooded by repeated Creator project and storage index writes, making it harder to see the actual failure.
+- The console can be flooded by repeated Deck Maker project and storage index writes, making it harder to see the actual failure.
 
 Observed Arlong Park example:
 
@@ -23,23 +23,23 @@ Observed Arlong Park example:
 - The accepted tag registry shown in that prompt did not include `location:cocoyashi`.
 - If the model repeats that title tag into the Lorecard entry, the strict schema v3 guard rejects the draft as an unknown tag reference.
 
-The core issue is not "the provider rejected the call." It is that Saga needs a clearer recovery pipeline for provider-successful but schema-rejected Creator Lorecard drafts.
+The core issue is not "the provider rejected the call." It is that Saga needs a clearer recovery pipeline for provider-successful but schema-rejected Deck Maker Lorecard drafts.
 
 ## Goals
 
-- Make Creator Lorecard drafting distinguish provider failures from Saga-side draft rejections.
+- Make Deck Maker Lorecard drafting distinguish provider failures from Saga-side draft rejections.
 - Preflight target title drafts before a Lorecard model call so invalid title tags or anchors do not poison the prompt.
 - Preserve valid Lorecards from a mixed-quality batch.
 - Automatically retry only rejected titles, using smaller batches when useful.
 - Treat an all-rejected micro-batch as a retryable unit instead of a silent no-op.
 - Use deterministic local cleanup where safe before spending another provider call.
-- Show clear draft rejection diagnostics in the Creator UI.
+- Show clear draft rejection diagnostics in Deck Maker UI.
 - Reduce noisy duplicate storage writes during multi-batch Creator runs.
 
 ## Non-Goals
 
 - Do not relax schema v3 health requirements for final Lorecards.
-- Do not auto-accept Lorecards into the generated pack. They still go through Creator Draft Review and Pending Review.
+- Do not auto-accept Lorecards into the generated pack. They still go through Deck Maker Draft Review and Pending Review.
 - Do not bypass Context and Tag Planning. If title drafts depend on missing registry entries, Saga should either sanitize safe references or point to the planning gap.
 - Do not make raw model output a normal user-facing surface.
 - Do not parallelize Lorecard drafting by default.
@@ -50,7 +50,7 @@ The core issue is not "the provider rejected the call." It is that Saga needs a 
 Primary files:
 
 - `src/loredecks/loredeck-assistant.js`
-  - Creator Lorecard drafting prompt and payload contract.
+  - Deck Maker Lorecard drafting prompt and payload contract.
 - `src/runtime/lore-panel.js`
   - `requestLoredeckCreatorEntryResponse`
   - `repairLoredeckCreatorEntryResponse`
@@ -68,7 +68,7 @@ Primary files:
 - `src/generation/generation-job-runner.js`
   - Shared unit lifecycle, retry, repair, parse, and commit flow.
 - `src/storage/saga-creator-project-storage.js`
-  - Creator project persistence.
+  - Deck Maker project persistence.
 - `src/storage/saga-domain-storage.js`
   - Storage index persistence and domain write helpers.
 
@@ -83,7 +83,7 @@ Related planning docs:
 
 - Provider success and Creator acceptance are separate states.
 - Retry should be based on rejected target titles, not on the original whole batch.
-- The Creator should keep every valid draft it can safely preserve.
+- Deck Maker should keep every valid draft it can safely preserve.
 - A title draft should never send an invalid registry reference to the Lorecard prompt as if it were allowed.
 - The model should receive compact allowed reference lists, not contradictory "suggested but forbidden" references.
 - All-rejected batches need typed errors, not generic empty results.
@@ -94,7 +94,7 @@ Related planning docs:
 
 Objective: make draft rejection reasons structured and visible.
 
-Add a Creator Lorecard rejection diagnostic shape:
+Add a Deck Maker Lorecard rejection diagnostic shape:
 
 ```js
 {
@@ -125,20 +125,20 @@ Tasks:
   - `missing_entry_payload`
   - `invalid_schema_shape`
   - `all_proposals_rejected`
-- Store only compact diagnostics in Creator generation state.
-- Avoid storing raw model output in persistent Creator project files.
+- Store only compact diagnostics in Deck Maker generation state.
+- Avoid storing raw model output in persistent Deck Maker project files.
 
 Acceptance:
 
 - A rejected draft can be traced to the exact title, entry ID, and guard reason.
-- The Creator UI can say `Rejected 2 Lorecards: unknown tag location:cocoyashi` instead of a generic invalid schema message.
+- Deck Maker UI can say `Rejected 2 Lorecards: unknown tag location:cocoyashi` instead of a generic invalid schema message.
 - Existing successful draft queueing behavior is unchanged for clean batches.
 
 ## Phase 2: Title Target Preflight
 
 Objective: prevent invalid title draft references from entering the Lorecard prompt as allowed references.
 
-Add a preflight helper near the Creator entry drafting path:
+Add a preflight helper near the Deck Maker entry drafting path:
 
 ```js
 preflightLoredeckCreatorEntryTargets({
@@ -212,7 +212,7 @@ Tasks:
 
 Acceptance:
 
-- A Lorecard that only repeats an invalid title-stage tag can still reach Creator Draft Review after the tag is dropped.
+- A Lorecard that only repeats an invalid title-stage tag can still reach Deck Maker Draft Review after the tag is dropped.
 - Unknown anchors remain strict unless deterministic repair is possible.
 - Users can see that a tag was dropped before Draft Review.
 
@@ -225,7 +225,7 @@ Tasks:
 - When a micro-batch contains mixed valid and invalid proposals, queue the valid `entry` changes immediately.
 - Track rejected title IDs separately from queued title IDs.
 - Update entry draft progress so queued valid drafts reduce the remaining count, while rejected titles remain pending.
-- Ensure replacement logic only replaces the current unit's draft changes and does not remove unrelated Creator Draft Review items.
+- Ensure replacement logic only replaces the current unit's draft changes and does not remove unrelated Deck Maker Draft Review items.
 - Add a compact result ref:
 
 ```js
@@ -240,7 +240,7 @@ Tasks:
 
 Acceptance:
 
-- If a 3-card batch has 2 valid drafts and 1 rejected draft, the 2 valid drafts appear in Creator Draft Review.
+- If a 3-card batch has 2 valid drafts and 1 rejected draft, the 2 valid drafts appear in Deck Maker Draft Review.
 - The rejected title remains pending and can be retried automatically.
 - Re-running the failed unit does not delete previously queued valid drafts from a different unit.
 
@@ -252,11 +252,11 @@ Current behavior to fix:
 
 - The generation runner can treat a unit as complete after parsing and commit callback return.
 - `commitLoredeckCreatorEntryDraftResult` can return `queued: false` when every proposal was rejected.
-- That path should be considered a retryable Creator entry drafting failure, not a successful empty unit.
+- That path should be considered a retryable Deck Maker entry drafting failure, not a successful empty unit.
 
 Tasks:
 
-- Add a typed Creator generation error, tentatively:
+- Add a typed Deck Maker generation error, tentatively:
   - `creator_entry_guard_rejected_all`
   - `creator_entry_guard_rejected_partial`
 - In `commitParsedResult` for entry micro-batches:
@@ -340,7 +340,7 @@ Acceptance:
 
 Objective: make the failure and recovery flow legible.
 
-Status: implemented. The advanced generation toggle formerly labeled `Prefer smaller retries` is now `Auto split failed batches`, with tooltip copy that explicitly mentions Lorecard micro-batch failures and schema guardrail rejections. The Lorecards section now surfaces the last pass outcome, including queued Draft Review count, rejected draft count, affected target IDs, and compact warning detail. Creator jobs now persist compact last-preflight and last-rejection summary/diagnostics, and the Lorecards section exposes non-raw `Last Lorecard preflight gaps` and `Last Lorecard rejection details` panels with reason counts, omitted or unknown references, affected targets, and compact guard messages. Preflight omissions now also attach to affected Creator draft preview metadata and render as per-draft preflight notes in Creator Lorecard Draft Review. Deterministic guard cleanup warnings attach separately and render as per-draft repair notes.
+Status: implemented. The advanced generation toggle formerly labeled `Prefer smaller retries` is now `Auto split failed batches`, with tooltip copy that explicitly mentions Lorecard micro-batch failures and schema guardrail rejections. The Lorecards section now surfaces the last pass outcome, including queued Draft Review count, rejected draft count, affected target IDs, and compact warning detail. Deck Maker jobs now persist compact last-preflight and last-rejection summary/diagnostics, and the Lorecards section exposes non-raw `Last Lorecard preflight gaps` and `Last Lorecard rejection details` panels with reason counts, omitted or unknown references, affected targets, and compact guard messages. Preflight omissions now also attach to affected Deck Maker draft preview metadata and render as per-draft preflight notes in Deck Maker Lorecard Draft Review. Deterministic guard cleanup warnings attach separately and render as per-draft repair notes.
 
 Tasks:
 
@@ -351,7 +351,7 @@ Tasks:
   - Rename `Prefer smaller retries` to `Auto split failed batches`.
   - Keep tooltip copy precise: "When a Lorecard micro-batch fails or is rejected by schema guardrails, retry the affected titles in smaller batches."
 - Add draft-review preview warnings for deterministic tag drops.
-- Add a diagnostic action to view the last Creator Lorecard rejection summary without raw provider output.
+- Add a diagnostic action to view the last Deck Maker Lorecard rejection summary without raw provider output.
 - Do not make users review a separate rejection list unless there are ambiguous choices.
 
 Acceptance:
@@ -362,22 +362,22 @@ Acceptance:
 
 ## Phase 9: Storage Write Debouncing
 
-Objective: reduce noisy repeated Creator project and index writes during draft runs.
+Objective: reduce noisy repeated Deck Maker project and index writes during draft runs.
 
-Status: implemented for live active-generation progress writes. `setLoredeckCreatorBriefCache` can opt into Creator project storage write coalescing with `coalesceStorageWrite`; ticker and stream/progress updates use it, while generation start and runner run/unit checkpoints keep immediate writes. Creator project persistence now also preserves explicit `activeGeneration`/`lastGenerationResult` clears and removes stale compact index task fields when a run is superseded or finished.
+Status: implemented for live active-generation progress writes. `setLoredeckCreatorBriefCache` can opt into Deck Maker project storage write coalescing with `coalesceStorageWrite`; ticker and stream/progress updates use it, while generation start and runner run/unit checkpoints keep immediate writes. Deck Maker project persistence now also preserves explicit `activeGeneration`/`lastGenerationResult` clears and removes stale compact index task fields when a run is superseded or finished.
 
 Observed console pattern:
 
 - The Arlong Park console clip showed repeated uploads:
   - `saga-storage-index.v1.json`
   - `saga-creator-index.v1.json`
-  - the active Creator project file
+  - the active Deck Maker project file
 
 Tasks:
 
-- Audit Creator generation progress and cache writes during `handleLoredeckCreatorEntryDraft`.
+- Audit Deck Maker generation progress and cache writes during `handleLoredeckCreatorEntryDraft`.
 - Identify duplicate writes that happen inside the same UI refresh or generation checkpoint.
-- Add a narrow write coalescing helper for Creator project storage, tentatively:
+- Add a narrow write coalescing helper for Deck Maker project storage, tentatively:
 
 ```js
 withCreatorProjectWriteBatch(projectId, async () => {
@@ -400,7 +400,7 @@ Acceptance:
 
 Objective: prove the recovery behavior without requiring live provider calls.
 
-Status: implemented and verified on 2026-06-13. The focused Creator Lorecard rejection-recovery tests and Creator project storage coalescing regression are registered in `tools/scripts/run-alpha-gate.mjs`, and the full alpha gate passes with those tests included.
+Status: implemented and verified on 2026-06-13. The focused Deck Maker Lorecard rejection-recovery tests and Deck Maker project storage coalescing regression are registered in `tools/scripts/run-alpha-gate.mjs`, and the full alpha gate passes with those tests included.
 
 Current verification:
 
@@ -433,7 +433,7 @@ Add focused tests:
   - reasoning-only remains distinct from schema guard rejection.
   - malformed JSON still uses the repair path before retry.
 - Extend visual smoke coverage:
-  - Creator Lorecards step shows rejection recovery status text.
+  - Deck Maker Lorecards step shows rejection recovery status text.
   - advanced settings label and tooltip are present.
 
 Run before completion:
@@ -468,7 +468,7 @@ This order keeps the early work low risk: prompt inputs become cleaner before re
 ## Resolved Questions
 
 - Planning-gap follow-up behavior: resolved for this phase as diagnostic-only. The Lorecards step now persists and surfaces compact preflight gaps, but does not create another review queue or planning batch automatically.
-- Title-sourced omissions in Draft Review: resolved. Batch-level preflight gaps show what was omitted before the model call, and affected Creator draft rows show per-draft preflight notes before Pending Review.
+- Title-sourced omissions in Draft Review: resolved. Batch-level preflight gaps show what was omitted before the model call, and affected Deck Maker draft rows show per-draft preflight notes before Pending Review.
 - One-title retry provider: resolved as opt-in. Split retries use the Reasoning Provider by default; `Use Utility for split retries` can route one-title schema-rejection retries through the Utility Provider when configured, with automatic fallback to Reasoning when Utility is unavailable.
 - Repeated storage upload counts: resolved as an internal regression assertion. State Safety should stay focused on storage risks users can act on, such as missing indexed files, pending writes, and runtime storage errors. Creator upload-count noise is covered by `tools/scripts/test-saga-creator-project-storage.mjs`, where coalesced progress bursts must persist the first checkpoint and latest pending update without uploading every intermediate state.
 
@@ -482,5 +482,5 @@ This feature is complete when:
 - Smaller retry splits affected target titles without user intervention.
 - Persistent failure stops with a clear planning-gap or schema diagnostic.
 - Users can see exactly why drafts were rejected.
-- Storage writes during Creator Lorecard runs are meaningfully quieter.
+- Storage writes during Deck Maker Lorecard runs are meaningfully quieter.
 - Focused regression tests and the alpha gate pass.

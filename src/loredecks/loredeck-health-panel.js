@@ -1966,7 +1966,7 @@ function getLoredeckHealthIssueAdvice(code = '', severity = 'suggestion') {
         timeline_candidate_sparse: {
             summary: 'The timeline may be too sparse for the number of Context-gated Lorecards.',
             why: 'The Reasoner can translate casual phrasing, but it still needs a healthy set of known story candidates to choose from.',
-            fix: 'Add durable anchors/windows for recurring high-value story moments, major reveals, arc turns, generated Creator output, or accepted user/model suggestions. Do not add aliases for every possible phrase.',
+            fix: 'Add durable anchors/windows for recurring high-value story moments, major reveals, arc turns, generated Deck Maker output, or accepted user/model suggestions. Do not add aliases for every possible phrase.',
             fixShort: 'Add waypoints',
         },
         timeline_anchor_coverage_concentrated: {

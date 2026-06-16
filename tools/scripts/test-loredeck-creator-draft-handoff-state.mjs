@@ -35,7 +35,7 @@ const existing = normalizeLoredeckCreatorJob({
   updatedAt: 1000,
 });
 
-assert.equal(existing.draftChanges.length, 1, 'Fixture should preserve a pending Creator draft.');
+assert.equal(existing.draftChanges.length, 1, 'Fixture should preserve a pending Deck Maker draft.');
 assert.equal(existing.entryDraftCount, 1);
 
 const afterHandoff = normalizeLoredeckCreatorJob({
@@ -48,7 +48,7 @@ const afterHandoff = normalizeLoredeckCreatorJob({
 assert.equal(
   Object.prototype.hasOwnProperty.call(afterHandoff, 'draftChanges'),
   false,
-  'Creator draft handoff must clear saved draft rows instead of preserving stale drafts.'
+  'Deck Maker draft handoff must clear saved draft rows instead of preserving stale drafts.'
 );
 assert.equal(afterHandoff.entryDraftCount, 0);
 
@@ -72,4 +72,4 @@ assert.equal(
 );
 assert.equal(registry.jobs[existing.jobId].entryDraftCount, 0);
 
-console.log('Loredeck Creator draft handoff state tests passed.');
+console.log('Deck Maker draft handoff state tests passed.');

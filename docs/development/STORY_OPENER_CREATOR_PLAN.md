@@ -1,12 +1,12 @@
-# Story Opener Creator Plan
+# Story Maker Plan
 
-Status: Planning draft. This document defines the desired product behavior, storage model, Context/lore guardrail strategy, and implementation phases for adding Story Opener Creator to the Session tab.
+Status: Planning draft. This document defines the desired product behavior, storage model, Context/lore guardrail strategy, and implementation phases for adding Story Maker to the Session tab.
 
 Saga is pre-alpha, so this plan does not preserve compatibility with any old Story Opener state. The feature should ship with a clean schema and update every touched surface in place.
 
 ## Purpose
 
-Story Opener Creator helps a user start or restart roleplay from the active Saga setup.
+Story Maker helps a user start or restart roleplay from the active Saga setup.
 
 It uses:
 
@@ -27,7 +27,7 @@ The output is plain opener text that the user can copy into chat or into a chara
 - Reuse Saga's Context and Loredeck systems instead of creating a parallel story-position picker.
 - Keep file storage compact in chat state by externalizing opener session payloads.
 - Keep opener sessions global so users can return to them regardless of which chat is open.
-- Let Story Opener Creator work without an active chat by falling back to active Loredecks plus Context.
+- Let Story Maker work without an active chat by falling back to active Loredecks plus Context.
 - Let users return to a previous opener session and revise it over time.
 - Keep old opener sessions loadable even when Loredecks, Context rows, or Lorecards have changed during alpha.
 - Force latest resolved lore for new generation/revision instead of treating old compact packets as the source of truth.
@@ -50,7 +50,7 @@ The output is plain opener text that the user can copy into chat or into a chara
 
 ### Placement
 
-Add a collapsible **Story Opener Creator** section to the Session tab, after Session Readiness/Automation and before Session Metrics.
+Add a collapsible **Story Maker** section to the Session tab, after Session Readiness/Automation and before Session Metrics.
 
 The section has two states:
 
@@ -61,7 +61,7 @@ On mobile, the Session root summary should stay compact. The opener surface shou
 
 ### Creator-Style Workflow
 
-Story Opener Creator should feel like a smaller sibling of Loredeck Creator, not a one-off form.
+Story Maker should feel like a smaller sibling of Deck Maker, not a one-off form.
 
 Use the same broad user model:
 
@@ -72,11 +72,11 @@ Use the same broad user model:
 - stage-level reset/revert controls for completed steps
 - review/copy as the final user-controlled handoff
 
-The feature does not need the full Loredeck Creator workbench complexity, but it should reuse its interaction language where possible so users understand it immediately.
+The feature does not need the full Deck Maker workbench complexity, but it should reuse its interaction language where possible so users understand it immediately.
 
 ### Stage Bar
 
-The opener stage bar should use compact step cards similar to Loredeck Creator:
+The opener stage bar should use compact step cards similar to Deck Maker:
 
 | Step | Label | Purpose | Durable output |
 | --- | --- | --- | --- |
@@ -98,7 +98,7 @@ The stage bar should support click-to-scroll within the opener surface, and lock
 
 ### Reset To Step
 
-Add a small `Reset to this step` control to eligible completed opener stages, matching the Creator reset pattern.
+Add a small `Reset to this step` control to eligible completed opener stages, matching the Deck Maker reset pattern.
 
 This is not undo and not history restore. It is a destructive forward-data wipe:
 
@@ -175,7 +175,7 @@ The result should be a small `proseStyleSeed` string and structured `styleDetect
 
 ## Session Storage
 
-Story Opener Creator should follow the Creator project pattern: compact index plus external payload files.
+Story Maker should follow the Deck Maker project pattern: compact index plus external payload files.
 
 Opener sessions are global user data. They are not scoped to, keyed by, or deleted with the active chat. A generation run may record compact lore-source diagnostics, but the session identity should not depend on a chat ID or chat name.
 
@@ -571,7 +571,7 @@ Diagnostics can show compact status text such as `Reasoner refined 42 eligible f
 
 ### Provider Failure Reporting
 
-Story Opener Creator must never collapse provider failures into a generic "generation failed" message.
+Story Maker must never collapse provider failures into a generic "generation failed" message.
 
 Reuse Saga's shared provider error boundaries and preserve stable failure codes in each run/variant record. At minimum, opener runs should distinguish:
 
@@ -616,7 +616,7 @@ For token-limit failures, the message should be explicit about whether the evide
 
 The Opener Brief stage should reuse Saga's existing generation-hardening approach rather than adding a one-off parser.
 
-The implementation should share or extract the same concepts used by Loredeck Creator and Story Lore generation:
+The implementation should share or extract the same concepts used by Deck Maker and Story Lore generation:
 
 - normalize provider-shaped responses before parsing visible text
 - strip markdown fences and likely reasoning tags
@@ -842,9 +842,9 @@ Revision history and Reset to Step have different jobs:
 
 ### Phase 3: Session UI
 
-- Add Story Opener Creator section to Session.
+- Add Story Maker section to Session.
 - Add session shelf/list and active session panel.
-- Add Creator-style stage bar.
+- Add Deck Maker-style stage bar.
 - Add current-task card.
 - Add Reset to Step controls for eligible completed opener stages.
 - Add controls for User Prompt, Prose Style, Opening Shape, Character Focus, PoV/Tense, and Variants.
@@ -901,8 +901,8 @@ Revision history and Reset to Step have different jobs:
 
 ## Acceptance Criteria
 
-- Story Opener Creator appears in Session without bloating the Session root mobile summary.
-- Story Opener Creator uses a Creator-style stage bar and current-task card.
+- Story Maker appears in Session without bloating the Session root mobile summary.
+- Story Maker uses a Deck Maker-style stage bar and current-task card.
 - Reset to Step keeps earlier opener data, clears downstream opener artifacts, and is disabled during active provider runs.
 - Prose Style is an editable text field pre-populated from current or resolved source stack and Context signals.
 - Target Length offers `Hook`, `Scene`, and `First Message` bands without requiring exact word counts.

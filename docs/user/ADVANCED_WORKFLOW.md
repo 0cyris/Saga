@@ -56,13 +56,13 @@ Use this track to manage live scene state separately from durable Lorecards. It 
 
 Start here when the next response needs current-scene state such as date, location, posture, emotions, possessions, or immediate objectives.
 
-### Creator And Generated Lorepack Authoring
+### Deck Maker And Generated Lorepack Authoring
 
 Coverage: A112-A130.
 
-Use this track to create and complete Generated Lorepack projects. It covers **Create Deck**, intake, scope brief, outline, title-batch generation, title selection actions, **Plan Context and Tags**, planning review, **Draft Lorecards**, confirmed **Auto-Draft All**, Creator draft review, **Send Selected to Review**, review queue jumps, current task controls, generation settings, project shelf search/filter/move actions, generated-pack inspection, Pack Health readiness actions, and the Creator Readiness Gate.
+Use this track to create and complete Generated Lorepack projects. It covers **Create Deck**, intake, scope brief, outline, title-batch generation, title selection actions, **Plan Context and Tags**, planning review, **Draft Lorecards**, confirmed **Auto-Draft All**, Deck Maker draft review, **Send Selected to Review**, review queue jumps, current task controls, generation settings, project shelf search/filter/move actions, generated-pack inspection, Pack Health readiness actions, and the Deck Maker Readiness Gate.
 
-Creator Lorecard drafting can recover from Saga-side schema rejections separately from provider failures. In generation settings, **Auto split failed batches** retries affected Lorecard titles in smaller batches. The Lorecards step exposes **Last Lorecard preflight gaps** and **Last Lorecard rejection details** when title-stage references or generated drafts need attention before they can move through review.
+Deck Maker Lorecard drafting can recover from Saga-side schema rejections separately from provider failures. In generation settings, **Auto split failed batches** retries affected Lorecard titles in smaller batches. The Lorecards step exposes **Last Lorecard preflight gaps** and **Last Lorecard rejection details** when title-stage references or generated drafts need attention before they can move through review.
 
 Start here when you need Saga to help author a new Generated Lorepack rather than import or edit an existing pack.
 
@@ -86,7 +86,7 @@ Start here when model-backed actions fail, profile routing is unclear, generatio
 
 Coverage: A154-A165.
 
-Use this track to route common symptoms to the right system: no Loredeck, wrong Context, no suggestions, stuck pending entries, no injection, prompt too heavy, provider failure, stale continuity, duplicate package warnings, Pack Health warnings, Creator failure, or returning to Basic.
+Use this track to route common symptoms to the right system: no Loredeck, wrong Context, no suggestions, stuck pending entries, no injection, prompt too heavy, provider failure, stale continuity, duplicate package warnings, Pack Health warnings, Deck Maker failure, or returning to Basic.
 
 Start here when the problem is clear but the right Saga surface is not.
 
@@ -98,7 +98,7 @@ Start here when the problem is clear but the right Saga surface is not.
 4. Generate and review durable facts in **Lorecard Generation And Review**.
 5. Inspect what Saga sends in **Injection Diagnostics**.
 6. Track live scene state in **Continuity Tracking** when current state matters.
-7. Use **Creator And Generated Lorepack Authoring** when building a new Generated Lorepack.
+7. Use **Deck Maker And Generated Lorepack Authoring** when building a new Generated Lorepack.
 8. Use **Pack Health And Packages** before finalizing, exporting, repairing, or trusting packages with warnings.
 9. Use **Troubleshooting Routes** when you need the shortest diagnostic path.
 
@@ -111,7 +111,7 @@ Advanced should still remain review-first. Model-produced proposals should becom
 - Context auditing, proposals, locks, workbenches, and Advanced Context Brief details.
 - Lorecard workbenches, bulk actions, timeline/audit history, Elevate/Mute controls, and Lore Automation.
 - Full injection preview by relevance tier, prompt placement, compression, token estimates, omission reasons, and sync diagnostics.
-- Pack Health, package import/update/export, duplication, repair, Generated to Custom finalization, Create Deck, and in-progress Creator projects.
+- Pack Health, package import/update/export, duplication, repair, Generated to Custom finalization, Create Deck, and in-progress Deck Maker projects.
 
 ## When To Return To Basic
 

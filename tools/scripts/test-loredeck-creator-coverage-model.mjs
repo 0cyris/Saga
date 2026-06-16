@@ -201,4 +201,4 @@ const planFromJob = getLoredeckCreatorCoveragePlan(denseJob);
 assert.equal(planFromJob.storyDensity, 'dense');
 assert.equal(planFromJob.dimensions.length, 2);
 
-console.log('Loredeck Creator coverage model tests passed.');
+console.log('Deck Maker coverage model tests passed.');

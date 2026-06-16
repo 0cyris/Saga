@@ -131,12 +131,12 @@ function createLoredeckCreatorProjectsSection(state = getState(), options = {}) 
     const projectModels = getLoredeckCreatorProjectShelfModels(state);
     const creatorSection = createCollapsibleSection(
         mobile ? 'loredecks.creatorProjects.mobile' : 'loredecks.creatorProjects',
-        'In-Progress Creator Projects',
+        'In-Progress Deck Maker Projects',
         projectModels.length ? `${projectModels.length} unfinished` : 'none',
         mobile && projectModels.length > 0,
         () => createLoredeckCreatorProjectShelf(state, projectModels),
         {
-            tooltip: 'Resume unfinished Generated Lorepacks from the staged Creator.',
+            tooltip: 'Resume unfinished Generated Lorepacks from the staged Deck Maker.',
             className: mobile ? 'saga-loredeck-creator-projects-mobile-section' : '',
         }
     );
@@ -190,7 +190,7 @@ function createLoredeckLibraryLaunchCard(state = getState(), canonDb = null, hea
         installLoredeckBundleFromFile();
     }), 'loredecks.import'));
     if (!basic) {
-        actions.appendChild(markTourTarget(createButton('Create Deck', 'Open the staged Loredeck Creator wizard.', () => {
+        actions.appendChild(markTourTarget(createButton('Create Deck', 'Open the staged Deck Maker wizard.', () => {
             openLoredeckCreatorWorkbench();
         }), 'loredecks.creator.open'));
     }
@@ -273,7 +273,7 @@ function renderLoredeckCreatorProjectShelfContent(card, state = getState(), pres
     titleWrap.appendChild(title);
     const help = document.createElement('div');
     help.className = 'saga-runtime-help';
-    help.textContent = 'Resume unfinished Generated Loredecks from the staged Creator.';
+    help.textContent = 'Resume unfinished Generated Loredecks from the staged Deck Maker.';
     titleWrap.appendChild(help);
     header.appendChild(titleWrap);
 
@@ -282,21 +282,21 @@ function renderLoredeckCreatorProjectShelfContent(card, state = getState(), pres
     const generatedCount = allModels.filter(model => model.hasGeneratedPack).length;
     const reviewCount = allModels.filter(model => model.nextAction?.tone === 'review' || model.stage?.tone === 'review').length;
     const selectedCount = getLoredeckCreatorProjectSelectedIds(allModels).length;
-    meta.appendChild(createStatusPill(`${allModels.length} unfinished`, 'Unfinished Loredeck Creator projects saved across chats.', { kind: 'count' }));
+    meta.appendChild(createStatusPill(`${allModels.length} unfinished`, 'Unfinished Deck Maker projects saved across chats.', { kind: 'count' }));
     if (generatedCount) meta.appendChild(createStatusPill(`${generatedCount} generated`, 'Projects with a Generated Loredeck shell already created.', { tone: 'source', kind: 'count' }));
     if (reviewCount) meta.appendChild(createStatusPill(`${reviewCount} needs review`, 'Projects waiting on manual review before continuing.', { tone: 'review', kind: 'count' }));
-    if (selectedCount) meta.appendChild(createStatusPill(`${selectedCount} selected`, 'Creator projects selected for bulk shelf actions.', { tone: 'selected', kind: 'count' }));
+    if (selectedCount) meta.appendChild(createStatusPill(`${selectedCount} selected`, 'Deck Maker projects selected for bulk shelf actions.', { tone: 'selected', kind: 'count' }));
     header.appendChild(meta);
     card.appendChild(header);
 
     if (allModels.length) card.appendChild(createLoredeckCreatorProjectControls(allModels, models, card, libraryIndex));
 
     if (!allModels.length) {
-        const empty = createEmptyMessage('No unfinished Creator projects.');
+        const empty = createEmptyMessage('No unfinished Deck Maker projects.');
         card.appendChild(empty);
         const actions = document.createElement('div');
         actions.className = 'saga-primary-actions';
-        actions.appendChild(createButton('Open Creator Wizard', 'Start or resume the active Loredeck Creator wizard.', () => {
+        actions.appendChild(createButton('Open Deck Maker', 'Start or resume the active Deck Maker wizard.', () => {
             openLoredeckCreatorWorkbench();
         }, 'saga-primary-button'));
         card.appendChild(actions);
@@ -304,7 +304,7 @@ function renderLoredeckCreatorProjectShelfContent(card, state = getState(), pres
     }
 
     if (!models.length) {
-        card.appendChild(createEmptyMessage('No Creator projects match the current search and filter.'));
+        card.appendChild(createEmptyMessage('No Deck Maker projects match the current search and filter.'));
         return;
     }
 
@@ -321,13 +321,13 @@ function renderLoredeckCreatorProjectShelfContent(card, state = getState(), pres
     if (models.length > 20) {
         const more = document.createElement('div');
         more.className = 'saga-runtime-help saga-compact-help';
-        more.textContent = `Showing 20 of ${models.length} unfinished Creator projects.`;
+        more.textContent = `Showing 20 of ${models.length} unfinished Deck Maker projects.`;
         card.appendChild(more);
     }
 }
 
 const LOREDECK_CREATOR_PROJECT_FILTERS = Object.freeze([
-    ['all', 'All', 'Show every unfinished Creator project.'],
+    ['all', 'All', 'Show every unfinished Deck Maker project.'],
     ['review', 'Needs Review', 'Show projects waiting on manual review.'],
     ['generated', 'Generated', 'Show projects with a Generated Loredeck shell.'],
     ['draft', 'Draft Only', 'Show projects that have not created a Generated Loredeck shell yet.'],
@@ -408,7 +408,7 @@ function createLoredeckCreatorProjectControls(allModels = [], filteredModels = [
     search.className = 'text_pole saga-loredeck-creator-project-search';
     search.placeholder = 'Search projects...';
     search.value = loredeckCreatorProjectQuery;
-    addTooltip(search, 'Search in-progress Creator projects by title, fandom, scope, stage, or linked Generated Loredeck.');
+    addTooltip(search, 'Search in-progress Deck Maker projects by title, fandom, scope, stage, or linked Generated Loredeck.');
     search.addEventListener('click', event => event.stopPropagation());
     search.addEventListener('input', () => {
         loredeckCreatorProjectQuery = search.value;
@@ -425,7 +425,7 @@ function createLoredeckCreatorProjectControls(allModels = [], filteredModels = [
 
     const filter = document.createElement('select');
     filter.className = 'text_pole saga-loredeck-creator-project-filter';
-    addTooltip(filter, 'Filter the in-progress Creator shelf.');
+    addTooltip(filter, 'Filter the in-progress Deck Maker shelf.');
     for (const [value, label, tooltip] of LOREDECK_CREATOR_PROJECT_FILTERS) {
         const option = document.createElement('option');
         option.value = value;
@@ -446,7 +446,7 @@ function createLoredeckCreatorProjectControls(allModels = [], filteredModels = [
 
     const folderFilter = document.createElement('select');
     folderFilter.className = 'text_pole saga-loredeck-creator-project-folder-filter';
-    addTooltip(folderFilter, 'Filter Creator projects by Library folder. Folder filters include nested subfolders.');
+    addTooltip(folderFilter, 'Filter Deck Maker projects by Library folder. Folder filters include nested subfolders.');
     appendLoredeckCreatorProjectFolderFilterOptions(folderFilter, allModels, libraryIndex);
     folderFilter.value = [...folderFilter.options].some(option => option.value === loredeckCreatorProjectFolderFilter)
         ? loredeckCreatorProjectFolderFilter
@@ -522,7 +522,7 @@ function createLoredeckCreatorProjectBulkToolbar(allModels = [], filteredModels 
     summary.textContent = `${selectedIds.length} selected${selectedVisibleCount !== selectedIds.length ? ` (${selectedVisibleCount} visible)` : ''}`;
     toolbar.appendChild(summary);
 
-    const selectVisible = createButton('Select Visible', 'Select every Creator project currently visible after search and filter.', () => {
+    const selectVisible = createButton('Select Visible', 'Select every Deck Maker project currently visible after search and filter.', () => {
         loredeckCreatorProjectSelectedIds = new Set(visibleIds);
         const target = shelfCard || toolbar.closest('.saga-loredeck-creator-project-shelf');
         if (target) renderLoredeckCreatorProjectShelfContent(target, getState());
@@ -530,7 +530,7 @@ function createLoredeckCreatorProjectBulkToolbar(allModels = [], filteredModels 
     selectVisible.disabled = !visibleIds.length;
     toolbar.appendChild(selectVisible);
 
-    const clear = createButton('Clear', 'Clear the Creator project selection.', () => {
+    const clear = createButton('Clear', 'Clear the Deck Maker project selection.', () => {
         loredeckCreatorProjectSelectedIds = new Set();
         const target = shelfCard || toolbar.closest('.saga-loredeck-creator-project-shelf');
         if (target) renderLoredeckCreatorProjectShelfContent(target, getState());
@@ -540,20 +540,20 @@ function createLoredeckCreatorProjectBulkToolbar(allModels = [], filteredModels 
 
     const moveSelect = document.createElement('select');
     moveSelect.className = 'text_pole saga-loredeck-creator-project-move-select';
-    addTooltip(moveSelect, selectedIds.length ? 'Choose a folder target for selected Creator projects.' : 'Select Creator projects before moving them.');
+    addTooltip(moveSelect, selectedIds.length ? 'Choose a folder target for selected Deck Maker projects.' : 'Select Deck Maker projects before moving them.');
     appendLoredeckCreatorProjectMoveOptions(moveSelect, libraryIndex);
     moveSelect.value = 'unfiled';
     moveSelect.disabled = !selectedIds.length;
     moveSelect.addEventListener('click', event => event.stopPropagation());
     toolbar.appendChild(moveSelect);
 
-    const moveButton = createButton('Move', selectedIds.length ? 'Move selected Creator projects and linked Generated Loredecks to the chosen folder.' : 'Select Creator projects before moving them to a folder.', () => {
+    const moveButton = createButton('Move', selectedIds.length ? 'Move selected Deck Maker projects and linked Generated Loredecks to the chosen folder.' : 'Select Deck Maker projects before moving them to a folder.', () => {
         moveLoredeckCreatorProjectsToFolder(selectedIds, moveSelect.value || 'unfiled', allModels);
     });
     moveButton.disabled = !selectedIds.length;
     toolbar.appendChild(moveButton);
 
-    const deleteSelected = createButton(selectedIds.length ? `Delete Selected (${selectedIds.length})` : 'Delete Selected', 'Delete selected Creator projects after confirmation.', async () => {
+    const deleteSelected = createButton(selectedIds.length ? `Delete Selected (${selectedIds.length})` : 'Delete Selected', 'Delete selected Deck Maker projects after confirmation.', async () => {
         await deleteSelectedLoredeckCreatorProjectsWithConfirm(allModels);
     }, 'saga-loredeck-creator-project-delete');
     deleteSelected.disabled = !selectedIds.length;
@@ -575,7 +575,7 @@ function setLoredeckCreatorProjectSelected(jobId = '', selected = false) {
 function moveLoredeckCreatorProjectsToFolder(jobIds = [], folderId = 'unfiled', models = getLoredeckCreatorProjectShelfModels()) {
     const ids = Array.from(new Set((jobIds || []).map(id => String(id || '').trim()).filter(Boolean)));
     if (!ids.length) {
-        toast('Select one or more Creator projects first.', 'warning');
+        toast('Select one or more Deck Maker projects first.', 'warning');
         return false;
     }
     const state = getState();
@@ -591,7 +591,7 @@ function moveLoredeckCreatorProjectsToFolder(jobIds = [], folderId = 'unfiled', 
     const modelById = new Map((models || []).map(model => [model.jobId, model]));
     const selectedModels = ids.map(id => modelById.get(id)).filter(Boolean);
     if (!selectedModels.length) {
-        toast('Selected Creator projects are no longer available.', 'warning');
+        toast('Selected Deck Maker projects are no longer available.', 'warning');
         return false;
     }
 
@@ -605,7 +605,7 @@ function moveLoredeckCreatorProjectsToFolder(jobIds = [], folderId = 'unfiled', 
         }
     }
     if (!movedProjects) {
-        toast('Creator projects could not be moved.', 'error');
+        toast('Deck Maker projects could not be moved.', 'error');
         return false;
     }
 
@@ -650,13 +650,13 @@ function createLoredeckCreatorProjectCard(model = {}, options = {}) {
     markTourTarget(card, 'loredecks.creator.projectCard');
     if (options.active) card.classList.add('saga-loredeck-creator-project-card-active');
     if (options.selected) card.classList.add('saga-loredeck-creator-project-card-selected');
-    addTooltip(card, `Open ${model.title || 'this Creator project'}.`);
+    addTooltip(card, `Open ${model.title || 'this Deck Maker project'}.`);
     const open = () => openLoredeckCreatorProject(model.jobId);
     card.addEventListener('click', open);
 
     const visualPack = model.generatedPack || {
         packId: model.generatedPackId || model.jobId || model.id,
-        title: model.title || 'Creator Project',
+        title: model.title || 'Deck Maker Project',
     };
     card.appendChild(createLoredeckDeckVisual(visualPack, 'saga-loredeck-library-monogram saga-loredeck-creator-project-visual'));
 
@@ -668,15 +668,15 @@ function createLoredeckCreatorProjectCard(model = {}, options = {}) {
     const title = document.createElement('div');
     title.className = 'saga-loredeck-creator-project-title';
     title.appendChild(createLoredeckLibraryEditableTitle({
-        value: model.title || 'Untitled Creator Project',
-        fallback: model.title || 'Untitled Creator Project',
-        kind: 'Creator project',
+        value: model.title || 'Untitled Deck Maker Project',
+        fallback: model.title || 'Untitled Deck Maker Project',
+        kind: 'Deck Maker project',
         editable: !!model.jobId,
         longPressOnly: mobile,
         onCommit: nextTitle => renameLoredeckCreatorProjectTitle(model.jobId, nextTitle),
     }));
     top.appendChild(title);
-    const stage = createStatusPill(model.stage?.label || 'Intake', 'Current Creator project stage.', {
+    const stage = createStatusPill(model.stage?.label || 'Intake', 'Current Deck Maker project stage.', {
         tone: model.stage?.tone || 'neutral',
         kind: 'status',
         className: 'saga-loredeck-creator-project-stage',
@@ -691,7 +691,7 @@ function createLoredeckCreatorProjectCard(model = {}, options = {}) {
 
     const chips = document.createElement('div');
     chips.className = 'saga-loredeck-row-meta';
-    chips.appendChild(createStatusPill(model.folderLabel || 'Unfiled', model.folderPathText ? `Library folder: ${model.folderPathText}.` : 'Creator project folder.', { kind: 'source', tone: model.folderPathText ? 'source' : 'muted' }));
+    chips.appendChild(createStatusPill(model.folderLabel || 'Unfiled', model.folderPathText ? `Library folder: ${model.folderPathText}.` : 'Deck Maker project folder.', { kind: 'source', tone: model.folderPathText ? 'source' : 'muted' }));
     for (const chip of model.chips || []) {
         chips.appendChild(createStatusPill(chip.label, chip.tooltip, { tone: chip.tone, kind: chip.label?.match(/\\d/) ? 'count' : 'status' }));
     }
@@ -699,7 +699,7 @@ function createLoredeckCreatorProjectCard(model = {}, options = {}) {
 
     main.appendChild(createLoredeckJobProgressBar(model.progress, {
         className: 'saga-loredeck-creator-project-progress',
-        tooltip: percent => `${percent}% through the staged Creator workflow.`,
+        tooltip: percent => `${percent}% through the staged Deck Maker workflow.`,
     }));
 
     const footer = document.createElement('div');
@@ -720,14 +720,14 @@ function createLoredeckCreatorProjectCard(model = {}, options = {}) {
     const actions = document.createElement('div');
     actions.className = 'saga-loredeck-creator-project-actions';
     markTourTarget(actions, 'loredecks.creator.projectActions');
-    const select = createButton(options.selected ? 'Selected' : 'Select', options.selected ? 'Remove this Creator project from the bulk selection.' : 'Select this Creator project for bulk shelf actions.', () => {
+    const select = createButton(options.selected ? 'Selected' : 'Select', options.selected ? 'Remove this Deck Maker project from the bulk selection.' : 'Select this Deck Maker project for bulk shelf actions.', () => {
         setLoredeckCreatorProjectSelected(model.jobId, !options.selected);
     }, options.selected ? 'saga-loredeck-creator-project-select-active' : 'saga-loredeck-creator-project-select');
     actions.appendChild(select);
-    actions.appendChild(markTourTarget(createButton(model.nextAction?.label || 'Resume', model.nextAction?.tooltip || 'Open this Creator project.', () => {
+    actions.appendChild(markTourTarget(createButton(model.nextAction?.label || 'Resume', model.nextAction?.tooltip || 'Open this Deck Maker project.', () => {
         openLoredeckCreatorProject(model.jobId);
     }, 'saga-primary-button'), 'loredecks.creator.projectResume'));
-    actions.appendChild(createButton('Delete', 'Delete this saved Creator project and its generated working pack.', async () => {
+    actions.appendChild(createButton('Delete', 'Delete this saved Deck Maker project and its generated working pack.', async () => {
         await deleteLoredeckCreatorProjectWithConfirm(model);
     }, 'saga-loredeck-creator-project-delete'));
     card.appendChild(actions);
@@ -738,12 +738,12 @@ function renameLoredeckCreatorProjectTitle(jobId = '', title = '') {
     const id = String(jobId || '').trim();
     const cleanTitle = normalizeLoredeckLibraryInlineTitle(title, 160);
     if (!id || !cleanTitle) {
-        toast('Creator project title is required.', 'warning');
+        toast('Deck Maker project title is required.', 'warning');
         return false;
     }
     const result = updateLoredeckCreatorProject(id, { projectTitle: cleanTitle }, { syncPrompt: false });
     if (!result.ok) {
-        toast(result.error || 'Creator project could not be renamed.', 'error');
+        toast(result.error || 'Deck Maker project could not be renamed.', 'error');
         return false;
     }
     const cached = getLoredeckCreatorBriefCache();
@@ -768,27 +768,27 @@ function removeGeneratedWorkingPacksForCreatorProjects(models = []) {
 async function deleteLoredeckCreatorProjectWithConfirm(model = {}) {
     const jobId = String(model.jobId || model.id || '').trim();
     if (!jobId) {
-        toast('Creator project could not be found.', 'error');
+        toast('Deck Maker project could not be found.', 'error');
         return false;
     }
-    const title = model.title || 'this Creator project';
+    const title = model.title || 'this Deck Maker project';
     const linkedText = model.generatedPackId
         ? ` The generated working pack "${model.generatedPack?.title || model.generatedPackId}" will also be removed.`
         : '';
     const ok = await confirmAction(
-        'Delete Creator project?',
-        `Delete "${title}" from the in-progress Creator shelf? This removes the saved generation workflow and cannot be undone.${linkedText}`
+        'Delete Deck Maker project?',
+        `Delete "${title}" from the in-progress Deck Maker shelf? This removes the saved generation workflow and cannot be undone.${linkedText}`
     );
     if (!ok) return false;
     const activeGeneration = getActiveLoredeckCreatorGeneration(getLoredeckCreatorBriefCache());
     if (activeGeneration?.id && getLoredeckCreatorBriefCache()?.jobId === jobId) {
-        toast('Cancel the running Creator generation before deleting this project.', 'warning');
+        toast('Cancel the running Deck Maker generation before deleting this project.', 'warning');
         return false;
     }
     const workingPackFailures = removeGeneratedWorkingPacksForCreatorProjects([model]);
     const result = clearLoredeckCreatorJob(jobId, { syncPrompt: false });
     if (!result.ok) {
-        toast(result.error || 'Creator project could not be deleted.', 'error');
+        toast(result.error || 'Deck Maker project could not be deleted.', 'error');
         return false;
     }
     if (workingPackFailures.length) toast(workingPackFailures[0], 'warning');
@@ -806,7 +806,7 @@ async function deleteLoredeckCreatorProjectWithConfirm(model = {}) {
 async function deleteSelectedLoredeckCreatorProjectsWithConfirm(models = []) {
     const selectedIds = getLoredeckCreatorProjectSelectedIds(models);
     if (!selectedIds.length) {
-        toast('Select one or more Creator projects first.', 'warning');
+        toast('Select one or more Deck Maker projects first.', 'warning');
         return false;
     }
     const selectedModels = selectedIds
@@ -817,7 +817,7 @@ async function deleteSelectedLoredeckCreatorProjectsWithConfirm(models = []) {
         return !!getActiveLoredeckCreatorGeneration(getLoredeckCreatorBriefCache())?.id;
     });
     if (runningActive) {
-        toast(`Cancel the running Creator generation for ${runningActive.title || runningActive.jobId} before deleting selected projects.`, 'warning');
+        toast(`Cancel the running Deck Maker generation for ${runningActive.title || runningActive.jobId} before deleting selected projects.`, 'warning');
         return false;
     }
     const listed = selectedModels.slice(0, 6).map(model => `- ${model.title || model.jobId}`).join('\n');
@@ -827,7 +827,7 @@ async function deleteSelectedLoredeckCreatorProjectsWithConfirm(models = []) {
         ? `\n\n${linkedCount} generated working pack${linkedCount === 1 ? '' : 's'} will also be removed.`
         : '';
     const ok = await confirmAction(
-        `Delete ${selectedModels.length} Creator project${selectedModels.length === 1 ? '' : 's'}?`,
+        `Delete ${selectedModels.length} Deck Maker project${selectedModels.length === 1 ? '' : 's'}?`,
         `This removes the saved generation workflow for:\n${listed}${extra}${linkedText}\n\nThis cannot be undone.`
     );
     if (!ok) return false;
@@ -855,10 +855,10 @@ async function openLoredeckCreatorProject(jobId = '') {
     try {
         result = await activateLoredeckCreatorJobAsync(jobId, { syncPrompt: false });
     } catch (error) {
-        result = { ok: false, error: error?.message || String(error || 'Creator project could not be opened.') };
+        result = { ok: false, error: error?.message || String(error || 'Deck Maker project could not be opened.') };
     }
     if (!result.ok || !result.job) {
-        toast(result.error || 'Creator project could not be opened.', 'error');
+        toast(result.error || 'Deck Maker project could not be opened.', 'error');
         return false;
     }
     const recovered = recoverLoredeckCreatorInterruptedActiveGeneration(result.job, {

@@ -248,7 +248,7 @@ configureLoredeckCreatorPanel({
     currentStep: { id: 'lorecards' },
   });
   const resetButtons = guide.querySelectorAll('.saga-loredeck-creator-stage-reset');
-  assert.equal(resetButtons.length, 7, 'Reset buttons should render for steps 1-7 when downstream Creator data exists.');
+  assert.equal(resetButtons.length, 7, 'Reset buttons should render for steps 1-7 when downstream Deck Maker data exists.');
   assert.equal(
     resetButtons.some(button => button.getAttribute('aria-label') === 'Reset to Finalize'),
     false,
@@ -289,7 +289,7 @@ configureLoredeckCreatorPanel({
     guide.querySelectorAll('.saga-loredeck-creator-stage-reset')
       .some(button => button.getAttribute('aria-label') === 'Reset to Title Pass'),
     false,
-    'Title Pass should not expose reset when no later Creator data exists.'
+    'Title Pass should not expose reset when no later Deck Maker data exists.'
   );
 }
 
@@ -305,9 +305,9 @@ configureLoredeckCreatorPanel({
     .find(button => button.getAttribute('aria-label') === 'Reset to Title Pass');
   assert.ok(titleReset, 'Running generation should keep reset visible for context but disabled.');
   assert.equal(titleReset.disabled, true);
-  assert.equal(titleReset.dataset.sagaTooltip, 'Cancel or finish the current Creator generation before resetting.');
+  assert.equal(titleReset.dataset.sagaTooltip, 'Cancel or finish the current Deck Maker generation before resetting.');
   await titleReset.click();
   assert.deepEqual(resetCalls, [], 'Disabled reset buttons should not invoke the reset handler.');
 }
 
-console.log('Loredeck Creator stage reset UI tests passed.');
+console.log('Deck Maker stage reset UI tests passed.');

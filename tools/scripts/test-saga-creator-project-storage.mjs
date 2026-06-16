@@ -190,4 +190,4 @@ assert.equal(JSON.parse(stored.get(coalescedProjectPath)).activeGeneration.messa
 assert.equal(uploadCounts.get(coalescedProjectPath), 2, 'Coalesced progress writes should persist the first update and latest pending update only.');
 assert.equal(uploadCounts.get(SAGA_STORAGE_DOMAIN_INDEX_FILES.creator), 2, 'Coalesced progress writes should avoid one Creator index write per progress update.');
 
-console.log('Saga Creator project external storage tests passed.');
+console.log('Saga Deck Maker project external storage tests passed.');

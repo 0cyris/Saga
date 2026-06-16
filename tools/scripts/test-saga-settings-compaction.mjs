@@ -119,7 +119,7 @@ function assertStoredSettingsCompact(label) {
   assert.deepEqual(stored.loredeckLibrary.packs, {}, `${label}: Loredeck Library rows should stay external.`);
   assert.deepEqual(stored.loredeckLibrary.folders, [], `${label}: Library folders should stay external.`);
   assert.deepEqual(stored.loredeckLibrary.deckPlacements, [], `${label}: Library placements should stay external.`);
-  assert.deepEqual(stored.loredeckCreatorProjects.jobs, {}, `${label}: Creator jobs should stay external.`);
+  assert.deepEqual(stored.loredeckCreatorProjects.jobs, {}, `${label}: Deck Maker jobs should stay external.`);
   assert.deepEqual(stored.themePackLibrary.packs, {}, `${label}: Theme Pack rows should stay external.`);
   assert.deepEqual(stored.themeIconSetLibrary.iconSets, {}, `${label}: Icon Set rows should stay external.`);
   for (const marker of heavyMarkers) {
@@ -129,7 +129,7 @@ function assertStoredSettingsCompact(label) {
 
 const settings = getSettings();
 assert.equal(settings.loredeckLibrary.packs.polluting, undefined, 'Settings reads should ignore unsupported settings-backed Lorepack payload rows.');
-assert.equal(settings.loredeckCreatorProjects.jobs.polluting_creator, undefined, 'Settings reads should ignore unsupported settings-backed Creator project payloads.');
+assert.equal(settings.loredeckCreatorProjects.jobs.polluting_creator, undefined, 'Settings reads should ignore unsupported settings-backed Deck Maker project payloads.');
 assert.equal(settings.themePackLibrary.packs['external-theme'], undefined, 'Settings reads should ignore unsupported settings-backed Theme Pack payloads.');
 assert.equal(settings.themeIconSetLibrary.iconSets['external-icons'], undefined, 'Settings reads should ignore unsupported settings-backed Icon Set payloads.');
 assert.equal(settings.themePackId, 'external-theme', 'Active Theme Pack ID remains compact control-plane state.');

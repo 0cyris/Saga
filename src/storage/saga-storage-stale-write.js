@@ -74,7 +74,7 @@ export function formatSagaStorageChangedMessage(domain = '') {
     const key = normalizeString(domain, 80);
     if (key === 'library') return 'Library storage changed. Reload the Library before changing folders.';
     if (key === 'lorepack' || key === 'library_payload') return 'Loredeck storage changed. Reload this Loredeck before saving.';
-    if (key === 'creator') return 'Creator project storage changed. Reload this project before continuing.';
+    if (key === 'creator') return 'Deck Maker project storage changed. Reload this project before continuing.';
     if (key === 'themes' || key === 'iconSets' || key === 'theme_icon') return 'Theme/Icon storage changed. Reload Settings before importing again.';
     return 'Storage changed. Reload this panel before saving.';
 }

@@ -366,7 +366,7 @@ const generatedPack = {
     ],
   };
   const stages = getLoredeckCreatorMaterializedResetStages({ approved: true, generatedPackId: manualOnlyPack.packId }, manualOnlyPack);
-  assert.equal(stages.has('review'), false, 'Manual pack layers must not make Creator reset controls appear as if later Creator review data exists.');
+  assert.equal(stages.has('review'), false, 'Manual pack layers must not make Deck Maker reset controls appear as if later Deck Maker review data exists.');
   assert.equal(hasLoredeckCreatorResetForwardData({ approved: true, generatedPackId: manualOnlyPack.packId }, manualOnlyPack, 'context'), false);
 }
 
@@ -378,8 +378,8 @@ const generatedPack = {
   );
   assert.equal(availability.show, true);
   assert.equal(availability.disabled, true);
-  assert.equal(availability.reason, 'Cancel or finish the current Creator generation before resetting.');
+  assert.equal(availability.reason, 'Cancel or finish the current Deck Maker generation before resetting.');
   assert.equal(getLoredeckCreatorResetAvailability(fullJob, generatedPack, 'finalize').show, false);
 }
 
-console.log('Loredeck Creator reset tests passed.');
+console.log('Deck Maker reset tests passed.');

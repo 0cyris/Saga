@@ -236,7 +236,7 @@ readinessView = {
     healthSummary: 'Pack Health: 2 errors, 1 warning',
   },
   pipeline: {
-    statusLabel: 'Creator complete',
+    statusLabel: 'Deck Maker complete',
     titleBatchCount: 1,
     titleBatchDraftedCount: 1,
     eligiblePlanningBatchCount: 1,
@@ -288,7 +288,7 @@ readinessView = {
     healthSummary: 'Pack Health: Errors',
   },
   pipeline: {
-    statusLabel: 'Creator complete',
+    statusLabel: 'Deck Maker complete',
     titleBatchCount: 1,
     titleBatchDraftedCount: 1,
     eligiblePlanningBatchCount: 1,
@@ -321,12 +321,12 @@ readinessView = {
   readiness: {
     ready: false,
     blockers: [
-      'Creator Coverage has unresolved missing or thin rows. Acknowledge intentionally light coverage or generate targeted title/Lorecard batches before finalizing as Custom.',
+      'Deck Maker Coverage has unresolved missing or thin rows. Acknowledge intentionally light coverage or generate targeted title/Lorecard batches before finalizing as Custom.',
     ],
     warnings: ['Coverage: Missing or thin rows must be expanded or explicitly acknowledged before finalizing as Custom.'],
   },
   pipeline: {
-    statusLabel: 'Creator complete',
+    statusLabel: 'Deck Maker complete',
     titleBatchCount: 3,
     titleBatchDraftedCount: 3,
     eligiblePlanningBatchCount: 3,
@@ -345,7 +345,7 @@ readinessView = {
 const blockedCard = createLoredeckCreatorPipelineReadinessCard({ packId: 'one-piece-arlong-generated' });
 assert.ok(blockedCard, 'Coverage-blocked readiness card should render.');
 assert.equal(blockedCard.dataset.sagaCreatorAnchor, 'finalize');
-assert.ok(blockedCard.textContent.includes('Creator Readiness Gate'));
+assert.ok(blockedCard.textContent.includes('Deck Maker Readiness Gate'));
 assert.ok(blockedCard.textContent.includes('Needs review'));
 assert.ok(blockedCard.textContent.includes('Coverage: Thin'));
 assert.ok(blockedCard.textContent.includes('Open Coverage Plan'));
@@ -369,7 +369,7 @@ readinessView = {
     warnings: ['Coverage: Missing or thin rows were explicitly acknowledged for finalization.'],
   },
   pipeline: {
-    statusLabel: 'Creator complete',
+    statusLabel: 'Deck Maker complete',
     titleBatchCount: 1,
     titleBatchDraftedCount: 1,
     eligiblePlanningBatchCount: 1,
@@ -435,7 +435,7 @@ const lorecardRejectionCard = createLoredeckCreatorEntryDraftCard({}, {
     message: 'Title timeline window one-piece.arlong.missing-window is not in the accepted timeline registry.',
     unknownAnchors: ['one-piece.arlong.missing-window'],
   }],
-  entryDraftWarnings: ['Rejected 1 Creator Lorecard draft with invalid schema v3 references.'],
+  entryDraftWarnings: ['Rejected 1 Deck Maker Lorecard draft with invalid schema v3 references.'],
 });
 assert.ok(lorecardRejectionCard.textContent.includes('Last Lorecard pass'));
 assert.ok(lorecardRejectionCard.textContent.includes('Last Lorecard preflight gaps'));
@@ -447,4 +447,4 @@ assert.ok(lorecardRejectionCard.textContent.includes('one-piece.arlong.missing-w
 assert.ok(lorecardRejectionCard.textContent.includes('Title timeline window one-piece.arlong.missing-window'));
 assert.ok(lorecardRejectionCard.textContent.includes('Unknown tag location:cocoyashi.'));
 
-console.log('Loredeck Creator coverage UI tests passed.');
+console.log('Deck Maker coverage UI tests passed.');

@@ -1,5 +1,5 @@
 /**
- * Pure status helpers for Loredeck Creator pipeline rows.
+ * Pure status helpers for Deck Maker pipeline rows.
  */
 
 export function getLoredeckCreatorLorecardsStageState(options = {}) {

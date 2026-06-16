@@ -53,10 +53,10 @@ function refreshPanelBody(options = {}) { return dep('refreshPanelBody', () => n
 function refreshHeader() { return dep('refreshHeader', () => null)(); }
 
 function createStoryOpenerSessionSection(state, options = {}) {
-    const sectionId = options.sectionId || 'session.storyOpener';
+    const sectionId = options.sectionId || 'session.storyMaker';
     const storyOpenerSection = createCollapsibleSection(
         sectionId,
-        'Story Opener Creator',
+        'Story Maker',
         'Create, revise, and copy lore-aware opening prose from the active Saga setup.',
         options.defaultOpen === true,
         createStoryOpenerCreatorSection(state, { refreshPanelBody, markTourTarget }),
@@ -121,12 +121,25 @@ export function renderSessionTab(container, state) {
         'Session Controls',
         basic ? 'Review Session Readiness and runtime state for this chat.' : 'Set how Saga behaves during roleplay.'
     ));
+    container.appendChild(createSagaActiveSection(settings));
     container.appendChild(createSessionOperatorSummary(state, settings, { basic, guideMode, mobileSubview }));
-    if (isRuntimeMobileShell() && !mobileSubview) {
-        container.appendChild(createStoryOpenerSessionSection(state, { sectionId: 'session.storyOpener.mobile' }));
-        return;
+
+    if (basic) {
+        container.appendChild(createBasicStartReadinessCard(state, settings));
     }
 
+    if (!basic) {
+        container.appendChild(createAutomationModeSection(settings));
+    }
+
+    container.appendChild(createSessionMetricsCard(state, settings));
+    container.appendChild(createSessionWalkthroughSection(guideMode, guide, basic));
+
+    const storySectionOptions = isRuntimeMobileShell() ? { sectionId: 'session.storyMaker.mobile' } : {};
+    container.appendChild(createStoryOpenerSessionSection(state, storySectionOptions));
+}
+
+function createSagaActiveSection(settings = getSettings()) {
     const toggles = document.createElement('div');
     toggles.className = 'saga-runtime-grid';
     toggles.appendChild(markTourTarget(createToggleCard(
@@ -141,67 +154,56 @@ export function renderSessionTab(container, state) {
             refreshHeader();
         }
     ), 'session.active'));
-    container.appendChild(toggles);
+    return toggles;
+}
 
-    if (isRuntimeMobileShell() && mobileSubview?.id === 'session-story-opener') {
-        container.appendChild(createStoryOpenerSessionSection(state, { sectionId: 'session.storyOpener.mobile', defaultOpen: true }));
-        return;
+function createAutomationModeSection(settings = getSettings()) {
+    const modeCard = document.createElement('div');
+    modeCard.className = 'saga-runtime-card';
+
+    const modeTitle = document.createElement('div');
+    modeTitle.className = 'saga-runtime-card-title';
+    modeTitle.textContent = 'Automation Mode';
+    addTooltip(modeTitle, 'Automation Mode controls whether Saga scans and generates only when clicked, or automatically after roleplay turns. Experience Mode lives in Settings.');
+    modeCard.appendChild(modeTitle);
+
+    const modeButtons = document.createElement('div');
+    modeButtons.className = 'saga-mode-buttons';
+    for (const [mode, cfg] of Object.entries(AUTOMATION_MODES)) {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'saga-mode-button';
+        if (normalizeAutomationMode(settings.automationMode || settings.workflowMode) === mode) btn.classList.add('saga-mode-button-active');
+        btn.textContent = cfg.label;
+        addTooltip(btn, cfg.description);
+        btn.addEventListener('click', () => {
+            setAutomationMode(mode);
+            refreshPanelBody({ preserveScroll: false });
+            refreshHeader();
+        });
+        modeButtons.appendChild(btn);
     }
+    modeCard.appendChild(modeButtons);
 
-    if (basic) {
-        container.appendChild(createBasicStartReadinessCard(state, settings));
-    }
+    const currentMode = normalizeAutomationMode(settings.automationMode || settings.workflowMode);
+    const modeDesc = document.createElement('div');
+    modeDesc.className = 'saga-runtime-help';
+    modeDesc.textContent = AUTOMATION_MODES[currentMode].description;
+    modeCard.appendChild(modeDesc);
 
-    if (!basic) {
-        const modeCard = document.createElement('div');
-        modeCard.className = 'saga-runtime-card';
+    const automationSection = createCollapsibleSection(
+        'session.automationMode.section',
+        'Automation Mode',
+        getAutomationLabel(currentMode),
+        false,
+        modeCard,
+        { tooltip: 'Choose whether Saga runs only when clicked or automatically after roleplay turns.' }
+    );
+    markTourTarget(automationSection, 'session.automation');
+    return automationSection;
+}
 
-        const modeTitle = document.createElement('div');
-        modeTitle.className = 'saga-runtime-card-title';
-        modeTitle.textContent = 'Automation Mode';
-        addTooltip(modeTitle, 'Automation Mode controls whether Saga scans and generates only when clicked, or automatically after roleplay turns. Experience Mode lives in Settings.');
-        modeCard.appendChild(modeTitle);
-
-        const modeButtons = document.createElement('div');
-        modeButtons.className = 'saga-mode-buttons';
-        for (const [mode, cfg] of Object.entries(AUTOMATION_MODES)) {
-            const btn = document.createElement('button');
-            btn.type = 'button';
-            btn.className = 'saga-mode-button';
-            if (normalizeAutomationMode(settings.automationMode || settings.workflowMode) === mode) btn.classList.add('saga-mode-button-active');
-            btn.textContent = cfg.label;
-            addTooltip(btn, cfg.description);
-            btn.addEventListener('click', () => {
-                setAutomationMode(mode);
-                refreshPanelBody({ preserveScroll: false });
-                refreshHeader();
-            });
-            modeButtons.appendChild(btn);
-        }
-        modeCard.appendChild(modeButtons);
-
-        const modeDesc = document.createElement('div');
-        modeDesc.className = 'saga-runtime-help';
-        modeDesc.textContent = AUTOMATION_MODES[normalizeAutomationMode(settings.automationMode || settings.workflowMode)].description;
-        modeCard.appendChild(modeDesc);
-
-        const currentMode = normalizeAutomationMode(settings.automationMode || settings.workflowMode);
-        const automationSection = createCollapsibleSection(
-            'session.automationMode',
-            'Automation Mode',
-            getAutomationLabel(currentMode),
-            true,
-            modeCard,
-            { tooltip: 'Choose whether Saga runs only when clicked or automatically after roleplay turns.' }
-        );
-        markTourTarget(automationSection, 'session.automation');
-        container.appendChild(automationSection);
-    }
-
-    if (!isRuntimeMobileShell()) {
-        container.appendChild(createStoryOpenerSessionSection(state));
-    }
-
+function createSessionWalkthroughSection(guideMode, guide, basic = false) {
     const instructionsSection = createCollapsibleSection(
         `session.instructions.${guideMode}`,
         guide.title,
@@ -211,8 +213,10 @@ export function renderSessionTab(container, state) {
         { tooltip: guide.tooltip }
     );
     markTourTarget(instructionsSection, basic ? 'session.instructions.basic' : 'session.instructions.advanced');
-    container.appendChild(instructionsSection);
+    return instructionsSection;
+}
 
+function createSessionMetricsCard(state, settings) {
     const stats = document.createElement('div');
     stats.className = 'saga-runtime-card';
     markTourTarget(stats, 'session.metrics');
@@ -232,7 +236,7 @@ export function renderSessionTab(container, state) {
     stats.appendChild(createKeyValue('Lorecards selected for injection', String(selectedLoreCount), 'Accepted Lorecards selected for Lore Injection after relevance, Elevate, Mute, Context activation, and fallback priority selection. There is no hidden entry cap; mute entries to exclude them.'));
     stats.appendChild(createKeyValue('Injection token estimate', injectionStats.totalChars ? `${injectionStats.totalTokens} tokens` : 'empty', 'Approximate token count for the combined Continuity + Lore injection previews.'));
     stats.appendChild(createKeyValue('Total chars injected', `${injectionStats.totalChars} chars`, 'Combined character count of Continuity Injection plus Lore Injection using current Injection tab toggles and handling modes.'));
-    container.appendChild(stats);
+    return stats;
 }
 
 function getSessionMobileSubview(state, settings = getSettings()) {

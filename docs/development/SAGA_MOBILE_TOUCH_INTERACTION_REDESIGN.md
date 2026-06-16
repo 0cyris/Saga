@@ -537,7 +537,7 @@ Examples:
 
 ### Creator
 
-Creator is a staged process and should keep its current-task focus.
+Deck Maker is a staged process and should keep its current-task focus.
 
 Touch-first additions:
 

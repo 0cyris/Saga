@@ -2,7 +2,7 @@
 
 Use Basic Experience when you want the shortest path from "I opened Saga" to "the model has the right lore for this scene."
 
-Basic keeps the workflow manual and review-first. It shows the roleplay-critical surfaces: Session, Loredecks, Context, Lorecards, and Settings. It hides Continuity, Injection tuning, Create Deck, and in-progress Creator projects so routine play stays focused.
+Basic keeps the workflow manual and review-first. It shows the roleplay-critical surfaces: Session, Loredecks, Context, Lorecards, and Settings. It hides Continuity, Injection tuning, Create Deck, and in-progress Deck Maker projects so routine play stays focused.
 
 ## Basic Walkthrough
 
@@ -20,7 +20,7 @@ Use **Loredecks** to open **Loredeck Library**, import a `.saga-loredeck.zip` pa
 
 The active stack decides which Loredecks participate in Context, canon suggestions, retrieval, and Lorecards. You can add individual Loredecks, add folder groups, adjust stack order, and disable stack entries without deleting Library data.
 
-Basic keeps **Import Deck** available. Basic does not show **Create Deck**, in-progress Creator projects, or Health Center repair controls; switch to Advanced for Generated Loredeck authoring or Pack Health repair.
+Basic keeps **Import Deck** available. Basic does not show **Create Deck**, in-progress Deck Maker projects, or Health Center repair controls; switch to Advanced for Generated Loredeck authoring or Pack Health repair.
 
 ### Context
 
@@ -58,7 +58,7 @@ Use **Settings** when model-backed actions fail or are unavailable. Check provid
 
 Settings also contains **Danger Zone** at the bottom. Use it only for deliberate cleanup: active-chat resets, global settings reset, custom Loredeck removal, custom Theme/Icon removal, or **Total Saga Cleanup**.
 
-Switch to Advanced for provider profile internals, endpoint/model controls, Creator, Continuity, Injection, **Pack Health Center**, package diagnostics, repair sessions, or bulk management.
+Switch to Advanced for provider profile internals, endpoint/model controls, Deck Maker, Continuity, Injection, **Pack Health Center**, package diagnostics, repair sessions, or bulk management.
 
 ## Quick Start
 
@@ -77,8 +77,8 @@ Switch to Advanced for provider profile internals, endpoint/model controls, Crea
 Basic does not show:
 
 - **Create Deck**.
-- In-progress Creator projects.
-- Creator workbench stages.
+- In-progress Deck Maker projects.
+- Deck Maker workbench stages.
 - Continuity tab controls.
 - Injection tab controls.
 - Advanced Context Brief internals.
@@ -93,7 +93,7 @@ Those workflows still use the same saved Loredecks, Context, Pending Review entr
 ## Common Fixes
 
 - **No Lorecards selected:** load a Loredeck, browse Context, then accept relevant Lorecards.
-- **The Library is empty or incomplete:** use **Import Deck** or switch to Advanced if you need Creator.
+- **The Library is empty or incomplete:** use **Import Deck** or switch to Advanced if you need Deck Maker.
 - **Suggestions look wrong:** revisit Context and choose the correct story position manually.
 - **A saved Lorecard should not affect responses:** mute it in Lorecards.
 - **A Lorecard should stay prominent:** Elevate it in Lorecards.

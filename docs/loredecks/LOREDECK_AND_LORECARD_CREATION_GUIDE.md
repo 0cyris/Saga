@@ -31,7 +31,7 @@ Saga uses Loredecks across several systems:
 - Injection: turns selected Lorecards into prompt material for the model.
 - Pack Health: validates that a deck is technically reliable enough to load, share, stack, or use as a reference model.
 - Pending Review: keeps generated or assisted changes reviewable before they become accepted deck content.
-- Loredeck Creator: helps draft and revise decks, while still routing important changes through review.
+- Deck Maker: helps draft and revise decks, while still routing important changes through review.
 
 For an authoring LLM, this means a Loredeck should be written as runtime data, not prose documentation. Every card should be designed for retrieval, gating, and prompt use.
 
@@ -89,7 +89,7 @@ The authoring target is not "a lot of lore." The target is a clean, Context-awar
 
 Saga supports two release-facing authoring paths:
 
-1. Use the in-app **Loredeck Creator** for staged model-assisted authoring, review, Pack Health, and finalization.
+1. Use the in-app **Deck Maker** for staged model-assisted authoring, review, Pack Health, and finalization.
 2. Use these docs, the schema reference, the zip package structure guide, and a bundled Loredeck folder as a handoff bundle for another LLM. The expected output is a compatible `.saga-loredeck.zip` package that imports through **Import Deck**.
 
 Use [LOREDECK_ZIP_PACKAGE_STRUCTURE.md](LOREDECK_ZIP_PACKAGE_STRUCTURE.md) when the final output needs to be an importable package with deck folders, package indexes, entry files, registries, and cover images.

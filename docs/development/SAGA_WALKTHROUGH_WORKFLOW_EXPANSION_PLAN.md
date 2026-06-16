@@ -19,11 +19,11 @@ Basic should teach the routine roleplay loop. Advanced should teach the full ope
 - Let users run the full walkthrough or start a focused module.
 - Do not cap either guide by step count.
 - Every step should have a clear target, expected result, and "when to use this" note.
-- Steps that require fullscreen overlays should declare a preparation action, such as opening the Loredeck Library or Creator workbench.
+- Steps that require fullscreen overlays should declare a preparation action, such as opening the Loredeck Library or Deck Maker workbench.
 - Basic steps must only target Basic-visible tabs and Basic-visible controls.
 - Basic keeps **Import Deck** visible.
-- Basic hides **Create Deck** and **In-Progress Creator Projects**.
-- Advanced includes Creator, Continuity, Injection, Pack Health, package management, diagnostics, and repair workflows.
+- Basic hides **Create Deck** and **In-Progress Deck Maker Projects**.
+- Advanced includes Deck Maker, Continuity, Injection, Pack Health, package management, diagnostics, and repair workflows.
 - Public Lorepack terminology should stay limited to **Bundled Lorepack**, **Generated Lorepack**, and **Custom Lorepack**. Use **Pack Health** for validation/readiness framing.
 
 ## Guide Data Requirements
@@ -61,8 +61,8 @@ Recommended preparation actions:
 | `openAcceptedLoreDetails` | Open an accepted Lorecard detail/editor surface. |
 | `openInjectionPreview` | Bring the exact prompt preview into focus. |
 | `openContinuityEditor` | Focus the relevant editable continuity block. |
-| `openLoredeckCreator` | Open the staged Loredeck Creator workbench. |
-| `openCreatorProject` | Resume an in-progress Creator project. |
+| `openLoredeckCreator` | Open the staged Deck Maker workbench. |
+| `openCreatorProject` | Resume an in-progress Deck Maker project. |
 | `openDeckHealthCenter` | Open Pack Health diagnostics and repair routing. |
 | `openAdvancedSettingsSection` | Focus a provider, theme, or diagnostic settings section. |
 
@@ -81,7 +81,7 @@ Session orientation
   -> Update Context and Lorecards when the story changes
 ```
 
-Basic does not teach Creator, Continuity, Injection tuning, bulk management, package repair, or provider internals. It may point to Advanced when a user asks for those things.
+Basic does not teach Deck Maker, Continuity, Injection tuning, bulk management, package repair, or provider internals. It may point to Advanced when a user asks for those things.
 
 ### Basic Module Order
 
@@ -107,7 +107,7 @@ The guide card should render these as workflow modules, while each module still 
 | B05 | `basic-loredecks-overview` | Loredecks | Loredecks are source packs for Context, canon suggestions, retrieval, and accepted Lorecards. |
 | B06 | `basic-loredecks-open-library` | Loredecks | Open the fullscreen Library to choose a Bundled Lorepack, Generated Lorepack, or Custom Lorepack. |
 | B07 | `basic-library-layout` | Loredecks | The Library is split into the available Lorepack list, the add/remove controls, the active stack, and the selected pack details panel. |
-| B08 | `basic-library-pack-types` | Loredecks | Bundled Lorepacks ship with Saga, Generated Lorepacks come from the Creator workflow, and Custom Lorepacks are user-owned imports or editable copies. |
+| B08 | `basic-library-pack-types` | Loredecks | Bundled Lorepacks ship with Saga, Generated Lorepacks come from the Deck Maker workflow, and Custom Lorepacks are user-owned imports or editable copies. |
 | B09 | `basic-library-search-filter` | Loredecks | Use Library search, special views, sorting, and folders to find the right Lorepack quickly. |
 | B10 | `basic-library-pack-details` | Loredecks | Select a Lorepack to read its summary, type, source, Lorecard count, and basic metadata. |
 | B11 | `basic-library-pack-health` | Loredecks | Pack Health is advisory readiness for the selected Lorepack or active stack, including warnings and errors that may affect reliability. |
@@ -154,15 +154,15 @@ The guide card should render these as workflow modules, while each module still 
 | B52 | `basic-settings-provider-test` | Settings | Use provider tests to confirm Utility or Reasoning routes are available before relying on model-backed features. |
 | B53 | `basic-settings-current-model` | Settings | For the simplest Basic setup, use the current SillyTavern model when that route is available and sufficient. |
 | B54 | `basic-settings-theme-pack` | Settings | Theme Pack controls the runtime shelf appearance, icons, and colors. |
-| B55 | `basic-settings-advanced-handoff` | Settings | Switch to Advanced for provider internals, Creator, Continuity, Injection, Pack Health repair, or diagnostics. |
+| B55 | `basic-settings-advanced-handoff` | Settings | Switch to Advanced for provider internals, Deck Maker, Continuity, Injection, Pack Health repair, or diagnostics. |
 
 ### Basic Required Exclusions
 
 Basic must not include steps for:
 
 - **Create Deck**.
-- **In-Progress Creator Projects**.
-- Creator workbench stages.
+- **In-Progress Deck Maker Projects**.
+- Deck Maker workbench stages.
 - Continuity tab controls.
 - Injection tab controls.
 - Advanced Context Brief internals.
@@ -197,7 +197,7 @@ The full Advanced Walkthrough should run modules in this order:
 4. Lorecard Generation And Review.
 5. Injection Diagnostics.
 6. Continuity Tracking.
-7. Creator And Generated Lorepack Authoring.
+7. Deck Maker And Generated Lorepack Authoring.
 8. Pack Health, Repair, Import, Export, And Finalization.
 9. Settings, Providers, Themes, And Diagnostics.
 10. Troubleshooting Routes.
@@ -274,7 +274,7 @@ This order teaches dependencies before diagnostics: source packs first, then Con
 | A64 | `advanced-lore-story-scan` | Lorecard Generation And Review | Run model-backed story-lore scan for durable chat facts. |
 | A65 | `advanced-lore-scan-scope` | Lorecard Generation And Review | Tune scan source scope where recent, range, and entire-chat controls are available. |
 | A66 | `advanced-lore-manual-add` | Lorecard Generation And Review | Add a known important fact manually and route it through review. |
-| A67 | `advanced-lore-assistant-drafts` | Lorecard Generation And Review | Review assistant or Creator draft batches before they reach Pending Review. |
+| A67 | `advanced-lore-assistant-drafts` | Lorecard Generation And Review | Review assistant or Deck Maker draft batches before they reach Pending Review. |
 | A68 | `advanced-lore-pending-review` | Lorecard Generation And Review | Inspect Pending Lorecard Review as the gate before proposals affect prompts. |
 | A69 | `advanced-lore-pending-edit` | Lorecard Generation And Review | Edit pending entries before acceptance so durable memory is precise. |
 | A70 | `advanced-lore-pending-accept-reject` | Lorecard Generation And Review | Accept, reject, or dismiss entries based on future usefulness. |
@@ -319,25 +319,25 @@ This order teaches dependencies before diagnostics: source packs first, then Con
 | A109 | `advanced-continuity-emotional-freshness` | Continuity Tracking | Inspect or edit emotional freshness where available. |
 | A110 | `advanced-continuity-injection-link` | Continuity Tracking | Understand how continuity state reaches the Injection tab and prompt preview. |
 | A111 | `advanced-continuity-recovery` | Continuity Tracking | Recover from interrupted or failed long scans by adjusting scope, performance, or retry path. |
-| A112 | `advanced-creator-create-deck` | Creator And Generated Lorepack Authoring | Launch Create Deck to begin a Generated Lorepack project. |
-| A113 | `advanced-creator-intake` | Creator And Generated Lorepack Authoring | Enter fandom, scope, granularity, and notes for the generated project. |
-| A114 | `advanced-creator-brief` | Creator And Generated Lorepack Authoring | Generate and approve the scope brief before outline and title work. |
-| A115 | `advanced-creator-outline` | Creator And Generated Lorepack Authoring | Generate and approve the outline that drives title batches and planning. |
-| A116 | `advanced-creator-title-pass` | Creator And Generated Lorepack Authoring | Use Generate Next Title Batch or Generate Remaining after the Story Outline defines title sets. |
-| A117 | `advanced-creator-title-review` | Creator And Generated Lorepack Authoring | Select title rows, then use Approve Selected Titles, Revise Selected Titles, or Drop Selected before planning. |
-| A118 | `advanced-creator-planning` | Creator And Generated Lorepack Authoring | Use Plan Context and Tags to draft timeline and tag proposals for the next approved title set. |
-| A119 | `advanced-creator-planning-review` | Creator And Generated Lorepack Authoring | Review generated Context and tag proposals in the Creator review queue before they shape Lorecard drafting. |
-| A120 | `advanced-creator-entry-draft` | Creator And Generated Lorepack Authoring | Use Draft Lorecards for one small resumable batch from approved planning and titles. |
-| A121 | `advanced-creator-entry-auto-draft` | Creator And Generated Lorepack Authoring | Use Auto-Draft All only after confirming the exact remaining Lorecard count and provider-call count. |
-| A122 | `advanced-creator-draft-review` | Creator And Generated Lorepack Authoring | Review Creator Lorecard drafts in the Draft Review batch before they enter Pending Review. |
-| A123 | `advanced-creator-send-to-review` | Creator And Generated Lorepack Authoring | Use Send Selected to Review or Send All to Review when Creator drafts are ready for normal Pending Review. |
-| A124 | `advanced-creator-pending-review-link` | Creator And Generated Lorepack Authoring | Jump from Creator to the relevant review queue for generated entries. |
-| A125 | `advanced-creator-current-task` | Creator And Generated Lorepack Authoring | Retry, retry smaller, or cancel active generation from the current task card. |
-| A126 | `advanced-creator-generation-settings` | Creator And Generated Lorepack Authoring | Tune Creator generation settings per project. |
-| A127 | `advanced-creator-project-shelf` | Creator And Generated Lorepack Authoring | Resume in-progress Creator projects from the In-Progress Creator Projects shelf. |
-| A128 | `advanced-creator-project-manage` | Creator And Generated Lorepack Authoring | Search, filter, select, move, rename, resume, or delete Creator projects deliberately. |
-| A129 | `advanced-creator-inspect-generated-pack` | Creator And Generated Lorepack Authoring | Open the linked Generated Lorepack in Library details. |
-| A130 | `advanced-creator-readiness-gate` | Creator And Generated Lorepack Authoring | Read accepted coverage, draft blockers, Pack Health, and export readiness before finalization. |
+| A112 | `advanced-creator-create-deck` | Deck Maker And Generated Lorepack Authoring | Launch Create Deck to begin a Generated Lorepack project. |
+| A113 | `advanced-creator-intake` | Deck Maker And Generated Lorepack Authoring | Enter fandom, scope, granularity, and notes for the generated project. |
+| A114 | `advanced-creator-brief` | Deck Maker And Generated Lorepack Authoring | Generate and approve the scope brief before outline and title work. |
+| A115 | `advanced-creator-outline` | Deck Maker And Generated Lorepack Authoring | Generate and approve the outline that drives title batches and planning. |
+| A116 | `advanced-creator-title-pass` | Deck Maker And Generated Lorepack Authoring | Use Generate Next Title Batch or Generate Remaining after the Story Outline defines title sets. |
+| A117 | `advanced-creator-title-review` | Deck Maker And Generated Lorepack Authoring | Select title rows, then use Approve Selected Titles, Revise Selected Titles, or Drop Selected before planning. |
+| A118 | `advanced-creator-planning` | Deck Maker And Generated Lorepack Authoring | Use Plan Context and Tags to draft timeline and tag proposals for the next approved title set. |
+| A119 | `advanced-creator-planning-review` | Deck Maker And Generated Lorepack Authoring | Review generated Context and tag proposals in the Deck Maker review queue before they shape Lorecard drafting. |
+| A120 | `advanced-creator-entry-draft` | Deck Maker And Generated Lorepack Authoring | Use Draft Lorecards for one small resumable batch from approved planning and titles. |
+| A121 | `advanced-creator-entry-auto-draft` | Deck Maker And Generated Lorepack Authoring | Use Auto-Draft All only after confirming the exact remaining Lorecard count and provider-call count. |
+| A122 | `advanced-creator-draft-review` | Deck Maker And Generated Lorepack Authoring | Review Deck Maker Lorecard drafts in the Draft Review batch before they enter Pending Review. |
+| A123 | `advanced-creator-send-to-review` | Deck Maker And Generated Lorepack Authoring | Use Send Selected to Review or Send All to Review when Deck Maker drafts are ready for normal Pending Review. |
+| A124 | `advanced-creator-pending-review-link` | Deck Maker And Generated Lorepack Authoring | Jump from Deck Maker to the relevant review queue for generated entries. |
+| A125 | `advanced-creator-current-task` | Deck Maker And Generated Lorepack Authoring | Retry, retry smaller, or cancel active generation from the current task card. |
+| A126 | `advanced-creator-generation-settings` | Deck Maker And Generated Lorepack Authoring | Tune Deck Maker generation settings per project. |
+| A127 | `advanced-creator-project-shelf` | Deck Maker And Generated Lorepack Authoring | Resume in-progress Deck Maker projects from the In-Progress Deck Maker Projects shelf. |
+| A128 | `advanced-creator-project-manage` | Deck Maker And Generated Lorepack Authoring | Search, filter, select, move, rename, resume, or delete Deck Maker projects deliberately. |
+| A129 | `advanced-creator-inspect-generated-pack` | Deck Maker And Generated Lorepack Authoring | Open the linked Generated Lorepack in Library details. |
+| A130 | `advanced-creator-readiness-gate` | Deck Maker And Generated Lorepack Authoring | Read accepted coverage, draft blockers, Pack Health, and export readiness before finalization. |
 | A131 | `advanced-health-center-open` | Pack Health And Packages | Open Pack Health Center from Library details or a generated pack readiness surface. |
 | A132 | `advanced-health-status` | Pack Health And Packages | Use Refresh Scan, then read errors, warnings, notices, entry counts, and manifest health. |
 | A133 | `advanced-health-issue-groups` | Pack Health And Packages | Inspect grouped health issues by severity, code, affected data, and suggested repair path. |
@@ -352,7 +352,7 @@ This order teaches dependencies before diagnostics: source packs first, then Con
 | A142 | `advanced-settings-provider-overview` | Settings And Providers | Understand Utility and Reasoning provider roles. |
 | A143 | `advanced-settings-provider-profile` | Settings And Providers | Select or edit provider profiles for model-backed Saga actions. |
 | A144 | `advanced-settings-endpoint-model` | Settings And Providers | Configure endpoint and model details for provider routes. |
-| A145 | `advanced-settings-provider-test` | Settings And Providers | Test configured providers before relying on scans, compression, Context Reasoner, or Creator calls. |
+| A145 | `advanced-settings-provider-test` | Settings And Providers | Test configured providers before relying on scans, compression, Context Reasoner, or Deck Maker calls. |
 | A146 | `advanced-settings-current-model` | Settings And Providers | Use the current SillyTavern model where that is the simplest provider route. |
 | A147 | `advanced-settings-generation` | Settings And Providers | Tune generation parameters for model-backed Saga tasks. |
 | A148 | `advanced-settings-provider-presets` | Settings And Providers | Use provider preset support to install or update bundled profile routing. |
@@ -371,7 +371,7 @@ This order teaches dependencies before diagnostics: source packs first, then Con
 | A161 | `advanced-troubleshoot-continuity-stale` | Troubleshooting Routes | Rescan, adjust scope, inspect tracked sections, or recover interrupted scans. |
 | A162 | `advanced-troubleshoot-package-duplicate` | Troubleshooting Routes | Resolve duplicate package import warnings before installing or updating. |
 | A163 | `advanced-troubleshoot-health-warnings` | Troubleshooting Routes | Route Pack Health warnings to repair, ignore, duplicate-as-custom, or manual edit paths. |
-| A164 | `advanced-troubleshoot-creator-failure` | Troubleshooting Routes | Retry, retry smaller, cancel, or adjust Creator generation settings. |
+| A164 | `advanced-troubleshoot-creator-failure` | Troubleshooting Routes | Retry, retry smaller, cancel, or adjust Deck Maker generation settings. |
 | A165 | `advanced-troubleshoot-return-basic` | Troubleshooting Routes | Switch back to Basic when routine roleplay no longer needs advanced controls. |
 
 ## Section Cards
@@ -399,7 +399,7 @@ Recommended Advanced cards:
 | Lorecard Generation And Review | A61 | Generate, review, edit, tier, and audit Lorecards. |
 | Injection Diagnostics | A83 | Inspect exactly what Saga sends and why. |
 | Continuity Tracking | A98 | Track, tune, edit, and recover live scene state. |
-| Creator And Generated Lorepack Authoring | A112 | Create and complete Generated Lorepack projects. |
+| Deck Maker And Generated Lorepack Authoring | A112 | Create and complete Generated Lorepack projects. |
 | Pack Health And Packages | A131 | Validate, repair, update, export, and finalize Lorepacks. |
 | Settings And Providers | A32 | Configure providers, Theme Packs, icons, colors, State Safety, Danger Zone cleanup, and diagnostics. |
 | Troubleshooting Routes | A154 | Route common failures to the right control surface. |
@@ -451,8 +451,8 @@ Required static checks:
 - Basic guide includes every `Bxx` required id.
 - Advanced guide includes every `Axx` required id, or an explicit implementation phase marker for deferred overlay-only ids.
 - Basic guide step tabs are all in `BASIC_EXPERIENCE_TABS`.
-- Basic guide source does not include Creator, Continuity, or Injection targets.
-- Advanced guide includes Loredecks, Session, Context, Continuity, Lorecards, Injection, Settings, Creator, Pack Health, and troubleshooting modules.
+- Basic guide source does not include Deck Maker, Continuity, or Injection targets.
+- Advanced guide includes Loredecks, Session, Context, Continuity, Lorecards, Injection, Settings, Deck Maker, Pack Health, and troubleshooting modules.
 - Every guide step has `expected` and `when`.
 - Every step target is marked in runtime UI or declares a valid `prepare`.
 - Every `prepare` action has a smoke-testable no-object fallback.

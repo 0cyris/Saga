@@ -1,5 +1,5 @@
 /**
- * Story Opener Creator state model.
+ * Story Maker state model.
  */
 
 export const STORY_OPENER_SCHEMA_VERSION = 1;
@@ -283,9 +283,9 @@ export function normalizeStoryOpenerSession(value = {}, options = {}) {
         raw.title
         || controls.context
         || controls.userPrompt
-        || 'Story opener',
+        || 'Untitled opener',
         240,
-    ) || 'Story opener';
+    ) || 'Untitled opener';
     return {
         schemaVersion: STORY_OPENER_SCHEMA_VERSION,
         kind: STORY_OPENER_SESSION_KIND,

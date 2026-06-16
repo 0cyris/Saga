@@ -2053,7 +2053,7 @@ function getLiveCreatorSmokeConfig() {
         fandom: String(process.env.SAGA_LIVE_CREATOR_FANDOM || 'One Piece').trim(),
         scope: String(process.env.SAGA_LIVE_CREATOR_SCOPE || defaultScope).trim(),
         granularity: String(process.env.SAGA_LIVE_CREATOR_GRANULARITY || 'compact').trim(),
-        notes: String(process.env.SAGA_LIVE_CREATOR_NOTES || `Automated live Creator smoke ${runId}. Keep this intentionally small. Prefer one sharp Lorecard about pressure, secrets, village stakes, or timing instead of broad biography.`).trim(),
+        notes: String(process.env.SAGA_LIVE_CREATOR_NOTES || `Automated live Deck Maker smoke ${runId}. Keep this intentionally small. Prefer one sharp Lorecard about pressure, secrets, village stakes, or timing instead of broad biography.`).trim(),
         providerTimeoutMs,
         finalize: process.env.SAGA_LIVE_CREATOR_FINALIZE !== '0',
         cleanup: process.env.SAGA_LIVE_CREATOR_CLEANUP !== '0',
@@ -2927,7 +2927,7 @@ async function clearLiveCreatorActiveProjectPointers(client) {
 }
 
 function buildLiveCreatorSmokeProjectCheckExpression() {
-    return '(() => { const state = window.__sagaLiveCreatorSmokeState?.(); const job = state?.job || {}; const text = [job.fandom, job.scope, job.generatedPackId, job.generatedPackTitle, job.lastGenerationResult?.message, state?.visible?.creatorText].filter(Boolean).join("\\n"); const hasJob = !!job.jobId; const visiblePending = /Review Queue\\s+[1-9]\\d* pending|Pending Review\\s+[1-9]\\d*/i.test(text); const hasGeneratedPack = !!String(job.generatedPackId || "").trim(); const empty = !hasJob ? !visiblePending : ((!job.currentStage || job.currentStage === "intake") && !hasGeneratedPack && !job.briefReady && !job.outlineReady && !(job.titleDraftCount || 0) && !(job.approvedTitleCount || 0) && !(job.planningQueuedCount || 0) && !(job.planningAcceptedCount || 0) && !(job.draftChangeCount || 0) && !(job.acceptedEntryCount || 0) && !visiblePending); const smokeLike = /Automated live Creator smoke|live-creator-|Arlong Park arc focused on Nami|one-piece-arlong/i.test(text); return { hasJob, empty, smokeLike, visiblePending, jobId: job.jobId || "", currentStage: job.currentStage || "", generatedPackId: job.generatedPackId || "" }; })()';
+    return '(() => { const state = window.__sagaLiveCreatorSmokeState?.(); const job = state?.job || {}; const text = [job.fandom, job.scope, job.generatedPackId, job.generatedPackTitle, job.lastGenerationResult?.message, state?.visible?.creatorText].filter(Boolean).join("\\n"); const hasJob = !!job.jobId; const visiblePending = /Review Queue\\s+[1-9]\\d* pending|Pending Review\\s+[1-9]\\d*/i.test(text); const hasGeneratedPack = !!String(job.generatedPackId || "").trim(); const empty = !hasJob ? !visiblePending : ((!job.currentStage || job.currentStage === "intake") && !hasGeneratedPack && !job.briefReady && !job.outlineReady && !(job.titleDraftCount || 0) && !(job.approvedTitleCount || 0) && !(job.planningQueuedCount || 0) && !(job.planningAcceptedCount || 0) && !(job.draftChangeCount || 0) && !(job.acceptedEntryCount || 0) && !visiblePending); const smokeLike = /Automated live Deck Maker smoke|live-creator-|Arlong Park arc focused on Nami|one-piece-arlong/i.test(text); return { hasJob, empty, smokeLike, visiblePending, jobId: job.jobId || "", currentStage: job.currentStage || "", generatedPackId: job.generatedPackId || "" }; })()';
 }
 
 async function resetLiveCreatorSmokeProjectToIntakeIfNeeded(client) {
@@ -3019,13 +3019,13 @@ async function openLiveCreatorWorkbench(client) {
     const libraryAlreadyOpen = await evaluate(client, '!!document.querySelector(".saga-loredeck-library-overlay")').catch(() => false);
     if (!libraryAlreadyOpen) {
         const libraryOpened = await clickButtonText(client, 'Open Loredeck Library');
-        if (!libraryOpened) throw new Error('Could not open Loredeck Library for live Creator smoke.');
+        if (!libraryOpened) throw new Error('Could not open Loredeck Library for live Deck Maker smoke.');
     }
     await waitFor(client, '!!document.querySelector(".saga-loredeck-library-overlay")', 'Live Creator Library overlay', 90000);
     await wait(700);
     const createOpened = await clickButtonText(client, 'Create Deck', { root: '.saga-loredeck-library-overlay' });
-    if (!createOpened) throw new Error('Could not open Loredeck Creator from the live Library.');
-    await waitFor(client, '!!document.querySelector(".saga-loredeck-creator-workbench-overlay")', 'Live Creator workbench overlay', 90000);
+    if (!createOpened) throw new Error('Could not open Deck Maker from the live Library.');
+    await waitFor(client, '!!document.querySelector(".saga-loredeck-creator-workbench-overlay")', 'Live Deck Maker workbench overlay', 90000);
     await installLiveCreatorStateProbe(client);
     await wait(700);
 }
@@ -3045,7 +3045,7 @@ async function openLiveCreatorLibraryPack(client, packId = '') {
     if (!libraryOpen) {
         const opened = await clickButtonText(client, 'Open Loredeck Library').catch(() => false);
         if (!opened) return { ok: false, reason: 'library-open-failed' };
-        await waitFor(client, '!!document.querySelector(".saga-loredeck-library-overlay")', 'Live Creator finalized Library overlay', 10000);
+        await waitFor(client, '!!document.querySelector(".saga-loredeck-library-overlay")', 'Live Deck Maker finalized Library overlay', 10000);
     }
     await wait(700);
     return await evaluate(client, script(packIdToSelect => {
@@ -3869,7 +3869,7 @@ async function cleanupPreviousLiveCreatorSmokeResidue(client) {
                 job?.generatedPackId,
                 job?.brief?.packId,
             ].filter(Boolean).join('\n');
-            return /Automated live Creator smoke|live-creator-/i.test(text)
+            return /Automated live Deck Maker smoke|live-creator-/i.test(text)
                 || (
                     /One Piece/i.test(String(job?.fandom || ''))
                     && /Arlong Park arc focused on Nami/i.test(String(job?.scope || ''))
@@ -3980,7 +3980,7 @@ async function cleanupPreviousLiveCreatorSmokeResidue(client) {
 async function cancelLiveCreatorSmokeGenerationIfPresent(client) {
     const state = await collectLiveCreatorState(client).catch(() => null);
     const job = state?.job || {};
-    const isSmokeJob = /Automated live Creator smoke|live-creator-/i.test([
+    const isSmokeJob = /Automated live Deck Maker smoke|live-creator-/i.test([
         job.fandom,
         job.scope,
         job.generatedPackId,
@@ -4072,7 +4072,7 @@ async function runGuideHarnessSmoke(client, screenshots, findings, smokeUrl, dia
             moduleTitles: [...document.querySelectorAll('.saga-instructions-section-title')].map(node => node.textContent?.trim()).filter(Boolean),
             stopPills: [...document.querySelectorAll('.saga-instructions-section-meta')].map(node => node.textContent || ''),
             railTabs: [...document.querySelectorAll('.saga-runtime-rail-tab')].map(node => node.getAttribute('data-tab-id') || ''),
-            hiddenActionButtons: buttonLabels.filter(label => /Create Deck|In-Progress Creator Projects|Prompt Placement/.test(label)),
+            hiddenActionButtons: buttonLabels.filter(label => /Create Deck|In-Progress Deck Maker Projects|Prompt Placement/.test(label)),
         };
     }));
     const expectedBasicModules = ['First Run', 'Loredecks', 'Context', 'Lorecards', 'Continue Roleplay', 'Settings'];
@@ -4265,7 +4265,7 @@ async function runGuideHarnessSmoke(client, screenshots, findings, smokeUrl, dia
         'Lorecard Generation And Review',
         'Injection Diagnostics',
         'Continuity Tracking',
-        'Creator And Generated Lorepack Authoring',
+        'Deck Maker And Generated Lorepack Authoring',
         'Pack Health And Packages',
         'Settings And Providers',
         'Troubleshooting Routes',
@@ -4314,11 +4314,11 @@ async function runGuideHarnessSmoke(client, screenshots, findings, smokeUrl, dia
         findings.push(`Mobile Advanced Session Details did not reopen for Creator module: ${advancedModuleReturnDetailsState.reason || 'unknown'}.`);
     }
 
-    const advancedCreatorStarted = await clickButtonInRow(client, '', '.saga-instructions-section-card', 'Creator And Generated Lorepack Authoring', 'Start');
+    const advancedCreatorStarted = await clickButtonInRow(client, '', '.saga-instructions-section-card', 'Deck Maker And Generated Lorepack Authoring', 'Start');
     if (!advancedCreatorStarted) findings.push('Advanced Creator module Start button was not clickable.');
     await waitFor(client, '!!document.querySelector("#saga-tour-popover")', 'Advanced Creator module popover', 10000);
-    const reachedCreatorFallback = await clickTourNextUntilTitle(client, 'Creator Draft Review', 14);
-    if (!reachedCreatorFallback) findings.push('Advanced Creator module did not reach the no-project Creator Draft Review step.');
+    const reachedCreatorFallback = await clickTourNextUntilTitle(client, 'Deck Maker Draft Review', 14);
+    if (!reachedCreatorFallback) findings.push('Advanced Creator module did not reach the no-project Deck Maker Draft Review step.');
     await wait(700);
     const advancedCreatorFallback = await evaluate(client, script(() => {
         const popover = document.querySelector('#saga-tour-popover');
@@ -4331,7 +4331,7 @@ async function runGuideHarnessSmoke(client, screenshots, findings, smokeUrl, dia
             title: popover?.querySelector('.saga-tour-title')?.textContent?.trim() || '',
             progress: popover?.querySelector('.saga-tour-progress')?.textContent?.trim() || '',
             hasPreparation: text.includes('Preparation:'),
-            hasNoProjectMessage: text.includes('Loredeck Creator is open, but there is no in-progress Creator project to resume yet.'),
+            hasNoProjectMessage: text.includes('Deck Maker is open, but there is no in-progress Deck Maker project to resume yet.'),
             hasCreatorProjectState: combinedText.includes('Generated Loredeck draft') || combinedText.includes('Resumable job') || combinedText.includes('Scope Brief') || combinedText.includes('Review Queue'),
             hasWhen: text.includes('When to use:'),
             hasExpected: text.includes('Expected result:'),
@@ -4339,18 +4339,18 @@ async function runGuideHarnessSmoke(client, screenshots, findings, smokeUrl, dia
             activeTab: document.querySelector('.saga-runtime-rail-tab-active')?.getAttribute('data-tab-id') || document.querySelector('#saga-lore-panel')?.dataset?.mobileActiveTab || '',
         };
     }));
-    if (!advancedCreatorFallback.hasPopover || advancedCreatorFallback.title !== 'Creator Draft Review') findings.push('Advanced Creator fallback did not land on the expected tour step.');
-    if (advancedCreatorFallback.progress !== '11 / 19') findings.push(`Advanced Creator fallback progress was ${advancedCreatorFallback.progress || 'missing'} instead of 11 / 19.`);
-    if (!advancedCreatorFallback.hasNoProjectMessage && !advancedCreatorFallback.hasCreatorProjectState) findings.push('Advanced Creator step did not show a missing-project message or a resumable Creator project state.');
-    if (!advancedCreatorFallback.hasWhen || !advancedCreatorFallback.hasExpected) findings.push('Advanced Creator fallback popover did not include When to use and Expected result details.');
-    if (!advancedCreatorFallback.creatorOpen || advancedCreatorFallback.activeTab !== 'loredecks') findings.push('Advanced Creator fallback did not keep the Creator workbench open on the Loredecks tab.');
+    if (!advancedCreatorFallback.hasPopover || advancedCreatorFallback.title !== 'Deck Maker Draft Review') findings.push('Advanced Deck Maker fallback did not land on the expected tour step.');
+    if (advancedCreatorFallback.progress !== '11 / 19') findings.push(`Advanced Deck Maker fallback progress was ${advancedCreatorFallback.progress || 'missing'} instead of 11 / 19.`);
+    if (!advancedCreatorFallback.hasNoProjectMessage && !advancedCreatorFallback.hasCreatorProjectState) findings.push('Advanced Deck Maker step did not show a missing-project message or a resumable Deck Maker project state.');
+    if (!advancedCreatorFallback.hasWhen || !advancedCreatorFallback.hasExpected) findings.push('Advanced Deck Maker fallback popover did not include When to use and Expected result details.');
+    if (!advancedCreatorFallback.creatorOpen || advancedCreatorFallback.activeTab !== 'loredecks') findings.push('Advanced Deck Maker fallback did not keep the Deck Maker workbench open on the Loredecks tab.');
     screenshots.push(await screenshot(client, 'guide-harness-07-advanced-creator-empty-project'));
     await clickButtonText(client, 'Close', { root: '#saga-tour-popover', enabledOnly: false });
-    await waitFor(client, '!document.querySelector("#saga-tour-popover")', 'Advanced Creator fallback close', 10000);
+    await waitFor(client, '!document.querySelector("#saga-tour-popover")', 'Advanced Deck Maker fallback close', 10000);
     await clickButtonText(client, 'Close', { root: '.saga-loredeck-creator-workbench-overlay', enabledOnly: false });
-    await waitFor(client, '!document.querySelector(".saga-loredeck-creator-workbench-overlay")', 'Advanced Creator workbench close after fallback smoke', 10000);
+    await waitFor(client, '!document.querySelector(".saga-loredeck-creator-workbench-overlay")', 'Advanced Deck Maker workbench close after fallback smoke', 10000);
     await clickRuntimeRoute(client, 'session');
-    await waitFor(client, sagaActiveTabExpression('session'), 'Advanced Session tab restored after Creator fallback smoke', 10000);
+    await waitFor(client, sagaActiveTabExpression('session'), 'Advanced Session tab restored after Deck Maker fallback smoke', 10000);
     await wait(600);
     const advancedReturnDetailsState = await openMobileSessionDetailsForGuide(client);
     if (advancedReturnDetailsState?.mobile && !advancedReturnDetailsState.opened) {
@@ -4410,14 +4410,14 @@ async function runGuideHarnessSmoke(client, screenshots, findings, smokeUrl, dia
 }
 
 async function runCreatorHarnessSmoke(client, screenshots, findings, smokeUrl, dialogEvents) {
-    await waitFor(client, 'window.__sagaSmokeReady === true', 'Creator smoke ready marker', 20000);
-    await waitFor(client, 'document.querySelector(".saga-runtime-rail-tab-active")?.getAttribute("data-tab-id") === "loredecks" || document.querySelector("#saga-lore-panel")?.dataset?.mobileActiveTab === "loredecks"', 'Creator smoke Loredecks tab active', 10000);
-    const projectPanelOpened = await openSummaryText(client, 'In-Progress Creator Projects');
+    await waitFor(client, 'window.__sagaSmokeReady === true', 'Deck Maker smoke ready marker', 20000);
+    await waitFor(client, 'document.querySelector(".saga-runtime-rail-tab-active")?.getAttribute("data-tab-id") === "loredecks" || document.querySelector("#saga-lore-panel")?.dataset?.mobileActiveTab === "loredecks"', 'Deck Maker smoke Loredecks tab active', 10000);
+    const projectPanelOpened = await openSummaryText(client, 'In-Progress Deck Maker Projects');
     await wait(700);
     const creatorOpened = (projectPanelOpened && await clickSelector(client, '.saga-loredeck-creator-project-card'))
         || await clickButtonText(client, 'Create Deck');
-    if (!projectPanelOpened && !creatorOpened) findings.push('Creator harness could not open In-Progress Creator Projects.');
-    if (!creatorOpened) findings.push('Creator harness could not resume the seeded Creator project.');
+    if (!projectPanelOpened && !creatorOpened) findings.push('Creator harness could not open In-Progress Deck Maker Projects.');
+    if (!creatorOpened) findings.push('Creator harness could not resume the seeded Deck Maker project.');
     await waitFor(client, '!!document.querySelector(".saga-loredeck-creator-workbench-overlay")', 'Creator harness workbench overlay', 10000);
     await wait(900);
     screenshots.push(await screenshot(client, 'creator-harness-01-reset-controls'));
@@ -4449,14 +4449,14 @@ async function runCreatorHarnessSmoke(client, screenshots, findings, smokeUrl, d
     if (resetState.finalizeHasReset) findings.push('Creator harness exposed a reset control on Finalize.');
     if (resetState.hasNestedStageButtons) findings.push('Creator harness rendered nested buttons in the stage guide.');
     if (!resetState.labels.includes('Reset to Title Pass')) findings.push('Creator harness did not expose Reset to Title Pass.');
-    if (!resetState.titleResetTooltip.includes('Reset to this step')) findings.push('Creator reset tooltip did not use the expected reset affordance copy.');
-    if (!resetState.titleResetText.trim()) findings.push('Creator reset icon text did not render.');
+    if (!resetState.titleResetTooltip.includes('Reset to this step')) findings.push('Deck Maker reset tooltip did not use the expected reset affordance copy.');
+    if (!resetState.titleResetText.trim()) findings.push('Deck Maker reset icon text did not render.');
     if (findings.length === 0) {
         const clickedReset = await clickSelector(client, '.saga-loredeck-creator-stage-reset[aria-label="Reset to Title Pass"]');
         if (!clickedReset) {
             findings.push('Creator harness could not click Reset to Title Pass.');
         } else {
-            await waitFor(client, '!!document.querySelector(".saga-confirm-overlay")', 'Creator reset confirmation overlay', 10000);
+            await waitFor(client, '!!document.querySelector(".saga-confirm-overlay")', 'Deck Maker reset confirmation overlay', 10000);
             await wait(300);
             const confirmState = await evaluate(client, script(() => {
                 const overlay = document.querySelector('.saga-confirm-overlay');
@@ -4465,22 +4465,22 @@ async function runCreatorHarnessSmoke(client, screenshots, findings, smokeUrl, d
                     open: !!overlay,
                     text,
                     hasTitle: text.includes('Reset to Title Pass?'),
-                    hasWarning: text.includes('permanently erase all Creator data after Title Pass'),
+                    hasWarning: text.includes('permanently erase all Deck Maker data after Title Pass'),
                     namesForwardSteps: text.includes('Context Plan') && text.includes('Lorecards') && text.includes('Review Queue') && text.includes('Pack Health') && text.includes('Finalize'),
                     hasConfirmLabel: [...overlay?.querySelectorAll('button') || []].some(button => (button.innerText || button.textContent || '').trim() === 'Reset to Title Pass'),
                     hasCancelLabel: [...overlay?.querySelectorAll('button') || []].some(button => (button.innerText || button.textContent || '').trim() === 'Cancel'),
                 };
             }));
-            if (!confirmState.open) findings.push('Creator reset confirmation did not open.');
-            if (!confirmState.hasTitle) findings.push('Creator reset confirmation title was not target-specific.');
-            if (!confirmState.hasWarning || !confirmState.namesForwardSteps) findings.push('Creator reset confirmation did not name the destructive forward-step wipe.');
-            if (!confirmState.hasConfirmLabel || !confirmState.hasCancelLabel) findings.push('Creator reset confirmation did not render expected action labels.');
+            if (!confirmState.open) findings.push('Deck Maker reset confirmation did not open.');
+            if (!confirmState.hasTitle) findings.push('Deck Maker reset confirmation title was not target-specific.');
+            if (!confirmState.hasWarning || !confirmState.namesForwardSteps) findings.push('Deck Maker reset confirmation did not name the destructive forward-step wipe.');
+            if (!confirmState.hasConfirmLabel || !confirmState.hasCancelLabel) findings.push('Deck Maker reset confirmation did not render expected action labels.');
             screenshots.push(await screenshot(client, 'creator-harness-02-reset-confirm'));
             const cancelled = await clickButtonText(client, 'Cancel', { root: '.saga-confirm-overlay', enabledOnly: false });
-            if (!cancelled) findings.push('Creator reset confirmation Cancel button was not clickable.');
+            if (!cancelled) findings.push('Deck Maker reset confirmation Cancel button was not clickable.');
             await wait(300);
             const closed = await evaluate(client, '!document.querySelector(".saga-confirm-overlay")');
-            if (!closed) findings.push('Creator reset confirmation did not close after Cancel.');
+            if (!closed) findings.push('Deck Maker reset confirmation did not close after Cancel.');
             resetState.confirmState = confirmState;
         }
     }
@@ -4620,7 +4620,7 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
             creatorProjectsOpen: creatorSection?.matches('details[open]') || false,
             creatorProjectCount: Number(creatorSection?.dataset?.sagaCreatorProjectCount || 0),
             creatorProjectCards: document.querySelectorAll('.saga-loredeck-creator-project-card').length,
-            hasSeededCreatorProject: text.includes('Smoke Creator Project') || text.includes('Smoke Generated: Arlong Park'),
+            hasSeededCreatorProject: text.includes('Smoke Deck Maker Project') || text.includes('Smoke Generated: Arlong Park'),
             creatorSectionAfterLibrary: !!creatorSection && !!libraryCard && !!(libraryCard.compareDocumentPosition(creatorSection) & Node.DOCUMENT_POSITION_FOLLOWING),
             maxCreatorProjectControlFontSize: creatorControlFontSizes.length ? Math.max(...creatorControlFontSizes) : 0,
             maxCreatorProjectTitleFontSize: creatorTitleFontSizes.length ? Math.max(...creatorTitleFontSizes) : 0,
@@ -4639,12 +4639,12 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
         if (!initialState.bottomRoutes.includes(route)) findings.push(`Mobile Advanced bottom bar missing route: ${route}.`);
     }
     if (initialState.hasActiveStack || initialState.hasStackDetailsHeader) findings.push('Mobile Advanced Loredecks root still rendered the retired Active Stack summary or Stack Details affordance.');
-    if (!initialState.hasLibraryCard || !initialState.hasOpenLibrary || !initialState.hasCreateDeck) findings.push('Mobile Advanced Loredecks root did not render the static Library card with Library and Creator actions.');
+    if (!initialState.hasLibraryCard || !initialState.hasOpenLibrary || !initialState.hasCreateDeck) findings.push('Mobile Advanced Loredecks root did not render the static Library card with Library and Deck Maker actions.');
     if (!initialState.hasCreatorProjectsSection || !initialState.creatorProjectsOpen || initialState.creatorProjectCount < 1 || initialState.creatorProjectCards < 1 || !initialState.hasSeededCreatorProject || !initialState.creatorSectionAfterLibrary) {
-        findings.push(`Mobile Advanced Loredecks root did not show the in-progress Creator Projects shelf under the Library card: ${JSON.stringify(initialState)}.`);
+        findings.push(`Mobile Advanced Loredecks root did not show the in-progress Deck Maker Projects shelf under the Library card: ${JSON.stringify(initialState)}.`);
     }
     if (initialState.maxCreatorProjectControlFontSize > 13.5 || initialState.maxCreatorProjectTitleFontSize > 14) {
-        findings.push(`Mobile Advanced Creator Projects typography is oversized: ${JSON.stringify({ controls: initialState.maxCreatorProjectControlFontSize, titles: initialState.maxCreatorProjectTitleFontSize })}.`);
+        findings.push(`Mobile Advanced Deck Maker Projects typography is oversized: ${JSON.stringify({ controls: initialState.maxCreatorProjectControlFontSize, titles: initialState.maxCreatorProjectTitleFontSize })}.`);
     }
     if (!initialState.libraryActions.includes('Open Loredeck Library') || !initialState.libraryActions.includes('Import Deck')) findings.push('Mobile Advanced Loredecks static Library card did not expose Library and Import actions.');
     if (initialState.libraryActions.some(label => /^Next:/.test(label))) findings.push('Mobile Advanced Loredecks root exposed checklist-style Next actions.');
@@ -5173,7 +5173,7 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
         labels: [],
     };
     if (creatorClicked) {
-        await waitFor(client, '!!document.querySelector(".saga-loredeck-creator-workbench-overlay")', 'Mobile Advanced Creator overlay', 10000);
+        await waitFor(client, '!!document.querySelector(".saga-loredeck-creator-workbench-overlay")', 'Mobile Advanced Deck Maker overlay', 10000);
         await wait(800);
         creatorState = await evaluate(client, script(() => {
             const overlay = document.querySelector('.saga-loredeck-creator-workbench-overlay');
@@ -5199,7 +5199,7 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
                 .filter(Boolean);
             return {
                 open: !!overlay,
-                hasTitle: text.includes('Loredeck Creator'),
+                hasTitle: text.includes('Deck Maker'),
                 hasReviewQueue: text.includes('Review Queue'),
                 hasCurrentTask: text.includes('Current Task') || text.includes('Plan') || text.includes('Draft'),
                 hasClose: labels.includes('Close'),
@@ -5221,14 +5221,14 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
                 labels,
             };
         }));
-        if (!creatorState.open || !creatorState.hasTitle || !creatorState.hasReviewQueue || !creatorState.hasCurrentTask) findings.push('Mobile Advanced Creator did not render Review Queue/current-task state.');
-        if (!creatorState.hasClose) findings.push('Mobile Advanced Creator did not expose Close.');
-        if (creatorState.headerActionLabels.length) findings.push(`Mobile Advanced Creator still rendered persistent header actions: ${creatorState.headerActionLabels.join(', ')}.`);
+        if (!creatorState.open || !creatorState.hasTitle || !creatorState.hasReviewQueue || !creatorState.hasCurrentTask) findings.push('Mobile Advanced Deck Maker did not render Review Queue/current-task state.');
+        if (!creatorState.hasClose) findings.push('Mobile Advanced Deck Maker did not expose Close.');
+        if (creatorState.headerActionLabels.length) findings.push(`Mobile Advanced Deck Maker still rendered persistent header actions: ${creatorState.headerActionLabels.join(', ')}.`);
         for (const label of ['Project Settings', 'Close']) {
-            if (!creatorState.bottomActionLabels.includes(label)) findings.push(`Mobile Advanced Creator bottom action bar missing: ${label}.`);
+            if (!creatorState.bottomActionLabels.includes(label)) findings.push(`Mobile Advanced Deck Maker bottom action bar missing: ${label}.`);
         }
         if (Number(creatorState.shellBottomGap || 0) > 2 || Number(creatorState.bottomActionBottomGap || 0) > 2 || Number(creatorState.bodyBottomGap || 0) > 1) {
-            findings.push(`Mobile Advanced Creator left a visible bottom gap below the workbench actions: ${JSON.stringify({
+            findings.push(`Mobile Advanced Deck Maker left a visible bottom gap below the workbench actions: ${JSON.stringify({
                 viewportHeight: creatorState.viewportHeight,
                 visualViewportHeight: creatorState.visualViewportHeight,
                 overlayHeight: creatorState.overlayHeight,
@@ -5238,10 +5238,10 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
                 bodyBottomGap: creatorState.bodyBottomGap,
             })}.`);
         }
-        if (!creatorState.currentTaskBeforeStageGuide || !creatorState.currentTaskVisibleEarly) findings.push('Mobile Advanced Creator did not prioritize the current task before the stage roadmap.');
-        if (!creatorState.stageRailHorizontal) findings.push('Mobile Advanced Creator stage roadmap did not render as a compact horizontal rail.');
+        if (!creatorState.currentTaskBeforeStageGuide || !creatorState.currentTaskVisibleEarly) findings.push('Mobile Advanced Deck Maker did not prioritize the current task before the stage roadmap.');
+        if (!creatorState.stageRailHorizontal) findings.push('Mobile Advanced Deck Maker stage roadmap did not render as a compact horizontal rail.');
         const creatorScrollAudit = await getMobileNestedScrollAuditState(client, {
-            label: 'Loredeck Creator workbench',
+            label: 'Deck Maker workbench',
             scopeSelector: '.saga-loredeck-creator-workbench-overlay',
             allowedSelectors: ['.saga-loredeck-creator-workbench-body'],
         });
@@ -6498,7 +6498,7 @@ async function runTabletAdvancedHarnessSmoke(client, screenshots, findings, smok
     }
     if (shellState.mobileBottomTabs > 0 || shellState.overflowSheet) findings.push('Tablet Advanced harness rendered mobile bottom-bar or overflow-sheet UI above the mobile breakpoint.');
     if (shellState.hasActiveStack) findings.push('Tablet Advanced Loredecks drawer still rendered the retired Active Stack section.');
-    if (!shellState.hasOpenLibrary || !shellState.hasCreateDeck) findings.push('Tablet Advanced Loredecks drawer did not render the static Library and Creator actions.');
+    if (!shellState.hasOpenLibrary || !shellState.hasCreateDeck) findings.push('Tablet Advanced Loredecks drawer did not render the static Library and Deck Maker actions.');
     if (!shellState.noHorizontalOverflow) findings.push(`Tablet Advanced shell has horizontal overflow (drawer ${shellState.drawerScrollWidth}/${shellState.drawerClientWidth}, body ${shellState.bodyScrollWidth}/${shellState.bodyClientWidth}).`);
     screenshots.push(await screenshot(client, 'tablet-advanced-harness-01-loredecks-desktop-shell'));
 
@@ -6734,7 +6734,7 @@ async function runTabletAdvancedHarnessSmoke(client, screenshots, findings, smok
     if (!creatorClicked) findings.push('Tablet Advanced Create Deck action was not clickable.');
     let creatorState = { open: false, hasTitle: false, hasReviewQueue: false, hasCurrentTask: false, hasClose: false };
     if (creatorClicked) {
-        await waitFor(client, '!!document.querySelector(".saga-loredeck-creator-workbench-overlay")', 'Tablet Advanced Creator overlay', 10000);
+        await waitFor(client, '!!document.querySelector(".saga-loredeck-creator-workbench-overlay")', 'Tablet Advanced Deck Maker overlay', 10000);
         await wait(800);
         creatorState = await evaluate(client, script(() => {
             const overlay = document.querySelector('.saga-loredeck-creator-workbench-overlay');
@@ -6742,7 +6742,7 @@ async function runTabletAdvancedHarnessSmoke(client, screenshots, findings, smok
             const labels = [...overlay?.querySelectorAll('button') || []].map(button => (button.innerText || button.textContent || '').trim()).filter(Boolean);
             return {
                 open: !!overlay,
-                hasTitle: text.includes('Loredeck Creator'),
+                hasTitle: text.includes('Deck Maker'),
                 hasReviewQueue: text.includes('Review Queue'),
                 hasCurrentTask: text.includes('Current Task') || text.includes('Plan') || text.includes('Draft'),
                 hasClose: labels.includes('Close'),
@@ -6750,9 +6750,9 @@ async function runTabletAdvancedHarnessSmoke(client, screenshots, findings, smok
                 labels,
             };
         }));
-        if (!creatorState.open || !creatorState.hasTitle || !creatorState.hasReviewQueue || !creatorState.hasCurrentTask) findings.push('Tablet Advanced Creator did not render Review Queue/current-task state.');
-        if (!creatorState.hasClose) findings.push('Tablet Advanced Creator did not expose Close.');
-        if (!creatorState.noHorizontalOverflow) findings.push('Tablet Advanced Creator has horizontal overflow.');
+        if (!creatorState.open || !creatorState.hasTitle || !creatorState.hasReviewQueue || !creatorState.hasCurrentTask) findings.push('Tablet Advanced Deck Maker did not render Review Queue/current-task state.');
+        if (!creatorState.hasClose) findings.push('Tablet Advanced Deck Maker did not expose Close.');
+        if (!creatorState.noHorizontalOverflow) findings.push('Tablet Advanced Deck Maker has horizontal overflow.');
         screenshots.push(await screenshot(client, 'tablet-advanced-harness-04-creator-review-queue'));
         await clickButtonText(client, 'Close', { root: '.saga-loredeck-creator-workbench-overlay', enabledOnly: false }).catch(() => false);
         await wait(400);
@@ -8914,12 +8914,12 @@ async function runLiveCreatorSmoke(client, screenshots, findings, smokeUrl, dial
             error: error?.message || String(error),
         }));
         if (staleSmokeResetState && staleSmokeResetState.ok === false) {
-            throw new Error(`Live Creator smoke refused to reset active project: ${staleSmokeResetState.reason || staleSmokeResetState.error || 'unknown state'}`);
+            throw new Error(`Live Deck Maker smoke refused to reset active project: ${staleSmokeResetState.reason || staleSmokeResetState.error || 'unknown state'}`);
         }
         await openSummaryText(client, 'Advanced Generation Settings', { root: '.saga-loredeck-creator-workbench-overlay' }).catch(() => false);
         for (const [key, value] of Object.entries(config.generationSettings)) {
             const result = await setLiveCreatorGenerationSetting(client, key, value);
-            if (!result?.ok) findings.push(`Live Creator smoke could not set generation setting ${key}: ${result?.reason || 'unknown'}.`);
+            if (!result?.ok) findings.push(`Live Deck Maker smoke could not set generation setting ${key}: ${result?.reason || 'unknown'}.`);
         }
         for (const [label, value] of [
             ['Fandom', config.fandom],
@@ -8940,7 +8940,7 @@ async function runLiveCreatorSmoke(client, screenshots, findings, smokeUrl, dial
             error: error?.message || String(error),
         }));
         if (postCancelResetState && postCancelResetState.ok === false) {
-            throw new Error(`Live Creator smoke refused to clear stale smoke residue after cancellation: ${postCancelResetState.reason || postCancelResetState.error || 'unknown state'}`);
+            throw new Error(`Live Deck Maker smoke refused to clear stale smoke residue after cancellation: ${postCancelResetState.reason || postCancelResetState.error || 'unknown state'}`);
         }
         await stage('intake-ready', '01-intake');
 
@@ -8949,18 +8949,18 @@ async function runLiveCreatorSmoke(client, screenshots, findings, smokeUrl, dial
             client,
             '!!state?.job?.briefReady',
             state => !!state?.job?.briefReady,
-            'live Creator Scope Brief result',
+            'live Deck Maker Scope Brief result',
             timeout,
         );
         let state = await stage('scope-brief-drafted', '02-scope-brief');
-        if (state.providerNotReady) throw new Error('Reasoning Provider was not ready for the live Creator Scope Brief call.');
-        if (!state.job?.briefReady) throw new Error('Live Creator Scope Brief did not produce a brief.');
+        if (state.providerNotReady) throw new Error('Reasoning Provider was not ready for the live Deck Maker Scope Brief call.');
+        if (!state.job?.briefReady) throw new Error('Live Deck Maker Scope Brief did not produce a brief.');
 
         await requireButtonMatching(client, { labels: ['Approve Scope Brief'] }, 'Approve Scope Brief', { root: '.saga-loredeck-creator-workbench-overlay' });
         await waitForLiveCreatorState(
             client,
             '(() => { const state = window.__sagaLiveCreatorSmokeState?.(); const labels = state?.visible?.buttonLabels || []; const text = state?.visible?.creatorText || ""; return labels.includes("Draft Story Outline") || text.includes("Draft Story Outline"); })()',
-            'live Creator Scope Brief approval UI',
+            'live Deck Maker Scope Brief approval UI',
             60000,
         );
         await stage('scope-brief-approved');
@@ -8970,17 +8970,17 @@ async function runLiveCreatorSmoke(client, screenshots, findings, smokeUrl, dial
             client,
             '!!state?.job?.outlineReady',
             state => !!state?.job?.outlineReady,
-            'live Creator Story Outline result',
+            'live Deck Maker Story Outline result',
             timeout,
         );
         state = await stage('story-outline-drafted', '03-story-outline');
-        if (!state.job?.outlineReady) throw new Error('Live Creator Story Outline did not produce an outline.');
+        if (!state.job?.outlineReady) throw new Error('Live Deck Maker Story Outline did not produce an outline.');
 
         await requireButtonMatching(client, { labels: ['Approve Outline and Unlock Title Pass'] }, 'Approve Outline and Unlock Title Pass', { root: '.saga-loredeck-creator-workbench-overlay' });
         await waitForLiveCreatorState(
             client,
             '(() => { const state = window.__sagaLiveCreatorSmokeState?.(); const labels = state?.visible?.buttonLabels || []; const text = state?.visible?.creatorText || ""; return labels.includes("Generate Next Title Batch") || text.includes("Generate Next Title Batch"); })()',
-            'live Creator Story Outline approval UI',
+            'live Deck Maker Story Outline approval UI',
             60000,
         );
         await stage('story-outline-approved');
@@ -8990,15 +8990,15 @@ async function runLiveCreatorSmoke(client, screenshots, findings, smokeUrl, dial
             client,
             '(state?.job?.titleDraftCount || 0) >= 1',
             state => (state?.job?.titleDraftCount || 0) >= 1,
-            'live Creator first Title Batch result',
+            'live Deck Maker first Title Batch result',
             timeout,
         );
         state = await stage('first-title-batch-drafted', '04-title-batch');
-        if ((state.job?.titleDraftCount || 0) < 1) throw new Error('Live Creator title pass did not produce any title drafts.');
+        if ((state.job?.titleDraftCount || 0) < 1) throw new Error('Live Deck Maker title pass did not produce any title drafts.');
 
         if ((state.job?.titleBatchTotal || 0) > (state.job?.titleBatchDraftedCount || 0)) {
             await requireButtonMatching(client, { pattern: '^Generate Remaining' }, 'Generate Remaining title batches', { root: '.saga-loredeck-creator-workbench-overlay' });
-            await waitFor(client, '!!document.querySelector(".saga-confirm-overlay")', 'live Creator Generate Remaining confirmation', 10000);
+            await waitFor(client, '!!document.querySelector(".saga-confirm-overlay")', 'live Deck Maker Generate Remaining confirmation', 10000);
             const confirmed = await confirmLiveCreatorDialog(client);
             if (!confirmed?.clicked) throw new Error(`Could not confirm Generate Remaining title batches: ${JSON.stringify(redactDiagnosticValue(confirmed))}`);
             await waitForLiveCreatorGenerationState(
@@ -9014,13 +9014,13 @@ async function runLiveCreatorSmoke(client, screenshots, findings, smokeUrl, dial
                         && !labels.includes('Cancel Generation')
                         && !(state?.visible?.busyButtons || []).length;
                 },
-                'live Creator remaining Title Batches result',
+                'live Deck Maker remaining Title Batches result',
                 timeout * 2,
             );
             state = await stage('all-title-batches-drafted', '05-title-batches-complete');
         }
         if ((state.job?.titleBatchTotal || 0) > (state.job?.titleBatchDraftedCount || 0)) {
-            throw new Error(`Live Creator title batches are incomplete (${state.job?.titleBatchDraftedCount || 0}/${state.job?.titleBatchTotal || 0}).`);
+            throw new Error(`Live Deck Maker title batches are incomplete (${state.job?.titleBatchDraftedCount || 0}/${state.job?.titleBatchTotal || 0}).`);
         }
 
         await requireButtonMatching(client, { labels: ['Approve'] }, 'Approve first title draft', { root: '.saga-loredeck-creator-title-list' });
@@ -9037,22 +9037,22 @@ async function runLiveCreatorSmoke(client, screenshots, findings, smokeUrl, dial
             client,
             '(state?.generatedPack?.pendingChangeCount || 0) >= 1 || (state?.job?.planningQueuedCount || 0) >= 1',
             state => (state?.generatedPack?.pendingChangeCount || 0) >= 1 || (state?.job?.planningQueuedCount || 0) >= 1,
-            'live Creator Context and Tag planning result',
+            'live Deck Maker Context and Tag planning result',
             timeout,
         );
         state = await stage('context-tags-planned', '07-context-tags');
         if ((state.generatedPack?.pendingChangeCount || 0) < 1 && (state.job?.planningQueuedCount || 0) < 1) {
-            throw new Error('Live Creator Context and Tag planning did not create reviewable changes.');
+            throw new Error('Live Deck Maker Context and Tag planning did not create reviewable changes.');
         }
 
         await requireButtonMatching(client, { labels: ['Accept All'] }, 'Accept All planning changes', { root: '.saga-loredeck-creator-workbench-overlay' });
-        await waitFor(client, '!!document.querySelector(".saga-confirm-overlay")', 'live Creator planning Accept All confirmation', 10000);
+        await waitFor(client, '!!document.querySelector(".saga-confirm-overlay")', 'live Deck Maker planning Accept All confirmation', 10000);
         let confirmed = await confirmLiveCreatorDialog(client);
         if (!confirmed?.clicked) throw new Error(`Could not confirm planning Accept All: ${JSON.stringify(redactDiagnosticValue(confirmed))}`);
         await waitForLiveCreatorState(
             client,
             '(() => { const state = window.__sagaLiveCreatorSmokeState?.(); return (state?.job?.planningAcceptedCount || 0) >= 1 && (state?.generatedPack?.pendingChangeCount || 0) === 0; })()',
-            'live Creator planning accepted',
+            'live Deck Maker planning accepted',
             30000,
         );
         state = await stage('context-tags-accepted', '08-planning-accepted');
@@ -9062,17 +9062,17 @@ async function runLiveCreatorSmoke(client, screenshots, findings, smokeUrl, dial
             client,
             '(state?.job?.draftChangeCount || 0) >= 1',
             state => (state?.job?.draftChangeCount || 0) >= 1,
-            'live Creator Lorecard draft result',
+            'live Deck Maker Lorecard draft result',
             timeout,
         );
         state = await stage('lorecard-drafted', '09-lorecard-draft');
-        if ((state.job?.draftChangeCount || 0) < 1) throw new Error('Live Creator Lorecard drafting did not create Creator Draft Review items.');
+        if ((state.job?.draftChangeCount || 0) < 1) throw new Error('Live Deck Maker Lorecard drafting did not create Deck Maker Draft Review items.');
 
-        await requireButtonMatching(client, { labels: ['Send All to Review', 'Send Selected to Review'] }, 'Send Creator drafts to Pending Review', { root: '.saga-loredeck-creator-workbench-overlay' });
+        await requireButtonMatching(client, { labels: ['Send All to Review', 'Send Selected to Review'] }, 'Send Deck Maker drafts to Pending Review', { root: '.saga-loredeck-creator-workbench-overlay' });
         await waitForLiveCreatorState(
             client,
             '(() => { const state = window.__sagaLiveCreatorSmokeState?.(); const text = state?.visible?.creatorText || ""; return (state?.job?.draftChangeCount || 0) === 0 && ((state?.generatedPack?.pendingChangeCount || 0) >= 1 || /Review Queue\\s+[1-9]\\d* pending/i.test(text) || /Pending Review\\s+[1-9]\\d*/i.test(text)); })()',
-            'live Creator drafts sent to Pending Review',
+            'live Deck Maker drafts sent to Pending Review',
             30000,
         );
         state = await stage('drafts-sent-to-review', '10-drafts-to-review');
@@ -9082,18 +9082,18 @@ async function runLiveCreatorSmoke(client, screenshots, findings, smokeUrl, dial
             await waitForLiveCreatorState(
                 client,
                 '(() => { const state = window.__sagaLiveCreatorSmokeState?.(); const labels = state?.visible?.buttonLabels || []; const text = state?.visible?.creatorText || ""; return labels.includes("Accept All") || text.includes("Accept All") || text.includes("Pending Review"); })()',
-                'live Creator Review Queue opened',
+                'live Deck Maker Review Queue opened',
                 15000,
             );
         }
         await requireButtonMatching(client, { labels: ['Accept All'] }, 'Accept All Lorecard changes', { root: '.saga-loredeck-creator-workbench-overlay' });
-        await waitFor(client, '!!document.querySelector(".saga-confirm-overlay")', 'live Creator Lorecard Accept All confirmation', 10000);
+        await waitFor(client, '!!document.querySelector(".saga-confirm-overlay")', 'live Deck Maker Lorecard Accept All confirmation', 10000);
         confirmed = await confirmLiveCreatorDialog(client);
         if (!confirmed?.clicked) throw new Error(`Could not confirm Lorecard Accept All: ${JSON.stringify(redactDiagnosticValue(confirmed))}`);
         await waitForLiveCreatorState(
             client,
             '(() => { const state = window.__sagaLiveCreatorSmokeState?.(); const text = state?.visible?.creatorText || ""; const labels = state?.visible?.buttonLabels || []; return ((state?.generatedPack?.pendingChangeCount || 0) === 0 && (state?.generatedPack?.acceptedEntryCount || 0) >= 1) || labels.includes("Run Pack Health") || (/Review Queue\\s+Empty/i.test(text) && /Pack Health/i.test(text)); })()',
-            'live Creator Lorecard accepted',
+            'live Deck Maker Lorecard accepted',
             30000,
         );
         state = await stage('lorecard-accepted', '11-lorecard-accepted');
@@ -9102,22 +9102,22 @@ async function runLiveCreatorSmoke(client, screenshots, findings, smokeUrl, dial
         await waitForLiveCreatorState(
             client,
             '(() => { const state = window.__sagaLiveCreatorSmokeState?.(); const status = String(state?.generatedPack?.healthStatus || "").trim().toLowerCase(); const labels = state?.visible?.buttonLabels || []; return (!!status && status !== "draft" && status !== "stale") || labels.includes("Finalize as Custom Loredeck") || labels.includes("Finalize Anyway"); })()',
-            'live Creator Pack Health result',
+            'live Deck Maker Pack Health result',
             60000,
         );
-        await waitForLiveCreatorSettled(client, 'live Creator Pack Health settled', 60000);
+        await waitForLiveCreatorSettled(client, 'live Deck Maker Pack Health settled', 60000);
         state = await stage('pack-health-run', '12-pack-health');
 
         if (config.finalize) {
             if (state.visible?.buttonLabels?.includes('Finalize Anyway')) {
                 await requireButtonMatching(client, { labels: ['Finalize Anyway'] }, 'Finalize Anyway coverage acknowledgement', { root: '.saga-loredeck-creator-workbench-overlay', preferLast: true });
-                await waitFor(client, '!!document.querySelector(".saga-confirm-overlay")', 'live Creator coverage acknowledgement confirmation', 60000);
+                await waitFor(client, '!!document.querySelector(".saga-confirm-overlay")', 'live Deck Maker coverage acknowledgement confirmation', 60000);
                 confirmed = await confirmLiveCreatorDialog(client, 'Confirm', { timeoutMs: 60000 });
-                if (!confirmed?.clicked) throw new Error(`Could not confirm Creator coverage acknowledgement: ${JSON.stringify(redactDiagnosticValue(confirmed))}`);
+                if (!confirmed?.clicked) throw new Error(`Could not confirm Deck Maker coverage acknowledgement: ${JSON.stringify(redactDiagnosticValue(confirmed))}`);
                 await waitForLiveCreatorState(
                     client,
                     '(() => { const state = window.__sagaLiveCreatorSmokeState?.(); const labels = state?.visible?.buttonLabels || []; const disabled = state?.visible?.disabledButtons || []; return !state?.confirmOpen && (!!state?.job?.coverageFinalizeAcknowledgement || (labels.includes("Finalize as Custom Loredeck") && !disabled.includes("Finalize as Custom Loredeck"))); })()',
-                    'live Creator coverage acknowledgement settled',
+                    'live Deck Maker coverage acknowledgement settled',
                     60000,
                 );
                 state = await stage('coverage-acknowledged');
@@ -9126,7 +9126,7 @@ async function runLiveCreatorSmoke(client, screenshots, findings, smokeUrl, dial
             const finalizeUiState = await waitForLiveCreatorState(
                 client,
                 '(() => { const state = window.__sagaLiveCreatorSmokeState?.(); return state?.confirmOpen || state?.metadataEditorOpen || (state?.selectedPack?.type === "custom" && (state?.selectedPack?.originalPackId || state?.selectedPack?.creatorJobId)) || (state?.finalizedPacks || []).length > 0; })()',
-                'live Creator finalization confirmation or completion',
+                'live Deck Maker finalization confirmation or completion',
                 30000,
             ).then(() => collectLiveCreatorState(client)).catch(error => ({
                 error: error?.message || String(error),
@@ -9147,7 +9147,7 @@ async function runLiveCreatorSmoke(client, screenshots, findings, smokeUrl, dial
                 const staged = await waitForLiveCreatorState(
                     client,
                     '(() => { const state = window.__sagaLiveCreatorSmokeState?.(); return state?.metadataEditorOpen || (state?.selectedPack?.type === "custom" && (state?.selectedPack?.originalPackId || state?.selectedPack?.creatorJobId)) || (state?.finalizedPacks || []).length > 0; })()',
-                    'live Creator finalized Custom Loredeck UI',
+                    'live Deck Maker finalized Custom Loredeck UI',
                     5000,
                 ).then(() => stage('finalized-as-custom', '13-finalized')).catch(error => ({
                     error: error?.message || String(error),
@@ -9155,18 +9155,18 @@ async function runLiveCreatorSmoke(client, screenshots, findings, smokeUrl, dial
                 if (!staged?.error) state = staged;
                 else {
                     finalizedVerificationState.uiStage = staged;
-                    findings.push(`Live Creator finalized Custom deck verified through files, but the UI did not settle after finalization: ${staged.error}`);
+                    findings.push(`Live Deck Maker finalized Custom deck verified through files, but the UI did not settle after finalization: ${staged.error}`);
                 }
             } else {
                 await waitForLiveCreatorState(
                     client,
                     '(() => { const state = window.__sagaLiveCreatorSmokeState?.(); return state?.metadataEditorOpen || (state?.selectedPack?.type === "custom" && (state?.selectedPack?.originalPackId || state?.selectedPack?.creatorJobId)) || (state?.finalizedPacks || []).length > 0; })()',
-                    'live Creator finalized Custom Loredeck',
+                    'live Deck Maker finalized Custom Loredeck',
                     90000,
                 );
                 state = await stage('finalized-as-custom', '13-finalized');
                 if (!state.selectedPack && !(state.finalizedPacks || []).length) {
-                    throw new Error('Live Creator finalization did not leave a detectable Custom Loredeck record.');
+                    throw new Error('Live Deck Maker finalization did not leave a detectable Custom Loredeck record.');
                 }
                 finalizedVerificationState = await verifyLiveCreatorFinalizedDeck(
                     client,
@@ -9176,7 +9176,7 @@ async function runLiveCreatorSmoke(client, screenshots, findings, smokeUrl, dial
                 );
             }
             if (!finalizedVerificationState?.ok) {
-                findings.push(`Live Creator finalized Custom deck verification failed: ${finalizedVerificationState?.check?.reason || finalizedVerificationState?.openState?.reason || 'unexpected finalized deck/library/file state'}.`);
+                findings.push(`Live Deck Maker finalized Custom deck verification failed: ${finalizedVerificationState?.check?.reason || finalizedVerificationState?.openState?.reason || 'unexpected finalized deck/library/file state'}.`);
             }
         }
     } catch (error) {
@@ -9184,7 +9184,7 @@ async function runLiveCreatorSmoke(client, screenshots, findings, smokeUrl, dial
             message: error?.message || String(error),
             stack: error?.stack || '',
         };
-        findings.push(`Live Creator smoke failed: ${thrown.message}`);
+        findings.push(`Live Deck Maker smoke failed: ${thrown.message}`);
         await stage('failure-state', '99-failure').catch(() => null);
     } finally {
         const createdSnapshot = snapshotArtifacts();
@@ -9234,7 +9234,7 @@ async function runLiveCreatorSmoke(client, screenshots, findings, smokeUrl, dial
                 if (!fileCleanup?.ok && !fallbackCleaned) {
                     findings.push(...cleanupFindings);
                     const fallbackReason = filesystemCleanup?.reason || filesystemCleanup?.error || '';
-                    findings.push(`Live Creator files-api cleanup failed: ${fileCleanup?.reason || fileCleanup?.error || 'unknown failure'}${fallbackReason ? `; filesystem fallback failed: ${fallbackReason}` : ''}.`);
+                    findings.push(`Live Deck Maker files-api cleanup failed: ${fileCleanup?.reason || fileCleanup?.error || 'unknown failure'}${fallbackReason ? `; filesystem fallback failed: ${fallbackReason}` : ''}.`);
                 }
             } else {
                 cleanupState = uiCleanup;
@@ -9593,7 +9593,7 @@ async function main() {
                     target: SMOKE_TARGET,
                     url: smokeUrl,
                     skipped: true,
-                    findings: ['Live Loredeck Creator smoke is opt-in. Set SAGA_ALLOW_PROVIDER_CALLS=1 to spend multiple bounded Reasoning Provider calls and create/delete a test Custom deck.'],
+                    findings: ['Live Deck Maker smoke is opt-in. Set SAGA_ALLOW_PROVIDER_CALLS=1 to spend multiple bounded Reasoning Provider calls and create/delete a test Custom deck.'],
                     errors: [],
                     dialogEvents,
                 }, null, 2));
@@ -10245,7 +10245,7 @@ async function main() {
         const creatorClicked = await clickButtonText(client, 'Create Deck', { root: '.saga-loredeck-library-overlay' });
         optionalSteps.creatorAvailable = creatorClicked;
         if (creatorClicked) {
-            await waitFor(client, '!!document.querySelector(".saga-loredeck-creator-workbench-overlay")', 'Loredeck Creator');
+            await waitFor(client, '!!document.querySelector(".saga-loredeck-creator-workbench-overlay")', 'Deck Maker');
             await wait(1000);
             screenshots.push(await screenshot(client, 'live-st-05-creator'));
             await clickButtonText(client, 'Close', { root: '.saga-loredeck-creator-workbench-overlay', enabledOnly: false });

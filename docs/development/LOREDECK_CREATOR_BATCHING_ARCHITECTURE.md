@@ -1,12 +1,12 @@
-# Loredeck Creator Batching Architecture
+# Deck Maker Batching Architecture
 
-Status: Phase 11 implemented. The Creator generation architecture now has dedicated regression coverage for duplicate-click dedupe, late/superseded responses, interrupted reopen recovery, token-limit retry, and partial success preservation.
+Status: Phase 11 implemented. The Deck Maker generation architecture now has dedicated regression coverage for duplicate-click dedupe, late/superseded responses, interrupted reopen recovery, token-limit retry, and partial success preservation.
 
 ## Purpose
 
-Saga's Loredeck Creator must stop relying on large single model calls. Reasoning models can spend most of an 8k response budget on hidden or visible thinking, then return truncated JSON, no titles, or no usable outline. Users can also accidentally launch duplicate calls, leave the Creator while a call is running, and later receive late duplicate results.
+Saga's Deck Maker must stop relying on large single model calls. Reasoning models can spend most of an 8k response budget on hidden or visible thinking, then return truncated JSON, no titles, or no usable outline. Users can also accidentally launch duplicate calls, leave Deck Maker while a call is running, and later receive late duplicate results.
 
-The correct direction is a fresh Creator batching design that reuses the proven mechanics from Scan Story Lore:
+The correct direction is a fresh Deck Maker batching design that reuses the proven mechanics from Scan Story Lore:
 
 - Small bounded provider calls.
 - Durable job state.
@@ -14,9 +14,9 @@ The correct direction is a fresh Creator batching design that reuses the proven 
 - Retry and repair behavior.
 - Partial success preservation.
 - Interrupted-run recovery.
-- UI state that survives closing and reopening the Creator.
+- UI state that survives closing and reopening Deck Maker.
 
-The Creator should not directly call the story-scan bulk engine. Story scan chunks are chat-message ranges. Creator chunks are planned creation units: scope brief, story outline, title batches, Context/tag planning batches, and Lorecard micro-batches.
+Deck Maker should not directly call the story-scan bulk engine. Story scan chunks are chat-message ranges. Creator chunks are planned creation units: scope brief, story outline, title batches, Context/tag planning batches, and Lorecard micro-batches.
 
 ## Goals
 
@@ -24,16 +24,16 @@ The Creator should not directly call the story-scan bulk engine. Story scan chun
 - Prevent duplicate button presses from launching duplicate calls for the same work unit.
 - Preserve every successful batch immediately.
 - Make late provider responses idempotent so they cannot append duplicate titles or proposals.
-- Let users leave and reopen the Creator while a generation call is running.
+- Let users leave and reopen Deck Maker while a generation call is running.
 - Support cancel, retry failed batch, rerun selected batch, and run remaining batches.
-- Keep the Creator guided for novice users.
+- Keep Deck Maker guided for novice users.
 - Give advanced users a default-collapsed settings panel for batch sizing and generation behavior.
 - Keep all generated content reviewable before it affects runtime injection.
 - Reuse existing provider, streaming, retry, repair, and checkpoint concepts without forcing Creator work into chat-scan semantics.
 
 ## Non-Goals
 
-- Do not parallelize Creator calls by default.
+- Do not parallelize Deck Maker calls by default.
 - Do not generate an entire Loredeck in one provider response.
 - Do not bypass Scope Brief, Story Outline, Title Pass, Context/Tag Planning, Lorecard Draft Review, Pending Review, or Deck Health.
 - Do not make raw model output a persistent UI surface.
@@ -53,7 +53,7 @@ The Creator should not directly call the story-scan bulk engine. Story scan chun
 - Token-limit finish-reason detection.
 - Abort signal support.
 
-The Creator should use this directly.
+Deck Maker should use this directly.
 
 ### Story Scan Patterns
 
@@ -72,7 +72,7 @@ These patterns should be extracted into a shared runner layer instead of copy-pa
 
 ### Pending Review
 
-The Creator should continue using the existing Loredeck Pending Review and draft-review pipeline. Generated planning and Lorecard content should remain proposals until the user accepts them.
+Deck Maker should continue using the existing Loredeck Pending Review and draft-review pipeline. Generated planning and Lorecard content should remain proposals until the user accepts them.
 
 ## Proposed Shared Layer
 
@@ -174,7 +174,7 @@ runGenerationUnits({
 });
 ```
 
-The runner controls lifecycle. The Creator supplies domain-specific behavior.
+The runner controls lifecycle. Deck Maker supplies domain-specific behavior.
 
 ## Creator Batch Model
 
@@ -263,7 +263,7 @@ Commit rule:
 
 - Create Pending Review proposals for anchors/windows/tags.
 - Upsert proposal records by stable proposal ID.
-- Replace existing Pending Review proposals for the same Creator planning batch before adding the new batch slice.
+- Replace existing Pending Review proposals for the same Deck Maker planning batch before adding the new batch slice.
 - Record `planningBatchQueuedIds`.
 - Do not apply proposals until Pending Review acceptance.
 - If exact unit output arrives late, dedupe by proposal ID and batch marker.
@@ -289,8 +289,8 @@ Each unit receives:
 
 Commit rule:
 
-- Store proposals in Creator Lorecard Draft Review, not Pending Review directly.
-- Upsert draft-review records by stable Creator entry draft IDs.
+- Store proposals in Deck Maker Lorecard Draft Review, not Pending Review directly.
+- Upsert draft-review records by stable Deck Maker entry draft IDs.
 - Replace existing draft-review records for the same micro-batch unit before adding the new batch slice.
 - Mark drafted title IDs with the micro-batch unit ID that produced them.
 - Allow additional Lorecard batches while earlier draft-review proposals remain unresolved.
@@ -301,7 +301,7 @@ Recommended default:
 - `entryBatchLimit`: 3.
 - `Run Remaining Lorecard Batches` should stop when any batch fails, asks clarification, reaches the configured call limit, or exhausts eligible undrafted titles.
 - If a batch creates drafts, the UI must visibly acknowledge the new draft-review items while allowing the next eligible batch to continue.
-- The Creator Lorecard Draft Review remains the edit-before-Pending Review boundary, but it is not a generation blocker.
+- The Deck Maker Lorecard Draft Review remains the edit-before-Pending Review boundary, but it is not a generation blocker.
 
 ### Stage 6: Deck Health And Finalize
 
@@ -311,7 +311,7 @@ Health should run after accepted generated content changes. Generated-to-Custom 
 
 ## State Placement
 
-Short term: store Creator run/unit data inside each Creator job in `state.loredeckCreator.jobs[jobId]`.
+Short term: store Creator run/unit data inside each Deck Maker job in `state.loredeckCreator.jobs[jobId]`.
 
 Recommended fields:
 
@@ -341,11 +341,11 @@ Long term: if more Saga systems need this runner, move generic ledgers to:
 state.generationJobs
 ```
 
-The first implementation can avoid a broad state migration by keeping generic runner records under Creator jobs and extracting later.
+The first implementation can avoid a broad state migration by keeping generic runner records under Deck Maker jobs and extracting later.
 
 ## Idempotency Rules
 
-Every Creator unit needs deterministic identity and deterministic result merging.
+Every Deck Maker unit needs deterministic identity and deterministic result merging.
 
 Required checks:
 
@@ -372,13 +372,13 @@ Recommended policy:
 - Planning Batch: 2048-4096 output tokens, no more than 8-16 proposals.
 - Lorecard Micro-Batch: 4096-6144 output tokens, no more than 3 entries.
 
-Do not blindly force 16k for all Creator calls. That masks over-broad prompts, costs more, and still fails on providers/models with lower real limits or heavy reasoning overhead.
+Do not blindly force 16k for all Deck Maker calls. That masks over-broad prompts, costs more, and still fails on providers/models with lower real limits or heavy reasoning overhead.
 
 ### Advanced Batch Settings
 
 Novice users should not need to understand batch sizing, but advanced users should be able to tune it.
 
-Add a default-collapsed `Advanced Generation Settings` disclosure in the Creator, similar in spirit to Story Lore Scan settings. It should include:
+Add a default-collapsed `Advanced Generation Settings` disclosure in Deck Maker, similar in spirit to Story Lore Scan settings. It should include:
 
 - Title batch size / title limit per model call.
 - Planning proposal limit per model call.
@@ -396,11 +396,11 @@ Implemented defaults are conservative:
 - Title run-remaining call limit: 5.
 - Retry attempts: 1.
 - Retry smaller: on.
-- Streaming progress: on because Creator status uses short transient snippets as the live progress surface.
+- Streaming progress: on because Deck Maker status uses short transient snippets as the live progress surface.
 
 Implemented behavior:
 
-- Settings are saved on the active Creator project as `generationSettings`.
+- Settings are saved on the active Deck Maker project as `generationSettings`.
 - Scope Brief, Story Outline, Title Pass, Context/Tag Planning, and Lorecard Drafting share the configured retry count through the generation runner.
 - Title Pass uses `titleBatchLimit` for title count and `titleRunRemainingLimit` for `Generate Remaining`.
 - Context/Tag Planning uses `planningProposalLimit`.
@@ -420,14 +420,14 @@ When a token-limit failure is detected:
 
 ## UI Behavior
 
-The Creator should feel like a guided queue, not a field-heavy tool.
+Deck Maker should feel like a guided queue, not a field-heavy tool.
 
 Required behavior:
 
 - One primary action per current stage.
 - Clear disabled/running state on buttons.
 - Status row under any model-call button.
-- Running state survives closing and reopening the Creator.
+- Running state survives closing and reopening Deck Maker.
 - No scroll snapping after generation, approval, retry, cancel, or refresh.
 - Raw model output is not rendered after completion.
 - Progress text should show stage and unit, such as `Generating title batch 2 of 5`.
@@ -479,7 +479,7 @@ If snippets are shown, they should be temporary and replaced by parsed review UI
 
 ## Stale And Interrupted Recovery
 
-The Creator can be closed, reopened, or reloaded while a provider request was previously marked active. On open:
+The Deck Maker can be closed, reopened, or reloaded while a provider request was previously marked active. On open:
 
 - If the active generation still has a live in-memory generation record and controller, keep it running and restart the status ticker.
 - If the saved `activeGeneration` has no matching live generation/controller, treat it as interrupted.
@@ -527,7 +527,7 @@ Recovery actions:
 
 Implemented recovery behavior:
 
-- Each Creator unit stores compact `meta` for the target stage, batch/window, selected title IDs, and effective batch/proposal limits.
+- Each Deck Maker unit stores compact `meta` for the target stage, batch/window, selected title IDs, and effective batch/proposal limits.
 - `Retry Failed` reruns the latest failed/interrupted unit with the same unit ID so the checkpoint replaces the failed status.
 - `Retry Smaller` creates a new retry unit ID with a smaller request size, then marks the older failed unit `superseded` once the replacement unit exists.
 - Smaller retry is available for Title Pass batches, Context/Tag planning, and Lorecard micro-batches.
@@ -537,13 +537,13 @@ Implemented recovery behavior:
 ## Implementation Slices
 
 1. Done: Create `generation-job-runner.js` with generic sequential unit execution, lifecycle statuses, progress callback wiring, and cancellation checks.
-2. Done: Add Creator job fields for `generationRuns`, `generationUnits`, and active unit tracking.
+2. Done: Add Deck Maker job fields for `generationRuns`, `generationUnits`, and active unit tracking.
 3. Done: Migrate Scope Brief and Story Outline calls to the runner without changing output behavior.
 4. Done: Migrate Title Pass to unit-based execution and idempotent upsert by title batch.
 5. Done: Replace multiple title batch buttons with guided `Generate Next` / `Generate Remaining`.
 6. Done: Migrate Context/Tag Planning to unit-based execution and idempotent Pending Review proposal creation.
 7. Done: Migrate Lorecard Drafting to runner-managed micro-batches and idempotent draft-review writes.
-8. Done: Add stale/interrupted active-generation recovery when the Creator opens.
+8. Done: Add stale/interrupted active-generation recovery when Deck Maker opens.
 9. Done: Add the default-collapsed Advanced Generation Settings panel for batch limits, run-remaining limits, retry behavior, and streaming progress.
 10. Done: Add `Retry Failed`, `Retry Smaller`, and `Cancel` controls.
 11. Done: Add tests for duplicate clicks, late responses, interrupted reopen, token-limit retry, and partial success preservation.
@@ -566,11 +566,11 @@ Unit tests:
   - superseded late responses do not commit;
   - interrupted reopen state clears `activeGeneration` while preserving failed unit metadata;
   - token-limit retry checkpoints `retrying` and completes on the next attempt;
-  - partial runs preserve completed units and failed-unit metadata in the same Creator job.
+  - partial runs preserve completed units and failed-unit metadata in the same Deck Maker job.
 
 Integration tests:
 
-- Creator Scope Brief still drafts and approves.
+- Deck Maker Scope Brief still drafts and approves.
 - Story Outline parsing fills the UI.
 - Title Pass runs one outline batch per call.
 - `Generate Remaining` uses separate calls.
@@ -598,9 +598,9 @@ Visual tests:
 
 ## Open Decisions
 
-- Should generic generation ledgers remain embedded under Creator jobs for alpha, or move immediately to `state.generationJobs`?
+- Should generic generation ledgers remain embedded under Deck Maker jobs for alpha, or move immediately to `state.generationJobs`?
 - Can we eventually parse streaming JSON safely enough to populate draft cards incrementally, or should cards always wait for final parsed batch commits?
 
 ## Recommendation
 
-Build the shared runner now, but keep the first storage implementation inside Creator jobs. That gets the benefits of durable batching and idempotent writes without a broad state migration. Once the Creator is stable, the same runner can be used by story Lorecard generation and other Saga model-assisted workflows.
+Build the shared runner now, but keep the first storage implementation inside Deck Maker jobs. That gets the benefits of durable batching and idempotent writes without a broad state migration. Once the Deck Maker is stable, the same runner can be used by story Lorecard generation and other Saga model-assisted workflows.
