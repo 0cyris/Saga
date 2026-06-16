@@ -123,19 +123,18 @@ When tapping raises relevance:
 - The relevance symbol flashes the new tier.
 - Dot geometry should appear to power up.
 - A subtle green or warm pulse moves across the card.
-- A short `Low`, `Normal`, or `High` label can pop near the relevance symbol and fade quickly.
 
 When tapping wraps High back to Low:
 
 - The relevance symbol flashes the new tier.
 - Dot geometry should appear to power down.
 - A cooler dimming pulse moves across the card.
-- A short `Low`, `Normal`, or `High` label can pop near the relevance symbol and fade quickly.
 
 Use animation as feedback, not decoration:
 
 - Keep it under roughly 350ms.
 - Do not shift layout.
+- Do not show a transient `Low`, `Normal`, or `High` text pop-up on tap.
 - Respect reduced-motion settings by replacing sweeps with a brief opacity/color pulse.
 - Use one animation per committed tier step.
 - Optional haptic feedback may use a very short vibration where supported.

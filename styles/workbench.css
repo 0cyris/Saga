@@ -1252,6 +1252,17 @@
         user-select: text;
     }
 
+    .saga-mobile-touch-surface.saga-mobile-lorecard-editor-selection-locked input,
+    .saga-mobile-touch-surface.saga-mobile-lorecard-editor-selection-locked textarea,
+    .saga-mobile-touch-surface.saga-mobile-lorecard-editor-selection-locked select,
+    .saga-mobile-touch-surface.saga-mobile-lorecard-editor-selection-locked [contenteditable="true"] {
+        -webkit-touch-callout: none !important;
+        -webkit-user-select: none !important;
+        user-select: none !important;
+        caret-color: transparent;
+        pointer-events: none;
+    }
+
     .saga-mobile-lorecard-editor-shell {
         display: flex;
         flex-direction: column;

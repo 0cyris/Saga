@@ -5820,16 +5820,20 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
             await new Promise(resolve => setTimeout(resolve, 260));
             sequence.push(readTier());
         }
+        const card = document.querySelector(cardSelector);
+        const feedbackAfterContent = card ? getComputedStyle(card, '::after')?.content || '' : '';
         return {
             found: !!document.querySelector(cardSelector),
             buttonFound: !!readButton(),
             sequence,
             finalMatchesInitial: sequence.length === 4 && sequence[0] === sequence[3],
             uniqueTiers: [...new Set(sequence.filter(Boolean))],
+            labelDataset: card?.getAttribute('data-saga-gesture-label') || '',
+            feedbackAfterContent,
             editorOpened: !!document.querySelector('#saga-mobile-lorecard-editor, .saga-mobile-lorecard-editor-shell'),
         };
     }), { userGesture: true }).catch(error => ({ found: false, buttonFound: false, error: error?.message || String(error) }));
-    if (!relevanceTapState.found || !relevanceTapState.buttonFound || relevanceTapState.sequence?.length !== 4 || relevanceTapState.uniqueTiers?.length !== 3 || !relevanceTapState.finalMatchesInitial || relevanceTapState.editorOpened) {
+    if (!relevanceTapState.found || !relevanceTapState.buttonFound || relevanceTapState.sequence?.length !== 4 || relevanceTapState.uniqueTiers?.length !== 3 || !relevanceTapState.finalMatchesInitial || relevanceTapState.labelDataset || !['', 'none', 'normal'].includes(String(relevanceTapState.feedbackAfterContent || '').toLowerCase()) || relevanceTapState.editorOpened) {
         findings.push(`Mobile redesign relevance tap control did not cycle Low/Normal/High cleanly: ${JSON.stringify(relevanceTapState)}.`);
     }
 
@@ -5866,6 +5870,59 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
         };
     }), { userGesture: true }).catch(error => ({ found: false, error: error?.message || String(error) }));
     if (!longPressCueState.found || !longPressCueState.armed || !longPressCueState.cleared || !longPressCueState.pressX || !longPressCueState.pressY) findings.push(`Mobile redesign Accepted card long-press cue did not arm and clear correctly: ${JSON.stringify(longPressCueState)}.`);
+
+    const editorSelectionLockState = await evaluate(client, script(async () => {
+        document.querySelector('#saga-mobile-lorecard-editor')?.remove();
+        const card = document.querySelector('.saga-lore-entry-card[data-entry-id="smoke_long_title_lore"]');
+        if (!card) return { found: false };
+        card.scrollIntoView({ block: 'center', inline: 'nearest' });
+        await new Promise(resolve => requestAnimationFrame(resolve));
+        const rect = card.getBoundingClientRect();
+        const pointer = {
+            bubbles: true,
+            cancelable: true,
+            pointerId: 171,
+            pointerType: 'touch',
+            clientX: rect.left + Math.min(28, Math.max(8, rect.width / 3)),
+            clientY: rect.top + Math.min(28, Math.max(8, rect.height / 3)),
+        };
+        const waitFor = async (predicate, timeoutMs = 3000) => {
+            const deadline = performance.now() + timeoutMs;
+            while (performance.now() < deadline) {
+                if (predicate()) return true;
+                await new Promise(resolve => requestAnimationFrame(resolve));
+            }
+            return false;
+        };
+        card.dispatchEvent(new PointerEvent('pointerdown', pointer));
+        const ready = await waitFor(() => document.querySelector('#saga-mobile-lorecard-editor')?.dataset?.sagaEditorReady === 'true');
+        const overlay = document.querySelector('#saga-mobile-lorecard-editor');
+        const shell = overlay?.querySelector('.saga-mobile-lorecard-editor-shell');
+        const field = overlay?.querySelector('textarea, input');
+        const lockedStyle = field ? getComputedStyle(field) : null;
+        const lockedBeforeRelease = !!shell?.classList?.contains('saga-mobile-lorecard-editor-selection-locked');
+        const pointerEventsBeforeRelease = lockedStyle?.pointerEvents || '';
+        const userSelectBeforeRelease = lockedStyle?.userSelect || lockedStyle?.webkitUserSelect || '';
+        document.dispatchEvent(new PointerEvent('pointerup', pointer));
+        const unlocked = await waitFor(() => !document.querySelector('#saga-mobile-lorecard-editor .saga-mobile-lorecard-editor-shell')?.classList?.contains('saga-mobile-lorecard-editor-selection-locked'), 1000);
+        const unlockedStyle = field ? getComputedStyle(field) : null;
+        const result = {
+            found: true,
+            ready,
+            lockedBeforeRelease,
+            pointerEventsBeforeRelease,
+            userSelectBeforeRelease,
+            unlockedAfterRelease: unlocked,
+            pointerEventsAfterRelease: unlockedStyle?.pointerEvents || '',
+            userSelectAfterRelease: unlockedStyle?.userSelect || unlockedStyle?.webkitUserSelect || '',
+            selectionText: window.getSelection?.()?.toString?.() || '',
+        };
+        overlay?.remove();
+        return result;
+    }), { userGesture: true }).catch(error => ({ found: false, error: error?.message || String(error) }));
+    if (!editorSelectionLockState.found || !editorSelectionLockState.ready || !editorSelectionLockState.lockedBeforeRelease || editorSelectionLockState.pointerEventsBeforeRelease !== 'none' || !editorSelectionLockState.unlockedAfterRelease || editorSelectionLockState.pointerEventsAfterRelease === 'none' || editorSelectionLockState.selectionText) {
+        findings.push(`Mobile redesign Lorecard editor did not suppress text selection until long-press release: ${JSON.stringify(editorSelectionLockState)}.`);
+    }
 
     const longCardDoubleTapState = await evaluate(client, script(async () => {
         const card = document.querySelector('.saga-lore-entry-card[data-entry-id="smoke_long_title_lore"]');
@@ -6060,6 +6117,7 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
         approvedScrollState,
         relevanceTapState,
         longPressCueState,
+        editorSelectionLockState,
         longCardDoubleTapState,
         approvedActiveState,
         editorFooterState,

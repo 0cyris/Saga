@@ -175,23 +175,32 @@
 
 .saga-lorecard-mute-toggle,
 .saga-lorecard-elevate-toggle {
+    -webkit-appearance: none;
+    appearance: none;
     width: 28px;
     height: 28px;
     min-width: 28px !important;
     padding: 0 !important;
+    margin: 0;
     display: inline-grid !important;
     place-items: center;
+    border: 1px solid var(--saga-border-soft, rgba(185, 139, 54, 0.18)) !important;
     border-radius: 7px !important;
+    font: inherit;
     box-sizing: border-box;
 }
 
 .saga-lorecard-mute-toggle {
     --saga-lorecard-mic-live: var(--saga-gold, var(--saga-chip-source-fg, #d8b66d));
-    --saga-lorecard-mic-live-bg: var(--saga-gold-surface, var(--saga-chip-source-bg, rgba(216, 182, 109, 0.08)));
+    --saga-lorecard-mic-live-surface: color-mix(in srgb, var(--saga-surface-2, rgba(18, 18, 24, 0.72)) 88%, var(--saga-gold, #d8b66d));
+    --saga-lorecard-mic-live-shadow: color-mix(in srgb, var(--saga-gold, #d8b66d) 22%, transparent);
     --saga-lorecard-mic-live-border: var(--saga-border-soft, var(--saga-chip-source-border, rgba(216, 182, 109, 0.24)));
     --saga-lorecard-mic-muted: var(--saga-text-muted, var(--saga-chip-muted-fg, #b8ad98));
-    --saga-lorecard-mic-muted-bg: var(--saga-chip-muted-bg, rgba(174, 179, 189, 0.08));
+    --saga-lorecard-mic-muted-surface: color-mix(in srgb, var(--saga-surface-2, rgba(18, 18, 24, 0.72)) 92%, var(--saga-text-muted, #b8ad98));
     --saga-lorecard-mic-muted-border: var(--saga-chip-muted-border, rgba(174, 179, 189, 0.22));
+    background-color: rgba(18, 18, 24, 0.72) !important;
+    background-color: var(--saga-surface-2, rgba(18, 18, 24, 0.72)) !important;
+    background-clip: padding-box;
 }
 
 .saga-lorecard-mic-icon {
@@ -251,13 +260,17 @@
 
 .saga-lorecard-mute-toggle-live {
     color: var(--saga-lorecard-mic-live) !important;
-    background: var(--saga-lorecard-mic-live-bg) !important;
+    background:
+        radial-gradient(circle at 50% 35%, var(--saga-gold-surface, rgba(216, 182, 109, 0.12)), transparent 62%),
+        var(--saga-lorecard-mic-live-surface, var(--saga-surface-2, rgba(18, 18, 24, 0.72))) !important;
     border-color: var(--saga-lorecard-mic-live-border) !important;
+    box-shadow: inset 0 0 0 1px var(--saga-lorecard-mic-live-shadow, rgba(216, 182, 109, 0.16));
 }
 
 .saga-lorecard-mute-toggle-muted {
     color: var(--saga-lorecard-mic-muted) !important;
-    background: var(--saga-lorecard-mic-muted-bg) !important;
+    background: rgba(18, 18, 24, 0.72) !important;
+    background: var(--saga-lorecard-mic-muted-surface, var(--saga-surface-2, rgba(18, 18, 24, 0.72))) !important;
     border-color: var(--saga-lorecard-mic-muted-border) !important;
 }
 
@@ -924,9 +937,20 @@
     min-width: var(--saga-mobile-row-action-size, 40px);
 }
 
-.saga-runtime-mobile .saga-lore-entry-card-tappable {
+.saga-runtime-mobile .saga-lore-entry-card-tappable,
+.saga-runtime-mobile .saga-lore-active-set-item-tappable {
     cursor: pointer;
     touch-action: pan-y;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.saga-runtime-mobile .saga-lore-entry-card-tappable *,
+.saga-runtime-mobile .saga-lore-active-set-item-tappable * {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 .saga-runtime-mobile .saga-lore-entry-card-tappable,
@@ -975,26 +999,6 @@
     border-radius: inherit;
     opacity: 0;
     animation: saga-mobile-lorecard-power-sweep 520ms ease-out forwards;
-}
-
-.saga-runtime-mobile .saga-mobile-lorecard-gesture-feedback::after {
-    content: attr(data-saga-gesture-label);
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    z-index: 2;
-    padding: 3px 7px;
-    border: 1px solid currentColor;
-    border-radius: 7px;
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 0;
-    line-height: 1;
-    color: var(--saga-text, #f1ead8);
-    background: rgba(8, 12, 14, 0.82);
-    opacity: 0;
-    transform: translateY(4px);
-    animation: saga-mobile-lorecard-feedback-pop 520ms ease-out forwards;
 }
 
 .saga-runtime-mobile .saga-mobile-lorecard-gesture-up::before {
@@ -1057,21 +1061,6 @@
     }
 }
 
-@keyframes saga-mobile-lorecard-feedback-pop {
-    0% {
-        opacity: 0;
-        transform: translateY(4px) scale(0.96);
-    }
-    22% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-    100% {
-        opacity: 0;
-        transform: translateY(-4px) scale(1);
-    }
-}
-
 @keyframes saga-mobile-lorecard-relevance-flash {
     0% {
         transform: scale(1);
@@ -1107,7 +1096,6 @@
     .saga-runtime-mobile .saga-mobile-lorecard-longpress-armed::after,
     .saga-runtime-mobile .saga-mobile-lorecard-longpress-commit,
     .saga-runtime-mobile .saga-mobile-lorecard-gesture-feedback::before,
-    .saga-runtime-mobile .saga-mobile-lorecard-gesture-feedback::after,
     .saga-runtime-mobile .saga-mobile-lorecard-relevance-flash,
     .saga-runtime-mobile .saga-mobile-lorecard-elevation-pop {
         animation: none;

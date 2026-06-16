@@ -5170,7 +5170,7 @@ function makeActiveSetItemMobileEditable(item, entryId = '') {
     if (!isRuntimeMobileShell()) return item;
     item.classList.add('saga-lore-active-set-item-tappable');
     item.dataset.sagaAcceptedLoreId = id;
-    const press = attachMobileLorecardLongPress(item, () => openAcceptedLorecardMobileEditor(id));
+    const press = attachMobileLorecardLongPress(item, () => openAcceptedLorecardMobileEditor(id, { selectionLock: true }));
     item.addEventListener('click', (event) => {
         if (event.target?.closest?.('button, input, select, textarea, label, a')) return;
         if (press.consume()) return;
@@ -5191,7 +5191,6 @@ function playMobileLorecardRelevanceFeedback(card, direction = 0, tier = 'normal
     const raised = direction > 0;
     const normalizedTier = normalizeLoreRelevance(tier);
     card.dataset.sagaGestureFeedback = raised ? 'up' : 'down';
-    card.dataset.sagaGestureLabel = LORE_RELEVANCE_LABELS[normalizedTier] || humanizeScopeKey(normalizedTier);
     card.dataset.sagaGestureTier = normalizedTier;
     card.classList.remove('saga-mobile-lorecard-gesture-up', 'saga-mobile-lorecard-gesture-down');
     card.classList.add('saga-mobile-lorecard-gesture-feedback', raised ? 'saga-mobile-lorecard-gesture-up' : 'saga-mobile-lorecard-gesture-down');
@@ -5202,7 +5201,6 @@ function playMobileLorecardRelevanceFeedback(card, direction = 0, tier = 'normal
         card.classList.remove('saga-mobile-lorecard-gesture-feedback', 'saga-mobile-lorecard-gesture-up', 'saga-mobile-lorecard-gesture-down');
         status?.classList?.remove?.('saga-mobile-lorecard-relevance-flash');
         delete card.dataset.sagaGestureFeedback;
-        delete card.dataset.sagaGestureLabel;
         delete card.dataset.sagaGestureTier;
     }, 520);
 }
@@ -5265,6 +5263,56 @@ function toggleLorecardElevationByGesture(entryId = '', card = null) {
     return true;
 }
 
+function getMobileLorecardSelectionElement(node) {
+    if (!node) return null;
+    if (node.nodeType === 1) return node;
+    return node.parentElement || null;
+}
+
+function clearMobileLorecardNativeSelection(scope = null) {
+    const getSelection = typeof window !== 'undefined' && typeof window.getSelection === 'function'
+        ? () => window.getSelection()
+        : (typeof document !== 'undefined' && typeof document.getSelection === 'function' ? () => document.getSelection() : null);
+    const selection = getSelection?.();
+    if (!selection?.rangeCount) return;
+    const targetScope = scope || document.getElementById('saga-mobile-lorecard-editor') || document.getElementById('saga-lore-panel');
+    const anchor = getMobileLorecardSelectionElement(selection.anchorNode);
+    const focus = getMobileLorecardSelectionElement(selection.focusNode);
+    const insideScope = !targetScope || (anchor && targetScope.contains(anchor)) || (focus && targetScope.contains(focus));
+    if (insideScope) selection.removeAllRanges();
+}
+
+function armMobileLorecardEditorSelectionLock(overlay, shell) {
+    if (!overlay || !shell) return;
+    shell.classList.add('saga-mobile-lorecard-editor-selection-locked');
+    overlay.dataset.sagaSelectionLocked = 'true';
+    clearMobileLorecardNativeSelection(overlay);
+    requestAnimationFrame(() => clearMobileLorecardNativeSelection(overlay));
+    setTimeout(() => clearMobileLorecardNativeSelection(overlay), 80);
+
+    let released = false;
+    let safetyTimer = null;
+    const releaseEvents = ['pointerup', 'pointercancel', 'touchend', 'touchcancel', 'mouseup'];
+    const release = () => {
+        if (released) return;
+        released = true;
+        if (safetyTimer) clearTimeout(safetyTimer);
+        for (const eventName of releaseEvents) {
+            document.removeEventListener(eventName, release, true);
+        }
+        clearMobileLorecardNativeSelection(overlay);
+        requestAnimationFrame(() => {
+            clearMobileLorecardNativeSelection(overlay);
+            shell.classList.remove('saga-mobile-lorecard-editor-selection-locked');
+            overlay.dataset.sagaSelectionLocked = 'false';
+        });
+    };
+    for (const eventName of releaseEvents) {
+        document.addEventListener(eventName, release, true);
+    }
+    safetyTimer = setTimeout(release, 3200);
+}
+
 function attachMobileLorecardGestures(element, entryId = '', options = {}) {
     if (!element || !entryId) return { consume: () => false };
     const interactiveSelector = options.interactiveSelector || 'button, input, select, textarea, label, a';
@@ -5296,7 +5344,8 @@ function attachMobileLorecardGestures(element, entryId = '', options = {}) {
         setTimeout(() => element.classList.remove('saga-mobile-lorecard-longpress-commit'), 220);
         event?.preventDefault?.();
         event?.stopPropagation?.();
-        openAcceptedLorecardMobileEditor(entryId);
+        clearMobileLorecardNativeSelection(element);
+        openAcceptedLorecardMobileEditor(entryId, { selectionLock: true });
         return true;
     };
 
@@ -5386,6 +5435,9 @@ function attachMobileLorecardLongPress(element, handler, options = {}) {
         clearLongPressState();
         element.classList?.add?.(commitClass);
         setTimeout(() => element.classList?.remove?.(commitClass), 220);
+        event?.preventDefault?.();
+        event?.stopPropagation?.();
+        clearMobileLorecardNativeSelection(element);
         handler?.(event);
     };
     const clearLongPressTimer = () => {
@@ -5514,7 +5566,7 @@ function closeMobileLorecardEditorOverlay(overlay) {
     requestAnimationFrame(() => overlay.remove());
 }
 
-function openAcceptedLorecardMobileEditor(entryId = '') {
+function openAcceptedLorecardMobileEditor(entryId = '', options = {}) {
     const id = String(entryId || '').trim();
     if (!id) return;
     const entry = (getPanelLoreState(getState()).entries || []).find(item => item?.id === id && !item?.isPending);
@@ -5582,6 +5634,7 @@ function openAcceptedLorecardMobileEditor(entryId = '') {
     shell.appendChild(footer);
     overlay.appendChild(shell);
     document.body.appendChild(overlay);
+    if (options.selectionLock) armMobileLorecardEditorSelectionLock(overlay, shell);
     requestAnimationFrame(() => overlay.focus?.());
     requestAnimationFrame(() => {
         if (!overlay.isConnected || overlay.dataset.sagaClosing === 'true') return;
