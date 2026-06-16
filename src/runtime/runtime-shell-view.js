@@ -21,8 +21,8 @@ import {
     hideFloatingTooltip,
 } from '../ui/runtime-ui-kit.js';
 import {
-    MOBILE_LORECARDS_STAGES,
     canGoBackRuntimeMobileShell,
+    getRuntimeLorecardsStages,
     getRuntimeMobileActiveSubview,
     getRuntimeMobileActiveTab,
     getRuntimeMobileLorecardsStage,
@@ -483,9 +483,17 @@ function getDesktopLorecardsFallbackStage(state) {
 function renderDesktopLorecardsFlyout(root, state, settings = getSettings()) {
     const panelState = state?.lorePanel || getDefaultState().lorePanel;
     const activeStage = getRuntimeLorecardsStage(panelState, getDesktopLorecardsFallbackStage(state), settings);
+    const stages = getRuntimeLorecardsStages(settings);
     const nav = document.createElement('nav');
     nav.id = 'saga-desktop-lorecards-flyout';
     nav.className = 'saga-desktop-lorecards-flyout';
+    const rowHeight = 36;
+    const rowGap = 5;
+    const verticalPadding = 8;
+    const flyoutHeight = (stages.length * rowHeight) + (Math.max(0, stages.length - 1) * rowGap) + verticalPadding;
+    nav.style.setProperty('--saga-lorecards-flyout-count', String(stages.length));
+    nav.style.setProperty('--saga-lorecards-flyout-height', `${flyoutHeight}px`);
+    nav.style.setProperty('--saga-lorecards-flyout-offset', `${Math.round(flyoutHeight / 2)}px`);
     nav.setAttribute('role', 'tablist');
     nav.setAttribute('aria-label', 'Lorecards workspace');
 
@@ -493,7 +501,7 @@ function renderDesktopLorecardsFlyout(root, state, settings = getSettings()) {
     const schedule = globalThis.requestAnimationFrame || (callback => setTimeout(callback, 0));
     schedule(() => updateDesktopLorecardsFlyoutPosition(root, nav));
 
-    for (const stage of MOBILE_LORECARDS_STAGES) {
+    for (const stage of stages) {
         const meta = MOBILE_LORECARDS_SUBTAB_META[stage] || MOBILE_LORECARDS_SUBTAB_META.lore;
         const option = document.createElement('button');
         option.type = 'button';
@@ -540,12 +548,14 @@ function renderMobileLorecardsSubTabs(state, settings = getSettings()) {
     const panelState = state?.lorePanel || getDefaultState().lorePanel;
     const counts = getMobileLorecardsSubTabCounts(state);
     const activeStage = getRuntimeMobileLorecardsStage(panelState, getMobileLorecardsFallbackStage(state), settings);
+    const stages = getRuntimeLorecardsStages(settings);
     const nav = document.createElement('nav');
     nav.className = 'saga-mobile-lorecards-subtabs';
+    nav.style.setProperty('--saga-mobile-lorecards-subtab-count', String(stages.length));
     nav.setAttribute('role', 'tablist');
     nav.setAttribute('aria-label', 'Lorecards workspace');
 
-    for (const stage of MOBILE_LORECARDS_STAGES) {
+    for (const stage of stages) {
         const meta = MOBILE_LORECARDS_SUBTAB_META[stage] || MOBILE_LORECARDS_SUBTAB_META.lore;
         const tab = document.createElement('button');
         tab.type = 'button';
@@ -831,10 +841,31 @@ export function refreshRuntimeHeader(panelRoot) {
 
     const state = getState();
     normalizePanelLayoutState(state);
+    const panelState = state?.lorePanel || getDefaultState().lorePanel;
     const settings = getSettings();
+    const activeTab = normalizeTabForExperience(panelState.activeTab, settings);
+    const drawerOpen = panelState.drawerOpen === true;
     const metrics = dep('getRailMetrics', () => ({}))(state, settings);
     const metricTooltips = dep('getRailMetricTooltips', () => ({}))(state, settings);
     const renderRailMetric = dep('renderRailMetric');
+
+    panelRoot.classList.toggle('saga-runtime-drawer-open', drawerOpen);
+    panelRoot.dataset.lorecardsStage = activeTab === 'lore'
+        ? getRuntimeLorecardsStage(panelState, getDesktopLorecardsFallbackStage(state), settings)
+        : '';
+
+    for (const tab of panelRoot.querySelectorAll('.saga-runtime-rail-tab[data-tab-id]')) {
+        const tabId = tab.dataset.tabId;
+        tab.classList.toggle('saga-runtime-rail-tab-active', drawerOpen && tabId === activeTab);
+    }
+
+    const title = panelRoot.querySelector('.saga-runtime-drawer-title');
+    if (title) {
+        title.textContent = getTabLabelForExperience(activeTab, settings);
+        const tooltip = getTabTooltipForExperience(activeTab, settings);
+        title.dataset.sagaTooltip = tooltip;
+        title.setAttribute('aria-label', tooltip);
+    }
 
     for (const metric of panelRoot.querySelectorAll('.saga-runtime-rail-metric[data-tab-id]')) {
         const tabId = metric.dataset.tabId;

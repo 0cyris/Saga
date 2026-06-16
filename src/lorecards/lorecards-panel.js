@@ -53,6 +53,7 @@ import {
     truncateCleanText as truncateText,
 } from '../runtime/runtime-formatters.js';
 import {
+    getDefaultRuntimeLorecardsStage,
     getRuntimeLorecardsStage,
     getRuntimeMobileLorecardsStage,
     isRuntimeMobileShell,
@@ -4791,9 +4792,11 @@ function createLorecardWorkspaceSortToggle(activeSort = 'alphabetical') {
     button.type = 'button';
     button.className = 'saga-lorecard-workspace-sort-toggle';
     button.dataset.lorecardWorkspaceSort = normalized;
-    button.setAttribute('aria-label', `Sort Lorecards by ${title}. Press to switch to ${nextTitle}. Modes: Alphabetical, Priority, Relevance.`);
+    const ariaLabel = `Sort Lorecards by ${title}. Press to switch to ${nextTitle}. Modes: Alphabetical, Priority, Relevance.`;
+    button.setAttribute('aria-label', ariaLabel);
     button.textContent = label;
     addTooltip(button, `Sort by ${title}. Press for ${nextLabel}: ${nextTitle}. Modes: A, P, R.`);
+    button.setAttribute('aria-label', ariaLabel);
     button.addEventListener('click', (event) => {
         event.preventDefault();
         event.stopPropagation();
@@ -5870,12 +5873,15 @@ function createLorecardsStageContent(state, options = {}) {
     const fragment = document.createDocumentFragment();
     const basic = !!options.basic;
     const lifecycleStats = options.lifecycleStats || getLorecardLifecycleStats(state);
-    const lifecycleStage = normalizeMobileLorecardLifecycleStage(options.lifecycleStage);
+    const requestedStage = normalizeMobileLorecardLifecycleStage(options.lifecycleStage);
+    const lifecycleStage = basic && requestedStage === 'automation'
+        ? getDefaultRuntimeLorecardsStage(getSettings())
+        : requestedStage;
     if (lifecycleStage === 'generate') {
         fragment.appendChild(createLorecardGenerationCollapsible(state, { basic, lifecycleStats, lifecycleStage: 'generate' }));
         return fragment;
     }
-    if (lifecycleStage === 'automation') {
+    if (!basic && lifecycleStage === 'automation') {
         fragment.appendChild(createLoreAutomationPage(state));
         return fragment;
     }

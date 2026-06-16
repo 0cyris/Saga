@@ -11,6 +11,10 @@ import {
     toast,
 } from '../ui/runtime-ui-kit.js';
 import {
+    createLoredeckJobStatusRow,
+    formatLoredeckJobElapsed,
+} from '../loredecks/loredeck-job-view.js';
+import {
     getCachedExternalStoryOpenerSession,
     getExternalStoryOpenerIndex,
     getStoryOpenerStorageStatus,
@@ -50,6 +54,19 @@ const openerUiState = {
     revisionPrompt: '',
 };
 
+const STORY_OPENER_BUSY_WORDS = Object.freeze(['Making', 'Crafting', 'Writing', 'Polishing', 'Revising', 'Thinking']);
+const STORY_OPENER_BUSY_WORD_INTERVAL_MS = 7000;
+const STORY_OPENER_GENERATION_STATUSES = new Set(['queued', 'running', 'retrying']);
+const STORY_OPENER_STAGE_LABELS = Object.freeze({
+    inputs: 'Inputs',
+    context_packet: 'Context Packet',
+    opener_brief: 'Opener Brief',
+    draft_variants: 'Draft Variants',
+    review_copy: 'Review & Copy',
+});
+
+let storyOpenerGenerationTicker = null;
+
 function cloneJson(value) {
     return JSON.parse(JSON.stringify(value ?? null));
 }
@@ -63,6 +80,61 @@ function formatCount(value = 0, singular = 'item', plural = `${singular}s`) {
     return `${count} ${count === 1 ? singular : plural}`;
 }
 
+function getStoryOpenerStageLabel(stageId = '') {
+    const id = String(stageId || '').trim();
+    return STORY_OPENER_STAGE_LABELS[id] || id.replace(/[_-]+/g, ' ').replace(/\b\w/g, letter => letter.toUpperCase()) || 'Generation';
+}
+
+function getStoryOpenerRunStartedAt(run = {}, now = Date.now()) {
+    const startedAt = Number(run.startedAt || run.updatedAt || now);
+    return Number.isFinite(startedAt) && startedAt > 0 ? startedAt : now;
+}
+
+function getStoryOpenerBusyWord(startedAt = Date.now(), now = Date.now()) {
+    const elapsed = Math.max(0, Number(now) - Number(startedAt || now));
+    const index = Math.floor(elapsed / STORY_OPENER_BUSY_WORD_INTERVAL_MS) % STORY_OPENER_BUSY_WORDS.length;
+    return `${STORY_OPENER_BUSY_WORDS[index] || STORY_OPENER_BUSY_WORDS[0]}...`;
+}
+
+function getStoryOpenerGenerationMessage(run = {}) {
+    return String(run.message || run.label || 'Waiting on Story Maker generation.').trim() || 'Waiting on Story Maker generation.';
+}
+
+function getStoryOpenerGenerationMeta(run = {}) {
+    return `Story Maker generation | ${getStoryOpenerStageLabel(run.stage)}`;
+}
+
+function updateStoryOpenerGenerationStatusRows(now = Date.now()) {
+    if (typeof document === 'undefined') return false;
+    const rows = [...document.querySelectorAll('.saga-story-opener-generation-status[data-saga-story-opener-generation-active="true"]')];
+    if (!rows.length) return false;
+    for (const row of rows) {
+        const startedAt = getStoryOpenerRunStartedAt({ startedAt: row.dataset.sagaStoryOpenerGenerationStartedAt }, now);
+        const label = row.querySelector('.saga-generation-live-label');
+        if (label) label.textContent = getStoryOpenerBusyWord(startedAt, now);
+        const text = row.querySelector('.saga-generation-live-text');
+        if (text) text.textContent = row.dataset.sagaStoryOpenerGenerationMessage || 'Waiting on Story Maker generation.';
+        const elapsed = row.querySelector('.saga-generation-live-elapsed');
+        if (elapsed) elapsed.textContent = formatLoredeckJobElapsed(now - startedAt);
+        const meta = row.querySelector('.saga-generation-live-meta');
+        if (meta) meta.textContent = row.dataset.sagaStoryOpenerGenerationMeta || 'Story Maker generation';
+    }
+    return true;
+}
+
+function stopStoryOpenerGenerationTicker() {
+    if (!storyOpenerGenerationTicker) return;
+    clearInterval(storyOpenerGenerationTicker);
+    storyOpenerGenerationTicker = null;
+}
+
+function startStoryOpenerGenerationTicker() {
+    if (storyOpenerGenerationTicker || typeof setInterval !== 'function') return;
+    storyOpenerGenerationTicker = setInterval(() => {
+        if (!updateStoryOpenerGenerationStatusRows()) stopStoryOpenerGenerationTicker();
+    }, 1000);
+}
+
 function refresh(options = {}) {
     if (typeof options.refreshPanelBody === 'function') {
         options.refreshPanelBody({ preserveScroll: options.preserveScroll !== false });
@@ -72,6 +144,38 @@ function refresh(options = {}) {
 function mark(options = {}, element, target) {
     if (typeof options.markTourTarget === 'function') return options.markTourTarget(element, target);
     return element;
+}
+
+function getStoryOpenerScrollElement() {
+    if (typeof document === 'undefined') return null;
+    return document.querySelector('.saga-runtime-tab-body-session')
+        || document.querySelector('.saga-runtime-drawer')
+        || document.querySelector('.saga-lore-panel-body');
+}
+
+function captureStoryOpenerScrollState() {
+    const element = getStoryOpenerScrollElement();
+    if (!element) return null;
+    return {
+        top: element.scrollTop || 0,
+        left: element.scrollLeft || 0,
+    };
+}
+
+function restoreStoryOpenerScrollState(scrollState = null) {
+    if (!scrollState) return;
+    const element = getStoryOpenerScrollElement();
+    if (!element) return;
+    element.scrollTop = scrollState.top || 0;
+    element.scrollLeft = scrollState.left || 0;
+}
+
+function refreshStoryOpenerStageSwitch(options = {}, scrollState = null) {
+    refresh(options);
+    restoreStoryOpenerScrollState(scrollState);
+    if (typeof requestAnimationFrame === 'function') {
+        requestAnimationFrame(() => restoreStoryOpenerScrollState(scrollState));
+    }
 }
 
 function ensureStoryOpenerStorageHydrated(options = {}) {
@@ -160,6 +264,169 @@ function createTextArea(value = '', placeholder = '', rows = 3, maxLength = 5000
     input.rows = rows;
     input.maxLength = maxLength;
     return input;
+}
+
+function escapeStoryOpenerHtml(value = '') {
+    return String(value || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+}
+
+function renderStoryOpenerInlineMarkdown(value = '') {
+    return escapeStoryOpenerHtml(value)
+        .replace(/`([^`\n]+?)`/g, '<code>$1</code>')
+        .replace(/\*\*\*([\s\S]+?)\*\*\*/g, '<strong><em>$1</em></strong>')
+        .replace(/___([\s\S]+?)___/g, '<strong><em>$1</em></strong>')
+        .replace(/\*\*([\s\S]+?)\*\*/g, '<strong>$1</strong>')
+        .replace(/__([\s\S]+?)__/g, '<strong>$1</strong>')
+        .replace(/(^|[^\*])\*([^*\n]+?)\*(?!\*)/g, '$1<em>$2</em>')
+        .replace(/(^|[^\w])_([^_\n]+?)_(?!\w)/g, '$1<em>$2</em>')
+        .replace(/~~([\s\S]+?)~~/g, '<s>$1</s>');
+}
+
+function renderStoryOpenerMarkdownBaseHtml(text = '') {
+    const clean = String(text || '').replace(/\r\n?/g, '\n').trim();
+    if (!clean) return '';
+    return clean.split(/\n{2,}/)
+        .map(block => {
+            const lines = block.split('\n');
+            if (lines.every(line => /^\s*>\s?/.test(line))) {
+                const body = lines
+                    .map(line => renderStoryOpenerInlineMarkdown(line.replace(/^\s*>\s?/, '')))
+                    .join('<br>');
+                return `<blockquote>${body}</blockquote>`;
+            }
+            if (lines.length > 1 && lines.every(line => /^\s*[-*]\s+/.test(line))) {
+                const items = lines
+                    .map(line => `<li>${renderStoryOpenerInlineMarkdown(line.replace(/^\s*[-*]\s+/, ''))}</li>`)
+                    .join('');
+                return `<ul>${items}</ul>`;
+            }
+            return `<p>${lines.map(line => renderStoryOpenerInlineMarkdown(line)).join('<br>')}</p>`;
+        })
+        .join('');
+}
+
+function createStoryOpenerDialogueQuoteSpan(text = '', options = {}) {
+    const span = document.createElement('span');
+    span.className = 'saga-story-opener-dialogue-quote';
+    if (options.inlineQuoteStyle) span.setAttribute('style', 'color:#d99038;');
+    span.textContent = text;
+    return span;
+}
+
+function findStoryOpenerQuoteStart(text = '', start = 0) {
+    const straight = text.indexOf('"', start);
+    const curly = text.indexOf('“', start);
+    if (straight < 0) return curly;
+    if (curly < 0) return straight;
+    return Math.min(straight, curly);
+}
+
+function appendStoryOpenerDialogueQuotedText(fragment, text = '', options = {}) {
+    let cursor = 0;
+    while (cursor < text.length) {
+        const start = findStoryOpenerQuoteStart(text, cursor);
+        if (start < 0) {
+            fragment.appendChild(document.createTextNode(text.slice(cursor)));
+            break;
+        }
+        if (start > cursor) fragment.appendChild(document.createTextNode(text.slice(cursor, start)));
+        const opener = text[start];
+        const closer = opener === '“' ? '”' : opener;
+        const end = text.indexOf(closer, start + 1);
+        const closeIndex = end >= 0 ? end + 1 : text.length;
+        fragment.appendChild(createStoryOpenerDialogueQuoteSpan(text.slice(start, closeIndex), options));
+        cursor = closeIndex;
+    }
+}
+
+function applyStoryOpenerDialogueQuoteSpans(root, options = {}) {
+    if (!root?.childNodes) return;
+    for (const child of [...root.childNodes]) {
+        if (child.nodeType === 3) {
+            const text = child.nodeValue || '';
+            if (findStoryOpenerQuoteStart(text, 0) < 0) continue;
+            const fragment = document.createDocumentFragment();
+            appendStoryOpenerDialogueQuotedText(fragment, text, options);
+            child.replaceWith(fragment);
+        } else if (child.nodeType === 1 && !['CODE', 'PRE'].includes(child.tagName)) {
+            applyStoryOpenerDialogueQuoteSpans(child, options);
+        }
+    }
+}
+
+function renderStoryOpenerMarkdownToHtml(text = '', options = {}) {
+    const html = renderStoryOpenerMarkdownBaseHtml(text);
+    if (!html || typeof document === 'undefined') return html;
+    const template = document.createElement('template');
+    template.innerHTML = html;
+    applyStoryOpenerDialogueQuoteSpans(template.content, options);
+    return template.innerHTML;
+}
+
+function createStoryOpenerOutputPreview(text = '') {
+    const output = document.createElement('div');
+    output.className = 'saga-story-opener-output';
+    output.dataset.storyOpenerRichPreview = 'true';
+    output.innerHTML = renderStoryOpenerMarkdownToHtml(text || '');
+    return output;
+}
+
+function buildStoryOpenerRichClipboardHtml(text = '') {
+    const body = renderStoryOpenerMarkdownToHtml(text, { inlineQuoteStyle: true });
+    return `<!doctype html><html><head><meta charset="utf-8"></head><body><div style="font-family:var(--SmartThemeFont, Segoe UI, sans-serif);line-height:1.5;">${body}</div></body></html>`;
+}
+
+function copyStoryOpenerTextWithTextarea(text = '') {
+    const input = document.createElement('textarea');
+    input.value = text;
+    input.style.position = 'fixed';
+    input.style.opacity = '0';
+    document.body.appendChild(input);
+    input.select();
+    document.execCommand('copy');
+    input.remove();
+}
+
+async function copyStoryOpenerMarkdownToClipboard(text = '') {
+    if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(text);
+        return;
+    }
+    copyStoryOpenerTextWithTextarea(text);
+}
+
+function copyStoryOpenerRichSelectionFallback(html = '') {
+    const wrap = document.createElement('div');
+    wrap.contentEditable = 'true';
+    wrap.style.position = 'fixed';
+    wrap.style.left = '-9999px';
+    wrap.style.top = '0';
+    wrap.innerHTML = html;
+    document.body.appendChild(wrap);
+    const selection = window.getSelection?.();
+    const range = document.createRange();
+    range.selectNodeContents(wrap);
+    selection?.removeAllRanges();
+    selection?.addRange(range);
+    document.execCommand('copy');
+    selection?.removeAllRanges();
+    wrap.remove();
+}
+
+async function copyStoryOpenerRichTextToClipboard(text = '') {
+    const html = buildStoryOpenerRichClipboardHtml(text);
+    const ClipboardItemCtor = globalThis.ClipboardItem;
+    if (navigator.clipboard?.write && ClipboardItemCtor) {
+        await navigator.clipboard.write([new ClipboardItemCtor({
+            'text/plain': new Blob([text], { type: 'text/plain' }),
+            'text/html': new Blob([html], { type: 'text/html' }),
+        })]);
+        return;
+    }
+    copyStoryOpenerRichSelectionFallback(html);
 }
 
 function readControlsFromRefs(refs = {}, base = {}) {
@@ -428,13 +695,14 @@ function createStoryOpenerStageBar(session = {}, state = {}, options = {}) {
                 if (stage.dependency) toast(stage.dependency, 'info');
                 return;
             }
+            const scrollState = captureStoryOpenerScrollState();
             const next = normalizeStoryOpenerSession({
                 ...session,
                 currentStage: stage.id,
                 updatedAt: Date.now(),
             });
             saveStoryOpenerSession(next);
-            refresh({ ...options, preserveScroll: false });
+            refreshStoryOpenerStageSwitch(options, scrollState);
         });
         const number = document.createElement('span');
         number.className = 'saga-loredeck-creator-stage-number';
@@ -474,6 +742,38 @@ function createStoryOpenerStageBar(session = {}, state = {}, options = {}) {
     }
     wrap.appendChild(list);
     return wrap;
+}
+
+function createStoryOpenerGenerationStatus(session = {}) {
+    const run = session?.activeGeneration || null;
+    const status = String(run?.status || '').trim().toLowerCase();
+    if (!run || !STORY_OPENER_GENERATION_STATUSES.has(status)) return null;
+    const now = Date.now();
+    const startedAt = getStoryOpenerRunStartedAt(run, now);
+    const message = getStoryOpenerGenerationMessage(run);
+    const metaText = getStoryOpenerGenerationMeta(run);
+    const row = createLoredeckJobStatusRow({
+        active: true,
+        status: status || 'running',
+        label: getStoryOpenerBusyWord(startedAt, now),
+        message,
+        elapsedMs: now - startedAt,
+        metaText,
+    }, {
+        compact: true,
+    });
+    row.classList.add('saga-story-opener-generation-status');
+    row.dataset.sagaStoryOpenerGenerationActive = 'true';
+    row.dataset.sagaStoryOpenerGenerationId = String(run.id || '');
+    row.dataset.sagaStoryOpenerGenerationStage = String(run.stage || '');
+    row.dataset.sagaStoryOpenerGenerationStartedAt = String(startedAt);
+    row.dataset.sagaStoryOpenerGenerationMessage = message;
+    row.dataset.sagaStoryOpenerGenerationMeta = metaText;
+    row.setAttribute('role', 'status');
+    row.setAttribute('aria-live', 'polite');
+    row.setAttribute('aria-label', `${getStoryOpenerBusyWord(startedAt, now)} ${message}`);
+    startStoryOpenerGenerationTicker();
+    return row;
 }
 
 function getVisibleStoryOpenerStage(session = {}) {
@@ -761,10 +1061,7 @@ function createVariantsCard(session = {}, state = {}, options = {}) {
             nav.appendChild(btn);
         }
         card.appendChild(nav);
-        const output = document.createElement('div');
-        output.className = 'saga-story-opener-output';
-        output.textContent = selected?.text || '';
-        card.appendChild(output);
+        card.appendChild(createStoryOpenerOutputPreview(selected?.text || ''));
     } else {
         card.appendChild(createEmptyMessage('Draft one opener, or enable Variants to generate three.'));
     }
@@ -791,31 +1088,46 @@ function createReviewCard(session = {}, state = {}, options = {}) {
     revise.addEventListener('input', () => {
         openerUiState.revisionPrompt = revise.value;
     });
+    if (selected?.text) card.appendChild(createStoryOpenerOutputPreview(selected.text));
+    else card.appendChild(createEmptyMessage('Draft an opener before reviewing or copying.'));
     card.appendChild(createField('Revision Prompt', 'Optional instruction for revising the selected opener.', revise));
     const actions = document.createElement('div');
-    actions.className = 'saga-primary-actions';
-    const copy = createButton('Copy Opener', 'Copy the selected opener text to clipboard.', async () => {
+    actions.className = 'saga-primary-actions saga-story-opener-review-actions';
+    const copyMarkdown = createButton('Copy Markdown to Clipboard', 'Copy the selected opener as raw Markdown text.', async () => {
         if (!selected?.text) {
             toast('No opener text to copy.', 'warning');
             return;
         }
         try {
-            await navigator.clipboard.writeText(selected.text);
-            toast('Opener copied.', 'success');
-        } catch (_error) {
-            const input = document.createElement('textarea');
-            input.value = selected.text;
-            input.style.position = 'fixed';
-            input.style.opacity = '0';
-            document.body.appendChild(input);
-            input.select();
-            document.execCommand('copy');
-            input.remove();
-            toast('Opener copied.', 'success');
+            await copyStoryOpenerMarkdownToClipboard(selected.text);
+            toast('Markdown opener copied.', 'success');
+        } catch (error) {
+            console.warn('[Saga] Story Maker Markdown copy failed:', error);
+            toast(error?.message || 'Markdown opener could not be copied.', 'error');
         }
     }, 'saga-primary-button');
-    copy.disabled = !selected?.text;
-    actions.appendChild(copy);
+    copyMarkdown.disabled = !selected?.text;
+    actions.appendChild(copyMarkdown);
+    const copyRich = createButton('Copy Rich-Text to Clipboard', 'Copy the selected opener with rendered Markdown and dialogue quote color.', async () => {
+        if (!selected?.text) {
+            toast('No opener text to copy.', 'warning');
+            return;
+        }
+        try {
+            await copyStoryOpenerRichTextToClipboard(selected.text);
+            toast('Rich-text opener copied.', 'success');
+        } catch (error) {
+            console.warn('[Saga] Story Maker rich-text copy failed:', error);
+            try {
+                await copyStoryOpenerMarkdownToClipboard(selected.text);
+                toast('Rich-text copy failed; Markdown opener copied instead.', 'warning');
+            } catch (_fallbackError) {
+                toast(error?.message || 'Rich-text opener could not be copied.', 'error');
+            }
+        }
+    });
+    copyRich.disabled = !selected?.text;
+    actions.appendChild(copyRich);
     actions.appendChild(createButton('Revise Selected', 'Revise the selected opener using the revision prompt.', async btn => {
         if (!selected?.text) {
             toast('Draft an opener before revising.', 'warning');
@@ -958,6 +1270,8 @@ function renderActiveSession(container, session = {}, state = {}, options = {}) 
     header.appendChild(chips);
     container.appendChild(header);
     container.appendChild(createStoryOpenerStageBar(session, state, options));
+    const generationStatus = createStoryOpenerGenerationStatus(session);
+    if (generationStatus) container.appendChild(generationStatus);
     const failureCard = createFailureCard(session);
     if (failureCard) container.appendChild(failureCard);
     container.appendChild(createStoryOpenerStageCard(visibleStage?.id || 'inputs', session, state, options));
@@ -999,5 +1313,9 @@ export const __storyOpenerPanelTestHooks = Object.freeze({
     runBriefStage,
     runDraftStage,
     runFullPipeline,
+    createStoryOpenerGenerationStatus,
+    updateStoryOpenerGenerationStatusRows,
+    renderStoryOpenerMarkdownToHtml,
+    createStoryOpenerOutputPreview,
     readControlsFromRefs,
 });

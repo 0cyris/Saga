@@ -144,14 +144,16 @@
 
 .saga-desktop-lorecards-flyout {
     --saga-lorecards-flyout-height: 126px;
+    --saga-lorecards-flyout-offset: 63px;
+    --saga-lorecards-flyout-count: 3;
     position: absolute;
     z-index: 6;
     left: calc(var(--saga-rail-width, 52px) + 4px);
-    top: calc(var(--saga-lorecards-flyout-center-y, 180px) - 63px);
+    top: calc(var(--saga-lorecards-flyout-center-y, 180px) - var(--saga-lorecards-flyout-offset, 63px));
     width: 122px;
     min-height: var(--saga-lorecards-flyout-height);
     display: grid;
-    grid-template-rows: repeat(3, 36px);
+    grid-template-rows: repeat(var(--saga-lorecards-flyout-count, 3), 36px);
     gap: 5px;
     padding: 4px;
     border: 1px solid var(--saga-border, rgba(185, 139, 54, 0.38));
@@ -1541,7 +1543,7 @@
     flex: 0 0 auto;
     min-height: var(--saga-mobile-lorecards-subtab-height, 46px);
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(var(--saga-mobile-lorecards-subtab-count, 3), minmax(0, 1fr));
     align-items: stretch;
     padding: 5px 6px;
     background:

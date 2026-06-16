@@ -103,7 +103,7 @@
     </script>
     <script type="module">
         import { DEFAULT_SETTINGS, getDefaultState } from '../../src/state/constants.js';
-        import { showLorePanel } from '../../src/runtime/lore-panel.js';
+        import { refreshLorePanel, showLorePanel } from '../../src/runtime/lore-panel.js';
         import { getDefaultMobilePanelState } from '../../src/runtime/runtime-shell.js';
         import { hydrateSagaThemeIconStorage } from '../../src/storage/saga-theme-icon-storage.js';
         import { hydrateSagaLorepackLibraryStorage } from '../../src/storage/saga-lorepack-library-storage.js';
@@ -635,6 +635,26 @@
                 hydrateSagaCreatorProjectStorage({ force: true }),
             ]);
         }
+        window.__sagaSmokeRenderRuntime = () => {
+            showLorePanel();
+            return { ok: true };
+        };
+        window.__sagaSmokeRefreshRuntime = () => {
+            if (document.querySelector('#saga-lore-panel, .saga-lore-panel')) {
+                refreshLorePanel();
+            } else {
+                showLorePanel();
+            }
+            return { ok: true };
+        };
+        window.Saga = window.Saga && typeof window.Saga === 'object' ? window.Saga : {};
+        window.Saga.bridge = {
+            ...(window.Saga.bridge || {}),
+            getState: () => window.__sagaSmokeContext.chatMetadata.saga,
+            showRuntime: () => window.__sagaSmokeRenderRuntime(),
+            refreshRuntime: () => window.__sagaSmokeRefreshRuntime(),
+            refreshUI: () => window.__sagaSmokeRefreshRuntime(),
+        };
         showLorePanel();
         if (smokeAutoOpenContextProposals) {
             requestAnimationFrame(() => {

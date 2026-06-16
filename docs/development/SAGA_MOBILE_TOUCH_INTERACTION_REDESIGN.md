@@ -775,6 +775,8 @@ Done when:
 
 - The secondary `Generate | Automate | Lore` tab bar appears above the
   main bottom nav only while `Lorecards` is active.
+- Basic uses the same secondary tab component with `Automate` omitted, so its
+  Lorecards route is `Generate | Lore`.
 - The transition in and out of the sub-tab bar reads as a clean navigation
   animation, not a page content jump.
 - Each mobile Lorecards workspace has one primary purpose.
@@ -846,9 +848,9 @@ Rendered verification must include:
 - No card-level mobile Library `i` detail button or inline title edit affordance
   in normal browse.
 - Reorder mode handle visibility only while reorder mode is active.
-- Lorecards secondary `Generate | Automate | Lore` sub-tab bar animating
-  above the fixed bottom nav.
-- Lorecards `Generate`, `Automate`, and `Lore` workspaces.
+- Lorecards secondary sub-tab bar animating above the fixed bottom nav, with
+  `Generate | Lore` in Basic and `Generate | Automate | Lore` in Advanced.
+- Lorecards `Generate`, Advanced `Automate`, and `Lore` workspaces.
 - No mobile `Lorecard Pipeline` card or in-content lifecycle button row as the
   stage switcher.
 - `Lore` renders Pending Review and Accepted/Active cards in one list.

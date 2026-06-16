@@ -20,7 +20,7 @@ Test scenario:
 
 Results:
 - Desktop Session tab rendered Story Maker after Automation Mode and before Session Metrics.
-- Created a global Story Opener session and confirmed the Deck Maker-style stage bar, revert controls, source actions, variants, revision prompt, and copy button.
+- Created a global Story Maker session and confirmed the Deck Maker-style stage bar, revert controls, source actions, variants, revision prompt, and copy button.
 - With no active stack, readiness clearly reported missing User Prompt, Context, and Loredeck stack.
 - After adding the Harry Potter stack, `Use Current Active Stack` detected Harry Potter and pre-populated editable Prose Style.
 - Full provider pipeline completed in about 116 seconds.
@@ -30,8 +30,8 @@ Results:
 - Copy Opener wrote the selected opener exactly to the browser clipboard in the first draft pass.
 - Revision pass completed in about 51 seconds.
 - Revision history recorded the revision instruction and previous selected opener.
-- Mobile root at 390px stayed compact and showed a dedicated Story Opener action.
-- Mobile Story Opener subview rendered the full stage bar, inputs, variants, output, copy, and revise controls.
+- Mobile root at 390px stayed compact and showed a dedicated Story Maker action.
+- Mobile Story Maker subview rendered the full stage bar, inputs, variants, output, copy, and revise controls.
 - Full alpha gate passed after the final mobile patch.
 
 Initial draft evidence:

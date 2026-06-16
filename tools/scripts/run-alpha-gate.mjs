@@ -7,6 +7,7 @@ const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..'
 const syntaxTargets = [
   'src/extension/index.js',
   'src/extension/bootstrap.js',
+  'src/extension/menu-button.js',
   'src/runtime/lore-panel.js',
   'src/runtime/active-stack-panel.js',
   'src/theme/runtime-theme.js',
@@ -77,6 +78,7 @@ const gateScripts = [
   'tools/scripts/test-repository-layout.mjs',
   'tools/scripts/test-basic-readiness.mjs',
   'tools/scripts/test-experience-modes.mjs',
+  'tools/scripts/test-extension-menu-button.mjs',
   'tools/scripts/test-generated-loredeck-readiness-health.mjs',
   'tools/scripts/test-loredeck-generated-finalization-health.mjs',
   'tools/scripts/test-loredeck-context-health.mjs',

@@ -4,6 +4,7 @@ import {
     getMobileRouteLabel,
     getMobilePrimaryRoutes,
     normalizeMobileBottomRoute,
+    normalizeExperienceMode,
     normalizeTabForExperience,
 } from './runtime-navigation.js';
 
@@ -31,14 +32,26 @@ let resizeStartHeight = 0;
 let resizeStartDirection = 'right';
 let pendingRuntimeMobileFocusSelector = '';
 
-export const MOBILE_LORECARDS_STAGES = Object.freeze(['generate', 'automation', 'lore']);
-export const RUNTIME_LORECARDS_STAGES = MOBILE_LORECARDS_STAGES;
+export const BASIC_LORECARDS_STAGES = Object.freeze(['generate', 'lore']);
+export const ADVANCED_LORECARDS_STAGES = Object.freeze(['generate', 'automation', 'lore']);
+export const MOBILE_LORECARDS_STAGES = ADVANCED_LORECARDS_STAGES;
+export const RUNTIME_LORECARDS_STAGES = ADVANCED_LORECARDS_STAGES;
 
-export function normalizeRuntimeMobileLorecardsStage(value = '') {
+export function getRuntimeLorecardsStages(settings = getSettingsForShell()) {
+    return normalizeExperienceMode(settings?.experienceMode) === 'advanced'
+        ? ADVANCED_LORECARDS_STAGES
+        : BASIC_LORECARDS_STAGES;
+}
+
+export function getDefaultRuntimeLorecardsStage(settings = getSettingsForShell()) {
+    return getRuntimeLorecardsStages(settings)[0] || 'generate';
+}
+
+export function normalizeRuntimeMobileLorecardsStage(value = '', settings = getSettingsForShell()) {
     const stage = String(value || '').trim().toLowerCase();
     if (stage === 'pending' || stage === 'accepted' || stage === 'approved' || stage === 'active' || stage === 'cards') return 'lore';
     if (stage === 'suggested' || stage === 'generation') return 'generate';
-    return MOBILE_LORECARDS_STAGES.includes(stage) ? stage : '';
+    return getRuntimeLorecardsStages(settings).includes(stage) ? stage : '';
 }
 
 export const normalizeRuntimeLorecardsStage = normalizeRuntimeMobileLorecardsStage;
@@ -166,9 +179,9 @@ function normalizeMobileSubviewStack(stack) {
         });
 }
 
-function normalizeMobileLoreSubviewStack(stack) {
+function normalizeMobileLoreSubviewStack(stack, settings = getSettingsForShell()) {
     return normalizeMobileSubviewStack(stack)
-        .filter(item => !normalizeRuntimeMobileLorecardsStage(item?.params?.stage));
+        .filter(item => !normalizeRuntimeMobileLorecardsStage(item?.params?.stage, settings));
 }
 
 function getMobileSubviewRouteKey(routeId, settings = getSettingsForShell()) {
@@ -192,13 +205,13 @@ export function normalizeMobilePanelState(panelState, settings = getSettingsForS
     panelState.mobile = {
         activeRoute,
         lastPrimaryRoute,
-        lorecardsStage: normalizeRuntimeLorecardsStage(previous.lorecardsStage || panelState.lorecardsStage || panelState.mobileLifecycleStage),
+        lorecardsStage: normalizeRuntimeLorecardsStage(previous.lorecardsStage || panelState.lorecardsStage || panelState.mobileLifecycleStage, settings),
         subviewStacks: {
             loredecks: normalizeMobileSubviewStack(previousStacks.loredecks),
             session: normalizeMobileSubviewStack(previousStacks.session),
             continuity: normalizeMobileSubviewStack(previousStacks.continuity),
             context: normalizeMobileSubviewStack(previousStacks.context),
-            lore: normalizeMobileLoreSubviewStack(previousStacks.lore),
+            lore: normalizeMobileLoreSubviewStack(previousStacks.lore, settings),
             injection: normalizeMobileSubviewStack(previousStacks.injection),
             settings: normalizeMobileSubviewStack(previousStacks.settings),
         },
@@ -224,20 +237,20 @@ export function getRuntimeMobileActiveSubview(panelState, routeId = null, settin
 
 export function getRuntimeMobileLorecardsStage(panelState, fallback = 'lore', settings = getSettingsForShell()) {
     const mobile = normalizeMobilePanelState(panelState, settings);
-    return normalizeRuntimeMobileLorecardsStage(mobile.lorecardsStage)
-        || normalizeRuntimeLorecardsStage(panelState?.lorecardsStage)
-        || normalizeRuntimeMobileLorecardsStage(panelState?.mobileLifecycleStage)
-        || normalizeRuntimeMobileLorecardsStage(fallback)
-        || 'lore';
+    return normalizeRuntimeMobileLorecardsStage(mobile.lorecardsStage, settings)
+        || normalizeRuntimeLorecardsStage(panelState?.lorecardsStage, settings)
+        || normalizeRuntimeMobileLorecardsStage(panelState?.mobileLifecycleStage, settings)
+        || normalizeRuntimeMobileLorecardsStage(fallback, settings)
+        || getDefaultRuntimeLorecardsStage(settings);
 }
 
 export function getRuntimeLorecardsStage(panelState, fallback = 'generate', settings = getSettingsForShell()) {
     if (isRuntimeMobileShell()) return getRuntimeMobileLorecardsStage(panelState, fallback, settings);
-    return normalizeRuntimeLorecardsStage(panelState?.lorecardsStage)
-        || normalizeRuntimeLorecardsStage(panelState?.mobile?.lorecardsStage)
-        || normalizeRuntimeLorecardsStage(panelState?.mobileLifecycleStage)
-        || normalizeRuntimeLorecardsStage(fallback)
-        || 'generate';
+    return normalizeRuntimeLorecardsStage(panelState?.lorecardsStage, settings)
+        || normalizeRuntimeLorecardsStage(panelState?.mobile?.lorecardsStage, settings)
+        || normalizeRuntimeLorecardsStage(panelState?.mobileLifecycleStage, settings)
+        || normalizeRuntimeLorecardsStage(fallback, settings)
+        || getDefaultRuntimeLorecardsStage(settings);
 }
 
 export function getRuntimeMobileHeaderTitle(panelState, settings = getSettingsForShell()) {
@@ -291,7 +304,8 @@ export function selectRuntimeMobileRoute(routeId, options = {}) {
 }
 
 export function selectRuntimeMobileLorecardsStage(stage) {
-    const normalized = normalizeRuntimeMobileLorecardsStage(stage) || 'lore';
+    const settings = getSettingsForShell();
+    const normalized = normalizeRuntimeMobileLorecardsStage(stage, settings) || getDefaultRuntimeLorecardsStage(settings);
     return updateRuntimeMobilePanelState(({ panelState, mobile }) => {
         mobile.activeRoute = 'lore';
         mobile.lastPrimaryRoute = 'lore';
@@ -311,7 +325,8 @@ export function selectRuntimeMobileLorecardsStage(stage) {
 }
 
 export function selectRuntimeLorecardsStage(stage) {
-    const normalized = normalizeRuntimeLorecardsStage(stage) || 'generate';
+    const settings = getSettingsForShell();
+    const normalized = normalizeRuntimeLorecardsStage(stage, settings) || getDefaultRuntimeLorecardsStage(settings);
     if (isRuntimeMobileShell()) return selectRuntimeMobileLorecardsStage(normalized);
 
     const state = getStateForShell();
@@ -416,6 +431,7 @@ export function normalizePanelLayoutState(state, options = {}) {
     if (!state) return null;
     if (!state.lorePanel || typeof state.lorePanel !== 'object') state.lorePanel = getDefaultState().lorePanel;
     const panelState = state.lorePanel;
+    const settings = options.settings || getSettingsForShell();
 
     const hadRailFields = panelState.railX != null || panelState.railY != null || panelState.drawerOpen != null;
     panelState.railMode = normalizeRailMode(panelState.railMode);
@@ -423,10 +439,10 @@ export function normalizePanelLayoutState(state, options = {}) {
         panelState.drawerOpen = hadRailFields ? false : panelState.collapsed !== true;
     }
     panelState.collapsed = panelState.drawerOpen !== true;
-    panelState.activeTab = normalizeTabForExperience(panelState.activeTab);
-    panelState.lorecardsStage = normalizeRuntimeLorecardsStage(panelState.lorecardsStage || panelState.mobile?.lorecardsStage || panelState.mobileLifecycleStage) || 'generate';
+    panelState.activeTab = normalizeTabForExperience(panelState.activeTab, settings);
+    panelState.lorecardsStage = normalizeRuntimeLorecardsStage(panelState.lorecardsStage || panelState.mobile?.lorecardsStage || panelState.mobileLifecycleStage, settings) || getDefaultRuntimeLorecardsStage(settings);
     panelState.drawerDirection = ['auto', 'right', 'left'].includes(panelState.drawerDirection) ? panelState.drawerDirection : 'auto';
-    normalizeMobilePanelState(panelState);
+    normalizeMobilePanelState(panelState, settings);
 
     const legacyX = Number(panelState.x);
     const legacyY = Number(panelState.y);

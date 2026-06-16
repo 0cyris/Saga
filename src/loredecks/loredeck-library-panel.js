@@ -118,6 +118,19 @@ function isVisibleLoredeckLibraryPack(pack = {}) { return !!pack?.packId && !isG
 function getVisibleLoredeckLibrary(state = getState()) { return getLoredeckLibrary(state).filter(isVisibleLoredeckLibraryPack); }
 function getFreshLoredeckLibraryPack(packId, fallback) { return dep('getFreshLoredeckLibraryPack', (_packId, _fallback) => _fallback || null)(packId, fallback); }
 function persistLoredeckLibraryRecordMutation(pack, mutator, message, options) { return dep('persistLoredeckLibraryRecordMutation', () => false)(pack, mutator, message, options); }
+
+function switchLoredeckLibraryToAdvanced(message = 'Advanced Experience enabled for deck repair and editing tools.') {
+    const settings = getSettings();
+    saveSettings({ ...(settings || {}), experienceMode: 'advanced' });
+    refreshHeader();
+    refreshPanelBody({ preserveScroll: true });
+    toast(message, 'info');
+    if (loredeckLibraryOpen) renderLoredeckLibraryOverlay({ preserveScroll: true });
+}
+
+function createLibraryAdvancedHandoffButton(label = 'Switch to Advanced', tooltip = 'Switch to Advanced Experience for Pack Health Center, repair, metadata, and package editing tools.') {
+    return createButton(label, tooltip, () => switchLoredeckLibraryToAdvanced());
+}
 function hydrateLoredeckPayloadRecord(pack) { return dep('hydrateLoredeckPayloadRecord', async value => value)(pack); }
 function flushLoredeckPayloadWrites() { return dep('flushLoredeckPayloadWrites', async () => ({ ok: true, error: '', pendingWrites: 0 }))(); }
 function validateLoredeckForEditor(pack, button, options) { return dep('validateLoredeckForEditor', async () => ({ health: null, error: 'Validation is unavailable.' }))(pack, button, options); }
@@ -513,21 +526,23 @@ export function renderLoredeckLibraryOverlay(options = {}) {
         });
         markTourTarget(importButton, 'loredecks.library.import');
         actions.appendChild(importButton);
-        const exportSelected = createButton(
-            selectedPacks.length > 1 ? `Export Selected (${selectedPacks.length})` : 'Export Selected',
-            selectedPacks.length
-                ? 'Export selected Loredecks as one .saga-loredeck.zip package.'
-                : 'Select one or more Loredecks before exporting.',
-            async (btn) => {
-                await exportSelectedLoredeckBundles(selectedPacks, btn);
-            }
-        );
-        exportSelected.disabled = !selectedPacks.length;
-        markTourTarget(exportSelected, 'loredecks.library.export');
-        actions.appendChild(exportSelected);
-        if (!basic) actions.appendChild(createButton('Create Deck', 'Open the staged Deck Maker wizard.', () => {
-            openLoredeckCreatorWorkbench();
-        }));
+        if (!basic) {
+            const exportSelected = createButton(
+                selectedPacks.length > 1 ? `Export Selected (${selectedPacks.length})` : 'Export Selected',
+                selectedPacks.length
+                    ? 'Export selected Loredecks as one .saga-loredeck.zip package.'
+                    : 'Select one or more Loredecks before exporting.',
+                async (btn) => {
+                    await exportSelectedLoredeckBundles(selectedPacks, btn);
+                }
+            );
+            exportSelected.disabled = !selectedPacks.length;
+            markTourTarget(exportSelected, 'loredecks.library.export');
+            actions.appendChild(exportSelected);
+            actions.appendChild(createButton('Create Deck', 'Open the staged Deck Maker wizard.', () => {
+                openLoredeckCreatorWorkbench();
+            }));
+        }
         actions.appendChild(createButton('Refresh Library', 'Reload active Loredecks and recompute Pack Health.', async (btn) => {
             await refreshLoredeckLibraryWindowData(btn);
         }));
@@ -2791,13 +2806,15 @@ function createLoredeckLibrarySelectionToolbar(visiblePacks = [], libraryIndex =
     clear.disabled = !selectedIds.length;
     toolbar.appendChild(clear);
 
-    const exportButton = createButton('Export Selected', 'Export selected Loredecks as one .saga-loredeck.zip package.', async (btn) => {
-        const library = getLoredeckLibrary(getState());
-        const packs = getLoredeckLibraryBulkSelectedIds(library).map(id => library.find(pack => pack.packId === id)).filter(Boolean);
-        await exportSelectedLoredeckBundles(packs, btn);
-    }, 'saga-loredeck-library-small-button');
-    exportButton.disabled = !selectedIds.length;
-    toolbar.appendChild(exportButton);
+    if (!isBasicExperienceMode()) {
+        const exportButton = createButton('Export Selected', 'Export selected Loredecks as one .saga-loredeck.zip package.', async (btn) => {
+            const library = getLoredeckLibrary(getState());
+            const packs = getLoredeckLibraryBulkSelectedIds(library).map(id => library.find(pack => pack.packId === id)).filter(Boolean);
+            await exportSelectedLoredeckBundles(packs, btn);
+        }, 'saga-loredeck-library-small-button');
+        exportButton.disabled = !selectedIds.length;
+        toolbar.appendChild(exportButton);
+    }
 
     const moveOptions = getLoredeckLibraryFolderMoveOptions(libraryIndex);
     const preferredFolderId = !isLoredeckLibrarySpecialFolderId(loredeckLibrarySelectedFolderDetailsId)
@@ -4711,6 +4728,7 @@ function createLoredeckLibraryOverviewDetail(pack, stackItem, stats, healthInfo)
 }
 
 function createLoredeckLibraryHealthDetail(pack, healthInfo) {
+    const basic = isBasicExperienceMode();
     const wrap = document.createElement('div');
     wrap.className = 'saga-loredeck-library-health-detail';
     const summary = healthInfo.report?.summary || {};
@@ -4740,7 +4758,9 @@ function createLoredeckLibraryHealthDetail(pack, healthInfo) {
         issue.appendChild(title);
         const detail = document.createElement('div');
         detail.className = 'saga-runtime-help';
-        detail.textContent = groups[0].summary || groups[0].fixShort || 'Open Pack Health Center for grouped findings and repair actions.';
+        detail.textContent = groups[0].summary || groups[0].fixShort || (basic
+            ? 'Switch to Advanced for grouped findings and repair actions.'
+            : 'Open Pack Health Center for grouped findings and repair actions.');
         issue.appendChild(detail);
         issue.appendChild(createStatusPill(groups[0].affectedLabel || `${groups[0].rawCount || 1} finding${(groups[0].rawCount || 1) === 1 ? '' : 's'}`, 'Grouped Pack Health finding count.', { tone: groups[0].severity === 'error' ? 'danger' : (groups[0].severity === 'warning' ? 'warning' : 'info'), kind: 'severity' }));
         top.appendChild(issue);
@@ -4749,15 +4769,19 @@ function createLoredeckLibraryHealthDetail(pack, healthInfo) {
         wrap.appendChild(createEmptyMessage(healthInfo.health ? 'No Pack Health issues found.' : 'No scan has been run for this Loredeck yet.'));
     }
     const actions = createLoredeckActionRow();
-    actions.appendChild(createButton('Open Pack Health Center', 'Open the fullscreen Pack Health Center for this Loredeck.', () => {
-        openLoredeckHealthCenter(pack.packId);
-    }, 'saga-primary-button'));
     const validate = createButton('Run Pack Health', 'Load this Loredeck data and run Pack Health validation.', async (btn) => {
         await validateLoredeckForEditor(pack, btn);
         renderLoredeckLibraryOverlay();
-    });
+    }, basic ? 'saga-primary-button' : '');
     validate.disabled = !canValidateLoredeckInEditor(pack);
     actions.appendChild(validate);
+    if (basic) {
+        actions.appendChild(createLibraryAdvancedHandoffButton('Advanced Repair Tools'));
+    } else {
+        actions.appendChild(createButton('Open Pack Health Center', 'Open the fullscreen Pack Health Center for this Loredeck.', () => {
+            openLoredeckHealthCenter(pack.packId);
+        }, 'saga-primary-button'));
+    }
     wrap.appendChild(actions);
     return wrap;
 }
@@ -4838,6 +4862,7 @@ function createLoredeckLibraryFilesDetail(pack, healthInfo) {
 }
 
 function createLoredeckLibraryDetailActions(pack, stackItem = null, healthInfo = null) {
+    const basic = isBasicExperienceMode();
     const actions = createLoredeckActionRow({ className: 'saga-primary-actions saga-loredeck-library-detail-actions' });
     const inStack = !!stackItem;
     const add = createButton(inStack ? (stackItem.enabled ? 'In Stack' : 'Enable Deck') : 'Add to Stack', inStack ? 'This Loredeck is already in the current stack.' : 'Add this Loredeck to the active stack.', () => {
@@ -4847,30 +4872,38 @@ function createLoredeckLibraryDetailActions(pack, stackItem = null, healthInfo =
     }, inStack && stackItem.enabled ? '' : 'saga-primary-button');
     add.disabled = inStack && stackItem.enabled;
     actions.appendChild(add);
-    actions.appendChild(createButton('Open Loredeck', 'Open this Loredeck in the fullscreen Lorecard viewer and editor.', () => {
-        closeLoredeckLibraryWindow();
-        openLoredeckWorkbench(pack.packId);
-    }, 'saga-primary-button'));
-    actions.appendChild(createButton('Open Pack Health Center', 'Open the fullscreen Pack Health Center for this Loredeck.', () => {
-        void healthInfo;
-        openLoredeckHealthCenter(pack.packId);
-    }));
-    actions.appendChild(createButton(
-        pack.type === 'bundled' ? 'View Metadata' : 'Edit Metadata',
-        pack.type === 'bundled'
-            ? 'Open the Library metadata window for this read-only Bundled Loredeck.'
-            : 'Open the Library metadata editor for this Loredeck.',
-        () => openLoredeckMetadataEditor(pack.packId)
-    ));
-    const exportButton = createButton('Export', 'Export this Loredeck as a .saga-loredeck.zip package.', async (btn) => {
-        await exportValidatedLoredeckDraft(pack, btn);
-        renderLoredeckLibraryOverlay();
-    });
-    actions.appendChild(exportButton);
+    if (basic) {
+        actions.appendChild(createLibraryAdvancedHandoffButton('Advanced Deck Tools'));
+    } else {
+        actions.appendChild(createButton('Open Loredeck', 'Open this Loredeck in the fullscreen Lorecard viewer and editor.', () => {
+            closeLoredeckLibraryWindow();
+            openLoredeckWorkbench(pack.packId);
+        }, 'saga-primary-button'));
+        actions.appendChild(createButton('Open Pack Health Center', 'Open the fullscreen Pack Health Center for this Loredeck.', () => {
+            void healthInfo;
+            openLoredeckHealthCenter(pack.packId);
+        }));
+        actions.appendChild(createButton(
+            pack.type === 'bundled' ? 'View Metadata' : 'Edit Metadata',
+            pack.type === 'bundled'
+                ? 'Open the Library metadata window for this read-only Bundled Loredeck.'
+                : 'Open the Library metadata editor for this Loredeck.',
+            () => openLoredeckMetadataEditor(pack.packId)
+        ));
+        const exportButton = createButton('Export', 'Export this Loredeck as a .saga-loredeck.zip package.', async (btn) => {
+            await exportValidatedLoredeckDraft(pack, btn);
+            renderLoredeckLibraryOverlay();
+        });
+        actions.appendChild(exportButton);
+    }
     return actions;
 }
 
 export function openLoredeckMetadataEditor(packId = '') {
+    if (isBasicExperienceMode()) {
+        toast('Switch to Advanced Experience to edit Loredeck metadata.', 'info');
+        return;
+    }
     const state = getState();
     const library = getLoredeckLibrary(state);
     const id = String(packId || state?.lorePanel?.selectedLoredeckId || '').trim();
@@ -4923,6 +4956,7 @@ function createLoredeckMetadataEditorCard(pack) {
     const readOnly = pack.type === 'bundled';
     const virtualDuplicate = isVirtualLoredeckPack(pack);
     const editorCanValidate = canValidateLoredeckInEditor(pack);
+    const basic = isBasicExperienceMode();
 
     const card = document.createElement('div');
     card.className = 'saga-runtime-card saga-loredeck-metadata-card';
@@ -5026,9 +5060,11 @@ function createLoredeckMetadataEditorCard(pack) {
     validateButton.disabled = !editorCanValidate;
     actions.appendChild(validateButton);
 
-    actions.appendChild(createButton('Open Pack Health Center', 'Open the fullscreen Pack Health Center for this Loredeck.', () => {
-        openLoredeckHealthCenter(pack.packId);
-    }));
+    if (!basic) {
+        actions.appendChild(createButton('Open Pack Health Center', 'Open the fullscreen Pack Health Center for this Loredeck.', () => {
+            openLoredeckHealthCenter(pack.packId);
+        }));
+    }
     actions.appendChild(createButton('Duplicate', 'Create an editable Custom Loredeck copy.', () => {
         openDuplicateLoredeckDialog(pack);
     }));
@@ -5055,7 +5091,7 @@ function createLoredeckMetadataEditorCard(pack) {
         }
     }
 
-    if (!readOnly) {
+    if (!readOnly && !basic) {
         actions.appendChild(createButton('Save Metadata', 'Save edited Custom Loredeck library metadata.', async (btn) => {
             await saveLoredeckMetadataFromInputs(pack, {
                 titleInput,
@@ -5091,13 +5127,19 @@ function createLoredeckMetadataEditorCard(pack) {
             await exportValidatedLoredeckDraft(pack, btn);
         });
         actions.appendChild(exportButton);
-    } else {
+    } else if (!basic && readOnly) {
         actions.appendChild(createButton('Export Package', 'Export this Bundled Loredeck as a .saga-loredeck.zip package.', async (btn) => {
             await exportValidatedLoredeckDraft(pack, btn);
         }));
         const note = document.createElement('div');
         note.className = 'saga-runtime-help';
         note.textContent = 'Bundled Loredeck metadata is read-only. You can still export the deck package.';
+        actions.appendChild(note);
+    } else {
+        actions.appendChild(createLibraryAdvancedHandoffButton('Switch to Advanced'));
+        const note = document.createElement('div');
+        note.className = 'saga-runtime-help';
+        note.textContent = 'Switch to Advanced Experience to edit metadata, export packages, or run repair actions.';
         actions.appendChild(note);
     }
     card.appendChild(actions);

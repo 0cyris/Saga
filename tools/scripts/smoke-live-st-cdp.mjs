@@ -965,7 +965,7 @@ function isExpectedRepoLocalHarnessStorageError(error = '') {
     return ['context-harness', 'guide-harness', 'creator-harness', DESKTOP_LORECARDS_HARNESS_TARGET, MOBILE_ADVANCED_HARNESS_TARGET, MOBILE_REDESIGN_HARNESS_TARGET, TABLET_ADVANCED_HARNESS_TARGET].includes(SMOKE_TARGET)
         && (
             (/Failed to load resource: the server responded with a status of 404/i.test(message)
-                && /\/user\/files\/saga-(?:theme-index|iconset-index|library-index|storage-index|creator-index|creator-project-[^)\s]+|pack-smoke-[^)\s]+)\.v1\.json/i.test(message))
+                && /\/user\/files\/saga-(?:theme-index|iconset-index|library-index|storage-index|creator-index|creator-project-[^)\s]+|story-opener-index|pack-smoke-[^)\s]+)\.v1\.json/i.test(message))
             || (/Failed to load resource: the server responded with a status of 405/i.test(message)
                 && /\/api\/files\/upload/i.test(message))
         );
@@ -4160,6 +4160,85 @@ async function runGuideHarnessSmoke(client, screenshots, findings, smokeUrl, dia
     if (!basicPreparedLibrary.overlayOpen || !basicPreparedLibrary.targetVisible || !basicPreparedLibrary.hasDone) findings.push('Basic Loredecks prepared Library step did not open the fullscreen Library with the expected header target.');
     screenshots.push(await screenshot(client, 'guide-harness-03-basic-prepared-library'));
 
+    let basicLibrarySelection = await evaluate(client, script(() => {
+        const overlay = document.querySelector('.saga-loredeck-library-overlay');
+        if (!overlay) return { selected: false, mode: 'missing-library' };
+        const mobile = !!overlay.querySelector('.saga-loredeck-library-shell-mobile');
+        if (!mobile) return { selected: false, mode: 'desktop-helper-needed', mobile };
+        const card = overlay.querySelector('.saga-loredeck-library-deck-mobile-touch[data-pack-id="smoke-arlong-park"]')
+            || overlay.querySelector('.saga-loredeck-library-deck-mobile-touch[data-pack-id]');
+        if (!card) {
+            return {
+                selected: false,
+                mode: 'missing-mobile-card',
+                mobile,
+                text: (overlay.innerText || overlay.textContent || '').slice(0, 800),
+            };
+        }
+        card.scrollIntoView({ block: 'center', inline: 'nearest' });
+        card.dispatchEvent(new MouseEvent('contextmenu', { bubbles: true, cancelable: true, view: window }));
+        return {
+            selected: true,
+            mode: 'mobile-detail-sheet',
+            mobile,
+            packId: card.getAttribute?.('data-pack-id') || '',
+        };
+    }), { userGesture: true });
+    if (!basicLibrarySelection.selected && basicLibrarySelection.mode === 'desktop-helper-needed') {
+        basicLibrarySelection = await selectLoredeckInLibraryByPackId(client, 'smoke-arlong-park', 'Smoke Test: Arlong Park');
+    }
+    if (!basicLibrarySelection.selected) findings.push(`Basic Library could not select a seeded Loredeck for action-gate checks (${basicLibrarySelection.mode || 'unknown'}).`);
+    if (basicLibrarySelection.selected && basicLibrarySelection.mobile) {
+        await waitFor(client, '!!document.querySelector(".saga-loredeck-library-mobile-detail-sheet")', 'Basic Library mobile detail sheet', 10000).catch(error => findings.push(error.message));
+    }
+    await wait(400);
+    await clickButtonText(client, 'Overview', { root: '.saga-loredeck-library-mobile-detail-sheet, .saga-loredeck-library-details', enabledOnly: false }).catch(() => false);
+    await wait(250);
+    const basicLibraryOverviewGate = await evaluate(client, script(() => {
+        const overlay = document.querySelector('.saga-loredeck-library-overlay');
+        const detailRoot = overlay?.querySelector('.saga-loredeck-library-mobile-detail-sheet .saga-loredeck-library-details')
+            || overlay?.querySelector('.saga-loredeck-library-details');
+        const detailLabels = [...detailRoot?.querySelectorAll('button') || []].map(button => (button.innerText || button.textContent || '').trim()).filter(Boolean);
+        const overlayLabels = [...overlay?.querySelectorAll('.saga-loredeck-library-header-actions button, .saga-loredeck-library-selection-toolbar button') || []]
+            .map(button => (button.innerText || button.textContent || '').trim())
+            .filter(Boolean);
+        const forbiddenPattern = /^(Create Deck|Open Loredeck|Open Pack Health Center|View Metadata|Edit Metadata|Export|Export Selected|Export Package|Attempt Fixing)$/;
+        return {
+            open: !!overlay,
+            hasDetails: !!detailRoot,
+            detailLabels,
+            overlayLabels,
+            hiddenActionLabels: [...detailLabels, ...overlayLabels].filter(label => forbiddenPattern.test(label)),
+            hasAdvancedDeckTools: detailLabels.includes('Advanced Deck Tools'),
+            hasPackTitle: (detailRoot?.innerText || '').includes('Smoke Test: Arlong Park') || (detailRoot?.innerText || '').includes('Deck ID'),
+        };
+    }));
+    if (!basicLibraryOverviewGate.open || !basicLibraryOverviewGate.hasDetails || !basicLibraryOverviewGate.hasPackTitle) findings.push('Basic Library action-gate check did not render a selected Loredeck detail surface.');
+    if (basicLibraryOverviewGate.hiddenActionLabels.length) findings.push(`Basic Library exposed Advanced-only overview actions: ${basicLibraryOverviewGate.hiddenActionLabels.join(', ')}.`);
+    if (!basicLibraryOverviewGate.hasAdvancedDeckTools) findings.push('Basic Library did not expose the Advanced handoff in selected deck overview actions.');
+
+    await clickButtonText(client, 'Health', { root: '.saga-loredeck-library-mobile-detail-sheet, .saga-loredeck-library-details', enabledOnly: false }).catch(() => false);
+    await wait(300);
+    const basicLibraryHealthGate = await evaluate(client, script(() => {
+        const overlay = document.querySelector('.saga-loredeck-library-overlay');
+        const detailRoot = overlay?.querySelector('.saga-loredeck-library-mobile-detail-sheet .saga-loredeck-library-details')
+            || overlay?.querySelector('.saga-loredeck-library-details');
+        const text = detailRoot?.innerText || '';
+        const labels = [...detailRoot?.querySelectorAll('button') || []].map(button => (button.innerText || button.textContent || '').trim()).filter(Boolean);
+        const forbiddenPattern = /^(Create Deck|Open Loredeck|Open Pack Health Center|View Metadata|Edit Metadata|Export|Export Selected|Export Package|Attempt Fixing)$/;
+        return {
+            hasHealthStatus: text.includes('Status') && text.includes('Last Scan'),
+            hasRunPackHealth: labels.includes('Run Pack Health'),
+            hasAdvancedRepairTools: labels.includes('Advanced Repair Tools'),
+            hiddenActionLabels: labels.filter(label => forbiddenPattern.test(label)),
+            labels,
+        };
+    }));
+    if (!basicLibraryHealthGate.hasHealthStatus || !basicLibraryHealthGate.hasRunPackHealth || !basicLibraryHealthGate.hasAdvancedRepairTools) findings.push(`Basic Library Health tab did not show summary/scan plus Advanced handoff: ${JSON.stringify(basicLibraryHealthGate)}.`);
+    if (basicLibraryHealthGate.hiddenActionLabels.length) findings.push(`Basic Library exposed Advanced-only health actions: ${basicLibraryHealthGate.hiddenActionLabels.join(', ')}.`);
+    await clickButtonText(client, 'Close', { root: '.saga-loredeck-library-mobile-detail-sheet', enabledOnly: false }).catch(() => false);
+    await wait(250);
+
     const basicLibraryNextClicked = await clickButtonText(client, 'Next', { root: '#saga-tour-popover' });
     if (!basicLibraryNextClicked) findings.push('Basic prepared Library walkthrough Next button was not clickable.');
     const basicLibraryNextImmediateState = await evaluate(client, script(() => {
@@ -4220,7 +4299,7 @@ async function runGuideHarnessSmoke(client, screenshots, findings, smokeUrl, dia
         };
     }));
     if (!basicTour.hasPopover || basicTour.title !== 'Basic Workflow Orientation') findings.push('Basic walkthrough did not open on the expected first tour step.');
-    if (basicTour.progress !== '1 / 55') findings.push(`Basic walkthrough progress was ${basicTour.progress || 'missing'} instead of 1 / 55.`);
+    if (basicTour.progress !== '1 / 57') findings.push(`Basic walkthrough progress was ${basicTour.progress || 'missing'} instead of 1 / 57.`);
     if (!basicTour.hasWhen || !basicTour.hasExpected) findings.push('Basic walkthrough popover did not include When to use and Expected result details.');
     if (basicTour.highlightedTargets < 1) findings.push('Basic walkthrough did not highlight a runtime target.');
     screenshots.push(await screenshot(client, 'guide-harness-04-basic-tour'));
@@ -4260,7 +4339,7 @@ async function runGuideHarnessSmoke(client, screenshots, findings, smokeUrl, dia
     }));
     const expectedAdvancedModules = [
         'Loredeck Library Mastery',
-        'Session And Runtime Control',
+        'Session, Story Maker, And Runtime Control',
         'Context Resolution',
         'Lorecard Generation And Review',
         'Injection Diagnostics',
@@ -4375,9 +4454,9 @@ async function runGuideHarnessSmoke(client, screenshots, findings, smokeUrl, dia
             activeTab: document.querySelector('.saga-runtime-rail-tab-active')?.getAttribute('data-tab-id') || document.querySelector('#saga-lore-panel')?.dataset?.mobileActiveTab || '',
         };
     }));
-    const advancedTourLandedOnPreparedLibrary = advancedTour.title === 'Empty Selection State' && advancedTour.progress === '3 / 165';
+    const advancedTourLandedOnPreparedLibrary = advancedTour.title === 'Empty Selection State' && advancedTour.progress === '3 / 169';
     if (!advancedTourLandedOnPreparedLibrary && (!advancedTour.hasPopover || advancedTour.title !== 'Library Overview')) findings.push('Advanced walkthrough did not open on the expected first tour step.');
-    if (!advancedTourLandedOnPreparedLibrary && advancedTour.progress !== '1 / 165') findings.push(`Advanced walkthrough progress was ${advancedTour.progress || 'missing'} instead of 1 / 165.`);
+    if (!advancedTourLandedOnPreparedLibrary && advancedTour.progress !== '1 / 169') findings.push(`Advanced walkthrough progress was ${advancedTour.progress || 'missing'} instead of 1 / 169.`);
     if (!advancedTour.hasWhen || !advancedTour.hasExpected) findings.push('Advanced walkthrough popover did not include When to use and Expected result details.');
     if (!advancedTourLandedOnPreparedLibrary && (!advancedTour.targetVisible || advancedTour.activeTab !== 'loredecks')) findings.push('Advanced walkthrough did not navigate to the visible Loredeck Library launch target.');
     screenshots.push(await screenshot(client, 'guide-harness-08-advanced-tour'));
@@ -5348,7 +5427,24 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
 async function runDesktopLorecardsHarnessSmoke(client, screenshots, findings, smokeUrl, dialogEvents) {
     await waitFor(client, 'window.__sagaSmokeReady === true', 'Desktop Lorecards smoke ready marker', 20000);
     await waitFor(client, 'document.querySelector(".saga-runtime-rail-tab-active")?.getAttribute("data-tab-id") === "lore"', 'Desktop Lorecards tab active', 10000);
-    await waitFor(client, '!!document.querySelector(".saga-lorecard-workspace-list") && !!document.querySelector(".saga-lorecard-workspace-detail")', 'Desktop Lorecards workspace rendered', 10000);
+    const loreStageSelected = await evaluate(client, script(() => {
+        const root = document.querySelector('#saga-lore-panel');
+        if (root?.dataset?.lorecardsStage === 'lore') return { selected: true, alreadyActive: true };
+        const loreTab = document.querySelector('.saga-runtime-rail-tab[data-tab-id="lore"]');
+        if (!document.querySelector('#saga-desktop-lorecards-flyout')) {
+            loreTab?.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
+        }
+        const loreOption = document.querySelector('.saga-desktop-lorecards-flyout-option[data-stage="lore"]');
+        loreOption?.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
+        return {
+            selected: !!loreOption,
+            alreadyActive: false,
+            stageBeforeRefresh: root?.dataset?.lorecardsStage || '',
+            flyoutOpen: !!document.querySelector('#saga-desktop-lorecards-flyout'),
+        };
+    }), { userGesture: true }).catch(error => ({ selected: false, error: error?.message || String(error) }));
+    if (!loreStageSelected.selected) findings.push(`Desktop Lorecards harness could not select the Lore stage from the desktop flyout: ${JSON.stringify(loreStageSelected)}.`);
+    await waitFor(client, 'document.querySelector("#saga-lore-panel")?.dataset?.lorecardsStage === "lore" && !!document.querySelector(".saga-lorecard-workspace-list") && !!document.querySelector(".saga-lorecard-workspace-detail")', 'Desktop Lorecards workspace rendered', 10000);
     await evaluate(client, script(() => {
         const accepted = document.querySelector('.saga-lorecard-workspace-row[data-lorecard-workspace-status="accepted"]');
         accepted?.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
@@ -6859,9 +6955,14 @@ async function runStorageHarnessSmoke(client, screenshots, findings, smokeUrl, d
         const libraryStorage = await import('/src/storage/saga-lorepack-library-storage.js');
         const payloadStorage = await import('/src/storage/saga-lorepack-payload-storage.js');
         const themeIconStorage = await import('/src/storage/saga-theme-icon-storage.js');
-        libraryStorage.resetSagaLorepackLibraryStorageCache();
-        payloadStorage.resetSagaLorepackPayloadStorageCache();
-        themeIconStorage.resetSagaThemeIconStorageCache();
+        await Promise.allSettled([
+            payloadStorage.flushSagaLorepackPayloadStorageWrites(),
+            libraryStorage.flushSagaLorepackLibraryStorageWrites(),
+        ]);
+        await Promise.allSettled([
+            libraryStorage.hydrateSagaLorepackLibraryStorage({ force: true }),
+            themeIconStorage.hydrateSagaThemeIconStorage({ force: true }),
+        ]);
 
         const ctx = window.SillyTavern?.getContext?.();
         const packId = 'storage-smoke-arlong';
@@ -7054,8 +7155,11 @@ async function runStorageHarnessSmoke(client, screenshots, findings, smokeUrl, d
 
     const healthOpenState = await evaluate(client, script(async packId => {
         const libraryStorage = await import('/src/storage/saga-lorepack-library-storage.js');
+        const stateManager = await import('/src/state/state-manager.js');
         const healthPanel = await import('/src/loredecks/loredeck-health-panel.js');
-        await libraryStorage.hydrateSagaLorepackLibraryStorage({ force: true });
+        const hydration = await libraryStorage.hydrateSagaLorepackLibraryStorage({ force: true });
+        const externalRegistry = libraryStorage.getExternalLoredeckLibraryRegistry();
+        const stateRegistry = stateManager.getLoredeckLibraryRegistry(stateManager.getState());
         healthPanel.openLoredeckHealthCenter(packId, { tab: 'overview' });
         const overlay = document.querySelector('.saga-loredeck-health-center-overlay');
         const text = overlay?.innerText || overlay?.textContent || '';
@@ -7065,6 +7169,11 @@ async function runStorageHarnessSmoke(client, screenshots, findings, smokeUrl, d
             hasPackTitle: text.includes('Storage Smoke Arlong Park'),
             hasRefreshScan: [...(overlay?.querySelectorAll('button') || [])]
                 .some(button => (button.innerText || button.textContent || '').trim() === 'Refresh Scan' && !button.disabled),
+            hydrationOk: hydration?.ok === true,
+            externalHasPack: !!externalRegistry?.packs?.[packId],
+            externalPackTitle: externalRegistry?.packs?.[packId]?.title || '',
+            stateHasPack: !!stateRegistry?.packs?.[packId],
+            statePackTitle: stateRegistry?.packs?.[packId]?.title || '',
             text: text.slice(0, 1000),
         };
     }, 'storage-smoke-arlong'));
@@ -7081,7 +7190,8 @@ async function runStorageHarnessSmoke(client, screenshots, findings, smokeUrl, d
             await waitFor(client, script(async packId => {
                 const healthPanel = await import('/src/loredecks/loredeck-health-panel.js');
                 return !!healthPanel.getCachedLoredeckHealthRecord(packId)?.health;
-            }, 'storage-smoke-arlong'), 'Storage smoke Pack Health cache after Refresh Scan', 20000);
+            }, 'storage-smoke-arlong'), 'Storage smoke Pack Health cache after Refresh Scan', 20000)
+                .catch(error => findings.push(error.message));
         }
     }
 
@@ -7286,6 +7396,7 @@ async function runStorageHarnessSmoke(client, screenshots, findings, smokeUrl, d
         const libraryStorage = await import('/src/storage/saga-lorepack-library-storage.js');
         const payloadStorage = await import('/src/storage/saga-lorepack-payload-storage.js');
         const themeIconStorage = await import('/src/storage/saga-theme-icon-storage.js');
+        const creatorStorage = await import('/src/storage/saga-creator-project-storage.js');
         const loader = await import('/src/loredecks/loredeck-loader.js');
         const libraryPanel = await import('/src/loredecks/loredeck-library-panel.js');
         libraryStorage.resetSagaLorepackLibraryStorageCache();
@@ -7293,6 +7404,7 @@ async function runStorageHarnessSmoke(client, screenshots, findings, smokeUrl, d
         themeIconStorage.resetSagaThemeIconStorageCache();
         await libraryStorage.hydrateSagaLorepackLibraryStorage({ force: true });
         await themeIconStorage.hydrateSagaThemeIconStorage({ force: true });
+        await creatorStorage.hydrateSagaCreatorProjectStorage({ force: true });
 
         const registry = stateManager.getLoredeckLibraryRegistry(stateManager.getState());
         const row = registry.packs?.[packId] || null;

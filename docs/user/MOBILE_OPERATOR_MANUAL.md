@@ -2,19 +2,39 @@
 
 This manual covers Saga's phone layout. It is for operators using the fixed bottom navigation, touch-sized controls, mobile subviews, and long-press detail sheets.
 
-For desktop and tablet-width operation, see [Saga for Desktop Operator's Manual](DESKTOP_OPERATOR_MANUAL.md). For short workflow guides, see [Basic Workflow](BASIC_WORKFLOW.md) and [Advanced Workflow](ADVANCED_WORKFLOW.md).
+For desktop and tablet-width operation, see [Saga for Desktop Operator's Manual](DESKTOP_OPERATOR_MANUAL.md). For short workflow guides, see [Basic Workflow](BASIC_WORKFLOW.md) and [Advanced Workflow](ADVANCED_WORKFLOW.md). For complete authoring guides, see [Story Maker Guide for Mobile](STORY_MAKER_MOBILE_GUIDE.md) and [Deck Maker Guide for Mobile](DECK_MAKER_MOBILE_GUIDE.md).
 
 ## Mobile Shell Basics
 
 Saga for Mobile replaces the floating desktop rail and drawer with a full-height mobile window and a fixed bottom bar. The active bottom tab becomes **Exit**. Tap another route to switch surfaces; tap **Exit** to close Saga.
 
-Basic mobile routes are **Loredecks**, **Session**, **Context**, **Lorecards**, and **Settings**. Advanced adds **Continuity** and **Injection**, and exposes Deck Maker, Pack Health, Lore Automation, and deeper settings.
+Basic mobile routes are **Loredecks**, **Session**, **Context**, **Lorecards**, and **Settings**. Advanced adds **Continuity** and **Injection**, and exposes Deck Maker, Pack Health Center repair, Lore Automation, and deeper settings.
 
 <p align="center">
   <img src="../../assets/documentation/renders/docs-mobile-basic-shell-start.png" alt="Saga Basic mobile Session route" width="360">
 </p>
 
 Start in **Session**. It shows whether Saga is active, how many Lorecards are pending, how many are selected for injection, and whether the current chat has useful lore ready. Tap the Session summary to open Session Details when you need the guided checklist, walkthrough notes, toggles, and metrics.
+
+## Story Maker
+
+<p align="center">
+  <img src="../../assets/documentation/renders/docs-mobile-advanced-story-maker.png" alt="Saga mobile Story Maker" width="360">
+</p>
+
+**Story Maker** lives in the mobile **Session** route. Use it after Loredecks, Context, and useful Lorecards are ready, when you want Saga to create a lore-aware opening post for the current scene.
+
+The mobile Story Maker workflow is:
+
+1. Tap **Session**.
+2. Open **Story Maker**.
+3. Create or select a saved opener.
+4. Fill **Inputs**.
+5. Build the Context Packet and Opener Brief.
+6. Draft variants.
+7. Revise or copy the selected opener.
+
+For every mobile field, stage, source action, variant action, revision path, and failure state, use [Story Maker Guide for Mobile](STORY_MAKER_MOBILE_GUIDE.md).
 
 ## Basic Mobile Loop
 
@@ -34,7 +54,7 @@ The mobile shell is optimized for checking readiness and moving quickly between 
   <img src="../../assets/documentation/renders/docs-mobile-basic-loredecks-root.png" alt="Saga Basic mobile Loredecks route" width="360">
 </p>
 
-The **Loredecks** route shows the active stack summary and the main Library action. Open the **Loredeck Library** to browse decks, add or remove active decks, reorder the stack, inspect details, import packages, or run Pack Health.
+The **Loredecks** route shows the active stack summary and the main Library action. Open the **Loredeck Library** to browse decks, add or remove active decks, reorder the stack, inspect details, import packages, or run Pack Health checks.
 
 <p align="center">
   <img src="../../assets/documentation/renders/docs-mobile-advanced-loredecks-root.png" alt="Saga Advanced mobile Loredecks route" width="360">
@@ -60,9 +80,9 @@ In the mobile Library:
   <img src="../../assets/documentation/renders/docs-mobile-advanced-pack-health.png" alt="Saga mobile Pack Health Center" width="360">
 </p>
 
-Pack Health is available from a Loredeck detail sheet. Use it after importing, generating, duplicating, or heavily editing a deck. A clean health report means the deck is structurally usable; it does not prove every lore claim is canon-perfect.
+Pack Health status and **Run Pack Health** checks are available from Loredeck detail sheets. Basic shows the summary and scan action; Advanced opens the **Pack Health Center** for grouped issues, repair sessions, package diagnostics, and exportable reports. Use it after importing, generating, duplicating, or heavily editing a deck. A clean health report means the deck is structurally usable; it does not prove every lore claim is canon-perfect.
 
-On mobile, Pack Health keeps primary actions at the bottom. Use **Refresh Scan** after changes, **Export Report** when collecting evidence, and **Close** to return to the Library.
+On mobile Advanced, Pack Health Center keeps primary actions at the bottom. Use **Refresh Scan** after changes, **Export Report** when collecting evidence, and **Close** to return to the Library.
 
 ## Context
 
@@ -141,6 +161,8 @@ The preview is the operator truth source for "why did the model know this?" and 
 </p>
 
 The mobile Deck Maker keeps the current task and review queue near the top. Use it for staged Loredeck authoring, not one-shot generation. Generated material remains draft material until reviewed, moved to Pending Review, accepted, and checked in Pack Health.
+
+For every mobile stage, current-task action, project input, draft-review path, Pack Health action, and finalization gate, use [Deck Maker Guide for Mobile](DECK_MAKER_MOBILE_GUIDE.md).
 
 ## Settings
 

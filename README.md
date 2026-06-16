@@ -12,7 +12,7 @@ It turns canon, alternate-universe, crossover, and user-created lore into modula
 
 Saga is a lore system for deciding what belongs in the story **now**: what is true, what is hidden, who knows what, and what has changed in this chat.
 
-The current state of development is **alpha-release**: `0.1.0-alpha.1`, with minimum SillyTavern version `1.12.0`. Automatic updates are disabled for alpha builds, so update manually from the repository. Bundled loredecks include Harry Potter, Jujutsu Kaisen, LOTR, My Hero Academia, and Star Wars. The desktop/tablet shell, phone-width mobile shell, Deck Maker, Loredeck imports, Pack Health, and Basic/Advanced workflows are functional, but set your expectations for 'alpha'. Stability is being improved with testing, and user feedback is highly valued.
+The current state of development is **alpha-release**: `0.1.0-alpha.1`, with minimum SillyTavern version `1.12.0`. Automatic updates are disabled for alpha builds, so update manually from the repository. Bundled loredecks include Harry Potter, Jujutsu Kaisen, LOTR, My Hero Academia, and Star Wars. The desktop/tablet shell, phone-width mobile shell, Story Maker, Deck Maker, Loredeck imports, Pack Health, and Basic/Advanced workflows are functional, but set your expectations for 'alpha'. Stability is being improved with testing, and user feedback is highly valued.
 
 ## Contents
 
@@ -23,6 +23,7 @@ The current state of development is **alpha-release**: `0.1.0-alpha.1`, with min
 - [Project Layout](#project-layout)
 - [Storage](#storage)
 - [Authoring Loredecks](#authoring-loredecks)
+- [Authoring Openers](#authoring-openers)
 - [License](#license)
 
 ## Fast Start
@@ -41,13 +42,14 @@ The current state of development is **alpha-release**: `0.1.0-alpha.1`, with min
 3. Saga does not auto-open on first load. Open it from the **SAGA** extension dropdown: **Open SAGA Window**.
 4. Start in **Basic Workflow**. On desktop, go to the **Session** tab, follow **Session Readiness**, and consider viewing the **Basic Walkthrough** below it. On phone width, use the bottom navigation, start from **Session**, and tap the Session summary to open Session Details when you need the readiness checklist or walkthrough.
 
-For guided walkthroughs, see [Basic Workflow](docs/user/BASIC_WORKFLOW.md) and [Advanced Workflow](docs/user/ADVANCED_WORKFLOW.md). For full surface-by-surface guides with screenshots, see the [Saga for Desktop Operator's Manual](docs/user/DESKTOP_OPERATOR_MANUAL.md) and [Saga for Mobile Operator's Manual](docs/user/MOBILE_OPERATOR_MANUAL.md).
+For guided walkthroughs, see [Basic Workflow](docs/user/BASIC_WORKFLOW.md) and [Advanced Workflow](docs/user/ADVANCED_WORKFLOW.md). For full surface-by-surface guides with screenshots, see the [Saga for Desktop Operator's Manual](docs/user/DESKTOP_OPERATOR_MANUAL.md) and [Saga for Mobile Operator's Manual](docs/user/MOBILE_OPERATOR_MANUAL.md). For detailed authoring workflows, use the dedicated [Story Maker Desktop](docs/user/STORY_MAKER_DESKTOP_GUIDE.md), [Story Maker Mobile](docs/user/STORY_MAKER_MOBILE_GUIDE.md), [Deck Maker Desktop](docs/user/DECK_MAKER_DESKTOP_GUIDE.md), and [Deck Maker Mobile](docs/user/DECK_MAKER_MOBILE_GUIDE.md) guides.
 
 ## Key Features
 
 | Surface | What it does |
 | --- | --- |
 | **Loredeck Library** | Browse Bundled, Generated, and Custom Loredecks; import/export `.saga-loredeck.zip` packages; organize folders; manage the Active Stack; and run Pack Health checks. |
+| **Story Maker** | A Session-tab opener workflow for creating, revising, and copying lore-aware opening prose from the active Loredecks, Context, accepted Lorecards, and Reasoning Provider. |
 | **Deck Maker** | A staged, review-first workflow for drafting Loredecks with scope planning, Context planning, title batches, timeline/tag planning, Lorecard drafts, retry recovery, review queues, and finalization gates. |
 | **Lorecard System** | Suggested lore, Scan Story Lore, Lore Automation levels, Pending Review, accepted Lorecards, relevance tiers, Elevate/Mute controls, and reviewable edits before lore affects the prompt. |
 | **Lore Timeline** | An audit and recovery ledger for manual lore, accepted Lorecard changes, restored entries, deleted versions, and continuity-related lore events. |
@@ -64,6 +66,10 @@ Release-facing docs:
 - [Alpha Release Notes](docs/release/0.1.0-alpha.1.md)
 - [Saga for Desktop Operator's Manual](docs/user/DESKTOP_OPERATOR_MANUAL.md)
 - [Saga for Mobile Operator's Manual](docs/user/MOBILE_OPERATOR_MANUAL.md)
+- [Story Maker Guide for Desktop](docs/user/STORY_MAKER_DESKTOP_GUIDE.md)
+- [Story Maker Guide for Mobile](docs/user/STORY_MAKER_MOBILE_GUIDE.md)
+- [Deck Maker Guide for Desktop](docs/user/DECK_MAKER_DESKTOP_GUIDE.md)
+- [Deck Maker Guide for Mobile](docs/user/DECK_MAKER_MOBILE_GUIDE.md)
 - [Basic Workflow](docs/user/BASIC_WORKFLOW.md)
 - [Advanced Workflow](docs/user/ADVANCED_WORKFLOW.md)
 - [Loredeck And Lorecard Creation](docs/loredecks/LOREDECK_AND_LORECARD_CREATION_GUIDE.md)
@@ -78,7 +84,7 @@ Development notes live in [docs/development](docs/development/) until promoted, 
 
 - Alpha stabilization and live SillyTavern hardening.
 - UI/UX polish across desktop, tablet, and phone-width surfaces.
-- Broader live-provider smoke coverage for Deck Maker, Context, and Lore Automation.
+- Broader live-provider smoke coverage for Story Maker, Deck Maker, Context, and Lore Automation.
 
 ## Security
 
@@ -116,7 +122,9 @@ Important runtime modules:
 - `src/loredecks/loredeck-loader.js`: Loredeck loading, validation, Context, tags, and Pack Health behavior.
 - `src/loredecks/loredeck-library-panel.js`: Library UI.
 - `src/loredecks/loredeck-health-panel.js`: Pack Health Center UI.
-- `src/loredecks/loredeck-assistant.js`: model-assisted Deck Maker and Lore Assistant prompt builders.
+- `src/story-openers/story-opener-state.js`: Story Maker state model.
+- `src/runtime/story-opener-panel.js`: Story Maker Session-tab UI.
+- `src/loredecks/loredeck-assistant.js`: model-assisted Story Maker, Deck Maker, and Lore Assistant prompt builders.
 - `src/loredecks/loredeck-creator-projects.js`: Deck Maker project state and review-stage helpers.
 - `src/context/context-resolver.js`: Context resolution logic.
 - `src/context/context-index.js`: searchable Context index over loaded decks.
@@ -130,6 +138,7 @@ Saga keeps large custom content out of `settings.json` wherever SillyTavern's fi
 Saga-owned payloads live under SillyTavern `/user/files` as flat, tracked files:
 
 - Library index and installed Custom/Generated Loredeck payloads.
+- Story Maker session indexes and opener payloads.
 - Deck Maker project stage data and generated-pack links.
 - Imported Theme Packs, Icon Set manifests, and passive raster assets.
 - Imported Loredeck package payloads and cover images.
@@ -154,6 +163,10 @@ Start with these docs:
 - [Loredeck Schema Reference](docs/loredecks/SAGA_LOREDECK_SCHEMA.md)
 
 Reference-quality decks should be data-only, Context-aware, reviewable, and clean in the Pack Health Center. Do not treat parsed JSON as finished content. A deck is ready to model future work only when it loads cleanly, retrieves at the right Context, keeps future lore gated, and has no outstanding health issues.
+
+## Authoring Openers
+
+Use **Story Maker** from the Session tab when the goal is not a Loredeck, but a first post for the current scene. Story Maker builds a Context Packet, Opener Brief, Draft Variants, and Review & Copy stage from the active Saga setup. See [Story Maker Guide for Desktop](docs/user/STORY_MAKER_DESKTOP_GUIDE.md) or [Story Maker Guide for Mobile](docs/user/STORY_MAKER_MOBILE_GUIDE.md).
 
 ## License
 

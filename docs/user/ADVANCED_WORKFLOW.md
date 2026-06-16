@@ -16,17 +16,19 @@ Use this track to manage Library records, source types, folders, search, sorting
 
 Start here when a chat has no active stack, the wrong stack order, a missing package, an unclear Lorepack source, or a package you need to inspect before runtime use.
 
-### Session And Runtime Control
+### Session, Story Maker, And Runtime Control
 
-Coverage: A26-A33.
+Coverage: A26-A37.
 
-Use this track to manage Experience Mode, **Saga Active**, Automation Mode, runtime metrics, guide modules, active chat state, and mode recovery.
+Use this track to manage Experience Mode, **Saga Active**, Automation Mode, runtime metrics, guide modules, active chat state, Story Maker, and mode recovery.
 
-Start here when you need to understand what Saga is allowed to do, whether automation is active, or whether the current chat has the expected Saga state.
+Start here when you need to understand what Saga is allowed to do, whether automation is active, whether the current chat has the expected Saga state, or whether you want a lore-aware opening post for the active scene.
+
+Story Maker is the Session-tab opener workflow. It creates saved opener sessions, builds a Context Packet, turns that packet into an Opener Brief, drafts variants, revises the selected opener, and copies the final text. Use the dedicated [Story Maker Guide for Desktop](STORY_MAKER_DESKTOP_GUIDE.md) or [Story Maker Guide for Mobile](STORY_MAKER_MOBILE_GUIDE.md) for full field-by-field coverage.
 
 ### Context Resolution
 
-Coverage: A34-A60.
+Coverage: A38-A64.
 
 Use this track to resolve story position with Runtime Context, loaded Loredeck Context rows, Context Workbench layout, Anchors versus Windows, Choose Story Position, Start Here, Use Window, After/Before bounds, Timeline inspection, manual selection, Phrase Resolver diagnostics, locks, Detect Context, source-message tuning, local resolver behavior, Reasoner proposals, proposal review, audits, Advanced Context Brief, reset paths, index summaries, workbench routes, and eligibility debugging.
 
@@ -34,7 +36,7 @@ Start here when canon suggestions, retrieval, or injection appear tied to the wr
 
 ### Lorecard Generation And Review
 
-Coverage: A61-A82.
+Coverage: A65-A86.
 
 Use this track to manage canon preview, canon selection, story-lore scans, scan scope, Manual Lore Notes, assistant drafts, Pending Review, Pending Review edits, accept/reject flows, bulk review, Accepted Lorecards, search/filter, Accepted Lorecard editing, Elevate/Mute, relevance tiers, tags, Context metadata, duplicate guards, Lore Automation, timeline audit, workbenches, and the review-first policy.
 
@@ -42,7 +44,7 @@ Start here after Context is current and the story has durable facts or canon con
 
 ### Injection Diagnostics
 
-Coverage: A83-A97.
+Coverage: A87-A101.
 
 Use this track to inspect exactly what Saga sends to the model. It covers Continuity and Lore toggles, High/Normal/Low relevance previews, direct versus compressed handling, prompt placement, compression prompts, combined prompt reading, token estimates, omission reasons, and sync diagnostics.
 
@@ -50,7 +52,7 @@ Start here when the model ignores important lore, sees stale state, receives too
 
 ### Continuity Tracking
 
-Coverage: A98-A111.
+Coverage: A102-A115.
 
 Use this track to manage live scene state separately from durable Lorecards. It covers continuity scans, automation, scope, custom ranges, performance, tracked sections, scene state, active characters, key items, goals and threads, emotional freshness, the injection link, and recovery from failed or interrupted scans.
 
@@ -58,7 +60,7 @@ Start here when the next response needs current-scene state such as date, locati
 
 ### Deck Maker And Generated Lorepack Authoring
 
-Coverage: A112-A130.
+Coverage: A116-A134.
 
 Use this track to create and complete Generated Lorepack projects. It covers **Create Deck**, intake, scope brief, outline, title-batch generation, title selection actions, **Plan Context and Tags**, planning review, **Draft Lorecards**, confirmed **Auto-Draft All**, Deck Maker draft review, **Send Selected to Review**, review queue jumps, current task controls, generation settings, project shelf search/filter/move actions, generated-pack inspection, Pack Health readiness actions, and the Deck Maker Readiness Gate.
 
@@ -68,7 +70,7 @@ Start here when you need Saga to help author a new Generated Lorepack rather tha
 
 ### Pack Health And Packages
 
-Coverage: A131-A141.
+Coverage: A135-A145.
 
 Use this track to validate, repair, update, export, and finalize Lorepacks. It covers **Pack Health Center**, **Refresh Scan**, status, issue groups, **Attempt Fixing** sessions, saved repair-session actions, per-issue actions such as **Accept As-Is** and **Verify Fixed**, package update, local modification warnings, Bundled Lorepack reference export, Custom Lorepack embedded export, Generated to Custom finalization, and generated export readiness.
 
@@ -76,7 +78,7 @@ Start here before sharing a pack, finalizing a Generated Lorepack, repairing pac
 
 ### Settings And Providers
 
-Coverage: A32-A153.
+Coverage: A36-A157.
 
 Use this track to configure Utility and Reasoning provider roles, provider profiles, endpoints, models, provider tests, current SillyTavern model routing, generation parameters, provider presets, API compatibility flags, Theme Packs, icon sets, colors, State Safety maintenance, and Danger Zone cleanup.
 
@@ -84,7 +86,7 @@ Start here when model-backed actions fail, profile routing is unclear, generatio
 
 ### Troubleshooting Routes
 
-Coverage: A154-A165.
+Coverage: A158-A169.
 
 Use this track to route common symptoms to the right system: no Loredeck, wrong Context, no suggestions, stuck pending entries, no injection, prompt too heavy, provider failure, stale continuity, duplicate package warnings, Pack Health warnings, Deck Maker failure, or returning to Basic.
 
@@ -99,8 +101,9 @@ Start here when the problem is clear but the right Saga surface is not.
 5. Inspect what Saga sends in **Injection Diagnostics**.
 6. Track live scene state in **Continuity Tracking** when current state matters.
 7. Use **Deck Maker And Generated Lorepack Authoring** when building a new Generated Lorepack.
-8. Use **Pack Health And Packages** before finalizing, exporting, repairing, or trusting packages with warnings.
-9. Use **Troubleshooting Routes** when you need the shortest diagnostic path.
+8. Use **Story Maker** from Session when you need a lore-aware opener for the current scene.
+9. Use **Pack Health And Packages** before finalizing, exporting, repairing, or trusting packages with warnings.
+10. Use **Troubleshooting Routes** when you need the shortest diagnostic path.
 
 Advanced should still remain review-first. Model-produced proposals should become pending or reviewable changes before they affect prompts.
 
@@ -108,6 +111,7 @@ Advanced should still remain review-first. Model-produced proposals should becom
 
 - Full rail access, including **Continuity** and **Injection**.
 - Automation and cadence controls.
+- Story Maker opener sessions, Context Packets, Opener Briefs, draft variants, revision, and copy workflow.
 - Context auditing, proposals, locks, workbenches, and Advanced Context Brief details.
 - Lorecard workbenches, bulk actions, timeline/audit history, Elevate/Mute controls, and Lore Automation.
 - Full injection preview by relevance tier, prompt placement, compression, token estimates, omission reasons, and sync diagnostics.

@@ -81,8 +81,13 @@ function getLoredeckTypeLabel(packId) { return dep('getLoredeckTypeLabel', () =>
 function openDuplicateLoredeckDialog(pack) { return dep('openDuplicateLoredeckDialog', () => {})(pack); }
 function openLoredeckHealthCenter(packId) { return dep('openLoredeckHealthCenter', () => {})(packId); }
 function persistLoredeckLibraryRecordMutation(pack, mutator, message = '', options = {}) { return dep('persistLoredeckLibraryRecordMutation', () => false)(pack, mutator, message, options); }
+function isBasicExperienceMode() { return dep('isBasicExperience', () => false)() === true; }
 
 export function openLoredeckWorkbench(packId = '') {
+    if (isBasicExperienceMode()) {
+        toast('Switch to Advanced Experience to open the Loredeck editor.', 'info');
+        return;
+    }
     const id = String(packId || '').trim();
     if (!id) {
         toast('Select a Loredeck before opening the workbench.', 'warning');

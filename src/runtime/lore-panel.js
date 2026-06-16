@@ -256,6 +256,7 @@ import {
 } from '../storage/saga-lorepack-payload-storage.js';
 import {
     flushSagaLorepackLibraryStorageWrites,
+    getExternalLoredeckLibraryRegistry,
 } from '../storage/saga-lorepack-library-storage.js';
 import {
     flushSagaCreatorProjectStorageWrites,
@@ -1021,6 +1022,7 @@ configureLoredeckHealthPanel({
     downloadJson,
     openDuplicateLoredeckDialog,
     canValidateLoredeckInEditor,
+    isBasicExperience: () => isBasicExperience(getSettings()),
     isLoredeckMalformedTagIssueGroup,
     queueLoredeckMalformedTagRepairFromHealthGroup,
     applyLoredeckHealthRepairChoice,
@@ -1128,6 +1130,7 @@ configureLoredeckWorkbenchPanel({
     openDuplicateLoredeckDialog,
     openLoredeckHealthCenter,
     persistLoredeckLibraryRecordMutation,
+    isBasicExperience: () => isBasicExperience(getSettings()),
 });
 
 configureLoredeckCreatorPanel({
@@ -12739,7 +12742,8 @@ function openLoredeckBulkContextDialog(pack, rows = []) {
 
 function getFreshLoredeckLibraryPack(packId, fallback = null) {
     const id = String(packId || fallback?.packId || fallback?.id || '').trim();
-    const fresh = getLoredeckDefinition(id);
+    const externalFresh = id ? (getExternalLoredeckLibraryRegistry()?.packs?.[id] || null) : null;
+    const fresh = getLoredeckDefinition(id) || externalFresh;
     const hydratedFresh = fresh ? hydrateCachedExternalLorepackPayloadRecord(fresh) : null;
     if (hydratedFresh && !isCompactExternalLorepackPayloadRecord(hydratedFresh)) return hydratedFresh;
     const hydratedFallback = fallback ? hydrateCachedExternalLorepackPayloadRecord(fallback) : null;

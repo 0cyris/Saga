@@ -77,6 +77,7 @@ function downloadJson(data, filename) { return dep('downloadJson', () => {})(dat
 function openDuplicateLoredeckDialog(pack) { return dep('openDuplicateLoredeckDialog', () => {})(pack); }
 function canValidateLoredeckInEditor(pack) { return dep('canValidateLoredeckInEditor', () => false)(pack); }
 function isRuntimeMobileShell() { return dep('isRuntimeMobileShell', () => false)() === true; }
+function isBasicExperienceMode() { return dep('isBasicExperience', () => false)() === true; }
 function isLoredeckMalformedTagIssueGroup(group) { return dep('isLoredeckMalformedTagIssueGroup', () => false)(group); }
 function queueLoredeckMalformedTagRepairFromHealthGroup(pack, group, button) { return dep('queueLoredeckMalformedTagRepairFromHealthGroup', async () => {})(pack, group, button); }
 function applyLoredeckHealthRepairChoice(pack, choiceSet, option, session, button) { return dep('applyLoredeckHealthRepairChoice', async () => null)(pack, choiceSet, option, session, button); }
@@ -180,6 +181,10 @@ function ensureLoredeckHealthRepairSessionsLoaded(packId = '', options = {}) {
 }
 
 export function openLoredeckHealthCenter(packId = '', options = {}) {
+    if (isBasicExperienceMode()) {
+        toast('Switch to Advanced Experience to open Pack Health Center repair tools.', 'info');
+        return;
+    }
     loredeckHealthCenterOpen = true;
     loredeckHealthCenterPackId = String(packId || '').trim();
     const tab = String(options?.tab || '').trim();
@@ -245,6 +250,11 @@ function restoreLoredeckHealthCenterScrollState(snapshot = null) {
 export function renderLoredeckHealthCenterOverlay(options = {}) {
     const scrollState = options.preserveScroll === false ? null : captureLoredeckHealthCenterScrollState();
     const previousOverlay = document.querySelector('.saga-loredeck-health-center-overlay');
+    if (isBasicExperienceMode()) {
+        loredeckHealthCenterOpen = false;
+        previousOverlay?.remove();
+        return;
+    }
     if (!loredeckHealthCenterOpen) {
         previousOverlay?.remove();
         return;
@@ -400,8 +410,12 @@ function getLoredeckHealthCenterContext(packId = '') {
     const state = getState();
     const canonDb = getCanonLoreDatabaseSync();
     const library = getLoredeckLibrary(state);
-    const pack = String(packId || '').trim()
-        ? (library.find(item => item.packId === String(packId || '').trim()) || null)
+    const requestedPackId = String(packId || '').trim();
+    const libraryPack = requestedPackId
+        ? (library.find(item => item.packId === requestedPackId) || null)
+        : null;
+    const pack = requestedPackId
+        ? (getFreshLoredeckLibraryPack(requestedPackId, libraryPack) || libraryPack || null)
         : null;
     const cached = pack ? getCachedLoredeckHealthRecord(pack.packId) : {};
     const loadedMeta = pack ? ((canonDb?.loredecks || []).find(item => item.id === pack.packId) || null) : null;

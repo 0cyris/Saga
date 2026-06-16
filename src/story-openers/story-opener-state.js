@@ -271,8 +271,14 @@ export function normalizeStoryOpenerSession(value = {}, options = {}) {
         const normalized = normalizeStoryOpenerRun({ ...run, id: run.id || run.runId || runId });
         if (normalized) runs[normalized.id] = normalized;
     }
-    const activeGeneration = raw.activeGeneration ? normalizeStoryOpenerRun(raw.activeGeneration) : null;
+    const rawActiveGeneration = raw.activeGeneration ? normalizeStoryOpenerRun(raw.activeGeneration) : null;
     const lastGenerationResult = raw.lastGenerationResult ? normalizeStoryOpenerRun(raw.lastGenerationResult) : null;
+    const activeGenerationSource = rawActiveGeneration?.id && runs[rawActiveGeneration.id]
+        ? runs[rawActiveGeneration.id]
+        : rawActiveGeneration;
+    const activeGeneration = activeGenerationSource && ['queued', 'running'].includes(activeGenerationSource.status)
+        ? activeGenerationSource
+        : null;
     const currentStage = STORY_OPENER_STAGE_ORDER.includes(raw.currentStage) ? raw.currentStage : inferStoryOpenerCurrentStage({
         ...raw,
         controls: normalizeStoryOpenerControls(raw.controls || raw),

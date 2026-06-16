@@ -14,6 +14,12 @@ import {
     normalizeTabForExperience,
 } from '../../src/runtime/runtime-navigation.js';
 import {
+    ADVANCED_LORECARDS_STAGES,
+    BASIC_LORECARDS_STAGES,
+    getRuntimeLorecardsStages,
+    normalizeRuntimeLorecardsStage,
+} from '../../src/runtime/runtime-shell.js';
+import {
     applyExperienceModeSettings,
     pickManagedExperienceSettings,
 } from '../../src/runtime/runtime-experience-mode.js';
@@ -40,6 +46,11 @@ assert.equal(normalizeTabForExperience('continuity', { experienceMode: 'basic' }
 assert.equal(normalizeTabForExperience('injection', { experienceMode: 'advanced' }), 'injection', 'Advanced Injection tab must stay selectable.');
 assert.equal(getTabLabelForExperience('session', { experienceMode: 'basic' }), 'Session', 'Basic Session label must match Advanced.');
 assert.equal(getTabLabelForExperience('lore', { experienceMode: 'basic' }), 'Lorecards', 'Basic Lorecards label must match Advanced.');
+assertDeepEqual(getRuntimeLorecardsStages({ experienceMode: 'basic' }), BASIC_LORECARDS_STAGES, 'Basic Lorecards must expose the Basic stage set.');
+assertDeepEqual(getRuntimeLorecardsStages({ experienceMode: 'advanced' }), ADVANCED_LORECARDS_STAGES, 'Advanced Lorecards must expose the Advanced stage set.');
+assert.equal(normalizeRuntimeLorecardsStage('automation', { experienceMode: 'basic' }), '', 'Basic Lorecards must not normalize Automation as a visible stage.');
+assert.equal(normalizeRuntimeLorecardsStage('automation', { experienceMode: 'advanced' }), 'automation', 'Advanced Lorecards must keep Automation as a visible stage.');
+assert.equal(normalizeRuntimeLorecardsStage('pending', { experienceMode: 'basic' }), 'lore', 'Basic legacy Pending stage aliases must route to Lore.');
 
 const advancedSettings = {
     ...DEFAULT_SETTINGS,

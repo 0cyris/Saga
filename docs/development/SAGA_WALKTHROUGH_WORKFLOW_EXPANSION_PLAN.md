@@ -192,7 +192,7 @@ Advanced should be module-first. A full walkthrough can run everything in order,
 The full Advanced Walkthrough should run modules in this order:
 
 1. Loredeck Library Mastery.
-2. Session And Runtime Control.
+2. Session, Story Maker, And Runtime Control.
 3. Context Resolution.
 4. Lorecard Generation And Review.
 5. Injection Diagnostics.
@@ -233,14 +233,14 @@ This order teaches dependencies before diagnostics: source packs first, then Con
 | A23 | `advanced-library-duplicate-custom` | Loredeck Library Mastery | Duplicate an existing Lorepack as a Custom Lorepack before making user-owned edits. |
 | A24 | `advanced-library-folder-actions` | Loredeck Library Mastery | Create, rename, move, and remove Library folders without changing pack contents accidentally. |
 | A25 | `advanced-library-open-workbench` | Loredeck Library Mastery | Launch deeper Loredeck workbench or editor routes from selected Library records. |
-| A26 | `advanced-session-experience-mode` | Session And Runtime Control | Switch Basic and Advanced while keeping saved story state and understanding which controls are hidden. |
-| A27 | `advanced-session-saga-active` | Session And Runtime Control | Toggle Saga Active without deleting data or changing saved Lorecards. |
-| A28 | `advanced-session-automation-mode` | Session And Runtime Control | Compare Manual, Assisted, and Automatic automation modes before enabling background behavior. |
-| A29 | `advanced-session-runtime-metrics` | Session And Runtime Control | Read pending, accepted, selected, continuity, and prompt-size metrics. |
-| A30 | `advanced-session-guide-modules` | Session And Runtime Control | Use the guide card as a module launcher instead of treating Advanced as one long checklist. |
-| A31 | `advanced-session-active-chat` | Session And Runtime Control | Confirm which chat state Saga is currently reading and updating. |
+| A26 | `advanced-session-experience-mode` | Session, Story Maker, And Runtime Control | Switch Basic and Advanced while keeping saved story state and understanding which controls are hidden. |
+| A27 | `advanced-session-saga-active` | Session, Story Maker, And Runtime Control | Toggle Saga Active without deleting data or changing saved Lorecards. |
+| A28 | `advanced-session-automation-mode` | Session, Story Maker, And Runtime Control | Compare Manual, Assisted, and Automatic automation modes before enabling background behavior. |
+| A29 | `advanced-session-runtime-metrics` | Session, Story Maker, And Runtime Control | Read pending, accepted, selected, continuity, and prompt-size metrics. |
+| A30 | `advanced-session-guide-modules` | Session, Story Maker, And Runtime Control | Use the guide card as a module launcher instead of treating Advanced as one long checklist. |
+| A31 | `advanced-session-active-chat` | Session, Story Maker, And Runtime Control | Confirm which chat state Saga is currently reading and updating. |
 | A32 | `advanced-settings-danger-zone` | Settings And Providers | Find Active Chat and Global cleanup actions in Settings Danger Zone and understand their risk before using them. |
-| A33 | `advanced-session-mode-recovery` | Session And Runtime Control | Recover when switching modes hides the previously active tab or control. |
+| A33 | `advanced-session-mode-recovery` | Session, Story Maker, And Runtime Control | Recover when switching modes hides the previously active tab or control. |
 | A34 | `advanced-context-command-center` | Context Resolution | Use Runtime Context as the status and action hub for story position. |
 | A35 | `advanced-context-loaded-rows` | Context Resolution | Inspect per-Loredeck Context rows, source, lock state, and update state. |
 | A36 | `advanced-context-browser-open` | Context Resolution | Open the Context Workbench for manual timeline, story-position, alias, resolver, and validation workflows. |
@@ -394,7 +394,7 @@ Recommended Advanced cards:
 | Card | Starts at | Summary |
 | --- | --- | --- |
 | Loredeck Library Mastery | A01 | Manage Library, stack, folders, imports, exports, and details. |
-| Session And Runtime Control | A26 | Manage mode, automation, active state, metrics, and guide routing. |
+| Session, Story Maker, And Runtime Control | A26 | Manage mode, automation, active state, metrics, Story Maker, and guide routing. |
 | Context Resolution | A34 | Resolve, audit, lock, and debug Story Position. |
 | Lorecard Generation And Review | A61 | Generate, review, edit, tier, and audit Lorecards. |
 | Injection Diagnostics | A83 | Inspect exactly what Saga sends and why. |
@@ -421,13 +421,13 @@ Recommended Advanced cards:
 
 ### Phase 3: Expand Basic Steps
 
-- Implement B01-B55 in `runtime-guide-content.js`.
+- Implement B01-B57 in `runtime-guide-content.js`.
 - Add missing tour targets for Library internals and review surfaces.
 - Keep Basic excluded controls unaddressable from Basic guide data.
 
 ### Phase 4: Expand Advanced Steps
 
-- Implement A01-A165 in module groups.
+- Implement A01-A169 in module groups.
 - Add overlay targets incrementally, starting with Library, Context, Lorecards, and Injection.
 - Defer Creator and Pack Health overlay targeting only if the implementation would be too large for one pass, but keep the ordered ids stable.
 
@@ -459,7 +459,7 @@ Required static checks:
 
 Recommended smoke coverage:
 
-- Basic full walkthrough through B01-B55 with seeded HP Core/Year deck data.
+- Basic full walkthrough through B01-B57 with seeded HP Core/Year deck data.
 - Basic Loredecks module with no stack, then with an imported package fixture.
 - Basic Context module with unset Context, manual Context, detected Context, and proposals.
 - Basic Lorecards module with pending, accepted, pinned, muted, and empty states.

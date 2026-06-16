@@ -2,7 +2,7 @@
 
 Use Basic Experience when you want the shortest path from "I opened Saga" to "the model has the right lore for this scene."
 
-Basic keeps the workflow manual and review-first. It shows the roleplay-critical surfaces: Session, Loredecks, Context, Lorecards, and Settings. It hides Continuity, Injection tuning, Create Deck, and in-progress Deck Maker projects so routine play stays focused.
+Basic keeps the workflow manual and review-first. It shows the roleplay-critical surfaces: Session, Loredecks, Context, Lorecards, Story Maker, and Settings. It hides Continuity, Injection tuning, Lore Automation, Create Deck, and in-progress Deck Maker projects so routine play stays focused.
 
 ## Basic Walkthrough
 
@@ -20,7 +20,7 @@ Use **Loredecks** to open **Loredeck Library**, import a `.saga-loredeck.zip` pa
 
 The active stack decides which Loredecks participate in Context, canon suggestions, retrieval, and Lorecards. You can add individual Loredecks, add folder groups, adjust stack order, and disable stack entries without deleting Library data.
 
-Basic keeps **Import Deck** available. Basic does not show **Create Deck**, in-progress Deck Maker projects, or Health Center repair controls; switch to Advanced for Generated Loredeck authoring or Pack Health repair.
+Basic keeps **Import Deck** and safe **Run Pack Health** checks available. Basic does not show **Create Deck**, in-progress Deck Maker projects, the **Pack Health Center**, Loredeck editor/metadata tools, or Health Center repair controls; switch to Advanced for Generated Loredeck authoring, package editing, or Pack Health repair.
 
 ### Context
 
@@ -52,13 +52,15 @@ Use **Continue Roleplay** after Loredecks are loaded, Context is current, useful
 
 Session metrics help confirm whether Saga has Pending Review entries, Accepted Lorecards, selected injection, and a prompt-size estimate. After major story movement, repeat the loop: update Context, review new Lorecards, then continue roleplay.
 
+Use **Story Maker** from Session when you want Saga to draft the first post for the current scene before you continue. It uses the same loaded Loredecks, Context, and accepted Lorecards as the Basic loop. Story Maker is optional; you do not need it for every chat.
+
 ### Settings
 
 Use **Settings** when model-backed actions fail or are unavailable. Check provider readiness, test Utility or Reasoning routes, use the current SillyTavern model when that is the simplest path, and choose the runtime **Theme Pack**.
 
 Settings also contains **Danger Zone** at the bottom. Use it only for deliberate cleanup: active-chat resets, global settings reset, custom Loredeck removal, custom Theme/Icon removal, or **Total Saga Cleanup**.
 
-Switch to Advanced for provider profile internals, endpoint/model controls, Deck Maker, Continuity, Injection, **Pack Health Center**, package diagnostics, repair sessions, or bulk management.
+Switch to Advanced for provider profile internals, endpoint/model controls, Deck Maker, Continuity, Injection, Lore Automation, **Pack Health Center**, package diagnostics, repair sessions, or desktop bulk management.
 
 ## Quick Start
 
@@ -69,8 +71,9 @@ Switch to Advanced for provider profile internals, endpoint/model controls, Deck
 5. Open **Lorecards** and generate or draft only the facts you need.
 6. Review Pending Review entries. Accept useful durable facts and reject anything that should not guide future responses.
 7. Confirm **Session Readiness** is ready.
-8. Continue roleplay.
-9. Repeat Context update and Lorecard review after major story movement.
+8. Optionally use **Story Maker** to draft and copy a lore-aware opener.
+9. Continue roleplay.
+10. Repeat Context update and Lorecard review after major story movement.
 
 ## What Basic Hides
 
@@ -81,11 +84,13 @@ Basic does not show:
 - Deck Maker workbench stages.
 - Continuity tab controls.
 - Injection tab controls.
+- Lore Automation.
 - Advanced Context Brief internals.
 - Context resolver audit panels.
-- Bulk Lorecard management.
+- Desktop bulk Lorecard workbenches. Basic mobile still offers selected-card Accept/Reject actions for Pending Review.
 - Raw JSON editing.
-- Package repair/update conflict resolution.
+- Loredeck editor and metadata tools.
+- Package export, repair, update, and conflict resolution.
 - Provider profile internals.
 
 Those workflows still use the same saved Loredecks, Context, Pending Review entries, Accepted Lorecards, Elevate/Mute choices, and settings. Switch to Advanced when you need the full control surface, then return to Basic for routine roleplay.

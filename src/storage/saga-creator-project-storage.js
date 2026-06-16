@@ -225,6 +225,7 @@ function normalizeProjectIndexRecord(value = {}, fallbackId = '', options = {}) 
         generatedPackId: getGeneratedPackId(job),
         generatedPackTitle: job.generatedPackTitle || '',
         projectFile,
+        revision: normalizeRevision(raw.revision, 1),
         progress,
         createdAt: normalizeTimestamp(job.createdAt, now),
         updatedAt: normalizeTimestamp(job.updatedAt, now),
@@ -539,6 +540,11 @@ function buildCreatorProjectWriteRequest(payload = {}, index = hydratedCreatorIn
         revision: merged.bumpRevision === false ? expectedPayloadRevision || normalizeRevision(payloadSnapshot.revision, 1) : normalizeRevision((expectedPayloadRevision || normalizeRevision(payloadSnapshot.revision, 1)) + 1, 2),
         updatedAt: getClockNow(merged),
     }, merged);
+    const indexRecord = indexSnapshot.projects?.[payloadWriteSnapshot.jobId];
+    if (indexRecord) {
+        indexRecord.projectFile = payloadWriteSnapshot.projectFile || indexRecord.projectFile;
+        indexRecord.revision = payloadWriteSnapshot.revision;
+    }
     const expectedIndexRevision = staleCheck
         ? Math.max(1, normalizeRevision(indexSnapshot.revision, 1) - (merged.bumpRevision === false ? 0 : 1))
         : 0;
@@ -649,7 +655,17 @@ function queueExternalLoredeckCreatorProjectDelete(jobId = '', projectFile = '',
 }
 
 export function upsertExternalLoredeckCreatorProjectSync(jobRecord = {}, options = {}) {
-    const payload = setProjectPayloadCache(jobRecord, options);
+    const requestedJobId = normalizeJobId(jobRecord?.jobId || jobRecord?.projectId || jobRecord?.id || '');
+    const existing = requestedJobId ? (hydratedCreatorIndex.projects?.[requestedJobId] || {}) : {};
+    const payload = setProjectPayloadCache({
+        ...existing,
+        ...jobRecord,
+        projectFile: jobRecord?.projectFile || jobRecord?.payloadFile || existing.projectFile || existing.payloadFile || '',
+        revision: Math.max(
+            normalizeRevision(existing.revision, 1),
+            normalizeRevision(jobRecord?.revision, 1),
+        ),
+    }, options);
     if (!payload?.jobId) return { ok: false, error: 'Deck Maker project must include a jobId/id.' };
     const index = updateCreatorIndexRecord(hydratedCreatorIndex, createExternalLoredeckCreatorIndexRecord(payload, options), options);
     const external = setHydratedCreatorIndex(index, options);

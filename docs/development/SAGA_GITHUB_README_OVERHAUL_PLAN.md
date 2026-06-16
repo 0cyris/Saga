@@ -167,8 +167,8 @@ Cover:
 
 Images:
 
-- `docs-loredeck-creator-intake.png`
-- `docs-loredeck-creator-current-task.png`
+- `docs-deck-maker-desktop-intake.png`
+- `docs-deck-maker-desktop-current-task.png`
 
 #### 6.6 Context
 

@@ -2,7 +2,7 @@
 
 This manual is the detailed operating guide for Saga's desktop and tablet-width runtime surfaces. Use it after the README has given you the basic mental model and install path.
 
-For phone-width operation, see [Saga for Mobile Operator's Manual](MOBILE_OPERATOR_MANUAL.md). For short workflow guides, see [Basic Workflow](BASIC_WORKFLOW.md) and [Advanced Workflow](ADVANCED_WORKFLOW.md).
+For phone-width operation, see [Saga for Mobile Operator's Manual](MOBILE_OPERATOR_MANUAL.md). For short workflow guides, see [Basic Workflow](BASIC_WORKFLOW.md) and [Advanced Workflow](ADVANCED_WORKFLOW.md). For complete authoring guides, see [Story Maker Guide for Desktop](STORY_MAKER_DESKTOP_GUIDE.md) and [Deck Maker Guide for Desktop](DECK_MAKER_DESKTOP_GUIDE.md).
 
 ## First Run Checklist
 
@@ -11,7 +11,7 @@ Basic Experience keeps the first-run path narrow. **Session Readiness** is the o
 Use it to confirm that Saga is active, Loredecks are loaded, Context has been browsed and selected in the Context Workbench, Lorecards are available, and injection has something useful to send.
 
 <p align="center">
-  <img src="../../assets/documentation/renders/docs-basic-walkthrough-modules.png" alt="Saga Basic Walkthrough module cards" width="800">
+  <img src="../../assets/documentation/renders/docs-basic-walkthrough-modules.png" alt="Saga Basic Walkthrough module cards" width="712">
 </p>
 
 The **Basic Walkthrough** is organized as a short roleplay loop: First Run, Loredecks, Context, Lorecards, Continue Roleplay, and Settings. Use **Start Basic Walkthrough** for the first pass, or start a module when you only need one part of the setup loop.
@@ -22,15 +22,34 @@ The **Basic Walkthrough** is organized as a short roleplay loop: First Run, Lore
   <img src="../../assets/documentation/renders/docs-session-advanced-status.png" alt="Saga Advanced session controls and status" width="800">
 </p>
 
-The **Session** tab is the runtime control room. It shows the current experience mode, automation state, readiness, and active system status.
+The **Session** tab is the runtime control room. It shows the current experience mode, automation state, readiness, active system status, and Story Maker.
 
 Use **Basic** when you want the guided path. Use **Advanced** when you need to inspect automation, run diagnostics, work with Continuity, manage prompt injection, or operate the Deck Maker.
 
 <p align="center">
-  <img src="../../assets/documentation/renders/docs-advanced-walkthrough-modules.png" alt="Saga Advanced Walkthrough task tracks" width="800">
+  <img src="../../assets/documentation/renders/docs-advanced-walkthrough-modules.png" alt="Saga Advanced Walkthrough task tracks" width="712">
 </p>
 
 The **Advanced Walkthrough** is organized as task tracks instead of a flat tab tour. It covers Library mastery, Session control, Context resolution, Lorecard review, Injection diagnostics, Continuity, Deck Maker authoring, Pack Health and package work, Settings, and troubleshooting.
+
+## Story Maker
+
+<p align="center">
+  <img src="../../assets/documentation/renders/docs-story-maker-desktop-variants.png" alt="Saga desktop Story Maker variants" width="694">
+</p>
+
+**Story Maker** creates lore-aware opening prose from the current Saga setup. Use it from **Session** after loading Loredecks, setting Context, and accepting any useful Lorecards.
+
+The desktop Story Maker workflow is:
+
+1. Create or select a saved opener.
+2. Fill **Inputs**.
+3. Build a **Context Packet**.
+4. Build an **Opener Brief**.
+5. Draft one or more variants.
+6. Use **Review & Copy** to revise or copy the selected opener.
+
+For every field, stage, source action, reset behavior, revision path, and failure state, use [Story Maker Guide for Desktop](STORY_MAKER_DESKTOP_GUIDE.md).
 
 ## Loredecks And Active Stack
 
@@ -57,7 +76,7 @@ Saga uses three public Lorepack types:
 The **Loredeck Library** is the long-term home for browsing, organizing, importing, exporting, duplicating, inspecting, and validating Loredecks.
 
 <p align="center">
-  <img src="../../assets/documentation/renders/docs-loredeck-library-active-stack.png" alt="Saga Active Stack panel" width="650">
+  <img src="../../assets/documentation/renders/docs-loredeck-library-active-stack.png" alt="Saga Active Stack panel" width="417">
 </p>
 
 The **Active Stack** is the ordered set of Loredecks loaded into the current chat. Stack priority matters when multiple decks can contribute lore. Enable, disable, reorder, or remove stack items to control what participates in Context, retrieval, and Injection.
@@ -87,33 +106,36 @@ The Issues view groups related findings so deck authors can repair problems syst
 ## Deck Maker
 
 <p align="center">
-  <img src="../../assets/documentation/renders/docs-loredeck-creator-intake.png" alt="Saga Deck Maker intake screen" width="800">
+  <img src="../../assets/documentation/renders/docs-deck-maker-desktop-intake.png" alt="Saga Deck Maker intake screen" width="800">
 </p>
 
-The **Deck Maker** is a staged generation workflow. It is deliberately not "ask a model for a whole deck in one response."
+The **Deck Maker** is a staged generation workflow for creating Generated Loredecks. It is deliberately not "ask a model for a whole deck in one response."
 
 The intended flow is:
 
 1. Scope Brief.
-2. Story outline and Context plan.
-3. Lorecard title pass.
-4. Timeline and tag planning.
+2. Story Outline.
+3. Title Pass.
+4. Context and tag planning.
 5. Lorecard drafting.
-6. Review and Pending Review.
-7. Pack Health and finalization.
+6. Draft Review and Pending Review.
+7. Pack Health.
+8. Readiness and finalization.
 
 <p align="center">
-  <img src="../../assets/documentation/renders/docs-loredeck-creator-current-task.png" alt="Saga Deck Maker current task area" width="800">
+  <img src="../../assets/documentation/renders/docs-deck-maker-desktop-current-task.png" alt="Saga Deck Maker current task area" width="800">
 </p>
 
 Generated material remains draft material until reviewed. A Generated Lorepack should become a Custom Lorepack only after its entries, Context, tags, and Pack Health are good enough to use.
 
-During Lorecard drafting, Saga separates provider failures from Saga-side schema rejections. If a model returns usable JSON but some Lorecards contain unavailable tags, unknown timeline anchors, or the wrong micro-batch target, Saga keeps valid drafts, records compact rejection details, and can retry affected titles as smaller batches. Use **Auto split failed batches** in Deck Maker generation settings for that automatic recovery path. The Lorecards step can show **Last Lorecard preflight gaps** and **Last Lorecard rejection details**; draft rows can also show **Deck Maker preflight note** or **Deck Maker repair note** before the drafts move to Pending Review.
+During Lorecard drafting, Saga separates provider failures from Saga-side schema rejections. If a model returns usable JSON but some Lorecards contain unavailable tags, unknown timeline anchors, or the wrong micro-batch target, Saga keeps valid drafts, records compact rejection details, and can retry affected titles as smaller batches.
+
+For every stage, project shelf action, reset control, draft-review path, Pack Health action, coverage warning, and finalization gate, use [Deck Maker Guide for Desktop](DECK_MAKER_DESKTOP_GUIDE.md).
 
 ## Context
 
 <p align="center">
-  <img src="../../assets/documentation/renders/docs-context-command-center.png" alt="Saga Context command center" width="800">
+  <img src="../../assets/documentation/renders/docs-context-command-center.png" alt="Saga Context command center" width="694">
 </p>
 
 **Context** tells Saga where the current chat is inside each loaded Loredeck. It can be a date, anchor, chapter, book, arc, phase, route, season, quest stage, stardate, or custom coordinate system.
@@ -121,7 +143,7 @@ During Lorecard drafting, Saga separates provider failures from Saga-side schema
 Context is how Saga avoids injecting lore too early, too late, or from the wrong branch of a story.
 
 <p align="center">
-  <img src="../../assets/documentation/renders/docs-context-loaded-loredecks.png" alt="Saga loaded Loredeck Context rows" width="800">
+  <img src="../../assets/documentation/renders/docs-context-loaded-loredecks.png" alt="Saga loaded Loredeck Context rows" width="694">
 </p>
 
 Loaded Loredeck Context rows show which decks have Context, whether that Context is manual or detected, and whether the operator locked it.
@@ -148,14 +170,80 @@ A **Lorecard** is one reviewable unit of lore. It should be narrow enough to ret
 
 Good Lorecards are not broad wiki summaries. They describe specific facts, constraints, reveals, relationship states, knowledge boundaries, abilities, location conditions, or timeline events.
 
+On desktop, **Lorecards** branches from the rail into three workspaces:
+
 <p align="center">
-  <img src="../../assets/documentation/renders/docs-lorecards-pending-review.png" alt="Saga Pending Review section" width="800">
+  <img src="../../assets/documentation/renders/docs-lorecards-desktop-branch-tabs.png" alt="Saga desktop Lorecards branch tabs" width="158">
+</p>
+
+- **Generate**: create new reviewable Lorecards from manual notes, canon suggestions, and story scans.
+- **Automate**: configure and run Lore Automation.
+- **Lore**: review Pending Review and Accepted Lorecards in one workspace.
+
+Click the **Lorecards** rail item to open the branch flyout, then choose **Generate**, **Automate**, or **Lore**. The selected branch changes the main Lorecards panel.
+
+### Generate
+
+<p align="center">
+  <img src="../../assets/documentation/renders/docs-lorecards-desktop-generate.png" alt="Saga desktop Lorecards Generate branch" width="712">
+</p>
+
+Use **Generate** when you want new candidate Lorecards. This branch contains:
+
+- **Refresh Context**: refreshes the Context summary used by generation tools.
+- **Preview Canon Packs**: queries loaded Loredecks locally for Context-aware canon suggestions.
+- **Quick Add Top Matches**: sends the best local canon matches to Pending Review.
+- **Canon Suggestion Settings**: controls local canon database use, auto-suggest after Context detection, and the quick/auto add cap.
+- **Scan Story Lore**: asks the configured provider to extract durable story facts from recent chat.
+- **Story Lore Scan Settings**: controls scan range, chunking, and scan behavior.
+- **Draft Manual Note**: creates a hand-written Lorecard proposal when you already know the exact fact Saga should remember.
+
+Generated and manual output still goes to **Pending Review** before it can become accepted lore.
+
+### Automate
+
+<p align="center">
+  <img src="../../assets/documentation/renders/docs-lorecards-desktop-automate.png" alt="Saga desktop Lorecards Automate branch" width="712">
+</p>
+
+Use **Automate** when you want Saga to help rank or curate existing Accepted Lorecards. This branch contains:
+
+- **Manual / Auto** cadence: Manual keeps automation settings visible without running automatically; Auto allows configured automation runs.
+- **Mode**: **AR**, **ARMP**, or **ARMPC**, which control how much authority automation has.
+- **Style**: Careful, Balanced, or Aggressive update posture.
+- **Pacing**: Responsive, Normal, or Relaxed cadence sensitivity.
+- **Recent messages**: the conversation window used for relevance decisions.
+- **Advanced**: word-budget and model-routing controls.
+- **Status**, **Current tiers**, and **Card control** summaries.
+- **Run Now** and **Undo Last Run** actions.
+- **Recent Activity** for the latest automation runs.
+
+Elevated Lorecards are protected from Lore Automation. Muted Lorecards stay saved but remain excluded from injection.
+
+### Lore
+
+<p align="center">
+  <img src="../../assets/documentation/renders/docs-lorecards-desktop-lore.png" alt="Saga desktop Lorecards Lore branch" width="712">
+</p>
+
+Use **Lore** for day-to-day review and cleanup. The unified workspace includes:
+
+- search across pending and accepted Lorecards
+- **Pending Workbench**
+- **Accepted Workbench**
+- **Timeline**
+- filter chips for **All**, **Needs Review**, **High**, **Elevated**, **Muted**, and **Conflicts**
+- Pending Review cards with **Accept** and **Reject**
+- Accepted Lorecards with relevance controls, Elevate/Mute state, and detail inspection
+
+<p align="center">
+  <img src="../../assets/documentation/renders/docs-lorecards-pending-review.png" alt="Saga Pending Review section" width="712">
 </p>
 
 **Pending Review** is where generated or proposed Lorecards wait. Accept only content that should affect future responses. Reject or revise anything that is vague, premature, duplicated, too broad, or wrong for the current branch.
 
 <p align="center">
-  <img src="../../assets/documentation/renders/docs-lorecards-accepted-list.png" alt="Saga Accepted Lorecards list" width="800">
+  <img src="../../assets/documentation/renders/docs-lorecards-accepted-list.png" alt="Saga Accepted Lorecards list" width="712">
 </p>
 
 Accepted Lorecards can be filtered by relevance, Elevated, Muted, edited, or inspected. Relevance tiers help Saga decide what deserves prompt space now. **Elevated** entries are forced to High relevance, protected from Lore Automation, and injected directly when needed. **Muted** entries stay saved but are excluded from injection.
@@ -181,13 +269,13 @@ The Lore Timeline shows how lore changed over time: accepted entries, rejected d
 Saga separates durable lore from live continuity. Lorecards are long-term facts and constraints. Continuity is lightweight current state: scene, characters, items, objectives, and active threads.
 
 <p align="center">
-  <img src="../../assets/documentation/renders/docs-continuity-scan.png" alt="Saga Continuity Scan controls" width="800">
+  <img src="../../assets/documentation/renders/docs-continuity-scan.png" alt="Saga Continuity Scan controls" width="694">
 </p>
 
 Continuity scans help update live state from recent chat. Use them to keep the current scene coherent, not to build a second static lore database.
 
 <p align="center">
-  <img src="../../assets/documentation/renders/docs-continuity-character-state.png" alt="Saga active character continuity state" width="800">
+  <img src="../../assets/documentation/renders/docs-continuity-character-state.png" alt="Saga active character continuity state" width="712">
 </p>
 
 Character state is for what is currently true in the chat: location, posture, clothing, physical state, emotional state, carried items, goals, and immediate notes.
@@ -201,13 +289,13 @@ Character state is for what is currently true in the chat: location, posture, cl
 **Injection** is the final operator truth source for what Saga will send to the model. A Lorecard can exist, be accepted, and still not inject if it is muted, out of Context, disabled, lower priority, or outside the configured prompt budget.
 
 <p align="center">
-  <img src="../../assets/documentation/renders/docs-injection-placement.png" alt="Saga prompt placement controls" width="800">
+  <img src="../../assets/documentation/renders/docs-injection-placement.png" alt="Saga prompt placement controls" width="712">
 </p>
 
 Prompt placement controls decide where Continuity and each Lorecard relevance tier are inserted into the model context.
 
 <p align="center">
-  <img src="../../assets/documentation/renders/docs-injection-high-preview.png" alt="Saga High-Relevance Lore Injection preview" width="800">
+  <img src="../../assets/documentation/renders/docs-injection-high-preview.png" alt="Saga High-Relevance Lore Injection preview" width="694">
 </p>
 
 The preview shows the actual text Saga is preparing for injection. Use it when debugging "why did the model know this?" or "why did the model forget this?"
@@ -215,13 +303,13 @@ The preview shows the actual text Saga is preparing for injection. Use it when d
 ## Settings, Providers, Themes
 
 <p align="center">
-  <img src="../../assets/documentation/renders/docs-settings-providers.png" alt="Saga provider settings" width="800">
+  <img src="../../assets/documentation/renders/docs-settings-providers.png" alt="Saga provider settings" width="712">
 </p>
 
 Saga is model/provider agnostic. Use stronger reasoning models for Context proposals, Deck Maker planning, and complex repairs. Use faster utility models for smaller, lower-risk suggestions. Treat all model output as draft until reviewed.
 
 <p align="center">
-  <img src="../../assets/documentation/renders/docs-settings-theme-pack.png" alt="Saga Theme Pack settings" width="800">
+  <img src="../../assets/documentation/renders/docs-settings-theme-pack.png" alt="Saga Theme Pack settings" width="712">
 </p>
 
 Theme Packs and Icon Sets are passive data. They can change the shelf's appearance without running code.

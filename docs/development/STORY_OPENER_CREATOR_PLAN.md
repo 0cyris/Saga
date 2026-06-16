@@ -2,7 +2,7 @@
 
 Status: Planning draft. This document defines the desired product behavior, storage model, Context/lore guardrail strategy, and implementation phases for adding Story Maker to the Session tab.
 
-Saga is pre-alpha, so this plan does not preserve compatibility with any old Story Opener state. The feature should ship with a clean schema and update every touched surface in place.
+Saga is pre-alpha, so this plan does not preserve compatibility with any old Story Maker state. The feature should ship with a clean schema and update every touched surface in place.
 
 ## Purpose
 
@@ -629,7 +629,7 @@ The implementation should share or extract the same concepts used by Deck Maker 
 The repair prompt should be Opener Brief-specific:
 
 ```text
-Repair this malformed Saga Story Opener Brief response into valid JSON.
+Repair this malformed Saga Story Maker Brief response into valid JSON.
 
 Required shape:
 {
@@ -828,7 +828,7 @@ Revision history and Reset to Step have different jobs:
 
 ### Phase 2: Storage
 
-- Add Story Opener storage adapter.
+- Add Story Maker storage adapter.
 - Add opener index read/write helpers.
 - Add session payload read/write helpers.
 - Add source intent manifest read/write helpers.

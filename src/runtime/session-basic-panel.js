@@ -341,7 +341,7 @@ function getBasicChecklistTourFinishTooltip(currentRow = {}) {
     if (finishState.outstandingCount > 0) {
         return 'Return to Session Readiness to finish the remaining item.';
     }
-    return 'Close this guided tour.';
+    return 'Close this guided tour. Story Maker is available from Session when you want Saga to draft an optional opener before continuing roleplay.';
 }
 
 function finishBasicChecklistTour(currentRow = {}) {
@@ -437,7 +437,7 @@ export function createBasicStartReadinessCard(state = getState(), settings = get
         true,
         content,
         {
-            tooltip: 'Guided Basic workflow: load lore, set Context, review Lorecards, then continue roleplay.',
+            tooltip: 'Guided Basic workflow: load lore, set Context, review Lorecards, optionally draft an opener with Story Maker, then continue roleplay.',
             className: 'saga-basic-readiness-card',
         }
     ), 'session.basicReadiness');
