@@ -142,20 +142,11 @@
     color: #f1e8cf;
 }
 
-.saga-runtime-rail-tab-flyout-open {
-    background: rgba(180, 160, 140, 0.16);
-    border-color: rgba(215, 181, 109, 0.5);
-    color: var(--saga-gold, #d7b56d);
-    box-shadow:
-        0 0 0 1px rgba(215, 181, 109, 0.08) inset,
-        0 0 16px rgba(56, 184, 166, 0.12);
-}
-
 .saga-desktop-lorecards-flyout {
     --saga-lorecards-flyout-height: 126px;
     position: absolute;
     z-index: 6;
-    left: calc(var(--saga-rail-width, 52px) + 12px);
+    left: calc(var(--saga-rail-width, 52px) + 4px);
     top: calc(var(--saga-lorecards-flyout-center-y, 180px) - 63px);
     width: 122px;
     min-height: var(--saga-lorecards-flyout-height);
@@ -163,13 +154,15 @@
     grid-template-rows: repeat(3, 36px);
     gap: 5px;
     padding: 4px;
-    border: 1px solid rgba(215, 181, 109, 0.28);
+    border: 1px solid var(--saga-border, rgba(185, 139, 54, 0.38));
     border-radius: 8px;
     background:
-        linear-gradient(180deg, rgba(28, 26, 34, 0.98), rgba(13, 15, 22, 0.98));
+        radial-gradient(circle at 18% 0%, var(--saga-gold-surface, rgba(215, 181, 109, 0.12)), transparent 42%),
+        linear-gradient(180deg, var(--saga-button, rgba(18, 18, 24, 0.92)), var(--saga-surface-2, rgba(8, 10, 14, 0.94)));
     box-shadow:
         0 10px 24px rgba(0, 0, 0, 0.5),
-        0 0 0 1px rgba(255, 255, 255, 0.035) inset;
+        0 0 0 1px var(--saga-border-soft, rgba(185, 139, 54, 0.18)) inset,
+        0 0 18px var(--saga-gold-surface, rgba(215, 181, 109, 0.12));
     box-sizing: border-box;
     transform-origin: left center;
     animation: saga-desktop-lorecards-flyout-in 150ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
@@ -183,8 +176,8 @@
     width: 13px;
     height: 2px;
     border-radius: 999px;
-    background: linear-gradient(90deg, rgba(215, 181, 109, 0.12), rgba(215, 181, 109, 0.64));
-    box-shadow: 0 0 8px rgba(56, 184, 166, 0.18);
+    background: linear-gradient(90deg, var(--saga-border-soft, rgba(185, 139, 54, 0.18)), var(--saga-border-strong, rgba(215, 181, 109, 0.58)));
+    box-shadow: 0 0 8px var(--saga-gold-surface, rgba(215, 181, 109, 0.14));
 }
 
 .saga-desktop-lorecards-flyout-option {
@@ -194,9 +187,10 @@
     align-items: center;
     justify-content: center;
     padding: 6px 10px;
-    border: 1px solid rgba(180, 160, 140, 0.18);
+    border: 1px solid var(--saga-border-soft, rgba(185, 139, 54, 0.18));
     border-radius: 6px;
-    background: rgba(255, 255, 255, 0.045);
+    background:
+        linear-gradient(180deg, var(--saga-button, rgba(18, 18, 24, 0.78)), var(--saga-surface-2, rgba(18, 12, 18, 0.66)));
     color: var(--saga-muted, rgba(241, 234, 216, 0.74));
     font: inherit;
     font-size: 0.84em;
@@ -222,20 +216,22 @@
 .saga-desktop-lorecards-flyout-option:hover,
 .saga-desktop-lorecards-flyout-option:focus-visible {
     color: var(--saga-text, #f1ead8);
-    border-color: rgba(215, 181, 109, 0.38);
-    background: rgba(215, 181, 109, 0.08);
+    border-color: var(--saga-border, rgba(185, 139, 54, 0.38));
+    background:
+        radial-gradient(circle at 22% 0%, var(--saga-gold-surface, rgba(215, 181, 109, 0.12)), transparent 38%),
+        linear-gradient(180deg, var(--saga-button-hover, rgba(92, 23, 36, 0.52)), var(--saga-button, rgba(26, 18, 24, 0.82)));
 }
 
 .saga-desktop-lorecards-flyout-option-active,
 .saga-desktop-lorecards-flyout-option[aria-selected="true"] {
     color: var(--saga-gold, #d7b56d);
-    border-color: rgba(215, 181, 109, 0.56);
+    border-color: var(--saga-border-strong, rgba(215, 181, 109, 0.58));
     background:
-        radial-gradient(circle at 50% 0%, rgba(215, 181, 109, 0.13), transparent 60%),
-        rgba(92, 23, 36, 0.36);
+        radial-gradient(circle at 50% 0%, var(--saga-gold-surface, rgba(215, 181, 109, 0.14)), transparent 60%),
+        linear-gradient(180deg, var(--saga-button-hover, rgba(92, 23, 36, 0.66)), var(--saga-button, rgba(34, 16, 22, 0.9)));
     box-shadow:
-        0 0 0 1px rgba(215, 181, 109, 0.08) inset,
-        0 0 11px rgba(56, 184, 166, 0.12);
+        0 0 0 1px var(--saga-gold-surface, rgba(215, 181, 109, 0.12)) inset,
+        0 0 11px var(--saga-gold-surface, rgba(215, 181, 109, 0.12));
 }
 
 .saga-desktop-lorecards-flyout-label {
@@ -641,6 +637,17 @@
     box-shadow:
         0 0 0 1px rgba(215, 181, 109, 0.12) inset,
         0 0 14px rgba(215, 181, 109, 0.08);
+}
+
+.saga-runtime-rail-tab-flyout-open {
+    background:
+        radial-gradient(circle at 26% 10%, var(--saga-gold-surface, rgba(215, 181, 109, 0.16)), transparent 36%),
+        linear-gradient(180deg, var(--saga-button-hover, rgba(92, 23, 36, 0.6)), var(--saga-button, rgba(30, 18, 24, 0.9)));
+    border-color: var(--saga-border-strong, rgba(215, 181, 109, 0.58));
+    color: var(--saga-gold, #d7b56d);
+    box-shadow:
+        0 0 0 1px var(--saga-gold-surface, rgba(215, 181, 109, 0.12)) inset,
+        0 0 14px var(--saga-gold-surface, rgba(215, 181, 109, 0.12));
 }
 
 .saga-runtime-rail-icon {

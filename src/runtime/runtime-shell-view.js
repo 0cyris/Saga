@@ -501,9 +501,9 @@ function renderDesktopLorecardsFlyout(root, state, settings = getSettings()) {
         option.dataset.stage = stage;
         option.setAttribute('role', 'tab');
         option.setAttribute('aria-selected', stage === activeStage ? 'true' : 'false');
+        option.setAttribute('aria-label', meta.label);
         option.tabIndex = stage === activeStage ? 0 : -1;
         if (stage === activeStage) option.classList.add('saga-desktop-lorecards-flyout-option-active');
-        addTooltip(option, meta.tooltip);
 
         const label = document.createElement('span');
         label.className = 'saga-desktop-lorecards-flyout-label';
@@ -645,7 +645,7 @@ function renderRail(state) {
         if (isGlobalLoredecksTab) tab.classList.add('saga-runtime-rail-tab-global');
         if (isLorecardsTab && desktopLorecardsFlyoutOpen) tab.classList.add('saga-runtime-rail-tab-flyout-open');
         if (drawerOpen && tabId === activeTab) tab.classList.add('saga-runtime-rail-tab-active');
-        addTooltip(tab, getTabTooltipForExperience(tabId, settings));
+        tab.setAttribute('aria-label', label);
         if (isLorecardsTab) {
             tab.setAttribute('aria-haspopup', 'true');
             tab.setAttribute('aria-expanded', desktopLorecardsFlyoutOpen ? 'true' : 'false');
