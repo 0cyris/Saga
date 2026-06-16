@@ -124,21 +124,21 @@
 }
 
 .saga-chip-tone-relevance-high {
-    border-color: var(--saga-chip-relevance-high-border, rgba(74, 222, 128, 0.5));
-    background: var(--saga-chip-relevance-high-bg, rgba(22, 101, 52, 0.46));
-    color: var(--saga-chip-relevance-high-fg, #dcfce7);
+    border-color: var(--saga-chip-relevance-high-border, var(--saga-activate-soft, rgba(107, 255, 89, 0.42)));
+    background: var(--saga-chip-relevance-high-bg, var(--saga-activate-surface, rgba(107, 255, 89, 0.16)));
+    color: var(--saga-chip-relevance-high-fg, var(--saga-activate, #6bff59));
 }
 
 .saga-chip-tone-relevance-normal {
-    border-color: var(--saga-chip-relevance-normal-border, rgba(96, 165, 250, 0.5));
-    background: var(--saga-chip-relevance-normal-bg, rgba(30, 64, 175, 0.42));
-    color: var(--saga-chip-relevance-normal-fg, #dbeafe);
+    border-color: var(--saga-chip-relevance-normal-border, var(--saga-chip-info-border, rgba(166, 180, 205, 0.3)));
+    background: var(--saga-chip-relevance-normal-bg, var(--saga-chip-info-bg, rgba(24, 27, 35, 0.82)));
+    color: var(--saga-chip-relevance-normal-fg, var(--saga-chip-info-fg, #c7cfdd));
 }
 
 .saga-chip-tone-relevance-low {
-    border-color: var(--saga-chip-relevance-low-border, rgba(148, 163, 184, 0.5));
-    background: var(--saga-chip-relevance-low-bg, rgba(71, 85, 105, 0.42));
-    color: var(--saga-chip-relevance-low-fg, #e2e8f0);
+    border-color: var(--saga-chip-relevance-low-border, var(--saga-chip-neutral-border, rgba(209, 213, 219, 0.24)));
+    background: var(--saga-chip-relevance-low-bg, var(--saga-chip-neutral-bg, rgba(24, 25, 31, 0.82)));
+    color: var(--saga-chip-relevance-low-fg, var(--saga-chip-neutral-fg, #c8cbd2));
 }
 
 .saga-chip-tone-review,
@@ -687,23 +687,63 @@
 }
 
 .saga-runtime-mobile .saga-settings-qol-section .saga-collapsible-content {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
     padding-top: 0;
+    box-sizing: border-box;
 }
 
 .saga-runtime-mobile .saga-settings-qol-card {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
     gap: 0;
+    box-sizing: border-box;
+}
+
+.saga-runtime-mobile .saga-settings-qol-list {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box;
 }
 
 .saga-runtime-mobile .saga-settings-qol-card .saga-settings-qol-item.saga-settings-switch-row {
-    grid-template-columns: 44px minmax(0, 1fr);
+    display: grid !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    grid-template-columns: 48px minmax(0, 1fr) !important;
     align-items: flex-start;
     gap: 12px;
     min-height: 44px;
-    padding: 10px 0;
+    padding: 10px 8px;
+    box-sizing: border-box;
+    white-space: normal !important;
 }
 
 .saga-runtime-mobile .saga-settings-qol-item .saga-settings-switch-slider {
+    display: block !important;
+    justify-self: start;
     margin-top: 1px;
+}
+
+.saga-runtime-mobile .saga-settings-qol-item .saga-settings-switch-text {
+    display: flex !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    box-sizing: border-box;
+}
+
+.saga-runtime-mobile .saga-settings-qol-item .saga-settings-switch-label,
+.saga-runtime-mobile .saga-settings-qol-item .saga-settings-switch-description {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    white-space: normal !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
 }
 
 .saga-runtime-mobile .saga-loredecks-mobile-action-stack {

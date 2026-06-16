@@ -1136,6 +1136,10 @@ assert(
         && style.includes('.saga-settings-switch-description')
         && style.includes('.saga-settings-qol-item + .saga-settings-qol-item')
         && style.includes('.saga-runtime-mobile .saga-settings-qol-card .saga-settings-qol-item.saga-settings-switch-row')
+        && /\.saga-runtime-mobile \.saga-settings-qol-section \.saga-collapsible-content\s*\{[\s\S]*?display:\s*block !important;[\s\S]*?width:\s*100% !important;/.test(style)
+        && /\.saga-runtime-mobile \.saga-settings-qol-card\s*\{[\s\S]*?display:\s*block !important;[\s\S]*?width:\s*100% !important;/.test(style)
+        && /\.saga-runtime-mobile \.saga-settings-qol-card \.saga-settings-qol-item\.saga-settings-switch-row\s*\{[\s\S]*?display:\s*grid !important;[\s\S]*?grid-template-columns:\s*48px minmax\(0,\s*1fr\) !important;/.test(style)
+        && /\.saga-runtime-mobile \.saga-settings-qol-item \.saga-settings-switch-text\s*\{[\s\S]*?display:\s*flex !important;[\s\S]*?max-width:\s*none !important;/.test(style)
         && style.includes('.saga-settings-switch-input:checked + .saga-settings-switch-slider'),
     'Settings must expose Quality of Life as a dropdown with a full-width left-switch/right-text row and avoid redundant providers/theme separators.'
 );
@@ -1188,25 +1192,39 @@ assert(lorecardsPanel.includes('openLorecardLifecycleStage') && lorecardsPanel.i
 assert(!lorecardsPanel.includes("() => openLorecardLifecycleStage('accepted')") || lorecardsPanel.includes('if (!isRuntimeMobileShell())'), 'Active Set page-body stage navigation must stay off mobile because the shell sub-tab bar owns stage switching.');
 assert(lorecardsPanel.includes('function getLorecardWorkspaceRows') && lorecardsPanel.includes('pendingLoreEntries || []') && lorecardsPanel.includes('getPanelLoreState(state).entries') && lorecardsPanel.includes("status: 'pending'") && lorecardsPanel.includes("status: 'accepted'"), 'Lorecards workspace rows must route the full pending and accepted queues into one row model.');
 assert(lorecardsPanel.includes('function createLorecardWorkspaceFilterChip') && lorecardsPanel.includes('interactive: true') && lorecardsPanel.includes('chip.setAttribute(\'aria-pressed\'') && lorecardsPanel.includes('filterRow.appendChild(createLorecardWorkspaceFilterChip'), 'Lorecards workspace counters must be interactive filters.');
-const lorecardWorkspaceSortFunction = lorecardsPanel.match(/function sortLorecardWorkspaceRows\(a, b, sortMode = 'priority'\)[\s\S]*?\n}\n\nfunction getFilteredLorecardWorkspaceRows/)?.[0] || '';
+assert(
+    lorecardsPanel.includes('const ACCEPTED_LORE_VISIBLE_BATCH_SIZE = 200;')
+        && lorecardsPanel.includes('Math.max(initialVisibleLimit, Number(panelState.acceptedLoreVisibleLimit) || initialVisibleLimit)')
+        && runtimePanelSource.includes('const ACCEPTED_LORE_INITIAL_VISIBLE_LIMIT = 200;')
+        && runtimePanelSource.includes('const ACCEPTED_LORE_PAGE_INCREMENT = 200;')
+        && runtimeShell.includes('panelState.acceptedLoreVisibleLimit = Math.max(200, Number(panelState.acceptedLoreVisibleLimit) || 200);'),
+    'Lorecards Lore lists must show accepted Lorecards in 200-card batches so small and medium sets do not require repeated Show More clicks.'
+);
+const lorecardWorkspaceSortFunction = lorecardsPanel.match(/function sortLorecardWorkspaceRows\(a, b, sortMode = 'alphabetical'\)[\s\S]*?\n}\n\nfunction getFilteredLorecardWorkspaceRows/)?.[0] || '';
 assert(
     lorecardsPanel.includes('const LORECARD_WORKSPACE_SORTS = Object.freeze')
+        && lorecardsPanel.includes("['alphabetical', 'A', 'Alphabetical'],\n    ['priority', 'P', 'Priority']")
         && lorecardsPanel.includes('function normalizeLorecardWorkspaceSort')
+        && lorecardsPanel.includes('function getNextLorecardWorkspaceSort')
         && lorecardsPanel.includes('function createLorecardWorkspaceSortToggle')
         && lorecardsPanel.includes("button.textContent = label")
-        && lorecardsPanel.includes('setLorecardWorkspaceSort(value)')
+        && lorecardsPanel.includes('const targetSort = mobileShell ? getNextLorecardWorkspaceSort(normalized) : value;')
         && lorecardsPanel.includes("searchRow.appendChild(createLorecardWorkspaceSortToggle(activeSort));")
         && lorecardsPanel.includes("toolbar.appendChild(searchRow);")
-        && defaultState.includes("lorecardWorkspaceSort: 'priority'")
+        && defaultState.includes("lorecardWorkspaceSort: 'alphabetical'")
+        && stateManager.includes('Schema v27: Lorecards workspace defaults to A/P with Alphabetical active.')
+        && stateManager.includes("state.lorePanel.lorecardWorkspaceSort = 'alphabetical';")
         && stateManager.includes("state.lorePanel.lorecardWorkspaceSort = ['priority', 'alphabetical'].includes")
-        && /function sortLorecardWorkspaceRows\(a, b, sortMode = 'priority'\)[\s\S]*?if \(normalizeLorecardWorkspaceSort\(sortMode\) === 'alphabetical'\)/.test(lorecardsPanel)
+        && stateManager.includes("defaultsPanel.lorecardWorkspaceSort || 'alphabetical'")
+        && /function sortLorecardWorkspaceRows\(a, b, sortMode = 'alphabetical'\)[\s\S]*?if \(normalizeLorecardWorkspaceSort\(sortMode\) === 'alphabetical'\)/.test(lorecardsPanel)
         && !lorecardWorkspaceSortFunction.includes('isActive')
         && style.includes('.saga-lorecard-workspace-search-row')
         && style.includes('.saga-lorecard-workspace-sort-toggle')
-        && style.includes('grid-template-columns: repeat(2, 16px)')
-        && style.includes('width: 16px')
+        && style.includes('grid-template-columns: repeat(2, 24px)')
+        && style.includes('border-radius: 3px')
+        && style.includes('width: 24px')
         && style.includes('.saga-lorecard-workspace-sort-option-active'),
-    'Lorecards workspace must place a compact A/P sort toggle beside Search and must not auto-sort activated cards to the top.'
+    'Lorecards workspace must place a compact A/P sort toggle beside Search, default to Alphabetical, cycle on mobile tap, and must not auto-sort activated cards to the top.'
 );
 assert(lorecardsPanel.includes('const pendingReviewEntries = pendingEntries.filter(entry => !isSuggestedPendingLore(entry));') && lorecardsPanel.includes('pendingEntries: pendingReviewEntries') && lorecardsPanel.includes('allPendingEntries: pendingEntries') && lorecardsPanel.includes('pendingCount: pendingReviewEntries.length') && lorecardsPanel.includes('allPendingCount: pendingEntries.length'), 'Lorecards lifecycle stats must keep suggested and Pending Review counts distinct while retaining the full pending-entry set.');
 assert(lorecardsPanel.includes("['needs-review', 'Needs Review']") && lorecardsPanel.includes("['high', 'High']") && lorecardsPanel.includes("['elevated', 'Elevated']") && lorecardsPanel.includes("['muted', 'Muted']") && lorecardsPanel.includes("['conflicts', 'Conflicts']"), 'Lorecards workspace filters must expose review, High, Elevated, Muted, and conflict views over one object list.');
@@ -1388,6 +1406,13 @@ assert(themePanel.includes("className: 'saga-theme-icon-status'") && !/status\.c
 assert(!settingsPanel.includes('saga-provider-status-ready') && !settingsPanel.includes('saga-provider-status-warning'), 'Provider setup status pills must rely on shared success/warning schema tones without local palette suffix classes.');
 assert(settingsPanel.includes('function createProviderRuntimeStatusPill') && settingsPanel.includes('updateProviderRuntimeStatusPill(modelStatus') && !/saga-provider-runtime-status';[\s\S]{0,140}(?:textContent|appendChild\(status\))/.test(settingsPanel), 'Provider runtime model/key statuses must render through schema-backed status pills.');
 assert(/\.saga-provider-runtime-header > \.saga-status-pill,[\s\S]*?\.saga-provider-preset-header > \.saga-status-pill\s*\{[\s\S]*?flex:\s*0 0 auto;[\s\S]*?max-width:\s*none;[\s\S]*?white-space:\s*nowrap;/.test(style), 'Provider header status pills must keep their natural width so labels like Needs setup are not clipped.');
+assert(
+    /\.saga-settings-provider-card\s*\{[\s\S]*?--saga-provider-control-font-size:\s*0\.82rem;[\s\S]*?--saga-provider-control-touch-font-size:\s*0\.84rem;/.test(style)
+        && /\.saga-provider-runtime-field input,[\s\S]*?\.saga-provider-runtime-field select\s*\{[\s\S]*?min-height:\s*var\(--saga-provider-control-min-height,\s*30px\);[\s\S]*?font-size:\s*var\(--saga-provider-control-font-size,\s*0\.82rem\);/.test(style)
+        && /\.saga-provider-runtime-field select option\s*\{[\s\S]*?font-size:\s*var\(--saga-provider-control-font-size,\s*0\.82rem\);/.test(style)
+        && /\.saga-lore-panel\.saga-runtime-shell\.saga-runtime-mobile \.saga-settings-provider-card \.saga-provider-runtime-field input,[\s\S]*?\.saga-lore-panel\.saga-runtime-shell\.saga-runtime-mobile \.saga-settings-provider-card \.saga-provider-runtime-field select\s*\{[\s\S]*?min-height:\s*var\(--saga-provider-control-touch-min-height,\s*34px\);[\s\S]*?font-size:\s*var\(--saga-provider-control-touch-font-size,\s*0\.84rem\);/.test(style),
+    'Settings provider dropdowns and text fields must keep compact provider-specific font sizing, including on mobile where generic touch select sizing is larger.'
+);
 assert(injectionPanel.includes('function createPromptInjectionStatusRow') && injectionPanel.includes("className: 'saga-prompt-sync-status-value'") && injectionPanel.includes('setChipTone(value') && !/row\?\.querySelector\('\.saga-value'\)/.test(injectionPanel), 'Prompt injection sync status value must render through a schema-backed status pill and update tone in place.');
 assert(/function createCompactPresetStat[\s\S]{0,520}createStatusPill/.test(runtimeUiKit) && !/function createCompactPresetStat[\s\S]{0,360}document\.createElement\('strong'\)/.test(runtimeUiKit), 'Provider preset compact stats must render value chips through schema-backed status pills.');
 assert(creatorPanel.includes('function createLoredeckCreatorSideValueChip') && creatorPanel.includes("className: options.className || 'saga-loredeck-creator-side-value'") && !/saga-loredeck-creator-side-row[\s\S]{0,260}document\.createElement\('strong'\)/.test(creatorPanel), 'Loredeck Creator sidebar metadata values must render through schema-backed status pills.');
@@ -1619,6 +1644,18 @@ assert(runtimeTheme.includes("target.style.setProperty('--saga-danger', colors.d
 assert(runtimeTheme.includes("['Activate', 'themeActivateColor', 'activate']") && runtimeTheme.includes("target.style.setProperty('--saga-activate', colors.activate)") && runtimeTheme.includes("target.style.setProperty('--saga-activate-glow', hexToRgba(colors.activate, 0.48))"), 'Runtime themes must expose an Activate Theme Pack color and activation glow aliases.');
 assert(runtimeTheme.includes("['Chip Metadata', 'themeChipNeutralColor', 'chipNeutral']") && runtimeTheme.includes("['Chip Warning', 'themeChipWarningColor', 'chipWarning']"), 'Runtime themes must expose Theme Pack color fields for metadata chip tones.');
 assert(runtimeTheme.includes("target.style.setProperty('--saga-chip-neutral-bg', hexToRgba(colors.chipNeutral, 0.08))") && runtimeTheme.includes("target.style.setProperty('--saga-chip-warning-border', hexToRgba(colors.chipWarning, 0.32))"), 'Runtime themes must derive quiet chip fill/border CSS tokens from Theme Pack chip colors.');
+assert(
+    runtimeTheme.includes("target.style.setProperty('--saga-chip-relevance-low-bg', hexToRgba(colors.chipNeutral, 0.08))")
+        && runtimeTheme.includes("target.style.setProperty('--saga-chip-relevance-low-fg', colors.chipNeutral)")
+        && runtimeTheme.includes("target.style.setProperty('--saga-chip-relevance-normal-bg', hexToRgba(colors.chipInfo, 0.12))")
+        && runtimeTheme.includes("target.style.setProperty('--saga-chip-relevance-normal-fg', colors.chipInfo)")
+        && runtimeTheme.includes("target.style.setProperty('--saga-chip-relevance-high-bg', hexToRgba(colors.activate, 0.16))")
+        && runtimeTheme.includes("target.style.setProperty('--saga-chip-relevance-high-fg', colors.activate)")
+        && !runtimeTheme.includes("hexToRgba('#166534'")
+        && !runtimeTheme.includes("hexToRgba('#1e40af'")
+        && !runtimeTheme.includes("hexToRgba('#475569'"),
+    'Runtime themes must derive Lorecard relevance dots from chipNeutral, chipInfo, and Activate instead of dedicated hard-coded relevance colors.'
+);
 assert(runtimeTheme.includes("merged.chipSuccess = merged.chipSuccess || '#b9d8b8'") && runtimeTheme.includes("merged.chipDanger = merged.chipDanger || '#e1a0a0'"), 'Incomplete Theme Packs must fall back to readable chip foreground colors instead of dark status surfaces.');
 assert(defaultSettings.includes("themeActivateColor: '#6bff59'") && defaultSettings.includes("themeChipNeutralColor: '#c8cbd2'") && defaultSettings.includes("themeChipWarningColor: '#e0c184'"), 'Default settings must include the Activate baseline, quiet metadata chip baseline, and warm Saga Archive warning chip color.');
 assert(themePanel.includes("['Activate', 'themeActivateColor', 'activate']") && themePanel.includes("createThemeColorGroup('Metadata Chips'") && themePanel.includes("['Source / Tag', 'themeChipSourceColor', 'chipSource']"), 'Theme settings must expose Activate in State Colors and a Metadata Chips color group.');
@@ -2486,7 +2523,17 @@ assert(/\.saga-loredeck-library-deck-card\s*\{[\s\S]*?user-select:\s*none;/.test
 assert(/\.saga-loredeck-library-title-input\s*\{[\s\S]*?user-select:\s*text;/.test(style), 'Loredeck Library title input must remain text-selectable while deck cards suppress selection.');
 assert(style.includes('display: inline-grid !important;') && style.includes('grid-area: 1 / 1;'), 'Loredeck Library square icon actions must center their SVG artwork.');
 assert(style.includes('var(--saga-chip-neutral-bg') && style.includes('var(--saga-chip-source-fg') && style.includes('var(--saga-chip-review-bg'), 'Loredeck Library metadata/status pills must use semantic theme chip tokens.');
-assert(style.includes('--saga-chip-tag-bg: rgba(22, 23, 28, 0.9)') && style.includes('--saga-chip-category-fg: #c9cdd6') && style.includes('--saga-chip-relevance-high-fg: #dcfce7') && style.includes('--saga-chip-relevance-normal-fg: #dbeafe') && style.includes('--saga-chip-relevance-low-fg: #e2e8f0'), 'Static chip fallbacks must split quiet metadata chips from color-coded relevance feedback.');
+assert(
+    style.includes('--saga-chip-tag-bg: rgba(22, 23, 28, 0.9)')
+        && style.includes('--saga-chip-category-fg: #c9cdd6')
+        && style.includes('--saga-chip-relevance-high-fg: var(--saga-activate, #6bff59)')
+        && style.includes('--saga-chip-relevance-normal-fg: var(--saga-chip-info-fg, #c7cfdd)')
+        && style.includes('--saga-chip-relevance-low-fg: var(--saga-chip-neutral-fg, #c8cbd2)')
+        && style.includes('--saga-chip-relevance-high-bg: var(--saga-activate-surface, rgba(107, 255, 89, 0.16))')
+        && style.includes('--saga-chip-relevance-normal-bg: var(--saga-chip-info-bg, rgba(24, 27, 35, 0.82))')
+        && style.includes('--saga-chip-relevance-low-bg: var(--saga-chip-neutral-bg, rgba(24, 25, 31, 0.82))'),
+    'Static chip fallbacks must keep relevance feedback mapped to chipNeutral, chipInfo, and Activate tokens.'
+);
 assert(style.includes('calc(var(--saga-grip-dot-rows, 6) * 7px)'), 'Loredeck Library drag handles must size dot grids without clipping short 2x2 or 2x3 handles.');
 assert(/\.saga-loredeck-library-folder-grip\s*\{[\s\S]*?transform:\s*translateY\(-1px\);/.test(style), 'Loredeck Library folder drag handles must keep their optical centering nudge.');
 assert(/\.saga-loredeck-library-body-opening\s*\{[\s\S]*?grid-template-rows:\s*minmax\(0,\s*1fr\);[\s\S]*?place-items:\s*center;/.test(style), 'Loredeck Library progressive opening shell must center its loading state without reserving the full body grid.');

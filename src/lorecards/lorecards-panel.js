@@ -153,6 +153,7 @@ const LORE_ENTRY_TYPE_FILTERS = Object.freeze([
 
 const LORECARD_LIFECYCLE_STAGES = Object.freeze(['suggested', 'pending', 'accepted', 'active']);
 const MOBILE_LORECARD_LIFECYCLE_STAGES = Object.freeze(['generate', 'automation', 'lore']);
+const ACCEPTED_LORE_VISIBLE_BATCH_SIZE = 200;
 const LORECARD_LIFECYCLE_STAGE_META = Object.freeze({
     lore: {
         label: 'Lore',
@@ -199,8 +200,8 @@ const LORECARD_WORKSPACE_FILTERS = Object.freeze([
     ['conflicts', 'Conflicts'],
 ]);
 const LORECARD_WORKSPACE_SORTS = Object.freeze([
-    ['priority', 'P', 'Priority'],
     ['alphabetical', 'A', 'Alphabetical'],
+    ['priority', 'P', 'Priority'],
 ]);
 const LORE_SOURCE_FILTER_OPTIONS = Object.freeze([
     ['all', 'Source: All'],
@@ -3337,11 +3338,11 @@ function labelToField(label) {
 }
 
 function getAcceptedLoreInitialVisibleLimit() {
-    return isRuntimeMobileShell() ? 20 : dep('getAcceptedLoreInitialVisibleLimit', () => 40)();
+    return dep('getAcceptedLoreInitialVisibleLimit', () => ACCEPTED_LORE_VISIBLE_BATCH_SIZE)();
 }
 
 function getAcceptedLorePageIncrement() {
-    return isRuntimeMobileShell() ? 20 : dep('getAcceptedLorePageIncrement', () => 40)();
+    return dep('getAcceptedLorePageIncrement', () => ACCEPTED_LORE_VISIBLE_BATCH_SIZE)();
 }
 
 export function getFilteredLoreEntries(state) {
@@ -4546,7 +4547,11 @@ function normalizeLorecardWorkspaceFilter(value = '') {
 
 function normalizeLorecardWorkspaceSort(value = '') {
     const sort = String(value || '').trim().toLowerCase();
-    return LORECARD_WORKSPACE_SORTS.some(([key]) => key === sort) ? sort : 'priority';
+    return LORECARD_WORKSPACE_SORTS.some(([key]) => key === sort) ? sort : 'alphabetical';
+}
+
+function getNextLorecardWorkspaceSort(value = 'alphabetical') {
+    return normalizeLorecardWorkspaceSort(value) === 'alphabetical' ? 'priority' : 'alphabetical';
 }
 
 function getLorecardWorkspaceRows(state = getState()) {
@@ -4617,7 +4622,7 @@ function getLorecardWorkspaceRowTitle(row = {}) {
     return String(row.entry?.title || row.id || '').trim();
 }
 
-function sortLorecardWorkspaceRows(a, b, sortMode = 'priority') {
+function sortLorecardWorkspaceRows(a, b, sortMode = 'alphabetical') {
     const titleScore = getLorecardWorkspaceRowTitle(a).localeCompare(getLorecardWorkspaceRowTitle(b));
     const priorityScore = Number(b.priority || 50) - Number(a.priority || 50);
     if (normalizeLorecardWorkspaceSort(sortMode) === 'alphabetical') {
@@ -4634,7 +4639,7 @@ function getFilteredLorecardWorkspaceRows(state = getState()) {
     const rows = getLorecardWorkspaceRows(state);
     const panelState = state?.lorePanel || {};
     const filter = normalizeLorecardWorkspaceFilter(panelState.lorecardWorkspaceFilter || 'all');
-    const sort = normalizeLorecardWorkspaceSort(panelState.lorecardWorkspaceSort || 'priority');
+    const sort = normalizeLorecardWorkspaceSort(panelState.lorecardWorkspaceSort || 'alphabetical');
     const query = String(panelState.search || '').trim().toLowerCase();
     const filtered = rows
         .filter(row => rowMatchesLorecardWorkspaceFilter(row, filter))
@@ -4657,7 +4662,7 @@ function setLorecardWorkspaceFilter(filter = 'all') {
     refreshPanelBody({ preserveScroll: true });
 }
 
-function setLorecardWorkspaceSort(sort = 'priority') {
+function setLorecardWorkspaceSort(sort = 'alphabetical') {
     setPanelState({
         lorecardWorkspaceSort: normalizeLorecardWorkspaceSort(sort),
         acceptedLoreVisibleLimit: getAcceptedLoreInitialVisibleLimit(),
@@ -4687,12 +4692,27 @@ function createLorecardWorkspaceFilterChip(filter, label, count, activeFilter) {
     return chip;
 }
 
-function createLorecardWorkspaceSortToggle(activeSort = 'priority') {
+function createLorecardWorkspaceSortToggle(activeSort = 'alphabetical') {
     const normalized = normalizeLorecardWorkspaceSort(activeSort);
+    const mobileShell = isRuntimeMobileShell();
     const wrap = document.createElement('div');
     wrap.className = 'saga-lorecard-workspace-sort-toggle';
+    if (mobileShell) wrap.classList.add('saga-lorecard-workspace-sort-toggle-mobile');
     wrap.setAttribute('role', 'radiogroup');
-    wrap.setAttribute('aria-label', 'Sort Lorecards');
+    wrap.setAttribute('aria-label', `Sort Lorecards by ${normalized === 'alphabetical' ? 'Alphabetical' : 'Priority'}`);
+    wrap.dataset.lorecardWorkspaceSort = normalized;
+    wrap.addEventListener('click', (event) => {
+        if (!mobileShell || event.target !== wrap) return;
+        event.preventDefault();
+        event.stopPropagation();
+        setLorecardWorkspaceSort(getNextLorecardWorkspaceSort(normalized));
+    });
+    wrap.addEventListener('keydown', (event) => {
+        if (!['Enter', ' '].includes(event.key)) return;
+        event.preventDefault();
+        event.stopPropagation();
+        setLorecardWorkspaceSort(getNextLorecardWorkspaceSort(normalized));
+    });
 
     for (const [value, label, title] of LORECARD_WORKSPACE_SORTS) {
         const active = value === normalized;
@@ -4705,11 +4725,12 @@ function createLorecardWorkspaceSortToggle(activeSort = 'priority') {
         button.setAttribute('aria-checked', active ? 'true' : 'false');
         button.setAttribute('aria-label', `Sort Lorecards by ${title}`);
         button.textContent = label;
-        addTooltip(button, `Sort by ${title}.`);
+        addTooltip(button, mobileShell ? `Tap to switch sort mode.` : `Sort by ${title}.`);
         button.addEventListener('click', (event) => {
             event.preventDefault();
             event.stopPropagation();
-            setLorecardWorkspaceSort(value);
+            const targetSort = mobileShell ? getNextLorecardWorkspaceSort(normalized) : value;
+            setLorecardWorkspaceSort(targetSort);
         });
         wrap.appendChild(button);
     }
@@ -4725,7 +4746,7 @@ function createLorecardWorkspace(state = getState(), options = {}) {
     const selectedCount = getAcceptedSelectionSet(state).size + getPendingReviewSelectedIds(state).size;
     const panelState = state?.lorePanel || {};
     const activeFilter = normalizeLorecardWorkspaceFilter(panelState.lorecardWorkspaceFilter || 'all');
-    const activeSort = normalizeLorecardWorkspaceSort(panelState.lorecardWorkspaceSort || 'priority');
+    const activeSort = normalizeLorecardWorkspaceSort(panelState.lorecardWorkspaceSort || 'alphabetical');
     const tool = String(panelState.lorecardWorkspaceTool || '').trim();
 
     const workspace = document.createElement('div');
@@ -4842,10 +4863,11 @@ function renderLorecardWorkspaceList(list, state, rows, options = {}) {
     }
 
     const panelState = state?.lorePanel || {};
-    const visibleLimit = Math.max(10, Math.min(
+    const initialVisibleLimit = getAcceptedLoreInitialVisibleLimit();
+    const visibleLimit = Math.min(
         safeRows.length,
-        Number(panelState.acceptedLoreVisibleLimit) || getAcceptedLoreInitialVisibleLimit()
-    ));
+        Math.max(initialVisibleLimit, Number(panelState.acceptedLoreVisibleLimit) || initialVisibleLimit)
+    );
     const visible = safeRows.slice(0, visibleLimit);
     const summary = document.createElement('div');
     summary.className = 'saga-lore-list-summary saga-lorecard-workspace-list-summary';
@@ -6128,10 +6150,11 @@ export function renderAcceptedLoreEntryList(list, state, options = {}) {
     }
 
     const panelState = state?.lorePanel || {};
-    const visibleLimit = Math.max(10, Math.min(
+    const initialVisibleLimit = getAcceptedLoreInitialVisibleLimit();
+    const visibleLimit = Math.min(
         lifecycleFiltered.length,
-        Number(panelState.acceptedLoreVisibleLimit) || getAcceptedLoreInitialVisibleLimit()
-    ));
+        Math.max(initialVisibleLimit, Number(panelState.acceptedLoreVisibleLimit) || initialVisibleLimit)
+    );
     const visible = lifecycleFiltered.slice(0, visibleLimit);
     const fragment = document.createDocumentFragment();
 

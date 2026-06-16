@@ -5205,8 +5205,8 @@ async function runDesktopLorecardsHarnessSmoke(client, screenshots, findings, sm
     if (interactionState.inspectLabels.length) findings.push(`Desktop Lorecards still rendered Inspect button labels: ${interactionState.inspectLabels.join(', ')}.`);
     if (!interactionState.editLabels.length) findings.push('Desktop Lorecards did not render an explicit Edit button.');
     if (layout.tagRowsInList) findings.push('Desktop Lorecards workspace rows still rendered tag walls in the scanning list.');
-    if (!layout.sortOptions?.some(option => option.label === 'A' && option.value === 'alphabetical') || !layout.sortOptions?.some(option => option.label === 'P' && option.value === 'priority' && option.checked)) findings.push(`Desktop Lorecards workspace did not render the compact A/P sort toggle with Priority selected by default: ${JSON.stringify(layout.sortOptions)}.`);
-    if (!layout.searchRowRect || !layout.searchRect || !layout.sortToggleRect || layout.sortToggleRect.width > 38 || layout.sortToggleRect.height > 24 || Math.abs(layout.searchRect.top - layout.sortToggleRect.top) > 8 || layout.sortToggleRect.left < layout.searchRect.right - 1) {
+    if ((layout.sortOptions || []).map(option => option.label).join('/') !== 'A/P' || !layout.sortOptions?.some(option => option.label === 'A' && option.value === 'alphabetical' && option.checked) || !layout.sortOptions?.some(option => option.label === 'P' && option.value === 'priority')) findings.push(`Desktop Lorecards workspace did not render the compact A/P sort toggle with Alphabetical selected by default: ${JSON.stringify(layout.sortOptions)}.`);
+    if (!layout.searchRowRect || !layout.searchRect || !layout.sortToggleRect || layout.sortToggleRect.width > 62 || layout.sortToggleRect.height > 36 || Math.abs(layout.searchRect.top - layout.sortToggleRect.top) > 8 || layout.sortToggleRect.left < layout.searchRect.right - 1) {
         findings.push(`Desktop Lorecards workspace sort toggle was not compact and aligned to the right of Search: ${JSON.stringify({
             searchRowRect: layout.searchRowRect,
             searchRect: layout.searchRect,
@@ -5567,10 +5567,14 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
         const qualitySlider = qualityCard?.querySelector('.saga-settings-switch-slider');
         const qualityLabel = qualityCard?.querySelector('.saga-settings-switch-label');
         const qualityText = qualityCard?.querySelector('.saga-settings-switch-text');
+        const cardRect = qualityCard?.getBoundingClientRect?.();
+        const rowRect = qualityRow?.getBoundingClientRect?.();
         const sliderRect = qualitySlider?.getBoundingClientRect?.();
         const labelRect = qualityLabel?.getBoundingClientRect?.();
         const textRect = qualityText?.getBoundingClientRect?.();
         const rowStyle = qualityRow ? getComputedStyle(qualityRow) : null;
+        const labelStyle = qualityLabel ? getComputedStyle(qualityLabel) : null;
+        const labelLineHeight = labelStyle ? Number.parseFloat(labelStyle.lineHeight) || 0 : 0;
         return {
             activeTab: root?.dataset?.mobileActiveTab || '',
             hasSettings: text.includes('Settings'),
@@ -5583,8 +5587,14 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
             hasQualitySwitch: !!qualitySlider,
             qualityInputHidden: !!qualityInputStyle && qualityInputStyle.opacity === '0' && Number(qualityInputRect?.width || 0) <= 1,
             qualitySwitchBeforeLabel: !!sliderRect && !!labelRect && sliderRect.right <= labelRect.left,
+            qualitySliderNearLeft: !!sliderRect && !!rowRect && sliderRect.left <= rowRect.left + 14,
             qualityGap: sliderRect && textRect ? Math.round(textRect.left - sliderRect.right) : 0,
+            qualityRowWidth: rowRect ? Math.round(rowRect.width) : 0,
+            qualityCardWidth: cardRect ? Math.round(cardRect.width) : 0,
             qualityTextWidth: textRect ? Math.round(textRect.width) : 0,
+            qualityLabelHeight: labelRect ? Math.round(labelRect.height) : 0,
+            qualityLabelLineHeight: labelLineHeight,
+            qualityRowDisplay: rowStyle?.display || '',
             qualityGridTemplateColumns: rowStyle?.gridTemplateColumns || '',
             qualityLabel: qualityLabel?.textContent?.trim() || '',
             hasOverflowSheet: !!document.querySelector('.saga-mobile-more-sheet'),
@@ -5594,7 +5604,20 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
         };
     }));
     if (mobileSettingsState.activeTab !== 'settings' || !mobileSettingsState.hasSettings || !mobileSettingsState.hasModeLabel || !mobileSettingsState.hasProviders) findings.push('Mobile redesign Settings route did not expose Settings, Experience Mode, and Providers.');
-    if (mobileSettingsState.hasQualitySectionHeader || !mobileSettingsState.hasQualityDropdown || !mobileSettingsState.qualityDropdownOpen || !mobileSettingsState.hasQualitySwitch || !mobileSettingsState.qualityInputHidden || !mobileSettingsState.qualitySwitchBeforeLabel || mobileSettingsState.qualityGap < 8 || mobileSettingsState.qualityTextWidth < 170 || !mobileSettingsState.qualityGridTemplateColumns.includes('44px') || mobileSettingsState.qualityLabel !== 'Show Lorecard tags in the mobile Lore list') findings.push('Mobile redesign Settings route did not render Quality of Life as an open dropdown with a clean left-switch/right-text row.');
+    if (mobileSettingsState.hasQualitySectionHeader
+        || !mobileSettingsState.hasQualityDropdown
+        || !mobileSettingsState.qualityDropdownOpen
+        || !mobileSettingsState.hasQualitySwitch
+        || !mobileSettingsState.qualityInputHidden
+        || !mobileSettingsState.qualitySwitchBeforeLabel
+        || !mobileSettingsState.qualitySliderNearLeft
+        || mobileSettingsState.qualityGap < 8
+        || mobileSettingsState.qualityRowWidth < Math.min(300, Math.max(0, mobileSettingsState.qualityCardWidth - 2))
+        || mobileSettingsState.qualityTextWidth < Math.max(170, mobileSettingsState.qualityRowWidth - 84)
+        || mobileSettingsState.qualityLabelHeight > Math.max(42, mobileSettingsState.qualityLabelLineHeight * 2.6)
+        || mobileSettingsState.qualityRowDisplay !== 'grid'
+        || !mobileSettingsState.qualityGridTemplateColumns.includes('48px')
+        || mobileSettingsState.qualityLabel !== 'Show Lorecard tags in the mobile Lore list') findings.push(`Mobile redesign Settings route did not render Quality of Life as an open dropdown with a clean left-switch/right-text row: ${JSON.stringify(mobileSettingsState)}.`);
     if (mobileSettingsState.hasSagaSeparator) findings.push('Mobile redesign Settings route still rendered the retired SAGA providers/theme separator.');
     if (mobileSettingsState.hasOverflowSheet) findings.push('Mobile redesign rendered the removed overflow sheet.');
     if (mobileSettingsState.shellBackActions > 0) findings.push('Mobile redesign Settings route rendered a shell Back action.');
@@ -5744,7 +5767,16 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
     }
     if (pendingState.labels.includes('Edit') || pendingState.labels.includes('Clear')) findings.push('Mobile redesign Pending row exposed more than Accept/Reject.');
     if (pendingState.hasAcceptAll || pendingState.hasRejectAll) findings.push('Mobile redesign Lore page still exposed default Accept All/Reject All.');
-    if (!pendingState.sortOptions?.some(option => option.label === 'A' && option.value === 'alphabetical') || !pendingState.sortOptions?.some(option => option.label === 'P' && option.value === 'priority' && option.checked)) findings.push(`Mobile redesign Lore page did not render the compact A/P sort toggle with Priority selected by default: ${JSON.stringify(pendingState.sortOptions)}.`);
+    if ((pendingState.sortOptions || []).map(option => option.label).join('/') !== 'A/P' || !pendingState.sortOptions?.some(option => option.label === 'A' && option.value === 'alphabetical' && option.checked) || !pendingState.sortOptions?.some(option => option.label === 'P' && option.value === 'priority')) findings.push(`Mobile redesign Lore page did not render the compact A/P sort toggle with Alphabetical selected by default: ${JSON.stringify(pendingState.sortOptions)}.`);
+    const mobileSortTapClicked = await clickSelector(client, '.saga-lorecard-workspace-sort-toggle');
+    if (!mobileSortTapClicked) findings.push('Mobile redesign Lore page A/P sort toggle was not tappable as a whole control.');
+    await wait(250);
+    const mobileSortAfterTap = await evaluate(client, script(() => [...document.querySelectorAll('.saga-lorecard-workspace-sort-option')].map(node => ({
+        label: (node.innerText || node.textContent || '').trim(),
+        value: node.getAttribute('data-lorecard-workspace-sort') || '',
+        checked: node.getAttribute('aria-checked') === 'true',
+    }))));
+    if (!mobileSortAfterTap?.some(option => option.label === 'P' && option.value === 'priority' && option.checked)) findings.push(`Mobile redesign Lore page A/P sort toggle did not switch modes from a single whole-control tap: ${JSON.stringify(mobileSortAfterTap)}.`);
     if (pendingState.tagRows !== 0) findings.push('Mobile redesign Pending cards showed tag rows despite the default hidden mobile tag setting.');
     if (pendingTooltipState.visible) findings.push(`Mobile redesign Lore sub-tab showed a floating tooltip: ${pendingTooltipState.text || 'blank'}.`);
     if (pendingScrollState.offenders.length) findings.push(`Mobile redesign Lore page still has nested list scroll styling: ${JSON.stringify(pendingScrollState.offenders)}`);
@@ -7265,10 +7297,10 @@ async function runLiveMobileLorecardLatencySmoke(client, screenshots, findings, 
             panel.loreTypeFilter = 'all';
             panel.lorecardWorkspaceFilter = 'all';
             panel.lorecardWorkspaceTool = '';
-            panel.lorecardWorkspaceSort = 'priority';
+            panel.lorecardWorkspaceSort = 'alphabetical';
             panel.selectedEntryId = '';
             panel.lorecardWorkspaceEditId = '';
-            panel.acceptedLoreVisibleLimit = Math.max(20, Number(panel.acceptedLoreVisibleLimit) || 20);
+            panel.acceptedLoreVisibleLimit = Math.max(200, Number(panel.acceptedLoreVisibleLimit) || 200);
             panel.pendingReviewVisibleLimit = 10;
             panel.mobile = {
                 ...(panel.mobile || {}),

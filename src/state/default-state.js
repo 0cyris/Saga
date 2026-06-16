@@ -276,7 +276,7 @@ export function getDefaultState() {
             loreTypeFilter: 'all',
             acceptedDeckFilter: 'all',
             acceptedContextFilter: 'all',
-            lorecardWorkspaceSort: 'priority',
+            lorecardWorkspaceSort: 'alphabetical',
             selectedEntryId: '',
             selectedLoredeckId: '',
             loredeckLibraryDetailsHeight: 190,

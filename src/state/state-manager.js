@@ -743,6 +743,13 @@ export function migrateState(state) {
         state._version = 26;
     }
 
+    // Schema v27: Lorecards workspace defaults to A/P with Alphabetical active.
+    if (state._version < 27) {
+        state.lorePanel = mergeDefaults(state.lorePanel, getDefaultState().lorePanel);
+        state.lorePanel.lorecardWorkspaceSort = 'alphabetical';
+        state._version = 27;
+    }
+
     // ── Always normalize lore fields post-migration ────────────────────────
     // First compact known-heavy canon DB payloads and oversized pending batches so
     // a poisoned chat can recover instead of freezing during panel render/save.
@@ -810,7 +817,7 @@ export function migrateState(state) {
         state.lorePanel.acceptedContextFilter = state.lorePanel.acceptedContextFilter || defaultsPanel.acceptedContextFilter || 'all';
         state.lorePanel.lorecardWorkspaceSort = ['priority', 'alphabetical'].includes(state.lorePanel.lorecardWorkspaceSort)
             ? state.lorePanel.lorecardWorkspaceSort
-            : (defaultsPanel.lorecardWorkspaceSort || 'priority');
+            : (defaultsPanel.lorecardWorkspaceSort || 'alphabetical');
         state.lorePanel.selectedEntryId = state.lorePanel.selectedEntryId || '';
         state.lorePanel.selectedLoredeckId = String(state.lorePanel.selectedLoredeckId || defaultsPanel.selectedLoredeckId || '').trim();
         state.lorePanel.loredeckLibraryDetailsHeight = Number.isFinite(Number(state.lorePanel.loredeckLibraryDetailsHeight))

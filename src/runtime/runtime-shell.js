@@ -287,7 +287,7 @@ export function selectRuntimeMobileLorecardsStage(stage) {
         panelState.activeTab = 'lore';
         panelState.mobileLifecycleStage = normalized;
         panelState.pendingReviewVisibleLimit = 10;
-        panelState.acceptedLoreVisibleLimit = Math.max(10, Number(panelState.acceptedLoreVisibleLimit) || 10);
+        panelState.acceptedLoreVisibleLimit = Math.max(200, Number(panelState.acceptedLoreVisibleLimit) || 200);
         panelState.drawerOpen = true;
         panelState.collapsed = false;
         return { action: 'lorecards-subtab', stage: normalized };
