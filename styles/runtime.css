@@ -1195,6 +1195,12 @@
     }
 }
 
+.saga-runtime-mobile .saga-loredeck-creator-project-list {
+    max-height: none;
+    overflow: visible;
+    padding-right: 0;
+}
+
 .saga-loredeck-granularity-blurb {
     align-self: stretch;
     min-height: 34px;

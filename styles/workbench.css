@@ -1185,10 +1185,12 @@
     }
 
     .saga-loredeck-creator-workbench-overlay .saga-loredeck-creator-workbench-shell-mobile {
-        flex: 1 1 auto;
-        height: 100%;
+        flex: 0 1 auto;
+        height: 100vh;
+        height: 100svh;
         min-height: 0;
-        max-height: none;
+        max-height: 100vh;
+        max-height: 100svh;
     }
 
     .saga-loredeck-creator-workbench-shell-mobile .saga-loredeck-creator-pipeline-header,

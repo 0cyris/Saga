@@ -370,10 +370,12 @@ export function createLoredeckCreatorPipelineHeader(cached = {}, pipeline = getL
     titleWrap.className = 'saga-lore-workbench-title-wrap';
     const titleRow = document.createElement('div');
     titleRow.className = 'saga-loredeck-library-title-row saga-loredeck-creator-title-row';
-    const emblem = document.createElement('div');
-    emblem.className = 'saga-loredeck-library-emblem saga-loredeck-creator-emblem';
-    emblem.textContent = 'S';
-    titleRow.appendChild(emblem);
+    if (!(options.workbench && isRuntimeMobileShell())) {
+        const emblem = document.createElement('div');
+        emblem.className = 'saga-loredeck-library-emblem saga-loredeck-creator-emblem';
+        emblem.textContent = 'S';
+        titleRow.appendChild(emblem);
+    }
     const titleText = document.createElement('div');
     titleText.className = 'saga-loredeck-creator-title-text';
     const titleLine = document.createElement('div');

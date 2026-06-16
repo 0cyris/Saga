@@ -1534,7 +1534,10 @@ function updateEntryRelevanceFromSegment(entry, nextValue, options = {}) {
         },
     }), { deferSave: true, loreAutomationDisableReason: LORE_AUTOMATION_MANUAL_DISABLE_REASONS.relevance });
     if (options.pending) refreshPanelBody({ preserveScroll: true });
-    else if (!refreshAcceptedLoreRow(entry.id)) refreshAcceptedLoreList({ preserveScroll: true });
+    else {
+        refreshAcceptedLoreSurfaces(entry.id, { sortSensitive: true });
+        return;
+    }
     refreshAcceptedLoreBulkToolbar();
     refreshHeader();
     refreshLoreWorkbench();
@@ -4686,7 +4689,36 @@ function setLorecardWorkspaceSort(sort = 'alphabetical') {
         lorecardWorkspaceSort: normalizeLorecardWorkspaceSort(sort),
         acceptedLoreVisibleLimit: getAcceptedLoreInitialVisibleLimit(),
     }, { deferSave: true });
+    if (isRuntimeMobileShell() && refreshLorecardWorkspaceListOnly()) return;
     refreshPanelBody({ preserveScroll: true });
+}
+
+function refreshLorecardWorkspaceListOnly() {
+    const root = getPanelRoot();
+    const workspace = root?.querySelector?.('.saga-lorecard-workspace');
+    const list = workspace?.querySelector?.('.saga-lorecard-workspace-list');
+    if (!workspace || !list) return false;
+    const state = getState();
+    const panelState = state?.lorePanel || {};
+    const sortButton = workspace.querySelector('.saga-lorecard-workspace-sort-toggle');
+    const preserveSortFocus = sortButton && document.activeElement === sortButton;
+    if (sortButton) {
+        const nextButton = createLorecardWorkspaceSortToggle(panelState.lorecardWorkspaceSort || 'alphabetical');
+        sortButton.replaceWith(nextButton);
+        if (preserveSortFocus) nextButton.focus?.();
+    }
+    renderLorecardWorkspaceList(list, state, getFilteredLorecardWorkspaceRows(state), {
+        basic: isBasicExperience(),
+        mobileShell: isRuntimeMobileShell(),
+    });
+    scheduleAcceptedLoreLayoutUpdate();
+    return true;
+}
+
+function refreshLorecardWorkspaceListForSortSensitiveChange() {
+    const sort = normalizeLorecardWorkspaceSort(getState()?.lorePanel?.lorecardWorkspaceSort || 'alphabetical');
+    if (sort !== 'relevance') return false;
+    return refreshLorecardWorkspaceListOnly();
 }
 
 function createLorecardWorkspaceFilterChip(filter, label, count, activeFilter) {
@@ -4865,9 +4897,19 @@ function renderLorecardWorkspaceList(list, state, rows, options = {}) {
     const visible = safeRows.slice(0, visibleLimit);
     const summary = document.createElement('div');
     summary.className = 'saga-lore-list-summary saga-lorecard-workspace-list-summary';
-    summary.textContent = safeRows.length > visible.length
+    const summaryCount = document.createElement('span');
+    summaryCount.className = 'saga-lorecard-workspace-list-summary-count';
+    summaryCount.textContent = safeRows.length > visible.length
         ? `Showing ${visible.length} of ${safeRows.length} Lorecards.`
         : `Showing ${safeRows.length} Lorecard${safeRows.length === 1 ? '' : 's'}.`;
+    summary.appendChild(summaryCount);
+    if (options.mobileShell) {
+        const summaryHint = document.createElement('span');
+        summaryHint.className = 'saga-lorecard-workspace-list-summary-hint';
+        summaryHint.textContent = 'Double-tap cards to Elevate';
+        addTooltip(summaryHint, 'Double-tap a Lorecard to toggle Elevate on mobile.');
+        summary.appendChild(summaryHint);
+    }
     list.appendChild(summary);
 
     for (const row of visible) {
@@ -5262,7 +5304,7 @@ function cycleLorecardRelevanceByTap(entryId = '', source = null) {
     const direction = RELEVANCE_SEGMENT_ORDER.indexOf(nextTier) > RELEVANCE_SEGMENT_ORDER.indexOf(currentTier) ? 1 : -1;
     const card = source?.closest?.('.saga-lore-entry-card') || source;
     playMobileLorecardRelevanceFeedback(card, direction, nextTier);
-    setTimeout(() => refreshAcceptedLoreSurfaces(id), 180);
+    setTimeout(() => refreshAcceptedLoreSurfaces(id, { sortSensitive: true }), 180);
     return true;
 }
 
@@ -5275,7 +5317,7 @@ function toggleLorecardElevationByGesture(entryId = '', card = null) {
         card.classList.add('saga-mobile-lorecard-elevation-pop');
         setTimeout(() => card.classList.remove('saga-mobile-lorecard-elevation-pop'), 420);
     }
-    setTimeout(() => refreshAcceptedLoreSurfaces(id), 120);
+    setTimeout(() => refreshAcceptedLoreSurfaces(id, { sortSensitive: true }), 120);
     return true;
 }
 
@@ -5693,9 +5735,12 @@ function deactivateAcceptedLoreEntry(entryId = '') {
     return toggleElevateEntry(entryId, { elevated: false, deferSave: true });
 }
 
-function refreshAcceptedLoreSurfaces(entryId = '') {
-    if (entryId && !refreshAcceptedLoreRow(entryId)) refreshAcceptedLoreList({ preserveScroll: true });
-    if (!entryId) refreshAcceptedLoreList({ preserveScroll: true });
+function refreshAcceptedLoreSurfaces(entryId = '', options = {}) {
+    const listRefreshed = options.sortSensitive === true && refreshLorecardWorkspaceListForSortSensitiveChange();
+    if (!listRefreshed) {
+        if (entryId && !refreshAcceptedLoreRow(entryId)) refreshAcceptedLoreList({ preserveScroll: true });
+        if (!entryId) refreshAcceptedLoreList({ preserveScroll: true });
+    }
     refreshAcceptedLoreBulkToolbar();
     refreshHeader();
     refreshLoreWorkbench();

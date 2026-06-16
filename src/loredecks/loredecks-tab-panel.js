@@ -98,6 +98,7 @@ function waitForNextUiFrame() {
 
 export function renderLoredecksTab(container, state) {
     const basic = isBasicExperienceMode();
+    const mobile = isRuntimeMobileShell();
     const canonDb = getCanonLoreDatabaseSync();
     container.classList.add('saga-operator-tab', 'saga-loredecks-operator-tab');
     if (!canonDb) {
@@ -111,27 +112,41 @@ export function renderLoredecksTab(container, state) {
         'Loredecks',
         'Source decks loaded for canon suggestions, relevance, and Saga deck editing.'
     ));
+    const creatorProjects = !basic ? createLoredeckCreatorProjectsSection(state, { mobile }) : null;
+    if (mobile && creatorProjects?.count) container.appendChild(creatorProjects.section);
+
     const libraryCard = createLoredeckLibraryLaunchCard(state, canonDb, health);
     markTourTarget(libraryCard, 'loredecks.library.launch');
     container.appendChild(libraryCard);
 
-    if (isRuntimeMobileShell()) return;
-
-    if (!basic) {
-        const projectModels = getLoredeckCreatorProjectShelfModels(state);
-        const creatorSection = createCollapsibleSection(
-            'loredecks.creatorProjects',
-            'In-Progress Creator Projects',
-            projectModels.length ? `${projectModels.length} unfinished` : 'none',
-            false,
-            () => createLoredeckCreatorProjectShelf(state, projectModels),
-            {
-                tooltip: 'Resume unfinished Generated Lorepacks from the staged Creator.',
-            }
-        );
-        markTourTarget(creatorSection, 'loredecks.creator.projects');
-        container.appendChild(creatorSection);
+    if (mobile) {
+        if (creatorProjects && !creatorProjects.count) container.appendChild(creatorProjects.section);
+        return;
     }
+
+    if (creatorProjects) container.appendChild(creatorProjects.section);
+}
+
+function createLoredeckCreatorProjectsSection(state = getState(), options = {}) {
+    const mobile = options.mobile === true;
+    const projectModels = getLoredeckCreatorProjectShelfModels(state);
+    const creatorSection = createCollapsibleSection(
+        mobile ? 'loredecks.creatorProjects.mobile' : 'loredecks.creatorProjects',
+        'In-Progress Creator Projects',
+        projectModels.length ? `${projectModels.length} unfinished` : 'none',
+        mobile && projectModels.length > 0,
+        () => createLoredeckCreatorProjectShelf(state, projectModels),
+        {
+            tooltip: 'Resume unfinished Generated Lorepacks from the staged Creator.',
+            className: mobile ? 'saga-loredeck-creator-projects-mobile-section' : '',
+        }
+    );
+    creatorSection.dataset.sagaCreatorProjectCount = String(projectModels.length);
+    markTourTarget(creatorSection, 'loredecks.creator.projects');
+    return {
+        section: creatorSection,
+        count: projectModels.length,
+    };
 }
 
 function getLoredeckLibraryLaunchSummary(state = getState(), canonDb = null, health = null) {

@@ -4572,6 +4572,8 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
     const initialState = await evaluate(client, script(() => {
         const root = document.querySelector('#saga-lore-panel');
         const text = document.body?.innerText || '';
+        const creatorSection = document.querySelector('[data-saga-tour="loredecks.creator.projects"]');
+        const libraryCard = document.querySelector('[data-saga-tour="loredecks.library.launch"].saga-loredeck-library-launch-card');
         const libraryActions = [...document.querySelectorAll('.saga-loredeck-library-launch-actions button')].map(node => (node.innerText || node.textContent || '').trim()).filter(Boolean);
         const stackDetailsHeaders = [...document.querySelectorAll('.saga-operator-summary-header-tappable, [data-saga-tour="loredecks.operator.details"]')]
             .map(node => ({
@@ -4589,7 +4591,13 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
             hasActiveStack: text.includes('Active Stack'),
             hasOpenLibrary: text.includes('Open Loredeck Library'),
             hasCreateDeck: text.includes('Create Deck'),
-            hasLibraryCard: !!document.querySelector('[data-saga-tour="loredecks.library.launch"].saga-loredeck-library-launch-card'),
+            hasLibraryCard: !!libraryCard,
+            hasCreatorProjectsSection: !!creatorSection,
+            creatorProjectsOpen: creatorSection?.matches('details[open]') || false,
+            creatorProjectCount: Number(creatorSection?.dataset?.sagaCreatorProjectCount || 0),
+            creatorProjectCards: document.querySelectorAll('.saga-loredeck-creator-project-card').length,
+            hasSeededCreatorProject: text.includes('Smoke Creator Project') || text.includes('Smoke Generated: Arlong Park'),
+            creatorSectionBeforeLibrary: !!creatorSection && !!libraryCard && !!(creatorSection.compareDocumentPosition(libraryCard) & Node.DOCUMENT_POSITION_FOLLOWING),
             hasStackDetailsHeader: stackDetailsHeaders.some(item => item.ariaLabel === 'Open Stack Details'
                 || item.tour === 'loredecks.operator.details'
                 || item.text.includes('Active Stack')),
@@ -4606,6 +4614,9 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
     }
     if (initialState.hasActiveStack || initialState.hasStackDetailsHeader) findings.push('Mobile Advanced Loredecks root still rendered the retired Active Stack summary or Stack Details affordance.');
     if (!initialState.hasLibraryCard || !initialState.hasOpenLibrary || !initialState.hasCreateDeck) findings.push('Mobile Advanced Loredecks root did not render the static Library card with Library and Creator actions.');
+    if (!initialState.hasCreatorProjectsSection || !initialState.creatorProjectsOpen || initialState.creatorProjectCount < 1 || initialState.creatorProjectCards < 1 || !initialState.hasSeededCreatorProject || !initialState.creatorSectionBeforeLibrary) {
+        findings.push(`Mobile Advanced Loredecks root did not show the in-progress Creator Projects shelf before the Library card: ${JSON.stringify(initialState)}.`);
+    }
     if (!initialState.libraryActions.includes('Open Loredeck Library') || !initialState.libraryActions.includes('Import Deck')) findings.push('Mobile Advanced Loredecks static Library card did not expose Library and Import actions.');
     if (initialState.libraryActions.some(label => /^Next:/.test(label))) findings.push('Mobile Advanced Loredecks root exposed checklist-style Next actions.');
     if (initialState.libraryActions.filter(label => label === 'Open Loredeck Library').length !== 1) findings.push('Mobile Advanced Loredecks duplicated the Open Loredeck Library action.');

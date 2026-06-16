@@ -457,9 +457,29 @@
 }
 
 .saga-lorecard-workspace-list-summary {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: space-between;
+    min-width: 0;
     padding: 3px 0;
     font-size: 13px;
     color: var(--saga-muted, rgba(226, 219, 207, 0.72));
+}
+
+.saga-lorecard-workspace-list-summary-count {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.saga-lorecard-workspace-list-summary-hint {
+    flex: 0 0 auto;
+    color: var(--saga-text-muted, rgba(239, 224, 194, 0.72));
+    font-size: 12px;
+    font-weight: 650;
+    white-space: nowrap;
 }
 
 .saga-lorecard-workspace-row {
