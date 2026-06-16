@@ -80,10 +80,10 @@ The opener stage bar should use compact step cards similar to Deck Maker:
 
 | Step | Label | Purpose | Durable output |
 | --- | --- | --- | --- |
-| 1 | `Inputs` | User prompt, Prose Style, Opening Shape, Character Focus, PoV/Tense, Target Length, Variants. | session `inputs` |
+| 1 | `Inputs` | User prompt, Prose Style, Opening Shape, Character Focus, PoV/Tense, Target Length, Variant Count. | session `inputs` |
 | 2 | `Context Packet` | Resolve the opener's source intent against latest available lore, then collect eligible facts, future exclusions, and salience. | `lastSourceResolution`, `snapshots.guardrailSummary`, and packet fingerprint |
 | 3 | `Opener Brief` | Reasoning Provider turns the packet into an inspectable writing brief. | brief record |
-| 4 | `Draft Variants` | Reasoning Provider writes one opener or three variants. | variant records |
+| 4 | `Draft Variants` | Reasoning Provider writes the requested 1-5 opener variants. | variant records |
 | 5 | `Review & Copy` | User selects a variant, revises if needed, and copies the final text. | active variant and copy metadata |
 
 The current-task card should name the next action in Creator style:
@@ -124,11 +124,11 @@ If the user wants to restore an older generated text, use Revision History. If t
 | --- | --- | --- |
 | User Prompt | empty | What the opener should accomplish. |
 | Prose Style | pre-populated from detected fandom/context | Editable free-text input or textarea. Clearing it means no prose-style guidance. |
-| Opening Shape | empty or last used | Text input with quick-populate buttons: `Scene-setting`, `Dialogue first`, `Action first`, `Introspective`, `Cold open`, `First message`. |
+| Opening Shape | `Scene Setting` | Dropdown presets: `Scene Setting`, `Dialogue first`, `Action first`, `Introspective`, `Cold open`, `Mystery hook`, plus `Custom` at the bottom. The custom text field is hidden unless `Custom` is selected. |
 | Character Focus | empty | Optional text box. The user can name one or more characters, factions, or relationships. |
-| PoV and Tense | `3rd person limited, past tense` | Editable text input with quick-populate buttons later if needed. |
+| PoV and Tense | `3rd person limited, past tense` | Separate three-piece segmented controls: PoV `1st`, `2nd`, `3rd`; Tense `Past`, `Present`, `Future`. |
 | Target Length | `Scene` | Three bands/flavors instead of exact word counts: `Hook`, `Scene`, `First Message`. |
-| Variants | off | When enabled, Saga generates three independent variants and shows them in a carousel. |
+| Variant Count | 1 | Slider from 1 to 5. Saga generates that many independent variants in one pass and shows them in a carousel. |
 
 The controls should remain visible while output is shown. Revision should be a first-class action on the same session, not a separate dialog.
 
@@ -294,7 +294,7 @@ The index should be a shelf and routing layer only. It should not carry generate
     "characterFocus": "",
     "povAndTense": "3rd person limited, past tense",
     "targetLength": "scene",
-    "variantsEnabled": false
+    "variantCount": 1
   },
   "snapshots": {
     "styleDetection": {},
@@ -742,7 +742,7 @@ The provider should preserve what works unless the revision prompt asks for a br
 
 ### Variants
 
-When Variants is enabled, Saga should run optional candidate refinement if needed, make one Opener Brief call, then make three independent opener-writing provider calls rather than asking one provider call for three variants.
+When Variant Count is above 1, Saga should run optional candidate refinement if needed, make one Opener Brief call, then make the requested number of independent opener-writing provider calls rather than asking one provider call for multiple variants.
 
 Reasons:
 
@@ -923,7 +923,7 @@ Revision history and Reset to Step have different jobs:
 - Opener Brief output uses the shared parse -> repair -> validate flow and never commits repaired facts that are not supported by the local Context packet.
 - Provider failures tell the user what failed and how to recover, especially when Reasoning Provider Max Tokens or model context limits are likely too low.
 - Revision history persists across reloads.
-- Variants produce three independently browseable outputs and preserve partial successes.
+- Variants produce 1-5 independently browseable outputs and preserve partial successes.
 - Context-gated future lore is excluded from prompt facts and represented as avoid constraints when needed.
 - Fresh high-salience discoveries near the selected Context can dominate the opener.
 - Missing or stale Context routes the user toward Browse Context instead of silently inventing certainty.

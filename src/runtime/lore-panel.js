@@ -1520,6 +1520,7 @@ configureAdvancedRuntimePanel({
     getInjectionCharacterStats,
     getSelectedLoreInjectionCount,
     markTourTarget,
+    navigateRuntimeTab,
     refreshPanelBody,
     refreshHeader,
 });

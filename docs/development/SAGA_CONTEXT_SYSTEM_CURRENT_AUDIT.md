@@ -1,6 +1,6 @@
 # Saga Context System Current Audit
 
-**SAGA: Fandom Loresystem.**
+**Saga: Fandom Loresystem.**
 
 This audit records the current Context implementation during the broader Context system overhaul. It is a baseline for the remaining detector, resolver, and UI work.
 

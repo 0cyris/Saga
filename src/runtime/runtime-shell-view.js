@@ -626,11 +626,11 @@ function renderRail(state) {
     const markImg = document.createElement('img');
     markImg.className = 'saga-runtime-rail-logo-img';
     markImg.src = getBrandLogoSrc(railMode, settings);
-    markImg.alt = railMode === 'compact' ? 'SAGA' : 'SAGA logo';
+    markImg.alt = railMode === 'compact' ? 'Saga' : 'Saga logo';
     markImg.draggable = false;
     markImg.addEventListener('error', () => {
         markImg.remove();
-        mark.textContent = railMode === 'compact' ? 'S' : 'SAGA';
+        mark.textContent = railMode === 'compact' ? 'S' : 'Saga';
         mark.classList.add('saga-runtime-rail-mark-fallback');
     }, { once: true });
     mark.appendChild(markImg);
@@ -899,7 +899,7 @@ export function refreshRuntimeRailIcons(panelRoot, settings = getSettings()) {
     const logo = panelRoot.querySelector('.saga-runtime-rail-logo-img');
     if (logo) {
         logo.src = getBrandLogoSrc(railMode, settings);
-        logo.alt = railMode === 'compact' ? 'SAGA' : 'SAGA logo';
+        logo.alt = railMode === 'compact' ? 'Saga' : 'Saga logo';
     }
     for (const tab of panelRoot.querySelectorAll('.saga-runtime-rail-tab[data-tab-id]')) {
         const tabId = tab.dataset.tabId;

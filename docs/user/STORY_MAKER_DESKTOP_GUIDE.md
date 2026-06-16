@@ -56,6 +56,8 @@ Story Maker uses a compact Deck Maker-style stage bar:
 
 Click an unlocked stage to inspect it. Locked stages show the dependency that must be completed first. Completed stages can show a reset control. Resetting to a stage clears later generated work for that opener, so use it when the source setup or direction changed enough that downstream text should be rebuilt.
 
+If no Loredeck stack is active, the **Context Packet** stage appears as **Add Loredecks**. Click it to open Loredecks, then add a Loredeck before building the packet.
+
 When a provider-backed Story Maker action is running, Story Maker shows a compact live generation status row under the stage bar. It names the current stage, shows the current generation message, and updates elapsed time while the run is queued, running, retrying, drafting, or revising. Keep the section open if you want to watch long runs progress; the generated stage card updates when the run finishes.
 
 ## Inputs
@@ -72,18 +74,19 @@ Fields:
 - **Prose Style**: tone, voice, pacing, and style guidance.
 - **User Prompt**: the concrete opening instruction.
 - **Character Focus**: characters or factions to emphasize.
-- **Opening Shape**: the structural kind of opener.
-- **PoV**: point of view guidance.
-- **Tense**: tense guidance.
+- **Opening Shape**: preset structural kind of opener. It defaults to **Scene Setting**. Choose **Custom** to reveal a custom shape field.
+- **PoV**: segmented point-of-view choice: **1st**, **2nd**, or **3rd**.
+- **Tense**: segmented tense choice: **Past**, **Present**, or **Future**.
 
-Opening-shape quick buttons help fill **Opening Shape**:
+Opening Shape presets:
 
-- **Scene-setting**
+- **Scene Setting**
 - **Dialogue first**
 - **Action first**
 - **Introspective**
 - **Cold open**
 - **Mystery hook**
+- **Custom**
 
 Length controls:
 
@@ -91,13 +94,15 @@ Length controls:
 - **Scene**: normal roleplay opener.
 - **Chapter**: longer setup.
 
-The **Variants** toggle controls whether Story Maker drafts one opener or multiple alternatives. When enabled, Story Maker asks for three opener variants after the brief.
+The **Variant Count** slider controls how many opener alternatives Story Maker drafts after the brief. Set it from **1** to **5** depending on how many options you want in one pass.
 
 Actions:
 
 - **Save Inputs**: saves the current fields without generating.
 - **Build Context Packet**: resolves current sources and builds the lore packet.
 - **Generate Full Pipeline**: builds packet, builds brief, and drafts opener variants in sequence.
+
+Story Maker disables provider-backed input actions while another provider-backed Story Maker action is running, so **Build Context Packet** and **Generate Full Pipeline** cannot overlap.
 
 Use **Save Inputs** before leaving the section if you have not generated yet.
 
@@ -158,7 +163,7 @@ Use **Build Opener Brief** when the packet is current but the writing plan has n
 
 The **Draft Variants** stage holds generated opener text.
 
-When variants are enabled, the stage shows **Variant A**, **Variant B**, and **Variant C** tabs. Click a variant to make it the selected opener. The selected variant is the one used by **Review & Copy** and the copy buttons.
+When more than one variant is drafted, the stage shows **Variant A**, **Variant B**, **Variant C**, and any additional variant tabs up to the selected count. Click a variant to make it the selected opener. The selected variant is the one used by **Review & Copy** and the copy buttons.
 
 Use **Draft Opener** to generate opener text from the brief. If the draft is not close enough, update the input fields or revise the selected variant instead of accepting a weak opening.
 
@@ -206,8 +211,8 @@ Common fixes:
 3. Accept any useful Lorecards in **Lorecards**.
 4. Open **Session > Story Maker**.
 5. Click **New Opener**.
-6. Fill **Context**, **Prose Style**, **User Prompt**, **Character Focus**, **Opening Shape**, **PoV**, **Tense**, and target length.
-7. Enable **Variants** if you want multiple options.
+6. Fill **Context**, **Prose Style**, **User Prompt**, **Character Focus**, **Opening Shape**, **PoV**, **Tense**, target length, and **Variant Count**.
+7. Set **Variant Count** above 1 if you want multiple options.
 8. Click **Generate Full Pipeline**.
 9. Review the Context Packet and Opener Brief if the output feels off.
 10. Choose the best variant.

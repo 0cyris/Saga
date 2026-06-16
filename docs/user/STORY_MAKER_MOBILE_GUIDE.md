@@ -43,6 +43,8 @@ The mobile section keeps the same stages as desktop, but the cards stack vertica
 
 Tap a stage to inspect it. If the stage is locked, finish the required earlier stage first. Reset controls appear on eligible completed stages and clear later generated work for that opener.
 
+If no Loredeck stack is active, the **Context Packet** stage becomes **Add Loredecks**. Tap it to open Loredecks, then add a Loredeck before returning to Story Maker.
+
 When Story Maker is waiting on the Reasoning Provider, a compact live generation status row appears under the stage bar. It shows the active stage, the generation message, and elapsed time. On mobile, keep the Session route open if you want to watch the row update during longer packet, brief, variant, or revision runs.
 
 ## Saved Openers
@@ -67,23 +69,27 @@ The **Inputs** card contains the same functional controls as desktop, arranged f
 - **Opening Shape**
 - **PoV**
 - **Tense**
-- opening-shape presets
 - target length buttons
-- **Variants**
+- **Variant Count**
 - **Save Inputs**
 - **Build Context Packet**
 - **Generate Full Pipeline**
 
 Use short, direct mobile input text. You can still write detailed instructions, but shorter fields are easier to review on a phone.
 
-Opening-shape presets:
+**Opening Shape** is a dropdown. It defaults to **Scene Setting**. Choose **Custom** at the bottom of the list only when you want to type a custom shape; the custom field stays hidden otherwise.
 
-- **Scene-setting**
+Opening Shape presets:
+
+- **Scene Setting**
 - **Dialogue first**
 - **Action first**
 - **Introspective**
 - **Cold open**
 - **Mystery hook**
+- **Custom**
+
+**PoV** uses **1st**, **2nd**, and **3rd** segmented buttons. **Tense** uses **Past**, **Present**, and **Future** segmented buttons.
 
 Target length:
 
@@ -92,6 +98,8 @@ Target length:
 - **Chapter**
 
 Use **Save Inputs** if you are setting up the opener over multiple passes. Use **Generate Full Pipeline** when the inputs are ready and you want Saga to run all stages in order.
+
+While a provider-backed Story Maker action is running, mobile disables the other provider-backed input action so **Build Context Packet** and **Generate Full Pipeline** cannot overlap.
 
 ## Source Controls
 
@@ -136,7 +144,7 @@ Use **Build Opener Brief** when the Context Packet is current and you want to re
 
 ## Draft Variants
 
-The **Draft Variants** card shows the generated opener text. If **Variants** was enabled, use the variant buttons to switch between alternatives.
+The **Draft Variants** card shows the generated opener text. If **Variant Count** is above 1, use the variant buttons to switch between alternatives.
 
 Only the selected variant is revised or copied. If Variant B is better than Variant A, tap **Variant B** before going to **Review & Copy**.
 
@@ -171,8 +179,8 @@ Tap **Copy Markdown to Clipboard** after the selected opener is ready when you w
 5. Open **Story Maker**.
 6. Tap **New Opener**.
 7. Fill the input fields.
-8. Choose a shape preset and length.
-9. Turn **Variants** on if you want alternatives.
+8. Choose an **Opening Shape**, length, and **Variant Count**.
+9. Set **Variant Count** above 1 if you want alternatives.
 10. Tap **Generate Full Pipeline**.
 11. Review the variants.
 12. Open **Review & Copy**.

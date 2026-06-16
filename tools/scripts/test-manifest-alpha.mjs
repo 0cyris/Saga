@@ -14,7 +14,7 @@ const readme = await readText('README.md');
 const alphaSystems = await readText('docs/development/SAGA_ALPHA_RELEASE_SYSTEMS.md');
 const releaseNotes = await readText(`docs/release/${manifest.version}.md`);
 
-assert.equal(manifest.display_name, 'SAGA', 'Manifest display_name should remain SAGA.');
+assert.equal(manifest.display_name, 'Saga', 'Manifest display_name should remain Saga.');
 assert.equal(manifest.key, 'saga', 'Manifest key should remain saga.');
 assert.match(
   manifest.version,

@@ -1,6 +1,6 @@
 # Saga Loredeck Schema Reference
 
-**SAGA: Fandom Loresystem.**
+**Saga: Fandom Loresystem.**
 
 ## Status
 

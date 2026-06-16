@@ -16,6 +16,7 @@ import {
 } from './story-opener-state.js';
 
 const STORY_OPENER_PROVIDER_KIND = 'lore';
+const STORY_OPENER_VARIANT_LETTERS = Object.freeze(['A', 'B', 'C', 'D', 'E']);
 
 function cloneJson(value) {
     return JSON.parse(JSON.stringify(value ?? null));
@@ -44,6 +45,11 @@ function uniqueStrings(value = [], limit = 80) {
 
 function compactPromptJson(value) {
     return JSON.stringify(value, null, 2);
+}
+
+function getStoryOpenerVariantLabel(index = 0) {
+    const numeric = Math.max(0, Math.floor(Number(index) || 0));
+    return `Variant ${STORY_OPENER_VARIANT_LETTERS[numeric] || String(numeric + 1)}`;
 }
 
 function stripReasoningBlocks(text = '') {
@@ -456,12 +462,26 @@ function normalizeOpenerText(text = '') {
 export async function writeStoryOpenerVariant(session = {}, packet = {}, brief = {}, variantIndex = 0, options = {}) {
     const revisionPrompt = normalizeStoryOpenerString(options.revisionPrompt, 5000);
     const { system, user } = buildOpenerPrompt(session, packet, brief, variantIndex, revisionPrompt);
+    const variantLabel = getStoryOpenerVariantLabel(variantIndex);
+    const actionLabel = `${revisionPrompt ? 'Revising' : 'Drafting'} ${variantLabel}`;
+    const emitVariantProgress = event => {
+        if (typeof options.onProgress !== 'function') return;
+        options.onProgress({
+            ...(event || {}),
+            stage: 'draft_variants',
+            variantIndex,
+            variantLabel,
+            label: actionLabel,
+            message: event?.message || 'Waiting for Reasoning Provider response.',
+        });
+    };
     try {
+        emitVariantProgress({ message: 'Contacting Reasoning Provider.' });
         const response = await sendLoreRequest(system, user, {
             providerKind: STORY_OPENER_PROVIDER_KIND,
             maxTokens: options.maxTokens || 4096,
             signal: options.signal,
-            onProgress: options.onProgress,
+            onProgress: emitVariantProgress,
         });
         const rawText = assertLoreResponseText(response, {
             providerTitle: 'Reasoning',
@@ -475,7 +495,7 @@ export async function writeStoryOpenerVariant(session = {}, packet = {}, brief =
                 failure: normalizeStoryOpenerFailure({
                     code: 'opener_empty_or_rejected',
                     stage: 'draft_variants',
-                    message: 'Reasoning Provider returned no usable plain opener text.',
+                    message: `${variantLabel} returned no usable plain opener text.`,
                     recovery: 'Retry Draft Variants; if repeated, lower Target Length or simplify Prose Style.',
                 }),
             };
@@ -484,7 +504,7 @@ export async function writeStoryOpenerVariant(session = {}, packet = {}, brief =
             ok: true,
             variant: {
                 id: `variant-${Date.now().toString(36)}-${variantIndex + 1}`,
-                label: `Variant ${String.fromCharCode(65 + variantIndex)}`,
+                label: variantLabel,
                 text,
                 prompt: user,
                 createdAt: Date.now(),
@@ -493,16 +513,20 @@ export async function writeStoryOpenerVariant(session = {}, packet = {}, brief =
             rawText,
         };
     } catch (error) {
+        const failure = normalizeProviderFailure(error, 'draft_variants');
         return {
             ok: false,
-            failure: normalizeProviderFailure(error, 'draft_variants'),
+            failure: normalizeStoryOpenerFailure({
+                ...failure,
+                message: `${variantLabel}: ${failure.message}`,
+            }),
         };
     }
 }
 
 export async function writeStoryOpenerVariants(session = {}, packet = {}, brief = {}, options = {}) {
     const normalized = normalizeStoryOpenerSession(session);
-    const count = normalized.controls.variantsEnabled ? 3 : 1;
+    const count = normalized.controls.variantCount;
     const tasks = Array.from({ length: count }, (_, index) => writeStoryOpenerVariant(normalized, packet, brief, index, options));
     const results = await Promise.all(tasks);
     const variants = results
@@ -532,4 +556,5 @@ export const __storyOpenerGenerationTestHooks = Object.freeze({
     parseStoryOpenerJsonResponse,
     normalizeOpenerText,
     normalizeBrief,
+    getStoryOpenerVariantLabel,
 });

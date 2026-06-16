@@ -17,7 +17,7 @@ export const THEMEPACK_PRESETS = Object.freeze([
     {
         id: 'saga-default',
         type: 'bundled',
-        title: 'SAGA Archive',
+        title: 'Saga Archive',
         description: 'Dark archive shelves, gold trim, parchment highlights, and polished fantasy UI.',
         author: 'Saga',
         version: '1.0.0',

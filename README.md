@@ -1,10 +1,10 @@
 <p align="center">
-  <img src="assets/branding/saga-banner-full.png" alt="SAGA: Fandom Loresystem">
+  <img src="assets/branding/saga-banner-full.png" alt="Saga: Fandom Loresystem">
 </p>
 
-# SAGA
+# Saga
 
-**SAGA: Fandom Loresystem.**
+**Saga: Fandom Loresystem.**
 
 Saga is a SillyTavern extension for long-form fanfiction and fandom roleplay, where canon timing, secrets, alternate branches, and durable story memory matter--addressing the 'lore-rich', but 'timeline-dumb' problem with LLMs, where they reveal secrets out of step, and create caricatures of beloved characters, poorly expressing them as they should act and exist in that moment in the story.
 
@@ -39,7 +39,7 @@ The current state of development is **alpha-release**: `0.1.0-alpha.1`, with min
    ```
 
 2. In SillyTavern, open **Extensions** and use **Install Extension** with the copied URL. Reload the page.
-3. Saga does not auto-open on first load. Open it from the **SAGA** extension dropdown: **Open SAGA Window**.
+3. Saga does not auto-open on first load. Open it from the **Saga** extension dropdown: **Open Saga Window**.
 4. Start in **Basic Workflow**. On desktop, go to the **Session** tab, follow **Session Readiness**, and consider viewing the **Basic Walkthrough** below it. On phone width, use the bottom navigation, start from **Session**, and tap the Session summary to open Session Details when you need the readiness checklist or walkthrough.
 
 For guided walkthroughs, see [Basic Workflow](docs/user/BASIC_WORKFLOW.md) and [Advanced Workflow](docs/user/ADVANCED_WORKFLOW.md). For full surface-by-surface guides with screenshots, see the [Saga for Desktop Operator's Manual](docs/user/DESKTOP_OPERATOR_MANUAL.md) and [Saga for Mobile Operator's Manual](docs/user/MOBILE_OPERATOR_MANUAL.md). For detailed authoring workflows, use the dedicated [Story Maker Desktop](docs/user/STORY_MAKER_DESKTOP_GUIDE.md), [Story Maker Mobile](docs/user/STORY_MAKER_MOBILE_GUIDE.md), [Deck Maker Desktop](docs/user/DECK_MAKER_DESKTOP_GUIDE.md), and [Deck Maker Mobile](docs/user/DECK_MAKER_MOBILE_GUIDE.md) guides.

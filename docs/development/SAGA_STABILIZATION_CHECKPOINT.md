@@ -1,6 +1,6 @@
 # Saga Stabilization Checkpoint
 
-**SAGA: Fandom Loresystem.**
+**Saga: Fandom Loresystem.**
 
 Terminology note: public-facing Saga language is now **Loredeck**, **Lorecard**, and **Deck Health**. Internal filenames, persisted keys, and compatibility tests still use `loredeck` names until the alias/migration pass.
 

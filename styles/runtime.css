@@ -265,13 +265,118 @@
     cursor: pointer;
 }
 
-.saga-toggle-card span:nth-child(2) {
+.saga-toggle-label {
     flex: 1;
+    min-width: 0;
 }
 
 .saga-toggle-state {
     opacity: 0.7;
     font-size: 0.78em;
+}
+
+.saga-toggle-card-switch {
+    position: relative;
+    display: grid;
+    grid-template-columns: 48px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 10px;
+    min-height: 42px;
+    border-color: var(--saga-border-soft, rgba(185, 139, 54, 0.24));
+    background:
+        linear-gradient(180deg, var(--saga-surface-2, rgba(38, 42, 52, 0.72)), var(--saga-button, rgba(18, 18, 24, 0.72)));
+    color: var(--saga-text, #f1ead8);
+    transition:
+        background 160ms ease,
+        border-color 160ms ease,
+        box-shadow 160ms ease,
+        transform 160ms ease;
+}
+
+.saga-toggle-card-switch:hover {
+    border-color: var(--saga-border-strong, rgba(215, 181, 109, 0.58));
+    background:
+        linear-gradient(180deg, var(--saga-button-hover, rgba(92, 23, 36, 0.42)), var(--saga-surface-2, rgba(38, 42, 52, 0.72)));
+}
+
+.saga-toggle-card-switch.saga-toggle-card-checked {
+    border-color: var(--saga-activate-soft, rgba(107, 255, 89, 0.56));
+    box-shadow:
+        0 0 0 1px color-mix(in srgb, var(--saga-activate, #6bff59) 20%, transparent) inset,
+        0 0 18px var(--saga-activate-surface, rgba(107, 255, 89, 0.18));
+}
+
+.saga-toggle-card-switch.saga-toggle-card-checked .saga-toggle-state {
+    color: var(--saga-activate, #6bff59);
+    opacity: 0.95;
+}
+
+.saga-toggle-switch-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.saga-toggle-switch-slider {
+    position: relative;
+    display: block !important;
+    width: 46px;
+    height: 26px;
+    border: 1px solid var(--saga-border-soft, rgba(185, 139, 54, 0.24));
+    border-radius: 999px;
+    background:
+        linear-gradient(180deg, var(--saga-button, rgba(18, 18, 24, 0.72)), var(--saga-input, rgba(10, 12, 16, 0.92)));
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--saga-gold, #d7b56d) 8%, transparent) inset;
+    pointer-events: none;
+    transition:
+        background 160ms ease,
+        border-color 160ms ease,
+        box-shadow 160ms ease;
+}
+
+.saga-toggle-switch-slider::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 18px;
+    height: 18px;
+    border-radius: 999px;
+    background: var(--saga-muted, rgba(241, 234, 216, 0.68));
+    box-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.38),
+        0 0 0 1px color-mix(in srgb, var(--saga-text, #f1ead8) 10%, transparent) inset;
+    transition:
+        transform 180ms cubic-bezier(0.22, 1, 0.36, 1),
+        background 160ms ease,
+        box-shadow 160ms ease;
+}
+
+.saga-toggle-switch-input:checked + .saga-toggle-switch-slider {
+    border-color: var(--saga-activate-soft, rgba(107, 255, 89, 0.56));
+    background:
+        radial-gradient(circle at 76% 50%, var(--saga-activate-surface, rgba(107, 255, 89, 0.18)) 0%, transparent 72%),
+        linear-gradient(180deg, var(--saga-activate-hover, rgba(107, 255, 89, 0.34)), var(--saga-button, rgba(18, 18, 24, 0.72)));
+    box-shadow:
+        0 0 0 1px color-mix(in srgb, var(--saga-activate, #6bff59) 24%, transparent) inset,
+        0 0 12px var(--saga-activate-glow, rgba(107, 255, 89, 0.48));
+}
+
+.saga-toggle-switch-input:checked + .saga-toggle-switch-slider::after {
+    transform: translateX(20px);
+    background:
+        radial-gradient(circle at 38% 28%, #ffffff 0 12%, color-mix(in srgb, var(--saga-activate, #6bff59) 32%, #ffffff) 18%, var(--saga-activate, #6bff59) 58%, color-mix(in srgb, var(--saga-activate, #6bff59) 72%, var(--saga-input, #101014)) 100%);
+    box-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.42),
+        0 0 0 1px color-mix(in srgb, var(--saga-activate, #6bff59) 28%, #ffffff) inset,
+        0 0 12px var(--saga-activate-glow-strong, rgba(107, 255, 89, 0.72));
+}
+
+.saga-toggle-switch-input:focus-visible + .saga-toggle-switch-slider {
+    outline: 2px solid var(--saga-focus, #ffeaa7);
+    outline-offset: 2px;
 }
 
 .saga-mode-buttons,
@@ -2084,6 +2189,19 @@
     opacity: 0.58;
 }
 
+.saga-story-opener-stage-action {
+    opacity: 1;
+}
+
+.saga-story-opener-stage-action-add_loredecks {
+    border-color: var(--saga-border-strong, rgba(215, 181, 109, 0.58));
+    background: var(--saga-gold-surface, rgba(185, 139, 54, 0.12));
+}
+
+.saga-story-opener-stage-action-add_loredecks .saga-loredeck-creator-stage-label {
+    color: var(--saga-gold, #d7b56d);
+}
+
 .saga-loredeck-creator-current-task {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(270px, 0.34fr);
@@ -2679,11 +2797,17 @@
 }
 
 .saga-story-opener-generation-status .saga-generation-live-label {
-    max-width: 7rem;
+    max-width: 14rem;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
 }
 
 .saga-story-opener-generation-status .saga-generation-live-text {
     min-width: 0;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
 }
 
 .saga-story-opener-stage-list .saga-loredeck-creator-stage-item {
@@ -2743,11 +2867,6 @@
     font-weight: 800;
 }
 
-.saga-story-opener-shape-select-field {
-    display: none;
-}
-
-.saga-story-opener-quick-row,
 .saga-story-opener-length-row,
 .saga-story-opener-source-actions,
 .saga-story-opener-carousel-nav {
@@ -2776,6 +2895,56 @@
 
 .saga-story-opener-review-actions .saga-runtime-button {
     flex: 1 1 150px;
+}
+
+.saga-story-opener-field-hidden {
+    display: none;
+}
+
+.saga-story-opener-custom-shape-field {
+    grid-column: 1 / -1;
+}
+
+.saga-story-opener-segmented-control {
+    min-width: 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+}
+
+.saga-story-opener-segmented-control .saga-mode-button {
+    min-height: 34px;
+    padding-inline: 8px;
+}
+
+.saga-story-opener-variant-count-control {
+    display: grid;
+    gap: 5px;
+    min-width: 0;
+    border: 1px solid var(--saga-border-soft, rgba(185, 139, 54, 0.18));
+    border-radius: 7px;
+    background: var(--saga-input, rgba(18, 18, 24, 0.66));
+    padding: 8px;
+}
+
+.saga-story-opener-variant-count-readout {
+    color: var(--saga-text, #f1ead8);
+    font-size: 0.82rem;
+    font-weight: 800;
+}
+
+.saga-story-opener-variant-count-slider {
+    width: 100%;
+    min-width: 0;
+    accent-color: var(--saga-gold, #d7b56d);
+}
+
+.saga-story-opener-variant-count-scale {
+    display: flex;
+    justify-content: space-between;
+    color: var(--saga-muted, rgba(241, 234, 216, 0.68));
+    font-size: 0.72rem;
+    line-height: 1.2;
 }
 
 .saga-story-opener-checkbox {
@@ -3078,14 +3247,6 @@
 
 .saga-runtime-mobile .saga-story-opener-input-grid {
     grid-template-columns: minmax(0, 1fr);
-}
-
-.saga-runtime-mobile .saga-story-opener-shape-select-field {
-    display: grid;
-}
-
-.saga-runtime-mobile .saga-story-opener-quick-row {
-    display: none;
 }
 
 .saga-runtime-mobile .saga-story-opener-panel .saga-story-opener-stage-list {

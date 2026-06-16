@@ -24,7 +24,7 @@ export function createThemeEmblem(preset, colors, options = {}) {
     const emblem = document.createElement('div');
     emblem.className = `saga-theme-emblem${options.large ? ' saga-theme-emblem-large' : ''}`;
     applyThemePreviewVariables(emblem, colors);
-    const initials = String(preset?.title || preset?.id || 'SAGA')
+    const initials = String(preset?.title || preset?.id || 'Saga')
         .split(/[^A-Za-z0-9]+/)
         .filter(Boolean)
         .slice(0, 2)
@@ -104,7 +104,7 @@ export function createActiveThemePanel(activePreset, settings = {}, colors = {},
     main.className = 'saga-theme-active-main';
     const title = document.createElement('div');
     title.className = 'saga-theme-active-title';
-    title.textContent = activePreset?.title || 'SAGA Archive';
+    title.textContent = activePreset?.title || 'Saga Archive';
     main.appendChild(title);
     const chips = document.createElement('div');
     chips.className = 'saga-loredeck-row-meta';

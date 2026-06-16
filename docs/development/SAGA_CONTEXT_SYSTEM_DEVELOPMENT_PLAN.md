@@ -1,6 +1,6 @@
 # Saga Context System Development Plan
 
-**SAGA: Fandom Loresystem.**
+**Saga: Fandom Loresystem.**
 
 ## Purpose
 

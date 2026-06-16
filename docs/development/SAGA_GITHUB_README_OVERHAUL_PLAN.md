@@ -17,11 +17,11 @@ The README pacing target is a light opener, quick setup, visual feature tour, th
 
 ### 1. Banner And Identity
 
-Keep the existing banner and `# SAGA` heading.
+Keep the existing banner and `# Saga` heading.
 
 Opening copy should be short:
 
-- One-line identity: `SAGA: Fandom Loresystem.`
+- One-line identity: `Saga: Fandom Loresystem.`
 - One paragraph: Saga is a SillyTavern extension for long-form fandom roleplay and fanfiction that keeps lore modular, contextual, reviewable, and prompt-ready.
 - One paragraph: Saga is not a wiki viewer or a preset. It is a runtime lore system for deciding what lore applies now.
 

@@ -4,7 +4,7 @@
 
 import { runRuntimeAction } from '../runtime/runtime-actions.js';
 
-function createSagaCompassIcon() {
+export function createSagaCompassIcon() {
     const icon = document.createElement('i');
     icon.className = 'fa-solid fa-compass saga-extensions-menu-icon';
     icon.setAttribute('aria-hidden', 'true');
@@ -26,10 +26,10 @@ export function installExtensionsMenuButton() {
     const btn = document.createElement('div');
     btn.id = 'saga-extensions-menu-button';
     btn.className = 'list-group-item flex-container flexGap5 interactable';
-    btn.title = 'Open the SAGA runtime window.';
+    btn.title = 'Open the Saga runtime window.';
 
     const label = document.createElement('span');
-    label.textContent = 'SAGA';
+    label.textContent = 'Saga';
     btn.append(createSagaCompassIcon(), label);
 
     btn.addEventListener('click', () => {

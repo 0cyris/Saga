@@ -326,7 +326,7 @@ The Global summary rows refresh from Saga's cleanup preview. **Cleanup file scop
 
 Saga does not migrate old settings-backed payloads in this pre-alpha line. If stale payloads from an older local build remain in settings, use **Total Saga Cleanup** for a full reset or reinstall Saga with a clean state.
 
-Use **Total Saga Cleanup** only when you want a fresh Saga state. It requires typing `DELETE SAGA`, removes stored Saga API keys, deletes custom/imported/generated Loredecks, deletes Deck Maker projects and custom appearance packs, resets the current chat's Saga state, and clears State Safety backups. Bundled content remains available, and Saga recreates storage indexes when new custom content is imported or saved. If cleanup partially fails, Saga leaves one compact State Safety warning in the reset chat so the retry reason remains visible; in Basic, switch to Advanced and open State Safety before retrying.
+Use **Total Saga Cleanup** only when you want a fresh Saga state. It requires typing `DELETE Saga`, removes stored Saga API keys, deletes custom/imported/generated Loredecks, deletes Deck Maker projects and custom appearance packs, resets the current chat's Saga state, and clears State Safety backups. Bundled content remains available, and Saga recreates storage indexes when new custom content is imported or saved. If cleanup partially fails, Saga leaves one compact State Safety warning in the reset chat so the retry reason remains visible; in Basic, switch to Advanced and open State Safety before retrying.
 
 For the full storage contract, see [Storage And State Safety](STORAGE_AND_STATE_SAFETY.md).
 

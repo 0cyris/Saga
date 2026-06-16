@@ -398,7 +398,7 @@ Sub-tab bar behavior:
 - Appears only when the active main bottom route is `Lorecards`.
 - Animates up/out from the Lorecards tab area and settles above the fixed bottom
   nav.
-- Uses the same SAGA Archive/Saga Hero visual language as the main nav, with a
+- Uses the same Saga Archive/Saga Hero visual language as the main nav, with a
   lower visual weight than the primary route bar.
 - May show compact count badges for each sub-tab.
 - Uses accessible tab semantics and exposes the selected tab state.
@@ -656,7 +656,7 @@ state.
 - Avoid nested cards inside cards.
 - Avoid desktop resize handles, transfer panes, and drag affordances unless a
   mobile mode explicitly needs them.
-- Keep SAGA Archive and Saga Hero visual direction: dark archive surfaces, warm
+- Keep Saga Archive and Saga Hero visual direction: dark archive surfaces, warm
   gold selection marks, restrained data accents.
 - Use stable card dimensions where possible, but allow object cards to grow when
   text needs room.
@@ -904,7 +904,7 @@ The redesign is successful when:
 - Tap-hold paths have visible accessible alternatives.
 - Rendered smoke screenshots show object-first surfaces rather than toolbar rows
   and desktop panes.
-- The UI still reads as SAGA Archive and Saga Hero, not a generic mobile shell.
+- The UI still reads as Saga Archive and Saga Hero, not a generic mobile shell.
 
 ## Anti-Patterns
 
@@ -942,4 +942,4 @@ These should be resolved during implementation, not left to ad hoc UI choices:
 - Making tap-hold the only access path for details or editing.
 - Replacing the fixed bottom bar.
 - Reordering the main mobile tabs.
-- Re-skinning Saga away from SAGA Archive and Saga Hero.
+- Re-skinning Saga away from Saga Archive and Saga Hero.

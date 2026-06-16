@@ -452,7 +452,7 @@ Add or extend smoke assertions for:
 ## Non-Goals
 
 - Reordering the main mobile tabs.
-- Replacing the SAGA Archive / Saga Hero visual direction.
+- Replacing the Saga Archive / Saga Hero visual direction.
 - Removing desktop tooltips from desktop pointer contexts.
 - Removing all buttons from mobile.
 - Building native mobile app behavior outside the web extension shell.

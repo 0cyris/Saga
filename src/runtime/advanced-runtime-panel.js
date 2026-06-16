@@ -49,6 +49,7 @@ function createCollapsibleSection(...args) { return dep('createCollapsibleSectio
 function getInjectionCharacterStats(state, settings) { return dep('getInjectionCharacterStats', () => ({ totalChars: 0, totalTokens: 0 }))(state, settings); }
 function getSelectedLoreInjectionCount(state, settings) { return dep('getSelectedLoreInjectionCount', () => 0)(state, settings); }
 function markTourTarget(element, target) { return dep('markTourTarget', value => value)(element, target); }
+function navigateRuntimeTab(tabId, options = {}) { return dep('navigateRuntimeTab', () => false)(tabId, options); }
 function refreshPanelBody(options = {}) { return dep('refreshPanelBody', () => null)(options); }
 function refreshHeader() { return dep('refreshHeader', () => null)(); }
 
@@ -59,7 +60,7 @@ function createStoryOpenerSessionSection(state, options = {}) {
         'Story Maker',
         'Create, revise, and copy lore-aware opening prose from the active Saga setup.',
         options.defaultOpen === true,
-        createStoryOpenerCreatorSection(state, { refreshPanelBody, markTourTarget }),
+        createStoryOpenerCreatorSection(state, { refreshPanelBody, markTourTarget, navigateRuntimeTab }),
         {
             tooltip: 'Use active Loredecks, Context, and accepted Lorecards to build a first message or chat opener through the Reasoning Provider.',
             className: 'saga-story-opener-section',
@@ -152,6 +153,11 @@ function createSagaActiveSection(settings = getSettings()) {
             saveSettings(next);
             refreshPanelBody({ preserveScroll: false });
             refreshHeader();
+        },
+        {
+            variant: 'switch',
+            className: 'saga-session-active-toggle-card',
+            stateLabels: { checked: 'Active', unchecked: 'Paused' },
         }
     ), 'session.active'));
     return toggles;

@@ -68,7 +68,7 @@ assert(operatorManual.includes('If cleanup partially fails') && operatorManual.i
 assert(storageAndStateSafetyDoc.includes('Cleanup file scope') && storageAndStateSafetyDoc.includes('tracked files, known index files, additional referenced files, and Health repair sessions') && storageAndStateSafetyDoc.includes('Unknown unindexed orphan files'), 'Storage and State Safety docs must explain the Global Danger Zone cleanup file-scope row and orphan-file boundary.');
 assert(operatorManual.includes('Cleanup file scope') && operatorManual.includes('tracked files, known index files, additional referenced files, and Health repair sessions') && operatorManual.includes('not an orphan-file scan'), 'Operator Manual must explain the Global Danger Zone cleanup file-scope row and its scan boundary.');
 assert(runtimeSafetyPanel.includes('promptTextAction'), 'Total Saga Cleanup must use typed confirmation.');
-assert(runtimeSafetyPanel.includes('DELETE SAGA'), 'Total Saga Cleanup must require explicit typed confirmation text.');
+assert(runtimeSafetyPanel.includes('DELETE Saga'), 'Total Saga Cleanup must require explicit typed confirmation text.');
 assert(runtimeSafetyPanel.includes('tracked Saga-owned custom content') && runtimeSafetyPanel.includes('Unknown unindexed orphan files that Saga cannot see through its indexes may remain'), 'Total Saga Cleanup confirmation must disclose that cleanup is limited to tracked/known/referenced files.');
 assert(!runtimeSafetyPanel.includes('Custom Theme/Icon cleanup is planned next.'), 'Theme/Icon cleanup action must not remain a disabled placeholder.');
 assert(!runtimeSafetyPanel.includes('Custom Loredeck cleanup is planned next.'), 'Loredeck cleanup action must not remain a disabled placeholder.');

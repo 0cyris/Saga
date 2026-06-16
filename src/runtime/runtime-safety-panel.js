@@ -410,7 +410,7 @@ function formatTotalCleanupPreview(preview = {}) {
 }
 
 async function runTotalSagaCleanupFromButton(button) {
-    const phrase = 'DELETE SAGA';
+    const phrase = 'DELETE Saga';
     await runBusyAction(button, 'Checking...', async ({ setText }) => {
         setText('Checking storage...');
         const preview = await buildSagaGlobalCleanupPreview();
@@ -427,7 +427,7 @@ async function runTotalSagaCleanupFromButton(button) {
             }
         );
         if (entered === null) return;
-        if (String(entered || '').trim().toUpperCase() !== phrase) {
+        if (String(entered || '').trim().toUpperCase() !== phrase.toUpperCase()) {
             toast('Total Saga Cleanup cancelled. Confirmation text did not match.', 'warning');
             return;
         }

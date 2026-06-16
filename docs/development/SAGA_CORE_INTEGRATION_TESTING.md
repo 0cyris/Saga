@@ -1,6 +1,6 @@
 # Saga Core Integration Testing
 
-**SAGA: Fandom Loresystem.**
+**Saga: Fandom Loresystem.**
 
 ## Purpose
 

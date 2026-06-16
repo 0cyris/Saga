@@ -1588,7 +1588,7 @@ Entry format:
 
 #### 2026-06-14 01:03 MT - Mobile Visual Identity Coverage
 
-- Completed: Added Agent 3-owned static coverage for the mobile visual identity portion of Phase 7, and updated the visual smoke runbook to name the SAGA Archive mobile treatment and rendered Saga Hero icon follow-up.
+- Completed: Added Agent 3-owned static coverage for the mobile visual identity portion of Phase 7, and updated the visual smoke runbook to name the Saga Archive mobile treatment and rendered Saga Hero icon follow-up.
 - Notes: The harness now guards fresh-install `saga-default`/`saga-hero` defaults, the runtime theme default IDs/titles, the mobile shell's gold plus data-accent background treatment, warm active bottom-tab styling, and the active Saga Hero icon glow. This is verification coverage only; it does not redefine Agent 1 shell primitives or Agent 2 lifecycle behavior, and it does not need an `Agent 1 Request`.
 - Dependencies: No source changes are requested from Agent 1 or Agent 2. Rendered icon/style confirmation remains environment-blocked until Browser support is restored.
 - Verification: `node --check tools\scripts\test-visual-smoke-harness.mjs`, `node tools\scripts\test-visual-smoke-harness.mjs`, and focused `git diff --check -- docs/development/SAGA_VISUAL_SMOKE.md tools/scripts/test-visual-smoke-harness.mjs` passed with only CRLF normalization warnings; `Test-Path C:\Users\Keptin\.codex\plugins\cache\openai-bundled\browser\26.609.41114\scripts\browser-client.mjs` returned `False`.
@@ -1797,7 +1797,7 @@ Entry format:
 #### 2026-06-14 02:22 MT - Mobile Visual Identity Matrix Detail
 
 - Completed: Re-read Agent 2's `Mobile Root Stage Recommendation` and `Post-Root-Stage Verification` updates, then audited the feature-plan visual review requirement. Tightened the Agent 3 visual smoke runbook and static contract so rendered verification explicitly carries hybrid mythic-tech/source-franchise-free styling.
-- Notes: The harness now links the rendered visual-review wording to existing SAGA Archive, Saga Hero, warm gold/data-accent, and active icon-glow source checks, and guards the mobile shell visual sources against source-franchise, generic sci-fi, generic SaaS, and pure cyberpunk cues. This is verification coverage only and no shell/navigation/state/layout/token defect needed an `Agent 1 Request`.
+- Notes: The harness now links the rendered visual-review wording to existing Saga Archive, Saga Hero, warm gold/data-accent, and active icon-glow source checks, and guards the mobile shell visual sources against source-franchise, generic sci-fi, generic SaaS, and pure cyberpunk cues. This is verification coverage only and no shell/navigation/state/layout/token defect needed an `Agent 1 Request`.
 - Dependencies: No source changes are requested from Agent 1 or Agent 2. Rendered visual review remains environment-blocked until Browser support is restored.
 - Verification: `node --check tools\scripts\test-visual-smoke-harness.mjs`, `node tools\scripts\test-visual-smoke-harness.mjs`, `node tools\scripts\serve-visual-smoke.mjs --check --port 0`, focused `git diff --check -- docs/development/SAGA_MOBILE_SUPPORT_PARALLELIZATION_ADDENDUM.md docs/development/SAGA_VISUAL_SMOKE.md tools/scripts/test-visual-smoke-harness.mjs`, and `node tools\scripts\run-alpha-gate.mjs` passed with only CRLF normalization warnings after narrowing the forbidden-cue static guard to mobile shell visual sources; `Test-Path C:\Users\Keptin\.codex\plugins\cache\openai-bundled\browser\26.609.41114\scripts\browser-client.mjs` returned `False`.
 - Next: Rerun the rendered mobile matrix once Browser support is restored, with hybrid mythic-tech/source-franchise-free styling included in the visual review.
@@ -1948,7 +1948,7 @@ All agents must preserve these decisions:
 - Mobile bottom bar order: `Loredecks | divider | Session | Context | Lorecards | More`.
 - The divider after **Loredecks** is visual spacing, not a sixth tab.
 - Mobile shell target widths: `360px`, `390px`, `430px`, and `768px` tablet sanity.
-- Visual direction: `SAGA Archive` dark shell, `Saga Hero` icon language, hybrid mythic-tech styling.
+- Visual direction: `Saga Archive` dark shell, `Saga Hero` icon language, hybrid mythic-tech styling.
 - Avoid fandom-specific fantasy styling, generic sci-fi dashboards, and generic SaaS visuals.
 - Primary mobile tabs are summary-first operator screens.
 - No phone-width screen should require side-by-side desktop panes.
@@ -2114,7 +2114,7 @@ Agent 0 captured this baseline before any mobile feature implementation began.
 - Mobile bottom bar order is `Loredecks | divider | Session | Context | Lorecards | More`.
 - The divider after `Loredecks` is visual spacing, not a tab stop.
 - Mobile viewport targets are `360px`, `390px`, `430px`, and `768px` tablet sanity.
-- Visual identity is `SAGA Archive` dark shell plus `Saga Hero` icon language, with hybrid mythic-tech surfaces, warm gold linework, and restrained teal/cyan signal accents.
+- Visual identity is `Saga Archive` dark shell plus `Saga Hero` icon language, with hybrid mythic-tech surfaces, warm gold linework, and restrained teal/cyan signal accents.
 - Context labels must stay exact where they appear: `Start Here`, `Use Window`, `Use Anchor`, `After`, `Before`, `Timeline`, `Phrase Resolver`.
 - Lorecards lifecycle labels are `Capture / Suggest -> Pending Review -> Accepted Lorecards -> Active Set`; keep `Accepted Lorecards` visible unless the whole product deliberately renames it.
 
@@ -2208,7 +2208,7 @@ Agent 3 owns the final matrix, but all agents should keep these checks in mind:
 - Verify Lorecards lifecycle reachability: `Capture / Suggest`, `Pending Review`, `Accepted Lorecards`, and `Active Set`.
 - Verify Context controls preserve `Start Here`, `Use Window`, `Use Anchor`, `After`, `Before`, `Timeline`, and `Phrase Resolver`.
 - Verify desktop rail/drawer behavior still works at desktop widths after mobile shell changes.
-- Verify `Saga Hero` icons render for bottom-bar/header entry points and the shell remains `SAGA Archive`/hybrid mythic-tech rather than generic SaaS or generic sci-fi.
+- Verify `Saga Hero` icons render for bottom-bar/header entry points and the shell remains `Saga Archive`/hybrid mythic-tech rather than generic SaaS or generic sci-fi.
 
 ### Agent 0 Checks
 
@@ -2268,7 +2268,7 @@ Replace the phone-width desktop rail/drawer behavior with reusable mobile primit
 - Subview stack primitive.
 - Mobile close/back behavior.
 - Mobile touch-density tokens.
-- `SAGA Archive` and `Saga Hero` visual treatment for shell icons and active states.
+- `Saga Archive` and `Saga Hero` visual treatment for shell icons and active states.
 - Desktop shell behavior preserved outside the mobile breakpoint.
 
 ### Do Not Own
@@ -2310,7 +2310,7 @@ Agent 1 implemented the shared shell foundation that Agent 2 and Agent 3 should 
 - `src/runtime/runtime-shell-view.js`: mobile render path, header, bottom bar, More sheet, mobile error shell, and mobile Escape handling.
 - `src/runtime/lore-panel.js`: full shell rerendering when crossing the mobile breakpoint.
 - `src/state/default-state.js` and `src/state/state-manager.js`: default and normalized `lorePanel.mobile` state.
-- `styles/tokens.css` and `styles/layout.css`: shared mobile touch tokens and SAGA Archive mobile shell styling.
+- `styles/tokens.css` and `styles/layout.css`: shared mobile touch tokens and Saga Archive mobile shell styling.
 
 ### Final Class And Selector Names
 

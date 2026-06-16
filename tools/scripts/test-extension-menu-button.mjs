@@ -141,14 +141,14 @@ assert(button, 'Saga should install a quick-bar menu button.');
 assert.equal(fakeDocument.getElementById('extensionsMenuDefault'), null, 'Saga should remove the default placeholder.');
 assert.equal(menu.children.includes(button), true, 'Saga button should be appended to the extensions menu.');
 assert.equal(button.className, 'list-group-item flex-container flexGap5 interactable');
-assert.equal(button.title, 'Open the SAGA runtime window.');
+assert.equal(button.title, 'Open the Saga runtime window.');
 
 const [icon, label] = button.children;
 assert.equal(icon.tagName, 'i', 'Saga quick-bar icon should use SillyTavern-style Font Awesome markup.');
 assert.equal(icon.className, 'fa-solid fa-compass saga-extensions-menu-icon');
 assert.equal(icon.getAttribute('aria-hidden'), 'true');
 assert.equal(label.tagName, 'span');
-assert.equal(label.textContent, 'SAGA');
+assert.equal(label.textContent, 'Saga');
 
 button.click();
 assert.equal(openCount, 1, 'Saga quick-bar button should open the runtime window.');

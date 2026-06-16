@@ -1,6 +1,6 @@
 # Saga Terminology
 
-**SAGA: Fandom Loresystem.**
+**Saga: Fandom Loresystem.**
 
 This document records the public terminology for Saga after the Loredeck/Lore Entry rename.
 

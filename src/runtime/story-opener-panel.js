@@ -41,10 +41,16 @@ import {
     normalizeStoryOpenerControls,
     normalizeStoryOpenerFailure,
     normalizeStoryOpenerSession,
+    normalizeStoryOpenerVariantCount,
     recordStoryOpenerRun,
     resetStoryOpenerToStage,
+    STORY_OPENER_DEFAULT_OPENING_SHAPE,
     STORY_OPENER_OPENING_SHAPES,
+    STORY_OPENER_POV_OPTIONS,
     STORY_OPENER_TARGET_LENGTHS,
+    STORY_OPENER_TENSE_OPTIONS,
+    STORY_OPENER_VARIANT_COUNT_MAX,
+    STORY_OPENER_VARIANT_COUNT_MIN,
 } from '../story-openers/story-opener-state.js';
 
 const openerUiState = {
@@ -54,8 +60,6 @@ const openerUiState = {
     revisionPrompt: '',
 };
 
-const STORY_OPENER_BUSY_WORDS = Object.freeze(['Making', 'Crafting', 'Writing', 'Polishing', 'Revising', 'Thinking']);
-const STORY_OPENER_BUSY_WORD_INTERVAL_MS = 7000;
 const STORY_OPENER_GENERATION_STATUSES = new Set(['queued', 'running', 'retrying']);
 const STORY_OPENER_STAGE_LABELS = Object.freeze({
     inputs: 'Inputs',
@@ -64,6 +68,7 @@ const STORY_OPENER_STAGE_LABELS = Object.freeze({
     draft_variants: 'Draft Variants',
     review_copy: 'Review & Copy',
 });
+const STORY_OPENER_CUSTOM_OPENING_SHAPE = '__custom__';
 
 let storyOpenerGenerationTicker = null;
 
@@ -90,14 +95,18 @@ function getStoryOpenerRunStartedAt(run = {}, now = Date.now()) {
     return Number.isFinite(startedAt) && startedAt > 0 ? startedAt : now;
 }
 
-function getStoryOpenerBusyWord(startedAt = Date.now(), now = Date.now()) {
-    const elapsed = Math.max(0, Number(now) - Number(startedAt || now));
-    const index = Math.floor(elapsed / STORY_OPENER_BUSY_WORD_INTERVAL_MS) % STORY_OPENER_BUSY_WORDS.length;
-    return `${STORY_OPENER_BUSY_WORDS[index] || STORY_OPENER_BUSY_WORDS[0]}...`;
+function getStoryOpenerGenerationLabel(run = {}) {
+    return String(run.label || getStoryOpenerStageLabel(run.stage)).trim() || 'Story Maker generation';
 }
 
 function getStoryOpenerGenerationMessage(run = {}) {
-    return String(run.message || run.label || 'Waiting on Story Maker generation.').trim() || 'Waiting on Story Maker generation.';
+    const message = String(run.message || '').trim();
+    if (message) return message;
+    const label = getStoryOpenerGenerationLabel(run);
+    if (run.stage === 'context_packet') return 'Resolving active Loredecks, Context, and guardrails.';
+    if (run.stage === 'opener_brief') return 'Turning the Context Packet into opener instructions.';
+    if (run.stage === 'draft_variants') return 'Writing opener text with the Reasoning Provider.';
+    return label || 'Waiting on Story Maker generation.';
 }
 
 function getStoryOpenerGenerationMeta(run = {}) {
@@ -111,7 +120,7 @@ function updateStoryOpenerGenerationStatusRows(now = Date.now()) {
     for (const row of rows) {
         const startedAt = getStoryOpenerRunStartedAt({ startedAt: row.dataset.sagaStoryOpenerGenerationStartedAt }, now);
         const label = row.querySelector('.saga-generation-live-label');
-        if (label) label.textContent = getStoryOpenerBusyWord(startedAt, now);
+        if (label) label.textContent = row.dataset.sagaStoryOpenerGenerationLabel || 'Story Maker generation';
         const text = row.querySelector('.saga-generation-live-text');
         if (text) text.textContent = row.dataset.sagaStoryOpenerGenerationMessage || 'Waiting on Story Maker generation.';
         const elapsed = row.querySelector('.saga-generation-live-elapsed');
@@ -255,6 +264,85 @@ function createSelectInput(options = [], value = '') {
     }
     select.value = value || '';
     return select;
+}
+
+function getStoryOpenerOpeningShapeMode(value = '') {
+    const clean = String(value || '').trim();
+    return STORY_OPENER_OPENING_SHAPES.includes(clean) ? clean : STORY_OPENER_CUSTOM_OPENING_SHAPE;
+}
+
+function setStoryOpenerFieldHidden(field, hidden = false) {
+    if (!field) return;
+    field.hidden = !!hidden;
+    field.classList.toggle('saga-story-opener-field-hidden', !!hidden);
+}
+
+function createSegmentedChoiceControl(options = [], value = '', className = '') {
+    const control = document.createElement('div');
+    control.className = `saga-story-opener-segmented-control ${className}`.trim();
+    const fallback = options[0]?.value || '';
+    const ref = {
+        value: options.some(option => option.value === value) ? value : fallback,
+    };
+    for (const option of options) {
+        const button = createButton(option.label, option.description || `Use ${option.value}.`, btn => {
+            ref.value = option.value;
+            for (const sibling of control.querySelectorAll('.saga-mode-button')) sibling.classList.remove('saga-mode-button-active');
+            btn.classList.add('saga-mode-button-active');
+        }, 'saga-mode-button');
+        button.type = 'button';
+        button.dataset.storyOpenerChoiceValue = option.value;
+        if (option.value === ref.value) button.classList.add('saga-mode-button-active');
+        control.appendChild(button);
+    }
+    return { element: control, ref };
+}
+
+function setStoryOpenerProviderActionsDisabled(container, disabled = false) {
+    if (!container) return;
+    for (const button of container.querySelectorAll('[data-story-opener-provider-action="true"]')) {
+        button.disabled = !!disabled;
+    }
+}
+
+function formatStoryOpenerVariantCount(value = 1) {
+    const count = normalizeStoryOpenerVariantCount(value);
+    return `${count} variant${count === 1 ? '' : 's'}`;
+}
+
+function createVariantCountControl(value = 1) {
+    const control = document.createElement('div');
+    control.className = 'saga-story-opener-variant-count-control';
+
+    const readout = document.createElement('div');
+    readout.className = 'saga-story-opener-variant-count-readout';
+    readout.textContent = formatStoryOpenerVariantCount(value);
+    control.appendChild(readout);
+
+    const slider = document.createElement('input');
+    slider.className = 'saga-story-opener-variant-count-slider';
+    slider.type = 'range';
+    slider.min = String(STORY_OPENER_VARIANT_COUNT_MIN);
+    slider.max = String(STORY_OPENER_VARIANT_COUNT_MAX);
+    slider.step = '1';
+    slider.value = String(normalizeStoryOpenerVariantCount(value));
+    slider.setAttribute('aria-label', 'Variant count');
+    slider.addEventListener('input', () => {
+        readout.textContent = formatStoryOpenerVariantCount(slider.value);
+    });
+    control.appendChild(slider);
+
+    const scale = document.createElement('div');
+    scale.className = 'saga-story-opener-variant-count-scale';
+    const min = document.createElement('span');
+    min.textContent = String(STORY_OPENER_VARIANT_COUNT_MIN);
+    const max = document.createElement('span');
+    max.textContent = String(STORY_OPENER_VARIANT_COUNT_MAX);
+    scale.appendChild(min);
+    scale.appendChild(max);
+    control.appendChild(scale);
+
+    return { element: control, input: slider };
 }
 
 function createTextArea(value = '', placeholder = '', rows = 3, maxLength = 5000) {
@@ -430,24 +518,27 @@ async function copyStoryOpenerRichTextToClipboard(text = '') {
 }
 
 function readControlsFromRefs(refs = {}, base = {}) {
+    const openingShapeMode = refs.openingShapeMode?.value || STORY_OPENER_DEFAULT_OPENING_SHAPE;
     return normalizeStoryOpenerControls({
         ...base,
         userPrompt: refs.userPrompt?.value || '',
         context: refs.context?.value || '',
         proseStyle: refs.proseStyle?.value || '',
-        openingShape: refs.openingShape?.value || '',
+        openingShape: openingShapeMode === STORY_OPENER_CUSTOM_OPENING_SHAPE
+            ? refs.openingShape?.value || ''
+            : openingShapeMode,
         characterFocus: refs.characterFocus?.value || '',
         pov: refs.pov?.value || '',
         tense: refs.tense?.value || '',
         targetLength: refs.targetLength || base.targetLength || 'scene',
-        variantsEnabled: refs.variantsEnabled?.checked === true,
+        variantCount: normalizeStoryOpenerVariantCount(refs.variantCount?.value, base.variantCount || STORY_OPENER_VARIANT_COUNT_MIN),
     });
 }
 
-function makeRun(session = {}, stage = '', label = '') {
+function makeRun(session = {}, stage = '', label = '', message = '') {
     return recordStoryOpenerRun(session, createStoryOpenerRun(stage, {
         label,
-        message: label,
+        message: message || label,
         status: 'running',
     }));
 }
@@ -483,7 +574,7 @@ function updateSessionStage(session = {}, patch = {}, options = {}) {
 }
 
 async function runContextPacketStage(session = {}, state = {}, options = {}) {
-    let working = makeRun(session, 'context_packet', 'Building Context Packet');
+    let working = makeRun(session, 'context_packet', 'Building Context Packet', 'Resolving active Loredecks, Context, and guardrails.');
     saveStoryOpenerSession(working);
     refresh(options);
     const run = working.activeGeneration;
@@ -534,7 +625,7 @@ async function runBriefStage(session = {}, state = {}, options = {}) {
         working = packetResult.session;
         packet = packetResult.packet;
     }
-    working = makeRun(working, 'opener_brief', 'Building Opener Brief');
+    working = makeRun(working, 'opener_brief', 'Drafting Opener Brief', 'Turning the Context Packet into opener instructions.');
     saveStoryOpenerSession(working);
     refresh(options);
     const run = working.activeGeneration;
@@ -542,7 +633,7 @@ async function runBriefStage(session = {}, state = {}, options = {}) {
         onProgress: event => {
             if (event?.message) {
                 const current = getCachedExternalStoryOpenerSession(working.sessionId) || working;
-                saveStoryOpenerSession(recordStoryOpenerRun(current, { ...run, status: 'running', message: event.message, updatedAt: Date.now() }), { activate: true });
+                saveStoryOpenerSession(recordStoryOpenerRun(current, { ...run, status: 'running', label: event.label || run.label, message: event.message, updatedAt: Date.now() }), { activate: true });
                 refresh(options);
             }
         },
@@ -587,7 +678,15 @@ async function runDraftStage(session = {}, state = {}, options = {}) {
         packet = briefResult.packet;
         brief = briefResult.brief;
     }
-    working = makeRun(working, 'draft_variants', options.revisionPrompt ? 'Revising opener' : 'Drafting opener variants');
+    const variantCount = Math.max(STORY_OPENER_VARIANT_COUNT_MIN, Math.min(STORY_OPENER_VARIANT_COUNT_MAX, Number(working.controls?.variantCount) || STORY_OPENER_VARIANT_COUNT_MIN));
+    working = makeRun(
+        working,
+        'draft_variants',
+        variantCount === 1
+            ? `${options.revisionPrompt ? 'Revising' : 'Drafting'} Variant A`
+            : `${options.revisionPrompt ? 'Revising' : 'Drafting'} ${variantCount} variants`,
+        `Starting ${variantCount} opener variant${variantCount === 1 ? '' : 's'}.`,
+    );
     saveStoryOpenerSession(working);
     refresh(options);
     const run = working.activeGeneration;
@@ -597,7 +696,7 @@ async function runDraftStage(session = {}, state = {}, options = {}) {
         onProgress: event => {
             if (event?.message) {
                 const current = getCachedExternalStoryOpenerSession(working.sessionId) || working;
-                saveStoryOpenerSession(recordStoryOpenerRun(current, { ...run, status: 'running', message: event.message, updatedAt: Date.now() }), { activate: true });
+                saveStoryOpenerSession(recordStoryOpenerRun(current, { ...run, status: 'running', label: event.label || run.label, message: event.message, updatedAt: Date.now() }), { activate: true });
                 refresh(options);
             }
         },
@@ -635,7 +734,11 @@ async function runDraftStage(session = {}, state = {}, options = {}) {
     const message = result.failures?.length
         ? `Created ${formatCount(variants.length, 'variant')} with ${formatCount(result.failures.length, 'provider failure')}.`
         : `Created ${formatCount(variants.length, 'variant')}.`;
+    const finishLabel = variants.length === 1
+        ? `${options.revisionPrompt ? 'Revised' : 'Drafted'} Variant A`
+        : `${options.revisionPrompt ? 'Revised' : 'Drafted'} ${variants.length} variants`;
     working = finishRun(working, run, {
+        label: finishLabel,
         message,
         ...(result.failures?.length ? { failure: result.failures[0] } : {}),
     });
@@ -662,8 +765,9 @@ function createNewStoryOpener(state = {}, options = {}) {
         controls: {
             context,
             proseStyle: fandomText ? `${fandomText} prose style for the selected story position` : '',
-            pov: '3rd person limited',
-            tense: 'past tense',
+            openingShape: STORY_OPENER_DEFAULT_OPENING_SHAPE,
+            pov: STORY_OPENER_POV_OPTIONS[2].value,
+            tense: STORY_OPENER_TENSE_OPTIONS[0].value,
             targetLength: 'scene',
         },
         sourceIntent,
@@ -676,6 +780,16 @@ function createNewStoryOpener(state = {}, options = {}) {
     refresh(options);
 }
 
+function handleStoryOpenerStageAction(stage = {}, options = {}) {
+    if (stage.action === 'add_loredecks') {
+        if (typeof options.navigateRuntimeTab === 'function' && options.navigateRuntimeTab('loredecks')) {
+            toast('Add a Loredeck, then return to Story Maker.', 'info');
+            return true;
+        }
+    }
+    return false;
+}
+
 function createStoryOpenerStageBar(session = {}, state = {}, options = {}) {
     const wrap = document.createElement('div');
     wrap.className = 'saga-loredeck-creator-stage-guide saga-story-opener-stage-guide';
@@ -685,13 +799,18 @@ function createStoryOpenerStageBar(session = {}, state = {}, options = {}) {
     for (const stage of stages) {
         const item = document.createElement('div');
         item.className = `saga-loredeck-creator-stage-item saga-loredeck-creator-stage-${stage.status}`;
+        if (stage.action) {
+            item.classList.add('saga-story-opener-stage-action', `saga-story-opener-stage-action-${stage.action}`);
+        }
         if (stage.isActive) item.classList.add('saga-loredeck-creator-stage-active');
         const main = document.createElement('button');
         main.type = 'button';
         main.className = 'saga-loredeck-creator-stage-main';
-        addTooltip(main, stage.status === 'locked' ? stage.dependency : `${stage.label}: ${stage.detail}`);
+        main.setAttribute('aria-label', stage.actionLabel ? `${stage.actionLabel}: ${stage.actionTooltip || stage.dependency || stage.detail}` : `${stage.label}: ${stage.detail}`);
+        addTooltip(main, stage.actionTooltip || (stage.status === 'locked' ? stage.dependency : `${stage.label}: ${stage.detail}`));
         main.addEventListener('click', () => {
             if (stage.status === 'locked') {
+                if (handleStoryOpenerStageAction(stage, options)) return;
                 if (stage.dependency) toast(stage.dependency, 'info');
                 return;
             }
@@ -712,7 +831,7 @@ function createStoryOpenerStageBar(session = {}, state = {}, options = {}) {
         body.className = 'saga-loredeck-creator-stage-body';
         const label = document.createElement('span');
         label.className = 'saga-loredeck-creator-stage-label';
-        label.textContent = stage.label;
+        label.textContent = stage.actionLabel || stage.label;
         body.appendChild(label);
         const detail = document.createElement('span');
         detail.className = 'saga-loredeck-creator-stage-detail';
@@ -750,12 +869,13 @@ function createStoryOpenerGenerationStatus(session = {}) {
     if (!run || !STORY_OPENER_GENERATION_STATUSES.has(status)) return null;
     const now = Date.now();
     const startedAt = getStoryOpenerRunStartedAt(run, now);
+    const labelText = getStoryOpenerGenerationLabel(run);
     const message = getStoryOpenerGenerationMessage(run);
     const metaText = getStoryOpenerGenerationMeta(run);
     const row = createLoredeckJobStatusRow({
         active: true,
         status: status || 'running',
-        label: getStoryOpenerBusyWord(startedAt, now),
+        label: labelText,
         message,
         elapsedMs: now - startedAt,
         metaText,
@@ -767,11 +887,12 @@ function createStoryOpenerGenerationStatus(session = {}) {
     row.dataset.sagaStoryOpenerGenerationId = String(run.id || '');
     row.dataset.sagaStoryOpenerGenerationStage = String(run.stage || '');
     row.dataset.sagaStoryOpenerGenerationStartedAt = String(startedAt);
+    row.dataset.sagaStoryOpenerGenerationLabel = labelText;
     row.dataset.sagaStoryOpenerGenerationMessage = message;
     row.dataset.sagaStoryOpenerGenerationMeta = metaText;
     row.setAttribute('role', 'status');
     row.setAttribute('aria-live', 'polite');
-    row.setAttribute('aria-label', `${getStoryOpenerBusyWord(startedAt, now)} ${message}`);
+    row.setAttribute('aria-label', `${labelText} ${message}`);
     startStoryOpenerGenerationTicker();
     return row;
 }
@@ -843,32 +964,27 @@ function createInputsCard(session = {}, state = {}, options = {}) {
     grid.appendChild(createField('User Prompt', 'What this opener should accomplish.', refs.userPrompt));
     refs.characterFocus = createTextInput(controls.characterFocus, 'Hermione, Ron, Harry, Draco...', 800);
     grid.appendChild(createField('Character Focus', 'Optional focus; leave empty for source-driven focus.', refs.characterFocus));
-    refs.openingShape = createTextInput(controls.openingShape, 'Scene-setting, Dialogue first...', 180);
-    grid.appendChild(createField('Opening Shape', 'Editable shape instruction. Quick buttons can populate it.', refs.openingShape));
-    refs.openingShapePreset = createSelectInput([
-        { value: '', label: 'Custom / typed shape' },
+    const openingShapeMode = getStoryOpenerOpeningShapeMode(controls.openingShape);
+    refs.openingShapeMode = createSelectInput([
         ...STORY_OPENER_OPENING_SHAPES.map(shape => ({ value: shape, label: shape })),
-    ], STORY_OPENER_OPENING_SHAPES.includes(controls.openingShape) ? controls.openingShape : '');
-    refs.openingShapePreset.addEventListener('change', () => {
-        if (refs.openingShapePreset.value) refs.openingShape.value = refs.openingShapePreset.value;
+        { value: STORY_OPENER_CUSTOM_OPENING_SHAPE, label: 'Custom' },
+    ], openingShapeMode);
+    grid.appendChild(createField('Opening Shape', 'Choose a shape preset, or select Custom to type one.', refs.openingShapeMode));
+    refs.openingShape = createTextInput(openingShapeMode === STORY_OPENER_CUSTOM_OPENING_SHAPE ? controls.openingShape : '', 'Describe the custom opening shape...', 180);
+    const customShapeField = createField('Custom Shape', 'Only used when Opening Shape is Custom.', refs.openingShape);
+    customShapeField.classList.add('saga-story-opener-custom-shape-field');
+    setStoryOpenerFieldHidden(customShapeField, openingShapeMode !== STORY_OPENER_CUSTOM_OPENING_SHAPE);
+    refs.openingShapeMode.addEventListener('change', () => {
+        setStoryOpenerFieldHidden(customShapeField, refs.openingShapeMode.value !== STORY_OPENER_CUSTOM_OPENING_SHAPE);
     });
-    const shapePresetField = createField('Opening Shape Preset', 'Mobile preset picker for common opener shapes. The Opening Shape field remains editable.', refs.openingShapePreset);
-    shapePresetField.classList.add('saga-story-opener-shape-select-field');
-    grid.appendChild(shapePresetField);
-    refs.pov = createTextInput(controls.pov, '3rd person limited', 160);
-    grid.appendChild(createField('PoV', 'Point of view, such as 3rd person limited.', refs.pov));
-    refs.tense = createTextInput(controls.tense, 'past tense', 120);
-    grid.appendChild(createField('Tense', 'Narrative tense.', refs.tense));
+    grid.appendChild(customShapeField);
+    const povControl = createSegmentedChoiceControl(STORY_OPENER_POV_OPTIONS, controls.pov, 'saga-story-opener-pov-control');
+    refs.pov = povControl.ref;
+    grid.appendChild(createField('PoV', 'Point of view.', povControl.element));
+    const tenseControl = createSegmentedChoiceControl(STORY_OPENER_TENSE_OPTIONS, controls.tense, 'saga-story-opener-tense-control');
+    refs.tense = tenseControl.ref;
+    grid.appendChild(createField('Tense', 'Narrative tense.', tenseControl.element));
     card.appendChild(grid);
-
-    const quick = document.createElement('div');
-    quick.className = 'saga-story-opener-quick-row';
-    for (const shape of STORY_OPENER_OPENING_SHAPES) {
-        quick.appendChild(createButton(shape, `Use ${shape} as the opening shape.`, () => {
-            refs.openingShape.value = shape;
-        }));
-    }
-    card.appendChild(quick);
 
     refs.targetLength = controls.targetLength;
     const lengthRow = document.createElement('div');
@@ -884,17 +1000,9 @@ function createInputsCard(session = {}, state = {}, options = {}) {
     }
     card.appendChild(lengthRow);
 
-    const toggle = document.createElement('label');
-    toggle.className = 'saga-story-opener-checkbox';
-    refs.variantsEnabled = document.createElement('input');
-    refs.variantsEnabled.type = 'checkbox';
-    refs.variantsEnabled.checked = controls.variantsEnabled;
-    toggle.appendChild(refs.variantsEnabled);
-    const toggleText = document.createElement('span');
-    toggleText.textContent = 'Variants';
-    toggle.appendChild(toggleText);
-    addTooltip(toggle, 'When enabled, Saga makes three simultaneous opener-writing calls after the brief.');
-    card.appendChild(toggle);
+    const variantCountControl = createVariantCountControl(controls.variantCount);
+    refs.variantCount = variantCountControl.input;
+    card.appendChild(createField('Variant Count', 'Draft 1-5 opener variants in one pass after the brief.', variantCountControl.element));
 
     const actions = document.createElement('div');
     actions.className = 'saga-primary-actions';
@@ -914,8 +1022,10 @@ function createInputsCard(session = {}, state = {}, options = {}) {
         refresh(options);
         return next;
     }, 'saga-primary-button'));
-    actions.appendChild(createButton('Build Context Packet', 'Resolve latest lore and build the opener Context Packet.', async btn => {
-        btn.disabled = true;
+    const providerBusy = !!session.activeGeneration;
+    const buildContextButton = createButton('Build Context Packet', 'Resolve latest lore and build the opener Context Packet.', async btn => {
+        if (btn.disabled) return;
+        setStoryOpenerProviderActionsDisabled(actions, true);
         const nextControls = readControlsFromRefs(refs, controls);
         const next = updateSessionStage(session, {
             controls: nextControls,
@@ -923,10 +1033,18 @@ function createInputsCard(session = {}, state = {}, options = {}) {
             currentStage: 'context_packet',
             status: 'draft',
         });
-        await runContextPacketStage(next, state, options);
-    }));
-    actions.appendChild(createButton('Generate Full Pipeline', 'Build packet, brief, and opener variants in sequence.', async btn => {
-        btn.disabled = true;
+        try {
+            await runContextPacketStage(next, state, options);
+        } finally {
+            setStoryOpenerProviderActionsDisabled(actions, false);
+        }
+    });
+    buildContextButton.dataset.storyOpenerProviderAction = 'true';
+    buildContextButton.disabled = providerBusy;
+    actions.appendChild(buildContextButton);
+    const fullPipelineButton = createButton('Generate Full Pipeline', 'Build packet, brief, and opener variants in sequence.', async btn => {
+        if (btn.disabled) return;
+        setStoryOpenerProviderActionsDisabled(actions, true);
         const nextControls = readControlsFromRefs(refs, controls);
         const next = updateSessionStage(session, {
             controls: nextControls,
@@ -934,8 +1052,15 @@ function createInputsCard(session = {}, state = {}, options = {}) {
             currentStage: 'context_packet',
             status: 'draft',
         });
-        await runFullPipeline(next, state, options);
-    }, 'saga-primary-button'));
+        try {
+            await runFullPipeline(next, state, options);
+        } finally {
+            setStoryOpenerProviderActionsDisabled(actions, false);
+        }
+    }, 'saga-primary-button');
+    fullPipelineButton.dataset.storyOpenerProviderAction = 'true';
+    fullPipelineButton.disabled = providerBusy;
+    actions.appendChild(fullPipelineButton);
     card.appendChild(actions);
     return card;
 }
@@ -1063,7 +1188,8 @@ function createVariantsCard(session = {}, state = {}, options = {}) {
         card.appendChild(nav);
         card.appendChild(createStoryOpenerOutputPreview(selected?.text || ''));
     } else {
-        card.appendChild(createEmptyMessage('Draft one opener, or enable Variants to generate three.'));
+        const count = normalizeStoryOpenerVariantCount(session.controls?.variantCount);
+        card.appendChild(createEmptyMessage(`Draft ${formatStoryOpenerVariantCount(count)} from the Opener Brief.`));
     }
     const actions = document.createElement('div');
     actions.className = 'saga-primary-actions';
@@ -1266,7 +1392,7 @@ function renderActiveSession(container, session = {}, state = {}, options = {}) 
     chips.className = 'saga-loredeck-row-meta';
     chips.appendChild(createStatusPill(session.status || 'draft', 'Story Maker session status.', { tone: session.status === 'complete' ? 'success' : session.status === 'blocked' ? 'warning' : 'info', kind: 'status' }));
     chips.appendChild(createStatusPill(session.currentStage || 'inputs', 'Current Story Maker stage.', { tone: 'source', kind: 'status' }));
-    if (session.activeGeneration) chips.appendChild(createStatusPill('Running', session.activeGeneration.message || 'Provider run active.', { tone: 'warning', kind: 'status' }));
+    if (session.activeGeneration) chips.appendChild(createStatusPill(getStoryOpenerGenerationLabel(session.activeGeneration), session.activeGeneration.message || 'Provider run active.', { tone: 'warning', kind: 'status' }));
     header.appendChild(chips);
     container.appendChild(header);
     container.appendChild(createStoryOpenerStageBar(session, state, options));

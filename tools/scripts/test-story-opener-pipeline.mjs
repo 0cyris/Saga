@@ -6,6 +6,10 @@ const {
 const {
   buildStoryOpenerContextPacket,
 } = await import('../../src/story-openers/story-opener-source.js');
+const {
+  getStoryOpenerStageDescriptors,
+  normalizeStoryOpenerControls,
+} = await import('../../src/story-openers/story-opener-state.js');
 
 const parsed = __storyOpenerGenerationTestHooks.parseStoryOpenerJsonResponse(`Here is the JSON:
 \`\`\`json
@@ -22,6 +26,33 @@ assert.deepEqual(parsed.value.scenePlan, ['Library tension']);
 const normalizedText = __storyOpenerGenerationTestHooks.normalizeOpenerText('```text\nHermione looked up from the library table.\n```');
 assert.equal(normalizedText, 'Hermione looked up from the library table.');
 assert.equal(__storyOpenerGenerationTestHooks.normalizeOpenerText('{"opener":"not plain text"}'), '');
+assert.equal(normalizeStoryOpenerControls({ variantCount: 5 }).variantCount, 5);
+assert.equal(normalizeStoryOpenerControls({ variantCount: 9 }).variantCount, 5);
+assert.equal(normalizeStoryOpenerControls({ variantCount: 0 }).variantCount, 1);
+assert.equal(normalizeStoryOpenerControls({ variantsEnabled: true }).variantCount, 3);
+assert.equal(normalizeStoryOpenerControls({}).openingShape, 'Scene Setting');
+assert.equal(normalizeStoryOpenerControls({ openingShape: 'Scene-setting' }).openingShape, 'Scene Setting');
+assert.equal(normalizeStoryOpenerControls({ pov: '1st' }).pov, '1st person');
+assert.equal(normalizeStoryOpenerControls({ pov: '2nd person' }).pov, '2nd person');
+assert.equal(normalizeStoryOpenerControls({ tense: 'Present' }).tense, 'present tense');
+assert.equal(normalizeStoryOpenerControls({ tense: 'future tense' }).tense, 'future tense');
+const missingStackContextStage = getStoryOpenerStageDescriptors({
+  controls: {
+    userPrompt: 'Open on Hermione.',
+    context: 'Harry Potter Book 6 - January',
+  },
+  sourceIntent: {
+    sourceMode: 'loredeck_only',
+    context: 'Harry Potter Book 6 - January',
+    stackItems: [],
+    packIds: [],
+  },
+  currentStage: 'context_packet',
+}).find(stage => stage.id === 'context_packet');
+assert.equal(missingStackContextStage.status, 'locked');
+assert.equal(missingStackContextStage.action, 'add_loredecks');
+assert.equal(missingStackContextStage.actionLabel, 'Add Loredecks');
+assert.match(missingStackContextStage.actionTooltip, /No active Loredecks/);
 
 const registry = {
   schemaVersion: 1,

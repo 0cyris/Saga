@@ -280,13 +280,13 @@ Use typed confirmation for **Total Saga Cleanup**.
 Suggested typed phrase:
 
 ```text
-DELETE SAGA
+DELETE Saga
 ```
 
 Suggested Total Saga Cleanup confirmation copy:
 
 ```text
-This will delete Saga-owned storage files, reset Saga settings, remove stored Saga API keys, reset the active chat's Saga state, and delete all user-created, imported, and generated Saga Loredecks. Bundled extension content remains available. Unknown orphan files that Saga cannot see through its indexes may remain. Type DELETE SAGA to continue.
+This will delete Saga-owned storage files, reset Saga settings, remove stored Saga API keys, reset the active chat's Saga state, and delete all user-created, imported, and generated Saga Loredecks. Bundled extension content remains available. Unknown orphan files that Saga cannot see through its indexes may remain. Type DELETE Saga to continue.
 ```
 
 ## Implementation Plan

@@ -6,7 +6,7 @@ import { DEFAULT_SETTINGS, LOG_PREFIX, detectExtensionFolder } from '../state/co
 import { getSettings, getState, saveSettings } from '../state/state-manager.js';
 import { runRuntimeAction } from '../runtime/runtime-actions.js';
 import { renderSettingsPanel } from '../ui/ui.js';
-import { installExtensionsMenuButton } from './menu-button.js';
+import { createSagaCompassIcon, installExtensionsMenuButton } from './menu-button.js';
 
 const SETTINGS_TEMPLATE_ID = 'src/extension/settings';
 
@@ -88,25 +88,31 @@ export async function mountSettingsPanel(ctx) {
 function normalizeSettingsPanelBranding(container) {
     if (!container) return;
 
-    const rootTitle = container.querySelector(':scope > .inline-drawer > .inline-drawer-toggle b, :scope > .inline-drawer > .inline-drawer-header b');
-    if (rootTitle) rootTitle.textContent = 'SAGA';
+    const header = container.querySelector(':scope > .inline-drawer > .inline-drawer-toggle, :scope > .inline-drawer > .inline-drawer-header');
+    const rootTitle = header?.querySelector('b');
+    if (rootTitle) {
+        rootTitle.textContent = 'Saga';
+        if (!header.querySelector('.saga-extensions-menu-icon')) {
+            rootTitle.parentNode?.insertBefore(createSagaCompassIcon(), rootTitle);
+        }
+    }
 
     for (const paragraph of container.querySelectorAll('p')) {
         const text = String(paragraph.textContent || '');
         if (!/Saga window|runtime window|roleplay/i.test(text)) continue;
-        paragraph.textContent = 'SAGA: Fandom Loresystem. During roleplay, use the runtime window for mode, injection toggles, scanning, generation, review, lore editing, provider setup, and theme settings.';
+        paragraph.textContent = 'Saga: Fandom Loresystem. During roleplay, use the runtime window for mode, injection toggles, scanning, generation, review, lore editing, provider setup, and theme settings.';
         break;
     }
 
     const openWindowBtn = container.querySelector('#saga_open_window');
     if (openWindowBtn) {
-        openWindowBtn.title = 'Open the SAGA runtime window.';
-        openWindowBtn.innerHTML = '<i class="fa-solid fa-up-right-from-square"></i> Open SAGA Window';
+        openWindowBtn.title = 'Open the Saga runtime window.';
+        openWindowBtn.innerHTML = '<i class="fa-solid fa-up-right-from-square"></i> Open Saga Window';
     }
 
     const resetWindowBtn = container.querySelector('#saga_reset_window');
     if (resetWindowBtn) {
-        resetWindowBtn.title = 'Reset the SAGA runtime window to its safe default position, size, tab, shelf state, and section dropdown defaults.';
+        resetWindowBtn.title = 'Reset the Saga runtime window to its safe default position, size, tab, shelf state, and section dropdown defaults.';
     }
 }
 

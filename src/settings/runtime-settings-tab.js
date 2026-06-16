@@ -205,7 +205,7 @@ export function createThemeSettingsCard(settings = getSettings()) {
     topActions.appendChild(createButton('Export Active Theme', 'Download the active theme as a Custom Theme Pack JSON file.', () => {
         themePanelOptions.onExportActiveThemePack?.();
     }));
-    topActions.appendChild(createButton('Reset Theme', 'Restore the bundled SAGA Archive Theme Pack and clear color overrides.', () => {
+    topActions.appendChild(createButton('Reset Theme', 'Restore the bundled Saga Archive Theme Pack and clear color overrides.', () => {
         themePanelOptions.onResetThemeSettings?.();
     }));
     header.appendChild(topActions);

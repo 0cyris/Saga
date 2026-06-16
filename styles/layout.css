@@ -159,8 +159,9 @@
     border: 1px solid var(--saga-border, rgba(185, 139, 54, 0.38));
     border-radius: 8px;
     background:
-        radial-gradient(circle at 18% 0%, var(--saga-gold-surface, rgba(215, 181, 109, 0.12)), transparent 42%),
-        linear-gradient(180deg, var(--saga-button, rgba(18, 18, 24, 0.92)), var(--saga-surface-2, rgba(8, 10, 14, 0.94)));
+        radial-gradient(circle at 18% 8%, var(--saga-button-hover, rgba(92, 23, 36, 0.56)), transparent 34%),
+        radial-gradient(circle at 88% 94%, var(--saga-border-soft, rgba(185, 139, 54, 0.16)), transparent 38%),
+        linear-gradient(145deg, var(--saga-bg-gradient-start, rgba(18, 12, 18, 0.985)), var(--saga-bg-gradient-end, rgba(9, 12, 18, 0.975)));
     box-shadow:
         0 10px 24px rgba(0, 0, 0, 0.5),
         0 0 0 1px var(--saga-border-soft, rgba(185, 139, 54, 0.18)) inset,

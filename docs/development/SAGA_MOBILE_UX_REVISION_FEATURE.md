@@ -4,7 +4,7 @@
 
 This feature follows the initial mobile support build. The first pass proved the
 foundation: phone shell, fixed bottom bar, direct Settings route, mobile
-subviews, touch targets, SAGA Archive theme, Saga Hero icons, and rendered smoke
+subviews, touch targets, Saga Archive theme, Saga Hero icons, and rendered smoke
 coverage.
 
 The revision goal is different. Mobile should now feel less like dense desktop
@@ -35,7 +35,7 @@ Advanced: Loredecks | Session | Continuity | Context | Lorecards | Injection | S
 
 - Mobile shell class, full-viewport page model, bottom-owned shell actions,
   fixed bottom navigation, direct Settings route, and subview stack primitives.
-- SAGA Archive and Saga Hero visual direction: dark archive surfaces, warm gold
+- Saga Archive and Saga Hero visual direction: dark archive surfaces, warm gold
   trim, black cherry shell treatment, restrained data accents, and icon-led
   navigation.
 - Mobile Lorecards route labels:
@@ -338,7 +338,7 @@ The revision is complete when:
   density.
 - Creator mobile opens with the current task before the stage roadmap, while
   keeping stage navigation reachable as a compact rail.
-- The visual direction still reads as SAGA Archive and Saga Hero: hybrid
+- The visual direction still reads as Saga Archive and Saga Hero: hybrid
   mythic-tech, not fandom-specific fantasy, generic sci-fi, generic SaaS, or
   pure cyberpunk.
 - Desktop shell behavior remains unchanged outside the mobile breakpoint.

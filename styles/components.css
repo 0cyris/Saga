@@ -13,6 +13,13 @@
     align-items: center;
 }
 
+.saga-extension-dropdown-title {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    min-width: 0;
+}
+
 .saga-extensions-menu-icon {
     display: inline-flex;
     align-items: center;

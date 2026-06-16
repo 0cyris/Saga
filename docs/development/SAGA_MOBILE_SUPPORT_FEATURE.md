@@ -140,11 +140,11 @@ The mobile UI should use Saga's own visual language, not a fandom-specific fanta
 
 Mobile should start from the bundled runtime appearance:
 
-- Theme Pack: `SAGA Archive` (`saga-default`).
+- Theme Pack: `Saga Archive` (`saga-default`).
 - Icon Set: `Saga Hero` (`saga-hero`).
 - Icon mapping source: `TAB_ICON_PATHS` and the bundled `saga-hero` icon set.
 
-The `SAGA Archive` palette provides the dark shell, warm trim, and readable text. The `Saga Hero` icon set provides the visual personality: fuller illustrated tab emblems with glowing gold artifact shapes.
+The `Saga Archive` palette provides the dark shell, warm trim, and readable text. The `Saga Hero` icon set provides the visual personality: fuller illustrated tab emblems with glowing gold artifact shapes.
 
 ### Aesthetic Target
 
@@ -683,7 +683,7 @@ Scope:
   `Loredecks | Session | Continuity | Context | Lorecards | Injection |
   Settings` in Advanced.
 - Confirm the mobile viewport contract: `360px`, `390px`, `430px`, and `768px`.
-- Confirm the visual identity contract: `SAGA Archive` dark shell, `Saga Hero` icon language, hybrid mythic-tech accents.
+- Confirm the visual identity contract: `Saga Archive` dark shell, `Saga Hero` icon language, hybrid mythic-tech accents.
 - Confirm the Lorecards lifecycle contract: Capture / Suggest -> Pending Review -> Accepted Lorecards -> Active Set.
 
 Deliverables:
@@ -763,7 +763,7 @@ Goal: make the mobile shell feel like Saga and behave like a touch interface.
 
 Scope:
 
-- Apply `SAGA Archive` colors to mobile shell surfaces.
+- Apply `Saga Archive` colors to mobile shell surfaces.
 - Render `Saga Hero` style icons in the bottom bar and header entry points.
 - Add or extend shared touch-density tokens.
 - Raise primary controls, icon buttons, row actions, tab slots, and menu triggers to 40-44px targets.

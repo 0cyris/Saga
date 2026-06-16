@@ -5961,7 +5961,7 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
             hasQualityDropdown: !!qualitySection,
             qualityDropdownOpen: !!qualitySection?.open,
             hasQualitySectionHeader: sectionHeaders.includes('Quality of Life'),
-            hasSagaSeparator: sectionHeaders.includes('SAGA') || text.includes('Providers and Theme Pack.') || text.includes('Fandom Loresystem.'),
+            hasSagaSeparator: sectionHeaders.includes('Saga') || text.includes('Providers and Theme Pack.') || text.includes('Fandom Loresystem.'),
             hasQualitySwitch: !!qualitySlider,
             qualityInputHidden: !!qualityInputStyle && qualityInputStyle.opacity === '0' && Number(qualityInputRect?.width || 0) <= 1,
             qualitySwitchBeforeLabel: !!sliderRect && !!labelRect && sliderRect.right <= labelRect.left,
@@ -5996,7 +5996,7 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
         || mobileSettingsState.qualityRowDisplay !== 'grid'
         || !mobileSettingsState.qualityGridTemplateColumns.includes('48px')
         || mobileSettingsState.qualityLabel !== 'Show Lorecard tags in the mobile Lore list') findings.push(`Mobile redesign Settings route did not render Quality of Life as an open dropdown with a clean left-switch/right-text row: ${JSON.stringify(mobileSettingsState)}.`);
-    if (mobileSettingsState.hasSagaSeparator) findings.push('Mobile redesign Settings route still rendered the retired SAGA providers/theme separator.');
+    if (mobileSettingsState.hasSagaSeparator) findings.push('Mobile redesign Settings route still rendered the retired Saga providers/theme separator.');
     if (mobileSettingsState.hasOverflowSheet) findings.push('Mobile redesign rendered the removed overflow sheet.');
     if (mobileSettingsState.shellBackActions > 0) findings.push('Mobile redesign Settings route rendered a shell Back action.');
     if (mobileSettingsState.activeBottomLabel !== 'Exit') findings.push('Mobile redesign Settings active bottom tab did not morph into Exit.');

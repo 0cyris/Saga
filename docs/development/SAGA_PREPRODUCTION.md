@@ -1,12 +1,12 @@
 # Saga Pre-Production
 
-**SAGA: Fandom Loresystem.**
+**Saga: Fandom Loresystem.**
 
 Terminology note: Saga's public language is **Loredeck**, **Lorecard**, and **Pack Health**. Internal code, schema keys, folder names, and migration notes may still use `loredeck`, `packId`, `content/loredecks/`, and `loredeck.json`. Pre-alpha cleanup should update paths in place instead of adding compatibility aliases.
 
 ## Purpose
 
-Saga is the planned evolution of Saga from a Harry Potter-focused SillyTavern lore extension into SAGA: Fandom Loresystem, a general framework for fandom-specific, date-aware, arc-aware, and context-aware lore support.
+Saga is the planned evolution of Saga from a Harry Potter-focused SillyTavern lore extension into Saga: Fandom Loresystem, a general framework for fandom-specific, date-aware, arc-aware, and context-aware lore support.
 
 Saga already proves the core product idea:
 
@@ -124,7 +124,7 @@ Themepacks should be pure data, like Loredecks. They should not contain executab
   "id": "saga-archive",
   "title": "Saga Archive",
   "type": "bundled",
-  "description": "Bundled dark archive theme for SAGA: Fandom Loresystem.",
+  "description": "Bundled dark archive theme for Saga: Fandom Loresystem.",
   "colors": {
     "background": "#120c12",
     "backgroundAlt": "#241018",

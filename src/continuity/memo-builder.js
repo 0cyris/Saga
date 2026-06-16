@@ -31,7 +31,7 @@ export function buildMemo(state, settingsOverride = {}) {
     }
 
     if (!chunks.length) return '';
-    return '[SAGA CONTINUITY STATE]\n' + chunks.join('\n\n') + '\n[/SAGA CONTINUITY STATE]';
+    return '[Saga Continuity State]\n' + chunks.join('\n\n') + '\n[/Saga Continuity State]';
 }
 
 function parseCompressionKind(kind = 'lore') {

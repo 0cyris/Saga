@@ -36,7 +36,7 @@ export const STORY_OPENER_STAGES = Object.freeze([
     Object.freeze({
         id: 'draft_variants',
         label: 'Draft Variants',
-        detail: 'Reasoner writes one opener or three variant calls.',
+        detail: 'Reasoner writes the requested 1-5 opener variants.',
         anchor: 'draft-variants',
     }),
     Object.freeze({
@@ -54,7 +54,7 @@ export const STORY_OPENER_TARGET_LENGTHS = Object.freeze([
 ]);
 
 export const STORY_OPENER_OPENING_SHAPES = Object.freeze([
-    'Scene-setting',
+    'Scene Setting',
     'Dialogue first',
     'Action first',
     'Introspective',
@@ -62,18 +62,33 @@ export const STORY_OPENER_OPENING_SHAPES = Object.freeze([
     'Mystery hook',
 ]);
 
+export const STORY_OPENER_POV_OPTIONS = Object.freeze([
+    Object.freeze({ id: 'first', label: '1st', value: '1st person' }),
+    Object.freeze({ id: 'second', label: '2nd', value: '2nd person' }),
+    Object.freeze({ id: 'third', label: '3rd', value: '3rd person limited' }),
+]);
+
+export const STORY_OPENER_TENSE_OPTIONS = Object.freeze([
+    Object.freeze({ id: 'past', label: 'Past', value: 'past tense' }),
+    Object.freeze({ id: 'present', label: 'Present', value: 'present tense' }),
+    Object.freeze({ id: 'future', label: 'Future', value: 'future tense' }),
+]);
+
 export const STORY_OPENER_SOURCE_STATUSES = Object.freeze(['current', 'changed', 'partial', 'missing']);
+export const STORY_OPENER_VARIANT_COUNT_MIN = 1;
+export const STORY_OPENER_VARIANT_COUNT_MAX = 5;
+export const STORY_OPENER_DEFAULT_OPENING_SHAPE = STORY_OPENER_OPENING_SHAPES[0];
 
 const DEFAULT_CONTROLS = Object.freeze({
     userPrompt: '',
     context: '',
     proseStyle: '',
-    openingShape: '',
+    openingShape: STORY_OPENER_DEFAULT_OPENING_SHAPE,
     characterFocus: '',
-    pov: '3rd person limited',
-    tense: 'past tense',
+    pov: STORY_OPENER_POV_OPTIONS[2].value,
+    tense: STORY_OPENER_TENSE_OPTIONS[0].value,
     targetLength: 'scene',
-    variantsEnabled: false,
+    variantCount: STORY_OPENER_VARIANT_COUNT_MIN,
 });
 
 function cloneJson(value) {
@@ -122,19 +137,53 @@ export function getStoryOpenerTargetLength(id = 'scene') {
     return STORY_OPENER_TARGET_LENGTHS.find(item => item.id === clean) || STORY_OPENER_TARGET_LENGTHS[1];
 }
 
+function normalizeOptionValue(value = '', options = [], fallback = '') {
+    const clean = normalizeStoryOpenerString(value, 160).toLowerCase();
+    const exact = options.find(option => option.value.toLowerCase() === clean || option.id.toLowerCase() === clean);
+    if (exact) return exact.value;
+    const acceptsPov = options.some(option => option.id === 'first');
+    const acceptsTense = options.some(option => option.id === 'past');
+    if (acceptsPov && (clean.startsWith('1st') || clean.startsWith('first'))) return STORY_OPENER_POV_OPTIONS[0].value;
+    if (acceptsPov && (clean.startsWith('2nd') || clean.startsWith('second'))) return STORY_OPENER_POV_OPTIONS[1].value;
+    if (acceptsPov && (clean.startsWith('3rd') || clean.startsWith('third'))) return STORY_OPENER_POV_OPTIONS[2].value;
+    if (acceptsTense && clean.startsWith('past')) return STORY_OPENER_TENSE_OPTIONS[0].value;
+    if (acceptsTense && clean.startsWith('present')) return STORY_OPENER_TENSE_OPTIONS[1].value;
+    if (acceptsTense && clean.startsWith('future')) return STORY_OPENER_TENSE_OPTIONS[2].value;
+    return fallback;
+}
+
+function normalizeStoryOpenerOpeningShape(value = '') {
+    const clean = normalizeStoryOpenerString(value, 180);
+    if (!clean) return STORY_OPENER_DEFAULT_OPENING_SHAPE;
+    const comparable = clean.toLowerCase().replace(/[-_]+/g, ' ');
+    const preset = STORY_OPENER_OPENING_SHAPES.find(shape => shape.toLowerCase() === comparable);
+    return preset || clean;
+}
+
+export function normalizeStoryOpenerVariantCount(value, fallback = DEFAULT_CONTROLS.variantCount) {
+    const numeric = Number(value);
+    const fallbackNumeric = Number(fallback);
+    const raw = Number.isFinite(numeric) ? numeric : fallbackNumeric;
+    return Math.max(
+        STORY_OPENER_VARIANT_COUNT_MIN,
+        Math.min(STORY_OPENER_VARIANT_COUNT_MAX, Math.floor(Number.isFinite(raw) ? raw : DEFAULT_CONTROLS.variantCount)),
+    );
+}
+
 export function normalizeStoryOpenerControls(value = {}) {
     const raw = isPlainObject(value) ? value : {};
     const targetLength = getStoryOpenerTargetLength(raw.targetLength || DEFAULT_CONTROLS.targetLength).id;
+    const legacyVariantCount = raw.variantsEnabled === true ? 3 : DEFAULT_CONTROLS.variantCount;
     return {
         userPrompt: normalizeStoryOpenerString(raw.userPrompt || raw.prompt, 5000),
         context: normalizeStoryOpenerString(raw.context || raw.storyPosition || raw.storyContext, 2000),
         proseStyle: normalizeStoryOpenerString(raw.proseStyle, 1200),
-        openingShape: normalizeStoryOpenerString(raw.openingShape, 180),
+        openingShape: normalizeStoryOpenerOpeningShape(raw.openingShape),
         characterFocus: normalizeStoryOpenerString(raw.characterFocus, 800),
-        pov: normalizeStoryOpenerString(raw.pov || DEFAULT_CONTROLS.pov, 160),
-        tense: normalizeStoryOpenerString(raw.tense || DEFAULT_CONTROLS.tense, 120),
+        pov: normalizeOptionValue(raw.pov || DEFAULT_CONTROLS.pov, STORY_OPENER_POV_OPTIONS, DEFAULT_CONTROLS.pov),
+        tense: normalizeOptionValue(raw.tense || DEFAULT_CONTROLS.tense, STORY_OPENER_TENSE_OPTIONS, DEFAULT_CONTROLS.tense),
         targetLength,
-        variantsEnabled: raw.variantsEnabled === true,
+        variantCount: normalizeStoryOpenerVariantCount(raw.variantCount, legacyVariantCount),
     };
 }
 
@@ -371,16 +420,29 @@ export function getStoryOpenerStageDescriptors(session = {}) {
     const normalized = normalizeStoryOpenerSession(session);
     const activeIndex = STORY_OPENER_STAGE_ORDER.indexOf(normalized.currentStage);
     const readiness = getStoryOpenerReadiness(normalized);
+    const missingLoredeckStack = readiness.missing.includes('Loredeck stack');
     return STORY_OPENER_STAGES.map((stage, index) => {
         let status = 'locked';
         let dependency = '';
+        let action = '';
+        let actionLabel = '';
+        let actionTooltip = '';
+        let detailOverride = '';
         if (stage.id === 'inputs') {
             status = readiness.ready ? 'approved' : 'active';
             dependency = readiness.missingText;
         } else if (stage.id === 'context_packet') {
             if (!readiness.ready) {
                 status = 'locked';
-                dependency = readiness.missingText;
+                if (missingLoredeckStack) {
+                    action = 'add_loredecks';
+                    actionLabel = 'Add Loredecks';
+                    actionTooltip = 'No active Loredecks. Add one to fully use Context.';
+                    detailOverride = 'No active Loredecks.';
+                    dependency = actionTooltip;
+                } else {
+                    dependency = readiness.missingText;
+                }
             } else if (normalized.snapshots?.contextPacket) status = 'approved';
             else status = activeIndex === index ? 'active' : 'ready';
         } else if (stage.id === 'opener_brief') {
@@ -409,6 +471,10 @@ export function getStoryOpenerStageDescriptors(session = {}) {
             number: index + 1,
             status,
             dependency,
+            action,
+            actionLabel,
+            actionTooltip,
+            detail: detailOverride || stage.detail,
             isComplete: status === 'approved',
             isActive: isCurrentStage || status === 'active' || status === 'generating',
             resettable: index > 0 && index < STORY_OPENER_STAGE_ORDER.length - 1 && status !== 'locked',

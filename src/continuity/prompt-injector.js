@@ -15,7 +15,7 @@ import { buildMemo, buildContinuityMemo, buildLoreMemo } from './memo-builder.js
 import { buildLoreInjectionAudit, recordLoreInjectionAudit } from '../lorecards/retrieval-audit.js';
 import { getSagaNamespaceSection } from '../saga-namespace.js';
 
-const COMBINED_MARKER = '[SAGA CONTINUITY STATE]';
+const COMBINED_MARKER = '[Saga Continuity State]';
 const CONTINUITY_PROMPT_KEY = 'saga_continuity_state';
 const LORE_PROMPT_KEY = 'saga_lore_entries'; // legacy aggregate key, cleared for compatibility
 const LORE_HIGH_PROMPT_KEY = 'saga_lore_high_relevance';
@@ -328,13 +328,13 @@ function normalizeDepth(value) {
 function wrapContinuityPrompt(text) {
     const body = String(text || '').trim();
     if (!body) return '';
-    return `[SAGA CONTINUITY]\n${body}\n[/SAGA CONTINUITY]`;
+    return `[Saga Continuity]\n${body}\n[/Saga Continuity]`;
 }
 
 function wrapLorePrompt(text, label = 'LORE') {
     const body = String(text || '').trim();
     if (!body) return '';
-    return `[SAGA ${label}]\n${body}\n[/SAGA ${label}]`;
+    return `[Saga ${label}]\n${body}\n[/Saga ${label}]`;
 }
 
 /**
