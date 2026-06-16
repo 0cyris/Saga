@@ -88,6 +88,30 @@ assert.equal(missingStackContextStage.action, 'add_loredecks');
 assert.equal(missingStackContextStage.actionLabel, 'Add Loredecks');
 assert.match(missingStackContextStage.actionTooltip, /No active Loredecks/);
 
+const liveStackContextStage = getStoryOpenerStageDescriptors({
+  controls: {
+    userPrompt: 'Open on Hermione.',
+    context: 'Harry Potter Book 6 - January',
+  },
+  sourceIntent: {
+    sourceMode: 'loredeck_only',
+    context: 'Harry Potter Book 6 - January',
+    stackItems: [],
+    packIds: [],
+  },
+  currentStage: 'context_packet',
+}, {
+  sourceIntent: {
+    sourceMode: 'loredeck_only',
+    context: 'Harry Potter Book 6 - January',
+    stackItems: [{ type: 'deck', packId: 'hp-opener-test', label: 'Harry Potter: Test' }],
+    packIds: ['hp-opener-test'],
+  },
+}).find(stage => stage.id === 'context_packet');
+assert.equal(liveStackContextStage.label, 'Context Packet');
+assert.equal(liveStackContextStage.action, '');
+assert.equal(liveStackContextStage.status, 'active');
+
 const registry = {
   schemaVersion: 1,
   packs: {

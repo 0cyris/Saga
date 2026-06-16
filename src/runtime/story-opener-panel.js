@@ -280,6 +280,7 @@ function setStoryOpenerFieldHidden(field, hidden = false) {
 function createSegmentedChoiceControl(options = [], value = '', className = '') {
     const control = document.createElement('div');
     control.className = `saga-story-opener-segmented-control ${className}`.trim();
+    control.setAttribute('role', 'radiogroup');
     const fallback = options[0]?.value || '';
     const ref = {
         value: options.some(option => option.value === value) ? value : fallback,
@@ -287,15 +288,26 @@ function createSegmentedChoiceControl(options = [], value = '', className = '') 
     for (const option of options) {
         const button = createButton(option.label, option.description || `Use ${option.value}.`, btn => {
             ref.value = option.value;
-            for (const sibling of control.querySelectorAll('.saga-mode-button')) sibling.classList.remove('saga-mode-button-active');
-            btn.classList.add('saga-mode-button-active');
-        }, 'saga-mode-button');
+            setStoryOpenerSegmentedSelection(control, btn);
+        }, 'saga-mode-button saga-story-opener-segment');
         button.type = 'button';
+        button.setAttribute('role', 'radio');
         button.dataset.storyOpenerChoiceValue = option.value;
-        if (option.value === ref.value) button.classList.add('saga-mode-button-active');
+        const selected = option.value === ref.value;
+        button.classList.toggle('saga-mode-button-active', selected);
+        button.setAttribute('aria-checked', selected ? 'true' : 'false');
         control.appendChild(button);
     }
     return { element: control, ref };
+}
+
+function setStoryOpenerSegmentedSelection(control, activeButton) {
+    if (!control || !activeButton) return;
+    for (const sibling of control.querySelectorAll('.saga-story-opener-segment')) {
+        const selected = sibling === activeButton;
+        sibling.classList.toggle('saga-mode-button-active', selected);
+        sibling.setAttribute('aria-checked', selected ? 'true' : 'false');
+    }
 }
 
 function setStoryOpenerProviderActionsDisabled(container, disabled = false) {
@@ -846,12 +858,21 @@ function handleStoryOpenerStageAction(stage = {}, options = {}) {
     return false;
 }
 
+function getStoryOpenerLiveSourceOptions(session = {}, state = {}) {
+    const normalized = normalizeStoryOpenerSession(session);
+    if (normalized.sourceIntent?.stackItems?.length || normalized.sourceIntent?.packIds?.length) return {};
+    const sourceIntent = buildStoryOpenerSourceIntentFromState(state, normalized.controls);
+    if (!sourceIntent.stackItems.length && !sourceIntent.packIds.length) return {};
+    return { sourceIntent };
+}
+
 function createStoryOpenerStageBar(session = {}, state = {}, options = {}) {
     const wrap = document.createElement('div');
     wrap.className = 'saga-loredeck-creator-stage-guide saga-story-opener-stage-guide';
     const list = document.createElement('div');
     list.className = 'saga-loredeck-creator-stage-list saga-story-opener-stage-list';
-    const stages = getStoryOpenerStageDescriptors(session);
+    const sourceOptions = getStoryOpenerLiveSourceOptions(session, state);
+    const stages = getStoryOpenerStageDescriptors(session, sourceOptions);
     for (const stage of stages) {
         const item = document.createElement('div');
         item.className = `saga-loredeck-creator-stage-item saga-loredeck-creator-stage-${stage.status}`;
@@ -887,8 +908,14 @@ function createStoryOpenerStageBar(session = {}, state = {}, options = {}) {
         body.className = 'saga-loredeck-creator-stage-body';
         const label = document.createElement('span');
         label.className = 'saga-loredeck-creator-stage-label';
-        label.textContent = stage.actionLabel || stage.label;
+        label.textContent = stage.label;
         body.appendChild(label);
+        if (stage.actionLabel) {
+            const actionLabel = document.createElement('span');
+            actionLabel.className = 'saga-story-opener-stage-action-label';
+            actionLabel.textContent = stage.actionLabel;
+            body.appendChild(actionLabel);
+        }
         const detail = document.createElement('span');
         detail.className = 'saga-loredeck-creator-stage-detail';
         detail.textContent = stage.status === 'locked' ? stage.dependency : stage.detail;
@@ -953,9 +980,9 @@ function createStoryOpenerGenerationStatus(session = {}) {
     return row;
 }
 
-function getVisibleStoryOpenerStage(session = {}) {
+function getVisibleStoryOpenerStage(session = {}, state = {}) {
     const normalized = normalizeStoryOpenerSession(session);
-    const stages = getStoryOpenerStageDescriptors(normalized);
+    const stages = getStoryOpenerStageDescriptors(normalized, getStoryOpenerLiveSourceOptions(normalized, state));
     return stages.find(stage => stage.id === normalized.currentStage && stage.status !== 'locked')
         || stages.find(stage => stage.isActive && stage.status !== 'locked')
         || stages.find(stage => stage.status !== 'locked')
@@ -1049,13 +1076,18 @@ function createInputsCard(session = {}, state = {}, options = {}) {
     card.appendChild(lengthHeading);
     const lengthRow = document.createElement('div');
     lengthRow.className = 'saga-story-opener-length-row';
+    lengthRow.classList.add('saga-story-opener-segmented-control');
+    lengthRow.setAttribute('role', 'radiogroup');
+    lengthRow.setAttribute('aria-label', 'Target length');
     for (const target of STORY_OPENER_TARGET_LENGTHS) {
         const btn = createButton(target.label, target.description, button => {
             refs.targetLength = target.id;
-            for (const sibling of lengthRow.querySelectorAll('.saga-mode-button')) sibling.classList.remove('saga-mode-button-active');
-            button.classList.add('saga-mode-button-active');
-        }, 'saga-mode-button');
-        if (target.id === controls.targetLength) btn.classList.add('saga-mode-button-active');
+            setStoryOpenerSegmentedSelection(lengthRow, button);
+        }, 'saga-mode-button saga-story-opener-segment');
+        btn.setAttribute('role', 'radio');
+        const selected = target.id === controls.targetLength;
+        btn.classList.toggle('saga-mode-button-active', selected);
+        btn.setAttribute('aria-checked', selected ? 'true' : 'false');
         lengthRow.appendChild(btn);
     }
     card.appendChild(lengthRow);
@@ -1485,8 +1517,9 @@ function createSessionShelf(index = {}, state = {}, options = {}) {
 }
 
 function renderActiveSession(container, session = {}, state = {}, options = {}) {
-    const readiness = getStoryOpenerReadiness(session);
-    const visibleStage = getVisibleStoryOpenerStage(session);
+    const sourceOptions = getStoryOpenerLiveSourceOptions(session, state);
+    const readiness = getStoryOpenerReadiness(session, sourceOptions);
+    const visibleStage = getVisibleStoryOpenerStage(session, state);
     const header = document.createElement('div');
     header.className = 'saga-story-opener-active-header';
     const titleWrap = document.createElement('div');

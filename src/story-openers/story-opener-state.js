@@ -444,12 +444,13 @@ export function getStoryOpenerSelectedVariant(session = {}) {
     return normalized.variants.find(variant => variant.id === normalized.selectedVariantId) || normalized.variants[0] || null;
 }
 
-export function getStoryOpenerReadiness(session = {}) {
+export function getStoryOpenerReadiness(session = {}, options = {}) {
     const normalized = normalizeStoryOpenerSession(session);
+    const sourceIntent = normalizeStoryOpenerSourceIntent(options.sourceIntent || normalized.sourceIntent);
     const missing = [];
     if (!normalized.controls.userPrompt) missing.push('User Prompt');
     if (!normalized.controls.context) missing.push('Context');
-    if (!normalized.sourceIntent.stackItems.length && !normalized.sourceIntent.packIds.length) missing.push('Loredeck stack');
+    if (!sourceIntent.stackItems.length && !sourceIntent.packIds.length) missing.push('Loredeck stack');
     return {
         ready: missing.length === 0,
         missing,
@@ -457,10 +458,10 @@ export function getStoryOpenerReadiness(session = {}) {
     };
 }
 
-export function getStoryOpenerStageDescriptors(session = {}) {
+export function getStoryOpenerStageDescriptors(session = {}, options = {}) {
     const normalized = normalizeStoryOpenerSession(session);
     const activeIndex = STORY_OPENER_STAGE_ORDER.indexOf(normalized.currentStage);
-    const readiness = getStoryOpenerReadiness(normalized);
+    const readiness = getStoryOpenerReadiness(normalized, options);
     const missingLoredeckStack = readiness.missing.includes('Loredeck stack');
     return STORY_OPENER_STAGES.map((stage, index) => {
         let status = 'locked';

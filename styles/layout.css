@@ -1794,6 +1794,10 @@
     min-height: var(--saga-mobile-control-height, 44px);
 }
 
+.saga-runtime-mobile.saga-mobile-touch .saga-story-opener-panel .saga-story-opener-segmented-control .saga-story-opener-segment {
+    min-height: 28px;
+}
+
 .saga-runtime-mobile.saga-mobile-touch select,
 .saga-runtime-mobile.saga-mobile-touch input[type="text"],
 .saga-runtime-mobile.saga-mobile-touch input[type="number"],

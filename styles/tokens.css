@@ -89,9 +89,9 @@
     --saga-chip-relevance-low-bg: var(--saga-chip-neutral-bg, rgba(24, 25, 31, 0.82));
     --saga-chip-relevance-low-border: var(--saga-chip-neutral-border, rgba(209, 213, 219, 0.24));
     --saga-chip-relevance-low-fg: var(--saga-chip-muted-fg, #aeb3bd);
-    --saga-chip-relevance-normal-bg: color-mix(in oklab, var(--saga-surface-2, rgba(18, 18, 24, 0.62)) 76%, var(--saga-activate, #ffcb5c) 24%);
-    --saga-chip-relevance-normal-border: color-mix(in oklab, var(--saga-border-soft, rgba(185, 139, 54, 0.18)) 54%, var(--saga-activate, #ffcb5c) 46%);
-    --saga-chip-relevance-normal-fg: color-mix(in oklab, var(--saga-muted, rgba(241, 234, 216, 0.68)) 30%, var(--saga-activate, #ffcb5c) 70%);
+    --saga-chip-relevance-normal-bg: color-mix(in oklab, var(--saga-surface-2, rgba(18, 18, 24, 0.62)) 82%, var(--saga-activate, #ffcb5c) 18%);
+    --saga-chip-relevance-normal-border: color-mix(in oklab, var(--saga-border-soft, rgba(185, 139, 54, 0.18)) 68%, var(--saga-activate, #ffcb5c) 32%);
+    --saga-chip-relevance-normal-fg: color-mix(in oklab, var(--saga-muted, rgba(241, 234, 216, 0.68)) 52%, var(--saga-activate, #ffcb5c) 48%);
     --saga-chip-relevance-high-bg: color-mix(in oklab, var(--saga-surface-2, rgba(18, 18, 24, 0.62)) 58%, var(--saga-activate, #ffcb5c) 42%);
     --saga-chip-relevance-high-border: var(--saga-activate-soft, rgba(255, 203, 92, 0.56));
     --saga-chip-relevance-high-fg: var(--saga-activate, #ffcb5c);

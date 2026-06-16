@@ -463,9 +463,14 @@ import {
     configureRuntimeShell,
     getActiveNestedScrollElement,
     getActiveTabScrollElement,
+    getConstrainedDrawerHeight,
+    getConstrainedDrawerWidth,
+    getRailWidth,
     isRuntimeMobileShell,
+    normalizeRailMode,
     normalizePanelLayoutState,
     resetRuntimePanelLayout,
+    resolveDrawerDirection,
     toggleRuntimeDrawerForTab,
     toggleRuntimeRailMode,
     updateDrawerScrollMetrics,
@@ -1780,6 +1785,7 @@ function closeRuntimeFullscreenSurfaces() {
 export function refreshLorePanel() {
     const existing = document.getElementById(PANEL_ID);
     if (!existing) return;
+    panelRoot = existing;
 
     const state = getState();
     if (!state?.lorePanel?.isOpen) {
@@ -1795,12 +1801,43 @@ export function refreshLorePanel() {
         return;
     }
     const hasDrawer = !!existing.querySelector('.saga-runtime-drawer');
-    if ((state.lorePanel.drawerOpen === true) !== hasDrawer) {
+    const drawerOpen = state.lorePanel.drawerOpen === true;
+    const railMode = normalizeRailMode(state.lorePanel.railMode);
+    const drawerDirection = drawerOpen ? resolveDrawerDirection(state.lorePanel) : 'right';
+    const shellFrameChanged = existing.dataset.railMode !== railMode
+        || existing.dataset.drawerDirection !== drawerDirection
+        || drawerOpen !== hasDrawer;
+
+    if (shellFrameChanged) {
         renderPanelShell(existing, state);
+        syncRuntimeShellFrame(existing, state.lorePanel, drawerDirection);
         return;
     }
+    syncRuntimeShellFrame(existing, state.lorePanel, drawerDirection);
     refreshPanelBody({ preserveScroll: true });
     refreshHeader();
+}
+
+function syncRuntimeShellFrame(root, panelState, drawerDirection = resolveDrawerDirection(panelState)) {
+    if (!root || !panelState) return;
+    const railMode = normalizeRailMode(panelState.railMode);
+    const railWidth = getRailWidth(panelState);
+    const drawerWidth = getConstrainedDrawerWidth(panelState, drawerDirection);
+    const drawerHeight = getConstrainedDrawerHeight(panelState);
+
+    applyRuntimeShellGeometry(root, panelState);
+    root.dataset.railMode = railMode;
+    root.dataset.drawerDirection = drawerDirection;
+    root.style.setProperty('--saga-rail-width', `${railWidth}px`);
+    root.style.setProperty('--saga-drawer-width', `${drawerWidth}px`);
+    root.style.setProperty('--saga-drawer-height', `${drawerHeight}px`);
+
+    const drawer = root.querySelector('.saga-runtime-drawer');
+    if (drawer) {
+        drawer.style.width = `${drawerWidth}px`;
+        drawer.style.height = `${drawerHeight}px`;
+        updateDrawerScrollMetrics(drawer);
+    }
 }
 
 function removeLorePanel() {

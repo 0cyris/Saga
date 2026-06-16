@@ -1053,9 +1053,9 @@ function writeRuntimeThemeVars(target, colors) {
     target.style.setProperty('--saga-chip-relevance-low-bg', hexToRgba(colors.chipNeutral, 0.08));
     target.style.setProperty('--saga-chip-relevance-low-border', hexToRgba(colors.chipNeutral, 0.24));
     target.style.setProperty('--saga-chip-relevance-low-fg', colors.chipMuted);
-    target.style.setProperty('--saga-chip-relevance-normal-bg', mixWithActivate('var(--saga-surface-2)', colors.activate, 24));
-    target.style.setProperty('--saga-chip-relevance-normal-border', mixWithActivate('var(--saga-border-soft)', colors.activate, 46));
-    target.style.setProperty('--saga-chip-relevance-normal-fg', mixWithActivate('var(--saga-muted)', colors.activate, 70));
+    target.style.setProperty('--saga-chip-relevance-normal-bg', mixWithActivate('var(--saga-surface-2)', colors.activate, 18));
+    target.style.setProperty('--saga-chip-relevance-normal-border', mixWithActivate('var(--saga-border-soft)', colors.activate, 32));
+    target.style.setProperty('--saga-chip-relevance-normal-fg', mixWithActivate('var(--saga-muted)', colors.activate, 48));
     target.style.setProperty('--saga-chip-relevance-high-bg', mixWithActivate('var(--saga-surface-2)', colors.activate, 42));
     target.style.setProperty('--saga-chip-relevance-high-border', hexToRgba(colors.activate, 0.56));
     target.style.setProperty('--saga-chip-relevance-high-fg', colors.activate);

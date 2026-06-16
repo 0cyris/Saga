@@ -109,8 +109,8 @@
 }
 
 .saga-lore-relevance-segment[data-relevance="normal"][aria-checked="true"] {
-    background: var(--saga-chip-relevance-normal-bg, color-mix(in oklab, var(--saga-surface-2, rgba(18, 18, 24, 0.62)) 76%, var(--saga-activate, #ffcb5c) 24%));
-    color: var(--saga-chip-relevance-normal-fg, color-mix(in oklab, var(--saga-muted, rgba(241, 234, 216, 0.68)) 30%, var(--saga-activate, #ffcb5c) 70%));
+    background: var(--saga-chip-relevance-normal-bg, color-mix(in oklab, var(--saga-surface-2, rgba(18, 18, 24, 0.62)) 82%, var(--saga-activate, #ffcb5c) 18%));
+    color: var(--saga-chip-relevance-normal-fg, color-mix(in oklab, var(--saga-muted, rgba(241, 234, 216, 0.68)) 52%, var(--saga-activate, #ffcb5c) 48%));
 }
 
 .saga-lore-relevance-segment[data-relevance="high"][aria-checked="true"] {
@@ -331,21 +331,21 @@
 }
 
 .saga-lorecard-elevate-toggle.saga-lorecard-active-toggle::after {
-    left: 50%;
-    top: 50%;
+    left: 48.5%;
+    top: 51%;
     transform: translate(-50%, -50%);
 }
 
 .saga-lorecard-elevate-toggle.saga-lorecard-active-toggle-active {
     background:
-        radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--saga-activate, #ffcb5c) 34%, #ffffff) 0%, transparent 38%),
-        radial-gradient(circle at 50% 50%, var(--saga-activate-surface, rgba(255, 203, 92, 0.18)) 0%, transparent 70%),
+        radial-gradient(circle at 48.5% 51%, color-mix(in srgb, var(--saga-activate, #ffcb5c) 34%, #ffffff) 0%, transparent 38%),
+        radial-gradient(circle at 48.5% 51%, var(--saga-activate-surface, rgba(255, 203, 92, 0.18)) 0%, transparent 70%),
         color-mix(in srgb, var(--saga-surface-2, rgba(38, 42, 52, 0.72)) 88%, var(--saga-activate, #ffcb5c)) !important;
 }
 
 .saga-lorecard-elevate-toggle.saga-lorecard-active-toggle-inactive {
     background:
-        radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--saga-text, #f1ead8) 10%, transparent), transparent 48%),
+        radial-gradient(circle at 48.5% 51%, color-mix(in srgb, var(--saga-text, #f1ead8) 10%, transparent), transparent 48%),
         var(--saga-surface-2, rgba(38, 42, 52, 0.72)) !important;
 }
 
@@ -395,8 +395,8 @@
 }
 
 .saga-mobile-lorecard-relevance-status[data-saga-relevance="normal"] {
-    color: var(--saga-chip-relevance-normal-fg, color-mix(in oklab, var(--saga-muted, rgba(241, 234, 216, 0.68)) 30%, var(--saga-activate, #ffcb5c) 70%));
-    background: var(--saga-chip-relevance-normal-bg, color-mix(in oklab, var(--saga-surface-2, rgba(18, 18, 24, 0.62)) 76%, var(--saga-activate, #ffcb5c) 24%));
+    color: var(--saga-chip-relevance-normal-fg, color-mix(in oklab, var(--saga-muted, rgba(241, 234, 216, 0.68)) 52%, var(--saga-activate, #ffcb5c) 48%));
+    background: var(--saga-chip-relevance-normal-bg, color-mix(in oklab, var(--saga-surface-2, rgba(18, 18, 24, 0.62)) 82%, var(--saga-activate, #ffcb5c) 18%));
 }
 
 .saga-mobile-lorecard-relevance-status[data-saga-relevance="low"] {
