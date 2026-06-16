@@ -2,6 +2,8 @@ import assert from 'node:assert/strict';
 
 const {
   __storyOpenerGenerationTestHooks,
+  buildStoryOpenerBrief,
+  writeStoryOpenerVariants,
 } = await import('../../src/story-openers/story-opener-generation.js');
 const {
   buildStoryOpenerContextPacket,
@@ -9,7 +11,39 @@ const {
 const {
   getStoryOpenerStageDescriptors,
   normalizeStoryOpenerControls,
+  normalizeStoryOpenerSession,
 } = await import('../../src/story-openers/story-opener-state.js');
+
+async function withFakeStoryOpenerProvider(handler, run) {
+  const restore = __storyOpenerGenerationTestHooks.setStoryOpenerRequestForTests(handler);
+  try {
+    return await run();
+  } finally {
+    restore();
+  }
+}
+
+function makeBriefJson(overrides = {}) {
+  return JSON.stringify({
+    fandoms: ['Harry Potter'],
+    context: 'Harry Potter Book 6 - January',
+    premise: 'Open on Hermione noticing a strange silence.',
+    proseStyle: 'Half-Blood Prince-era school mystery.',
+    openingShape: 'Scene Setting',
+    characterFocus: 'Hermione',
+    pov: '3rd person limited',
+    tense: 'past tense',
+    targetLength: 'scene',
+    styleGuidance: 'Close third-person narration with restrained unease.',
+    lengthGuidance: 'Balanced first-message scene opener.',
+    scenePlan: ['Hermione studies late', 'A strange detail interrupts her focus'],
+    mustInclude: ['Hermione is under January academic pressure.'],
+    freshEmphasis: ['January pressure'],
+    mustAvoid: ['Do not reveal Horcrux knowledge.'],
+    variantAngles: ['A angle', 'B angle', 'C angle'],
+    ...overrides,
+  });
+}
 
 const parsed = __storyOpenerGenerationTestHooks.parseStoryOpenerJsonResponse(`Here is the JSON:
 \`\`\`json
@@ -133,5 +167,156 @@ assert.equal(result.sourceResolution.status, 'current');
 assert(result.packet.fandoms.includes('Harry Potter'));
 assert(result.packet.mustUse.some(fact => fact.id === 'hermione-library-pressure'), 'Current Hermione fact should be eligible.');
 assert(result.packet.mustAvoid.some(fact => fact.id === 'horcrux-reveal-future'), 'Future Horcrux fact should be guarded out before its date.');
+
+const providerSession = normalizeStoryOpenerSession({
+  sessionId: 'opener-provider-test',
+  controls: {
+    userPrompt: 'Open on Hermione in sixth year.',
+    context: 'Harry Potter Book 6 - January',
+    proseStyle: 'Harry Potter prose style',
+    openingShape: 'Scene Setting',
+    pov: '3rd person limited',
+    tense: 'past tense',
+    targetLength: 'scene',
+    variantCount: 3,
+  },
+  sourceIntent: {
+    sourceMode: 'loredeck_only',
+    context: 'Harry Potter Book 6 - January',
+    stackItems: [{ type: 'deck', packId: 'hp-opener-test', enabled: true, priority: 100 }],
+  },
+});
+
+const providerPacket = {
+  context: 'Harry Potter Book 6 - January',
+  contextState: { sceneDate: '1996-01-15' },
+  fandoms: ['Harry Potter'],
+  fresh: [],
+  mustUse: [{ id: 'hermione-library-pressure', title: 'Hermione pressure', fact: 'Hermione is under January academic pressure.' }],
+  supporting: [],
+  mustAvoid: [{ id: 'horcrux-reveal-future', title: 'Horcrux reveal future', fact: 'Do not reveal Horcrux knowledge.' }],
+};
+
+await withFakeStoryOpenerProvider(async () => {
+  throw new Error('Reasoning profile is not selected.');
+}, async () => {
+  const brief = await buildStoryOpenerBrief(providerSession, providerPacket, { retryDelayMs: 0 });
+  assert.equal(brief.ok, false);
+  assert.equal(brief.failure.code, 'provider_missing_config');
+  assert.equal(brief.attempts.length, 1);
+});
+
+await withFakeStoryOpenerProvider(async () => {
+  if (!globalThis.__sagaStoryOpenerEmptyThenSuccessCalls) globalThis.__sagaStoryOpenerEmptyThenSuccessCalls = 0;
+  globalThis.__sagaStoryOpenerEmptyThenSuccessCalls += 1;
+  return globalThis.__sagaStoryOpenerEmptyThenSuccessCalls === 1
+    ? { choices: [{ message: { content: '' } }] }
+    : { choices: [{ message: { content: makeBriefJson() } }] };
+}, async () => {
+  globalThis.__sagaStoryOpenerEmptyThenSuccessCalls = 0;
+  const brief = await buildStoryOpenerBrief(providerSession, providerPacket, { retryDelayMs: 0 });
+  assert.equal(brief.ok, true);
+  assert.equal(brief.attempts.length, 2);
+  assert.equal(brief.attempts[0].errorCode, 'provider_empty_content');
+  assert.equal(brief.brief.premise, 'Open on Hermione noticing a strange silence.');
+});
+
+await withFakeStoryOpenerProvider(async () => {
+  if (!globalThis.__sagaStoryOpenerRepairCalls) globalThis.__sagaStoryOpenerRepairCalls = 0;
+  globalThis.__sagaStoryOpenerRepairCalls += 1;
+  return globalThis.__sagaStoryOpenerRepairCalls === 1
+    ? '{ "premise": "Open on Hermione", '
+    : makeBriefJson({ premise: 'Repaired brief premise.' });
+}, async () => {
+  globalThis.__sagaStoryOpenerRepairCalls = 0;
+  const brief = await buildStoryOpenerBrief(providerSession, providerPacket, { retryDelayMs: 0 });
+  assert.equal(brief.ok, true);
+  assert.equal(globalThis.__sagaStoryOpenerRepairCalls, 2);
+  assert.equal(brief.repairAttempted, true);
+  assert.equal(brief.brief.premise, 'Repaired brief premise.');
+});
+
+await withFakeStoryOpenerProvider(async () => {
+  if (!globalThis.__sagaStoryOpenerContractCalls) globalThis.__sagaStoryOpenerContractCalls = 0;
+  globalThis.__sagaStoryOpenerContractCalls += 1;
+  return globalThis.__sagaStoryOpenerContractCalls === 1
+    ? makeBriefJson({ styleGuidance: '', scenePlan: [] })
+    : makeBriefJson({ premise: 'Contract retry premise.' });
+}, async () => {
+  globalThis.__sagaStoryOpenerContractCalls = 0;
+  const brief = await buildStoryOpenerBrief(providerSession, providerPacket, { retryDelayMs: 0 });
+  assert.equal(brief.ok, true);
+  assert.equal(brief.attempts.length, 2);
+  assert.equal(brief.attempts[0].errorCode, 'stage_contract_failed');
+  assert.equal(brief.brief.premise, 'Contract retry premise.');
+});
+
+const providerBrief = JSON.parse(makeBriefJson());
+
+await withFakeStoryOpenerProvider(async (_system, user) => {
+  if (user.includes('Variant angle: B angle')) {
+    if (!globalThis.__sagaStoryOpenerVariantBCalls) globalThis.__sagaStoryOpenerVariantBCalls = 0;
+    globalThis.__sagaStoryOpenerVariantBCalls += 1;
+    return globalThis.__sagaStoryOpenerVariantBCalls === 1 ? '{}' : 'Variant B prose.';
+  }
+  if (user.includes('Variant angle: C angle')) return 'Variant C prose.';
+  return 'Variant A prose.';
+}, async () => {
+  globalThis.__sagaStoryOpenerVariantBCalls = 0;
+  const variants = await writeStoryOpenerVariants(providerSession, providerPacket, providerBrief, { retryDelayMs: 0 });
+  assert.equal(variants.ok, true);
+  assert.equal(variants.variants.length, 3);
+  assert.equal(variants.failures.length, 0);
+  assert.equal(variants.variants.find(item => item.variantIndex === 1).text, 'Variant B prose.');
+  assert.equal(variants.attempts.filter(attempt => attempt.variantLabel === 'Variant B').length, 2);
+});
+
+await withFakeStoryOpenerProvider(async (_system, user) => {
+  if (user.includes('Variant angle: B angle')) return '{}';
+  if (user.includes('Variant angle: C angle')) return 'Variant C prose.';
+  return 'Variant A prose.';
+}, async () => {
+  const variants = await writeStoryOpenerVariants(providerSession, providerPacket, providerBrief, { retryDelayMs: 0 });
+  assert.equal(variants.ok, true);
+  assert.equal(variants.variants.length, 2);
+  assert.equal(variants.failures.length, 1);
+  assert.deepEqual(variants.failedVariantIndexes, [1]);
+  assert.equal(variants.partialFailure.code, 'draft_variants_partial_failed');
+});
+
+await withFakeStoryOpenerProvider(async () => '{}', async () => {
+  const variants = await writeStoryOpenerVariants(providerSession, providerPacket, providerBrief, { retryDelayMs: 0 });
+  assert.equal(variants.ok, false);
+  assert.equal(variants.failure.code, 'draft_variants_failed');
+  assert.deepEqual(variants.failedVariantIndexes, [0, 1, 2]);
+  assert.match(variants.failure.message, /No opener variants were usable/);
+});
+
+const retryingSession = normalizeStoryOpenerSession({
+  sessionId: 'opener-retrying-state-test',
+  controls: {
+    userPrompt: 'Open on Hermione.',
+    context: 'Harry Potter Book 6 - January',
+  },
+  sourceIntent: {
+    stackItems: [{ type: 'deck', packId: 'hp-opener-test', enabled: true, priority: 100 }],
+  },
+  currentStage: 'opener_brief',
+  generationRuns: {
+    run1: {
+      id: 'run1',
+      stage: 'opener_brief',
+      status: 'retrying',
+      label: 'Retrying Opener Brief, attempt 2 of 3',
+      message: 'Retrying after provider_empty_content.',
+      attempts: [{ stage: 'opener_brief', attempt: 1, maxAttempts: 3, status: 'error', errorCode: 'provider_empty_content' }],
+    },
+  },
+  activeGeneration: { id: 'run1', stage: 'opener_brief', status: 'retrying' },
+});
+assert.equal(retryingSession.activeGeneration.status, 'retrying');
+assert.equal(retryingSession.generationRuns.run1.attempts.length, 1);
+const retryingStage = getStoryOpenerStageDescriptors(retryingSession).find(stage => stage.id === 'opener_brief');
+assert.equal(retryingStage.status, 'generating');
 
 console.log('Story Opener pipeline tests passed.');

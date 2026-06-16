@@ -124,21 +124,21 @@
 }
 
 .saga-chip-tone-relevance-high {
-    border-color: var(--saga-chip-relevance-high-border, var(--saga-activate-soft, rgba(255, 203, 92, 0.42)));
-    background: var(--saga-chip-relevance-high-bg, var(--saga-activate-surface, rgba(255, 203, 92, 0.16)));
+    border-color: var(--saga-chip-relevance-high-border, var(--saga-activate-soft, rgba(255, 203, 92, 0.56)));
+    background: var(--saga-chip-relevance-high-bg, color-mix(in oklab, var(--saga-surface-2, rgba(18, 18, 24, 0.62)) 58%, var(--saga-activate, #ffcb5c) 42%));
     color: var(--saga-chip-relevance-high-fg, var(--saga-activate, #ffcb5c));
 }
 
 .saga-chip-tone-relevance-normal {
-    border-color: var(--saga-chip-relevance-normal-border, color-mix(in oklab, var(--saga-border-soft, rgba(185, 139, 54, 0.18)) 66%, var(--saga-activate, #ffcb5c) 34%));
-    background: var(--saga-chip-relevance-normal-bg, color-mix(in oklab, var(--saga-surface-2, rgba(18, 18, 24, 0.62)) 84%, var(--saga-activate, #ffcb5c) 16%));
-    color: var(--saga-chip-relevance-normal-fg, color-mix(in oklab, var(--saga-text, #f1ead8) 24%, var(--saga-activate, #ffcb5c) 76%));
+    border-color: var(--saga-chip-relevance-normal-border, color-mix(in oklab, var(--saga-border-soft, rgba(185, 139, 54, 0.18)) 54%, var(--saga-activate, #ffcb5c) 46%));
+    background: var(--saga-chip-relevance-normal-bg, color-mix(in oklab, var(--saga-surface-2, rgba(18, 18, 24, 0.62)) 76%, var(--saga-activate, #ffcb5c) 24%));
+    color: var(--saga-chip-relevance-normal-fg, color-mix(in oklab, var(--saga-muted, rgba(241, 234, 216, 0.68)) 30%, var(--saga-activate, #ffcb5c) 70%));
 }
 
 .saga-chip-tone-relevance-low {
-    border-color: var(--saga-chip-relevance-low-border, color-mix(in oklab, var(--saga-border-soft, rgba(185, 139, 54, 0.18)) 78%, var(--saga-activate, #ffcb5c) 22%));
-    background: var(--saga-chip-relevance-low-bg, color-mix(in oklab, var(--saga-surface-2, rgba(18, 18, 24, 0.62)) 92%, var(--saga-activate, #ffcb5c) 8%));
-    color: var(--saga-chip-relevance-low-fg, color-mix(in oklab, var(--saga-muted, rgba(241, 234, 216, 0.68)) 48%, var(--saga-activate, #ffcb5c) 52%));
+    border-color: var(--saga-chip-relevance-low-border, var(--saga-chip-neutral-border, rgba(209, 213, 219, 0.24)));
+    background: var(--saga-chip-relevance-low-bg, var(--saga-chip-neutral-bg, rgba(24, 25, 31, 0.82)));
+    color: var(--saga-chip-relevance-low-fg, var(--saga-chip-muted-fg, #aeb3bd));
 }
 
 .saga-chip-tone-review,
@@ -391,6 +391,38 @@
 .saga-toggle-switch-input:focus-visible + .saga-toggle-switch-slider {
     outline: 2px solid var(--saga-focus, #ffeaa7);
     outline-offset: 2px;
+}
+
+.saga-session-active-toggle-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    min-width: 0;
+    margin: 2px 0 8px;
+}
+
+.saga-session-active-toggle-card {
+    width: fit-content;
+    max-width: 100%;
+    min-height: 34px;
+    padding: 4px 6px;
+    border-color: transparent;
+    background: transparent;
+    box-shadow: none;
+}
+
+.saga-session-active-toggle-card:hover {
+    border-color: var(--saga-border-soft, rgba(185, 139, 54, 0.24));
+    background: var(--saga-surface-2, rgba(38, 42, 52, 0.72));
+}
+
+.saga-session-active-toggle-card.saga-toggle-card-checked {
+    border-color: transparent;
+    box-shadow: none;
+}
+
+.saga-session-active-toggle-card .saga-toggle-label {
+    font-size: 0.9rem;
 }
 
 .saga-mode-buttons,
@@ -3084,6 +3116,36 @@
 .saga-story-opener-failure {
     border-color: var(--saga-red-soft, rgba(176, 58, 58, 0.42));
     background: var(--saga-red-surface, rgba(92, 23, 36, 0.2));
+}
+
+.saga-story-opener-failure-details {
+    min-width: 0;
+    display: grid;
+    gap: 5px;
+}
+
+.saga-story-opener-failure-details summary {
+    cursor: pointer;
+    color: var(--saga-gold, #d7b56d);
+    font-weight: 700;
+}
+
+.saga-story-opener-failure-attempt {
+    min-width: 0;
+    display: grid;
+    gap: 2px;
+    padding: 5px 6px;
+    border: 1px solid rgba(176, 58, 58, 0.22);
+    border-radius: 6px;
+    background: rgba(5, 6, 10, 0.22);
+}
+
+.saga-story-opener-failure-attempt span {
+    overflow-wrap: anywhere;
+}
+
+.saga-story-opener-failure-actions {
+    margin-top: 4px;
 }
 
 .saga-story-opener-beat-list {

@@ -150,6 +150,8 @@ Only the selected variant is revised or copied. If Variant B is better than Vari
 
 Use **Draft Opener** when the brief is ready and you only need to regenerate opener text without rebuilding the packet and brief.
 
+Story Maker automatically retries retryable provider failures up to three times. If one variant fails but another succeeds, the successful variants stay available. The failure card can show compact attempt details and **Retry Failed Variants** when only specific variant calls need another pass.
+
 ## Review & Copy On Mobile
 
 The **Review & Copy** stage contains:
@@ -192,7 +194,7 @@ Tap **Copy Markdown to Clipboard** after the selected opener is ready when you w
 | --- | --- |
 | Story Maker is empty | Tap **New Opener** or select a saved opener. |
 | A stage is locked | Complete the earlier stage shown in the stage bar. |
-| Generation fails | Check the Reasoning Provider in Settings. |
+| Generation fails | Read the failure card first, then check the Reasoning Provider in Settings if retries are exhausted. |
 | The opener uses wrong lore | Recheck Context, then rebuild the Context Packet. |
 | The output is too long | Choose **Hook** or **Scene**, then redraft or revise. |
 | You cannot find the copied text | Use **Copy Markdown to Clipboard**, then paste into the chat input manually. |

@@ -565,6 +565,26 @@ function failRun(session = {}, run = {}, failure = {}) {
     });
 }
 
+function updateActiveStoryOpenerRunProgress(working = {}, run = {}, event = {}, options = {}) {
+    if (!event?.message && !event?.label) return working;
+    const current = getCachedExternalStoryOpenerSession(working.sessionId) || working;
+    const nextRun = {
+        ...run,
+        ...(current.activeGeneration || {}),
+        status: event.status || current.activeGeneration?.status || run.status || 'running',
+        label: event.label || current.activeGeneration?.label || run.label,
+        message: event.message || current.activeGeneration?.message || run.message,
+        updatedAt: Date.now(),
+        attemptCount: Math.max(Number(current.activeGeneration?.attemptCount) || 0, Number(event.attempt) || 0),
+        maxAttempts: Math.max(Number(current.activeGeneration?.maxAttempts) || 0, Number(event.maxAttempts) || 0),
+        ...(Array.isArray(event.attempts) ? { attempts: event.attempts } : {}),
+    };
+    const next = recordStoryOpenerRun(current, nextRun);
+    saveStoryOpenerSession(next, { activate: true });
+    refresh(options);
+    return next;
+}
+
 function updateSessionStage(session = {}, patch = {}, options = {}) {
     const next = normalizeStoryOpenerSession({
         ...session,
@@ -632,15 +652,16 @@ async function runBriefStage(session = {}, state = {}, options = {}) {
     const run = working.activeGeneration;
     const result = await buildStoryOpenerBrief(working, packet, {
         onProgress: event => {
-            if (event?.message) {
-                const current = getCachedExternalStoryOpenerSession(working.sessionId) || working;
-                saveStoryOpenerSession(recordStoryOpenerRun(current, { ...run, status: 'running', label: event.label || run.label, message: event.message, updatedAt: Date.now() }), { activate: true });
-                refresh(options);
-            }
+            working = updateActiveStoryOpenerRunProgress(working, run, event, options);
         },
     });
     if (!result.ok) {
-        working = failRun(working, run, result.failure);
+        working = failRun(working, {
+            ...run,
+            attempts: result.attempts || [],
+            attemptCount: result.attempts?.length || 0,
+            maxAttempts: result.failure?.details?.maxAttempts || result.attempts?.[0]?.maxAttempts || 0,
+        }, result.failure);
         saveStoryOpenerSession(working);
         refresh(options);
         return { ok: false, session: working, failure: result.failure };
@@ -659,6 +680,9 @@ async function runBriefStage(session = {}, state = {}, options = {}) {
     });
     working = finishRun(working, run, {
         message: result.repairAttempted ? 'Built Opener Brief after JSON repair.' : 'Built Opener Brief.',
+        attempts: result.attempts || [],
+        attemptCount: result.attempts?.length || 0,
+        maxAttempts: result.attempts?.[0]?.maxAttempts || 0,
     });
     if (result.refinementFailure) {
         working.snapshots.factRefinementFailure = result.refinementFailure;
@@ -680,13 +704,21 @@ async function runDraftStage(session = {}, state = {}, options = {}) {
         brief = briefResult.brief;
     }
     const variantCount = Math.max(STORY_OPENER_VARIANT_COUNT_MIN, Math.min(STORY_OPENER_VARIANT_COUNT_MAX, Number(working.controls?.variantCount) || STORY_OPENER_VARIANT_COUNT_MIN));
+    const retryIndexesForLabel = Array.isArray(options.retryVariantIndexes)
+        ? options.retryVariantIndexes.map(index => Math.floor(Number(index))).filter(index => Number.isFinite(index))
+        : [];
+    const requestedVariantCount = retryIndexesForLabel.length || variantCount;
     working = makeRun(
         working,
         'draft_variants',
-        variantCount === 1
+        retryIndexesForLabel.length
+            ? `Retrying ${requestedVariantCount} failed variant${requestedVariantCount === 1 ? '' : 's'}`
+            : variantCount === 1
             ? `${options.revisionPrompt ? 'Revising' : 'Drafting'} Variant A`
             : `${options.revisionPrompt ? 'Revising' : 'Drafting'} ${variantCount} variants`,
-        `Starting ${variantCount} opener variant${variantCount === 1 ? '' : 's'}.`,
+        retryIndexesForLabel.length
+            ? `Retrying ${requestedVariantCount} failed opener variant${requestedVariantCount === 1 ? '' : 's'}.`
+            : `Starting ${variantCount} opener variant${variantCount === 1 ? '' : 's'}.`,
     );
     saveStoryOpenerSession(working);
     refresh(options);
@@ -694,16 +726,19 @@ async function runDraftStage(session = {}, state = {}, options = {}) {
     const previous = getStoryOpenerSelectedVariant(working);
     const result = await writeStoryOpenerVariants(working, packet, brief, {
         revisionPrompt: options.revisionPrompt || '',
+        variantIndexes: options.retryVariantIndexes,
         onProgress: event => {
-            if (event?.message) {
-                const current = getCachedExternalStoryOpenerSession(working.sessionId) || working;
-                saveStoryOpenerSession(recordStoryOpenerRun(current, { ...run, status: 'running', label: event.label || run.label, message: event.message, updatedAt: Date.now() }), { activate: true });
-                refresh(options);
-            }
+            working = updateActiveStoryOpenerRunProgress(working, run, event, options);
         },
     });
     if (!result.ok) {
-        working = failRun(working, run, result.failure);
+        working = failRun(working, {
+            ...run,
+            attempts: result.attempts || [],
+            attemptCount: result.attempts?.length || 0,
+            maxAttempts: result.failure?.details?.maxAttempts || result.attempts?.[0]?.maxAttempts || 0,
+            failedUnitCount: result.failedVariantIndexes?.length || 0,
+        }, result.failure);
         saveStoryOpenerSession(working);
         refresh(options);
         return { ok: false, session: working, failure: result.failure };
@@ -719,15 +754,29 @@ async function runDraftStage(session = {}, state = {}, options = {}) {
             sourceRunId: run?.id || '',
         });
     }
-    const variants = result.variants.map((variant, index) => ({
-        ...variant,
-        sourceRunId: run?.id || '',
-        status: index === 0 ? 'selected' : 'draft',
-    }));
+    const retryIndexes = Array.isArray(options.retryVariantIndexes)
+        ? options.retryVariantIndexes.map(index => Math.floor(Number(index))).filter(index => Number.isFinite(index))
+        : [];
+    const existingVariants = retryIndexes.length
+        ? working.variants.filter(variant => !retryIndexes.includes(Number(variant.variantIndex)))
+        : [];
+    const variants = [...existingVariants, ...result.variants]
+        .map((variant, index) => ({
+            ...variant,
+            sourceRunId: run?.id || '',
+            status: index === 0 ? 'selected' : 'draft',
+        }))
+        .sort((left, right) => (Number(left.variantIndex) || 0) - (Number(right.variantIndex) || 0));
+    const selectedVariantId = retryIndexes.length && previous?.id && variants.some(variant => variant.id === previous.id)
+        ? previous.id
+        : (variants[0]?.id || '');
+    for (const variant of variants) {
+        variant.status = variant.id === selectedVariantId ? 'selected' : 'draft';
+    }
     working = normalizeStoryOpenerSession({
         ...working,
         variants,
-        selectedVariantId: variants[0]?.id || '',
+        selectedVariantId,
         revisionHistory: history,
         currentStage: 'review_copy',
         status: 'complete',
@@ -741,7 +790,13 @@ async function runDraftStage(session = {}, state = {}, options = {}) {
     working = finishRun(working, run, {
         label: finishLabel,
         message,
-        ...(result.failures?.length ? { failure: result.failures[0] } : {}),
+        attempts: result.attempts || [],
+        attemptCount: result.attempts?.length || 0,
+        maxAttempts: result.attempts?.[0]?.maxAttempts || 0,
+        failedUnitCount: result.failedVariantIndexes?.length || 0,
+        succeededUnitCount: variants.length,
+        partial: !!result.failures?.length,
+        ...(result.partialFailure ? { failure: result.partialFailure } : {}),
     });
     saveStoryOpenerSession(working);
     refresh(options);
@@ -1296,7 +1351,7 @@ function createReviewCard(session = {}, state = {}, options = {}) {
     return card;
 }
 
-function createFailureCard(session = {}) {
+function createFailureCard(session = {}, state = {}, options = {}) {
     const failure = session.lastGenerationResult?.failure || null;
     if (!failure) return null;
     const card = document.createElement('div');
@@ -1312,6 +1367,57 @@ function createFailureCard(session = {}) {
         recovery.textContent = failure.recovery;
         card.appendChild(recovery);
     }
+    const attempts = Array.isArray(session.lastGenerationResult?.attempts)
+        ? session.lastGenerationResult.attempts
+        : (Array.isArray(failure.details?.attempts) ? failure.details.attempts : []);
+    if (attempts.length) {
+        const details = document.createElement('details');
+        details.className = 'saga-story-opener-failure-details';
+        const summary = document.createElement('summary');
+        summary.textContent = `Details (${attempts.length} attempt${attempts.length === 1 ? '' : 's'})`;
+        details.appendChild(summary);
+        for (const attempt of attempts.slice(-8)) {
+            const row = document.createElement('div');
+            row.className = 'saga-story-opener-failure-attempt';
+            const label = document.createElement('strong');
+            const unit = attempt.variantLabel || getStoryOpenerStageLabel(attempt.stage);
+            label.textContent = `${unit} attempt ${attempt.attempt || 1}`;
+            row.appendChild(label);
+            const text = document.createElement('span');
+            text.textContent = attempt.status === 'complete'
+                ? 'Completed.'
+                : `${attempt.errorCode || 'error'}${attempt.message ? `: ${attempt.message}` : ''}`;
+            row.appendChild(text);
+            details.appendChild(row);
+        }
+        card.appendChild(details);
+    }
+    const stage = failure.stage || session.lastGenerationResult?.stage || '';
+    const actions = document.createElement('div');
+    actions.className = 'saga-primary-actions saga-story-opener-failure-actions';
+    const hasActiveRun = !!session.activeGeneration;
+    if (['context_packet', 'opener_brief', 'draft_variants'].includes(stage)) {
+        const retry = createButton('Retry Failed Stage', 'Retry the failed Story Maker stage.', async btn => {
+            btn.disabled = true;
+            if (stage === 'context_packet') await runContextPacketStage(session, state, options);
+            else if (stage === 'opener_brief') await runBriefStage(session, state, options);
+            else await runDraftStage(session, state, options);
+        });
+        retry.disabled = hasActiveRun;
+        actions.appendChild(retry);
+    }
+    const failedVariantIndexes = Array.isArray(failure.details?.failedVariantIndexes)
+        ? failure.details.failedVariantIndexes.map(index => Math.floor(Number(index))).filter(index => Number.isFinite(index))
+        : [];
+    if (stage === 'draft_variants' && session.variants?.length && failedVariantIndexes.length) {
+        const retryVariants = createButton('Retry Failed Variants', 'Retry only the variant calls that failed after automatic retries.', async btn => {
+            btn.disabled = true;
+            await runDraftStage(session, state, { ...options, retryVariantIndexes: failedVariantIndexes });
+        }, 'saga-primary-button');
+        retryVariants.disabled = hasActiveRun;
+        actions.appendChild(retryVariants);
+    }
+    if (actions.childNodes.length) card.appendChild(actions);
     return card;
 }
 
@@ -1403,7 +1509,7 @@ function renderActiveSession(container, session = {}, state = {}, options = {}) 
     container.appendChild(createStoryOpenerStageBar(session, state, options));
     const generationStatus = createStoryOpenerGenerationStatus(session);
     if (generationStatus) container.appendChild(generationStatus);
-    const failureCard = createFailureCard(session);
+    const failureCard = createFailureCard(session, state, options);
     if (failureCard) container.appendChild(failureCard);
     container.appendChild(createStoryOpenerStageCard(visibleStage?.id || 'inputs', session, state, options));
 }

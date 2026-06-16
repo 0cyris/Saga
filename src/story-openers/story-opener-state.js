@@ -75,6 +75,7 @@ export const STORY_OPENER_TENSE_OPTIONS = Object.freeze([
 ]);
 
 export const STORY_OPENER_SOURCE_STATUSES = Object.freeze(['current', 'changed', 'partial', 'missing']);
+export const STORY_OPENER_ACTIVE_RUN_STATUSES = Object.freeze(['queued', 'running', 'retrying']);
 export const STORY_OPENER_VARIANT_COUNT_MIN = 1;
 export const STORY_OPENER_VARIANT_COUNT_MAX = 5;
 export const STORY_OPENER_DEFAULT_OPENING_SHAPE = STORY_OPENER_OPENING_SHAPES[0];
@@ -263,14 +264,17 @@ export function normalizeStoryOpenerVariant(value = {}, fallbackIndex = 0) {
     const raw = isPlainObject(value) ? value : {};
     const id = normalizeStoryOpenerString(raw.id || raw.variantId, 120) || `variant-${fallbackIndex + 1}`;
     const label = normalizeStoryOpenerString(raw.label, 80) || `Variant ${String.fromCharCode(65 + fallbackIndex)}`;
+    const rawVariantIndex = Number(raw.variantIndex);
     return {
         id,
         label,
+        variantIndex: Number.isFinite(rawVariantIndex) && rawVariantIndex >= 0 ? Math.floor(rawVariantIndex) : fallbackIndex,
         text: normalizeStoryOpenerString(raw.text || raw.opener, 30000),
         prompt: normalizeStoryOpenerString(raw.prompt, 5000),
         createdAt: normalizeTimestamp(raw.createdAt, 0),
         sourceRunId: normalizeStoryOpenerString(raw.sourceRunId || raw.runId, 160),
         status: ['draft', 'selected', 'error'].includes(raw.status) ? raw.status : 'draft',
+        attemptCount: Math.max(0, Math.floor(Number(raw.attemptCount) || 0)),
         ...(raw.failure ? { failure: normalizeStoryOpenerFailure(raw.failure) } : {}),
     };
 }
@@ -289,20 +293,57 @@ export function normalizeStoryOpenerFailure(value = {}) {
     };
 }
 
+export function normalizeStoryOpenerAttempt(value = {}, fallbackIndex = 0) {
+    const raw = isPlainObject(value) ? value : {};
+    const status = ['queued', 'running', 'retrying', 'complete', 'error', 'interrupted'].includes(raw.status)
+        ? raw.status
+        : (raw.errorCode || raw.code ? 'error' : 'complete');
+    return {
+        attemptId: normalizeStoryOpenerString(raw.attemptId || raw.id, 180) || `attempt-${fallbackIndex + 1}`,
+        stage: normalizeStoryOpenerString(raw.stage, 80),
+        unitId: normalizeStoryOpenerString(raw.unitId, 160),
+        variantIndex: Number.isFinite(Number(raw.variantIndex)) ? Math.floor(Number(raw.variantIndex)) : null,
+        variantLabel: normalizeStoryOpenerString(raw.variantLabel, 80),
+        attempt: Math.max(1, Math.floor(Number(raw.attempt) || fallbackIndex + 1)),
+        maxAttempts: Math.max(1, Math.floor(Number(raw.maxAttempts) || 1)),
+        status,
+        strategy: normalizeStoryOpenerString(raw.strategy, 120),
+        providerTitle: normalizeStoryOpenerString(raw.providerTitle, 160),
+        errorCode: normalizeStoryOpenerString(raw.errorCode || raw.code, 160),
+        message: normalizeStoryOpenerString(raw.message, 1000),
+        recovery: normalizeStoryOpenerString(raw.recovery, 1000),
+        finishReason: normalizeStoryOpenerString(raw.finishReason, 160),
+        maxTokens: Math.max(0, Math.floor(Number(raw.maxTokens) || 0)),
+        visibleContentLength: Math.max(0, Math.floor(Number(raw.visibleContentLength) || 0)),
+        repairAttempted: raw.repairAttempted === true,
+        startedAt: normalizeTimestamp(raw.startedAt, 0),
+        completedAt: normalizeTimestamp(raw.completedAt, 0),
+    };
+}
+
 export function normalizeStoryOpenerRun(value = {}) {
     const raw = isPlainObject(value) ? value : {};
     const id = normalizeStoryOpenerString(raw.id || raw.runId, 160);
     if (!id) return null;
+    const attempts = Array.isArray(raw.attempts)
+        ? raw.attempts.map((attempt, index) => normalizeStoryOpenerAttempt(attempt, index)).filter(Boolean).slice(-40)
+        : [];
     return {
         id,
         runId: id,
         stage: normalizeStoryOpenerString(raw.stage, 80),
-        status: ['queued', 'running', 'complete', 'error', 'interrupted'].includes(raw.status) ? raw.status : 'complete',
+        status: ['queued', 'running', 'retrying', 'complete', 'error', 'interrupted'].includes(raw.status) ? raw.status : 'complete',
         label: normalizeStoryOpenerString(raw.label, 180),
         message: normalizeStoryOpenerString(raw.message, 1200),
         startedAt: normalizeTimestamp(raw.startedAt, 0),
         updatedAt: normalizeTimestamp(raw.updatedAt, 0),
         completedAt: normalizeTimestamp(raw.completedAt, 0),
+        attemptCount: Math.max(attempts.length, Math.floor(Number(raw.attemptCount) || 0)),
+        maxAttempts: Math.max(0, Math.floor(Number(raw.maxAttempts) || 0)),
+        failedUnitCount: Math.max(0, Math.floor(Number(raw.failedUnitCount) || 0)),
+        succeededUnitCount: Math.max(0, Math.floor(Number(raw.succeededUnitCount) || 0)),
+        partial: raw.partial === true,
+        ...(attempts.length ? { attempts } : {}),
         ...(raw.failure ? { failure: normalizeStoryOpenerFailure(raw.failure) } : {}),
     };
 }
@@ -325,7 +366,7 @@ export function normalizeStoryOpenerSession(value = {}, options = {}) {
     const activeGenerationSource = rawActiveGeneration?.id && runs[rawActiveGeneration.id]
         ? runs[rawActiveGeneration.id]
         : rawActiveGeneration;
-    const activeGeneration = activeGenerationSource && ['queued', 'running'].includes(activeGenerationSource.status)
+    const activeGeneration = activeGenerationSource && STORY_OPENER_ACTIVE_RUN_STATUSES.includes(activeGenerationSource.status)
         ? activeGenerationSource
         : null;
     const currentStage = STORY_OPENER_STAGE_ORDER.includes(raw.currentStage) ? raw.currentStage : inferStoryOpenerCurrentStage({
@@ -457,7 +498,7 @@ export function getStoryOpenerStageDescriptors(session = {}) {
             if (!normalized.variants.length) dependency = 'Draft an opener first.';
             else status = activeIndex === index ? 'active' : 'approved';
         }
-        if (normalized.activeGeneration?.status === 'running' && normalized.activeGeneration.stage === stage.id) {
+        if (STORY_OPENER_ACTIVE_RUN_STATUSES.includes(normalized.activeGeneration?.status) && normalized.activeGeneration.stage === stage.id) {
             status = 'generating';
         }
         if (normalized.lastGenerationResult?.status === 'error' && normalized.lastGenerationResult.stage === stage.id) {
@@ -531,7 +572,7 @@ export function recordStoryOpenerRun(session = {}, run = {}) {
     if (!normalizedRun) return normalized;
     normalized.generationRuns[normalizedRun.id] = normalizedRun;
     normalized.lastGenerationResult = normalizedRun;
-    if (normalizedRun.status === 'running' || normalizedRun.status === 'queued') normalized.activeGeneration = normalizedRun;
+    if (STORY_OPENER_ACTIVE_RUN_STATUSES.includes(normalizedRun.status)) normalized.activeGeneration = normalizedRun;
     else delete normalized.activeGeneration;
     normalized.updatedAt = Date.now();
     return normalizeStoryOpenerSession(normalized);

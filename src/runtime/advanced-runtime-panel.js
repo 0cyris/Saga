@@ -142,7 +142,7 @@ export function renderSessionTab(container, state) {
 
 function createSagaActiveSection(settings = getSettings()) {
     const toggles = document.createElement('div');
-    toggles.className = 'saga-runtime-grid';
+    toggles.className = 'saga-session-active-toggle-row';
     toggles.appendChild(markTourTarget(createToggleCard(
         'Saga Active',
         settings.enabled,

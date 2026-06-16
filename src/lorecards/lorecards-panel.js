@@ -38,7 +38,6 @@ import {
     createChip,
     createEmptyMessage,
     confirmAction,
-    createIconButton,
     createKeyValue,
     createSectionHeader,
     createStatusPill,
@@ -4111,6 +4110,78 @@ function createMicToggleIcon(muted = false) {
     return icon;
 }
 
+function createWandEditIcon() {
+    const ns = 'http://www.w3.org/2000/svg';
+    const svg = document.createElementNS(ns, 'svg');
+    svg.setAttribute('viewBox', '0 0 24 24');
+    svg.setAttribute('aria-hidden', 'true');
+    svg.setAttribute('focusable', 'false');
+    svg.classList.add('saga-lorecard-edit-icon-svg');
+
+    const wand = document.createElementNS(ns, 'path');
+    wand.setAttribute('class', 'saga-lorecard-edit-icon-wand');
+    wand.setAttribute('d', 'M5.5 18.5 18.5 5.5');
+    svg.appendChild(wand);
+
+    const tip = document.createElementNS(ns, 'path');
+    tip.setAttribute('class', 'saga-lorecard-edit-icon-spark saga-lorecard-edit-icon-spark-main');
+    tip.setAttribute('d', 'm17.5 2.8.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8.8-2Z');
+    svg.appendChild(tip);
+
+    const lowerSpark = document.createElementNS(ns, 'path');
+    lowerSpark.setAttribute('class', 'saga-lorecard-edit-icon-spark');
+    lowerSpark.setAttribute('d', 'm6.2 4.2.5 1.1 1.1.5-1.1.5-.5 1.1-.5-1.1-1.1-.5 1.1-.5.5-1.1Z');
+    svg.appendChild(lowerSpark);
+
+    const sideSpark = document.createElementNS(ns, 'path');
+    sideSpark.setAttribute('class', 'saga-lorecard-edit-icon-spark');
+    sideSpark.setAttribute('d', 'm19.3 14.1.4.9.9.4-.9.4-.4.9-.4-.9-.9-.4.9-.4.4-.9Z');
+    svg.appendChild(sideSpark);
+
+    return svg;
+}
+
+function openAcceptedLoreEntryEditor(entryId = '') {
+    const id = String(entryId || '').trim();
+    if (!id) return;
+    if (isRuntimeMobileShell()) {
+        openAcceptedLorecardMobileEditor(id);
+        return;
+    }
+    setPanelState({
+        selectedEntryId: id,
+        mobileLifecycleStage: 'accepted',
+        lorecardWorkspaceEditId: id,
+    }, { deferSave: true });
+    refreshPanelBody({ preserveScroll: true });
+    refreshLoreWorkbench();
+}
+
+function createLorecardEditButton(entry = {}, options = {}) {
+    const id = String(entry?.id || '').trim();
+    const editActive = id && String(getState()?.lorePanel?.lorecardWorkspaceEditId || '') === id;
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = `saga-lorecard-edit-toggle ${editActive ? 'saga-lorecard-edit-toggle-active' : ''} ${options.className || ''}`.trim();
+    button.setAttribute('aria-label', editActive ? 'Close Lorecard editor' : 'Edit Lorecard');
+    button.setAttribute('aria-pressed', editActive ? 'true' : 'false');
+    addTooltip(button, editActive ? 'Close this Lorecard editor.' : (options.tooltip || 'Edit this Lorecard.'));
+    button.appendChild(createWandEditIcon());
+    button.addEventListener('click', event => {
+        event.preventDefault();
+        event.stopPropagation();
+        if (!id) return;
+        if (editActive) {
+            setPanelState({ selectedEntryId: id, lorecardWorkspaceEditId: '' }, { deferSave: true });
+            refreshPanelBody({ preserveScroll: true });
+            refreshLoreWorkbench();
+            return;
+        }
+        openAcceptedLoreEntryEditor(id);
+    });
+    return button;
+}
+
 function createLorecardMuteToggleButton(entry = {}, options = {}) {
     const muted = !!(entry.isSuppressed || entry.suppressed || entry.muted);
     const button = document.createElement('button');
@@ -4242,18 +4313,10 @@ export function createEntryCard(entry, state, options = {}) {
     const actions = document.createElement('div');
     actions.className = 'saga-lore-entry-actions';
     if (!mobileShell && !entry.isPending) {
-        if (!workspaceRow) {
-            const inspectBtn = createIconButton(
-                'Edit',
-                basicReview ? 'Open this Accepted Lorecard for editing.' : 'Edit this Accepted Lorecard.',
-                'saga-lore-entry-btn saga-lore-entry-inspect-btn',
-                (e) => {
-                    e.stopPropagation();
-                    inspectAcceptedLoreEntry(entry.id);
-                }
-            );
-            actions.appendChild(inspectBtn);
-        }
+        actions.appendChild(createLorecardEditButton(entry, {
+            className: workspaceRow ? 'saga-lorecard-row-edit-toggle' : 'saga-lorecard-entry-edit-toggle',
+            tooltip: basicReview ? 'Open this Accepted Lorecard for editing.' : 'Edit this Accepted Lorecard.',
+        }));
         actions.appendChild(createEditableRelevanceControl(entry));
         actions.appendChild(createLorecardMuteToggleButton(entry, {
             className: workspaceRow ? 'saga-lorecard-row-mute-toggle' : '',
@@ -4930,17 +4993,12 @@ function renderLorecardWorkspaceList(list, state, rows, options = {}) {
     summary.className = 'saga-lore-list-summary saga-lorecard-workspace-list-summary';
     const summaryCount = document.createElement('span');
     summaryCount.className = 'saga-lorecard-workspace-list-summary-count';
-    summaryCount.textContent = safeRows.length > visible.length
-        ? `Showing ${visible.length} of ${safeRows.length} Lorecards.`
-        : `Showing ${safeRows.length} Lorecard${safeRows.length === 1 ? '' : 's'}.`;
+    summaryCount.textContent = options.mobileShell
+        ? 'Long-press Cards to Edit'
+        : safeRows.length > visible.length
+            ? `Showing ${visible.length} of ${safeRows.length} Lorecards.`
+            : `Showing ${safeRows.length} Lorecard${safeRows.length === 1 ? '' : 's'}.`;
     summary.appendChild(summaryCount);
-    if (options.mobileShell) {
-        const summaryHint = document.createElement('span');
-        summaryHint.className = 'saga-lorecard-workspace-list-summary-hint';
-        summaryHint.textContent = 'Double-tap cards to Elevate';
-        addTooltip(summaryHint, 'Double-tap a Lorecard to toggle Elevate on mobile.');
-        summary.appendChild(summaryHint);
-    }
     list.appendChild(summary);
 
     for (const row of visible) {
@@ -5066,14 +5124,7 @@ function createAcceptedLorecardWorkspaceDetail(entry = {}, options = {}) {
         wrap.appendChild(createKeyValue(label, value, `${label} metadata for this Lorecard.`));
     }
 
-    const actions = document.createElement('div');
-    actions.className = 'saga-primary-actions saga-lorecard-detail-actions';
     const editActive = String(getState()?.lorePanel?.lorecardWorkspaceEditId || '') === String(entry.id || '');
-    actions.appendChild(createButton(editActive ? 'Close Edit' : 'Edit', editActive ? 'Close edit mode.' : 'Edit this Lorecard.', () => {
-        setPanelState({ lorecardWorkspaceEditId: editActive ? '' : entry.id }, { deferSave: true });
-        refreshPanelBody({ preserveScroll: true });
-    }, editActive ? 'saga-primary-button' : 'saga-small-button'));
-    wrap.appendChild(actions);
 
     if (editActive) {
         wrap.appendChild(createEditableLoreEntryEditor(entry, { basicReview: !!options.basic }));
@@ -5596,7 +5647,10 @@ function createLorecardActiveSetItem(entry = {}) {
     if (!isRuntimeMobileShell()) {
         const actions = document.createElement('div');
         actions.className = 'saga-primary-actions saga-lore-active-set-item-actions';
-        actions.appendChild(createButton('Edit', 'Edit this High relevance Lorecard in Accepted Lorecards.', () => inspectAcceptedLoreEntry(entry.id), 'saga-small-button'));
+        actions.appendChild(createLorecardEditButton(entry, {
+            className: 'saga-lorecard-active-set-edit-toggle',
+            tooltip: 'Edit this High relevance Lorecard in Accepted Lorecards.',
+        }));
         actions.appendChild(createEditableRelevanceControl(entry));
         actions.appendChild(createLorecardMuteToggleButton(entry, { onChange: refreshLorecardLifecycleSurface }));
         actions.appendChild(createLorecardElevateToggleButton(entry, { onChange: refreshLorecardLifecycleSurface }));
@@ -5625,7 +5679,10 @@ function createLorecardAvailableSetItem(entry = {}) {
     if (!isRuntimeMobileShell()) {
         const actions = document.createElement('div');
         actions.className = 'saga-primary-actions saga-lore-active-set-item-actions';
-        actions.appendChild(createButton('Edit', 'Edit this Accepted Lorecard.', () => inspectAcceptedLoreEntry(entry.id), 'saga-small-button'));
+        actions.appendChild(createLorecardEditButton(entry, {
+            className: 'saga-lorecard-active-set-edit-toggle',
+            tooltip: 'Edit this Accepted Lorecard.',
+        }));
         actions.appendChild(createEditableRelevanceControl(entry));
         actions.appendChild(createLorecardMuteToggleButton(entry, { onChange: refreshLorecardLifecycleSurface }));
         actions.appendChild(createLorecardElevateToggleButton(entry, { onChange: refreshLorecardLifecycleSurface }));

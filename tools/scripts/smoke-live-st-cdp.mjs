@@ -5457,13 +5457,25 @@ async function runDesktopLorecardsHarnessSmoke(client, screenshots, findings, sm
         acceptedRow?.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
         const elevateButton = acceptedRow?.querySelector('.saga-lorecard-row-elevate-toggle');
         elevateButton?.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
+        const bodyClickOpenedEditor = !!document.querySelector('.saga-lorecard-detail-card .saga-lore-editor-field, .saga-lorecard-detail-card .saga-lore-editor-textarea, .saga-lore-active-set-section .saga-lore-editor-field');
+        const refreshedRow = document.querySelector('.saga-lorecard-workspace-row[data-lorecard-workspace-status="accepted"]') || acceptedRow;
+        const editButton = refreshedRow?.querySelector('.saga-lorecard-row-edit-toggle');
+        const editButtonText = (editButton?.innerText || editButton?.textContent || '').trim();
+        const editButtonLabel = editButton?.getAttribute('aria-label') || '';
+        const editButtonHasSvg = !!editButton?.querySelector('svg.saga-lorecard-edit-icon-svg');
+        editButton?.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
         const buttonLabels = [...document.querySelectorAll('.saga-lorecard-workspace button, .saga-lorecard-detail-card button, .saga-lore-active-set-section button')]
             .map(button => (button.innerText || button.textContent || '').trim())
             .filter(Boolean);
         return {
             acceptedRowClicked: !!acceptedRow,
             elevatedClicked: !!elevateButton,
-            editFieldsOpen: !!document.querySelector('.saga-lorecard-detail-card .saga-lore-editor-field, .saga-lorecard-detail-card .saga-lore-editor-textarea, .saga-lore-active-set-section .saga-lore-editor-field'),
+            editFieldsOpen: bodyClickOpenedEditor,
+            editIconClicked: !!editButton,
+            editIconOpenedEditor: !!document.querySelector('.saga-lorecard-detail-card .saga-lore-editor-field, .saga-lorecard-detail-card .saga-lore-editor-textarea, .saga-lore-active-set-section .saga-lore-editor-field'),
+            editIconText: editButtonText,
+            editIconLabel: editButtonLabel,
+            editIconHasSvg: editButtonHasSvg,
             inspectLabels: buttonLabels.filter(label => /^inspect$/i.test(label)),
             editLabels: buttonLabels.filter(label => /^edit$/i.test(label)),
         };
@@ -5471,6 +5483,11 @@ async function runDesktopLorecardsHarnessSmoke(client, screenshots, findings, sm
         acceptedRowClicked: false,
         activeSetItemClicked: false,
         editFieldsOpen: true,
+        editIconClicked: false,
+        editIconOpenedEditor: false,
+        editIconText: 'error',
+        editIconLabel: '',
+        editIconHasSvg: false,
         inspectLabels: ['error'],
         editLabels: [],
     }));
@@ -5563,6 +5580,9 @@ async function runDesktopLorecardsHarnessSmoke(client, screenshots, findings, sm
             detailMuteToggleCount: document.querySelectorAll('.saga-lorecard-detail-actions .saga-lorecard-mute-toggle').length,
             detailElevateToggleCount: document.querySelectorAll('.saga-lorecard-detail-actions .saga-lorecard-elevate-toggle').length,
             detailEditButtonCount: detailActionLabels.filter(label => /^edit$|^close edit$/i.test(label)).length,
+            rowEditToggleCount: document.querySelectorAll('.saga-lorecard-workspace-row .saga-lorecard-row-edit-toggle').length,
+            rowEditToggleTextCount: [...document.querySelectorAll('.saga-lorecard-workspace-row .saga-lorecard-row-edit-toggle')].filter(node => (node.innerText || node.textContent || '').trim()).length,
+            rowEditToggleSvgCount: document.querySelectorAll('.saga-lorecard-workspace-row .saga-lorecard-row-edit-toggle svg.saga-lorecard-edit-icon-svg').length,
             rowElevateToggleCount: document.querySelectorAll('.saga-lorecard-workspace-row .saga-lorecard-row-elevate-toggle').length,
             rowElevateToggleActiveCount: document.querySelectorAll('.saga-lorecard-workspace-row .saga-lorecard-row-elevate-toggle.saga-lorecard-elevate-toggle-active').length,
             workspaceRect,
@@ -5579,9 +5599,15 @@ async function runDesktopLorecardsHarnessSmoke(client, screenshots, findings, sm
     if (layout.workspaceHeaderCount !== 0) findings.push('Desktop Lorecards workspace still rendered a duplicate inner title/header.');
     if (layout.inlineEditorsInList || layout.saveButtonsInList) findings.push('Desktop Lorecards list still rendered inline editors or Save Entry controls.');
     if (!interactionState.acceptedRowClicked) findings.push('Desktop Lorecards rendered no accepted row for body-click interaction validation.');
-    if (interactionState.editFieldsOpen) findings.push('Desktop Lorecards opened an editor from a card body click instead of requiring the explicit Edit button.');
+    if (interactionState.editFieldsOpen) findings.push('Desktop Lorecards opened an editor from a card body click instead of requiring the explicit row edit button.');
     if (interactionState.inspectLabels.length) findings.push(`Desktop Lorecards still rendered Inspect button labels: ${interactionState.inspectLabels.join(', ')}.`);
-    if (!interactionState.editLabels.length) findings.push('Desktop Lorecards did not render an explicit Edit button.');
+    if (interactionState.editLabels.length || interactionState.editIconText) findings.push(`Desktop Lorecards row edit control must be icon-only, but rendered visible text: ${interactionState.editIconText || interactionState.editLabels.join(', ')}.`);
+    if (!interactionState.editIconClicked || !/edit|close/i.test(interactionState.editIconLabel) || !interactionState.editIconHasSvg || !interactionState.editIconOpenedEditor) findings.push(`Desktop Lorecards row edit control did not expose the wand icon editor path: ${JSON.stringify({
+        clicked: interactionState.editIconClicked,
+        label: interactionState.editIconLabel,
+        hasSvg: interactionState.editIconHasSvg,
+        openedEditor: interactionState.editIconOpenedEditor,
+    })}.`);
     if (layout.tagRowsInList) findings.push('Desktop Lorecards workspace rows still rendered tag walls in the scanning list.');
     if (!layout.sortState || layout.sortState.label !== 'A' || layout.sortState.value !== 'alphabetical' || !/relevance/i.test(layout.sortState.ariaLabel || '')) findings.push(`Desktop Lorecards workspace did not render the square A/P/R sort cycle button with Alphabetical selected by default: ${JSON.stringify(layout.sortState)}.`);
     if (!layout.searchRowRect || !layout.searchRect || !layout.sortToggleRect || Math.abs(layout.sortToggleRect.width - layout.sortToggleRect.height) > 1 || layout.sortToggleRect.width > 36 || layout.sortToggleRect.height > 36 || Math.abs(layout.searchRect.top - layout.sortToggleRect.top) > 8 || layout.sortToggleRect.left < layout.searchRect.right - 1) {
@@ -5594,11 +5620,16 @@ async function runDesktopLorecardsHarnessSmoke(client, screenshots, findings, sm
     if (layout.toolbarOverflow || layout.workspaceOverflow || layout.pageOverflow) findings.push('Desktop Lorecards workspace or toolbar still has horizontal overflow.');
     if (!layout.detailFitsWorkspace) findings.push('Desktop Lorecards detail pane overflows the workspace bounds.');
     if (!interactionState.elevatedClicked) findings.push('Desktop Lorecards row did not expose an Elevate button to click.');
-    if (layout.detailRelevanceControlCount || layout.detailMuteToggleCount || layout.detailElevateToggleCount || layout.detailEditButtonCount !== 1 || layout.detailActionLabels.length !== 1) findings.push(`Desktop Lorecards detail inspector must be Edit-only, but rendered actions: ${JSON.stringify({
+    if (layout.detailRelevanceControlCount || layout.detailMuteToggleCount || layout.detailElevateToggleCount || layout.detailEditButtonCount || layout.detailActionLabels.length) findings.push(`Desktop Lorecards detail inspector must render no action buttons, but rendered actions: ${JSON.stringify({
         labels: layout.detailActionLabels,
         relevance: layout.detailRelevanceControlCount,
         mute: layout.detailMuteToggleCount,
         elevate: layout.detailElevateToggleCount,
+    })}.`);
+    if (layout.rowEditToggleCount < 1 || layout.rowEditToggleTextCount || layout.rowEditToggleSvgCount < 1) findings.push(`Desktop Lorecards row edit controls did not render as icon-only wand buttons: ${JSON.stringify({
+        count: layout.rowEditToggleCount,
+        textCount: layout.rowEditToggleTextCount,
+        svgCount: layout.rowEditToggleSvgCount,
     })}.`);
     if (!layout.elevateToggleLabel || !/remove elevation|elevated/i.test(layout.elevateToggleLabel) || !layout.elevateTogglePresent || !layout.elevateToggleActive || !layout.elevateToggleShadow || layout.elevateToggleShadow === 'none' || layout.rowElevateToggleCount < 1 || layout.rowElevateToggleActiveCount < 1) findings.push('Desktop Lorecards row Elevate controls did not render active green treatment after Elevate was clicked.');
     if (!layout.activateToken || !layout.elevatedRowShadow || layout.elevatedRowBorderColor === 'rgb(215, 181, 109)') findings.push('Desktop Lorecards Elevated row did not consume the Activate Theme Pack glow token.');

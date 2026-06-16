@@ -197,6 +197,10 @@ After copying, paste the opener into the SillyTavern chat or your preferred writ
 
 Story Maker shows failure cards when provider or validation work fails. Read the failure message and recovery hint before retrying.
 
+For retryable provider problems, Story Maker automatically tries the affected unit up to three times. The live status row names the exact retry, such as **Retrying Opener Brief, attempt 2 of 3** or **Retrying Variant B, attempt 2 of 3**.
+
+If some variants fail but at least one succeeds, Story Maker keeps the successful variants available for review and copy. Use **Retry Failed Variants** if you want to spend another pass only on the failed variant calls. Use the failure card's **Details** disclosure when you need the compact attempt history.
+
 Common fixes:
 
 - If source resolution fails, check active Loredecks and Context.

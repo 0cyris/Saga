@@ -104,17 +104,17 @@
 }
 
 .saga-lore-relevance-segment[data-relevance="low"][aria-checked="true"] {
-    background: var(--saga-chip-relevance-low-bg, color-mix(in oklab, var(--saga-surface-2, rgba(18, 18, 24, 0.62)) 92%, var(--saga-activate, #ffcb5c) 8%));
-    color: var(--saga-chip-relevance-low-fg, color-mix(in oklab, var(--saga-muted, rgba(241, 234, 216, 0.68)) 48%, var(--saga-activate, #ffcb5c) 52%));
+    background: var(--saga-chip-relevance-low-bg, var(--saga-chip-neutral-bg, rgba(24, 25, 31, 0.82)));
+    color: var(--saga-chip-relevance-low-fg, var(--saga-chip-muted-fg, #aeb3bd));
 }
 
 .saga-lore-relevance-segment[data-relevance="normal"][aria-checked="true"] {
-    background: var(--saga-chip-relevance-normal-bg, color-mix(in oklab, var(--saga-surface-2, rgba(18, 18, 24, 0.62)) 84%, var(--saga-activate, #ffcb5c) 16%));
-    color: var(--saga-chip-relevance-normal-fg, color-mix(in oklab, var(--saga-text, #f1ead8) 24%, var(--saga-activate, #ffcb5c) 76%));
+    background: var(--saga-chip-relevance-normal-bg, color-mix(in oklab, var(--saga-surface-2, rgba(18, 18, 24, 0.62)) 76%, var(--saga-activate, #ffcb5c) 24%));
+    color: var(--saga-chip-relevance-normal-fg, color-mix(in oklab, var(--saga-muted, rgba(241, 234, 216, 0.68)) 30%, var(--saga-activate, #ffcb5c) 70%));
 }
 
 .saga-lore-relevance-segment[data-relevance="high"][aria-checked="true"] {
-    background: var(--saga-chip-relevance-high-bg, var(--saga-activate-surface, rgba(255, 203, 92, 0.16)));
+    background: var(--saga-chip-relevance-high-bg, color-mix(in oklab, var(--saga-surface-2, rgba(18, 18, 24, 0.62)) 58%, var(--saga-activate, #ffcb5c) 42%));
     color: var(--saga-chip-relevance-high-fg, var(--saga-activate, #ffcb5c));
 }
 
@@ -173,6 +173,7 @@
     opacity: 0.88;
 }
 
+.saga-lorecard-edit-toggle,
 .saga-lorecard-mute-toggle,
 .saga-lorecard-elevate-toggle {
     -webkit-appearance: none;
@@ -188,6 +189,53 @@
     border-radius: 7px !important;
     font: inherit;
     box-sizing: border-box;
+}
+
+.saga-lorecard-edit-toggle {
+    color: var(--saga-text-muted, var(--saga-chip-muted-fg, #b8ad98));
+    background:
+        radial-gradient(circle at 76% 22%, var(--saga-gold-surface, rgba(215, 181, 109, 0.09)), transparent 48%),
+        var(--saga-surface-2, rgba(18, 18, 24, 0.72)) !important;
+    border-color: var(--saga-border-soft, rgba(185, 139, 54, 0.18)) !important;
+    opacity: 0.76;
+    cursor: pointer;
+    transition: opacity 140ms ease, color 140ms ease, border-color 140ms ease, box-shadow 140ms ease, background 140ms ease;
+}
+
+.saga-lorecard-edit-toggle:hover,
+.saga-lorecard-edit-toggle:focus-visible,
+.saga-lorecard-edit-toggle-active {
+    color: var(--saga-gold, #d7b56d);
+    border-color: var(--saga-border-strong, rgba(215, 181, 109, 0.58)) !important;
+    opacity: 1;
+    box-shadow:
+        0 0 0 1px var(--saga-gold-surface, rgba(215, 181, 109, 0.14)) inset,
+        0 0 12px var(--saga-gold-surface, rgba(215, 181, 109, 0.12));
+    outline: none;
+}
+
+.saga-lorecard-edit-icon-svg {
+    width: 17px;
+    height: 17px;
+    display: block;
+    overflow: visible;
+    pointer-events: none;
+}
+
+.saga-lorecard-edit-icon-wand {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.9;
+    stroke-linecap: round;
+}
+
+.saga-lorecard-edit-icon-spark {
+    fill: currentColor;
+    opacity: 0.78;
+}
+
+.saga-lorecard-edit-icon-spark-main {
+    opacity: 0.95;
 }
 
 .saga-lorecard-mute-toggle {
@@ -282,6 +330,25 @@
     border-color: var(--saga-activate-soft, rgba(255, 203, 92, 0.56)) !important;
 }
 
+.saga-lorecard-elevate-toggle.saga-lorecard-active-toggle::after {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.saga-lorecard-elevate-toggle.saga-lorecard-active-toggle-active {
+    background:
+        radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--saga-activate, #ffcb5c) 34%, #ffffff) 0%, transparent 38%),
+        radial-gradient(circle at 50% 50%, var(--saga-activate-surface, rgba(255, 203, 92, 0.18)) 0%, transparent 70%),
+        color-mix(in srgb, var(--saga-surface-2, rgba(38, 42, 52, 0.72)) 88%, var(--saga-activate, #ffcb5c)) !important;
+}
+
+.saga-lorecard-elevate-toggle.saga-lorecard-active-toggle-inactive {
+    background:
+        radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--saga-text, #f1ead8) 10%, transparent), transparent 48%),
+        var(--saga-surface-2, rgba(38, 42, 52, 0.72)) !important;
+}
+
 .saga-mobile-lorecard-status-controls {
     display: inline-flex;
     align-items: center;
@@ -324,17 +391,17 @@
 
 .saga-mobile-lorecard-relevance-status[data-saga-relevance="high"] {
     color: var(--saga-chip-relevance-high-fg, var(--saga-activate, #ffcb5c));
-    background: var(--saga-chip-relevance-high-bg, var(--saga-activate-surface, rgba(255, 203, 92, 0.16)));
+    background: var(--saga-chip-relevance-high-bg, color-mix(in oklab, var(--saga-surface-2, rgba(18, 18, 24, 0.62)) 58%, var(--saga-activate, #ffcb5c) 42%));
 }
 
 .saga-mobile-lorecard-relevance-status[data-saga-relevance="normal"] {
-    color: var(--saga-chip-relevance-normal-fg, color-mix(in oklab, var(--saga-text, #f1ead8) 24%, var(--saga-activate, #ffcb5c) 76%));
-    background: var(--saga-chip-relevance-normal-bg, color-mix(in oklab, var(--saga-surface-2, rgba(18, 18, 24, 0.62)) 84%, var(--saga-activate, #ffcb5c) 16%));
+    color: var(--saga-chip-relevance-normal-fg, color-mix(in oklab, var(--saga-muted, rgba(241, 234, 216, 0.68)) 30%, var(--saga-activate, #ffcb5c) 70%));
+    background: var(--saga-chip-relevance-normal-bg, color-mix(in oklab, var(--saga-surface-2, rgba(18, 18, 24, 0.62)) 76%, var(--saga-activate, #ffcb5c) 24%));
 }
 
 .saga-mobile-lorecard-relevance-status[data-saga-relevance="low"] {
-    color: var(--saga-chip-relevance-low-fg, color-mix(in oklab, var(--saga-muted, rgba(241, 234, 216, 0.68)) 48%, var(--saga-activate, #ffcb5c) 52%));
-    background: var(--saga-chip-relevance-low-bg, color-mix(in oklab, var(--saga-surface-2, rgba(18, 18, 24, 0.62)) 92%, var(--saga-activate, #ffcb5c) 8%));
+    color: var(--saga-chip-relevance-low-fg, var(--saga-chip-muted-fg, #aeb3bd));
+    background: var(--saga-chip-relevance-low-bg, var(--saga-chip-neutral-bg, rgba(24, 25, 31, 0.82)));
 }
 
 .saga-lorecard-workspace {
@@ -750,16 +817,6 @@
 .saga-lore-active-set-item-actions {
     justify-content: flex-end;
     margin: 0 !important;
-}
-
-.saga-lore-entry-inspect-btn,
-.saga-lore-entry-activate-btn {
-    min-width: 54px;
-}
-
-.saga-lore-entry-activate-btn:disabled {
-    opacity: 1;
-    cursor: default;
 }
 
 .saga-lorecard-active-toggle {

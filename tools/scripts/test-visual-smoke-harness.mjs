@@ -1269,12 +1269,14 @@ assert(style.includes('.saga-lorecard-workspace-filter-chip[aria-pressed="true"]
 assert(lorecardsPanel.includes('function getActiveLorecardReason(entry = {})') && lorecardsPanel.includes("rows.push(['Why selected', getActiveLorecardReason(entry)])") && lorecardsPanel.includes("entry.extensions?.autoRelevance?.reason"), 'Selected Lorecards must show a concise reason in the workspace detail view.');
 const acceptedLorecardWorkspaceDetailFunction = lorecardsPanel.match(/function createAcceptedLorecardWorkspaceDetail\(entry = \{\}, options = \{\}\) \{[\s\S]*?\n\}\n\nfunction getRecommendedLorecardLifecycleStage/)?.[0] || '';
 assert(
-    acceptedLorecardWorkspaceDetailFunction.includes("actions.className = 'saga-primary-actions saga-lorecard-detail-actions';")
-        && acceptedLorecardWorkspaceDetailFunction.includes("createButton(editActive ? 'Close Edit' : 'Edit'")
+    !acceptedLorecardWorkspaceDetailFunction.includes("saga-lorecard-detail-actions")
+        && !acceptedLorecardWorkspaceDetailFunction.includes("createButton(editActive ? 'Close Edit' : 'Edit'")
+        && acceptedLorecardWorkspaceDetailFunction.includes("const editActive = String(getState()?.lorePanel?.lorecardWorkspaceEditId || '') === String(entry.id || '');")
+        && acceptedLorecardWorkspaceDetailFunction.includes('wrap.appendChild(createEditableLoreEntryEditor(entry')
         && !acceptedLorecardWorkspaceDetailFunction.includes('createEditableRelevanceControl(entry)')
         && !acceptedLorecardWorkspaceDetailFunction.includes('createLorecardMuteToggleButton(entry')
         && !acceptedLorecardWorkspaceDetailFunction.includes('createLorecardElevateToggleButton(entry'),
-    'Accepted Lorecard sidebar/detail inspector must render only the Edit action; relevance, mute, and Elevate stay on row/mobile controls.'
+    'Accepted Lorecard sidebar/detail inspector must not render action buttons; row controls own edit, relevance, mute, and Elevate.'
 );
 assert(lorecardsPanel.includes('function makeActiveSetItemMobileEditable') && lorecardsPanel.includes('if (!isRuntimeMobileShell()) return item;') && !/function makeActiveSetItemMobileEditable[\s\S]*?inspectAcceptedLoreEntry\(id\)/.test(lorecardsPanel), 'Desktop Active Set cards must not open editing from body clicks; mobile keeps long-press editing on the card object.');
 assert(
@@ -1403,21 +1405,23 @@ assert(
         !lorecardsPanel.includes('const threshold = Math.max(130, Math.min((rect?.width || 0) * 0.72 || 180, 280));') &&
         !lorecardsPanel.includes('adjustLorecardRelevanceByGesture') &&
         lorecardsPanel.includes('if (!mobileShell && !entry.isPending) {') &&
-        lorecardsPanel.includes('if (!workspaceRow) {') &&
+        lorecardsPanel.includes('actions.appendChild(createLorecardEditButton(entry') &&
+        lorecardsPanel.includes("className: workspaceRow ? 'saga-lorecard-row-edit-toggle'") &&
         lorecardsPanel.includes('if (mobileShell && !entry.isPending) {') &&
         lorecardsPanel.includes('if (actions.children.length && (!mobileShell || workspaceRow))') &&
         !lorecardsPanel.includes('const detailsBtn = createIconButton(') &&
+        !lorecardsPanel.includes('createIconButton') &&
         !lorecardsPanel.includes('saga-lore-entry-details-btn') &&
         lorecardsPanel.includes("card.addEventListener('pointerdown'") &&
         lorecardsPanel.includes("card.addEventListener('contextmenu'") &&
         !lorecardsPanel.includes('if (workspaceRow) {\n                return;\n            }') &&
-        lorecardsPanel.includes("summaryHint.textContent = 'Double-tap cards to Elevate';") &&
-        lorecardsPanel.includes("summaryHint.className = 'saga-lorecard-workspace-list-summary-hint';") &&
+        lorecardsPanel.includes("'Long-press Cards to Edit'") &&
+        !lorecardsPanel.includes("summaryHint.textContent = 'Double-tap cards to Elevate';") &&
         lorecardsPanel.includes('refreshAcceptedLoreSurfaces(entry.id, { sortSensitive: true });') &&
         lorecardsPanel.includes('refreshAcceptedLoreSurfaces(id, { sortSensitive: true })') &&
         lorecardsPanel.includes('const listRefreshed = options.sortSensitive === true && refreshLorecardWorkspaceListForSortSensitiveChange();') &&
-        style.includes('.saga-lorecard-workspace-list-summary-hint') &&
-        /saga-lorecard-workspace-list-summary-hint\s*\{[\s\S]*?white-space:\s*nowrap;/.test(style) &&
+        style.includes('.saga-lorecard-edit-toggle') &&
+        style.includes('.saga-lorecard-edit-icon-svg') &&
         lorecardsPanel.includes("existing.closest?.('.saga-lorecard-workspace-list')") &&
         lorecardsPanel.includes('existing.replaceWith(createLorecardWorkspaceRow(row, state, { basic: basicReview }));') &&
         lorecardsPanel.includes('openAcceptedLorecardMobileEditor(entryId, { selectionLock: true });') &&
@@ -1434,7 +1438,13 @@ assert(
         style.includes('.saga-mobile-lorecard-longpress-armed') &&
         style.includes('@keyframes saga-mobile-lorecard-longpress-hold') &&
         !style.includes('.saga-runtime-mobile .saga-lore-entry-details-btn'),
-    'Mobile Accepted Lorecards must use visible Elevated state, compact status controls, tap-cycle relevance, double-tap Elevate, and animated long-press editing without permanent edit/detail buttons.'
+    'Mobile Accepted Lorecards must use visible Elevated state, compact status controls, tap-cycle relevance, long-press edit status, double-tap Elevate, and animated long-press editing without permanent edit/detail buttons.'
+);
+assert(
+    /\.saga-mobile-lorecard-relevance-status\[data-saga-relevance="low"\]\s*\{[\s\S]*?var\(--saga-chip-muted-fg[\s\S]*?var\(--saga-chip-neutral-bg/.test(style) &&
+        /\.saga-mobile-lorecard-relevance-status\[data-saga-relevance="normal"\]\s*\{[\s\S]*?var\(--saga-chip-relevance-normal-fg[\s\S]*?76%,\s*var\(--saga-activate[\s\S]*?24%/.test(style) &&
+        /\.saga-mobile-lorecard-relevance-status\[data-saga-relevance="high"\]\s*\{[\s\S]*?var\(--saga-chip-relevance-high-fg[\s\S]*?58%,\s*var\(--saga-activate[\s\S]*?42%/.test(style),
+    'Mobile Lorecard relevance status buttons must use neutral low, visible Activate midpoint normal, and strong Activate high.'
 );
 assert(style.includes('.saga-lore-relevance-segmented') && style.includes('.saga-lore-relevance-dots-high .saga-lore-relevance-dot:nth-child(3)') && !style.includes('.saga-lore-lifecycle-select'), 'Relevance segmented controls must render compact dot icons, including the three-dot high-relevance triangle.');
 assert(lorecardsPanel.includes("className: 'saga-lore-workbench-count'") && contextWorkbenchPanel.includes("className: 'saga-lore-workbench-count'") && !/(?:count|filterCount)\.className = 'saga-lore-workbench-count'/.test(`${lorecardsPanel}\n${contextWorkbenchPanel}`), 'Lorecard and Context workbench count indicators must render through schema-backed count chips.');
@@ -1769,16 +1779,16 @@ assert(runtimeTheme.includes("['Chip Metadata', 'themeChipNeutralColor', 'chipNe
 assert(runtimeTheme.includes("target.style.setProperty('--saga-chip-neutral-bg', hexToRgba(colors.chipNeutral, 0.08))") && runtimeTheme.includes("target.style.setProperty('--saga-chip-warning-border', hexToRgba(colors.chipWarning, 0.32))"), 'Runtime themes must derive quiet chip fill/border CSS tokens from Theme Pack chip colors.');
 assert(
     runtimeTheme.includes('function mixWithActivate')
-        && runtimeTheme.includes("target.style.setProperty('--saga-chip-relevance-low-bg', mixWithActivate('var(--saga-surface-2)', colors.activate, 8))")
-        && runtimeTheme.includes("target.style.setProperty('--saga-chip-relevance-low-fg', mixWithActivate('var(--saga-muted)', colors.activate, 52))")
-        && runtimeTheme.includes("target.style.setProperty('--saga-chip-relevance-normal-bg', mixWithActivate('var(--saga-surface-2)', colors.activate, 16))")
-        && runtimeTheme.includes("target.style.setProperty('--saga-chip-relevance-normal-fg', mixWithActivate('var(--saga-text)', colors.activate, 76))")
-        && runtimeTheme.includes("target.style.setProperty('--saga-chip-relevance-high-bg', hexToRgba(colors.activate, 0.16))")
+        && runtimeTheme.includes("target.style.setProperty('--saga-chip-relevance-low-bg', hexToRgba(colors.chipNeutral, 0.08))")
+        && runtimeTheme.includes("target.style.setProperty('--saga-chip-relevance-low-fg', colors.chipMuted)")
+        && runtimeTheme.includes("target.style.setProperty('--saga-chip-relevance-normal-bg', mixWithActivate('var(--saga-surface-2)', colors.activate, 24))")
+        && runtimeTheme.includes("target.style.setProperty('--saga-chip-relevance-normal-fg', mixWithActivate('var(--saga-muted)', colors.activate, 70))")
+        && runtimeTheme.includes("target.style.setProperty('--saga-chip-relevance-high-bg', mixWithActivate('var(--saga-surface-2)', colors.activate, 42))")
         && runtimeTheme.includes("target.style.setProperty('--saga-chip-relevance-high-fg', colors.activate)")
         && !runtimeTheme.includes("hexToRgba('#166534'")
         && !runtimeTheme.includes("hexToRgba('#1e40af'")
         && !runtimeTheme.includes("hexToRgba('#475569'"),
-    'Runtime themes must derive Lorecard relevance dots as a low/normal/high Activate ramp instead of dedicated hard-coded relevance colors.'
+    'Runtime themes must derive Lorecard relevance dots as neutral low, visible Activate midpoint normal, and full Activate high instead of dedicated hard-coded relevance colors.'
 );
 assert(runtimeTheme.includes("merged.chipSuccess = merged.chipSuccess || '#b9d8b8'") && runtimeTheme.includes("merged.chipDanger = merged.chipDanger || '#e1a0a0'"), 'Incomplete Theme Packs must fall back to readable chip foreground colors instead of dark status surfaces.');
 assert(defaultSettings.includes("themeActivateColor: '#ffcb5c'") && defaultSettings.includes("themeChipNeutralColor: '#c8cbd2'") && defaultSettings.includes("themeChipWarningColor: '#e0c184'"), 'Default settings must include the warm Saga Archive Activate baseline, quiet metadata chip baseline, and warm Saga Archive warning chip color.');
@@ -2667,12 +2677,12 @@ assert(
     style.includes('--saga-chip-tag-bg: rgba(22, 23, 28, 0.9)')
         && style.includes('--saga-chip-category-fg: #c9cdd6')
         && style.includes('--saga-chip-relevance-high-fg: var(--saga-activate, #ffcb5c)')
-        && style.includes('--saga-chip-relevance-normal-fg: color-mix(in oklab, var(--saga-text, #f1ead8) 24%, var(--saga-activate, #ffcb5c) 76%)')
-        && style.includes('--saga-chip-relevance-low-fg: color-mix(in oklab, var(--saga-muted, rgba(241, 234, 216, 0.68)) 48%, var(--saga-activate, #ffcb5c) 52%)')
-        && style.includes('--saga-chip-relevance-high-bg: var(--saga-activate-surface, rgba(255, 203, 92, 0.16))')
-        && style.includes('--saga-chip-relevance-normal-bg: color-mix(in oklab, var(--saga-surface-2, rgba(18, 18, 24, 0.62)) 84%, var(--saga-activate, #ffcb5c) 16%)')
-        && style.includes('--saga-chip-relevance-low-bg: color-mix(in oklab, var(--saga-surface-2, rgba(18, 18, 24, 0.62)) 92%, var(--saga-activate, #ffcb5c) 8%)'),
-    'Static chip fallbacks must keep relevance feedback mapped to an Activate-derived low/normal/high ramp.'
+        && style.includes('--saga-chip-relevance-normal-fg: color-mix(in oklab, var(--saga-muted, rgba(241, 234, 216, 0.68)) 30%, var(--saga-activate, #ffcb5c) 70%)')
+        && style.includes('--saga-chip-relevance-low-fg: var(--saga-chip-muted-fg, #aeb3bd)')
+        && style.includes('--saga-chip-relevance-high-bg: color-mix(in oklab, var(--saga-surface-2, rgba(18, 18, 24, 0.62)) 58%, var(--saga-activate, #ffcb5c) 42%)')
+        && style.includes('--saga-chip-relevance-normal-bg: color-mix(in oklab, var(--saga-surface-2, rgba(18, 18, 24, 0.62)) 76%, var(--saga-activate, #ffcb5c) 24%)')
+        && style.includes('--saga-chip-relevance-low-bg: var(--saga-chip-neutral-bg, rgba(24, 25, 31, 0.82))'),
+    'Static chip fallbacks must keep relevance feedback mapped to neutral low, visible Activate midpoint normal, and strong Activate high.'
 );
 assert(style.includes('calc(var(--saga-grip-dot-rows, 6) * 7px)'), 'Loredeck Library drag handles must size dot grids without clipping short 2x2 or 2x3 handles.');
 assert(/\.saga-loredeck-library-folder-grip\s*\{[\s\S]*?transform:\s*translateY\(-1px\);/.test(style), 'Loredeck Library folder drag handles must keep their optical centering nudge.');
