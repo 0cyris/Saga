@@ -5,7 +5,7 @@ Date: 2026-06-15
 
 ## Problem
 
-Desktop Saga uses too many nearby bevel values for the same visual job. The Lorecards workspace makes this especially visible: Search, the A/P sort switch, Capture/Suggest, Automation, Timeline, filter chips, Lorecard rows, the detail card, and edit/action buttons all sit in one control cluster but currently read as different component families.
+Desktop Saga uses too many nearby bevel values for the same visual job. The Lorecards workspace makes this especially visible: Search, the A/P/R sort button, Capture/Suggest, Automation, Timeline, filter chips, Lorecard rows, the detail card, and edit/action buttons all sit in one control cluster but currently read as different component families.
 
 This is not just a Lorecards issue. A repository-wide CSS audit found these `border-radius` values across the primary Saga styles:
 
@@ -61,7 +61,7 @@ The Lorecards workspace should become the first implementation target because it
 Conform these to `--saga-radius-control`:
 
 - Search Lorecards input.
-- A/P sort segmented control outer shell and active segment.
+- A/P/R square sort cycle button.
 - Capture/Suggest, Automation, and Timeline buttons.
 - Filter chips: All, Needs Review, Active, Pinned, Muted, Conflicts.
 - Lorecard list rows.
@@ -75,7 +75,7 @@ Keep only semantic exceptions:
 - Switch sliders remain rounded tracks.
 - True chips created through the chip schema use `--saga-chip-radius`, which should resolve to the same `6px` control radius.
 
-The A/P sort control should not look like a separate pill family. It should read as a compact segmented control aligned to the Search Lorecards input bevel, with typography scaled below the main buttons.
+The A/P/R sort control should not look like a separate pill family. It should read as a compact square cycle button aligned to the Search Lorecards input bevel, with typography scaled below the main buttons.
 
 ## Desktop Shell Target
 

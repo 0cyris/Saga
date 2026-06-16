@@ -20,6 +20,7 @@ const LIVE_CONTEXT_REASONER_TARGET = 'live-context-reasoner';
 const LIVE_CREATOR_TARGET = 'live-creator';
 const LIVE_LORE_AUTOMATION_TARGET = 'live-lore-automation';
 const LIVE_MOBILE_LORECARD_LATENCY_TARGET = 'live-mobile-lorecard-latency';
+const LIVE_SETTINGS_QOL_TARGET = 'live-settings-qol';
 const STORAGE_HARNESS_TARGET = 'storage-harness';
 const MOBILE_ADVANCED_HARNESS_TARGET = 'mobile-advanced-harness';
 const MOBILE_REDESIGN_HARNESS_TARGET = 'mobile-redesign-harness';
@@ -942,6 +943,13 @@ function isExpectedLiveMobileLorecardLatency404(error = '') {
     return SMOKE_TARGET === LIVE_MOBILE_LORECARD_LATENCY_TARGET
         && /Failed to load resource: the server responded with a status of 404/i.test(message)
         && /\/user\/files\/saga-(?:theme-index|iconset-index)\.v1\.json/i.test(message);
+}
+
+function isExpectedLiveSettingsQol404(error = '') {
+    const message = String(error || '');
+    return SMOKE_TARGET === LIVE_SETTINGS_QOL_TARGET
+        && /Failed to load resource: the server responded with a status of 404/i.test(message)
+        && /\/user\/files\/saga-(?:theme-index|iconset-index|library-index|storage-index|creator-index|creator-project-[^)\s]+)\.v1\.json/i.test(message);
 }
 
 function isExpectedRepoLocalHarnessStorageError(error = '') {
@@ -4383,11 +4391,12 @@ async function runGuideHarnessSmoke(client, screenshots, findings, smokeUrl, dia
 
 async function runCreatorHarnessSmoke(client, screenshots, findings, smokeUrl, dialogEvents) {
     await waitFor(client, 'window.__sagaSmokeReady === true', 'Creator smoke ready marker', 20000);
-    await waitFor(client, 'document.querySelector(".saga-runtime-rail-tab-active")?.getAttribute("data-tab-id") === "loredecks"', 'Creator smoke Loredecks tab active', 10000);
+    await waitFor(client, 'document.querySelector(".saga-runtime-rail-tab-active")?.getAttribute("data-tab-id") === "loredecks" || document.querySelector("#saga-lore-panel")?.dataset?.mobileActiveTab === "loredecks"', 'Creator smoke Loredecks tab active', 10000);
     const projectPanelOpened = await openSummaryText(client, 'In-Progress Creator Projects');
-    if (!projectPanelOpened) findings.push('Creator harness could not open In-Progress Creator Projects.');
     await wait(700);
-    const creatorOpened = await clickSelector(client, '.saga-loredeck-creator-project-card');
+    const creatorOpened = (projectPanelOpened && await clickSelector(client, '.saga-loredeck-creator-project-card'))
+        || await clickButtonText(client, 'Create Deck');
+    if (!projectPanelOpened && !creatorOpened) findings.push('Creator harness could not open In-Progress Creator Projects.');
     if (!creatorOpened) findings.push('Creator harness could not resume the seeded Creator project.');
     await waitFor(client, '!!document.querySelector(".saga-loredeck-creator-workbench-overlay")', 'Creator harness workbench overlay', 10000);
     await wait(900);
@@ -4400,7 +4409,7 @@ async function runCreatorHarnessSmoke(client, screenshots, findings, smokeUrl, d
         const cards = [...overlay?.querySelectorAll('.saga-loredeck-creator-stage-item') || []];
         return {
             overlayOpen: !!overlay,
-            activeTab: document.querySelector('.saga-runtime-rail-tab-active')?.getAttribute('data-tab-id') || '',
+            activeTab: document.querySelector('.saga-runtime-rail-tab-active')?.getAttribute('data-tab-id') || document.querySelector('#saga-lore-panel')?.dataset?.mobileActiveTab || '',
             resetCount: buttons.length,
             labels,
             disabledCount: buttons.filter(button => button.disabled).length,
@@ -4454,6 +4463,87 @@ async function runCreatorHarnessSmoke(client, screenshots, findings, smokeUrl, d
             if (!closed) findings.push('Creator reset confirmation did not close after Cancel.');
             resetState.confirmState = confirmState;
         }
+    }
+
+    const heartbeatScrollState = await evaluate(client, script(async () => {
+        const overlay = document.querySelector('.saga-loredeck-creator-workbench-overlay');
+        const body = overlay?.querySelector('.saga-loredeck-creator-workbench-body');
+        const coverage = overlay?.querySelector('[data-saga-creator-anchor="coverage-plan"]');
+        const job = window.__sagaSmokeContext?.chatMetadata?.saga?.loredeckCreator?.jobs?.['smoke-creator-project'];
+        if (!overlay || !body || !coverage || !job) {
+            return {
+                ok: false,
+                reason: 'missing-creator-scroll-fixture',
+                overlay: !!overlay,
+                body: !!body,
+                coverage: !!coverage,
+                job: !!job,
+            };
+        }
+        const now = Date.now();
+        job.status = 'running';
+        job.currentStage = job.currentStage || 'entries_drafted';
+        job.activeGeneration = {
+            id: 'smoke-creator-heartbeat-scroll',
+            actionId: 'entry_batch_draft',
+            runId: 'smoke-creator-heartbeat-scroll',
+            unitId: 'smoke-creator-heartbeat-scroll',
+            stage: 'entries_drafted',
+            currentStage: 'entries_drafted',
+            label: 'Draft Lorecards',
+            status: 'running',
+            phase: 'reasoning',
+            message: 'Smoke heartbeat waiting for model response...',
+            startedAt: now - 70000,
+            updatedAt: now,
+            elapsedMs: 70000,
+            receivedChars: 0,
+            streamSupported: null,
+            batchId: 'smoke_context_nami',
+            batchLabel: 'Nami and pressure',
+        };
+        const creatorPanel = await import('/src/loredecks/loredeck-creator-panel.js');
+        creatorPanel.refreshLoredeckCreatorWorkbenchBody({ preserveScroll: true });
+        await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+        const refreshedBody = document.querySelector('.saga-loredeck-creator-workbench-body');
+        const refreshedCoverage = document.querySelector('[data-saga-creator-anchor="coverage-plan"]');
+        if (refreshedCoverage?.tagName === 'DETAILS') refreshedCoverage.open = true;
+        const bodyRect = refreshedBody?.getBoundingClientRect?.();
+        const coverageRect = refreshedCoverage?.getBoundingClientRect?.();
+        if (!refreshedBody || !refreshedCoverage || !bodyRect || !coverageRect) {
+            return { ok: false, reason: 'coverage-refresh-missing' };
+        }
+        refreshedBody.scrollTop += coverageRect.top - bodyRect.top - 10;
+        refreshedBody.scrollLeft = 0;
+        await new Promise(resolve => requestAnimationFrame(resolve));
+        const card = refreshedBody.querySelector('.saga-loredeck-creator-card');
+        if (card) card.dataset.sagaHeartbeatScrollProbe = 'stable';
+        const baseline = refreshedBody.scrollTop;
+        const positions = [baseline];
+        const elapsedText = [];
+        for (let index = 0; index < 4; index += 1) {
+            job.activeGeneration.elapsedMs = 70000 + ((index + 1) * 1000);
+            job.activeGeneration.updatedAt = Date.now();
+            job.activeGeneration.message = `Smoke heartbeat ${index + 1}`;
+            creatorPanel.refreshLoredeckCreatorGenerationStatusUi(job.activeGeneration.id);
+            await new Promise(resolve => setTimeout(resolve, 80));
+            positions.push(refreshedBody.scrollTop);
+            elapsedText.push(refreshedBody.querySelector('.saga-generation-live-elapsed')?.textContent?.trim() || '');
+        }
+        const maxDelta = Math.max(...positions.map(value => Math.abs(value - baseline)));
+        return {
+            ok: maxDelta <= 1 && !!refreshedBody.querySelector('.saga-loredeck-creator-card[data-saga-heartbeat-scroll-probe="stable"]') && refreshedBody.querySelectorAll('.saga-generation-live-status[data-saga-creator-generation-id="smoke-creator-heartbeat-scroll"]').length > 0,
+            baseline: Math.round(baseline),
+            positions: positions.map(value => Math.round(value)),
+            maxDelta: Math.round(maxDelta),
+            cardPreserved: !!refreshedBody.querySelector('.saga-loredeck-creator-card[data-saga-heartbeat-scroll-probe="stable"]'),
+            statusRows: refreshedBody.querySelectorAll('.saga-generation-live-status[data-saga-creator-generation-id="smoke-creator-heartbeat-scroll"]').length,
+            elapsedText,
+        };
+    }), { timeoutMs: 10000 });
+    resetState.heartbeatScrollState = heartbeatScrollState;
+    if (!heartbeatScrollState?.ok) {
+        findings.push(`Creator harness active-generation heartbeat moved or rebuilt the Adaptive Coverage scroll position: ${JSON.stringify(heartbeatScrollState)}.`);
     }
 
     const errors = client.events
@@ -4580,6 +4670,68 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
     if (injectionState.activeTab !== 'injection') findings.push('Mobile Advanced Injection route did not update active tab state.');
     if (!injectionState.overflowSheetClosed) findings.push('Mobile Advanced rendered a removed overflow sheet after selecting Injection.');
     if (!injectionState.hasInjection || !injectionState.hasToggles || !injectionState.targetVisible) findings.push('Mobile Advanced Injection route did not render the expected toggles.');
+    const placementSectionOpen = await evaluate(client, script(() => {
+        const section = document.querySelector('[data-saga-tour="injection.promptPlacement"]');
+        if (!section) return { present: false, open: false };
+        if (section.tagName === 'DETAILS' && !section.open) section.open = true;
+        section.scrollIntoView({ block: 'center', inline: 'nearest' });
+        return { present: true, open: section.tagName !== 'DETAILS' || !!section.open };
+    }));
+    if (!placementSectionOpen.present || !placementSectionOpen.open) findings.push('Mobile Advanced Prompt Placement section could not be opened for layout audit.');
+    await wait(300);
+    const injectionPlacementState = await evaluate(client, script(() => {
+        const num = value => Number.isFinite(Number.parseFloat(value)) ? Number.parseFloat(value) : 0;
+        const round = value => Number.isFinite(value) ? Math.round(value * 10) / 10 : 0;
+        const root = document.querySelector('#saga-lore-panel.saga-runtime-mobile');
+        const card = document.querySelector('.saga-prompt-placement-card');
+        if (!root || !card) return { present: false };
+        const rect = card.getBoundingClientRect();
+        const promptRows = [...card.querySelectorAll('.saga-prompt-placement-line:not(.saga-prompt-placement-method-line)')];
+        const firstWrap = card.querySelector('.saga-prompt-placement-control-wrap');
+        const firstWrapControls = [...firstWrap?.children || []].map(node => {
+            const controlRect = node.getBoundingClientRect();
+            return {
+                top: round(controlRect.top),
+                bottom: round(controlRect.bottom),
+                width: round(controlRect.width),
+            };
+        });
+        const rowHeights = promptRows.map(row => round(row.getBoundingClientRect().height));
+        const fontSizeOf = selector => {
+            const node = card.querySelector(selector);
+            return node ? round(num(getComputedStyle(node).fontSize)) : 0;
+        };
+        const controlFontSizes = [...card.querySelectorAll('.saga-inline-field select, .saga-inline-field input[type="number"]')]
+            .map(node => round(num(getComputedStyle(node).fontSize)))
+            .filter(Boolean);
+        const labelFontSizes = [...card.querySelectorAll('.saga-prompt-placement-line-label, .saga-inline-field span')]
+            .map(node => round(num(getComputedStyle(node).fontSize)))
+            .filter(Boolean);
+        const distinctControlTops = new Set(firstWrapControls.map(item => item.top));
+        return {
+            present: true,
+            cardHeight: round(rect.height),
+            viewportHeight: window.innerHeight || document.documentElement?.clientHeight || 0,
+            rowCount: promptRows.length,
+            maxPromptRowHeight: rowHeights.length ? Math.max(...rowHeights) : 0,
+            firstPromptControls: firstWrapControls.length,
+            firstPromptControlsSameRow: distinctControlTops.size === 1,
+            titleFontSize: fontSizeOf('.saga-runtime-card-title'),
+            helpFontSize: fontSizeOf('.saga-runtime-help'),
+            minLabelFontSize: labelFontSizes.length ? Math.min(...labelFontSizes) : 0,
+            maxLabelFontSize: labelFontSizes.length ? Math.max(...labelFontSizes) : 0,
+            minControlFontSize: controlFontSizes.length ? Math.min(...controlFontSizes) : 0,
+            maxControlFontSize: controlFontSizes.length ? Math.max(...controlFontSizes) : 0,
+            noHorizontalOverflow: root.scrollWidth <= root.clientWidth + 1,
+        };
+    }));
+    if (!injectionPlacementState.present) findings.push('Mobile Advanced Injection route did not render Prompt Placement for layout audit.');
+    if (injectionPlacementState.present && injectionPlacementState.rowCount !== 4) findings.push(`Mobile Prompt Placement rendered ${injectionPlacementState.rowCount} prompt rows instead of 4.`);
+    if (injectionPlacementState.present && !injectionPlacementState.firstPromptControlsSameRow) findings.push('Mobile Prompt Placement stacked Position/Depth/Role controls instead of keeping them in one compact row.');
+    if (injectionPlacementState.present && injectionPlacementState.cardHeight > 430) findings.push(`Mobile Prompt Placement card is still too tall at ${injectionPlacementState.cardHeight}px.`);
+    if (injectionPlacementState.present && injectionPlacementState.maxPromptRowHeight > 58) findings.push(`Mobile Prompt Placement rows are too tall at ${injectionPlacementState.maxPromptRowHeight}px.`);
+    if (injectionPlacementState.present && (injectionPlacementState.minLabelFontSize < 10.5 || injectionPlacementState.maxControlFontSize > 14)) findings.push(`Mobile Prompt Placement font audit failed: labels ${injectionPlacementState.minLabelFontSize}-${injectionPlacementState.maxLabelFontSize}px, controls ${injectionPlacementState.minControlFontSize}-${injectionPlacementState.maxControlFontSize}px.`);
+    if (injectionPlacementState.present && !injectionPlacementState.noHorizontalOverflow) findings.push('Mobile Prompt Placement introduced horizontal overflow.');
     const injectionScrollAudit = await getMobileNestedScrollAuditState(client, {
         label: 'Injection route',
         scopeSelector: '#saga-lore-panel.saga-runtime-mobile',
@@ -4921,13 +5073,18 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
         await wait(800);
         creatorState = await evaluate(client, script(() => {
             const overlay = document.querySelector('.saga-loredeck-creator-workbench-overlay');
+            const shell = overlay?.querySelector('.saga-loredeck-creator-workbench-shell');
             const body = overlay?.querySelector('.saga-loredeck-creator-workbench-body');
             const currentTask = overlay?.querySelector('.saga-loredeck-creator-current-task');
             const stageGuide = overlay?.querySelector('.saga-loredeck-creator-stage-guide');
             const stageList = overlay?.querySelector('.saga-loredeck-creator-stage-list');
+            const bottomActions = overlay?.querySelector('.saga-loredeck-creator-workbench-bottom-actions');
+            const overlayRect = overlay?.getBoundingClientRect?.();
+            const shellRect = shell?.getBoundingClientRect?.();
             const bodyRect = body?.getBoundingClientRect?.();
             const currentRect = currentTask?.getBoundingClientRect?.();
             const stageRect = stageGuide?.getBoundingClientRect?.();
+            const actionsRect = bottomActions?.getBoundingClientRect?.();
             const text = overlay?.innerText || '';
             const labels = [...overlay?.querySelectorAll('button') || []].map(button => (button.innerText || button.textContent || '').trim()).filter(Boolean);
             const headerActionLabels = [...overlay?.querySelectorAll('.saga-loredeck-creator-pipeline-header .saga-loredeck-creator-header-actions button') || []]
@@ -4950,6 +5107,13 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
                 currentTaskTop: currentRect ? Math.round(currentRect.top) : -1,
                 stageGuideTop: stageRect ? Math.round(stageRect.top) : -1,
                 stageGuideHeight: stageRect ? Math.round(stageRect.height) : -1,
+                viewportHeight: Math.round(window.innerHeight || document.documentElement?.clientHeight || 0),
+                visualViewportHeight: Math.round(window.visualViewport?.height || 0),
+                overlayHeight: Math.round(overlayRect?.height || 0),
+                shellHeight: Math.round(shellRect?.height || 0),
+                shellBottomGap: overlayRect && shellRect ? Math.round(overlayRect.bottom - shellRect.bottom) : null,
+                bottomActionBottomGap: overlayRect && actionsRect ? Math.round(overlayRect.bottom - actionsRect.bottom) : null,
+                bodyBottomGap: actionsRect && bodyRect ? Math.round(actionsRect.top - bodyRect.bottom) : null,
                 labels,
             };
         }));
@@ -4958,6 +5122,17 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
         if (creatorState.headerActionLabels.length) findings.push(`Mobile Advanced Creator still rendered persistent header actions: ${creatorState.headerActionLabels.join(', ')}.`);
         for (const label of ['Project Settings', 'Close']) {
             if (!creatorState.bottomActionLabels.includes(label)) findings.push(`Mobile Advanced Creator bottom action bar missing: ${label}.`);
+        }
+        if (Number(creatorState.shellBottomGap || 0) > 2 || Number(creatorState.bottomActionBottomGap || 0) > 2 || Number(creatorState.bodyBottomGap || 0) > 1) {
+            findings.push(`Mobile Advanced Creator left a visible bottom gap below the workbench actions: ${JSON.stringify({
+                viewportHeight: creatorState.viewportHeight,
+                visualViewportHeight: creatorState.visualViewportHeight,
+                overlayHeight: creatorState.overlayHeight,
+                shellHeight: creatorState.shellHeight,
+                shellBottomGap: creatorState.shellBottomGap,
+                bottomActionBottomGap: creatorState.bottomActionBottomGap,
+                bodyBottomGap: creatorState.bodyBottomGap,
+            })}.`);
         }
         if (!creatorState.currentTaskBeforeStageGuide || !creatorState.currentTaskVisibleEarly) findings.push('Mobile Advanced Creator did not prioritize the current task before the stage roadmap.');
         if (!creatorState.stageRailHorizontal) findings.push('Mobile Advanced Creator stage roadmap did not render as a compact horizontal rail.');
@@ -5045,6 +5220,8 @@ async function runMobileAdvancedHarnessSmoke(client, screenshots, findings, smok
         sessionRootState,
         sessionRootScrollAudit,
         injectionState,
+        placementSectionOpen,
+        injectionPlacementState,
         injectionScrollAudit,
         settingsState,
         settingsScrollAudit,
@@ -5116,11 +5293,12 @@ async function runDesktopLorecardsHarnessSmoke(client, screenshots, findings, sm
         };
         const workspace = document.querySelector('.saga-lorecard-workspace');
         const toolbar = document.querySelector('.saga-lorecard-workspace-toolbar');
-        const sortOptions = [...document.querySelectorAll('.saga-lorecard-workspace-sort-option')].map(node => ({
-            label: (node.innerText || node.textContent || '').trim(),
-            value: node.getAttribute('data-lorecard-workspace-sort') || '',
-            checked: node.getAttribute('aria-checked') === 'true',
-        }));
+        const sortButton = document.querySelector('.saga-lorecard-workspace-sort-toggle');
+        const sortState = sortButton ? {
+            label: (sortButton.innerText || sortButton.textContent || '').trim(),
+            value: sortButton.getAttribute('data-lorecard-workspace-sort') || '',
+            ariaLabel: sortButton.getAttribute('aria-label') || '',
+        } : null;
         const utilityButtons = [...document.querySelectorAll('.saga-lorecard-workspace-utilities button')].map(node => ({
             text: node.textContent?.trim() || '',
             rect: (() => {
@@ -5159,7 +5337,7 @@ async function runDesktopLorecardsHarnessSmoke(client, screenshots, findings, sm
             toolbarOverflow: toolbar ? toolbar.scrollWidth > toolbar.clientWidth + 1 : true,
             workspaceOverflow: workspace ? workspace.scrollWidth > workspace.clientWidth + 1 : true,
             pageOverflow: document.documentElement.scrollWidth > document.documentElement.clientWidth + 1,
-            sortOptions,
+            sortState,
             searchRowRect,
             searchRect,
             sortToggleRect,
@@ -5205,9 +5383,9 @@ async function runDesktopLorecardsHarnessSmoke(client, screenshots, findings, sm
     if (interactionState.inspectLabels.length) findings.push(`Desktop Lorecards still rendered Inspect button labels: ${interactionState.inspectLabels.join(', ')}.`);
     if (!interactionState.editLabels.length) findings.push('Desktop Lorecards did not render an explicit Edit button.');
     if (layout.tagRowsInList) findings.push('Desktop Lorecards workspace rows still rendered tag walls in the scanning list.');
-    if ((layout.sortOptions || []).map(option => option.label).join('/') !== 'A/P' || !layout.sortOptions?.some(option => option.label === 'A' && option.value === 'alphabetical' && option.checked) || !layout.sortOptions?.some(option => option.label === 'P' && option.value === 'priority')) findings.push(`Desktop Lorecards workspace did not render the compact A/P sort toggle with Alphabetical selected by default: ${JSON.stringify(layout.sortOptions)}.`);
-    if (!layout.searchRowRect || !layout.searchRect || !layout.sortToggleRect || layout.sortToggleRect.width > 62 || layout.sortToggleRect.height > 36 || Math.abs(layout.searchRect.top - layout.sortToggleRect.top) > 8 || layout.sortToggleRect.left < layout.searchRect.right - 1) {
-        findings.push(`Desktop Lorecards workspace sort toggle was not compact and aligned to the right of Search: ${JSON.stringify({
+    if (!layout.sortState || layout.sortState.label !== 'A' || layout.sortState.value !== 'alphabetical' || !/relevance/i.test(layout.sortState.ariaLabel || '')) findings.push(`Desktop Lorecards workspace did not render the square A/P/R sort cycle button with Alphabetical selected by default: ${JSON.stringify(layout.sortState)}.`);
+    if (!layout.searchRowRect || !layout.searchRect || !layout.sortToggleRect || Math.abs(layout.sortToggleRect.width - layout.sortToggleRect.height) > 1 || layout.sortToggleRect.width > 36 || layout.sortToggleRect.height > 36 || Math.abs(layout.searchRect.top - layout.sortToggleRect.top) > 8 || layout.sortToggleRect.left < layout.searchRect.right - 1) {
+        findings.push(`Desktop Lorecards workspace sort button was not square and aligned to the right of Search: ${JSON.stringify({
             searchRowRect: layout.searchRowRect,
             searchRect: layout.searchRect,
             sortToggleRect: layout.sortToggleRect,
@@ -5744,15 +5922,16 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
     const pendingState = await evaluate(client, script(() => {
         const pendingCard = document.querySelector('.saga-lorecard-workspace-row[data-lorecard-workspace-status="pending"]');
         const labels = [...pendingCard?.querySelectorAll('.saga-pending-entry-actions button') || []].map(button => (button.innerText || button.textContent || '').trim()).filter(Boolean);
-        const sortOptions = [...document.querySelectorAll('.saga-lorecard-workspace-sort-option')].map(node => ({
-            label: (node.innerText || node.textContent || '').trim(),
-            value: node.getAttribute('data-lorecard-workspace-sort') || '',
-            checked: node.getAttribute('aria-checked') === 'true',
-        }));
+        const sortButton = document.querySelector('.saga-lorecard-workspace-sort-toggle');
+        const sortState = sortButton ? {
+            label: (sortButton.innerText || sortButton.textContent || '').trim(),
+            value: sortButton.getAttribute('data-lorecard-workspace-sort') || '',
+            ariaLabel: sortButton.getAttribute('aria-label') || '',
+        } : null;
         return {
             hasPendingCard: !!pendingCard,
             labels,
-            sortOptions,
+            sortState,
             selectedCards: document.querySelectorAll('.saga-pending-review-entry-card.saga-review-lore-card-selected').length,
             permanentActionRows: document.querySelectorAll('.saga-pending-entry-actions').length,
             hasAcceptAll: labels.includes('Accept All'),
@@ -5767,16 +5946,29 @@ async function runMobileRedesignHarnessSmoke(client, screenshots, findings, smok
     }
     if (pendingState.labels.includes('Edit') || pendingState.labels.includes('Clear')) findings.push('Mobile redesign Pending row exposed more than Accept/Reject.');
     if (pendingState.hasAcceptAll || pendingState.hasRejectAll) findings.push('Mobile redesign Lore page still exposed default Accept All/Reject All.');
-    if ((pendingState.sortOptions || []).map(option => option.label).join('/') !== 'A/P' || !pendingState.sortOptions?.some(option => option.label === 'A' && option.value === 'alphabetical' && option.checked) || !pendingState.sortOptions?.some(option => option.label === 'P' && option.value === 'priority')) findings.push(`Mobile redesign Lore page did not render the compact A/P sort toggle with Alphabetical selected by default: ${JSON.stringify(pendingState.sortOptions)}.`);
+    if (!pendingState.sortState || pendingState.sortState.label !== 'A' || pendingState.sortState.value !== 'alphabetical' || !/relevance/i.test(pendingState.sortState.ariaLabel || '')) findings.push(`Mobile redesign Lore page did not render the square A/P/R sort cycle button with Alphabetical selected by default: ${JSON.stringify(pendingState.sortState)}.`);
     const mobileSortTapClicked = await clickSelector(client, '.saga-lorecard-workspace-sort-toggle');
-    if (!mobileSortTapClicked) findings.push('Mobile redesign Lore page A/P sort toggle was not tappable as a whole control.');
+    if (!mobileSortTapClicked) findings.push('Mobile redesign Lore page A/P/R sort button was not tappable as a whole control.');
     await wait(250);
-    const mobileSortAfterTap = await evaluate(client, script(() => [...document.querySelectorAll('.saga-lorecard-workspace-sort-option')].map(node => ({
-        label: (node.innerText || node.textContent || '').trim(),
-        value: node.getAttribute('data-lorecard-workspace-sort') || '',
-        checked: node.getAttribute('aria-checked') === 'true',
-    }))));
-    if (!mobileSortAfterTap?.some(option => option.label === 'P' && option.value === 'priority' && option.checked)) findings.push(`Mobile redesign Lore page A/P sort toggle did not switch modes from a single whole-control tap: ${JSON.stringify(mobileSortAfterTap)}.`);
+    const mobileSortAfterTap = await evaluate(client, script(() => {
+        const node = document.querySelector('.saga-lorecard-workspace-sort-toggle');
+        return node ? {
+            label: (node.innerText || node.textContent || '').trim(),
+            value: node.getAttribute('data-lorecard-workspace-sort') || '',
+        } : null;
+    }));
+    if (mobileSortAfterTap?.label !== 'P' || mobileSortAfterTap?.value !== 'priority') findings.push(`Mobile redesign Lore page A/P/R sort button did not switch from A to P on tap: ${JSON.stringify(mobileSortAfterTap)}.`);
+    const mobileSortSecondTapClicked = await clickSelector(client, '.saga-lorecard-workspace-sort-toggle');
+    if (!mobileSortSecondTapClicked) findings.push('Mobile redesign Lore page A/P/R sort button was not tappable for the Relevance cycle.');
+    await wait(250);
+    const mobileSortAfterSecondTap = await evaluate(client, script(() => {
+        const node = document.querySelector('.saga-lorecard-workspace-sort-toggle');
+        return node ? {
+            label: (node.innerText || node.textContent || '').trim(),
+            value: node.getAttribute('data-lorecard-workspace-sort') || '',
+        } : null;
+    }));
+    if (mobileSortAfterSecondTap?.label !== 'R' || mobileSortAfterSecondTap?.value !== 'relevance') findings.push(`Mobile redesign Lore page A/P/R sort button did not switch from P to R on tap: ${JSON.stringify(mobileSortAfterSecondTap)}.`);
     if (pendingState.tagRows !== 0) findings.push('Mobile redesign Pending cards showed tag rows despite the default hidden mobile tag setting.');
     if (pendingTooltipState.visible) findings.push(`Mobile redesign Lore sub-tab showed a floating tooltip: ${pendingTooltipState.text || 'blank'}.`);
     if (pendingScrollState.offenders.length) findings.push(`Mobile redesign Lore page still has nested list scroll styling: ${JSON.stringify(pendingScrollState.offenders)}`);
@@ -7212,6 +7404,244 @@ async function runStorageHarnessSmoke(client, screenshots, findings, smokeUrl, d
             reloadState,
             serverStorage: harness?.storage?.snapshot?.() || null,
         }, null, 2));
+}
+
+async function runLiveSettingsQolSmoke(client, screenshots, findings, smokeUrl, dialogEvents) {
+    const metadataSnapshot = await captureSagaMetadata(client).catch(() => null);
+    const settingsSnapshot = await captureSagaSettings(client).catch(() => null);
+    let installedSourceState = null;
+    let setupState = null;
+    let routeState = null;
+    let settingsQolState = null;
+    let restoreState = null;
+    let restoreSettingsState = null;
+    let thrown = null;
+
+    try {
+        installedSourceState = await evaluate(client, script(async () => {
+            const base = `${location.origin}/scripts/extensions/third-party/Saga`;
+            const read = async rel => {
+                const response = await fetch(`${base}/${rel}?liveSettingsQol=${Date.now()}`);
+                const text = await response.text();
+                return { ok: response.ok, status: response.status, text };
+            };
+            const [runtimeCss, settingsTab] = await Promise.all([
+                read('styles/runtime.css'),
+                read('src/settings/runtime-settings-tab.js'),
+            ]);
+            return {
+                runtimeCssStatus: runtimeCss.status,
+                settingsTabStatus: settingsTab.status,
+                hasDrawerScopedQolGrid: runtimeCss.text.includes('#saga-lore-panel .saga-runtime-drawer .saga-settings-qol-section .saga-settings-qol-item.saga-settings-switch-row'),
+                hasBaseQolGrid: runtimeCss.text.includes('.saga-settings-qol-card .saga-settings-qol-item.saga-settings-switch-row')
+                    && runtimeCss.text.includes('grid-template-columns: 48px minmax(0, 1fr) !important'),
+                hasQolSectionClass: settingsTab.text.includes("className: 'saga-settings-qol-section'"),
+                runtimeCssBytes: runtimeCss.text.length,
+                settingsTabBytes: settingsTab.text.length,
+            };
+        }), { timeoutMs: 15000, label: 'Check installed Saga Settings QoL source' });
+        if (!installedSourceState?.hasDrawerScopedQolGrid || !installedSourceState?.hasBaseQolGrid || !installedSourceState?.hasQolSectionClass) {
+            findings.push(`Installed Saga source is not current for Settings Quality of Life validation: ${JSON.stringify(installedSourceState)}.`);
+        }
+
+        setupState = await evaluate(client, script(async () => {
+            const base = `${location.origin}/scripts/extensions/third-party/Saga`;
+            const [stateManager, runtime] = await Promise.all([
+                import(`${base}/src/state/state-manager.js`),
+                import(`${base}/src/runtime/lore-panel.js`),
+            ]);
+            const ctx = window.SillyTavern?.getContext?.();
+            if (!ctx?.extensionSettings || !ctx?.chatMetadata) return { ok: false, reason: 'missing-st-context' };
+            const settings = stateManager.getSettings();
+            settings.experienceMode = 'advanced';
+            settings.collapsedSections = {
+                ...(settings.collapsedSections || {}),
+                'settings.qualityOfLife': false,
+            };
+            stateManager.saveSettings(settings);
+
+            const state = stateManager.getState();
+            state.lorePanel = {
+                ...(state.lorePanel || {}),
+                isOpen: true,
+                hasOpenedRuntime: true,
+                drawerOpen: true,
+                collapsed: false,
+                activeTab: 'settings',
+                railMode: 'compact',
+                railX: 8,
+                railY: 8,
+                drawerWidth: 680,
+                drawerHeight: 720,
+                width: 680,
+                height: 720,
+            };
+            stateManager.saveState(state, { syncPrompt: false });
+            runtime.showLorePanel();
+            return {
+                ok: true,
+                experienceMode: stateManager.getSettings()?.experienceMode || '',
+                activeTab: state.lorePanel.activeTab,
+                drawerWidth: state.lorePanel.drawerWidth,
+                viewportWidth: window.innerWidth || document.documentElement?.clientWidth || 0,
+            };
+        }), { userGesture: true, timeoutMs: 15000, label: 'Open live Settings Quality of Life route' });
+        if (!setupState?.ok) findings.push(`Live Settings Quality of Life smoke could not force the Settings route: ${setupState?.reason || 'unknown'}.`);
+
+        await waitFor(client, '!!document.querySelector("#saga-lore-panel")', 'Live Settings QoL Saga panel', 10000);
+        await waitFor(client, sagaActiveTabExpression('settings'), 'Live Settings QoL active Settings tab', 10000);
+        await waitFor(client, '!!document.querySelector(".saga-settings-qol-section")', 'Live Settings Quality of Life section', 10000);
+        await evaluate(client, script(() => {
+            const section = document.querySelector('.saga-settings-qol-section');
+            if (section && section.open === false) section.open = true;
+            section?.scrollIntoView({ block: 'center', inline: 'nearest' });
+            return true;
+        }), { userGesture: true, timeoutMs: 5000, label: 'Open and scroll live Settings QoL section' });
+        await wait(700);
+
+        routeState = await evaluate(client, script(() => {
+            const root = document.querySelector('#saga-lore-panel');
+            const drawer = document.querySelector('.saga-runtime-drawer');
+            return {
+                mobileShell: !!root?.classList?.contains('saga-runtime-mobile'),
+                activeTab: document.querySelector('.saga-runtime-rail-tab-active')?.getAttribute('data-tab-id') || root?.dataset?.mobileActiveTab || '',
+                drawer: !!drawer,
+                drawerText: (drawer?.innerText || drawer?.textContent || '').slice(0, 900),
+                viewportWidth: window.innerWidth || document.documentElement?.clientWidth || 0,
+                rootWidth: Math.round(root?.getBoundingClientRect?.().width || 0),
+                drawerWidth: Math.round(drawer?.getBoundingClientRect?.().width || 0),
+            };
+        }));
+        if (routeState.mobileShell) findings.push(`Live Settings Quality of Life smoke rendered the mobile shell at ${routeState.viewportWidth}px.`);
+        if (routeState.activeTab !== 'settings' || !routeState.drawer) findings.push(`Live Settings Quality of Life route did not render the Settings drawer: ${JSON.stringify(routeState)}.`);
+
+        screenshots.push(await screenshot(client, 'live-settings-qol-01-settings'));
+        settingsQolState = await evaluate(client, script(() => {
+            const rect = element => {
+                const value = element?.getBoundingClientRect?.();
+                return value ? {
+                    left: Math.round(value.left),
+                    top: Math.round(value.top),
+                    right: Math.round(value.right),
+                    bottom: Math.round(value.bottom),
+                    width: Math.round(value.width),
+                    height: Math.round(value.height),
+                } : null;
+            };
+            const root = document.querySelector('#saga-lore-panel');
+            const drawer = document.querySelector('.saga-runtime-drawer');
+            const body = drawer?.querySelector('.saga-lore-panel-body');
+            const section = document.querySelector('.saga-settings-qol-section');
+            const content = section?.querySelector('.saga-collapsible-content');
+            const card = section?.querySelector('.saga-settings-qol-card');
+            const list = section?.querySelector('.saga-settings-qol-list');
+            const row = section?.querySelector('.saga-settings-qol-item.saga-settings-switch-row');
+            const slider = section?.querySelector('.saga-settings-switch-slider');
+            const text = section?.querySelector('.saga-settings-switch-text');
+            const label = section?.querySelector('.saga-settings-switch-label');
+            const description = section?.querySelector('.saga-settings-switch-description');
+            const rowRect = row?.getBoundingClientRect?.();
+            const sliderRect = slider?.getBoundingClientRect?.();
+            const textRect = text?.getBoundingClientRect?.();
+            const labelRect = label?.getBoundingClientRect?.();
+            const descriptionRect = description?.getBoundingClientRect?.();
+            const rowStyle = row ? getComputedStyle(row) : null;
+            const cardStyle = card ? getComputedStyle(card) : null;
+            const contentStyle = content ? getComputedStyle(content) : null;
+            const textStyle = text ? getComputedStyle(text) : null;
+            const labelStyle = label ? getComputedStyle(label) : null;
+            const labelLineHeight = labelStyle ? Number.parseFloat(labelStyle.lineHeight) || 0 : 0;
+            const labelLineCount = labelLineHeight > 0 && labelRect ? Math.round((labelRect.height / labelLineHeight) * 10) / 10 : 0;
+            const drawerWidth = Math.round(drawer?.getBoundingClientRect?.().width || 0);
+            const rowWidth = Math.round(rowRect?.width || 0);
+            const textWidth = Math.round(textRect?.width || 0);
+            return {
+                url: location.href,
+                mobileShell: !!root?.classList?.contains('saga-runtime-mobile'),
+                activeTab: document.querySelector('.saga-runtime-rail-tab-active')?.getAttribute('data-tab-id') || root?.dataset?.mobileActiveTab || '',
+                viewportWidth: window.innerWidth || document.documentElement?.clientWidth || 0,
+                hasSection: !!section,
+                sectionOpen: !!section?.open,
+                drawerRect: rect(drawer),
+                bodyRect: rect(body),
+                contentRect: rect(content),
+                cardRect: rect(card),
+                listRect: rect(list),
+                rowRect: rect(row),
+                sliderRect: rect(slider),
+                textRect: rect(text),
+                labelRect: rect(label),
+                descriptionRect: rect(description),
+                contentDisplay: contentStyle?.display || '',
+                cardDisplay: cardStyle?.display || '',
+                rowDisplay: rowStyle?.display || '',
+                rowGridTemplateColumns: rowStyle?.gridTemplateColumns || '',
+                textDisplay: textStyle?.display || '',
+                labelLineHeight: Math.round(labelLineHeight),
+                labelLineCount,
+                label: label?.textContent?.trim() || '',
+                description: description?.textContent?.trim() || '',
+                switchBeforeText: !!sliderRect && !!textRect && sliderRect.right <= textRect.left,
+                switchNotAboveText: !!sliderRect && !!textRect && sliderRect.bottom <= textRect.bottom && Math.abs(sliderRect.top - textRect.top) <= 8,
+                textUsesMostRow: textWidth >= Math.max(220, rowWidth - 110),
+                rowWidth,
+                textWidth,
+                drawerWidth,
+                rowFillsDrawer: drawerWidth > 0 ? rowWidth >= Math.min(480, Math.max(300, drawerWidth - 96)) : false,
+                drawerOverflow: drawer ? drawer.scrollWidth > drawer.clientWidth + 2 : false,
+                bodyOverflow: body ? body.scrollWidth > body.clientWidth + 2 : false,
+                documentOverflow: document.documentElement.scrollWidth > document.documentElement.clientWidth + 2,
+            };
+        }));
+        if (!settingsQolState.hasSection || !settingsQolState.sectionOpen) findings.push(`Live Settings Quality of Life section was missing or closed: ${JSON.stringify(settingsQolState)}.`);
+        if (settingsQolState.rowDisplay !== 'grid') findings.push(`Live Settings Quality of Life toggle row was not a grid: ${JSON.stringify(settingsQolState)}.`);
+        if (!/^48px\s/.test(String(settingsQolState.rowGridTemplateColumns || ''))) findings.push(`Live Settings Quality of Life toggle row did not reserve a 48px switch column: ${JSON.stringify(settingsQolState)}.`);
+        if (!settingsQolState.switchBeforeText || !settingsQolState.switchNotAboveText || !settingsQolState.textUsesMostRow || !settingsQolState.rowFillsDrawer) {
+            findings.push(`Live Settings Quality of Life toggle row collapsed or stacked badly: ${JSON.stringify(settingsQolState)}.`);
+        }
+        if (settingsQolState.label !== 'Show Lorecard tags in the mobile Lore list') findings.push(`Live Settings Quality of Life label changed unexpectedly: ${settingsQolState.label || '(missing)'}.`);
+        if (settingsQolState.labelLineCount > 2.4) findings.push(`Live Settings Quality of Life label wrapped into too many lines: ${JSON.stringify(settingsQolState)}.`);
+        if (settingsQolState.drawerOverflow || settingsQolState.bodyOverflow || settingsQolState.documentOverflow) findings.push(`Live Settings Quality of Life route has horizontal overflow: ${JSON.stringify(settingsQolState)}.`);
+    } catch (error) {
+        thrown = error?.stack || error?.message || String(error);
+        findings.push(`Live Settings Quality of Life smoke threw: ${error?.message || String(error)}.`);
+    } finally {
+        if (metadataSnapshot !== null) {
+            restoreState = await restoreSagaMetadata(client, metadataSnapshot).catch(error => ({
+                ok: false,
+                reason: error?.message || String(error),
+            }));
+        }
+        if (settingsSnapshot !== null) {
+            restoreSettingsState = await restoreSagaSettings(client, settingsSnapshot).catch(error => ({
+                ok: false,
+                reason: error?.message || String(error),
+            }));
+        }
+    }
+
+    const errors = collectClientErrors(client)
+        .filter(error => !isExpectedLiveSettingsQol404(error));
+    const report = {
+        ok: findings.length === 0 && errors.length === 0,
+        target: SMOKE_TARGET,
+        viewport: VIEWPORT,
+        url: smokeUrl,
+        screenshots,
+        findings,
+        errors,
+        dialogEvents,
+        installedSourceState,
+        setupState,
+        routeState,
+        settingsQolState,
+        restoreState,
+        restoreSettingsState,
+        thrown,
+    };
+    const reportPath = await writeSmokeReport(SMOKE_TARGET, report);
+    console.log(JSON.stringify({ ...report, reportPath }, null, 2));
+    if (!report.ok) process.exitCode = 1;
 }
 
 async function runLiveMobileLorecardLatencySmoke(client, screenshots, findings, smokeUrl, dialogEvents) {
@@ -8884,6 +9314,11 @@ async function main() {
         }
         await waitFor(client, '!!document.querySelector("#saga-lore-panel")', 'Saga runtime panel', 20000);
         await wait(2500);
+
+        if (SMOKE_TARGET === LIVE_SETTINGS_QOL_TARGET) {
+            await runLiveSettingsQolSmoke(client, screenshots, findings, smokeUrl, dialogEvents);
+            return;
+        }
 
         if (SMOKE_TARGET === 'guide-harness') {
             await runGuideHarnessSmoke(client, screenshots, findings, smokeUrl, dialogEvents);

@@ -12,6 +12,7 @@ import {
 } from '../ui/runtime-ui-kit.js';
 import {
     createLoredeckJobStatusRow,
+    formatLoredeckJobMeta,
     formatLoredeckJobElapsed,
 } from './loredeck-job-view.js';
 import {
@@ -964,7 +965,11 @@ export function createLoredeckCreatorTitleBatchPlanner(brief = {}, cached = {}) 
         actions.className = 'saga-loredeck-row-actions';
         actions.appendChild(createStatusPill(drafted ? 'Generated' : (isNext ? 'Next in queue' : 'Waiting'), drafted ? 'This title set has generated drafts.' : (isNext ? 'Use Generate Next to draft this title set.' : 'Earlier title sets generate first.'), { tone: drafted ? 'success' : (isNext ? 'info' : 'muted'), kind: 'status' }));
         row.appendChild(actions);
-        appendLoredeckCreatorGenerationStatus(main, cached, ['title_batch_draft', 'title_batch_redraft'], { batchId: batch.id, compact: true });
+        appendLoredeckCreatorGenerationStatus(main, cached, ['title_batch_draft', 'title_batch_redraft'], {
+            batchId: batch.id,
+            coverageDimensionIds: batch.coverageDimensionIds,
+            compact: true,
+        });
         section.appendChild(row);
     }
 
@@ -1287,6 +1292,11 @@ function createLoredeckCreatorPlanningBatchPlanner(brief = {}, cached = {}) {
         meta.appendChild(createStatusPill(`${batch.approvedTitleCount} approved title${batch.approvedTitleCount === 1 ? '' : 's'}`, 'Approved titles available to this planning batch.', { tone: batch.approvedTitleCount ? 'success' : 'muted', kind: 'count' }));
         if (batch.type) meta.appendChild(createStatusPill(humanizeScopeKey(batch.type), 'Planning batch type.', { tone: 'category', kind: 'metadata' }));
         main.appendChild(meta);
+        appendLoredeckCreatorGenerationStatus(main, cached, ['planning_batch_draft'], {
+            batchId: batch.id,
+            coverageDimensionIds: batch.coverageDimensionIds,
+            compact: true,
+        });
         row.appendChild(main);
 
         const actions = document.createElement('div');
@@ -1460,6 +1470,10 @@ function createLoredeckCreatorEntryDraftBatchRows(cached = {}, progress = null, 
         meta.appendChild(createStatusPill(`${model.approvedCount} approved`, 'Approved Creator titles in this category.', { tone: 'success', kind: 'count' }));
         if (!model.remainingCount) meta.appendChild(createStatusPill('Covered', 'Every approved title in this category is accepted, pending, or sitting in Draft Review.', { tone: 'success', kind: 'status' }));
         main.appendChild(meta);
+        appendLoredeckCreatorGenerationStatus(main, cached, ['entry_batch_draft', 'entry_multi_batch_draft'], {
+            batchId: model.id,
+            compact: true,
+        });
         row.appendChild(main);
 
         const actions = document.createElement('div');
@@ -2370,22 +2384,55 @@ export function getLoredeckCreatorGenerationWaitMessage(generation = {}) {
     return generation.message || 'Waiting for model response...';
 }
 
+function getLoredeckCreatorGenerationBatchIds(model = {}) {
+    return new Set([
+        model.batchId,
+        model.targetTitleBatchId,
+        model.targetPlanningBatchId,
+        model.activeBatchId,
+    ].map(value => normalizeLoredeckCreatorTitleId(value || '', '')).filter(Boolean));
+}
+
+function getLoredeckCreatorGenerationCoverageIds(source = {}) {
+    return new Set(normalizeLoredeckCreatorTitleIdList(source?.coverageDimensionIds || source?.coverageIds || [], 40));
+}
+
+function loredeckCreatorGenerationCoverageMatches(model = {}, options = {}) {
+    const optionIds = getLoredeckCreatorGenerationCoverageIds(options);
+    if (!optionIds.size) return false;
+    const modelIds = getLoredeckCreatorGenerationCoverageIds(model);
+    if (!modelIds.size) return false;
+    for (const id of optionIds) {
+        if (modelIds.has(id)) return true;
+    }
+    return false;
+}
+
 function loredeckCreatorGenerationMatches(model = null, actionIds = [], options = {}) {
     if (!model?.actionId) return false;
     const ids = Array.isArray(actionIds) ? actionIds : [actionIds];
     if (ids.length && !ids.includes(model.actionId)) return false;
-    if (options.batchId && model.batchId && model.batchId !== options.batchId) return false;
+    const optionBatchId = normalizeLoredeckCreatorTitleId(options.batchId || '', '');
+    const modelBatchIds = getLoredeckCreatorGenerationBatchIds(model);
+    const hasCoverageFilter = getLoredeckCreatorGenerationCoverageIds(options).size > 0;
+    const coverageMatches = loredeckCreatorGenerationCoverageMatches(model, options);
+    if (optionBatchId && !modelBatchIds.has(optionBatchId) && !coverageMatches) return false;
+    if (!optionBatchId && hasCoverageFilter && !coverageMatches) return false;
     return true;
 }
 
-export function createLoredeckCreatorGenerationStatus(cached = {}, actionIds = [], options = {}) {
-    const active = loredeckCreatorGenerationMatches(cached.activeGeneration, actionIds, options) ? cached.activeGeneration : null;
-    const result = !active && loredeckCreatorGenerationMatches(cached.lastGenerationResult, actionIds, options) ? cached.lastGenerationResult : null;
-    const model = active || result;
-    if (!model) return null;
+function formatLoredeckCreatorGenerationMeta(model = {}) {
+    const parts = [];
+    const batchIndex = Math.max(0, Number(model.batchIndex) || 0);
+    const batchTotal = Math.max(0, Number(model.batchTotal) || 0);
+    if (batchIndex && batchTotal > 1) parts.push(`call ${batchIndex}/${batchTotal}`);
+    if (model.batchLabel) parts.push(String(model.batchLabel));
+    return parts.join(' | ');
+}
+
+function buildLoredeckCreatorGenerationStatusJob(model = {}, activeJob = false) {
     const status = String(model.status || '').toLowerCase();
-    const activeJob = Boolean(active);
-    return createLoredeckJobStatusRow({
+    return {
         active: activeJob,
         status: status || (activeJob ? 'running' : 'complete'),
         label: model.label || 'Generation',
@@ -2396,11 +2443,53 @@ export function createLoredeckCreatorGenerationStatus(cached = {}, actionIds = [
         streamSupported: model.streamSupported,
         receivedChars: model.receivedChars,
         batchLabel: model.batchLabel,
-    }, {
+        metaText: formatLoredeckCreatorGenerationMeta(model),
+    };
+}
+
+export function createLoredeckCreatorGenerationStatus(cached = {}, actionIds = [], options = {}) {
+    const active = loredeckCreatorGenerationMatches(cached.activeGeneration, actionIds, options) ? cached.activeGeneration : null;
+    const result = !active && loredeckCreatorGenerationMatches(cached.lastGenerationResult, actionIds, options) ? cached.lastGenerationResult : null;
+    const model = active || result;
+    if (!model) return null;
+    const activeJob = Boolean(active);
+    const row = createLoredeckJobStatusRow(buildLoredeckCreatorGenerationStatusJob(model, activeJob), {
         compact: options.compact,
         onCancel: activeJob ? () => cancelLoredeckCreatorGeneration(model.id) : null,
         cancelTooltip: 'Cancel this generation. Any late provider response will be ignored.',
     });
+    row.dataset.sagaCreatorGenerationId = String(model.id || '');
+    row.dataset.sagaCreatorGenerationActionId = String(model.actionId || '');
+    row.dataset.sagaCreatorGenerationBatchId = String(model.batchId || '');
+    row.dataset.sagaCreatorGenerationActive = activeJob ? 'true' : 'false';
+    return row;
+}
+
+export function refreshLoredeckCreatorGenerationStatusUi(generationId = '') {
+    if (typeof document === 'undefined') return false;
+    const cached = getLoredeckCreatorBriefCache();
+    const active = cached?.activeGeneration?.status === 'running' ? cached.activeGeneration : null;
+    const id = String(generationId || active?.id || '').trim();
+    if (!active?.id || (id && active.id !== id)) return false;
+    const rows = [...document.querySelectorAll('.saga-generation-live-status[data-saga-creator-generation-id]')]
+        .filter(row => row?.dataset?.sagaCreatorGenerationId === active.id);
+    if (!rows.length) return false;
+    const job = buildLoredeckCreatorGenerationStatusJob(active, true);
+    for (const row of rows) {
+        row.classList.add('saga-generation-live-status-running');
+        row.dataset.sagaCreatorGenerationActive = 'true';
+        row.dataset.sagaCreatorGenerationActionId = String(active.actionId || '');
+        row.dataset.sagaCreatorGenerationBatchId = String(active.batchId || '');
+        const label = row.querySelector('.saga-generation-live-label');
+        if (label) label.textContent = job.label;
+        const text = row.querySelector('.saga-generation-live-text');
+        if (text) text.textContent = job.message;
+        const elapsed = row.querySelector('.saga-generation-live-elapsed');
+        if (elapsed) elapsed.textContent = formatLoredeckJobElapsed(job.elapsedMs);
+        const meta = row.querySelector('.saga-generation-live-meta');
+        if (meta) meta.textContent = formatLoredeckJobMeta(job);
+    }
+    return true;
 }
 
 export function appendLoredeckCreatorGenerationStatus(container, cached = {}, actionIds = [], options = {}) {

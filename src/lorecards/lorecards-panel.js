@@ -202,6 +202,7 @@ const LORECARD_WORKSPACE_FILTERS = Object.freeze([
 const LORECARD_WORKSPACE_SORTS = Object.freeze([
     ['alphabetical', 'A', 'Alphabetical'],
     ['priority', 'P', 'Priority'],
+    ['relevance', 'R', 'Relevance'],
 ]);
 const LORE_SOURCE_FILTER_OPTIONS = Object.freeze([
     ['all', 'Source: All'],
@@ -4551,7 +4552,9 @@ function normalizeLorecardWorkspaceSort(value = '') {
 }
 
 function getNextLorecardWorkspaceSort(value = 'alphabetical') {
-    return normalizeLorecardWorkspaceSort(value) === 'alphabetical' ? 'priority' : 'alphabetical';
+    const normalized = normalizeLorecardWorkspaceSort(value);
+    const index = LORECARD_WORKSPACE_SORTS.findIndex(([key]) => key === normalized);
+    return LORECARD_WORKSPACE_SORTS[(index + 1) % LORECARD_WORKSPACE_SORTS.length]?.[0] || 'alphabetical';
 }
 
 function getLorecardWorkspaceRows(state = getState()) {
@@ -4622,10 +4625,26 @@ function getLorecardWorkspaceRowTitle(row = {}) {
     return String(row.entry?.title || row.id || '').trim();
 }
 
+function getLorecardWorkspaceRelevanceSortRank(row = {}) {
+    if (row.isElevated) return 0;
+    const relevance = normalizeLoreRelevance(row.relevance || row.entry?.relevance || 'normal');
+    if (relevance === 'high') return 1;
+    if (relevance === 'normal') return 2;
+    return 3;
+}
+
 function sortLorecardWorkspaceRows(a, b, sortMode = 'alphabetical') {
+    const normalizedSort = normalizeLorecardWorkspaceSort(sortMode);
     const titleScore = getLorecardWorkspaceRowTitle(a).localeCompare(getLorecardWorkspaceRowTitle(b));
     const priorityScore = Number(b.priority || 50) - Number(a.priority || 50);
-    if (normalizeLorecardWorkspaceSort(sortMode) === 'alphabetical') {
+    if (normalizedSort === 'relevance') {
+        const relevanceScore = getLorecardWorkspaceRelevanceSortRank(a) - getLorecardWorkspaceRelevanceSortRank(b);
+        if (relevanceScore) return relevanceScore;
+        if (titleScore) return titleScore;
+        if (priorityScore) return priorityScore;
+        return String(a.id || '').localeCompare(String(b.id || ''));
+    }
+    if (normalizedSort === 'alphabetical') {
         if (titleScore) return titleScore;
         if (priorityScore) return priorityScore;
         return String(a.id || '').localeCompare(String(b.id || ''));
@@ -4694,47 +4713,22 @@ function createLorecardWorkspaceFilterChip(filter, label, count, activeFilter) {
 
 function createLorecardWorkspaceSortToggle(activeSort = 'alphabetical') {
     const normalized = normalizeLorecardWorkspaceSort(activeSort);
-    const mobileShell = isRuntimeMobileShell();
-    const wrap = document.createElement('div');
-    wrap.className = 'saga-lorecard-workspace-sort-toggle';
-    if (mobileShell) wrap.classList.add('saga-lorecard-workspace-sort-toggle-mobile');
-    wrap.setAttribute('role', 'radiogroup');
-    wrap.setAttribute('aria-label', `Sort Lorecards by ${normalized === 'alphabetical' ? 'Alphabetical' : 'Priority'}`);
-    wrap.dataset.lorecardWorkspaceSort = normalized;
-    wrap.addEventListener('click', (event) => {
-        if (!mobileShell || event.target !== wrap) return;
+    const [, label, title] = LORECARD_WORKSPACE_SORTS.find(([key]) => key === normalized) || LORECARD_WORKSPACE_SORTS[0];
+    const nextSort = getNextLorecardWorkspaceSort(normalized);
+    const [, nextLabel, nextTitle] = LORECARD_WORKSPACE_SORTS.find(([key]) => key === nextSort) || LORECARD_WORKSPACE_SORTS[0];
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'saga-lorecard-workspace-sort-toggle';
+    button.dataset.lorecardWorkspaceSort = normalized;
+    button.setAttribute('aria-label', `Sort Lorecards by ${title}. Press to switch to ${nextTitle}. Modes: Alphabetical, Priority, Relevance.`);
+    button.textContent = label;
+    addTooltip(button, `Sort by ${title}. Press for ${nextLabel}: ${nextTitle}. Modes: A, P, R.`);
+    button.addEventListener('click', (event) => {
         event.preventDefault();
         event.stopPropagation();
-        setLorecardWorkspaceSort(getNextLorecardWorkspaceSort(normalized));
+        setLorecardWorkspaceSort(nextSort);
     });
-    wrap.addEventListener('keydown', (event) => {
-        if (!['Enter', ' '].includes(event.key)) return;
-        event.preventDefault();
-        event.stopPropagation();
-        setLorecardWorkspaceSort(getNextLorecardWorkspaceSort(normalized));
-    });
-
-    for (const [value, label, title] of LORECARD_WORKSPACE_SORTS) {
-        const active = value === normalized;
-        const button = document.createElement('button');
-        button.type = 'button';
-        button.className = 'saga-lorecard-workspace-sort-option';
-        if (active) button.classList.add('saga-lorecard-workspace-sort-option-active');
-        button.dataset.lorecardWorkspaceSort = value;
-        button.setAttribute('role', 'radio');
-        button.setAttribute('aria-checked', active ? 'true' : 'false');
-        button.setAttribute('aria-label', `Sort Lorecards by ${title}`);
-        button.textContent = label;
-        addTooltip(button, mobileShell ? `Tap to switch sort mode.` : `Sort by ${title}.`);
-        button.addEventListener('click', (event) => {
-            event.preventDefault();
-            event.stopPropagation();
-            const targetSort = mobileShell ? getNextLorecardWorkspaceSort(normalized) : value;
-            setLorecardWorkspaceSort(targetSort);
-        });
-        wrap.appendChild(button);
-    }
-    return wrap;
+    return button;
 }
 
 function createLorecardWorkspace(state = getState(), options = {}) {

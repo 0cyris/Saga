@@ -1184,6 +1184,23 @@
             #07090d;
     }
 
+    .saga-loredeck-creator-workbench-overlay .saga-loredeck-creator-workbench-shell-mobile {
+        flex: 1 1 auto;
+        height: 100%;
+        min-height: 0;
+        max-height: none;
+    }
+
+    .saga-loredeck-creator-workbench-shell-mobile .saga-loredeck-creator-pipeline-header,
+    .saga-loredeck-creator-workbench-shell-mobile .saga-loredeck-creator-workbench-bottom-actions {
+        flex: 0 0 auto;
+    }
+
+    .saga-loredeck-creator-workbench-shell-mobile .saga-loredeck-creator-workbench-body {
+        flex: 1 1 auto;
+        min-height: 0;
+    }
+
     .saga-context-workbench-shell-mobile {
         display: flex;
         flex-direction: column;

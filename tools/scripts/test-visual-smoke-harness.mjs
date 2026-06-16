@@ -948,6 +948,8 @@ assert(
     && creatorPanel.includes('if (!(options.workbench && isRuntimeMobileShell()))')
     && creatorPanel.includes("createButton('Close', 'Close the Loredeck Creator wizard.', closeLoredeckCreatorWorkbench)")
     && creatorPanel.includes('wireOverlayBackdropClose(overlay, () => overlay.remove())')
+    && /@media \(max-width:\s*640px\)\s*\{[\s\S]*?\.saga-loredeck-creator-workbench-overlay \.saga-loredeck-creator-workbench-shell-mobile\s*\{[\s\S]*?height:\s*100%;[\s\S]*?max-height:\s*none;/.test(style)
+    && /@media \(max-width:\s*640px\)\s*\{[\s\S]*?\.saga-loredeck-creator-workbench-shell-mobile \.saga-loredeck-creator-workbench-body\s*\{[\s\S]*?flex:\s*1 1 auto;[\s\S]*?min-height:\s*0;/.test(style)
     && /\.saga-loredeck-creator-workbench-bottom-actions\s*\{[\s\S]*?grid-template-columns:\s*repeat\(auto-fit,[\s\S]*?var\(--saga-mobile-safe-area-bottom/.test(style),
     'Creator workbench mobile must move persistent Project Settings and Close actions to a bottom action bar while keeping backdrop close reachable.'
 );
@@ -1131,11 +1133,19 @@ assert(
         && style.includes('.saga-settings-switch-row')
         && style.includes('.saga-settings-switch-slider')
         && style.includes('.saga-settings-qol-card .saga-settings-qol-item.saga-settings-switch-row')
+        && style.includes('#saga-lore-panel .saga-runtime-drawer .saga-settings-qol-section .saga-settings-qol-item.saga-settings-switch-row')
         && style.includes('justify-self: stretch')
         && style.includes('.saga-settings-switch-text')
         && style.includes('.saga-settings-switch-description')
         && style.includes('.saga-settings-qol-item + .saga-settings-qol-item')
+        && style.includes('.saga-settings-qol-card .saga-settings-qol-item.saga-settings-switch-row .saga-settings-switch-text')
+        && style.includes('grid-column: 2 !important')
         && style.includes('.saga-runtime-mobile .saga-settings-qol-card .saga-settings-qol-item.saga-settings-switch-row')
+        && /\.saga-settings-qol-section > \.saga-collapsible-content\s*\{[\s\S]*?display:\s*block !important;[\s\S]*?width:\s*100% !important;/.test(style)
+        && /\.saga-settings-qol-card\s*\{[\s\S]*?display:\s*block !important;[\s\S]*?max-width:\s*none !important;/.test(style)
+        && /\.saga-settings-qol-card \.saga-settings-qol-item\.saga-settings-switch-row\s*\{[\s\S]*?display:\s*grid !important;[\s\S]*?grid-template-columns:\s*48px minmax\(0,\s*1fr\) !important;/.test(style)
+        && /#saga-lore-panel \.saga-runtime-drawer \.saga-settings-qol-section \.saga-settings-qol-item\.saga-settings-switch-row\s*\{[\s\S]*?display:\s*grid !important;[\s\S]*?grid-template-columns:\s*48px minmax\(0,\s*1fr\) !important;/.test(style)
+        && /\.saga-settings-switch-text\s*\{[\s\S]*?display:\s*flex !important;[\s\S]*?max-width:\s*none !important;/.test(style)
         && /\.saga-runtime-mobile \.saga-settings-qol-section \.saga-collapsible-content\s*\{[\s\S]*?display:\s*block !important;[\s\S]*?width:\s*100% !important;/.test(style)
         && /\.saga-runtime-mobile \.saga-settings-qol-card\s*\{[\s\S]*?display:\s*block !important;[\s\S]*?width:\s*100% !important;/.test(style)
         && /\.saga-runtime-mobile \.saga-settings-qol-card \.saga-settings-qol-item\.saga-settings-switch-row\s*\{[\s\S]*?display:\s*grid !important;[\s\S]*?grid-template-columns:\s*48px minmax\(0,\s*1fr\) !important;/.test(style)
@@ -1203,28 +1213,33 @@ assert(
 const lorecardWorkspaceSortFunction = lorecardsPanel.match(/function sortLorecardWorkspaceRows\(a, b, sortMode = 'alphabetical'\)[\s\S]*?\n}\n\nfunction getFilteredLorecardWorkspaceRows/)?.[0] || '';
 assert(
     lorecardsPanel.includes('const LORECARD_WORKSPACE_SORTS = Object.freeze')
-        && lorecardsPanel.includes("['alphabetical', 'A', 'Alphabetical'],\n    ['priority', 'P', 'Priority']")
+        && lorecardsPanel.includes("['alphabetical', 'A', 'Alphabetical'],\n    ['priority', 'P', 'Priority'],\n    ['relevance', 'R', 'Relevance']")
         && lorecardsPanel.includes('function normalizeLorecardWorkspaceSort')
         && lorecardsPanel.includes('function getNextLorecardWorkspaceSort')
+        && lorecardsPanel.includes('function getLorecardWorkspaceRelevanceSortRank')
         && lorecardsPanel.includes('function createLorecardWorkspaceSortToggle')
         && lorecardsPanel.includes("button.textContent = label")
-        && lorecardsPanel.includes('const targetSort = mobileShell ? getNextLorecardWorkspaceSort(normalized) : value;')
+        && lorecardsPanel.includes('setLorecardWorkspaceSort(nextSort)')
         && lorecardsPanel.includes("searchRow.appendChild(createLorecardWorkspaceSortToggle(activeSort));")
         && lorecardsPanel.includes("toolbar.appendChild(searchRow);")
         && defaultState.includes("lorecardWorkspaceSort: 'alphabetical'")
-        && stateManager.includes('Schema v27: Lorecards workspace defaults to A/P with Alphabetical active.')
+        && stateManager.includes('Schema v27: Lorecards workspace defaults to A/P/R with Alphabetical active.')
         && stateManager.includes("state.lorePanel.lorecardWorkspaceSort = 'alphabetical';")
-        && stateManager.includes("state.lorePanel.lorecardWorkspaceSort = ['priority', 'alphabetical'].includes")
+        && stateManager.includes("state.lorePanel.lorecardWorkspaceSort = ['priority', 'alphabetical', 'relevance'].includes")
         && stateManager.includes("defaultsPanel.lorecardWorkspaceSort || 'alphabetical'")
-        && /function sortLorecardWorkspaceRows\(a, b, sortMode = 'alphabetical'\)[\s\S]*?if \(normalizeLorecardWorkspaceSort\(sortMode\) === 'alphabetical'\)/.test(lorecardsPanel)
+        && /function sortLorecardWorkspaceRows\(a, b, sortMode = 'alphabetical'\)[\s\S]*?if \(normalizedSort === 'alphabetical'\)/.test(lorecardsPanel)
+        && /function sortLorecardWorkspaceRows\(a, b, sortMode = 'alphabetical'\)[\s\S]*?if \(normalizedSort === 'relevance'\)[\s\S]*?getLorecardWorkspaceRelevanceSortRank\(a\) - getLorecardWorkspaceRelevanceSortRank\(b\)[\s\S]*?if \(titleScore\) return titleScore;/.test(lorecardsPanel)
+        && /function getLorecardWorkspaceRelevanceSortRank\(row = \{\}\)[\s\S]*?if \(row\.isElevated\) return 0;[\s\S]*?if \(relevance === 'high'\) return 1;[\s\S]*?if \(relevance === 'normal'\) return 2;[\s\S]*?return 3;/.test(lorecardsPanel)
         && !lorecardWorkspaceSortFunction.includes('isActive')
         && style.includes('.saga-lorecard-workspace-search-row')
         && style.includes('.saga-lorecard-workspace-sort-toggle')
-        && style.includes('grid-template-columns: repeat(2, 24px)')
+        && style.includes('aspect-ratio: 1 / 1')
+        && style.includes('flex: 0 0 34px')
         && style.includes('border-radius: 3px')
-        && style.includes('width: 24px')
-        && style.includes('.saga-lorecard-workspace-sort-option-active'),
-    'Lorecards workspace must place a compact A/P sort toggle beside Search, default to Alphabetical, cycle on mobile tap, and must not auto-sort activated cards to the top.'
+        && style.includes('width: 34px')
+        && !lorecardsPanel.includes('saga-lorecard-workspace-sort-option')
+        && !style.includes('.saga-lorecard-workspace-sort-option-active'),
+    'Lorecards workspace must place a square A/P/R sort cycle button beside Search, default to Alphabetical, support Relevance tier sorting, and must not auto-sort activated cards to the top.'
 );
 assert(lorecardsPanel.includes('const pendingReviewEntries = pendingEntries.filter(entry => !isSuggestedPendingLore(entry));') && lorecardsPanel.includes('pendingEntries: pendingReviewEntries') && lorecardsPanel.includes('allPendingEntries: pendingEntries') && lorecardsPanel.includes('pendingCount: pendingReviewEntries.length') && lorecardsPanel.includes('allPendingCount: pendingEntries.length'), 'Lorecards lifecycle stats must keep suggested and Pending Review counts distinct while retaining the full pending-entry set.');
 assert(lorecardsPanel.includes("['needs-review', 'Needs Review']") && lorecardsPanel.includes("['high', 'High']") && lorecardsPanel.includes("['elevated', 'Elevated']") && lorecardsPanel.includes("['muted', 'Muted']") && lorecardsPanel.includes("['conflicts', 'Conflicts']"), 'Lorecards workspace filters must expose review, High, Elevated, Muted, and conflict views over one object list.');
@@ -1414,6 +1429,13 @@ assert(
     'Settings provider dropdowns and text fields must keep compact provider-specific font sizing, including on mobile where generic touch select sizing is larger.'
 );
 assert(injectionPanel.includes('function createPromptInjectionStatusRow') && injectionPanel.includes("className: 'saga-prompt-sync-status-value'") && injectionPanel.includes('setChipTone(value') && !/row\?\.querySelector\('\.saga-value'\)/.test(injectionPanel), 'Prompt injection sync status value must render through a schema-backed status pill and update tone in place.');
+assert(
+    /\.saga-lore-panel\.saga-runtime-shell\.saga-runtime-mobile \.saga-prompt-placement-line\s*\{[\s\S]*?grid-template-columns:\s*minmax\(92px,\s*0\.68fr\) minmax\(0,\s*1\.6fr\);/.test(style)
+        && /\.saga-lore-panel\.saga-runtime-shell\.saga-runtime-mobile \.saga-prompt-placement-control-wrap\s*\{[\s\S]*?grid-template-columns:\s*minmax\(96px,\s*1fr\) minmax\(48px,\s*0\.52fr\) minmax\(68px,\s*0\.78fr\);/.test(style)
+        && /\.saga-lore-panel\.saga-runtime-shell\.saga-runtime-mobile \.saga-prompt-placement-card \.saga-inline-field select,[\s\S]*?\.saga-lore-panel\.saga-runtime-shell\.saga-runtime-mobile \.saga-prompt-placement-card \.saga-inline-field input\[type="number"\]\s*\{[\s\S]*?min-height:\s*30px;[\s\S]*?font-size:\s*0\.8rem;/.test(style)
+        && /@media \(max-width:\s*380px\)\s*\{[\s\S]*?\.saga-lore-panel\.saga-runtime-shell\.saga-runtime-mobile \.saga-prompt-placement-line\s*\{[\s\S]*?grid-template-columns:\s*1fr;/.test(style),
+    'Mobile Prompt Placement must keep prompt group controls in compact rows with mobile-standard font sizes instead of stacking every control vertically.'
+);
 assert(/function createCompactPresetStat[\s\S]{0,520}createStatusPill/.test(runtimeUiKit) && !/function createCompactPresetStat[\s\S]{0,360}document\.createElement\('strong'\)/.test(runtimeUiKit), 'Provider preset compact stats must render value chips through schema-backed status pills.');
 assert(creatorPanel.includes('function createLoredeckCreatorSideValueChip') && creatorPanel.includes("className: options.className || 'saga-loredeck-creator-side-value'") && !/saga-loredeck-creator-side-row[\s\S]{0,260}document\.createElement\('strong'\)/.test(creatorPanel), 'Loredeck Creator sidebar metadata values must render through schema-backed status pills.');
 assert(creatorPanel.includes("className: 'saga-loredeck-creator-queue-value'") && creatorPanel.includes("className: 'saga-loredeck-creator-diagnostic-value'") && !/saga-loredeck-creator-(?:queue|diagnostic)-row[\s\S]{0,260}document\.createElement\('strong'\)/.test(creatorPanel), 'Loredeck Creator queue and diagnostic values must render through schema-backed status pills.');
@@ -1428,6 +1450,10 @@ assert(/\.saga-loredeck-creator-stage-guide\s*\{[\s\S]*border:\s*1px solid var\(
     && /\.saga-loredeck-creator-current-task\s*\{[\s\S]*var\(--saga-gold-surface[\s\S]*linear-gradient\(135deg,\s*var\(--saga-surface/.test(style)
     && /\.saga-generation-live-status-error\s*\{[\s\S]*border-color:\s*var\(--saga-red-soft[\s\S]*background:\s*linear-gradient\(135deg,\s*var\(--saga-red-surface/.test(style)
     && !/\.saga-generation-live-status-error\s*\{[\s\S]{0,260}background:\s*linear-gradient\(135deg,\s*rgba/.test(style), 'Loredeck Creator stage guide, current task, and generation status rows must use active Theme Pack surfaces and danger tokens.');
+assert(/\.saga-generation-live-line\s*\{[\s\S]*flex-wrap:\s*nowrap;/.test(style)
+    && /\.saga-generation-live-label\s*\{[\s\S]*text-overflow:\s*ellipsis;[\s\S]*white-space:\s*nowrap;/.test(style)
+    && /\.saga-generation-live-text\s*\{[\s\S]*text-overflow:\s*ellipsis;[\s\S]*white-space:\s*nowrap;/.test(style)
+    && /\.saga-generation-live-meta\s*\{[\s\S]*text-overflow:\s*ellipsis;[\s\S]*white-space:\s*nowrap;/.test(style), 'Loredeck Creator live generation status rows must keep stable single-line geometry so heartbeat text cannot move mobile scroll.');
 assert(!cssRuleDeclares(style, '.saga-loredeck-health-card .saga-status-pill', ['font-size']) && !cssRuleDeclares(style, '.saga-loredeck-health-center-overlay .saga-status-pill', ['font-size']), 'Pack Health status chips must not override the compact chip font with legacy tiny/large em sizing.');
 assert(defaultState.includes('stateSafety:') && defaultSettings.includes("'settings.stateSafety'") && !defaultSettings.includes("'settings.dangerZone'"), 'Default state and settings collapse map must expose State Safety without keeping a removed Danger Zone dropdown state.');
 assert(runtimePanelSource.includes('createStateSafetyCard') && runtimePanelSource.includes("'settings.stateSafety'"), 'Advanced settings must render the State Safety backup/export/restore card.');
@@ -1810,7 +1836,15 @@ assert(loredeckValidationView.includes('export function createLoredeckValidation
 assert(healthPanel.includes("from './loredeck-validation-view.js'") && healthPanel.includes('createLoredeckValidationSeverityGrid([') && healthPanel.includes('return createLoredeckValidationIssueList(titleText, issues'), 'Pack Health Center must use shared validation view primitives for severity and raw issue lists.');
 assert(healthPanel.includes('return createLoredeckValidationCategoryList(getLoredeckHealthCategories(context.report)') && healthPanel.includes('return createLoredeckValidationMetric(label, value, tooltip);'), 'Pack Health Center must use shared validation view primitives for categories and metrics.');
 assert(loredeckJobView.includes('export function createLoredeckJobStatusRow') && loredeckJobView.includes('export function formatLoredeckJobElapsed') && loredeckJobView.includes('export function createLoredeckJobProgressBar'), 'Loredeck job view must own shared async job status-row and progress-bar primitives.');
-assert(creatorPanel.includes("from './loredeck-job-view.js'") && creatorPanel.includes('return createLoredeckJobStatusRow({') && creatorPanel.includes('cancelLoredeckCreatorGeneration(model.id)'), 'Loredeck Creator generation status must render through the shared job view while retaining Creator-owned cancellation.');
+assert(creatorPanel.includes("from './loredeck-job-view.js'") && creatorPanel.includes('createLoredeckJobStatusRow(buildLoredeckCreatorGenerationStatusJob') && creatorPanel.includes('cancelLoredeckCreatorGeneration(model.id)'), 'Loredeck Creator generation status must render through the shared job view while retaining Creator-owned cancellation.');
+assert(
+    creatorPanel.includes('export function refreshLoredeckCreatorGenerationStatusUi')
+    && creatorPanel.includes("querySelectorAll('.saga-generation-live-status[data-saga-creator-generation-id]')")
+    && creatorPanel.includes('formatLoredeckJobMeta(job)')
+    && panel.includes('refreshLoredeckCreatorGenerationStatusUi(generation.id);')
+    && panel.includes('}, { liveStatusOnly: true });'),
+    'Loredeck Creator running-generation heartbeat must update live status rows in place instead of rebuilding the workbench body.'
+);
 assert(loredecksTabPanel.includes("from './loredeck-job-view.js'") && loredecksTabPanel.includes('createLoredeckJobProgressBar(model.progress'), 'Loredecks Creator project shelf must render progress bars through the shared job view.');
 assert(loredecksTabPanel.includes('activateLoredeckCreatorJobAsync') && /async function openLoredeckCreatorProject/.test(loredecksTabPanel), 'Loredecks Creator project shelf must hydrate external project payloads asynchronously before opening after reload.');
 assert(loredeckActionRows.includes('export function createLoredeckActionRow') && loredeckActionRows.includes('export function setLoredeckActionButtonBusy') && loredeckActionRows.includes('export async function withLoredeckActionButtonBusy') && loredeckActionRows.includes('export async function withLoredeckConfirmedActionButton'), 'Loredeck action rows must own shared action-row and busy-button primitives.');
@@ -2061,6 +2095,7 @@ assert(style.includes('.saga-runtime-button-spinner') && style.includes('animati
 assert(style.includes('saga-loredeck-creator-stage-reset') && style.includes('saga-loredeck-creator-stage-resettable'), 'Creator reset buttons must have dedicated roadmap styling.');
 assert(harness.includes("jobId: 'smoke-creator-project'") && harness.includes("brief: {") && harness.includes("outline: {") && harness.includes("currentStage: 'entries_drafted'"), 'Visual smoke harness must seed a normalized in-progress Creator project for reset controls.');
 assert(liveSmoke.includes('creator-harness-01-reset-controls') && liveSmoke.includes('creator-harness-02-reset-confirm') && liveSmoke.includes('Reset to Title Pass?'), 'Creator reset smoke must capture reset controls and destructive confirmation copy.');
+assert(liveSmoke.includes('heartbeatScrollState') && liveSmoke.includes('refreshLoredeckCreatorGenerationStatusUi') && liveSmoke.includes('sagaHeartbeatScrollProbe') && liveSmoke.includes('coverage-plan'), 'Creator harness smoke must verify active-generation heartbeat updates do not move the Adaptive Coverage scroll position.');
 assert(runtimePanelSource.includes('getLoredeckCreatorWorkbenchScrollAnchor'), 'Creator workbench must preserve section anchors during rerenders.');
 assert(runtimePanelSource.includes('restoreLoredeckCreatorWorkbenchScrollAnchor'), 'Creator workbench must restore section anchors after rerenders.');
 assert(runtimePanelSource.includes("wrap.dataset.sagaCreatorAnchor = 'lorecards'"), 'Creator Lorecard stage must expose a stable scroll anchor.');
@@ -2105,6 +2140,10 @@ assert(runtimePanelSource.includes('showStreamingProgress'), 'Creator generation
 assert(runtimePanelSource.includes('useUtilityProviderForSplitRetries') && runtimePanelSource.includes("providerKind: retryProvider.providerKind") && runtimePanelSource.includes("validateLoreProviderConfiguration('continuity')"), 'Creator split retries must support an opt-in Utility Provider path with Reasoning fallback.');
 assert(runtimePanelSource.includes('options.bypassRunLimit === true') && creatorPanel.includes('bypassRunLimit: true'), 'Creator Auto-Draft All must bypass the old run cap after confirming the full remaining count.');
 assert(runtimePanelSource.includes('updateLoredeckCreatorEntryDraftBusyProgress') && runtimePanelSource.includes('getLoredeckCreatorEntryDraftProgressForOptions') && runtimePanelSource.includes('busy.setText(`${prefix} | ${remainingCount} remain`)'), 'Creator Lorecard drafting must update the active button with fresh remaining-count progress.');
+assert(runtimePanelSource.includes('updateLoredeckCreatorTitleRunBusyProgress') && runtimePanelSource.includes('title set${remaining === 1 ?') && runtimePanelSource.includes('options.onProgress?.({'), 'Creator Title Pass Generate Remaining must update the active button with live title-set progress.');
+assert(runtimePanelSource.includes('waitForLoredeckCreatorUiPaint') && runtimePanelSource.includes('if (config.waitForUiPaint !== false) await waitForLoredeckCreatorUiPaint();'), 'Creator generation requests must yield a UI paint before long provider calls.');
+assert(creatorPanel.includes('loredeckCreatorGenerationCoverageMatches') && creatorPanel.includes('coverageDimensionIds: batch.coverageDimensionIds') && runtimePanelSource.includes('coverageDimensionIds: targetCoverageDimensionIds'), 'Creator generation rows must match active title/planning work by batch id or coverage dimension.');
+assert(creatorPanel.includes("['planning_batch_draft']") && creatorPanel.includes("['entry_batch_draft', 'entry_multi_batch_draft']"), 'Creator planning and Lorecard category rows must render compact live generation status from top-level generation actions.');
 assert(/\.saga-loredeck-creator-generation-grid\s*\{[\s\S]*grid-template-columns:\s*repeat\(auto-fit,\s*minmax\(min\(100%,\s*300px\),\s*1fr\)\)/.test(style)
     && /\.saga-loredeck-creator-generation-row input\[type="range"\]\s*\{[\s\S]*width:\s*calc\(100% - 14px\);[\s\S]*max-width:\s*calc\(100% - 14px\);[\s\S]*margin-inline:\s*7px;[\s\S]*justify-self:\s*center;/.test(style),
     'Creator advanced generation sliders must reserve range thumb space inside their setting cards.');

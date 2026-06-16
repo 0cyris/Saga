@@ -44,6 +44,9 @@ export function normalizeCompressionStatusNumbers(status) {
         'lastHardTokenLimit',
         'lastHardCharacterLimit',
         'lastCompressionRatio',
+        'lastCompressionAttemptCount',
+        'lastCompressionSelectedAttempt',
+        'lastCompressionScore',
         'turnsSinceCompression',
         'lastChatLength',
     ]) {

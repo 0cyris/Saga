@@ -743,7 +743,7 @@ export function migrateState(state) {
         state._version = 26;
     }
 
-    // Schema v27: Lorecards workspace defaults to A/P with Alphabetical active.
+    // Schema v27: Lorecards workspace defaults to A/P/R with Alphabetical active.
     if (state._version < 27) {
         state.lorePanel = mergeDefaults(state.lorePanel, getDefaultState().lorePanel);
         state.lorePanel.lorecardWorkspaceSort = 'alphabetical';
@@ -815,7 +815,7 @@ export function migrateState(state) {
         state.lorePanel.loreTypeFilter = state.lorePanel.loreTypeFilter || defaultsPanel.loreTypeFilter || 'all';
         state.lorePanel.acceptedDeckFilter = state.lorePanel.acceptedDeckFilter || defaultsPanel.acceptedDeckFilter || 'all';
         state.lorePanel.acceptedContextFilter = state.lorePanel.acceptedContextFilter || defaultsPanel.acceptedContextFilter || 'all';
-        state.lorePanel.lorecardWorkspaceSort = ['priority', 'alphabetical'].includes(state.lorePanel.lorecardWorkspaceSort)
+        state.lorePanel.lorecardWorkspaceSort = ['priority', 'alphabetical', 'relevance'].includes(state.lorePanel.lorecardWorkspaceSort)
             ? state.lorePanel.lorecardWorkspaceSort
             : (defaultsPanel.lorecardWorkspaceSort || 'alphabetical');
         state.lorePanel.selectedEntryId = state.lorePanel.selectedEntryId || '';

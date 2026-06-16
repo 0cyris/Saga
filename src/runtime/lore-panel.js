@@ -555,6 +555,7 @@ import {
     normalizeLoredeckCreatorTitleIdList,
     openLoredeckCreatorWorkbench as openLoredeckCreatorWorkbenchBase,
     queueLoredeckCreatorWorkbenchRefresh,
+    refreshLoredeckCreatorGenerationStatusUi,
     refreshLoredeckCreatorTitleSelectionUi,
     refreshLoredeckCreatorWorkbenchBody,
     scrollLoredeckCreatorWorkbenchToAnchor,
@@ -2072,7 +2073,10 @@ function updateLoredeckCreatorActiveGenerationLocal(generationId = '', patch = {
         activeGeneration: live || nextActive,
     };
     loredeckCreatorBriefCache.set('current', localJob);
-    if (!options.suppressWorkbenchRefresh && options.refreshWorkbench !== false) queueLoredeckCreatorWorkbenchRefresh();
+    if (!options.suppressWorkbenchRefresh) {
+        if (options.liveStatusOnly) refreshLoredeckCreatorGenerationStatusUi(id);
+        else if (options.refreshWorkbench !== false) queueLoredeckCreatorWorkbenchRefresh();
+    }
     return localJob;
 }
 
@@ -2091,8 +2095,18 @@ function startLoredeckCreatorGenerationTicker(generationId = '') {
             elapsedMs: now - Number(active.startedAt || now),
             message: getLoredeckCreatorGenerationWaitMessage(active),
             updatedAt: now,
-        }, { refreshWorkbench: true });
+        }, { liveStatusOnly: true });
     }, 1000);
+}
+
+function waitForLoredeckCreatorUiPaint() {
+    return new Promise(resolve => {
+        if (typeof requestAnimationFrame === 'function') {
+            requestAnimationFrame(() => requestAnimationFrame(resolve));
+            return;
+        }
+        setTimeout(resolve, 0);
+    });
 }
 
 function startLoredeckCreatorGeneration(actionId = '', label = '', jobPatch = {}, details = {}) {
@@ -2127,6 +2141,10 @@ function startLoredeckCreatorGeneration(actionId = '', label = '', jobPatch = {}
         batchLabel: details.batchLabel || '',
         batchIndex: Number.isFinite(Number(details.batchIndex)) ? Number(details.batchIndex) : null,
         batchTotal: Number.isFinite(Number(details.batchTotal)) ? Number(details.batchTotal) : null,
+        targetTitleBatchId: normalizeLoredeckCreatorTitleId(details.targetTitleBatchId || details.batchId || '', ''),
+        targetPlanningBatchId: normalizeLoredeckCreatorTitleId(details.targetPlanningBatchId || '', ''),
+        coverageDimensionIds: normalizeLoredeckCreatorCoverageIdList(details.coverageDimensionIds || [], 24),
+        targetTitleIds: normalizeLoredeckCreatorTitleIdList(details.targetTitleIds || [], 200),
     };
     if (controller) loredeckCreatorGenerationControllers.set(generation.id, controller);
     const job = setLoredeckCreatorBriefCache({
@@ -2163,6 +2181,8 @@ function updateLoredeckCreatorGeneration(generation = null, event = {}, options 
     const receivedChars = Number(event.receivedChars || accumulated.length || active.receivedChars || 0);
     const phase = String(event.phase || active.phase || 'waiting');
     const message = String(event.message || getLoredeckCreatorGenerationWaitMessage(active)).trim();
+    const hasCoverageDimensionIds = Object.prototype.hasOwnProperty.call(options, 'coverageDimensionIds');
+    const hasTargetTitleIds = Object.prototype.hasOwnProperty.call(options, 'targetTitleIds');
     const activeGeneration = {
         ...active,
         phase,
@@ -2176,15 +2196,24 @@ function updateLoredeckCreatorGeneration(generation = null, event = {}, options 
         batchLabel: options.batchLabel || active.batchLabel || '',
         batchIndex: options.batchIndex ?? active.batchIndex ?? null,
         batchTotal: options.batchTotal ?? active.batchTotal ?? null,
+        targetTitleBatchId: normalizeLoredeckCreatorTitleId(options.targetTitleBatchId || active.targetTitleBatchId || active.batchId || '', ''),
+        targetPlanningBatchId: normalizeLoredeckCreatorTitleId(options.targetPlanningBatchId || active.targetPlanningBatchId || '', ''),
+        coverageDimensionIds: hasCoverageDimensionIds
+            ? normalizeLoredeckCreatorCoverageIdList(options.coverageDimensionIds || [], 24)
+            : normalizeLoredeckCreatorCoverageIdList(active.coverageDimensionIds || [], 24),
+        targetTitleIds: hasTargetTitleIds
+            ? normalizeLoredeckCreatorTitleIdList(options.targetTitleIds || [], 200)
+            : normalizeLoredeckCreatorTitleIdList(active.targetTitleIds || [], 200),
     };
     if (options.persist === false) {
-        updateLoredeckCreatorActiveGenerationLocal(generation.id, activeGeneration, { refreshWorkbench: true });
+        updateLoredeckCreatorActiveGenerationLocal(generation.id, activeGeneration, { liveStatusOnly: true });
         return;
     }
     setLoredeckCreatorBriefCache({
         ...cached,
         activeGeneration,
-    }, { refreshWorkbench: true, coalesceStorageWrite: true });
+    }, { coalesceStorageWrite: true });
+    refreshLoredeckCreatorGenerationStatusUi(generation.id);
 }
 
 function makeLoredeckCreatorProgressHandler(generation = null, options = {}) {
@@ -2398,6 +2427,7 @@ async function runLoredeckCreatorSingleUnitGeneration(config = {}) {
     const jobId = getLoredeckCreatorGenerationJobId(generation) || generation.jobId || generation.id;
     const requestOptions = createLoredeckCreatorRequestOptions(generation, config.requestOptions || {});
     const unitId = config.unitId || buildLoredeckCreatorRunnerUnitId(generation, stage);
+    if (config.waitForUiPaint !== false) await waitForLoredeckCreatorUiPaint();
     const checkpointOptions = {
         syncPrompt: false,
         label: generation.label || unitLabel,
@@ -2552,6 +2582,12 @@ function finishLoredeckCreatorGeneration(generation = null, status = 'success', 
         streamSupported: active.streamSupported,
         batchId: active.batchId || '',
         batchLabel: active.batchLabel || '',
+        batchIndex: active.batchIndex ?? null,
+        batchTotal: active.batchTotal ?? null,
+        targetTitleBatchId: active.targetTitleBatchId || '',
+        targetPlanningBatchId: active.targetPlanningBatchId || '',
+        coverageDimensionIds: normalizeLoredeckCreatorCoverageIdList(active.coverageDimensionIds || [], 24),
+        targetTitleIds: normalizeLoredeckCreatorTitleIdList(active.targetTitleIds || [], 200),
     };
     setLoredeckCreatorBriefCache({
         ...cached,
@@ -2596,6 +2632,12 @@ function cancelLoredeckCreatorGeneration(generationId = '') {
         streamSupported: active.streamSupported,
         batchId: active.batchId || '',
         batchLabel: active.batchLabel || '',
+        batchIndex: active.batchIndex ?? null,
+        batchTotal: active.batchTotal ?? null,
+        targetTitleBatchId: active.targetTitleBatchId || '',
+        targetPlanningBatchId: active.targetPlanningBatchId || '',
+        coverageDimensionIds: normalizeLoredeckCreatorCoverageIdList(active.coverageDimensionIds || [], 24),
+        targetTitleIds: normalizeLoredeckCreatorTitleIdList(active.targetTitleIds || [], 200),
     };
     setLoredeckCreatorBriefCache({
         ...cached,
@@ -4012,7 +4054,11 @@ function createLoredeckCreatorCoverageCard(cached = {}, pipeline = {}) {
         main.appendChild(meta);
         if (isLoredeckCreatorCoverageDimensionTargetable(dimension)) {
             const targetBatch = buildLoredeckCreatorCoverageTitleBatch(dimension);
-            appendLoredeckCreatorGenerationStatus(main, cached, ['title_batch_draft', 'title_batch_redraft'], { batchId: targetBatch.id, compact: true });
+            appendLoredeckCreatorGenerationStatus(main, cached, ['title_batch_draft', 'title_batch_redraft'], {
+                batchId: targetBatch.id,
+                coverageDimensionIds: targetBatch.coverageDimensionIds,
+                compact: true,
+            });
         }
         row.appendChild(main);
 
@@ -5765,6 +5811,9 @@ async function performLoredeckCreatorTitleDraft(options = {}) {
         const generationLabel = revisionInstruction
             ? 'Revising Selected Titles'
             : (options.redraftTitleBatch ? 'Redrafting Title Set' : 'Drafting Title Set');
+        const targetBatchId = normalizeLoredeckCreatorTitleId(targetTitleBatch?.id || targetTitleBatch?.label || '', '');
+        const targetBatchLabel = targetTitleBatch?.label || targetTitleBatch?.id || '';
+        const targetCoverageDimensionIds = normalizeLoredeckCreatorCoverageIdList(targetTitleBatch?.coverageDimensionIds || [], 24);
         const { generation } = startLoredeckCreatorGeneration(
             actionId,
             generationLabel,
@@ -5773,14 +5822,33 @@ async function performLoredeckCreatorTitleDraft(options = {}) {
                 currentStage: 'titles_drafting',
             },
             {
-                batchId: normalizeLoredeckCreatorTitleId(targetTitleBatch?.id || targetTitleBatch?.label || '', ''),
-                batchLabel: targetTitleBatch?.label || targetTitleBatch?.id || '',
+                batchId: targetBatchId,
+                batchLabel: targetBatchLabel,
+                batchIndex: options.batchIndex ?? null,
+                batchTotal: options.batchTotal ?? null,
+                targetTitleBatchId: targetBatchId,
+                coverageDimensionIds: targetCoverageDimensionIds,
             }
         );
         if (!generation) return { status: 'blocked', reason: 'generation_already_running' };
         const generationSettings = getLoredeckCreatorGenerationSettings(cached);
-        const batchId = normalizeLoredeckCreatorTitleId(targetTitleBatch?.id || targetTitleBatch?.label || '', '');
-        const batchLabel = targetTitleBatch?.label || targetTitleBatch?.id || '';
+        const batchId = targetBatchId;
+        const batchLabel = targetBatchLabel;
+        updateLoredeckCreatorGeneration(generation, {
+            type: 'phase',
+            phase: 'batch',
+            message: revisionInstruction
+                ? 'Revising selected title drafts...'
+                : `Drafting title set ${batchLabel || batchId || 'current batch'}...`,
+            streamSupported: null,
+        }, {
+            batchId,
+            batchLabel,
+            batchIndex: options.batchIndex ?? null,
+            batchTotal: options.batchTotal ?? null,
+            targetTitleBatchId: batchId,
+            coverageDimensionIds: targetCoverageDimensionIds,
+        });
         const effectiveTitlePassLimit = revisionInstruction
             ? Math.max(generationSettings.titleBatchLimit, selectedTitleDrafts.length)
             : clampLoredeckCreatorInteger(options.titlePassLimitOverride, 1, 24, getLoredeckCreatorTitleBatchLimit(brief, cached));
@@ -5820,6 +5888,10 @@ async function performLoredeckCreatorTitleDraft(options = {}) {
                 requestOptions: {
                     batchId,
                     batchLabel,
+                    batchIndex: options.batchIndex ?? null,
+                    batchTotal: options.batchTotal ?? null,
+                    targetTitleBatchId: batchId,
+                    coverageDimensionIds: targetCoverageDimensionIds,
                 },
                 requestContext,
                 requestResponse: requestLoredeckCreatorTitleResponse,
@@ -5959,6 +6031,17 @@ async function handleLoredeckCreatorTitleDraft(options = {}, button = null) {
     return result;
 }
 
+function updateLoredeckCreatorTitleRunBusyProgress(busy, completedBatches = 0, totalBatches = 1, remainingBatches = 0) {
+    if (!busy?.setText) return;
+    const safeTotal = Math.max(1, Number(totalBatches) || 1);
+    const safeCompleted = Math.max(0, Math.min(safeTotal, Number(completedBatches) || 0));
+    const remaining = Math.max(0, Number(remainingBatches) || 0);
+    const prefix = safeTotal > 1
+        ? `${safeCompleted} / ${safeTotal} calls`
+        : 'Generating';
+    busy.setText(`${prefix} | ${remaining} title set${remaining === 1 ? '' : 's'} remain`);
+}
+
 async function performLoredeckCreatorRemainingTitleBatches(options = {}) {
     const settings = getLoredeckCreatorGenerationSettings();
     const configuredLimit = settings.titleRunRemainingLimit;
@@ -5967,6 +6050,12 @@ async function performLoredeckCreatorRemainingTitleBatches(options = {}) {
     let draftedTitles = 0;
     let lastResult = null;
     let stoppedReason = '';
+    options.onProgress?.({
+        type: 'run_started',
+        completedBatches,
+        totalBatches: maxBatches,
+        remainingBatches: getLoredeckCreatorRemainingTitleBatches(getLoredeckCreatorBriefCache()).length,
+    });
     for (let index = 0; index < maxBatches; index += 1) {
         const fresh = getLoredeckCreatorBriefCache();
         const batch = getLoredeckCreatorNextTitleBatch(fresh);
@@ -5974,12 +6063,22 @@ async function performLoredeckCreatorRemainingTitleBatches(options = {}) {
             stoppedReason = 'complete';
             break;
         }
+        options.onProgress?.({
+            type: 'batch_started',
+            batch,
+            batchIndex: index + 1,
+            completedBatches,
+            totalBatches: maxBatches,
+            remainingBatches: getLoredeckCreatorRemainingTitleBatches(fresh).length,
+        });
         lastResult = await performLoredeckCreatorTitleDraft({
             brief: fresh.brief || options.brief || {},
             notes: fresh.notes || loredeckCreatorNotes,
             targetTitleBatch: batch,
             previousTitleDrafts: getLoredeckCreatorTitleDrafts(fresh).map(compactLoredeckCreatorTitleDraftForRevision),
             suppressSuccessToast: true,
+            batchIndex: index + 1,
+            batchTotal: maxBatches,
         });
         if (lastResult?.status !== 'drafted') {
             stoppedReason = lastResult?.status || 'stopped';
@@ -5987,6 +6086,14 @@ async function performLoredeckCreatorRemainingTitleBatches(options = {}) {
         }
         completedBatches += 1;
         draftedTitles += Number(lastResult.draftCount || 0);
+        options.onProgress?.({
+            type: 'batch_completed',
+            batch,
+            batchIndex: index + 1,
+            completedBatches,
+            totalBatches: maxBatches,
+            remainingBatches: getLoredeckCreatorRemainingTitleBatches(getLoredeckCreatorBriefCache()).length,
+        });
     }
     const remaining = getLoredeckCreatorRemainingTitleBatches(getLoredeckCreatorBriefCache()).length;
     return {
@@ -6001,7 +6108,7 @@ async function performLoredeckCreatorRemainingTitleBatches(options = {}) {
 
 async function handleLoredeckCreatorRemainingTitleBatches(button = null) {
     let result = null;
-    await runBusyAction(button, 'Generating batches...', async () => {
+    await runBusyAction(button, 'Generating batches...', async (busy) => {
         const fresh = getLoredeckCreatorBriefCache();
         const remaining = getLoredeckCreatorRemainingTitleBatches(fresh);
         if (!remaining.length) {
@@ -6011,6 +6118,7 @@ async function handleLoredeckCreatorRemainingTitleBatches(button = null) {
         }
         const settings = getLoredeckCreatorGenerationSettings(fresh);
         const callCount = Math.min(settings.titleRunRemainingLimit, remaining.length);
+        updateLoredeckCreatorTitleRunBusyProgress(busy, 0, callCount, remaining.length);
         const confirmed = await confirmAction(
             'Generate Remaining Title Batches',
             `Saga will make up to ${callCount} separate Reasoning Provider call${callCount === 1 ? '' : 's'}, one title set per call. It will stop on clarification, empty output, failure, cancellation, or the current run limit. Continue?`
@@ -6021,6 +6129,12 @@ async function handleLoredeckCreatorRemainingTitleBatches(button = null) {
         }
         result = await performLoredeckCreatorRemainingTitleBatches({
             maxBatches: settings.titleRunRemainingLimit,
+            onProgress: progress => updateLoredeckCreatorTitleRunBusyProgress(
+                busy,
+                progress.completedBatches,
+                callCount,
+                progress.remainingBatches
+            ),
         });
         if (result.completedBatches > 0) {
             const remainingText = result.remainingBatches
@@ -6538,6 +6652,7 @@ async function handleLoredeckCreatorPlanningDraft(options = {}, button = null) {
         }
         const pack = ensureLoredeckCreatorGeneratedPack(cached);
         if (!pack) return;
+        const targetCoverageDimensionIds = normalizeLoredeckCreatorCoverageIdList(targetPlanningBatch.coverageDimensionIds || [], 24);
         const { generation } = startLoredeckCreatorGeneration(
             'planning_batch_draft',
             'Planning Context & Tags',
@@ -6550,6 +6665,8 @@ async function handleLoredeckCreatorPlanningDraft(options = {}, button = null) {
             {
                 batchId: targetBatchId,
                 batchLabel: targetPlanningBatch.label || targetBatchId,
+                targetPlanningBatchId: targetBatchId,
+                coverageDimensionIds: targetCoverageDimensionIds,
             }
         );
         if (!generation) return;
@@ -6597,6 +6714,8 @@ async function handleLoredeckCreatorPlanningDraft(options = {}, button = null) {
                 requestOptions: {
                     batchId: targetBatchId,
                     batchLabel: targetPlanningBatch.label || targetBatchId,
+                    targetPlanningBatchId: targetBatchId,
+                    coverageDimensionIds: targetCoverageDimensionIds,
                 },
                 requestContext,
                 requestResponse: requestLoredeckCreatorPlanningResponse,
@@ -7530,6 +7649,7 @@ async function draftLoredeckCreatorEntryBatch(cached = {}, pack = {}, planning =
         || (targetPlanningBatchId ? getLoredeckCreatorTitleBatchById(cached, targetPlanningBatchId) : null)
         || progress.activeBatch
         || getLoredeckCreatorTitleBatchById(cached, progress.activeBatchId);
+    const targetCoverageDimensionIds = normalizeLoredeckCreatorCoverageIdList(targetPlanningBatch?.coverageDimensionIds || [], 24);
     if (options.generation) {
         updateLoredeckCreatorGeneration(options.generation, {
             type: 'phase',
@@ -7541,6 +7661,8 @@ async function draftLoredeckCreatorEntryBatch(cached = {}, pack = {}, planning =
             batchLabel: targetPlanningBatch?.label || '',
             batchIndex: options.batchIndex ?? null,
             batchTotal: options.batchTotal ?? null,
+            targetPlanningBatchId: targetPlanningBatch?.id || targetPlanningBatchId || '',
+            coverageDimensionIds: targetCoverageDimensionIds,
         });
     }
     const unitId = options.unitIdOverride || buildLoredeckCreatorEntryGenerationUnitId(targetPlanningBatch, targetTitles);
@@ -7623,6 +7745,8 @@ async function draftLoredeckCreatorEntryBatch(cached = {}, pack = {}, planning =
                 batchLabel: targetPlanningBatch?.label || '',
                 batchIndex: options.batchIndex ?? null,
                 batchTotal: options.batchTotal ?? null,
+                targetPlanningBatchId: targetPlanningBatch?.id || targetPlanningBatchId || '',
+                coverageDimensionIds: targetCoverageDimensionIds,
             },
             requestContext,
             requestResponse: requestLoredeckCreatorEntryResponse,

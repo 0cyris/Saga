@@ -60,7 +60,7 @@ const RELEVANCE_META = Object.freeze({
     normal: { label: 'Normal' },
     low: { label: 'Low' },
 });
-const COMPRESSION_RETRY_SYSTEM_PROMPT = 'You are Saga Compression. Your previous visible output was outside the requested retention band. Output only the corrected plain-text injection block within that band. No markdown, JSON, reasoning, or commentary.';
+const COMPRESSION_RETRY_SYSTEM_PROMPT = 'You are Saga Compression. Your previous visible output was outside the requested preferred range. Output only a corrected plain-text injection block closer to that range. No markdown, JSON, reasoning, or commentary.';
 // Injection tab ---------------------------------------------------------------
 
 export function renderInjectionTab(container, state) {
@@ -423,11 +423,11 @@ function formatPlacementSummary(settings, kind) {
 
 function getCompressionProfile(level) {
     const profiles = {
-        1: { label: 'Light', targetRatio: 0.8, minimumRatio: 0.7, maximumRatio: 0.9, description: 'preserve most details; remove redundancy only' },
-        2: { label: 'Moderate', targetRatio: 0.6, minimumRatio: 0.5, maximumRatio: 0.7, description: 'preserve important entries while shortening descriptions' },
-        3: { label: 'Balanced', targetRatio: 0.4, minimumRatio: 0.32, maximumRatio: 0.48, description: 'keep roleplay-relevant facts and current-scene implications' },
-        4: { label: 'Heavy', targetRatio: 0.2, minimumRatio: 0.14, maximumRatio: 0.28, description: 'short bullets; preserve critical secrets, constraints, and protected details' },
-        5: { label: 'Maximum', targetRatio: 0.1, minimumRatio: 0.07, maximumRatio: 0.16, description: 'maximum compression; only essential facts, constraints, secrets, and hazards' },
+        1: { label: 'Light', targetRatio: 0.8, minimumRatio: 0.55, maximumRatio: 0.98, hardMaximumRatio: 1, description: 'preserve most details; remove redundancy only' },
+        2: { label: 'Moderate', targetRatio: 0.6, minimumRatio: 0.38, maximumRatio: 0.82, hardMaximumRatio: 1, description: 'preserve important entries while shortening descriptions' },
+        3: { label: 'Balanced', targetRatio: 0.4, minimumRatio: 0.22, maximumRatio: 0.65, hardMaximumRatio: 1, description: 'keep roleplay-relevant facts and current-scene implications' },
+        4: { label: 'Heavy', targetRatio: 0.2, minimumRatio: 0.08, maximumRatio: 0.45, hardMaximumRatio: 1, description: 'short bullets; preserve critical secrets, constraints, and protected details' },
+        5: { label: 'Maximum', targetRatio: 0.1, minimumRatio: 0.03, maximumRatio: 0.3, hardMaximumRatio: 1, description: 'maximum compression; only essential facts, constraints, secrets, and hazards' },
     };
     return profiles[Math.max(1, Math.min(5, Number(level) || 2))] || profiles[2];
 }
@@ -440,11 +440,11 @@ function estimateTokenBudgetForCompression(text, level) {
     const minimumTokens = Math.max(1, Math.ceil(directTokens * profile.minimumRatio));
     const targetTokens = Math.max(1, Math.ceil(directTokens * profile.targetRatio));
     const maximumTokens = Math.max(targetTokens, Math.ceil(directTokens * profile.maximumRatio));
-    const hardTokenLimit = maximumTokens;
+    const hardTokenLimit = Math.max(maximumTokens, Math.ceil(directTokens * (profile.hardMaximumRatio || 1)));
     const minimumCharacters = Math.max(1, Math.ceil(directCharacters * profile.minimumRatio));
     const targetCharacters = Math.max(1, Math.ceil(directCharacters * profile.targetRatio));
     const maximumCharacters = Math.max(targetCharacters, Math.ceil(directCharacters * profile.maximumRatio));
-    const hardCharacterLimit = maximumCharacters;
+    const hardCharacterLimit = Math.max(maximumCharacters, Math.ceil(directCharacters * (profile.hardMaximumRatio || 1)));
     return {
         directTokens,
         directCharacters,
@@ -471,7 +471,7 @@ function getCompressionBudgetSummary(kind, state) {
         : parsed.tier ? buildLorePreview(state, 'direct', parsed.tier) : buildLorePreview(state, 'direct');
     if (!directText || !directText.trim()) return 'No source text';
     const budget = estimateTokenBudgetForCompression(directText, level);
-    return `~${budget.targetTokens} tokens / ${budget.targetCharacters} chars target; range ${budget.minimumTokens}-${budget.maximumTokens} tokens / ${budget.minimumCharacters}-${budget.maximumCharacters} chars from ~${budget.directTokens} tokens / ${budget.directCharacters} chars`;
+    return `~${budget.targetTokens} tokens / ${budget.targetCharacters} chars target; preferred range ${budget.minimumTokens}-${budget.maximumTokens} tokens / ${budget.minimumCharacters}-${budget.maximumCharacters} chars from ~${budget.directTokens} tokens / ${budget.directCharacters} chars`;
 }
 
 function getCompressionStatusTextForSummary(state, kind) {
@@ -509,7 +509,7 @@ function createInjectionPlacementCard(settings) {
 
     const help = document.createElement('div');
     help.className = 'saga-runtime-help';
-    help.textContent = 'Recommended: Extension Prompt, System role, with Continuity depth 3, High-Relevance Lore depth 2, Normal depth 5, and Low depth 9. Depth 0 is closest to the latest message.';
+    help.textContent = 'Recommended: Extension Prompt/System. Depths: Continuity 3, High 2, Normal 5, Low 9. Depth 0 is closest to the latest message.';
     card.appendChild(help);
     appendSettingsResetButton(card, PROMPT_PLACEMENT_SETTING_KEYS, 'Prompt placement settings');
 
@@ -859,10 +859,13 @@ async function runModelCompression(kind = 'lore', btn = null) {
             }
         );
 
-        let cleaned = cleanCompressedText(compressed);
-        let validationResult = validateCompressedText(cleaned, directText, budget, level);
-        if (!validationResult.ok && shouldRetryCompression(validationResult, directText, level)) {
-            const retryPrompt = buildCompressionRetryPrompt(kind, level, context, directText, cleaned, budget, validationResult.message);
+        const candidates = [];
+        const firstCleaned = cleanCompressedText(compressed);
+        const firstEvaluation = validateCompressedText(firstCleaned, directText, budget, level);
+        candidates.push({ attempt: 1, label: 'first', text: firstCleaned, evaluation: firstEvaluation });
+
+        if (shouldRetryCompression(firstEvaluation, directText, level)) {
+            const retryPrompt = buildCompressionRetryPrompt(kind, level, context, directText, firstCleaned, budget, firstEvaluation.message);
             const retry = await sendLoreRequest(
                 COMPRESSION_RETRY_SYSTEM_PROMPT,
                 retryPrompt,
@@ -874,13 +877,17 @@ async function runModelCompression(kind = 'lore', btn = null) {
                     task: 'compression',
                 }
             );
-            cleaned = cleanCompressedText(retry);
-            validationResult = validateCompressedText(cleaned, directText, budget, level);
+            const retryCleaned = cleanCompressedText(retry);
+            const retryEvaluation = validateCompressedText(retryCleaned, directText, budget, level);
+            candidates.push({ attempt: 2, label: 'retry', text: retryCleaned, evaluation: retryEvaluation });
         }
 
-        if (!validationResult.ok) {
-            throw new Error(validationResult.message);
+        const selectedCandidate = selectBestCompressionCandidate(candidates);
+        if (!selectedCandidate) {
+            throw new Error(candidates.find(candidate => candidate?.evaluation?.message)?.evaluation?.message || 'Compression returned no usable visible text.');
         }
+        const cleaned = selectedCandidate.text;
+        const selectedEvaluation = selectedCandidate.evaluation;
 
         const freshState = getState();
         let statusKey = parsedKind.base === 'continuity' ? 'continuityCompressionStatus' : 'loreCompressionStatus';
@@ -916,6 +923,11 @@ async function runModelCompression(kind = 'lore', btn = null) {
             lastHardTokenLimit: budget.hardTokenLimit,
             lastHardCharacterLimit: budget.hardCharacterLimit,
             lastCompressionRatio: budget.directCharacters ? Number((cleaned.length / budget.directCharacters).toFixed(3)) : 0,
+            lastCompressionBandStatus: selectedEvaluation.bandStatus,
+            lastCompressionBandMessage: selectedEvaluation.message,
+            lastCompressionAttemptCount: candidates.length,
+            lastCompressionSelectedAttempt: selectedCandidate.attempt,
+            lastCompressionScore: Number(selectedEvaluation.score.toFixed(4)),
             turnsSinceCompression: 0,
             lastChatLength: getChatLength(),
             cachedText: cleaned,
@@ -926,7 +938,8 @@ async function runModelCompression(kind = 'lore', btn = null) {
         else freshState.loreCompressionStatus = nextStatus;
         saveState(freshState);
         refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
-        toast(`${parsedKind.base === 'continuity' ? 'Continuity' : parsedKind.tier ? `${RELEVANCE_META[parsedKind.tier]?.label || parsedKind.tier} lore` : 'Lore'} compression updated: ${compressedTokens} tokens / ${cleaned.length} chars from ${budget.directTokens} tokens / ${budget.directCharacters} chars.`);
+        const bandNote = selectedEvaluation.inPreferredBand ? '' : ' Closest result is outside the preferred range.';
+        toast(`${parsedKind.base === 'continuity' ? 'Continuity' : parsedKind.tier ? `${RELEVANCE_META[parsedKind.tier]?.label || parsedKind.tier} lore` : 'Lore'} compression updated: ${compressedTokens} tokens / ${cleaned.length} chars from ${budget.directTokens} tokens / ${budget.directCharacters} chars.${bandNote}`);
         return cleaned;
     } catch (e) {
         const freshState = getState();
@@ -950,50 +963,115 @@ async function runModelCompression(kind = 'lore', btn = null) {
 
 function validateCompressedText(cleaned, directText, budget, level) {
     const text = String(cleaned || '').trim();
-    if (!text) return { ok: false, message: 'Compression returned empty visible text.' };
     const source = String(directText || '');
     const sourceChars = source.length;
     const outputChars = text.length;
     const outputTokens = estimateTokens(text);
+    const outputRatio = sourceChars ? outputChars / sourceChars : outputChars ? 1 : 0;
+    const tokenRatio = budget.directTokens ? outputTokens / budget.directTokens : outputTokens ? 1 : 0;
+    const targetRatio = Number(budget?.profile?.targetRatio) || 0;
+    const score = Math.abs(outputRatio - targetRatio);
+    const base = {
+        ok: true,
+        hardFailure: false,
+        inPreferredBand: true,
+        bandStatus: 'in_preferred_range',
+        message: 'Compression is inside the preferred range.',
+        outputChars,
+        outputTokens,
+        outputRatio,
+        tokenRatio,
+        score,
+    };
+    if (!text) {
+        return {
+            ...base,
+            ok: false,
+            hardFailure: true,
+            inPreferredBand: false,
+            bandStatus: 'empty',
+            message: 'Compression returned empty visible text.',
+            score: Number.POSITIVE_INFINITY,
+        };
+    }
     if (sourceChars >= 900 && outputChars > budget.hardCharacterLimit) {
-        return { ok: false, message: `Compressed output is too long: ${outputChars} chars; hard limit is ${budget.hardCharacterLimit} chars.` };
+        return {
+            ...base,
+            ok: false,
+            hardFailure: true,
+            inPreferredBand: false,
+            bandStatus: 'hard_too_long',
+            message: `Compressed output is too long: ${outputChars} chars; hard limit is ${budget.hardCharacterLimit} chars.`,
+            score: Number.POSITIVE_INFINITY,
+        };
     }
     if (budget.directTokens >= 220 && outputTokens > Math.ceil(budget.hardTokenLimit * 1.1)) {
-        return { ok: false, message: `Compressed output is too long: ~${outputTokens} tokens; hard limit is ~${budget.hardTokenLimit} tokens.` };
+        return {
+            ...base,
+            ok: false,
+            hardFailure: true,
+            inPreferredBand: false,
+            bandStatus: 'hard_too_long',
+            message: `Compressed output is too long: ~${outputTokens} tokens; hard limit is ~${budget.hardTokenLimit} tokens.`,
+            score: Number.POSITIVE_INFINITY,
+        };
     }
-    if (sourceChars >= 1200 && outputChars < budget.minimumCharacters) {
-        return { ok: false, message: `Compression level ${level} overcompressed the source: ${outputChars} chars from ${sourceChars} chars; minimum for ${budget.profile.label} is ${budget.minimumCharacters} chars.` };
+    if (sourceChars > 0 && outputChars < budget.minimumCharacters) {
+        return {
+            ...base,
+            inPreferredBand: false,
+            bandStatus: 'below_preferred_range',
+            message: `Compression level ${level} is below the preferred ${budget.profile.label} range: ${outputChars} chars from ${sourceChars} chars; preferred minimum is ${budget.minimumCharacters} chars.`,
+        };
     }
-    if (sourceChars >= 1200 && outputChars > budget.maximumCharacters) {
-        return { ok: false, message: `Compression level ${level} did not meet its target band: ${outputChars} chars from ${sourceChars} chars; maximum for ${budget.profile.label} is ${budget.maximumCharacters} chars.` };
+    if (sourceChars > 0 && outputChars > budget.maximumCharacters) {
+        return {
+            ...base,
+            inPreferredBand: false,
+            bandStatus: 'above_preferred_range',
+            message: `Compression level ${level} is above the preferred ${budget.profile.label} range: ${outputChars} chars from ${sourceChars} chars; preferred maximum is ${budget.maximumCharacters} chars.`,
+        };
     }
-    return { ok: true, message: '' };
+    return base;
 }
 
 function shouldRetryCompression(result, directText, level) {
-    if (result?.ok) return false;
-    const sourceChars = String(directText || '').length;
-    return sourceChars >= 600 || level >= 3;
+    if (result?.ok && result?.inPreferredBand) return false;
+    return Boolean(String(directText || '').trim()) || level >= 3;
+}
+
+function selectBestCompressionCandidate(candidates = []) {
+    return [...candidates]
+        .filter(candidate => candidate?.evaluation?.ok && String(candidate.text || '').trim())
+        .sort((a, b) => {
+            const bandA = a.evaluation.inPreferredBand ? 0 : 1;
+            const bandB = b.evaluation.inPreferredBand ? 0 : 1;
+            if (bandA !== bandB) return bandA - bandB;
+            const scoreA = Number.isFinite(a.evaluation.score) ? a.evaluation.score : Number.POSITIVE_INFINITY;
+            const scoreB = Number.isFinite(b.evaluation.score) ? b.evaluation.score : Number.POSITIVE_INFINITY;
+            if (scoreA !== scoreB) return scoreA - scoreB;
+            return Number(a.attempt || 0) - Number(b.attempt || 0);
+        })[0] || null;
 }
 
 function buildCompressionRetryPrompt(kind, level, context, directText, previousOutput, budget, reason) {
     const parsedKind = parseLoreCompressionKind(kind);
     const kindLabel = parsedKind.base === 'continuity' ? 'Continuity State' : parsedKind.tier ? `${RELEVANCE_META[parsedKind.tier]?.label || parsedKind.tier} Relevance Lorecards` : 'Lorecards';
-    return `Compress the Saga ${kindLabel} injection again. The previous output failed validation: ${reason}
+    return `Compress the Saga ${kindLabel} injection again. The previous output missed the preferred range: ${reason}
 
-Required visible-output band:
+Preferred visible-output range:
 - Source: about ${budget.directTokens} tokens / ${budget.directCharacters} characters.
 - Target: about ${budget.targetTokens} tokens / ${budget.targetCharacters} characters.
-- Minimum acceptable: ${budget.minimumTokens} tokens / ${budget.minimumCharacters} characters.
-- Maximum acceptable: ${budget.maximumTokens} tokens / ${budget.maximumCharacters} characters.
+- Minimum preferred: ${budget.minimumTokens} tokens / ${budget.minimumCharacters} characters.
+- Maximum preferred: ${budget.maximumTokens} tokens / ${budget.maximumCharacters} characters.
 - Compression level ${level} (${budget.profile.label}): ${budget.profile.description}.
-- If the previous output was too short, restore supporting facts until it reaches the minimum band without adding new facts.
+- If the previous output was too short, restore supporting facts until it approaches the preferred range without adding new facts.
 - If the previous output was too long, remove lower-value wording while preserving protected lore.
 
 Context:
 ${context}
 
-Previous output outside the target band:
+Previous output outside the preferred range:
 ${previousOutput || '(empty)'}
 
 Direct injection block to compress:
@@ -1032,17 +1110,17 @@ function buildCompressionPrompt(kind, level, context, directText, budget = null)
     };
     const rendered = template.replace(/{{\s*(\w+)\s*}}/g, (_, key) => Object.prototype.hasOwnProperty.call(vars, key) ? vars[key] : '');
     if (/{{\s*(minimumCharacters|maximumCharacters|minimumTokens|maximumTokens|compressionPolicy)\s*}}/i.test(template)) return rendered;
-    // Preserve older/custom advanced templates, but append the dynamic length
-    // contract that prevents the slider tiers from collapsing into one size.
+    // Preserve older/custom advanced templates, but append dynamic length
+    // guidance that keeps the slider tiers from collapsing into one size.
     return `${rendered}
 
-Compression retention contract:
+Compression target guidance:
 - Source length: about ${vars.directTokens} tokens / ${vars.directCharacters} characters.
 - Compression level ${vars.compressionLevel} (${vars.compressionLabel}): ${vars.compressionPolicy}.
 - Target length: about ${vars.targetTokens} tokens / ${vars.targetCharacters} characters.
-- Acceptable range: ${vars.minimumTokens}-${vars.maximumTokens} tokens / ${vars.minimumCharacters}-${vars.maximumCharacters} characters.
-- Do not compress below the minimum range; restore useful details if the output is too short.
-- Do not exceed the maximum range; remove lower-value wording if the output is too long.
+- Preferred range: ${vars.minimumTokens}-${vars.maximumTokens} tokens / ${vars.minimumCharacters}-${vars.maximumCharacters} characters.
+- Try not to compress below the preferred range; restore useful details if the output is too short.
+- Try not to exceed the preferred range; remove lower-value wording if the output is too long.
 - If information must be sacrificed, preserve active continuity constraints, secrets, knowledge boundaries, Elevated/protected details, and current-scene hazards first.
 - Output only the compressed injection text.`;
 }
@@ -1066,6 +1144,7 @@ export const __injectionPreviewTestHooks = Object.freeze({
     getCompressionProfile,
     estimateTokenBudgetForCompression,
     validateCompressedText,
+    selectBestCompressionCandidate,
     buildCompressionPrompt,
     COMPRESSION_RETRY_SYSTEM_PROMPT,
 });
@@ -1110,7 +1189,7 @@ function getCompressionStatusTextForKind(state, kind = 'lore') {
     if (status.lastError) return `last compression failed: ${status.lastError}`;
     if (!status.lastCompressedAt) return 'No cached model compression yet. Click Compress Now.';
     const when = new Date(status.lastCompressedAt).toLocaleTimeString();
-    return `model-compressed ${when}; ${status.turnsSinceCompression || 0} turns since; ~${status.lastTokenEstimate || 0} tokens / ${status.lastCharacterCount || 0} chars${status.lastCompressionRatio ? `; ratio ${Math.round(status.lastCompressionRatio * 100)}%` : ''}`;
+    return `model-compressed ${when}; ${status.turnsSinceCompression || 0} turns since; ~${status.lastTokenEstimate || 0} tokens / ${status.lastCharacterCount || 0} chars${status.lastCompressionRatio ? `; ratio ${Math.round(status.lastCompressionRatio * 100)}%` : ''}${formatCompressionBandStatus(status)}`;
 }
 
 function getCompressionStatusText(state) {
@@ -1130,7 +1209,7 @@ function getCompressionStatusText(state) {
         return 'No cached model compression yet. Click Compress Lore Now.';
     }
     const when = new Date(status.lastCompressedAt).toLocaleTimeString();
-    return `model-compressed ${when}; ${status.turnsSinceCompression || 0} turns since; ~${status.lastTokenEstimate || 0} tokens / ${status.lastCharacterCount || 0} chars${status.lastTargetTokenEstimate ? ` (target ${status.lastTargetTokenEstimate} tokens / ${status.lastTargetCharacterCount || '?'} chars)` : ''}${status.lastCompressionRatio ? `; ratio ${Math.round(status.lastCompressionRatio * 100)}%` : ''}`;
+    return `model-compressed ${when}; ${status.turnsSinceCompression || 0} turns since; ~${status.lastTokenEstimate || 0} tokens / ${status.lastCharacterCount || 0} chars${status.lastTargetTokenEstimate ? ` (target ${status.lastTargetTokenEstimate} tokens / ${status.lastTargetCharacterCount || '?'} chars)` : ''}${status.lastCompressionRatio ? `; ratio ${Math.round(status.lastCompressionRatio * 100)}%` : ''}${formatCompressionBandStatus(status)}`;
 }
 
 function getContinuityCompressionStatusText(state) {
@@ -1150,7 +1229,12 @@ function getContinuityCompressionStatusText(state) {
         return 'No cached model compression yet. Click Compress Continuity Now.';
     }
     const when = new Date(status.lastCompressedAt).toLocaleTimeString();
-    return `model-compressed ${when}; ${status.turnsSinceCompression || 0} turns since; ~${status.lastTokenEstimate || 0} tokens / ${status.lastCharacterCount || 0} chars${status.lastTargetTokenEstimate ? ` (target ${status.lastTargetTokenEstimate} tokens / ${status.lastTargetCharacterCount || '?'} chars)` : ''}${status.lastCompressionRatio ? `; ratio ${Math.round(status.lastCompressionRatio * 100)}%` : ''}`;
+    return `model-compressed ${when}; ${status.turnsSinceCompression || 0} turns since; ~${status.lastTokenEstimate || 0} tokens / ${status.lastCharacterCount || 0} chars${status.lastTargetTokenEstimate ? ` (target ${status.lastTargetTokenEstimate} tokens / ${status.lastTargetCharacterCount || '?'} chars)` : ''}${status.lastCompressionRatio ? `; ratio ${Math.round(status.lastCompressionRatio * 100)}%` : ''}${formatCompressionBandStatus(status)}`;
+}
+
+function formatCompressionBandStatus(status) {
+    if (!status?.lastCompressionBandStatus || status.lastCompressionBandStatus === 'in_preferred_range') return '';
+    return '; closest result outside preferred range';
 }
 
 function getChatLength() {

@@ -263,9 +263,9 @@ Compression level {{compressionLevel}} - {{compressionLabel}}.
 Policy: {{compressionPolicy}}.
 Source length: about {{directTokens}} tokens / {{directCharacters}} characters.
 Target length: about {{targetTokens}} tokens / {{targetCharacters}} characters.
-Acceptable range: {{minimumTokens}}-{{maximumTokens}} tokens / {{minimumCharacters}}-{{maximumCharacters}} characters.
-Do not compress below the minimum range; restore useful details if the output is too short.
-Do not exceed the maximum range; remove lower-value wording if the output is too long.
+Preferred range: {{minimumTokens}}-{{maximumTokens}} tokens / {{minimumCharacters}}-{{maximumCharacters}} characters.
+Try not to compress below the preferred range; restore useful details if the output is too short.
+Try not to exceed the preferred range; remove lower-value wording if the output is too long.
 
 Rules:
 - Preserve current scene/timeline state, active character state, key items, and active goals/threads.
@@ -286,9 +286,9 @@ Compression level {{compressionLevel}} - {{compressionLabel}}.
 Policy: {{compressionPolicy}}.
 Source length: about {{directTokens}} tokens / {{directCharacters}} characters.
 Target length: about {{targetTokens}} tokens / {{targetCharacters}} characters.
-Acceptable range: {{minimumTokens}}-{{maximumTokens}} tokens / {{minimumCharacters}}-{{maximumCharacters}} characters.
-Do not compress below the minimum range; restore useful details if the output is too short.
-Do not exceed the maximum range; remove lower-value wording if the output is too long.
+Preferred range: {{minimumTokens}}-{{maximumTokens}} tokens / {{minimumCharacters}}-{{maximumCharacters}} characters.
+Try not to compress below the preferred range; restore useful details if the output is too short.
+Try not to exceed the preferred range; remove lower-value wording if the output is too long.
 
 Rules:
 - Preserve secrets, knowledge boundaries, canon or story-established constraints, current-scene relevant facts, and active hazards.

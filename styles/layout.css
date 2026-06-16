@@ -943,6 +943,117 @@
     container-type: inline-size;
 }
 
+.saga-lore-panel.saga-runtime-shell.saga-runtime-mobile .saga-prompt-placement-card {
+    padding: 8px;
+}
+
+.saga-lore-panel.saga-runtime-shell.saga-runtime-mobile .saga-prompt-placement-card .saga-runtime-card-title {
+    margin-bottom: 4px;
+    font-size: 0.92rem;
+    line-height: 1.18;
+}
+
+.saga-lore-panel.saga-runtime-shell.saga-runtime-mobile .saga-prompt-placement-card .saga-runtime-help {
+    font-size: 0.76rem;
+    line-height: 1.32;
+}
+
+.saga-lore-panel.saga-runtime-shell.saga-runtime-mobile .saga-prompt-placement-lines {
+    gap: 4px;
+    margin: 6px 0;
+}
+
+.saga-lore-panel.saga-runtime-shell.saga-runtime-mobile .saga-prompt-placement-line {
+    grid-template-columns: minmax(92px, 0.68fr) minmax(0, 1.6fr);
+    column-gap: 6px;
+    row-gap: 3px;
+    align-items: center;
+    padding: 2px 0;
+}
+
+.saga-lore-panel.saga-runtime-shell.saga-runtime-mobile .saga-prompt-placement-method-line {
+    grid-template-columns: 1fr;
+}
+
+.saga-lore-panel.saga-runtime-shell.saga-runtime-mobile .saga-prompt-placement-line-label {
+    padding-top: 0;
+    color: var(--saga-muted, rgba(241, 234, 216, 0.72));
+    font-size: 0.74rem;
+    line-height: 1.18;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+}
+
+.saga-lore-panel.saga-runtime-shell.saga-runtime-mobile .saga-prompt-placement-control-wrap {
+    grid-template-columns: minmax(96px, 1fr) minmax(48px, 0.52fr) minmax(68px, 0.78fr);
+    gap: 4px;
+    align-items: end;
+}
+
+.saga-lore-panel.saga-runtime-shell.saga-runtime-mobile .saga-prompt-placement-card .saga-inline-field {
+    grid-template-columns: 1fr;
+    gap: 2px;
+    font-size: 0.72rem;
+    line-height: 1.1;
+}
+
+.saga-lore-panel.saga-runtime-shell.saga-runtime-mobile .saga-prompt-placement-method-line > .saga-inline-field {
+    grid-template-columns: minmax(112px, 0.72fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 6px;
+}
+
+.saga-lore-panel.saga-runtime-shell.saga-runtime-mobile .saga-prompt-placement-card .saga-inline-field span {
+    min-width: 0;
+    color: var(--saga-muted, rgba(241, 234, 216, 0.72));
+    font-size: 0.72rem;
+    line-height: 1.1;
+    opacity: 0.9;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.saga-lore-panel.saga-runtime-shell.saga-runtime-mobile .saga-prompt-placement-card .saga-inline-field select,
+.saga-lore-panel.saga-runtime-shell.saga-runtime-mobile .saga-prompt-placement-card .saga-inline-field input[type="number"] {
+    width: 100%;
+    min-height: 30px;
+    height: 30px;
+    font-size: 0.8rem;
+    line-height: 1.2;
+    padding: 4px 6px;
+}
+
+.saga-lore-panel.saga-runtime-shell.saga-runtime-mobile .saga-prompt-placement-card .saga-placement-depth input[type="number"] {
+    width: 100%;
+}
+
+.saga-lore-panel.saga-runtime-shell.saga-runtime-mobile .saga-prompt-placement-card .saga-settings-reset-row {
+    margin: 4px 0 2px;
+}
+
+.saga-lore-panel.saga-runtime-shell.saga-runtime-mobile .saga-prompt-placement-card .saga-settings-reset-button {
+    min-height: 34px;
+    padding: 4px 8px;
+    font-size: 0.76rem;
+}
+
+.saga-lore-panel.saga-runtime-shell.saga-runtime-mobile .saga-prompt-placement-card .saga-primary-actions .saga-runtime-button {
+    min-height: 34px;
+    font-size: 0.8rem;
+}
+
+@media (max-width: 380px) {
+    .saga-lore-panel.saga-runtime-shell.saga-runtime-mobile .saga-prompt-placement-line {
+        grid-template-columns: 1fr;
+        align-items: stretch;
+    }
+
+    .saga-lore-panel.saga-runtime-shell.saga-runtime-mobile .saga-prompt-placement-line-label {
+        white-space: nowrap;
+    }
+}
+
 
 /* Lore tab QoL: Auto-Relevance visual cleanup and larger review scroll areas. */
 .saga-auto-relevance-card {
