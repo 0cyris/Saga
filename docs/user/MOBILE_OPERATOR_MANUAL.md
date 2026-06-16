@@ -14,7 +14,25 @@ Basic mobile routes are **Loredecks**, **Session**, **Context**, **Lorecards**, 
   <img src="../../assets/documentation/renders/docs-mobile-basic-shell-start.png" alt="Saga Basic mobile Session route" width="360">
 </p>
 
-Start in **Session**. It shows whether Saga is active, how many Lorecards are pending, how many are selected for injection, and whether the current chat has useful lore ready. Tap the Session summary to open Session Details when you need the guided checklist, walkthrough notes, toggles, and metrics.
+Start in **Session**. It shows whether Saga is active, how many Lorecards are pending, how many are selected for injection, and whether the current chat has useful lore ready.
+
+<p align="center">
+  <img src="../../assets/documentation/renders/docs-mobile-basic-session-details.png" alt="Saga Basic mobile Session Details subview" width="360">
+</p>
+
+Tap the Session summary to open **Session Details** when you need the guided checklist, walkthrough notes, toggles, and metrics. Basic keeps the route compact so the first-run loop stays visible without exposing advanced diagnostics.
+
+<p align="center">
+  <img src="../../assets/documentation/renders/docs-mobile-advanced-session-root.png" alt="Saga Advanced mobile Session route" width="360">
+</p>
+
+Advanced Session adds runtime metrics, Automation Mode state, Advanced Walkthrough routing, and Story Maker access while keeping the bottom navigation fixed.
+
+<p align="center">
+  <img src="../../assets/documentation/renders/docs-mobile-advanced-session-details.png" alt="Saga Advanced mobile Session Details subview" width="360">
+</p>
+
+Use Advanced Session Details when you need deeper runtime status without switching to the desktop layout.
 
 ## Story Maker
 
@@ -57,14 +75,34 @@ The mobile shell is optimized for checking readiness and moving quickly between 
 The **Loredecks** route shows the active stack summary and the main Library action. Open the **Loredeck Library** to browse decks, add or remove active decks, reorder the stack, inspect details, import packages, or run Pack Health checks.
 
 <p align="center">
+  <img src="../../assets/documentation/renders/docs-mobile-basic-library-overview.png" alt="Saga Basic mobile Loredeck Library browse surface" width="360">
+</p>
+
+The mobile Library browse surface is card-first. Tap a deck card to add or remove it from the active order, use search and filters to narrow the list, and use the selected strip when you need to reorder active decks.
+
+<p align="center">
+  <img src="../../assets/documentation/renders/docs-mobile-basic-library-detail.png" alt="Saga Basic mobile Loredeck detail sheet" width="360">
+</p>
+
+Long-press a deck card to open its detail sheet. The detail sheet is where you inspect metadata, source type, health state, and deck actions before trusting a deck in a long-running story.
+
+<p align="center">
   <img src="../../assets/documentation/renders/docs-mobile-advanced-loredecks-root.png" alt="Saga Advanced mobile Loredecks route" width="360">
 </p>
 
 Advanced mobile adds **Create Deck** alongside Library and import actions. Use Deck Maker only when you are ready for staged Loredeck authoring and review.
 
 <p align="center">
-  <img src="../../assets/documentation/renders/docs-mobile-basic-library-detail.png" alt="Saga mobile Loredeck detail sheet" width="360">
+  <img src="../../assets/documentation/renders/docs-mobile-advanced-library-overview.png" alt="Saga Advanced mobile Loredeck Library browse surface" width="360">
 </p>
+
+Advanced Library browse keeps the same touch model but exposes the fuller operator surface for generated packs, package work, and deeper inspection.
+
+<p align="center">
+  <img src="../../assets/documentation/renders/docs-mobile-advanced-library-detail.png" alt="Saga Advanced mobile Loredeck detail sheet" width="360">
+</p>
+
+Advanced detail sheets add tabs and object actions for package diagnostics, export, health inspection, and other deck management work.
 
 In the mobile Library:
 
@@ -77,37 +115,73 @@ In the mobile Library:
 ## Pack Health
 
 <p align="center">
-  <img src="../../assets/documentation/renders/docs-mobile-advanced-pack-health.png" alt="Saga mobile Pack Health Center" width="360">
+  <img src="../../assets/documentation/renders/docs-mobile-basic-pack-health.png" alt="Saga Basic mobile Loredeck Health tab" width="360">
 </p>
 
-Pack Health status and **Run Pack Health** checks are available from Loredeck detail sheets. Basic shows the summary and scan action; Advanced opens the **Pack Health Center** for grouped issues, repair sessions, package diagnostics, and exportable reports. Use it after importing, generating, duplicating, or heavily editing a deck. A clean health report means the deck is structurally usable; it does not prove every lore claim is canon-perfect.
+Basic mobile exposes Pack Health from the Loredeck detail sheet's **Health** tab. Use **Run Pack Health** after importing, generating, duplicating, or heavily editing a deck. Basic shows the health summary and scan action without opening the full repair center.
+
+<p align="center">
+  <img src="../../assets/documentation/renders/docs-mobile-advanced-pack-health.png" alt="Saga Advanced mobile Pack Health Center" width="360">
+</p>
+
+Advanced opens the **Pack Health Center** for grouped issues, repair sessions, package diagnostics, and exportable reports. A clean health report means the deck is structurally usable; it does not prove every lore claim is canon-perfect.
 
 On mobile Advanced, Pack Health Center keeps primary actions at the bottom. Use **Refresh Scan** after changes, **Export Report** when collecting evidence, and **Close** to return to the Library.
 
 ## Context
 
 <p align="center">
-  <img src="../../assets/documentation/renders/docs-mobile-basic-context-details.png" alt="Saga mobile Context details subview" width="360">
+  <img src="../../assets/documentation/renders/docs-mobile-basic-context-root.png" alt="Saga Basic mobile Context route" width="360">
 </p>
 
-**Context** tells Saga where the chat is inside each loaded Loredeck. On mobile, the root Context route summarizes loaded decks, selected story positions, and pending proposals. Tap the Story Position summary to open Context Details.
-
-Use **Browse Context** when you need to choose exact anchors, windows, dates, arcs, or phases.
+**Context** tells Saga where the chat is inside each loaded Loredeck. The mobile root route summarizes loaded decks, selected story positions, and pending proposals. Tap the Story Position summary to open Context Details.
 
 <p align="center">
-  <img src="../../assets/documentation/renders/docs-mobile-advanced-context-workbench.png" alt="Saga mobile Context Workbench" width="360">
+  <img src="../../assets/documentation/renders/docs-mobile-basic-context-details.png" alt="Saga Basic mobile Context Details subview" width="360">
+</p>
+
+Use Context Details to check the active Context source, selected story position, and lock state before you trust canon suggestions or injection.
+
+<p align="center">
+  <img src="../../assets/documentation/renders/docs-mobile-basic-context-workbench.png" alt="Saga Basic mobile Context Workbench" width="360">
+</p>
+
+Use **Browse Context** when you need to choose exact anchors, windows, dates, arcs, or phases. Basic keeps this manual path available because correct Context is the main guard against premature or stale lore.
+
+<p align="center">
+  <img src="../../assets/documentation/renders/docs-mobile-basic-context-proposals.png" alt="Saga Basic mobile Context Proposal Review" width="360">
 </p>
 
 Use **Review Proposals** when Saga has Reasoner-backed Context changes waiting for review. Apply only proposals that match the current story branch.
 
 <p align="center">
-  <img src="../../assets/documentation/renders/docs-mobile-advanced-context-proposals.png" alt="Saga mobile Context Proposal Review" width="360">
+  <img src="../../assets/documentation/renders/docs-mobile-advanced-context-root.png" alt="Saga Advanced mobile Context route" width="360">
 </p>
+
+Advanced Context keeps the same mobile route shape while exposing deeper diagnostics and more context-management routes.
+
+<p align="center">
+  <img src="../../assets/documentation/renders/docs-mobile-advanced-context-details.png" alt="Saga Advanced mobile Context Details subview" width="360">
+</p>
+
+Advanced Context Details are for checking why a position is selected, whether a lock applies, and what Saga will use when resolving retrieval and injection.
+
+<p align="center">
+  <img src="../../assets/documentation/renders/docs-mobile-advanced-context-workbench.png" alt="Saga Advanced mobile Context Workbench" width="360">
+</p>
+
+Advanced Context Workbench gives the full manual picker and timeline browser on phone width.
+
+<p align="center">
+  <img src="../../assets/documentation/renders/docs-mobile-advanced-context-proposals.png" alt="Saga Advanced mobile Context Proposal Review" width="360">
+</p>
+
+Advanced proposal review is still review-first: Reasoner output should guide the operator, not silently change the story's active position.
 
 ## Lorecards
 
 <p align="center">
-  <img src="../../assets/documentation/renders/docs-mobile-basic-lorecards-lore.png" alt="Saga mobile Lorecards object list" width="360">
+  <img src="../../assets/documentation/renders/docs-mobile-basic-lorecards-lore.png" alt="Saga Basic mobile Lorecards object list" width="360">
 </p>
 
 Mobile Lorecards use sub-tabs above the bottom bar:
@@ -119,10 +193,34 @@ Mobile Lorecards use sub-tabs above the bottom bar:
 In **Lore**, Pending Review and Accepted cards are object rows. Review Pending entries before they become durable lore. Accepted entries can be High relevance, Muted, Elevated, or protected by Lore Automation state. Tap the relevance dots to cycle tier, use the mic control to Mute, double-tap an Accepted card to toggle Elevation, and long-press to edit.
 
 <p align="center">
-  <img src="../../assets/documentation/renders/docs-mobile-basic-lorecards-generate.png" alt="Saga mobile Lorecards Generate sub-tab" width="360">
+  <img src="../../assets/documentation/renders/docs-mobile-advanced-lorecards-lore.png" alt="Saga Advanced mobile Lorecards object list" width="360">
+</p>
+
+Advanced Lore keeps the same object-list model but exposes more filtering, review, and automation-aware state.
+
+<p align="center">
+  <img src="../../assets/documentation/renders/docs-mobile-basic-lorecards-generate.png" alt="Saga Basic mobile Lorecards Generate sub-tab" width="360">
 </p>
 
 Use **Generate** for **Preview Canon Packs**, **Quick Add Top Matches**, **Scan Story Lore**, and **Draft Manual Note**. Generated or manually drafted lore still goes through Pending Review.
+
+<p align="center">
+  <img src="../../assets/documentation/renders/docs-mobile-advanced-lorecards-generate.png" alt="Saga Advanced mobile Lorecards Generate sub-tab" width="360">
+</p>
+
+Advanced Generate adds the fuller generation and scan control surface while preserving the same review-first rule.
+
+<p align="center">
+  <img src="../../assets/documentation/renders/docs-mobile-basic-new-lore.png" alt="Saga Basic mobile Manual Lore Note form" width="360">
+</p>
+
+The Manual Lore Note form is for facts you already know Saga should remember. Keep notes narrow, choose tags deliberately, and send them to Pending Review before acceptance.
+
+<p align="center">
+  <img src="../../assets/documentation/renders/docs-mobile-advanced-new-lore.png" alt="Saga Advanced mobile Manual Lore Note form" width="360">
+</p>
+
+Advanced Manual Lore Note drafting exposes more metadata while keeping fields full-width and touch-friendly.
 
 <p align="center">
   <img src="../../assets/documentation/renders/docs-mobile-advanced-lorecards-editor.png" alt="Saga mobile Accepted Lorecard editor" width="360">
@@ -181,18 +279,40 @@ Auto cadence is still inspectable. Use **Status** for the latest summary, **Curr
 ## Continuity
 
 <p align="center">
+  <img src="../../assets/documentation/renders/docs-mobile-advanced-continuity-root.png" alt="Saga Advanced mobile Continuity route" width="360">
+</p>
+
+Continuity is Advanced-only on mobile. Use it for live state: scene, active characters, carried items, goals, and open threads. Continuity should not become a second static lore database.
+
+<p align="center">
   <img src="../../assets/documentation/renders/docs-mobile-advanced-continuity-scan.png" alt="Saga mobile Continuity Scan controls" width="360">
 </p>
 
-Continuity is Advanced-only on mobile. Use it for live state: scene, active characters, carried items, goals, and open threads. Continuity Scan helps update current state from recent chat; it should not become a second static lore database.
+Continuity Scan helps update current state from recent chat. Run it when the current scene changes enough that posture, location, possessions, goals, or active threads may need refreshing.
+
+<p align="center">
+  <img src="../../assets/documentation/renders/docs-mobile-advanced-continuity-character-state.png" alt="Saga mobile Active Characters continuity state" width="360">
+</p>
+
+Character state is for what is currently true in the chat: location, posture, clothing, physical state, emotional state, carried items, goals, and immediate notes.
 
 ## Injection
 
 <p align="center">
-  <img src="../../assets/documentation/renders/docs-mobile-advanced-injection-high-preview.png" alt="Saga mobile high-relevance injection preview" width="360">
+  <img src="../../assets/documentation/renders/docs-mobile-advanced-injection-root.png" alt="Saga Advanced mobile Injection route" width="360">
 </p>
 
 Injection is Advanced-only on mobile. Use it when debugging what Saga will send to the model. A Lorecard can exist and be accepted without injecting if it is muted, out of Context, disabled, lower priority, or outside the configured prompt budget.
+
+<p align="center">
+  <img src="../../assets/documentation/renders/docs-mobile-advanced-injection-placement.png" alt="Saga mobile Prompt Placement controls" width="360">
+</p>
+
+Prompt Placement controls decide where Continuity and each Lorecard relevance tier are inserted into the model context.
+
+<p align="center">
+  <img src="../../assets/documentation/renders/docs-mobile-advanced-injection-high-preview.png" alt="Saga mobile high-relevance injection preview" width="360">
+</p>
 
 The preview is the operator truth source for "why did the model know this?" and "why did the model forget this?"
 
@@ -209,10 +329,34 @@ For every mobile stage, current-task action, project input, draft-review path, P
 ## Settings
 
 <p align="center">
+  <img src="../../assets/documentation/renders/docs-mobile-basic-settings.png" alt="Saga Basic mobile Settings route" width="360">
+</p>
+
+Use Basic Settings for experience mode, provider readiness, theme selection, and routine setup. Basic hides advanced endpoint internals and storage maintenance until you switch to Advanced.
+
+<p align="center">
+  <img src="../../assets/documentation/renders/docs-mobile-basic-settings-theme-pack.png" alt="Saga Basic mobile Theme Pack controls" width="360">
+</p>
+
+Theme Packs and Icon Sets are passive appearance data. They can change the mobile shelf's color, surfaces, and icons without running code.
+
+<p align="center">
+  <img src="../../assets/documentation/renders/docs-mobile-advanced-settings.png" alt="Saga Advanced mobile Settings route" width="360">
+</p>
+
+Advanced Settings expose provider routing, State Safety, cleanup, and deeper runtime configuration.
+
+<p align="center">
   <img src="../../assets/documentation/renders/docs-mobile-advanced-settings-providers.png" alt="Saga mobile provider settings" width="360">
 </p>
 
-Use mobile Settings for experience mode, providers, theme, State Safety, and cleanup. Advanced Settings expose provider routing and storage maintenance. Prefer SillyTavern Connection Profiles for provider isolation when available.
+Prefer SillyTavern Connection Profiles for provider isolation when available. Use direct OpenAI-compatible endpoints mainly for alpha testing or local endpoints you trust.
+
+<p align="center">
+  <img src="../../assets/documentation/renders/docs-mobile-advanced-settings-theme-pack.png" alt="Saga Advanced mobile Theme Pack controls" width="360">
+</p>
+
+Advanced Theme Pack controls show the active pack, installed packs, import/export actions, and the current visual palette used by the mobile shell.
 
 ## Mobile Troubleshooting
 
