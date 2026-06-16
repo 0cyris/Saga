@@ -70,6 +70,7 @@ const runtimeTabRegistryPath = sourcePath('runtime', 'tab-registry.js');
 const runtimeNavigationPath = sourcePath('runtime', 'runtime-navigation.js');
 const runtimeBasicReadinessPath = sourcePath('runtime', 'runtime-basic-readiness.js');
 const runtimeAdvancedPanelPath = sourcePath('runtime', 'advanced-runtime-panel.js');
+const runtimeStoryOpenerPanelPath = sourcePath('runtime', 'story-opener-panel.js');
 const runtimeGuidePrepPath = sourcePath('runtime', 'runtime-guide-prep.js');
 const runtimeSettingControlsPath = sourcePath('runtime', 'runtime-setting-controls.js');
 const runtimeSessionBasicPanelPath = sourcePath('runtime', 'session-basic-panel.js');
@@ -691,6 +692,7 @@ const runtimeLoredeckPackageInstallPanel = read(runtimeLoredeckPackageInstallPan
 const runtimeLoredeckSourceSummary = read(runtimeLoredeckSourceSummaryPath);
 const runtimeLoredeckVirtualData = read(runtimeLoredeckVirtualDataPath);
 const runtimeAdvancedPanel = read(runtimeAdvancedPanelPath);
+const runtimeStoryOpenerPanel = read(runtimeStoryOpenerPanelPath);
 const themeActions = read(themeActionsPath);
 const runtimeGuidePrep = read(runtimeGuidePrepPath);
 const runtimeSessionBasicPanel = read(runtimeSessionBasicPanelPath);
@@ -733,6 +735,7 @@ const runtimePanelSource = [
     runtimeLoredeckSourceSummary,
     runtimeLoredeckVirtualData,
     runtimeAdvancedPanel,
+    runtimeStoryOpenerPanel,
     runtimeGuidePrep,
     runtimeSessionBasicPanel,
     runtimeSafetyPanel,
@@ -1580,6 +1583,16 @@ assert(panel.includes("from './session-basic-panel.js'") && panel.includes('conf
 assert(runtimePanelSource.includes('function createBasicStartReadinessCard'), 'Basic Session must render the Session Readiness dropdown.');
 assert(/createBasicStartReadinessCard[\s\S]*createCollapsibleSection\(\s*'session\.basicReadiness'[\s\S]*true[\s\S]*'saga-basic-readiness-card'/.test(runtimePanelSource), 'Basic Session Readiness must be an expanded-by-default dropdown.');
 assert(runtimePanelSource.includes('function getBasicReadinessModel'), 'Basic Session readiness must derive from runtime state.');
+const storyOpenerPosition = runtimeAdvancedPanel.indexOf("'session.storyOpener'");
+assert(runtimeAdvancedPanel.includes("import { createStoryOpenerCreatorSection } from './story-opener-panel.js';") && runtimeAdvancedPanel.includes('Story Opener Creator'), 'Advanced Session tab must compose the Story Opener Creator section.');
+assert(storyOpenerPosition > runtimeAdvancedPanel.indexOf('Automation Mode') && storyOpenerPosition < runtimeAdvancedPanel.indexOf('Session Metrics'), 'Story Opener Creator must sit after Session controls and before Session Metrics.');
+assert(runtimeAdvancedPanel.includes('if (isRuntimeMobileShell() && !mobileSubview) return;') && storyOpenerPosition > runtimeAdvancedPanel.indexOf('if (isRuntimeMobileShell() && !mobileSubview) return;'), 'Story Opener Creator must not bloat the compact mobile Session root.');
+assert(runtimeAdvancedPanel.includes('openSessionMobileStoryOpener') && runtimeAdvancedPanel.includes("id: 'session-story-opener'") && runtimeAdvancedPanel.includes("title: 'Story Opener'"), 'Mobile Session must expose a dedicated Story Opener subview.');
+assert(runtimeAdvancedPanel.includes("mobileSubview?.id === 'session-story-opener'") && runtimeAdvancedPanel.includes('createStoryOpenerCreatorSection(state, { refreshPanelBody, markTourTarget })'), 'Mobile Story Opener subview must render the full creator panel.');
+assert(runtimeStoryOpenerPanel.includes('saga-loredeck-creator-stage-guide') && runtimeStoryOpenerPanel.includes('resetStoryOpenerToStage'), 'Story Opener Creator must use a Creator-style stage bar with revert support.');
+assert(runtimeStoryOpenerPanel.includes('Copy Opener') && runtimeStoryOpenerPanel.includes('navigator.clipboard.writeText'), 'Story Opener Creator must expose copy-to-clipboard output.');
+assert(runtimeStoryOpenerPanel.includes('Refresh From Saved Sources') && runtimeStoryOpenerPanel.includes('Use Current Active Stack'), 'Story Opener Creator must expose source refresh and current-stack replacement actions.');
+assert(style.includes('.saga-story-opener-panel') && style.includes('.saga-story-opener-output') && style.includes('var(--saga-input'), 'Story Opener Creator must have themed panel and output styles.');
 assert(!defaultSource.includes('guidedTask') && !stateManager.includes('guidedTask'), 'Runtime panel state must not keep retired in-panel checklist strip state.');
 const basicChecklistTourBlock = (runtimePanelSource.split('const BASIC_CHECKLIST_REVIEW_GENERATION_STEPS')[1] || '').split('function getBasicChecklistTourConfig')[0] || '';
 assert(runtimePanelSource.includes('BASIC_CHECKLIST_TOUR_TASKS_BY_ROW') && runtimePanelSource.includes('function launchBasicChecklistTour') && runtimePanelSource.includes('startSagaTourSteps(steps'), 'Basic Session Readiness actions must launch external guided mini-tours.');

@@ -45,6 +45,7 @@ async function makeProfile({ unsupportedSettingsPayloads = false } = {}) {
           masterIndexFile: SAGA_STORAGE_INDEX_PATH,
           libraryIndexFile: SAGA_STORAGE_DOMAIN_INDEX_FILES.library,
           creatorIndexFile: SAGA_STORAGE_DOMAIN_INDEX_FILES.creator,
+          storyOpenerIndexFile: SAGA_STORAGE_DOMAIN_INDEX_FILES.storyOpeners,
           themeIndexFile: SAGA_STORAGE_DOMAIN_INDEX_FILES.themes,
           iconSetIndexFile: SAGA_STORAGE_DOMAIN_INDEX_FILES.iconSets,
           storageVersion: SAGA_STORAGE_VERSION,
@@ -52,6 +53,7 @@ async function makeProfile({ unsupportedSettingsPayloads = false } = {}) {
         sagaStorageFallback: {
           libraryIndexFile: SAGA_STORAGE_DOMAIN_INDEX_FILES.library,
           creatorIndexFile: SAGA_STORAGE_DOMAIN_INDEX_FILES.creator,
+          storyOpenerIndexFile: SAGA_STORAGE_DOMAIN_INDEX_FILES.storyOpeners,
           themeIndexFile: SAGA_STORAGE_DOMAIN_INDEX_FILES.themes,
           iconSetIndexFile: SAGA_STORAGE_DOMAIN_INDEX_FILES.iconSets,
         },
@@ -84,12 +86,14 @@ async function makeProfile({ unsupportedSettingsPayloads = false } = {}) {
     domains: {
       library: { indexFile: SAGA_STORAGE_DOMAIN_INDEX_FILES.library, updatedAt: now },
       creator: { indexFile: SAGA_STORAGE_DOMAIN_INDEX_FILES.creator, updatedAt: now },
+      storyOpeners: { indexFile: SAGA_STORAGE_DOMAIN_INDEX_FILES.storyOpeners, updatedAt: now },
       themes: { indexFile: SAGA_STORAGE_DOMAIN_INDEX_FILES.themes, updatedAt: now },
       iconSets: { indexFile: SAGA_STORAGE_DOMAIN_INDEX_FILES.iconSets, updatedAt: now },
     },
     files: {
       [SAGA_STORAGE_INDEX_PATH]: { kind: 'storage_index', domain: 'storage', ownerId: 'storage', mime: 'application/json', deletion: 'managed' },
       [SAGA_STORAGE_DOMAIN_INDEX_FILES.library]: { kind: 'library_index', domain: 'library', ownerId: 'library', mime: 'application/json', deletion: 'managed' },
+      [SAGA_STORAGE_DOMAIN_INDEX_FILES.storyOpeners]: { kind: 'story_opener_index', domain: 'storyOpeners', ownerId: 'storyOpeners', mime: 'application/json', deletion: 'managed' },
       [PACK_PATH]: { kind: 'lorepack_payload', domain: 'library', ownerId: 'audit-pack', mime: 'application/json', deletion: 'delete_with_owner' },
     },
   });
@@ -109,6 +113,15 @@ async function makeProfile({ unsupportedSettingsPayloads = false } = {}) {
     folders: [],
     deckPlacements: [],
     activeStack: [],
+  });
+  await writeJson(toProfileStoragePath(profileDir, SAGA_STORAGE_DOMAIN_INDEX_FILES.storyOpeners), {
+    schemaVersion: 1,
+    kind: 'story_opener_index',
+    updatedAt: now,
+    revision: 1,
+    activeSessionId: '',
+    lastSessionId: '',
+    sessions: {},
   });
   await writeJson(toProfileStoragePath(profileDir, PACK_PATH), {
     schemaVersion: 1,

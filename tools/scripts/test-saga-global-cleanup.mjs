@@ -44,6 +44,12 @@ const {
   upsertExternalLoredeckCreatorProjectSync,
 } = await import('../../src/storage/saga-creator-project-storage.js');
 const {
+  flushSagaStoryOpenerStorageWrites,
+  getExternalStoryOpenerIndex,
+  resetSagaStoryOpenerStorageCache,
+  upsertExternalStoryOpenerSessionSync,
+} = await import('../../src/storage/saga-story-opener-storage.js');
+const {
   SAGA_STORAGE_DOMAIN_INDEX_FILES,
   SAGA_STORAGE_INDEX_PATH,
 } = await import('../../src/storage/saga-storage-index.js');
@@ -115,6 +121,7 @@ resetSagaThemeIconStorageCache();
 resetSagaLorepackPayloadStorageCache();
 resetSagaLorepackLibraryStorageCache();
 resetSagaCreatorProjectStorageCache();
+resetSagaStoryOpenerStorageCache();
 
 let clock = 1000;
 const now = () => clock;
@@ -336,18 +343,37 @@ const totalCreator = upsertExternalLoredeckCreatorProjectSync({
 assert.equal(totalCreator.ok, true);
 await flushSagaCreatorProjectStorageWrites();
 assert.equal(stored.has('/user/files/saga-creator-project-total-creator.v1.json'), true);
+const totalOpener = upsertExternalStoryOpenerSessionSync({
+  sessionId: 'total-opener',
+  title: 'Total Opener',
+  controls: {
+    userPrompt: 'Open on Hermione.',
+    context: 'Harry Potter Book 6 - January',
+    proseStyle: 'Harry Potter prose style',
+  },
+  sourceIntent: {
+    sourceMode: 'loredeck_only',
+    context: 'Harry Potter Book 6 - January',
+    packIds: ['total-loredeck'],
+  },
+  variants: [{ id: 'variant-a', label: 'Variant A', text: 'Hermione looked up from the library table.' }],
+}, options);
+assert.equal(totalOpener.ok, true);
+await flushSagaStoryOpenerStorageWrites();
+assert.equal(stored.has('/user/files/saga-story-opener-session-total-opener.v1.json'), true);
 
 const totalPreview = await buildSagaGlobalCleanupPreview(options);
 assert.equal(totalPreview.themePackCount, 1);
 assert.equal(totalPreview.iconSetCount, 1);
 assert.equal(totalPreview.loredeckCount, 1);
 assert.equal(totalPreview.creatorProjectCount, 1);
+assert.equal(totalPreview.storyOpenerSessionCount, 1);
 assert.equal(totalPreview.customThemePackCount, 1);
 assert.equal(totalPreview.customIconSetCount, 1);
 assert.equal(totalPreview.customLoredeckCount, 1);
 assert.equal(totalPreview.repairSessionCount, 1, 'Total cleanup preview should count indexed repair session files.');
 assert(totalPreview.trackedFileCount >= 8, 'Total cleanup preview should expose the number of files from the master index.');
-assert(totalPreview.knownIndexFileCount >= 5, 'Total cleanup preview should expose known index fallback file count.');
+assert(totalPreview.knownIndexFileCount >= 6, 'Total cleanup preview should expose known index fallback file count.');
 assert(totalPreview.referencedFileCount >= 1, 'Total cleanup preview should expose files discovered from domain records and payload references.');
 assert(totalPreview.untrackedReferencedFileCount >= 1, 'Total cleanup preview should count referenced files that are not already tracked by the master index.');
 assert.equal(totalPreview.willClearSettings, true);
@@ -369,9 +395,11 @@ for (const path of [
   totalCoverAsset,
   totalRepair.path,
   '/user/files/saga-creator-project-total-creator.v1.json',
+  '/user/files/saga-story-opener-session-total-opener.v1.json',
   untrackedReferencedFile,
   SAGA_STORAGE_DOMAIN_INDEX_FILES.library,
   SAGA_STORAGE_DOMAIN_INDEX_FILES.creator,
+  SAGA_STORAGE_DOMAIN_INDEX_FILES.storyOpeners,
   SAGA_STORAGE_DOMAIN_INDEX_FILES.themes,
   SAGA_STORAGE_DOMAIN_INDEX_FILES.iconSets,
   SAGA_STORAGE_INDEX_PATH,
@@ -380,6 +408,7 @@ for (const path of [
 }
 assert.equal(getExternalLoredeckLibraryRegistry().packs['total-loredeck'], undefined);
 assert.equal(getExternalLoredeckCreatorIndex().projects['total-creator'], undefined);
+assert.equal(getExternalStoryOpenerIndex().sessions['total-opener'], undefined);
 const mergedAfterTotalCleanup = getLoredeckLibraryRegistry(getDefaultState());
 const bundledDefaultIds = Object.entries(DEFAULT_SETTINGS.loredeckLibrary?.packs || {})
   .filter(([, pack]) => pack?.type === 'bundled')

@@ -45,12 +45,14 @@ const KNOWN_INDEX_PATHS = Object.freeze([
   SAGA_STORAGE_INDEX_PATH,
   SAGA_STORAGE_DOMAIN_INDEX_FILES.library,
   SAGA_STORAGE_DOMAIN_INDEX_FILES.creator,
+  SAGA_STORAGE_DOMAIN_INDEX_FILES.storyOpeners,
   SAGA_STORAGE_DOMAIN_INDEX_FILES.themes,
   SAGA_STORAGE_DOMAIN_INDEX_FILES.iconSets,
 ]);
 const EXPECTED_STORAGE_JSON_KINDS = Object.freeze({
   lorepackPayload: 'saga_lorepack_payload',
   creatorProject: 'saga_creator_project',
+  storyOpenerSession: 'story_opener_session',
   themePack: 'saga_theme_pack',
   iconSet: 'saga_iconset',
   repairSession: 'saga_loredeck_health_repair_session',
@@ -570,6 +572,20 @@ async function auditCreatorIndex(context, summary, index = null) {
   }
 }
 
+async function auditStoryOpenerIndex(context, summary, index = null) {
+  if (!index) return;
+  auditDomainIndexKind(context, index, 'storyOpeners', 'Story Opener domain index', SAGA_STORAGE_DOMAIN_INDEX_FILES.storyOpeners);
+  const sessions = isPlainObject(index.sessions) ? index.sessions : {};
+  summary.external.storyOpeners = {
+    sessionCount: Object.keys(sessions).length,
+    activeSessionId: String(index.activeSessionId || ''),
+  };
+  for (const [sessionId, session] of Object.entries(sessions)) {
+    const payload = await auditStorageJsonKind(context, session?.sessionFile || session?.payloadFile, `Story Opener session ${sessionId} payload`, EXPECTED_STORAGE_JSON_KINDS.storyOpenerSession, { required: true, expectedOwnerId: sessionId });
+    auditStorageJsonId(context, payload, session?.sessionFile || session?.payloadFile, `Story Opener session ${sessionId} payload`, sessionId, ['sessionId', 'id']);
+  }
+}
+
 async function auditThemeIndex(context, summary, index = null) {
   if (!index) return;
   auditDomainIndexKind(context, index, 'themes', 'Theme domain index', SAGA_STORAGE_DOMAIN_INDEX_FILES.themes);
@@ -772,17 +788,20 @@ async function main() {
 
   const libraryIndex = await readStorageJson(profileDir, SAGA_STORAGE_DOMAIN_INDEX_FILES.library, context, 'Library domain index');
   const creatorIndex = await readStorageJson(profileDir, SAGA_STORAGE_DOMAIN_INDEX_FILES.creator, context, 'Creator domain index');
+  const storyOpenerIndex = await readStorageJson(profileDir, SAGA_STORAGE_DOMAIN_INDEX_FILES.storyOpeners, context, 'Story Opener domain index');
   const themeIndex = await readStorageJson(profileDir, SAGA_STORAGE_DOMAIN_INDEX_FILES.themes, context, 'Theme domain index');
   const iconSetIndex = await readStorageJson(profileDir, SAGA_STORAGE_DOMAIN_INDEX_FILES.iconSets, context, 'Icon Set domain index');
 
   await auditStorageRef(context, SAGA_STORAGE_INDEX_PATH, 'Master storage index', { required: true, registered: false, expectedOwnerId: 'storage' });
   if (libraryIndex) await auditStorageRef(context, SAGA_STORAGE_DOMAIN_INDEX_FILES.library, 'Library domain index', { expectedOwnerId: 'library' });
   if (creatorIndex) await auditStorageRef(context, SAGA_STORAGE_DOMAIN_INDEX_FILES.creator, 'Creator domain index', { expectedOwnerId: 'creator' });
+  if (storyOpenerIndex) await auditStorageRef(context, SAGA_STORAGE_DOMAIN_INDEX_FILES.storyOpeners, 'Story Opener domain index', { expectedOwnerId: 'storyOpeners' });
   if (themeIndex) await auditStorageRef(context, SAGA_STORAGE_DOMAIN_INDEX_FILES.themes, 'Theme domain index', { expectedOwnerId: 'themes' });
   if (iconSetIndex) await auditStorageRef(context, SAGA_STORAGE_DOMAIN_INDEX_FILES.iconSets, 'Icon Set domain index', { expectedOwnerId: 'iconSets' });
 
   await auditLibraryIndex(context, summary, libraryIndex);
   await auditCreatorIndex(context, summary, creatorIndex);
+  await auditStoryOpenerIndex(context, summary, storyOpenerIndex);
   await auditThemeIndex(context, summary, themeIndex);
   await auditIconIndex(context, summary, iconSetIndex);
   await auditRepairSessions(context, summary, masterIndex || {});

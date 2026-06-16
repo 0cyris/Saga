@@ -22,6 +22,7 @@ export const SAGA_STORAGE_INDEX_PATH = toSagaUserFilesPath(SAGA_STORAGE_INDEX_FI
 export const SAGA_STORAGE_DOMAIN_INDEX_STEMS = Object.freeze({
     library: 'library',
     creator: 'creator',
+    storyOpeners: 'story-opener',
     themes: 'theme',
     iconSets: 'iconset',
 });
@@ -79,6 +80,7 @@ function normalizeDomainKey(value = '', fallback = 'storage') {
     if (SAGA_STORAGE_MANAGED_DOMAINS.includes(text)) return text;
     const lowered = text.toLowerCase().replace(/[_-]+/g, '');
     if (lowered === 'iconsets') return 'iconSets';
+    if (lowered === 'storyopeners' || lowered === 'storyopener') return 'storyOpeners';
     if (lowered === 'themes') return 'themes';
     if (lowered === 'creator') return 'creator';
     if (lowered === 'library') return 'library';
@@ -312,6 +314,7 @@ export function createDefaultSagaStorageSettings(options = {}) {
         masterIndexFile: SAGA_STORAGE_INDEX_PATH,
         libraryIndexFile: SAGA_STORAGE_DOMAIN_INDEX_FILES.library,
         creatorIndexFile: SAGA_STORAGE_DOMAIN_INDEX_FILES.creator,
+        storyOpenerIndexFile: SAGA_STORAGE_DOMAIN_INDEX_FILES.storyOpeners,
         themeIndexFile: SAGA_STORAGE_DOMAIN_INDEX_FILES.themes,
         iconSetIndexFile: SAGA_STORAGE_DOMAIN_INDEX_FILES.iconSets,
         lastVerifiedAt: normalizeTimestamp(options.lastVerifiedAt, 0),
@@ -328,6 +331,7 @@ export function normalizeSagaStorageSettings(value = {}) {
         masterIndexFile: normalizeStoragePath(raw.masterIndexFile, defaults.masterIndexFile),
         libraryIndexFile: normalizeStoragePath(raw.libraryIndexFile, defaults.libraryIndexFile),
         creatorIndexFile: normalizeStoragePath(raw.creatorIndexFile, defaults.creatorIndexFile),
+        storyOpenerIndexFile: normalizeStoragePath(raw.storyOpenerIndexFile, defaults.storyOpenerIndexFile),
         themeIndexFile: normalizeStoragePath(raw.themeIndexFile, defaults.themeIndexFile),
         iconSetIndexFile: normalizeStoragePath(raw.iconSetIndexFile, defaults.iconSetIndexFile),
         lastVerifiedAt: normalizeTimestamp(raw.lastVerifiedAt, 0),
@@ -338,6 +342,7 @@ export function createDefaultSagaStorageFallback(options = {}) {
     return {
         libraryIndexFile: SAGA_STORAGE_DOMAIN_INDEX_FILES.library,
         creatorIndexFile: SAGA_STORAGE_DOMAIN_INDEX_FILES.creator,
+        storyOpenerIndexFile: SAGA_STORAGE_DOMAIN_INDEX_FILES.storyOpeners,
         themeIndexFile: SAGA_STORAGE_DOMAIN_INDEX_FILES.themes,
         iconSetIndexFile: SAGA_STORAGE_DOMAIN_INDEX_FILES.iconSets,
         updatedAt: normalizeTimestamp(options.updatedAt, 0),
@@ -350,6 +355,7 @@ export function normalizeSagaStorageFallback(value = {}) {
     return {
         libraryIndexFile: normalizeStoragePath(raw.libraryIndexFile, defaults.libraryIndexFile),
         creatorIndexFile: normalizeStoragePath(raw.creatorIndexFile, defaults.creatorIndexFile),
+        storyOpenerIndexFile: normalizeStoragePath(raw.storyOpenerIndexFile, defaults.storyOpenerIndexFile),
         themeIndexFile: normalizeStoragePath(raw.themeIndexFile, defaults.themeIndexFile),
         iconSetIndexFile: normalizeStoragePath(raw.iconSetIndexFile, defaults.iconSetIndexFile),
         updatedAt: normalizeTimestamp(raw.updatedAt, 0),
@@ -363,6 +369,7 @@ export function createSagaStorageIndexFromSettings(settings = {}, options = {}) 
     const index = createSagaStorageIndex({ now });
     index.domains.library.indexFile = storage.libraryIndexFile || fallback.libraryIndexFile;
     index.domains.creator.indexFile = storage.creatorIndexFile || fallback.creatorIndexFile;
+    index.domains.storyOpeners.indexFile = storage.storyOpenerIndexFile || fallback.storyOpenerIndexFile;
     index.domains.themes.indexFile = storage.themeIndexFile || fallback.themeIndexFile;
     index.domains.iconSets.indexFile = storage.iconSetIndexFile || fallback.iconSetIndexFile;
     index.updatedAt = now;
@@ -375,6 +382,7 @@ export function getSagaStorageBootstrapFromIndex(index = {}, options = {}) {
         masterIndexFile: SAGA_STORAGE_INDEX_PATH,
         libraryIndexFile: normalized.domains.library?.indexFile,
         creatorIndexFile: normalized.domains.creator?.indexFile,
+        storyOpenerIndexFile: normalized.domains.storyOpeners?.indexFile,
         themeIndexFile: normalized.domains.themes?.indexFile,
         iconSetIndexFile: normalized.domains.iconSets?.indexFile,
         lastVerifiedAt: normalized.lastIntegrityCheck?.checkedAt || 0,
@@ -387,6 +395,7 @@ export function getSagaStorageFallbackFromIndex(index = {}, options = {}) {
     return normalizeSagaStorageFallback({
         libraryIndexFile: normalized.domains.library?.indexFile,
         creatorIndexFile: normalized.domains.creator?.indexFile,
+        storyOpenerIndexFile: normalized.domains.storyOpeners?.indexFile,
         themeIndexFile: normalized.domains.themes?.indexFile,
         iconSetIndexFile: normalized.domains.iconSets?.indexFile,
         updatedAt: normalized.updatedAt || 0,

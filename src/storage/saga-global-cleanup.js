@@ -35,6 +35,12 @@ import {
     hydrateSagaCreatorProjectStorage,
     resetSagaCreatorProjectStorageCache,
 } from './saga-creator-project-storage.js';
+import {
+    flushSagaStoryOpenerStorageWrites,
+    getExternalStoryOpenerIndex,
+    hydrateSagaStoryOpenerStorage,
+    resetSagaStoryOpenerStorageCache,
+} from './saga-story-opener-storage.js';
 import { createSagaFileApi } from './saga-file-api.js';
 import {
     createSagaStorageIndexStore,
@@ -54,6 +60,7 @@ const SAGA_TOTAL_DELETE_ALLOWED_EXTENSIONS = Object.freeze([
 const SAGA_KNOWN_INDEX_PATHS = Object.freeze([
     SAGA_STORAGE_DOMAIN_INDEX_FILES.library,
     SAGA_STORAGE_DOMAIN_INDEX_FILES.creator,
+    SAGA_STORAGE_DOMAIN_INDEX_FILES.storyOpeners,
     SAGA_STORAGE_DOMAIN_INDEX_FILES.themes,
     SAGA_STORAGE_DOMAIN_INDEX_FILES.iconSets,
     SAGA_STORAGE_INDEX_PATH,
@@ -156,11 +163,16 @@ function getCreatorProjectCount(index = getExternalLoredeckCreatorIndex()) {
     return Object.keys(index?.projects || {}).length;
 }
 
+function getStoryOpenerSessionCount(index = getExternalStoryOpenerIndex()) {
+    return Object.keys(index?.sessions || {}).length;
+}
+
 export function getSagaGlobalCleanupSnapshot() {
     const themePackIds = getThemePackIds();
     const iconSetIds = getIconSetIds();
     const loredeckIds = getCustomLoredeckIds();
     const creatorProjectCount = getCreatorProjectCount();
+    const storyOpenerSessionCount = getStoryOpenerSessionCount();
     return {
         ok: true,
         themePackIds,
@@ -170,6 +182,7 @@ export function getSagaGlobalCleanupSnapshot() {
         iconSetCount: iconSetIds.length,
         loredeckCount: loredeckIds.length,
         creatorProjectCount,
+        storyOpenerSessionCount,
         totalCustomThemeIconCount: themePackIds.length + iconSetIds.length,
     };
 }
@@ -180,6 +193,7 @@ async function hydrateGlobalCleanupSources(options = {}) {
         () => hydrateSagaThemeIconStorage({ ...options, force: true }),
         () => hydrateSagaLorepackLibraryStorage({ ...options, force: true }),
         () => hydrateSagaCreatorProjectStorage({ ...options, force: true }),
+        () => hydrateSagaStoryOpenerStorage({ ...options, force: true }),
     ]) {
         try {
             await task();
@@ -228,6 +242,7 @@ async function flushSagaGlobalStorageWrites(options = {}) {
         ['loredeck_payload_flush_failed', () => flushSagaLorepackPayloadStorageWrites()],
         ['loredeck_library_flush_failed', () => flushSagaLorepackLibraryStorageWrites()],
         ['creator_project_flush_failed', () => flushSagaCreatorProjectStorageWrites()],
+        ['story_opener_flush_failed', () => flushSagaStoryOpenerStorageWrites()],
     ]) {
         try {
             const result = await task();
@@ -307,6 +322,7 @@ async function collectSagaTotalCleanupPaths(options = {}) {
     }
 
     collectReferencedCleanupPaths(getExternalLoredeckCreatorIndex(), paths, referencedPaths);
+    collectReferencedCleanupPaths(getExternalStoryOpenerIndex(), paths, referencedPaths);
 
     const knownIndexFileCount = [...paths].filter(path => SAGA_KNOWN_INDEX_PATHS.includes(path)).length;
     const untrackedReferencedFileCount = [...referencedPaths]
@@ -348,6 +364,7 @@ function resetSagaGlobalStorageCaches() {
     resetSagaLorepackPayloadStorageCache();
     resetSagaLorepackLibraryStorageCache();
     resetSagaCreatorProjectStorageCache();
+    resetSagaStoryOpenerStorageCache();
 }
 
 export async function runSagaTotalStorageCleanup(options = {}) {

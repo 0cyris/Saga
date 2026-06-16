@@ -26,6 +26,7 @@ assert.equal(SAGA_STORAGE_INDEX_PATH, '/user/files/saga-storage-index.v1.json');
 assert.deepEqual(SAGA_STORAGE_DOMAIN_INDEX_FILES, {
   library: '/user/files/saga-library-index.v1.json',
   creator: '/user/files/saga-creator-index.v1.json',
+  storyOpeners: '/user/files/saga-story-opener-index.v1.json',
   themes: '/user/files/saga-theme-index.v1.json',
   iconSets: '/user/files/saga-iconset-index.v1.json',
 });
@@ -109,6 +110,7 @@ assert.deepEqual(createDefaultSagaStorageSettings(), {
   masterIndexFile: SAGA_STORAGE_INDEX_PATH,
   libraryIndexFile: SAGA_STORAGE_DOMAIN_INDEX_FILES.library,
   creatorIndexFile: SAGA_STORAGE_DOMAIN_INDEX_FILES.creator,
+  storyOpenerIndexFile: SAGA_STORAGE_DOMAIN_INDEX_FILES.storyOpeners,
   themeIndexFile: SAGA_STORAGE_DOMAIN_INDEX_FILES.themes,
   iconSetIndexFile: SAGA_STORAGE_DOMAIN_INDEX_FILES.iconSets,
   lastVerifiedAt: 0,
@@ -119,6 +121,7 @@ assert.equal(normalizeSagaStorageSettings({ masterIndexFile: '/img/nope.json' })
 assert.deepEqual(createDefaultSagaStorageFallback(), {
   libraryIndexFile: SAGA_STORAGE_DOMAIN_INDEX_FILES.library,
   creatorIndexFile: SAGA_STORAGE_DOMAIN_INDEX_FILES.creator,
+  storyOpenerIndexFile: SAGA_STORAGE_DOMAIN_INDEX_FILES.storyOpeners,
   themeIndexFile: SAGA_STORAGE_DOMAIN_INDEX_FILES.themes,
   iconSetIndexFile: SAGA_STORAGE_DOMAIN_INDEX_FILES.iconSets,
   updatedAt: 0,

@@ -30,6 +30,7 @@ import {
     isRuntimeMobileShell,
     pushRuntimeMobileSubview,
 } from './runtime-shell.js';
+import { createStoryOpenerCreatorSection } from './story-opener-panel.js';
 
 let advancedRuntimePanelDeps = {};
 
@@ -122,6 +123,11 @@ export function renderSessionTab(container, state) {
     ), 'session.active'));
     container.appendChild(toggles);
 
+    if (isRuntimeMobileShell() && mobileSubview?.id === 'session-story-opener') {
+        container.appendChild(createStoryOpenerCreatorSection(state, { refreshPanelBody, markTourTarget }));
+        return;
+    }
+
     if (basic) {
         container.appendChild(createBasicStartReadinessCard(state, settings));
     }
@@ -172,6 +178,19 @@ export function renderSessionTab(container, state) {
         container.appendChild(automationSection);
     }
 
+    if (!isRuntimeMobileShell()) {
+        const storyOpenerSection = createCollapsibleSection(
+            'session.storyOpener',
+            'Story Opener Creator',
+            'Create, revise, and copy lore-aware opening prose from the active Saga setup.',
+            false,
+            createStoryOpenerCreatorSection(state, { refreshPanelBody, markTourTarget }),
+            { tooltip: 'Use active Loredecks, Context, and accepted Lorecards to build a first message or chat opener through the Reasoning Provider.' }
+        );
+        markTourTarget(storyOpenerSection, 'session.storyOpener');
+        container.appendChild(storyOpenerSection);
+    }
+
     const instructionsSection = createCollapsibleSection(
         `session.instructions.${guideMode}`,
         guide.title,
@@ -214,6 +233,13 @@ function openSessionMobileDetails() {
     pushRuntimeMobileSubview('session', {
         id: 'session-details',
         title: 'Session Details',
+    });
+}
+
+function openSessionMobileStoryOpener() {
+    pushRuntimeMobileSubview('session', {
+        id: 'session-story-opener',
+        title: 'Story Opener',
     });
 }
 
@@ -303,6 +329,14 @@ function createSessionOperatorSummary(state, settings, options = {}) {
             refreshPanelBody({ preserveScroll: false });
             refreshHeader();
         }, 'saga-primary-button'));
+    }
+    if (mobileRoot) {
+        actions.appendChild(createButton(
+            'Story Opener',
+            'Open Story Opener Creator for this Saga setup.',
+            () => openSessionMobileStoryOpener(),
+            'saga-primary-button'
+        ));
     }
     actions.appendChild(createButton(
         basic ? 'Start Guided Tour' : 'Start Walkthrough',

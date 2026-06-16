@@ -44,6 +44,16 @@ export const SAGA_DOMAIN_STORAGE_CONFIGS = Object.freeze({
         payloadRecordKind: 'creator_project_payload',
         indexRecordKind: 'creator_index',
     }),
+    storyOpeners: Object.freeze({
+        domain: 'storyOpeners',
+        indexKind: 'story_opener_index',
+        indexFile: SAGA_STORAGE_DOMAIN_INDEX_FILES.storyOpeners,
+        collectionKey: 'sessions',
+        idKey: 'sessionId',
+        payloadFileKind: 'story-opener-session',
+        payloadRecordKind: 'story_opener_session_payload',
+        indexRecordKind: 'story_opener_index',
+    }),
     themes: Object.freeze({
         domain: 'themes',
         indexKind: 'saga_theme_index',
@@ -133,6 +143,7 @@ export function getSagaDomainStorageConfig(domain = '') {
     if (direct) return direct;
     const normalized = String(domain || '').trim().toLowerCase().replace(/[_-]+/g, '');
     if (normalized === 'iconsets') return SAGA_DOMAIN_STORAGE_CONFIGS.iconSets;
+    if (normalized === 'storyopeners' || normalized === 'storyopener') return SAGA_DOMAIN_STORAGE_CONFIGS.storyOpeners;
     if (normalized === 'theme' || normalized === 'themes') return SAGA_DOMAIN_STORAGE_CONFIGS.themes;
     if (normalized === 'creator') return SAGA_DOMAIN_STORAGE_CONFIGS.creator;
     if (normalized === 'library') return SAGA_DOMAIN_STORAGE_CONFIGS.library;

@@ -14,6 +14,10 @@ import {
     flushSagaCreatorProjectStorageWrites,
 } from './saga-creator-project-storage.js';
 import {
+    flushSagaStoryOpenerStorageWrites,
+    getStoryOpenerStorageStatus,
+} from './saga-story-opener-storage.js';
+import {
     flushSagaLorepackLibraryStorageWrites,
     getSagaLorepackLibraryStorageStatus,
 } from './saga-lorepack-library-storage.js';
@@ -59,13 +63,15 @@ function summarizeRuntimeStatuses() {
     const library = getSagaLorepackLibraryStorageStatus();
     const payloads = getSagaLorepackPayloadStorageStatus();
     const creator = getSagaCreatorProjectStorageStatus();
+    const storyOpeners = getStoryOpenerStorageStatus();
     const themeIcon = getSagaThemeIconStorageStatus();
-    const statuses = { library, payloads, creator, themeIcon };
+    const statuses = { library, payloads, creator, storyOpeners, themeIcon };
     const pendingWrites = Object.values(statuses).reduce((sum, status) => sum + getPendingWrites(status), 0);
     const storageErrors = [
         collectStatusError('library', library),
         collectStatusError('payloads', payloads),
         collectStatusError('creator', creator),
+        collectStatusError('storyOpeners', storyOpeners),
         collectStatusError('themeIcon', themeIcon),
     ].filter(Boolean);
     return { statuses, pendingWrites, storageErrors };
@@ -162,6 +168,7 @@ function getMissingCleanupCandidates(index = {}, missingFiles = []) {
         'storage_index',
         'library_index',
         'creator_index',
+        'story_opener_index',
         'theme_index',
         'iconset_index',
     ]);
@@ -177,6 +184,7 @@ export async function flushSagaStorageWrites(settings = {}, options = {}) {
         payloads: await flushSagaLorepackPayloadStorageWrites(),
         library: await flushSagaLorepackLibraryStorageWrites(),
         creator: await flushSagaCreatorProjectStorageWrites(),
+        storyOpeners: await flushSagaStoryOpenerStorageWrites(),
     };
     const errors = Object.entries(flushes)
         .map(([domain, result]) => {

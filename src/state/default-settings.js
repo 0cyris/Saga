@@ -306,6 +306,7 @@ Direct injection block:
         'session.instructions.advanced': true,
         'session.instructions': true,
         'session.automationMode': false,
+        'session.storyOpener': false,
         'context.commandCenter': false,
         'context.loadedLoredecks': false,
         'context.advancedBrief': true,
