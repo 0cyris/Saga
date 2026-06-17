@@ -57,6 +57,7 @@ const openerUiState = {
     hydrating: false,
     loadingSessionIds: new Set(),
     activeRunIds: new Set(),
+    activeRunControllers: new Map(),
     revisionPrompt: '',
 };
 
@@ -119,16 +120,79 @@ function getStoryOpenerRunUpdatedAt(run = {}, now = Date.now()) {
     return Number.isFinite(updatedAt) && updatedAt > 0 ? updatedAt : now;
 }
 
+function getStoryOpenerLiveRunEntry(run = {}) {
+    const id = typeof run === 'string' ? run : run?.id;
+    return id ? openerUiState.activeRunControllers.get(id) || null : null;
+}
+
 function isStoryOpenerRunLive(run = {}) {
     return !!run?.id && openerUiState.activeRunIds.has(run.id);
 }
 
-function rememberStoryOpenerLiveRun(run = {}) {
-    if (run?.id) openerUiState.activeRunIds.add(run.id);
+function createStoryOpenerRunAbortEntry(options = {}) {
+    const parentSignal = options.signal || null;
+    const controller = typeof AbortController === 'function' ? new AbortController() : null;
+    let cleanup = null;
+    if (controller && parentSignal && typeof parentSignal.addEventListener === 'function') {
+        if (parentSignal.aborted) {
+            controller.abort(parentSignal.reason);
+        } else {
+            const abort = () => controller.abort(parentSignal.reason);
+            parentSignal.addEventListener('abort', abort, { once: true });
+            cleanup = () => parentSignal.removeEventListener?.('abort', abort);
+        }
+    }
+    return {
+        controller,
+        signal: controller?.signal || parentSignal || null,
+        cleanup,
+    };
+}
+
+function rememberStoryOpenerLiveRun(run = {}, entry = null) {
+    if (!run?.id) return;
+    openerUiState.activeRunIds.add(run.id);
+    if (entry) openerUiState.activeRunControllers.set(run.id, entry);
 }
 
 function forgetStoryOpenerLiveRun(run = {}) {
-    if (run?.id) openerUiState.activeRunIds.delete(run.id);
+    if (!run?.id) return;
+    openerUiState.activeRunIds.delete(run.id);
+    const entry = openerUiState.activeRunControllers.get(run.id);
+    try {
+        entry?.cleanup?.();
+    } catch (error) {
+        console.warn('[Saga] Story Maker run cleanup failed:', error);
+    }
+    openerUiState.activeRunControllers.delete(run.id);
+}
+
+function getStoryOpenerRunSignal(run = {}, options = {}) {
+    return getStoryOpenerLiveRunEntry(run)?.signal || options.signal || null;
+}
+
+function isStoryOpenerSignalAborted(signal = null) {
+    return signal?.aborted === true;
+}
+
+function isStoryOpenerCancellationFailure(failure = {}) {
+    return String(failure?.code || failure?.details?.code || failure?.errorCode || '').trim() === 'user_cancelled';
+}
+
+function isStoryOpenerCancellationError(error = {}) {
+    const message = String(error?.message || error || '').toLowerCase();
+    return error?.code === 'user_cancelled'
+        || error?.name === 'AbortError'
+        || /aborted|cancelled|canceled/.test(message);
+}
+
+function createStoryOpenerCancellationFailure(stage = '', message = 'Story Maker generation was cancelled.') {
+    return normalizeStoryOpenerFailure({
+        code: 'user_cancelled',
+        stage,
+        message,
+        recovery: 'Retry this Story Maker stage when ready.',
+    });
 }
 
 function isStoryOpenerActiveRunStale(run = {}, now = Date.now()) {
@@ -572,13 +636,14 @@ function readControlsFromRefs(refs = {}, base = {}) {
     });
 }
 
-function makeRun(session = {}, stage = '', label = '', message = '') {
+function makeRun(session = {}, stage = '', label = '', message = '', options = {}) {
+    const abortEntry = createStoryOpenerRunAbortEntry(options);
     const next = recordStoryOpenerRun(session, createStoryOpenerRun(stage, {
         label,
         message: message || label,
         status: 'running',
     }));
-    rememberStoryOpenerLiveRun(next.activeGeneration);
+    rememberStoryOpenerLiveRun(next.activeGeneration, abortEntry);
     return next;
 }
 
@@ -605,6 +670,57 @@ function failRun(session = {}, run = {}, failure = {}) {
     });
 }
 
+function restoreStoryOpenerSessionAfterCancel(session = {}, snapshot = null) {
+    if (!snapshot) return normalizeStoryOpenerSession(session);
+    const variants = Array.isArray(snapshot.variants) ? cloneJson(snapshot.variants) : [];
+    return normalizeStoryOpenerSession({
+        ...session,
+        ...(variants.length ? { variants } : {}),
+        ...(variants.length ? { selectedVariantId: snapshot.selectedVariantId || variants[0]?.id || '' } : {}),
+        ...(variants.length ? { currentStage: snapshot.currentStage || session.currentStage || 'review_copy' } : {}),
+        status: variants.length ? (snapshot.status === 'running' ? 'draft' : snapshot.status || 'complete') : 'draft',
+    });
+}
+
+function cancelRun(session = {}, run = {}, failure = {}, options = {}) {
+    forgetStoryOpenerLiveRun(run);
+    const now = Date.now();
+    const working = restoreStoryOpenerSessionAfterCancel(session, options.restoreSnapshot || null);
+    const cancelFailure = isStoryOpenerCancellationFailure(failure)
+        ? normalizeStoryOpenerFailure(failure)
+        : createStoryOpenerCancellationFailure(run.stage, failure?.message || 'Story Maker generation was cancelled.');
+    return recordStoryOpenerRun(working, {
+        ...run,
+        status: 'cancelled',
+        failure: cancelFailure,
+        message: cancelFailure.message || 'Story Maker generation cancelled. Any late provider response will be ignored.',
+        updatedAt: now,
+        completedAt: now,
+    });
+}
+
+function cancelStoryOpenerActiveGeneration(session = {}, options = {}) {
+    const current = getCachedExternalStoryOpenerSession(session.sessionId) || session;
+    const normalized = normalizeStoryOpenerSession(current);
+    const active = normalized.activeGeneration;
+    if (!active?.id) {
+        toast('No active Story Maker generation to cancel.', 'info');
+        return false;
+    }
+    const entry = getStoryOpenerLiveRunEntry(active);
+    try {
+        entry?.controller?.abort?.('Story Maker generation cancelled.');
+    } catch (error) {
+        console.warn('[Saga] Could not abort Story Maker generation:', error);
+    }
+    stopStoryOpenerGenerationTicker();
+    const next = cancelRun(normalized, active, createStoryOpenerCancellationFailure(active.stage));
+    saveStoryOpenerSession(next, { activate: true });
+    toast(`${active.label || getStoryOpenerGenerationLabel(active)} cancelled.`, 'info');
+    refresh(options);
+    return true;
+}
+
 function clearStoryOpenerDraftVariantsForRun(session = {}) {
     return normalizeStoryOpenerSession({
         ...session,
@@ -618,6 +734,7 @@ function clearStoryOpenerDraftVariantsForRun(session = {}) {
 function updateActiveStoryOpenerRunProgress(working = {}, run = {}, event = {}, options = {}) {
     if (!event?.message && !event?.label) return working;
     const current = getCachedExternalStoryOpenerSession(working.sessionId) || working;
+    if (current.activeGeneration?.id !== run?.id) return current;
     const nextRun = {
         ...run,
         ...(current.activeGeneration || {}),
@@ -670,12 +787,15 @@ function recoverStoryOpenerInterruptedActiveGeneration(session = {}, options = {
 }
 
 async function runContextPacketStage(session = {}, state = {}, options = {}) {
-    let working = makeRun(session, 'context_packet', 'Building Context Packet', 'Resolving active Loredecks, Context, and guardrails.');
+    let working = makeRun(session, 'context_packet', 'Building Context Packet', 'Resolving active Loredecks, Context, and guardrails.', options);
     saveStoryOpenerSession(working);
     refresh(options);
     const run = working.activeGeneration;
+    const signal = getStoryOpenerRunSignal(run, options);
     try {
+        if (isStoryOpenerSignalAborted(signal)) throw new DOMException('Story Maker generation was cancelled.', 'AbortError');
         const result = await buildStoryOpenerContextPacket(working, state);
+        if (isStoryOpenerSignalAborted(signal)) throw new DOMException('Story Maker generation was cancelled.', 'AbortError');
         working = normalizeStoryOpenerSession({
             ...working,
             sourceIntent: result.sourceIntent,
@@ -698,13 +818,17 @@ async function runContextPacketStage(session = {}, state = {}, options = {}) {
         saveStoryOpenerSession(working);
         return { ok: true, session: working, packet: result.packet };
     } catch (error) {
-        const failure = normalizeStoryOpenerFailure({
-            code: 'context_packet_failed',
-            stage: 'context_packet',
-            message: error?.message || String(error || 'Context Packet failed.'),
-            recovery: 'Check active Loredecks and Context, then retry Build Context Packet.',
-        });
-        working = failRun(working, run, failure);
+        const failure = isStoryOpenerCancellationError(error) || isStoryOpenerSignalAborted(signal)
+            ? createStoryOpenerCancellationFailure('context_packet')
+            : normalizeStoryOpenerFailure({
+                code: 'context_packet_failed',
+                stage: 'context_packet',
+                message: error?.message || String(error || 'Context Packet failed.'),
+                recovery: 'Check active Loredecks and Context, then retry Build Context Packet.',
+            });
+        working = isStoryOpenerCancellationFailure(failure)
+            ? cancelRun(working, run, failure)
+            : failRun(working, run, failure);
         saveStoryOpenerSession(working);
         return { ok: false, session: working, failure };
     } finally {
@@ -721,25 +845,33 @@ async function runBriefStage(session = {}, state = {}, options = {}) {
         working = packetResult.session;
         packet = packetResult.packet;
     }
-    working = makeRun(working, 'opener_brief', 'Drafting Opener Brief', 'Turning the Context Packet into opener instructions.');
+    working = makeRun(working, 'opener_brief', 'Drafting Opener Brief', 'Turning the Context Packet into opener instructions.', options);
     saveStoryOpenerSession(working);
     refresh(options);
     const run = working.activeGeneration;
+    const signal = getStoryOpenerRunSignal(run, options);
     const result = await buildStoryOpenerBrief(working, packet, {
+        signal,
         onProgress: event => {
             working = updateActiveStoryOpenerRunProgress(working, run, event, options);
         },
     });
-    if (!result.ok) {
-        working = failRun(working, {
+    if (!result.ok || isStoryOpenerSignalAborted(signal)) {
+        const failure = isStoryOpenerSignalAborted(signal) || isStoryOpenerCancellationFailure(result.failure)
+            ? createStoryOpenerCancellationFailure('opener_brief')
+            : result.failure;
+        const runPatch = {
             ...run,
             attempts: result.attempts || [],
             attemptCount: result.attempts?.length || 0,
             maxAttempts: result.failure?.details?.maxAttempts || result.attempts?.[0]?.maxAttempts || 0,
-        }, result.failure);
+        };
+        working = isStoryOpenerCancellationFailure(failure)
+            ? cancelRun(working, runPatch, failure)
+            : failRun(working, runPatch, failure);
         saveStoryOpenerSession(working);
         refresh(options);
-        return { ok: false, session: working, failure: result.failure };
+        return { ok: false, session: working, failure };
     }
     working = normalizeStoryOpenerSession({
         ...working,
@@ -784,6 +916,12 @@ async function runDraftStage(session = {}, state = {}, options = {}) {
         : [];
     const replacingDrafts = !retryIndexes.length;
     const previous = getStoryOpenerSelectedVariant(working);
+    const cancelRestoreSnapshot = {
+        variants: cloneJson(working.variants || []),
+        selectedVariantId: working.selectedVariantId || '',
+        currentStage: working.currentStage || '',
+        status: working.status || 'draft',
+    };
     const generationSession = working;
     const requestedVariantCount = retryIndexes.length || variantCount;
     working = makeRun(
@@ -797,6 +935,7 @@ async function runDraftStage(session = {}, state = {}, options = {}) {
         retryIndexes.length
             ? `Retrying ${requestedVariantCount} failed opener variant${requestedVariantCount === 1 ? '' : 's'}.`
             : `Starting ${variantCount} opener variant${variantCount === 1 ? '' : 's'}.`,
+        options,
     );
     if (replacingDrafts) {
         working = clearStoryOpenerDraftVariantsForRun(working);
@@ -804,24 +943,32 @@ async function runDraftStage(session = {}, state = {}, options = {}) {
     saveStoryOpenerSession(working);
     refresh(options);
     const run = working.activeGeneration;
+    const signal = getStoryOpenerRunSignal(run, options);
     const result = await writeStoryOpenerVariants(generationSession, packet, brief, {
         revisionPrompt: options.revisionPrompt || '',
         variantIndexes: options.retryVariantIndexes,
+        signal,
         onProgress: event => {
             working = updateActiveStoryOpenerRunProgress(working, run, event, options);
         },
     });
-    if (!result.ok) {
-        working = failRun(working, {
+    if (!result.ok || isStoryOpenerSignalAborted(signal)) {
+        const failure = isStoryOpenerSignalAborted(signal) || isStoryOpenerCancellationFailure(result.failure)
+            ? createStoryOpenerCancellationFailure('draft_variants')
+            : result.failure;
+        const runPatch = {
             ...run,
             attempts: result.attempts || [],
             attemptCount: result.attempts?.length || 0,
             maxAttempts: result.failure?.details?.maxAttempts || result.attempts?.[0]?.maxAttempts || 0,
             failedUnitCount: result.failedVariantIndexes?.length || 0,
-        }, result.failure);
+        };
+        working = isStoryOpenerCancellationFailure(failure)
+            ? cancelRun(working, runPatch, failure, { restoreSnapshot: cancelRestoreSnapshot })
+            : failRun(working, runPatch, failure);
         saveStoryOpenerSession(working);
         refresh(options);
-        return { ok: false, session: working, failure: result.failure };
+        return { ok: false, session: working, failure };
     }
     const history = [...(working.revisionHistory || [])];
     if (options.revisionPrompt && previous?.text) {
@@ -1011,7 +1158,7 @@ function createStoryOpenerStageBar(session = {}, state = {}, options = {}) {
     return wrap;
 }
 
-function createStoryOpenerGenerationStatus(session = {}) {
+function createStoryOpenerGenerationStatus(session = {}, options = {}) {
     const run = session?.activeGeneration || null;
     const status = String(run?.status || '').trim().toLowerCase();
     if (!run || !STORY_OPENER_GENERATION_STATUSES.has(status)) return null;
@@ -1029,6 +1176,8 @@ function createStoryOpenerGenerationStatus(session = {}) {
         metaText,
     }, {
         compact: true,
+        onCancel: () => cancelStoryOpenerActiveGeneration(session, options),
+        cancelTooltip: 'Cancel this Story Maker generation. Any late provider response will be ignored.',
     });
     row.classList.add('saga-story-opener-generation-status');
     row.dataset.sagaStoryOpenerGenerationActive = 'true';
@@ -1043,6 +1192,26 @@ function createStoryOpenerGenerationStatus(session = {}) {
     row.setAttribute('aria-label', `${labelText} ${message}`);
     startStoryOpenerGenerationTicker();
     return row;
+}
+
+function createStoryOpenerCancelButton(session = {}, options = {}, label = 'Cancel Generation') {
+    if (!session?.activeGeneration) return null;
+    return createButton(label, 'Cancel this Story Maker generation. Any late provider response will be ignored.', () => {
+        cancelStoryOpenerActiveGeneration(session, options);
+    }, 'saga-danger-button');
+}
+
+function appendStoryOpenerCancelAction(container, session = {}, options = {}) {
+    const cancel = createStoryOpenerCancelButton(session, options);
+    if (cancel) container.appendChild(cancel);
+    return cancel;
+}
+
+function applyStoryOpenerGenerationLock(button, session = {}, label = 'generation') {
+    if (!button || !session?.activeGeneration) return button;
+    button.disabled = true;
+    addTooltip(button, `${getStoryOpenerGenerationLabel(session.activeGeneration)} is running. Cancel it or wait for it to finish before starting another ${label}.`);
+    return button;
 }
 
 function getVisibleStoryOpenerStage(session = {}, state = {}) {
@@ -1066,13 +1235,14 @@ function createStoryOpenerStageCard(stageId = '', session = {}, state = {}, opti
 function appendSourceActions(container, session = {}, state = {}, options = {}) {
     const row = document.createElement('div');
     row.className = 'saga-primary-actions saga-story-opener-source-actions';
-    row.appendChild(createButton('Refresh From Saved Sources', 'Resolve this opener source intent against latest Loredecks and rebuild the Context Packet.', async btn => {
+    const refreshSources = createButton('Refresh From Saved Sources', 'Resolve this opener source intent against latest Loredecks and rebuild the Context Packet.', async btn => {
         btn.disabled = true;
         const next = resetStoryOpenerToStage(session, 'context_packet');
         saveStoryOpenerSession(next);
         await runContextPacketStage(next, state, options);
-    }, 'saga-primary-button'));
-    row.appendChild(createButton('Use Current Active Stack', 'Replace this opener source intent with the current active Loredeck stack and Context.', btn => {
+    }, 'saga-primary-button');
+    row.appendChild(applyStoryOpenerGenerationLock(refreshSources, session, 'source refresh'));
+    const useCurrentStack = createButton('Use Current Active Stack', 'Replace this opener source intent with the current active Loredeck stack and Context.', btn => {
         btn.disabled = true;
         const controls = normalizeStoryOpenerControls(session.controls || {});
         const sourceIntent = buildStoryOpenerSourceIntentFromState(state, controls);
@@ -1087,7 +1257,9 @@ function appendSourceActions(container, session = {}, state = {}, options = {}) 
         }, 'context_packet');
         saveStoryOpenerSession(next);
         refresh(options);
-    }));
+    });
+    row.appendChild(applyStoryOpenerGenerationLock(useCurrentStack, session, 'source change'));
+    appendStoryOpenerCancelAction(row, session, options);
     container.appendChild(row);
 }
 
@@ -1218,6 +1390,7 @@ function createInputsCard(session = {}, state = {}, options = {}) {
     fullPipelineButton.dataset.storyOpenerProviderAction = 'true';
     fullPipelineButton.disabled = providerBusy;
     actions.appendChild(fullPipelineButton);
+    appendStoryOpenerCancelAction(actions, session, options);
     card.appendChild(actions);
     return card;
 }
@@ -1309,10 +1482,12 @@ function createBriefCard(session = {}, state = {}, options = {}) {
     }
     const actions = document.createElement('div');
     actions.className = 'saga-primary-actions';
-    actions.appendChild(createButton('Build Opener Brief', 'Ask the Reasoning Provider to turn the Context Packet into a precise writing brief.', async btn => {
+    const buildBrief = createButton('Build Opener Brief', 'Ask the Reasoning Provider to turn the Context Packet into a precise writing brief.', async btn => {
         btn.disabled = true;
         await runBriefStage(session, state, options);
-    }, 'saga-primary-button'));
+    }, 'saga-primary-button');
+    actions.appendChild(applyStoryOpenerGenerationLock(buildBrief, session, 'brief build'));
+    appendStoryOpenerCancelAction(actions, session, options);
     card.appendChild(actions);
     return card;
 }
@@ -1327,22 +1502,7 @@ function createVariantsCard(session = {}, state = {}, options = {}) {
     card.appendChild(title);
     if (session.variants?.length) {
         const selected = getStoryOpenerSelectedVariant(session);
-        const nav = document.createElement('div');
-        nav.className = 'saga-story-opener-carousel-nav';
-        for (const variant of session.variants) {
-            const btn = createButton(variant.label || variant.id, 'Select this opener variant.', () => {
-                const next = normalizeStoryOpenerSession({
-                    ...session,
-                    selectedVariantId: variant.id,
-                    variants: session.variants.map(item => ({ ...item, status: item.id === variant.id ? 'selected' : 'draft' })),
-                });
-                saveStoryOpenerSession(next);
-                refresh(options);
-            }, 'saga-mode-button');
-            if (variant.id === selected?.id) btn.classList.add('saga-mode-button-active');
-            nav.appendChild(btn);
-        }
-        card.appendChild(nav);
+        card.appendChild(createStoryOpenerVariantSelector(session, options));
         card.appendChild(createStoryOpenerOutputPreview(selected?.text || ''));
     } else {
         const count = normalizeStoryOpenerVariantCount(session.controls?.variantCount);
@@ -1350,12 +1510,36 @@ function createVariantsCard(session = {}, state = {}, options = {}) {
     }
     const actions = document.createElement('div');
     actions.className = 'saga-primary-actions';
-    actions.appendChild(createButton('Draft Opener', 'Ask the Reasoning Provider to write opener text from the brief.', async btn => {
+    const draftOpener = createButton('Draft Opener', 'Ask the Reasoning Provider to write opener text from the brief.', async btn => {
         btn.disabled = true;
         await runDraftStage(session, state, options);
-    }, 'saga-primary-button'));
+    }, 'saga-primary-button');
+    actions.appendChild(applyStoryOpenerGenerationLock(draftOpener, session, 'opener draft'));
+    appendStoryOpenerCancelAction(actions, session, options);
     card.appendChild(actions);
     return card;
+}
+
+function createStoryOpenerVariantSelector(session = {}, options = {}) {
+    const selected = getStoryOpenerSelectedVariant(session);
+    const nav = document.createElement('div');
+    nav.className = 'saga-story-opener-carousel-nav';
+    nav.setAttribute('aria-label', 'Story Maker opener variants');
+    for (const variant of session.variants || []) {
+        const btn = createButton(variant.label || variant.id, 'Select this opener variant.', () => {
+            const next = normalizeStoryOpenerSession({
+                ...session,
+                selectedVariantId: variant.id,
+                variants: session.variants.map(item => ({ ...item, status: item.id === variant.id ? 'selected' : 'draft' })),
+            });
+            saveStoryOpenerSession(next);
+            refresh(options);
+        }, 'saga-mode-button');
+        btn.setAttribute('aria-pressed', variant.id === selected?.id ? 'true' : 'false');
+        if (variant.id === selected?.id) btn.classList.add('saga-mode-button-active');
+        nav.appendChild(btn);
+    }
+    return nav;
 }
 
 function createReviewCard(session = {}, state = {}, options = {}) {
@@ -1371,6 +1555,7 @@ function createReviewCard(session = {}, state = {}, options = {}) {
     revise.addEventListener('input', () => {
         openerUiState.revisionPrompt = revise.value;
     });
+    if (session.variants?.length) card.appendChild(createStoryOpenerVariantSelector(session, options));
     if (selected?.text) card.appendChild(createStoryOpenerOutputPreview(selected.text));
     else card.appendChild(createEmptyMessage('Draft an opener before reviewing or copying.'));
     card.appendChild(createField('Revision Prompt', 'Optional instruction for revising the selected opener.', revise));
@@ -1411,7 +1596,7 @@ function createReviewCard(session = {}, state = {}, options = {}) {
     });
     copyRich.disabled = !selected?.text;
     actions.appendChild(copyRich);
-    actions.appendChild(createButton('Revise Selected', 'Revise the selected opener using the revision prompt.', async btn => {
+    const reviseSelected = createButton('Revise Selected', 'Revise the selected opener using the revision prompt.', async btn => {
         if (!selected?.text) {
             toast('Draft an opener before revising.', 'warning');
             return;
@@ -1424,7 +1609,10 @@ function createReviewCard(session = {}, state = {}, options = {}) {
         btn.disabled = true;
         openerUiState.revisionPrompt = instruction;
         await runDraftStage(session, state, { ...options, revisionPrompt: instruction });
-    }));
+    });
+    reviseSelected.disabled = !selected?.text || !!session.activeGeneration;
+    actions.appendChild(applyStoryOpenerGenerationLock(reviseSelected, session, 'revision'));
+    appendStoryOpenerCancelAction(actions, session, options);
     card.appendChild(actions);
     if (session.revisionHistory?.length) {
         const history = document.createElement('details');
@@ -1514,6 +1702,7 @@ function createFailureCard(session = {}, state = {}, options = {}) {
         retryVariants.disabled = hasActiveRun;
         actions.appendChild(retryVariants);
     }
+    appendStoryOpenerCancelAction(actions, session, options);
     if (actions.childNodes.length) card.appendChild(actions);
     return card;
 }
@@ -1605,7 +1794,7 @@ function renderActiveSession(container, session = {}, state = {}, options = {}) 
     header.appendChild(chips);
     container.appendChild(header);
     container.appendChild(createStoryOpenerStageBar(session, state, options));
-    const generationStatus = createStoryOpenerGenerationStatus(session);
+    const generationStatus = createStoryOpenerGenerationStatus(session, options);
     if (generationStatus) container.appendChild(generationStatus);
     const failureCard = createFailureCard(session, state, options);
     if (failureCard) container.appendChild(failureCard);

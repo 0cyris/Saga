@@ -332,7 +332,7 @@ export function normalizeStoryOpenerRun(value = {}) {
         id,
         runId: id,
         stage: normalizeStoryOpenerString(raw.stage, 80),
-        status: ['queued', 'running', 'retrying', 'complete', 'error', 'interrupted'].includes(raw.status) ? raw.status : 'complete',
+        status: ['queued', 'running', 'retrying', 'complete', 'error', 'interrupted', 'cancelled'].includes(raw.status) ? raw.status : 'complete',
         label: normalizeStoryOpenerString(raw.label, 180),
         message: normalizeStoryOpenerString(raw.message, 1200),
         startedAt: normalizeTimestamp(raw.startedAt, 0),

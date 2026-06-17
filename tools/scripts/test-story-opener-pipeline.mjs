@@ -241,6 +241,26 @@ await withFakeStoryOpenerProvider(async () => new Promise(() => {}), async () =>
   assert.match(brief.failure.message, /timed out/i);
 });
 
+await withFakeStoryOpenerProvider(async (_system, _user, options = {}) => new Promise((_resolve, reject) => {
+  options.signal?.addEventListener?.('abort', () => {
+    const error = new Error('request aborted by user');
+    error.name = 'AbortError';
+    reject(error);
+  }, { once: true });
+}), async () => {
+  const controller = new AbortController();
+  const briefPromise = buildStoryOpenerBrief(providerSession, providerPacket, {
+    retryDelayMs: 0,
+    signal: controller.signal,
+    timeoutMs: 1000,
+  });
+  controller.abort();
+  const brief = await briefPromise;
+  assert.equal(brief.ok, false);
+  assert.equal(brief.failure.code, 'user_cancelled');
+  assert.equal(brief.attempts.length, 1);
+});
+
 await withFakeStoryOpenerProvider(async () => {
   if (!globalThis.__sagaStoryOpenerEmptyThenSuccessCalls) globalThis.__sagaStoryOpenerEmptyThenSuccessCalls = 0;
   globalThis.__sagaStoryOpenerEmptyThenSuccessCalls += 1;
@@ -398,5 +418,29 @@ assert.equal(recovered.recovered, true);
 assert.equal(recovered.session.activeGeneration, undefined);
 assert.equal(recovered.session.generationRuns.run1.status, 'interrupted');
 assert.equal(recovered.session.variants.length, 1);
+
+const cancelledRunSession = normalizeStoryOpenerSession({
+  sessionId: 'opener-cancelled-run-test',
+  generationRuns: {
+    run1: {
+      id: 'run1',
+      stage: 'draft_variants',
+      status: 'cancelled',
+      label: 'Drafting variants',
+      message: 'Story Maker generation cancelled. Any late provider response will be ignored.',
+      failure: { code: 'user_cancelled', stage: 'draft_variants', message: 'Story Maker generation was cancelled.' },
+    },
+  },
+  lastGenerationResult: {
+    id: 'run1',
+    stage: 'draft_variants',
+    status: 'cancelled',
+    failure: { code: 'user_cancelled', stage: 'draft_variants', message: 'Story Maker generation was cancelled.' },
+  },
+});
+assert.equal(cancelledRunSession.activeGeneration, undefined);
+assert.equal(cancelledRunSession.generationRuns.run1.status, 'cancelled');
+assert.equal(cancelledRunSession.lastGenerationResult.status, 'cancelled');
+assert.equal(cancelledRunSession.lastGenerationResult.failure.code, 'user_cancelled');
 
 console.log('Story Opener pipeline tests passed.');
