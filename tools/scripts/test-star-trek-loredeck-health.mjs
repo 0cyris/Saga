@@ -35,6 +35,7 @@ const EXPECTED_STAR_TREK_IDS = [
   'star-trek-voy-season-6',
   'star-trek-voy-season-7',
 ];
+const COVERED_STAR_TREK_DECK_ID_PATTERN = /^star-trek-(?:tng|voy)-season-[1-7]$/;
 const EXPECTED_PLAN = new Map([
   ['star-trek-tng-season-1', {
     storyRows: 25,
@@ -390,6 +391,15 @@ function readJson(file) {
   return JSON.parse(fs.readFileSync(file, 'utf8'));
 }
 
+function pngDimensions(file) {
+  const bytes = fs.readFileSync(file);
+  assert.equal(bytes.subarray(0, 8).toString('hex'), '89504e470d0a1a0a', `${file} should be a PNG.`);
+  return {
+    width: bytes.readUInt32BE(16),
+    height: bytes.readUInt32BE(20),
+  };
+}
+
 function listJsonFiles(root) {
   return fs.readdirSync(root, { withFileTypes: true }).flatMap(entry => {
     const full = path.join(root, entry.name);
@@ -417,6 +427,7 @@ function timelineWindowLikeCount(timeline = {}) {
 assert.deepEqual(Array.from(DEFAULT_STAR_TREK_LOREDECK_IDS), EXPECTED_STAR_TREK_IDS, 'Default Star Trek deck IDs should match the currently developed Star Trek deck set.');
 
 const index = readJson(path.join(ROOT, 'index.json'));
+const bundledById = new Map((index.bundled || []).map(record => [record.packId, record]));
 const bundledIds = (index.bundled || []).map(record => record.packId);
 
 for (const deckId of EXPECTED_STAR_TREK_IDS) {
@@ -457,6 +468,18 @@ for (const deckId of EXPECTED_STAR_TREK_IDS) {
   assert.ok(String(manifest.continuity?.sourceBoundary || '').includes(`Memory Alpha story rows 1-${expected.storyRows}`), `${deckId} should state its Memory Alpha story row count.`);
   assert.ok(String(manifest.continuity?.sourceBoundary || '').includes(`runtime episode aliases 1-${expected.runtimeAliases}`), `${deckId} should state its runtime alias count.`);
   assert.deepEqual(manifest.library?.suggestedPath, expected.libraryPath, `${deckId} manifest should use the correct Star Trek folder.`);
+  if (COVERED_STAR_TREK_DECK_ID_PATTERN.test(deckId)) {
+    const expectedCover = {
+      path: 'assets/cover.png',
+      alt: `${manifest.title} Loredeck cover`,
+      aspect: '1:1',
+      focalPoint: { x: 0.5, y: 0.5 },
+    };
+    assert.deepEqual(manifest.assets?.cover, expectedCover, `${deckId} manifest should declare the TNG season cover.`);
+    assert.deepEqual(DEFAULT_BUNDLED_LOREDECK_LIBRARY_PACKS[deckId]?.assets?.cover, expectedCover, `${deckId} default record should declare the TNG season cover.`);
+    assert.deepEqual(bundledById.get(deckId)?.assets?.cover, expectedCover, `${deckId} index record should declare the TNG season cover.`);
+    assert.deepEqual(pngDimensions(path.join(deckRoot, expectedCover.path)), { width: 512, height: 512 }, `${deckId} cover should be 512x512.`);
+  }
   for (const tag of expected.requiredTags) {
     assert.equal((manifest.tags || []).includes(tag), true, `${deckId} should include manifest tag ${tag}.`);
     assert.ok(tagRegistry.tags?.[tag], `${deckId} should register manifest tag ${tag}.`);

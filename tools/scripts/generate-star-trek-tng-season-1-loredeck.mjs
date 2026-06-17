@@ -6,6 +6,7 @@ const EVIDENCE_PATH = path.join(ROOT, 'docs/loredecks/star-trek-memory-alpha-epi
 const DECK_ROOT = path.join(ROOT, 'content/loredecks/star-trek-tng-season-1');
 const DECK_ID = 'star-trek-tng-season-1';
 const UPDATED_AT = 1781740800000;
+const COVER_ASSET_PATH = 'assets/cover.png';
 
 const BASE_TAGS = [
   'fandom:star-trek',
@@ -387,6 +388,26 @@ function groupedEntries(entries) {
   return groups;
 }
 
+function coverAssetsForTitle(title) {
+  return {
+    cover: {
+      path: COVER_ASSET_PATH,
+      alt: `${title} Loredeck cover`,
+      aspect: '1:1',
+      focalPoint: { x: 0.5, y: 0.5 },
+    },
+  };
+}
+
+async function readPreservedCover() {
+  try {
+    return await fs.readFile(path.join(DECK_ROOT, COVER_ASSET_PATH));
+  } catch (error) {
+    if (error?.code === 'ENOENT') return null;
+    throw error;
+  }
+}
+
 async function writeJson(relativePath, value) {
   const file = path.join(DECK_ROOT, relativePath);
   await fs.mkdir(path.dirname(file), { recursive: true });
@@ -425,6 +446,7 @@ async function updateIndex(manifest, tagCount, entityCount) {
       entityCount,
     },
   };
+  if (manifest.assets && typeof manifest.assets === 'object') record.assets = manifest.assets;
   index.bundled = Array.isArray(index.bundled) ? index.bundled.filter(item => item.packId !== DECK_ID) : [];
   index.bundled.push(record);
   index.bundled.sort((left, right) => String(left.packId).localeCompare(String(right.packId)));
@@ -432,6 +454,7 @@ async function updateIndex(manifest, tagCount, entityCount) {
 }
 
 async function main() {
+  const preservedCover = await readPreservedCover();
   const evidence = JSON.parse(await fs.readFile(EVIDENCE_PATH, 'utf8'));
   const records = evidence.episodes.filter(episode => episode.deckId === DECK_ID);
   if (records.length !== 25) throw new Error(`Expected 25 TNG season 1 Memory Alpha story rows, found ${records.length}.`);
@@ -586,10 +609,15 @@ async function main() {
     entrySchemaVersion: 3,
     updatedAt: UPDATED_AT,
   };
+  if (preservedCover) manifest.assets = coverAssetsForTitle(manifest.title);
 
   assertSafeDeckRoot();
   await fs.rm(DECK_ROOT, { recursive: true, force: true });
   await fs.mkdir(DECK_ROOT, { recursive: true });
+  if (preservedCover) {
+    await fs.mkdir(path.dirname(path.join(DECK_ROOT, COVER_ASSET_PATH)), { recursive: true });
+    await fs.writeFile(path.join(DECK_ROOT, COVER_ASSET_PATH), preservedCover);
+  }
   await writeJson('loredeck.json', manifest);
   await writeJson('manifest.json', manifest);
   await writeJson('timeline.json', timeline);

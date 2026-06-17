@@ -1553,6 +1553,17 @@ const ONE_PIECE_ARC_LOREDECKS_BY_STORY_ORDER = Object.freeze(
     [...ONE_PIECE_ARC_LOREDECKS].sort((left, right) => (Number(left.familyOrder) || 0) - (Number(right.familyOrder) || 0))
 );
 
+function starTrekSeasonCoverAssets(title) {
+    return {
+        cover: {
+            path: 'assets/cover.png',
+            alt: `${title} Loredeck cover`,
+            aspect: '1:1',
+            focalPoint: { x: 0.5, y: 0.5 },
+        },
+    };
+}
+
 const STAR_TREK_LOREDECKS = Object.freeze([
     {
         packId: 'star-trek-tng-season-1',
@@ -1561,6 +1572,7 @@ const STAR_TREK_LOREDECKS = Object.freeze([
         era: 'The Next Generation Season 1',
         familyOrder: 10,
         libraryPath: ['Star Trek', 'The Next Generation'],
+        assets: starTrekSeasonCoverAssets('Star Trek TNG Season 1'),
         tags: [
             'fandom:star-trek',
             'continuity:star-trek-prime',
@@ -1593,6 +1605,7 @@ const STAR_TREK_LOREDECKS = Object.freeze([
         era: 'The Next Generation Season 2',
         familyOrder: 20,
         libraryPath: ['Star Trek', 'The Next Generation'],
+        assets: starTrekSeasonCoverAssets('Star Trek TNG Season 2'),
         tags: [
             'fandom:star-trek',
             'continuity:star-trek-prime',
@@ -1624,6 +1637,7 @@ const STAR_TREK_LOREDECKS = Object.freeze([
         era: 'The Next Generation Season 3',
         familyOrder: 30,
         libraryPath: ['Star Trek', 'The Next Generation'],
+        assets: starTrekSeasonCoverAssets('Star Trek TNG Season 3'),
         tags: [
             'fandom:star-trek',
             'continuity:star-trek-prime',
@@ -1655,6 +1669,7 @@ const STAR_TREK_LOREDECKS = Object.freeze([
         era: 'The Next Generation Season 4',
         familyOrder: 40,
         libraryPath: ['Star Trek', 'The Next Generation'],
+        assets: starTrekSeasonCoverAssets('Star Trek TNG Season 4'),
         tags: [
             'fandom:star-trek',
             'continuity:star-trek-prime',
@@ -1684,6 +1699,7 @@ const STAR_TREK_LOREDECKS = Object.freeze([
         era: 'The Next Generation Season 5',
         familyOrder: 50,
         libraryPath: ['Star Trek', 'The Next Generation'],
+        assets: starTrekSeasonCoverAssets('Star Trek TNG Season 5'),
         tags: [
             'fandom:star-trek',
             'continuity:star-trek-prime',
@@ -1714,6 +1730,7 @@ const STAR_TREK_LOREDECKS = Object.freeze([
         era: 'The Next Generation Season 6',
         familyOrder: 60,
         libraryPath: ['Star Trek', 'The Next Generation'],
+        assets: starTrekSeasonCoverAssets('Star Trek TNG Season 6'),
         tags: [
             'fandom:star-trek',
             'continuity:star-trek-prime',
@@ -1744,6 +1761,7 @@ const STAR_TREK_LOREDECKS = Object.freeze([
         era: 'The Next Generation Season 7',
         familyOrder: 70,
         libraryPath: ['Star Trek', 'The Next Generation'],
+        assets: starTrekSeasonCoverAssets('Star Trek TNG Season 7'),
         tags: [
             'fandom:star-trek',
             'continuity:star-trek-prime',
@@ -1984,6 +2002,7 @@ const STAR_TREK_LOREDECKS = Object.freeze([
         era: 'Voyager Season 1',
         familyOrder: 210,
         libraryPath: ['Star Trek', 'Voyager'],
+        assets: starTrekSeasonCoverAssets('Star Trek Voyager Season 1'),
         tags: [
             'fandom:star-trek',
             'continuity:star-trek-prime',
@@ -2014,6 +2033,7 @@ const STAR_TREK_LOREDECKS = Object.freeze([
         era: 'Voyager Season 2',
         familyOrder: 220,
         libraryPath: ['Star Trek', 'Voyager'],
+        assets: starTrekSeasonCoverAssets('Star Trek Voyager Season 2'),
         tags: [
             'fandom:star-trek',
             'continuity:star-trek-prime',
@@ -2044,6 +2064,7 @@ const STAR_TREK_LOREDECKS = Object.freeze([
         era: 'Voyager Season 3',
         familyOrder: 230,
         libraryPath: ['Star Trek', 'Voyager'],
+        assets: starTrekSeasonCoverAssets('Star Trek Voyager Season 3'),
         tags: [
             'fandom:star-trek',
             'continuity:star-trek-prime',
@@ -2074,6 +2095,7 @@ const STAR_TREK_LOREDECKS = Object.freeze([
         era: 'Voyager Season 4',
         familyOrder: 240,
         libraryPath: ['Star Trek', 'Voyager'],
+        assets: starTrekSeasonCoverAssets('Star Trek Voyager Season 4'),
         tags: [
             'fandom:star-trek',
             'continuity:star-trek-prime',
@@ -2104,6 +2126,7 @@ const STAR_TREK_LOREDECKS = Object.freeze([
         era: 'Voyager Season 5',
         familyOrder: 250,
         libraryPath: ['Star Trek', 'Voyager'],
+        assets: starTrekSeasonCoverAssets('Star Trek Voyager Season 5'),
         tags: [
             'fandom:star-trek',
             'continuity:star-trek-prime',
@@ -2134,6 +2157,7 @@ const STAR_TREK_LOREDECKS = Object.freeze([
         era: 'Voyager Season 6',
         familyOrder: 260,
         libraryPath: ['Star Trek', 'Voyager'],
+        assets: starTrekSeasonCoverAssets('Star Trek Voyager Season 6'),
         tags: [
             'fandom:star-trek',
             'continuity:star-trek-prime',
@@ -2164,6 +2188,7 @@ const STAR_TREK_LOREDECKS = Object.freeze([
         era: 'Voyager Season 7',
         familyOrder: 270,
         libraryPath: ['Star Trek', 'Voyager'],
+        assets: starTrekSeasonCoverAssets('Star Trek Voyager Season 7'),
         tags: [
             'fandom:star-trek',
             'continuity:star-trek-prime',

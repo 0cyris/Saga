@@ -2621,6 +2621,17 @@
         "timelineWindowCount": 25,
         "tagCount": 255,
         "entityCount": 26
+      },
+      "assets": {
+        "cover": {
+          "path": "assets/cover.png",
+          "alt": "Star Trek TNG Season 1 Loredeck cover",
+          "aspect": "1:1",
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        }
       }
     },
     {
@@ -2664,6 +2675,17 @@
         "timelineWindowCount": 22,
         "tagCount": 251,
         "entityCount": 36
+      },
+      "assets": {
+        "cover": {
+          "path": "assets/cover.png",
+          "alt": "Star Trek TNG Season 2 Loredeck cover",
+          "aspect": "1:1",
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        }
       }
     },
     {
@@ -2707,6 +2729,17 @@
         "timelineWindowCount": 26,
         "tagCount": 322,
         "entityCount": 58
+      },
+      "assets": {
+        "cover": {
+          "path": "assets/cover.png",
+          "alt": "Star Trek TNG Season 3 Loredeck cover",
+          "aspect": "1:1",
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        }
       }
     },
     {
@@ -2748,6 +2781,17 @@
         "timelineWindowCount": 26,
         "tagCount": 218,
         "entityCount": 66
+      },
+      "assets": {
+        "cover": {
+          "path": "assets/cover.png",
+          "alt": "Star Trek TNG Season 4 Loredeck cover",
+          "aspect": "1:1",
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        }
       }
     },
     {
@@ -2790,6 +2834,17 @@
         "timelineWindowCount": 26,
         "tagCount": 257,
         "entityCount": 68
+      },
+      "assets": {
+        "cover": {
+          "path": "assets/cover.png",
+          "alt": "Star Trek TNG Season 5 Loredeck cover",
+          "aspect": "1:1",
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        }
       }
     },
     {
@@ -2832,6 +2887,17 @@
         "timelineWindowCount": 26,
         "tagCount": 256,
         "entityCount": 67
+      },
+      "assets": {
+        "cover": {
+          "path": "assets/cover.png",
+          "alt": "Star Trek TNG Season 6 Loredeck cover",
+          "aspect": "1:1",
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        }
       }
     },
     {
@@ -2874,6 +2940,17 @@
         "timelineWindowCount": 25,
         "tagCount": 239,
         "entityCount": 60
+      },
+      "assets": {
+        "cover": {
+          "path": "assets/cover.png",
+          "alt": "Star Trek TNG Season 7 Loredeck cover",
+          "aspect": "1:1",
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        }
       }
     },
     {
@@ -3210,6 +3287,17 @@
         "timelineWindowCount": 15,
         "tagCount": 139,
         "entityCount": 27
+      },
+      "assets": {
+        "cover": {
+          "path": "assets/cover.png",
+          "alt": "Star Trek Voyager Season 1 Loredeck cover",
+          "aspect": "1:1",
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        }
       }
     },
     {
@@ -3252,6 +3340,17 @@
         "timelineWindowCount": 26,
         "tagCount": 190,
         "entityCount": 37
+      },
+      "assets": {
+        "cover": {
+          "path": "assets/cover.png",
+          "alt": "Star Trek Voyager Season 2 Loredeck cover",
+          "aspect": "1:1",
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        }
       }
     },
     {
@@ -3294,6 +3393,17 @@
         "timelineWindowCount": 26,
         "tagCount": 244,
         "entityCount": 57
+      },
+      "assets": {
+        "cover": {
+          "path": "assets/cover.png",
+          "alt": "Star Trek Voyager Season 3 Loredeck cover",
+          "aspect": "1:1",
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        }
       }
     },
     {
@@ -3336,6 +3446,17 @@
         "timelineWindowCount": 26,
         "tagCount": 196,
         "entityCount": 37
+      },
+      "assets": {
+        "cover": {
+          "path": "assets/cover.png",
+          "alt": "Star Trek Voyager Season 4 Loredeck cover",
+          "aspect": "1:1",
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        }
       }
     },
     {
@@ -3378,6 +3499,17 @@
         "timelineWindowCount": 25,
         "tagCount": 206,
         "entityCount": 42
+      },
+      "assets": {
+        "cover": {
+          "path": "assets/cover.png",
+          "alt": "Star Trek Voyager Season 5 Loredeck cover",
+          "aspect": "1:1",
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        }
       }
     },
     {
@@ -3420,6 +3552,17 @@
         "timelineWindowCount": 26,
         "tagCount": 227,
         "entityCount": 50
+      },
+      "assets": {
+        "cover": {
+          "path": "assets/cover.png",
+          "alt": "Star Trek Voyager Season 6 Loredeck cover",
+          "aspect": "1:1",
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        }
       }
     },
     {
@@ -3462,6 +3605,17 @@
         "timelineWindowCount": 24,
         "tagCount": 201,
         "entityCount": 43
+      },
+      "assets": {
+        "cover": {
+          "path": "assets/cover.png",
+          "alt": "Star Trek Voyager Season 7 Loredeck cover",
+          "aspect": "1:1",
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        }
       }
     },
     {

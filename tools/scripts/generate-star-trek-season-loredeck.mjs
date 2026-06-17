@@ -5,6 +5,7 @@ const ROOT = process.cwd();
 const EVIDENCE_PATH = path.join(ROOT, 'docs/loredecks/star-trek-memory-alpha-episode-evidence.json');
 const UPDATED_AT = 1781740800000;
 const ENTRY_SCHEMA_VERSION = 3;
+const COVER_ASSET_PATH = 'assets/cover.png';
 
 const SERIES = Object.freeze({
   TNG: {
@@ -977,6 +978,26 @@ function groupedEntries(entries, cards) {
   return groups;
 }
 
+function coverAssetsForTitle(title) {
+  return {
+    cover: {
+      path: COVER_ASSET_PATH,
+      alt: `${title} Loredeck cover`,
+      aspect: '1:1',
+      focalPoint: { x: 0.5, y: 0.5 },
+    },
+  };
+}
+
+async function readPreservedCover(deckRoot) {
+  try {
+    return await fs.readFile(path.join(deckRoot, COVER_ASSET_PATH));
+  } catch (error) {
+    if (error?.code === 'ENOENT') return null;
+    throw error;
+  }
+}
+
 async function writeJson(deckRoot, relativePath, value) {
   const file = path.join(deckRoot, relativePath);
   await fs.mkdir(path.dirname(file), { recursive: true });
@@ -1006,6 +1027,7 @@ async function updateIndex(deckId, manifest, tagCount, entityCount) {
       entityCount,
     },
   };
+  if (manifest.assets && typeof manifest.assets === 'object') record.assets = manifest.assets;
   index.bundled = Array.isArray(index.bundled) ? index.bundled.filter(item => item.packId !== deckId) : [];
   index.bundled.push(record);
   index.bundled.sort((left, right) => String(left.packId).localeCompare(String(right.packId)));
@@ -1080,8 +1102,8 @@ function buildResolver(anchors, spec, seriesConfig) {
   };
 }
 
-function buildManifest(deckId, spec, seriesConfig, tags, files, entries, anchors, windows, tagCount, entityCount) {
-  return {
+function buildManifest(deckId, spec, seriesConfig, tags, files, entries, anchors, windows, tagCount, entityCount, assets = null) {
+  const manifest = {
     schemaVersion: 1,
     id: deckId,
     type: 'bundled',
@@ -1162,6 +1184,8 @@ function buildManifest(deckId, spec, seriesConfig, tags, files, entries, anchors
     entrySchemaVersion: ENTRY_SCHEMA_VERSION,
     updatedAt: UPDATED_AT,
   };
+  if (assets && typeof assets === 'object') manifest.assets = assets;
+  return manifest;
 }
 
 async function generateDeck(deckId) {
@@ -1172,6 +1196,7 @@ async function generateDeck(deckId) {
     throw new Error(`Refusing to regenerate unexpected deck path: ${deckRoot}`);
   }
 
+  const preservedCover = await readPreservedCover(deckRoot);
   const evidence = JSON.parse(await fs.readFile(EVIDENCE_PATH, 'utf8'));
   const records = evidence.episodes.filter(episode => episode.deckId === deckId);
   if (!records.length) throw new Error(`No Memory Alpha evidence rows found for ${deckId}.`);
@@ -1196,10 +1221,15 @@ async function generateDeck(deckId) {
   const entities = collectEntities(entries, spec, seriesConfig);
   const timeline = buildTimeline(anchors, spec, seriesConfig, tags);
   const resolver = buildResolver(anchors, spec, seriesConfig);
-  const manifest = buildManifest(deckId, spec, seriesConfig, tags, files, entries, anchors, timeline.windows, Object.keys(tagRegistry).length, Object.keys(entities).length);
+  const assets = preservedCover ? coverAssetsForTitle(`${seriesConfig.shortTitle} Season ${spec.season}`) : null;
+  const manifest = buildManifest(deckId, spec, seriesConfig, tags, files, entries, anchors, timeline.windows, Object.keys(tagRegistry).length, Object.keys(entities).length, assets);
 
   await fs.rm(deckRoot, { recursive: true, force: true });
   await fs.mkdir(deckRoot, { recursive: true });
+  if (preservedCover) {
+    await fs.mkdir(path.dirname(path.join(deckRoot, COVER_ASSET_PATH)), { recursive: true });
+    await fs.writeFile(path.join(deckRoot, COVER_ASSET_PATH), preservedCover);
+  }
   await writeJson(deckRoot, 'loredeck.json', manifest);
   await writeJson(deckRoot, 'manifest.json', manifest);
   await writeJson(deckRoot, 'timeline.json', timeline);

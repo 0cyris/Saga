@@ -103,5 +103,16 @@
     "notes": "First-pass Star Trek TNG season 7 Loredeck generated from Saga authoring plan and Memory Alpha evidence artifacts."
   },
   "entrySchemaVersion": 3,
-  "updatedAt": 1781740800000
+  "updatedAt": 1781740800000,
+  "assets": {
+    "cover": {
+      "path": "assets/cover.png",
+      "alt": "Star Trek TNG Season 7 Loredeck cover",
+      "aspect": "1:1",
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    }
+  }
 }
